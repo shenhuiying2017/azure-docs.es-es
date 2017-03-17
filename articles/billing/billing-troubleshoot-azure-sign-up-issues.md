@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: cjiang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f058194302949d1f5ba7d86e9a693ba229bdc9a2
-ms.openlocfilehash: b913fd0d944568e422ffcf86791910a746367add
-
+ms.sourcegitcommit: 459d0526961d03b564a35178f9ff4ff2e343e08c
+ms.openlocfilehash: 70a9d96e36f5e386e8b1c0036ef8e2f770924930
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="i-cant-sign-up-for-azure"></a>No puedo suscribirme a Azure
+# <a name="troubleshoot-sign-up-issues-for-azure"></a>Solucionar problemas de inicio de suscripción para Azure
 Si no puede suscribirse a Azure, hay varias cosas que puede comprobar para solucionar el problema.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barra de progreso se bloquea en la sección "Comprobación de identidad por tarjeta"
@@ -82,9 +83,4 @@ Si no tiene una clave OSA, póngase en contacto con uno de los asociados de Micr
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

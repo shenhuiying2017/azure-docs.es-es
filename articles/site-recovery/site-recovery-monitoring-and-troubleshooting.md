@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -35,12 +36,12 @@ Para configurar la recuperación de bases de datos entre dos ubicaciones locales
 ![Implementación del sitio de Virtual Machine Manager para la replicación entre sitios locales](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### <a name="virtual-machine-manager-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Implementación de sitios de Virtual Machine Manager para su replicación entre ubicaciones locales y Azure.
-Cuando se configura la recuperación de bases de datos entre dos ubicaciones locales y Azure, es preciso descargar el proveedor de Azure Site Recovery e instalarlo en el servidor de Virtual Machine Manager. También hay que instalar el agente de Azure Recovery Services en cada host de Hyper-V. Consulte [Protección de sitios con Azure](site-recovery-understanding-site-to-azure-protection.md) para obtener más información.
+Cuando se configura la recuperación de bases de datos entre dos ubicaciones locales y Azure, es preciso descargar el proveedor de Azure Site Recovery e instalarlo en el servidor de Virtual Machine Manager. También hay que instalar el agente de Azure Recovery Services en cada host de Hyper-V. Haga clic aquí para [obtener más información](site-recovery-hyper-v-azure-architecture.md).
 
 ![Implementación de sitios de Virtual Machine Manager para su replicación entre ubicaciones locales y Azure.](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### <a name="hyper-v-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Implementación de sitios de Hyper-V para la replicación entre ubicaciones locales y Azure
-Este proceso es similar a la implementación de Virtual Machine Manager. La única diferencia es que el proveedor de Azure Site Recovery y el agente de Azure Recovery Services se instalan en el host de Hyper-V propiamente dicho. Consulte [Protección de sitios con Azure](site-recovery-understanding-site-to-azure-protection.md) para obtener más información.
+Este proceso es similar a la implementación de Virtual Machine Manager. La única diferencia es que el proveedor de Azure Site Recovery y el agente de Azure Recovery Services se instalan en el host de Hyper-V propiamente dicho. [Más información](site-recovery-hyper-v-azure-architecture.md). .
 
 ## <a name="monitor-configuration-protection-and-recovery-operations"></a>Supervisión de las operaciones de configuración, protección y recuperación
 Cada operación de Azure Site Recovery se audita y somete a seguimiento en la pestaña **TRABAJOS**. En caso de cualquier error de configuración, protección o recuperación, búsquelo en la pestaña **TRABAJOS**.
@@ -80,8 +81,8 @@ Tal y como se muestra en la captura de pantalla anterior, el estado de la máqui
 
 > [!NOTE]
 > Si hay operaciones activas en curso o con errores, vaya a la vista **TRABAJOS** como se mencionó anteriormente para ver el error específico de un trabajo.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-on-premises-hyper-v-issues"></a>Solucionar problemas de Hyper-V locales
 Conéctese a la consola del administrador de Hyper-V local, seleccione la máquina virtual y vea el estado de mantenimiento de la replicación.
@@ -194,10 +195,4 @@ A continuación, se muestran los errores comunes y sus soluciones. Cada uno de l
 Si el botón **Conectar** del portal está atenuado y no está conectado a Azure a través de una conexión Express Route o VPN de sitio a sitio, deberá crear y asignar a la máquina virtual una dirección IP pública antes de poder usar Escritorio remoto/shell compartido. A continuación, puede agregar una dirección IP pública en la interfaz de red de la máquina virtual.  
 
 ![Adición de una dirección IP pública en la interfaz de red de la máquina virtual que ha conmutado por error](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

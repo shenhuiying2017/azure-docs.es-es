@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8284fa063d8ffa0d9951b77eb06be14159fc2561
-ms.openlocfilehash: 5b40d5476d85a4eeba65f01320e0ea03ed4debaa
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3aeefecabb72b57c64fb47aeb5b6523b9ff3239b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Automatización de implementaciones de aplicaciones en Azure Virtual Machines
+# <a name="automating-application-deployments-to-windows-virtual-machines"></a>Automatización de implementaciones de aplicaciones para máquinas virtuales Windows
+
 Esta serie de cuatro partes detalla la implementación y configuración de recursos y aplicaciones de Azure mediante plantillas de Azure Resource Manager. En esta serie, se implementa una plantilla de ejemplo y se examina la plantilla de implementación. El objetivo de esta serie es describir la relación entre los recursos de Azure y proporcionar experiencia práctica de implementación de plantillas de Azure Resource Manager completamente integradas. En este documento se da por hecho que el usuario posee un nivel básico de conocimientos de Azure Resource Manager, por lo que, antes de iniciar este tutorial, debe familiarizarse con los conceptos de Azure Resource Manager.
 
 ## <a name="music-store-application"></a>Aplicación Music Store

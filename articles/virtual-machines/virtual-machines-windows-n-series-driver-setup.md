@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bf470737f961219250c37d890ed81eb62409626
-ms.openlocfilehash: feb9370f0241fd860749d32f5db5842cb18463f1
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 57d7475db8183cfaad017fc934210d0481868d5f
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms"></a>Instalación de controladores de GPU para máquinas virtuales de la serie N
+# <a name="set-up-gpu-drivers-for-n-series-windows-vms"></a>Configuración de controladores de GPU para máquinas virtuales de la serie N
 Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan Windows Server, debe instalar los controladores de gráficos de NVIDIA en cada máquina virtual después de la implementación. Este artículo también está disponible para [máquinas virtuales Linux](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -67,10 +69,5 @@ Para consultar el estado del dispositivo de GPU, ejecute la utilidad de línea d
 
 * Los desarrolladores que creen aplicaciones con aceleración por GPU para las GPU Tesla de NVIDIA también pueden descargar e instalar la [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

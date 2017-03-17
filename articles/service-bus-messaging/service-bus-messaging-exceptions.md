@@ -1,5 +1,5 @@
 ---
-title: "Excepciones de mensajería de Service Bus | Microsoft Docs"
+title: "Excepciones de mensajería de Azure Service Bus | Microsoft Docs"
 description: "Lista de excepciones de mensajería del Bus de servicio y las acciones sugeridas."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 03/03/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: e872848a91834cf19cd6ebdd4db637c54120c33b
-ms.openlocfilehash: 5321a465a0fab9dac4c4c0755da3e3ca4c8d7369
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception) |Se perdió el bloqueo asociado a esta sesión. |Anule el objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |El reintento no le será de ayuda. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Excepción de mensajería genérica que puede producirse en los siguientes casos:<br /> Se intentó crear [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) con un nombre o una ruta de acceso que pertenece a un tipo de entidad diferente (por ejemplo, un tema).<br />  Intento de enviar un mensaje mayor de 256 KB. El servidor o servicio encontró un error durante el procesamiento de la solicitud. Consulte el mensaje de excepción para obtener más detalles. Por lo general, se trata de una excepción transitoria. |Compruebe el código y asegúrese de que solo se usan objetos serializables en el cuerpo del mensaje (o use un serializador personalizado). Consulte la documentación de los tipos de valor de las propiedades admitidos y use solo los tipos compatibles. Compruebe la propiedad [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) . Si es **true**, puede volver a intentar la operación. |El comportamiento de reintento es indefinido y quizá no resulte útil. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Se intenta crear una entidad con un nombre que ya se usa en otra entidad de ese espacio de nombres de servicio. |Elimine la entidad existente o elija un nombre diferente para la entidad que quiere crear. |El reintento no le será de ayuda. |
-| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |La entidad de mensajería alcanzó su tamaño máximo permitido. |Cree espacio en la entidad recibiendo mensajes de esta o de sus subcolas. Consulte [QuotaExceededException](#quotaexceededexception). |El reintento podría resultar útil si los mensajes se eliminan mientras este se lleva a cabo. |
+| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |La entidad de mensajería ha alcanzado su tamaño máximo permitido, o bien se superó el número máximo de conexiones en un espacio de nombres. |Cree espacio en la entidad recibiendo mensajes de esta o de sus subcolas. Consulte [QuotaExceededException](#quotaexceededexception). |El reintento podría resultar útil si los mensajes se eliminan mientras este se lleva a cabo. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |El Bus de servicio devuelve esta excepción si se intenta crear una acción de regla no válida. Si se produjo un error al procesar la acción de regla de un mensaje, el Bus de servicio adjunta esta excepción a dicho mensaje. |Compruebe si la acción de regla es correcta. |El reintento no le será de ayuda. |
 | [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) |El Bus de servicio devuelve esta excepción si se intenta crear un filtro no válido. Si se produjo un error al procesar el filtro de un mensaje, el Bus de servicio adjunta esta excepción a dicho mensaje. |Compruebe si el filtro es correcto. |El reintento no le será de ayuda. |
 | [SessionCannotBeLockedException](/dotnet/api/microsoft.servicebus.messaging.sessioncannotbelockedexception) |Se intenta aceptar una sesión con un id. de sesión específico, pero actualmente esta se encuentra bloqueada por otro cliente. |Asegúrese de que otros clientes desbloqueen la sesión. |El reintento podría ser útil si la sesión se publica mientras este se lleva a cabo. |
@@ -74,6 +75,17 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 ```
 
 El mensaje indica que el tema superaba su límite de tamaño, en este caso 1 GB (el límite de tamaño predeterminado). 
+
+### <a name="namespaces"></a>Espacios de nombres
+
+Para espacios de nombres, [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) puede indicar que una aplicación ha superado el número máximo de conexiones en un espacio de nombres. Por ejemplo:
+
+```
+Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
+<tracking-id-guid>_G12 ---> 
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
+ConnectionsQuotaExceeded for namespace xxx.
+```
 
 #### <a name="common-causes"></a>Causas comunes
 Hay dos causas comunes de este error: la cola de mensajes fallidos y receptores de mensajes que no funcionan.
@@ -115,10 +127,5 @@ Para más información sobre [Service Bus](https://azure.microsoft.com/services/
 * [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Arquitectura del Bus de servicio](service-bus-architecture.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

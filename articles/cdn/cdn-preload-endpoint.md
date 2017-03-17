@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,11 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
    > [!TIP]
    > Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos.  Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
    > 
-   > Las rutas de acceso deben ser una dirección URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Cada recurso debe tener su propia ruta de acceso.  No hay ninguna funcionalidad comodín para la carga previa de recursos.
+   > Las rutas de acceso deben ser una dirección URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > >Carga de un solo archivo `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
+   > >Carga de un único archivo con cadena de consulta `@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`  
+   > 
+   > Cada recurso debe tener su propia ruta de acceso.  No hay ninguna funcionalidad comodín para la carga previa de recursos.
    > 
    > 
    
@@ -66,10 +71,5 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 ## <a name="see-also"></a>Consulte también
 * [Purgar un punto de conexión de red CDN de Azure](cdn-purge-endpoint.md)
 * [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

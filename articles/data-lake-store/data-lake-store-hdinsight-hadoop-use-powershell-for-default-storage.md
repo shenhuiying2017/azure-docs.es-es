@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 307070c755cff059b4b82494d28e06cf490a6f7a
-ms.openlocfilehash: 6c5badbbea7385cac1407e4af148d5b647af04ac
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 01c75f20909c7334981bf407e775656476972276
+ms.lasthandoff: 03/03/2017
 
 
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-default-storage"></a>Uso de Azure PowerShell para crear y usar clústeres de HDInsight con Data Lake Store (como almacenamiento predeterminado)
 > [!div class="op_single_selector"]
 > * [Uso del Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Uso de PowerShell (como almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [Uso de PowerShell (como almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Uso de PowerShell (para el almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Uso de PowerShell (para el almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Uso de Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
@@ -37,6 +37,8 @@ Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight con acc
 Estas son algunas consideraciones importantes que deben tenerse en cuenta al usar HDInsight con Data Lake Store:
 
 * La opción para crear clústeres de HDInsight con acceso a Data Lake Store como almacenamiento predeterminado está disponible para HDInsight versión 3.5.
+
+* La opción para crear clústeres de HDInsight con acceso a Data Lake Store como almacenamiento predeterminado no está disponible para clústeres de HDInsight Premium.
 
 * En clústeres HBase (Windows y Linux), Azure Data Lake Store **no se admite** como una opción de almacenamiento, ya sea almacenamiento predeterminado o almacenamiento adicional.
 

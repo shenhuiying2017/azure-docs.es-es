@@ -1,6 +1,7 @@
 ---
-title: "Configuración de alertas de facturación para las suscripciones de Microsoft Azure | Microsoft Docs"
+title: "Configuración de alertas de crédito o facturación para las suscripciones de Azure | Microsoft Docs"
 description: "Describe cómo puede configurar alertas en su factura de Azure para que pueda evitar sorpresas de facturación."
+keywords: "alerta de crédito, alerta de facturación"
 services: 
 documentationcenter: 
 author: vikdesai
@@ -13,15 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: vikdesai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 54fcf8f12ffe5ead398b2556eb4c94840c15f530
-ms.openlocfilehash: b318843c1d1081bb5817f3f2aef6962f7fc00136
-
+ms.sourcegitcommit: 32a2508997d7f50b0b2989d76d0574951d81a73f
+ms.openlocfilehash: a2eb813bc96cd58762ce077d2c0710ed4bc7bde6
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="set-up-billing-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de facturación para las suscripciones de Microsoft Azure
+# <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configuración de alertas de crédito o facturación para las suscripciones de Microsoft Azure
 Si es el administrador de cuenta de una suscripción a Azure, puede utilizar el servicio de alertas de facturación de Azure para crear alertas de facturación personalizadas que le ayudarán a supervisar y administrar la actividad de facturación de las cuentas de Azure.
 
 Este servicio está en versión preliminar, por lo que primero debe habilitarlo en la página Características de vista previa.
@@ -59,9 +61,4 @@ Para obtener información, consulte [Introducción a la administración de coste
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 079986e9457a4185bae273818fbc852307974638
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -25,7 +26,7 @@ Puede asignar un dominio personalizado a un punto de conexión de CDN para utili
 
 Hay dos formas de asignar su dominio personalizado a un punto de conexión de CDN:
 
-1. [Crear un registro CNAME con su registrador de dominio y asignar su dominio y subdominio personalizados al punto de conexión de red CDN](#register-a-custom-domain-for-an-azure-cdn-endpoint)
+1. [Crear un registro CNAME en su registrador de dominios y asignar su dominio y subdominio personalizados al extremo de red CDN](#register-a-custom-domain-for-an-azure-cdn-endpoint).
    
     Un registro CNAME es una característica DNS que asigna un dominio de origen, como `www.contosocdn.com` o `cdn.contoso.com`, a un dominio de destino. En este caso, el dominio de origen es su dominio y subdominio personalizados (un subdominio, como **www** o **cdn**, es siempre necesario). El dominio de destino es el punto de conexión de red CDN.  
    
@@ -52,7 +53,7 @@ Después de registrar el dominio personalizado mediante uno de los procedimiento
 4. En la parte superior de la hoja del punto de conexión, haga clic en el botón **Agregar dominio personalizado** .  En la hoja **Agregar un dominio personalizado** , verá el nombre de host del punto de conexión, derivado del punto de conexión de red CDN, para usar en la creación de un nuevo registro CNAME. El formato de la dirección del nombre de host aparecerá como **&lt;NombrePuntoConexión>.azureedge.net**.  Puede copiar este nombre de host para usar en la creación del registro CNAME.  
 5. Navegue al sitio web del registrador y localice la sección para crear registros DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 6. Busque la sección para la administración de CNAME. Tiene que dirigirse a la página de configuración avanzada y buscar las palabras CNAME, Alias o Subdomains.
-7. Cree un nuevo registro CNAME que asigne su subdominio elegido (por ejemplo, **www** o **cdn**) al nombre de host proporcionado en la hoja **Agregar un dominio personalizado**.
+7. Cree un nuevo registro CNAME que asigne su subdominio elegido (por ejemplo, **www** o **cdn**) al nombre de host proporcionado en la hoja **Agregar un dominio personalizado**. 
 8. Vuelva a la hoja **Agregar un dominio personalizado** y escriba su dominio personalizado, incluido el subdominio, en el cuadro personalizado. Por ejemplo, escriba el nombre del dominio con el formato `www.contoso.com` o `cdn.contoso.com`.   
    
    Azure comprobará que el registro CNAME existe para el nombre de dominio que ha escrito. Si el registro CNAME es correcto, el dominio personalizado se valida.  No obstante, en el caso de los puntos de conexión de la **red CDN de Azure de Verizon** (estándar y premium), la configuración del dominio personalizada puede tardar hasta 90 minutos en propagarse a todos los nodos perimetrales de CDN.  
@@ -66,8 +67,8 @@ Después de registrar el dominio personalizado mediante uno de los procedimiento
 4. En la parte superior de la hoja del punto de conexión, haga clic en el botón **Agregar dominio personalizado** .  En la hoja **Agregar un dominio personalizado** , verá el nombre de host del punto de conexión, derivado del punto de conexión de red CDN, para usar en la creación de un nuevo registro CNAME. El formato de la dirección del nombre de host aparecerá como **&lt;NombrePuntoConexión>.azureedge.net**.  Puede copiar este nombre de host para usar en la creación del registro CNAME.
 5. Navegue al sitio web del registrador y localice la sección para crear registros DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 6. Busque la sección para la administración de CNAME. Tiene que dirigirse a la página de configuración avanzada y buscar las palabras **CNAME**, **Alias** o **Subdomains**.
-7. Cree un nuevo registro CNAME y proporcione un alias de subdominio que incluya el subdominio **cdnverify** . Por ejemplo, el subdominio que especifique estará en formato **cdnverify.www** o **cdnverify.cdn**. Luego, especifique el nombre de host, que es el punto de conexión de CDN, con el formato **cdnverify.&lt;NombrePuntoConexión>.azureedge.net**.
-8. Vuelva a la hoja **Agregar un dominio personalizado** y escriba su dominio personalizado, incluido el subdominio, en el cuadro personalizado. Por ejemplo, escriba el nombre del dominio con el formato `www.contoso.com` o `cdn.contoso.com`. Tenga en cuenta que en este paso, no es necesario que el subdominio vaya precedido de **cdnverify**.  
+7. Cree un nuevo registro CNAME y proporcione un alias de subdominio que incluya el subdominio **cdnverify** . Por ejemplo, el subdominio que especifique estará en formato **cdnverify.www** o **cdnverify.cdn**. Luego, especifique el nombre de host, que es el punto de conexión de CDN, con el formato **cdnverify.&lt;NombrePuntoConexión>.azureedge.net**. La asignación de DNS debe tener el siguiente aspecto:`cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`  
+8. Vuelva a la hoja **Agregar un dominio personalizado** y escriba su dominio personalizado, incluido el subdominio, en el cuadro personalizado. Por ejemplo, escriba el nombre del dominio con el formato `www.contoso.com` o `cdn.contoso.com`. Tenga en cuenta que, en este paso, no es necesario que el subdominio vaya precedido de **cdncverify**.  
    
     Azure comprobará que el registro CNAME existe para el nombre de dominio cdnverify que ha escrito.
 9. En este momento, Azure ha comprobado el dominio personalizado, pero no se ha realizado el enrutamiento del tráfico al punto de conexión de red CDN. Después de esperar lo necesario para permitir que la configuración del dominio personalizado se propague a los nodos perimetrales de CDN (90 minutos para la **red CDN de Azure de Verizon** y entre 1 y 2 minutos para la **red CDN de Azure de Akamai**), vuelva al sitio web del registrador de DNS y cree otro registro CNAME que asigne el subdominio al punto de conexión de CDN. Por ejemplo, especifique el subdominio como **www** o **cdn** y el nombre de host como **&lt;NombrePuntoConexión>.azureedge.net**. Con este paso se completa el registro del dominio personalizado.
@@ -80,10 +81,5 @@ Después de registrar el dominio personalizado mediante uno de los procedimiento
 
 ## <a name="see-also"></a>Otras referencias
 [Habilitar Content Delivery Network (CDN) para Azure](cdn-create-new-endpoint.md)  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

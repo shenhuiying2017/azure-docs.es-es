@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
-ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -37,10 +38,10 @@ Después de completar este tutorial, estará capacitado para lo siguiente:
 Para realizar este tutorial, deberá cumplir los siguientes requisitos previos:
 
 * La versión más reciente de [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* Visual Studio 2015 o la versión de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
+* Visual Studio 2017, 2015 o la versión gratuita de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegios administrativos en el equipo
-* Descarga de [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) del Centro de descarga de Microsoft.
+* Descarga de [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) del Centro de descarga de Microsoft.
 * Opcional: código fuente del generador de eventos TollApp de [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## <a name="scenario-introduction-hello-toll"></a>Introducción al escenario: peajes
@@ -135,7 +136,7 @@ Este tutorial requiere dos Centros de eventos para recibir los flujos de datos *
 
 Se puede usar el script Setup.ps1 de la carpeta TollApp en GitHub para crear todos los recursos necesarios. Se recomienda su uso para ahorrar tiempo. Para más información sobre la configuración de estos recursos en Azure Portal, consulte el apéndice "Configuración de recursos del tutorial en Azure Portal".
 
-Descargue y guarde el soporte los archivos y carpetas de [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) compatibles.
+Descargue y guarde el soporte los archivos y carpetas de [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) compatibles.
 
 Abra una ventana de **Microsoft Azure PowerShell***como administrador*. Si aún no tiene Azure PowerShell, siga estas instrucciones que se indican en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
@@ -319,7 +320,8 @@ Para más información, puede leer sobre las construcciones de [Administración 
 ## <a name="testing-azure-stream-analytics-queries"></a>Pruebas de consultas de Análisis de transmisiones de Azure
 Ahora que hemos escrito nuestra primera consulta de Azure Stream Analytics, es momento de probarla usando los archivos de datos de ejemplo ubicados en la carpeta TollApp en la siguiente ruta:
 
-**..\\TollApp\\TollApp\\Datos**
+<seg>
+  **..\\TollApp\\TollApp\\Datos**</seg>
 
 Esta carpeta contiene los archivos siguientes:
 
@@ -441,10 +443,5 @@ Para más información sobre Azure Stream Analytics, consulte la [documentación
    > 
    > 
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

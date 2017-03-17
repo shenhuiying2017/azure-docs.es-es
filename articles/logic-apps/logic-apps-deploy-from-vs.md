@@ -1,6 +1,6 @@
 ---
-title: "Compilación e implementación de aplicaciones lógicas de Azure en Visual Studio | Microsoft Docs"
-description: "Cree proyectos de Visual Studio para diseñar, compilar e implementar aplicaciones lógicas en Azure."
+title: "Creación, compilación e implementación de aplicaciones lógicas en Visual Studio: Azure Logic Apps | Microsoft Docs"
+description: "Cree proyectos de Visual Studio para diseñar, compilar e implementar Azure Logic Apps."
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,17 +12,21 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: bbee0bae5a20375f0de8adaedadd682dc051fb64
-ms.openlocfilehash: d1b0ca953e5ee40129f00b78ad1a46514270d448
-
+ms.sourcegitcommit: 2fafb3c127183c4903ed7ee0da5811988db9116c
+ms.openlocfilehash: 3c0c24a75c82355798bcaa6d8a36f055400a2649
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="build-and-deploy-azure-logic-apps-in-visual-studio"></a>Creación e implementación de aplicaciones lógicas de Azure en Visual Studio
 
-Aunque [Azure Portal](https://portal.azure.com/) ofrece una excelente manera de diseñar y administrar aplicaciones lógicas, puede usar Visual Studio para compilar e implementar aplicaciones lógicas. Visual Studio proporciona herramientas enriquecidas para crear aplicaciones lógicas con el Diseñador de aplicaciones lógicas, configurar las plantillas de implementación y automatización, e implementarlas en cualquier entorno.
+# <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Diseño, compilación e implementación de Azure Logic Apps en Visual Studio
+
+Aunque [Azure Portal](https://portal.azure.com/) es un medio excelente de crear y administrar Azure Logic Apps, puede usar Visual Studio para diseñar, compilar e implementar sus aplicaciones lógicas. Visual Studio proporciona herramientas muy completas, como Diseñador de aplicación lógica, para crear aplicaciones lógicas, configurar las plantillas de implementación y automatización e implementarlas en cualquier entorno. 
+
+Para empezar a trabajar con Azure Logic Apps, aprenda a [crear su primera aplicación lógica en Azure Portal](logic-apps-create-a-logic-app.md).
 
 ## <a name="installation-steps"></a>Pasos de instalación
 
@@ -30,7 +34,7 @@ Para instalar y configurar las herramientas de Visual Studio para Azure Logic Ap
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2015 o Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [SDK de Azure más reciente](https://azure.microsoft.com/downloads/) (2.9.1 o superior)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Acceso a la web para usar el diseñador incrustado
@@ -39,7 +43,7 @@ Para instalar y configurar las herramientas de Visual Studio para Azure Logic Ap
 
 Una vez cumplidos los requisitos previos:
 
-1. Abra Visual Studio 2015. En el menú **Herramientas**, seleccione **Extensiones y actualizaciones**.
+1. Abra Visual Studio. En el menú **Herramientas**, seleccione **Extensiones y actualizaciones**.
 2. Expanda la categoría **En línea** para poder buscar en línea.
 3. Busque **Logic Apps** hasta que encuentre las **herramientas de Azure Logic Apps para Visual Studio**.
 4. Para descargar e instalar la extensión, haga clic en el botón **Descargar**.
@@ -69,7 +73,7 @@ Una vez finalizada la instalación, podrá usar el proyecto Grupo de recursos de
 
     ![Archivo de implementación](./media/logic-apps-deploy-from-vs/deployment.png)
 
-## <a name="create-your-logic-app-in-logic-app-designer"></a>Creación de la aplicación lógica en el Diseñador de aplicaciones lógicas
+## <a name="create-your-logic-app-with-logic-app-designer"></a>Creación de la aplicación lógica en Diseñador de aplicación lógica
 
 Cuando tenga un proyecto Grupo de recursos de Azure con una aplicación lógica, podrá abrir el Diseñador de aplicaciones lógicas en Visual Studio para crear el flujo de trabajo. 
 
@@ -156,7 +160,7 @@ Para guardar la aplicación lógica en cualquier momento, vaya a **Archivo** > *
 
 Si la aplicación lógica tiene errores al guardarla, se muestran en la ventana **Resultados** de Visual Studio.
 
-## <a name="deploy-your-logic-app"></a>Implementación de la aplicación lógica
+## <a name="deploy-your-logic-app-from-visual-studio"></a>Implementación de la aplicación lógica desde Visual Studio
 
 Después de configurar la aplicación, puede realizar la implementación directamente desde Visual Studio en solo un par de pasos. 
 
@@ -201,13 +205,8 @@ Si tiene un proyecto de grupo de recursos existente, puede agregar la aplicació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para empezar a trabajar con Azure Logic Apps, vea el tutorial sobre la [creación de la primera aplicación de lógica](logic-apps-create-a-logic-app.md)
+* [Administración de aplicaciones lógicas con Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 * [Ejemplos de aplicaciones lógicas y escenarios comunes](logic-apps-examples-and-scenarios.md)
 * [Aprenda a automatizar procesos empresariales con Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Aprenda a integrar sus sistemas con Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

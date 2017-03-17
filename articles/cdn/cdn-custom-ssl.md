@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: aea6f0fedb447e953b9db40342e5091bd35486af
-ms.openlocfilehash: 9b80ae8c247480e69025b86fac322166a4d5cb4c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b334ba6bbec1d0a7e23a514174bffae01c7fff05
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -59,7 +60,13 @@ Algunos de los atributos clave de la característica de HTTPS son:
 >[!IMPORTANT] 
 >Para que HTTPS pueda activarse en un dominio personalizado, antes es preciso completar la validación del dominio. Dispone de seis días laborables para aprobar el dominio. Si no se realiza la aprobación en 6 días laborables, la solicitud se cancelará.  
 
-Después de habilitar HTTPS en un dominio personalizado, nuestro proveedor de certificados HTTPS, DigiCert, validará la propiedad del dominio, para lo que se pondrá en contacto con el inscrito del dominio, para lo que usará la información de WHOIS del inscrito, a través del correo electrónico (de forma predeterminada) o del teléfono. Si la información de WHOIS del inscrito es privada, DigiCert enviará el correo electrónico de comprobación a **admin@* <nombre-de-su-dominio.com> ***.
+Después de habilitar HTTPS en un dominio personalizado, nuestro proveedor de certificados HTTPS, DigiCert, validará la propiedad del dominio, para lo que se pondrá en contacto con el inscrito del dominio, para lo que usará la información de WHOIS del inscrito, a través del correo electrónico (de forma predeterminada) o del teléfono. DigiCert también enviará el correo electrónico de comprobación a las siguientes direcciones. Si la información del inscrito de WHOIS es privada, asegúrese de que puede realizar las aprobaciones directamente desde una de estas direcciones.
+
+>admin@<su-nombre-de-dominio.com> administrator@<su-nombre-de-dominio.com>  
+>webmaster@<su-nombre-de-dominio.com>  
+>hostmaster@<su-nombre-de-dominio.com>  
+>postmaster@<su-nombre-de-dominio.com>
+
 
 Al recibir el correo electrónico, tiene dos opciones de comprobación:
 
@@ -104,10 +111,5 @@ Una vez que el nombre de dominio se valide, la característica HTTPS del dominio
 
 - Aprenda a configurar un [dominio personalizado en un punto de conexión de la red CDN de Azure](./cdn-map-content-to-custom-domain.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

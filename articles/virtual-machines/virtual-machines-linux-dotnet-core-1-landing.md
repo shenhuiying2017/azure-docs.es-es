@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
-ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d9d65d8fb5fd7b1ff226e96fe33f8b0757d7a12e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Automatización de implementaciones de aplicaciones en Azure Virtual Machines
+# <a name="automating-application-deployments-to-linux-virtual-machines"></a>Automatización de implementaciones de aplicaciones en máquinas virtuales Linux 
+
 Esta serie de cuatro partes detalla la implementación y configuración de recursos y aplicaciones de Azure mediante plantillas de Azure Resource Manager. En esta serie, se implementa una plantilla de ejemplo y se examina la plantilla de implementación. El objetivo de esta serie es describir la relación entre los recursos de Azure y proporcionar experiencia práctica de implementación de plantillas de Azure Resource Manager completamente integradas. En este documento se da por hecho que el usuario posee un nivel básico de conocimientos de Azure Resource Manager, por lo que, antes de iniciar este tutorial, debe familiarizarse con los conceptos de Azure Resource Manager. 
 
 ## <a name="music-store-application"></a>Aplicación Music Store
@@ -69,10 +72,5 @@ Cuando haya finalizado la implementación de la plantilla, vaya a la dirección 
 [Paso 3: disponibilidad y escala en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Paso 4: implementación de aplicaciones con plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

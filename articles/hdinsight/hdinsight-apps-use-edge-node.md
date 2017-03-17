@@ -13,15 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/02/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a344a3a05c2a27e6b6500a6560c7fbb2096c9bfc
-ms.openlocfilehash: 0303145ba0ce611242f218cdf6a2274e9e393fb4
+ms.sourcegitcommit: fd30c5befb378a031e818c29e9bde72c1105bf78
+ms.openlocfilehash: ac7e47835b0ae4fee724c18df949cedfc3a16957
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="use-empty-edge-nodes-in-hdinsight"></a>Uso de nodos perimetrales vacíos en HDInsight
+
 Aprenda a agregar un nodo perimetral vacío a un clúster de HDInsight basado en Linux. Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas de cliente instaladas y configuradas que en los nodos principales, pero sin que se ejecuten servicios de Hadoop. Se puede usar el nodo perimetral para acceder al clúster y para probar y hospedar las aplicaciones cliente. 
 
 Un nodo perimetral vacío se puede agregar a un clúster de HDInsight existente o a uno nuevo al crear el clúster. La adición de un nodo perimetral vacío se realiza mediante una plantilla de Azure Resource Manager.  En el ejemplo siguiente se muestra cómo se hace esto mediante una plantilla:
@@ -57,6 +59,8 @@ Un nodo perimetral vacío se puede agregar a un clúster de HDInsight existente 
 
 Como se muestra en el ejemplo, opcionalmente puede llamar a una [acción de script](hdinsight-hadoop-customize-cluster-linux.md) para realizar configuraciones adicionales, como instalar [Apache Hue](hdinsight-hadoop-hue-linux.md) en el nodo perimetral.
 
+El tamaño de la máquina virtual del nodo perimetral debe cumplir con los requisitos de tamaño para las máquinas virtuales de nodos de trabajador de clústeres de HDInsight. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+
 Después de haber creado un nodo perimetral, puede conectarse a él mediante SSH y ejecutar herramientas de cliente para acceder al clúster de Hadoop en HDInsight.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adición de un nodo perimetral a un clúster existente
@@ -74,7 +78,7 @@ En esta sección, usará una plantilla de Resource Manager para agregar un nodo 
    * **Grupo de recursos**: seleccione el grupo de recursos que se usa para el clúster de HDInsight existente.
    * **Ubicación**: seleccione la ubicación del clúster de HDInsight existente.
    * **Nombre del clúster**: escriba el nombre de un clúster de HDInsight existente.
-   * **Tamaño de nodo perimetral**: seleccione uno de los tamaños de máquina virtual.
+   * **Tamaño de nodo perimetral**: seleccione uno de los tamaños de máquina virtual. El tamaño de la máquina virtual debe cumplir los requisitos de tamaño para máquinas virtuales de nodos de trabajador. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
    * **Prefijo de nodo perimetral**: el valor predeterminado es **new**.  Usando el valor predeterminado, el nombre del nodo perimetral es **new-edgenode**.  Puede personalizar el prefijo desde el portal. También puede personalizar el nombre completo desde la plantilla.
 4. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, haga clic en **Comprar** para crear el nodo perimetral.
 
@@ -144,10 +148,5 @@ En este artículo, ha aprendido a agregar un nodo perimetral y a acceder a él. 
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: instalación de una aplicación de HDInsight): aprenda a definir aplicaciones de HDInsight.
 * [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a usar acciones de script para instalar otras aplicaciones.
 * [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a llamar a plantillas de Resource Manager para crear clústeres de HDInsight.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

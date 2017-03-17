@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ Para realizar la implementación como un servicio web clásico y crear una aplic
 9. Busque la declaración de solicitud y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
    
         var request = new BatchExecutionRequest() 
-        {           
+        {            
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -118,6 +119,10 @@ Para realizar la implementación como un servicio web clásico y crear una aplic
 Al término de la ejecución, se agrega una nueva tabla a la base de datos que contiene los resultados de puntuación.
 
 ### <a name="deploy-a-new-web-service"></a>Implementación de servicios web nuevos
+
+> [!NOTE] 
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 Para realizar la implementación como un servicio web nuevo y crear una aplicación para usarla:
 
 1. En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
@@ -131,7 +136,7 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
 9. Busque la declaración *scoreRequest* y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
    
         var scoreRequest = new
-        {       
+        {        
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -141,10 +146,5 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
             }
         };
 10. Ejecute la aplicación. 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

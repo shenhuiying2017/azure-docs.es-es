@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e95d00d0ff9bcb825bfe3fcc787386c8c8133c69
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ## <a name="account-for-growth"></a>Consideración sobre el crecimiento
 Puede calcular el número de nodos en función del valor de DB_Size de crecimiento que espera del servicio, además del valor de DB_Size con el que comienza. Después, aumente el número de nodos a medida que el servicio crece, a fin de evitar un aprovisionamiento excesivo del número de nodos. Sin embargo, el número de particiones debería basarse en el número de nodos necesarios al ejecutar su servicio con un crecimiento máximo.
 
-Resulta conveniente disponer de máquinas adicionales en cualquier momento, así puede controlar los posibIes picos o errores inesperados (por ejemplo, si algunas máquinas virtuales se vuelven inactivas).  Aunque la capacidad adicional se debe determinar teniendo en cuenta los picos esperados, un punto de partida es reservar algunas máquinas adicionales (un 5 o 10 por ciento adicional).
+Resulta conveniente disponer de máquinas adicionales en cualquier momento, así puede controlar los posibIes picos o errores inesperados (por ejemplo, si algunas máquinas virtuales se vuelven inactivas).  Aunque la capacidad adicional se debe determinar teniendo en cuenta los picos esperados, un punto de partida es reservar algunas máquinas adicionales (un&5; o&10; por ciento adicional).
 
 Todo lo anterior se refiere a un único servicio con estado. Si tiene más de un servicio con estado, tendrá que agregar a la ecuación el valor de DB_Size asociado con los otros servicios. Como alternativa, puede calcular el número de nodos por separado para cada servicio con estado.  El servicio puede tener réplicas o particiones que no están equilibradas. Tenga en cuenta que hay particiones que pueden tener más datos que otras. Para más información sobre la creación de particiones, consulte el [artículo sobre la creación de particiones en los procedimientos recomendados](service-fabric-concepts-partitioning.md). Sin embargo, la ecuación anterior es independiente del número de particiones y réplicas, ya que Service Fabric se asegura de que las réplicas se distribuyan entre los nodos de una manera optimizada.
 
@@ -59,16 +60,11 @@ Ahora, en función de esta información, la hoja de cálculo muestra que podría
 ![Hoja de cálculo para calcular costos][Image1]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo crear particiones de servicios, vea [Creación de particiones de los servicios de Service Fabric][10].
+Consulte [Creación de particiones de los servicios de Service Fabric][10] para obtener más información al respecto.
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

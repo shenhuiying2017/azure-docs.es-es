@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/07/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6f2db3b411069b31424627f50336f1ba9750a9f5
-ms.openlocfilehash: 060f684cee6a8f98e5e8fb4a49f0bab92bd4df9c
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9f513cfb976848960c2164165994dd5b9fcc4fc1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -39,7 +39,9 @@ Los roles de administrador disponibles son los siguientes:
   > En la API Graph de Microsoft, la API de Azure AD Graph, y Azure AD PowerShell, este rol se identifica como "administrador de la compañía". Es "administrador Global" en [Azure Portal](https://portal.azure.com).
   >
   >
-* **Administrador de cumplimiento**:
+
+* **Administrador de cumplimiento**: los usuarios con este rol tienen permisos de administración en el Centro de seguridad y cumplimiento de Office 365 y el Centro de administración de Exchange, y tienen acceso de lectura a los registros de auditoría en el Centro de administración de Office 365. Más información en "[Acerca de los roles de administrador de Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)".
+
 * **Administrador del servicio CRM**: los usuarios con este rol tienen permisos globales en Microsoft CRM Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Aprobador del acceso a la Caja de seguridad del cliente**: cuando el servicio LockBox está habilitado, los usuarios con este rol pueden aprobar solicitudes para el acceso de ingenieros de Microsoft a información de la empresa. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administradores de dispositivos**: los usuarios con este rol se convierten en administradores en todos los dispositivos de Windows 10 que están unidos a Azure Active Directory.
@@ -50,12 +52,16 @@ Los roles de administrador disponibles son los siguientes:
 * **Administrador de servicios de Intune**: los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administrador del servicio Skype Empresarial**: los usuarios con este rol tienen permisos globales en Microsoft Skype Empresarial, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Este rol se conocía antes como **administrador de servicios de Lync** .
 * **Autor de invitaciones de invitados**: los usuarios de este rol pueden administrar las invitaciones de los invitados. No incluye otros permisos.
+* **Administrador de buzones de correo**: este rol solo se usa como parte de la compatibilidad con el correo electrónico de Exchange Online para dispositivos RIM Blackberry. Si su organización no usa el correo electrónico de Exchange Online en dispositivos RIM Blackberry, no utilice este rol.
+* **Compatibilidad con el nivel 1 de asociado**: no lo utilice. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
+* **Compatibilidad con el nivel 2 de asociado**: no lo utilice. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
 * **Administrador de contraseñas/administrador de departamento de soporte técnico**: restablece las contraseñas, administra solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
 
   > [!NOTE]
   > En la API Graph de Microsoft, la API Graph de Azure AD y Azure AD PowerShell, este rol se identifica como "Administrador de soporte técnico".
   >
   >
+
 * **Administrador del servicio Power BI**: los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando el servicio está presente. Puede obtener más información en [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/) (Simplificación de la administración de Power BI).
 * **Administrador de roles con privilegios**: los usuarios con este rol pueden administrar Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) y actualizar las asignaciones de roles de otros usuarios.
 * **Administrador del servicio SharePoint**: los usuarios con este rol tienen permisos globales en Microsoft SharePoint Online, cuando el servicio está presente. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).

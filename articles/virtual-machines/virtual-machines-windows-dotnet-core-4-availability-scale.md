@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: e714a7e941b25dfb0926934a3dff387363f306d8
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b321683b2080e5af3a112791eae416e03dee0080
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilidad y escala en plantillas de Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-windows-vms"></a>Disponibilidad y escala en plantillas de Azure Resource Manager para máquinas virtuales Windows
+
 Los términos disponibilidad y escala hacen referencia al tiempo de actividad y la capacidad para satisfacer la demanda. Si una aplicación debe estar disponible el 99,9 % del tiempo, debe tener una arquitectura que permita varios recursos de proceso simultáneos. Por ejemplo, en lugar de tener un único sitio web, una configuración con un mayor nivel de disponibilidad incluye varias instancias del mismo sitio con una tecnología de equilibrio frente ellas. En esta configuración, se puede desactivar una instancia de la aplicación para su mantenimiento mientras las demás siguen funcionando correctamente. Por otro lado, la escala hace referencia a la capacidad de una aplicación para atender la demanda. Con una aplicación con equilibrio de carga, agregar o quitar instancias del grupo permite a una aplicación ajustar la escala para satisfacer la demanda.
 
 En este documento se explica cómo configurar la disponibilidad y la escala de la implementación de ejemplo Music Store. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)(Implementación de Music Store en Windows).
@@ -249,10 +252,5 @@ Para más información sobre la función de copia, consulte [Creación de varias
 <hr>
 
 [Paso 4: implementación de aplicaciones con plantillas de Azure Resource Manager](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

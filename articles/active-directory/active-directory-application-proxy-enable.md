@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
-ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c979e6328f09618642aa7a432c873c7ce20c072b
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -46,6 +47,7 @@ Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe 
   | 9091 |Habilita la renovación automática de certificados de confianza del conector |
   
     Si el firewall fuerza el tráfico según los usuarios que se originan, abra estos puertos para el tráfico procedente de  los servicios de Windows que se ejecutan como un servicio de red. Además, asegúrese de habilitar el puerto 8080 para NT Authority\System.
+* Use la [herramienta de prueba Connector Ports del proxy de aplicación de Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para comprobar que el conector puede comunicarse con el servicio Proxy de aplicación. Como mínimo, asegúrese de que la región de centro de EE. UU. y la región más cercana tienen todas las marcas de verificación en verde. Además, cuantas más marcas de verificación verde haya, mayor resistencia habrá. 
 * Si su organización usa servidores proxy para conectarse a Internet, eche un vistazo a la entrada de blog [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Trabajo con servidores proxy locales existentes) para obtener más información sobre cómo configurarlos.
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Paso 1: Habilitar el proxy de la aplicación en Azure AD
@@ -87,10 +89,5 @@ Si desea desinstalar el conector, desinstale el servicio de conector y el servic
 Ya está listo para la [publicación de aplicaciones mediante el proxy de aplicación](active-directory-application-proxy-publish.md).
 
 Si tiene aplicaciones que están en redes independientes o en diferentes ubicaciones, puede usar grupos de conectores para organizar los distintos conectores en unidades lógicas. Obtenga más información sobre cómo [trabajar con conectores de Proxy de aplicación](active-directory-application-proxy-connectors.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

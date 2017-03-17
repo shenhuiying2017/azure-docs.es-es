@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 3c9b3a9509493e8c6900d90b5ab6519de7a0721f
+ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
+ms.openlocfilehash: e0f03adefe1c04b4d7b8cc2dea18f15eb3f05397
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="device-twins"></a>Dispositivos gemelos
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 ## <a name="overview"></a>Información general
 Los *dispositivos gemelos* son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a IoT Hub. En este artículo se describe:
 
@@ -286,11 +288,11 @@ La aplicación de dispositivo puede pasar por alto todas las notificaciones cuyo
 > 
 
 ## <a name="additional-reference-material"></a>Material de referencia adicional
-Otros temas de referencia en la guía del desarrollador de IoT Hub son:
+Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:
 
-* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración.
+* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
 * En [Cuotas y limitación][lnk-quotas], se describen las cuotas que se aplican al servicio IoT Hub y el comportamiento de limitación que se espera al usar el servicio.
-* En [SDK de dispositivos y servicios de Azure IoT][lnk-sdks], se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
+* En [SDK de dispositivo y servicio IoT de Azure][lnk-sdks], se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
 * En [Lenguaje de consulta de IoT Hub para gemelos y trabajos][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
@@ -332,9 +334,4 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

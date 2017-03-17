@@ -1,6 +1,6 @@
 ---
 title: "Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
+description: "Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ad7fb6f05a40cced28555521049f85ad59fb9878
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: aa1934447b53b725a08cebb47da9171a136b76ff
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell
+# <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets de AzureRM.Backup para realizar copias de seguridad de máquinas virtuales
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-vms-automation.md)
 > * [Clásico](backup-azure-vms-classic-automation.md)
@@ -350,9 +352,4 @@ Si quiere agregar funcionalidades gráficas a esta salida del informe, lea la in
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si prefiere usar PowerShell para interactuar con los recursos de Azure, consulte el artículo de PowerShell sobre cómo proteger Windows Server llamado [Implementación y administración de copias de seguridad en Azure para Windows Server](backup-client-automation-classic.md). También hay un artículo de PowerShell sobre cómo administrar las copias de seguridad DPM: [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](backup-dpm-automation-classic.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager, así como las implementaciones clásicas.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

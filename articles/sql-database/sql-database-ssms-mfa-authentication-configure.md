@@ -1,7 +1,26 @@
-i--- title: Configuración de Multi-Factor Authentication: Azure SQL | Microsoft Docs description: Use Multi-Factor Authentication con SSMS para SQL Database y SQL Data Warehouse.
-services: sql-database documentationcenter: '' author: BYHAM manager: jhubbard editor: '' tags: ''
+---
+title: "Configuración de la autenticación multifactor: Azure SQL | Microsoft Docs"
+description: Use Multi-Factor Authentication con SSMS para Base de datos SQL y Almacenamiento de datos SQL.
+services: sql-database
+documentationcenter: 
+author: BYHAM
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 
+ms.service: sql-database
+ms.custom: authentication and authorization
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 01/23/2017
+ms.author: rickbyh
+translationtype: Human Translation
+ms.sourcegitcommit: b134999d407195aaf44babb3e4862b96cc1dc1ed
+ms.openlocfilehash: b36f0cf8cbf0dfb310d6dd534906ee5391ce4cd5
+ms.lasthandoff: 03/02/2017
 
-ms.assetid: ms.service: sql-database ms.custom: authentication and authorization ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: data-management ms.date: 01/23/2017 ms.author: rickbyh
 
 ---
 # <a name="configure-azure-sql-database-multi-factor-authentication-for-sql-server-management-studio"></a>Configure Multi-Factor Authentication de Azure SQL Database para SQL Server Management Studio
@@ -56,4 +75,5 @@ Asegúrese de que otros usuarios puedan conectarse a través del firewall. Consu
 [3]: ./media/sql-database-ssms-mfa-auth/3mfa-setup.png
 [4]: ./media/sql-database-ssms-mfa-auth/4mfa-verify-1.png
 [5]: ./media/sql-database-ssms-mfa-auth/5mfa-verify-2.png
+
 

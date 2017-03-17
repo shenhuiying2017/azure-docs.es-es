@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
-ms.openlocfilehash: 866265bfa2eb7bcfebd8c73e14d3344a150aaf09
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: a59b8178fb011b837a402207ca86dd2db4505f74
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-infrastructure-naming-guidelines"></a>Directrices de nomenclatura de la infraestructura de Azure
+# <a name="azure-infrastructure-naming-guidelines-for-windows-vms"></a>Directrices de nomenclatura de la infraestructura de Azure para máquinas virtuales Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en describir cómo enfocar convenciones de nomenclatura para todos sus diversos recursos de Azure a fin de crear un conjunto de recursos lógico y fácilmente identificable en su entorno.
@@ -103,10 +106,5 @@ Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

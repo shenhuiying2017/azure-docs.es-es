@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/01/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: cb06c5bd74816777ec7c5836d362d509a265bd9c
-ms.openlocfilehash: 9e16fd3112b093f22ed99829c223a3a80e008f28
+ms.sourcegitcommit: 1f004b499eb01009ae824ece74d06a03474c4d53
+ms.openlocfilehash: 93a159001fabad513295b0958cf7918b0ed2d1b7
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,8 @@ Para obtener información sobre cómo obtener el proveedor de identidades de ter
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
-* [Sailpoint IdentityNow](#sailpoint-identitynow) 
+* [Sailpoint IdentityNow](#sailpoint-identitynow)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
 > [!IMPORTANT]
 > Dado que estos son productos de otros fabricantes, Microsoft no proporciona soporte técnico para la implementación, la configuración, la solución de problemas, los procedimientos recomendados, etc., ni para los problemas o las preguntas que surjan con respecto a estos proveedores de identidades. Para obtener soporte técnico o para preguntas relacionadas con estos proveedores de identidades, póngase en contacto directamente con los fabricantes.
@@ -344,10 +346,17 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 
 Para obtener más información, consulte [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
 
+## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
+NetIQ Access Manager implementa el estándar de identidad ampliamente utilizado WS Federation/WS-Trust a fin de proporcionar un inicio de sesión único y un marco de intercambio de atributos.
 
+A continuación, se presenta la matriz de compatibilidad de escenarios para esta experiencia de inicio de sesión único:
 
+| Cliente | Soporte técnico | Excepciones |
+| --- | --- | --- |
+| Clientes basados en web como Exchange Web Access y SharePoint Online |Compatible |None|
+| Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None|
+| Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-
-<!--HONumber=Jan17_HO3-->
+Para obtener más información, consulte [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
 
 

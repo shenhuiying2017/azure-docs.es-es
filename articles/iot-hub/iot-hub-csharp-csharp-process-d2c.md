@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -42,7 +43,7 @@ Al final de este tutorial tendrá tres aplicaciones de consola de .NET:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 o Visual Studio 2017.
 * Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
 También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azure Service Bus].
@@ -129,7 +130,7 @@ Para obtener más información acerca de cómo procesar los mensajes desde las c
 ## <a name="read-from-the-queue-endpoint"></a>Lectura desde el punto de conexión de la cola
 En esta sección, se leen los mensajes desde el punto de conexión de la cola.
 
-1. En la solución actual de Visual Studio, cree un proyecto de aplicación de Visual C# para Windows con la plantilla de proyecto de **Aplicación de consola** . Ponga al proyecto el nombre **ReadCriticalQueue**.
+1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola (.NET Framework)**. Ponga al proyecto el nombre **ReadCriticalQueue**.
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ReadCriticalQueue** y, a continuación, seleccione **Administrar paquetes NuGet**. Esta acción hace que aparezca la ventana **Administrador de paquetes NuGet** .
 
@@ -225,9 +226,4 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

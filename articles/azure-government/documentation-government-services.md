@@ -15,9 +15,9 @@ ms.workload: azure-government
 ms.date: 02/13/2017
 ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
-ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 21c2a0faad87b84058093f02c831b374a644b4b6
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -25,13 +25,13 @@ ms.lasthandoff: 02/21/2017
 Azure Government está expandiendo continuamente los servicios que están disponibles.  Estos servicios se implementan con el mismo código que el usado en Azure público.  Esta sección documenta los servicios que están actualmente disponibles en Azure Government, incluidos los dos tipos principales de información:
 
 * **Variaciones:** variaciones debido a características que aún no se han implementado, o propiedades (por ejemplo, direcciones URL) que son únicas en el entorno del gobierno.  
-* **Consideraciones:** detalles de implementación específicos de Government para garantizar que los datos permanecen dentro del límite de compatibilidad.
+* **Consideraciones:** detalles de implementación específicos de Government para garantizar que los datos permanecen dentro del límite de cumplimiento.
 
 Todo lo que necesita saber sobre estos servicios se puede encontrar en su documentación general.
 
 Para obtener la lista más reciente de servicios, consulte los [productos por región](https://azure.microsoft.com/regions/services/). 
 
-En las tablas siguientes, los servicios especificados como Resource Manager habilitado tienen proveedores de recursos y se pueden administrar mediante PowerShell. Para más información sobre los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [aquí](../azure-resource-manager/resource-manager-supported-services.md). Los servicios especificados como disponibles en el portal se pueden administrar en el portal de [Azure Government](https://portal.azure.us/). 
+En las tablas siguientes, los servicios especificados como Resource Manager habilitado tienen proveedores de recursos y se pueden administrar mediante PowerShell. Para obtener más información sobre los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [este artículo](../azure-resource-manager/resource-manager-supported-services.md). Los servicios especificados como disponibles en el portal se pueden administrar en el portal de [Azure Government](https://portal.azure.us/). 
 
 
 ## <a name="computedocumentation-government-computemd"></a>[Proceso](documentation-government-compute.md)
@@ -95,6 +95,12 @@ En las tablas siguientes, los servicios especificados como Resource Manager habi
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Sí | Sí |
 
 
+## <a name="intelligence--analyticsdocumentation-government-services-intelligenceandanalyticsmd"></a>[Inteligencia y análisis](documentation-government-services-intelligenceandanalytics.md)
+
+| Servicio | Administrador de recursos habilitado | Portal |
+| --- | --- | --- |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Sí | Sí |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Portal de administración de Office 365) |
 
 
 ## <a name="internet-of-things-iot"></a>Internet de las cosas (IoT)
@@ -122,7 +128,6 @@ En las tablas siguientes, los servicios especificados como Resource Manager habi
 | Azure Active Directory | Sí | Sí |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Sí | No (próximamente) |
 | Multi-Factory Authentication | Sí | Sí |
-| Intune | Sí | No |
 
 
 ## <a name="intelligence--analytics"></a>Inteligencia y análisis
@@ -149,6 +154,6 @@ En las tablas siguientes, los servicios especificados como Resource Manager habi
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información complementaria y actualizaciones, suscríbase al [blog de Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
+Para obtener información complementaria y actualizaciones, suscríbase al [blog de Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
 
 

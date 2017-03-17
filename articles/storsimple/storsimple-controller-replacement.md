@@ -4,7 +4,7 @@ description: "Explica cómo quitar y reemplazar módulos de uno o dos controlado
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -106,7 +107,8 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 > [!NOTE]
 > Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando se presente el menú de la consola enserie, sabrá que el reemplazo está completo. Si el menú no aparece en un plazo de dos horas de iniciado el reemplazo del controlador, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
-> 
+>
+> A partir de la actualización 4, también puede usar el cmdlet `Get-HCSControllerReplacementStatus` en la interfaz de Windows PowerShell del dispositivo para supervisar el estado del proceso de reemplazo de controlador.
 > 
 
 ## <a name="replace-both-controllers"></a>Reemplazar ambos controladores
@@ -246,10 +248,5 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

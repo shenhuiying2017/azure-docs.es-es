@@ -4,7 +4,7 @@ description: Describe los procedimientos recomendados para implementar y adminis
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 242951777b80d249cb2e0ef4ec497c3447246c19
+ms.sourcegitcommit: 48f89fd53f88f7bd757265d248e5aa6e53ae8d38
+ms.openlocfilehash: 27cfc75c90a5ba0699af0491f52747e8a1ea711a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -48,7 +49,7 @@ Si se cambia el tamaño de la matriz virtual de StorSimple, puede tener en cuent
 
 * La reserva local para volúmenes o recursos compartidos. En el nivel local, aproximadamente un 12 % del espacio está reservado para cada volumen o recurso compartido en capas aprovisionados. Aproximadamente un 10 % del espacio también está reservado para un volumen anclado localmente para el sistema de archivos.
 * Sobrecarga de instantáneas. Aproximadamente un 15 % del espacio del nivel local está reservado para las instantáneas.
-* Necesidad de restauraciones. Si la restauración se realiza como una operación nueva, el ajuste de tamaño debe tener en cuenta el espacio necesario para la restauración. La restauración se realiza en un recurso compartido o volumen del mismo tamaño o mayor.
+* Necesidad de restauraciones. Si la restauración se realiza como una operación nueva, el ajuste de tamaño debe tener en cuenta el espacio necesario para la restauración. La restauración se realiza en un recurso compartido o volumen del mismo tamaño.
 * Debe asignarse una parte del búfer para cualquier crecimiento inesperado.
 
 Según los factores anteriores, los requisitos de ajuste de tamaño se pueden representar mediante la siguiente ecuación:
@@ -157,9 +158,9 @@ Tenga en cuenta los siguientes procedimientos recomendadas al aprovisionar recur
 
 * Los tamaños de archivo en relación al tamaño aprovisionado de un recurso compartido en capas pueden afectar al rendimiento de los niveles. Si trabaja con archivos de gran tamaño, la salida en niveles se realizará más lentamente. Cuando trabaje con esta clase de archivos, es recomendable que el archivo de mayor tamaño no ocupe más del 3 % del tamaño recurso compartido.
 * En la matriz virtual se pueden crear un máximo de 16 volúmenes o recursos compartidos. Si se anclan localmente, el tamaño de los volúmenes o recursos compartidos puede oscilar entre 50 GB y 2 TB. Si están en capas, los volúmenes o recursos compartidos deben oscilar entre 500 GB y 20 TB. 
-* Al crear un volumen, tenga en cuenta tanto el consumo de datos esperado como el crecimiento futuro. Aunque el volumen no se puede expandir más adelante, siempre se puede restaurar a un volumen mayor.
+* Al crear un volumen, tenga en cuenta tanto el consumo de datos esperado como el crecimiento futuro. El volumen no se puede expandir más adelante.
 * Una vez creado el volumen, no se puede reducir el tamaño del volumen de StorSimple.
-* Si escribe en un volumen en capas en StorSimple, cuando los datos del volumen alcanzan un umbral concreto (en relación con el espacio local reservado para el volumen), se limitará la operación de E/S. Si se sigue escribiendo en este volumen, la E/S se ralentiza considerablemente. Aunque se puede escribir en un volumen en capas más allá de su capacidad aprovisionada (no impedimos activamente que el usuario escriba más allá de la capacidad aprovisionada), verá una notificación de alerta en el sentido de que haya una suscripción excesiva. Una vez que vea la alerta, es imperativo que tome medidas de subsanación como eliminar el volumen o restaurar el volumen a otro mayor (en la actualidad no se admite la expansión de volúmenes).
+* Si escribe en un volumen en capas en StorSimple, cuando los datos del volumen alcanzan un umbral concreto (en relación con el espacio local reservado para el volumen), se limitará la operación de E/S. Si se sigue escribiendo en este volumen, la E/S se ralentiza considerablemente. Aunque se puede escribir en un volumen en capas más allá de su capacidad aprovisionada (no impedimos activamente que el usuario escriba más allá de la capacidad aprovisionada), verá una notificación de alerta en el sentido de que haya una suscripción excesiva. Una vez que vea la alerta, es imperativo que tome medidas de subsanación como eliminar el volumen (en la actualidad no se admite la expansión de volúmenes).
 * Para casos de uso de recuperación ante desastres, cuando el número de recursos compartidos o volúmenes permitidos es 16 y el número máximo de volúmenes o recursos compartidos que se pueden procesar en paralelo también es 16, el número de recursos compartidos o volúmenes no tiene una incidencia en el RTO y los RPO. 
 
 #### <a name="volumeshare-type"></a>Tipo de volumen o recurso compartido
@@ -285,10 +286,5 @@ Es posible que haya que implementar varias matrices virtuales en una cuenta para
 
 ## <a name="see-also"></a>Otras referencias
 Aprenda a [administrar una matriz virtual de StorSimple](storsimple-ova-manager-service-administration.md) mediante el servicio StorSimple Manager.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

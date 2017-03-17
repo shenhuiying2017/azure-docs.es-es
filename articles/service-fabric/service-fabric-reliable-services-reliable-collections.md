@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
+ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
+ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -147,6 +148,7 @@ De este modo, cuando la réplica debe reiniciarse, las colecciones fiables recup
 * Utilice el bloqueo de actualización al leer un elemento con la intención de actualizarlo para evitar que se produzca una clase determinada de interbloqueos.
 * Considere la posibilidad de utilizar la funcionalidad de copia de seguridad y restauración para la recuperación ante desastres.
 * Evite mezclar operaciones de entidad única y de varias entidades (por ejemplo, `GetCountAsync` y `CreateEnumerableAsync`) en la misma transacción debido a los diferentes niveles de aislamiento.
+* Controle la excepción InvalidOperationException. El sistema puede anular las transacciones de usuario pueden por diversos motivos. Por ejemplo, cuando Reliable State Manager cambia su rol de Principal o cuando una transacción de larga ejecución está bloqueando el truncamiento del registro transaccional. En tales casos, el usuario puede recibir la excepción InvalidOperationException, que indica que ya ha finalizado su transacción. Suponiendo que la finalización de la transacción no la ha solicitado el usuario, la mejor manera de controlar esta excepción es eliminando la transacción, comprobar si se ha señalado el token de cancelación (o si se ha cambiado el rol de la réplica) y, si no, crear una nueva transacción y volver a intentarlo.  
 
 Algunos aspectos que debe tener en cuenta:
 
@@ -167,10 +169,5 @@ Algunos aspectos que debe tener en cuenta:
 * [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avanzado del modelo de programación de servicios fiables](service-fabric-reliable-services-advanced-usage.md)
 * [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

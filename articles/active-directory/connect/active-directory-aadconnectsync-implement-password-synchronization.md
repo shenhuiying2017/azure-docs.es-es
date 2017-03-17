@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2eba5ecc41342b62601750c19e4bffd8b6e78b51
-ms.openlocfilehash: 7ff2d29b52848f21534b5d540fb3908710534f69
+ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
+ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -135,135 +136,9 @@ Como referencia, este fragmento de código debe ser similar al siguiente:
 Para obtener información sobre la seguridad y FIPS, consulte [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
 ## <a name="troubleshooting-password-synchronization"></a>Solución de problemas de sincronización de contraseña
-Si las contraseñas no se sincronizan como se esperaba, puede ser para un subconjunto de usuarios o para todos los usuarios.
-
-* Si tiene un problema con objetos individuales, consulte la sección [Solución de problemas de un objeto que no sincroniza contraseñas](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-* Si tiene un problema con contraseñas que no se sincronizan, consulte la sección de [Solución de problemas cuando no se sincronizan las contraseñas](#troubleshoot-issues-where-no-passwords-are-synchronized).
-
-### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>Solución de problemas de un objeto que no sincroniza contraseñas
-Puede solucionar fácilmente los problemas relacionados con la sincronización de contraseñas si revisa el estado actual de un objeto.
-
-Comience en **Usuarios y equipos de Active Directory**. Busque el usuario y compruebe que **El usuario debe cambiar la contraseña en el siguiente inicio de sesión** está seleccionado.
-
-![Contraseñas productivas de Active Directory](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-
-Si está seleccionado, pida al usuario que inicie sesión y cambie la contraseña. Las contraseñas temporales no se sincronizan en Azure AD.
-
-Si parece correcto en Active Directory, el paso siguiente es seguir al usuario en el motor de sincronización. Al seguir al usuario desde Active Directory local a Azure AD, puede ver si hay un error descriptivo en el objeto.
-
-1. Inicie **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Haga clic en **Conectores**.
-3. Seleccione el **Conector Active Directory** en el que está ubicado el usuario.
-4. Seleccione **Search Connector Space**(Buscar espacio de conector).
-5. Localice el usuario que está buscando.
-6. Seleccione la pestaña **Linaje** y asegúrese de que al menos una de las reglas de sincronización muestra **Sincronización de contraseñas** con el valor **True**. En la configuración predeterminada, el nombre de la regla de sincronización es **In from AD - User AccountEnabled**.  
-    ![Información de linaje de un usuario](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. También debería [seguir al usuario](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) a través del metaverso hasta el espacio del conector de Azure AD. El objeto de espacio del conector debe tener una regla de salida con **Sincronización de contraseñas** establecida en **True**. En la configuración predeterminada, el nombre de la regla de sincronización es **Out to AAD - User Join**.  
-    ![Propiedades del espacio de conector de un usuario](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. Para ver los detalles de la sincronización de contraseñas del objeto de la semana pasada, haga clic en **Log...**(Registro).  
-    ![Detalles del registro de objetos](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
-    Si el registro de objetos está vacío, Azure AD Connect no ha sido capaz de leer el valor de hash de contraseña de Active Directory. Busque errores en el registro de eventos.
-
-La columna de estado puede presentar los siguientes valores:
-
-| Estado | Description |
-| --- | --- |
-| Correcto |La contraseña se sincronizó correctamente. |
-| FilteredByTarget |La contraseña se establece en **El usuario debe cambiar la contraseña en el siguiente inicio de sesión**. La contraseña no se ha sincronizado. |
-| NoTargetConnection |No hay ningún objeto en el metaverso o en el espacio del conector de Azure AD. |
-| SourceConnectorNotPresent |No se encontró ningún objeto en el espacio del conector de Active Directory local. |
-| TargetNotExportedToDirectory |Aún no se exportó el objeto del espacio del conector de Azure AD. |
-| MigratedCheckDetailsForMoreInfo |La entrada de registro se creó antes de la versión 1.0.9125.0 y se muestra en su estado heredado. |
-
-### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>Solución de problemas cuando no se sincronizan las contraseñas
-Comience con la ejecución del script en la sección [Obtención del estado de configuración de sincronización de contraseñas](#get-the-status-of-password-sync-settings). Le ofrece una visión general de la configuración de sincronización de contraseñas.  
-![Salida del script de PowerShell de la configuración de sincronización de contraseñas](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-Si la característica no está habilitada en Azure AD o si el estado del canal de sincronización no está habilitado, ejecute el asistente para la instalación de Connect. Seleccione **Personalizar las opciones de sincronización** y anule la selección de sincronización de contraseñas. Este cambio deshabilita temporalmente la característica. Después, vuelva a ejecutar al asistente y habilite de nuevo la sincronización de contraseñas. Vuelva a ejecutar el script para comprobar que la configuración es correcta.
-
-Si el script de muestra que no hay ningún latido, ejecute el script de [Desencadenamiento de una sincronización completa de todas las contraseñas](#trigger-a-full-sync-of-all-passwords). Este script también puede utilizarse para otros escenarios donde la configuración es correcta, pero no se sincronizan las contraseñas.
-
-Si instaló Azure AD Connect con una configuración personalizada, asegúrese de que se hayan concedido a la cuenta utilizada por AD Connector los permisos "Replicación de cambios de directorio" y "Replicación de todos los cambios de directorio". Vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) para conocer todos los permisos necesarios para esta cuenta. Sin estos permisos, la cuenta no podrá leer los hash de contraseña en Active Directory.
-
-Fíjese luego en el registro de eventos de la aplicación. Si hay un problema global con la sincronización de contraseñas y el servicio está operativo, como se comprobó en los pasos anteriores, debería haber un error con más detalles.
-
-#### <a name="get-the-status-of-password-sync-settings"></a>Obtención del estado de configuración de sincronización de contraseñas
-```
-Import-Module ADSync
-$connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
-$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-{
-    if ($aadConnectors.Count -eq 1)
-    {
-        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-        Write-Host
-        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-        foreach ($adConnector in $adConnectors)
-        {
-            Write-Host
-            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-            Write-Host
-            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-            Write-Host
-            $pingEvents =
-                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-                    Sort-Object { $_.Time } -Descending
-            if ($pingEvents -ne $null)
-            {
-                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-            }
-            else
-            {
-                Write-Warning "No ping event found within last 3 hours."
-            }
-            Write-Host
-            Write-Host "Password sync channel status END ------------------------------------------------------- "
-            Write-Host
-        }
-    }
-    else
-    {
-        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-    }
-}
-Write-Host
-if ($aadConnectors -eq $null)
-{
-    Write-Warning "No Azure AD Connector was found."
-}
-if ($adConnectors -eq $null)
-{
-    Write-Warning "No AD DS Connector was found."
-}
-Write-Host
-```
-
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>Desencadenamiento de una sincronización completa de todas las contraseñas
-Puede desencadenar una sincronización completa de todas las contraseñas mediante el siguiente script:
-
-```
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-Import-Module adsync
-$c = Get-ADSyncConnector -Name $adConnector
-$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1
-$c.GlobalParameters.Remove($p.Name)
-$c.GlobalParameters.Add($p)
-$c = Add-ADSyncConnector -Connector $c
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-```
-
+Si tiene problemas con la sincronización de contraseña, consulte [Solución de problemas de sincronización de contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

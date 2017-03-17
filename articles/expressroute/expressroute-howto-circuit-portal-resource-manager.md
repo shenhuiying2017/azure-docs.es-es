@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/02/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
-ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 46b4e1b149a3e9427e1384abc0d95eb616002ab6
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -123,7 +123,7 @@ Puede ver el estado de un circuito seleccionándolo.
 ![Estado de un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Modificación de un circuito ExpressRoute
-Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad. En este momento, no puede modificar propiedades de circuito ExpressRoute mediante el Portal de Azure. Pero puede usar PowerShell para modificar propiedades de circuito. Para más información, consulte la sección [Creación y modificación de un circuito ExpressRoute mediante Resource Manager y PowerShell](expressroute-howto-circuit-arm.md#modify).
+Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad.
 
 Puede hacer lo siguiente sin experimentar tiempo de inactividad:
 
@@ -133,6 +133,19 @@ Puede hacer lo siguiente sin experimentar tiempo de inactividad:
 * Puede habilitar y deshabilitar **Allow Classic Operations**(Permitir operaciones clásicas).
 
 Consulte la página [P+F de ExpressRoute](expressroute-faqs.md)para más información sobre los límites y las limitaciones.
+
+Para modificar un circuito de ExpressRoute, haga clic en el **Configuración** tal como se muestra en la ilustración siguiente.
+
+![Modificación del circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+Puede modificar el ancho de banda,la SKU, el modelo de facturación y permitir operaciones clásicas en la hoja de configuración.
+
+> [!IMPORTANT]
+> No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Para degradar un ancho de banda, es necesario desaprovisionar el circuito ExpressRoute y luego volver a aprovisionar un nuevo circuito ExpressRoute.
+> 
+> La operación de deshabilitación del complemento premium puede producir un error si usa recursos que son más grandes de lo que está permitido para el circuito estándar.
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Desaprovisionamiento y eliminación de un circuito ExpressRoute
 Puede eliminar el circuito ExpressRoute seleccionando el icono **Eliminar** . Tenga en cuenta lo siguiente:

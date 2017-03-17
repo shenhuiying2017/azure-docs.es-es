@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 7683a6c6afa3dbec3fccadc9f095480ed90aa039
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scaling-iot-hub"></a>Escalado del Centro de IoT
+# <a name="scale-your-iot-hub-solution"></a>Escalado de la solución de IoT Hub
 El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para obtener más información, vea [Precios de IoT Hub][lnk-pricing]. Cada unidad de IoT Hub permite un número determinado de mensajes diarios.
 
 Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga de IoT Hub. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
@@ -61,9 +63,4 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

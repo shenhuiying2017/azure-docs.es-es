@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
-ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nametransformationpoliciesa-transformation-policies"></a><a name="TransformationPolicies"></a> Directivas de transformación  
+##  <a name="TransformationPolicies"></a> Directivas de transformación  
   
 -   [Convertir JSON a XML](api-management-transformation-policies.md#ConvertJSONtoXML) : convierte el cuerpo de solicitud o respuesta de JSON a XML.  
   
@@ -44,7 +45,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   [Transformar XML mediante una XSLT](api-management-transformation-policies.md#XSLTransform): aplica una transformación de XSL al XML del cuerpo de la solicitud o respuesta.  
   
-##  <a name="a-nameconvertjsontoxmla-convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Conversión de JSON a XML  
+##  <a name="ConvertJSONtoXML"></a> Conversión de JSON a XML  
  La directiva `json-to-xml` convierte un cuerpo de solicitud o respuesta de JSON a XML.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -87,7 +88,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-nameconvertxmltojsona-convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Conversión de XML a JSON  
+##  <a name="ConvertXMLtoJSON"></a> Conversión de XML a JSON  
  La directiva `xml-to-json` convierte un cuerpo de solicitud o respuesta de XML a JSON. Esta directiva puede usarse para modernizar API basadas en servicios web de back-end de solo XML.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -131,7 +132,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namefindandreplacestringinbodya-find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Buscar y reemplazar la cadena en el cuerpo  
+##  <a name="Findandreplacestringinbody"></a> Buscar y reemplazar la cadena en el cuerpo  
  La política `find-and-replace` busca una subcadena de solicitud o de respuesta y la sustituye por otra distinta.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -166,7 +167,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namemaskurlscontenta-mask-urls-in-content"></a><a name="MaskURLSContent"></a> Enmascarar URL en el contenido  
+##  <a name="MaskURLSContent"></a> Enmascarar URL en el contenido  
  La directiva `redirect-content-urls` reescribe (enmascara) los vínculos del cuerpo de la respuesta para que apunten al vinculo equivalente a través de la puerta de enlace. Utilícela en la sección saliente a fin de rescribir los vínculos del cuerpo de la respuesta para hacer que apunten a la puerta de enlace. Úsela en la sección entrante para obtener el resultado opuesto.  
   
 > [!NOTE]
@@ -197,7 +198,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namesetbackendservicea-set-backend-service"></a><a name="SetBackendService"></a> Establecer el servicio back-end  
+##  <a name="SetBackendService"></a> Establecer el servicio back-end  
  Use la directiva `set-backend-service` a fin de redirigir una solicitud entrante a un back-end distinto al especificado en la configuración de la API para esa operación. Esta directiva cambia la dirección URL base del servicio back-end de la solicitud entrante a la especificada en la directiva.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -254,7 +255,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namesetbodya-set-body"></a><a name="SetBody"></a> Establecer cuerpo  
+##  <a name="SetBody"></a> Establecer cuerpo  
  Utilice la directiva `set-body` con la finalidad de establecer el cuerpo del mensaje para las solicitudes entrantes y salientes. Para acceder al cuerpo del mensaje, puede utilizar las propiedades `context.Request.Body` o `context.Response.Body`, según si la directiva se encuentra en la sección entrante o saliente.  
   
 > [!IMPORTANT]
@@ -330,13 +331,71 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   </when>  
 </choose>  
 ```  
-  
+
+### <a name="using-liquid-templates-with-set-body"></a>Uso de plantillas Liquid con la directiva de establecer cuerpo 
+La directiva `set-body` se puede configurar para usar el lenguaje de plantillas [Liquid](https://shopify.github.io/liquid/basics/introduction/) que transforman el cuerpo de una solicitud o respuesta. Esto puede resultar muy eficaz si necesita cambiar completamente el formato del mensaje.
+
+> [!IMPORTANT]
+> La implementación de Liquid que se utiliza en la directiva `set-body` está configurada en el modo de C#. Esto es especialmente importante al realizar tareas como el filtrado. Por ejemplo, para usar un filtro de fecha se requiere usar las mayúsculas y minúsculas de Pascal y el formato de fecha de C#; por ejemplo:
+>
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> Para enlazar correctamente con un cuerpo XML mediante la plantilla Liquid, use una directiva `set-header` para establecer que Content-Type sea application/xml, text/xml (o cualquier tipo que termine en +xml); para un cuerpo JSON, debe ser application/json, texto/json (o cualquier tipo que termine en +json).
+
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Conversión de JSON en SOAP mediante una plantilla Liquid
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### <a name="tranform-json-using-a-liquid-template"></a>Transformación de JSON mediante una plantilla Liquid
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### <a name="elements"></a>Elementos  
   
 |Nombre|Descripción|Obligatorio|  
 |----------|-----------------|--------------|  
 |set-body|Elemento raíz. Contiene el cuerpo del texto o una expresión que devuelve un cuerpo.|Sí|  
+
+### <a name="properties"></a>Propiedades  
   
+|Nombre|Descripción|Obligatorio|Valor predeterminado|  
+|----------|-----------------|--------------|-------------|  
+|template|Se utiliza para cambiar el modo de creación de plantillas que ejecutará la directiva de establecer cuerpo. Actualmente, el único valor admitido es:<br /><br />- liquid: la directiva de establecer cuerpo usará el motor de plantillas Liquid |No|Liquid|  
+
+Para acceder a información sobre solicitud y respuesta, la plantilla Liquid puede enlazar a un objeto de contexto con las siguientes propiedades: <br />
+<pre>context.
+Request.
+Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+URL
+Scheme Host Port Path Query QueryString ToUri ToString
+
+OriginalUrl.
+Scheme Host Port Path Query QueryString ToUri ToString
+</pre>
+
+
+
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
@@ -344,7 +403,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namesethttpheadera-set-http-header"></a><a name="SetHTTPheader"></a> Establecer encabezado HTTP  
+##  <a name="SetHTTPheader"></a> Establecer encabezado HTTP  
  La directiva `set-header` asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.  
   
  Inserta una lista de encabezados HTTP en un mensaje HTTP. Cuando se coloca en un proceso entrante, esta directiva establece los encabezados HTTP para la solicitud que se pasa al servicio de destino. Cuando se coloca en una canalización saliente, esta directiva establece los encabezados HTTP para la respuesta que se está enviando al cliente de la puerta de enlace.  
@@ -401,7 +460,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namesetquerystringparametera-set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Establecimiento del parámetro de cadena de consulta  
+##  <a name="SetQueryStringParameter"></a> Establecimiento del parámetro de cadena de consulta  
  La directiva `set-query-parameter` agrega o elimina el parámetro de cadena de consulta de la solicitud, o bien sustituye su valor. Se puede utilizar para pasar parámetros de consulta previstos por el servicio back-end que tienen carácter opcional o que nunca están presentes en la solicitud.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -461,7 +520,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namerewriteurla-rewrite-url"></a><a name="RewriteURL"></a> URL de reescritura  
+##  <a name="RewriteURL"></a> URL de reescritura  
  La directiva `rewrite-uri` convierte una dirección URL de solicitud de su forma pública a la que espera recibir el servicio web, como se muestra en el siguiente ejemplo.  
   
 -   URL pública: `http://api.example.com/storenumber/ordernumber`  
@@ -539,7 +598,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** producto, API y operación  
   
-##  <a name="a-namexsltransforma-transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transformar XML mediante una XSLT  
+##  <a name="XSLTransform"></a> Transformar XML mediante una XSLT  
  La directiva `Transform XML using an XSLT` aplica una transformación XSL al XML del cuerpo de la solicitud o la respuesta.  
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -574,7 +633,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   <outbound>  
       <base />  
       <xsl-transform>  
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -582,7 +641,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-        </xsl:stylesheet>  
+          </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -605,9 +664,4 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

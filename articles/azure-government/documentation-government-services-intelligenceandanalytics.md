@@ -15,16 +15,16 @@ ms.workload: azure-government
 ms.date: 12/06/2016
 ms.author: MeganYount
 translationtype: Human Translation
-ms.sourcegitcommit: 14fb62669e15873770ef9b8470e34db70f1ca2ca
-ms.openlocfilehash: 2b89d78e20cccee81c9581e762e4c61bacd84fd4
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0233aa66bc4f4f135456ec15bd09756e63192b14
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="azure-government-intelligence--analytics"></a>Inteligencia y análisis de Azure Government
 En este artículo se describen los servicios, las variaciones y las consideraciones de análisis e inteligencia para el entorno de Azure Government.
 
-## <a name="azure-hdinsight"></a>HDInsight de Azure
+## <a name="hdinsight"></a>HDInsight
 HDInsight en Linux Standard suele estar disponible en Azure Government. Puede ver una demostración sobre cómo compilar soluciones basadas en datos en Azure Government con HDInsight <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>aquí</a>.
 
 HDInsight en Linux Premium estará disponible próximamente.
@@ -41,7 +41,7 @@ Las direcciones URL para Log Analytics son diferentes en Azure Government:
 | --- | --- | --- |
 | Clúster de HDInsight | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
-Para obtener más información, consulte [Azure HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md) (Documentación pública de Azure HDInsight).
+Para obtener más información, consulte [HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md) (Documentación pública de HDInsight).
 
 ## <a name="power-bi"></a>Power BI
 Power BI US Government suele estar disponible como parte de las suscripciones a Office 365 US Government Community. Puede obtener información sobre Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>aquí</a>. Puede ver una demostración sobre cómo compilar soluciones basadas en datos en Azure Government con Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>aquí</a>.
@@ -57,5 +57,5 @@ Las direcciones URL para Power BI son diferentes de las de US Government:
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government</a>.
+Para información complementaria y actualizaciones suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
 

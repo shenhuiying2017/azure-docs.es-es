@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: ef24162006c508134db3f385e791306495ac4614
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: ad1314aa4b504bd2cb3285789073d4f1de1f545d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -32,6 +33,19 @@ En el portal Servicios web Machine Learning, puede realizar las siguientes accio
 * Agregar y eliminar puntos de conexión (solo en los clásicos)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permisos para administrar el administrador de nuevos recursos basados en servicios web
+
+Los nuevos servicios web se implementan como recursos de Azure. Por lo tanto, debe tener los permisos correctos para implementar y administrar nuevos servicios web.  Para implementar o administrar nuevos servicios web, debe tener asignado un rol de colaborador o administrador en la suscripción en la que se implementa el servicio web. Si invita a otro usuario a un área de trabajo de Machine Learning, debe asignarle un rol de colaborador o administrador en la suscripción para que pueda implementar o administrar servicios web. 
+
+Si el usuario no tiene los permisos correctos para acceder a recursos en el portal de servicios web Machine Learning de Azure, verá el siguiente error al tratar de implementar un servicio web:
+
+*Error de implementación de servicio web. Esta cuenta no tiene suficientes derechos de acceso a la suscripción de Azure que contiene el área de trabajo. Para implementar un servicio web en Azure, la misma cuenta debe estar invitada al área de trabajo y tener acceso a la suscripción de Azure que contiene el área de trabajo*.
+
+Para obtener más información sobre cómo crear un área de trabajo, consulte cómo [crear y compartir un área de trabajo de Azure Machine Learning](machine-learning-create-workspace.md).
+
+Para obtener más información sobre cómo establecer permisos de acceso, consulte cómo [ver las asignaciones de acceso para usuarios y grupos en Azure Portal: versión preliminar pública](../active-directory/role-based-access-control-manage-assignments.md).
+
 
 ## <a name="manage-new-web-services"></a>Administración de servicios web nuevos
 Instrucciones para la administración de servicios web nuevos:
@@ -174,10 +188,5 @@ Para administrar cuentas adicionales que dispongan de acceso al área de trabajo
 > El vínculo **Iniciar sesión en ML Studio** permite abrir Machine Learning Studio mediante la cuenta Microsoft en la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure clásico para crear un área de trabajo no tiene automáticamente permiso para abrir el área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

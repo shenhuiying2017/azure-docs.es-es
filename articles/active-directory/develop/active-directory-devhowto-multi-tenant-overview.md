@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -164,6 +165,10 @@ El consentimiento se admite en Azure AD mediante los protocolos OAuth, OpenID Co
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Aplicaciones multiempresa y almacenamiento en caché de los tokens de acceso
 Las aplicaciones multiempresa también pueden obtener tokens de acceso para llamar a las API que están protegidas por Azure AD.  Un error común al usar la biblioteca de autenticación de Active Directory (ADAL) con una aplicación multiempresa es solicitar inicialmente un token para un usuario que utiliza /common, recibir una respuesta y, luego, solicitar posteriormente un token para ese mismo usuario también mediante /common.  Dado que la respuesta de Azure AD proviene de un inquilino, y no de /common, ADAL almacena en caché el token como si fuera el inquilino. La posterior llamada a /common para obtener un token de acceso para el usuario carece de la entrada de caché, y se pide al usuario que inicie la sesión de nuevo.  Para evitar la pérdida de la caché, asegúrese de que las posteriores llamadas para un usuario que ya ha iniciado sesión se realizan al punto de conexión del inquilino.
 
+## <a name="next-steps"></a>Pasos siguientes
+En este artículo aprendió a crear una aplicación que puede hacer que un usuario inicie sesión desde cualquier inquilino de Azure Active Directory. Después de habilitar el inicio de sesión único en entre la aplicación y Azure Active Directory, también puede actualizar la aplicación para acceder a las API expuestas por recursos de Microsoft como Office 365. Por tanto, puede ofrecer una experiencia personalizada en su aplicación, por ejemplo, que muestre información contextual a los usuarios, como su imagen de perfil o su próxima cita de calendario. Para obtener más información sobre cómo realizar llamadas de API a Azure Active Directory y servicios de Office 365 como Exchange, SharePoint, OneDrive, OneNote, Planner, Excel y muchos más, visite: [Microsoft Graph API][MSFT-Graph-overview].
+
+
 ## <a name="related-content"></a>Contenido relacionado
 * [Ejemplos de aplicación multiinquilino][AAD-Samples-MT]
 * [Directrices de personalización de marca para aplicaciones][AAD-App-Branding]
@@ -171,7 +176,7 @@ Las aplicaciones multiempresa también pueden obtener tokens de acceso para llam
 * [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects]
 * [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps]
 * [Información general sobre el marco de consentimiento][AAD-Consent-Overview]
-* [Ámbitos de permiso de la API Graph de Microsoft][MSFT-Graph-AAD]
+* [Ámbitos de permiso de la API Graph de Microsoft][MSFT-Graph-permision-scopes]
 * [Ámbitos de permiso de la API Graph de Azure AD][AAD-Graph-Perm-Scopes]
 
 Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
@@ -190,7 +195,8 @@ Use la siguiente sección de comentarios para proporcionar sus opiniones y ayuda
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -236,10 +242,5 @@ Use la siguiente sección de comentarios para proporcionar sus opiniones y ayuda
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 9eb2d7f4b431c01983620cb0cfcffd63a9f4d4e2
-ms.openlocfilehash: f7251dffc3dd922a6abeba0faca90843de64430f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: dc533f46d71ec1bbe49b3e19821e4fc6009773fc
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -34,7 +34,7 @@ En este artículo, se describe cómo replicar máquinas virtuales de VMware loca
 
 Publique cualquier comentario o pregunta en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="steps"></a>Pasos
+## <a name="deployment-summary"></a>Resumen de implementación
 
 Esto es lo que debe hacer:
 
@@ -103,6 +103,7 @@ Esto es lo que debe hacer:
     - Si desea agregar la entrada del Registro de Windows desde una CLI, escriba:   ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - Para Linux, la cuenta debe ser una raíz en el servidor Linux de origen.
 
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -110,11 +111,11 @@ Esto es lo que debe hacer:
 
 Seleccione aquello que desea replicar y la ubicación donde se va a realizar la replicación.
 
-1. Haga clic en **Almacenes de Recovery Services** > almacén.
-2. En el menú de recursos > haga clic en **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
+1. Haga clic en **Almacenes de Recovery Services** > <vault name>.
+2. En **Introducción**, haga clic en **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Objetivo de protección**.
 
     ![Elegir objetivos](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. En **Objetivo de protección**, seleccione **To Azure** (En Azure) y **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
+3. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**, y en **¿Las máquinas están virtualizadas?**, seleccione **Sí, con VMware vSphere Hypervisor**.
 
     ![Elegir objetivos](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -122,16 +123,16 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 
 Configure el servidor de configuración, regístrelo en el almacén y detecte máquinas virtuales.
 
-1. Haga clic en **Site Recovery** > **Paso 1: Preparar la infraestructura** > **Origen**.
+1. En **Paso 1: Preparar la infraestructura**, haga clic en **Origen**.
 2. Si no tiene un servidor de configuración, haga clic en **+Servidor de configuración**.
 
     ![Configurar origen](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. En **Agregar servidor**, compruebe que aparezca **Servidor de configuración** en **Tipo de servidor**.
-4. Descargue el archivo de instalación unificada de Site Recovery.
+4. Descargue el archivo de instalación unificada de **Microsoft Azure Site Recovery**.
 5. Descargue la clave de registro del almacén. Se le solicitará cuando ejecute la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
 
    ![Configurar origen](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. En la máquina virtual del servidor de configuración, asegúrese de que el reloj del sistema esté sincronizado con un [servidor horario](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) y ejecute la instalación unificada para instalar el servidor de configuración, el servidor de procesos y el servidor de destino maestro.
+6. En la máquina del servidor de configuración, asegúrese de que el reloj del sistema esté sincronizado con un [servidor horario](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time) y ejecute la instalación unificada para instalar el servidor de configuración, el servidor de procesos y el servidor de destino maestro.
 
 ## <a name="run-site-recovery-unified-setup"></a>Ejecución de la instalación unificada de Site Recovery
 
@@ -147,7 +148,7 @@ Después, ejecute el archivo de instalación para la instalación unificada en e
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> El servidor de configuración se puede instalar a través de la línea de comandos. Para más información, consulte [Instalación del servidor de configuración con herramientas de línea de comandos](http://aka.ms/installconfigsrv).
+> El servidor de configuración se puede instalar a través de la línea de comandos. [Más información](http://aka.ms/installconfigsrv).
 
 ### <a name="add-the-account-for-automatic-discovery"></a>Incorporación de la cuenta para detección automática
 
@@ -257,7 +258,7 @@ De manera predeterminada, se replican todos los discos de una máquina. Puede ex
     * Se recomienda que recopile las máquinas virtuales y los servidores físicos juntos para que reflejen las cargas de trabajo. Habilitar la coherencia de múltiples máquinas virtuales puede afectar al rendimiento de la carga de trabajo y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia.
 
     ![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Configuración** > **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección** .
+13. Haga clic en **Enable Replication**. Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección** .
 
 Después de habilitar la replicación, se instalará el servicio de movilidad si configura la instalación de inserción. Una vez que se instale el servicio de movilidad por inserción en una máquina virtual, se iniciará un trabajo de protección y se producirá un error. Debe reiniciar manualmente cada máquina después del error. Después, se vuelve a iniciar el trabajo de protección y se produce la replicación inicial.
 
@@ -291,15 +292,15 @@ Se recomienda que compruebe las propiedades de máquina virtual y realice cualqu
 Una vez terminada la configuración, ejecute una conmutación por error de prueba para asegurarse de que todo funcione de la forma esperada.
 
 
-1. Para conmutar por error una sola máquina, en **Configuración** > **Elementos replicados**, haga clic en el icono Máquina virtual > **+Probar conmutación por error**.
+1. Para conmutar por error una sola máquina, en **Elementos replicados**, haga clic en el icono Máquina virtual > **+Probar conmutación por error**.
 
-    ![Probar conmutación por error](./media/site-recovery-vmware-to-azure/TestFailover.png)
+    ![Conmutación por error de prueba](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).  
+1. Para conmutar por error un plan de recuperación, en **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).  
 
 1. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error.
 
-1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede realizar un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo **Probar conmutación por error** en nombre de almacén > **Configuración** > **Trabajos** > **Trabajos de Site Recovery**.
+1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede realizar un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo **Probar conmutación por error** en nombre de almacén > **Trabajos** > **Trabajos de Site Recovery**.
 
 1. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en Azure Portal > **Virtual Machines**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
 

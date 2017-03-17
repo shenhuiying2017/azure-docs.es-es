@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Azure Disk Encryption para máquinas virtuales IaaS con Linux y Windows| Microsoft Docs"
 description: "En este artículo se ofrece información general de Microsoft Azure Disk Encryption para máquinas virtuales IaaS con Windows y Linux."
 services: security
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
-ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: b21867e41acb1e0658041bd931327047095bb159
+ms.openlocfilehash: b5ecba98fd5c3061f68f94f5004c7cf00d0dfb36
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -139,7 +139,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 > Azure Disk Encryption es compatible con las siguientes versiones de servidor Linux: Ubuntu, CentOS, SUSE y SUSE Linux Enterprise Server (SLES) y Red Hat Enterprise Linux.
 
 > [!NOTE]
-> El cifrado de disco del sistema operativo Linux es actualmente compatible en las distribuciones Linux siguientes: RHEL 7.2, CentOS 7.2n y Ubuntu 16.04.
+> El cifrado de disco del sistema operativo Linux es actualmente compatible en las distribuciones Linux siguientes: RHEL 7.2, RHEL 7.3, CentOS 7.2n y Ubuntu 16.04.
 >
 > Todos los recursos (por ejemplo, el almacén de claves, la cuenta de almacenamiento y la máquina virtual) deben pertenecer a la misma región y suscripción de Azure.
 

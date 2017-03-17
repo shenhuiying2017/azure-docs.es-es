@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -27,9 +28,9 @@ Al volver a entrenar un servicio web nuevo, actualice la definición del servici
 Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> El experimento predictivo debe implementarse como un servicio web Machine Learning basado en Azure Resource Manager (nuevo). 
-> 
-> 
+> El experimento predictivo debe implementarse como un servicio web Machine Learning basado en Azure Resource Manager (nuevo). Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
+
 
 Para obtener más información sobre la implementación de servicios web, vea el artículo sobre [implementación de un servicio web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
@@ -108,10 +109,5 @@ Con el uso de los cmdlets de administración de PowerShell para Machine Learning
 
 * Reentrenamiento de modelos periódicos con nuevos datos.
 * Distribución de un modelo entre los clientes con el fin de permitirles reentrenar el modelo mediante sus propios datos.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

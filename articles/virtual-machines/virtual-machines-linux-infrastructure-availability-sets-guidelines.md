@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0c31fb1d02e26491de8d1076d074a2021906999f
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 09246da2e04a15770a999703eb3e4dca7d8ae0dc
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="azure-availability-sets-guidelines"></a>Directrices de conjuntos de disponibilidad de Azure
+# <a name="azure-availability-sets-guidelines-for-linux-vms"></a>Directrices de conjuntos de disponibilidad de Azure para máquinas virtuales Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en describir los pasos de planeación necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
@@ -43,7 +45,9 @@ En Azure, las máquinas virtuales (VM) se pueden colocar en una agrupación lóg
 
 Como procedimiento recomendado, las aplicaciones no deben residir en una sola máquina virtual. Un conjunto de disponibilidad que contiene una sola máquina virtual no obtiene ninguna protección por parte de eventos planeados o no planeados dentro de la plataforma de Azure. El [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requiere dos o más máquinas virtuales dentro de un conjunto de disponibilidad para permitir la distribución de máquinas virtuales a través de la infraestructura subyacente.
 
-La infraestructura subyacente de Azure se divide en dominios de actualización y dominios de error. Estos dominios se definen teniendo en cuenta qué hosts compartirán un ciclo de actualización común o una infraestructura física similar como la energía y redes. Azure distribuirá automáticamente las máquinas virtuales dentro de un conjunto de disponibilidad en los dominios para mantener la disponibilidad y tolerancia a errores. Dependiendo del tamaño de la aplicación y el número de máquinas virtuales dentro de un conjunto de disponibilidad, puede ajustar el número de dominios que desea usar. Puede leer más sobre la [administración de la disponibilidad y el uso de los dominios de actualización y error](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+La infraestructura subyacente de Azure se divide en varios clústeres de hardware. Cada uno de ellos puede admitir una gran variedad de tamaños de máquina virtual. Un conjunto de disponibilidad solo se hospedada en un clúster de hardware único en cualquier momento. Por lo tanto, los tamaños de máquina virtual que puede haber en un único conjunto de disponibilidad se limita a los que admita el clúster de hardware. El clúster de hardware del conjunto de disponibilidad se selecciona cuando se implementa la primera máquina virtual en el conjunto de disponibilidad o al iniciar la primera máquina virtual en un conjunto de disponibilidad donde todas las máquinas virtuales tienen en ese momento el estado de detenido o desasignado. El siguiente comando de la CLI puede usarse para determinar los tamaños de máquina virtual disponibles para un conjunto de disponibilidad: "azure vm sizes --vm-name \<string\>".
+
+Cada clúster de hardware está dividido en varios dominios de actualización y de error. Estos dominios se definen teniendo en cuenta qué hosts compartirán un ciclo de actualización común o una infraestructura física similar como la energía y redes. Azure distribuirá automáticamente las máquinas virtuales dentro de un conjunto de disponibilidad en los dominios para mantener la disponibilidad y tolerancia a errores. Dependiendo del tamaño de la aplicación y el número de máquinas virtuales dentro de un conjunto de disponibilidad, puede ajustar el número de dominios que desea usar. Puede leer más sobre la [administración de la disponibilidad y el uso de los dominios de actualización y error](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Al diseñar la infraestructura de la aplicación, también debe planear los niveles de aplicación que usará. Agrupe las máquinas virtuales que prestan el mismo servicio a conjuntos de disponibilidad tales como un conjunto de disponibilidad para las máquinas virtuales de front-end que ejecutan nginx o Apache. Cree un conjunto de disponibilidad independiente para las máquinas virtuales de back-end que ejecutan MongoDB o MySQL. El objetivo es garantizar que un conjunto de disponibilidad proteja cada uno de los componentes de la aplicación y que la instancia siga ejecutándose al menos una vez.
 

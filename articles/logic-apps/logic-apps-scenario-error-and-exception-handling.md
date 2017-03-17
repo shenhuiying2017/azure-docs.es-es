@@ -1,6 +1,6 @@
 ---
-title: Registro y control de errores en Logic Apps | Microsoft Docs
-description: "Visualización de un caso de uso real del control y registro de errores avanzado con Logic Apps"
+title: 'Escenario de control de excepciones y registro de errores: Azure Logic Apps | Microsoft Docs'
+description: Describe un caso de uso real sobre control de excepciones y registro de errores avanzados para Azure Logic Apps
 keywords: 
 services: logic-apps
 author: hedidin
@@ -13,54 +13,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: fa65d18391aae1cc36f5e8ea54c195ed06b24c00
+ms.sourcegitcommit: 03467542669d9719d2634d20d4c0e7bba265ac6f
+ms.openlocfilehash: dff2c67f5e529d40d31e9bad1af00938ddf547b8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="logging-and-error-handling-in-logic-apps"></a>Registro y control de errores en Logic Apps
-En este artículo se describe cómo extender una aplicación lógica para un mejor control de excepciones. Este es un caso de uso real y constituye nuestra respuesta a la pregunta: ¿Admite Logic Apps control de excepciones y errores?
+# <a name="scenario-exception-handling-and-logging-errors-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
+
+En este escenario se describe cómo extender una aplicación lógica para controlar mejor las excepciones. Hemos usado un caso de uso real para responder a la pregunta: ¿Admite Azure Logic Apps control de excepciones y errores?
 
 > [!NOTE]
-> El esquema actual de Logic Apps proporciona una plantilla estándar para las respuestas de acción.
-> Esto incluye la validación interna y las respuestas de error devueltas desde una aplicación de API.
-> 
-> 
+> El esquema actual de Azure Logic Apps proporciona una plantilla estándar para las respuestas de acción. Esta incluye la validación interna y las respuestas de error devueltas desde una aplicación de API.
 
-## <a name="overview-of-the-use-case-and-scenario"></a>Información general sobre el caso de uso y el escenario
-La siguiente historia es un caso de uso para este artículo.
-Una conocida organización sanitaria nos contrató para que desarrolláramos una solución de Azure que crearía un portal para pacientes mediante Microsoft Dynamics CRM Online. Necesitaban enviar registros de citas entre el portal para pacientes de Dynamics CRM Online y Salesforce.  Se nos pidió que usáramos la norma [FHIR HL7](http://www.hl7.org/implement/standards/fhir/) para todos los registros de paciente.
+## <a name="scenario-and-use-case-overview"></a>Información general de escenarios y casos de uso
+
+Esta es la historia del caso de uso de este escenario: 
+
+Una conocida organización sanitaria nos contrató para que desarrolláramos una solución de Azure que crearía un portal para pacientes mediante Microsoft Dynamics CRM Online. Necesitaban enviar registros de citas entre el portal para pacientes de Dynamics CRM Online y Salesforce. Se nos pidió que usáramos la norma [FHIR HL7](http://www.hl7.org/implement/standards/fhir/) para todos los registros de paciente.
 
 El proyecto tenía dos requisitos principales:  
 
 * Un método para registrar las entradas enviadas desde el portal de Dynamics CRM Online
 * Una manera de ver todos los errores que se producían dentro del flujo de trabajo.
 
-## <a name="how-we-solved-the-problem"></a>¿Cómo resolvimos el problema?
 > [!TIP]
-> Puede ver un vídeo de alto nivel del proyecto en la página de [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
-> 
-> 
+> Para ver un vídeo de alto nivel sobre este proyecto, vea [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
 
-Elegimos [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") como repositorio para los registros y entradas de error (en DocumentDB se hace referencia a los registros como documentos). Puesto que Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
+## <a name="how-we-solved-the-problem"></a>¿Cómo resolvimos el problema?
 
-Otro requisito era que se purgaran los registros después de una determinada fecha. DocumentDB tiene una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. De esta manera se suprimía la necesidad de eliminar manualmente los registros en DocumentDB.
+Elegimos [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") como repositorio para los registros y entradas de error (en DocumentDB se hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
 
-### <a name="creation-of-the-logic-app"></a>Creación de la aplicación lógica
-El primer paso es crear una aplicación lógica y cargarla en el diseñador. En este ejemplo, vamos a usar aplicaciones lógicas primarias y secundarias. Supongamos que ya ha creado la primaria y va a crear una aplicación lógica secundaria.
-
-Puesto que vamos a registrar los registros procedentes de Dynamics CRM Online, vamos a comenzar por lo más importante. Debemos usar un desencadenador de solicitud, ya que la aplicación lógica primaria desencadenará la secundaria.
+Otro requisito era que se purgaran los registros después de una determinada fecha. DocumentDB presenta una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. Esta capacidad suprimía la necesidad de eliminar manualmente los registros en DocumentDB.
 
 > [!IMPORTANT]
-> Para completar este tutorial, deberá crear una base de datos de DocumentDB y dos colecciones (Registro y Errores).
-> 
-> 
+> Para completar este tutorial, debe crear una base de datos de DocumentDB y dos colecciones (Registro y Errores).
+
+## <a name="create-the-logic-app"></a>Creación de la aplicación lógica
+
+El primer paso es crear una aplicación lógica y cargarla en Diseñador de aplicación lógica. En este ejemplo, vamos a usar aplicaciones lógicas primarias y secundarias. Supongamos que ya ha creado la primaria y va a crear una aplicación lógica secundaria.
+
+Puesto que vamos a registrar los registros procedentes de Dynamics CRM Online, vamos a comenzar por lo más importante. Debemos usar un desencadenador de **solicitud**, ya que la aplicación lógica primaria desencadenará la secundaria.
 
 ### <a name="logic-app-trigger"></a>Desencadenador de aplicación lógica
-Vamos a usar un desencadenador de solicitud tal como se muestra en el ejemplo siguiente.
+
+Vamos a usar un desencadenador de **solicitud** tal como se muestra en el ejemplo siguiente:
 
 ```` json
 "triggers": {
@@ -98,33 +99,40 @@ Vamos a usar un desencadenador de solicitud tal como se muestra en el ejemplo si
 ````
 
 
-### <a name="steps"></a>Pasos
+## <a name="steps"></a>Pasos
+
 Es necesario registrar el origen (solicitud) del registro del paciente desde el portal de Dynamics CRM Online.
 
 1. Debemos obtener un registro de nueva cita de Dynamics CRM Online.
-    El desencadenador procedente de CRM nos proporciona los valores de **CRM PatentId**, **record type**, **New or Updated Record** (valor booleano nuevo o actualizado) y **SalesforceId**. El valor de **SalesforceId** puede ser null porque solo se utiliza para obtener una actualización.
-    Se obtendrá el registro de CRM mediante los valores de **PatientID** y **Record Type** de CRM.
-2. A continuación, es necesario agregar a nuestra aplicación de API de DocumentDB la operación **InsertLogEntry** , tal y como se muestra en las ilustraciones siguientes:
 
-#### <a name="insert-log-entry-designer-view"></a>Vista de diseñador para insertar entrada de registro
+    El desencadenador procedente de CRM nos proporciona los valores de **CRM PatentId**,  **record type**, **New or Updated Record** (valor booleano nuevo o actualizado) y **SalesforceId**. El valor de **SalesforceId** puede ser null porque solo se utiliza para obtener una actualización.
+    Obtenemos el registro de CRM mediante los valores de **PatientID** y **Tipo de registro** de CRM.
+
+2. A continuación, es necesario agregar a nuestra aplicación de API de DocumentDB la operación **InsertLogEntry**, tal y como se muestra aquí.
+
+### <a name="insert-log-entry-designer-view"></a>Vista de diseñador para insertar entrada de registro
+
 ![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-#### <a name="insert-error-entry-designer-view"></a>Vista de diseñador para insertar entrada de error
+### <a name="insert-error-entry-designer-view"></a>Vista de diseñador para insertar entrada de error
+
 ![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### <a name="check-for-create-record-failure"></a>Comprobación de errores en la creación de registro
+### <a name="check-for-create-record-failure"></a>Comprobación de errores en la creación de registro
+
 ![Condición](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código fuente de la aplicación lógica
+
 > [!NOTE]
-> Los siguientes son solo ejemplos. Como este tutorial se basa en una implementación actualmente en producción, es posible que el valor de un **nodo de origen** no muestre las propiedades que están relacionadas con la programación de una cita.
-> 
-> 
+> Los siguientes ejemplos son solo muestras. Como este tutorial se basa en una implementación actualmente en producción, es posible que el valor de un **nodo de origen** no muestre las propiedades que están relacionadas con la programación de una cita.> 
 
 ### <a name="logging"></a>Registro
+
 El siguiente ejemplo de código de aplicación lógica muestra cómo controlar el registro.
 
 #### <a name="log-entry"></a>Entrada de registro
+
 Este es el código fuente de la aplicación lógica para insertar una entrada de registro.
 
 ``` json
@@ -152,6 +160,7 @@ Este es el código fuente de la aplicación lógica para insertar una entrada de
 ```
 
 #### <a name="log-request"></a>Solicitud de registro
+
 Este es el mensaje de solicitud de registro publicado en la aplicación de API.
 
 ``` json
@@ -171,6 +180,7 @@ Este es el mensaje de solicitud de registro publicado en la aplicación de API.
 
 
 #### <a name="log-response"></a>Respuesta de registro
+
 Este es el mensaje de respuesta de registro desde la aplicación de API.
 
 ``` json
@@ -208,10 +218,12 @@ Este es el mensaje de respuesta de registro desde la aplicación de API.
 Ahora veamos los pasos de control de errores:
 
 ### <a name="error-handling"></a>Control de errores
-El siguiente ejemplo de código de Logic Apps muestra cómo puede implementar el control de errores.
+
+El siguiente ejemplo de código de aplicación lógica muestra cómo puede implementar el control de errores.
 
 #### <a name="create-error-record"></a>Creación de un registro de errores
-Este es el código fuente de Logic Apps para crear un registro de errores.
+
+Este es el código fuente de la aplicación lógica para crear un registro de errores.
 
 ``` json
 "actions": {
@@ -247,6 +259,7 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
 ```
 
 #### <a name="insert-error-into-documentdb--request"></a>Insertar error en DocumentDB: solicitud
+
 ``` json
 
 {
@@ -269,6 +282,7 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
 ```
 
 #### <a name="insert-error-into-documentdb--response"></a>Insertar error en DocumentDB: respuesta
+
 ``` json
 {
     "statusCode": 200,
@@ -307,6 +321,7 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
 ```
 
 #### <a name="salesforce-error-response"></a>Respuesta de error de Salesforce
+
 ``` json
 {
     "statusCode": 400,
@@ -334,10 +349,12 @@ Este es el código fuente de Logic Apps para crear un registro de errores.
 
 ```
 
-### <a name="returning-the-response-back-to-the-parent-logic-app"></a>Devolución de la respuesta a la aplicación lógica primaria
-Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
+### <a name="return-the-response-back-to-parent-logic-app"></a>Devolución de la respuesta a la aplicación lógica primaria
 
-#### <a name="return-success-response-to-the-parent-logic-app"></a>Devolución de respuesta satisfactoria a la aplicación lógica primaria
+Una vez que obtiene la respuesta, puede pasarla a la aplicación lógica primaria.
+
+#### <a name="return-success-response-to-parent-logic-app"></a>Devolución de respuesta satisfactoria a la aplicación lógica primaria
+
 ``` json
 "SuccessResponse": {
     "runAfter":
@@ -358,7 +375,8 @@ Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
 }
 ```
 
-#### <a name="return-error-response-to-the-parent-logic-app"></a>Devolución de respuesta de error a la aplicación lógica primaria
+#### <a name="return-error-response-to-parent-logic-app"></a>Devolución de respuesta de error a la aplicación lógica primaria
+
 ``` json
 "ErrorResponse": {
     "runAfter":
@@ -382,18 +400,17 @@ Una vez que tiene la respuesta, puede pasarla a la aplicación lógica primaria.
 
 
 ## <a name="documentdb-repository-and-portal"></a>Portal y repositorio de DocumentDB
-Nuestra solución agregó funcionalidades adicionales con [DocumentDB](https://azure.microsoft.com/services/documentdb).
+
+Nuestra solución agregó funcionalidades con [DocumentDB](https://azure.microsoft.com/services/documentdb).
 
 ### <a name="error-management-portal"></a>Portal de administración de errores
+
 Para ver los errores, puede crear una aplicación web de MVC que muestre los registros de error de DocumentDB. En la versión actual, se incluyen las operaciones de **lista**, **detalles**, **edición** y **eliminación**.
 
 > [!NOTE]
-> Operación de edición: DocumentDB realiza un reemplazo de todo el documento.
-> Los registros que se muestran en las vistas de **lista** y **detalles** son solo ejemplos. No son registros reales de citas de pacientes.
-> 
-> 
+> Operación de edición: DocumentDB reemplaza todo el documento. Los registros que se muestran en las vistas de **lista** y **detalles** son solo ejemplos. No son registros reales de citas de pacientes.
 
-Los siguientes son ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
+Aquí puede ver ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
 
 #### <a name="error-management-list"></a>Lista de administración de errores
 ![Lista de errores](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
@@ -402,14 +419,17 @@ Los siguientes son ejemplos de nuestros detalles de la aplicación de MVC creado
 ![Detalles del error](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)
 
 ### <a name="log-management-portal"></a>Portal de administración de registros
-Para ver los registros, también creamos una aplicación web de MVC.  Los siguientes son ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
+
+Para ver los registros, también creamos una aplicación web de MVC. Aquí puede ver ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
 
 #### <a name="sample-log-detail-view"></a>Vista de detalles del registro de ejemplo
 ![Vista de detalles del registro](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
 
 ### <a name="api-app-details"></a>Detalles de la aplicación de API
+
 #### <a name="logic-apps-exception-management-api"></a>API de administración de excepciones de Logic Apps
-Nuestra aplicación de API de administración de excepciones de Logic Apps de código abierto proporciona la siguiente funcionalidad.
+
+Nuestra aplicación de API de administración de excepciones de Azure Logic Apps de código abierto proporciona la siguiente funcionalidad.
 
 Hay dos controladores
 
@@ -417,11 +437,10 @@ Hay dos controladores
 * **LogController** inserta una entrada de registro (documento) en una colección de DocumentDB.
 
 > [!TIP]
-> Ambos controladores usan operaciones `async Task<dynamic>`. Esto permite que las operaciones se resuelvan en tiempo de ejecución, por lo que podemos crear el esquema de DocumentDB en el cuerpo de la operación.
-> 
+> Ambos controladores usan operaciones `async Task<dynamic>`, que permiten que las operaciones se resuelvan en tiempo de ejecución, por lo que podemos crear el esquema de DocumentDB en el cuerpo de la operación. 
 > 
 
-Todos los documentos de DocumentDB deben tener un identificador único. Vamos a utilizar `PatientId` y a agregar una marca de tiempo que se convertirá en un valor de marca de tiempo de Unix (doble). Se trunca para quitar el valor fraccionario.
+Todos los documentos de DocumentDB deben tener un identificador único. Vamos a utilizar `PatientId` y a agregar una marca de tiempo que se convertirá en un valor de marca de tiempo de Unix (doble). Se trunca el valor para quitar el valor fraccionario.
 
 El código fuente de la API de nuestro controlador de error se puede ver [desde GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -461,21 +480,17 @@ Llamamos a la API desde una aplicación lógica mediante la sintaxis siguiente:
 La expresión del ejemplo de código anterior buscará el estado **Error** para *Create_NewPatientRecord*.
 
 ## <a name="summary"></a>Resumen
+
 * Puede implementar fácilmente el registro y control de errores en una aplicación lógica.
 * Puede usar DocumentDB como repositorio para entradas de registro y registros de error (documentos).
 * Puede usar MVC para crear un portal que muestre las entradas de registro y los registros de error.
 
 ### <a name="source-code"></a>Código fuente
+
 El código fuente de la aplicación de API de administración de excepciones de Logic Apps está disponible en este [repositorio de GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de administración de excepciones de Logic Apps").
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más ejemplos y escenarios de Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Más información acerca de las herramientas de supervisión de Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Creación de una plantilla de implementación automatizada de Logic Apps](../logic-apps/logic-apps-create-deploy-template.md)
 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+* [Ver más ejemplos y escenarios de aplicaciones Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Obtener más información sobre supervisión de Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Creación de plantillas de implementación automatizadas de Logic Apps](../logic-apps/logic-apps-create-deploy-template.md)
