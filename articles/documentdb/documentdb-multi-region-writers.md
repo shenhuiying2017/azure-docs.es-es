@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 788a1b9ef6a470c8f696228fd8fe51052c4f7007
-ms.openlocfilehash: 15c5a8be1097253e88af3a9f36b9067f0e2fbba3
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d6292567bbf7afd71b21be3b236537c609c63644
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="multi-master-database-architectures-with-azure-documentdb"></a>Arquitecturas de bases de datos con varios maestros con Azure DocumentDB
+# <a name="multi-master-globally-replicated-database-architectures-with-documentdb"></a>Arquitecturas de bases de datos de replicación global con varios maestros con DocumentDB
 DocumentDB admite la [replicación global](documentdb-distribute-data-globally.md) inmediata, que permite distribuir datos en varias regiones con un acceso de baja latencia en cualquier parte de la carga de trabajo. Este modelo se utiliza normalmente para las cargas de trabajo del publicador o el consumidor cuando hay un redactor en una única región geográfica y lectores distribuidos globalmente en otras regiones (lectura). 
 
 También puede utilizar la compatibilidad con la replicación global de DocumentDB para crear aplicaciones en las que los lectores y redactores están distribuidos globalmente. En este documento se describe un patrón que permite lograr un acceso de lectura y escritura local para redactores distribuidos con Azure DocumentDB.
 
-## <a name="a-idexamplescenarioacontent-publishing---an-example-scenario"></a><a id="ExampleScenario"></a>Publicación de contenido: un escenario de ejemplo
+## <a id="ExampleScenario"></a>Publicación de contenido: un escenario de ejemplo
 Echemos un vistazo a un escenario real para describir cómo puede usar patrones de lectura y escritura de varios maestros y varias regiones distribuidos globalmente con DocumentDB. Considere la posibilidad de una plataforma de publicación de contenido basada en DocumentDB. Estos son algunos requisitos que debe cumplir esta plataforma para una experiencia del usuario excelente para publicadores y consumidores.
 
 * Los autores y los suscriptores se distribuyen en todo el mundo 
@@ -39,7 +41,7 @@ Si damos por supuesto millones de consumidores y publicadores con miles de millo
 
 Si desea aprender más sobre la creación de particiones y las claves de partición, consulte [Partición y escalado en Azure DocumentDB](documentdb-partition-data.md).
 
-## <a name="a-idmodelingnotificationsamodeling-notifications"></a><a id="ModelingNotifications"></a>Modelado de notificaciones
+## <a id="ModelingNotifications"></a>Modelado de notificaciones
 Las notificaciones son fuentes de datos específicos de un usuario. Por lo tanto, los patrones de acceso para los documentos de notificaciones están siempre en el contexto de un único usuario. Por ejemplo, podría enviar una notificación a un usuario o capturar todas las notificaciones para un determinado usuario. Por lo tanto, la opción óptima de clave de creación de particiones para este tipo sería `UserId`.
 
     class Notification 
@@ -66,7 +68,7 @@ Las notificaciones son fuentes de datos específicos de un usuario. Por lo tanto
         public string ArticleId { get; set; } 
     }
 
-## <a name="a-idmodelingsubscriptionsamodeling-subscriptions"></a><a id="ModelingSubscriptions"></a>Modelado de suscripciones
+## <a id="ModelingSubscriptions"></a>Modelado de suscripciones
 Las suscripciones se pueden crear para diversos criterios, como una categoría específica de artículos de interés o un publicador específico. Por lo tanto, `SubscriptionFilter` es una buena elección para la clave de partición.
 
     class Subscriptions 
@@ -89,7 +91,7 @@ Las suscripciones se pueden crear para diversos criterios, como una categoría e
         } 
     }
 
-## <a name="a-idmodelingarticlesamodeling-articles"></a><a id="ModelingArticles"></a>Modelado de artículos
+## <a id="ModelingArticles"></a>Modelado de artículos
 Una vez que se identifica un artículo mediante las notificaciones, las consultas posteriores se basan normalmente en `ArticleId`. Por tanto, elegir `ArticleID` como clave de partición proporciona la mejor distribución para almacenar artículos dentro de una colección de DocumentDB. 
 
     class Article 
@@ -118,7 +120,7 @@ Una vez que se identifica un artículo mediante las notificaciones, las consulta
         //... 
     }
 
-## <a name="a-idmodelingreviewsamodeling-reviews"></a><a id="ModelingReviews"></a>Modelado de revisiones
+## <a id="ModelingReviews"></a>Modelado de revisiones
 Al igual que los artículos, las revisiones suelen escribirse y leerse en el contexto del artículo. Elegir `ArticleId` como clave de partición proporciona la mejor distribución y un acceso eficaz a las revisiones asociadas al artículo. 
 
     class Review 
@@ -144,7 +146,7 @@ Al igual que los artículos, las revisiones suelen escribirse y leerse en el con
         public int Rating { get; set; } }
     }
 
-## <a name="a-iddataaccessmethodsadata-access-layer-methods"></a><a id="DataAccessMethods"></a>Métodos de nivel de acceso a datos
+## <a id="DataAccessMethods"></a>Métodos de nivel de acceso a datos
 Ahora echaremos un vistazo a los principales métodos de acceso a datos que es necesario para implementar. Esta es la lista de métodos que `ContentPublishDatabase` necesita:
 
     class ContentPublishDatabase 
@@ -160,7 +162,7 @@ Ahora echaremos un vistazo a los principales métodos de acceso a datos que es n
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a name="a-idarchitectureadocumentdb-account-configuration"></a><a id="Architecture"></a>Configuración de la cuenta de DocumentDB
+## <a id="Architecture"></a>Configuración de la cuenta de DocumentDB
 Para garantizar lecturas y escrituras locales, debemos crear particiones para los datos basadas no solo en la clave de partición, sino también en el patrón de acceso geográfico en regiones. El modelo se basa en tener una cuenta de base de datos de Azure DocumentDB georeplicada para cada región. Por ejemplo, con dos regiones, a continuación se muestra una configuración para operaciones de escritura en varias regiones:
 
 | Nombre de cuenta | Región de escritura | Región de lectura |
@@ -200,7 +202,7 @@ Con la configuración anterior, el nivel de acceso a datos puede reenviar todas 
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
-## <a name="a-iddataaccessimplementationadata-access-layer-implementation"></a><a id="DataAccessImplementation"></a>Implementación del nivel de acceso a datos
+## <a id="DataAccessImplementation"></a>Implementación del nivel de acceso a datos
 Ahora echaremos un vistazo a la implementación del nivel de acceso a datos (DAL) para una aplicación con dos regiones de escritura. El nivel de acceso a datos debe implementar los siguientes pasos:
 
 * Crear varias instancias de `DocumentClient` para cada cuenta. Con dos regiones, cada instancia del nivel DAL tiene elementos `writeClient` y `readClient`. 
@@ -309,15 +311,10 @@ Para leer las notificaciones y las revisiones, debe leer de ambas regiones y uni
 
 Por lo tanto, al elegir una buena clave de creación de particiones y una creación de particiones estática basada en cuentas, puede lograr que las lecturas y escrituras locales en varias regiones utilicen Azure DocumentDB.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Pasos siguientes
+## <a id="NextSteps"></a>Pasos siguientes
 En este artículo se describe cómo puede usar los patrones de lectura y escritura en varias regiones distribuidos globalmente con DocumentDB y utilizar la publicación de contenido como un escenario de ejemplo.
 
 * Más información sobre cómo DocumentDB es compatible con la [distribución global](documentdb-distribute-data-globally.md)
 * Más información sobre las [conmutaciones por error manuales y automáticas en Azure DocumentDB](documentdb-regional-failovers.md)
 * Más información sobre la [coherencia global con DocumentDB](documentdb-consistency-levels.md)
 * Desarrollo con varias regiones, con el [SDK de Azure DocumentDB](documentdb-developing-with-multiple-regions.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

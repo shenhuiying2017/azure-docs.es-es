@@ -12,11 +12,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 44c2c181b1ca463c5d2bd92b77e4b92604964ba2
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0bbbc4f61c37fe4d296221c372bfdf6dd429a32b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,11 +31,12 @@ Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los m
 Al realizar estos pasos de actualización en orden se asegura de que las versiones anteriores de la biblioteca de cliente ya no está presentes en el entorno cuando se actualizan los objetos de metadatos, lo que significa que no se crearán objetos de metadatos de la antigua versión después de la actualización.   
 
 ## <a name="upgrade-steps"></a>Pasos de actualización
-**1. Actualice sus aplicaciones.**  En Visual Studio, descargue y haga referencia a la versión más reciente de la biblioteca de clientes en todos los proyectos de desarrollo que usan la biblioteca; a continuación, vuelva a compilar e implementar. 
+**1. Actualice sus aplicaciones.** En Visual Studio, descargue y haga referencia a la versión más reciente de la biblioteca de clientes en todos los proyectos de desarrollo que usan la biblioteca; a continuación, vuelva a compilar e implementar. 
 
 * En la solución de Visual Studio, seleccione **Herramientas** --> **Administrador de paquetes NuGet** -->  **Administrar paquetes NuGet para la solución**. 
 * (Visual Studio 2013) En el panel izquierdo, seleccione **Actualizaciones** y, a continuación, seleccione el botón **Actualizar** en el paquete **Azure SQL Database Elastic Scale Client Library** (Biblioteca de clientes de escala elástica de Azure SQL Database) que aparece en la ventana.
 * (Visual Studio 2015) Establezca el cuadro de filtro en **Actualización disponible**. Seleccione el paquete que quiera actualizar y haga clic en el botón **Actualizar** .
+* (Visual Studio 2017) En la parte superior del cuadro de diálogo, seleccione **Actualizaciones**. Seleccione el paquete que quiera actualizar y haga clic en el botón **Actualizar** .
 * Genere e implemente. 
 
 **2. Actualice los scripts.** Si está utilizando scripts de **PowerShell** para administrar particiones, [descargue la nueva versión de la biblioteca](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) y cópiela en el directorio desde el que ejecuta los scripts. 
@@ -77,10 +79,5 @@ Para el historial de versiones: vaya a [Microsoft.Azure.SqlDatabase.ElasticScale
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

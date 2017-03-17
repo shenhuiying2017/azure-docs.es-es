@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/07/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
-ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 930b3da630b88eecdec56e86d621daee53070257
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ El modelo de seguridad de Azure Event Hubs cumple los siguientes requisitos:
 * Un dispositivo no autorizado puede bloquearse para que no envíe datos a un Centro de eventos.
 
 ## <a name="device-authentication"></a>Autenticación de dispositivos
-El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
+El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
 
 Normalmente, un Centro de eventos emplea a un publicador por dispositivo. Todos los mensajes que se envíen a cualquiera de los publicadores de un Centro de eventos se ponen en cola dentro de ese Centro de eventos. Los publicadores permiten control de acceso y limitación avanzados.
 
@@ -102,17 +103,12 @@ En ausencia de autenticación SAS para grupos de consumidores individuales, pued
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Centros de eventos, visite los siguientes temas:
 
-* [Información general de los Centros de eventos]
-* [Información general de SAS]
-* Una [aplicación de ejemplo completa que usa Event Hubs]
+* [Información general de Event Hubs]
+* [Información general sobre las firmas de acceso compartido]
+* [Aplicaciones de ejemplo que usan Event Hubs]
 
-[Información general de los Centros de eventos]: event-hubs-overview.md
-[aplicación de ejemplo completa que usa Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Información general de SAS]: ../service-bus-messaging/service-bus-sas-overview.md
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+[Información general de Event Hubs]: event-hubs-what-is-event-hubs.md
+[Aplicaciones de ejemplo que usan Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Información general sobre las firmas de acceso compartido]: ../service-bus-messaging/service-bus-sas.md
 
 

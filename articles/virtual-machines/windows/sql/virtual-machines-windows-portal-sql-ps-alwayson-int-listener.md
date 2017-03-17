@@ -1,5 +1,5 @@
 ---
-title: "Configuración de agentes de escucha de grupo de disponibilidad AlwaysOn – Microsoft Azure"
+title: 'Configurar agentes de escucha de grupo de disponibilidad AlwaysOn: Microsoft Azure | Microsoft Docs'
 description: Configure agentes de escucha de grupo de disponibilidad en el modelo de Azure Resource Manager mediante un equilibrador de carga interno con una o varias direcciones IP.
 services: virtual-machines
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 12/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: dd6eb530f715d98c39ab8730ee33922887d5f9cc
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1430807db46326779866f57bca3982e5f9448951
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -98,7 +99,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="a-nameadd-ipa-example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> Script de ejemplo: agregar una dirección IP a un equilibrador de carga existente con PowerShell
+## <a name="Add-IP"></a> Script de ejemplo: agregar una dirección IP a un equilibrador de carga existente con PowerShell
 Para utilizar más de un grupo de disponibilidad, agregue una dirección IP adicional al equilibrador de carga. Cada dirección IP requiere su regla de equilibrio de carga, puerto de sondeo y puerto de front-end propios.
 
 El puerto de front-end es el que las aplicaciones usan para conectarse a la instancia de SQL Server. Las direcciones IP para los diferentes grupos de disponibilidad pueden usar el mismo puerto de front-end.
@@ -300,9 +301,4 @@ Use los siguientes cmdlets de PowerShell para crear un equilibrador de carga int
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) crea una configuración de grupo de direcciones de back-end para un equilibrador de carga. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) crea una configuración de sondeo para un equilibrador de carga.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) quita un equilibrador de carga de un grupo de recursos de Azure.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

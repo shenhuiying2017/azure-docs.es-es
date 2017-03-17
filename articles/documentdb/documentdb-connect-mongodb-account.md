@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
-ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,18 +36,18 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 - Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
 - Una cuenta de DocumentDB. Para obtener instrucciones, consulte [Creación de una cuenta de DocumentDB con soporte de protocolo para MongoDB mediante Azure Portal](documentdb-create-mongodb-account.md).
 
-## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>Obtención de la cadena de conexión de MongoDB utilizando el menú de inicio rápido
+## <a id="QuickStartConnection"></a>Obtención de la cadena de conexión de MongoDB utilizando el menú de inicio rápido
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la hoja **NoSQL (DocumentDB)**, seleccione la cuenta de DocumentDB con compatibilidad de protocolo para MongoDB. 
+2. En la hoja **NoSQL (DocumentDB)**, seleccione la cuenta de DocumentDB: API para MongoDB. 
 3. En la barra de **navegación izquierda** de la hoja de la cuenta, haga clic en **Inicio rápido**. 
 4. Elija la plataforma (*controlador .NET*, *controlador Node.js*, *MongoDB Shell*, *controlador Java*, *controlador Python*). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver y leer sobre [obtener información de la cadena de conexión de la cuenta](#GetCustomConnection) para aprender a crear su propia conexión.
 5. Copie y pegue el fragmento de código en la aplicación de MongoDB y ya estará listo para empezar.
 
     ![Captura de pantalla de la hoja de inicio rápido](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
 
-## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> Obtención de la cadena de conexión de MongoDB para personalizar
+## <a id="GetCustomConnection"></a> Obtención de la cadena de conexión de MongoDB para personalizar
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la hoja **NoSQL (DocumentDB)**, seleccione la cuenta de DocumentDB con compatibilidad de protocolo para MongoDB. 
+2. En la hoja **NoSQL (DocumentDB)**, seleccione la cuenta de DocumentDB: API para MongoDB. 
 3. En la barra de **navegación izquierda** de la hoja de la cuenta, haga clic en **Cadena de conexión**. 
 4. Se abre la hoja **Información de cadena de conexión** con toda la información necesaria para conectarse a la cuenta con un controlador para MongoDB, incluida una cadena de conexión precreada.
 
@@ -82,6 +82,6 @@ Por ejemplo, considere la cuenta que aparece en la hoja Información de cadena d
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB con compatibilidad de protocolo con MongoDB.
-* Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md)de MongoDB.
+* Obtenga información sobre cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB: API para MongoDB.
+* Explore [ejemplos](documentdb-mongodb-samples.md) de DocumentDB: API para MongoDB.
 

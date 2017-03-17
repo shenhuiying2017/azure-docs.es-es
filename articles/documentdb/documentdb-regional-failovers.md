@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
-ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="regional-failovers-in-azure-documentdb"></a>Conmutaciones por error regionales de Azure DocumentDB
+# <a name="automatic-regional-failovers-for-business-continuity-in-documentdb"></a>Conmutaciones por error regionales automáticas para la continuidad empresarial en DocumentDB
 Azure DocumentDB simplifica la distribución global de datos gracias a que ofrece [cuentas de base de datos de varias regiones](documentdb-distribute-data-globally.md) completamente administradas que proporcionan un claro equilibrio entre coherencia, disponibilidad y rendimiento, todo ello con sus garantías correspondientes. Las cuentas de DocumentDB ofrecen alta disponibilidad, latencias de ms de un solo dígito, varios [niveles de coherencia bien definidos](documentdb-consistency-levels.md), conmutación por error regional transparente con API de hospedaje múltiple, y la posibilidad de escalar elásticamente el rendimiento y el almacenamiento en todo el mundo. 
 
 Azure DocumentDB admite tanto las conmutaciones por error definidas por directivas como explícitas que le permiten controlar todo el comportamiento del sistema en caso de errores. En este artículo, nos centramos en los siguientes temas:
@@ -33,7 +35,7 @@ También obtendrá más información sobre las conmutaciones por error en este v
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Configuración de aplicaciones de varias regiones
+## <a id="ConfigureMultiRegionApplications"></a>Configuración de aplicaciones de varias regiones
 Antes de profundizar en los modos de conmutación por error, veremos cómo puede configurar una aplicación para que aproveche las ventajas que ofrece la disponibilidad de varias regiones y para que sea resistente en caso de una conmutación por error regional.
 
 * En primer lugar, implemente su aplicación en varias regiones.
@@ -69,7 +71,7 @@ El siguiente diagrama de arquitectura muestra una implementación de aplicación
 
 Ahora, veamos cómo el servicio DocumentDB administra los errores regionales mediante conmutaciones por error automáticas. 
 
-## <a name="a-idautomaticfailoversaautomatic-failovers"></a><a id="AutomaticFailovers"></a>Conmutaciones por error automáticas
+## <a id="AutomaticFailovers"></a>Conmutaciones por error automáticas
 En el caso excepcional de una interrupción regional de Azure, DocumentDB desencadena automáticamente la conmutación por error de todas las cuentas de DocumentDB presentes en la región afectada. 
 
 **¿Qué ocurre si una región de lectura sufre una interrupción?**
@@ -96,7 +98,7 @@ Una vez que la región afectada se recupera de la interrupción, el servicio rec
 * Puede consultar esta región para calcular todas las escrituras no replicadas durante la interrupción realizando una comparación de los datos disponibles en la actual región de escritura. En función de las necesidades de su aplicación, puede realizar una combinación o resolución de conflictos y escribir el conjunto final de cambios en la región de escritura actual. 
 * Una vez que haya terminado de combinar los cambios, vuelva a poner la región afectada en línea quitando la región de la cuenta de DocumentDB y volviéndola a agregar. Cuando la región se haya agregado, puede configurarla de nuevo como región de escritura mediante una conmutación por error manual a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
-## <a name="a-idmanualfailoversamanual-failovers"></a><a id="ManualFailovers"></a> Conmutaciones por error manuales
+## <a id="ManualFailovers"></a> Conmutaciones por error manuales
 
 Además de la conmutación por error automática, puede cambiar de forma dinámica y manual la región de escritura actual de una cuenta de DocumentDB a una de las regiones de lectura existentes. Las conmutaciones por error manuales se pueden iniciar a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
@@ -114,15 +116,10 @@ Algunos de los escenarios comunes en los que la conmutación por error manual pu
 
 En este artículo, hemos revisado cómo funcionan las conmutaciones por error manuales y automáticas en Azure DocumentDB, y cómo puede configurar sus aplicaciones y cuentas de DocumentDB para que estén disponibles globalmente. Utilice la compatibilidad con replicación global de Azure DocumentDB para mejorar la latencia de extremo a extremo y asegurarse de que estén altamente disponibles incluso en caso de errores de región. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Pasos siguientes
+## <a id="NextSteps"></a>Pasos siguientes
 * Obtenga información sobre cómo DocumentDB es compatible con la [distribución global](documentdb-distribute-data-globally.md).
 * Conozca más sobre la [coherencia global con DocumentDB](documentdb-consistency-levels.md).
 * Desarrolle con varias regiones, con el [SDK de Azure DocumentDB](documentdb-developing-with-multiple-regions.md).
 * Obtenga información acerca de cómo crear [arquitecturas de sistema de escritura de varias regiones](documentdb-multi-region-writers.md) con Azure DocumentDB.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

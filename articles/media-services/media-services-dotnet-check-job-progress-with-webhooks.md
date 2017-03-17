@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a13850cf09424f7e4402204d97d1f6755d691550
-ms.openlocfilehash: 0d3f6dc80141d26cace60f177b35d527fd294261
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,8 +30,8 @@ Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 o superior
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
+* .NET Framework 4.0 o superior.
+* Visual Studio.
 * Información sobre [cómo usar las funciones de Azure](../azure-functions/functions-overview.md). Revise también [Enlaces HTTP y webhook en funciones de Azure](../azure-functions/functions-bindings-http-webhook.md).
 
 En este tema se muestra cómo llevar a cabo dos tareas:
@@ -46,7 +46,7 @@ En este tema se muestra cómo llevar a cabo dos tareas:
     
 * Agregue un webhook a la tarea de codificación y especifique la dirección URL del webhook y la clave secreta a la que este webhook responde. En el ejemplo que se muestra a continuación, el código que crea la tarea de codificación es una aplicación de consola.
 
-## <a name="getting-webhook-notifications"></a>Obtener notificaciones de webhook
+## <a name="setting-up-webhook-notification-azure-functions"></a>Configuración de funciones de Azure de "notificación de webhook"
 
 El código de esta sección muestra una implementación de una función de Azure que es un webhook. En este ejemplo, la función escucha la devolución de llamada al webhook desde las notificaciones de Media Services y publica el recurso de salida cuando el trabajo ha finalizado.
 
@@ -56,7 +56,20 @@ En el código siguiente, el método **VerifyWebHookRequestSignature** realiza la
 
 Puede encontrar la definición de la siguiente función de Azure Media Services con .NET [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
-La lista de código siguiente muestra las definiciones de tres archivos que están asociados a la función de Azure: function.json, project.json y run.csx.
+La lista de código siguiente muestra las definiciones de los parámetros de función de Azure y tres archivos que están asociados a la función de Azure: function.json, project.json y run.csx.
+
+### <a name="application-settings"></a>Configuración de la aplicación 
+
+En la tabla siguiente se muestran los parámetros que usa la función de Azure definida en esta sección. 
+
+|Nombre|Definición|Ejemplo| 
+|---|---|---|
+|AMSAccount|El nombre de la cuenta de AMS. |juliakomediaservices|
+|AMSKey |La clave de la cuenta de AMS. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |Un nombre de la cuenta de almacenamiento que está asociada a la cuenta de AMS.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Una clave de la cuenta de almacenamiento que está asociada a la cuenta de AMS.|
+|SigningKey |Una clave de firma.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | Una dirección de punto de conexión webhook. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>function.json
 
@@ -410,7 +423,6 @@ En esta sección, se muestra el código que agrega una notificación de webhook 
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.None);
-
 
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(newAsset);

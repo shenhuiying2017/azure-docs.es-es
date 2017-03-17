@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
-ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 39b0b15dba098c0ddc59e39a81bfb6809f8cb2eb
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,6 +39,7 @@ Este tema constituye la principal referencia de las funcionalidades relacionadas
 | [Incorporación de un nuevo servidor de AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Expansión de la granja de servidores de AD FS con servidores de AD FS adicionales posteriores a la instalación inicial |
 | [Incorporación de un nuevo servidor WAP de AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Expansión de la granja de servidores de AD FS con servidores de WAP adicionales posteriores a la instalación inicial |
 | [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#addfeddomain) |Incorporación de otro dominio para la federación con Azure AD |
+| [Actualizar el certificado SSL](active-directory-aadconnectfed-ssl-update.md)| Actualizar el certificado SSL para una granja de Servicios de federación de Active Directory (AD FS)|
 | **Tareas posteriores a la instalación** | |
 | [Incorporación de un logotipo de la compañía personalizado o una ilustración](active-directory-aadconnect-federation-management.md#customlogo) |Modificación de la experiencia de inicio de sesión especificando el logotipo personalizado que se mostrará en la página de inicio de sesión de AD FS |
 | [Incorporación de la descripción de inicio de sesión](active-directory-aadconnect-federation-management.md#addsignindescription) |Cambio de la descripción de inicio de sesión en la página de inicio de sesión de AD FS |

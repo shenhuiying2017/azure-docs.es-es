@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
-ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -193,7 +194,7 @@ Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de u
 4. El atributo userPrincipalName de Bob no se actualiza, por lo que se produce un error de sincronización de "DataValidationFailed".
 
 #### <a name="how-to-fix"></a>Solución
-Si se ha actualizado el sufijo de UserPrincipalName de un usuario de bob@**contoso.com** a bob@**fabrikam.com**, donde tanto **contoso.com** como **fabrikam.com** son **dominios federados**, a continuación, siga estos pasos para corregir el error de sincronización
+Si se actualizó el sufijo de UserPrincipalName de un usuario de bob@**contoso.com** a bob@**fabrikam.com**, donde tanto **contoso.com** como **fabrikam.com** son **dominios federados**, siga estos pasos para corregir el error de sincronización
 
 1. Actualice el valor UserPrincipalName del usuario en Azure AD de bob@contoso.com a bob@contoso.onmicrosoft.com. Puede usar el siguiente comando de PowerShell con el módulo de Azure AD PowerShell:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Deje que se intente realizar la sincronización en el ciclo siguiente. Esta vez la sincronización se realizará correctamente y se actualizará el valor de UserPrincipalName de Bob a bob@fabrikam.com, como cabría esperar.
@@ -206,13 +207,15 @@ Si se ha actualizado el sufijo de UserPrincipalName de un usuario de bob@**conto
 Cuando un atributo supera los límites de tamaño, longitud o recuento establecidos por el esquema de Azure Active Directory, la operación de sincronización provoca que aparezcan los errores de sincronización **LargeObject** o **ExceededAllowedLength**. Este error se produce normalmente en los siguientes atributos
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Escenarios posibles
-1. El atributo userCertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es 50 certificados, pero la recomendación es tener menos de 25.
-2. El atributo thumbnailPhoto de Bob establecido en Active Directory es demasiado grande para sincronizarse en Azure AD.
-3. Durante el rellenado automático del atributo ProxyAddresses de Active Directory, un objeto tiene asignados más de&500; atributos ProxyAddresses.
+1. El atributo userCertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados.
+2. El atributo userSMIMECertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados.
+3. El atributo thumbnailPhoto de Bob establecido en Active Directory es demasiado grande para sincronizarse en Azure AD.
+4. Durante el rellenado automático del atributo ProxyAddresses de Active Directory, un objeto tiene asignados más de&500; atributos ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Solución
 1. Asegúrese de que el atributo que produce el error está dentro de los límites permitidos.
@@ -220,9 +223,4 @@ Cuando un atributo supera los límites de tamaño, longitud o recuento estableci
 ## <a name="related-links"></a>Vínculos relacionados
 * [Buscar objetos de Active Directory en el centro de administración de Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
 * [Consulta en Azure Active Directory un objeto mediante PowerShell de Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

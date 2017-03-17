@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 388e4c8f46662200a0e05db06d417f086ad41b11
-ms.openlocfilehash: b53feeb08d469363a52303cad4577b752a570900
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -45,7 +45,7 @@ Managed Disks le permitirá crear un máximo de 10 000 **discos** de máquina vi
 
 Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las máquinas virtuales de un conjunto de disponibilidad están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que se produce un error en una, no se detiene la ejecución de las restantes instancias.
 
-### <a name="better-security"></a>Mayor seguridad
+### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
 Puede usar el [control de acceso basado en rol de Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) para asignar permisos concretos a un disco administrado a uno o varios usuarios. Managed Disks expone varias operaciones, entre las que se incluyen la lectura, escritura (creación o actualización), eliminación, exportación y recuperación de un [identificador URI de la firma de acceso compartido (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede elegir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use un URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
@@ -100,7 +100,7 @@ Para obtener información detallada acerca de los precios de Managed Disks, cons
 
 ## <a name="images"></a>Imágenes
 
-Managed Disks también admite la creación de una imagen personalizada administrada. Puede crear una imagen desde un disco duro virtual personalizado en una cuenta de almacenamiento, o bien directamente desde una máquina virtual en ejecución. De esta forma se capturan en una sola imagen todos los discos administrados con una máquina virtual en ejecución, entre los que se incluyen tanto el disco de datos como el del sistema operativo. Esto permite crear cientos de máquinas virtuales con la imagen personalizada sin necesidad de copiar o administrar cuentas de almacenamiento.
+Managed Disks también admite la creación de una imagen personalizada administrada. Puede crear una imagen desde un disco duro virtual personalizado en una cuenta de almacenamiento, o bien directamente desde una máquina virtual generalizada (con Sysprep). De esta forma se capturan en una sola imagen todos los discos administrados con una máquina virtual, entre los que se incluyen tanto el disco de datos como el del sistema operativo. Esto permite crear cientos de máquinas virtuales con la imagen personalizada sin necesidad de copiar o administrar cuentas de almacenamiento.
 
 Para obtener información sobre la creación de imágenes, consulte los artículos siguientes:
 * [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md) (Captura de una imagen administrada de una máquina virtual generalizada en Azure)
@@ -112,7 +112,7 @@ A menudo se ve la palabra "imagen" utilizada con máquinas virtuales, pero ahora
 
 Una instantánea es una copia de un disco en un momento dado. Solo se aplica a un disco. Si tiene una máquina virtual con un solo disco (el del sistema operativo), puede tomar una instantánea o una imagen del mismo y crear una máquina virtual a partir de cualquiera de ellas.
 
-¿Qué pasa si tiene una máquina virtual con cinco discos y se seccionan? Puede tomar una instantánea de cada uno de los discos, pero en la máquina virtual no se conoce el estado de los discos (las instantáneas solo "conocen" un disco). En este caso, las instantáneas tendrían que coordinarse entre sí, algo que actualmente no se no se admite. Por tanto, en este caso, si desea crear una copia de la máquina virtual, será preciso que cree una imagen. De manera predeterminada, la imagen incluirá una copia coordinada de los cinco discos.
+¿Qué sucede si una máquina virtual tiene cinco discos y se seccionan? Puede tomar una instantánea de cada uno de los discos, pero en la máquina virtual no se conoce el estado de los discos (las instantáneas solo "conocen" un disco). En este caso, las instantáneas tendrían que coordinarse entre sí, algo que actualmente no se no se admite.
 
 ## <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup 
 

@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 86391212e70a0f0a8ec0e53dce26b11218a5780c
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: a1e45a1ea15f76bcc7c0cd3bceca703818b3a9ff
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -33,20 +34,11 @@ Para instalar la biblioteca, vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Cl
 ## <a name="download-and-run-the-sample-app"></a>Descarga y ejecución de la aplicación de ejemplo
 La aplicación de ejemplo **Base de datos elástica con SQL de Azure - Introducción** ilustra los aspectos más importantes de la experiencia de desarrollo para aplicaciones particionadas usando herramientas de Base de datos elástica de SQL de Azure. Se centra en los casos de uso claves para la [administración de asignación de particiones](sql-database-elastic-scale-shard-map-management.md), el [enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md) y las [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md). Para descargar y ejecutar el ejemplo, siga estos pasos: 
 
-1. Abra Visual Studio y seleccione **Archivo -> Nuevo -> Proyecto**.
-2. En el cuadro de diálogo, haga clic en **En línea**.
-   
-    ![New Project>Online][2]
-3. A continuación, en **Ejemplos**, haga clic en **Visual C#**.
-   
-    ![Haga clic en Visual C#][3]
-4. En el cuadro de búsqueda, escriba **elastic db** para buscar el ejemplo. Aparecerá el título **Elastic DB Tools for Azure SQL - Getting Started** (Herramientas de base de datos elástica para Azure SQL - Introducción).
-   
-    ![Search Box][1]
-5. Seleccione el ejemplo, elija un nombre y una ubicación para el nuevo proyecto y presione **Aceptar** para crear el proyecto.
-6. Abra el archivo **app.config** en la solución para el proyecto de ejemplo y siga las instrucciones del archivo para agregar el nombre de servidor de base de datos SQL y su información de inicio de sesión (nombre de usuario y contraseña).
-7. Compile y ejecute la aplicación. Cuando se le pregunte, permita que Visual Studio restaure los paquetes de NuGet de la solución. Esto descargará la versión más reciente de la biblioteca de clientes de base de datos elástica desde NuGet.
-8. Juegue con las diferentes opciones para obtener información sobre las capacidades de la biblioteca de clientes. Anote los pasos que la aplicación lleva a cabo en la salida de la consola y explore el código que hay detrás a su antojo.
+1. Descargue el [ejemplo Elastic DB Tools for Azure SQL - Getting Started](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) (Herramientas de Elastic DB Tools para Azure SQL: Introducción) de MSDN. Descomprima el ejemplo en una ubicación de su elección.
+2. Abra la solución **ElasticScaleStarterKit.sln** desde el directorio **C#** para crear un proyecto.
+3. Abra el archivo **app.config** en la solución para el proyecto de ejemplo y siga las instrucciones del archivo para agregar el nombre de servidor de base de datos SQL y su información de inicio de sesión (nombre de usuario y contraseña).
+4. Compile y ejecute la aplicación. Cuando se le pregunte, permita que Visual Studio restaure los paquetes de NuGet de la solución. Esto descargará la versión más reciente de la biblioteca de clientes de base de datos elástica desde NuGet.
+5. Juegue con las diferentes opciones para obtener información sobre las capacidades de la biblioteca de clientes. Anote los pasos que la aplicación lleva a cabo en la salida de la consola y explore el código que hay detrás a su antojo.
    
     ![progreso][4]
 
@@ -58,10 +50,10 @@ Enhorabuena; ha creado y ejecutado su primera aplicación particionada usando he
 > 
 
 ### <a name="key-pieces-of-the-code-sample"></a>Piezas clave del ejemplo de código
-1. **Administración de particiones y mapas de particiones**: el código ilustra cómo trabajar con particiones, intervalos y asignaciones en el archivo **ShardMapManagerSample.cs**. Puede encontrar más información acerca de este tema aquí: [Administración de mapas de particiones](http://go.microsoft.com/?linkid=9862595).  
+1. **Administración de particiones y mapas de particiones**: el código ilustra cómo trabajar con particiones, intervalos y asignaciones en el archivo **ShardManagementUtils.cs**. Puede encontrar más información acerca de este tema aquí: [Administración de mapas de particiones](http://go.microsoft.com/?linkid=9862595).  
 2. **Enrutamiento dependiente de los datos**: el enrutamiento de transacciones a la partición correcta se muestra en el archivo **DataDependentRoutingSample.cs**. Para obtener más detalles, consulte [Enrutamiento dependiente de datos](http://go.microsoft.com/?linkid=9862596). 
 3. **Consultas a través de particiones múltiples**: las consultas a través de particiones se ilustran en el archivo **MultiShardQuerySample.cs**. Para obtener más detalles, consulte [Consultas a través de particiones múltiples](http://go.microsoft.com/?linkid=9862597).
-4. **Incorporación de particiones vacías**: la incorporación iterativa de nuevas particiones vacías se realiza mediante el código del archivo **AddNewShardsSample.cs**. Aquí encontrará detalles de este tema: [Administración de mapas de particiones](http://go.microsoft.com/?linkid=9862595).
+4. **Incorporación de particiones vacías**: la incorporación iterativa de nuevas particiones vacías se realiza mediante el código del archivo **CreateShardSample.cs**. Aquí encontrará detalles de este tema: [Administración de mapas de particiones](http://go.microsoft.com/?linkid=9862595).
 
 ### <a name="other-elastic-scale-operations"></a>Otras operaciones de escalado elástico
 1. **División de una partición existente**: la capacidad de dividir particiones se proporciona a través de la **herramienta de división y combinación**. Puede encontrar más información sobre esta herramienta aquí: [Información general sobre la herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -99,10 +91,5 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

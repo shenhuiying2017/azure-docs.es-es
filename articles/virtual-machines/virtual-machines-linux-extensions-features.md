@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 31c6cb19827279995502c68ed6d86d23ef9eacd0
-ms.openlocfilehash: 5d98f086b4ccee300b18c8271f940272f618e93e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure un host de Docker en una máquina virtual de Azure mediante la extensión de máquina virtual de Docker. Para obtener más información, consulte [Extensión de máquina virtual de Docker](virtual-machines-linux-dockerextension.md).
 
-Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Linux permite que se ejecute cualquier script de Bash en una máquina virtual. Esto resulta útil al diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Linux](virtual-machines-linux-extensions-customscript.md).
+Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Linux permite que se ejecute cualquier script de Bash en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Linux](virtual-machines-linux-extensions-customscript.md).
 
 Para trabajar a través de un ejemplo en el cual se usa una extensión de máquina virtual en una implementación completa de la aplicación, consulte [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](virtual-machines-linux-dotnet-core-1-landing.md).
 
@@ -74,7 +75,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
   --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-Esto proporciona una salida como la siguiente:
+El script genera una salida similar al texto siguiente:
 
 ```azurecli
 info:    Executing command vm extension set
@@ -85,15 +86,15 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Para ello, seleccione la máquina virtual, elija **Extensiones** y haga clic en **Agregar**. Esto proporciona una lista de extensiones disponibles. Seleccione aquella que desee y siga las instrucciones del asistente.
+Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Para ello, seleccione la máquina virtual, elija **Extensiones** y haga clic en **Agregar**. Seleccione la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
 En la siguiente imagen se muestra la instalación de la extensión de script personalizado de Linux desde Azure Portal.
 
-![Extensión Custom Script](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Instalar la extensión de script personalizado](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Plantillas de Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
-Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. Al implementar una extensión con una plantilla, puede crear implementaciones de Azure completamente configuradas. Por ejemplo, el siguiente JSON procede de una plantilla de Resource Manager que implementa un conjunto de máquinas virtuales de carga equilibrada y una base de datos Azure SQL Database y, a continuación, instala una aplicación .NET Core en cada máquina virtual. La extensión de máquina virtual se encarga de la instalación de software.
+Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. Al implementar una extensión con una plantilla, puede crear implementaciones de Azure completamente configuradas. Por ejemplo, el siguiente JSON procede de una plantilla de Resource Manager. La plantilla implementa un conjunto de máquinas virtuales de carga equilibrada y una base de datos de Azure SQL Database y, después, instala una aplicación de .NET Core en cada máquina virtual. La extensión de máquina virtual se encarga de la instalación de software.
 
 Para obtener más información, consulte la [plantilla de Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) completa.
 
@@ -222,7 +223,7 @@ El estado de ejecución de extensión también puede encontrarse en Azure Portal
 
 ### <a name="rerun-a-vm-extension"></a>Repetición de ejecución de una extensión de máquina virtual
 
-Puede haber casos en los que sea necesario volver a ejecutar una extensión de máquina virtual. Puede hacerlo quitando la extensión y, a continuación, volviendo a ejecutar la extensión con un método de ejecución de su elección. Para quitar una extensión, ejecute el siguiente comando con la CLI de Azure. Reemplace los nombres de parámetros de ejemplo por los suyos propios.
+Puede haber casos en los que sea necesario volver a ejecutar una extensión de máquina virtual. Puede volver ejecutar la extensión si la quita y la vuelve a ejecutar con un método de ejecución de su elección. Para quitar una extensión, ejecute el siguiente comando con la CLI de Azure. Reemplace los nombres de parámetros de ejemplo por los suyos propios.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
@@ -243,9 +244,4 @@ Puede quitar una extensión mediante los siguientes pasos en Azure Portal:
 | Extensión de acceso a máquina virtual |Repetición de obtención de acceso a una máquina virtual de Azure |[Extensión de acceso a máquina virtual](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Extensión de Diagnósticos de Azure |Administración de Diagnósticos de Azure |[Extensión de Diagnósticos de Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensión de acceso a máquina virtual de Azure |Administración de usuarios y credenciales |[Extensión de acceso a máquina virtual para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

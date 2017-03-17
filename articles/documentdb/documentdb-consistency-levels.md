@@ -1,5 +1,5 @@
 ---
-title: Niveles de coherencia en DocumentDB | Microsoft Docs
+title: Niveles de coherencia en Azure DocumentDB | Microsoft Docs
 description: DocumentDB tiene cuatro niveles de coherencia para ayudar a equilibrar la coherencia, la disponibilidad y la latencia finales.
 keywords: eventual consistency, documentdb, azure, Microsoft azure
 services: documentdb
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>Niveles de coherencia en Base de datos de documentos
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>Niveles de coherencia de datos optimizables en DocumentDB
 El diseño de Azure DocumentDB se ha llevado a cabo desde el principio con la distribución global en mente. Se ha diseñado para que ofrezca garantías de una baja latencia predecible, un Acuerdo de Nivel de Servicio (SLA) con un 99,99 % de disponibilidad y varios modelos de coherencia moderada bien definidos. Actualmente, DocumentDB admite cuatro niveles de coherencia: fuerte, de obsolescencia entrelazada, de sesión y eventual. Además de los modelos de **coherencia fuerte** y **eventual** proporcionados habitualmente con otras bases de datos NoSQL, DocumentDB también ofrece dos modelos de coherencia codificados y operacionalizados de forma cuidadosa: **de obsolescencia limitada** y **de sesión**. Además, ha validado su utilidad en casos de uso reales. De forma colectiva, estos cuatro niveles de coherencia permiten lograr equilibrios bien razonados entre la coherencia, la disponibilidad y la latencia. 
 
 ## <a name="scope-of-consistency"></a>Ámbito de coherencia
@@ -116,9 +118,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

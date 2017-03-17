@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 4e5568bfcc3d488ef07203b7d3ad95f44354cabc
-ms.openlocfilehash: f35a42154e5d14e798a787a3ecd100ab72512b96
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6f408d6e4a6a80f10a5116071efee7546c7febdf
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -53,14 +54,14 @@ La resolución y conexión a servicios implica que los pasos siguientes se ejecu
 Los servicios que se conectan entre sí dentro de un clúster pueden acceder, por lo general, directamente a los puntos de conexión de otros servicios ya que los nodos de un clúster se encuentran normalmente en la misma red local. Sin embargo, en algunos entornos, un clúster puede estar detrás de un equilibrador de carga que enruta el tráfico de entrada externo a través de un conjunto limitado de puertos. En estos casos, los servicios todavía pueden comunicarse entre sí y resolver direcciones mediante el servicio de nomenclatura, pero se deben realizar pasos adicionales para permitir que los clientes externos se conecten a los servicios.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric en Azure
-Un clúster de Service Fabric en Azure se coloca detrás de un equilibrador de carga de Azure. Todo el tráfico externo al clúster debe pasar a través del equilibrador de carga. El equilibrador de carga reenviará automáticamente el tráfico entrante de un puerto determinado a un *nodo* aleatorio que tenga el mismo puerto abierto. Azure Load Balancer solo detecta los puertos abiertos en los *nodos*, no detecta puertos abiertos por *servicios* individuales. 
+Un clúster de Service Fabric en Azure se coloca detrás de un equilibrador de carga de Azure. Todo el tráfico externo al clúster debe pasar a través del equilibrador de carga. El equilibrador de carga reenviará automáticamente el tráfico entrante de un puerto determinado a un *nodo* aleatorio que tenga el mismo puerto abierto. Azure Load Balancer solo detecta los puertos abiertos en los *nodos*, no detecta puertos abiertos por *servicios* individuales.
 
 ![Topología de equilibrador de carga de Azure y Service Fabric][3]
 
 Por ejemplo, para poder aceptar tráfico externo en el puerto **80**, se deben configurar las siguientes condiciones:
 
 1. Escribir un servicio que escuche en el puerto 80. Configure el puerto 80 en el archivo ServiceManifest.xml del servicio y abra un agente de escucha en el mismo, por ejemplo, un servidor web autohospedado.
-   
+
     ```xml
     <Resources>
         <Endpoints>
@@ -72,46 +73,82 @@ Por ejemplo, para poder aceptar tráfico externo en el puerto **80**, se deben c
         class HttpCommunicationListener : ICommunicationListener
         {
             ...
-   
+
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
-                EndpointResourceDescription endpoint = 
+                EndpointResourceDescription endpoint =
                     serviceContext.CodePackageActivationContext.GetEndpoint("WebEndpoint");
-   
+
                 string uriPrefix = $"{endpoint.Protocol}://+:{endpoint.Port}/myapp/";
-   
+
                 this.httpListener = new HttpListener();
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
-   
+
                 string uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-   
+
                 return Task.FromResult(this.publishUri);
             }
-   
+
             ...
         }
-   
+
         class WebService : StatelessService
         {
             ...
-   
+
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
                 return new[] {new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
-   
+
+            ...
+        }
+    ```
+    ```java
+        class HttpCommunicationlistener implements CommunicationListener {
+            ...
+
+            @Override
+            public CompletableFuture<String> openAsync(CancellationToken arg0) {
+                EndpointResourceDescription endpoint =
+                    this.serviceContext.getCodePackageActivationContext().getEndpoint("WebEndpoint");
+                try {
+                    HttpServer server = com.sun.net.httpserver.HttpServer.create(new InetSocketAddress(endpoint.getPort()), 0);
+                    server.start();
+
+                    String publishUri = String.format("http://%s:%d/",
+                        this.serviceContext.getNodeContext().getIpAddressOrFQDN(), endpoint.getPort());
+                    return CompletableFuture.completedFuture(publishUri);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            ...
+        }
+
+        class WebService extends StatelessService {
+            ...
+
+            @Override
+            protected List<ServiceInstanceListener> createServiceInstanceListeners() {
+                <ServiceInstanceListener> listeners = new ArrayList<ServiceInstanceListener>();
+                listeners.add(new ServiceInstanceListener((context) -> new HttpCommunicationlistener(context)));
+                return listeners;        
+            }
+
             ...
         }
     ```
 2. Crear un clúster de Service Fabric en Azure y especificar el puerto **80** como un puerto de punto de conexión personalizado para el tipo de nodo que va a hospedar el servicio. Si tiene más de un tipo de nodo, puede configurar una *restricción de colocación* en el servicio para asegurarse de que solo se puede ejecutar en el tipo de nodo que tiene el puerto de punto de conexión personalizado abierto.
-   
+
     ![Apertura de un puerto en un tipo de nodo][4]
 3. Una vez creado el clúster, configure el equilibrador de carga de Azure en el grupo de recursos del clúster para reenviar el tráfico hacia el puerto 80. Al crear un clúster mediante el Portal de Azure, este se configura automáticamente para cada puerto de punto de conexión personalizado que se ha configurado.
-   
+
     ![Reenvío del tráfico en el equilibrador de carga de Azure][5]
 4. El equilibrador de carga de Azure utiliza un sondeo para determinar si envía o no tráfico a un nodo concreto. El sondeo comprueba periódicamente un punto de conexión de cada nodo para determinar si este está respondiendo o no. Si el sondeo no recibe una respuesta después de un número determinado de veces, el equilibrador de carga deja de enviar tráfico a dicho nodo. Al crear un clúster mediante el Portal de Azure, se configura automáticamente un sondeo para cada puerto de punto de conexión personalizado que se ha configurado.
-   
+
     ![Reenvío del tráfico en el equilibrador de carga de Azure][8]
 
 Es importante recordar que Azure Load Balancer y el sondeo solo detectan los *nodos* y no los *servicios* que se ejecutan en dichos nodos. El equilibrador de carga de Azure siempre enviará tráfico a los nodos que respondan al sondeo, por lo que se debe garantizar que haya servicios disponibles en los nodos que puedan responder al sondeo.
@@ -119,9 +156,9 @@ Es importante recordar que Azure Load Balancer y el sondeo solo detectan los *no
 ## <a name="built-in-communication-api-options"></a>Opciones de API de comunicación incorporadas
 El marco de Reliable Services incluye varias opciones de comunicación pregeneradas. La decisión de cuál funcionará mejor para usted depende de la elección del modelo de programación, el marco de comunicación y el lenguaje de programación en que se crean los servicios.
 
-* **No hay ningún protocolo específico:** Si no tiene una opción concreta de marco de comunicación, pero desea crear algo que se pueda ejecutar rápidamente, entonces la opción idónea para usted es la [comunicación remota de servicio](service-fabric-reliable-services-communication-remoting.md), que permite llamadas a procedimientos remotos fuertemente tipados para Reliable Services y Reliable Actors. Esta es la manera más sencilla y rápida de empezar con la comunicación del servicio. La comunicación remota de servicio controla la resolución de direcciones, la conexión, los reintentos y el control de errores del servicio. Tenga en cuenta que la comunicación remota de servicio solo está disponible en aplicaciones de C#.
-* **HTTP**: para una comunicación independiente del idioma, HTTP proporciona una opción estándar con las herramientas y los servidores HTTP disponibles en muchos idiomas diferentes, compatibles todos ellos con Service Fabric. Los servicios pueden utilizar cualquier pila HTTP disponible, incluida la [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md). Los clientes escritos en C# pueden aprovechar las [`ICommunicationClient`clases `ServicePartitionClient` y ](service-fabric-reliable-services-communication.md) para la resolución del servicio, las conexiones HTTP y los bucles de reintento.
-* **WCF**: Si tiene código existente que usa WCF como su marco de comunicación, puede usar `WcfCommunicationListener` para el lado servidor y las clases `WcfCommunicationClient` y `ServicePartitionClient` para el cliente. Para obtener más información, consulte este artículo sobre la [implementación basada en WCF de la pila de comunicación](service-fabric-reliable-services-communication-wcf.md).
+* **No hay ningún protocolo específico:** Si no tiene una opción concreta de marco de comunicación, pero desea crear algo que se pueda ejecutar rápidamente, entonces la opción idónea para usted es la [comunicación remota de servicio](service-fabric-reliable-services-communication-remoting.md), que permite llamadas a procedimientos remotos fuertemente tipados para Reliable Services y Reliable Actors. Esta es la manera más sencilla y rápida de empezar con la comunicación del servicio. La comunicación remota de servicio controla la resolución de direcciones, la conexión, los reintentos y el control de errores del servicio. Esto está disponible para aplicaciones de C# y Java.
+* **HTTP**: para una comunicación independiente del lenguaje, HTTP proporciona una opción estándar con las herramientas y los servidores HTTP disponibles en muchos lenguajes diferentes, compatibles todos ellos con Service Fabric. Los servicios pueden usar cualquier pila HTTP disponible, incluida la [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md) para aplicaciones de C#. Los clientes escritos en C# pueden aprovechar las clases `ICommunicationClient` y `ServicePartitionClient`, mientras que para Java son las clases `CommunicationClient` y `FabricServicePartitionClient`, [para la resolución del servicio, las conexiones HTTP y los bucles de reintento](service-fabric-reliable-services-communication.md).
+* **WCF**: Si tiene código existente que usa WCF como su marco de comunicación, puede usar `WcfCommunicationListener` para el lado servidor y las clases `WcfCommunicationClient` y `ServicePartitionClient` para el cliente. Pero esto solo está disponible para las aplicaciones de C# en clústeres basados en Windows. Para obtener más información, consulte este artículo sobre la [implementación basada en WCF de la pila de comunicación](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Uso de protocolos personalizados y otros marcos de comunicación
 Los servicios pueden usar cualquier protocolo o marco de comunicación, ya sea un protocolo binario personalizado sobre sockets de TCP o eventos de streaming a través de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) o [IoT Hub de Azure](https://azure.microsoft.com/services/iot-hub/). Service Fabric proporciona las API de comunicación a las que puede conectar su pila de comunicación, al tiempo que se le quita todo el trabajo de detección y conexión. Consulte el artículo sobre el [Modelo de comunicación de Reliable Services](service-fabric-reliable-services-communication.md) para obtener más detalles.
@@ -136,9 +173,4 @@ Obtenga más información sobre los conceptos y las API disponibles en el [model
 [5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.png
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

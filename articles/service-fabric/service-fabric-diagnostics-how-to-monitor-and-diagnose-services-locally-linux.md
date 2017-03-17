@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 86ed3f25f0bdd6bb5d8a93f124a0d2bcd7e2b07a
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,15 +36,15 @@ Acciones como supervisar, detectar, diagnosticar y solucionar problemas permiten
 
 ## <a name="debugging-service-fabric-java-applications"></a>Depuración de aplicaciones Java de Service Fabric
 
-Para aplicaciones Java, hay [varias plataformas de registro](http://en.wikipedia.org/wiki/Java_logging_framework) disponibles. Puesto que `java.util.logging` es la opción predeterminada con JRE, también se usa para los [ejemplos de código en GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  En la siguiente discusión se explica cómo configurar la plataforma `java.util.logging` . 
- 
-Con java.util.logging puede redirigir los registros de aplicaciones a la memoria, flujos de salida, archivos de consolas o sockets. Para cada una de estas opciones, hay controladores predeterminados que se proporcionan en la plataforma. Puede crear un archivo `app.properties` para configurar el controlador de archivo para la aplicación a fin de redirigir todos los registros a un archivo local. 
+Para aplicaciones Java, hay [varias plataformas de registro](http://en.wikipedia.org/wiki/Java_logging_framework) disponibles. Puesto que `java.util.logging` es la opción predeterminada con JRE, también se usa para los [ejemplos de código en GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  En la siguiente discusión se explica cómo configurar la plataforma `java.util.logging` .
 
-El fragmento de código siguiente contiene una configuración de ejemplo: 
+Con java.util.logging puede redirigir los registros de aplicaciones a la memoria, flujos de salida, archivos de consolas o sockets. Para cada una de estas opciones, hay controladores predeterminados que se proporcionan en la plataforma. Puede crear un archivo `app.properties` para configurar el controlador de archivo para la aplicación a fin de redirigir todos los registros a un archivo local.
 
-```java 
+El fragmento de código siguiente contiene una configuración de ejemplo:
+
+```java
 handlers = java.util.logging.FileHandler
- 
+
 java.util.logging.FileHandler.level = ALL
 java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 java.util.logging.FileHandler.limit = 1024000
@@ -54,13 +54,17 @@ java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 
 La carpeta señalada por el archivo `app.properties` debe existir. Una vez creado el archivo `app.properties`, debe modificar igualmente el script de punto de entrada, `entrypoint.sh` en la carpeta `<applicationfolder>/<servicePkg>/Code/` para establecer la propiedad `java.util.logging.config.file` en el archivo `app.propertes`. La entrada debería parecerse al siguiente fragmento:
 
-```sh 
+```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
- 
- 
-Esta configuración hace que se recopilen los registros por orden de rotación en `/tmp/servicefabric/logs/`. Los valores **%u** y **%g** permiten crear más archivos, con nombres de archivo mysfapp0.log, mysfapp1.log, etc. De forma predeterminada, si no hay ningún controlador configurado explícitamente, se registra el controlador de la consola. Se pueden ver los registros de syslog en /var/log/syslog.
- 
+
+
+Esta configuración hace que se recopilen los registros por orden de rotación en `/tmp/servicefabric/logs/`. El archivo de registro en este caso se denomina mysfapp%u.%g.log donde:
+* **%u** es un número único para resolver conflictos entre los procesos simultáneos de Java.
+* **g** es el número de generación para distinguir entre los registros de rotación.
+
+De forma predeterminada, si no hay ningún controlador configurado explícitamente, se registra el controlador de la consola. Se pueden ver los registros de syslog en /var/log/syslog.
+
 Para más información, consulte los [ejemplos de código en GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 
@@ -78,7 +82,7 @@ El primer paso es incluir System.Diagnostics.Tracing para que pueda escribir los
 Puede usar un EventListener personalizado para escuchar el evento de servicio y, a continuación, redirigirlos correctamente a los archivos de seguimiento. El fragmento de código siguiente muestra un ejemplo de implementación de un registro con EventSource y un EventListener personalizado:
 
 
-```c#
+```csharp
 
  public class ServiceEventSource : EventSource
  {
@@ -93,7 +97,7 @@ Puede usar un EventListener personalizado para escuchar el evento de servicio y,
                 this.Message(finalMessage);
             }
         }
-        
+
         // TBD: Need to add method for sample event.
 
 }
@@ -101,7 +105,7 @@ Puede usar un EventListener personalizado para escuchar el evento de servicio y,
 ```
 
 
-```
+```csharp
    internal class ServiceEventListener : EventListener
    {
 
@@ -112,7 +116,7 @@ Puede usar un EventListener personalizado para escuchar el evento de servicio y,
         protected override void OnEventWritten(EventWrittenEventArgs eventData)
         {
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
-        {  
+        { 
                  // report all event information               
           Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
@@ -130,11 +134,11 @@ Puede usar un EventListener personalizado para escuchar el evento de servicio y,
 
 El fragmento de código anterior genera los registros en un archivo en `/tmp/MyServiceLog.txt`. Este nombre de archivo debe actualizarse correctamente. En caso de que desee redirigir los registros a la consola, use el siguiente fragmento de código en la clase de EventListener personalizada:
 
-```
+```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-Los ejemplos de [C# Samples](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) (Ejemplos de C#) usan EventSource y un EventListener personalizado para registrar eventos en un archivo. 
+Los ejemplos de [C# Samples](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) (Ejemplos de C#) usan EventSource y un EventListener personalizado para registrar eventos en un archivo.
 
 
 

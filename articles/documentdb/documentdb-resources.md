@@ -1,5 +1,5 @@
 ---
-title: "Modelo jerárquico de recursos y conceptos de DocumentDB | Microsoft Docs"
+title: Modelo de recursos y conceptos de Azure DocumentDB | Microsoft Docs
 description: "Obtenga información sobre el modelo jerárquico de DocumentDB de bases de datos, colecciones, funciones definidas por el usuario (UDF), documentos, permisos para administrar recursos, etc."
 keywords: Hierarchical model, documentdb, azure, Microsoft azure
 services: documentdb
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
-ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>Modelo jerárquico de recursos y conceptos de DocumentDB
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>Modelo jerárquico de recursos y conceptos básicos de DocumentDB
 Las entidades de base de datos que administra DocumentDB se conocen como **recursos**. Cada recurso se identifica mediante un URI lógico. Se puede interactuar con los recursos mediante verbos HTTP estándar, encabezados de solicitud/respuesta y códigos de estado. 
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
