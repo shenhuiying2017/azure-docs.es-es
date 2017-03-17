@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
 ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
@@ -57,7 +58,7 @@ En la actualidad, muchas personas prefieren Hive y Pig a MapReduce.  Para más i
     >
     > Para instalar la versión más reciente de Azure PowerShell, siga los pasos descritos en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Si tiene scripts que se deben modificar para usar los nuevos cmdlets que funcionan con Azure Resource Manager, consulte [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migración a herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight).
 
-## <a name="a-namehdinsight-sample-wordcountaword-count---java"></a><a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java
+## <a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java
 Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos.  El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
 
 El código fuente puede encontrarse en el [Anexo A](#apendix-a---the-word-count-MapReduce-program-in-java).
@@ -123,7 +124,7 @@ Para conocer el procedimiento de desarrollo del programa MapReduce de Java, cons
     El trabajo de MapReduce genera un archivo denominado *part-r-00000*con las palabras y los recuentos. El script usa el comando **findstr** para enumerar todas las palabras que contienen *"there*".
 3. Configure las tres primeras variables y ejecute el script.
 
-## <a name="a-namehdinsight-sample-csharp-streamingaword-count---c-streaming"></a><a name="hdinsight-sample-csharp-streaming"></a>Recuento de palabras: streaming en C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Recuento de palabras: streaming en C#
 Hadoop ofrece una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java.
 
 > [!NOTE]
@@ -156,7 +157,7 @@ Mientras tanto, el reductor recopila la salida orientada a líneas desde el elem
 
         example/data/StreamingOutput/wc.txt/part-00000
 
-## <a name="a-namehdinsight-sample-pi-estimatorapi-estimator"></a><a name="hdinsight-sample-pi-estimator"></a>Estimador de pi
+## <a name="hdinsight-sample-pi-estimator"></a>Estimador de pi
 El estimador de pi usa un método estadístico (cuasi Monte Carlo) para calcular el valor de pi. Los puntos colocados en el interior aleatorio de un cuadrado unitario también entran dentro de un círculo inscrito dentro de ese cuadrado con una probabilidad igual al área del círculo, pi/4. El valor de pi se puede estimar a partir del valor de 4R, donde R es la proporción de la cantidad de puntos contados dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado. Mientras más grande sea la muestra de puntos usada, mejor resulta el valor calculado.
 
 El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y se configura para ejecutarse con un valor de 16 asignaciones, cada una de las cuales debe procesar 10 millones de puntos de muestra por los valores de parámetro. Estos valores de parámetro se pueden cambiar para mejorar el valor calculado de pi. Como referencia, las primeras 10 posiciones decimales de pi son 3,1415926535.
@@ -172,7 +173,7 @@ El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y
                                 -Arguments "16", "10000000"
     ```
 
-## <a name="a-namehdinsight-sample-10gb-graysorta10-gb-graysort"></a><a name="hdinsight-sample-10gb-graysort"></a>GraySort de&10; GB
+## <a name="hdinsight-sample-10gb-graysort"></a>GraySort de&10; GB
 Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:

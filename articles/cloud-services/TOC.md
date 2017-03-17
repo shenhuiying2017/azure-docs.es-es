@@ -36,8 +36,8 @@
 #### [Uso de una tarea para instalar .NET en un rol de servicio en la nube](cloud-services-dotnet-install-dotnet.md)
 
 ### Configuración de Escritorio remoto
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portal clásico](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Implementación
@@ -115,8 +115,3 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

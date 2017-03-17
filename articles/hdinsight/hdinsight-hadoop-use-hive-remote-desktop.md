@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: c9a5091973395dd888939432292fbd06dcbf0680
 ms.openlocfilehash: 565220fa7b90ac49fd0c9ad01d36ba50fd7f6849
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,16 +33,16 @@ En este artículo, obtendrá información sobre cómo conectarse a un clúster d
 >
 > Para HDInsight 3.4 o superior, consulte [Uso de Hive con HDInsight y Beeline](hdinsight-hadoop-use-hive-beeline.md) para más información sobre cómo ejecutar consultas de Hive directamente en el clúster desde una línea de comandos.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
+## <a id="prereq"></a>Requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 * Un clúster de HDInsight basado en Windows (Hadoop en HDInsight)
 * Un equipo cliente con Windows 10, Window 8 o Windows 7
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Conexión con el Escritorio remoto
+## <a id="connect"></a>Conexión con el Escritorio remoto
 Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idhiveause-the-hive-command"></a><a id="hive"></a>Uso del comando de Hive
+## <a id="hive"></a>Uso del comando de Hive
 Cuando se haya conectado al escritorio para el clúster de HDInsight, utilice los pasos siguientes para trabajar con Hive.
 
 1. Desde el escritorio de HDInsight, inicie la **línea de comandos de Hadoop**.
@@ -95,10 +97,10 @@ Cuando se haya conectado al escritorio para el clúster de HDInsight, utilice lo
 
      Se deben devolver tres filas de datos y todas ellas deben contener **[ERROR]** en la columna t4.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumen
+## <a id="summary"></a>Resumen
 Como puede ver, el comando de Hive proporciona una manera fácil de ejecutar consultas de Hive interactivamente en un clúster de HDInsight, supervisar el estado del trabajo y recuperar el resultado.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a id="nextsteps"></a>Pasos siguientes
 Para obtener información general acerca de Hive en HDInsight:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
@@ -142,9 +144,4 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

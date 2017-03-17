@@ -54,6 +54,9 @@
 ### [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 ### [Integración de control de código fuente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integración de control de código fuente con VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Soluciones
+### [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md)
+### [Administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
 ## Supervisión
 ### [Reenvío de datos del trabajo de Azure Automation a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Desvinculación de la cuenta de Azure Automation de Log Analytics](automation-unlink-from-log-analytics.md)
