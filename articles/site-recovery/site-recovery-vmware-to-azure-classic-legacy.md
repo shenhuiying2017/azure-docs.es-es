@@ -225,7 +225,7 @@ Tiene dos opciones para configurar la conectividad de red entre el sitio local y
 ## <a name="step-1-create-a-vault"></a>Paso 1: Creación de un almacén
 1. Inicie sesión en el [Portal de administración](https://portal.azure.com).
 2. Expanda **Data Services** > **Recovery Services** y haga clic en **Almacén de Site Recovery**.
-3. Haga clic en **Crear nuevo	** > **Creación rápida**.
+3. Haga clic en **Crear nuevo** > **Creación rápida**.
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 5. En **Región**, seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 6. Haga clic en **Crear almacén**.
