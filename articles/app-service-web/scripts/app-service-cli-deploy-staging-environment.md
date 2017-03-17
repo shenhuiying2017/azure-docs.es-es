@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 15a811d35aab9995f4895a9106771310a95f7a41
-ms.openlocfilehash: 6ef9b43fb5fb88591186b20b52dd8f06b7d46cec
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a985f7999affa1af8fdc1263d3cf674d6888158f
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -33,13 +33,7 @@ Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución d
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Creación de una aplicación web e implementación de código en un entorno de ensayo")]
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
-
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación App Service y todos los recursos relacionados.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicación del script
 

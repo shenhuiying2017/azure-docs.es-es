@@ -4,7 +4,7 @@ description: "Lista de SDK de cliente y compatibilidad con versiones de SDK de s
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d1ef7821eee67f4b9ace01af7e41bd7fdd28b5e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,12 +64,12 @@ En la tabla siguiente se muestra la compatibilidad entre todos los tipos de clie
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="a-name100amobile-services-client-and-server"></a><a name="1.0.0"></a>Cliente y servidor de Servicios móviles
+## <a name="1.0.0"></a>Cliente y servidor de Servicios móviles
 Los SDK de cliente de la tabla siguiente son compatibles con **Servicios móviles**.
 
 Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado de `ZUMO-API-VERSION`. Si el servicio recibe este valor de encabezado o de cadena de consulta, se devolverá un error, a menos que lo haya anulado explícitamente como se ha descrito anteriormente.
 
-### <a name="a-namemobileservicesclientsa-mobile-services-client-sdks"></a><a name="MobileServicesClients"></a> SDK de cliente de *Servicios* móviles
+### <a name="MobileServicesClients"></a> SDK de cliente de *Servicios* móviles
 | Plataforma de cliente | Versión | Valor de encabezado de versión |
 | --- | --- | --- |
 | Cliente administrado (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |N/D |
@@ -91,8 +92,8 @@ Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado 
 | Cualquier valor |True |200 - CORRECTO |
 | Cualquier valor |False/Sin especificar |400 - Solicitud incorrecta |
 
-## <a name="a-name200aazure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Cliente y servidor de Aplicaciones móviles de Azure
-### <a name="a-namemobileappsclientsa-mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
+## <a name="2.0.0"></a>Cliente y servidor de Aplicaciones móviles de Azure
+### <a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
 La comprobación de versión se introdujo a partir de las siguientes versiones del SDK de cliente de **Aplicaciones móviles de Azure**:
 
 | Plataforma de cliente | Versión | Valor de encabezado de versión |
@@ -127,12 +128,7 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 [Clientes de Aplicaciones móviles]: #MobileAppsClients
 
 
-[SDK de servidor de aplicaciones móviles]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

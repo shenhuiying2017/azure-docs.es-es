@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 67d446263c7a884cd8d22e88e6fb607b1399d9aa
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -62,6 +62,10 @@ En el ejemplo de código siguiente se muestra cómo lograr las tareas siguientes
 >[!NOTE]
 >Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
     
+    
+>[!NOTE]
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
 Para obtener información sobre cómo configurar un codificador en directo, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;

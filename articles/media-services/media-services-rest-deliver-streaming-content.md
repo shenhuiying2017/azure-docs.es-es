@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4234def6200b8beb6db7e4bd96ca1b8ebcc11c03
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ Para crear el localizador de streaming a petición y obtener las direcciones URL
 5. Tenga en cuenta que no se puede crear un localizador de transmisión mediante una AccessPolicy que incluye permisos de escritura o eliminación.
 
 ### <a name="create-an-access-policy"></a>Creación de una directiva de acceso
+
+>[!NOTE]
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
 Solicitud:
 
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1
@@ -154,7 +159,7 @@ ejemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a name="a-idtypesaenum-types"></a><a id="types"></a>Tipos de enumeración
+## <a id="types"></a>Tipos de enumeración
     [Flags]
     public enum AccessPermissions
     {
@@ -180,10 +185,5 @@ ejemplo:
 
 ## <a name="see-also"></a>Otras referencias
 [Configuración de directivas de entrega de activos](media-services-rest-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d65f730a0f84b89d0228a22b42d0421ad4f2678f
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Uso del Diseñador de vistas para crear vistas personalizadas en Log Analytics
-El Diseñador de vistas de [Log Analytics]() permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio de OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
+El Diseñador de vistas de [Log Analytics](log-analytics-overview.md) permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio de OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
@@ -95,10 +96,5 @@ Las vistas solo tienen una fila de elementos de visualización.  Los elementos d
 ## <a name="next-steps"></a>Pasos siguientes
 * Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

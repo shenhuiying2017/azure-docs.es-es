@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo configurar la autenticación 
 author: mattchenderson
 services: app-service
 documentationcenter: 
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425ecfeec54df9c52a4325964b2b48f6a2856693
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 1f8813370995a7a55c9d87b8ec1b60ae0fe623f5
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -101,10 +102,5 @@ Ahora ha configurado una aplicación de cliente nativo que puede acceder a la ap
 
 [Portal de Azure]: https://portal.azure.com/
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[método alternativo]:#advanced
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[alternative method]:#advanced
 

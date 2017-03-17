@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6c711fd3a843604d62d6589d0a742f03a049bc5c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -74,8 +74,8 @@ Estos son los pasos de implementación generales para restablecer la contraseña
 2. Asigne las licencias correspondientes a cada uno de los usuarios a los que desea conceder el restablecimiento de contraseña; para ello, vaya a la pestaña **Licencias** del [Portal de administración de Azure](https://manage.windowsazure.com).
 3. Tiene la opción de restringir el restablecimiento de contraseña a un grupo de usuarios para aplicar la característica lentamente con el tiempo; para ello, establezca el botón de alternancia **Restringir el acceso al restablecimiento de contraseña** en **Sí** y seleccione un grupo de seguridad para habilitar el restablecimiento de contraseña (tenga en cuenta que todos estos usuarios deben tener licencias asignadas).
 4. Indique a los usuarios que utilicen el restablecimiento de contraseña enviándoles un correo electrónico en el que se les pida que se registren, habilitando el registro exigido en el panel de control o cargando usted mismo los datos de autenticación apropiados para esos usuarios a través de la sincronización de directorios, PowerShell o el [Portal de administración de Azure](https://manage.windowsazure.com).  A continuación se proporcionan más detalles al respecto.
-5. Con el tiempo, revise los usuarios que se han registrado; para ello, desplácese hasta la pestaña Informes y consulte el informe [**Actividad de registro de restablecimiento de contraseña**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
-6. Una vez que se haya registrado un buen número de usuarios, compruebe cómo hacen uso del restablecimiento de contraseña; para ello, desplácese hasta la pestaña Informes y consulte el informe [**Actividad de restablecimiento de contraseña**](active-directory-passwords-get-insights.md#view-password-reset-activity).
+5. Con el tiempo, revise los usuarios que se han registrado; para ello, desplácese hasta la pestaña Informes y consulte el informe [**Actividad de registro de restablecimiento de contraseña**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal).
+6. Una vez que se haya registrado un buen número de usuarios, compruebe cómo hacen uso del restablecimiento de contraseña; para ello, desplácese hasta la pestaña Informes y consulte el informe [**Actividad de restablecimiento de contraseña**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal).
 
 Hay varias maneras de informar a los usuarios de que pueden registrarse en el restablecimiento de contraseña y utilizar este servicio en su organización.  Se explican a continuación.
 
@@ -84,7 +84,7 @@ Quizás el enfoque más sencillo para informar a los usuarios sobre el registro 
 
   ![][001]
 
-Puede [descargar la plantilla de correo electrónico aquí](http://1drv.ms/1xWFtQM).
+Puede [descargar la plantilla de correo electrónico aquí](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
 
 ### <a name="creating-your-own-password-portal"></a>Creación de su propio portal de contraseñas
 Una estrategia que funciona bien con grandes clientes que implementan funcionalidades de administración de contraseñas es crear un único "portal de contraseñas" que los usuarios pueden usar para administrar todos los aspectos relacionados con sus contraseñas en un solo lugar.  
@@ -144,7 +144,7 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 672d1518e22c5ab5595fb5c7c708f584e80b68e9
-ms.openlocfilehash: c6117296c8bd12e3bb8f276709bc4d4c2aa81719
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -59,6 +59,9 @@ Para entregar a un recurso cifrado de almacenamiento, debe configurar la directi
 
 ### <a name="access-policy"></a>Directiva de acceso
 Un [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) define los permisos (como lectura, escritura y lista) y la duración de acceso a un recurso. Normalmente pasaría un objeto AccessPolicy a un localizador que luego se usaría para tener acceso a los archivos contenidos en un recurso.
+
+>[!NOTE]
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="blob-container"></a>Contenedor de blobs
 Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los contenedores de blobs se usan en Servicios multimedia como punto limítrofe para el control de acceso y localizadores de firma de acceso compartido (SAS) en los recursos. Una cuenta de almacenamiento de Azure puede contener una cantidad ilimitada de contenedores de blobs. un contenedor puede almacenar un número ilimitado de blobs.

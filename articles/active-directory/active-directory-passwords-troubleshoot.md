@@ -3,7 +3,7 @@ title: "Solución de problemas: Administración de contraseñas de Azure AD | Mi
 description: "Pasos comunes de solución de problemas para la administración de contraseñas de Azure AD, entre otros, restablecimiento, cambio, escritura diferida, registro y la información que hay que proporcionar al solicitar ayuda."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3aa3a2fce46f37b06b60472d296e21fd10e070dc
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="how-to-troubleshoot-password-management"></a>Solución de problemas de administración de contraseñas
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+>
+>
 
 Si tiene problemas con la administración de contraseñas, estamos aquí para ayudarlo. Se pueden resolver la mayoría de los problemas que pueden surgir con unos sencillos pasos que puede leer a continuación para solucionar problemas de implementación:
 
@@ -46,9 +47,9 @@ Si no puede resolver el problema con las instrucciones siguientes, póngase en c
 * **Página** : en qué página estaba cuando se generó el error (incluir la dirección URL).
 * **Fecha/hora/marca de tiempo** : en qué fecha y a qué hora exactamente se ha generado el error (incluir la marca de tiempo).
 * **Código de soporte** : qué código de soporte se generó cuando el usuario obtuvo el error (para encontrarlo, reproducir el error, hacer clic en el vínculo Código de soporte en la parte inferior de la pantalla y enviar el GUID resultante al ingeniero de soporte).
-  
+
   * Si se encuentra en una página sin código de soporte en la parte inferior, presione F12 y busque el SID y CID y envíe estos dos resultados al ingeniero de soporte.
-    
+
     ![][001]
 * **Id. de usuario**: ¿cuál fue el identificador del usuario que recibió el error (por ejemplo, user@contoso.com)?
 * **Información sobre el usuario** : si se trataba de un usuario federado, con sincronización de hash de contraseña o solo de la nube.  ¿El usuario tenía asignada una licencia AAD Premium o AAD Basic?
@@ -1455,7 +1456,7 @@ Reiniciar el servicio de sincronización de Azure AD Connect puede ayudar a solu
 2. Escriba **"services.msc"** en el cuadro de búsqueda y presione **ENTRAR**.
 3. Busque la entrada **Microsoft Azure AD Connect** .
 4. Haga clic con el botón secundario en la entrada del servicio, haga clic en **Reiniciar**y espere a que se complete la operación.
-   
+
    ![][002]
 
 Estos pasos restablecerán la conexión con el servicio en la nube y resolverán las interrupciones que pueda experimentar.  Si reiniciar el servicio de sincronización no resuelve el problema, se recomienda que intente deshabilitar y volver a habilitar la característica de escritura diferida de contraseñas en el siguiente paso.
@@ -1468,14 +1469,14 @@ Deshabilitar y volver a habilitar la característica de escritura diferida de co
 3. En el cuadro de diálogo **Conectarse a AD DS**, escriba las **credenciales de administrador de Servicios de dominio de AD**.
 4. En el cuadro de diálogo **Identificación de forma exclusiva de usuarios**, haga clic en el botón **Siguiente**.
 5. En el cuadro de diálogo **Características opcionales**, desactive la casilla **Escritura diferida de contraseñas**.
-   
+
    ![][003]
 6. Haga clic en **Siguiente** en las páginas de diálogo restantes sin cambiar nada hasta llegar a la página **Listo para configurar**.
 7. Asegúrese de que en la página de configuración aparece **Opción de escritura diferida de contraseñas deshabilitada** y, a continuación, haga clic en el botón verde **Configurar** para confirmar los cambios.
 8. En el cuadro de diálogo **Finalizado**, anule la selección de la opción **Sincronizar ahora** y, a continuación, haga clic en **Finalizar** para cerrar el asistente.
 9. Vuelva a abrir el **Asistente de configuración de Azure AD Connect**.
 10. **Repita los pasos 2 a 8**, salvo que debe asegurarse de volver a **marcar la opción de escritura diferida de contraseñas** en la pantalla **Características opcionales** para volver a habilitar el servicio.
-    
+
     ![][004]
 
 Estos pasos restablecerán la conexión con el servicio en la nube y resolverán las interrupciones que pueda experimentar.
@@ -1496,14 +1497,12 @@ Si instalar la última versión del servidor de Azure AD Connect no resuelve el 
 
 Si esto no resuelve el problema, recomendamos que eche un vistazo a [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback) y a las [preguntas más frecuentes sobre la administración de contraseñas de Azure AD](active-directory-passwords-faq.md) para ver si ahí se puede tratar el problema.
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de la contraseña
+
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización
@@ -1516,9 +1515,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
