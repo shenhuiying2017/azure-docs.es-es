@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 665dc43f9861baeef6fa61968a9dc873ce1dfdbf
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 
 La pestaña Búsqueda de metaverso resulta útil para solucionar problemas relacionados con datos. En la mitad superior, puede crear una consulta basada en una combinación de atributos. Cuando le satisfaga la consulta, haga clic en **Búsqueda**. El resultado aparecerá en la cuadrícula inferior. Puede seleccionar qué columnas deben estar visibles en **Configuración de columnas**.
 
-En los resultados de búsqueda, seleccione un objeto y **Propiedades** para ver las [propiedades del objeto de metaverso](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
+En los resultados de búsqueda, seleccione un objeto y **Propiedades** para ver las [propiedades del objeto de metaverso](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2c25854795b6c577dff38af26543d915f8482240
-ms.openlocfilehash: 0ae12529c48976c7852c7a562cb3f165c29c9d5f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bf015f8f646ecce6821379affd4d041329967fc8
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -29,8 +29,7 @@ La comprobación de flujo de IP tiene como destino una interfaz de red de una m�
 
 Es necesario crear una instancia de Network Watcher en todas las regiones en las que planea ejecutar la comprobación de flujo de IP. Network Watcher es un servicio regional y solo se puede ejecutar con recursos de la misma región. Esto no afecta a los resultados de la comprobación de flujo de IP ya que, aun así, se devolverá la ruta asociada con la NIC.
 
-> [!NOTE]
-> Actualmente, Network Watcher se encuentra en versión preliminar y, para poder usar las características de Network Watcher, la [característica debe registrarse](network-watcher-create.md#register-the-preview-capability).
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![1][1]
 
