@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
+ms.sourcegitcommit: 14028332ecc17478230d035206e8e00f6af67f7b
+ms.openlocfilehash: 8b6bf676dfa0df45d59763db70655d85fa08809a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ En la versión preliminar actual, para establecer una relación con una organiza
 
 Los usuarios de colaboración B2B normalmente se incorporan mediante un proceso de invitación + canje. Aquí le mostramos cómo funciona:
 
-1. John Doe de WoodGrove desea agregar a Sam Oogle mediante su dirección de gmail (gsamoogle@gmail.com).
+1. John Doe de WoodGrove desea agregar a Sam Oogle mediante su dirección de gmail gsamoogle@gmail.com.
 
 2. John entra en el portal de WoodGrove (portal.azure.com) o en el panel de acceso (myapps.microsoft.com), inicia sesión y agrega al usuario en el directorio de WoodGrove, o al grupo o a la aplicación.
 
@@ -93,10 +94,7 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
+
+* [Auditoría y generación de informes de usuarios de colaboración B2B](active-directory-b2b-auditing-and-reporting.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

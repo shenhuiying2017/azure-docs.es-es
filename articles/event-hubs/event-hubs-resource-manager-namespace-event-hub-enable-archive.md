@@ -12,16 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: cab8a4de9d8d98d77094da5d73f29237829e743a
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Event Hubs con un Centro de eventos y habilitación del Archivado mediante una plantilla de Azure Resource Manager
-En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Event Hubs con un Centro de eventos y habilita el Archivado en el Centro de eventos. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo usar una plantilla de Azure Resource Manager que crea un espacio de nombres de tipo Event Hubs con un centro de eventos y también habilita la característica Archivar en el centro de eventos. En este artículo se describe cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
@@ -73,7 +74,7 @@ El nombre del centro de eventos creado en el espacio de nombres de Centros de ev
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-El número de días que desea que los mensajes se conserven en el Centro de eventos. 
+El número de días que se deben conservar los mensajes en el centro de eventos. 
 
 ```json
 "messageRetentionInDays":{
@@ -88,7 +89,7 @@ El número de días que desea que los mensajes se conserven en el Centro de even
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-El número de particiones que desea en el Centro de eventos.
+El número de particiones que se van a crear en el centro de eventos.
 
 ```json
 "partitionCount":{
@@ -133,7 +134,7 @@ El formato de codificación que especifica para serializar los datos de eventos.
 ```
 
 ### <a name="archivetime"></a>archiveTime
-El intervalo de tiempo en que el archivado empieza a archivar datos en Azure Blob Storage.
+El intervalo de tiempo en que el archivado de Event Hubs empieza a archivar datos en Azure Blob Storage.
 
 ```json
 "archiveTime":{
@@ -175,7 +176,7 @@ El archivado requiere un identificador de recurso de cuenta de Azure Storage par
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-El contenedor de blobs en el que quiere que se archiven los datos de eventos.
+El contenedor de blobs en el que se van a archivar los datos del evento.
 
 ```json
  "blobContainerName":{
@@ -201,7 +202,7 @@ La versión de API de la plantilla.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos para implementar
-Crea un espacio de nombres de tipo **EventHubs**con un centro de eventos y habilita el archivado.
+Crea un espacio de nombres de tipo **EventHubs** con un centro de eventos también y habilita el archivado.
 
 ```json
 "resources":[  
@@ -257,7 +258,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]
@@ -266,7 +267,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un Centro de eventos](event-hubs-create.md)
+* [Creación de un centro de eventos](event-hubs-create.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
@@ -276,9 +277,4 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 [Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

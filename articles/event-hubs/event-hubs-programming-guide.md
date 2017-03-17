@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: b181c2e325621023753d420d0f005c71822db346
-ms.openlocfilehash: 81aee56a4a6e5759987108effe0f6abef0852852
+ms.sourcegitcommit: 2dfc38070e5c9bbdfc4c74e2465894a221657564
+ms.openlocfilehash: 1ee20b8f546c43d0351a2065b0628bb9d6b31736
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -190,9 +191,4 @@ Para obtener más información acerca de los escenarios de los centros de evento
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

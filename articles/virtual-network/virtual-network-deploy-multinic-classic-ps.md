@@ -1,10 +1,10 @@
 ---
-title: "Crear una VM (clásica) con varias NIC mediante PowerShell | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una VM con varias NIC a través del modelo de implementación clásico con PowerShell."
+title: "Creación de una máquina virtual (clásica) con varias NIC (Azure PowerShell) | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una máquina virtual (clásica) con varias NIC mediante PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
-ms.openlocfilehash: 9243294318c3f6c4c7a3563444f0db0ebcf33f28
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: cd3e6c548fd1f7dccaf478d3324efc8d768e3064
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -140,8 +142,8 @@ Debe usar un bucle para crear tantas máquinas virtuales como desee y así poder
 4. Establezca la NIC predeterminada y asígnela a una dirección IP estática.
 
     ```powershell
-    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. Agregue una segunda NIC para cada máquina virtual.
@@ -194,10 +196,5 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

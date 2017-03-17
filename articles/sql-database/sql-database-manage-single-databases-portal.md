@@ -16,8 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 319e22e2fb423e0fe1fabf95d0018d4fa3232e0b
-ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
+ms.sourcegitcommit: 5e01db2676e3515f41bf98d23595e6509c0d6805
+ms.openlocfilehash: c5f50213be9cd20c82acf8dd94463e7dce0a0195
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -49,6 +50,7 @@ Puede crear y administrar instancias de Azure SQL Database únicas con [Azure Po
     ![hoja nueva base de datos de ejemplo](./media/sql-database-get-started/new-sample-db-blade.png)
 
 ## <a name="change-the-service-tier-and-performance-level-of-a-single-database"></a>Cambio del nivel de servicio y el nivel de rendimiento de una base de datos única
+
 Abra la hoja Base de datos SQL correspondiente a la base de datos que desea escalar o reducir verticalmente:
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Más servicios** > **SQL Database**.
@@ -59,12 +61,11 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 
 4. Seleccione un nuevo nivel y haga clic en **Seleccionar**:
    
-   Al hacer clic en **Seleccionar** se envía una petición de escala para cambiar el plan de tarifa. Según el tamaño de la base de datos, la operación de escala puede tardar algún tiempo en completarse (vea la información de la parte superior de este artículo).
+   Al hacer clic en **Seleccionar** se envía una petición de escala para cambiar el plan de tarifa. Según el tamaño de la base de datos, la operación de escala puede tardar algún tiempo en completarse (véanse los [niveles de servicio](sql-database-service-tiers.md)).
    
    > [!NOTE]
    > Cambiar el plan de tarifa de la base de datos no cambia el tamaño máximo de la base de datos. Para cambiar el tamaño máximo de la base de datos use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
-   > 
-   > 
+   >  
    
    ![seleccione nivel de precios](./media/sql-database-manage-single-database-portal/choose-tier.png)
 5. Haga clic en el icono de notificación (campana), en la parte superior derecha:
@@ -80,9 +81,4 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 * Para ver cómo realizar tareas de administración con SQL Server Management Studio, consulte [SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Para obtener más información sobre el servicio SQL Database, lea el [artículo en el que se describe qué es SQL Database](sql-database-technical-overview.md). 
 * Para obtener más información sobre las características y los servidores de bases de datos de Azure SQL Database, visite [el artículo al respecto](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

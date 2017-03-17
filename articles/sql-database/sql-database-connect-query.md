@@ -1,8 +1,8 @@
 ---
-title: "Conexión a SQL Database con una consulta en C# | Microsoft Docs"
-description: "Escribir un programa en C# para realizar consultas y conectarse a Base de datos SQL. Información acerca de direcciones IP, cadenas de conexión, inicio de sesión seguro y Visual Studio gratuito."
+title: "Conexión a Azure SQL Database con Visual Studio | Microsoft Docs"
+description: Aprenda a conectarse a una base de datos SQL de Azure con Visual Studio.
 services: sql-database
-keywords: consulta de base de datos en c#, consulta en c#, conectarse a base de datos, SQL C#
+keywords: "conexión a la base de datos"
 documentationcenter: 
 author: stevestein
 manager: jhubbard
@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 03/03/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 6789662847197ff3abb44df2d65a8ab761dfc1e7
+ms.lasthandoff: 03/04/2017
 
 
 ---

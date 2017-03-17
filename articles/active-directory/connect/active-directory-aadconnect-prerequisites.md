@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 7174da908fda12fbb83a102921d9f223fc3ee17b
-ms.openlocfilehash: 2fb3dffb35a4798942f95df65a9af822dd2485cd
+ms.sourcegitcommit: fe0377fed432ac2c83f7a277ba41d9ffcc138ba7
+ms.openlocfilehash: 8d0533c81866dee7d24f3d5ccc5958b019d55a40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -52,7 +53,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 * Si utiliza una instancia de SQL Server independiente, se aplican estos requisitos:
   * Azure AD Connect admite todas las versiones de Microsoft SQL Server, desde de SQL Server 2008 (con Service Pack 4) a SQL Server 2016. **No se admite** Base de datos SQL de Microsoft Azure como base de datos.
   * Debe usar una intercalación de SQL sin distinción de mayúsculas y minúsculas. Se identifican porque el nombre incluye \_CI_. **No se puede utilizar** para emplear una intercalación sin distinción de mayúsculas y minúsculas, y se identifica porque el nombre incluye \_CS_.
-  * Solo se puede tener un motor de sincronización por cada instancia de base de datos. **No se puede utilizar** para compartir la instancia de base de datos con DirSync, Sincronización de Azure AD o la herramienta de sincronización de FIM/MIM.
+  * Solo se puede tener un motor de sincronización por cada instancia de SQL. **No se puede** compartir una instancia de SQL con FIM/MIM Sync, DirSync o la Sincronización de Azure AD.
 
 ### <a name="accounts"></a>Cuentas
 * Una cuenta de administrador global de Azure AD para el directorio de Azure AD con el que desea realizar la integración. Debe tratarse de una **cuenta profesional o educativa** y no puede ser una **cuenta Microsoft**.
@@ -200,10 +201,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -57,7 +57,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
    
     ![Agregar una aplicación de la galería](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Agregar una aplicación de la Galería")
 
-6. En el **cuadro de búsqueda** escriba** Citrix GoToMeeting**.
+6. En el **cuadro de búsqueda** escriba **Citrix GoToMeeting**.
    
     ![Citrix GoToMeeting](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC701006.png "Citrix GoToMeeting")
 
@@ -72,7 +72,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
-1. En la página de integración de aplicaciones de **Citrix GoToMeeting**, haga clic en** Configurar inicio de sesión único** para abrir el cuadro de diálogo **CONFIGURAR INICIO DE SESIÓN ÚNICO**.
+1. En la página de integración de aplicaciones de **Citrix GoToMeeting**, haga clic en**Configurar inicio de sesión único** para abrir el cuadro de diálogo **CONFIGURAR INICIO DE SESIÓN ÚNICO**.
    
     ![Habilitar inicio de sesión único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Habilitar inicio de sesión único")
 

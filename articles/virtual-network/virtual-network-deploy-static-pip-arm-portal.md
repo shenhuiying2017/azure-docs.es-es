@@ -1,10 +1,10 @@
 ---
-title: "Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual con una dirección IP pública estática con Azure Resource Manager mediante Azure Portal."
+title: "Creación de una máquina virtual con una dirección IP pública estática (Azure Portal) | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una máquina virtual con una dirección IP pública estática mediante Azure Portal."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: c2d0230550249c5f8ca406b61225822b7e19db2e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 7740861cccfe0ba4e8ae0694f6d5c5fec3df47ef
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal
 
 > [!div class="op_single_selector"]
 - [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
@@ -63,10 +65,5 @@ Para crear una máquina virtual con una dirección IP pública estática en Azur
 10. Una vez creada la máquina virtual, la hoja **Configuración** se muestra, tal como se indica a continuación.
     
     ![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

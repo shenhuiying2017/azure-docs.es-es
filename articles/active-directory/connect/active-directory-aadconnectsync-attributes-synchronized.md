@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,8 +33,8 @@ En este caso, comience con la lista de atributos de este tema e identifique aque
 
 > [!WARNING]
 > Al anular la selección de atributos, debe tener cuidado y solo hacerlo con aquellos que sean imposibles de sincronizar. Anular la selección de otros atributos podría afectar negativamente a las características.
-> 
-> 
+>
+>
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Nombre del atributo | Usuario | Comentario |
@@ -421,7 +422,7 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 
 | Nombre del atributo | Usuario | Contacto | Grupo | Comentario |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Se deriva de cloudAnchor en Azure AD. Este atributo es nuevo en Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Se deriva de cloudAnchor en Azure AD. Este atributo es nuevo en Exchange 2016 y en AD de Windows Server 2016. |
 | msExchArchiveStatus |X | | |Archivo en línea: permite a los clientes archivar el correo electrónico. |
 | msExchBlockedSendersHash |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
 | msExchSafeRecipientsHash |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
@@ -458,10 +459,4 @@ Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

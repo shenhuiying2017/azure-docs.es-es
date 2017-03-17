@@ -40,7 +40,7 @@ Los administradores de Analysis Services pueden no ser los mismos que administra
 
 ### <a name="to-add-administrators-using-azure-portal"></a>Incorporación de administradores mediante Azure Portal
 1. En la hoja de control del servidor, haga clic en **Administradores de Analysis Services**.
-2. En la hoja ** \<nombreDeServidor > Administradores de Analysis Services**, haga clic en **Agregar**.
+2. En la hoja **\<nombreDeServidor > Administradores de Analysis Services**, haga clic en **Agregar**.
 3. En la hoja **Agregar administradores de servidor**, seleccione las cuentas de los usuarios que desea agregar.
 
 ## <a name="database-users"></a>Usuarios de base de datos

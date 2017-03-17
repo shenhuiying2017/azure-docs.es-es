@@ -1,6 +1,6 @@
 ---
 title: "Administración de los miembros de un grupo en la versión preliminar de Azure Active Directory | Microsoft Docs"
-description: "Cómo administrar usuarios y dispositivos que son miembros de un grupo en Azure Active Directory"
+description: "Cómo agregar o quitar usuarios y dispositivos de un grupo en Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c0c411f6e2f51fa2d55d46ff92153dc8882bb38
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="manage-the-members-for-a-group-in-azure-active-directory-preview"></a>Administración de los miembros de un grupo en la versión preliminar de Azure Active Directory
+# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Administración de la pertenencia a grupos de los usuarios del inquilino de Azure Active Directory
 En este artículo se explica cómo administrar los miembros de un grupo en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué es la versión preliminar?](active-directory-preview-explainer.md)
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>¿Cómo puedo buscar miembros y administrarlos?
@@ -53,9 +55,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Administrar la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](active-directory-groups-membership-azure-portal.md)
 * [Administrar reglas dinámicas de los usuarios de un grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

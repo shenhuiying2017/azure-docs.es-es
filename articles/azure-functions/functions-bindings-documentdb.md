@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c9e736f7ce5330823f3890c669da40e2bb1ecf43
-ms.openlocfilehash: 13b69118c6732ed872bec11e880737db3b8fa3c5
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -53,7 +54,7 @@ La entrada de DocumentDB a una función usa el siguiente objeto JSON en la matri
 Tenga en cuenta lo siguiente:
 
 * `id` admite enlaces similares a `{queueTrigger}`, que usa el valor de cadena del mensaje en cola como identificador del documento.
-* `connection` debe ser el nombre de una configuración de aplicación que señala al punto de conexión para la cuenta de DocumentDB (con el valor `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si crea una cuenta de DocumentDB a través de la IU del portal de Functions, el proceso de creación de cuenta crea una configuración de aplicación. Para usar una cuenta de DocumentDB existente, necesita [definir esta configuración de aplicación manualmente](). 
+* `connection` debe ser el nombre de una configuración de aplicación que señala al punto de conexión para la cuenta de DocumentDB (con el valor `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si crea una cuenta de DocumentDB a través de la IU del portal de Functions, el proceso de creación de cuenta crea una configuración de aplicación. Para usar una cuenta de DocumentDB existente, necesita [definir esta configuración de aplicación manualmente](functions-how-to-use-azure-function-app-settings.md). 
 * Si el documento especificado no se encuentra, el parámetro de entrada con nombre a la función se establece en `null`. 
 
 ## <a name="input-usage"></a>Uso de entradas
@@ -132,7 +133,7 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="a-iddocdboutputadocumentdb-output-binding"></a><a id="docdboutput"></a>Enlace de salida de DocumentDB
+## <a id="docdboutput"></a>Enlace de salida de DocumentDB
 El enlace de salida de DocumentDB permite escribir un nuevo documento en una base de datos de Azure DocumentDB. 
 
 El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de function.json: 
@@ -157,7 +158,10 @@ Tenga en cuenta lo siguiente:
 ## <a name="output-usage"></a>Uso de salidas
 En esta sección se muestra cómo utilizar el enlace de salida de DocumentDB en el código de función.
 
-Cuando se escribe en el parámetro de salida en la función, de forma predeterminada se genera un nuevo documento en la base de datos, con un GUID generado automáticamente como el identificador de documento. Puede especificar el identificador de documento del documento de salida mediante la especificación de la propiedad JSON `id` en el parámetro de salida. Si ya existe un documento con ese identificador, el documento de salida lo sobrescribe. 
+Cuando se escribe en el parámetro de salida en la función, de forma predeterminada se genera un nuevo documento en la base de datos, con un GUID generado automáticamente como el identificador de documento. Puede especificar el identificador de documento del documento de salida mediante la especificación de la propiedad JSON `id` en el parámetro de salida. 
+
+>[!Note]  
+>Cuando especifica el identificador de un documento existente, se sobrescribe con el nuevo documento de salida. 
 
 Puede escribir en la salida mediante cualquiera de los siguientes tipos:
 
@@ -306,9 +310,4 @@ module.exports = function (context) {
   context.done();
 };
 ```
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

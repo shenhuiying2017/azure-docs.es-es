@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 0b5bdb5036024cc0e05b3845e0073b2ea66a0a73
-ms.openlocfilehash: 9f615c3936cf3207ace787dd7293f94d2b760149
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d5c8972e539ace9440a166eaed6c95fe93e2792a
+ms.openlocfilehash: 792e6c0d70a4786535174fa9c5f863a72da41143
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -200,7 +200,7 @@ Se debe leer como **(departamento = TI) O BIEN (departamento = Ventas Y c = Esta
 
 En los ejemplos y los pasos siguientes, usaremos el objeto de usuario como ejemplo, pero esto sirve para todo tipo de objetos.
 
-En los ejemplos siguientes, el valor de precedencia empieza por 500. Este valor garantiza que estas reglas se evalúen después de las integradas (a menor precedencia, mayor valor numérico).
+En los ejemplos siguientes, el valor de precedencia empieza por 50. Puede ser cualquier número no usado, pero debe ser menor que 100.
 
 #### <a name="negative-filtering-do-not-sync-these"></a>Filtrado negativo: "no sincronizar estos"
 En el siguiente ejemplo, filtraremos (no sincronizaremos) todos los usuarios en los que **extensionAttribute15** tenga el valor **NoSync**.
@@ -208,7 +208,7 @@ En el siguiente ejemplo, filtraremos (no sincronizaremos) todos los usuarios en 
 1. Inicie sesión en el servidor donde se ejecuta la sincronización de Azure AD Connect con una cuenta que pertenezca al grupo de seguridad **ADSyncAdmins** .
 2. Inicie el **Synchronization Rules Editor** (Editor de reglas de sincronización) del menú **Inicio**.
 3. Asegúrese de que **Entrante** esté seleccionado y haga clic en **Agregar nueva regla**.
-4. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario FiltroNoSincronizar*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto de metaverso). En **Tipo de vínculo**, seleccione **Unir**. En **Precedencia**, escriba un valor que no use actualmente ninguna otra regla de sincronización (por ejemplo, 500) y haga clic en **Siguiente**.  
+4. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario FiltroNoSincronizar*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto de metaverso). En **Tipo de vínculo**, seleccione **Unir**. En **Precedencia**, escriba un valor que no use actualmente ninguna otra regla de sincronización (por ejemplo, 50) y haga clic en **Siguiente**.  
    ![Descripción de entrante 1](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. En **Scoping filter** (Filtro de ámbito), haga clic en **Agregar grupo** y en **Agregar cláusula**. En **Atributo**, seleccione **ExtensionAttribute15**. Asegúrese de que el **Operador** esté configurado en **EQUAL** y escriba el valor **NoSync** en el cuadro **Valor**. Haga clic en **Siguiente**.  
    ![Ámbito de entrante 2](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
@@ -218,7 +218,7 @@ En el siguiente ejemplo, filtraremos (no sincronizaremos) todos los usuarios en 
 8. Para completar la configuración, debe ejecutar una **sincronización completa**. Continúe leyendo la sección [Aplicación y comprobación de los cambios](#apply-and-verify-changes).
 
 #### <a name="positive-filtering-only-sync-these"></a>Filtrado positivo: "solo sincronizar estos"
-Expresar el filtrado positivo puede ser más complicado, ya que también se deben considerar también objetos que no sea obvio que se vayan a sincronizar, como las salas de conferencias.
+Expresar el filtrado positivo puede ser más complicado, ya que también se deben considerar también objetos que no sea obvio que se vayan a sincronizar, como las salas de conferencias. También va a invalidar el filtro predeterminado de la regla original **In from AD - User Join** (Dentro desde AD: unión de usuario). Cuando cree un filtro personalizado, asegúrese de no incluir objetos críticos del sistema, objetos de conflictos de replicación, buzones especiales y las cuentas de servicio de Azure AD Connect.
 
 La opción de filtrado positivo requiere dos reglas de sincronización. Necesita una regla (o varias) con el ámbito correcto de los objetos para sincronizarlos. También necesita una segunda regla de sincronización general que filtre todos los objetos que aún no se hayan identificado como objeto para sincronizar.
 
@@ -227,7 +227,7 @@ En el ejemplo siguiente, solo sincronizaremos los objetos de usuario en los que 
 1. Inicie sesión en el servidor donde se ejecuta la sincronización de Azure AD Connect con una cuenta que pertenezca al grupo de seguridad **ADSyncAdmins** .
 2. Inicie el **Synchronization Rules Editor** (Editor de reglas de sincronización) del menú **Inicio**.
 3. Asegúrese de que **Entrante** esté seleccionado y haga clic en **Agregar nueva regla**.
-4. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario Ventas sincronizar*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto de metaverso). En **Tipo de vínculo**, seleccione **Unir**. En **Precedencia**, escriba un valor que no use actualmente ninguna otra regla de sincronización (por ejemplo, 501) y haga clic en **Siguiente**.  
+4. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario Ventas sincronizar*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto de metaverso). En **Tipo de vínculo**, seleccione **Unir**. En **Precedencia**, escriba un valor que no use actualmente ninguna otra regla de sincronización (por ejemplo, 51) y haga clic en **Siguiente**.  
    ![Descripción de entrante 4](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. En **Scoping filter** (Filtro de ámbito), haga clic en **Agregar grupo** y en **Agregar cláusula**. En **Atributo**, seleccione **department**. Asegúrese de que el Operador esté configurado en **EQUAL** y escriba el valor **Sales** en el cuadro **Valor**. Haga clic en **Siguiente**.  
    ![Ámbito de entrante 5](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
@@ -235,7 +235,7 @@ En el ejemplo siguiente, solo sincronizaremos los objetos de usuario en los que 
 7. Haga clic en **Add Transformation** (Agregar transformación), establezca **FlowType** en **Constante** y **Atributo de destino** en **cloudFiltered**. En el cuadro **Origen**, escriba **False**. Haga clic en **Agregar** para guardar la regla.  
    ![Transformación de entrante 6](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png)  
    Este es un caso especial en el que estableceremos cloudFiltered explícitamente en **False**.
-8. Ahora tenemos que crear la regla de sincronización de comodín. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario Filtro de comodín*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto de metaverso). En **Tipo de vínculo**, seleccione **Unir**. En **Precedencia**, escriba un valor que no use actualmente ninguna otra regla de sincronización (por ejemplo, 600). Ha seleccionado un valor de precedencia mayor (menor prioridad) que la regla de sincronización anterior. Pero también ha dejado algo de espacio para poder agregar más reglas de filtrado de sincronización más tarde, cuando quiera empezar a sincronizar departamentos adicionales. Haga clic en **Siguiente**.  
+8. Ahora tenemos que crear la regla de sincronización de comodín. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario Filtro de comodín*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto de metaverso). En **Tipo de vínculo**, seleccione **Unir**. En **Precedencia**, escriba un valor que no use actualmente ninguna otra regla de sincronización (por ejemplo, 99). Ha seleccionado un valor de precedencia mayor (menor prioridad) que la regla de sincronización anterior. Pero también ha dejado algo de espacio para poder agregar más reglas de filtrado de sincronización más tarde, cuando quiera empezar a sincronizar departamentos adicionales. Haga clic en **Siguiente**.  
    ![Descripción de entrante 7](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)  
 9. Deje **Scoping filter** (Filtro de ámbito) vacío y haga clic en **Siguiente**. Un filtro vacío indica que la regla se aplica a todos los objetos.
 10. Deje las reglas de **unión** vacías y, después, haga clic en **Siguiente**.

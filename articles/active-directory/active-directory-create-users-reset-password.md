@@ -12,22 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user"></a>Restablecimiento de la contraseña de un usuario
+# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Restablecimiento de la contraseña de un usuario en el Portal de Azure clásico
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-users-reset-password-azure-portal.md)
+> * [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-create-users-reset-password.md)
 >
 >
 
-Si está respondiendo a un usuario que solicita un restablecimiento de contraseña después de un bloqueo, o simplemente que se ocupa de un mantenimiento de seguridad rutinario, a veces es necesario restablecer la contraseña de un usuario. Azure Active Directory (Azure AD) facilita esta tarea.
+Azure Active Directory (Azure AD) simplifica el proceso de restablecimiento de contraseña de un usuario en caso de olvido, y lo bloquea, o facilita la realización de la rutina de mantenimiento de seguridad. 
 
 1. Abra el directorio.
 2. Seleccione la pestaña **Usuarios** y, después, el nombre para mostrar del usuario que quiere cambiar.
@@ -40,9 +42,4 @@ Si está respondiendo a un usuario que solicita un restablecimiento de contrase�
 * [Administración de Azure AD](active-directory-administer.md)
 * [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
 * [Administración de grupos en Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

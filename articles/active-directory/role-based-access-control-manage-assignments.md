@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 3/01/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: 87fa4373e5496a91d4e808ceb45095a6aea9e884
 > [!div class="op_single_selector"]
 > * [Administración del acceso por usuario o grupo](role-based-access-control-manage-assignments.md)
 > * [Administración del acceso por recurso](role-based-access-control-configure.md)
-> 
-> 
 
 Gracias al control de acceso basado en rol (RBAC) de la versión preliminar de Azure Active Directory, puede administrar el acceso a los recursos de Azure. [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md)
 
@@ -57,13 +56,9 @@ En esta hoja, puede eliminar las asignaciones de acceso que se asignaron directa
 2. Seleccione **Quitar** y después **Sí** para confirmar.
     ![Captura de pantalla de eliminación de asignación de acceso](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="related-topics"></a>Temas relacionados
+## <a name="next-steps"></a>Pasos siguientes
+
 * Vea una introducción al control de acceso basado en rol en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md)
 * Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

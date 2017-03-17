@@ -1,6 +1,6 @@
 ---
 title: P+F sobre Azure Multi-Factor Authentication | Microsoft Docs
-description: "Proporciona una lista de las preguntas y respuestas más frecuentes relacionadas con Azure Multi-Factor Authentication. Multi-Factor Authentication es un método para comprobar la identidad de un usuario que requiere usar más de un nombre de usuario y contraseña. Proporciona una capa adicional de seguridad a los inicios de sesión y transacciones de los usuarios."
+description: "Preguntas y respuestas más frecuentes relacionadas con Azure Multi-Factor Authentication. Multi-Factor Authentication es un método para comprobar la identidad de un usuario que requiere usar más de un nombre de usuario y contraseña. Proporciona una capa adicional de seguridad a los inicios de sesión y transacciones de los usuarios."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9617cd00ed4a5f8f867542238e5008a9a17663c9
-ms.openlocfilehash: 1e01bdc099af865e01eb2784cf367e482300ade8
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: dfbb5e2358cd857c2a16ded5d4d82c1f246cbe20
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-multi-factor-authentication-faq"></a>P+F sobre Azure Multi-Factor Authentication 
+# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 Este artículo de P+F da respuesta a las preguntas más frecuentes sobre Microsoft Azure Multi-Factor Authentication y el uso del servicio de autenticación multifactor; por ejemplo, cuestiones sobre el modelo de facturación y la facilidad de uso.
 
 ## <a name="general"></a>General
@@ -62,7 +63,7 @@ Cuando usa el modelo "por usuario" o "por autenticación", Azure MFA es un recur
 
 Cuando se utiliza el modelo de licencias, se compran las licencias de Azure Multi-Factor Authentication y luego se asignan a los usuarios, lo mismo que en Office 365 y otros productos de suscripción.
 
-Obtenga más información sobre sus opciones en [Cómo funciona Azure Multi-Factor Authentication](multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication).
+Obtenga más información sobre sus opciones en [Cómo funciona Azure Multi-Factor Authentication](multi-factor-authentication-how-it-works.md).
 
 **P.: ¿Existe una versión gratuita de Azure Multi-Factor Authentication para los administradores?**
 
@@ -166,10 +167,5 @@ Si su pregunta no se responde aquí, déjela en los comentarios de la parte infe
 * Busque y examine cuestiones técnicas y sus respuestas en la comunidad, o bien realice su propia pregunta en los [foros de Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Si es un cliente antiguo de PhoneFactor y tiene alguna pregunta o necesita ayuda para restablecer una contraseña, haga clic en el vínculo de [restablecimiento de contraseña](mailto:phonefactorsupport@microsoft.com) para abrir un caso de soporte.
 * Póngase en contacto con un profesional de soporte técnico a través de [Soporte técnico de Servidor Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Al ponerse en contacto con nosotros, nos resultará de gran utilidad que incluya tanta información sobre su problema como sea posible. Entre la información que puede aportar se incluyen la página donde vio el error, el código de error específico, el identificador de sesión específico y el identificador del usuario que vio el error.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

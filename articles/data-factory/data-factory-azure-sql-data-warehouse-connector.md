@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
-ms.openlocfilehash: 98e06e683e6ee473a0747b423ed7cf6ae2b8cfed
+ms.sourcegitcommit: aada5b96eb9ee999c5b1f60b6e7b9840fd650fbe
+ms.openlocfilehash: 2831416bbb290905835396835db2eb6cb5e7b46f
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -559,7 +560,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
 5. No se usa `columnMapping` en la actividad de copia asociada.
 
 ### <a name="staged-copy-using-polybase"></a>Copias almacenadas provisionalmente con PolyBase
-Si los datos de origen no cumplen los criterios que se introdujeron en la sección anterior, puede habilitar la copia de datos a través de un almacenamiento de blobs de Azure provisional. En este caso, Azure Data Factory realiza transformaciones en los datos para que cumplan con los requisitos de formato de datos de PolyBase y, a continuación, usa este para cargar datos en SQL Data Warehouse. Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para más información sobre cómo funciona en general la copia de datos por medio de un blob de Azure de almacenamiento provisional.
+Si los datos de origen no cumplen los criterios especificados en la sección anterior, puede habilitar la copia de datos a través de un almacenamiento provisional de Azure Blob Storage (no puede ser Premium Storage). En este caso, Azure Data Factory realiza transformaciones en los datos para que cumplan con los requisitos de formato de datos de PolyBase y, a continuación, usa este para cargar datos en SQL Data Warehouse. Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para más información sobre cómo funciona en general la copia de datos por medio de un blob de Azure de almacenamiento provisional.
 
 > [!NOTE]
 > Cuando copie datos de un almacén de datos local a Azure SQL Data Warehouse mediante PolyBase y almacenamiento provisional, si la versión de Data Management Gateway es inferior a 2.4, se necesita JRE (Java Runtime Environment) en la máquina de puerta de enlace que se usa para transformar los datos de origen en un formato correcto. Se recomienda actualizar la puerta de enlace a la versión más reciente para evitar esta dependencia.
@@ -596,17 +597,13 @@ Para usar esta característica, cree un [servicio vinculado de Azure Storage](da
 ### <a name="required-database-permission"></a>Permiso de base de datos necesario
 El uso de PolyBase requiere que el usuario que se usa para cargar datos en SQL Data Warehouse tenga [permiso "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) en la base de datos de destino. Una manera de conseguirlo es agregar ese usuario como miembro del rol "db_owner". Obtenga información sobre cómo hacerlo siguiendo [esta sección](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-### <a name="row-size-limitation"></a>Limitación de tamaño de fila
-Polybase no admite tamaños de fila superiores a 32 KB. Si se intenta cargar una tabla con filas de más de 32 KB, daría como resultado el siguiente error:
+### <a name="row-size-and-data-type-limitation"></a>Limitación del tipo de datos y del tamaño de fila
+Las cargas de PolyBase se limitan a la carga de filas más pequeñas que **1 MB** y no pueden cargar en VARCHR(MAX), NVARCHAR(MAX) ni VARBINARY(MAX). O haga clic [aquí](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-```
-Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
-```
-
-Si tiene datos de origen con filas mayores de 32 KB, puede dividir las tablas de origen verticalmente en varias más pequeñas, donde el tamaño de fila mayor de cada una de ellas no supere el límite. Las tablas más pequeñas se pueden cargadas con PolyBase y se combinan en el Almacenamiento de datos SQL de Azure.
+Si tiene datos de origen con filas mayores de 1 MB, puede dividir las tablas de origen verticalmente en varias más pequeñas, donde el tamaño de fila mayor de cada una de ellas no supere el límite. Las tablas más pequeñas se pueden cargadas con PolyBase y se combinan en el Almacenamiento de datos SQL de Azure.
 
 ### <a name="sql-data-warehouse-resource-class"></a>Clase de recursos de SQL Data Warehouse
-Para obtener el mejor rendimiento posible, considere la posibilidad de asignar una clase SQL Data Warehouse a través de PolyBase. Infórmese acerca de cómo hacerlo siguiendo las instrucciones en [Cambio de ejemplo de clase de recursos de usuario](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
+Para obtener el mejor rendimiento posible, considere la posibilidad de asignar una clase SQL Data Warehouse a través de PolyBase. Infórmese acerca de cómo hacerlo siguiendo las instrucciones en [Cambio de ejemplo de clase de recursos de usuario](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName en Almacenamiento de datos SQL de Azure
 En la tabla siguiente se proporcionan ejemplos sobre cómo especificar la propiedad **tableName** en el conjunto de datos JSON para diversas combinaciones de nombre de tabla y esquema.
@@ -723,9 +720,4 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

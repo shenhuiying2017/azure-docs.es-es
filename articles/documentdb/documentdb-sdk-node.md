@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/27/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
+ms.sourcegitcommit: 8ffbf7807bdd3d0f9147dcd0237a999386553c37
+ms.openlocfilehash: b84597fb44b28f827a14a1c1b319a766b8a0b4dd
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -55,83 +56,87 @@ ms.openlocfilehash: 43d658a67eb55a2d2e35f79080d63c3effb6387e
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="a-name11011101a"></a><a name="1.10.1"/>1.10.1</a>
+### <a name="1.10.2"/>1.10.2</a>
+* Encabezado de agente de usuario fijo para incluir la versión del SDK.
+* Limpieza menor de código.
+
+### <a name="1.10.1"/>1.10.1</a>
 * Se ha deshabilitado la comprobación de SSL cuando se usa el SDK para alcanzar el emulador (nombre de host = host local).
 * Se ha agregado compatibilidad para habilitar el registro de scripts durante la ejecución de procedimientos almacenados.
 
-### <a name="a-name11001100a"></a><a name="1.10.0"/>1.10.0</a>
+### <a name="1.10.0"/>1.10.0</a>
 * Compatibilidad agregada con las consultas paralelas entre particiones.
 * Se ha agregado compatibilidad con las consultas TOP y ORDER BY en las colecciones particionadas.
 
-### <a name="a-name190190a"></a><a name="1.9.0"/>1.9.0</a>
+### <a name="1.9.0"/>1.9.0</a>
 * Se ha agregado compatibilidad de la directiva de reintentos con las solicitudes de limitación. (Las solicitudes limitadas reciben una excepción demasiado grande de la tasa de solicitudes, código de error 429). De manera predeterminada, DocumentDB realiza nueve reintentos para cada solicitud cuando aparece el código de error 429, cumpliendo el tiempo de retryAfter en el encabezado de respuesta. Ahora puede establecerse un tiempo del intervalo de reintento fijo como parte de la propiedad RetryOptions del objeto ConnectionPolicy si quiere ignorar el tiempo de retryAfter que ha devuelto el servidor entre los reintentos. DocumentDB espera ahora un máximo de 30 segundos para cada solicitud que se está limitando (independientemente del recuento de reintentos) y devuelve la respuesta con el código de error 429. Este tiempo también puede reemplazarse en la propiedad RetryOptions del objeto ConnectionPolicy.
 * DocumentDB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que ha esperado la solicitud entre los reintentos.
 * Se ha agregado la clase RetryOptions que expone la propiedad RetryOptions en la clase ConnectionPolicy que puede usarse para reemplazar algunas de las opciones de reintentos predeterminadas.
 
-### <a name="a-name180180a"></a><a name="1.8.0"/>1.8.0</a>
+### <a name="1.8.0"/>1.8.0</a>
 * Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 
-### <a name="a-name170170a"></a><a name="1.7.0"/>1.7.0</a>
+### <a name="1.7.0"/>1.7.0</a>
 * Se ha agregado compatibilidad con la característica de período de vida (TTL) para los documentos.
 
-### <a name="a-name160160a"></a><a name="1.6.0"/>1.6.0</a>
+### <a name="1.6.0"/>1.6.0</a>
 * Se han implementado [colecciones particionadas](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md).
 
-### <a name="a-name156156a"></a><a name="1.5.6"/>1.5.6</a>
+### <a name="1.5.6"/>1.5.6</a>
 * Solucionado el error RangePartitionResolver.resolveForRead por el que no se devolvían vínculos debido a una mala concatenación de resultados.
 
-### <a name="a-name155155a"></a><a name="1.5.5"/>1.5.5</a>
+### <a name="1.5.5"/>1.5.5</a>
 * Valor hashParitionResolver resolveForRead() fijo: cuando ninguna clave de partición proporcionada lanzó una excepción, en lugar de devolver una lista de todos los vínculos registrados.
 
-### <a name="a-name154154a"></a><a name="1.5.4"/>1.5.4</a>
+### <a name="1.5.4"/>1.5.4</a>
 * Corrige el problema [100](https://github.com/Azure/azure-documentdb-node/issues/100) : agente específico de HTTPS (evitar la modificación del agente global para fines de DocumentDB). Use un agente dedicado para todas las solicitudes de lib.
 
-### <a name="a-name153153a"></a><a name="1.5.3"/>1.5.3</a>
+### <a name="1.5.3"/>1.5.3</a>
 * Corrige el problema [81](https://github.com/Azure/azure-documentdb-node/issues/81) : controla correctamente guiones en identificadores de medios.
 
-### <a name="a-name152152a"></a><a name="1.5.2"/>1.5.2</a>
+### <a name="1.5.2"/>1.5.2</a>
 * Corrige el problema [95](https://github.com/Azure/azure-documentdb-node/issues/95) : advertencia de pérdida de escucha de EventEmitter.
 
-### <a name="a-name151151a"></a><a name="1.5.1"/>1.5.1</a>
+### <a name="1.5.1"/>1.5.1</a>
 * Corrige el problema [92](https://github.com/Azure/azure-documentdb-node/issues/90) : cambio de nombre de la carpeta Hash a hash para sistemas que distinguen mayúsculas de minúsculas.
 
-### <a name="a-name150150a"></a><a name="1.5.0"/>1.5.0</a>
+### <a name="1.5.0"/>1.5.0</a>
 * Se implementa la compatibilidad con el particionamiento, para lo que se agregan resolvedores de hash y de particiones de intervalo.
 
-### <a name="a-name140140a"></a><a name="1.4.0"/>1.4.0</a>
+### <a name="1.4.0"/>1.4.0</a>
 * Implementación de Upsert. Se han agregado nuevos métodos upsertXXX en documentClient.
 
-### <a name="a-name130130a"></a><a name="1.3.0"/>1.3.0</a>
+### <a name="1.3.0"/>1.3.0</a>
 * Omitida para alinear el número de versión con otros SDK.
 
-### <a name="a-name122122a"></a><a name="1.2.2"/>1.2.2</a>
+### <a name="1.2.2"/>1.2.2</a>
 * Divide el contenedor de objetos Q promise en nuevo repositorio.
 * Actualización del archivo de paquete para registro npm.
 
-### <a name="a-name121121a"></a><a name="1.2.1"/>1.2.1</a>
+### <a name="1.2.1"/>1.2.1</a>
 * Se implementa el enrutamiento por identificador.
 * Corrige el problema [49](https://github.com/Azure/azure-documentdb-node/issues/49) : la propiedad current entra en conflicto con el método current().
 
-### <a name="a-name120120a"></a><a name="1.2.0"/>1.2.0</a>
+### <a name="1.2.0"/>1.2.0</a>
 * Se agregó compatibilidad con índice geoespacial.
 * Valida la propiedad id para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, &#47;&#47;, ni terminar con un espacio.
 * Agrega el nuevo encabezado "progreso de transformación de índices" a ResourceResponse.
 
-### <a name="a-name110110a"></a><a name="1.1.0"/>1.1.0</a>
+### <a name="1.1.0"/>1.1.0</a>
 * Implementación de la directiva de indexación V2.
 
-### <a name="a-name103103a"></a><a name="1.0.3"/>1.0.3</a>
+### <a name="1.0.3"/>1.0.3</a>
 * Problema [40](https://github.com/Azure/azure-documentdb-node/issues/40) : se implementaron configuraciones eslint y grunt en el núcleo y el SDK de promise.
 
-### <a name="a-name102102a"></a><a name="1.0.2"/>1.0.2</a>
+### <a name="1.0.2"/>1.0.2</a>
 * Problema [#45](https://github.com/Azure/azure-documentdb-node/issues/45) : el contenedor de objetos promise no incluye el encabezado con el error.
 
-### <a name="a-name101101a"></a><a name="1.0.1"/>1.0.1</a>
+### <a name="1.0.1"/>1.0.1</a>
 * Implementación de capacidad para consultar conflictos agregando readConflicts, readConflictAsync y queryConflicts.
 * Documentación de la API actualizada.
 * Problema [41](https://github.com/Azure/azure-documentdb-node/issues/41) : error client.createDocumentAsync.
 
-### <a name="a-name100100a"></a><a name="1.0.0"/>1.0.0</a>
+### <a name="1.0.0"/>1.0.0</a>
 * SDK de GA.
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
@@ -145,6 +150,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.10.2](#1.10.2) |27 de enero de 2017 |--- |
 | [1.10.1](#1.10.1) |22 de diciembre de 2016 |--- |
 | [1.10.0](#1.10.0) |03 de octubre de 2016 |--- |
 | [1.9.0](#1.9.0) |7 de julio de 2016 |--- |
@@ -174,10 +180,5 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 ## <a name="see-also"></a>Otras referencias
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

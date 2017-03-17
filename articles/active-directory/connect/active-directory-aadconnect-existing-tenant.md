@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: cuando ya hay un inquilino | Microsoft Docs'
+title: 'Azure AD Connect: si ya tiene Azure AD | Microsoft Docs'
 description: "En este tema se describe cómo utilizar Connect si ya tiene un inquilino de Azure AD."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 160a3ae7190dab76eee4634bd6babb5b047cd5ac
+ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
+ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -26,7 +27,7 @@ En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto
 ## <a name="the-basics"></a>Conceptos básicos
 Un objeto de Azure AD se controla en la nube (Azure AD) o en un entorno local. En el caso de un solo objeto, no puede administrar algunos atributos en un entorno local y otros atributos en Azure AD. Cada objeto tiene una marca que indica que el objeto se ha administrado.
 
-Puede administrar algunos usuarios locales y otros en la nube. Un escenario común de esta configuración es una organización que tiene una combinación de trabajadores in situ y otros remotos. Los in situ tienen una cuenta de AD local, pero los remotos no. Tendría que administrar algunos usuarios en el entorno local y otros en Azure AD.
+Puede administrar algunos usuarios locales y otros en la nube. Un escenario común de esta configuración es una organización que tiene una combinación de trabajadores de contabilidad y trabajadores de ventas. Los trabajadores de contabilidad tienen una cuenta de AD local; sin embargo los trabajadores de ventas no, ellos tienen una cuenta de Azure AD. Tendría que administrar algunos usuarios en el entorno local y otros en Azure AD.
 
 Si ya comenzó a administrar usuarios en Azure AD que también se encuentran en AD local y, posteriormente, desea volver a utilizar Connect, debe tener en cuenta más escenarios.
 
@@ -60,9 +61,4 @@ Si la única razón por la que piensa agregar AD local es admitir LOB (aplicacio
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

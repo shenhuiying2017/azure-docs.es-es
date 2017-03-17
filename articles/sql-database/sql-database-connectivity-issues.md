@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 7ca726f5dc67feae7eeccfdcc00b41aa95c38348
+ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
+ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -117,7 +118,7 @@ Para facilitar esta práctica, el programa puede reconocer un parámetro de tiem
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parámetros .NET SqlConnection para reintento de conexión
-Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase **System.Data.SqlClient.SqlConnection**de .NET Framework, debe usar .NET 4.6.1 o una versión posterior para poder aprovechar la característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
+Si el programa cliente se conecta a Azure SQL Database mediante la clase **System.Data.SqlClient.SqlConnection**de .NET Framework, debe usar .NET 4.6.1 o una versión posterior (o .NET Core) para poder aprovechar la característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -446,10 +447,5 @@ public bool IsTransient(Exception ex)
 * Para solucionar otros problemas comunes de la conexión de Base de datos SQL de Azure, visite [Solución de problemas de conexión de Base de datos SQL de Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Agrupación de conexiones de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

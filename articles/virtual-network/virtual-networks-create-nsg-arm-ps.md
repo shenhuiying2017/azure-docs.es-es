@@ -1,6 +1,6 @@
 ---
-title: "Creación de NSG mediante PowerShell | Microsoft Docs"
-description: "Creación de NSG mediante PowerShell | Resource Manager."
+title: "Creación de grupos de seguridad de red (Azure PowerShell) | Microsoft Docs"
+description: "Obtenga información sobre cómo crear e implementar grupos de seguridad de red con PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 22681c4b171a185d5977bd9ce41d6a4f642feea7
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 6215abf064227f0d75a50e866b09ca2083a269d6
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-nsgs-using-powershell"></a>Creación de NSG mediante PowerShell
+# <a name="create-network-security-groups-using-powershell"></a>Creación de grupos de seguridad de red mediante PowerShell
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -215,10 +218,5 @@ Ejecute **Remove-AzureRmNetworkSecurityGroup** que aparece a continuación y ase
 ```powershell
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
 ```
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

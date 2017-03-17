@@ -11,19 +11,20 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/01/2017
+ms.date: 02/24/2017
 ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
-ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
+ms.sourcegitcommit: 1cac55acd88babc4ca4b04d2cafc6fa25f1393f0
+ms.openlocfilehash: 59f09d9529e8a97d8a0a4c7d9984a6fed850a57d
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="what-is-an-azure-sql-elastic-pool"></a>¿Qué es un grupo elástico de Azure SQL?
-A un grupo elástico de SQL se le otorga un número determinado de eDTU por un precio establecido, en un servidor lógico de Azure, que se comparten entre un grupo de bases de datos de ese servidor. Los grupos elásticos de SQL Database proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles.
+A un grupo elástico de SQL se le otorga un número determinado de eDTU por un precio establecido, en un servidor lógico de Azure, que se comparten entre un grupo de bases de datos de ese servidor. Los grupos elásticos de SQL Database proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles. Puede crear y administrar un grupo elástico con [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) y la API de REST.
 
 > [!NOTE]
 > Los grupos elásticos están disponibles con carácter general (GA) en todas las regiones de Azure excepto oeste de la India, donde actualmente se encuentran en versión preliminar.  La disponibilidad general de grupos elásticos en esta región se producirá tan pronto como sea posible.
@@ -98,14 +99,12 @@ La restauración geográfica proporciona la opción de recuperación predetermin
 ### <a name="active-geo-replication"></a>Replicación geográfica activa
 Para las aplicaciones que tienen requisitos de recuperación más exigentes que lo que puede ofrecer la restauración geográfica, configure la replicación geográfica activa mediante [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
-## <a name="additional-resources"></a>Recursos adicionales
-* [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+## <a name="next-steps"></a>Pasos siguientes
+
+* Puede crear y administrar un grupo elástico con [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) y la API de REST. 
+* Para obtener orientación sobre cuándo usar grupos elásticos, vea la [guía sobre grupos elásticos](sql-database-elastic-pool-guidance.md).
+* Para ver un vídeo, vea el [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

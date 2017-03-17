@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
-ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -67,6 +68,9 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
 6. Haga clic en **Ejecutar**. 
 7. Haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar un servicio web [clásico]) o **Deploy Web Service [New]** (Implementar un servicio web [nuevo]) para actualizar el servicio web.
 
+> [!NOTE] 
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 El usuario del servicio web puede especificar ahora un nuevo destino para el módulo [Exportar datos][writer] al obtener acceso al servicio web.
 
 ## <a name="more-information"></a>Más información
@@ -84,10 +88,5 @@ Para más información sobre el acceso a un servicio web de Aprendizaje automát
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

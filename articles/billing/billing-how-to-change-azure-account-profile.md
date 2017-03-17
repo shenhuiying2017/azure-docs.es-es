@@ -1,5 +1,5 @@
 ---
-title: "Cómo cambiar la información de perfil de la cuenta de Azure | Microsoft Docs"
+title: "Cambio de la información de perfil de la cuenta de Azure | Microsoft Docs"
 description: "Describe cómo cambiar el perfil de la cuenta de Azure y proporciona respuestas a preguntas frecuentes, por ejemplo, por qué no se puede cambiar el país en el Centro de cuentas de Azure"
 services: 
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8587b157886f2d0f5778573aeec55c072a50bf93
-ms.openlocfilehash: dd28c37bc63d1c457d7c8ffc60b1bad1f2831f31
-
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c4f76065996c7db43ec5503ff76fc7a1bbeb87ed
+ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="how-to-change-profile-information-of-your-azure-account-such-as-contact-email-address-and-phone-number"></a>Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto
+# <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Cambio de la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto
 Microsoft usa la dirección de correo electrónico del perfil del Administrador de cuenta para notificar actualizaciones importantes para la suscripción relacionadas con la facturación. Se recomienda que especifique una dirección de correo electrónico de contacto que consulte periódicamente.
 
 ## <a name="how-to-change-your-profile-information"></a>Cómo cambiar la información de perfil
@@ -51,10 +52,5 @@ Recibirá notificaciones de alerta en la dirección de correo electrónico que a
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

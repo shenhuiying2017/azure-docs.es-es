@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -144,7 +145,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 **Más detalles:**
 
-* [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
+* [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory)
 **Tipo:** características comunes
@@ -241,7 +242,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 ## <a name="premium-features"></a>Características de la edición Premium
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>Administración de grupos y aplicaciones de autoservicio/incorporaciones de aplicaciones de autoservicio/grupos dinámicos
+#### <a name="self-service-group"></a>Administración de grupos y aplicaciones de autoservicio/incorporaciones de aplicaciones de autoservicio/grupos dinámicos
 **Tipo:** Características de la edición Premium
 
 **Disponibilidad:**
@@ -273,7 +274,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 * [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>CAL de MIM + servidor MIM
+#### <a name="mim-cal-mim-server"></a>CAL de MIM + servidor MIM
 Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Dado que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, se puede instalar y usarse en ese servidor siempre y cuando el servidor esté ejecutando una copia con licencia válida. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
 
 **Tipo:** Características de la edición Premium
@@ -344,7 +345,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 | ![Comprobar][12] |![Comprobar][12] |![Comprobar][12] |![Comprobar][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>Inscripción automática de MDM, recuperación de Bitlocker de autoservicio, administradores locales adicionales para dispositivos con Windows 10 a través de Azure AD Join
+#### <a name="mdm-auto-enrollment"></a>Inscripción automática de MDM, recuperación de Bitlocker de autoservicio, administradores locales adicionales para dispositivos con Windows 10 a través de Azure AD Join
 **Tipo:** Azure Active Directory Join: solo características relacionadas con Windows 10
 
 **Disponibilidad:**
@@ -384,9 +385,4 @@ Además de las características disponibles normalmente en las ediciones Free, B
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,16 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
-ms.openlocfilehash: 325e993138e34f5619e0d208b281b3b40caedb0f
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
+ms.lasthandoff: 02/28/2017
 
 ---
 
 
-# <a name="troubleshoot-application-proxy"></a>Solucionar problemas de Proxy de aplicación
+# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:
 
 * Abra la consola de Servicios de Windows y compruebe que el servicio **Microsoft AAD Application Proxy Connector** (Conector del proxy de aplicación de Microsoft AAD) está habilitado y en ejecución. Puede que también quiera consultar la página de propiedades del servicio Proxy de aplicación, como se muestra en la imagen siguiente:   
@@ -156,9 +158,4 @@ Si se produce un error o un problema con el Proxy de aplicación de Azure AD que
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

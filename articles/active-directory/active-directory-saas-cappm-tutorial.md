@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 910e4730c05193ae43309f0e67db629ff15b09b5
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 014f81f1577f67c3e186e2f55d3ca7486e8a6d53
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -45,7 +46,7 @@ Para configurar la integración de Azure AD con CA PPM, necesita los siguientes 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
@@ -80,7 +81,7 @@ Para configurar la integración de CA PPM en Azure AD, deberá agregar CA PPM de
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con CA PPM con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de CA PPM para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de CA PPM.
@@ -89,13 +90,13 @@ Esta relación de vínculo se establece asignando el valor de **nombre de usuari
 
 Para configurar y probar el inicio de sesión único de Azure AD con CA PPM, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de CA PPM](#creating-an-ca-ppm-test-user)**: para tener un homólogo de Britta Simon en CA PPM que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación CA PPM.
 
 **Para configurar el inicio de sesión único de Azure AD con CA PPM, realice los pasos siguientes:**
@@ -109,24 +110,18 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_04.png) 
-   
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de CA PPM con el siguiente patrón: **https://ca.ondemand.saml.20.post.\<nombreEmpresa\>**.
-   
-    b. En el cuadro de texto **URL de respuesta**, escriba **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
-   
-    c. click **Siguiente**
+  1. En el cuadro de texto **Identificador**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de CA PPM con el siguiente patrón: **https://ca.ondemand.saml.20.post.\<nombreEmpresa\>**.
+  2. En el cuadro de texto **URL de respuesta**, escriba **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer** 
+  3. click **Siguiente**
 4. En la página **Configurar inicio de sesión único en CA PPM** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_05.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el [soporte técnico de CA](mailto:catechnicalsupport@ca.com) y proporcione lo siguiente:
-   
-    • El certificado descargado
-   
-    • El **identificador de entidad**
+  
+  * El certificado descargado
+  * El **identificador de entidad**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -134,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 ![Creación de un usuario de Azure AD][20]
@@ -152,38 +147,30 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_04.png) 
 5. En el cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
+6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
+
+ ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_06.png)   
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.    
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_07.png) 
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_08.png)  
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-an-ca-ppm-test-user"></a>Creación de un usuario de prueba de CA PPM
+### <a name="create-an-ca-ppm-test-user"></a>Creación de un usuario de prueba de CA PPM
 En esta sección, creará un usuario llamado Britta Simon en CA PPM. Trabaje con el equipo de soporte técnico de CA PPM para agregar los usuarios a la plataforma de CA PPM.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a CA PPM.
 
 ![Asignar usuario][200] 
@@ -204,8 +191,8 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+En esta sección, probará la configuración de SSO de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de CA PPM en el panel de acceso, debería iniciar sesión automáticamente en su aplicación CA PPM.
 
@@ -230,9 +217,4 @@ Al hacer clic en el icono de CA PPM en el panel de acceso, debería iniciar sesi
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

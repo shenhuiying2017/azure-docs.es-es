@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 509053c87e84a4dbff78eee503dcf3af149b6f1e
-ms.openlocfilehash: 81d2a746b5e1df2cfd5b8fc465045cb92af01358
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
+ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/16/2017
 
 Apache Ambari simplifica la administración y la supervisión de un clúster de Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en clústeres de HDInsight que usan y, además, se usa para supervisar el clúster y realizar cambios en la configuración. En este documento, aprenderá los fundamentos del trabajo con la API de REST de Ambari.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>¿Qué es Ambari?
+## <a id="whatis"></a>¿Qué es Ambari?
 
 [Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -43,7 +43,7 @@ Los ejemplos de este documento se proporcionan para Bourne Shell (Bash) y PowerS
 
 Si usa __Bourne Shell__ (Bash), debe tener instalado lo siguiente:
 
-* [cURL](http://curl.haxx.se/): cURL es una utilidad que se puede usar para trabajar con las API de REST desde la línea de comandos. En este documento, se usa para comunicarse con la API de REST de Ambari.
+* [cURL](http://curl.haxx.se/): es una utilidad que se puede usar para trabajar con las API de REST desde la línea de comandos. En este documento, se usa para comunicarse con la API de REST de Ambari.
 
 Tanto si usa Bash como PowerShell, también debe tener [jq](https://stedolan.github.io/jq/) instalado. Jq es una utilidad para trabajar con documentos JSON. Se utiliza en **todos** los ejemplos de Bash y en **uno** de los ejemplos de PowerShell.
 
@@ -207,7 +207,7 @@ Cuando trabaja con HDInsight, es posible que deba conocer el nombre de dominio c
 >
 > Para obtener más información sobre el uso de HDInsight y de las redes virtuales, vea [Extensión de las funcionalidades de HDInsight con una red virtual de Azure personalizada](hdinsight-extend-hadoop-virtual-network.md).
 
-En primer lugar debe conocer el FQDN del host para poder obtener la dirección IP. Una vez que tenga el FQDN, ya puede obtener la dirección IP del host. En los ejemplos siguientes primero se consulta en Ambari el FQDN de todos los nodos del host y después también se consulta en Ambari la dirección IP de cada host.
+Debe conocer el FQDN del host para poder obtener la dirección IP. Una vez que tenga el FQDN, ya puede obtener la dirección IP del host. En los ejemplos siguientes primero se consulta en Ambari el FQDN de todos los nodos del host y después también se consulta en Ambari la dirección IP de cada host.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -293,7 +293,55 @@ El valor devuelto es similar a uno de los ejemplos siguientes:
 > [!NOTE]
 > El cmdlet `Get-AzureRmHDInsightCluster` proporcionado por [Azure PowerShell](https://docs.microsoft.com/powershell/) también devuelve la información de almacenamiento para el clúster.
 
-## <a name="example-update-ambari-configuration"></a>Ejemplo: Actualizar configuración de Ambari
+
+## <a name="example-get-configuration"></a>Ejemplo: Obtener configuración
+
+1. Obtenga las configuraciones que están disponibles para el clúster.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    ```
+
+    ```powershell
+    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+        -Credential $creds
+    ```
+
+    Esto devuelve un documento JSON que contiene la configuración actual (identificada por el valor *tag*) de los componentes instalados en el clúster. Por ejemplo, el siguiente es un extracto de los datos devueltos de un tipo de clúster Spark.
+   
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
+
+2. Obtenga la configuración del componente en el que está interesado. En el ejemplo siguiente, reemplace `INITIAL` por el valor de etiqueta devuelto por la solicitud anterior.
+
+    ```bash
+    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
+        -Credential $creds
+    $resp.Content
+    ```
+
+    Este ejemplo devuelve un documento JSON que contiene la configuración actual del componente `core-site`.
+
+## <a name="example-update-configuration"></a>Ejemplo: Actualizar la configuración
 
 1. Obtener la configuración actual, que Ambari almacena como la "configuración deseada":
 

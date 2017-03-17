@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
-ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 30faf4b99414e5f7b5131c231b4dccf3a7272d25
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -49,7 +49,10 @@ Para ver las instrucciones de instalación, consulte [Cómo instalar y configura
 
 <br>
 
-## <a name="step-3-set-your-subscription-and-sign-up-for-migration"></a>Paso 3: Establecimiento de la suscripción y registro para la migración
+## <a name="step-3-ensure-that-you-are-co-administrator-for-the-subscription-in-azure-classic-portal"></a>Paso 3: Asegurarse de que es el coadministrador de la suscripción en el Portal de Azure clásico
+Para realizar esta migración, debe estar agregado como coadministrador de la suscripción en el [Portal de Azure clásico](https://manage.windowsazure.com/). Esto es necesario incluso si ya está agregado como propietario de [Azure Portal](https://portal.azure.com). Trate de [agregar un coadministrador de la suscripción en el Portal de Azure clásico](../billing/billing-add-change-azure-subscription-administrator.md) para averiguar si es coadministrador de la suscripción. Si no se pueden agregar un coadministrador, póngase en contacto con un administrador de servicios o coadministrador de la suscripción para que le agreguen.   
+
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Paso 4: Establecimiento de la suscripción y registro para la migración
 En primer lugar, inicie un símbolo del sistema de PowerShell. Para la migración, debe configurar el entorno para el modelo clásico y el de Resource Manager.
 
 Inicie sesión en su cuenta para el modelo de Resource Manager.
@@ -111,7 +114,7 @@ Establezca la suscripción de Azure para la sesión actual. En este ejemplo se e
 
 <br>
 
-## <a name="step-4-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Paso 4: Verificación para garantizar que dispone de suficientes núcleos de máquina virtual de Azure Resource Manager en la región de Azure de su VNET o implementación actual
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Paso 5: Verificación para garantizar que dispone de suficientes núcleos de máquina virtual de Azure Resource Manager en la región de Azure de su VNET o implementación actual
 Puede utilizar el siguiente comando de PowerShell para comprobar la cantidad de núcleos que tiene actualmente en Azure Resource Manager. Para obtener más información sobre las cuotas de núcleos, consulte [Límites y Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager). 
 
 En este ejemplo se comprueba la disponibilidad en la región del **oeste de EE. UU.** Reemplace el nombre de la región de ejemplo por el suyo propio. 
@@ -120,7 +123,7 @@ En este ejemplo se comprueba la disponibilidad en la región del **oeste de EE. 
 Get-AzureRmVMUsage -Location "West US"
 ```
 
-## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>Paso 5: Ejecución de comandos para migrar los recursos de IaaS
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Paso 6: Ejecución de comandos para migrar los recursos de IaaS
 > [!NOTE]
 > Todas las operaciones que se describen aquí son idempotentes. Si tiene un problema diferente de una función no admitida o un error de configuración, se recomienda que vuelva a intentar la operación de preparación, anulación o confirmación. La plataforma intenta nuevamente la acción.
 > 

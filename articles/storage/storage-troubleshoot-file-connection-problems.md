@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
-ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,18 +36,18 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 * [Rendimiento reducido al acceder a Azure File Storage desde Windows 8.1 o Windows Server 2012 R2](#windowsslow)
 * [Error 53 al tratar de montar un recurso compartido de archivos de Azure](#error53)
 * [Error 87 El parámetro es incorrecto al intentar montar un recurso compartido de archivos de Azure](#error87)
-* [El comando net use se ha procesado correctamente, pero no veo el recurso compartido de archivos de Azure montado en el Explorador de Windows](#netuse)
+* [El comando net use se procesó correctamente, pero no veo el recurso compartido de archivos de Azure montado o la letra de unidad en la interfaz de usuario del Explorador de Windows](#netuse)
 * [Mi cuenta de almacenamiento contiene "/" y el comando net use genera un error](#slashfails)
 * [Mi aplicación o servicio no puede acceder a la unidad de Azure Files montada](#accessfiledrive)
 * [Recomendaciones adicionales para optimizar el rendimiento](#additional)
+* [Error "El archivo se va a copiar a un destino que no es compatible con el cifrado" al cargar archivos a Azure Files o copiarlos.](#encryption)
 
 **Problemas del cliente de Linux**
 
-* [Error "El archivo se va a copiar a un destino que no es compatible con el cifrado" al cargar archivos a Azure Files o copiarlos.](#encryption)
-* [Error intermitente de ES: Error "El host está apagado" en los recursos compartidos de archivos, o bien el shell se bloquea al realizar la lista de comandos del punto de montaje](#errorhold)
+* [Error intermitente de ES: "El host está apagado (Error 112)" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar comandos list en el punto de montaje](#errorhold)
 * [Error de montaje 115 al tratar de montar Azure Files en la VM de Linux](#error15)
-* [La VM de Linux presenta retrasos aleatorios en comandos como "ls"](#delayproblem)
-* [Error 112: error de tiempo de espera](#error112)
+* [El recurso compartido de archivos de Azure montado en la máquina virtual de Linux experimenta un rendimiento lento](#delayproblem)
+
 
 **Acceso desde otras aplicaciones**
 
@@ -193,7 +193,7 @@ Las unidades se montan para usuarios individuales. Si su aplicación o servicio 
 ### <a name="solution"></a>Solución
 Monte la unidad desde la misma cuenta de usuario en la que se encuentre la aplicación. Puede hacerlo con herramientas como psexec.
 
-Como alternativa, puede crear un usuario nuevo con los mismos privilegios que la cuenta del sistema o servicio de red y, después, ejecutar **cmdkey** y **net use** en ella. El nombre de usuario debe coincidir con el de la cuenta de almacenamiento y la contraseña, con la clave de aquella. Otra opción para **net use** consiste en pasar el nombre y la clave de la cuenta de almacenamiento en los parámetros de nombre y la contraseña de usuario del comando **net use**.
+Otra opción para **net use** consiste en pasar el nombre y la clave de la cuenta de almacenamiento en los parámetros de nombre y la contraseña de usuario del comando **net use**.
 
 Tras seguir estas instrucciones, es posible que aparezca el siguiente mensaje de error: "Error de sistema 1312. Una sesión de inicio especificada no existe. Es posible que haya finalizado" cuando ejecute **net use** para la cuenta de servicio de red o de sistema. En este caso, asegúrese de que el nombre de usuario pasado a **net use** incluya la información de dominio (por ejemplo: "[nombre de la cuenta de almacenamiento].file.core.windows.net").
 
@@ -219,14 +219,34 @@ Sin embargo, tenga en cuenta que la configuración de la clave del Registro afec
 
 <a id="errorhold"></a>
 
-## <a name="host-is-down-error-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Error "El host está apagado" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar la lista de comandos del punto de montaje
+## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Error "El host está apagado (Error 112)" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar comandos list en el punto de montaje
 ### <a name="cause"></a>Causa
-Este error se produce en el cliente de Linux cuando este lleva inactivo mucho tiempo. Cuando se produce este error, el cliente se desconecta y se agota el tiempo de espera de la conexión de este.
+Este error se produce en el cliente de Linux cuando este lleva inactivo mucho tiempo. Cuando el cliente está inactivo durante mucho tiempo, el cliente se desconecta y se agota el tiempo de espera de la conexión. 
+
+La conexión puede estar inactiva por diversas razones. Una razón son los errores de comunicación de red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje "flexible", que es el valor predeterminado.
+
+Otra razón podría ser que también hay algunas correcciones de reconexión que no están presentes en los kernels anteriores.
 
 ### <a name="solution"></a>Solución
-Este problema está corregido en el kernel de Linux como parte de [conjunto de cambios](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93), pendiente de incorporación en la distribución de Linux.
 
-Para solucionar el problema, mantenga la conexión y evite que entre en un estado inactivo, guarde un archivo en el recurso compartido de archivos de Azure en el que escriba periódicamente. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la conexión.
+La especificación de un montaje forzado obligará al cliente a esperar hasta que se establezca una conexión o hasta que se interrumpa explícitamente, y puede usarse para evitar errores debidos a los tiempos de espera de la red. Sin embargo, los usuarios deben tener en cuenta que esto podría provocar la espera indefinida y que deben considerar la detención de una conexión según sea necesario.
+
+Este problema de reconexión en el kernel de Linux se ha corregido como parte de los siguientes conjuntos de cambios:
+
+* [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Corregir la reconexión para que no aplace la reconexión de la sesión de smb3 mucho después de la reconexión del socket)
+
+* [Call echo service immediately after socket reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Llamar al servicio de eco inmediatamente después de volver a conectar el socket)
+
+* [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: Corregir un posible daño de memoria durante la reconexión)
+
+* [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and higher](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Corregir un posible bloqueo doble de exclusión mutua durante la reconexión: para los kernels v4.9 y versiones posteriores) 
+
+Pero es posible que este cambio todavía no se migre a todas las distribuciones de Linux. Esta es la lista de los kernels de Linux conocidos que tienen esta y otras correcciones de reconexión: 4.4.40+ 4.8.16+ 4.9.1+.
+Puede cambiar a las versiones de kernel recomendadas antes para obtener la corrección más reciente.
+
+### <a name="workaround"></a>Solución alternativa
+Si no se puede cambiar a las versiones más recientes del kernel, puede solucionar este problema manteniendo un archivo en el recurso compartido de archivos de Azure en el que se escribe cada 30 segundos o menos. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la reconexión. 
+
 
 <a id="error15"></a>
 
@@ -239,36 +259,21 @@ Si el cliente de SMB de Linux que se use no admite el cifrado, monte Azure Files
 
 <a id="delayproblem"></a>
 
-## <a name="linux-vm-experiencing-random-delays-in-commands-like-ls"></a>La VM de Linux presenta retrasos aleatorios en comandos como "ls"
-### <a name="cause"></a>Causa
-Esto puede suceder cuando el comando de montaje no incluya la opción **serverino**. Sin **serverino**, el comando ls ejecuta un **stat** en cada archivo.
+## <a name="azure-file-share-mounted-on-linux-vm-experiencing-slow-performance"></a>El recurso compartido de archivos de Azure montado en la máquina virtual de Linux experimenta un rendimiento lento
 
-### <a name="solution"></a>Solución
-Compruebe la opción **serverino** en la entrada "/etc/fstab":
+Una posible razón del rendimiento lento podría ser que el almacenamiento en caché está deshabilitado. Con el fin de comprobar si está habilitado, busque "caché =".  *cache=none* indica que el almacenamiento en caché está deshabilitado. Vuelva a montar el recurso compartido con el comando de montaje predeterminado o agregue expresamente la opción **caché=strict** para montar el comando con el fin de asegurarse de que el almacenamiento en caché predeterminado o el modo de almacenamiento en caché "strict" estén habilitados.
+
+En algunos escenarios, la opción de montaje serverino puede hacer que el comando ls ejecute stat en cada entrada de directorio y este comportamiento produzca una disminución del rendimiento al enumerar un directorio grande. Puede comprobar las opciones de montaje en la entrada "/etc/fstab":
 
 `//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-También puede comprobar si se está utilizando esa opción simplemente ejecutando el comando **sudo mount | grep cifs** y buscando como salida:
+También puede comprobar si se están usando las opciones simplemente ejecutando el comando **sudo mount | grep cifs** y examinando su salida:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Si la opción **serverino** no está presente, desmonte y monte Azure Files de nuevo con la opción **serverino** seleccionada.
-
-Otra razón para un rendimiento lento podría ser que el almacenamiento en caché está deshabilitado. Con el fin de comprobar si está habilitado, busque "caché =".  *cache=none* indica que el almacenamiento en caché está deshabilitado. Vuelva a montar el recurso compartido con el comando de montaje predeterminado o agregue expresamente la opción **caché=strict** para montar el comando con el fin de asegurarse de que el almacenamiento en caché predeterminado o el modo de almacenamiento en caché "strict" estén habilitados.
-
-<a id="error112"></a>
-## <a name="error-112---timeout-error"></a>Error 112 - error de tiempo de espera
-
-Este error indica errores de comunicación que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje flexible, que es el valor predeterminado.
-
-### <a name="cause"></a>Causa
-
-Este error puede deberse a un problema de reconexión de Linux o a otros problemas que impiden la reconexión, como errores de red. La especificación de un montaje forzado obligará al cliente a esperar hasta que se establezca una conexión o hasta que se interrumpa explícitamente, y puede usarse para evitar errores debidos a los tiempos de espera de la red. Sin embargo, los usuarios deben tener en cuenta que esto podría provocar la espera indefinida y que deben considerar la detención de una conexión según sea necesario.
-
-
-### <a name="workaround"></a>Solución alternativa
-
-Se ha solucionado el problema de Linux; sin embargo, no se ha llevado a las distribuciones de Linux todavía. Si el problema se debe al asunto de la reconexión en Linux, es posible solucionarlo evitando que entre en estado de inactividad. Para ello, escriba cada 30 segundos como mínimo en un archivo del recurso compartido de archivos de Azure Files. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la conexión. Esta es la lista de los kernels de Linux más conocidos que tienen esta y otras correcciones de reconexión: 4.4.40+ 4.8.16+ 4.9.1+
+Si no están presentes las opciones cache=strict o serverino, desmonte y vuelva a montar Azure Files ejecutando el comando mount desde la [documentación](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) y vuelva a comprobar que la entrada "/etc/fstab" tiene las opciones correctas.
 
 <a id="webjobs"></a>
 

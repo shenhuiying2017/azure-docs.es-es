@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: d9ef14d1d83d98de5c1d95b237a2e06ea2506766
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -25,12 +26,11 @@ ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API DE REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
+
 
 Puede usar el control de acceso basado en rol (RBAC) del Portal de Azure y la API de Azure Resource Manager para administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
-Para poder usar la interfaz de la línea de comandos (CLI) de Azure y administrar RBAC, necesita lo siguiente:
+Para poder usar la interfaz de la línea de comandos (CLI) de Azure y administrar RBAC, debe cumplir los siguientes requisitos previos:
 
 * CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 * Azure Resource Manager en la CLI de Azure Para más información, consulte [Uso de la CLI de Azure con Resource Manager](../xplat-cli-azure-resource-manager.md).
@@ -180,7 +180,7 @@ En el ejemplo siguiente se quita el rol personalizado *Operador de máquina virt
 ## <a name="list-custom-roles"></a>Lista de roles personalizados
 Para enumerar los roles que están disponibles para la asignación en un ámbito, use el comando `azure role list` .
 
-En el ejemplo siguiente se enumeran todos los roles disponibles para la asignación en la suscripción seleccionada.
+En el comando siguiente se enumeran todos los roles disponibles para la asignación en la suscripción seleccionada.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
@@ -198,10 +198,5 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ## <a name="rbac-topics"></a>Temas de RBAC
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

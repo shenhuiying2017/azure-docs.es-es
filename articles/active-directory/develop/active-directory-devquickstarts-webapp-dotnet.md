@@ -60,7 +60,7 @@ En este paso, configuraremos el middleware OWIN para usar el protocolo de autent
      PM> Install-Package Microsoft.Owin.Host.SystemWeb
      ```
 
-2. Para agregar una clase de inicio de OWIN al proyecto denominado `Startup.cs`, haga clic con el botón derecho en el proyecto, seleccione **Agregar**, **Nuevo elemento** y luego busque **OWIN**. El middleware de OWIN invoca el método **Configuration(...) ** cuando se inicia la aplicación.
+2. Para agregar una clase de inicio de OWIN al proyecto denominado `Startup.cs`, haga clic con el botón derecho en el proyecto, seleccione **Agregar**, **Nuevo elemento** y luego busque **OWIN**. El middleware de OWIN invoca el método **Configuration(...)** cuando se inicia la aplicación.
 3. Cambie la declaración de clase a `public partial class Startup`. Ya hemos implementado parte de esta clase en otro archivo. En el método **Configuration(...)**, realice una llamada a **ConfgureAuth(...)** para configurar la autenticación de la aplicación.  
 
      ```C#
@@ -73,7 +73,7 @@ En este paso, configuraremos el middleware OWIN para usar el protocolo de autent
      }
      ```
 
-4. Abra el archivo App_Start\Startup.Auth.cs y luego implemente el método **ConfigureAuth(...) **. Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas de la aplicación para comunicarse con Azure AD. También debe configurar la autenticación con cookies, ya que el middleware OpenID Connect usa cookies en segundo plano.
+4. Abra el archivo App_Start\Startup.Auth.cs y luego implemente el método **ConfigureAuth(...)**. Los parámetros que se proporcionan en *OpenIDConnectAuthenticationOptions* sirven de coordenadas de la aplicación para comunicarse con Azure AD. También debe configurar la autenticación con cookies, ya que el middleware OpenID Connect usa cookies en segundo plano.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)

@@ -1,9 +1,9 @@
 ---
-title: "Restablecimiento de contraseña de Azure AD | Microsoft Docs"
+title: "Restablecimiento de contraseña de Azure Active Directory | Microsoft Docs"
 description: "Descripción de las capacidades de administración de contraseñas en Azure AD, incluido el restablecimiento de contraseña, el cambio, la creación de informes de administración de contraseñas y la escritura diferida en Active Directory local."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: be6164fc-bae1-49df-af76-761329ba70a1
@@ -12,26 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a6287228622070d566266f184dc1c32ec6c3dea5
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="azure-ad-password-reset-for-it-administrators"></a>Restablecimiento de contraseña de Azure AD para administradores de TI
+# <a name="azure-active-directory-password-reset-for-it-administrators"></a>Restablecimiento de contraseña de Azure Active Directory para administradores de TI
 > [!IMPORTANT]
-> ¿Está aquí porque quiere restablecer su contraseña de Azure o O365?  Si es así, [vaya a esta sección](#users-how-to-manage-your-own-password).
-> 
-> 
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+>
+>
 
-El autoservicio ha sido durante mucho tiempo un objetivo clave para los departamentos de TI de todo el mundo como una medida de reducción de costos y ahorro de mano de obra.  De hecho, el mercado está atestado de productos que le permiten administrar los grupos locales, las contraseñas o los perfiles de usuario en la nube o a nivel local. Azure AD se distingue de estas ofertas proporcionando algunas de las funcionalidades de autoservicio más fáciles de usar y más eficaces disponibles hoy día.
+El autoservicio ha sido durante mucho tiempo un objetivo clave para los departamentos de TI de todo el mundo como una medida de reducción de costos y ahorro de mano de obra.  De hecho, el mercado está atestado de productos que le permiten administrar los grupos locales, las contraseñas o los perfiles de usuario en la nube o a nivel local. Azure Active Directory (Azure AD) se distingue de estas ofertas proporcionando algunas de las funcionalidades de autoservicio más fáciles de usar y más eficaces disponibles hoy día.
 
 **La Administración de contraseñas de Azure AD** es un conjunto de capacidades que permiten a los usuarios administrar cualquier contraseña desde cualquier dispositivo, en cualquier momento, desde cualquier ubicación, manteniendo la conformidad con las directivas de seguridad que defina.
 
-## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINISTRADORES: obtener información sobre cómo empezar a usar el restablecimiento de contraseña de Azure AD
-Si es un administrador que desea habilitar el restablecimiento de contraseña de Azure AD o simplemente quiere obtener más información sobre esto, comience con los siguientes vínculos hasta llegar a lo que le interesa.
+## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINISTRADORES: cómo empezar a usar el restablecimiento de contraseña de Azure AD
+Si es un administrador que desea habilitar el restablecimiento de contraseña de Azure AD o simplemente quiere obtener más información al respecto, comience con los siguientes vínculos hasta llegar a lo que le interesa.
 
 | Tema. |  |
 | --- | --- |
@@ -117,8 +118,8 @@ Para obtener más información sobre los precios de Azure AD Premium o Basic, co
 | Tema. |  |
 | --- | --- |
 | ¿Dónde se pueden ver los informes de restablecimiento de contraseña? |[Información general de los informes de administración de contraseñas](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| ¿Dónde se puede ver cómo usan los usuarios el restablecimiento de contraseña en mi organización? |[Visualización de la actividad de restablecimiento de contraseña en su organización](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| ¿Dónde se puede ver cuántos usuarios se registran y para qué lo hacen? |[Visualización de la actividad de registro de restablecimiento de contraseña](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| ¿Dónde se puede ver cómo usan los usuarios el restablecimiento de contraseña en mi organización? |[Visualización de la actividad de restablecimiento de contraseña en su organización](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| ¿Dónde se puede ver cuántos usuarios se registran y para qué lo hacen? |[Visualización de la actividad de registro de restablecimiento de contraseña](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | ¿Cómo se pueden obtener informes de restablecimiento de contraseña desde una API? |[Creación de una aplicación de Azure AD para tener acceso a la API de informes](active-directory-reporting-api-getting-started.md) |
 | ¿Qué tipo de información de informes de restablecimiento de contraseña está disponible desde una API? |[Eventos de registro y restablecimiento de contraseña disponibles en la API de informes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -166,11 +167,11 @@ Para obtener más información sobre los precios de Azure AD Premium o Basic, co
 | Información sobre qué datos se usan para el restablecimiento de contraseña |[¿Qué datos sirven para restablecer la contraseña?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
 ## <a name="recent-service-updates"></a>Actualizaciones recientes de servicios
-#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Aplicar el registro de restablecimiento de contraseña al iniciar sesión en aplicaciones de Office 365, noviembre de 2015
+#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Aplicación del registro de restablecimiento de contraseña al iniciar sesión en aplicaciones de Office 365, noviembre de 2015
 * Ahora, después de habilitar la característica de [registro exigido](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) , los usuarios deberán registrarse desde cualquier lugar que inicien sesión con una cuenta profesional o educativa.  Esto aumenta considerablemente el ritmo al que muchas organizaciones pueden incorporarse al restablecimiento de contraseña.  Con esta nueva característica, ¡hemos visto la incorporación de grandes organizaciones en tan solo dos semanas!
 
-#### <a name="support-for-unlocking-active-directory-accounts-without-resetting-a-password---november-2015"></a>Compatibilidad para desbloquear cuentas de Active Directory sin restablecer una contraseña, noviembre de 2015
-* Lograr solo el desbloqueo (sin tener que reiniciar) supone un auténtico reto para los departamentos de soporte técnico hoy en día.  De hecho, muchas organizaciones dedican hasta un 70 % del presupuesto destinado al restablecimiento de contraseñas al desbloqueo de cuentas.  Para satisfacer esta demanda, ahora, con el restablecimiento de contraseña de Azure AD puede habilitar una característica para que los usuarios puedan desbloquear cuentas de AD sin tener que restablecer la contraseña.  Compruebe cómo habilitarla aquí: [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
+#### <a name="support-for-unlocking-on-premises-ad-accounts-without-resetting-a-password---november-2015"></a>Compatibilidad con el desbloqueo de cuentas de AD locales sin restablecer una contraseña, noviembre de 2015
+* Lograr solo el desbloqueo (sin tener que reiniciar) supone un auténtico reto para los departamentos de soporte técnico hoy en día.  De hecho, muchas organizaciones dedican hasta un 70 % del presupuesto destinado al restablecimiento de contraseñas al desbloqueo de cuentas.  Para satisfacer esta demanda, ahora, con el restablecimiento de contraseña de Azure AD puede habilitar una característica para que los usuarios puedan desbloquear cuentas de AD locales sin tener que restablecer la contraseña.  Compruebe cómo habilitarla aquí: [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD locales sin restablecer una contraseña](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
 
 #### <a name="usability-updates-to-registration-page---october-2015"></a>Actualizaciones de facilidad de uso para la página de registro, octubre de 2015
 * Ahora, cuando un usuario ya tiene datos registrados, solo tiene que hacer clic en "Tiene buen aspecto" para actualizar los datos sin necesidad de volver a enviar el mensaje correo electrónico o una llamada de teléfono.
@@ -184,16 +185,16 @@ Para obtener más información sobre los precios de Azure AD Premium o Basic, co
 #### <a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Compatibilidad con el restablecimiento de contraseña de Azure AD durante la unión al dominio de nube, agosto de 2015
 * Ahora, cualquier usuario de nube puede restablecer su contraseña directamente desde la pantalla de inicio de sesión de Windows 10 durante la experiencia de incorporación de unión de dominio de nube.  Tenga en cuenta que esto todavía no está expuesto en la pantalla de inicio de sesión de Windows 10.
 
-#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Aplicar el registro de restablecimiento de contraseña al iniciar sesión en Azure y aplicaciones federadas, julio de 2015
+#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Aplicación del registro de restablecimiento de contraseña al iniciar sesión en Azure y aplicaciones federadas, julio de 2015
 * Además de aplicar el registro al iniciar sesión en myapps.microsoft.com, ahora admitimos la aplicación del registro durante inicios de sesión para el Portal de administración de Azure y cualquiera de sus aplicaciones de inicio de sesión único federadas.
 
-#### <a name="security-question-localization-support---may-2015"></a>Compatibilidad de localización de preguntas de seguridad, mayo de 2015
+#### <a name="security-question-localization-support---may-2015"></a>Compatibilidad con la localización de preguntas de seguridad, mayo de 2015
 * Ahora tiene la opción de seleccionar preguntas de seguridad predefinidas que están localizadas en el conjunto de idiomas completo de O365 al configurar las preguntas de seguridad para el restablecimiento de contraseña.
 
 #### <a name="account-unlock-support-during-password-reset---june-2015"></a>Compatibilidad con el desbloqueo de cuentas durante el restablecimiento de contraseña, junio de 2015
 * Si está utilizando la escritura diferida de contraseñas y restablece la contraseña cuando la cuenta está bloqueada, desbloquearemos automáticamente su cuenta de Active Directory.
 
-#### <a name="branded-sspr-registration---april-2015"></a>Registro de SSPR con la marca, abril de 2015
+#### <a name="branded-self-service-password-reset-sspr-registration---april-2015"></a>Registro (SSPR) de restablecimiento de contraseña de autoservicio con marca, abril de 2015
 * La página de registro del restablecimiento de contraseña ahora lleva el logotipo de su empresa.
 
 #### <a name="security-questions---march-2015"></a>Preguntas de seguridad, marzo de 2015
@@ -209,10 +210,10 @@ A continuación se muestran algunas de las interesantes características en las 
 
 * En la actualidad, admitimos recordar a los usuarios que actualicen sus datos registrados al tener acceso a myapps.microsoft.com, pero estamos trabajando en la capacidad para hacerlo para todos los inicios de sesión.
 
-## <a name="links-to-password-reset-documentation"></a>Vínculos a la documentación de restablecimiento de contraseña
+## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización
@@ -221,10 +222,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**P+F**](active-directory-passwords-faq.md) : obtenga respuestas a las preguntas más frecuentes.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

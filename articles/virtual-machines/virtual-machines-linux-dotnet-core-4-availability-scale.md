@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1c8f8a958a6ea6ea096d4a55479879aab7c7e96d
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilidad y escala en plantillas de Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-linux-vms"></a>Disponibilidad y escala en plantillas de Azure Resource Manager para máquinas virtuales Linux
+
 Los términos disponibilidad y escala hacen referencia al tiempo de actividad y la capacidad para satisfacer la demanda. Si una aplicación debe estar disponible el 99,9 % del tiempo, debe tener una arquitectura que permita varios recursos de proceso simultáneos. Por ejemplo, en lugar de tener un único sitio web, una configuración con un mayor nivel de disponibilidad incluye varias instancias del mismo sitio con una tecnología de equilibrio frente ellas. En esta configuración, se puede desactivar una instancia de la aplicación para su mantenimiento mientras las demás siguen funcionando correctamente. Por otro lado, la escala hace referencia a la capacidad de una aplicación para atender la demanda. Con una aplicación con equilibrio de carga, agregar o quitar instancias del grupo permite a una aplicación ajustar la escala para satisfacer la demanda.
 
 En este documento se explica cómo configurar la disponibilidad y la escala de la implementación de ejemplo Music Store. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu).
@@ -261,10 +264,5 @@ Para más información sobre la función de copia, consulte [Creación de varias
 <hr>
 
 [Paso 4: implementación de aplicaciones con plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

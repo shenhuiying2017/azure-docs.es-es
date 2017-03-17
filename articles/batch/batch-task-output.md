@@ -1,5 +1,5 @@
 ---
-title: "Conservación de la salida de trabajos y tareas: Azure Batch | Microsoft Docs"
+title: Guardar salidas de trabajos y tareas en Azure Storage - Azure Batch | Microsoft Docs
 description: "Obtenga información acerca de cómo usar el Almacenamiento de Azure como almacén duradero para las salidas de tareas y trabajos de Lote de Azure y cómo habilitar la visualización de estas salidas almacenadas en el Portal de Azure."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 2c80f9d2bc788c60c5a7b3a5fd0d38cb86cbf838
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="persist-azure-batch-job-and-task-output"></a>Almacenamiento de la salida de trabajos y tareas de Lote de Azure
+# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Guardar resultados de tareas y trabajos completados en Azure Storage
+
 Las tareas que se ejecutan normalmente en Lote producen salidas que se deben almacenar y que posteriormente otras tareas del trabajo, o la aplicación cliente que ejecutó el mismo o ambas, recuperarán. Esta salida puede consistir en archivos creados mediante el procesamiento de datos de entrada o en archivos de registro asociados con la ejecución de la tarea. Este artículo presenta una biblioteca de clases .NET que usa una técnica basada en convenciones para guardar esta salida de las tareas en el Almacenamiento de blobs de Azure, lo cual hace que esté disponible incluso después de eliminar los grupos, los trabajos y los nodos de proceso.
 
 Mediante la técnica descrita en este artículo, puede ver la salida de las tareas en **Archivos de salida guardados** y en **Registros guardados** en el [Azure Portal][portal].
@@ -248,9 +251,4 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 
 [1]: ./media/batch-task-output/task-output-01.png "Selectores de archivos de salida guardados y registros guardados en el portal"
 [2]: ./media/batch-task-output/task-output-02.png "Hoja de salidas de tareas de Azure Portal"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

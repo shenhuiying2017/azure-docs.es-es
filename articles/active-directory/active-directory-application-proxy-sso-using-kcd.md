@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
-ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>Inicio de sesión único con el proxy de aplicación
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación
 El inicio de sesión único es un elemento clave del proxy de aplicación de Azure AD. Proporciona la mejor experiencia de usuario con los siguientes pasos:
 
 1. Un usuario inicia sesión en la nube.  
@@ -110,7 +112,7 @@ Para obtener más información sobre Kerberos, consulte [All you want to know ab
 ### <a name="delegated-login-identity"></a>identidad de inicio de sesión delegada
 La identidad de inicio de sesión delegada le ayuda a controlar los dos escenarios de inicio de sesión diferentes:
 
-* Aplicaciones que no son de Windows que suelen obtener la identidad de usuario en forma de un nombre de usuario o nombre de cuenta SAM, no como una dirección de correo electrónico (username@domain).
+* Las aplicaciones que no son de Windows suelen obtener la identidad del usuario en forma de un nombre de usuario o un nombre de cuenta SAM, no como una dirección de correo electrónico (username@domain).
 * Aquellas configuraciones de inicio de sesión alternativas en las que el UPN de Azure AD y el UPN de Active Directory local son diferentes.
 
 Con el proxy de aplicación, puede seleccionar qué identidad utilizar para obtener el vale de Kerberos. Esta configuración es por aplicación. Algunas de estas opciones son adecuadas para los sistemas que no aceptan el formato de dirección de correo electrónico, otras están pensadas para el inicio de sesión alternativo.
@@ -125,7 +127,7 @@ A menos que se configuren de otra manera, el Proxy de aplicación supone que los
 Esta funcionalidad permite a muchas organizaciones que tienen identidades locales y en la nube diferentes disponer de SSO en aplicaciones locales desde aplicaciones en la nube sin que los usuarios tengan que escribir nombres de usuario y contraseñas diferentes. Esto incluye las organizaciones que:
 
 * Tienen varios dominios internamente (joe@us.contoso.com, joe@eu.contoso.com) y un único dominio en la nube (joe@contoso.com).
-* Tienen un nombre de dominio no enrutable internamente ((joe@contoso.usa)) y uno legal en la nube.
+* Tienen un nombre de dominio no enrutable internamente (joe@contoso.usa) y uno legal en la nube.
 * No utilizan nombres de dominio internamente (joe)
 * Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com frente a joej@contoso.com  
 
@@ -159,9 +161,4 @@ Para ver las últimas noticias y actualizaciones, consulte el [blog Application 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

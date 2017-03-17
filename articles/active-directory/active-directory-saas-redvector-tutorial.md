@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fdbf6be6cfb819eb47814cbafafb920475d47397
+ms.sourcegitcommit: 73ebb6c18dbb39ed812252a73099860f8a5b8205
+ms.openlocfilehash: b7dd45ef8cc29ba96469317612c58431a7855db2
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,7 +27,7 @@ En este tutorial, aprenderá a integrar RedVector con Azure Active Directory (Az
 La integración de RedVector con Azure AD proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a RedVector.
-* Puede habilitar que los usuarios inicien sesión automáticamente en RedVector (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en RedVector (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,17 +36,16 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con RedVector, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único en **RedVector**
+* Una suscripción habilitada para el inicio de sesión único (SSO) en **RedVector**
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+>  
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
@@ -53,7 +53,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 1. Adición de RedVector desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-redvector-from-the-gallery"></a>Adición de RedVector desde la galería
+## <a name="add-redvector-from-the-gallery"></a>Adición de RedVector desde la galería
 Para configurar la integración de RedVector en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar RedVector desde la galería, siga estos pasos:**
@@ -78,24 +78,25 @@ Para configurar la integración de RedVector en Azure AD, deberá agregarlo desd
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con RedVector con un usuario de prueba denominado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de RedVector para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de RedVector.
+
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como valor de **Nombre de usuario** en RedVector.
 
 Para configurar y probar el inicio de sesión único de Azure AD con RedVector, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba en RedVector](#creating-a-RedVector-test-user)** : para tener un homólogo de Britta Simon en RedVector que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación RedVector.
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurarlo en la aplicación RedVector.
 
-**Para configurar el inicio de sesión único de Azure AD con RedVector, soga estos pasos:**
+**Para configurar el inicio de sesión único de Azure AD con RedVector, realice los pasos siguientes:**
 
 1. En el menú de la parte superior, haga clic en **Inicio rápido**.
    
@@ -109,26 +110,23 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 4. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes: 
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_07.png)
+ 1. En el cuadro de texto URL de inicio de sesión, escriba una dirección URL con el siguiente patrón: `https://sso2.redvector.com/adfs/<Companyname>`. Puede que tenga que ponerse en contacto con el equipo de soporte técnico de Redvector en <sso@redvector.com> para obtener los valores correctos de su entorno.
+ 2. Haga clic en **Siguiente**.
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba una dirección URL con el siguiente patrón: `https://sso2.redvector.com/adfs/<Companyname>`. Puede que tenga que ponerse en contacto con el equipo de soporte técnico de Redvector en <sso@redvector.com> para obtener los valores correctos de su entorno.
-
-    b. Haga clic en **Siguiente**.
-
-1. En la página **Configuración de inicio de sesión único en RedVector**, haga clic en **Descargar certificado** y, luego, guarde el archivo en el equipo. Copie el valor de Dirección URL del servicio de inicio de sesión único. Para configurar SSO será preciso que comparta esta información con el equipo de soporte técnico de RedVector.
+5. En la página **Configuración de inicio de sesión único en RedVector**, haga clic en **Descargar certificado** y, luego, guarde el archivo en el equipo. Copie el valor de Dirección URL del servicio de inicio de sesión único. Para configurar SSO será preciso que comparta esta información con el equipo de soporte técnico de RedVector.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-redvector-tutorial/tutorial_redvector_08.png)
-2. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de RedVector en <mailto:sso@redvector.com>. Ellos le ayudarán con el modo adecuado de configurar el inicio de sesión único. En el correo electrónico, proporcióneles la siguiente información: 
-   
+6. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de RedVector en <mailto:sso@redvector.com>. Ellos le ayudarán con el modo adecuado de configurar el inicio de sesión único. En el correo electrónico, proporcióneles la siguiente información: 
    * El certificado descargado
    * La **dirección URL de SSO de SAML**
-3. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
-4. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 ![Creación de un usuario de Azure AD][20]
@@ -148,41 +146,31 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización. 
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-redvector-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Complete**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-a-redvector-test-user"></a>Creación de un usuario de prueba en RedVector
+### <a name="create-a-redvector-test-user"></a>Creación de un usuario de prueba de RedVector
 En esta sección, se crea un usuario denominado Britta Simon en RedVector. Si no sabe cómo agregar Britta Simon en RedVector, trabaje con el equipo de soporte técnico de RedVector para agregar el usuario de prueba y habilitar SSO. Póngase en contacto con ellos en <mailto:sso@redvector.com>.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-En esta sección, se habilita que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a RedVector.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+En esta sección, permitirá que Britta Simon use el inicio de sesión único (SSO) de Azure, para lo cual le concederá acceso a RedVector.
 
 ![Asignar usuario][200] 
 
@@ -202,7 +190,7 @@ En esta sección, se habilita que Britta Simon use el inicio de sesión único d
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de RedVector en el panel de acceso, debería iniciar sesión automáticamente en la aplicación RedVector.
@@ -231,9 +219,4 @@ Al hacer clic en el icono de RedVector en el panel de acceso, debería iniciar s
 [203]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-redvector-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

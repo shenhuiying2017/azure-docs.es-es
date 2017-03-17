@@ -1,5 +1,5 @@
 ---
-title: "Referencia sobre búsqueda de registros de Log Analytics | Microsoft Docs"
+title: "Referencia sobre búsqueda de registros de Azure Log Analytics | Microsoft Docs"
 description: "En la referencia sobre búsqueda de registros de Log Analytics, se describe el lenguaje de consulta y se proporcionan las opciones generales de sintaxis de consulta que puede usar al buscar datos y filtrar expresiones para ayudar a limitar la búsqueda."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
-ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a294ef357ea3c656e4e6392e89ad1d90b829e2cb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -254,7 +256,7 @@ SampleValue:[0..2]
 ```
 
 ### <a name="regular-expressions"></a>Expresiones regulares
-Puede especificar una condición de búsqueda en un campo con una expresión regular con la palabra clave de Regex.
+Puede especificar una condición de búsqueda en un campo con una expresión regular con la palabra clave de Regex.  Obtenga una descripción completa de la sintaxis que puede usar en expresiones regulares en [Uso de expresiones regulares para filtrar búsquedas de registros en Log Analytics](log-analytics-log-searches-regex.md).
 
 **Sintaxis**
 
@@ -581,7 +583,29 @@ Ejemplos:
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### <a name="in"></a>IN
-Sintaxis:
+La palabra clave **IN** permite realizar una selección en una lista de valores.  Dependiendo de la sintaxis usada, puede tratarse de una simple lista de valores que proporcione o de una lista de valores de una agregación.
+
+Sintaxis 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+Descripción: esta sintaxis permite incluir todos los valores en una lista simple.
+
+
+
+Ejemplos:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+Sintaxis 2:
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
@@ -810,9 +834,4 @@ Para más información acerca de las búsquedas de registros:
 
 * Familiarícese con las [búsquedas de registros](log-analytics-log-searches.md) para ver información detallada recopilada por soluciones.
 * Use la [función de campos personalizados de Log Analytics](log-analytics-custom-fields.md) para ampliar las búsquedas de registros.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

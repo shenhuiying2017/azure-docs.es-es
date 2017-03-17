@@ -15,12 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: a3c0aaae014619fb3f4a2fffa6063a473da691e1
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 5af1b1bacce2fe189a7b557527520795ed622b54
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="application-gateway-websocket-support"></a>Compatibilidad de Application Gateway con WebSocket
+# <a name="overview-of-websocket-support-in-application-gateway"></a>Introducción a la compatibilidad de WebSocket en Application Gateway
 
 Application Gateway proporciona una compatibilidad nativa con WebSocket en todas las puertas de enlace, con independencia de su tamaño. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Puede seguir usando una clase HTTPListener estándar en el puerto 80 o 443 para recibir tráfico de WebSocket. Después, el tráfico de WebSocket se dirige al servidor back-end con este protocolo habilitado utilizando el grupo back-end adecuado según lo especificado en las reglas de Application Gateway. El protocolo WebSocket, estandarizado como [RFC6455](https://tools.ietf.org/html/rfc6455) , permite una comunicación dúplex completa entre el servidor y el cliente a través de una conexión TCP de larga duración. Gracias a esta característica, la comunicación entre el servidor web y el cliente, que puede ser bidireccional sin necesidad de realizar sondeos como en las implementaciones basadas en HTTP, es más interactiva.  WebSocket tiene una sobrecarga reducida, a diferencia de HTTP, y puede reutilizar la misma conexión TCP para varias solicitudes y respuestas, con lo que se utilizan los recursos de una manera más eficaz. Los protocolos WebSocket están diseñados para utilizarse a través de los puertos HTTP tradicionales 80 y 443.
 
@@ -120,10 +121,5 @@ Otro de los motivos es que el sondeo de estado back-end de la puerta de enlace d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Cuando haya terminado de leer la información sobre compatibilidad con WebSocket, vaya al artículo sobre [cómo crear una puerta de enlace de aplicaciones](application-gateway-create-gateway.md) para empezar a trabajar con una aplicación web con WebSocket habilitado.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

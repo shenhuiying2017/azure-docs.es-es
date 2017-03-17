@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
-ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
+ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
+ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -56,6 +57,9 @@ A continuación creará un experimento predicativo.
 1. En la parte inferior del lienzo del experimento, haga clic en **Set Up Web Service** (Configurar servicio web) y seleccione **Predictive web Service** (Servicio web predictivo). Esto permite guardar el modelo como un modelo entrenado y agrega los módulos de entrada y salida de servicio web. 
 2. Haga clic en **Ejecutar**. 
 3. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]) o en **Deploy Web Service [New]** (Implementar servicio web [nuevo]).
+
+> [!NOTE] 
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Implementación del experimento de entrenamiento como un servicio web de entrenamiento
 Para reciclar el modelo entrenado, debe implementar el experimento de entrenamiento que creó como un servicio web de reciclaje. Este servicio necesita un módulo de *salida del servicio web* conectado al módulo *[Entrenar modelo][train-model]* para poder generar nuevos modelos entrenados.
@@ -183,9 +187,4 @@ Si implementó el servicio web predictivo haciendo clic en **Deploy Web Service 
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a5aeb1612d670f1145ee9b176e33667f717de357
+ms.sourcegitcommit: 7c4faaba6db10f6803236a5d72eed375e2c39d46
+ms.openlocfilehash: b0ecc19b62e7620b4c37c4d9f702238dcb8c44cc
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,17 +36,16 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Front, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único en Front
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Front
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.
@@ -80,7 +80,7 @@ Para configurar la integración de Front en Azure AD, deberá agregar Front desd
    
     ![Selección de la aplicación en la galería](./media/active-directory-saas-front-tutorial/tutorial_front_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Front con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Front para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Front.
@@ -89,14 +89,14 @@ Esta relación de vínculo se establece asignando el valor del **nombre de usuar
 
 Para configurar y probar el inicio de sesión único de Azure AD con Front, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de usuario de prueba de Front](#creating-a-front-test-user)** : para tener un homólogo de Britta Simon en Front que esté vinculado a la representación de esta en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Front.
+### <a name="configuring-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+En esta sección, habilitará el inicio de sesión único (SSO) de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Front.
 
 **Para configurar el inicio de sesión único de Azure AD con Front, realice los pasos siguientes:**
 
@@ -109,31 +109,24 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 3. En el cuadro de diálogo **Configurar las opciones de la aplicación**, si desea configurar la aplicación en el **modo iniciado por el proveedor de identidades**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-front-tutorial/tutorial_front_04.png)
-   
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.frontapp.com`
-   
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.frontapp.com/sso/saml/callback`.
-   
-    c. Haga clic en **Siguiente**
+  1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.frontapp.com`.
+  2. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.frontapp.com/sso/saml/callback`.
+  3. Haga clic en **Siguiente**.
 4. Si quiere configurar la aplicación en el **modo iniciado por el proveedor de servicios**, en la página de diálogo **Configurar las opciones de la aplicación**, haga clic en **"Mostrar la configuración avanzada (opcional)"**, escriba la **URL de inicio de sesión** y haga clic en **Siguiente**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-front-tutorial/tutorial_front_05.png)
    
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.frontapp.com`.
+  1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.frontapp.com`.
+  2. Haga clic en **Siguiente**.
    
-    b. Haga clic en **Siguiente**
-   
-   > [!NOTE]
-   > Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Para obtener estos valores, consulte el **paso 12** para más información o póngase en contacto con Front en [support@frontapp.com](emailTo:support@frontapp.com).
-   > 
-   > 
+   >[!NOTE]
+   >Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Para obtener estos valores, consulte el **paso 12** para más información o póngase en contacto con Front en [support@frontapp.com](emailTo:support@frontapp.com).
+   >  
 5. En la página **Configurar inicio de sesión único en Front**, lleve a cabo estos pasos y haga clic en **Siguiente**:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-front-tutorial/tutorial_front_06.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
+ ![Configurar inicio de sesión único](./media/active-directory-saas-front-tutorial/tutorial_front_06.png) 
+ 1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+ 2. Haga clic en **Siguiente**.
 6. Inicie la sesión en el inquilino de Front como administrador.
 7. Vaya a **Settings (cog icon at the bottom of the left sidebar) > Preferences** (Configuración (icono de engranaje en la parte inferior de la barra lateral izquierda) > Preferencias).
    
@@ -161,7 +154,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -181,41 +174,31 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_05.png)
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+ 1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+ 2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**. 
+ 3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_06.png)
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_06.png) 
+ 1. En el cuadro de texto **Nombre**, escriba **Britta**.   
+ 2. En el cuadro de texto **Apellidos**, escriba **Simon**. 
+ 3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**. 
+ 4. En la lista **Rol**, seleccione **Usuario**. 
+ 5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_07.png)
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_08.png)
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_08.png) 
+ 1. Anote el valor del campo **Nueva contraseña**. 
+ 2. Haga clic en **Completo**.   
 
-### <a name="creating-a-front-test-user"></a>Creación de usuario de prueba de Front
+### <a name="create-a-front-test-user"></a>Creación de un usuario de prueba de Front
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Front. Colabore con el equipo de soporte técnico para agregar los usuarios a la cuenta de Front.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Front.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a Front.
 
 ![Asignar usuario][200]
 
@@ -235,7 +218,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Front en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de Front.
@@ -261,9 +244,4 @@ Al hacer clic en el icono de Front en el panel de acceso, debería iniciar sesi�
 [203]: ./media/active-directory-saas-front-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-front-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-front-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

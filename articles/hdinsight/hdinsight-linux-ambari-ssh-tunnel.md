@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -51,9 +52,17 @@ Cuando se usa un túnel SSH para el tráfico web, debe tener lo siguiente:
   > [!NOTE]
   > Si desea usar un cliente SSH distinto de `ssh` o PuTTY, vea la documentación de su cliente sobre cómo establecer un túnel SSH.
 
-* Un explorador web que se puede configurar para usar un proxy SOCKS
+* Un explorador web que se puede configurar para usar un proxy SOCKS5.
 
-## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Creación de un túnel con el comando SSH
+    > [!WARNING]
+    > La compatibilidad con el proxy SOCKS integrada en Windows no incluye SOCKS5 y no funcionará con los pasos descritos en este documento. Los siguientes exploradores se basan en la configuración de proxy de Windows y actualmente no funcionan con los pasos descritos en este documento:
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Google Chrome también se basa en la configuración de proxy de Windows. Sin embargo, se pueden instalar extensiones que admiten SOCKS5. Se recomienda [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+
+## <a name="usessh"></a>Creación de un túnel con el comando SSH
 
 Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace **USERNAME** por un usuario SSH para su clúster de HDInsight y reemplace **CLUSTERNAME** por el nombre de su clúster de HDInsight
 
@@ -76,7 +85,7 @@ Si ha configurado el clúster con una clave SSH, es posible que tenga que usar e
 
 Una vez que se completa el comando, el tráfico enviado al puerto 9876 del equipo local se enruta sobre Capa de sockets seguros (SSL) al nodo principal del clúster y aparece como originado ahí.
 
-## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>Creación de un túnel mediante PuTTY
+## <a name="useputty"></a>Creación de un túnel mediante PuTTY
 
 Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
@@ -100,8 +109,8 @@ Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Uso del túnel desde el explorador
 
-> [!NOTE]
-> Los pasos de esta sección usan el explorador FireFox, ya que es gratuito para sistemas Linux, Unix, Macintosh OS X y Windows. También funcionan correctamente otros exploradores modernos que admiten el uso de un proxy SOCKS.
+> [!IMPORTANT]
+> Los pasos de esta sección usan el explorador Mozilla FireFox, ya que proporciona la misma configuración de proxy para todas las plataformas. Otros exploradores modernos, como Google Chrome, pueden requerir una extensión como FoxyProxy para funcionar con el túnel.
 
 1. Configure el explorador para usar **localhost** y el puerto que utilizó al crear el túnel como un proxy **SOCKS v5**. La configuración de Firefox se verá de la siguiente manera. Si usa un puerto que no es 9876, cambie el puerto al que usa:
    
@@ -144,6 +153,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
    > 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha aprendido a crear y usar un túnel SSH, consulte lo siguiente para obtener información sobre supervisión y administración del clúster con Ambari:
 
 * [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
@@ -152,10 +162,5 @@ Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguien
 
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

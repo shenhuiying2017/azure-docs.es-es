@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
-ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a4a770ec6f258c62864cd3fcc79b33b5cac38ace
+ms.openlocfilehash: 8f05957e8c40dee8ceb7fb1355d8d8776935cf5a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -76,7 +76,7 @@ Cada vínculo de un emparejamiento de VNET tiene el conjunto anterior de propied
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si fuera necesario, inicie sesión con su cuenta de Azure.
-2. En este ejemplo, UserA tiene permisos administrativos en SubscriptionA y UserB tiene permisos administrativos en SubscriptionB.
+2. En este ejemplo, UserA tiene permisos administrativos en SubscriptionA y UserB tiene permisos administrativos en SubscriptionB. Ambas suscripciones están asociadas al mismo inquilino de Azure Active Directory. No se puede crear un emparejamiento entre suscripciones asociadas a inquilinos de Azure Active Directory diferentes.
 3. En el portal, haga clic en **Examinar** y elija **Redes virtuales**. Haga clic en la red virtual cuyo emparejamiento desea configurar.
 4. En la hoja de la red virtual que ha seleccionado, haga clic en **Access Control** y, después, en **Agregar**, como se muestra en la siguiente imagen:
 

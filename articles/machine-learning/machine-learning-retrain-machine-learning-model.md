@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: 882157d2cb544e5bb59caf7d64de579e23b12480
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 3fd731d83ca32359193534f043b3eb3e0333e0aa
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,6 +59,9 @@ Reciclar el servicio web:
 
 Para obtener un tutorial de los anteriores pasos, consulte [Reciclar modelos de Machine Learning mediante programación](machine-learning-retrain-models-programmatically.md).
 
+> [!NOTE] 
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 Si ha implementado un servicio web clásico:
 
 * Crear un nuevo punto de conexión del servicio web predictivo
@@ -95,10 +99,5 @@ El proceso de configuración de reciclaje de un servicio web nuevo implica los p
 <!--image links-->
 [1]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
 [7]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

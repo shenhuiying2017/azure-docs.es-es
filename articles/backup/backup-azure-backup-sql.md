@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>Copia de seguridad de Azure para cargas de trabajo de SQL Server con DPM
+# <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 Este artículo le guiará por los pasos de configuración de la copia de seguridad de bases de datos de SQL Server mediante la Copia de seguridad de Azure.
 
 Para realizar una copia de seguridad de las bases de datos de SQL Server en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -51,7 +52,8 @@ Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](b
     ![Método de protección de datos: disco a corto plazo y en línea de Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. En la pantalla **Especificar objetivos a corto plazo** , incluya las entradas necesarias para crear puntos de copia de seguridad en el disco.
 
-    Aquí vemos que **Duración de retención** está establecida en *5 días*, **Frecuencia de la sincronización** está establecida en una vez cada *15 minutos*, que es la frecuencia con la que se realiza la copia de seguridad. **Copia de seguridad completa rápida** está establecido en *8:00 p.m.*.
+    Aquí vemos que **Duración de retención** está establecida en *5 días*, **Frecuencia de la sincronización** está establecida en una vez cada *15 minutos*, que es la frecuencia con la que se realiza la copia de seguridad. <seg>
+  **Copia de seguridad completa rápida** está establecido en *8:00 p.m*.</seg>
 
     ![Objetivos a corto plazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -158,9 +160,4 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
 
 ### <a name="next-steps"></a>Pasos siguientes:
 •   [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

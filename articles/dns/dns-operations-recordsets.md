@@ -10,16 +10,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfb59158facd2a4f861fa3221f032fc65419bdc0
-ms.openlocfilehash: 909103172d0950df6f86be6fe932581e7e7fd663
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="manage-dns-records-in-azure-dns-using-azure-powershell"></a>Administración de registros DNS en Azure DNS mediante Azure PowerShell
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](dns-operations-recordsets-portal.md)
@@ -55,7 +57,7 @@ En el ejemplo siguiente se crea un conjunto de registros con el nombre relativo 
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Para crear un conjunto de registros en el vértice de una zona (en este caso, "contoso.com"), use el nombre del conjunto de registros '@' (comillas incluidas).
+Para crear un conjunto de registros en el "vértice" de una zona (en este caso, "contoso.com"), use el nombre del conjunto de registros "@" (excluidas las comillas):
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -110,7 +112,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Creación de un conjunto de registros MX con un único registro
 
-En este ejemplo, se utiliza el nombre de conjunto de registros '@' para crear el registro MX en el vértice de la zona (por ejemplo, "contoso.com").
+En este ejemplo, se utiliza el nombre de conjunto de registros "@" para crear el registro MX en el vértice de la zona (por ejemplo, "contoso.com").
 
 
 ```powershell
@@ -133,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Creación de un conjunto de registros SRV con un único registro
 
-Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el * \_servicio* y el * \_protocolo* en el nombre del conjunto de registros. No es necesario incluir '@' en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
+Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el * \_servicio* y el * \_protocolo* en el nombre del conjunto de registros. No es necesario incluir "@" en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -384,9 +386,4 @@ Más información sobre [zonas y registros en Azure DNS](dns-zones-records.md).
 Aprenda a [proteger las zonas y los registros](dns-protect-zones-recordsets.md) cuando se usa Azure DNS.
 <br>
 Revise la [documentación de referencia de PowerShell para Azure DNS](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

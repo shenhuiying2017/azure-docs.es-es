@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 0966b1332ee6d831a1f24ee817aa8022538a5558
-ms.openlocfilehash: f8cd2b907bd6b20ec778dc6257e2a30113dd4909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7e16fa749389ab876ae413e2ffef7713ed22adac
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -34,6 +34,37 @@ Tema. |  Detalles
 Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="114430"></a>1.1.443.0
+Fecha de publicación: marzo de 2017
+
+**Problemas corregidos:**
+
+Sincronización de Azure AD Connect
+* Se ha corregido un problema que hace el Asistente para Azure AD Connect deje de funcionar si el nombre para mostrar del conector de Azure AD no contiene el dominio inicial onmicrosoft.com que se asignan al inquilino de Azure AD.
+* Se ha corregido un problema que hace que el Asistente para Azure AD Connect genere un error al realizar la conexión a la base de datos SQL cuando la contraseña de la cuenta de servicio de sincronización tenga caracteres especiales, como un apóstrofo, una coma y un espacio.
+* Se corrigió un problema que hace que el error que indica que dimage tiene un delimitador que es diferente de la imagen se produzca en un servidor de Azure AD Connect en modo de almacenamiento provisional, una vez que ha excluido temporalmente un objeto AD de sincronización local de la sincronización y, luego, lo incluye de nuevo para realizar la sincronización.
+* Se corrigió un problema que hace que el error que indica que el objeto que ha localizado DN es un fantasma se produzca en un servidor de Azure AD Connect en modo de almacenamiento provisional, una vez que ha excluido temporalmente un objeto AD de sincronización local de la sincronización y, luego, lo incluye de nuevo para realizar la sincronización.
+
+Administración de AD FS
+* Se ha corregido un problema donde el Asistente para Azure AD Connect no actualizar la configuración de AD FS y establece las notificaciones adecuadas en el usuario de confianza después de configurar el identificador de inicio de sesión alternativo.
+* Se ha corregido un problema donde el Asistente para Azure AD Connect no puede administrar correctamente los servidores de AD FS cuyas cuentas de servicio se configuran mediante el formato userPrincipalName en lugar de sAMAccountName.
+
+Autenticación de paso a través
+* Se ha corregido un problema que hace que el Asistente para Azure AD Connect deje de funcionar si se selecciona la autenticación de paso a través, pero se produce un error de registro de su conector.
+* Se ha corregido un problema que hace que el Asistente para Azure AD Connect pase por alto las comprobaciones de validación en el método de inicio de sesión seleccionado cuando se habilita la característica de SSO de escritorio.
+
+**Nuevas características y mejoras:**
+
+Sincronización de Azure AD Connect
+* El cmdlet Get-ADSyncScheduler ahora devuelve una nueva propiedad booleana denominada "SyncCycleInProgress". Si el valor devuelto es True, significa que hay un ciclo de sincronización programada en curso.
+* La carpeta de destino para almacenar la instalación de Azure AD Connect y los registros de instalación se han movido desde %localappdata%\AADConnect a %programdata%\AADConnect para mejorar la accesibilidad a los archivos de registro.
+
+Administración de AD FS
+* Se agregó compatibilidad para actualizar el certificado SSL de granja de servidores de AD FS.
+* Se agregó compatibilidad para administrar AD FS 2016.
+* Ahora puede especificar gMSA existente (cuenta de servicio administrada de grupo) durante la instalación de AD FS.
+* Ahora puede configurar SHA-256 como el algoritmo de hash de firma para usuarios de confianza de Azure AD.
 
 ## <a name="113800"></a>1.1.380.0
 Fecha de publicación: diciembre de 2016

@@ -1,6 +1,6 @@
 ---
-title: Enterprise Integration Pack con EDIFACT | Microsoft Docs
-description: "Aprenda a utilizar los acuerdos EDIFACT para crear aplicaciones lógicas."
+title: "Mensajes EDIFACT para integración empresarial: Azure Logic Apps | Microsoft Docs"
+description: "Intercambie mensajes EDIFACT para Integración empresarial con Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,24 +12,28 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: jonfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 30c26d1fb2dfb7c458789e70f4f8d1a6c39cd0ca
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c5ed4f7413bf8a0b4fd188ca451d4a60b761e886
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="enterprise-integration-with-edifact"></a>Enterprise Integration Pack con EDIFACT
+# <a name="exchange-edifact-messages-with-logic-apps"></a>Intercambio de mensajes EDIFACT con aplicaciones lógicas
+
 > [!NOTE]
-> Esta página cubre las características de EDIFACT de Logic Apps. Para más información, consulte [X12](logic-apps-enterprise-integration-x12.md).
-> 
-> 
+> En esta página se tratan las características de EDIFACT de Azure Logic Apps. Para obtener más información, consulte [X12](logic-apps-enterprise-integration-x12.md).
 
 ## <a name="create-an-edifact-agreement"></a>Creación de un acuerdo EDIFACT
 Para poder intercambiar mensajes EDIFACT, hay que crear un acuerdo EDIFACT y almacenarlo en la cuenta de integración. Los siguientes pasos lo guían a lo largo del proceso de creación de un acuerdo EDIFACT.
 
-### <a name="heres-what-you-need-before-you-get-started"></a>Requisitos para poder comenzar
+### <a name="before-you-get-started"></a>Antes de comenzar
+
+Necesitará estos elementos:
+
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) definida en su suscripción de Azure  
 * Al menos dos [asociados](logic-apps-enterprise-integration-partners.md) definidos en su cuenta de integración  
 
@@ -194,10 +198,5 @@ Después de seleccionar **Aceptar** en la hoja abierta:
 
 ## <a name="learn-more"></a>Más información
 * [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

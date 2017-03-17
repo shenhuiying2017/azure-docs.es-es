@@ -1,5 +1,5 @@
 ---
-title: "Uso del análisis de almacenamiento para recopilar datos de registros y métricas | Microsoft Docs"
+title: "Uso del análisis de almacenamiento de Azure para recopilar datos de registros y métricas | Microsoft Docs"
 description: "El análisis de almacenamiento permite realizar un seguimiento de los datos de métricas para todos los servicios de almacenamiento y recopilar registros de Almacenamiento de blobs, Almacenamiento de colas y Almacenamiento de tablas."
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="storage-analytics"></a>Análisis de almacenamiento
-## <a name="overview"></a>Información general
+
 El análisis de almacenamiento de Azure realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento.
 
 Para utilizar el análisis de almacenamiento, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde el [Portal de Azure](https://portal.azure.com). Para obtener más detalles, consulte [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md). También puede habilitar el análisis de almacenamiento mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) y [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) para habilitar el análisis de almacenamiento para cada servicio.
@@ -150,7 +151,7 @@ Todos los datos de métricas para cada uno de los servicios de almacenamiento se
 
 | Nivel de métricas | Nombres de tabla | Versiones compatibles |
 | --- | --- | --- |
-| Métricas por horas, ubicación principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versiones anteriores a 2013-08-15 solamente. Si bien estos nombres todavía se admiten, se recomienda que empiece a usar las tablas que se muestran a continuación. |
+| Métricas por horas, ubicación principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versiones anteriores a 2013-08-15 solamente. Si bien estos nombres todavía se admiten, se recomienda que empiece a usar las tablas que se muestran a continuación. |
 | Métricas por horas, ubicación principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Todas las versiones, incluida 2013-08-15. |
 | Métricas por minutos, ubicación principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Todas las versiones, incluida 2013-08-15. |
 | Métricas por horas, ubicación secundaria |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Todas las versiones, incluida 2013-08-15. Debe estar habilitada la replicación con redundancia geográfica con acceso de lectura. |
@@ -163,7 +164,7 @@ Estas tablas se crean automáticamente cuando se habilita el análisis de almace
 Se puede tener acceso a todos los datos de las tablas de las métricas utilizando las API del servicio Tabla, incluidas las API de .NET proporcionadas por la biblioteca administrada de Azure. El administrador de la cuenta de almacenamiento puede leer y eliminar entidades de tabla, pero no puede crearlas ni actualizarlas.
 
 ## <a name="billing-for-storage-analytics"></a>Facturación para análisis de almacenamiento
-El análisis de almacenamiento lo habilita el propietario de la cuenta de almacenamiento; no está habilitado de forma predeterminada. Todos los datos de métricas los escriben los servicios de una cuenta de almacenamiento. Como resultado, cada una de las operaciones de escritura realizadas por el análisis de almacenamiento es facturable. También lo es la cantidad de almacenamiento utilizado por los datos de métricas.
+Todos los datos de métricas los escriben los servicios de una cuenta de almacenamiento. Como resultado, cada una de las operaciones de escritura realizadas por el análisis de almacenamiento es facturable. También lo es la cantidad de almacenamiento utilizado por los datos de métricas.
 
 Son facturables las acciones siguientes realizadas por el análisis de almacenamiento:
 
@@ -191,10 +192,5 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 * [Acerca de las métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343258.aspx)
 * [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
@@ -35,12 +36,12 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
 > -   Para descargar las declaraciones de directiva que se usan en este vídeo, acceda a [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) en el repositorio de GitHub.  
   
   
-##  <a name="a-namesyntaxa-syntax"></a><a name="Syntax"></a> Sintaxis  
+##  <a name="Syntax"></a> Sintaxis  
  Las expresiones de declaración única se incluyen en `@(expression)`, donde `expression` es una instrucción de expresión bien formada de C#.  
   
  Las expresiones de múltiples declaraciones se incluyen en `@{expression}`. Todas las rutas de código de las expresiones de múltiples declaraciones deben terminar con una declaración `return`.  
   
-##  <a name="a-namepolicyexpressionsexamplesa-examples"></a><a name="PolicyExpressionsExamples"></a> Ejemplos  
+##  <a name="PolicyExpressionsExamples"></a> Ejemplos  
   
 ```  
 @(true)  
@@ -51,7 +52,7 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -66,13 +67,13 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
 }  
 ```  
   
-##  <a name="a-namepolicyexpressionsusagea-usage"></a><a name="PolicyExpressionsUsage"></a> Uso  
+##  <a name="PolicyExpressionsUsage"></a> Uso  
  Las expresiones pueden utilizarse como valores de atributos o valores de texto en cualquiera de las [directivas](api-management-policies.md) de API Management, a menos que la referencia de la directiva especifique lo contrario.  
   
 > [!IMPORTANT]
 >  Tenga en cuenta que, al utilizar expresiones de directiva, solo hay una comprobación limitada de estas cuando se define la directiva. Dado que la puerta de enlace ejecuta las expresiones durante el tiempo de ejecución en la canalización de entrada o de salida, cualquier excepción de tiempo de ejecución que genere las expresiones de directiva producirá un error de tiempo de ejecución en la llamada API.  
   
-##  <a name="a-nameclrtypesa-net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva  
+##  <a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva  
  En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en las expresiones de directiva y sus miembros.  
   
 |Tipos CLR|Métodos admitidos|  
@@ -166,12 +167,12 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
 |System.Xml.Linq.XText|Se admiten todos los métodos.|  
 |System.Xml.XmlNodeType|Todo|  
   
-##  <a name="a-namecontextvariablesa-context-variable"></a><a name="ContextVariables"></a> Variable de contexto  
+##  <a name="ContextVariables"></a> Variable de contexto  
  Una variable denominada `context` está disponible implícitamente en todas las [expresiones](api-management-policy-expressions.md#Syntax) de directiva. Sus miembros proporcionan información relativa a `\request`. Todos los miembros de `context` son de solo lectura.  
   
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|  
 |----------------------|-------------------------------------------------------|  
-|contexto|Api: IApi<br /><br /> Implementación<br /><br /> LastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> Response<br /><br /> La suscripción<br /><br /> Tracing: bool<br /><br /> Usuario<br /><br /> Variables:IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|  
+|contexto|Api: IApi<br /><br /> Implementación<br /><br /> LastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> RequestId: cadena<br /><br /> Response<br /><br /> La suscripción<br /><br /> Tracing: bool<br /><br /> Usuario<br /><br /> Variables:IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|  
 |context.Api|Id: cadena<br /><br /> Name: cadena<br /><br /> Path: cadena<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: cadena<br /><br /> ServiceName: cadena|  
 |context.LastError|Source: cadena<br /><br /> Reason: cadena<br /><br /> Message: cadena<br /><br /> Scope: cadena<br /><br /> Section: cadena<br /><br /> Path: cadena<br /><br /> PolicyId: cadena<br /><br /> Para obtener más información sobre context.LastError, consulte [Error handling in API Management policies](api-management-error-handling-policies.md) (Control de errores en directivas de API Management).|  
@@ -200,9 +201,5 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
 |cadena Jwt.Claims.GetValueOrDefault(claimName: cadena, defaultValue: cadena)|claimName: cadena<br /><br /> defaultValue: cadena<br /><br /> Devuelve valores de notificación separados por comas o `defaultValue`, si no se encuentra el encabezado.|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre cómo trabajar con directivas, consulte [Directivas de API Management](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
+Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
 

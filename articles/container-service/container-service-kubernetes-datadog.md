@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de un clúster de Azure Kubernetes con DataDog | Microsoft Docs"
-description: "Supervisión de un clúster de Kubernetes en Azure Container Service utilizando DataDog"
+title: "Supervisión de un clúster de Azure Kubernetes con Datadog | Microsoft Docs"
+description: "Supervisión de un clúster de Kubernetes en Azure Container Service utilizando Datadog"
 services: container-service
 documentationcenter: 
 author: bburns
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2984a3811eba670b54fd253a8d7dc84acd8c8ec4
+ms.sourcegitcommit: f7377b3d0c0b89d7e196a31890173575688687cf
+ms.openlocfilehash: 901cbf5093c6a547f5dffa7ed6d71fe67caaadb9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,16 +56,12 @@ Datadog es un servicio de supervisión que recopila datos de supervisión de los
 
 Primero debe [crear una cuenta](https://www.datadoghq.com/lpg/)
 
-## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Instalación del agente de DataDog con un DaemonSet
+## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Instalación del agente de Datadog con un DaemonSet
 Kubernetes utiliza DaemonSets para ejecutar una única instancia de un contenedor en cada host del clúster.
 Son perfectos para ejecutar agentes de supervisión.
 
-Una vez que ha iniciado sesión en DataDog, puede seguir las [instrucciones de este](https://app.datadoghq.com/account/settings#agent/kubernetes) para instalar los agentes de DataDog en el clúster mediante un DaemonSet.
+Una vez que ha iniciado sesión en Datadog, puede seguir las [Instrucciones de Datadog](https://app.datadoghq.com/account/settings#agent/kubernetes) para instalar los agentes de Datadog en el clúster mediante un DaemonSet.
 
 ## <a name="conclusion"></a>Conclusión
 Eso es todo. Una vez que los agentes están en funcionamiento debería ver datos en la consola en unos minutos. Puede visitar el [panel de Kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) integrado para ver un resumen del clúster.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

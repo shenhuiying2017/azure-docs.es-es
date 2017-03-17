@@ -4,7 +4,7 @@ description: "Aprenda a configurar Redes aceleradas para una máquina virtual de
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: af4515c6-4377-4d4a-a104-18fe1348252c
@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9ace0a47e8b804840ffda3f906bf3fb8584932cf
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: a2e8e0dc40a63c363f295149e35f9823c8e90fa8
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="accelerated-networking-for-a-virtual-machine"></a>Accelerated Networking para una máquina virtual
+# <a name="accelerated-networking-for-a-virtual-machine-using-the-azure-portal"></a>Redes aceleradas para una máquina virtual mediante Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-accelerated-networking-portal.md)
+> * [Portal de Azure](virtual-network-accelerated-networking-portal.md)
 > * [PowerShell](virtual-network-accelerated-networking-powershell.md)
 > 
 > 
@@ -81,10 +83,5 @@ Los cambios en estas limitaciones se anunciarán a través de la página con [ac
 5. Haga clic con el botón derecho en el botón Windows y haga clic en **Administrador de dispositivos**. Compruebe que el **adaptador Ethernet de función virtual ConnectX-3 de Mellanox** aparezca bajo la opción **Red** expandida, como se muestra en la siguiente imagen:
    
     ![Administrador de dispositivos](./media/virtual-network-accelerated-networking-portal/image2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

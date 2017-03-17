@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 84c9ac92ec08d1e7c1a163c2990c4fe3e14bf9e5
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aebd94edbad210f15bce5b39ebf73269ec67a209
+ms.openlocfilehash: 3bcba1123d3ec00c760d022d200609bf28c22362
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -129,10 +129,10 @@ Sí. Puede automatizar los flujos de trabajo de Site Recovery mediante la API de
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Si se replica a Azure, ¿qué tipo de cuenta de almacenamiento se necesita?
 * **Portal de Azure clásico**: si está implementando Site Recovery en el Portal de Azure clásico, necesitará una [cuenta de almacenamiento estándar con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage). El Almacenamiento premium no se admite actualmente. La cuenta debe estar en la misma región que el almacén de Site Recovery.
-* **Azure Portal**: si está implementando Site Recovery en Azure Portal, necesitará una cuenta de almacenamiento LRS o GRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación. Premium Storage solo si está replicando servidores físicos o máquinas virtuales de VMware.
+* **Azure Portal**: si está implementando Site Recovery en Azure Portal, necesitará una cuenta de almacenamiento LRS o GRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación. Premium Storage ahora es compatible con máquinas virtuales de VMware, con máquinas virtuales de Hyper-V VM y con la replicación de servidores físicos si implementa Site Recovery en Azure Portal.
 
 ### <a name="how-often-can-i-replicate-data"></a>¿Con qué frecuencia se pueden replicar los datos?
-* **Hyper-V:** las máquinas virtuales de Hyper-V se pueden replicar cada 30 segundos, 5 minutos o 15 minutos. Si ha configurado la replicación de SAN, la replicación es sincrónica.
+* **Hyper-V:** las máquinas virtuales de Hyper-V se pueden replicar cada 30 segundos (excepto en el caso de Premium Storage), 5 minutos o 15 minutos. Si ha configurado la replicación de SAN, la replicación es sincrónica.
 * **VMware y servidores físicos:** en este caso no es relevante la frecuencia de replicación. La replicación es continua.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>¿Se puede ampliar la replicación desde el sitio de recuperación existente a otro tercer sitio?
@@ -142,7 +142,7 @@ No se admite la replicación extendida o encadenada. Solicite esta característi
 No es una opción admitida. Solicite esta característica en el [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>¿Se pueden excluir discos específicos de la replicación?
-Esto se admite cuando está [replicando servidores físicos y máquinas virtuales de VMware](site-recovery-exclude-disk.md) en Azure mediante Azure Portal.
+Esto se admite cuando [replica máquinas virtuales de VMware e Hyper-V](site-recovery-exclude-disk.md) en Azure a través de Azure Portal.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>¿Se pueden replicar máquinas virtuales con discos dinámicos?
 Los discos dinámicos se admiten al replicar máquinas virtuales de Hyper-V. También se admiten al replicar las máquinas virtuales de VMware y los equipos físicos en Azure. El disco del sistema operativo debe ser un disco básico.

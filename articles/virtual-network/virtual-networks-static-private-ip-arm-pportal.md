@@ -1,10 +1,10 @@
 ---
-title: "Establecimiento de una dirección IP privada estática en el modo ARM con Azure Portal | Microsoft Docs"
-description: "Descripción de las IP privadas (DIP) y su administración en el modo ARM con el Portal de Azure"
+title: "Configuración de direcciones IP privadas para máquinas virtuales (Azure Portal) | Microsoft Docs"
+description: "Obtenga información sobre cómo configurar direcciones IP privadas para máquinas virtuales mediante Azure Portal."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
-ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Establecimiento de una dirección IP privada estática en el Portal de Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal
 
 > [!div class="op_single_selector"]
-- [Portal de Azure](virtual-networks-static-private-ip-arm-pportal.md)
+- [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 - [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 - [CLI de Azure](virtual-networks-static-private-ip-arm-cli.md)
 - [Portal de Azure (clásico)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -104,10 +106,5 @@ Para quitar la dirección IP privada estática de la VM creada anteriormente, si
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
 * Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

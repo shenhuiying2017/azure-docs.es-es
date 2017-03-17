@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
-ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -55,6 +56,8 @@ Tenga en cuenta lo siguiente:
 
 * Para `path`, consulte [Patrones de nombre](#pattern) para averiguar cómo dar formato a los patrones de nombre de los blobs.
 * `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+
+Cuando se ejecuta en un plan de consumo, si una aplicación de función se ha vuelto inactiva, los nuevos blobs podrían tardar en procesarse hasta 10 minutos al día. Una vez que se ejecuta la aplicación de función, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
 
 Además, consulte uno de los subtítulos siguientes para obtener más información:
 
@@ -235,7 +238,7 @@ Donde `T` es el tipo de datos en el que desea deserializar los datos, y `paramNa
 El blob se puede deserializar en cualquiera de los siguientes tipos:
 
 * Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): útil para datos de blob serializados mediante JSON.
-  Si declara un tipo de entrada personalizado (por ejemplo, `FooType`), Azure Functions intentará deserializar los datos JSON en el tipo especificado.
+  Si declara un tipo de entrada personalizado (por ejemplo, `InputType`), Azure Functions intentará deserializar los datos JSON en el tipo especificado.
 * Cadena: útil para los datos de blob de texto.
 
 En las funciones de C#, también puede enlazar con cualquiera de los siguientes tipos y el entorno de tiempo de ejecución de Azure Functions tratará de deserializar los datos del blob mediante ese tipo:
@@ -347,7 +350,7 @@ En las funciones de C#, puede enlazar al blob de salida mediante el parámetro c
 Puede escribir en el blob de salida mediante cualquiera de los siguientes tipos:
 
 * Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): útil para la serialización mediante JSON.
-  Si declara un tipo de salida personalizado (por ejemplo, `out FooType paramName`), Azure Functions intentará serializar el objeto en JSON. Si el parámetro de salida es nulo cuando sale la función, el entorno de tiempo de ejecución de Azure Functions creará un blob como objeto nulo.
+  Si declara un tipo de salida personalizado (por ejemplo, `out OutputType paramName`), Azure Functions intentará serializar el objeto en JSON. Si el parámetro de salida es nulo cuando sale la función, el entorno de tiempo de ejecución de Azure Functions creará un blob como objeto nulo.
 * Cadena: (`out string paramName`) útil para los datos de blob de texto. el entorno de tiempo de ejecución de Azure Functions genera un blob solo si el parámetro de cadena no es nulo cuando sale la función.
 
 En las funciones de C# también puede enviar la salida a cualquiera de los siguientes tipos:
@@ -358,8 +361,6 @@ En las funciones de C# también puede enviar la salida a cualquiera de los sigui
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (para generar varios blobs)
-* `IAsyncCollector<T>` (versión asincrónica de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -368,10 +369,5 @@ Consulte [Ejemplo de entrada](#inputsample).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

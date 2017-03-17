@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
-ms.openlocfilehash: e3840e6f688d586650d877a854ee81035ce39b48
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 764ef15f631166bf720c846aa3b4f4b6936054d9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="application-architecture-with-azure-resource-manager-templates"></a>Arquitectura de aplicaciones con plantillas de Azure Resource Manager
+# <a name="application-architecture-with-azure-resource-manager-templates-for-linux-vms"></a>Arquitectura de aplicaciones con plantillas de Azure Resource Manager para máquinas virtuales Linux
+
 Al desarrollar una implementación de Azure Resource Manager, los requisitos de procesos deben asignarse a servicios y recursos de Azure. Si una aplicación consta de puntos de conexión HTTP, una base de datos y un servicio de almacenamiento en caché de datos, los recursos de Azure que hospedan cada uno de estos componentes deben racionalizarse. Por ejemplo, la aplicación Music Store de ejemplo incluye una aplicación web que se hospeda en una máquina virtual y una base de datos SQL que se hospeda en la base de datos SQL de Azure. 
 
 Este documento describe cómo se configuran los recursos de procesos de Music Store en la plantilla de Azure Resource Manager de ejemplo. Se resaltan todas las dependencias y configuraciones únicas. Para obtener la mejor experiencia, realice una implementación previa de una instancia de la solución en su suscripción de Azure y trabaje con la plantilla de Azure Resource Manager. La plantilla completa se puede encontrar aquí: [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Implementación de Music Store en Ubuntu). 
@@ -270,10 +273,5 @@ Para más información sobre la implementación de Azure SQL Database, consulte 
 <hr>
 
 [Paso 2: acceso y seguridad en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

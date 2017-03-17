@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59ecf25dfe445343c0908c0955f9a17bad12226f
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: f1ade8fa8b38aff86c119b74d6a68155a650d4dc
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -37,15 +38,14 @@ Para configurar la integración de Azure AD con eDigitalResearch, necesita los s
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en eDigitalResearch
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Microsoft Azure AD en un entorno de prueba.
@@ -80,22 +80,22 @@ Para configurar la integración de eDigitalResearch en Azure AD, deberá agregar
    
     ![Selección de la aplicación en la galería](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_0001.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
-El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Microsoft Azure AD con eDigitalResearch con una usuaria de prueba llamada "Britta Simon".
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
+El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Microsoft Azure AD con eDigitalResearch con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de eDigitalResearch para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de eDigitalResearch.
 
 Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en eDigitalResearch.
 
-Para configurar y probar el inicio de sesión único de Microsoft Azure AD con eDigitalResearch, se deben completar los siguientes pasos preliminares:
+Para configurar y probar el inicio de sesión único de Microsoft Azure AD con eDigitalResearch, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Microsoft Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de eDigitalResearch](#creating-a-edigitalresearch-test-user)** : para tener un homólogo de Britta Simon en eDigitalResearch que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para que Britta Simon pueda usar el inicio de sesión único de Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Microsoft Azure AD
+### <a name="configure-microsoft-azure-ad-sso"></a>Configuración del inicio de sesión único de Microsoft Azure AD
 En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación eDigitalResearch.
 
 **Para configurar el inicio de sesión único de Microsoft Azure AD con eDigitalResearch, realice los pasos siguientes:**
@@ -109,31 +109,23 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
 3. En el cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
+  1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.edigitalresearch.com/login/consume`. 
+  2. Haga clic en **Siguiente**.
    
-    a. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
-   
-    `https://<company name>.edigitalresearch.com/login/consume`
-   
-    b. Haga clic en **Siguiente**
-   
-   > [!NOTE]
-   > El valor de la dirección URL de respuesta de sesión de este tutorial es solo un marcador de posición. Para obtener el valor real para su entorno, póngase en contacto con eDigitalResearch.
+   >[!NOTE]
+   >El valor de la dirección URL de respuesta de sesión de este tutorial es solo un marcador de posición. Para obtener el valor real para su entorno, póngase en contacto con eDigitalResearch.
    > 
    > 
 4. En la página **Configurar inicio de sesión único en eDigitalResearch**, lleve a cabo estos pasos y haga clic en **Siguiente**:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_05.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Next**.
+  ![Configurar inicio de sesión único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_05.png)
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de eDigitalResearch y proporcione lo siguiente: 
-   
-      -El archivo de **certificado descargado**
-   
-      -El **identificador de entidad**
-   
-      -La **dirección URL del servicio de cierre de sesión único**
+
+  *   El archivo de **certificado descargado**
+  *  El  **identificador de entidad**   
+  *  La  **dirección URL del servicio de cierre de sesión único**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -141,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -161,43 +153,33 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_05.png)
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización. 
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_06.png)
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.   
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_07.png)
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_08.png)
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-a-edigitalresearch-test-user"></a>Creación de un usuario de prueba de eDigitalResearch
+### <a name="create-a-edigitalresearch-test-user"></a>Creación de un usuario de prueba de eDigitalResearch
 El objetivo de esta sección es crear un usuario llamado Britta Simon en eDigitalResearch. 
 
 Trabaje con el equipo de soporte técnico de eDigitalResearch para crear los usuarios.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a eDigitalResearch.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a eDigitalResearch.
 
 ![Asignar usuario][200]
 
@@ -217,7 +199,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Microsoft Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de eDigitalResearch en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación eDigitalResearch.
@@ -243,9 +225,4 @@ Al hacer clic en el icono de eDigitalResearch en el Panel de acceso, debería in
 [203]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

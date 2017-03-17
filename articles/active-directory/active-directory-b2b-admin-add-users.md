@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 6a854486060c77d743cbdd42b7a341860ab77361
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
+ms.openlocfilehash: 830cc28cdd5ca523c43cf1fa9cdff5131727d71f
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -46,6 +46,13 @@ Agregue usuarios de colaboración B2B al grupo como administradores de Azure AD,
 Agregue usuarios de colaboración B2B a una aplicación como administradores de Azure AD, como se muestra en el siguiente vídeo:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
+
+## <a name="admins-resending-invitations-to-guest-users"></a>Administradores que reenvían invitaciones a usuarios invitados
+Puede ir a la página de perfil del usuario de colaboración B2B y reenviar invitaciones a usuarios invitados que no todavía no las han canjeado:
+
+![Reenvío de invitaciones](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
+
+> ![NOTE] Esta acción volverá a enviar una invitación de parte del usuario con sesión iniciada e invitará al usuario al directorio, incluso si la invitación original era un grupo o una aplicación en particular.
 
 
 ## <a name="related-articles"></a>Artículos relacionados

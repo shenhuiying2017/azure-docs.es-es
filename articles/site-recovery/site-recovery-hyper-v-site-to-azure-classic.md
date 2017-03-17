@@ -87,7 +87,7 @@ En el gráfico siguiente se muestran canales y puertos de comunicación diferent
 ## <a name="step-1-create-a-vault"></a>Paso 1: Creación de un almacén
 1. Inicie sesión en el [Portal de administración](https://portal.azure.com).
 2. Expanda **Data Services** > **Recovery Services** y haga clic en **Almacén de Site Recovery**.
-3. Haga clic en **Crear nuevo	** > **Creación rápida**.
+3. Haga clic en **Crear nuevo** > **Creación rápida**.
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 5. En **Región**, seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Haga clic en **Crear almacén**.
@@ -174,7 +174,7 @@ Los parámetros son:
 ## <a name="step-5-create-and-configure-protection-groups"></a>Paso 5: Creación y configuración de grupos de protección
 Los grupos de protección son agrupaciones lógicas de máquinas virtuales que desea proteger con la misma configuración de protección. Aplique la configuración de protección a un grupo de protección y esa configuración se aplicará a todas las máquinas virtuales que agregue al grupo.
 
-1. En **Crear y configurar grupos de protección**, haga clic en **Crear un grupo de protección***. Si no están establecidos los requisitos previos, se emitirá un mensaje y podrá hacer clic en **Ver detalles** para obtener más información.
+1. En **Crear y configurar grupos de protección**, haga clic en **Crear un grupo de protección**. Si no están establecidos los requisitos previos, se emitirá un mensaje y podrá hacer clic en **Ver detalles** para obtener más información.
 2. En la pestaña **Grupos de protección** , agregue un grupo de protección. Especifique un nombre, el sitio Hyper-V de origen, la instancia de **Azure**de destino, el nombre de la suscripción de Azure Site Recovery y la cuenta de almacenamiento de Azure.
 
     ![Grupo de protección](./media/site-recovery-hyper-v-site-to-azure-classic/protection-group.png)
@@ -202,7 +202,7 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 3. Una vez configurada la protección, puede:
 
    * Ver las máquinas virtuales en **Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales**. Puede desplazarse hasta los detalles de la máquina en la pestaña **Propiedades**.
-   * Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** > ** Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales** *nombre_máquina_virtual* > **Configurar**. Puede configurar:
+   * Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales** *nombre_máquina_virtual* > **Configurar**. Puede configurar:
 
      * **Nombre**: el nombre de la máquina virtual en Azure.
      * **Tamaño**: el tamaño de destino de la máquina virtual que conmuta por error.

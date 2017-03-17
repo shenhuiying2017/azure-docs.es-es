@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: f9523ce62fb24b280c8d5869bf394ab279c48f23
-ms.openlocfilehash: 10b8221c873e3510189e7d82e034669f0466cd84
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9faa28a86c9427a83e8ca4485ebcdc8e8dacd93d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -44,14 +45,18 @@ Para aquellos con conocimientos de tecnologías de sincronización anteriores, e
 Para aplicar este método, siga estos pasos:
 
 1. [Preparación](#prepare)
-2. [Importación y sincronización](#import-and-synchronize)
-3. [Verify](#verify)
-4. [Cambio de servidor activo](#switch-active-server)
+2. [Configuración](#configuration)
+3. [Importación y sincronización](#import-and-synchronize)
+4. [Verify](#verify)
+5. [Cambio de servidor activo](#switch-active-server)
 
 #### <a name="prepare"></a>Preparación
 1. Instale Azure AD Connect, seleccione el **modo provisional** y anule la selección de **Iniciar la sincronización** en la última página del Asistente para instalación. Esto permitirá ejecutar el motor de sincronización de forma manual.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Cierre o inicie la sesión y, en el menú de inicio, seleccione **Servicio de sincronización**.
+
+#### <a name="configuration"></a>Configuración
+Si ha realizado cambios personalizados en el servidor principal y desea comparar la configuración con el servidor de almacenamiento provisional, utilice el [documentador de configuración de Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importación y sincronización
 1. Seleccione **Conectores** y elija el primer conector de tipo **Active Directory Domain Services**. Haga clic en **Ejecutar** y seleccione **Importación completa** y **Aceptar**. Realice estos pasos para todos los conectores de este tipo.
@@ -62,21 +67,13 @@ Para aplicar este método, siga estos pasos:
 Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y AD local (si está usando la implementación híbrida de Exchange). Los siguientes pasos le permiten inspeccionar lo que está a punto de cambiar antes de que comience realmente la exportación a los directorios.
 
 #### <a name="verify"></a>Verify
-1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x`  
-   El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
-3. Ejecute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
-4. Ahora tiene un archivo en %temp% denominado "export.csv" que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
-5. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (Importación y sincronización y Comprobación) hasta que se esperen los cambios que se van a exportar.
-
-**Descripción del archivo export.csv**
-
-La mayor parte del archivo se explica por sí solo. Algunas abreviaturas para comprender el contenido:
-
-* OMODT: tipo de modificación de objeto. Indica si la operación en un nivel de objeto es Agregar, Actualizar o Eliminar.
-* AMODT: tipo de modificación de atributo. Indica si la operación en un nivel de atributo es Agregar, Actualizar o Eliminar.
-
-Si el atributo tiene varios valores, no se mostrarán todos los cambios. Solo será visible el número de valores agregados y quitados.
+1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
+2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x` El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
+3. Copie el script de PowerShell de la sección [CSAnalyzer](#Appendix-CSAnalyzer) en un archivo denominado "`csanalyzer.ps1`".
+4. Abra una ventana de PowerShell y vaya a la carpeta donde se creó el script de PowerShell.
+5. Ejecute `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+6. Ahora tiene un archivo denominado "**processedusers1.csv**" que se puede examinar en Microsoft Excel. Todos los cambios almacenados provisionalmente para ser exportada en Azure AD se encuentran en este archivo.
+7. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (Importación y sincronización y Comprobación) hasta que se esperen los cambios que se van a exportar.
 
 #### <a name="switch-active-server"></a>Cambio de servidor activo
 1. En el servidor actualmente activo, desactive el servidor (DirSync/FIM/Azure AD Sync) para que no exporte a Azure AD o establézcalo en modo provisional (Azure AD Connect).
@@ -106,7 +103,7 @@ El servidor del motor de sincronización no almacena ningún estado acerca de lo
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Servidor en espera de reserva - modo provisional
 Si tiene un entorno más complejo, se recomienda tener uno o más servidores en espera. Durante la instalación puede habilitar un servidor que esté en **modo provisional**.
 
-Para información adicional, vea [Modo provisional](#staging-mode).
+Para obtener más información, consulte [Modo provisional](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Uso de máquinas virtuales
 Un método común y admitido es ejecutar el motor de sincronización en una máquina virtual. En caso de que el host tenga un problema, la imagen con el servidor del motor de sincronización se puede migrar a otro servidor.
@@ -114,15 +111,151 @@ Un método común y admitido es ejecutar el motor de sincronización en una máq
 ### <a name="sql-high-availability"></a>alta disponibilidad de SQL
 Si no utiliza la versión de SQL Server Express que se incluye con Azure AD Connect, también debe tener en cuenta la alta disponibilidad para SQL Server. La única solución de alta disponibilidad admitida son clústeres de SQL. Entre las soluciones no admitidas se incluyen creación de reflejos y siempre visible.
 
+## <a name="appendix-csanalyzer"></a>Apéndice: CSAnalyzer
+Vea la sección de [comprobación](#verify) sobre cómo usar este script.
+
+```
+Param(
+    [Parameter(Mandatory=$true, HelpMessage="Must be a file generated using csexport 'Name of Connector' export.xml /f:x)")]
+    [string]$xmltoimport="%temp%\exportedStage1a.xml",
+    [Parameter(Mandatory=$false, HelpMessage="Maximum number of users per output file")][int]$batchsize=1000,
+    [Parameter(Mandatory=$false, HelpMessage="Show console output")][bool]$showOutput=$false
+)
+
+#LINQ isn't loaded automatically, so force it
+[Reflection.Assembly]::Load("System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089") | Out-Null
+
+[int]$count=1
+[int]$outputfilecount=1
+[array]$objOutputUsers=@()
+
+#XML must be generated using "csexport "Name of Connector" export.xml /f:x"
+write-host "Importing XML" -ForegroundColor Yellow
+
+#XmlReader.Create won't properly resolve the file location,
+#so expand and then resolve it
+$resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
+
+#use an XmlReader to deal with even large files
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader.ReadToDescendant('cs-object')
+do 
+{
+    #create the object placeholder
+    #adding them up here means we can enforce consistency
+    $objOutputUser=New-Object psobject
+    Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name ID -Value ""
+    Add-Member -InputObject $objOutputUser -MemberType NoteProperty -Name Type -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name DN -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name operation -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name UPN -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name displayName -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name sourceAnchor -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name alias -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name primarySMTP -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name onPremisesSamAccountName -Value ""
+    Add-Member -inputobject $objOutputUser -MemberType NoteProperty -Name mail -Value ""
+
+    $user = [System.Xml.Linq.XElement]::ReadFrom($reader)
+    if ($showOutput) {Write-Host Found an exported object... -ForegroundColor Green}
+
+    #object id
+    $outID=$user.Attribute('id').Value
+    if ($showOutput) {Write-Host ID: $outID}
+    $objOutputUser.ID=$outID
+
+    #object type
+    $outType=$user.Attribute('object-type').Value
+    if ($showOutput) {Write-Host Type: $outType}
+    $objOutputUser.Type=$outType
+
+    #dn
+    $outDN= $user.Element('unapplied-export').Element('delta').Attribute('dn').Value
+    if ($showOutput) {Write-Host DN: $outDN}
+    $objOutputUser.DN=$outDN
+
+    #operation
+    $outOperation= $user.Element('unapplied-export').Element('delta').Attribute('operation').Value
+    if ($showOutput) {Write-Host Operation: $outOperation}
+    $objOutputUser.operation=$outOperation
+
+    #now that we have the basics, go get the details
+
+    foreach ($attr in $user.Element('unapplied-export-hologram').Element('entry').Elements("attr"))
+    {
+        $attrvalue=$attr.Attribute('name').Value
+        $internalvalue= $attr.Element('value').Value
+
+        switch ($attrvalue)
+        {
+            "userPrincipalName"
+            {
+                if ($showOutput) {Write-Host UPN: $internalvalue}
+                $objOutputUser.UPN=$internalvalue
+            }
+            "displayName"
+            {
+                if ($showOutput) {Write-Host displayName: $internalvalue}
+                $objOutputUser.displayName=$internalvalue
+            }
+            "sourceAnchor"
+            {
+                if ($showOutput) {Write-Host sourceAnchor: $internalvalue}
+                $objOutputUser.sourceAnchor=$internalvalue
+            }
+            "alias"
+            {
+                if ($showOutput) {Write-Host alias: $internalvalue}
+                $objOutputUser.alias=$internalvalue
+            }
+            "proxyAddresses"
+            {
+                if ($showOutput) {Write-Host primarySMTP: ($internalvalue -replace "SMTP:","")}
+                $objOutputUser.primarySMTP=$internalvalue -replace "SMTP:",""
+            }
+        }
+    }
+
+    $objOutputUsers += $objOutputUser
+
+    Write-Progress -activity "Processing ${xmltoimport} in batches of ${batchsize}" -status "Batch ${outputfilecount}: " -percentComplete (($objOutputUsers.Count / $batchsize) * 100)
+
+    #every so often, dump the processed users in case we blow up somewhere
+    if ($count % $batchsize -eq 0)
+    {
+        Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
+
+        #export the collection of users as as CSV
+        Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
+        $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
+
+        #increment the output file counter
+        $outputfilecount+=1
+
+        #reset the collection and the user counter
+        $objOutputUsers = $null
+        $count=0
+    }
+
+    $count+=1
+
+    #need to bail out of the loop if no more users to process
+    if ($reader.NodeType -eq [System.Xml.XmlNodeType]::EndElement)
+    {
+        break
+    }
+
+} while ($reader.Read)
+
+#need to write out any users that didn't get picked up in a batch of 1000
+#export the collection of users as as CSV
+Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
+$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**  
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)  
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

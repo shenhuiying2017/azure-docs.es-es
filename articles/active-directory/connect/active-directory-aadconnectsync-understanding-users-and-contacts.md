@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: d77e9309fa8823846f25c58276bfbaaf8d65717a
+ms.sourcegitcommit: c5b54c80d9a74d72b242f8d7dd55e2dcadbfa48e
+ms.openlocfilehash: 96d568b6d264fa484e09ee81cdbc779a6f65eb0d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -53,10 +54,5 @@ Si se ha exportado un objeto a Azure AD, ya no se permite cambiar el valor de so
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

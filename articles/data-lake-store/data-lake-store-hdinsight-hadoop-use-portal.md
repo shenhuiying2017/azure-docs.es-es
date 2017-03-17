@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 0ec19832d395547e8ebd3eee0d44dcf466a2ace7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 8876a37b78fa8a80eba7af133d661c3d7ed425d7
+ms.openlocfilehash: 76e098525951d122799f11bdcd9ee5451c9a3777
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-portal"></a>Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
 > [!div class="op_single_selector"]
 > * [Uso del Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Uso de PowerShell (como almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [Uso de PowerShell (como almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Uso de PowerShell (para el almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Uso de PowerShell (para el almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Uso de Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
-Aprenda a usar Azure Portal para crear un clúster de HDInsight con acceso a Azure Data Lake Store. Para los tipos de clúster compatibles, Data Lake Store se puede usar como un almacenamiento predeterminado o una cuenta de almacenamiento adicional. Cuando Data Lake Store se usa como almacenamiento adicional, la cuenta de almacenamiento predeterminada para los clústeres seguirá siendo Azure Storage Blobs (WASB) y los archivos relacionados con clústeres (como registros, etc.) seguirán escribiéndose en el almacenamiento predeterminado, mientras que los datos que quiere procesar pueden almacenarse en una cuenta de Data Lake Store. Utilizar el Almacén de Data Lake como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura y escritura en el almacenamiento del clúster.
+Aprenda a usar Azure Portal para crear un clúster de HDInsight con acceso a Azure Data Lake Store. En el caso de los tipos de clúster compatibles, Data Lake Store se puede usar como almacenamiento predeterminado o como cuenta de almacenamiento adicional. Cuando Data Lake Store se usa como almacenamiento adicional, la cuenta de almacenamiento predeterminada para los clústeres seguirá siendo Azure Storage Blobs (WASB) y los archivos relacionados con clústeres (como registros, etc.) seguirán escribiéndose en el almacenamiento predeterminado, mientras que los datos que quiere procesar pueden almacenarse en una cuenta de Data Lake Store. Utilizar el Almacén de Data Lake como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura y escritura en el almacenamiento del clúster.
 
-## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Uso de Data Lake Store como almacenamiento de clúster de HDInsight
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Uso de Data Lake Store para el almacenamiento de clústeres de HDInsight
 
 Estas son algunas consideraciones importantes que deben tenerse en cuenta al usar HDInsight con Data Lake Store:
 
@@ -97,7 +97,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
     ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
     > [!NOTE]
-    > Si está utilizando la cuenta de Data Lake Store como almacenamiento predeterminado para un clúster, **debe** asignar los permisos a la entidad de servicio en el nivel raíz de la cuenta de Data Lake Store.
+    > Si usa la cuenta de Data Lake Store como almacenamiento predeterminado para un clúster, **debe** asignar los permisos a la entidad de servicio en el nivel raíz de la cuenta de Data Lake Store.
 
 7. Si desea asignar permisos para archivos o carpetas dentro de una cuenta, seleccione la cuenta de Data Lake Store para ver los archivos o carpetas en el panel siguiente. Seleccione los archivos o carpetas, seleccione los permisos (LECTURA/ESCRITURA/EJECUCIÓN) que desea asignar en ellas, especifique si los permisos se aplican de forma recursiva a los elementos secundarios y luego haga clic en **Seleccionar**.
 

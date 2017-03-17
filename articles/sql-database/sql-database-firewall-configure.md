@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 09bc875449ecdf48c2570f1029df68d28ae5e798
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6654b49658818a3dfd5297dc551a45de0f0968dc
+ms.openlocfilehash: 196a627b4c5cf921ddc99a0634f48f807593f8cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,7 +58,7 @@ Cuando un equipo intenta conectarse al servidor de bases de datos desde Internet
 
 * Si la dirección IP de la solicitud está comprendida en uno de los intervalos especificados en las reglas de firewall de nivel de base de datos, la conexión se concede a la instancia de SQL Database que contiene la regla.
 * Si la dirección IP de la solicitud no está comprendida en uno de los intervalos especificados en la regla de firewall de nivel de base de datos, se comprueban las reglas de firewall de nivel de servidor. Si la dirección IP de la solicitud está comprendida en uno de los intervalos especificados en las reglas de firewall de nivel de servidor, la conexión se concede. Las reglas de firewall de nivel de servidor se aplican a todas las instancias de SQL Database en SQL Server de Azure.  
-* Si la dirección IP de la solicitud no se encuentra dentro de los intervalos especificados en cualquiera de las reglas de firewall de nivel de base de datos o de servidor, la solicitud de la conexión genera un error.
+* Si la dirección IP de la solicitud no se encuentra dentro de los intervalos especificados en cualquiera de las reglas de firewall de nivel de base de datos o de servidor, la solicitud de conexión genera un error.
 
 > [!NOTE]
 > Para obtener acceso a la Base de datos SQL de Azure desde el equipo local, asegúrese de que el firewall de su red y el equipo local permite la comunicación saliente en el puerto TCP 1433.
@@ -79,7 +79,7 @@ Para permitir que las aplicaciones de Azure se conecten al servidor SQL de Azure
 La primera configuración del firewall de nivel de servidor puede crearse mediante [Azure Portal](https://portal.azure.com/) o mediante programación con la API de REST o con Azure PowerShell. Las reglas de firewall de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, y mediante Transact-SQL. Para mejorar el rendimiento, las reglas de firewall de nivel de servidor se almacenan temporalmente en caché en el nivel de base de datos. Para actualizar la memoria caché, consulte [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). Para más información sobre reglas de firewall de nivel de servidor, consulte [Configuración de un firewall de servidor SQL de Azure mediante Azure Portal](sql-database-configure-firewall-settings.md).
 
 ## <a name="creating-database-level-firewall-rules"></a>Reglas de firewall de nivel de base de datos
-Después de haber configurado el primer firewall de nivel de servidor, puede que desee restringir el acceso a determinadas bases de datos. Si especifica un intervalo de direcciones IP en la regla de firewall de nivel de base de datos que se encuentra fuera del intervalo especificado en la regla de firewall de nivel de servidor, solo los clientes que tengan direcciones IP en el intervalo de nivel de base de datos pueden tener acceso a la base de datos. Puede tener un máximo de 128 reglas de firewall de nivel de base de datos para una base de datos. Se pueden crear reglas de firewall de nivel de base de datos para las bases de datos de usuario y maestras y administrarse a través de Transact-SQL. Para más información sobre cómo configurar las reglas de firewall de nivel de base de datos, consulte [sp_set_database_firewall_rule (bases de datos de SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+ Después de haber configurado el primer firewall de nivel de servidor, puede que desee restringir el acceso a determinadas bases de datos. Si especifica un intervalo de direcciones IP en la regla de firewall de nivel de base de datos que se encuentra fuera del intervalo especificado en la regla de firewall de nivel de servidor, solo los clientes que tengan direcciones IP en el intervalo de nivel de base de datos pueden tener acceso a la base de datos. Puede tener un máximo de 128 reglas de firewall de nivel de base de datos para una base de datos. Se pueden crear reglas de firewall de nivel de base de datos para las bases de datos de usuario y maestras y administrarse a través de Transact-SQL. Para más información sobre cómo configurar las reglas de firewall de nivel de base de datos, consulte [sp_set_database_firewall_rule (bases de datos de SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## <a name="programmatically-managing-firewall-rules"></a>Administración mediante programación de reglas de firewall
 Además de Azure Portal, las reglas de firewall se pueden administrar mediante programación con Transact-SQL, la API de REST y Azure PowerShell. En las tablas siguientes se describe el conjunto de comandos disponibles para cada método.
@@ -112,8 +112,26 @@ Además de Azure Portal, las reglas de firewall se pueden administrar mediante p
 
 > [!NOTE]
 > los cambios de la configuración del firewall pueden tardar hasta cinco minutos en aplicarse.
-> 
-> 
+ 
+ 
+### <a name="faq-when-should-you-use-a-server-level-firewall-rule-and-when-should-you-use-a-database-level-firewall-rule"></a>Preguntas más frecuentes: ¿Cuándo se debe utilizar una regla de firewall de nivel de servidor y cuándo se debe utilizar una regla de firewall de nivel de base de datos?   
+P: ¿Los usuarios de una base de datos deben estar completamente aislados de otra base de datos?   
+  Si es así, conceda acceso usando reglas de firewall de nivel de base de datos. Esto evita usar reglas de firewall de nivel de servidor, que permiten el acceso a través del firewall a todas las bases de datos, lo que reduce la solidez de sus defensas.   
+ 
+P: ¿Los usuarios de las direcciones IP requieren acceso a todas las bases de datos?   
+  Utilice reglas de firewall de nivel de servidor para reducir el número de veces que se deben configurar las reglas de firewall.   
+
+P: ¿La persona o el equipo que configura las reglas de firewall solo tiene acceso mediante la API de REST, PowerShell o Azure Portal?   
+  Debe usar reglas de firewall de nivel de servidor. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante Transact-SQL.  
+
+P: ¿Se prohíbe que la persona o el equipo que configura las reglas de firewall tenga permiso de alto nivel en el nivel de base de datos?   
+  Use reglas de firewall de nivel de servidor. La configuración de reglas de firewall de nivel de base de datos mediante Transact-SQL requiere, al menos, permiso `CONTROL DATABASE` en el nivel de base de datos.  
+
+P: ¿La persona o el equipo que configura o audita las reglas de firewall administra de forma centralizada las reglas de firewall para muchas bases de datos (quizás 100)?   
+  Esta decisión depende de sus necesidades y del entorno. Las reglas de firewall de nivel de servidor pueden ser más fáciles de configurar, pero con scripting se pueden configurar reglas en el nivel de base de datos. Incluso si usa las reglas de firewall de nivel de servidor, podría necesitar auditar las reglas de firewall de base de datos para ver si los usuarios con permiso `CONTROL` en la base de datos han creado reglas de firewall de nivel de base de datos.   
+
+P: ¿Puedo usar una combinación de reglas de firewall de nivel de servidor y de base de datos?   
+  Sí. Algunos usuarios, por ejemplo, los administradores, pueden necesitar reglas de firewall de nivel de servidor. Otros usuarios, como los usuarios de una aplicación de base de datos, pueden necesitar reglas de firewall de nivel de base de datos.   
 
 ## <a name="troubleshooting-the-database-firewall"></a>Solución de problemas del firewall de la base de datos
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de datos SQL de Microsoft Azure no se comporte de la manera prevista:
@@ -128,7 +146,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de da
   * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para leer artículos sobre cómo crear reglas de firewall de nivel de servidor y base de datos, consulte:
+Para leer artículos sobre cómo crear reglas de firewall de nivel de servidor y de base de datos, consulte:
 
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -137,7 +155,8 @@ Para leer artículos sobre cómo crear reglas de firewall de nivel de servidor y
 
 Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos de Azure SQL](sql-database-get-started.md).
 Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx)(Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
+Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx)(Administrar la seguridad del inicio de sesión y el acceso a la base de datos).   
+Para obtener un completo tutorial sobre cómo crear inicios de sesión, usuarios y firewalls, consulte [Autenticación de SQL Server, acceso y reglas de firewall de nivel de base de datos](sql-database-control-access-sql-authentication-get-started.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Protección de bases de datos](sql-database-security-overview.md)

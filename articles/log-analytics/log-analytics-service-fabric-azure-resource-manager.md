@@ -1,6 +1,6 @@
 ---
-title: "Optimización del entorno con la solución de Service Fabric en Log Analytics | Documentos de Microsoft"
-description: "Puede usar la solución de Service Fabric para evaluar el riesgo y el estado de las aplicaciones, los microservicios, los nodos y los clústeres de Service Fabric."
+title: "Evaluación de aplicaciones de Service Fabric con Log Analytics en Azure Portal | Microsoft Docs"
+description: "Puede usar la solución de Service Fabric con Log Analytics en Azure Portal para evaluar el riesgo y el estado de las aplicaciones, los microservicios, los nodos y los clústeres de Service Fabric."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Solución Datos de Service Fabric en Log Analytics
+# <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Evaluación de aplicaciones y microservicios de Service Fabric con Azure Portal
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 En este artículo se describe cómo utilizar la solución de Service Fabric en Log Analytics para ayudar a identificar y solucionar problemas en su clúster de Service Fabric.
 
@@ -79,11 +81,11 @@ Para ver datos de rendimiento de los nodos, siga estos pasos:
 * Vaya a la configuración del panel izquierdo y seleccione Datos >> Contadores de rendimiento de Windows >> Agregar los contadores de rendimiento seleccionados: ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 * En Búsqueda de registros, utilice las siguientes consultas para profundizar en las métricas clave de los nodos:
   </br>
-  
+
     a. Compare el uso medio de CPU en todos los nodos en la última hora para ver los que tienen problemas y el intervalo de tiempo en que un nodo tenía un pico:
-  
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Vea gráficos de líneas similares para la memoria disponible en cada nodo con esta consulta:
@@ -115,8 +117,8 @@ Esta plantilla simplemente agrega las cuentas de almacenamiento existentes a un 
 > [!NOTE]
 > Al seleccionar un grupo de recursos, si está trabajando con un área de trabajo de Log Analytics ya existente, seleccione Usar existente y busque el grupo de recursos que contiene el área de trabajo de OMS. En caso contrario, cree uno nuevo.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 Una vez implementada esta plantilla, podrá ver la cuenta de almacenamiento conectada a su área de trabajo de Log Analytics. En este caso, agregamos otra cuenta de almacenamiento al área de trabajo de Exchange que creó anteriormente.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -144,15 +146,9 @@ La siguiente tabla muestra los métodos de recolección de datos y otros detalle
 
 > [!NOTE]
 > Puede cambiar el ámbito de estos eventos en la solución de Service Fabric haciendo clic **Data based on last 7 days** (Datos basados en los últimos 7 días) en la parte superior del panel. También puede mostrar los eventos generados en los últimos 7 días, 1 día o 6 horas, o bien seleccionar **Personalizado** y especificar un intervalo de fechas personalizado.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los datos de eventos de Service Fabric.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

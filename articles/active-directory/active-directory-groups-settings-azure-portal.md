@@ -1,5 +1,5 @@
 ---
-title: "Administración de la configuración de un grupo en la versión preliminar de Azure Active Directory | Microsoft Docs"
+title: "Administración de propiedades de grupos en la versión preliminar de Azure Active Directory | Microsoft Docs"
 description: "Cómo editar las propiedades y otras opciones de configuración de un grupo en Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
-ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: a07348679b589c6e6d438af3f01fbfcc9b149b32
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -47,9 +49,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Administrar miembros de un grupo](active-directory-groups-members-azure-portal.md)
 * [Administrar la pertenencia a grupos](active-directory-groups-membership-azure-portal.md)
 * [Administrar reglas dinámicas de los usuarios de un grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

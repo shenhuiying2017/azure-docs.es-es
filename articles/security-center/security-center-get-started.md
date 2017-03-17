@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
+ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
+ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -109,7 +110,7 @@ En este artículo se han presentado los componentes de supervisión de la seguri
 * Configure una directiva de seguridad para su suscripción de Azure. Para aprender más, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
 * Use las recomendaciones de Security Center como ayuda para proteger los recursos de Azure. Para aprender más, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 * Revise y administre las alertas de seguridad actuales. Para aprender más, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
-* Aprenda más sobre las [características avanzadas de detección de amenazas](security-center-detection-capabilities.md) que vienen con el [nivel estándar](security-center-pricing.md) de Security Center. Hay disponible una evaluación gratuita durante 90 días de nivel Estándar.
+* Aprenda más sobre las [características avanzadas de detección de amenazas](security-center-detection-capabilities.md) que vienen con el [nivel estándar](security-center-pricing.md) de Security Center. El nivel Estándar se ofrece gratis para los primeros 60 días.
 * Si tiene preguntas acerca de cómo usar Security Center, consulte las [P+F de Azure Security Center](security-center-faq.md).
 
 <!--Image references-->
@@ -123,9 +124,4 @@ En este artículo se han presentado los componentes de supervisión de la seguri
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/welcome.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

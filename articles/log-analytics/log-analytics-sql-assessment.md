@@ -1,6 +1,6 @@
 ---
-title: "Optimización del entorno con la solución de evaluación de SQL en Log Analytics | Microsoft Docs"
-description: "Con Azure Log Analytics, puede usar periódicamente la solución de evaluación de SQL para evaluar el riesgo y el estado de los entornos de servidor."
+title: "Optimización del entorno de SQL Server con Azure Log Analytics | Microsoft Docs"
+description: "Con Azure Log Analytics, puede usar periódicamente la solución de evaluación de SQL para evaluar el riesgo y el estado de los entornos de servidor SQL Server."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: fc8b2d74737bc334d5c4f27782d4e0d46adbcb18
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimización del entorno con la solución de evaluación de SQL en Log Analytics
+# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimización del entorno de SQL Server con la solución de evaluación de SQL en Log Analytics
+
 Puede usar periódicamente la solución de evaluación de SQL para evaluar el riesgo y el estado de los entornos de servidor. Este artículo le ayudará a instalar la solución para que puede tomar acciones correctivas para posibles problemas.
 
 Esta solución proporciona una lista priorizada de recomendaciones específicas para su infraestructura de servidor implementada. Las recomendaciones se clasifican en seis áreas de enfoque que ayudan a comprender rápidamente el riesgo y a tomar la acción correctiva.

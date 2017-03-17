@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
+ms.sourcegitcommit: f07cd15658f7d367bdf364ece449dd5d09b2f9d3
+ms.openlocfilehash: 38503e36f9c0ad981d0239d82a858dbe2c5263a4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -36,7 +37,7 @@ Security Center se ofrece en dos niveles: Gratis y Estándar.
 
 El nivel Gratis permite establecer directivas de seguridad, así como recibir alertas de seguridad, incidentes y recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Con el nivel Gratis, también puede supervisar el estado de seguridad de los recursos de Azure y las soluciones de asociados integradas en la suscripción de Azure.
 
-El nivel Estándar proporciona las características de Gratis y detecciones avanzadas: información sobre amenazas, análisis de comportamiento, análisis de bloqueos y detección de anomalías. Hay disponible una versión de prueba gratuita de 90 días del nivel Estándar. Para actualizar a este nivel, seleccione el plan de tarifa en la [directiva de seguridad](security-center-policies.md#set-security-policies-for-subscriptions). Para más información, consulte [Precios de Azure Security Center](security-center-pricing.md).
+El nivel Estándar proporciona las características de Gratis y detecciones avanzadas: información sobre amenazas, análisis de comportamiento, análisis de bloqueos y detección de anomalías. El nivel Estándar se ofrece gratis para los primeros 60 días. Si decide continuar utilizando el servicio después de los 60 días, automáticamente se empieza a cobrar por el servicio. Para actualizar a este nivel, seleccione el plan de tarifa en la [directiva de seguridad](security-center-policies.md#set-security-policies-for-subscriptions). Para más información, consulte [Precios de Azure Security Center](security-center-pricing.md).
 
 ## <a name="permissions"></a>Permisos
 Azure Security Center usa el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md), que proporciona [roles integrados](../active-directory/role-based-access-built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
@@ -161,9 +162,4 @@ Los datos de detección pueden tardar algún tiempo (menos de una hora) en relle
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>¿Por qué recibo el mensaje Falta el agente de máquina virtual?
 El agente de VM debe instalarse en VM para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)proporciona información sobre cómo instalar el Agente de máquina virtual.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

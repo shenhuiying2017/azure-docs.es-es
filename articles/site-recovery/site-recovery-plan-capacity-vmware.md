@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/05/2017
 ms.author: rayne
 translationtype: Human Translation
-ms.sourcegitcommit: 6521cada7adeacd98fae46e5119ceffa0351e9b5
-ms.openlocfilehash: a5c6759d9826084ae339dd291140f8383b55b6db
+ms.sourcegitcommit: 993449b7840f5077f23b3809439b89f27759e35d
+ms.openlocfilehash: 1a991d1e4ac20019695fb557310e1981b5b491ec
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,22 +27,7 @@ Use este artículo para averiguar cómo planear la capacidad y el escalado cuand
 
 ## <a name="how-do-i-start-capacity-planning"></a>¿Cómo se puede iniciar el planeamiento de la capacidad?
 
-1. Recopile información sobre el entorno de replicación mediante Azure Site Recovery Capacity Planner. Esto incluye información acerca de VM, discos por VM y almacenamiento por disco.
-2. Calcule el cambio diario (tasa de renovación) de los datos replicados en el entorno.
-
-
-## <a name="gather-information"></a>Recopilación de información
-
-1. Descargue y ejecute [Capacity Planner[(https://gallery.technet.microsoft.com/Azure-Recovery-Capacity-d01dc40e)].
-2. [Obtenga instrucciones](site-recovery-capacity-planner.md) para ejecutar la herramienta.
-
-
-## <a name="estimate-the-daily-churn-rate"></a>Cálculo de la tasa de renovación diaria
-
-Site Recovery Capacity Planner requiere que escriba una tasa de cambio de datos diaria de media como porcentaje. Actualmente, puede recopilar esta información mediante el [dispositivo de planeación de capacidad de vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
-
-En la herramienta, puede calcular el porcentaje apuntando la herramienta de planeación de vSphere a todas las VM de origen y obteniendo el cambio diario total. Esto es básicamente el tráfico de red. [Aprenda más](https://blogs.vmware.com/vsphere/2014/04/vsphere-replication-capacity-planning-appliance.html) sobre la ejecución de esta herramienta.
-
+Recopile información sobre el entorno de replicación mediante [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). Esto incluye información sobre el número de máquinas virtuales que son compatibles e incompatibles, discos por máquina virtual, actividad de datos por disco, requisito de ancho de banda de red y la infraestructura de Azure necesaria para una replicación y conmutación por error de pruebas/conmutación por error correctas.
 
 ## <a name="capacity-considerations"></a>Consideraciones de capacidad
 
@@ -93,7 +79,7 @@ La manera en la que escalará los servidores depende de su preferencia con respe
 
 ## <a name="control-network-bandwidth"></a>Ancho de banda de red de control
 
-Puede utilizar la herramienta de planeación de capacidad para calcular el ancho de banda necesario para la replicación (replicación inicial y, a continuación, la diferencial). Para controlar el uso de ancho de banda de la replicación tiene varias opciones:
+Puede utilizar [la herramienta de planeación de implementación](https://aka.ms/asr-deployment-planner-doc) para calcular el ancho de banda necesario para la replicación (replicación inicial y, a continuación, la diferencial). Para controlar el uso de ancho de banda de la replicación tiene varias opciones:
 
 * **Limitar ancho de banda**: el tráfico de VMware que se replica en Azure pasa a través de un servidor de procesos específico. También puede limitar el ancho de banda en las máquinas que se ejecutan como servidores de procesos.
 * **Influir en el ancho de banda**: puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro:
@@ -158,10 +144,5 @@ Si debe escalar horizontalmente la implementación a más de 200 máquinas de or
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

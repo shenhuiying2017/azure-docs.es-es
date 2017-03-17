@@ -1,6 +1,6 @@
 ---
 
-title: "Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory | Microsoft Docs"
+title: "Resolución de problemas de licencias para un grupo en Azure Active Directory | Microsoft Docs"
 description: "Identificación y resolución de problemas de asignación de licencias basadas en grupos mediante Azure Active Directory"
 services: active-directory
 keywords: Licencias de Azure AD
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 9a434cf35d7934dc5eb759851fb65ad2a9f06eef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
+ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory
+# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias al usar grupos en Azure Active Directory
 
 
 La licencia basada en grupos de Azure Active Directory (Azure AD) introduce el concepto del estado de error de licencias de usuarios. En este artículo, se explica por qué los usuarios pueden tener este estado. Cuando se asignan licencias directamente a usuarios individuales, sin usar las licencias basadas en grupos, la operación de asignación puede generar errores. Por ejemplo, cuando el administrador ejecuta el cmdlet de PowerShell `Set-MsolUserLicense` en un usuario, el cmdlet puede producir un error por una serie de motivos relacionados con la lógica de negocios, como un número insuficiente de licencias o un conflicto entre dos planes de servicio que no se pueden asignar al mismo tiempo. Al usuario que ejecuta el comando se le informa inmediatamente del problema.
@@ -89,5 +90,5 @@ Para más información sobre otros escenarios de administración de licencias a 
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) (Asignación de licencias a un grupo en Azure Active Directory)
 * [¿En qué consisten las licencias basadas en grupos de Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md) (Escenarios adicionales de licencias basadas en grupos de Azure Active Directory)
+* [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](active-directory-licensing-group-advanced.md)
 

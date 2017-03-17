@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: pajosh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c5b2969ddc943b2b15826003f5a9e686e84e1c4
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: ddb9e7909eb4ab97204059d21690795ceb6ff9e8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup
+# <a name="restore-an-encrypted-virtual-machine-from-an-azure-backup-recovery-point"></a>Restauración de una máquina virtual de Azure desde un punto de recuperación de Azure Backup
 En este artículo se explica cómo usar Azure Backup para restaurar máquinas virtuales de Azure cifradas, si su secreto y su clave no existen en el almacén de claves. Estos pasos también se pueden usar si desea mantener una copia independiente de la clave (clave de cifrado de Key Vault) y el secreto (clave de cifrado de BitLocker) para la máquina virtual restaurada.
 
 ## <a name="pre-requisites"></a>Requisitos previos
@@ -89,10 +91,10 @@ PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $
 
 > [!NOTE]
 > Después de que este cmdlet se ejecute correctamente, se genera un archivo blob en la carpeta especificada del equipo donde se ejecuta. Este archivo de blob representa la clave de cifrado de Key Vault en su forma cifrada.
-> 
-> 
+>
+>
 
-Restaure la clave al almacén de claves con el siguiente cmdlet. 
+Restaure la clave al almacén de claves con el siguiente cmdlet.
 
 ```
 PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
@@ -108,11 +110,11 @@ https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848
 ```
 
 > [!NOTE]
-> El texto que aparece antes de vault.azure.net representa el nombre original del almacén de claves. El texto incluido después de secrets/ representa el nombre del secreto. 
-> 
-> 
+> El texto que aparece antes de vault.azure.net representa el nombre original del almacén de claves. El texto incluido después de secrets/ representa el nombre del secreto.
+>
+>
 
-Si desea usar el mismo nombre de secreto, consulte la salida del cmdlet ejecutado anteriormente para obtener el nombre del secreto y su valor. En otros casos, el valor de $secretname debe actualizarse para usar el nuevo nombre de secreto. 
+Si desea usar el mismo nombre de secreto, consulte la salida del cmdlet ejecutado anteriormente para obtener el nombre del secreto y su valor. En otros casos, el valor de $secretname debe actualizarse para usar el nuevo nombre de secreto.
 
 ```
 PS C:\> $secretname = "B3284AAA-DAAA-4AAA-B393-60CAA848AAAA"
@@ -120,7 +122,7 @@ PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 ```
 
-Si las máquinas virtuales también deben restablecerse, establezca las etiquetas del secreto. Para la etiqueta DiskEncryptionKeyFileName, el valor debe contener el nombre del secreto que se va a usar. 
+Si las máquinas virtuales también deben restablecerse, establezca las etiquetas del secreto. Para la etiqueta DiskEncryptionKeyFileName, el valor debe contener el nombre del secreto que se va a usar.
 
 ```
 PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
@@ -128,8 +130,8 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 
 > [!NOTE]
 > El valor de DiskEncryptionKeyFileName es igual que el nombre de secreto obtenido anteriormente. El valor de DiskEncryptionKeyEncryptionKeyURL puede obtenerse del almacén de claves después de restaurar las claves y usar el cmdlet [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx).    
-> 
-> 
+>
+>
 
 Restablecimiento del secreto en el almacén de claves
 
@@ -139,10 +141,4 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -
 
 ### <a name="restore-virtual-machine"></a>Restauración de la máquina virtual
 Los cmdlets de PowerShell anteriores le ayudarán a restaurar la clave y el secreto al almacén de claves, si ha realizado la copia de seguridad de la máquina virtual cifrada mediante Azure Backup. Después de restaurarlos, consulte el artículo [Implementación y administración de copias de seguridad para las máquinas virtuales implementadas según el modelo de Resource Manager mediante PowerShell](backup-azure-vms-automation.md) para restaurar las máquinas virtuales cifradas.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 872d4dd72029d26f9b98ad1a0fd6d33da63879a6
+ms.sourcegitcommit: 4a07f946d396a9263d5b00202cd5229ddc86d1be
+ms.openlocfilehash: 02619192a5106a064a9f97cddac7c20bd73559e7
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integración de Azure Active Directory con LearnUpon
-El objetivo de este tutorial es mostrar cómo integrar LearnUpon con Azure Active Directory (Azure AD).  
+El objetivo de este tutorial es mostrar cómo integrar LearnUpon con Azure Active Directory (Azure AD).
+
 La integración de LearnUpon con Azure AD proporciona las siguientes ventajas:
 
 * En Azure AD se puede controlar quién tiene acceso a LearnUpon.
@@ -36,18 +38,18 @@ Para configurar la integración de Azure AD con LearnUpon, se necesitan los sigu
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en LearnUpon
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
+El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. 
+
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de LearnUpon desde la galería
@@ -78,21 +80,22 @@ Para configurar la integración de LearnUpon en Azure AD, es preciso agregar Lea
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con LearnUpon con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de LearnUpon para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de LearnUpon.  
+
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como valor de **Username** en LearnUpon.
 
 Para configurar y probar el inicio de sesión único de Azure AD con LearnUpon, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de LearnUpon](#creating-a-learnupon-test-user)** : para tener un homólogo de Britta Simon en LearnUpon que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación LearnUpon.
 
 **Para configurar el inicio de sesión único de Azure AD con LearnUpon, siga estos pasos:**
@@ -106,52 +109,36 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png) 
-
-    a. En el cuadro de texto **URL de respuesta**, escriba la URL del Servicio de consumidor de aserciones con el siguiente patrón: `https://\<companyname\>.learnupon.com/saml/consumer`.
-
-    b. Haga clic en **Next**. 
-
-
-1. En la página **Configurar inicio de sesión único en LearnUpon** , siga estos pasos:
+  1. En el cuadro de texto **URL de respuesta**, escriba la URL del Servicio de consumidor de aserciones con el siguiente patrón: `https://\<companyname\>.learnupon.com/saml/consumer`.
+  2. Haga clic en **Siguiente**. 
+4. En la página **Configurar inicio de sesión único en LearnUpon** , siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png) 
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo. Necesitaremos este certificado y las direcciones URL de metadatos (Id. de entidad, Dirección URL de inicio de sesión SSO y Dirección URL de cierre de sesión) para configurar el SSO en LearnUpon.
-   
-    b. Haga clic en **Next**.
-2. Abra otra instancia del explorador e inicie sesión en LearnUpon con una cuenta de administrador. 
-3. Haga clic en la pestaña **settings** (Configuración).
+    ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png)   
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo. Necesitaremos este certificado y las direcciones URL de metadatos (Id. de entidad, Dirección URL de inicio de sesión SSO y Dirección URL de cierre de sesión) para configurar el SSO en LearnUpon.
+  2. Haga clic en **Siguiente**.
+5. Abra otra instancia del explorador e inicie sesión en LearnUpon con una cuenta de administrador. 
+6. Haga clic en la pestaña **settings** (Configuración).
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) 
-4. Haga clic en **Single Sign On - SAML** (Inicio de sesión único - SAML) y, después, en **General Settings** (Configuración general) para configurar SAML.
+7. Haga clic en **Single Sign On - SAML** (Inicio de sesión único - SAML) y, después, en **General Settings** (Configuración general) para configurar SAML.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) 
-5. En la sección **General Settings** (Configuración general), siga estos pasos:
+8. En la sección **General Settings** (Configuración general), siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png)  
+  1. Seleccione **Habilitado**.
+  2. En **Version** (Versión), seleccione **2.0**.
+  3. En **Skip conditions** (Omitir condiciones), seleccione **No**.
+  4. En el cuadro de texto **SAML Token Post param name** (Nombre de parámetro POST de token SAML), escriba el nombre del parámetro POST de la solicitud en la dirección URL del consumidor de SAML indicada anteriormente que contenga la aserción SAML que se va a comprobar y autenticar (por ejemplo, **SAMLResponse**).
+  5. En el cuadro de texto **Name Identifier Format** (Formato de identificador de nombre), escriba el valor que indica en qué lugar de la aserción SAML reside el identificador del usuario (dirección de correo electrónico) (por ejemplo, **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**).
+  6. En el cuadro de texto **Identify Provider Location** (Identificar ubicación de proveedor), escriba el valor que indica el lugar al que se envían los usuarios si hacen clic en el icono cargado desde la pantalla de inicio de sesión del Portal de Azure clásico.
+  En el Portal de Azure clásico, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Sign out URL** (Dirección URL de cierre de sesión).
+  8. Haga clic en **Manage finger prints**(Administrar huellas dactilares) y, a continuación, cargue la huella digital del certificado descargado. 
+9. Haga clic en **User Settings**(Configuración del usuario) y siga estos pasos:
    
-    a. Seleccione **Habilitado**.
-   
-    b. En **Version** (Versión), seleccione **2.0**.
-   
-    c. En **Skip conditions** (Omitir condiciones), seleccione **No**.
-   
-    d. En el cuadro de texto **SAML Token Post param name** (Nombre de parámetro POST de token SAML), escriba el nombre del parámetro POST de la solicitud en la dirección URL del consumidor de SAML indicada anteriormente que contenga la aserción SAML que se va a comprobar y autenticar (por ejemplo, **SAMLResponse**).
-   
-    e. En el cuadro de texto **Name Identifier Format** (Formato de identificador de nombre), escriba el valor que indica en qué lugar de la aserción SAML reside el identificador del usuario (dirección de correo electrónico) (por ejemplo, **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**).
-   
-    f. En el cuadro de texto **Identify Provider Location** (Identificar ubicación de proveedor), escriba el valor que indica el lugar al que se envían los usuarios si hacen clic en el icono cargado desde la pantalla de inicio de sesión del Portal de Azure clásico.
-   
-    g. En el Portal de Azure clásico, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Sign out URL** (Dirección URL de cierre de sesión).
-   
-    h. Haga clic en **Manage finger prints**(Administrar huellas dactilares) y, a continuación, cargue la huella digital del certificado descargado. 
-6. Haga clic en **User Settings**(Configuración del usuario) y siga estos pasos:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) 
-   
-    a. En el cuadro de texto **First Name Identifier Format** (Formato de identificador de nombre), escriba el valor que nos indica el lugar de la aserción SAML en que reside el nombre de los usuarios (por ejemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/    givenname**).
-   
-    b. En el cuadro de texto **Last Name Identifier Format** (Formato de identificador de apellidos), escriba el valor que nos indica el lugar de la aserción SAML en que residen los apellidos de los usuarios (por ejemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/    surname**).
+    ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png)  
+  1. En el cuadro de texto **First Name Identifier Format** (Formato de identificador de nombre), escriba el valor que nos indica el lugar de la aserción SAML en que reside el nombre de los usuarios (por ejemplo: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname). 
+  2. En el cuadro de texto **Last Name Identifier Format** (Formato de identificador de apellidos), escriba el valor que nos indica el lugar de la aserción SAML en que residen los apellidos de los usuarios (por ejemplo: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname).
 7. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -159,7 +146,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -179,48 +166,37 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.   
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**. 
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-a-learnupon-test-user"></a>Creación de un usuario de prueba de LearnUpon
+### <a name="create-a-learnupon-test-user"></a>Creación de un usuario de prueba de LearnUpon
 El objetivo de esta sección es crear un usuario llamado Britta Simon en LearnUpon. LearnUpon admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
 No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a LearnUpon se creará un nuevo usuario, si aún no existe. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
 
-> [!NOTE]
-> Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el equipo de soporte técnico de LearnUpon.
-> 
+>[!NOTE]
+>Si necesita crear un usuario manualmente, es preciso que se ponga contacto con el equipo de soporte técnico de LearnUpon. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a LearnUpon.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a LearnUpon.
 
 ![Asignar usuario][200] 
 
@@ -240,8 +216,9 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
+
 Al hacer clic en el icono de LearnUpon en el panel de acceso, debería iniciar sesión automáticamente en su aplicación LearnUpon.
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -265,9 +242,4 @@ Al hacer clic en el icono de LearnUpon en el panel de acceso, debería iniciar s
 [203]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+wms.date: 02/21/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 920143756a0e0b369cf839681f9c4308f77a4af0
+ms.sourcegitcommit: d830c43f860b70c6f47d94eaff5105b988158cdf
+ms.openlocfilehash: 4add7ad944e0b36e2eded5767b0123af74602e8e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
-[Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio: **Básico**, **Estándar** y **Premium**, con varios niveles de rendimiento para controlar diferentes cargas de trabajo. Niveles de rendimiento más altos proporcionan recursos diseñados para proporcionar un mayor rendimiento. Puede cambiar los [niveles de servicio y de rendimiento dinámicamente](sql-database-service-tiers.md) sin tiempo de inactividad. Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. 
+
+[Azure SQL Database](sql-database-technical-overview.md) ofrece tres [niveles de servicio](sql-database-service-tiers.md): **Básico**, **Estándar** y **Premium**, con varios niveles de rendimiento para controlar diferentes cargas de trabajo. Niveles de rendimiento más altos proporcionan recursos diseñados para proporcionar un mayor rendimiento. Puede cambiar los niveles de servicio y de rendimiento dinámicamente sin tiempo de inactividad. Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. 
 
 Puede crear bases de datos únicas con recursos dedicados en el [nivel de rendimiento](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) seleccionado. También puede administrar varias bases de datos en un [grupo elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus), en el que los recursos se comparten en las bases de datos. Los recursos disponibles para las bases de datos únicas se expresan en términos de unidades de transacción de base de datos (DTU) y para los grupos elásticos en términos de DTU elásticas (eDTU). Para más información sobre DTU y eDTU, consulte el artículo de [descripción de las DTU](sql-database-what-is-a-dtu.md). 
 
@@ -48,7 +50,7 @@ En primer lugar, decida si desea ejecutar una base de datos única o agrupar las
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Niveles de servicio de la Base de datos única y niveles de rendimiento
-Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel más adecuado a las exigencias de su carga de trabajo. Si necesita escalar o reducir verticalmente, puede cambiar fácilmente los niveles de la base de datos. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-service-tiers.md) .
+Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel que mejor satisfaga las demandas de cargas de trabajo mediante [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
 
 Independientemente de la cantidad de bases de datos hospedadas, la base de datos seguirá recibiendo un conjunto de recursos garantizado, y las características de rendimiento previstas de la base de datos no se verán afectadas.
 
@@ -60,7 +62,7 @@ Independientemente de la cantidad de bases de datos hospedadas, la base de datos
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Escalado y reducción vertical de una base de datos única
 
-Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente una base de datos única de forma dinámica, en función de la experiencia real. 
+Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente una base de datos única de forma dinámica, en función de la experiencia real. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos con la utilización de [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -96,9 +98,7 @@ Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir
 * El cambio del número mínimo de eDTU por base de datos o del máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
 * El tiempo para cambiar el tamaño del grupo (eDTU) depende el tamaño combinado de todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para cambiar las eDTU de grupo por grupo será de 3 horas o menos.
 
-> [!IMPORTANT]
-> Para obtener instrucciones detalladas, consulte [Administración de grupos elásticos con Azure Portal](sql-database-elastic-pool-manage-portal.md), [Administración de grupos elásticos con Powershell](sql-database-elastic-pool-manage-powershell.md), [Administración de grupos elásticos con Transact-SQL](sql-database-elastic-pool-manage-tsql.md) o [Administración de grupos elásticos con C#](sql-database-elastic-pool-manage-csharp.md).
->
+Para obtener instrucciones detalladas, consulte [Administración de grupos elásticos con Azure Portal](sql-database-elastic-pool-manage-portal.md), [Administración de grupos elásticos con Powershell](sql-database-elastic-pool-manage-powershell.md), [Administración de grupos elásticos con Transact-SQL](sql-database-elastic-pool-manage-tsql.md) o [Administración de grupos elásticos con C#](sql-database-elastic-pool-manage-csharp.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -106,10 +106,5 @@ Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir
 * Aprenda cómo [supervisar, administrar y cambiar el tamaño de los grupos de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md) y [supervisar el rendimiento de bases de datos únicas](sql-database-single-database-monitor.md).
 * Ahora que conoce los niveles de SQL Database, pruébelos con una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera instancia de SQL Database](sql-database-get-started.md).
 * Para escenarios de migración, utilice la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para calcular el número aproximado de DTU necesarias. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

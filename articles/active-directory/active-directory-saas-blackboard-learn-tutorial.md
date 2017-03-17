@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9d32b156878ff963e6dac00663fc5f1f272d269b
-ms.openlocfilehash: f86b20d5cf20ff977901d481438292c7b38658da
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0247e7c8f3803e27b4304dae6af11f18432e76b0
+ms.openlocfilehash: 92ee9f08ff85a85a08a2d1e021cdb7afec0c6de7
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Blackboard Learn, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único en la plataforma en la nube Blackboard Learn
+* Una suscripción habilitada para el inicio de sesión único (SSO) en la plataforma de nube Blackboard Learn
 
 >[!NOTE]
 >Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
@@ -45,7 +45,7 @@ Para configurar la integración de Azure AD con Blackboard Learn, se necesitan l
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.

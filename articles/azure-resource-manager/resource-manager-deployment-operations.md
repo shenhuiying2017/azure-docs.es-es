@@ -16,8 +16,9 @@ ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c2f30eecb62ac578e8635346e1f67d441f29f189
-ms.openlocfilehash: e441e338a97c31b9131105ef08186c897d301ceb
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -121,9 +122,17 @@ Para ver las operaciones de implementación, siga estos pasos:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
+4. Cada operación de implementación en Azure incluye el contenido de la solicitud y de la respuesta. El contenido de la solicitud es lo que se envía a Azure durante la implementación (por ejemplo, crear una máquina virtual, un disco del sistema operativo y otros recursos). El contenido de la respuesta es lo que Azure devolvió de la solicitud de implementación. Durante la implementación, se puede usar el parámetro **DeploymentDebugLogLevel** para especificar que la solicitud o la respuesta se conserven en el registro. 
 
+  Esa información se obtiene del registro y se guarda localmente mediante los siguientes comandos de PowerShell:
 
-## <a name="azure-cli"></a>CLI de Azure
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  ```
+
+## <a name="azure-cli"></a>Azure CLI
 
 1. Obtenga el estado general de una implementación con el comando **azure group deployment show** .
 
@@ -208,10 +217,5 @@ Para ver las operaciones de implementación, siga estos pasos:
 * Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para obtener información sobre cómo usar los registros de actividad para supervisar otros tipos de acciones, vea [View activity logs to manage Azure resources](resource-group-audit.md) (Ver registros de actividad para administrar recursos de Azure).
 * Para validar la implementación antes de ejecutarla, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -15,20 +15,28 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
+ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
-Administración de API de Azure proporciona varias características de personalización que permiten a los administradores [personalizar la apariencia del portal para desarrolladores](api-management-customize-portal.md), así como personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran el contenido de las páginas. Mediante el uso de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y del conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de gran flexibilidad para configurar el contenido de las páginas según le convenga con estas plantillas.
+
+Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
+
+* [Editar el contenido de las páginas estáticas y los elementos de diseño de página][modify-content-layout]
+* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores] [ customize-styles]
+* [Modificar las plantillas que se usan para las páginas generadas por el portal de] [ portal-templates] (que se explica en esta guía)
+
+Las plantillas se usan para personalizar el contenido de las páginas del portal para desarrolladores generadas por el sistema (por ejemplo, documentos de API, productos, autenticación de usuario, etc.). Mediante la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y un conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de una gran flexibilidad para configurar el contenido de las páginas según le convenga.
 
 ## <a name="developer-portal-templates-overview"></a>Información general sobre las plantillas del portal para desarrolladores
-Los administradores de la instancia del servicio de Administración de API pueden administrar las plantillas del portal para desarrolladores en el portal. Para administrar las plantillas de desarrollador, vaya a la instancia del servicio API Management en Azure Portal y haga clic en la opción **Portal del desarrollador** de la barra de herramientas.
+La edición de las reglas de estilo se realiza en el **portal para desarrolladores** durante el inicio de sesión como administrador. Para llegar hasta allí, primero abra Azure Portal y haga clic en **Portal para editores** en la barra de herramientas de servicios de su instancia de API Management.
 
-![portal para desarrolladores][api-management-browse]
+![Portal del publicador][api-management-management-console]
 
-Si ya se encuentra en el portal del publicador, puede acceder al portal para desarrolladores haciendo clic en **Portal para desarrolladores**.
+A continuación, haga clic en **Portal para desarrolladores de** en la parte superior derecha. 
 
 ![Menú del portal para desarrolladores][api-management-developer-portal-menu]
 
@@ -181,6 +189,9 @@ Las plantillas restauradas deben publicarse individualmente o a la vez siguiendo
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información de referencia sobre plantillas del portal para desarrolladores, recursos de cadena, iconos y controles de página, consulte la [referencia de plantillas del portal para desarrolladores de Administración de API](api-management-developer-portal-templates-reference.md).
 
+[modify-content-layout]: api-management-modify-content-layout.md
+[customize-styles]: api-management-customize-styles.md
+[portal-templates]: api-management-developer-portal-templates.md
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png
@@ -188,6 +199,7 @@ Para obtener información de referencia sobre plantillas del portal para desarro
 [api-management-template]: ./media/api-management-developer-portal-templates/api-management-template.png
 [api-management-template-data]: ./media/api-management-developer-portal-templates/api-management-template-data.png
 [api-management-developer-portal-menu]: ./media/api-management-developer-portal-templates/api-management-developer-portal-menu.png
+[api-management-management-console]: ./media/api-management-developer-portal-templates/api-management-management-console.png
 [api-management-browse]: ./media/api-management-developer-portal-templates/api-management-browse.png
 [api-management-user-profile-templates]: ./media/api-management-developer-portal-templates/api-management-user-profile-templates.png
 [api-management-save-template]: ./media/api-management-developer-portal-templates/api-management-save-template.png
@@ -206,10 +218,5 @@ Para obtener información de referencia sobre plantillas del portal para desarro
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

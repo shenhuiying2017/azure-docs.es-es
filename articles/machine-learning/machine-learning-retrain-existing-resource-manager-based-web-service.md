@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -25,6 +26,9 @@ En este documento se describe el proceso de reciclaje para el escenario siguient
 
 * Dispone de un experimento de entrenamiento y un experimento predictivo que se ha implementado como un servicio web de operaciones.
 * Tiene nuevos datos que desea que el servicio web predictivo utilice para realizar su puntuación.
+
+> [!NOTE] 
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 A partir de su servicio web existente y los experimentos, debe seguir estos pasos:
 
@@ -190,9 +194,4 @@ Por último, utilice el cmdlet [Update-AzureRmMlWebService](https://msdn.microso
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

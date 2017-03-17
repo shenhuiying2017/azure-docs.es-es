@@ -1,5 +1,5 @@
 ---
-title: "Conexión de equipos Linux a Log Analytics | Microsoft Docs"
+title: "Conexión de equipos con Linux a Log Analytics | Microsoft Docs"
 description: El uso de Log Analytics permite recopilar y actuar sobre los datos generados en equipos Linux.
 services: log-analytics
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: fba4e68e78b8267ff2413f94d5ca5066325f9c76
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-linux-computers-to-log-analytics"></a>Conexión de equipos Linux a Log Analytics
-El uso de Log Analytics permite recopilar y actuar sobre los datos generados en equipos Linux. Agregar datos recopilados de Linux a OMS permite administrar sistemas Linux y soluciones de contenedor como Docker, independientemente de dónde se encuentren los equipos, (prácticamente en cualquier lugar). Por lo tanto, esos orígenes de datos pueden residir en su centro de datos local como servidores físicos, en equipos virtuales en un servicio hospedado en la nube como Amazon Web Services (AWS) o Microsoft Azure, o incluso en el equipo portátil en su escritorio. Además, OMS también recopila datos de los equipos de Windows de forma similar, por lo que es compatible con un entorno informático realmente híbrido.
+# <a name="connect-your-linux-computers-to-log-analytics"></a>Conexión de equipos con Linux a Log Analytics
+El uso de Log Analytics permite recopilar y actuar sobre los datos generados en equipos Linux. Agregar datos recopilados de Linux a OMS permite administrar sistemas Linux y soluciones de contenedor como Docker, independientemente de dónde se encuentren los equipos, (prácticamente en cualquier lugar). Esos orígenes de datos pueden residir en su centro de datos local como servidores físicos, en equipos virtuales en un servicio hospedado en la nube como Amazon Web Services (AWS) o Microsoft Azure, o incluso en el equipo portátil en su escritorio. Además, OMS también recopila datos de los equipos de Windows de forma similar, por lo que es compatible con un entorno informático realmente híbrido.
 
 Puede ver y administrar los datos de todos esos orígenes con Log Analytics en OMS con un portal de administración único. Esto reduce la necesidad de supervisar usando varios sistemas distintos, simplifica su uso y le permite exportar cualquier dato que desee a cualquier solución de análisis de negocio o sistema que ya tenga.
 
@@ -96,9 +98,7 @@ Ejecute los siguientes comandos para descargar omsagent, validar la suma de comp
 ![detalles de área de trabajo](./media/log-analytics-linux-agents/oms-direct-agent-primary-key.png)
 
 ```
-wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.1.0-28/omsagent-1.1.0-28.universal.x64.sh
-sha256sum ./omsagent-1.1.0-28.universal.x64.sh
-sudo sh ./omsagent-1.1.0-28.universal.x64.sh --upgrade -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR OMS WORKSPACE ID> -s <YOUR OMS WORKSPACE PRIMARY KEY>
 ```
 
 Hay una variedad de otros métodos para instalar al agente y actualizarlo. Puede leer más sobre ellas en [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux)(Pasos para instalar el agente de OMS para Linux).
@@ -108,7 +108,7 @@ También puede ver el [tutorial en vídeo sobre Azure](https://www.youtube.com/w
 ## <a name="choose-your-linux-data-collection-method"></a>Selección del método de recopilación de datos de Linux
 La forma de elegir los tipos de datos que desea recopilar depende de si desea usar el portal OMS o si quier editar varios archivos de configuración directamente en los clientes de Linux. Si elige usar el portal, la configuración se envía automáticamente a todos sus clientes de Linux. Si necesita diferentes configuraciones para distintos clientes de Linux, tendrá que editar los archivos de cliente individualmente, o usar una alternativa como PowerShell DSC, Chef o Puppet.
 
-Puede especificar los eventos de Syslog y los contadores de rendimiento que quiere recopilar mediante los archivos de configuración en los equipos de Linux. *Si decide configurar la recopilación de datos editando los archivos de configuración del agente, debe deshabilitar la configuración centralizada.*   A continuación se proporcionan instrucciones para configurar la recopilación de datos en los archivos de configuración del agente, así como para deshabilitar la configuración central para todos los agentes de OMS para Linux o equipos individuales.
+Puede especificar los eventos de Syslog y los contadores de rendimiento que quiere recopilar mediante los archivos de configuración en los equipos de Linux. *Si decide configurar la recopilación de datos editando los archivos de configuración del agente, debe deshabilitar la configuración centralizada.*  A continuación se proporcionan instrucciones para configurar la recopilación de datos en los archivos de configuración del agente, así como para deshabilitar la configuración central para todos los agentes de OMS para Linux o equipos individuales.
 
 ### <a name="disable-oms-management-for-an-individual-linux-computer"></a>Deshabilitación de la administración de OMS para un equipo individual de Linux
 La recopilación de datos centralizada para datos de configuración se deshabilita para un equipo individual de Linux con el script OMS_MetaConfigHelper.py. Esto puede ser útil si un subconjunto de equipos debe tener una configuración especializada.
@@ -782,9 +782,4 @@ Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio pr
 * [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) (Incorporación de soluciones de Log Analytics desde la galería de soluciones) para agregar funcionalidad y recopilar datos.
 * Familiarícese con las [búsquedas de registros](log-analytics-log-searches.md) para ver información detallada recopilada por soluciones.
 * Use los [paneles](log-analytics-dashboards.md) para guardar y mostrar sus propias búsquedas personalizadas.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

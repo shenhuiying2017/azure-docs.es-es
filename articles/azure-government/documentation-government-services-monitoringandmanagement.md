@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/13/2017
+ms.date: 2/28/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
-ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: a04b2f26c8ab34fdbfc7412d47292a560466eb44
+ms.openlocfilehash: c33d50a900be53a3161ad60bc34e2e819fe62947
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -84,7 +84,6 @@ Las siguientes características y soluciones de Log Analytics no están disponib
   * Solución de Azure Automation Analytics
   * Solución de Key Vault Analytics
 * Soluciones y características que requieren actualizaciones a software local, como por ejemplo:
-  * Integración con System Center Operations Manager 2016 (se admiten versiones anteriores de Operations Manager)
   * Grupos de equipos de System Center Configuration Manager
   * Solución Surface Hub
 * Características en versión preliminar de Azure público, como por ejemplo:
@@ -104,12 +103,18 @@ Las direcciones URL para Log Analytics son diferentes en Azure Government:
 
 Las características siguientes de Log Analytics se comportan de otra manera en Azure Government:
 
-* El agente de Windows se debe descargar del [portal de Log Analytics](https://oms.microsoft.us) para Azure Government.
 * Para conectar el servidor de administración de System Center Operations Manager a Log Analytics, debe descargar e importar módulos de administración actualizados.
-  1. Descargue y guarde los [módulos de administración actualizados](http://go.microsoft.com/fwlink/?LinkId=828749).
-  2. Descomprima el archivo que descargó.
-  3. Importe los módulos de administración en Operations Manager. Para más información sobre cómo importar un módulo de administración de un disco, consulte el tema [Importación de un módulo de administración de Operations Manager](http://technet.microsoft.com/library/hh212691.aspx) en el sitio web de Microsoft TechNet.
-  4. Para conectar Operations Manager a Log Analytics, siga los pasos descritos en [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
+  + System Center Operations Manager 2016
+    1. Instale el [paquete acumulativo de actualizaciones 2 para System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
+    2. Importe los módulos de administración que se incluyen como parte del paquete acumulativo de actualizaciones 2 en Operations Manager. Para más información sobre cómo importar un módulo de administración de un disco, consulte el tema [Importación de un módulo de administración de Operations Manager](http://technet.microsoft.com/library/hh212691.aspx) en el sitio web de Microsoft TechNet.
+    3. Para conectar Operations Manager a Log Analytics, siga los pasos descritos en [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
+  + System Center Operations Manager 2012 R2 UR3 (o posterior)/Operations Manager 2012 SP1 UR7 (o posterior)
+    1. Descargue y guarde los [módulos de administración actualizados](http://go.microsoft.com/fwlink/?LinkId=828749).
+    2. Descomprima el archivo que descargó.
+    3. Importe los módulos de administración en Operations Manager. Para más información sobre cómo importar un módulo de administración de un disco, consulte el tema [Importación de un módulo de administración de Operations Manager](http://technet.microsoft.com/library/hh212691.aspx) en el sitio web de Microsoft TechNet.
+    4. Para conectar Operations Manager a Log Analytics, siga los pasos descritos en [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
+  
+
 
 ### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 * ¿Se pueden migrar datos de Log Analytics en Microsoft Azure a Azure Government?

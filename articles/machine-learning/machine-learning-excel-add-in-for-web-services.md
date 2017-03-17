@@ -13,37 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2016
+ms.date: 03/01/2016
 ms.author: tedway;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 97f5972dcda1c70cd56c00cc8153d3fba5491404
-ms.openlocfilehash: b1039dbddc4e42f890254ec98e7cbe45347c5b4c
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 814decc2aace0379332af229d232eef1a26939de
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complemento de Excel para servicios web Azure Machine Learning
-Excel facilita la llamada directa a servicios web sin necesidad de escribir ningún código.
+# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complemento de Excel para servicios web de Aprendizaje automático de Azure
+Excel facilita la llamada a servicios web directamente sin necesidad de escribir ningún código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Pasos para usar un servicio web existente en el libro
+
 1. Abra el [archivo de Excel de ejemplo](http://aka.ms/amlexcel-sample-2)que contiene el complemento de Excel y los datos acerca de los pasajeros del Titanic.
-2. Elija el servicio web haciendo clic en él. En este ejemplo, es "Predictor de supervivientes del Titanic (complemento de Excel de ejemplo) [puntuación]".
+2. Elija el servicio web haciendo clic en él, "Predictor de supervivientes del Titanic (complemento de Excel de ejemplo) [puntuación]" en este ejemplo.
    
     ![Seleccionar un servicio web][01]
-3. Esto le llevará a la sección **Predicción** .  Este libro ya contiene datos de ejemplo, pero para un libro en blanco también puede seleccionar una celda en Excel y hacer clic en **Usar datos de ejemplo**.
+3. Esto le lleva a la sección **Predicción**.  Este libro ya contiene datos de ejemplo, pero para un libro en blanco también puede seleccionar una celda en Excel y hacer clic en **Usar datos de ejemplo**.
 4. Seleccione los datos con encabezados y haga clic en el icono del intervalo de datos de entrada.  Asegúrese de que está activada la casilla "Mis datos tienen encabezados".
 5. En **Resultado**, escriba el número de la celda donde desea que se muestre el resultado, por ejemplo, "H1" aquí.
 6. Haga clic en **Predicción**.
    
     ![Sección Predicción][02]
 
-## <a name="steps-to-add-a-new-web-service"></a>Pasos para agregar un nuevo servicio web
-Implemente un servicio web o use uno existente. Para obtener más información acerca de cómo implementar un servicio web, consulte [Paso 5 del tutorial: Implementación del servicio web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
+Implemente un servicio web o use uno existente. Para obtener más información sobre cómo implementar un servicio web, consulte el [paso 5 del tutorial: Implementación del servicio web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
 
-Obtenga la clave de API del servicio web. Dónde hacerlo depende de si publicó un servicio web Machine Learning clásico o en uno nuevo.
+Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u otro en función de si publicó un servicio web Machine Learning clásico o uno nuevo.
 
 **Uso de un servicio web clásico** 
 
-1. En Machine Learning Studio, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y luego seleccione el servicio web.
+1. En el Estudio de aprendizaje automático, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y, luego, seleccione el servicio web.
    
     ![Seleccionar un servicio web de Studio][04]
 2. Copie la clave de API del servicio web.
@@ -64,7 +65,8 @@ Obtenga la clave de API del servicio web. Dónde hacerlo depende de si publicó 
 3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde la **clave principal** y la URL de **solicitud-respuesta**.
 
 ## <a name="steps-to-add-a-new-web-service"></a>Pasos para agregar un nuevo servicio web
-1. Implemente un servicio web o use uno existente. Para obtener más información acerca de cómo implementar un servicio web, consulte [Paso 5 del tutorial: Implementación del servicio web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
+
+1. Implemente un servicio web o use uno existente. Para obtener más información sobre cómo implementar un servicio web, consulte el [paso 5 del tutorial: Implementación del servicio web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
 2. Haga clic en **Consume**(Consumo).
 3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde la **clave principal** y la URL de **solicitud-respuesta**.
 4. En Excel, vaya a la sección **Servicios web** (si se encuentra en la sección **Predicción**, haga clic en la flecha Atrás para ir a la lista de servicios web).
@@ -79,7 +81,7 @@ Obtenga la clave de API del servicio web. Dónde hacerlo depende de si publicó 
 9. Para usar el servicio web, siga las instrucciones anteriores, "Pasos para usar un servicio web existente".
 
 ## <a name="sharing-your-workbook"></a>Compartir el libro
-Si guarda el libro, también se guardarán la clave principal o de API de los servicios web que haya agregado. Esto significa que solo debe compartir el libro con personas de confianza.
+Si guarda el libro, también se guardarán la clave principal o de API de los servicios web que también ha guardado. Esto significa que solo debe compartir el libro con personas de confianza.
 
 Plantee cualquier pregunta que le surja en la sección de comentarios a continuación o en nuestro [foro](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
@@ -89,9 +91,4 @@ Plantee cualquier pregunta que le surja en la sección de comentarios a continua
 [04]: ./media/machine-learning-excel-add-in-for-web-services/image4.png
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

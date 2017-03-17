@@ -44,7 +44,7 @@ Con DSC de Automatización de Azure, puede incorporar fácilmente máquinas virt
 
 ### <a name="azure-portal"></a>Azure Portal
 
-En [Azure Portal](http://portal.azure.com/) , haga clic en **Examinar** -> **Virtual Machines (clásico)**. Seleccione la máquina virtual de Windows que desea incorporar. En la hoja del panel de la máquina virtual, haga clic en **Toda la configuración** -> ** Extensiones** -> **Agregar** -> **DSC de Azure Automation** -> **Crear**. Escriba los [valores del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necesarios para su caso de uso, la clave de registro de su cuenta de Automation y la dirección URL de registro, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
+En [Azure Portal](http://portal.azure.com/) , haga clic en **Examinar** -> **Virtual Machines (clásico)**. Seleccione la máquina virtual de Windows que desea incorporar. En la hoja del panel de la máquina virtual, haga clic en **Toda la configuración** -> **Extensiones** -> **Agregar** -> **DSC de Azure Automation** -> **Crear**. Escriba los [valores del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necesarios para su caso de uso, la clave de registro de su cuenta de Automation y la dirección URL de registro, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
@@ -148,7 +148,7 @@ Las máquinas con Windows locales y las ubicadas en nubes que no sean de Azure (
 
 1. Asegúrese de que la versión más reciente de [WMF 5](http://aka.ms/wmf5latest) esté instalada en las máquinas que desee incorporar a DSC de Automatización de Azure.
 2. Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
-3. Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que quiere incorporar. **La máquina desde la que se ejecuta este comando debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest) **:
+3. Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que quiere incorporar. **La máquina desde la que se ejecuta este comando debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest)**:
 
     ```powershell
     Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -170,7 +170,7 @@ Las máquinas de Linux locales, de Azure y ubicadas en nubes que no sean de Azur
 
    + Para buscar la clave de registro y la dirección URL de registro para su cuenta de Automatización, consulte la sección [**Registro seguro**](#secure-registration) .
 
-     Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** **** coinciden con su caso de uso, o desea incorporar equipos que solo informen a DSC de Azure Automation, pero que no extraigan configuración ni módulos de PowerShell de allí, siga los pasos 3 a 6. De lo contrario, vaya directamente al paso 6.
+     Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** coinciden con su caso de uso, o desea incorporar equipos que solo informen a DSC de Azure Automation, pero que no extraigan configuración ni módulos de PowerShell de allí, siga los pasos 3 a 6.** ** De lo contrario, vaya directamente al paso 6.
 
 3. Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
 4. Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que desea incorporar:

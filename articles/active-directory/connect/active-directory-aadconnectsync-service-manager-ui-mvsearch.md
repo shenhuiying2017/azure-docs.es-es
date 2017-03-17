@@ -1,5 +1,5 @@
 ---
-title: "Sincronización de Azure AD Connect: interfaz de usuario de Synchronization Service Manager | Microsoft Docs"
+title: "Búsqueda de metaverso de Synchronization Service Manager de Azure AD Connect | Microsoft Docs"
 description: "Conozca la pestaña Búsqueda de metaverso de Synchronization Service Manager para Azure AD Connect."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/27/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: 3b31ff58cab0133fd228e43b9fbe16d64f3e5de9
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 665dc43f9861baeef6fa61968a9dc873ce1dfdbf
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Sincronización de Azure AD Connect: Synchronization Service Manager
+# <a name="sync-service-manager-metaverse-search"></a>Búsqueda de metaverso de Synchronization Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -32,9 +33,4 @@ En los resultados de búsqueda, seleccione un objeto y **Propiedades** para ver 
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

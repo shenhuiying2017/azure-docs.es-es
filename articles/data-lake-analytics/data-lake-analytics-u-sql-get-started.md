@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 96747e898b2d84cbce9251758a90941f85112dd0
-ms.openlocfilehash: 7aa3844b9bdc2c5372c6e54b05296dcde6b1c05f
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dc8c7beaf5b8e8d4f5467ffe22390c41f446d787
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +56,7 @@ Observe el signo de interrogación junto al tipo de datos del campo **Duration**
 
 En el script, encontrará los siguientes conceptos y palabras clave:
 
-* Variables de conjunto de filas: cada expresión de consulta que produce un conjunto de filas se puede asignar a una variable. U-SQL sigue el patrón de nomenclatura de variables de T-SQL; por ejemplo, (@searchlog, en el script.
+* Variables de conjunto de filas: cada expresión de consulta que produce un conjunto de filas se puede asignar a una variable. U-SQL sigue el patrón de nomenclatura de variables de T-SQL (@searchlog, por ejemplo) en el script.
 
  >[!NOTE]
  >La asignación no fuerza la ejecución. Simplemente nombra la expresión para que pueda crear expresiones más complejas.
@@ -64,9 +65,9 @@ En el script, encontrará los siguientes conceptos y palabras clave:
 
  >[!NOTE]
  >Las dos rutas de acceso son relativas. También puede usar rutas de acceso absolutas. Por ejemplo:    
- >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+ >     adl://\<NombreDeCuentaDeAlmacenamientoDeADL>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
  >
- >Debe usar una ruta de acceso absoluta para acceder a los archivos de las cuentas de almacenamiento vinculadas.  La sintaxis de los archivos almacenados en la cuenta de almacenamiento de Azure vinculada es: wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+ >Debe usar una ruta de acceso absoluta para acceder a los archivos de las cuentas de almacenamiento vinculadas.  La sintaxis de los archivos almacenados en la cuenta de Azure Storage vinculada es: wasb://\<NombreDeContenedordeBlob>@\<NombreDeCuentaDeAlmacenamiento>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Actualmente no se admiten contenedores de almacenamiento de Azure Blob con permisos de acceso a contenedores públicos o blobs públicos.
@@ -410,9 +411,4 @@ Este tutorial trata solamente una pequeña parte de U-SQL. Debido a su ámbito l
 * [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
 * [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 * [Proporcione comentarios sobre U-SQL](http://aka.ms/usqldiscuss)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

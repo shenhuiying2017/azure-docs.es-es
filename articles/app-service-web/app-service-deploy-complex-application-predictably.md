@@ -196,7 +196,7 @@ Nuevamente, los recursos anidados deben tener una jerarquía muy similar a la de
 El botón **Implementación en Azure** es excelente, pero permite implementar la plantilla de grupo de recursos en azuredeploy.json sólo si ya se ha insertado azuredeploy.json en GitHub. El SDK .NET de Azure también proporciona las herramientas para implementar cualquier archivo de plantilla JSON directamente desde el equipo local. Para ello, siga estos pasos:
 
 1. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
-2. Haga clic en **Visual C#** > **Nube** > ** > Grupo de recursos de Azure** y, a continuación, haga clic en **Aceptar**.
+2. Haga clic en **Visual C#** > **Nube** > **Grupo de recursos de Azure** y, a continuación, haga clic en **Aceptar**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. En **Seleccionar plantilla de Azure**, seleccione **Plantilla en blanco** y haga clic en **Aceptar**.

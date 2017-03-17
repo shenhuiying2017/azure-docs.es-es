@@ -15,16 +15,17 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: e1bb89ba369818d7ba0e92a54a4712033f648187
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: ecc6f4a1a8cbb07d9f610e8f6fb5ca66b7532513
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="get-started-with-device-management-node"></a>Introducción a la administración de dispositivos (Node)
 ## <a name="introduction"></a>Introducción
-Las aplicaciones en la nube de IoT pueden utilizar primitivos en IoT Hub de Azure, es decir, el doble de dispositivo y métodos directos para iniciar y supervisar de forma remota las acciones de administración de dispositivos en los dispositivos.  Este artículo proporciona las instrucciones y el código para el funcionamiento conjunto de una aplicación en la nube de IoT y un dispositivo para iniciar y supervisar un reinicio del dispositivo remoto con IoT Hub.
+Las aplicaciones en la nube de IoT pueden utilizar primitivos en IoT Hub de Azure, es decir, el doble de dispositivo y métodos directos para iniciar y supervisar de forma remota las acciones de administración de dispositivos en los dispositivos. Este artículo proporciona las instrucciones y el código para el funcionamiento conjunto de una aplicación en la nube de IoT y un dispositivo para iniciar y supervisar un reinicio del dispositivo remoto con IoT Hub.
 
-Para iniciar y supervisar remotamente las acciones de administración de dispositivos en los dispositivos desde una aplicación basada en la nube y de back-end, use primitivos de Azure IoT Hub como el [dispositivo gemelo][lnk-devtwin] y los [métodos directos][lnk-c2dmethod]. Este tutorial muestra cómo una aplicación de back-end y un dispositivo pueden trabajar juntos para permitirle iniciar y supervisar el reinicio del dispositivo remoto desde IoT Hub.
+Para iniciar y supervisar remotamente las acciones de administración de dispositivos en los dispositivos desde una aplicación basada en la nube y de back-end, use primitivos de Azure IoT Hub como el [dispositivo gemelo][lnk-devtwin] y los [métodos directos][lnk-c2dmethod]. Este tutorial muestra cómo una aplicación de back-end y un dispositivo pueden trabajar juntos para permitirle iniciar y supervisar el reinicio de un dispositivo remoto desde IoT Hub.
 
 Use un método directo para iniciar acciones de administración de dispositivos (por ejemplo, reinicio, restablecimiento de fábrica y actualización de firmware) desde una aplicación back-end en la nube. El dispositivo es responsable de:
 
@@ -37,8 +38,8 @@ Puede usar una aplicación de back-end en la nube para ejecutar consultas de dis
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
 * Usar Azure Portal para un IoT Hub y una identidad de dispositivo en este.
-* Crear una aplicación de dispositivo simulado que tenga un método directo que permita un reinicio que se pueda llamar desde la nube.
-* Crear una aplicación de consola de Node.js que llame a un método directo de reinicio en la aplicación de dispositivo simulado mediante su centro de IoT Hub.
+* Crear una aplicación de dispositivo simulado que contiene un método directo que reinicia ese dispositivo. Los métodos directos se invocan desde la nube.
+* Crear una aplicación de consola de .NET que llame a un método directo de reinicio en la aplicación de dispositivo simulado mediante su centro de IoT Hub.
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
@@ -62,7 +63,7 @@ En esta sección:
 * Desencadenará un reinicio del dispositivo simulado.
 * Usará las propiedades notificadas para permitir consultas de dispositivo gemelo a fin de identificar los dispositivos y cuándo se reiniciaron por última vez.
 
-1. Cree una nueva carpeta vacía denominada "**manageddevice**".  En la carpeta **manageddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
+1. Cree una nueva carpeta vacía denominada **manageddevice**.  En la carpeta **manageddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
    
     ```
     npm init
@@ -72,7 +73,7 @@ En esta sección:
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Con un editor de texto, cree un nuevo archivo **dmpatterns_getstarted_device.js** en la carpeta **manageddevice**.
+3. Con un editor de texto, cree un archivo **dmpatterns_getstarted_device.js** en la carpeta **manageddevice**.
 4. Agregue las siguientes instrucciones "require" al principio del archivo **dmpatterns_getstarted_device.js**:
    
     ```
@@ -141,13 +142,14 @@ En esta sección:
     });
     ```
 8. Guarde y cierre el archivo **dmpatterns_getstarted_device.js**.
-   
-   [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling][lnk-transient-faults] (Tratamiento de errores temporales).
+
+> [!NOTE]
+> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling][lnk-transient-faults] (Tratamiento de errores temporales).
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Desencadenar un reinicio remoto en el dispositivo con un método directo
-En esta sección, creará una aplicación de consola de Node.js que inicia un reinicio remoto en un dispositivo con un método directo y utiliza las consultas del dispositivo gemelo para obtener el tiempo de reinicio más reciente para ese dispositivo.
+En esta sección, creará una aplicación de consola de .NET (mediante C#) que inicia una actualización remota en un dispositivo mediante un método directo. La aplicación usa las consultas gemelas de dispositivo para detectar la hora en que se reinició por última vez el dispositivo.
 
-1. Cree una nueva carpeta vacía denominada **triggerrebootondevice**.  En la carpeta **triggerrebootondevice**, cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
+1. Cree una carpeta vacía denominada **triggerrebootondevice**.  En la carpeta **triggerrebootondevice**, cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
    
     ```
     npm init
@@ -157,7 +159,7 @@ En esta sección, creará una aplicación de consola de Node.js que inicia un re
     ```
     npm install azure-iothub --save
     ```
-3. Con un editor de texto, cree un nuevo archivo**dmpatterns_getstarted_service.js** en la carpeta **triggerrebootondevice**.
+3. Con un editor de texto, cree un archivo **dmpatterns_getstarted_service.js** en la carpeta **triggerrebootondevice**.
 4. Agregue las siguientes instrucciones "require" al principio del archivo **dmpatterns_getstarted_service.js**:
    
     ```
@@ -216,7 +218,7 @@ En esta sección, creará una aplicación de consola de Node.js que inicia un re
         });
     };
     ```
-8. Agregue el siguiente código para llamar a las funciones que desencadenarán el método directo de reinicio y la consulta de última hora de reinicio:
+8. Agregue el siguiente código para llamar a las funciones que desencadenan el método directo de reinicio y la consulta de última hora de reinicio:
    
     ```
     startRebootDevice();
@@ -240,13 +242,13 @@ Ya está preparado para ejecutar las aplicaciones.
 3. Verá la respuesta del dispositivo al método directo en la consola.
 
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar y ampliar el dispositivo las acciones de administración del dispositivo
-Las soluciones de IoT pueden expandir el conjunto definido de patrones de la administración de dispositivos o habilitar modelos personalizados mediante el uso del dispositivo gemelo y primitivos del método directo. Otros ejemplos de acciones de administración de dispositivos son el restablecimiento de fábrica, la actualización de firmware, la actualización de software, la administración de energía, la administración de conectividad y red, y el cifrado de datos.
+Las soluciones de IoT pueden expandir el conjunto definido de patrones de administración de dispositivos o permitir modelos personalizados mediante el uso de los primitivos de método de nube a dispositivo y dispositivos gemelos. Otros ejemplos de acciones de administración de dispositivos son el restablecimiento de fábrica, la actualización de firmware, la actualización de software, la administración de energía, la administración de conectividad y red, y el cifrado de datos.
 
 ## <a name="device-maintenance-windows"></a>Ventanas de mantenimiento del dispositivo
 Normalmente, puede dispositivos para llevar a cabo acciones a la vez que minimiza las interrupciones y el tiempo de inactividad.  Las ventanas de mantenimiento dle dispositivo son un patrón que se utiliza habitualmente para definir la hora en la que un dispositivo debe actualizar su configuración. Las soluciones de back-end pueden utilizar las propiedades deseadas del dispositivo gemelo para definir y activar una directiva en el dispositivo que permita una ventana de mantenimiento. Cuando un dispositivo recibe la directiva de la ventana de mantenimiento, puede usar la propiedad notificada del dispositivo gemelo para informar del estado de la directiva. La aplicación de back-end puede usar luego consultas de dispositivos gemelos para dar testimonio de cumplimiento de dispositivos y cada directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial ha usado un método directo para desencadenar un reinicio remoto en un dispositivo, ha utilizado las propiedades notificadas para notificar la última hora de reinicio del dispositivo y ha consultado el dispositivo gemelo para detectar la última hora de reinicio del dispositivo desde la nube.
+En este tutorial se usó un método directo para desencadenar un reinicio remoto en un dispositivo. Se usaron las propiedades notificadas para notificar la última hora de reinicio del dispositivo y se consultó el dispositivo gemelo para detectar la última hora de reinicio del dispositivo desde la nube.
 
 Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte:
 
@@ -273,9 +275,4 @@ Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

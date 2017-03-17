@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
 ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -55,7 +56,7 @@ Azure AD intenta supervisar los metadatos de federación y actualizar el token d
 >
 >
 
-## <a name="check-if-the-certificates-need-to-be-updated-a-namemanagecertsa"></a>Compruebe si los certificados necesitan actualización <a name="managecerts"></a>
+## Compruebe si los certificados necesitan actualización <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Paso 1: Comprobar el estado del proceso AutoCertificateRollover
 En el servidor de AD FS, abra Powershell. Compruebe que el valor AutoCertRollover está establecido en True.
 
@@ -95,7 +96,7 @@ En la salida de Get-MsolFederationProperty o Get-AdfsCertificate compruebe la fe
 
 \[-] No importa
 
-## <a name="renew-the-token-signing-certificate-automatically-recommended-a-nameautorenewa"></a>Renovación automática de certificados de firma de tokens (recomendado) <a name="autorenew"></a>
+## Renovación automática de certificados de firma de tokens (recomendado) <a name="autorenew"></a>
 No es necesario realizar ningún paso manual si se cumplen las dos acciones siguientes:
 
 * Se ha implementado el proxy de aplicación web, que puede habilitar el acceso a los metadatos de federación desde la extranet.
@@ -113,7 +114,7 @@ donde `(your_FS_name) `se reemplaza por el nombre de host de servicio de federac
 
 Ejemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## <a name="renew-the-token-signing-certificate-manually-a-namemanualrenewa"></a>Renovación manual de certificados de firma de tokens <a name="manualrenew"></a>
+## Renovación manual de certificados de firma de tokens <a name="manualrenew"></a>
 Puede optar por renovar manualmente los certificados de firma de tokens. Por ejemplo, los siguientes escenarios podrían funcionar mejor para la renovación manual:
 
 * Los certificados de firma de tokens no son certificados autofirmados. La razón más común es que su organización administra certificados de AD FS inscritos de una entidad de certificación profesional.
@@ -160,13 +161,8 @@ Actualice Office 365 con los nuevos certificados de firma de token que se utiliz
 >
 >
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-a-nameconnectrenewa"></a>Reparar la relación de confianza de Azure AD con Azure AD Connect <a name="connectrenew"></a>
+## Reparar la relación de confianza de Azure AD con Azure AD Connect <a name="connectrenew"></a>
 Si ha configurado la granja de servidores de AD FS o la relación de confianza de Azure AD con Azure AD Connect, puede usar Azure AD Connect para detectar si es necesario tomar alguna medida para los certificados de firma de tokens. Si necesita renovar los certificados, puede utilizar Azure AD Connect para hacerlo.
 
 Para más información, consulte la sección [Reparación de la confianza](active-directory-aadconnect-federation-management.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
-ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 796bf9b1219b7f0e2c68688c5f5b51163ef4b49b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -165,6 +165,26 @@ La categoría de enrutamiento de mensajes realiza un seguimiento de los errores 
         "details": "ExternalEndpointDisabled"
     }
 
+## <a name="view-events"></a>Ver eventos
+
+Puede usar la herramienta *iothub-explorer* para probar de forma rápida que IoT Hub está generando eventos de supervisión. Para instalar la herramienta, vea las instrucciones en el repositorio de GitHub [iothub-explorer][lnk-iothub-explorer].
+
+1. Asegúrese de que la categoría de supervisión **Conexiones** se establece en **Detallado** en el portal.
+
+1. En una línea de comandos, ejecute el comando siguiente para leer desde el punto de conexión de supervisión:
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. En otra línea de comandos, ejecute el siguiente comando para simular un dispositivo que envía mensajes de dispositivo a nube:
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. La primera línea de comandos muestra los eventos de supervisión cuando el dispositivo simulado se conecta a IoT Hub.
+
 ## <a name="next-steps"></a>Pasos siguientes
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
@@ -182,4 +202,5 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 

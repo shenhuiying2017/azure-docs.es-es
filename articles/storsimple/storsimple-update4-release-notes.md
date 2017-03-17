@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/16/2017
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
-ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -75,6 +75,7 @@ En las tablas siguientes se proporciona un resumen de los problemas corregidos e
 | 3 |Paquete de soporte |En la versión anterior, existían problemas relacionados con el paquete de soporte que podían generar una excepción System.OutOfMemory u otros errores que podían impedir la creación del paquete de soporte. Estos errores se corrigieron en esta versión. |Sí |Sí |
 | 4 |Supervisión |En la versión anterior, existía un problema relacionado con la supervisión de gráficos para los volúmenes anclados localmente, donde el consumo se mostraba en EB. Este error se solucionó en esta versión. |Sí |Sí |
 | 5 |Migración |En la versión anterior, había varios problemas relacionados con la confiabilidad de la migración desde dispositivos de las series 5000 a 7000 a los dispositivos de la serie 8000. Estos problemas se solucionaron en esta versión. |Sí |Sí |
+| 6 |Actualizar |En versiones anteriores, si se produjo un error de actualización, los controladores entraban en modo de recuperación y, por tanto, el usuario no podía continuar con la actualización y tenía que ponerse en contacto con el Servicio de soporte técnico de Microsoft. <br> Este comportamiento se cambió en esta versión. Si el usuario sufre un error de actualización una vez que ambos controladores ejecutan la misma versión (actualización 4), los controladores no entran en modo de recuperación. Si el usuario encuentra este error, se recomienda que espere un poco y, a continuación, vuelva a intentar la actualización. Este reintento podría ser correcto. Si el reintento es incorrecto, debe ponerse en contacto con el Servicio de soporte técnico de Microsoft. |Sí |Sí |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemas conocidos en Update 4 de las versiones anteriores

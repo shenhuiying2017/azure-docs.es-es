@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
+ms.sourcegitcommit: bf5010537d222045b5bf13d85cab6c48c9659ed0
+ms.openlocfilehash: b055342d8e11e4d38688681b36ef9a1f717fdf15
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,9 +30,9 @@ Data Factory solo admite actualmente el movimiento de datos de Amazon S3 a otros
 Para copiar datos de Amazon S3, asegúrese de que se han concedido los siguientes permisos:
 
 * **S3:GetObject** y **s3:GetObjectVersion** para operaciones de objeto de Amazon S3.
-* **S3:ListBucket** y **s3:ListAllMyBuckets** (se usa solo en el asistente para copiar) para las operaciones de depósito de Amazon S3.
+* **s3:ListBucket** para las operaciones de depósito de Amazon S3. Si usa el Asistente para copia, **s3:ListAllMyBuckets** también es necesario.
 
-Encontrará la lista completa de los permisos de Amazon S3 en [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
+Puede consultar la lista completa de los permisos de Amazon S3 en [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
 La manera más sencilla de crear una canalización que copie datos de Amazon S3 es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
@@ -340,9 +341,4 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 Consulte los artículos siguientes:
 
 * [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

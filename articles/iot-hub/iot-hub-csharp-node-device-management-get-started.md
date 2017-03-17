@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0a4dc9c39d864dcfd52121ed4e4fa2393b56f872
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -50,7 +51,7 @@ Al final de este tutorial, tendrá una aplicación de dispositivo de consola de 
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 o Visual Studio 2017.
 * Node.js versión 0.12.x o posteriores. <br/>  En [Preparación del entorno de desarrollo][lnk-dev-setup] se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
@@ -61,7 +62,7 @@ Para completar este tutorial, necesitará lo siguiente:
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Desencadenar un reinicio remoto en el dispositivo con un método directo
 En esta sección, creará una aplicación de consola de .NET (mediante C#) que inicia un reinicio remoto en un dispositivo con un método directo y usa consultas de dispositivo gemelo para encontrar el tiempo de reinicio más reciente para ese dispositivo.
 
-1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **TriggerReboot**.
+1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a una nueva solución mediante la plantilla de proyecto **Aplicación de consola (.NET Framework)**. Asegúrese de que la versión de .NET Framework sea 4.5.1 o una posterior. Asigne al proyecto el nombre **TriggerReboot**.
 
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][img-createapp]
 
@@ -251,8 +252,3 @@ Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

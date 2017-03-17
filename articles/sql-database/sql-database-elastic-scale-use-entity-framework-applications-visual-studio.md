@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,13 +29,10 @@ Este documento muestra los cambios que es necesario realizar en una aplicación 
 Para descargar el código de este artículo:
 
 * Se requiere Visual Studio 2012 o posterior. 
+* Descargue el [ ejemplo Elastic DB Tools for Azure SQL - Entity Framework Integration (Herramientas de Elastic DB para SQL Azure: Integración con Entity Framework)](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) de MSDN. Descomprima el ejemplo en una ubicación de su elección.
 * Inicie Visual Studio. 
-* En Visual Studio, seleccione Archivo -> Nuevo proyecto. 
-* En el cuadro de diálogo "Nuevo proyecto", vaya a los **ejemplos en línea** de **Visual C#** y escriba "elastic db" en el cuadro de búsqueda de la parte superior derecha.
-  
-    ![Entity Framework y aplicación de ejemplo de bases de datos elásticas][1] 
-  
-    Seleccione el ejemplo llamado **Herramientas de Base de datos elástica para SQL de Azure – Integración con Entity Framework**. Después de aceptar la licencia, el ejemplo se carga. 
+* En Visual Studio, seleccione Archivo -> Abrir proyecto/solución. 
+* En el cuadro de diálogo **Abrir proyecto**, vaya al ejemplo que descargó y seleccione **EntityFrameworkCodeFirst.sln** para abrir el ejemplo. 
 
 Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Base de datos SQL de Azure:
 
@@ -266,9 +264,4 @@ Con los pasos descritos en este documento, las aplicaciones de EF pueden utiliza
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

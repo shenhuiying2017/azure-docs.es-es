@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
-ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-computers-and-devices-to-oms-using-the-oms-gateway"></a>Conexión de equipos y dispositivos a OMS mediante OMS Gateway
+# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>Conexión de equipos y dispositivos sin acceso a Internet a OMS mediante OMS Gateway
+
 En este documento se describe la forma en que los dispositivos administrados por OMS y los equipos supervisados por System Center Operations Manager (SCOM) pueden enviar datos al servicio de OMS cuando no tienen acceso a Internet. OMS Gateway puede recopilar los datos y enviarlos al servicio de OMS en su nombre.
 
 La puerta de enlace es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. La puerta de enlace puede controlar hasta 2.000 dispositivos conectados simultáneamente de OMS si se ejecuta en un servidor de 16 GB con CPU de 4 núcleos en el que se ejecuta Windows.
@@ -277,9 +280,4 @@ También puede dejar sus comentarios acerca de OMS o Log Analytics en el [foro d
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Agregue orígenes de datos](log-analytics-data-sources.md) para recopilar datos de los orígenes conectados del área de trabajo de OMS y almacenarlos en el repositorio de OMS.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

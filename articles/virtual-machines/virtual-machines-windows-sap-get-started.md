@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 581ddd7ac3d612007614ca4f582364dfa16d30f6
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3406deb7e55143e6ee0596235c1632d126e3cd8c
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="using-sap-on-azure-virtual-machines-vms"></a>Uso de SAP en máquinas virtuales de Azure
+# <a name="using-sap-on-azure-windows-virtual-machines-vms"></a>Uso de SAP en máquinas virtuales Windows en Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -355,7 +356,7 @@ Actualizado: septiembre de 2016
 
 [Esta guía se puede encontrar aquí](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planeamiento e implementación
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planeamiento e implementación
 Título: SAP NetWeaver en máquinas virtuales de Azure: guía de planeación e implementación
 
 Resumen: Este es el documento por donde debe empezar si está pensando en ejecutar SAP NetWeaver en máquinas virtuales de Azure. Esta guía de planeación e implementación le ayudará a evaluar si un sistema basado SAP NetWeaver planeado o existente puede implementarse en un entorno de máquinas virtuales de Azure. Cubre varios escenarios de implementación de SAP NetWeaver e incluye configuraciones SAP específicas para Azure. Este documento enumera y describe toda la información de configuración necesaria que deberá tener al lado de SAP/Azure para ejecutar un entorno SAP híbrido. También cubre las medidas que se pueden tomar para garantizar una alta disponibilidad de los sistemas basados en SAP NetWeaver en IaaS.
@@ -364,7 +365,7 @@ Actualizado: agosto de 2016
 
 [Esta guía se puede encontrar aquí][planning-guide]
 
-## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implementación
+## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implementación
 Título: SAP NetWeaver en máquinas virtuales de Azure: guía de implementación
 
 Resumen: Este documento proporciona una guía de los procedimientos necesarios para implementar el software SAP NetWeaver en máquinas virtuales de Azure Este documento se centra en tres escenarios de implementación específicos, con énfasis en la habilitación de las Extensiones de supervisión de Azure para SAP, incluidas las recomendaciones para la solución de problemas de las Extensiones de supervisión de Azure para SAP. Este documento supone que ha leído la guía de planeación e implementación.
@@ -373,7 +374,7 @@ Actualización: diciembre de 2016
 
 [Esta guía se puede encontrar aquí][deployment-guide]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guía de implementación de DBMS
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guía de implementación de DBMS
 Título: SAP NetWeaver en máquinas virtuales de Azure: guía de implementación de DBMS
 
 Resumen: Este documento cubre las consideraciones de planeación e implementación para los sistemas DBMS que deben ejecutarse con SAP. En la primera parte se presentan y se enumeran consideraciones generales. Las siguientes partes del documento están relacionadas con las implementaciones de diferentes DBMS en Azure que admite SAP. Los distintos DBMS que se presentan son SQL Server, SAP ASE y Oracle. En estas partes concretas, se tratan las consideraciones que debe tener en cuenta al ejecutar sistemas SAP en Azure junto con los DBMS. Se incluyen temas como los métodos de copia de seguridad y de alta disponibilidad que admiten los distintos DBMS en Azure para el uso con aplicaciones SAP.
@@ -382,7 +383,7 @@ Actualizado: agosto de 2016
 
 [Esta guía se puede encontrar aquí][dbms-guide]
 
-## <a name="a-name63dab028-2c4f-4636-8f99-90bbb264eabaahigh-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guía de implementación de alta disponibilidad
+## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guía de implementación de alta disponibilidad
 Título: SAP NetWeaver en máquinas virtuales (VM) de Azure: guía de implementación de alta disponibilidad
 
 Resumen: en este documento se describe cómo proteger en Azure los componentes de único punto de error de SAP, como ASCS/SCS y DBMS de SAP. Los componentes de ASCS/SCS, DBMS y los servidores de aplicaciones de SAP son esenciales para el funcionamiento de los sistemas SAP NetWeaver, como SAP NetWeaver ABAP, SAP NetWeaver Java y SAP NetWeaver ABAP+Java. Por lo tanto, es necesario implementar funcionalidad de alta disponibilidad para asegurarse de que dichos componentes pueden soportar un error de un servidor o una máquina virtual tal como se hizo con las configuraciones de Windows Cluster para entornos Hyper-V y de reconstrucción completa.

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
-ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
+ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
+ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -27,26 +28,27 @@ El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas 
 Security Center se ofrece en dos niveles:
 
 * El **nivel gratuito** está habilitado automáticamente en todas las suscripciones de Azure. El nivel gratuito permite ver el estado de seguridad de los recursos de Azure, la directiva de seguridad básica, recomendaciones de seguridad y la integración con productos y servicios de seguridad de asociados.
-* En el **nivel Estándar** se agregan funciones de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de evaluación de amenazas. Hay disponible una **prueba gratuita de&90; días** para el nivel Estándar.
+* En el **nivel Estándar** se agregan funciones de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de evaluación de amenazas. El nivel Estándar se ofrece gratis para los primeros 60 días.
 
 Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 > [!NOTE]
-> Security Center usa Azure Storage para guardar los datos de seguridad generados en los nodos protegidos. Los costos asociados con este almacenamiento no se incluyen en el precio del servicio y se cobrarán por separado según las [tarifas normales de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Se aplicarán cargos de almacenamiento incluso durante la prueba.
+> Security Center usa Azure Storage para guardar los datos de seguridad generados en los nodos protegidos. Los costos asociados con este almacenamiento no se incluyen en el precio del servicio y se cobrarán por separado según las [tarifas normales de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Se aplicarán cargos de almacenamiento incluso durante la prueba gratuita de 60 días.
 >
 >
 
-## <a name="try-standard-free-for-90-days"></a>Pruebe el nivel Estándar de forma gratuita durante 90 días
-Hay disponible una prueba gratuita de 90 días para el nivel Estándar. Para obtener la prueba gratuita del nivel Estándar, seleccione el icono **Directiva** en la hoja **Security Center**. Seleccione la suscripción que quiera actualizar al nivel Estándar. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**. En la hoja **Seleccione su plan de tarifa**, seleccione **Estándar: prueba gratuita**.
+## <a name="try-standard-free-for-60-days"></a>Pruebe el nivel Estándar de forma gratuita durante 60 días
+El nivel Estándar se ofrece gratis para los primeros 60 días. Después de 60 días, si decide continuar usando el servicio, se empezará a cobrar automáticamente por su uso.
 
-![Evaluación gratuita][1]
+Para obtener el nivel Estándar:
 
-Después de 90 días, si decide continuar usando el servicio, empezaremos a cobrar automáticamente el uso.
+1. Seleccione el icono **Directiva** en la hoja **Security Center**.
+2. Seleccione la suscripción que quiera actualizar al nivel Estándar.
+3. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**.
+4. En la hoja **Elegir su plan de tarifa**, seleccione **Estándar**.
+5. Haga clic en **Seleccionar**.
 
-## <a name="upgrade-to-standard"></a>Actualización al nivel Estándar
-Actualice al nivel Estándar para agregar la detección de amenazas avanzada. Para obtener el nivel Estándar, seleccione el icono **Directiva** en la hoja **Security Center**. Seleccione la suscripción que quiera actualizar al nivel Estándar. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**. En la hoja **Elegir su plan de tarifa**, seleccione **Estándar**.
-
-![Nivel Standard][2]
+![Nivel Standard][1]
 
 ## <a name="why-upgrade-to-standard"></a>¿Por qué actualizar al nivel Estándar?
 El nivel Estándar de Security Center ofrece todas las características del nivel gratuito, además de la detección de amenazas avanzada. La detección de amenazas avanzada ayuda a identificar amenazas activas dirigidas a sus recursos de Azure y le ofrece la información necesaria para responder rápidamente.
@@ -61,16 +63,22 @@ Las funciones de análisis de seguridad que se incluyen con el nivel Estándar s
 
 En la hoja **Alertas de seguridad** siguiente, Security Center ha encontrado un **incidente** de seguridad. Un incidente de seguridad es la suma de todas las alertas de un recurso que se alinean con patrones de cadenas de eliminación. Al seleccionar el incidente de seguridad, se muestran más detalles sobre el incidente y una lista de las alertas relacionadas. Al seleccionar una alerta, se muestra más información sobre esa repetición.
 
-![Incidente de seguridad][3]
+![Incidente de seguridad][2]
 
 En la alerta siguiente de **Comunicación de red** se muestran los detalles de la alerta. Los detalles son la descripción completa, la gravedad, el estado actual (que en este caso es descartado, lo que significa que el usuario lo descartó), el recurso atacado y los pasos para la corrección. También se muestra una lista de vínculos a informes de Inteligencia de amenazas de Microsoft. Estos informes se pueden usar con fines de corrección de seguridad y de defensa.
 
-![Detalles de alertas de seguridad][4]
+![Detalles de alertas de seguridad][3]
 
 ## <a name="enable-data-collection"></a>Habilitación de recolección de datos
-Para habilitar el análisis de comportamiento de máquinas virtuales, es necesario activar la recopilación de datos. Es posible que tenga que habilitar la recopilación de datos la primera vez que acceda al Security Center o al crear una directiva de seguridad.
+Para habilitar el análisis de comportamiento de máquinas virtuales, es necesario activar la recopilación de datos.
 
-Para comprobar que la recopilación de datos está habilitada, seleccione el icono **Directiva**. Se abrirá la hoja **Directiva de seguridad** con una lista de sus suscripciones de Azure. Seleccione una suscripción. Si la opción **Recopilación de datos** está desactivada, actívela y guarde los cambios. Vea [Habilitar la recopilación de datos en Azure Security Center](security-center-enable-data-collection.md).
+Para comprobar que la recopilación de datos está habilitada:
+
+1. Seleccione el icono **Directiva**. Se abrirá la hoja **Directiva de seguridad** con una lista de sus suscripciones de Azure.
+2. Seleccione una suscripción.
+3. Si la opción **Recopilación de datos** está desactivada, actívela y guarde los cambios.
+
+Vea [Habilitación de la recolección de datos en Azure Security Center](security-center-enable-data-collection.md) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * En este documento se han presentado los precios de Security Center. Para más información sobre precios, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -79,13 +87,7 @@ Para comprobar que la recopilación de datos está habilitada, seleccione el ico
 * Si aún tiene preguntas sobre el uso de Security Center o sobre Azure, visite los [foros de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
-[1]: ./media/security-center-pricing/free-trial.png
-[2]: ./media/security-center-pricing/standard.png
-[3]: ./media/security-center-pricing/incident.png
-[4]: ./media/security-center-pricing/network-alert.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[1]: ./media/security-center-pricing/standard.png
+[2]: ./media/security-center-pricing/incident.png
+[3]: ./media/security-center-pricing/network-alert.png
 

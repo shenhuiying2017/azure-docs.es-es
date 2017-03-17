@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 080376a50e4cde3d3f9f801408e4a02b75bc72da
-ms.openlocfilehash: 40da274d0dcbf1efb22afc474a1c365f7770fdcb
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 789373189ff0ec1dd9c08bc1725bb781f8b7428b
+ms.openlocfilehash: df25e320e046355bc4a538f8acc4bb9e9cd98d8e
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,7 +52,7 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 * Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
 
 > [!IMPORTANT]
-> Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
+> El aprovisionamiento bajo demanda de un clúster de Azure HDInsight suele tardar **20 minutos** o más.
 > 
 > 
 
@@ -183,7 +183,9 @@ Este tipo de configuración se admite para los entornos de procesos siguientes:
 
 * HDInsight de Azure
 * Azure Batch
-* Aprendizaje automático de Azure.
+* Aprendizaje automático de Azure
+* Análisis con Azure Data Lake
+* Azure SQL DB, Azure SQL DW, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Servicio vinculado de HDInsight de Azure
 Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio clúster de HDInsight con la Factoría de datos.
@@ -325,7 +327,7 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 
 | Tipo de usuario | Expira después de |
 |:--- |:--- |
-| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc). |12 horas |
+| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) |12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) |14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
 Para evitar o resolver este error, debe volver a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente. 

@@ -13,11 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 8da7631d2dfc51e21269d05ace737760e3be61b8
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: ed825353b3a042fe79985f4c79ec476dbd7cf5a5
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -46,6 +48,10 @@ El panel de Storm y las características de Storm de las herramientas de HDInsig
 
   * Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+
+  * Visual Studio 2015 (cualquier edición)
+
+  * Visual Studio 2017 (cualquier edición)
 
 ## <a name="storm-dashboard"></a>panel de Storm
 
@@ -191,9 +197,4 @@ Para obtener una lista con más topologías de ejemplo, consulte [Topologías de
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

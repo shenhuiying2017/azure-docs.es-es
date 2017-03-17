@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
-ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ Para crear el localizador de streaming a petición y obtener las direcciones URL
    
    Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso.  
 4. Genere direcciones URL para el archivo de manifiesto o archivos MP4. 
+
+
+>[!NOTE]
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="use-media-services-net-sdk"></a>Uso del SDK de .NET de Servicios multimedia
 Generación de direcciones URL de streaming 
@@ -173,10 +178,5 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
 ## <a name="see-also"></a>Otras referencias
 [Descarga de recursos](media-services-deliver-asset-download.md)
 [Configuración de directivas de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

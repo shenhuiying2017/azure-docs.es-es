@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/30/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
-ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 9c7073e55b98406fc8f9db9a40bf1a6ffc626f47
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="application-deployment-with-azure-batch-application-packages"></a>Implementación de aplicaciones con paquetes de aplicación de Lote de Azure
+# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
+
 La característica de paquetes de aplicación de Lote de Azure permite administrar e implementar fácilmente aplicaciones de tareas en los nodos de proceso de un grupo. Con paquetes de aplicación, puede cargar y administrar fácilmente varias versiones de las aplicaciones que las tareas ejecutan, incluidos los archivos auxiliares. A continuación, se pueden implementar automáticamente una o varias de estas aplicaciones en los nodos de proceso del grupo.
 
 En este artículo, aprenderá cómo cargar y administrar paquetes de aplicación en el Portal de Azure. A continuación, aprenderá a instalarlos en nodos de proceso de un grupo mediante la biblioteca de [.NET para Batch][api_net].
@@ -348,9 +351,4 @@ Con los paquetes de aplicación puede ayudar a los clientes a seleccionar las ap
 [10]: ./media/batch-application-packages/app_pkg_10.png "Hoja Elegir de cuenta de almacenamiento en Azure Portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Hoja Actualizar paquete en Azure Portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Cuadro de diálogo de confirmación de eliminación de paquetes en Azure Portal"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

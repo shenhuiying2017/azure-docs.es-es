@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
+ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [Replicación en un sitio secundario propiedad del cliente](site-recovery-support-matrix-to-sec-site.md)
 
 
-En este artículo se resumen los componentes y las configuraciones compatibles con Azure Site Recovery cuando se replica y recupera en Azure. Para más información sobre los requisitos previos de Azure Site Recovery, consulte [Procedimientos recomendados de Site Recovery](site-recovery-best-practices.md).
+En este artículo se resumen los componentes y las configuraciones compatibles con Azure Site Recovery cuando se replica y recupera en Azure. Para más información sobre los requisitos de Azure Site Recovery, vea los [requisitos previos](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Compatibilidad con opciones de implementación
@@ -64,7 +65,7 @@ En este artículo se resumen los componentes y las configuraciones compatibles c
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Compatibilidad con las versiones de SO de las máquinas replicadas
 
-Las máquinas virtuales que están protegidas deben cumplir los [requisitos de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) cuando se replican en Azure.
+Las máquinas virtuales que están protegidas deben cumplir los [requisitos de Azure](#failed-over-azure-vm-requirements) cuando se replican en Azure.
 La tabla siguiente resume la compatibilidad con los sistemas operativos de las máquinas replicadas en distintos escenarios de implementación cuando se usa Azure Site Recovery. Esta compatibilidad es aplicable a cualquier carga de trabajo que se ejecute en el SO mencionado.
 
  **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
@@ -147,7 +148,7 @@ Varias rutas (MPIO) | N/D | Sí | Sí
 
 **Almacenamiento de Azure** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Sí | Sí | Sí 
+LRS | Sí | Sí | Sí
 GRS | Sí | Sí | Sí
 Almacenamiento de acceso esporádico | No | No | No
 Almacenamiento de acceso frecuente| No | No | No
@@ -206,10 +207,5 @@ Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Preparación de la implementación](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Comprobación de los requisitos previos](site-recovery-prereq.md)
 

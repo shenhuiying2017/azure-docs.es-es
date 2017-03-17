@@ -1,5 +1,5 @@
 ---
-title: "Cmdlets de la versión preliminar de PowerShell de Azure Active Directory para la administración de grupos en Azure AD | Microsoft Docs"
+title: "Cmdlets de PowerShell de Azure Active Directory para la administración de grupos en Azure AD | Microsoft Docs"
 description: "En esta página se proporcionan ejemplos de PowerShell para ayudarlo a administrar grupos de Azure Active Directory."
 keywords: "Azure AD, Azure Active Directory, PowerShell, grupos, administración de grupos"
 services: active-directory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,12 +30,12 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
 >
 >
 
-En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD).  También se ofrece información sobre cómo configurar el módulo de vista previa de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
+En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD).  También se ofrece información sobre cómo configurar el módulo de vista previa de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Instalación del módulo de Azure AD PowerShell
-Para instalar el módulo de vista previa de Azure AD PowerShell, use los siguientes comandos:
+Para instalar el módulo de Azure AD PowerShell, use los siguientes comandos:
 
-    PS C:\Windows\system32> install-module azureadpreview
+    PS C:\Windows\system32> install-module azuread
 
 Para comprobar que se ha instalado el módulo de vista previa, ejecute el siguiente comando:
 
@@ -44,10 +45,10 @@ Para comprobar que se ha instalado el módulo de vista previa, ejecute el siguie
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción completa de los cmdlets del módulo de vista previa de Azure AD, consulte la [documentación de referencia en línea](https://msdn.microsoft.com/library/azure/mt757216.aspx).
+Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción completa de los cmdlets del módulo de Azure AD, consulte la [documentación de referencia en línea](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 ## <a name="connecting-to-the-directory"></a>Conexión al directorio
-Antes de empezar a administrar los grupos mediante los cmdlets de vista previa de Azure AD PowerShell, debe conectar la sesión de PowerShell al directorio que quiera administrar. Para ello, ejecute el siguiente comando:
+Antes de empezar a administrar los grupos mediante los cmdlets de Azure AD PowerShell, debe conectar la sesión de PowerShell al directorio que quiera administrar. Para ello, ejecute el siguiente comando:
 
     PS C:\Windows\system32> Connect-AzureAD
 
@@ -57,7 +58,7 @@ El cmdlet le pedirá las credenciales que quiera utilizar para acceder al direct
     -------                       ----------- ------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 
-Ahora puede empezar a usar los cmdlets de vista previa de Azure AD para administrar grupos en el directorio.
+Ahora puede empezar a usar los cmdlets de Azure AD para administrar grupos en el directorio.
 
 ## <a name="retrieving-groups"></a>Recuperación de grupos
 Para recuperar grupos que ya se encuentren en el directorio, puede usar el cmdlet Get-AzureADGroups. Para recuperar todos los grupos del directorio, ejecute el cmdlet sin parámetros:
@@ -225,13 +226,8 @@ Si desea quitar un propietario de un grupo, utilice Remove-AzureADGroupOwner:
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>Pasos siguientes
-Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
+Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

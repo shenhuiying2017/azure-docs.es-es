@@ -1,5 +1,5 @@
 ---
-title: Trabajo con datos geoespaciales en Azure DocumentDB | Microsoft Docs
+title: Trabajar con datos geoespaciales en Azure DocumentDB | Microsoft Docs
 description: "Entender cómo crear, indexar y consultar los objetos espaciales con DocumentDB de Azure."
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: f78c0fc1959f72164508af9d8945744b67fac68b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="working-with-geospatial-data-in-azure-documentdb"></a>Trabajo con datos geoespaciales en Azure DocumentDB
+# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>Trabajar con datos geoespaciales y de ubicación de GeoJSON en DocumentDB
 Este artículo es una introducción a la funcionalidad geoespacial en [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 * ¿Cómo almaceno los datos espaciales en Azure DocumentDB?
@@ -94,7 +96,7 @@ Además de puntos, LineStrings y polígonos, GeoJSON también especifica la repr
 ### <a name="coordinate-reference-systems"></a>Sistemas de coordenadas de referencia
 Dado que la forma de la tierra es irregular, las coordenadas de los datos geoespaciales se representa en muchos sistemas de coordenadas de referencia (CRS), cada uno con sus propios marcos de referencia y unidades de medida. Por ejemplo, la "National Grid of Britain" es un sistema de referencia muy preciso para el Reino Unido, pero no fuera de él. 
 
-El sistema de coordenadas de referencia más popular en uso hoy en día es el Sistema Geodésico Mundial [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Los dispositivos GPS y muchos servicios de mapeado como Google Maps y API de Bing Maps, usan WGS 84. DocumentDB admite indexación y consulta de datos geoespaciales usando solo el sistema WGS 84. 
+El sistema de coordenadas de referencia más popular en uso hoy en día es el Sistema Geodésico Mundial [WGS&84;](http://earth-info.nga.mil/GandG/wgs84/). Los dispositivos GPS y muchos servicios de mapeado como Google Maps y API de Bing Maps, usan WGS&84;. DocumentDB admite indexación y consulta de datos geoespaciales usando solo el sistema WGS&84;. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Creación de documentos con datos espaciales
 Al crear documentos que contengan valores GeoJSON, se indizan automáticamente con un índice espacial de acuerdo con la directiva de indexación de la colección. Si está trabajando con un SDK DocumentDB en un lenguaje dinámico como Python o Node.js, debe crear especificaciones GeoJSON válidas.
@@ -387,10 +389,5 @@ Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en 
 * Empezar a realizar consultas geoespaciales en el [Área de consultas de DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 * Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md)
 * Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

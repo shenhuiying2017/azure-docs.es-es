@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8fefaf3c371a2eb0fb83c59122a7419cff99e79
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 8314db293ac3c9cbc2882c9a981819d0c5c02df3
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -37,9 +38,8 @@ Para configurar la integración de Azure AD con Predictix Assortment Planning, n
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en Predictix Assortment Planning
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -55,7 +55,7 @@ La situación descrita en este tutorial consta de dos bloques de creación princ
 1. Incorporación de Predictix Assortment Planning desde la galería
 2. Configuración y prueba del inicio de sesión único de Microsoft Azure AD
 
-## <a name="adding-predictix-assortment-planning-from-the-gallery"></a>Incorporación de Predictix Assortment Planning desde la galería
+## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Adición de Predictix Assortment Planning desde la galería
 Para configurar la integración de Predictix Assortment Planning en Azure AD, deberá agregar Predictix Assortment Planning desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Predictix Assortment Planning desde la galería, siga estos pasos:**
@@ -80,7 +80,7 @@ Para configurar la integración de Predictix Assortment Planning en Azure AD, de
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_02.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Microsoft Azure AD con Predictix Assortment Planning con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Predictix Assortment Planning para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Predictix Assortment Planning.
@@ -89,13 +89,13 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 
 Para configurar y probar el inicio de sesión único de Microsoft Azure AD con Predictix Assortment Planning, es preciso completar los siguientes pasos preliminares:
 
-1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Microsoft Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Predictix Assortment Planning](#creating-a-predictix-price-reporting-test-user)**: para tener un homólogo de Britta Simon en Predictix Assortment Planning que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para que Britta Simon pueda usar el inicio de sesión único de Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Microsoft Azure AD
+### <a name="configure-microsoft-azure-ad-sso"></a>Configuración del inicio de sesión único de Microsoft Azure AD
 En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Predictix Assortment Planning.
 
 **Para configurar el inicio de sesión único de Microsoft Azure AD con Predictix Assortment Planning, siga estos pasos:**
@@ -109,26 +109,19 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_04.png) 
-   
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Predictix Assortment Planning con el siguiente patrón: **https://\<company name-pricing\>.ap.predictix.com/sso/request**.
-   
-    b. click **Siguiente**
+  1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Predictix Assortment Planning con el siguiente patrón: **https://\<company name-pricing\>.ap.predictix.com/sso/request**.
+  2. click **Siguiente**
 4. En la página **Configurar inicio de sesión único en Predictix Assortment Planning** , siga estos pasos:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_05.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Next**.
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.  
+  2. Haga clic en **Siguiente**.
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Predictix Assortment Planning y proporcione lo siguiente:
    
-    • El certificado descargado
-   
-    • El **identificador de entidad**
-   
-    • La **dirección URL de inicio de sesión único de SAML**
-   
-    • La **dirección URL del servicio de cierre de sesión único**
+  * El certificado descargado
+  * El **identificador de entidad**  
+  * La **dirección URL de inicio de sesión único de SAML**
+  * La **dirección URL del servicio de cierre de sesión único**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -136,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 ![Creación de un usuario de Azure AD][20]
@@ -153,39 +146,33 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png) 
-5. En el cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_05.png) 
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
+6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
+
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_06.png) 
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**. 
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-an-predictix-assortment-planning-test-user"></a>Creación de un usuario de prueba de Predictix Assortment Planning
+### <a name="create-an-predictix-assortment-planning-test-user"></a>Creación de un usuario de prueba de Predictix Assortment Planning
 En esta sección, creará un usuario llamado Britta Simon en Predictix Assortment Planning. Trabaje con el equipo de soporte técnico de Predictix Assortment Planning para agregar usuarios a la plataforma de Predictix Assortment Planning.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Predictix Assortment Planning.
 
 ![Asignar usuario][200] 
@@ -206,7 +193,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-sso"></a>Prueba de SSO
 En esta sección, probará la configuración de inicio de sesión único de Microsoft Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Predictix Assortment Planning en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Predictix Assortment Planning.
@@ -232,9 +219,4 @@ Al hacer clic en el icono de Predictix Assortment Planning en el panel de acceso
 [203]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

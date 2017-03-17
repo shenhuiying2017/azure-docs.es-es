@@ -1,5 +1,5 @@
 ---
-title: "Configuración de grupos de disponibilidad Always On en máquinas virtuales de Azure (implementación clásica)"
+title: "Configurar grupos de disponibilidad Always On en máquinas virtuales de Azure (implementación clásica) | Microsoft Docs"
 description: "Creación de un grupo de disponibilidad AlwaysOn con máquinas virtuales de Azure. Este tutorial usa principalmente la interfaz de usuario y herramientas en lugar de scripts."
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 87f16f54958b20b8b321d09c734923269bd0503e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c1a1c7d2fd56e20d30cf0468de2d7d6c2935ef3e
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm---classic"></a>Configuración de grupos de disponibilidad Always On en máquinas virtuales de Azure (implementación clásica)
+# <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Configuración de grupos de disponibilidad Always On en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager: plantilla](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 > * [Azure Resource Manager: configuración manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
@@ -415,10 +416,5 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
 Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

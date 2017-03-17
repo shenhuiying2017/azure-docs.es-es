@@ -1,5 +1,5 @@
 ---
-title: "Aprovisionamiento de aplicaciones basada en atributos con filtros de ámbito | Microsoft Docs"
+title: "Aprovisionamiento de aplicaciones con filtros de ámbito | Microsoft Docs"
 description: "Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento real de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales."
 services: active-directory
 documentationcenter: 
@@ -11,15 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: 3e4458f70afce9ebd9477b00afc39b6e84e49319
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de esta sección es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en la aplicación.
 
 ## <a name="clauses-and-scope-groups"></a>Cláusulas y grupos de ámbitos
@@ -27,7 +29,7 @@ El objetivo de esta sección es explicar cómo usar filtros de ámbito para defi
 
 Los filtros de ámbito se definen mediante uno o varios **grupos de ámbitos**, y cada uno de ellos contiene una o varias **cláusulas**. Para ver las cláusulas de un grupo de ámbitos concreto, haga clic en la flecha situada a la izquierda del nombre del grupo para expandirlo.
 
-Una **cláusula** determina qué usuarios pueden pasar a través del filtro de ámbito mediante la evaluación de los atributos de cada usuario. Por ejemplo, podría tener una cláusula que requiere que el atributo "state" del usuario sea igual a Nueva York, lo que significa que sólo se aprovisionará a los usuarios de Nueva York en la aplicación.
+Una **cláusula** determina qué usuarios pueden pasar a través del filtro de ámbito mediante la evaluación de los atributos de cada usuario. Por ejemplo, podría tener una cláusula que requiere que el atributo "state" del usuario sea igual a Nueva York, de modo que solo se aprovisionará a los usuarios de Nueva York en la aplicación.
 
 ![Nombre del grupo de ámbito][2] 
 
@@ -40,7 +42,7 @@ Durante el aprovisionamiento, probamos a cada usuario asignado con los filtros d
 
 Si ha definido varios grupos de ámbitos, cada usuario debe pasar al menos uno de ellos para poder tener acceso a la aplicación. Dentro de cada grupo de ámbitos, sin embargo, el usuario debe pasar cada cláusula para pasar ese grupo de ámbitos específico. 
 
-En otras palabras, puede considerar los grupos de ámbitos como agrupaciones mediante el operador OR, y puede considerar las cláusulas contenidas en ellos como agrupaciones mediante el operador AND. Por ejemplo, observe el siguiente filtro de ámbito:
+En otras palabras, puede considerar los grupos de ámbitos como agrupaciones mediante el operador OR, y puede considerar las cláusulas contenidas en ellos como agrupaciones mediante el operador AND. Por ejemplo, considere el siguiente filtro de ámbito:
 
 ![Nombre del grupo de ámbito][3]  
 
@@ -63,9 +65,4 @@ Según este filtro de ámbito, los usuarios deben cumplir los siguientes criteri
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./media/active-directory-saas-scoping-filters/ic782813.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

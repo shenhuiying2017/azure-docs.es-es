@@ -6,7 +6,7 @@ documentationcenter:
 author: shizn
 manager: timtl
 tags: 
-keywords: "desarrollo de Intel Edison, IoT Hub de Azure, introducción a Internet de las cosas, tutorial de Internet de las cosas, Adafruit e Internet de las cosas, Intel Edison Arduino, introducción a Arduino"
+keywords: "desarrollo de Intel Edison, Azure IoT Hub, introducción a Internet de las cosas, tutorial de Internet de las cosas, Adafruit e Internet de las cosas, Intel Edison Arduino, introducción a Arduino"
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
 ms.devlang: c
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/7/2016
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
-ms.openlocfilehash: 90b7486d8a5997db16419a85e79f1c181de98b95
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 248bc4c309ed61ae00ef144ebdb4c820f285783d
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-c"></a>Introducción a Intel Edison (C)
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-c"></a>Conexión de un dispositivo Intel Edison a su IoT Hub mediante C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ Si tiene algún problema durante las lecciones, puede encontrar soluciones en el
 [receive-cloud-to-device-messages]:iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

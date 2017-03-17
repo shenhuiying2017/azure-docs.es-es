@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
-ms.openlocfilehash: bf69d2fdfb80395f9af58d113e4f8838c6bb93be
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -86,9 +87,21 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
+```java
+// Create actor ID with some name
+ActorId actorId = new ActorId("Actor1");
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+MyActor myActor = ActorProxyBase.create(actorId, new URI("fabric:/MyApp/MyActorService"), MyActor.class);
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+myActor.DoWorkAsync().get();
+```
+
+
 Tenga en cuenta que los dos tipos de datos que se usan para crear el objeto de proxy de actor son el identificador del actor y el nombre de la aplicación. El identificador de actor identifica de forma única al actor, mientras que el nombre de la aplicación identifica la [Aplicación de Service Fabric](service-fabric-reliable-actors-platform.md#application-model) en la que se implementa el actor.
 
-La clase `ActorProxy` del cliente realiza la resolución necesaria para localizar el actor mediante el identificador y abre un canal de comunicación con él. `ActorProxy` también vuelve a intentar ubicar el actor en caso de que se produzcan errores de comunicación y conmutaciones por error. Como resultado, la entrega de mensajes tiene las siguientes características:
+La clase `ActorProxy`(C#) / `ActorProxyBase`(Java) del cliente realiza la resolución necesaria para localizar el actor mediante el identificador y abre un canal de comunicación con él. También vuelve a intentar localizar el actor en caso de que se produzcan errores de comunicación y conmutaciones por error. Como resultado, la entrega de mensajes tiene las siguientes características:
 
 * La entrega de mensajes es la mejor opción.
 * Los actores pueden recibir mensajes duplicados del mismo cliente.
@@ -122,7 +135,7 @@ Algunos puntos importantes a tener en cuenta:
 * Cuando *Method1* se ejecuta en nombre de *ActorId2* en respuesta a la solicitud de cliente *xyz789*, llega otra solicitud de cliente (*abc123*) que también requiere que *Method1* lo ejecute *ActorId2*. Sin embargo, la segunda ejecución de *Method1* no comienza hasta que se haya completado la ejecución anterior. De forma similar, un recordatorio que haya registrado *ActorId2* se activa cuando *Method1* se ejecuta en respuesta a la solicitud de cliente *xyz789*. La devolución de llamada del recordatorio se ejecuta solo después de que las dos ejecuciones de *Method1* se hayan completado. Todo esto se debe a la simultaneidad basada en turnos que se exige para *ActorId2*.
 * De forma similar, también se aplica la simultaneidad basada en turnos para *ActorId1*, como se muestra en la ejecución de *Method1*, la ejecución de *Method2* y la devolución de llamada del temporizador en nombre de *ActorId1*, que suceden en serie.
 * La ejecución de *Method1* en nombre de *ActorId1* se superpone con su ejecución en nombre de *ActorId2*. Esto es así porque solo se exige la simultaneidad basada en turnos dentro de un actor y no para todos los actores.
-* En algunas ejecuciones de métodos y devoluciones de llamada, el elemento `Task` que devuelve el método o la devolución de llamada se completa después de la devolución del método. En otras palabras, `Task` ya se ha completado antes de la devolución del método o la devolución de llamada. En ambos casos, el bloqueo por actor se libera solo después de la devolución del método o la devolución de llamada y `Task` finaliza.
+* En algunas ejecuciones de métodos y devoluciones de llamada, el elemento `Task`(C#) / `CompletableFuture`(Java) que devuelve el método o la devolución de llamada se completa después de la devolución del método. En otras, la operación asincrónica ya se completó antes de la devolución del método o la devolución de llamada. En ambos casos, el bloqueo por actor se libera solo después de la devolución del método o la devolución de llamada, y de la finalización de la operación asincrónica.
 
 #### <a name="reentrancy"></a>Reentrada
 El tiempo de ejecución de los actores permite la reentrada de forma predeterminada. Esto significa que si un método de actor del *actor A* llama a un método del *actor B*, que a su vez llama a otro método del *actor A*, se permite que ese método se ejecute. Esto es porque forma parte del mismo contexto lógico de la cadena de llamada. Todas las llamadas del temporizador y el recordatorio comienzan con el nuevo contexto de llamada lógico. Consulte [Reentrada en Reliable Actors](service-fabric-reliable-actors-reentrancy.md) para más detalles.
@@ -145,9 +158,4 @@ El tiempo de ejecución de los actores ofrece estas garantías de simultaneidad 
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

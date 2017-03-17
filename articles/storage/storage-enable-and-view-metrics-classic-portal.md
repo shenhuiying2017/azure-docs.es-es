@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 3c3c7924655f5b932be2a3d947a4df786fc0630d
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## <a name="overview"></a>Información general
-Las Métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el [Portal de Azure clásico](https://manage.windowsazure.com), Windows PowerShell o mediante programación a través de una API de almacenamiento.
+Las métricas de almacenamiento se habilitan de forma predeterminada al crear una nueva cuenta de almacenamiento. Puede configurar la supervisión mediante el [Portal de Azure clásico](https://manage.windowsazure.com), Windows PowerShell o mediante programación a través de una API de almacenamiento.
 
 Al habilitar las Métricas de almacenamiento, debe elegir un período de retención de datos: este período determina el tiempo que el servicio de almacenamiento mantiene las métricas y cobra por el espacio necesario para almacenarlas. Generalmente, usará un período de retención más corto para la métrica por minuto que para la métrica por hora debido al considerable espacio adicional requerido para la métrica por minuto. Debe elegir un período de retención durante el cual tenga suficiente tiempo para analizar los datos y descargar todas las métricas que quiera mantener para los informes o el análisis sin conexión. Recuerde que también se le facturará por la descarga de los datos de métricas desde su cuenta de almacenamiento.
 
@@ -190,8 +191,3 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 
 ## <a name="next-steps"></a>Pasos siguientes:
 [Habilitar el registro del Análisis de almacenamiento y acceder a los datos del mismo](https://msdn.microsoft.com/library/dn782840.aspx)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/02/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9d654904e06758bc8634efa9b18ea3bac2b64523
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -60,8 +60,8 @@ Primero debe habilitar la aplicación cliente para obtener acceso al servicio SQ
 7. Copie el **ID. DE CLIENTE**. (Necesitará este valor en el código más adelante).
 8. En la sección **Claves**, seleccione **1 año** en la lista desplegable **Seleccionar duración**. (Copiará la clave después de guardar en el paso 13).
 9. Desplácese hacia abajo y haga clic en **Agregar aplicación**.
-10. Deje **MOSTRAR** en **Aplicaciones de Microsoft** y seleccione **Microsoft Azure Service Management**. Haga clic en la marca de verificación para continuar.
-11. En la lista desplegable **Permisos delegados**, seleccione **Acceso a Azure Service Management**.
+10. Deje **MOSTRAR** en **Aplicaciones de Microsoft** y seleccione **API de administración de servicios de Microsoft Azure**. Haga clic en la marca de verificación para continuar.
+11. En la lista desplegable **Permisos delegados**, seleccione **Acceso a administración de servicios de Azure...**
 12. Haga clic en **GUARDAR**.
 13. Una vez finalizada la operación de guardar, copie el valor de clave en la sección **keys** . (Necesitará este valor en el código más adelante).
 

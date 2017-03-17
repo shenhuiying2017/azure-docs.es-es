@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 03/01/2017
 ms.author: kdotchko
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 47e1d5172dabac18c1b355d8514ae492cd973d32
-ms.openlocfilehash: 5c362af149afd4a204c2705ae3d7f67361d8d528
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: c09caf68b4acf90b5a76d2d715e07fc3a522f18c
+ms.openlocfilehash: 7b9b7e558a95de88dedcb744e2a4b3c18cde35cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="iot-hub-mqtt-support"></a>Compatibilidad con MQTT del Centro de IoT
+# <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 IoT Hub permite a los dispositivos comunicarse con los puntos de conexión de dispositivos de IoT Hub utilizando el protocolo [MQTT v3.1.1][lnk-mqtt-org] en el puerto 8883 o MQTT v3.1.1 sobre el protocolo WebSocket en el puerto 443. IoT Hub requiere que toda la comunicación del dispositivo se proteja mediante TLS/SSL (por lo tanto, IoT Hub no es compatible con conexiones no seguras en el puerto 1883).
 
 ## <a name="connecting-to-iot-hub"></a>Conexión al Centro de IoT
@@ -92,12 +93,12 @@ La aplicación del dispositivo también puede utilizar `devices/{device_id}/mess
 - IoT Hub no retiene los mensajes de conservación. Si un dispositivo envía un mensaje con la marca **RETAIN** establecida en 1, el IoT Hub agrega la propiedad de aplicación **x-opt-retain** al mensaje. En este caso, en lugar de retener el mensaje de conservación, IoT Hub lo pasa a la aplicación de back-end.
 - IoT Hub solo admite una conexión MQTT activa por dispositivo. Todas las conexiones MQTT nuevas en nombre del mismo identificador de dispositivo provocarán que IoT Hub cierre la existente.
 
-Consulte la [guía de mensajería para desarrolladores][lnk-messaging] para más información.
+Para obtener más información, consulte la [guía del desarrollador de mensajería][lnk-messaging].
 
 ### <a name="receiving-cloud-to-device-messages"></a>Recepción de mensajes de nube a dispositivo
 Para recibir mensajes de IoT Hub, un dispositivo debe suscribirse usando `devices/{device_id}/messages/devicebound/#` como un **filtro de tema**. El comodín de varios niveles **#** en el filtro de tema solo se utiliza para permitir que el dispositivo reciba propiedades adicionales en el nombre del tema. ¿IoT Hub no permite el uso de **#** o **?** caracteres comodín para el filtrado de subtemas. Puesto que IoT Hub no es un agente de mensajería de publicación-suscripción de propósito general, solo admite los filtros de tema y los nombres de tema documentados.
 
-Por favor, tenga en cuenta que el dispositivo no recibirá ningún mensaje desde IoT Hub, antes se había suscrito correctamente al punto de conexión específico del dispositivo representado por el filtro del tema `devices/{device_id}/messages/devicebound/#`. Después de que se haya establecido una suscripción correcta, el dispositivo comenzará a recibir solo los mensajes de la nube al dispositivo que se han enviado a él después de la hora de la suscripción. Si el dispositivo se conecta con la marca **CleanSession** establecida en **0**, la suscripción se conservará entre distintas sesiones. En este caso, la próxima vez que se conecta con **CleanSession 0**, el dispositivo recibirá mensajes pendientes que se han enviado a él mientras estaba desconectado. Si el dispositivo usa la marca **CleanSession** establecida en **1**, no recibirá los mensajes de IoT Hub hasta que se suscriba al punto de conexión del dispositivo.
+Tenga en cuenta que el dispositivo no recibirá ningún mensaje desde IoT Hub hasta que se haya suscrito correctamente al punto de conexión específico del dispositivo, representado por el filtro del tema `devices/{device_id}/messages/devicebound/#`. Después de que se haya establecido una suscripción correcta, el dispositivo comenzará a recibir solo los mensajes de la nube al dispositivo que se han enviado a él después de la hora de la suscripción. Si el dispositivo se conecta con la marca **CleanSession** establecida en **0**, la suscripción se conservará entre distintas sesiones. En este caso, la próxima vez que se conecta con **CleanSession 0**, el dispositivo recibirá mensajes pendientes que se han enviado a él mientras estaba desconectado. Si el dispositivo usa la marca **CleanSession** establecida en **1**, no recibirá los mensajes de IoT Hub hasta que se suscriba al punto de conexión del dispositivo.
 
 IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/`, o `devices/{device_id}/messages/devicebound/{property_bag}` si hay alguna propiedad de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$**; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo.
 
@@ -105,12 +106,12 @@ Cuando una aplicación de dispositivo se suscribe a un tema con **QoS 2**, IoT H
 
 ### <a name="retrieving-a-device-twins-properties"></a>Recuperación de propiedades del dispositivo gemelo
 
-En primer lugar, un dispositivo se suscribe a `$iothub/twin/res/#` para recibir las respuestas de la operación. A continuación, envía un mensaje en blanco al tema `$iothub/twin/GET/?$rid={request id}`, con un valor en **request id**. El servicio envía un mensaje de respuesta que contiene los datos del dispositivo gemelo en tema `$iothub/twin/res/{status}/?$rid={request id}`, con el mismo **request id** de la solicitud.
+En primer lugar, un dispositivo se suscribe a `$iothub/twin/res/#` para recibir las respuestas de la operación. A continuación, envía un mensaje en blanco al tema `$iothub/twin/GET/?$rid={request id}`, con un valor en **request id**. El servicio enviará entonces un mensaje de respuesta que contiene los datos del dispositivo gemelo del tema `$iothub/twin/res/{status}/?$rid={request id}`, usando el mismo **identificador de solicitud** que la solicitud.
 
-request id puede ser cualquier valor válido de propiedad de mensaje, según la [guía de mensajería para desarrolladores][lnk-messaging], y el estado se valida como entero.
+El identificador de la solicitud puede ser cualquier valor válido de propiedad de mensaje, según la [guía del desarrollador de mensajería de IoT Hub][lnk-messaging], y el estado se valida como entero.
 El cuerpo de respuesta contendrá la sección de propiedades del dispositivo gemelo:
 
-El cuerpo de la entrada del registro de identidad limitado al miembro "properties", p. ej.
+El cuerpo de la entrada del registro de identidad limitado al miembro "properties", p. ej.:
 
         {
             "properties": {
@@ -134,7 +135,7 @@ Los códigos de estado posibles son:
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub][lnk-quotas] |
 | 5** | Errores del servidor |
 
-Consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin] para más información.
+Para obtener más información, consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin].
 
 ### <a name="update-device-twins-reported-properties"></a>Actualización de las propiedades notificadas del dispositivo gemelo
 
@@ -163,7 +164,7 @@ Los códigos de estado posibles son:
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub][lnk-quotas] |
 | 5** | Errores del servidor |
 
-Consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin] para más información.
+Para obtener más información, consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin].
 
 ### <a name="receiving-desired-properties-update-notifications"></a>Recepción de notificaciones de actualización de las propiedades deseadas
 
@@ -178,9 +179,9 @@ Para las actualizaciones de propiedad, los valores `null` significan que se elim
 
 
 > [!IMPORTANT] 
-> IoT Hub genera notificaciones de cambio solo si los dispositivos están conectados, asegúrese de implementar el [flujo de reconexión de dispositivos][lnk-devguide-twin-reconnection] para mantener las propiedades que desee sincronizadas entre el centro de IoT y la aplicación del dispositivo.
+> IoT Hub genera notificaciones de cambio solo si los dispositivos están conectados. Asegúrese de implementar el [flujo de reconexión de dispositivos][lnk-devguide-twin-reconnection] para mantener las propiedades que desee sincronizadas entre IoT Hub y la aplicación del dispositivo.
 
-Consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin] para más información.
+Para obtener más información, consulte la [guía para desarrolladores sobre dispositivos gemelos][lnk-devguide-twin].
 
 ### <a name="respond-to-a-direct-method"></a>Respuesta a un método directo
 
@@ -188,7 +189,7 @@ En primer lugar, tiene que suscribirse un dispositivo a `$iothub/methods/POST/#`
 
 Para responder, el dispositivo enviará un mensaje con un valor JSON válido o un cuerpo vacío al tema `$iothub/methods/res/{status}/?$rid={request id}`, donde **request id** tiene que coincidir con el mensaje de solicitud y **status** debe ser un entero.
 
-Consulte la [guía para desarrolladores sobre el método directo][lnk-methods] para más información.
+Para obtener más información, consulte la [guía para desarrolladores sobre el método directo][lnk-methods].
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 Como consideración final, si necesita personalizar el comportamiento del protocolo MQTT en el lado de la nube, debe revisar la [puerta de enlace de protocolos de IoT de Azure][lnk-azure-protocol-gateway] que le permite implementar una puerta de enlace de protocolo personalizado de alto rendimiento que interactúa directamente con IoT Hub. La puerta de enlace de protocolos de IoT de Azure le permite personalizar el protocolo del dispositivo para dar cabida a las implementaciones de MQTT de Brownfield u otros protocolos personalizados. Sin embargo, este enfoque requiere que se ejecute y se ponga en funcionamiento una puerta de enlace de protocolo personalizado.

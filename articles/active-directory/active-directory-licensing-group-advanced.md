@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 03/03/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dad9a176f5f60b9165c5a55628929460047e5fdd
-ms.openlocfilehash: a1510240350d88ee140acb11b3f86fd7985b9427
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
+ms.openlocfilehash: a739e2320f8ea42912d169353a956e2b2f551619
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="azure-active-directory-group-based-licensing-additional-scenarios"></a>Escenarios adicionales de licencias basadas en grupos de Azure Active Directory
+# <a name="scenarios-limitations-and-known-issues-with-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos con el uso de grupos para administrar las licencias en Azure Active Directory 
 
 ## <a name="group-based-licensing-using-dynamic-groups"></a>Administración de licencias basadas en grupos mediante grupos dinámicos
 
@@ -121,77 +122,77 @@ Durante la versión preliminar pública, PowerShell no puede usarse para control
 
 3. En este ejemplo, queremos averiguar qué usuarios tienen la licencia *EMS* asignada directamente, mediante un grupo, o ambas. Se usará un script de PowerShell que contiene dos funciones que pueden responder a esta pregunta para un objeto de usuario y una SKU
   ```
-  \# Returns TRUE if the user has the license assigned directly
+  # Returns TRUE if the user has the license assigned directly
 
   function UserHasLicenseAssignedDirectly
   {
-      Param(\[Microsoft.Online.Administration.User\]\$user, \[string\]\$skuId)
+      Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
 
-      foreach(\$license in \$user.Licenses)
+      foreach($license in $user.Licenses)
       {
-          \# we look for the specific license SKU in all licenses assigned to the user
-          if (\$license.AccountSkuId -ieq \$skuId)
+          # we look for the specific license SKU in all licenses assigned to the user
+          if ($license.AccountSkuId -ieq $skuId)
           {
-              \# GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-              \# This could be a group object or a user object (contrary to what the name suggests)
-              \# If the collection is empty, this means the license is assigned directly - this is the case for users who have never been licensed via groups in the past
+              # GroupsAssigningLicense contains a collection of IDs of objects assigning the license
+              # This could be a group object or a user object (contrary to what the name suggests)
+              # If the collection is empty, this means the license is assigned directly - this is the case for users who have never been licensed via groups in the past
 
-              if (\$license.GroupsAssigningLicense.Count -eq 0)
+              if ($license.GroupsAssigningLicense.Count -eq 0)
               {
-                  return \$true
+                  return $true
               }
-              \# If the collection contains the ID of the user object, this means the license is assigned directly
-              \# Note: the license may also be assigned through one or more groups in addition to being assigned directly
-              foreach (\$assignmentSource in \$license.GroupsAssigningLicense)
+              # If the collection contains the ID of the user object, this means the license is assigned directly
+              # Note: the license may also be assigned through one or more groups in addition to being assigned directly
+              foreach ($assignmentSource in $license.GroupsAssigningLicense)
               {
-                  if (\$assignmentSource -ieq \$user.ObjectId)
+                  if ($assignmentSource -ieq $user.ObjectId)
                   {
-                      return \$true
+                      return $true
                   }
 
               }
-              return \$false
+              return $false
           }
       }
-      return \$false
+      return $false
   }
-  \# Returns TRUE if the user is inheriting the license from a group
+  # Returns TRUE if the user is inheriting the license from a group
   function UserHasLicenseAssignedFromGroup
   {
-      Param(\[Microsoft.Online.Administration.User\]\$user, \[string\]\$skuId)
-      foreach(\$license in \$user.Licenses)
+      Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
+      foreach($license in $user.Licenses)
       {
-          \# we look for the specific license SKU in all licenses assigned to the user
-          if (\$license.AccountSkuId -ieq \$skuId)
+          # we look for the specific license SKU in all licenses assigned to the user
+          if ($license.AccountSkuId -ieq $skuId)
           {
-              \# GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-              \# This could be a group object or a user object (contrary to what the name suggests)
-              foreach (\$assignmentSource in \$license.GroupsAssigningLicense)
+              # GroupsAssigningLicense contains a collection of IDs of objects assigning the license
+              # This could be a group object or a user object (contrary to what the name suggests)
+              foreach ($assignmentSource in $license.GroupsAssigningLicense)
               {
-                  \# If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-                  \# Note: the license may also be assigned directly in addition to being inherited
-                  if (\$assignmentSource -ine \$user.ObjectId)
+                  # If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
+                  # Note: the license may also be assigned directly in addition to being inherited
+                  if ($assignmentSource -ine $user.ObjectId)
                   {
-                      return \$true
+                      return $true
                   }
               }
-              return \$false
+              return $false
           }
       }
-      return \$false
+      return $false
   }
   ```
 4. El resto del script obtiene todos los usuarios y ejecuta estas funciones en cada usuario; después, da formato a la salida en una tabla.
 
   ```
-  \# the license SKU we are interested in
-  \$skuId = "reseller-account:EMS"
-  \# find all users that have the SKU license assigned
-  Get-MsolUser -All | where {\$\_.isLicensed -eq \$true -and \$\_.Licenses.AccountSKUID -eq \$skuId} | select \`
-      ObjectId, \`
-      @{Name="SkuId";Expression={\$skuId}}, \`
-      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly \$\_ \$skuId)}}, \`
-      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup \$\_ \$skuId)}}
+  # the license SKU we are interested in
+  $skuId = "reseller-account:EMS"
+  # find all users that have the SKU license assigned
+  Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
+      ObjectId, `
+      @{Name="SkuId";Expression={$skuId}}, `
+      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly $_ $skuId)}}, `
+      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
   ```
 
 5. La salida del script completo tiene el siguiente aspecto:
@@ -206,7 +207,7 @@ Durante la versión preliminar pública, PowerShell no puede usarse para control
 
 3. Actualmente, el [portal de administración de Office 365](https://portal.office.com ) no admite licencias basada en grupos. Si un usuario hereda una licencia de un grupo, esta licencia se mostrará en el portal de administración de Office como una licencia de usuario normal. Si intenta modificar esa licencia (por ejemplo, para deshabilitar un servicio en la licencia, o intentar quitar la licencia) el portal devolverá un mensaje de error (porque las licencias heredadas del grupo no se pueden modificar directamente en un usuario).
 
-  `To assign a license that contains Azure Information Protection Plan 1, you must also assign one of the following service plans: Azure Rights Management.`
+  `One or more of the licenses could not be modified because they are inherited from a group membership. To view or modify group based licenses visit the Azure admin portal.`
 
 4. Cuando se quita un usuario de un grupo y pierde la licencia, los planes de servicio de esa licencia (por ejemplo, Exchange Online o SharePoint Online) pasan a un estado "suspendido" en lugar de un estado deshabilitado final. Esto sirve como medida de precaución para evitar la eliminación accidental de datos de usuario si un administrador comete un error en la administración de la pertenencia a un grupo.
 

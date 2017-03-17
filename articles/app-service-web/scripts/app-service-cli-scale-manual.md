@@ -16,9 +16,9 @@ ms.workload: web
 ms.date: 02/21/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: c23bab16ee8bf771f4af44abc94e958f512d5390
-ms.openlocfilehash: ddd4646bd900ad5766c2a41a1afa70cdbaa581b1
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 16e10ce51758f8d0d62457cac311b0449721ec34
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -34,13 +34,7 @@ Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución d
 
 [!code-azurecli[principal](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "Escalado manual")]
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
-
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación App Service y todos los recursos relacionados.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicación del script
 

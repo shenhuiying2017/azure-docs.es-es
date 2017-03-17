@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: aba17fb9f7a07b4d67092875a119ab463da5d273
-ms.openlocfilehash: ffd85e1df173fdbc392339cd169281c1ae3fbb5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 66848eee215732803a1070e13d56f35b17e54975
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -159,7 +160,7 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 | Valor de umbral (número por segundo para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
 | aggregator (estadística de la métrica que, en este caso, usa el recuento medio) |Media |
-| mensajes de correo electrónico personalizados (matriz de cadenas) |'foo@example.com','bar@example.com' |
+| mensajes de correo electrónico personalizados (matriz de cadenas) |"foo@example.com","bar@example.com" |
 | enviar correo electrónico a los propietarios, colaboradores y lectores |-SendToServiceOwners |
 
 Creación de una acción de correo electrónico
@@ -253,13 +254,13 @@ En los ejemplos siguientes se muestra cómo puede crear una configuración de es
 En primer lugar, cree una regla de escalado horizontal con un aumento del recuento de instancias.
 
 ```PowerShell
-$rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
+$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
 Después, cree una regla de reducción de escalado con una disminución del recuento de instancias.
 
 ```PowerShell
-$rule2 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 2 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue 1
+$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
 ```
 
 Después, cree un perfil para las reglas.
@@ -399,9 +400,4 @@ Habilitación de la configuración de diagnóstico para OMS
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
 
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

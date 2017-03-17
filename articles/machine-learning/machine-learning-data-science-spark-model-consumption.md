@@ -1,6 +1,6 @@
 ---
-title: "Puntuación de modelos de aprendizaje automático creados con Spark | Microsoft Docs"
-description: "Cómo puntuar modelos de aprendizaje almacenados en Almacenamiento de blobs de Azure (WASB)."
+title: "Operacionalización de modelos de aprendizaje automático creados con Spark | Microsoft Docs"
+description: "Cómo cargar y puntuar modelos de aprendizaje almacenados en Azure Blob Storage (WASB) con Python."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,28 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/24/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
-ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
+ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="score-spark-built-machine-learning-models"></a>Puntuación de modelos de aprendizaje automático creados con Spark
+# <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalización de modelos de aprendizaje automático creados con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-En este tema se describe cómo cargar modelos de Machine Learning (ML) creados con Spark MLlib y almacenados en Azure Blob Storage (WASB), además de cómo puntuarlos con conjuntos de datos que también se han guardado en WASB. Muestra cómo procesar previamente los datos de entrada, transformar las características mediante las funciones de indexación y codificación en el kit de herramientas MLlib, y cómo crear un objeto de datos de punto con etiqueta que se puede usar como entrada para la puntuación con los modelos de aprendizaje automático. Los modelos usados para la puntuación son regresión lineal, regresión logística, modelos de bosque aleatorio y modelos de árboles impulsados por gradiente.
+En este tema se muestra cómo operacionalizar un modelo de aprendizaje automático con Python en clústeres de HDInsight Spark. Se describe cómo cargar modelos de aprendizaje automático creados con Spark MLlib y almacenados en Azure Blob Storage (WASB), además de cómo puntuarlos con conjuntos de datos que también se han guardado en WASB. Muestra cómo procesar previamente los datos de entrada, transformar las características mediante las funciones de indexación y codificación en el kit de herramientas MLlib, y cómo crear un objeto de datos de punto con etiqueta que se puede usar como entrada para la puntuación con los modelos de aprendizaje automático. Los modelos usados para la puntuación son regresión lineal, regresión logística, modelos de bosque aleatorio y modelos de árboles impulsados por gradiente.
+
+## <a name="spark-clusters-and-jupyter-notebooks"></a>Clústeres de Spark y cuadernos de Jupyter
+En este tutorial se proporcionan los pasos de configuración y el código para operacionalizar un modelo de ML para usar un clúster de HDInsight Spark 1.6 y un clúster de Spark 2.0. También se proporciona el código para estos procedimientos en los cuadernos de Jupyter.
+
+### <a name="notebook-for-spark-16"></a>Notebook para Spark 1.6
+En el cuaderno de Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) se muestra cómo operacionalizar un modelo guardado con Python en clústeres de HDInsight. 
+
+### <a name="notebook-for-spark-20"></a>Notebook para Spark 2.0
+Para modificar este cuaderno de Jupyter para Spark 1.6 para usarlo con un clúster de HDInsight Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Este código muestra cómo utilizar los modelos creados en Spark 2.0.
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. Necesita una cuenta de Azure y un clúster de Spark 1.6 o Spark 2.0 HDInsight para completar este tutorial. Consulte el artículo [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md) para obtener instrucciones sobre cómo satisfacer estos requisitos. Ese tema también contiene una descripción de los datos de taxis de Nueva York de 2013 que se usan aquí, además de instrucciones sobre cómo ejecutar el código de un cuaderno de Jupyter Notebook en el clúster Spark. 
-2. También debe crear los modelos de aprendizaje automático que se puntuarán aquí; para ello, consulte el tema [Exploración y modelado de datos con Spark](machine-learning-data-science-spark-data-exploration-modeling.md) relativo al clúster de Spark 1.6 o los cuadernos de Spark 2.0. Tenga en cuenta que los cuadernos de Spark 2.0 usan un conjunto de datos adicional para la tarea de clasificación, el conocido conjunto de datos Airline On-time departure de 2011 y 2012. Se proporciona una descripción de los cuadernos y de los vínculos a estos en el archivo [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) del repositorio de GitHub que los contiene. No obstante, este código y los cuadernos vinculados son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight. 
-
-
-## <a name="setup-spark-clusters-and-notebooks"></a>Configuración: clústeres y cuadernos de Spark
-Los pasos de instalación y el código proporcionado en este tutorial son para HDInsight Spark 1.6. El cuaderno [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) muestra cómo operacionalizar un modelo guardado con Python en clústeres de HDInsight. Para modificar este cuaderno de Jupyter para usarlo con un clúster de HDInsight Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
+2. También debe crear los modelos de aprendizaje automático que se puntuarán aquí; para ello, consulte el tema [Exploración y modelado de datos con Spark](machine-learning-data-science-spark-data-exploration-modeling.md) relativo al clúster de Spark 1.6 o los cuadernos de Spark 2.0. 
+3. Los cuadernos de Spark 2.0 usan un conjunto de datos adicional para la tarea de clasificación, el conocido conjunto de datos Airline On-time departure de 2011 y 2012. Se proporciona una descripción de los cuadernos y de los vínculos a estos en el archivo [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) del repositorio de GitHub que los contiene. No obstante, este código y los cuadernos vinculados son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -182,7 +189,7 @@ Los archivos de tarifas y carreras de taxi se combinaron según el procedimiento
 Time taken to execute above cell: 46.37 seconds
 
 ## <a name="prepare-data-for-scoring-in-spark"></a>Preparación de los datos para la puntuación en Spark
-Esta sección muestra cómo indexar, codificar y ajustar la escala de características categóricas para prepararlas para su uso en algoritmos de aprendizaje supervisado de MLlib para clasificación y regresión.
+En esta sección se explica cómo indexar, codificar y ajustar la escala de características categóricas para prepararlas para su uso en algoritmos de aprendizaje supervisado de MLlib para clasificación y regresión.
 
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Transformación de características: indexación y codificación de características categóricas para su incorporación en modelos para puntuación
 En esta sección se muestra cómo indexar datos de categorías mediante `StringIndexer` y cómo codificar características con la entrada de `OneHotEncoder` en los modelos.
@@ -521,17 +528,17 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Uso de modelos de Spark mediante una interfaz web
-Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para obtener más información, consulte [Envío de trabajos de Spark remotamente a un clúster de HDInsight Spark en Linux mediante Livy (versión preliminar)](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información, vea [Envío de trabajos de Spark de forma remota mediante Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
 
 Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde   
-[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En nuestro caso, cargaremos el script ***wasb:///example/python/ConsumeGBNYCReg.py***.   
+[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]
 > Las claves de acceso que necesita se encuentran en el portal de la cuenta de almacenamiento asociada con el clúster de Spark. 
 > 
 > 
 
-Una vez cargado en esta ubicación, el script se ejecutará dentro del clúster de Spark en un contexto distribuido. Cargará el modelo y ejecutará predicciones en los archivos de entrada basándose en el modelo.  
+Una vez cargado en esta ubicación, el script se ejecutará dentro del clúster de Spark en un contexto distribuido. Carga el modelo y ejecuta predicciones en los archivos de entrada basándose en el modelo.  
 
 Para invocar este script de forma remota con una sencilla solicitud HTTPS/REST en Livy.  Este es un comando de CURL para construir la solicitud HTTP para invocar el script de Python de forma remota. Reemplace CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME por los valores adecuados para su clúster de Spark.
 
@@ -578,7 +585,7 @@ También puede agregar este código de Python a [Azure Functions](https://azure.
 Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) para invocar la puntuación por lotes de Spark; para ello, defina una acción HTTP en el **Diseñador de Logic Apps** y establezca sus parámetros. 
 
 * En Azure Portal, cree una nueva aplicación lógica seleccionando **+Nuevo** -> **Web y móvil** -> **Aplicación lógica**. 
-* Escriba el nombre de la aplicación lógica y del plan de App Service para que aparezca el **Diseñador de Logic Apps**.
+* Escriba el nombre de la aplicación lógica y del plan de App Service para que aparezca el **Diseñador de aplicaciones lógicas**.
 * Seleccione una acción HTTP y especifique los parámetros mostrados en la ilustración siguiente:
 
 ![Diseñador de Logic Apps](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)

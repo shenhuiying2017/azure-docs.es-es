@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: 593decb7595371396787a04e4a3252cfa65b2643
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 592fc838645dbc05b710b1bd83fd7c0135688844
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Scenario")
+![Escenario](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-uservoice"></a>Habilitación de la integración de aplicaciones en UserVoice
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para UserVoice.
@@ -49,19 +50,19 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-    ![Applications](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Applications")
+    ![Aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Aplicaciones")
 
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-    ![Agregar aplicación](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Add application")
+    ![Agregar aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Agregar aplicaciones")
 
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Add an application from gallerry")
+    ![Agregar una aplicación de la galería](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
 6. En el **cuadro de búsqueda**, escriba **UserVoice**.
    
-    ![Galería de aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Application gallery")
+    ![Galería de aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Galería de aplicaciones")
 
 7. En el panel de resultados, seleccione **UserVoice** y luego haga clic en **Completar** para agregar la aplicación.
    
@@ -75,33 +76,33 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **UserVoice**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configurar inicio de sesión único")
 
 2. En la página **How would you like users to sign on to UserVoice** (¿Cómo desea que los usuarios inicien sesión en UserVoice), seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configurar inicio de sesión único")
 
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **Dirección URL de inicio de sesión de UserVoice**, escriba la URL con el siguiente patrón: *https://\<nombre de inquilino\>UserVoice.com*" y, a continuación, haga clic en **Siguiente**.
    
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configure App URL")
+    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configurar dirección URL de la aplicación")
 
 4. En la página **Configurar inicio de sesión único en UserVoice**, para descargar su certificado, haga clic en**Descargar certificado** y guarde el archivo de certificado localmente como **c:\\UserVoice.cer**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configurar inicio de sesión único")
 
 5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de UserVoice como administrador.
 
 6. En la barra de herramientas de la parte superior, haga clic en Configuración y luego el portal web en el menú.
    
-    ![Configuración](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Configuración](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Configuración")
 
 7. En la pestaña **Portal web**, en la sección **Autenticación del usuario**, haga clic en **Editar** para abrir la página del cuadro de diálogo **Editar autenticación de usuario**
    
-    ![Portal web](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web portal")
+    ![Portal web](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Portal web")
 
 8. En la página de diálogo **Editar autenticación del usuario** , realice los pasos siguientes:
    
-    ![Editar autenticación del usuario](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Edit user authentication")
+    ![Editar autenticación de usuario](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Editar autenticación de usuario")
    
     a. Haga clic en **Inicio de sesión único (SSO)**.
  
@@ -120,7 +121,7 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configurar inicio de sesión único")
 
 ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 Para permitir que los usuarios de Azure AD inicien sesión en UserVoice, deben aprovisionarse en UserVoice.  
@@ -131,21 +132,21 @@ En el caso de UserVoice, el aprovisionamiento es una tarea manual.
 
 2. Vaya a **Configuración**.
    
-    ![Configuración](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Configuración](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Configuración")
 
 3. Haga clic en **General**.
 
 4. Haga clic en **Agentes y permisos**.
    
-    ![Agentes y permisos](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agents and permissions")
+    ![Agentes y permisos](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agentes y permisos")
 
 5. Haga clic en **Agregar administradores**.
    
-    ![Agregar administradores](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Add admins")
+    ![Agregar administradores](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Agregar administradores")
 
 6. En el cuadro de diálogo **Invitar a administradores** , realice los pasos siguientes:
    
-    ![Invitar a administradores](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
+    ![Invitar a administradores](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invitar a administradores")
    
     a. En el cuadro de texto de correos electrónicos, escriba la dirección de correo electrónico de la cuenta que quiere aprovisionar y luego haga clic en **Agregar**.
    
@@ -163,17 +164,12 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de la aplicación **UserVoice**, haga clic en **Asignar usuarios**.
    
-    ![Asignar usuarios](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Assign users")
+    ![Asignar usuarios](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Asignar usuarios")
 
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-    ![Sí](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Yes")
+    ![Sí](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

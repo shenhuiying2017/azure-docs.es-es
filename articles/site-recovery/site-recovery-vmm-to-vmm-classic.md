@@ -57,7 +57,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 ## <a name="step-1-create-a-site-recovery-vault"></a>Paso 1: Creación de un almacén de recuperación del sitio
 1. Inicie sesión en el [Portal de administración](https://portal.azure.com) desde el servidor VMM que desee registrar.
 2. Expanda **Data Services** > **Recovery Services** y haga clic en **Almacén de Site Recovery**.
-3. Haga clic en **Crear nuevo	** > **Creación rápida**.
+3. Haga clic en **Crear nuevo** > **Creación rápida**.
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 5. En **Región** , seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](http://go.microsoft.com/fwlink/?LinkId=389880).
 6. Haga clic en **Crear almacén**.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dad4bd824f199562cb972c98cfcb452f2823828
-ms.openlocfilehash: b85b10b9504c5efa7ec05b92b544ad777e3abacc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 62804019a8c2c5e719c36021ee04cbd20e03dd05
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -36,9 +36,10 @@ En un mundo Mobile First, Cloud First, Azure Active Directory permite el inicio 
 - Permitir que los usuarios finales sean productivos en cualquier lugar y en cualquier momento.
 - Proteger los activos corporativos en todo momento.
 
-Para mejorar la productividad, Azure Active Directory proporciona a los usuarios una amplia variedad de opciones de acceso a los recursos corporativos. Con la administración del acceso a las aplicaciones, Azure Active Directory le permite asegurarse de que solo *las personas adecuadas* puedan acceder a sus aplicaciones. ¿Y si quiere tener un mayor control sobre el modo en que las personas adecuadas acceden a sus recursos en determinadas condiciones? ¿Y si se dan situaciones en las que quiere bloquear el acceso a determinadas aplicaciones incluso a las *personas adecuadas*? Por ejemplo, podría querer que las personas adecuadas accedan a determinadas aplicaciones desde una red de confianza y no querer que accedan a esas mismas aplicaciones desde una red en la que no confía. También puede abordar estas cuestiones mediante el acceso condicional. 
+Para mejorar la productividad, Azure Active Directory proporciona a los usuarios una amplia variedad de opciones de acceso a los recursos corporativos. Con la administración del acceso a las aplicaciones, Azure Active Directory le permite asegurarse de que solo *las personas adecuadas* puedan acceder a sus aplicaciones. ¿Y si quiere tener un mayor control sobre el modo en que las personas adecuadas acceden a sus recursos en determinadas condiciones? ¿Y si se dan situaciones en las que quiere bloquear el acceso a determinadas aplicaciones incluso a las *personas adecuadas*? Por ejemplo, es posible que quiera que las personas adecuadas tengan acceso a determinadas aplicaciones desde una red de confianza y que no tengan acceso a esas mismas aplicaciones desde una red en la que no confía. También puede abordar estas cuestiones mediante el acceso condicional.
 
 El acceso condicional es una funcionalidad de Azure Active Directory que le permite aplicar controles en el acceso a las aplicaciones de su entorno según condiciones específicas. Mediante controles, puede enlazar requisitos adicionales con el acceso o puede bloquearlo. La implementación del acceso condicional se basa en directivas. Un enfoque basado en directivas simplifica su experiencia de configuración porque sigue su modo de pensar sobre los requisitos de acceso.  
+
 Normalmente, los requisitos de acceso se definen mediante declaraciones basadas en el siguiente patrón:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/10.png)
@@ -47,9 +48,9 @@ Al reemplazar las dos repeticiones de "*esto*" por información del mundo real, 
 
 *Cuando los contratistas intentan acceder a nuestras aplicaciones de nube desde redes que no son de confianza, se bloquea el acceso.*
 
-La declaración de directiva anterior destaca la eficacia del acceso condicional. Aunque puede permitir que los contratistas accedan de forma básica a sus aplicaciones de nube (**quién**), mediante acceso condicional, también puede definir condiciones bajo las cuales es posible el acceso (**cómo**). 
+La declaración de directiva anterior destaca la eficacia del acceso condicional. Aunque puede permitir que los contratistas accedan de forma básica a sus aplicaciones de nube (**quién**), mediante acceso condicional, también puede definir condiciones bajo las cuales es posible el acceso (**cómo**).
 
-En el contexto del acceso condicional de Azure Active Directory, 
+En el contexto del acceso condicional de Azure Active Directory,
 
 - "**Cuando esto sucede**" se denomina **declaración de condición**
 - "**Entonces haga esto**" se denomina **controles**.
@@ -67,7 +68,8 @@ En una directiva de acceso condicional, los controles definen qué es lo que deb
 Con controles, puede bloquear el acceso o permitir el acceso con requisitos adicionales.
 Cuando configura una directiva que permite el acceso, debe seleccionar al menos un requisito.   
 
-La implementación actual de Azure Active Directory le permite configurar los siguientes requisitos: 
+### <a name="grant-controls"></a>Controles de concesión
+La implementación actual de Azure Active Directory le permite configurar los siguientes requisitos de control de concesión:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
@@ -81,13 +83,21 @@ Si tiene más de un requisito seleccionado en una directiva de acceso condiciona
 
 ![Control](./media/active-directory-conditional-access-azure-portal/06.png)
 
+### <a name="session-controls"></a>Controles de sesión
+Los controles de sesión permiten limitar la experiencia desde una aplicación en la nube. Los controles de sesión son aplicados por aplicaciones en la nube y se basan en información adicional sobre la sesión proporcionada por Azure AD a la aplicación.
+
+![Control](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
+
+#### <a name="use-app-enforced-restrictions"></a>Usar restricciones que exige la aplicación
+Puede usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube. Esto ayuda a la aplicación en la nube a saber si el usuario procede de un dispositivo compatible o un dispositivo unido al dominio. Actualmente este control solo se admite con SharePoint como aplicación en la nube. SharePoint usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada según el estado del dispositivo.
+[Aquí](https://aka.ms/spolimitedaccessdocs) puede obtener más información sobre cómo requerir el acceso limitado con SharePoint.
 
 ## <a name="condition-statement"></a>Declaración de condición
 
 En la sección anterior se han presentado las opciones admitidas para bloquear o restringir el acceso a los recursos en forma de controles. En una directiva de acceso condicional, se definen los criterios que es necesario satisfacer para que los controles se apliquen en forma de una declaración de condición.  
 
 Puede incluir las siguientes asignaciones en la declaración de condición:
-    
+
 ![Control](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
@@ -98,7 +108,8 @@ Al seleccionar usuarios y grupos, se define el ámbito de los usuarios a los que
 
 
 
-- **Qué**: normalmente, hay determinadas aplicaciones que se ejecutan en el entorno que requieren más atención que otras, desde la perspectiva de la protección. Esto afecta, por ejemplo, a las aplicaciones que tienen acceso a datos confidenciales. Al seleccionar aplicaciones de nube, se define el ámbito de las aplicaciones de nube a las que se aplica la directiva. Si es necesario, también puede excluir explícitamente un conjunto de aplicaciones de su directiva. 
+- **Qué**: normalmente, hay determinadas aplicaciones que se ejecutan en el entorno que requieren más atención que otras, desde la perspectiva de la protección. Esto afecta, por ejemplo, a las aplicaciones que tienen acceso a datos confidenciales.
+Al seleccionar aplicaciones de nube, se define el ámbito de las aplicaciones de nube a las que se aplica la directiva. Si es necesario, también puede excluir explícitamente un conjunto de aplicaciones de su directiva.
 
     ![Control](./media/active-directory-conditional-access-azure-portal/09.png)
 
@@ -114,7 +125,7 @@ En la implementación actual de Azure Active Directory, puede definir condicione
 
 
 - **Plataformas de dispositivos**: la plataforma de dispositivos se caracteriza por el sistema operativo que se ejecuta en el dispositivo (Android, iOS, Windows Phone, Windows). Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
-Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles. 
+Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
 
     ![Condiciones](./media/active-directory-conditional-access-azure-portal/02.png)
 
@@ -146,20 +157,20 @@ A todas las asignaciones se les asigna **la operación lógica AND**. Si tiene m
 Si debe configurar una condición de ubicación que se aplica a todas las conexiones realizadas desde fuera de la red de la organización, puede:
 
 - Incluir **todas las ubicaciones**.
-- Excluir **todas las direcciones IP de confianza**. 
+- Excluir **todas las direcciones IP de confianza**.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>¿Qué ocurre si tiene directivas configuradas en el Portal de Azure clásico y en Azure Portal?  
 Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos.
 
 ### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>¿Qué sucede si tiene directivas en el portal de Intune Silverlight y en Azure Portal?
-Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos. 
+Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>¿Qué ocurre si tiene varias directivas configuradas para el mismo usuario?  
 En cada inicio de sesión, Azure Active Directory evalúa todas las directivas y garantiza que se cumplan todos los requisitos antes de conceder acceso al usuario.
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>¿Funciona el acceso condicional con Exchange ActiveSync?
- 
+
 No, no se puede usar Exchange ActiveSync en una directiva de acceso condicional en este momento.
 
 
@@ -182,9 +193,9 @@ En su entorno, debería evitar las siguientes configuraciones:
 - **Requerir dispositivo compatible**: para usuarios que aún no han inscrito sus dispositivos, esta directiva bloquea todo el acceso, incluido el acceso al portal Intune. Si es un administrador y no tiene un dispositivo inscrito, esta directiva le impide volver a acceder Azure Portal para cambiar la directiva.
 
 - **Requerir unión a un dominio** : este acceso al bloqueo de directivas también ofrece la posibilidad de bloquear el acceso a todos los usuarios de su organización si aún no tiene un dispositivo unido al dominio.
- 
 
-**Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:** 
+
+**Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:**
 
 - **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
 
@@ -194,7 +205,8 @@ En su entorno, debería evitar las siguientes configuraciones:
 ### <a name="requiring-multi-factor-authentication-for-apps"></a>Exigir autenticación multifactor para las aplicaciones
 
 Muchos entornos tienen aplicaciones que requieren un mayor nivel de protección que otras.
-Este es, por ejemplo, el caso de aplicaciones que tienen acceso a datos confidenciales. Si quiere agregar otra capa de protección a estas aplicaciones, puede configurar una directiva de acceso condicional que exija autenticación multifactor cuando los usuarios accedan a estas aplicaciones.
+Este es, por ejemplo, el caso de aplicaciones que tienen acceso a datos confidenciales.
+Si quiere agregar otra capa de protección a estas aplicaciones, puede configurar una directiva de acceso condicional que exija autenticación multifactor cuando los usuarios accedan a estas aplicaciones.
 
 
 ### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Exigir autenticación multifactor para el acceso desde redes que no son de confianza
@@ -202,14 +214,14 @@ Este es, por ejemplo, el caso de aplicaciones que tienen acceso a datos confiden
 Este escenario es similar al escenario anterior porque agrega un requisito para la autenticación multifactor.
 Sin embargo, la diferencia principal es la condición de este requisito.  
 Mientras que el escenario anterior se centra en aplicaciones con acceso a datos confidenciales, este escenario se centra en ubicaciones de confianza.  
-En otras palabras, podría tener un requisito de autenticación multifactor si un usuario accede a una aplicación desde una red que no es de confianza. 
+En otras palabras, podría tener un requisito de autenticación multifactor si un usuario accede a una aplicación desde una red que no es de confianza.
 
 
 ### <a name="only-trusted-devices-can-access-office-365-services"></a>Solo los dispositivos de confianza pueden acceder a servicios de Office 365
 
 Si usa Intune en su entorno, puede comenzar a usar inmediatamente la directiva de acceso condicional en la consola de Azure.
 
-Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo los dispositivos de confianza puedan acceder a servicios de Office 365. Esto significa que los dispositivos móviles se inscriben con Intune y satisfacen los requisitos de la directiva de cumplimiento y que los equipos con Windows están unidos a un dominio local. Una importante mejora es que no es necesario establecer la misma directiva para cada uno de los servicios de Office 365.  Cuando cree una nueva directiva, configure las aplicaciones de nube para que incluyan cada una de las aplicaciones de Office&365; que quiere proteger con acceso condicional. 
+Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo los dispositivos de confianza puedan acceder a servicios de Office 365. Esto significa que los dispositivos móviles se inscriben con Intune y satisfacen los requisitos de la directiva de cumplimiento y que los equipos con Windows están unidos a un dominio local. Una importante mejora es que no es necesario establecer la misma directiva para cada uno de los servicios de Office 365.  Cuando cree una nueva directiva, configure las aplicaciones de nube para que incluyan cada una de las aplicaciones de Office&365; que quiere proteger con acceso condicional.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

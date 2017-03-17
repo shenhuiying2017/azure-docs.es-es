@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
-ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
+ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -48,17 +48,6 @@ No se puede convertir una máquina virtual no administrada creada en el modelo d
 2.    Copie el disco duro virtual de sistema operativo a una cuenta de almacenamiento que nunca se haya habilitado para SSE. Para copiar el disco a otra cuenta de almacenamiento, use [AzCopy](../storage/storage-use-azcopy.md): `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Cree una máquina virtual que use discos administrados y conecte ese archivo VHD como disco de sistema operativo durante la creación.
 
-
-## <a name="before-you-begin"></a>Antes de empezar
-Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. Ejecute el siguiente comando para instalarla.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Para más información, consulte [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Control de versiones de Azure PowerShell).
-
-
-
 ## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a>Conversión de las máquinas virtuales de un conjunto de disponibilidad en discos administrados en un conjunto de disponibilidad administrado
 
 Si las máquinas virtuales que desea convertir en discos administrados se encuentran en un conjunto de disponibilidad, primero debe convertir el conjunto de disponibilidad en un conjunto de disponibilidad administrado.
@@ -87,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Conversión de máquinas virtuales de Azure existentes en discos administrados del mismo tipo de almacenamiento
 
 > [!IMPORTANT]
-> Después de realizar el procedimiento siguiente, hay un blob en bloques único que permanece en el contenedor /vhds predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". No elimine este objeto de estado de mantenimiento restante. En futuros trabajos se abordará este problema.
+> Después de realizar el procedimiento siguiente, hay un blob único que permanece en el contenedor de VHD predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". Este archivo se crea en Azure solo cuando se ha instalado [extensiones de VM](virtual-machines-windows-classic-agents-and-extensions.md) en la máquina virtual. No elimine este objeto de estado de mantenimiento restante. En futuros trabajos se abordará este problema.
 
 En esta sección se explica cómo transformar las máquinas virtuales de Azure existentes de discos no administrados en cuentas de almacenamiento a discos administrados si va a usar el mismo tipo de almacenamiento. Puede usar este proceso para convertir discos no administrados (SSD) premium en discos administrados premium, o bien discos no administrados (HDD) estándar en discos administrados estándar. 
 
@@ -149,7 +138,7 @@ Esta sección le mostrará cómo convertir las máquinas virtuales de Azure exis
 1. Detenga (desasigne) la máquina virtual.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  Actualice todos los discos a Premium Storage.
 
@@ -168,7 +157,7 @@ Esta sección le mostrará cómo convertir las máquinas virtuales de Azure exis
 1. Inicie la máquina virtual.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 También puede tener una mezcla de discos que usan almacenamiento premium y estándar.

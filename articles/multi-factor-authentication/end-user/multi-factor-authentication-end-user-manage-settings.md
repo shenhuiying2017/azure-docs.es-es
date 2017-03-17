@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 02/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: b5c031d1e36508e7622ba516d7bb8b2cfb3d7a89
+ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
+ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -30,7 +31,7 @@ Según cómo su compañía configure Azure Multi-Factor Authentication, existen 
 Si el administrador de TI envía una dirección URL específica o pasos para administrar la comprobación en dos pasos, siga las instrucciones. De lo contrario, las instrucciones siguientes deben funcionar para los demás. Si se siguen estos pasos, pero no ve las mismas opciones, significa que su trabajo o escuela personalizó su propio portal. Consulte al administrador para obtener el vínculo a su portal de Azure Multi-Factor Authentication.
 
 1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)  
-2. En la parte superior, seleccione el **perfil**.  
+2. Seleccione el nombre de cuenta en la parte superior derecha y, después, seleccione **Perfil**.  
 3. Seleccione **Comprobación de seguridad adicional**.  
 
     ![MyApps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
@@ -56,15 +57,17 @@ Es importante configurar un número de teléfono de autenticación secundario.  
 2. En el cuadro de texto, escriba el número de teléfono secundario.  
 3. Seleccione **Guardar** y los cambios habrán finalizado.  
 
+## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Requisito de nueva verificación en dos pasos en un dispositivo marcado como de confianza
+
+Dependiendo de la configuración de la organización, es posible que tenga una casilla que indica "Don't ask again for **X** days" (No volver a preguntar en X días) al realizar la verificación en dos pasos en el explorador. Si marca este cuadro y pierde el dispositivo o piensa que se ha comprometido la seguridad de su cuenta, debe restaurar la verificación en dos pasos en todos los dispositivos. 
+
+1. En la página Comprobación de seguridad adicional, seleccione **Restaurar Multi-Factor Authentication en dispositivos en los que se confió anteriormente**.
+2. La próxima vez que inicie sesión en cualquier dispositivo, se le pedirá que realice la verificación en dos pasos. 
+
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>¿Cómo puedo quitar Microsoft Authenticator del dispositivo anterior y moverlo a uno nuevo?
 Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se quita la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener sugerencias para solucionar problemas y necesita ayuda [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
 * Configure [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones que no admiten la comprobación en dos pasos.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

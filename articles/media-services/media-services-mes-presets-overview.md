@@ -12,27 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 42acc73e1c97f5570e674d95627a760a7fc88154
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: e9018ffa74c2895560adbd4c0d2b83ee67e9eb1c
+ms.lasthandoff: 03/03/2017
 
 
 ---
 
 # <a name="task-presets-for-mes-media-encoder-standard"></a>Valores preestablecidos de las tareas de MES (Media Encoder Standard)
 
-`Media Encoder Standard` define un conjunto de valores predeterminados de codificación que puede usar al crear trabajos de codificación.  
-  
- Las cadenas XML o JSON presentes deben basarse en los valores preestablecidos que se muestran en los archivos siguientes. Puede pasar valores preestablecidos con valores personalizados al codificador (los valores deben ser válidos). Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
+**Media Encoder Standard** define un conjunto de valores predeterminados de Encoding que puede usar al crear trabajos de Encoding. Se recomienda usar el valor predeterminado recomendado "Adaptive Streaming" si quiere codificar un vídeo para streaming con Media Services. Cuando se especifica este valor preestablecido, Media Encoder Standard [generará automáticamente una escalera de velocidad de bits](media-services-autogen-bitrate-ladder-with-mes.md). 
+
+Sin embargo, si necesita personalizar un valor preestablecido de codificación, debería seleccionar uno de los valores preestablecidos de codificación definidos en esta sección como plantilla para la configuración personalizada. Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
 >  Cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada `S3`. Para obtener más información, consulte [Escalación de codificación](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
   
- Cuando se trabaja con Media Encoder Standard, la rotación está habilitada de forma predeterminada. Si se ha registrado el vídeo en un smartphone u otro dispositivo móvil en modo vertical, estos valores, de forma predeterminada, los hará girar en modo horizontal antes de la codificación (salvo cuando se utiliza Azure Media Encoder, donde la rotación de vídeo es una operación manual, tal y como se documenta en [este](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) blog, en "Video Rotation" [Rotación de vídeos]).  
+Cuando se trabaja con Media Encoder Standard, la rotación está habilitada de forma predeterminada. Si se ha registrado el vídeo en un smartphone u otro dispositivo móvil en modo vertical, estos valores, de forma predeterminada, los hará girar en modo horizontal antes de la codificación (salvo cuando se utiliza Azure Media Encoder, donde la rotación de vídeo es una operación manual, tal y como se documenta en [este](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) blog, en "Video Rotation" [Rotación de vídeos]).  
   
- Los nombres preestablecidos se asignan a valores de este mismo tipo que se muestra en los siguientes temas.  
+Valores predefinidos disponibles:  
   
  [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) genera un conjunto de 8 archivos MP4 alineados con GOP, que abarcan desde 400 kbps hasta 6000 kbps y audio AAC 5.1.  
   
@@ -85,9 +86,4 @@ ms.openlocfilehash: 42acc73e1c97f5570e674d95627a760a7fc88154
  [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) genera un único archivo MP4 con una velocidad de bits de 56 kbps y audio AAC estéreo.  
   
  Para obtener más información relacionada con codificadores de Media Services, consulte [Información general y comparación de codificadores multimedia a petición de Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

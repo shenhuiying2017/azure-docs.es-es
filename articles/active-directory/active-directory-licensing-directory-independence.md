@@ -1,6 +1,6 @@
 ---
-title: "Adición y administración de varios directorios de Azure Active Directory | Microsoft Docs"
-description: Instrucciones y procedimientos recomendados para agregar y administrar directorios de Azure Active Directory, explicando los directorios como recursos totalmente independientes
+title: "Características de directorios de Azure Active Directory | Microsoft Docs"
+description: "Administre sus directorios de Azure Active Directory entendiéndolos como recursos completamente independientes."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Adición y administración de varios directorios de Azure Active Directory
+# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>Descripción de cómo interactúan varios directorios de Azure Active Directory
 En Azure Active Directory (Azure AD), cada directorio es un recurso totalmente independiente: un recurso del mismo nivel, con características completas y lógicamente independiente de otros directorios que administre. No hay ninguna relación de elementos primarios y secundarios entre los directorios. Esta independencia entre directorios incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización.
 
 ## <a name="resource-independence"></a>Independencia de recursos
@@ -49,9 +51,4 @@ Para agregar un directorio de Azure AD en el Portal de Azure clásico, seleccion
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener una amplia visión general de los problemas de licencias de Azure AD y prácticas recomendadas, consulte [¿Qué es la licencia de Azure Active Directory?](active-directory-licensing-what-is.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -51,11 +51,11 @@ Aunque Azure se encarga de proteger la infraestructura y la plataforma en las qu
 No es el objetivo de este documento abarcar una completa exposición de las consideraciones de seguridad para las aplicaciones basadas en web. Como punto de inicio para conocer más en profundidad la cuestión de la protección de su aplicación, consulte [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) [Proyecto de código abierto sobre seguridad en aplicaciones web (OWASP)], concretamente el proyecto de los [10 principales](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que enumera los 10 principales errores de seguridad en aplicaciones web según los miembros de OWASP.
 
 ## <a name="perform-penetration-testing-on-your-app"></a>Realización de pruebas de penetración en la aplicación
-Una de las maneras más fáciles de empezar a probar los puntos vulnerables en su aplicación del Servicio de aplicaciones consiste en usar la [integración con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar un análisis con un solo clic del nivel de vulnerabilidad de su aplicación. Puede ver los resultados de la prueba en un informe fácil de entender, y aprender a corregir cada vulnerabilidad con instrucciones detalladas.
+Una de las maneras más fáciles de empezar a probar los puntos vulnerables en su aplicación de App Service consiste en usar la [integración con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar un análisis con un solo clic del nivel de vulnerabilidad de su aplicación. Puede ver los resultados de la prueba en un informe fácil de entender, y aprender a corregir cada vulnerabilidad con instrucciones detalladas.
 
 Si prefiere realizar sus propias pruebas de penetración o desea usar otro conjunto de aplicaciones de análisis u otro proveedor, debe seguir el [proceso de aprobación de pruebas de penetración de Azure](https://security-forms.azure.com/penetration-testing/terms) y obtener aprobación previa para realizar las pruebas de penetración deseadas.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> Protección de la comunicación con clientes
+## <a name="https"></a> Protección de la comunicación con clientes
 Si usa el nombre de dominio **\*.azurewebsites.net** que se crea para su aplicación de App Service, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio **\*.azurewebsites.net**. Si el sitio usa un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
 
 Si habilita [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , puede contribuir a la protección frente a ataques MITM dirigidos a la comunicación entre la aplicación y sus usuarios.
@@ -65,7 +65,7 @@ El Servicio de aplicaciones se integra estrechamente con Base de datos SQL, de f
 
 Si usa un proveedor de bases de datos de terceros, como ClearDB, debe consultar los procedimientos recomendados de seguridad directamente en la documentación del proveedor.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> Desarrollo e implementación seguros
+## <a name="develop"></a> Desarrollo e implementación seguros
 ### <a name="publishing-profiles-and-publish-settings"></a>Perfiles de publicación y configuración de publicación
 Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tareas mediante herramientas como **Visual Studio**, **Web Matrix**, **Azure PowerShell** o la **Interfaz de la línea de comandos de Azure (CLI de Azure)**, puede usar un archivo de *configuración de publicación* o un *perfil de publicación*. Ambos tipos de archivo lo autentican con Azure, y deberían estar protegidos para evitar el acceso no autorizado.
 

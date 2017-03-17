@@ -15,14 +15,16 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/20/2016
-ms.author: wesmc
+ms.author: wesmc, glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 29fa4620885ec787f362966f732510fded600d53
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-twilio-output-binding"></a>Enlace de salida de Twilio de Azure Functions
+# <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Envío de mensajes SMS desde Azure Functions mediante el enlace de salida de Twilio
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 En este artículo se explica cómo configurar y usar enlaces de Twilio con Azure Functions. 
@@ -31,7 +33,7 @@ En este artículo se explica cómo configurar y usar enlaces de Twilio con Azure
 
 Azure Functions admite enlaces de salida de Twilio para permitir a sus funciones enviar mensajes de texto SMS con unas cuantas líneas de código y una cuenta de [Twilio](https://www.twilio.com/). 
 
-## <a name="functionjson-for-azure-notification-hub-output-binding"></a>function.json para enlace de salida de centros de notificaciones de Azure
+## <a name="functionjson-for-the-twilio-output-binding"></a>function.json para el enlace de salida de Twilio
 El archivo function.json ofrece las siguientes propiedades:
 
 * `name`: nombre de variable usado en el código de función para el mensaje de texto SMS de Twilio.
@@ -155,10 +157,5 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

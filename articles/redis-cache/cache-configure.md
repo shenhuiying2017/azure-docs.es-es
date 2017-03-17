@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 02/28/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 296a842157e4ecae1b3700e1d22c56852ffc06a2
-ms.openlocfilehash: ad88d998302d264b2a0f607d8408cd12bf833a68
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 59d4e08d0e93096120cc74deb641385084cfd912
+ms.openlocfilehash: 8a4f3616ff314cb280e6673c71ebdcd5d9b3441c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,6 +52,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
     * [Persistencia de datos de Redis](#redis-data-persistence)
     * [Programar actualizaciones](#schedule-updates)
     * [Virtual Network](#virtual-network)
+    * [Firewall](#firewall)
     * [Propiedades](#properties)
     * [Bloqueos](#locks)
     * [Script de automatización](#automation-script)
@@ -104,6 +105,7 @@ La sección **Configuración** permite acceder a los siguientes ajustes de la me
 * [Persistencia de datos de Redis](#redis-data-persistence)
 * [Programar actualizaciones](#schedule-updates)
 * [Virtual Network](#virtual-network)
+* [Firewall](#firewall)
 * [Propiedades](#properties)
 * [Bloqueos](#locks)
 * [Script de automatización](#automation-script)
@@ -262,7 +264,7 @@ Para especificar una ventana de mantenimiento, compruebe los días deseados, esp
 
 
 
-## <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtual Network
 La sección **Virtual Network** le permite configurar las opciones de red virtual de la caché. Para más información sobre cómo crear una caché premium con compatibilidad para red virtual y cómo actualizar su configuración, consulte [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -270,6 +272,20 @@ La sección **Virtual Network** le permite configurar las opciones de red virtua
 > 
 > 
 
+### <a name="firewall"></a>Firewall
+
+Haga clic en **Firewall** para ver y configurar las reglas de firewall de la versión Premium de Azure Redis Cache.
+
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
+
+Puede especificar las reglas de firewall con un intervalo de direcciones IP de inicio y finalización. Cuando se configuran las reglas de firewall, solo las conexiones de cliente de los intervalos de direcciones IP especificados pueden conectarse a la memoria caché. Cuando se guarda una regla de firewall, hay un breve retraso antes de que la regla se aplique. Normalmente, este retraso es inferior a un minuto.
+
+> [!IMPORTANT]
+> Siempre se permiten las conexiones de los sistemas de supervisión de Azure Redis Cache, incluso si se configuran reglas de firewall.
+> 
+> El reinicio solo está disponible para las memorias caché de nivel Premium.
+> 
+> 
 
 ### <a name="properties"></a>Propiedades
 Haga clic en **Propiedades** para ver información sobre la memoria caché, incluidos los puertos y el extremo de la caché.

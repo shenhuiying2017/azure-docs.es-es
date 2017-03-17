@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 5b81c3cdabe7b02a2049d7d1a5e227f5886bdbad
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3d292501fba980edcb567e7da7c79e8f1d90d1dd
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -71,12 +71,12 @@ El resto de este tema proporciona explicaciones detalladas, ejemplos de código 
 ## <a name="current-limitations"></a>Limitaciones actuales
 Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente (si hay) y crear uno nuevo.
 
-## <a name="a-idcreateassetacreate-an-asset-and-upload-files-into-the-asset"></a><a id="create_asset"></a>Creación de un recurso y carga de los archivos en el recurso
+## <a id="create_asset"></a>Creación de un recurso y carga de los archivos en el recurso
 Para administrar, codificar y transmitir por secuencias sus vídeos, primero debe cargar el contenido en Servicios multimedia de Microsoft Azure. Una vez cargado, el contenido se almacena de forma segura en la nube para su posterior procesamiento y transmisión. 
 
 Para obtener información detallada, consulte [Carga de archivos en una cuenta de Servicios multimedia](media-services-dotnet-upload-files.md).
 
-## <a name="a-idencodeassetaencode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Codificación del activo que contiene el archivo con Adaptive Bitrate MP4 Set.
+## <a id="encode_asset"></a>Codificación del activo que contiene el archivo con Adaptive Bitrate MP4 Set.
 Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md) .
 
 >[!NOTE]
@@ -86,17 +86,17 @@ Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que co
 
 Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
+## <a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 En Servicios multimedia, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
+## <a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP.
 
 Para obtener información detallada, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configuración de directivas de entrega de recursos
+## <a id="configure_asset_delivery_policy"></a>Configuración de directivas de entrega de recursos
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son:
 
 * La URL de adquisición de clave. 
@@ -106,7 +106,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 
 Para obtener más información, consulte [Configuración de la directiva de entrega de recursos ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
+## <a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 Deberá suministrar al usuario la URL de streaming para Smooth, DASH o HLS.
 
 > [!NOTE]
@@ -132,7 +132,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 
 Puede usar [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
-## <a name="a-idclientrequestahow-can-your-client-request-a-key-from-the-key-delivery-service"></a><a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
+## <a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
 En el paso anterior, creó la URL que apunta a un archivo de manifiesto. El cliente debe extraer la información necesaria de los archivos de manifiesto de streaming para realizar una solicitud al servicio de entrega de claves.
 
 ### <a name="manifest-files"></a>Archivos de manifiesto
@@ -220,7 +220,7 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
         return key;
     }
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Ejemplo
+## <a id="example"></a>Ejemplo
 1. Creación de un nuevo proyecto de consola
 2. Use NuGet para instalar y agregar Extensiones del SDK de Servicios multimedia de Azure para .NET. Al instalar este paquete, también se instala el SDK de Servicios multimedia para .NET y agrega todas las demás dependencias necesarias.
 3. Agregue el archivo de configuración que contiene el nombre de cuenta y la información de clave:
@@ -241,7 +241,10 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
         </configuration>
 
 1. Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
-   
+ 
+    >[!NOTE]
+    >Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
     Asegúrese de actualizar las variables para que apunten a las carpetas donde se encuentran los archivos de entrada.
 
         using System;
@@ -372,20 +375,11 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }

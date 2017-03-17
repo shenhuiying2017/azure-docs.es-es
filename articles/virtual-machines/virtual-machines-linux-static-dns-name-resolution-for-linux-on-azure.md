@@ -1,5 +1,5 @@
 ---
-title: "Uso de DNS interno para la resolución de nombres de máquina virtual con la CLI de Azure 2.0 (versión preliminar) | Microsoft Docs"
+title: "Uso de DNS interno para la resolución de nombres de máquina virtual con la CLI de Azure 2.0 | Microsoft Docs"
 description: "Creación de tarjetas de interfaz de red virtual y uso de DNS interno para la resolución de nombres de máquina virtual en Azure con la CLI de Azure 2.0"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,31 +16,23 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 8584606666fe93630f6486c16350a619787c8d14
-ms.openlocfilehash: 389416818df272cf09c1a35bd23ea882ecf3b0fc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 06554f939a6c4f2336f68676612df51c673afbb2
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creación de tarjetas de interfaz de red virtual y uso de DNS interno para la resolución de nombres de máquina virtual en Azure
-En este artículo se muestra cómo establecer nombres de DNS internos estáticos para máquinas virtuales Linux mediante tarjetas de interfaz de red virtual (vNic) y nombres de etiqueta DNS. Los nombres de DNS estáticos se utilizan para los servicios de infraestructura permanente como un servidor de compilación Jenkins, que se usa para este documento o un servidor de Git.
+En este artículo se muestra cómo establecer nombres de DNS internos estáticos para máquinas virtuales Linux mediante tarjetas de interfaz de red virtual (vNic) y nombres de etiqueta DNS mediante la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los nombres de DNS estáticos se utilizan para los servicios de infraestructura permanente como un servidor de compilación Jenkins, que se usa para este documento o un servidor de Git.
 
 Los requisitos son:
 
 * [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/);
 * [archivos de clave SSH pública y privada](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 (versión preliminar)](#quick-commands): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo)
-
-
 ## <a name="quick-commands"></a>Comandos rápidos
-Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos necesarios. En el resto del documento puede encontrar información más detallada y el contexto de cada paso, comenzando [aquí](#detailed-walkthrough). Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
+Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos necesarios. En el resto del documento puede encontrar información más detallada y el contexto de cada paso, comenzando [aquí](#detailed-walkthrough). Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/#login).
 
 Requisitos previos: grupo de recursos, red virtual y subred, grupo de seguridad de red con SSH entrante.
 

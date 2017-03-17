@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: bea1012fcd63b15ebfb5137dcfbd7e868c4e060f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: d00235d788dbe1674eac219a7c708a8ecd53ccc5
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="manage-and-monitor-azure-virtual-machine-backups"></a>Administración y supervisión de copias de seguridad de máquinas virtuales de Azure
+# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Administración de trabajos comunes de copia de seguridad de Azure y desencadenado de alertas en el Portal clásico
 > [!div class="op_single_selector"]
 > * [Administrar copias de seguridad de máquina virtual de Azure](backup-azure-manage-vms.md)
 > * [Administrar copias de seguridad de máquina virtual clásica](backup-azure-manage-vms-classic.md)
@@ -239,7 +240,7 @@ Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 1. Las alertas se activan en todas las máquinas virtuales del almacén de copia de seguridad. No es posible personalizar esto para obtener alertas para un conjunto específico de máquinas virtuales de un almacén de copia de seguridad.
 2. Esta característica se encuentra en versión preliminar. [Más información](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
-3. Recibirá las alertas de "alerts-noreply@mail.windowsazure.com". Actualmente, no se puede modificar el remitente de correo electrónico.
+3. Recibirá las alertas de alerts-noreply@mail.windowsazure.com. Actualmente, no se puede modificar el remitente de correo electrónico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Restauración de máquinas virtuales de Azure](backup-azure-restore-vms.md)

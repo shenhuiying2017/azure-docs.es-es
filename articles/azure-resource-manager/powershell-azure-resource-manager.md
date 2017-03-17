@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: d1f4b7806f72dc2632ba981781097b19e89d07f3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -56,10 +57,10 @@ Este tema se ha actualizado a la versión 3.3.0. Si tiene una versión anterior,
 ## <a name="log-in-to-your-azure-account"></a>Inicie sesión en la cuenta de Azure.
 Antes de trabajar en la solución, debe iniciar sesión en su cuenta.
 
-Para iniciar sesión en la cuenta de Azure, use el cmdlet **Add-AzureRmAccount**.
+Para iniciar sesión en su cuenta de Azure, use el cmdlet **Login-AzureRmAccount**.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 El cmdlet pide las credenciales de inicio de sesión para la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de que esté disponible para Azure PowerShell.
@@ -273,10 +274,5 @@ En los temas siguientes se muestra cómo usar Azure Automation, Resource Manager
 * Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 * Puede mover recursos existentes a un nuevo grupo de recursos. Para consultar ejemplos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -75,7 +75,7 @@ Se admite la conexión al servidor de Azure Analysis Services en Excel mediante 
 **Para conectarse desde Excel 2016**
 
 1. En Excel 2016, en la cinta de opciones **Datos**, haga clic en **Obtener datos externos** > **De otros orígenes** > **Desde Analysis Services**.
-2. En el Asistente para la conexión de datos, en **Nombre del servidor**, pegue el nombre del servidor desde el Portapapeles. A continuación, en **Credenciales de inicio de sesión**, seleccione **	Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización, por ejemplo nancy@adventureworks.com,, y la contraseña.
+2. En el Asistente para la conexión de datos, en **Nombre del servidor**, pegue el nombre del servidor desde el Portapapeles. A continuación, en **Credenciales de inicio de sesión**, seleccione **Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización, por ejemplo nancy@adventureworks.com, y la contraseña.
 
     ![Conexión en el inicio de sesión de Excel](./media/analysis-services-connect/aas-connect-excel-logon.png)
 3. En **Seleccionar base de datos y tabla**, seleccione la base de datos y el modelo o la perspectiva y haga clic en **Finalizar**.

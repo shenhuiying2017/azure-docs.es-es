@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: e32d21ca410d4107f68f8b72353ca400a26c4523
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -37,7 +38,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
   > [!IMPORTANT]
   > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* Visual Studio 2012, 2013 o 2015
+* Visual Studio 2012, 2013, 2015 o 2017.
 
 ## <a name="create-the-application"></a>Creación de la aplicación
 
@@ -45,32 +46,19 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, luego, **Proyecto**.
 
-2. Para el nuevo proyecto, escriba o seleccione los valores siguientes.
+2. Para el nuevo proyecto, escriba o seleccione los valores siguientes:
    
-    <table>
-    <tr>
-    <th>Propiedad</th>
-    <th>Valor</th>
-    </tr>
-    <tr>
-    <th>Categoría</th>
-    <th>Plantillas/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Plantilla</th>
-    <th>Aplicación de consola</th>
-    </tr>
-    <tr>
-    <th>Nombre</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
+   | Propiedad | Valor |
+   | ------ | ------ |
+   | Categoría | Plantillas/Visual C#/Windows |
+   | Plantilla | Aplicación de consola |
+   | Nombre | SubmitPigJob |
 
 3. Haga clic en **Aceptar** para crear el proyecto.
 
 4. En el menú **Herramientas**, seleccione **Administrador de paquetes de biblioteca** o **Administrador de paquetes de Nuget** y, a continuación, seleccione **Consola del administrador de paquetes**.
 
-5. Ejecute el siguiente comando en la consola para instalar los paquetes de SDK de .NET.
+5. Use el siguiente comando para instalar los paquetes de SDK de .NET:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
@@ -139,19 +127,12 @@ Como puede observar, el SDK de .NET para Hadoop le permite crear aplicaciones .N
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información general sobre Pig en HDInsight.
+Para obtener información sobre Pig en HDInsight, vea [Usar Pig con Hadoop en HDInsight](hdinsight-use-pig.md).
 
-* [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
-
-Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
+Para más información sobre el uso de Hadoop con HDInsight, vea los documentos siguientes:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

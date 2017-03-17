@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
-ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
+ms.sourcegitcommit: 2fb6f4d8330eb62e01af318277bc0e90aee039e0
+ms.openlocfilehash: d3c4d1a91615957764552a985e0dfeba7c10a927
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -88,10 +89,10 @@ Para más información sobre cómo crear puntos de conexión personalizados en I
 
 ### <a name="built-in-endpoint-messagesevents"></a>Punto de conexión integrado: messages/events
 
-IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado **messages/events**.
+IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
 
-* **Número de particiones**. Establezca esta propiedad durante la creación para definir el número de particiones para ingesta de eventos de dispositivo a la nube.
-* **Tiempo de retención**. Esta propiedad especifica el tiempo de retención para los mensajes de dispositivo a nube. El valor predeterminado es un día, pero se puede aumentar a siete días.
+* **Número de particiones**. Establezca esta propiedad durante la creación para definir el número de [particiones][lnk-event-hub-partitions] para ingesta de eventos de dispositivo a nube.
+* **Tiempo de retención**. Esta propiedad especifica cuánto tiempo, en días, IoT Hub conserva los mensajes. El valor predeterminado es un día, pero se puede aumentar a siete días.
 
 IoT Hub también le permite administrar los grupos de consumidores en el punto de conexión de recepción de dispositivo a nube integrado.
 
@@ -232,7 +233,7 @@ Cada Centro de IoT expone las siguientes opciones de configuración para la mens
 Para más información, consulte el artículo sobre la [creación de centros de IoT][lnk-portal].
 
 ## <a name="read-device-to-cloud-messages"></a>Lectura de mensajes del dispositivo a la nube
-IoT Hub expone el punto de conexión integrado **messages/events** para los servicios de back-end con el fin de leer los mensajes de dispositivo a nube recibidos por el centro. Este punto de conexión es compatible con Event Hubs, lo que permite usar cualquiera de los mecanismos que el servicio Event Hubs admite para leer mensajes.
+IoT Hub expone el punto de conexión integrado **messages/events** para los servicios de back-end con el fin de leer los mensajes de dispositivo a nube recibidos por el centro. Este punto de conexión es compatible con Event Hubs, lo que permite usar cualquiera de los mecanismos del servicio Event Hubs para leer mensajes.
 
 También puede crear puntos de conexión personalizados en IoT Hub. IoT Hub admite actualmente Event Hubs, colas de Service Bus y temas de Service Bus como puntos de conexión personalizados. Para más información sobre la lectura desde esos servicios, consulte lo siguiente: lectura desde [Event Hubs][lnk-getstarted-eh], lectura desde [colas de Service Bus][lnk-getstarted-queue] y lectura desde [temas de Service Bus][lnk-getstarted-topic].
 
@@ -434,9 +435,4 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions

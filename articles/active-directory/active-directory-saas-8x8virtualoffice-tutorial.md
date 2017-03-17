@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
+ms.sourcegitcommit: 149896e820d7873752fc40ee8270a8fc00ee0b0c
+ms.openlocfilehash: 96c5d5aafaff24d618f930a1b5fcedcc5c52a9a9
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -35,17 +36,16 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con 8x8 Virtual Office, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para inicio de sesión único en 8x8 Virtual Office
+* Una suscripción habilitada para el inicio de sesión único en 8x8 Virtual Office
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+    To test the steps in this tutorial, you should follow these recommendations:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Microsoft Azure AD en un entorno de prueba.
@@ -80,22 +80,22 @@ Para configurar la integración de 8x8 Virtual Office en Azure AD, es preciso ag
    
     ![Selección de la aplicación en la galería](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_0001.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Microsoft Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Microsoft Azure AD con 8x8 Virtual Office con una usuaria de prueba llamada "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de 8x8 Virtual Office para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de 8x8 Virtual Office.
 
 Esta relación de vínculo se establece mediante la asignación del valor de **nombre de usuario** en Azure AD como valor de **nombre de usuario** en 8x8 Virtual Office.
 
-Para configurar y probar el inicio de sesión único de Microsoft Azure AD con 8x8 Virtual Office, es preciso completar los siguientes pasos preliminares:
+Para configurar y probar el inicio de sesión único de Microsoft Azure AD con 8x8 Virtual Office, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Configuración del inicio de sesión único de Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Microsoft Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de 8x8 Virtual Office](#creating-a-8x8-virtual-office-test-user)** : para tener un homólogo de Britta Simon en 8x8 Virtual Office que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para que Britta Simon pueda usar el inicio de sesión único de Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Microsoft Azure AD
+### <a name="configuring-microsoft-azure-ad-sso"></a>Configuración del inicio de sesión único de Microsoft Azure AD
 En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación 8x8 Virtual Office.
 
 **Para configurar el inicio de sesión único de Microsoft Azure AD con 8x8 Virtual Office, realice los pasos siguientes:**
@@ -109,17 +109,13 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
 3. En el cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_04.png)
-   
-    a. En el cuadro de texto **URL de respuesta**, escriba: `https://sso.8x8.com/saml2`
-   
-    b. Haga clic en **Siguiente**
+  1. En el cuadro de texto **URL de respuesta**, escriba: `https://sso.8x8.com/saml2`
+  2. Haga clic en **Siguiente**.
 4. En la página **Configurar inicio de sesión único en 8x8 Virtual Office**, realice los pasos que se indican a continuación y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_05.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Next**.
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
 5. Inicie la sesión en el inquilino de 8x8 Virtual Office como administrador.
 6. Seleccione el **administrador de cuentas de Virtual Office** en el panel de la aplicación.
    
@@ -141,16 +137,15 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
     ![Configurar en la aplicación](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
     
     ![Configurar en la aplicación](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_007.png)
-12. Haga clic en el botón **Explorador** para cargar el certificado que descargó de Azure AD.
-13. Haga clic en el botón **Save** (Guardar).
-14. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+12. Haga clic en el botón **Explorador** para cargar el certificado que descargó de Azure AD y luego haga clic en el botón **Guardar**.
+13. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
     
     ![Inicio de sesión único de Azure AD ][10]
-15. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
+14. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
     
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
@@ -170,47 +165,36 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal clásico
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_05.png)
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_06.png)
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_07.png)
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_08.png)
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Completo**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-a-8x8-virtual-office-test-user"></a>Creación de un usuario de prueba de 8x8 Virtual Office
+### <a name="create-a-8x8-virtual-office-test-user"></a>Creación de un usuario de prueba de 8x8 Virtual Office
 El objetivo de esta sección es crear un usuario llamado Britta Simon en 8x8 Virtual Office. 8x8 Virtual Office admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
 No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a 8x8 Virtual Office se creará un nuevo usuario, en caso de que no exista. 
 
-> [!NOTE]
-> Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el equipo de soporte técnico de 8x8 Virtual Office.
-> 
+>[!NOTE]
+>Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el equipo de soporte técnico de 8x8 Virtual Office. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a 8x8 Virtual Office.
 
 ![Asignar usuario][200]
@@ -231,7 +215,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Microsoft Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de 8x8 Virtual Office en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación 8x8 Virtual Office.
@@ -257,9 +241,4 @@ Al hacer clic en el icono de 8x8 Virtual Office en el Panel de acceso, debería 
 [203]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

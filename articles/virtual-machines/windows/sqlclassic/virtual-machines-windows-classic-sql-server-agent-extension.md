@@ -1,5 +1,5 @@
 ---
-title: "Extensión del Agente SQL Server para máquinas virtuales de SQL Server (modelo clásico) | Microsoft Docs"
+title: "Automatizar tareas de administración en máquinas virtuales de SQL (implementación clásica) | Microsoft Docs"
 description: "En este tema se describe cómo administrar la extensión Agente de SQL Server, que automatiza tareas de administración específicas de SQL Server. Entre ellas se incluyen la copia de seguridad automatizada, la aplicación de revisiones automatizada y la integración del Almacén de claves de Azure. En este tema se usa el modelo de implementación clásica."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/18/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6494f8bd610c26ceda718a38faf32d0346a063d7
-ms.openlocfilehash: 73187757207eef345f262dfc16780e7a6dbfb739
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: ca346405590d7caa63a888aa139ab1a6f21e365b
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar las tareas de administración en máquinas virtuales de Azure con la extensión del Agente SQL Server (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
 > * [Clásico](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
-> 
-
+>
+ 
 La extensión del agente de IaaS SQL Server (SQLIaaSAgent) se ejecuta en máquinas virtuales de Azure para automatizar las tareas de administración. En este tema se proporciona información general sobre los servicios admitidos por la extensión, así como instrucciones para la instalación, el estado y la eliminación.
 
 > [!IMPORTANT] 
@@ -103,10 +104,5 @@ También puede utilizar el cmdlet **Remove-AzureVMSqlServerExtension** de PowerS
 Empiece utilizando uno de los servicios admitidos por la extensión. Para más información, consulte los temas a los que se hace referencia en la sección [Servicios admitidos](#supported-services) de este artículo.
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [Información general sobre SQL Server en Máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -188,7 +188,7 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
     
      ![Configurar inicio de sesión único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configurar inicio de sesión único")
 
-14. En el cuadro de diálogo **Proveedores de identidades**, haga clic en **Nuevo **:
+14. En el cuadro de diálogo **Proveedores de identidades**, haga clic en **Nuevo**:
     
      ![Configurar inicio de sesión único](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurar inicio de sesión único")
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: fda7455320e1c043f1f5aa2a92b72329fc20e76a
-ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
+ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
+ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -40,7 +41,7 @@ El programador en sí, siempre está en ejecución, pero se puede configurar par
 ## <a name="scheduler-configuration"></a>Configuración del programador
 Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncScheduler`. Muestra algo parecido a esta imagen:
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
 Si al ejecutar este cmdlet, aparece el error **The sync command or cmdlet is not available** (El comando de sincronización o el cmdlet no están disponibles), significa que el módulo de PowerShell no está cargado. Este problema podría suceder si ejecuta Azure AD Connect en un controlador de dominio o en un servidor con niveles de restricción para PowerShell más elevados que la configuración predeterminada. Si ve este error, ejecute `Import-Module ADSync` para que esté disponible el cmdlet.
 
@@ -52,7 +53,8 @@ Si al ejecutar este cmdlet, aparece el error **The sync command or cmdlet is not
 * **PurgeRunHistoryInterval**. El tiempo que deben mantenerse los registros de operación. Estos registros se pueden revisar en Synchronization Service Manager. El valor predeterminado mantener estos registros 7 días.
 * **SyncCycleEnabled**. Indica si el programador está ejecutando los procesos de importación, sincronización y exportación como parte de su funcionamiento.
 * **MaintenanceEnabled**. Muestra si está habilitado el proceso de mantenimiento. Actualiza los certificados y las claves y purga el registro de operaciones.
-* **IsStagingModeEnabled**. Muestra si el [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado. Si esta opción está habilitada, suprime la ejecución de las exportaciones, pero ejecuta la importación y la sincronización.
+* **StagingModeEnabled**. Muestra si el [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado. Si esta opción está habilitada, suprime la ejecución de las exportaciones, pero ejecuta la importación y la sincronización.
+* **SchedulerSuspended**. Configure Connect durante una actualización para impedir temporalmente que se ejecute el programador.
 
 Puede cambiar algunos de estos valores con `Set-ADSyncScheduler`. Se pueden modificar los parámetros siguientes:
 
@@ -61,6 +63,8 @@ Puede cambiar algunos de estos valores con `Set-ADSyncScheduler`. Se pueden modi
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
+
+En compilaciones anteriores de Azure AD Connect, **isStagingModeEnabled** se expuso en Set-ADSyncScheduler. **No se puede** establecer esta propiedad. La propiedad **SchedulerSuspended** solo debe modificarse con Connect. **No se puede** establecer esto con PowerShell directamente.
 
 La configuración del programador se almacena en Azure AD. Si tiene un servidor de ensayo, cualquier cambio realizado en el servidor principal también afectará a este servidor (excepto IsStagingModeEnabled).
 
@@ -169,9 +173,4 @@ Si inicia el Asistente para instalación, el programador se suspende temporalmen
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

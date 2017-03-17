@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6e3d3151bc45f346467781543262052a05018c1e
+ms.sourcegitcommit: 1e0ef693f8176e61bf18e0a37be9bde1cc5d03a2
+ms.openlocfilehash: 8f6eca0c23e6886fd302ab8371a99c8b366f8d75
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,7 +27,7 @@ En este tutorial, obtendrá información sobre cómo integrar Predictix Ordering
 La integración de Predictix Ordering con Azure AD proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a Predictix Ordering.
-* Puede habilitar que los usuarios inicien sesión automáticamente en Predictix Ordering (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en Predictix Ordering (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,17 +36,16 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 Para configurar la integración de Azure AD con Predictix Ordering, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único en Predictix Ordering
+* Una suscripción habilitada para el inicio de sesión único en A Predictix Ordering
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
@@ -55,7 +55,7 @@ La situación descrita en este tutorial consta de dos bloques de creación princ
 1. Adición de Predictix Ordering desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-predictix-ordering-from-the-gallery"></a>Adición de Predictix Ordering desde la galería
+## <a name="add-predictix-ordering-from-the-gallery"></a>Adición de Predictix Ordering desde la galería
 Para configurar la integración de Predictix Ordering en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Predictix Ordering desde la galería, siga estos pasos:**
@@ -80,8 +80,8 @@ Para configurar la integración de Predictix Ordering en Azure AD, deberá agreg
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Predictix Ordering con un usuario de prueba llamado "Britta Simon".
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único (SSO) de Azure AD con Predictix Ordering con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Predictix Ordering para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Predictix Ordering.
 
@@ -89,13 +89,13 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 
 Para configurar y probar el inicio de sesión único de Azure AD con Predictix Ordering, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Predictix Ordering](#creating-a-predictix-price-reporting-test-user)**: para tener un homólogo de Britta Simon en Predictix Ordering que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 En esta sección, se habilita el inicio de sesión único de Azure AD en el portal clásico y se configura el inicio de sesión único en la aplicación Predictix Ordering.
 
 **Para configurar el inicio de sesión único de Azure AD con Predictix Ordering, siga estos pasos:**
@@ -109,26 +109,18 @@ En esta sección, se habilita el inicio de sesión único de Azure AD en el port
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_04.png) 
-   
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Predictix Ordering con el siguiente patrón: **https://\<nombreDeLaCompañía-precios\>.ordering.predictix.com/sso/request**.
-   
-    b. click **Siguiente**
+  1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Predictix Ordering con el siguiente patrón: **https://\<nombreDeLaCompañía-precios\>.ordering.predictix.com/sso/request**.
+  2. Haga clic en **Siguiente**.
 4. En la página **Configurar inicio de sesión único en Predictix Ordering** , siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png)
-   
-    a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
-   
-    b. Haga clic en **Siguiente**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png) 
+  1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
 5. Para configurar SSO único para una aplicación, póngase en contacto con el equipo de soporte técnico de Predictix Ordering y proporciónele la siguiente información:
-   
-    • El certificado descargado
-   
-    • El **identificador de entidad**
-   
-    • La **dirección URL de inicio de sesión único de SAML**
-   
-    • La **dirección URL del servicio de cierre de sesión único**
+  * El certificado descargado
+  * El **identificador de entidad**
+  * La **dirección URL de inicio de sesión único de SAML**
+  * La **dirección URL del servicio de cierre de sesión único**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -136,7 +128,7 @@ En esta sección, se habilita el inicio de sesión único de Azure AD en el port
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 ![Creación de un usuario de Azure AD][20]
@@ -153,39 +145,33 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_04.png) 
-5. En el cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_06.png) 
-   
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   
-   d. En la lista **Rol**, seleccione **Usuario**.
-   
-   e. Haga clic en **Siguiente**.
+5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_05.png) 
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
+6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
+
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_06.png) 
+  1. En el cuadro de texto **Nombre**, escriba **Britta**.  
+  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
+  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+  4. En la lista **Rol**, seleccione **Usuario**.
+  5. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_07.png) 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_08.png) 
-   
-    a. Anote el valor del campo **Nueva contraseña**.
-   
-    b. Haga clic en **Complete**.   
+  1. Anote el valor del campo **Nueva contraseña**.
+  2. Haga clic en **Completo**.   
 
-### <a name="creating-an-predictix-ordering-test-user"></a>Creación de un usuario de prueba en Predictix Ordering
+### <a name="create-an-predictix-ordering-test-user"></a>Creación de un usuario de prueba de Predictix Ordering
 En esta sección, creará un usuario llamado Britta Simon en Predictix Ordering. Trabaje con el equipo de soporte técnico de Predictix Ordering para agregar usuarios a la plataforma de Predictix Ordering.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, se habilita que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Predictix Ordering.
 
 ![Asignar usuario][200] 
@@ -206,8 +192,8 @@ En esta sección, se habilita que Britta Simon use el inicio de sesión único d
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+En esta sección, probará la configuración de SSO de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Predictix Ordering en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Predictix Ordering.
 
@@ -232,9 +218,4 @@ Al hacer clic en el icono de Predictix Ordering en el panel de acceso, debería 
 [203]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictix-ordering-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

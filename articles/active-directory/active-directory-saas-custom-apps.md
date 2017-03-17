@@ -1,5 +1,5 @@
 ---
-title: "Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory | Microsoft Docs"
+title: "Configuración de inicio de sesión único de Azure AD SSO para aplicaciones |Microsoft Docs"
 description: "Aprenda cómo conectar de forma autónoma aplicaciones a Azure Active Directory mediante SAML y SSO basado en contraseña"
 services: active-directory
 author: asmalser-msft
@@ -11,11 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
+ms.date: 02/27/2017
 ms.author: asmalser
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8274e47e99998b735e7252ce72bb3ac7c2ecc672
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: b4a1bb3211da8c02d48ebad69d5e1cbb4de2c45d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -139,9 +141,4 @@ Nota: Para cargar un logotipo de icono de la aplicación, pulse el botón **Carg
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

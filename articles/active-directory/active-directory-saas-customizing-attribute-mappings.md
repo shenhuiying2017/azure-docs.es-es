@@ -1,5 +1,5 @@
 ---
-title: "Personalización de asignaciones de atributos | Microsoft Docs"
+title: "Personalización de asignaciones de atributos de Azure AD | Microsoft Docs"
 description: "Conozca cuáles son las asignaciones de atributos para aplicaciones SaaS en Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b73c9dc8edd341898ede06f67f383b86010e1e39
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: 19e934895279adb3a32096fffafd567b294c3009
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="customizing-attribute-mappings"></a>Personalización de asignaciones de atributos
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios
 Microsoft Azure AD proporciona soporte para el aprovisionamiento de usuarios para aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si dispone de aprovisionamiento de usuarios para una aplicación SaaS de terceros habilitada, el Portal de administración de Azure controla sus valores de atributo en forma de una configuración denominada "asignación de atributos".
 
 Hay un conjunto preconfigurado de asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos o contactos. <br> 
@@ -59,12 +61,12 @@ Con asignaciones de atributos, puede controlar cómo se rellenan los atributos e
 * **Directa** : el atributo de destino se rellena con el valor de un atributo del objeto vinculado en Azure AD.
 * **Constante** : el atributo de destino se rellena con una cadena específica que se ha especificado.
 * **Expresión** : el atributo de destino se rellena según el resultado de una expresión similar a un script. 
-  Para obtener más información, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **Ninguno** : el atributo de destino se deja sin modificar. Sin embargo, si el atributo de destino está vacío, se rellenará con el valor predeterminado que especifique.
+  Para más información, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Ninguno** : el atributo de destino se deja sin modificar. Sin embargo, si el atributo de destino está vacío, se rellena con el valor predeterminado que especifique.
 
 Además de estos cuatro tipos básicos de asignaciones de atributos, las asignaciones de atributos personalizadas admiten el concepto de una asignación de valor **predeterminada** . La asignación de valor predeterminada garantiza que un atributo de destino se rellene con un valor si no hay ningún valor en Azure AD ni en el objeto de destino.
 
-Microsoft Azure AD proporciona una implementación muy eficaz de un proceso de sincronización. En un entorno inicializado, sólo los objetos que requieren actualizaciones se procesan durante un ciclo de sincronización. Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Esto se debe a que una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados. Por este motivo, es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
+Microsoft Azure AD proporciona una implementación eficaz de un proceso de sincronización. En un entorno inicializado, sólo los objetos que requieren actualizaciones se procesan durante un ciclo de sincronización. Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados. Es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
@@ -80,9 +82,4 @@ Microsoft Azure AD proporciona una implementación muy eficaz de un proceso de s
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

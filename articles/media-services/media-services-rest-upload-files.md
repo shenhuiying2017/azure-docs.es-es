@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: d58462cbd6578093e00c93c7e2753efc1493441d
-ms.openlocfilehash: 8f17399846eafcac8b86a9b7d7baa7a029005c8c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: c0ea95ed12a704116e8cdff257dacd7768b45708
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -33,7 +34,7 @@ En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad
 > [!NOTE]
 > Se aplican las siguientes consideraciones:
 > 
-> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
 > * La longitud del nombre no debe ser superior a 260 caracteres.
 > * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
 > 
@@ -186,6 +187,10 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Creación de AccessPolicy con permiso de escritura.
+
+>[!NOTE]
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+
 Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes durante la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
@@ -371,7 +376,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
     HTTP/1.1 204 No Content 
     ...
 
-## <a name="a-iduploadinbulkaupload-assets-in-bulk"></a><a id="upload_in_bulk"></a>Carga de activos en bloque
+## <a id="upload_in_bulk"></a>Carga de activos en bloque
 ### <a name="create-the-ingestmanifest"></a>Creación de IngestManifest
 IngestManifest es un contenedor para un conjunto de activos, archivos de activos e información estadística que puede utilizarse para determinar el progreso de la ingesta en bloque para el conjunto.
 
@@ -519,10 +524,5 @@ También puede usar Azure Functions para desencadenar un trabajo de codificació
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

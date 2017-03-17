@@ -1,5 +1,5 @@
 ---
-title: "Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (implementación clásica)"
+title: "Configuración automática de Azure Key Vault para máquinas virtuales de SQL (implementación clásica) | Microsoft Docs"
 description: "Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Almacén de claves de Azure. En este tema se explica cómo usar la integración de Azure Key Vault con la creación de máquinas virtuales de SQL Server en el modelo de implementación clásica."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a5724d4291a0b1878d528a59f693c046ba960f9
-ms.openlocfilehash: d7133180f4fc9263894c522fcaacaeea4a985847
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 763b8b57c5914e7be39256d58de1b6769dbbaf9d
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-classic"></a>Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (implementación clásica)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
 > * [Clásico](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -78,10 +79,5 @@ El cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** crea un objeto de con
 La extensión del agente de Iaas de SQL actualizará la máquina virtual de SQL con esta nueva configuración.
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

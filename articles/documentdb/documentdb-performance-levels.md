@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
-ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="performance-levels-in-documentdb"></a>Niveles de rendimiento en DocumentDB
+# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>Retirar los niveles de rendimiento S1, S2 y S3 en DocumentDB
 
 > [!IMPORTANT] 
 > Los niveles de rendimiento S1, S2 y S3 descritos en este artículo se han retirado y ya no están disponibles para las nuevas colecciones de DocumentDB.
@@ -175,7 +176,7 @@ El precio para los clientes de EA estará protegido hasta el final de su contrat
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los precios y la administración de datos con Azure DocumentDB, consulte estos recursos:
 
-1.  [Partición de datos en DocumentDB](documentdb-partition-data.md). Información sobre la diferencia entre las colecciones de partición única y las colecciones con particiones, así como sugerencias sobre cómo implementar una estrategia de particiones para escalar sin problemas.
-2.  [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Aprenda sobre los costes de rendimiento del aprovisionamiento y el consumo de almacenamiento.
-3.  [Unidades de solicitud](documentdb-request-units.md). Información sobre el consumo de rendimiento para diferentes tipos de operaciones; por ejemplo, lectura, escritura o consulta.
-4.  [Modelado de datos en DocumentDB](documentdb-modeling-data.md). Aprenda a modelar los datos para DocumentDB.
+1.    [Partición de datos en DocumentDB](documentdb-partition-data.md). Información sobre la diferencia entre las colecciones de partición única y las colecciones con particiones, así como sugerencias sobre cómo implementar una estrategia de particiones para escalar sin problemas.
+2.    [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Aprenda sobre los costes de rendimiento del aprovisionamiento y el consumo de almacenamiento.
+3.    [Unidades de solicitud](documentdb-request-units.md). Información sobre el consumo de rendimiento para diferentes tipos de operaciones; por ejemplo, lectura, escritura o consulta.
+4.    [Modelado de datos en DocumentDB](documentdb-modeling-data.md). Aprenda a modelar los datos para DocumentDB.

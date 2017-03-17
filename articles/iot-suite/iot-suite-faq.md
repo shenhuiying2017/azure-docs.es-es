@@ -13,15 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
+ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
+ms.openlocfilehash: ab027e1f21e8c2c33829f833395a6872cb7bcdd8
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
+
+### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>¿Dónde se puede encontrar el código fuente de la solución preconfigurada?
+El código fuente se almacena en los siguientes repositorios de GitHub:
+* [Solución preconfigurada de supervisión remota][lnk-remote-monitoring-github]
+* [Solución preconfigurada de mantenimiento predictivo][lnk-predictive-maintenance-github]
+
+### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>¿Cómo puedo actualizar a la versión más reciente de la solución preconfigurada de supervisión remota que usa las características de administración de dispositivos de IoT Hub?
+* Si implementa una solución preconfigurada desde el sitio https://www.azureiotsuite.com/, siempre se implementa una nueva instancia de la versión más reciente de la solución.
+* Si implementa una solución preconfigurada mediante la línea de comandos, puede actualizar una implementación existente con nuevo código. Consulte [Implementación de nube] [ lnk-cloud-deployment] en el [repositorio][lnk-remote-monitoring-github] de GitHub.
+
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>¿Cómo se puede agregar compatibilidad con un nuevo método de dispositivo a la solución preconfigurada de supervisión remota?
+Consulte la sección [Add support for a new method to the simulator][lnk-add-method] (Adición de compatibilidad con un nuevo método al simulador) en el artículo [Personalizar una solución preconfigurada][lnk-customize].
+
+### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>El dispositivo simulado está omitiendo los cambios de propiedades deseadas, ¿por qué?
+En la solución preconfigurada de supervisión remota, el código de dispositivo simulado solo usa las propiedades deseadas **Desired.Config.TemperatureMeanValue** y **Desired.Config.TelemetryInterval** para actualizar las propiedades notificadas. Todos los demás cambios de propiedades deseadas se omiten.
+
+### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>El dispositivo no aparece en la lista de dispositivos en el panel de la solución, ¿por qué?
+La lista de dispositivos en el panel de la solución usa una consulta para devolver la lista de dispositivos. Actualmente, una consulta no puede devolver más de 10 000 dispositivos. Intente que los criterios de búsqueda de su consulta sean más restrictivos.
+
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>¿Cuál es la diferencia entre eliminar un grupo de recursos en el Portal de Azure y hacer clic en Eliminar en una solución preconfigurada en azureiotsuite.com?
 * Si elimina la solución preconfigurada en [azureiotsuite.com][lnk-azureiotsuite], eliminará todos los recursos aprovisionados cuando se creó la solución preconfigurada. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan. 
 * Si elimina el grupo de recursos en [Azure Portal][lnk-azure-portal], solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada a la solución preconfigurada en el [Portal de Azure clásico][lnk-classic-portal].
@@ -77,9 +97,8 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
+[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance

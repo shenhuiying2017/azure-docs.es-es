@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c93d0d47721546f25e72d97f4e019886ef801eba
-ms.openlocfilehash: a7ffc5e2547ca7ac52a56ec82b493b14acd7aaaa
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0644efd8753c33c0404b45f567759c0be666bcef
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,10 +42,10 @@ Puede conceder los [permisos](#iot-hub-permissions) de las maneras siguientes:
 * **Directivas de acceso compartido de nivel de centro de IoT**. Las directivas de acceso compartido pueden conceder cualquier combinación de los [permisos](#iot-hub-permissions). Puede definir las directivas en [Azure Portal][lnk-management-portal] o mediante programación usando las [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
   
   * **iothubowner**: directiva con todos los permisos.
-  * **service**: directiva con el permiso ServiceConnect.
-  * **device**: directiva con el permiso DeviceConnect.
-  * **registryRead**: directiva con el permiso RegistryRead.
-  * **registryReadWrite**: directiva con los permisos RegistryRead y RegistryWrite.
+  * **service**: directiva con el permiso **ServiceConnect**.
+  * **device**: directiva con el permiso **DeviceConnect**.
+  * **registryRead**: directiva con el permiso **RegistryRead**.
+  * **registryReadWrite**: directiva con los permisos **RegistryRead** y RegistryWrite.
   * **Credenciales de seguridad de cada dispositivo**. Cada centro de IoT contiene un [registro de identidad][lnk-identity-registry]. Para cada dispositivo de este registro de identidades, puede configurar credenciales de seguridad que concedan permisos **DeviceConnect** orientados a los puntos de conexión del dispositivo correspondiente.
 
 Por ejemplo en una solución típica de IoT:
@@ -54,6 +54,9 @@ Por ejemplo en una solución típica de IoT:
 * El componente de procesador de eventos usa la directiva *service* .
 * El componente de lógica empresarial de dispositivos en tiempo de ejecución usa la directiva *service* .
 * Los dispositivos individuales se conectan usando las credenciales almacenadas en el registro de identidad del Centro de IoT.
+
+> [!NOTE]
+> Para más detalles, vea [Permisos](#iot-hub-permissions).
 
 ## <a name="authentication"></a>Autenticación
 Azure IoT Hub concede acceso a los puntos de conexión mediante la comprobación de un token con las directivas de acceso compartido y las credenciales de seguridad del registro de identidad.
@@ -370,10 +373,10 @@ La tabla siguiente enumera los permisos que se puede utilizar para controlar el 
 
 | Permiso | Notas |
 | --- | --- |
-| **RegistryRead**. |Concede acceso de lectura al Registro de identidad. Para más información, consulte [Registro de identidad][lnk-identity-registry]. |
-| **RegistryReadWrite**. |Concede acceso de lectura y escritura al Registro de identidad. Para más información, consulte [Registro de identidad][lnk-identity-registry]. |
-| **ServiceConnect**. |Concede acceso a los puntos de conexión de comunicación y supervisión accesibles desde el servicio en la nube. Por ejemplo, concede permiso a los servicios en la nube de back-end para recibir mensajes de dispositivo a la nube, enviar mensajes de nube a dispositivo y recuperar las confirmaciones de entrega correspondientes. |
-| **DeviceConnect**. |Concede acceso a los puntos de conexión accesibles desde los dispositivos. Por ejemplo, concede permiso para enviar mensajes de dispositivo a nube y recibir mensajes de nube a dispositivo. Este permiso lo usan los dispositivos. |
+| **RegistryRead**. |Concede acceso de lectura al Registro de identidad. Para más información, consulte [Registro de identidad][lnk-identity-registry]. <br/>Este permiso se usa en servicios de back-end en la nube. |
+| **RegistryReadWrite**. |Concede acceso de lectura y escritura al Registro de identidad. Para más información, consulte [Registro de identidad][lnk-identity-registry]. <br/>Este permiso se usa en servicios de back-end en la nube. |
+| **ServiceConnect**. |Concede acceso a los puntos de conexión de comunicación y supervisión accesibles desde el servicio en la nube. <br/>Concede permiso para recibir mensajes de dispositivo a nube, enviar mensajes de nube a dispositivo y recuperar las confirmaciones de entrega correspondientes. <br/>Concede permiso para recuperar las confirmaciones de entrega para las cargas de archivos. <br/>Concede permiso para tener acceso a los dispositivos gemelos para actualizar las etiquetas y las propiedades deseadas, recuperar las propiedades notificadas y ejecutar consultas. <br/>Este permiso se usa en servicios de back-end en la nube. |
+| **DeviceConnect**. |Concede acceso a los puntos de conexión accesibles desde los dispositivos. <br/>Concede permiso para enviar mensajes de dispositivo a nube y recibir mensajes de nube a dispositivo. <br/>Concede permiso para realizar la carga de archivos desde un dispositivo. <br/>Concede permiso para recibir notificaciones sobre las propiedades de los dispositivos gemelos que desee y actualizar las propiedades notificadas de esos dispositivos gemelos. <br/>Concede permiso para realizar cargas de archivos. <br/>Este permiso lo usan los dispositivos. |
 
 ## <a name="additional-reference-material"></a>Material de referencia adicional
 Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:

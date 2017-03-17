@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2017
+ms.date: 02/20/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 6b31efd7af7c82a9b2db458f55be91d3d5457ed9
-ms.openlocfilehash: 8ab958b7c03c7c5cd52de12f0cb5ffcebf0ab35e
+ms.sourcegitcommit: 72d9c639a6747b0600c5ce3a1276f3c1d2da64b2
+ms.openlocfilehash: 8c3ced706c26e09d709d7cfb4d81534c362e1628
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -33,89 +34,89 @@ Con la distribución global llave en mano de DocumentDB, no es preciso que los d
 
 En este artículo se proporciona información general sobre las funcionalidades de la distribución global de DocumentDB. También se describe el enfoque único de DocumentDB que se adopta con respecto a proporcionar contratos de nivel de servicio sólidos. 
 
-## <a name="a-idenableglobaldistributionaenabling-turn-key-global-distribution"></a><a id="EnableGlobalDistribution"></a>Habilitación de una distribución global llave en mano
+## <a id="EnableGlobalDistribution"></a>Habilitación de una distribución global llave en mano
 DocumentDB proporciona las siguientes funcionalidades, que permiten escribir fácilmente aplicaciones a escala planetaria. Estas funcionalidades están disponibles a través de las [API de REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) basadas en proveedor de recursos de DocumentDB, así como de Azure Portal.
 
-### <a name="a-idregionalpresenceaubiquitous-regional-presence"></a><a id="RegionalPresence"></a>Presencia regional ubicua 
+### <a id="RegionalPresence"></a>Presencia regional ubicua 
 La presencia geográfica de Azure crece constantemente y aumenta el número de regiones en línea. De manera predeterminada, DocumentDB está disponible en todas las regiones de Azure nuevas. Esto permite asociar una región geográfica a una cuenta de base de datos de DocumentDB en cuanto Azure abra la nueva región para poder realizar negocios.
 
 **De manera predeterminada, DocumentDB está disponible en todas las regiones de Azure**
 
 ![DocumentDB está disponible en todas las regiones de Azure](./media/documentdb-distribute-data-globally/azure-regions.png)
 
-### <a name="a-idunlimitedregionsperaccountaassociating-an-unlimited-number-of-regions-with-your-documentdb-database-account"></a><a id="UnlimitedRegionsPerAccount"></a>Asociación de un número ilimitado de regiones a una cuenta de base de datos de documentos de DocumentDB
+### <a id="UnlimitedRegionsPerAccount"></a>Asociación de un número ilimitado de regiones a una cuenta de base de datos de documentos de DocumentDB
 DocumentDB permite asociar cualquier número de regiones de Azure con su cuenta de base de datos de DocumentDB. Fuera de las restricciones de geovallado (por ejemplo, China o Alemania), no hay limitaciones en el número de regiones que se pueden asociar a una cuenta de base de datos de DocumentDB. La siguiente ilustración muestra una cuenta de base de datos configurada para abarcar 21 regiones de Azure.  
 
 **Una cuenta de base de datos de DocumentDB un inquilino que abarca 21 regiones de Azure**
 
 ![Cuenta de base de datos de DocumentDB un inquilino que abarca 21 regiones de Azure](./media/documentdb-distribute-data-globally/documentdb-spanning-regions.png)
 
-### <a name="a-idpolicybasedgeofencingapolicy-based-geo-fencing"></a><a id="PolicyBasedGeoFencing"></a>Geovallado basado en directivas
+### <a id="PolicyBasedGeoFencing"></a>Geovallado basado en directivas
 DocumentDB está diseñado para tener funcionalidades de geovallado basadas en directivas. El geovallado es un componente importante para asegurar las restricciones de cumplimiento y regulación de datos, y puede evitar la asociación de una región específica a una cuenta. Entre los ejemplos de geovallado se incluyen los siguientes (aunque hay más): limitación del ámbito de distribución global a las regiones que estén dentro de una nube soberana (por ejemplo, China y en Alemania) o dentro de un límite impositivo de gobierno (por ejemplo, Australia). Las directivas se controlan mediante los metadatos de la suscripción de Azure.
 
-### <a name="a-iddynamicallyaddregionsadynamically-add-and-remove-regions"></a><a id="DynamicallyAddRegions"></a>Incorporación y eliminación dinámicas de regiones
+### <a id="DynamicallyAddRegions"></a>Incorporación y eliminación dinámicas de regiones
 DocumentDB permite agregar (asociar) o quitar (desasociar) regiones de una cuenta de base de datos en cualquier momento (vea la [ilustración anterior](#UnlimitedRegionsPerAccount)). En virtud de la replicación de datos entre particiones en paralelo, DocumentDB garantiza que cuando una nueva región esté en línea estará disponible en menos de 30 minutos en cualquier lugar del mundo para un máximo de 100 TB. 
 
-### <a name="a-idfailoverprioritiesafailover-priorities"></a><a id="FailoverPriorities"></a>Prioridades de conmutación por error
+### <a id="FailoverPriorities"></a>Prioridades de conmutación por error
 Para controlar la secuencia exacta de las conmutaciones por error regionales cuando se produzca una interrupción en varias regiones, DocumentDB permite asociar la prioridad a diversas regiones asociadas a la cuenta de la base de datos (consulte la siguiente ilustración). DocumentDB garantiza que la secuencia de la conmutación por error automática se produce en el orden de prioridad que especificó.
 
 **Un inquilino de DocumentDB puede configurar el orden de prioridad de la conmutación por error (panel derecho) para las regiones asociadas a una cuenta de la base de datos**
 
 ![Configuración de prioridades de conmutación por error con Azure DocumentDB](./media/documentdb-distribute-data-globally/documentdb-failover-priorities.png)
 
-### <a name="a-idofflineregionsadynamically-taking-a-region-offline"></a><a id="OfflineRegions"></a>Desconexión dinámica de una región
+### <a id="OfflineRegions"></a>Desconexión dinámica de una región
 DocumentDB permite desconectar la cuenta de la base de datos de una región específica y volver a conectarla posteriormente. Las regiones marcadas como sin conexión no participan activamente en la replicación y no forman parte de la secuencia de conmutación por error. Esto permite congelar la ultima imagen válida conocida de la base de datos en una de las regiones de lectura antes de implementar actualizaciones potencialmente peligrosos en la aplicación.
 
-### <a name="a-idconsistencylevelsamultiple-well-defined-consistency-models-for-globally-replicated-databases"></a><a id="ConsistencyLevels"></a>Varios modelos de coherencia bien definidos para bases de datos replicadas globalmente
+### <a id="ConsistencyLevels"></a>Varios modelos de coherencia bien definidos para bases de datos replicadas globalmente
 DocumentDB expone [varios niveles de coherencia bien definidos](documentdb-consistency-levels.md) respaldados por Acuerdos de Nivel de Servicio. Puede elegir un modelo de coherencia concreto (de la lista de opciones disponibles), en función de la carga de trabajo o de los escenarios. 
 
-### <a name="a-idtunableconsistencyatunable-consistency-for-globally-replicated-databases"></a><a id="TunableConsistency"></a>Coherencia optimizable para bases de datos replicadas globalmente
+### <a id="TunableConsistency"></a>Coherencia optimizable para bases de datos replicadas globalmente
 DocumentDB permite invalidar y ser menos exigentes con la opción de coherencia predeterminada en función de cada solicitud mediante programación en tiempo de ejecución. 
 
-### <a name="a-iddynamicallyconfigurablereadwriteregionsadynamically-configurable-read-and-write-regions"></a><a id="DynamicallyConfigurableReadWriteRegions"></a>Regiones de escritura y lectura configurables dinámicamente
+### <a id="DynamicallyConfigurableReadWriteRegions"></a>Regiones de escritura y lectura configurables dinámicamente
 DocumentDB permite configurar las regiones (asociadas a la base de datos) para "lectura", "escritura" o "lectura/escritura". 
 
-### <a name="a-idelasticallyscalethroughputaelastically-scaling-throughput-across-azure-regions"></a><a id="ElasticallyScaleThroughput"></a>Rendimiento de escalado elástico en regiones de Azure
+### <a id="ElasticallyScaleThroughput"></a>Rendimiento de escalado elástico en regiones de Azure
 Para escalar elásticamente las colecciones de DocumentDB, es preciso aprovisionar el rendimiento mediante programación. El rendimiento se aplica a todas las áreas en que se distribuye la colección.
 
-### <a name="a-idgeolocalreadsandwritesageo-local-reads-and-writes"></a><a id="GeoLocalReadsAndWrites"></a>Escrituras y lecturas geolocalizadas
+### <a id="GeoLocalReadsAndWrites"></a>Escrituras y lecturas geolocalizadas
 La principal ventaja de una base de datos distribuida globalmente es ofrecer acceso con latencia baja a datos en cualquier lugar del mundo. DocumentDB ofrece garantía de baja latencia en P99 para realizar diversas operaciones de base de datos. Garantiza que todas las lecturas se enrutan a la región de lectura local más cercana. Para atender una solicitud de lectura, se usa el cuórum más cercano a la región en la que se emite la lectura, y lo mismo se aplica a las escrituras. Las operaciones de escritura solo se reconocen después de que una mayoría de las réplicas hayan confirmado de manera duradera la escritura localmente, pero sin que sea preciso canalizarlas en réplicas remotas para confirmar las escrituras. O dicho de otro modo, el protocolo de replicación de DocumentDB opera con la asunción de que los cuórums de lectura y escritura son siempre locales en las regiones de lectura y escritura, respectivamente, en las que se emitió la solicitud.
 
-### <a name="a-idmanualfailoveramanually-initiate-regional-failover"></a><a id="ManualFailover"></a>Inicio manual de una conmutación por error regional
+### <a id="ManualFailover"></a>Inicio manual de una conmutación por error regional
 DocumentDB permite desencadenar la conmutación por error de la cuenta de la base de datos para validar las propiedades de disponibilidad *de un extremo a otro* de toda la aplicación (más allá de la base de datos). Puesto que se garantizan las propiedades de seguridad y vida de la detección de errores y la elección de líder, DocumentDB garantiza *que no habrá pérdida de datos* en las operaciones de conmutación por error manual iniciadas por un inquilino.
 
-### <a name="a-idautomaticfailoveraautomatic-failover"></a><a id="AutomaticFailover"></a>Conmutación por error automática
+### <a id="AutomaticFailover"></a>Conmutación por error automática
 DocumentDB admite la conmutación por error automática en caso de una o varias interrupciones regionales. Durante una conmutación por error regional, DocumentDB mantiene sus Acuerdos de Nivel de Servicio de latencia de lectura, disponibilidad del tiempo activo, coherencia y rendimiento. DocumentDB proporciona un límite superior con respecto al tiempo que puede tardar en completarse una operación de conmutación por error automática. Esta es la ventana de la potencial pérdida de datos durante la interrupción regional.
 
-### <a name="a-idgranularfailoveradesigned-for-different-failover-granularities"></a><a id="GranularFailover"></a>Diseñado para diferentes granularidades de conmutación por error
+### <a id="GranularFailover"></a>Diseñado para diferentes granularidades de conmutación por error
 En la actualidad, las funcionalidades de conmutación por error automática y manual se exponen en la granularidad de la cuenta de la base de datos. Tenga en cuenta que, internamente, DocumentDB está diseñado para ofrecer conmutación por error *automática* con una granularidad más fina de una base de datos, colección o incluso partición (de una colección que posee un intervalo de claves). 
 
-### <a name="a-idmultihomingapisamulti-homing-apis"></a><a id="MultiHomingAPIs"></a>API de hospedaje múltiple
+### <a id="MultiHomingAPIs"></a>API de hospedaje múltiple
 DocumentDB le permite interactuar con la base de datos mediante puntos de conexión lógicos (independientes de la región) o físicos (específicos de la región). El uso de puntos de conexión lógicos garantiza que la aplicación puede alojarse de forma transparente en múltiples hosts en caso de conmutación por error. Los últimos, los puntos de conexión físicos, proporcionan un control específico de la aplicación para redirigir las lecturas y escrituras a regiones concretas.
 
-### <a name="a-idtransparentschemamigrationatransparent-and-consistent-database-schema-and-index-migration"></a><a id="TransparentSchemaMigration"></a>Migración transparente y coherente del índice y esquema de la base de datos 
+### <a id="TransparentSchemaMigration"></a>Migración transparente y coherente del índice y esquema de la base de datos 
 DocumentDB es totalmente [independiente del esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). El diseño exclusivo de su motor de base de datos le permite indexar de forma automática y sincrónica todos los datos que ingiere sin necesidad de que el usuario aporte ningún esquema ni índices secundarios. Esto le permite recorrer en iteración la aplicación distribuida globalmente rápidamente, sin tener que preocuparse de la migración del índice y del esquema de la base de datos ni coordinar los lanzamientos de aplicaciones de varias fases de cambios de esquema. DocumentDB garantiza que los cambios en directivas de indexación que realiza explícitamente el usuario no generan una degradación del rendimiento ni de la disponibilidad.  
 
-### <a name="a-idcomprehensiveslasacomprehensive-slas-beyond-just-high-availability"></a><a id="ComprehensiveSLAs"></a>Acuerdos de Nivel de Servicio completos (algo más que la alta disponibilidad)
+### <a id="ComprehensiveSLAs"></a>Acuerdos de Nivel de Servicio completos (algo más que la alta disponibilidad)
 Al ser un servicio de base de datos distribuido globalmente, DocumentDB ofrece un Acuerdo de Nivel de Servicio bien definido de **pérdida de datos**, **disponibilidad**, **latencia en P99**, **rendimiento** y **coherencia** para la base de datos en conjunto, independientemente del número de regiones asociadas a la base de datos.  
 
-## <a name="a-idlatencyguaranteesalatency-guarantees"></a><a id="LatencyGuarantees"></a>Garantías de latencia
+## <a id="LatencyGuarantees"></a>Garantías de latencia
 La principal ventaja de un servicio de base de datos distribuido globalmente como DocumentDB es ofrecer acceso con latencia baja a datos en cualquier lugar del mundo. DocumentDB ofrece una baja latencia garantizada en P99 para realizar diversas operaciones de base de datos. El protocolo de replicación que DocumentDB emplea garantiza que las operaciones de la base de datos (idealmente, lecturas y escrituras) siempre se realicen en la región más cercana a la del cliente. El Acuerdo de Nivel de Servicio de latencia de DocumentDB incluye P99 para lecturas, escrituras indexadas (sincrónicamente) y consultas para diversos tamaños de solicitud y respuesta. Las garantías de latencia de las escrituras incluyen confirmaciones de cuórum de mayoría duradero en el centro de datos local.
 
-### <a name="a-idlatencyandconsistencyalatencys-relationship-with-consistency"></a><a id="LatencyAndConsistency"></a>Relación de la latencia con la coherencia 
+### <a id="LatencyAndConsistency"></a>Relación de la latencia con la coherencia 
 Para que un servicio distribuido globalmente ofrezca coherencia alta en una configuración distribuida globalmente, necesita replicar sincrónicamente las escrituras o realizar lecturas sincrónicas entre regiones (la velocidad de la luz y la confiabilidad de la red de área extensa dictan que la coherencia alta genera latencias altas y la baja disponibilidad de las operaciones de base de datos). Por consiguiente, para ofrecer bajas latencias garantizadas en P99 y una disponibilidad del 99,99 %, el servicio debe emplear replicación asincrónica. Esto, a su vez, requiere que el servicio también ofrezca [opciones de coherencia no estrictas y bien definidas](documentdb-consistency-levels.md): que no lleguen a ser seguras (para ofrecer garantía de disponibilidad y latencia baja), pero más seguras que una coherencia "eventual" (para ofrecer un modelo de programación intuitivo).
 
 DocumentDB garantiza que no se requiere una operación de lectura para ponerse en contacto con réplicas de varias regiones para ofrecer la garantía de un nivel de coherencia específico. También garantiza que no se bloquea una operación de escritura en el momento en que los datos se replican por todas las regiones (es decir, las operaciones de escritura se replican de manera asincrónica por las regiones). Para las cuentas de base de datos de varias regiones hay disponibles varios niveles de coherencia relajada. 
 
-### <a name="a-idlatencyandavailabilityalatencys-relationship-with-availability"></a><a id="LatencyAndAvailability"></a>Relación de la latencia con la disponibilidad 
+### <a id="LatencyAndAvailability"></a>Relación de la latencia con la disponibilidad 
 La latencia y la disponibilidad son las dos caras de la misma moneda. Hablamos de la latencia de la operación en estado estable y de disponibilidad en caso de errores. Desde la perspectiva de las aplicaciones, una operación de base de datos que se ejecute lentamente no se puede diferencia de una base de datos que no esté disponible. 
 
 Para diferenciar una latencia elevada de una falta de disponibilidad, DocumentDB proporciona un límite superior absoluto a la latencia de varias operaciones de base de datos. Si una operación de base de datos tarda en completarse más tiempo que el que establece el límite superior, DocumentDB devuelve un error de tiempo de espera. El Acuerdo de Nivel de Servicio de disponibilidad de DocumentDB garantiza de que los tiempos de espera se cuentan con respecto a él. 
 
-### <a name="a-idlatencyandthroughputalatencys-relationship-with-throughput"></a><a id="LatencyAndThroughput"></a>Relación de la latencia con el rendimiento
+### <a id="LatencyAndThroughput"></a>Relación de la latencia con el rendimiento
 DocumentDB no obliga a elegir entre latencia y rendimiento. Respeta el Acuerdo de Nivel de Servicio de latencia en P99 y de ofrecer el rendimiento que ha aprovisionado. 
 
-## <a name="a-idconsistencyguaranteesaconsistency-guarantees"></a><a id="ConsistencyGuarantees"></a>Garantías de coherencia
+## <a id="ConsistencyGuarantees"></a>Garantías de coherencia
 Aunque el [modelo de coherencia alta](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) es el estándar de oro de la programación, obliga a pagar el precio de una latencia alta (en estado estable) de pérdida de disponibilidad (en caso de errores). 
 
 DocumentDB ofrece un modelo de programación bien definido para razonar acerca de la coherencia de los datos replicados. Para que pueda compilar aplicaciones de host múltiple, los modelos de coherencia que expone DocumentDB están diseñados para no depender de la región desde la que se atienden las operaciones de lectura y escritura. 
@@ -168,20 +169,20 @@ El Acuerdo de Nivel de Servicio de coherencia de DocumentDB garantiza que el 100
     </tr>
 </table>
 
-### <a name="a-idconsistencyandavailabilityaconsistencys-relationship-with-availability"></a><a id="ConsistencyAndAvailability"></a>Relación de la coherencia con la disponibilidad
+### <a id="ConsistencyAndAvailability"></a>Relación de la coherencia con la disponibilidad
 El [resultado de imposibilidad](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) del [teorema de CAP](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) demuestra que es totalmente imposible que el sistema permanezca disponible y ofrezca coherencia linearizable en caso de errores. El servicio de base de datos debe ser CP o AP. Los sistemas CP renuncian a la disponibilidad en favor de una coherencia linearizable, mientras que los sistemas AP renuncian a la [coherencia linearizable](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) en favor de disponibilidad. DocumentDB nunca infringe el nivel de coherencia solicitado, lo que hace que formalmente sea un sistema CP. Sin embargo, en la práctica, la coherencia no es una propuesta de todo o nada, ya que hay varios modelos de coherencia bien definidos a lo largo de todo el espectro de coherencia que va de la coherencia linearizable a la eventual. En DocumentDB, hemos intentado identificar varios de los modelos de coherencia relajada con la capacidad para aplicarlos en el mundo real y un modelo de programación intuitivo. DocumentDB ofrece una solución intermedia de coherencia-disponibilidad al ofrecer un Acuerdo de Nivel de Servicio de un 99,99 % de disponibilidad, junto con [varios niveles de coherencia relajada, pero bien definida](documentdb-consistency-levels.md). 
 
-### <a name="a-idconsistencyandavailabilityaconsistencys-relationship-with-latency"></a><a id="ConsistencyAndAvailability"></a>Relación de la coherencia con la latencia
+### <a id="ConsistencyAndAvailability"></a>Relación de la coherencia con la latencia
 Una variación más exhaustiva de CAP la propuso el profesor Daniel Abadi y se llama [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), que también tiene en cuenta las compensaciones de latencia y coherencia en estado estable. Indica que en estado estable, el sistema de base de datos debe elegir entre coherencia y latencia. Con varios modelos de coherencia relajada (respaldados por cuórums de escritura, lectura local y replicación asincrónica), DocumentDB garantiza que todas las operaciones de lectura y escritura son locales en las regiones de lectura y escritura, respectivamente.  Esto permite que DocumentDB ofrezca garantías de latencia baja dentro de la región para los niveles de coherencia.  
 
-### <a name="a-idconsistencyandthroughputaconsistencys-relationship-with-throughput"></a><a id="ConsistencyAndThroughput"></a>Relación de la consistencia con el rendimiento
+### <a id="ConsistencyAndThroughput"></a>Relación de la consistencia con el rendimiento
 Dado que la implementación de un modelo de coherencia específico depende de la elección de un [tipo de cuórum](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), el rendimiento también varía en función de la coherencia elegida. Por ejemplo, en DocumentDB, el rendimiento con lecturas con coherencia fuerte es aproximadamente la mitad que el de lecturas eventualmente coherentes. 
  
 **Relación de la capacidad de lectura de un nivel de coherencia específico en DocumentDB**
 
 ![Relación entre coherencia y rendimiento](./media/documentdb-distribute-data-globally/consistency-and-throughput.png)
 
-## <a name="a-idthroughputguaranteesathroughput-guarantees"></a><a id="ThroughputGuarantees"></a>Garantías de rendimiento 
+## <a id="ThroughputGuarantees"></a>Garantías de rendimiento 
 DocumentDB permite escalar el rendimiento (así como el almacenamiento) elásticamente en diferentes regiones en función de la demanda. 
 
 **Una colección de DocumentDB individual con particiones (en tres particiones) y luego distribuida en tres regiones de Azure**
@@ -199,34 +200,34 @@ En virtud de una administración de particiones con gran capacidad de respuesta,
 
 ![Rendimiento de Azure DocumentDB aprovisionado elásticamente](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
 
-### <a name="a-idthroughputandconsistencyathroughputs-relationship-with-consistency"></a><a id="ThroughputAndConsistency"></a>Relación del rendimiento con la coherencia 
+### <a id="ThroughputAndConsistency"></a>Relación del rendimiento con la coherencia 
 Lo mismo que [Relación de la coherencia con el rendimiento](#ConsistencyAndThroughput).
 
-### <a name="a-idthroughputandavailabilityathroughputs-relationship-with-availability"></a><a id="ThroughputAndAvailability"></a>Relación del rendimiento con la disponibilidad
+### <a id="ThroughputAndAvailability"></a>Relación del rendimiento con la disponibilidad
 DocumentDB no pierde su disponibilidad cuando se realizan cambios en el rendimiento. DocumentDB administra de forma transparente las particiones (por ejemplo, las operaciones de división, combinación y clonación) y se asegura de que las operaciones no degradan el rendimiento o la disponibilidad, mientras que la aplicación aumenta o disminuye el rendimiento de forma elástica. 
 
-## <a name="a-idavailabilityguaranteesaavailability-guarantees"></a><a id="AvailabilityGuarantees"></a>Garantías de disponibilidad
+## <a id="AvailabilityGuarantees"></a>Garantías de disponibilidad
 DocumentDB ofrece un Acuerdo de Nivel de Servicio de una disponibilidad del 99,99 % del tiempo de actividad en cada una de las operaciones de datos y del plano de control. Como ya se ha descrito, las garantías de disponibilidad de DocumentDB incluyen un límite superior absoluto de la latencia de todas las operaciones de datos y del plano de control. Las garantías de disponibilidad son sólidas y no cambian con el número de regiones ni con la distancia geográfica entre regiones. Las garantías de disponibilidad se aplican tanto a la conmutación por error manual como a la automática. DocumentDB ofrece API de hospedaje múltiple transparentes que garantizan que la aplicación puede funcionar en puntos de conexión lógicos y puede enrutar de forma transparente las solicitudes a la nueva región en el caso de conmutación por error. Dicho de otro modo, no es preciso volver a implementar la aplicación si se produce una conmutación por error regional y los Acuerdos de Nivel de Servicio se mantienen.
 
-### <a name="a-idavailabilityandconsistencyaavailabilitys-relationship-with-consistency-latency-and-throughput"></a><a id="AvailabilityAndConsistency"></a>Relación de la disponibilidad con la coherencia, la latencia y el rendimiento
+### <a id="AvailabilityAndConsistency"></a>Relación de la disponibilidad con la coherencia, la latencia y el rendimiento
 La relación de la disponibilidad con la coherencia, la latencia y el rendimiento se describe en [Relación de la coherencia con la disponibilidad](#ConsistencyAndAvailability), [Relación de la latencia con la disponibilidad](#LatencyAndAvailability) y [Relación del rendimiento con la disponibilidad](#ThroughputAndAvailability). 
 
-## <a name="a-idguaranteesagainstdatalossaguarantees-and-system-behavior-for-data-loss"></a><a id="GuaranteesAgainstDataLoss"></a>Garantías y comportamiento del sistema ante la "pérdida de datos"
-En DocumentDB, la alta disponibilidad de cada partición (de una colección) se logra mediante varias réplicas, que están dispersas por un mínimo de 10 a 20 dominios de error. Todas las operaciones de escritura las confirma de forma sincrónica y duradera un cuórum de mayoría de las réplicas antes de que se confirmen al cliente. La replicación asincrónica se aplica a la coordinación entre las particiones dispersas por varias regiones. DocumentDB garantiza que no hay pérdida de datos en las conmutaciones por error manuales iniciadas por los inquilinos. Durante la conmutación por error automática, DocumentDB garantiza un límite superior de 5 segundos en la ventana de pérdida de datos como parte de su Acuerdo de Nivel de Servicio.
+## <a id="GuaranteesAgainstDataLoss"></a>Garantías y comportamiento del sistema ante la "pérdida de datos"
+En DocumentDB, la alta disponibilidad de cada partición (de una colección) se logra mediante varias réplicas, que están dispersas por un mínimo de 10 a 20 dominios de error. Todas las operaciones de escritura las confirma de forma sincrónica y duradera un cuórum de mayoría de las réplicas antes de que se confirmen al cliente. La replicación asincrónica se aplica a la coordinación entre las particiones dispersas por varias regiones. DocumentDB garantiza que no hay pérdida de datos en las conmutaciones por error manuales iniciadas por los inquilinos. Durante la conmutación por error automática, DocumentDB garantiza, como parte de su Acuerdo de Nivel de Servicio, un límite superior del intervalo de obsolescencia limitada configurado en la ventana de pérdida de datos.
 
-## <a name="a-idcustomerfacingslametricsacustomer-facing-sla-metrics"></a><a id="CustomerFacingSLAMetrics"></a>Métricas de Acuerdo de Nivel de Servicio orientadas al cliente
+## <a id="CustomerFacingSLAMetrics"></a>Métricas de Acuerdo de Nivel de Servicio orientadas al cliente
 DocumentDB expone de forma transparente las métricas de rendimiento, latencia, coherencia y disponibilidad. A estas métricas se puede acceder mediante programación y a través de Azure Portal (vea la siguiente ilustración). También se pueden configurar alertas en varios umbrales mediante Azure Application Insights.
  
 **Las métricas de coherencia, latencia, rendimiento y disponibilidad están disponibles de forma transparente para todos los inquilinos**
 
 ![Métricas del Acuerdo de Nivel de Servicio visibles para clientes Azure DocumentDB](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
-## <a name="a-idnext-stepsanext-steps"></a><a id="Next Steps"></a>Pasos siguientes
+## <a id="Next Steps"></a>Pasos siguientes
 * Para implementar la replicación global en una cuenta de DocumentDB mediante Azure Portal, consulte [Replicación global de bases de datos de DocumentDB mediante Azure Portal](documentdb-portal-global-replication.md).
 * Para obtener información acerca de cómo implementar arquitecturas de varios maestros con DocumentDB, consulte ///[Multi-master database architectures with Azure DocumentDB](documentdb-multi-region-writers.md) (Arquitecturas de base de datos de varios maestros con Azure DocumentDB).
 * Para más información acerca del funcionamiento de las conmutaciones por error automáticas y manuales en DocumentDB, consulte ///[Regional Failovers in Azure DocumentDB](documentdb-regional-failovers.md) (Conmutaciones por error regionales en Azure DocumentDB).
 
-## <a name="a-idreferencesareferences"></a><a id="References"></a>Referencias
+## <a id="References"></a>Referencias
 1. Eric Brewer. [Towards Robust Distributed Systems](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) (Hacia unos sistemas distribuidos sólidos)
 2. Eric Brewer. [CAP Twelve Years Later – How the rules have changed](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf) (CAP doce años después, cómo han cambiado las reglas)
 3. Gilbert, Lynch. - [Brewer&#39;s Conjecture and Feasibility of Consistent, Available, Partition Tolerant Web Services](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) (Conjetura de Brewer y viabilidad de servicios web coherentes, disponibles y tolerantes a particiones)
@@ -236,8 +237,3 @@ DocumentDB expone de forma transparente las métricas de rendimiento, latencia, 
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carga, capacidad y disponibilidad en sistemas de quórum)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearización: una condición de corrección para objetos concurrentes)
 9. Acuerdo de Nivel de Servicio de Azure DocumentDB (última actualización, diciembre de 2016)
-
-
-<!--HONumber=Jan17_HO4-->
-
-
