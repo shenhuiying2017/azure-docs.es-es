@@ -17,6 +17,7 @@ ms.author: ryanwi
 translationtype: Human Translation
 ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
 ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -281,10 +282,5 @@ Para quitar el clúster, conéctese al nodo del clúster en el que descargó el 
 > Una configuración incorrecta de un certificado puede impedir que el clúster se muestre durante la implementación. Para realizar un autodiagnóstico de los problemas de seguridad, consulte en el grupo del Visor de eventos *Registros de aplicaciones y servicios* > *Microsoft Service Fabric*.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

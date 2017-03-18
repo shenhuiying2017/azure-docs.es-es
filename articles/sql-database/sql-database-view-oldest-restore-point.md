@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 6d729f89322b67fe75d2c0ad001e70b42ccedb7e
 ms.openlocfilehash: ae35dd15c386bbbf4e77a143d245efcd1f44f238
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -48,8 +49,3 @@ En este tema, aprenderá a ver el punto de restauración más antiguo de las cop
 - Para aprender sobre las copias de seguridad automáticas generadas por el servicio, consulte [copias de seguridad automáticas](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
 - Para más información sobre la retención de copia de seguridad a largo plazo, consulte sobre la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).
 - Para aprender sobre la restauración a partir de copias de seguridad, consulte sobre la [restauración desde una copia de seguridad](sql-database-recovery-using-backups.md).
-
-
-<!--HONumber=Dec16_HO2-->
-
-

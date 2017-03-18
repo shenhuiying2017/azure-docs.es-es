@@ -17,6 +17,7 @@ ms.author: ryanwi;chackdan
 translationtype: Human Translation
 ms.sourcegitcommit: ea42f4b8cb026cc52749b3dc3b3e0dca7c82d14f
 ms.openlocfilehash: ec0849b9e49b0ce5341908434248e51f1195ba37
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -76,10 +77,5 @@ En este artículo se describe cómo crear un clúster en máquinas virtuales (VM
 * [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
 * [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md)
 * [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

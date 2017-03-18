@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
 ms.openlocfilehash: 91616318e081687d3ea6e082b58f674fd37035b1
+ms.lasthandoff: 12/12/2016
 
 
 ---
@@ -406,9 +407,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [Referencia del SDK del cliente de Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

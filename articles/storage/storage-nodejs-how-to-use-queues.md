@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
 ms.openlocfilehash: 0f558871b2dfc85d2713c3511829dcbf41aea17b
+ms.lasthandoff: 12/12/2016
 
 
 ---
@@ -351,9 +352,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [Creación e implementación de una aplicación Node.js en Azure Cloud Services]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

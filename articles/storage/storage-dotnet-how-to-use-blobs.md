@@ -17,6 +17,7 @@ ms.author: marsma
 translationtype: Human Translation
 ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
 ms.openlocfilehash: 24b23c412ae4e092427b4e68b16df0369f9e9f0e
+ms.lasthandoff: 12/09/2016
 
 ---
 
@@ -407,9 +408,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

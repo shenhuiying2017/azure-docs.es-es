@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
 ms.openlocfilehash: 3b55595eb59fb085450eb0d82cc1e93ad1c57f77
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -80,9 +81,4 @@ El agente tarda unos minutos en empezar la ejecución cuando se instala. Despué
 <!--Link references-->
 [Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-windows-classic-connect-logon.md
 [Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

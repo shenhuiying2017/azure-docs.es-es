@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
 ms.openlocfilehash: d55b72ac50072a36ecf4547a478ed092ea7aa68a
+ms.lasthandoff: 12/12/2016
 
 ---
 
@@ -287,9 +288,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

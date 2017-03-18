@@ -17,6 +17,7 @@ ms.author: brendal
 translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: f0ba3e50c4281a0e8c365be075ae45ab72f6e82d
+ms.lasthandoff: 12/14/2016
 
 ---
 # <a name="azure-government-web--mobile"></a>Web + Móvil de Azure Government
@@ -64,10 +65,5 @@ La siguiente información identifica el límite de Azure Government para App Ser
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información complementaria y actualizaciones, suscríbase al [blog de Microsoft Azure Government.](https://blogs.msdn.microsoft.com/azuregov/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
