@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -203,9 +204,4 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
