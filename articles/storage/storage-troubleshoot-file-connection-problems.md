@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -48,10 +48,6 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 * [Error de montaje 115 al tratar de montar Azure Files en la VM de Linux](#error15)
 * [El recurso compartido de archivos de Azure montado en la máquina virtual de Linux experimenta un rendimiento lento](#delayproblem)
 
-
-**Acceso desde otras aplicaciones**
-
-* [¿Puedo hacer referencia al recurso compartido de archivos de Azure para mi aplicación a través de un trabajo web?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -275,11 +271,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Si no están presentes las opciones cache=strict o serverino, desmonte y vuelva a montar Azure Files ejecutando el comando mount desde la [documentación](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) y vuelva a comprobar que la entrada "/etc/fstab" tiene las opciones correctas.
 
-<a id="webjobs"></a>
-
-## <a name="accessing-from-other-applications"></a>Acceso desde otras aplicaciones
-### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>¿Puedo hacer referencia al recurso compartido de archivos de Azure para mi aplicación a través de un trabajo web?
-No es posible montar recursos compartidos de SMB en un espacio aislado de servicio de aplicaciones. Como alternativa, puede asignar el recurso compartido de archivos de Azure como una unidad asignada y permitir que la aplicación pueda tener acceso a él como una letra de unidad.
 ## <a name="learn-more"></a>Más información
 * [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
 * [Introducción a Azure File Storage en Linux](storage-how-to-use-files-linux.md)
