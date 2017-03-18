@@ -79,9 +79,12 @@
 ### [Inicios de sesión no seguros](active-directory-reporting-security-risky-sign-ins.md)
 ### [Eventos de riesgo](active-directory-reporting-risk-events.md)
 ### [Redes con nombre](active-directory-known-networks-azure-portal.md)
-### [Preguntas más frecuentes](active-directory-reporting-faq.md)
 ### [Migración de informes](active-directory-reporting-migration.md)
 ### [Retención](active-directory-reporting-retention.md)
+### [Preguntas más frecuentes](active-directory-reporting-faq.md)
+### Solución de problemas
+#### [Datos de auditoría que faltan](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Acceso mediante programación
 #### [Referencia de auditoría](active-directory-reporting-api-audit-reference.md)
 #### [Ejemplos de auditoría](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [Solución de problemas](active-directory-passwords-troubleshoot.md)
 
 ## Administración de dispositivos
-### [Registro de dispositivos](active-directory-conditional-access-device-registration-overview.md)
-#### [Administración del registro automático](active-directory-conditional-access-automatic-device-registration.md)
+### [Registro de dispositivos](active-directory-device-registration-overview.md)
+#### [Administración del registro automático](active-directory-device-registration.md)
 #### [Configuración](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Preguntas más frecuentes](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Implementación local](active-directory-device-registration-on-premises-setup.md)
+#### [Preguntas más frecuentes](active-directory-device-registration-faq.md)
 #### Solución de problemas
-##### [Solución de problemas de Windows 10 y Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Solución de problemas de clientes de nivel inferior de Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Solución de problemas de Windows 10 y Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Solución de problemas de clientes de nivel inferior de Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Configuración del registro de dispositivos](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [Aplicaciones admitidas](active-directory-conditional-access-supported-apps.md)
 #### [Descripción de directivas de dispositivo](active-directory-conditional-access-device-policies.md)
 #### [Configuración de acceso a aplicaciones conectadas](active-directory-conditional-access-policy-connected-applications.md)
-#### [Implementación local](active-directory-conditional-access-on-premises-setup.md)
 #### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
 #### [Solución de problemas](active-directory-conditional-access-device-remediation.md)
 #### [Referencia](active-directory-conditional-access-technical-reference.md)

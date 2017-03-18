@@ -1,269 +1,212 @@
 # Información general
-## [¿Qué es SQL Database?](sql-database-technical-overview.md)
+## [Acerca de SQL Database](sql-database-technical-overview.md)
+## Comparación
+### [Características de SQL Database](sql-database-features.md)
+# Guía de inicio rápido
+## [Creación de la base de datos: Azure Portal](sql-database-get-started.md)
+## [Creación de la base de datos: CLI de Azure](sql-database-get-started-cli.md)
+## [Creación de la base de datos: PowerShell](sql-database-get-started-powershell.md)
+# Muestras
+## [CLI de Azure](sql-database-cli-samples.md)
+## [PowerShell](sql-database-powershell-samples.md)
+# Tutoriales
+## Bases de datos, servidores y firewalls
+### [PowerShell](sql-database-get-started-powershell.md)
+### [C#](sql-database-get-started-csharp.md)
+## Autenticación y acceso
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md)
+## Creación de copias de seguridad y restauración de datos
+### [Portal de Azure](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+# Conceptos
+## Bases de datos y servidores
+### [Bases de datos](sql-database-overview.md)
+### [Servidores](sql-database-server-overview.md)
+### [Grupos elásticos](sql-database-elastic-pool.md)
+### [¿Cuándo se utiliza un grupo elástico?](sql-database-elastic-pool-guidance.md)
+## Proceso y almacenamiento
 ### [Niveles de servicio](sql-database-service-tiers.md)
 ### [DTU y eDTU](sql-database-what-is-a-dtu.md)
 ### [Introducción al banco de pruebas de DTU](sql-database-benchmark-overview.md)
 ### [Límites de recursos](sql-database-resource-limits.md)
-### [Características](sql-database-features.md)
-### [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md)
-## Comparaciones
-### [SQL Database frente a SQL en una máquina virtual](sql-database-paas-vs-sql-server-iaas.md)
-### [Diferencias de T-SQL](sql-database-transact-sql-information.md)
-### [SQL frente a NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
-## [Herramienta de SQL Database](sql-database-manage-overview.md)
-## [Tutoriales de SQL Database](sql-database-explore-tutorials.md)
-## Seguridad
-### [Introducción a la seguridad](sql-database-security-overview.md)
+## [Herramientas de desarrollo y administración](sql-database-manage-overview.md)
+## Creación de particiones de datos
+### [Bases de datos con particiones](sql-database-elastic-scale-introduction.md)    
+###    [Biblioteca de cliente elástica](sql-database-elastic-database-client-library.md)
+### [Administración de mapas de particiones.](sql-database-elastic-scale-shard-map-management.md)
+### [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
+### [Administración de credenciales](sql-database-elastic-scale-manage-credentials.md)
+### [Consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md)
+### [Glosario sobre herramientas elásticas](sql-database-elastic-scale-glossary.md)
+### [Movimiento de datos entre particiones](sql-database-elastic-scale-overview-split-and-merge.md)
+### [Preguntas más frecuentes sobre herramientas elásticas](sql-database-elastic-scale-faq.md)
+## Consultas entre bases de datos
+### [Información general](sql-database-elastic-query-overview.md)
+### [Datos particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md)
+### [Datos particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md)
+## [Transacciones entre bases de datos](sql-database-elastic-transactions-overview.md)
+## [Trabajos entre bases de datos](sql-database-elastic-jobs-overview.md)
+## Seguridad de datos y base de datos
+### [Información general](sql-database-security-overview.md)
 ### [Azure Security Center para Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
-### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
-# Introducción
-## Bases de datos y servidores
-### Aprender
-#### [Servidores](sql-database-server-overview.md)
-#### [Bases de datos únicas](sql-database-overview.md)
-#### [Varias bases de datos](sql-database-elastic-scale-introduction.md)
-##### Asignación de inquilinos
-###### [Biblioteca de cliente elástica](sql-database-elastic-database-client-library.md)
-###### [Administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md)
-###### [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
-###### [Administración de credenciales](sql-database-elastic-scale-manage-credentials.md)
-###### [Consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md)
-##### Grupos elásticos (grupos de recursos)
-###### [¿Qué es un grupo elástico?](sql-database-elastic-pool.md)
-###### [¿Cuándo se utiliza un grupo elástico?](sql-database-elastic-pool-guidance.md)
-###### [Precios de grupo elásticos](sql-database-elastic-pool-price.md)
-##### Bases de datos con particiones
-###### [Glosario sobre herramientas elásticas](sql-database-elastic-scale-glossary.md)
-###### [Movimiento de datos entre particiones](sql-database-elastic-scale-overview-split-and-merge.md)
-###### [Preguntas más frecuentes sobre herramientas elásticas](sql-database-elastic-scale-faq.md)
-##### Consulta elástica (consultas entre bases de datos)
-###### [¿Qué es una consulta elástica?](sql-database-elastic-query-overview.md)
-##### Transacciones elásticas (transacciones distribuidas)
-###### [Transacciones en bases de datos en la nube](sql-database-elastic-transactions-overview.md)
-##### Trabajos elásticos (trabajos entre bases de datos)
-###### [¿Qué es un trabajo elástico?](sql-database-elastic-jobs-overview.md)
-#### [Uso de Azure RemoteApp para conectarse a SQL Database](sql-database-ssms-remoteapp.md)
-#### [Administración de bases de datos SQL mediante el servicio Azure Automation](sql-database-manage-automation.md)
-### Sí
-#### [Creación de una base de datos única mediante Azure Portal](sql-database-get-started.md)
-#### [Creación de una base de datos única con PowerShell](sql-database-get-started-powershell.md)
-#### [Creación de una base de datos única con C#](sql-database-get-started-csharp.md)
-#### [Creación de una aplicación con particiones](sql-database-elastic-scale-get-started.md)
-#### [Movimiento de datos entre particiones](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-#### [Introducción a los trabajos elásticos](sql-database-elastic-jobs-getting-started.md)
-#### [Introducción a las consultas elásticas](sql-database-elastic-query-getting-started-vertical.md)
-#### [Creación de informes mediante consultas elásticas](sql-database-elastic-query-getting-started.md)
-#### [Consulta de bases de datos con diferentes esquemas](sql-database-elastic-query-vertical-partitioning.md)
-#### [Informes de bases de datos escaladas horizontalmente](sql-database-elastic-query-horizontal-partitioning.md)
-## Migración y movimiento de datos
-### Aprender
-#### [Migración de una base de datos](sql-database-cloud-migrate.md)
-#### [Exportación de una base de datos](sql-database-export.md)
-#### [Sincronización de datos](sql-database-get-started-sql-data-sync.md)
-#### [Copia de SQL Database](sql-database-copy.md)
-## Reglas de firewall, autenticación y autorización
-### Aprender
-#### [Control de acceso](sql-database-control-access.md)
-#### [Reglas de firewall](sql-database-firewall-configure.md)
-#### [Administración de inicios de sesión](sql-database-manage-logins.md)
-#### [Autenticación de Azure AD](sql-database-aad-authentication.md)
-#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
-### Sí
-#### [Autenticación y autorización de SQL](sql-database-control-access-sql-authentication-get-started.md)
-#### [Autenticación y autorización en Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Protección de los datos
-### Aprender
-#### Auditoría
-##### [Auditoría](sql-database-auditing.md)
-##### [Compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Detección de amenazas](sql-database-threat-detection.md)
-#### Cifrado de datos
-##### [Cifrado de datos transparente](https://msdn.microsoft.com/library/azure/dn948096)
-##### [Cifrado de columnas](https://msdn.microsoft.com/library/azure/ms179331)
-#### Enmascaramiento de datos
-##### [Enmascaramiento de datos dinámicos](sql-database-dynamic-data-masking-get-started.md)
-### Sí
-#### [Enmascaramiento dinámico de datos mediante Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
-#### [Configuración de la auditoría con Azure Portal](sql-database-auditing-portal.md)
-#### [Configuración de la auditoría con PowerShell](sql-database-auditing-powershell.md)
-#### [Configuración de la auditoría con la API de REST](sql-database-auditing-rest.md)
-#### [Always Encrypted mediante certificados de Windows](sql-database-always-encrypted.md)
-#### [Always Encrypted mediante Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
-## Continuidad del negocio
-### Aprender
-#### [Información general](sql-database-business-continuity.md)
-#### [Copias de seguridad de bases de datos](sql-database-automated-backups.md)
-#### [Retención a largo plazo](sql-database-long-term-retention.md)
-#### [Recuperación de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md)
-#### [Recuperación de una sola tabla](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
-#### [Recuperación de una interrupción del centro de datos](sql-database-disaster-recovery.md)
-#### [Requisitos de autenticación para la recuperación ante desastres](sql-database-geo-replication-security-config.md)
-#### [Escenarios de diseño de la continuidad empresarial](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-#### [Estrategias de recuperación ante desastres con grupos elásticos](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-#### [Actualizaciones graduales](sql-database-manage-application-rolling-upgrade.md)
-#### [Obtención de detalles de recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-#### [Introducción a la replicación geográfica activa](sql-database-geo-replication-overview.md)
-### Sí
-#### [Azure Portal: copia de seguridad y restauración](sql-database-get-started-backup-recovery-portal.md)
-#### [PowerShell: copia de seguridad y restauración](sql-database-get-started-backup-recovery-powershell.md)
-## Desarrollo de aplicaciones
-### Aprender
-#### [Introducción al desarrollo de aplicaciones de bases de datos](sql-database-develop-overview.md)
-#### [Bibliotecas de conectividad](sql-database-libraries.md)
-#### [Aplicaciones SaaS multiinquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-#### [Escalado de aplicaciones SaaS multiinquilino con seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-#### [Uso de puertos más allá de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
-#### [Obtención de los valores necesarios para autenticar una aplicación](sql-database-client-id-keys.md)
-### Sí
-#### Conexión de una aplicación
-##### [.NET](sql-database-develop-dotnet-simple.md)
-##### [C y C++](sql-database-develop-cplusplus-simple.md)
-##### [Java](sql-database-develop-java-simple.md)
-##### [Node.js](sql-database-develop-nodejs-simple.md)
-##### [PHP](sql-database-develop-php-simple.md)
-##### [Python](sql-database-develop-python-simple.md)
-##### [Ruby](sql-database-develop-ruby-simple.md)
-##### [Excel](sql-database-connect-excel.md)
-#### [Conexión a Visual Studio](sql-database-connect-query.md)
-#### [Compilación de una aplicación cliente](https://www.microsoft.com/sql-server/developer-get-started)
-#### [Trabajo con mensajes de error](sql-database-develop-error-messages.md)
-#### [Uso de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Uso de biblioteca de cliente con Dapper](sql-database-elastic-scale-working-with-dapper.md)
-### Implementaciones del cliente
-#### [Software Daxko/CSI](sql-database-implementation-daxko.md)
-#### [GEP](sql-database-implementation-gep.md)
-#### [SnelStart](sql-database-implementation-snelstart.md)
-#### [Umbraco](sql-database-implementation-umbraco.md)
-## Desarrollo de bases de datos
-### Aprender
-#### Tablas temporales
-##### [Tablas temporales](sql-database-temporal-tables.md)
-##### [Directivas de retención](sql-database-temporal-tables-retention-policy.md)
-#### [Datos de JSON](sql-database-json-features.md)
-#### [Optimización en memoria](sql-database-in-memory.md)
-### Sí
-#### [Desarrollo de SQL Server](https://msdn.microsoft.com/library/ms179422.aspx)
-#### [Adopción de OLTP en memoria](sql-database-in-memory-oltp-migration.md)
-## Supervisión y ajuste
-### Aprender
-#### [Bases de datos únicas](sql-database-single-database-monitor.md)
-#### [Introducción a SQL Database Advisor](sql-database-advisor.md)
-#### [Guía de base de datos única](sql-database-performance-guidance.md)
-#### [Información del rendimiento: Azure Portal](sql-database-performance.md)
-#### [Uso de lotes](sql-database-use-batching-to-improve-performance.md)
-#### [Eventos extendidos](sql-database-xevent-db-diff-from-svr.md)
-## SQL Database V11
-### [Retirada de las versiones Web y Business](sql-database-web-business-sunset-faq.md)
-### [Service Tier Advisor](sql-database-service-tier-advisor.md)
-### [Herramienta de evaluación de grupo elástico](sql-database-elastic-pool-database-assessment-powershell.md)
-### [Actualización a V12](sql-database-v12-plan-prepare-upgrade.md)
-#### [Actualización mediante Azure Portal](sql-database-upgrade-server-portal.md)
-#### [Actualización mediante PowerShell](sql-database-upgrade-server-powershell.md)
-# Procedimientos
-## Creación y administración
-### [Administración mediante Azure Portal](sql-database-manage-portal.md)
-### [Administración mediante PowerShell](sql-database-manage-powershell.md)
-### [Administración mediante SSMS](sql-database-manage-azure-ssms.md)
-### Servidores
-#### [Administración mediante Azure Portal](sql-database-manage-servers-portal.md)
-#### [Administración mediante PowerShell](sql-database-manage-servers-powershell.md)
-### Bases de datos únicas
-#### [Administración mediante Azure Portal](sql-database-manage-single-databases-portal.md)
-#### [Administración mediante PowerShell](sql-database-manage-single-databases-powershell.md)
-#### [Administración mediante Transact-SQL](sql-database-manage-single-databases-tsql.md)
-### Reglas de firewall
-#### [Creación mediante Azure Portal](sql-database-configure-firewall-settings.md)
-#### [Creación mediante PowerShell](sql-database-configure-firewall-settings-powershell.md)
-#### [Creación mediante la API de REST](sql-database-configure-firewall-settings-rest.md)
-#### [Creación mediante T-SQL](sql-database-configure-firewall-settings-tsql.md)
-### Varias bases de datos
-#### [Actualización de la biblioteca de cliente en aplicaciones cliente](sql-database-elastic-scale-upgrade-client-library.md)
-#### Bases de datos con particiones
-##### [Configuración de seguridad](sql-database-elastic-scale-split-merge-security-configuration.md)
-##### [Incorporación de una partición](sql-database-elastic-scale-add-a-shard.md)
-##### [Solución de problemas de asignación de particiones](sql-database-elastic-database-recovery-manager.md)
-##### [Migración a bases de datos con particiones](sql-database-elastic-convert-to-use-elastic-tools.md)
-##### [Creación de contadores de rendimiento para Shard Map Manager](sql-database-elastic-database-perf-counters.md)
-#### Trabajos elásticos
-##### [¿Cómo lo instalo?](sql-database-elastic-jobs-service-installation.md)
-##### [Administración mediante PowerShell](sql-database-elastic-jobs-powershell.md) 
-##### [Administración mediante Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
-##### [¿Cómo lo desinstalo?](sql-database-elastic-jobs-uninstall.md)
-#### Grupos elásticos
-##### [Administración mediante Azure Portal](sql-database-elastic-pool-manage-portal.md)
-##### [Administración mediante PowerShell](sql-database-elastic-pool-manage-powershell.md)
-##### [Administración mediante C#](sql-database-elastic-pool-manage-csharp.md)
-##### [Administración mediante T-SQL](sql-database-elastic-pool-manage-tsql.md)
-## Autenticación y autorización
-### [Configuración de la autenticación de Azure AD](sql-database-aad-authentication-configure.md)
-### [Configuración de Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md)
-## Configuración de la detección de amenazas
-### [Configuración de la detección de amenazas mediante Azure Portal](sql-database-threat-detection-portal.md)
+## Autenticación y acceso
+### [Información general](sql-database-control-access.md)
+### [Reglas de firewall](sql-database-firewall-configure.md)
+### [Autenticación de Azure AD](sql-database-aad-authentication.md)
+### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+### [Roles y permisos](sql-database-manage-logins.md)
+## Auditoría
+### [Información general](sql-database-auditing.md)
+### [Compatibilidad con clientes de nivel inferior](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
+## [Detección de amenazas](sql-database-threat-detection.md)
 ## Cifrado de datos
 ### [Cifrado de datos transparente](https://msdn.microsoft.com/library/azure/dn948096)
+### [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 ### [Cifrado de columnas](https://msdn.microsoft.com/library/azure/ms179331)
+## [Enmascaramiento de datos](sql-database-dynamic-data-masking-get-started.md)
+## Continuidad del negocio
+### [Información general](sql-database-business-continuity.md)
+### [Copias de seguridad de bases de datos](sql-database-automated-backups.md)
+### [Retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md)
+### [Recuperación de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md)
+### [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+### [Recuperación ante desastres y autenticación](sql-database-geo-replication-security-config.md)
+### [Diseño de aplicaciones para la continuidad del negocio](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+### [Estrategias de recuperación ante desastres con grupos elásticos](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+### [Actualizaciones graduales de aplicaciones](sql-database-manage-application-rolling-upgrade.md)
+## Desarrollo
+### [Introducción al desarrollo de aplicaciones de bases de datos](sql-database-develop-overview.md)
+### [Bibliotecas de conectividad](sql-database-libraries.md)
+### [Diseño de aplicaciones para las aplicaciones SaaS multiinquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+### [Aplicaciones SaaS multiinquilino y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+### [Puertos más allá de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md)
+### [Autenticación de una aplicación](sql-database-client-id-keys.md)
+### [Mensajes de error](sql-database-develop-error-messages.md)
+### [Biblioteca de cliente y Dapper](sql-database-elastic-scale-working-with-dapper.md)
+### [Datos de JSON](sql-database-json-features.md)
+### [Optimización en memoria](sql-database-in-memory.md)
+## Migración de bases de datos
+### [Migración de una base de datos de SQL Server](sql-database-cloud-migrate.md)
+### [Cambios de código T-SQL para la migración](sql-database-transact-sql-information.md)
+## Movimiento de datos
+### [Copia de SQL Database](sql-database-copy.md)
+### [Exportación de una base de datos](sql-database-export.md)
 ## Supervisión y ajuste
-### [Información de rendimiento de consultas](sql-database-query-performance.md)
-### [Asesor de SQL Database](sql-database-advisor-portal.md)
+### [Bases de datos únicas](sql-database-single-database-monitor.md)
+### [Introducción a SQL Database Advisor](sql-database-advisor.md)
+### [Query Performance Insight](sql-database-query-performance.md)
+### [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+### [Escenarios de uso del almacén de consultas](https://msdn.microsoft.com/library/mt614796.aspx)
 ### [DMV](sql-database-monitoring-with-dmvs.md)
+### [Guía de base de datos única](sql-database-performance-guidance.md)
+### [Uso de lotes](sql-database-use-batching-to-improve-performance.md)
+### [Eventos extendidos](sql-database-xevent-db-diff-from-svr.md)
 ### [Niveles de compatibilidad](sql-database-compatibility-level-query-performance-130.md)
-### [Sugerencias de optimización del rendimiento](sql-database-troubleshoot-performance.md)
+# Guías de procedimientos
+## Creación y administración de reglas de firewall
+### [Portal de Azure](sql-database-configure-firewall-settings.md)
+### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+### [API DE REST](sql-database-configure-firewall-settings-rest.md)
+### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
+## Administración de grupos elásticos
+### [Azure Portal](sql-database-elastic-pool-manage-portal.md)
+### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
+### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Configuración de detección de amenazas y auditoría
+### [Azure Portal: auditoría](sql-database-auditing-portal.md)
+### [Azure Portal: detección de amenazas](sql-database-threat-detection-portal.md)
+## Restauración de una base de datos
+### [Azure Portal](sql-database-restore-database-portal.md)
+## Administración de la retención de copia de seguridad a largo plazo
+### [Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
+### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
+## [Recuperación de una sola tabla](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Configuración de la replicación geográfica
+### [Azure Portal](sql-database-geo-replication-portal.md)
+### [Transact-SQL: configuración](sql-database-geo-replication-transact-sql.md)
+### [Transact-SQL: conmutación por error](sql-database-geo-replication-failover-transact-sql.md)
+## [Recuperación de una interrupción del centro de datos](sql-database-disaster-recovery.md)
+## [Obtención de detalles de recuperación ante desastres](sql-database-disaster-recovery-drills.md)
+## Copia de una base de datos
+### [Portal de Azure](sql-database-copy-portal.md)
+### [Transact-SQL](sql-database-copy-transact-sql.md)
+## Importación de una base de datos
+### [Portal de Azure](sql-database-import-portal.md)
+### [SQLPackage](sql-database-import-sqlpackage.md)
+## Exportación de una base de datos
+### [Portal de Azure](sql-database-export-portal.md)
+### [PowerShell](sql-database-export-powershell.md)
+### [SSMS](sql-database-export-ssms.md)
+### [SQLPackage](sql-database-export-sqlpackage.md)
+## Carga de datos
+### [BCP](sql-database-load-from-csv-with-bcp.md)
+### [Azure Data Factory](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+## [Configuración de la sincronización de datos](sql-database-get-started-sql-data-sync.md)
+## Autenticación y autorización de usuarios
+### [Autenticación de Azure AD](sql-database-aad-authentication-configure.md)
+## Conexión de aplicaciones
+### [.NET](sql-database-develop-dotnet-simple.md)
+### [C y C++](sql-database-develop-cplusplus-simple.md)
+### [Java](sql-database-develop-java-simple.md)
+### [Node.js](sql-database-develop-nodejs-simple.md)
+### [PHP](sql-database-develop-php-simple.md)
+### [Python](sql-database-develop-python-simple.md)
+### [Ruby](sql-database-develop-ruby-simple.md)
+### [Visual Studio](sql-database-connect-query.md)
+### [SSMS mediante Azure RemoteApp](sql-database-ssms-remoteapp.md)
+### [SSMS mediante Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md)
+### [Excel](sql-database-connect-excel.md)
+### [Guía de conectividad](sql-database-connectivity-issues.md)
+### [Solución de problemas de conexión](sql-database-troubleshoot-common-connection-issues.md)
+## Configuración del cifrado
+### [Cifrado de datos mediante certificados de Windows](sql-database-always-encrypted.md)
+### [Cifrado de datos con Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+### [Cifrado de datos transparente](https://msdn.microsoft.com/library/azure/dn948096)
+### [Cifrado de columnas](https://msdn.microsoft.com/library/azure/ms179331)
+## Configuración del enmascaramiento de datos dinámicos
+### [Azure Portal](sql-database-dynamic-data-masking-get-started-portal.md)
+## Creación y administración de tablas temporales
+### [Información general](sql-database-temporal-tables.md)
+### [Directivas de retención](sql-database-temporal-tables-retention-policy.md)
+## [Configuración de OLTP en memoria](sql-database-in-memory-oltp-migration.md)
+## Creación y administración de bases de datos con particiones
+### [Creación de una aplicación con particiones](sql-database-elastic-scale-get-started.md)
+### [Movimiento de datos entre particiones](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+### [Configuración de seguridad](sql-database-elastic-scale-split-merge-security-configuration.md)
+### [Incorporación de una partición](sql-database-elastic-scale-add-a-shard.md)
+### [Solución de problemas de asignación de particiones](sql-database-elastic-database-recovery-manager.md)
+### [Migración de una base de datos con particiones existente](sql-database-elastic-convert-to-use-elastic-tools.md)
+### [Creación de contadores de rendimiento](sql-database-elastic-database-perf-counters.md)
+### [Uso de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+## [Actualización a la biblioteca de cliente de escala elástica](sql-database-elastic-scale-upgrade-client-library.md)
+## Creación y administración de trabajos elásticos
+### [Instalación](sql-database-elastic-jobs-service-installation.md)
+### [Portal de Azure](sql-database-elastic-jobs-create-and-manage.md)
+### [PowerShell](sql-database-elastic-jobs-powershell.md) 
+### [Trabajos entre bases de datos](sql-database-elastic-jobs-getting-started.md)
+### [Desinstalación](sql-database-elastic-jobs-uninstall.md)
+## Datos de consulta
+### [SSMS](sql-database-connect-query-ssms.md)
+### [Datos particionados horizontalmente](sql-database-elastic-query-getting-started.md)
+### [Datos particionados verticalmente](sql-database-elastic-query-getting-started-vertical.md)
+## Supervisión y ajuste
+### [Uso de SQL Database Advisor](sql-database-advisor-portal.md)
+### [Uso de Información de rendimiento de consultas](sql-database-performance.md)
+### [Evaluación y optimización](sql-database-troubleshoot-performance.md)
 ### [Creación de alertas](sql-database-insights-alerts-portal.md)
 ### [Supervisión del almacenamiento OLTP en memoria](sql-database-in-memory-oltp-monitoring.md)
-### Almacén de consultas
-#### [Supervisión del rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
-#### [Escenarios de uso del Almacén de consultas](https://msdn.microsoft.com/library/mt614796.aspx)
-#### [Funcionamiento del Almacén de consultas](sql-database-operate-query-store.md)
-### Eventos extendidos
-#### [Código de destino del archivo de eventos](sql-database-xevent-code-event-file.md)
-#### [Código de destino del búfer en anillo](sql-database-xevent-code-ring-buffer.md)
-## Mover datos
-### Copia de SQL Database
-#### [Copia mediante Azure Portal](sql-database-copy-portal.md)
-#### [Copia mediante PowerShell](sql-database-copy-powershell.md)
-#### [Copia mediante T-SQL](sql-database-copy-transact-sql.md)
-### Exportación de base de datos a un archivo BACPAC
-#### [Exportación mediante Azure Portal](sql-database-export-portal.md)
-#### [Exportación mediante la utilidad SQL Package](sql-database-export-sqlpackage.md)
-#### [Exportación mediante PowerShell](sql-database-export-powershell.md)
-#### [Exportación mediante SSMS](sql-database-export-ssms.md)
-## Importar datos
-### [Importación mediante Azure Portal](sql-database-import-portal.md)
-### [Importación mediante PowerShell](sql-database-import-powershell.md)
-### [Importación mediante SQLPackage](sql-database-import-sqlpackage.md)
-### [Carga desde archivo CSV mediante BCP](sql-database-load-from-csv-with-bcp.md)
-## Consultar
-### [Consulta mediante SSMS](sql-database-connect-query-ssms.md)
-## Copia de seguridad y restauración
-### Retención de copia de seguridad a largo plazo
-#### [Administración de la retención de copias de seguridad a largo plazo mediante Azure Portal](sql-database-manage-long-term-backup-retention-portal.md)
-#### [Administración de la retención de copia de seguridad a largo plazo mediante PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### Restaurar la base de datos eliminada
-#### [Restauración de una base de datos eliminada mediante Azure Portal](sql-database-restore-deleted-database-portal.md)
-#### [Restauración de bases de datos eliminadas mediante PowerShell](sql-database-restore-deleted-database-powershell.md)
-### Restauración de base de datos a un momento dado
-#### [Restauración a un momento dado con Azure Portal](sql-database-point-in-time-restore-portal.md)
-#### [Restauración de base de datos a un momento dado con PowerShell](sql-database-point-in-time-restore-powershell.md)
-### Restauración a partir de una copia de seguridad con redundancia geográfica
-### [Restauración geográfica mediante Azure Portal](sql-database-geo-restore-portal.md)
-### [Restauración geográfica mediante PowerShell](sql-database-geo-restore-powershell.md)
-## Replicación geográfica activa
-### [Configuración mediante Azure Portal](sql-database-geo-replication-portal.md)
-### [Configuración mediante PowerShell](sql-database-geo-replication-powershell.md)
-### [Configuración mediante T-SQL](sql-database-geo-replication-transact-sql.md)
-### [Conmutación por error mediante Azure Portal](sql-database-geo-replication-failover-portal.md)
-### [Conmutación por error mediante PowerShell](sql-database-geo-replication-failover-powershell.md)
-### [Conmutación por error mediante T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-## Solución de problemas
-### [Problemas de conexión](sql-database-troubleshoot-common-connection-issues.md)
-### [Error de conexión transitorio](sql-database-troubleshoot-connection.md)
-### [Diagnóstico y prevención](sql-database-connectivity-issues.md)
-### [Permisos](sql-database-troubleshoot-permissions.md)
-### [Movimiento de bases de datos](sql-database-troubleshoot-moving-data.md)
+### [Configuración del almacén de consultas](sql-database-operate-query-store.md)
+### [Captura de eventos extendidos para un destino de archivo de eventos](sql-database-xevent-code-event-file.md)
+### [Captura de eventos extendidos para un destino de búfer en anillo](sql-database-xevent-code-ring-buffer.md)
+### [Telemetría de grupos elásticos mediante PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)
+### [Panel personalizado de grupos elásticos para SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard)
+## [Administración mediante el servicio Azure Automation](sql-database-manage-automation.md)
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (base de datos elástica)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
-## [CLI de Azure 2.0](/cli/azure/appservice)
+## [CLI de Azure 2.0](/cli/azure/sql)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
@@ -272,24 +215,28 @@
 ## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/bb510741.aspx)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163571.aspx)
-
-# Temas relacionados
-## Biblioteca de administración de SQL Database
-### [Obtención del paquete de la biblioteca de administración de SQL Database](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
-## [Controladores de SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)
-### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
-### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-
-# Recursos
-## [Precios](https://azure.microsoft.com/pricing/details/sql-database/)
-## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
-## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?service=sql-database)
 ## [Herramientas de SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
+## [Paquete de la biblioteca de administración de SQL Database](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
+## [Controladores de SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)
+### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
+### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
+### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
+# Recursos
+## [Preguntas más frecuentes](sql-database-faq.md)
+## [Solución de problemas de conectividad](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)
+## [Precios](https://azure.microsoft.com/pricing/details/sql-database/)
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?service=sql-database)
+## [Guía de arquitectura](https://docs.microsoft.com/sql/#pivot=architecture)
+## [Implementaciones de cliente](sql-database-customer-implementations.md)
+## Aplicaciones de ejemplo
+### [Aplicación de ejemplo Tailspin Surveys](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md)
+### [Aplicación de demostración de Clinic de Contoso](https://github.com/Microsoft/azure-sql-security-sample)
+
