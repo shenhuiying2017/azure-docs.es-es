@@ -37,7 +37,7 @@ El artículo contiene dos secciones:
 * La sección [Configuración de la autenticación de entidad de servicio en Azure App Service](#authconfig) explica en términos generales cómo configurar la autenticación para cualquier aplicación de API y cómo usar la aplicación de API protegida. Esta sección se aplica igualmente a todos los marcos admitidos por el Servicio de aplicaciones, como. NET, Node.js y Java.
 * A partir de la sección [Continuación de la serie de tutoriales de aplicaciones de API de .NET](#tutorialstart) , el tutorial lo guiará a través de la configuración de un escenario de "acceso interno" para una aplicación de ejemplo de .NET en ejecución en el Servicio de aplicaciones. 
 
-## <a name="a-idauthconfiga-how-to-configure-service-principal-authentication-in-azure-app-service"></a><a id="authconfig"></a> Configuración de la autenticación de entidad de servicio en el Servicio de aplicaciones de Azure
+## <a id="authconfig"></a> Configuración de la autenticación de entidad de servicio en el Servicio de aplicaciones de Azure
 Esta sección proporciona instrucciones generales que se aplican a cualquier aplicación de API. Para obtener los pasos específicos para la aplicación de ejemplo de .NET To Do List, vaya a [Continuación de la serie de tutoriales de aplicaciones de API de .NET](#tutorialstart).
 
 1. En [Azure Portal](https://portal.azure.com/), vaya a la hoja **Configuración** de la aplicación de API que quiere proteger, busque la sección **Características** y haga clic en **Autenticación/autorización**.
@@ -84,7 +84,7 @@ El Servicio de aplicaciones también proporciona la notificación `objectidentif
 ### <a name="how-to-protect-the-api-app-from-browser-access"></a>Protección de la aplicación de API de accesos desde el explorador
 Si no valida las notificaciones en el código en la aplicación de API protegida y si usa otra aplicación de Azure AD para la aplicación de API protegida, asegúrese de que la dirección URL de respuesta de la aplicación de Azure AD no sea igual que la dirección URL base de la aplicación de API. Si la dirección URL de respuesta apunta directamente a la aplicación de API protegida, un usuario en el mismo inquilino de Azure AD podría usar un explorador para llegar a la aplicación de API, iniciar sesión y llamar correctamente a la API.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorial-series"></a><a id="tutorialstart"></a> Continuación de la serie de tutoriales de aplicaciones de API de .NET
+## <a id="tutorialstart"></a> Continuación de la serie de tutoriales de aplicaciones de API de .NET
 Si está siguiendo las series de tutoriales de Node.js o de Java para aplicaciones de API, vaya a la sección [Siguientes pasos](#next-steps) . 
 
 El resto de este artículo continúa la serie de tutoriales para aplicaciones de API de .NET y da por hecho que ha completado el [tutorial de autenticación de usuario](app-service-api-dotnet-user-principal-auth.md) y que tiene la aplicación de ejemplo en ejecución en Azure con la autenticación de usuario habilitada.
@@ -109,7 +109,7 @@ Si experimenta problemas al seguir las instrucciones del tutorial, consulte la s
 5. En **Proveedores de autenticación**, haga clic en **Azure Active Directory**.
    
     ![Hoja Autenticación/autorización del Portal de Azure](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
-6. En la hoja** Configuración de Azure Active Directory**, haga clic en **Rápido**.
+6. En la hoja**Configuración de Azure Active Directory**, haga clic en **Rápido**.
    
     Con la opción **Rápido**, Azure puede crear automáticamente una aplicación AAD en su [inquilino](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)de Azure AD. 
    
