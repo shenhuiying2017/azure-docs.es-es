@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
 ms.openlocfilehash: 3519fcb7621aec61ab35c80558bc0da0e3b2c41e
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -230,9 +231,4 @@ Al hacer clic en el icono de CS Stars en el Panel de acceso, debería iniciar se
 [205]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_205.png
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

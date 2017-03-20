@@ -17,6 +17,7 @@ ms.author: zakramer;tsingh;divacc
 translationtype: Human Translation
 ms.sourcegitcommit: 0839e8e57b2149e50d4512d28b1e57e6592be458
 ms.openlocfilehash: 70821864520ff18ba8c64be0ea66376bccee7148
+ms.lasthandoff: 12/15/2016
 
 
 ---
@@ -115,9 +116,4 @@ Cuando haya validado la imagen mediante la suscripción de prueba, puede poner l
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información complementaria y actualizaciones, suscríbase al [blog de Microsoft Azure Government](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

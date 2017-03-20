@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/02/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e56d6e48bef816b38df9d31f93c7d1240580ce8
-ms.openlocfilehash: d8efafb69ed8d60aaf617917183736218e202e4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d7560b689d7cea56d40ffa2db9542f74a649f9c1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ El formato del tipo de recurso secundario es: `{resource-provider-namespace}/{pa
 
 El formato del nombre de recurso secundario es: `{parent-resource-name}/{child-resource-name}`
 
-Sin embargo, especifica otro tipo y nombre en una plantilla, en función de si se anida dentro del recurso primario o por sí mismo en el nivel superior. En este tema se muestra cómo aplicar ambos enfoques.
+Sin embargo, el tipo y el nombre se especifican en una plantilla de manera diferente en función de si se anida dentro del recurso primario o por sí misma en el nivel superior. En este tema se muestra cómo aplicar ambos enfoques.
 
 ## <a name="nested-child-resource"></a>Recurso secundario anidado
 La manera más fácil de definir un recurso secundario es anidarlo en el primario. En el ejemplo siguiente se muestra una base de datos de SQL anidada en un servidor SQL Server.

@@ -38,7 +38,8 @@
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
 ## Control de acceso
 ### [Creación de una entidad de servicio con PowerShell](resource-group-authenticate-service-principal.md)
-### [Creación de una entidad de servicio con la CLI de Azure](resource-group-authenticate-service-principal-cli.md)
+### [Creación de una entidad de servicio con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Creación de una entidad de servicio con la CLI de Azure 1.0](resource-group-authenticate-service-principal-cli.md)
 ### [Creación de una entidad de servicio con el portal](resource-group-create-service-principal-portal.md)
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)

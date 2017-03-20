@@ -198,7 +198,7 @@ Para crear un emparejamiento de VNET entre suscripciones mediante PowerShell, si
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. En este escenario, ejecute los siguientes cmdlets de PowerShell siguientes para establecer el emparejamiento de VNET. Es preciso establecer la propiedad `AllowForwardedTraffic` en * True * y vincular VNET1 con HubVNet, lo que permite el que entre tráfico de fuera del espacio de direcciones de red virtual de emparejamiento.
+1. En este escenario, ejecute los siguientes cmdlets de PowerShell siguientes para establecer el emparejamiento de VNET. Es preciso establecer la propiedad `AllowForwardedTraffic` en *True* y vincular VNET1 con HubVNet, lo que permite el que entre tráfico de fuera del espacio de direcciones de red virtual de emparejamiento.
 
     ```powershell
     $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet

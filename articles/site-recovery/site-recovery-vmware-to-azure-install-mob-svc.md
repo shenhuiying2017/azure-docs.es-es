@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
-ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 7e82ac74a8aef4e3cc8aff4dea3c572dcb9d9c40
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -82,6 +82,30 @@ Para poder realizar la instalación de inserción de Servicio de movilidad con A
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## <a name="next-steps"></a>Pasos siguientes
+> [!NOTE]
 Una vez instalado Mobility Service, puede usar el botón **+Replicar** de Azure Portal para comenzar a habilitar la protección de estas máquinas virtuales.
+
+## <a name="uninstall-mobility-service-on-windows-servers"></a>Desinstalar Servicio de movilidad en servidores de Windows
+Hay dos maneras de poder desinstalar Servicio de movilidad en un servidor de Windows
+
+### <a name="uninstall-using-graphical-user-interface"></a>Desinstalar mediante la interfaz gráfica de usuario
+1. Abra el Panel de Control > Programas.
+2. Seleccione **Servicio de movilidad de Microsoft Azure Site Recovery/Servidor de destino maestro** y haga clic en Desinstalar.
+
+### <a name="uninstall-using-command-line"></a>Desinstalar desde la línea de comandos
+1. Abra un símbolo del sistema de administrador.
+2. Ejecute el siguiente comando para desinstalar Servicio de movilidad.
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## <a name="uninstall-mobility-service-on-linux-computers"></a>Desinstalar Servicio de movilidad en equipos Linux
+1. Inicie sesión como **ROOT** en el servidor Linux
+2. En un **Terminal** vaya a /user/local/ASR
+3. Ejecute el siguiente comando para desinstalar Servicio de movilidad
+
+```
+uninstall.sh -Y
+```
 

@@ -12,33 +12,36 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: d7cca5d71d3db45599b47328755c53a023e9c4ae
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 12b121783f6d95a952441f1a570d58af9ec1eb7a
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
 
-La característica de dependencias de tareas de Azure Batch es muy útil si desea procesar:
+Puede definir dependencias de tareas para ejecutar una tarea o un conjunto de tareas solo después de que se haya completado una tarea principal. A continuación se indican algunos escenarios donde las dependencias de tareas son útiles:
 
 * Cargas de trabajo del estilo MapReduce en la nube.
 * Trabajos cuyas tareas de procesamiento de datos se pueden expresar como un gráfico acíclico dirigido (DAG).
+* Procesos anteriores y posteriores a la representación, donde cada tarea se debe completar para que pueda comenzar la siguiente tarea.
 * Cualquier otro trabajo en el que las tareas que siguen en la cadena dependen de las tareas que preceden en la cadena.
 
-Las dependencias de la tarea de Batch les permiten crear tareas que están programadas para su ejecución en los nodos de proceso únicamente después de la finalización correcta de una o más tareas. Por ejemplo, puede crear un trabajo que represente cada fotograma de una película 3D con una tarea independiente y paralela. La última tarea (la "tarea de combinación") no combina los fotogramas representados para crear la película completa hasta que todos los fotogramas se hayan representado correctamente.
+Con dependencias de la tarea de Batch, puede crear tareas que estén programadas para su ejecución en los nodos de proceso después de la finalización de una o varias tareas. Por ejemplo, puede crear un trabajo que represente cada fotograma de una película 3D con una tarea independiente y paralela. La última tarea (la "tarea de combinación") no combina los fotogramas representados para crear la película completa hasta que todos los fotogramas se hayan representado correctamente.
 
-Puede crear tareas que dependan de otras en una relación de una a una o una a varias. Incluso puede crear una dependencia de intervalo, en la que una tarea depende de la finalización correcta de un grupo de tareas dentro de un intervalo de identificadores de tarea específico. Puede combinar estos tres escenarios básicos para crear relaciones de varios a varios.
+De forma predeterminada, las tareas dependientes están programadas para ejecutarse solo después de que la tarea principal se haya completado correctamente. Puede especificar una acción de dependencia para invalidar el comportamiento predeterminado y ejecutar tareas cuando se produce un error en la tarea principal. Consulte la sección [Acciones de dependencia](#dependency-actions) para más información.  
+
+Puede crear tareas que dependan de otras en una relación de una a una o una a varias. También puede crear una dependencia de intervalo, en la que una tarea depende de la finalización de un grupo de tareas dentro de un intervalo especificado de identificadores de tarea. Puede combinar estos tres escenarios básicos para crear relaciones de varios a varios.
 
 ## <a name="task-dependencies-with-batch-net"></a>Dependencias de tareas con Lote de .NET
-En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET para Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
+En este artículo se describe cómo configurar las dependencias de tareas mediante la biblioteca de [.NET para Batch][net_msdn]. Primero le mostraremos cómo [habilitar la dependencia de tareas](#enable-task-dependencies) en sus trabajos y, después, le demostraremos cómo [configurar una tarea con dependencias](#create-dependent-tasks). También se describe cómo especificar una acción de dependencia para ejecutar tareas dependientes, si se produce un error en la principal. Por último, se tratarán los [escenarios de dependencia](#dependency-scenarios) compatibles con Lote.
 
 ## <a name="enable-task-dependencies"></a>Habilitación de dependencias de tareas
-Para utilizar la dependencia de tareas en la aplicación Lote, antes es preciso indicar al servicio de Lote que el trabajo va a usar dependencias de tareas. En .NET para Batch, habilítelo en [CloudJob][net_cloudjob] estableciendo su propiedad [UsesTaskDependencies][net_usestaskdependencies] en `true`:
+Para utilizar la dependencia de tareas en la aplicación Batch, antes es preciso configurar el trabajo para usar dependencias de tareas. En .NET para Batch, habilítelo en [CloudJob][net_cloudjob] estableciendo su propiedad [UsesTaskDependencies][net_usestaskdependencies] en `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -51,7 +54,7 @@ unboundJob.UsesTaskDependencies = true;
 En el fragmento de código anterior, "batchClient" es una instancia de la clase [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Creación de tareas dependientes
-Para crear una tarea que dependa de la finalización correcta de una o varias tareas, es preciso indicar a Lote que la tarea "depende" de otras. En .NET para Batch, configure la propiedad [CloudTask][net_cloudtask].[DependsOn][net_dependson] con una instancia de la clase [TaskDependencies][net_taskdependencies]:
+Para crear una tarea que dependa de la finalización de una o varias tareas, puede especificar que la tarea "dependa" de las otras tareas. En .NET para Batch, configure la propiedad [CloudTask][net_cloudtask].[DependsOn][net_dependson] con una instancia de la clase [TaskDependencies][net_taskdependencies]:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -62,10 +65,10 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-Este fragmento de código crea una tarea con el identificador de "Flowers" que se programará para ejecutarse en un nodo de proceso cuando las tareas con los identificadores de "Rain" y "Sun" se hayan completado correctamente.
+Este fragmento de código crea una tarea dependiente con el identificador de tarea "Flowers". La tarea "Flowers" depende de las tareas "Rain" y "Sun". La tarea "Flowers" se programará para que se ejecute en un nodo de proceso solo después de las tareas "Rain" y "Sun" se hayan completado correctamente.
 
 > [!NOTE]
-> Se considera que una tarea se ha completado cuando se encuentra en estado **completado** y su **código de salida** es `0`. En .NET para Batch, esto significa que el valor de la propiedad [CloudTask][net_cloudtask].[State ][net_taskstate] es `Completed` y el valor de la propiedad [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask es `0`.
+> Se considera que una tarea se ha completado correctamente cuando se encuentra en estado de **completada** y su **código de salida** es `0`. En .NET para Batch, esto significa que el valor de la propiedad [CloudTask][net_cloudtask].[State ][net_taskstate] es `Completed` y el valor de la propiedad [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask es `0`.
 > 
 > 
 
@@ -81,10 +84,10 @@ Hay tres escenarios de dependencia de tareas básicos que puede usar en Lote de 
 > [!TIP]
 > Puede crear relaciones de **varios a varios**, por ejemplo, donde las tareas C, D, E y F dependan de las tareas A y B. Esto es útil, por ejemplo, en escenarios de preprocesamiento en paralelo donde las tareas que siguen en la cadena dependen de la salida de varias tareas que preceden en la cadena.
 > 
-> 
+> En los ejemplos de esta sección, una tarea dependiente solo se ejecuta después de que las tareas principales se completen correctamente. Este comportamiento es el comportamiento predeterminado para una tarea dependiente. Puede ejecutar una tarea dependiente después de que se produzca un error en una tarea principal especificando una acción de dependencia para invalidar el comportamiento predeterminado. Consulte la sección [Acciones de dependencia](#dependency-actions) para más información.
 
 ### <a name="one-to-one"></a>Uno a uno
-Para crear una tarea que dependa de la correcta finalización de otra, proporcione un identificador de tarea único para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+En una relación uno a uno, una tarea depende de la finalización correcta de una tarea principal. Para crear la dependencia, proporcione un identificador de tarea único al método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] cuando rellene la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -98,7 +101,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Uno a varios
-Para crear una tarea que dependa de la correcta finalización de otras, proporcione distintos identificadores de tarea para el método estático [TaskDependencies][net_taskdependencies].[OnIds][net_onids] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+En una relación uno a muchos, una tarea depende de la finalización correcta de varias tareas principales. Para crear la dependencia, proporcione una colección de identificadores de tarea al método estático [TaskDependencies][net_taskdependencies].[OnIds][net_onids] cuando rellene la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -111,15 +114,18 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 {
     DependsOn = TaskDependencies.OnIds("Rain", "Sun")
 },
-```
+``` 
 
 ### <a name="task-id-range"></a>Intervalo de id. de tarea
-Para crear una tarea que dependa de la correcta finalización de un grupo de tareas cuyos identificadores se encuentren a un intervalo, proporcione el primer y el último identificador de tarea del intervalo para el método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+En un dependencia de un intervalo de tareas principales, una tarea depende de la finalización de tareas cuyos identificadores se encuentran dentro de un intervalo.
+Para crear la dependencia, proporcione el primer y el último identificador de tarea del intervalo al método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] cuando rellene la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Si usa intervalos de identificadores de tarea para las dependencias, dichos identificadores *deben* ser representaciones de cadena de valores enteros. Además, para que se programe la ejecución de la dependiente, deben completarse correctamente todas las tareas del intervalo.
+> Si usa intervalos de identificadores de tarea para las dependencias, dichos identificadores *deben* ser representaciones de cadena de valores enteros.
 > 
-> 
+> Todas las tareas del intervalo deben satisfacer la dependencia, ya sea completando correctamente o con un error lo que se asigna a una acción de dependencia establecida en **Satisfacer**. Consulte la sección [Acciones de dependencia](#dependency-actions) para más información.
+>
+>
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because
@@ -139,15 +145,74 @@ new CloudTask("4", "cmd.exe /c echo 4")
 },
 ```
 
+## <a name="dependency-actions"></a>Acciones de dependencia
+
+De forma predeterminada, una tarea dependiente o un conjunto de tareas se ejecuta solo después de que una tarea principal se haya completado correctamente. En algunos escenarios, puede que desee ejecutar tareas dependientes incluso si se produce un error en la tarea principal. Puede invalidar el comportamiento predeterminado especificando una acción de dependencia. Una acción de dependencia especifica si una tarea dependiente es apta para ejecutarse, según el éxito o fracaso de la tarea principal. 
+
+Por ejemplo, suponga que una tarea dependiente está esperando los datos de la finalización de la tarea de nivel superior. Si se produce un error en la tarea de nivel superior, la tarea dependiente aún puede ejecutarse con datos más antiguos. En este caso, una acción de dependencia puede especificar que la tarea dependiente es apta para ejecutarse a pesar del error de la tarea principal.
+
+Una acción de dependencia se basa en una condición de salida para la tarea principal. Puede especificar una acción de dependencia para cualquiera de las siguientes condiciones de salida; para. NET, consulte la clase [ExitConditions][net_exitconditions] para obtener detalles:
+
+- Cuando se produce un error de programación
+- Cuando la tarea finaliza con un código de salida definido por la propiedad **ExitCodes**
+- Cuando la tarea sale con un código de salida con error dentro de un intervalo especificado por la propiedad **ExitCodeRanges**
+- El caso predeterminado, si la tarea sale con un código de salida no definido por **ExitCodes** o **ExitCodeRanges**, o si la tarea sale con un error de programación y la propiedad **SchedulingError** no se establece 
+
+Para especificar una acción de dependencia en. NET, establezca la propiedad [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] para la condición de salida. La propiedad **DependencyAction** toma uno de dos valores:
+
+- El establecimiento de la propiedad **DependencyAction** en **Satisfacer** indica que las tareas dependientes son aptas para ejecutarse si la tarea principal sale con un error especificado.
+- El establecimiento de la propiedad **DependencyAction** en **Bloquear** indica que las tareas dependientes no son aptas para ejecutarse.
+
+La configuración predeterminada para la propiedad **DependencyAction** es **Satisfacer** para el código de salida 0, y **Bloquear** para todas las demás condiciones de salida.
+
+El fragmento de código siguiente establece la propiedad **DependencyAction** para una tarea principal. Si la tarea principal sale con un error de programación o con los códigos de error especificados, la tarea dependiente se bloquea. Si la tarea principal sale con cualquier otro error distinto de cero, la tarea dependiente es apta para ejecutarse.
+
+```csharp
+// Task A is the parent task.
+new CloudTask("A", "cmd.exe /c echo A")
+{
+    // Specify exit conditions for task A and their dependency actions.
+    ExitConditions = new ExitConditions()
+    {
+        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
+        SchedulingError = new ExitOptions()
+        {
+            DependencyAction = DependencyAction.Block
+        },
+        // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
+        ExitCodes = new List<ExitCodeMapping>()
+        {
+            new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
+            new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
+        },
+        // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
+        // (in this example, task B).
+        Default = new ExitOptions()
+        {
+            DependencyAction = DependencyAction.Satisfy
+        }
+    }
+},
+// Task B depends on task A. Whether it becomes eligible to run depends on how task A exits.
+new CloudTask("B", "cmd.exe /c echo B")
+{
+    DependsOn = TaskDependencies.OnId("A")
+},
+```
+
 ## <a name="code-sample"></a>Código de ejemplo
-El proyecto de ejemplo [TaskDependencies][github_taskdependencies] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio 2015 muestra cómo habilitar la dependencia de tareas en un trabajo, crear tareas que dependan de otras y ejecutarlas en un grupo de nodos de proceso.
+El proyecto de ejemplo [TaskDependencies][github_taskdependencies] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra:
+
+- Cómo habilitar la dependencia de tareas en un trabajo
+- Cómo crear tareas que dependen de otras tareas
+- Cómo ejecutar las tareas en un grupo de nodos de proceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="application-deployment"></a>Implementación de la aplicación
 La característica [paquetes de aplicación](batch-application-packages.md) de Lote proporciona una manera sencilla de implementar y de cambiar la versión de las aplicaciones que las tareas ejecutan en los nodos de proceso.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo
-Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Batch) en el foro de Azure Batch para ver la información general sobre los diversos métodos de preparación de los nodos para ejecutar tareas. Este artículo lo ha escrito uno de los miembros del equipo de Lote de Azure y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso.
+Consulte [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos de ensayo en nodos de proceso de Batch) en el foro de Azure Batch para ver la información general sobre los métodos de preparación de los nodos para ejecutar tareas. Este artículo, escrito por uno de los miembros del equipo de Azure Batch, es una buena toma de contacto sobre las diferentes maneras de copiar aplicaciones, datos de entrada de tareas y otros archivos en los nodos de proceso.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -157,6 +222,9 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_dependson]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.dependson.aspx
 [net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
+[net_exitconditions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitconditions
+[net_exitoptions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
+[net_dependencyaction]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions#Microsoft_Azure_Batch_ExitOptions_DependencyAction
 [net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx

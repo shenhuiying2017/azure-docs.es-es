@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
-ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -59,7 +59,9 @@ Cada suscripción consta de uno o varios planes de servicio, que representan el 
 
 Cuando obtiene una suscripción, todo lo que tiene que hacer es configurar las opciones de pago. El uso de características de pago de Azure AD requiere la distribución de licencias a las personas adecuadas. Por regla general, se debe asignar una licencia a los usuarios que deban disponer de acceso o que puedan administrarse a través de una característica de pago de Azure AD. Una asignación de licencia es una asignación entre un usuario y un servicio comprado, como Azure AD Premium, Basic o Enterprise Mobility Suite.
 
-Administrar qué usuarios del directorio deben tener una licencia es sencillo. Puede realizarse mediante la asignación de licencias a grupos en Azure Portal o directamente a las personas adecuadas a través del Portal, PowerShell o API. Al asignar licencias a un grupo, se asignará una licencia a todos los miembros del grupo. Si se agregan usuarios o se quitan de un grupo, se asignarán a la licencia adecuada o se quitarán de ella. La asignación de grupo puede utilizar cualquier administración de grupo disponible para usted y que sea coherente con la asignación basada en grupo para las aplicaciones. Con ese enfoque, puede configurar reglas como que todos los usuarios del directorio se asignen automáticamente, garantizar que todas las personas con el puesto adecuado dispongan de licencia o incluso delegar la decisión a otros administradores de la organización. Para una explicación detallada de la asignación de licencias a grupos, incluidos los escenarios avanzados los de licencia de Office 365, consulte este artículo.
+Administrar qué usuarios del directorio deben tener una licencia es sencillo. Puede realizarse mediante la asignación de licencias a grupos en Azure Portal o directamente a las personas adecuadas a través del Portal, PowerShell o API. Al asignar licencias a un grupo, se asignará una licencia a todos los miembros del grupo. Si se agregan usuarios o se quitan de un grupo, se asignarán a la licencia adecuada o se quitarán de ella. La asignación de grupo puede utilizar cualquier administración de grupo disponible para usted y que sea coherente con la asignación basada en grupo para las aplicaciones. Con ese enfoque, puede configurar reglas como que todos los usuarios del directorio se asignen automáticamente, garantizar que todas las personas con el puesto adecuado dispongan de licencia o incluso delegar la decisión a otros administradores de la organización. 
+
+Para una explicación detallada de la asignación de licencias a grupos, incluidos los escenarios avanzados y los de licencia de Office 365, consulte [este artículo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## <a name="getting-started-with-azure-ad-licensing"></a>Introducción a licencias de Azure AD
 
@@ -152,6 +154,7 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 * [Administración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md)
 * [Estado de Azure AD Connect](active-directory-aadconnect-health.md)
 * [Asignación de grupo a aplicaciones](active-directory-manage-groups.md)
+* [Asignación de licencias a un grupo](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 

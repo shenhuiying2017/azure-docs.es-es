@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
-ms.openlocfilehash: 73727d8d1e5de01794589538bd67d3d698d325a0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 909402b0c603433883757dc3082676462a7c6683
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 
 En este artículo, vamos a recorrer un escenario básico de asignación de licencias de producto a un grupo y comprobar que todos los miembros del grupo tienen las licencias adecuadas.
 
-En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Department** (Departamento de recursos humanos), que incluye todos los miembros del departamento de recursos humanos que, en este caso, son aproximadamente 1000 usuarios. El administrador desea asignar licencias de Office 365 Enterprise E3 a todo el departamento; el servicio Yammer Enterprise que se incluye en el producto se debe deshabilitar temporalmente hasta que el departamento esté listo para empezar a usarlo. El administrador también desea implementar licencias de Enterprise Mobility + Security para el mismo grupo de usuarios.
+En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Department** (Departamento de recursos humanos), que incluye todos los miembros del departamento de recursos humanos (en este caso, son aproximadamente 1000 usuarios). El administrador desea asignar licencias de Office 365 Enterprise E3 a todo el departamento; el servicio Yammer Enterprise que se incluye en el producto se debe deshabilitar temporalmente hasta que el departamento esté listo para empezar a usarlo. El administrador también desea implementar licencias de Enterprise Mobility + Security para el mismo grupo de usuarios.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Paso 1: Asignación de las licencias necesarias
 
@@ -47,7 +47,7 @@ En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Depart
 
   ![Selección de un grupo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. En la hoja **Asignar licencias**, haga clic en **Opciones de asignación (opcionales)** que muestra todos los planes de servicio que incluyen los dos productos que hemos seleccionado anteriormente. Busque Yammer Enterprise y establézcalo en **Desactivar** para deshabilitar el servicio de la licencia de producto. Para confirmar, haga clic en **Aceptar** en la parte inferior de **Opciones de asignación**.
+6. En la hoja **Asignar licencias**, haga clic en **Opciones de asignación (opcionales)** que muestra todos los planes de servicio incluidos en los dos productos que hemos seleccionado anteriormente. Busque Yammer Enterprise y establézcalo en **Desactivar** para deshabilitar el servicio de la licencia de producto. Para confirmar, haga clic en **Aceptar** en la parte inferior de **Opciones de asignación**.
 
   ![opciones de asignación](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
@@ -64,11 +64,11 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 
 1. Vaya a **Azure Active Directory &gt; Usuarios y grupos &gt; Todos los grupos**; busque el grupo *HR Department* al que se van a asignar las licencias.
 
-2. En la hoja del grupo *HR Department*, seleccione **Licencias** para confirmar rápidamente si las licencias se han asignado completamente a los usuarios y si hay errores que requieran atención, entre otros:
+2. En la hoja del grupo *HR Department*, seleccione **Licencias** para confirmar rápidamente si las licencias se han asignado completamente a los usuarios y si hay errores que requieran atención. Está disponible la siguiente información:
 
-  - Licencias de producto que se han asignado al grupo. Seleccione una entrada para mostrar los servicios específicos que se han habilitado y para realizar cambios.
+  - Lista de licencias de producto que están asignadas actualmente al grupo. Seleccione una entrada para mostrar los servicios específicos que se han habilitado y para realizar cambios.
 
-  - Estado de los últimos cambios realizados en la asignación de licencias: si los cambios se están procesando o si se ha completado el procesamiento en todos los usuarios miembros.
+  - Estado de los últimos cambios de licencia realizados en el grupo: si los cambios se están procesando o si se ha completado el procesamiento en todos los usuarios miembros.
 
   - Si hubo errores, información acerca de los usuarios en estado de error para los que no se pudieron asignar las licencias.
 
@@ -85,7 +85,7 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 
 1. Vaya a **Azure Active Directory &gt; Usuarios y grupos &gt; Todos los grupos**; busque el grupo *HR Department* al que se van a asignar las licencias.
 
-2. En la hoja del grupo **HR Department**, seleccione **Licencias**. La notificación en la parte superior de la hoja significa que hay 10 usuarios a los que no se pudieron asignar licencias. Se abre una lista con todos los usuarios en estado de error de licencia para este grupo.
+2. En la hoja del grupo **HR Department**, seleccione **Licencias**. La notificación en la parte superior de la hoja muestra que hay 10 usuarios a los que no se pudieron asignar licencias. Al hacer clic en ella se abre una lista con todos los usuarios en estado de error de licencia para este grupo.
 
 3. La columna **Asignaciones erróneas** indica que no se pudieron asignar ambas licencias de producto a los usuarios. **Motivo principal del error** indica la causa del error, en este caso, **Planes del servicio en conflicto**.
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: cf0cd5202288a9da55e0f8409a51ea904eeb2d55
-ms.openlocfilehash: 775ef958846ad2a780abb761d1c3934e671d5f1c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -49,6 +49,8 @@ Para administrar los servicios web asociados a esta área de trabajo, use el Por
 
 > [!NOTE]
 > Para implementar o administrar nuevos servicios web, es preciso que se le haya asignado un rol de colaborador o administrador en la suscripción en la que se implementa el servicio web. Si invita a otro usuario a un área de trabajo de Machine Learning, debe asignarle un rol de colaborador o administrador en la suscripción para que pueda implementar o administrar servicios web. 
+> 
+>Para más información sobre cómo establecer permisos de acceso, vea [Visualización de asignaciones de acceso para usuarios y grupos en Azure Portal (versión preliminar pública)](../active-directory/role-based-access-control-manage-assignments.md).
 
 ## <a name="use-the-azure-classic-portal"></a>Uso del Portal de Azure clásico
 

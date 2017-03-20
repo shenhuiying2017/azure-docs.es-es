@@ -17,6 +17,7 @@ ms.author: marsma
 translationtype: Human Translation
 ms.sourcegitcommit: bb72ac092496b5962c98006aca61b8c085cb1694
 ms.openlocfilehash: 2c73585e9d1f265c011cf94d1923ecec5f6a3435
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -580,9 +581,4 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

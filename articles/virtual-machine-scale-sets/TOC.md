@@ -2,13 +2,16 @@
 ## [¿Qué son los conjuntos de escalado de máquinas virtuales?](virtual-machine-scale-sets-overview.md)
 
 # Introducción
-## [Creación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
-## [Creación de un conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
-## [Creación de un conjunto de escalado mediante una plantilla de Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Implementación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
+## [Implementación de un conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
+## [Implementación de un conjunto de escalado sencillo mediante una plantilla de Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Procedimientos
 ## Planeamiento y diseño
 ### [Consideraciones de diseño](virtual-machine-scale-sets-design-overview.md)
+## Escritura de plantillas de conjunto de escalado en
+### [Implementación de un conjunto de escalado sencillo](virtual-machine-scale-sets-mvss-start.md)
+### [Implementación de un conjunto de escalado en una red virtual existente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Implementación
 ### [Conjunto de escalado con el portal](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Solución de problemas
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
+
+## P+F
+### [Preguntas más frecuentes sobre los conjuntos de escalado](virtual-machine-scale-sets-faq.md)
 
 # Referencia
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

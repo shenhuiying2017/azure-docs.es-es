@@ -19,6 +19,7 @@ redirect_url: machine-learning-data-science-create-features
 translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -78,7 +79,7 @@ En la tabla siguiente se resume la comparación de los resultados de rendimiento
 
 ![Comparar los resultados de rendimiento](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="a-nameexample2a-example-2-creating-features-in-text-mining"></a><a name="example2"></a> Ejemplo 2: Creación de características en minería de texto
+### <a name="example2"></a> Ejemplo 2: Creación de características en minería de texto
 El diseño de características se aplica ampliamente en las tareas relacionadas con la minería de texto, como la clasificación de documentos y el análisis de opiniones. Por ejemplo, si desea clasificar documentos en varias categorías, una hipótesis típica es que las palabras o frases incluidas que se encuentran en una categoría de documento tienen menos probabilidades de presentarse en otra categoría de documento. Dicho de otro modo, la frecuencia de la distribución de palabras o frases puede caracterizar distintas categorías de documento. En las aplicaciones de minería de texto, es necesario el proceso de diseño de características para crear las características que implican las frecuencias de palabras o frases; esto se debe a que partes individuales de contenidos de texto normalmente sirven como datos de entrada.
 
 Para llevar a cabo esta tarea, se aplica una técnica llamada *hash de características* que permite convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras o frases) a un índice determinado, este método funciona mediante la aplicación de una función de hash a las características y el uso de sus valores de hash como índices directamente.
@@ -133,9 +134,4 @@ No siempre es necesario realizar el diseño o la selección de funciones. Que se
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

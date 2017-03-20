@@ -17,6 +17,7 @@ ms.author: aelnably
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -46,7 +47,7 @@ Con el comando New-AzureRmWebApp, podemos crear la nueva aplicación web en la r
 
 Para clonar una aplicación web existente, incluidas todas las ranuras de implementación asociadas, el usuario deberá usar el parámetro IncludeSourceWebAppSlots; el siguiente comando de PowerShell muestra el uso de este parámetro con el comando New-AzureRmWebApp:
 
-    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots $true
+    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 
 Para clonar una aplicación web existente en la misma región, el usuario deberá crear un nuevo grupo de recursos y un nuevo plan de Servicio de aplicaciones en la misma región y después usar el siguiente comando de PowerShell para clonar la aplicación web:
 
@@ -112,10 +113,5 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 * [Compatibilidad de Azure Resource Manager con Traffic Manager (versión preliminar)](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
 * [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

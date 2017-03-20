@@ -1,5 +1,5 @@
 ---
-redirect_url: azure/redis-cache/cache-faq#managed-cache-service
+redirect_url: /azure/redis-cache/cache-faq#managed-cache-service
 redirect_document_id: TRUE
 translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537

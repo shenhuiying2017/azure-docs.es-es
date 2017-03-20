@@ -19,6 +19,7 @@ ms.author: mikeray
 translationtype: Human Translation
 ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
 ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -296,7 +297,7 @@ Una vez reiniciado el controlador de dominio principal, puede configurar el segu
 
 Después de que el servidor complete los cambios de configuración, reinicie el servidor. 
 
-### <a name="a-namedomainaccountsa-configure-domain-accounts"></a><a name=DomainAccounts></a> Configuración de cuentas de dominio
+### <a name=DomainAccounts></a> Configuración de cuentas de dominio
 
 Los pasos siguientes configuran las cuentas de Active Directory (AD). En la tabla siguiente se muestran las cuentas:
 
@@ -377,7 +378,7 @@ En primer lugar, cambie la dirección del servidor DNS preferido para cada servi
 
 Repita estos pasos en todos los servidores.
 
-### <a name="a-namejoindomainajoin-the-servers-to-the-domain"></a><a name="joinDomain"></a>Una los servidores al dominio.
+### <a name="joinDomain"></a>Una los servidores al dominio.
 
 Ahora ya puede unir la máquina virtual a **corp.contoso.com**. Realice los siguientes pasos en los servidores AQL y el servidor testigo del recurso compartido de archivos: 
 
@@ -408,7 +409,7 @@ Después de que cada máquina virtual se reinicie como un miembro del dominio, a
 7. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de administradores**.
 8. Repita los pasos anteriores para **sqlserver-1** y **cluster-fsw**.
 
-### <a name="a-namesetserviceaccountaset-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Configuración de las cuentas de servicio de SQL Server
+### <a name="setServiceAccount"></a>Configuración de las cuentas de servicio de SQL Server
 
 Establezca la cuenta de servicio de SQL Server en cada servidor SQL Server. Utilice las cuentas que creó cuando [configuró las cuentas de dominio](#DomainAccounts).
 
@@ -426,7 +427,7 @@ En lo que respecta a los grupos de disponibilidad de SQL Server, cada servidor S
 
 Use la cuenta de instalación para configurar el grupo de disponibilidad. Esta cuenta debe ser miembro del rol del servidor fijo **sysadmin** en cada servidor SQL Server. Con los pasos siguientes se crea un inicio de sesión para la cuenta de instalación:
 
-1. Conéctese mediante RDP al servidor mediante la cuenta * \<nombreMáquina\>\administraciónDominio*.
+1. Conéctese mediante RDP al servidor mediante la cuenta *\<nombreMáquina\>\administraciónDominio*.
 
 1. Abra SQL Server Management Studio y conéctese a la instancia local de SQL Server. 
 
@@ -506,9 +507,4 @@ Repita estos pasos en el segundo servidor SQL Server de la misma manera.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Crear un grupo de disponibilidad de SQL Server AlwaysOn con máquinas virtuales de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
