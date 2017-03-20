@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: e293dcfc872ba95ca7a0d0faed9b4a824d3fa42c
-ms.openlocfilehash: ee9a19c8ae85867a0dfcb896b9c33fd4c51be7fa
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8ada071c9ef7c534f6e048e4804aa1b4b2b787e0
+ms.openlocfilehash: f9b28b177e83e49bd83328919efbd5887b46c7d4
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -34,19 +34,19 @@ El teorema de Brewer define la coherencia y la disponibilidad de la forma siguie
 * Coherencia: se garantiza que una lectura devuelva la última lectura de un cliente determinado.
 
 ## <a name="partition-tolerance"></a>Tolerancia a la partición
-Event Hubs se basa en un modelo con particiones. Puede configurar el número de particiones en el centro de eventos durante la instalación, pero no se puede cambiar este valor más adelante. Puesto que se deben utilizar particiones con Event Hubs, solo necesita tomar una decisión con respecto a la disponibilidad y la coherencia de la aplicación.
+Event Hubs se basa en un modelo de datos con particiones. Se puede configurar el número de particiones en el centro de eventos durante la instalación, pero no se puede cambiar este valor más adelante. Puesto que se deben utilizar particiones con Event Hubs, solo necesita tomar una decisión con respecto a la disponibilidad y la coherencia de la aplicación.
 
 ## <a name="availability"></a>Disponibilidad
-La manera más sencilla de empezar a trabajar con Event Hubs es usar el comportamiento predeterminado. Si crea un objeto `EventHubClient` nuevo y usa la función de envío, los eventos se distribuyen automáticamente entre las particiones en el Centro de eventos. Este comportamiento permite disfrutar del máximo tiempo de actividad.
+La manera más sencilla de empezar a trabajar con Event Hubs es usar el comportamiento predeterminado. Si crea un objeto `EventHubClient` nuevo y usa el método `Send`, los eventos se distribuyen automáticamente entre las particiones del Centro de eventos. Este comportamiento permite disfrutar del máximo tiempo de actividad.
 
 Para los casos de uso que requieren el máximo tiempo de actividad, se prefiere este modelo.
 
 ## <a name="consistency"></a>Coherencia
-En escenarios concretos, el orden de los eventos puede ser importante. Por ejemplo, puede que prefiera el sistema back-end para procesar un comando de actualización antes que un comando de eliminación. En este caso, puede establecer la clave de partición en un evento, o usar un `PartitionSender` para solo enviar eventos a una determinada partición. De esta forma, se garantiza que, cuando se lean eventos de la partición, la lectura siga un orden.
+En algunos escenarios, el orden de los eventos puede ser importante. Por ejemplo, puede que prefiera el sistema back-end para procesar un comando de actualización antes que un comando de eliminación. En este caso, puede establecer la clave de partición en un evento, o usar un objeto `PartitionSender` para enviar eventos solo a una determinada partición. De esta forma, se garantiza que, cuando se lean eventos de la partición, la lectura siga un orden.
 
-Con este tipo de configuración, debe tener en cuenta que si la partición concreta a la que se realiza el envío no se encuentra disponible, recibirá una respuesta de error. Como punto de comparación, si no tiene una afinidad para una sola partición, el servicio Event Hubs enviaría el evento a la siguiente partición disponible.
+Con este tipo de configuración, debe tener en cuenta que si la partición concreta a la que se realiza el envío no se encuentra disponible, recibirá una respuesta de error. Como punto de comparación, si no tiene una afinidad para una sola partición, el servicio Event Hubs envía el evento a la siguiente partición disponible.
 
-Una posible solución para garantizar el orden, al mismo tiempo que se maximiza el tiempo de actividad, sería agregar eventos como parte de la aplicación de procesamiento de eventos. La manera más fácil de lograr esto sería marcar el evento con una propiedad de número de secuencia personalizada. A continuación se muestra un ejemplo:
+Una posible solución para garantizar el orden, mientras también se maximiza el tiempo de actividad, sería agregar eventos como parte de la aplicación de procesamiento de eventos. La manera más fácil de lograr esto es marcar el evento con una propiedad de número de secuencia personalizada. A continuación se muestra un ejemplo:
 
 ```csharp
 // Get the latest sequence number from your application
@@ -59,7 +59,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-El ejemplo anterior podría enviar el evento a una de las particiones disponibles en el Centro de eventos y establecer el número de secuencia correspondiente de la aplicación. Esta solución requiere que la aplicación de procesamiento conserve el estado, pero se proporcionaría a los remitentes un punto de conexión con más probabilidades de estar disponible.
+El ejemplo anterior envía el evento a una de las particiones disponibles en el Centro de eventos y establece el número de secuencia correspondiente de la aplicación. Esta solución requiere que la aplicación de procesamiento conserve el estado, pero proporciona a los remitentes un punto de conexión con más probabilidades de estar disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:

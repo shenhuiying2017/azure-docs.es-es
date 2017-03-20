@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 318d141d7769d063555c394ada91a2714be77f64
-ms.openlocfilehash: 6635079e568634285e0ffeb1c2334d66db3cc633
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c24c2c4e297497e106691d62be76ad0591bb33de
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -26,15 +26,17 @@ ms.lasthandoff: 02/22/2017
 
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ![información general de los registros de flujo][1]
 
-Aunque los registros de flujo tienen como objetivo los grupos de seguridad de red, no aparecen como los demás registros. Los registros de flujo se almacenan solo dentro de una cuenta de almacenamiento y siguen la ruta de acceso del registro que se muestra en el ejemplo siguiente.
+Aunque los registros de flujo tienen como objetivo los grupos de seguridad de red, no se muestran como los demás registros. Los registros de flujo se almacenan solo dentro de una cuenta de almacenamiento y siguen la ruta de acceso del registro que se muestra en el ejemplo siguiente:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
 
-Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Los registros tienen una directiva de retención que se puede establecer entre 1 y 365 días. Si no se establece una directiva de retención, los registros se mantendrán para siempre.
+Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Los registros tienen una directiva de retención que se puede establecer entre 1 y 365 días. Si no se establece una directiva de retención, los registros se mantendrán indefinidamente.
 
 ## <a name="log-file"></a>Archivo de registro
 
@@ -65,7 +67,7 @@ Los registros de flujo tienen varias propiedades. En la lista siguiente puede ve
 A continuación, se muestra un ejemplo de un registro de flujo. Como puede ver, hay varios registros que siguen la lista de propiedades que se describe en la sección anterior. 
 
 > [!NOTE]
-> Los valores de la propiedad flowTuples constituyen una lista separada por comas.
+> Los valores de la propiedad flowTuples son una lista separada por comas.
  
 ```json
 {

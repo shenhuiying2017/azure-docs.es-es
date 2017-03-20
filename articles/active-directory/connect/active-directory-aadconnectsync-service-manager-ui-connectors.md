@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/02/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 55adbf800c6312371d937ed2da98a4a5ce704e51
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bd2240678fed44db748ae062bdf91e457159b4a2
+ms.lasthandoff: 03/04/2017
 
 ---
-# <a name="using-connectors-with-the-auzre-ad-connect-sync-service-manager"></a>Uso de conectores con Synchronization Service Manager de Azure AD Connect
+# <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -66,48 +66,7 @@ Empiece seleccionando un **ámbito**. Puede buscar según los datos (RDN, DN, de
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
 Por ejemplo, si hace una búsqueda de un subárbol, obtiene todos los objetos de una unidad organizativa.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
-En esta cuadrícula, puede seleccionar un objeto, elegir las **propiedades** y [realizar un seguimiento](#follow-an-object-and-its-data-through-the-system) desde el espacio del conector de origen, a través del metaverso, y hasta el espacio del conector de destino.
-
-## <a name="follow-an-object-and-its-data-through-the-system"></a>seguimiento de un objeto y sus datos a través del sistema
-Cuando esté solucionando un problema relacionado con datos, realice el seguimiento de un objeto desde el espacio del conector de origen hasta el metaverso y el espacio del conector de destino, que es un procedimiento clave para comprender por qué los datos no tienen los valores esperados.
-
-### <a name="connector-space-object-properties"></a>Propiedades de objeto del espacio del conector
-**Importaciónación**  
-Al abrir un objeto cs, aparecen varias pestañas en la parte superior. La pestaña **Importación** muestra los datos que se almacenan provisionalmente después de una importación.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png)  
-En **Valor antiguo** se muestran los datos almacenados en el sistema y en **Nuevo valor**, los que se han recibido desde el sistema de origen y no se han aplicado todavía. En este caso, dado que no hay un error de sincronización, no se puede aplicar el cambio.
-
-**Error**  
-La página de error solo está visible si se produce un problema con el objeto. Consulte los detalles de la página de operaciones para obtener más información sobre cómo [solucionar los errores de sincronización](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
-
-**Linaje**  
-La pestaña Linaje muestra cómo el objeto de espacio del conector está relacionado con el objeto de metaverso. Puede ver cuándo fue la última vez que el Conector importó un cambio desde el sistema conectado y qué reglas que se han aplicado para rellenar los datos en el metaverso.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png)  
-En la columna **Acción** vemos que hay una regla de sincronización **Entrante** con la acción **Aprovisionar**. Esto indica que, siempre que este objeto de espacio del conector esté presente, el objeto de metaverso permanecerá. En cambio, si la lista de reglas de sincronización muestra una regla de sincronización con la dirección **Saliente** y **Aprovisionar**, indica que este objeto se eliminará cuando se quite el objeto de metaverso.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png)  
-También podemos ver en la columna **PasswordSync** que el espacio del conector entrante puede contribuir a los cambios realizados en la contraseña debido a que una regla de sincronización tiene el valor **True**. Esta contraseña se envía a Azure AD a través de la regla de salida.
-
-Desde la pestaña Linaje, puede acceder al metaverso haciendo clic en [Metaverse Object Properties](#metaverse-object-properties)(Propiedades del objeto de metaverso).
-
-En la parte inferior de todas las pestañas, hay dos botones: **Vista previa** y **Registro**.
-
-**Vista previa**  
-La página de vista previa se usa para sincronizar un único objeto. Es útil si está solucionando problemas de algunas reglas de sincronización del cliente y desea ver el efecto de un cambio en un único objeto. Puede seleccionar entre **Sincronización completa** y **Sincronización diferencial**. También puede elegir entre **Generate Preview** (Generar vista previa), que únicamente mantendrá el cambio en la memoria, y **Vista previa de confirmación**, que llevará a cabo todos los cambios en los espacios del conector de destino.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview1.png)  
-Puede inspeccionar el objeto y la regla a la que se aplica un flujo de atributo concreto.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/preview2.png)
-
-**Registro**  
-La página de registro se usa para ver el estado y el historial de la sincronización de contraseñas.
-
-### <a name="metaverse-object-properties"></a>Metaverse Object Properties
-**Atributos**  
-En la pestaña Atributos puede ver los valores y qué conector los aportó.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvattributes.png)  
-**Conectores**  
-La pestaña Conectores muestra todos los espacios del conector que tienen una representación del objeto.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvconnectors.png)  
-Esta pestaña también permite navegar al [objeto de espacio del conector](#connector-space-object-properties).
+En esta cuadrícula, puede seleccionar un objeto, elegir las **propiedades** y [realizar un seguimiento](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) desde el espacio del conector de origen, a través del metaverso, y hasta el espacio del conector de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

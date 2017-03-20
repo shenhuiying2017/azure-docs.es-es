@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: a2892343432f7dced535efb3917d915736580dfb
-ms.openlocfilehash: cf8eba0f68e1e803026079f02b91f1bbaec189da
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -30,20 +30,7 @@ Stream Analytics garantiza que los trabajos de las regiones emparejadas se actua
 
 _A excepción del centro de la India_ (cuya región emparejada, India del Sur, no tiene presencia de Stream Analytics), la implementación de una actualización para Stream Analytics no se producirá al mismo tiempo en un conjunto de regiones emparejadas. Pueden producirse implementaciones en varias regiones **del mismo grupo** **al mismo tiempo**.
 
-Consulte el gráfico siguiente para obtener la lista de grupos emparejados:
+El artículo sobre **[disponibilidad y regiones emparejadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** tiene la información más reciente sobre qué regiones están emparejadas.
 
-Regiones del grupo A |  | Regiones del grupo B
-------- | ------- | -------
-Este de Japón | emparejado a | Oeste de Japón
-Europa del Norte |  | Europa occidental
-Central EE. UU.: |  | Este de EE. UU.&2;
-Asia oriental |  | Sudeste de Asia
-Centro-Norte de EE. UU |  | Centro-Sur de EE. UU
-Australia Oriental |  | Sudeste de Australia
-Este de EE. UU. |  | Oeste de EE. UU.
-Sur de Brasil |  | Centro-Sur de EE. UU
-Norte de China |  | Este de China
-Nordeste de Alemania |  | Centro de Alemania
-
-Se recomienda a los clientes que implementen trabajos idénticos en ambas regiones emparejadas. Además de la supervisión interna de Stream Analytics, también se recomienda a los clientes que supervisen los trabajos como si **ambos** fueran trabajos de producción. Si no se identifica una interrupción como resultado de la actualización de servicio de Stream Analytics, escale de forma adecuada y conmute por error los consumidores que siguen en la cadena a la salida de trabajo correcta. El escalado al soporte impedirá que la región emparejada se vea afectada por la nueva implementación y mantenga la integridad de los trabajos emparejados.
+Se recomienda a los clientes que implementen trabajos idénticos en ambas regiones emparejadas. Además de las capacidades de supervisión interna de Stream Analytics, también se recomienda a los clientes que supervisen los trabajos como si **ambos** fueran trabajos de producción. Si no se identifica una interrupción como resultado de la actualización de servicio de Stream Analytics, escale de forma adecuada y conmute por error los consumidores que siguen en la cadena a la salida de trabajo correcta. El escalado al soporte impedirá que la región emparejada se vea afectada por la nueva implementación y mantenga la integridad de los trabajos emparejados.
 
