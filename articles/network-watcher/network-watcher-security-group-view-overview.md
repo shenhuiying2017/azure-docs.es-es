@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
-ms.openlocfilehash: 350ba23dbc0e8557f9609f7fb3a15169d26c9b4a
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: de48da2c77c65f3e806474ae37ffd00772622b02
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -29,8 +29,7 @@ Un caso de uso más extendido se encuentra en el cumplimiento de seguridad y aud
 
 En el portal las reglas se dividen en vigente, subred, interfaz de red y predeterminada. Esto proporciona una vista sencilla de las reglas que se aplican a una máquina virtual. Se incluye un botón de descarga para descargar fácilmente todas las reglas de seguridad con independencia de la pestaña en un archivo CSV.
 
-> [!NOTE]
-> Actualmente, Network Watcher se encuentra en versión preliminar y, para poder usar las características de Network Watcher, la [característica debe registrarse](network-watcher-create.md#register-the-preview-capability).
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ![vista de grupos de seguridad][1]
 

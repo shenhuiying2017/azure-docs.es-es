@@ -32,13 +32,13 @@ ms.lasthandoff: 01/06/2017
 
 * **Credenciales de nivel de aplicación**: un conjunto de credenciales para cada aplicación. Se puede utilizar para implementar únicamente en esa aplicación. Las credenciales para cada aplicación se generan automáticamente al crear la aplicación y se encuentran en el perfil de publicación de la aplicación. Las credenciales no se pueden configurar manualmente, pero se pueden restablecer para una aplicación en cualquier momento.
 
-## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Establecimiento y restablecimiento de credenciales de nivel de usuario
+## <a name="userscope"></a>Establecimiento y restablecimiento de credenciales de nivel de usuario
 
 Puede configurar las credenciales de nivel de usuario en cualquier [hoja de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación. Independientemente de en qué aplicación configure estas credenciales, son válidas para todas las aplicaciones y para todas las suscripciones de su cuenta de Azure. 
 
 Para configurar las credenciales de nivel de usuario:
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > ** &lt;cualquier_aplicación >** > **Credenciales de implementación**.
+1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Credenciales de implementación**.
 
     > [!NOTE]
     > En el portal, debe tener al menos una aplicación para tener acceso a la hoja de credenciales de implementación. Sin embargo, con la [CLI de Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
@@ -60,12 +60,12 @@ y el nombre de usuario de implementación de *FTP* en las **Propiedades** de la 
 >
 >  
 
-## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Obtención y restablecimiento de las credenciales de nivel de aplicación
+## <a name="appscope"></a>Obtención y restablecimiento de las credenciales de nivel de aplicación
 Para cada aplicación de App Service, sus credenciales de nivel de aplicación se almacenan en el perfil de publicación XML.
 
 Para obtener las credenciales de nivel de aplicación:
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > ** &lt;cualquier_aplicación >** > **Información general**.
+1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Información general**.
 
 2. Haga clic en **... Más** > **Obtener perfil de publicación** para que comience la descarga de un archivo .PublishSettings.
 
@@ -80,7 +80,7 @@ Estas son las credenciales de nivel de aplicación.
 
 Para restablecer las credenciales de nivel de aplicación:
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > ** &lt;cualquier_aplicación >** > **Información general**.
+1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Información general**.
 
 2. Haga clic en **... Más** > **Restablecer perfil de publicación**. Haga clic en **SÍ** para confirmar el restablecimiento.
 

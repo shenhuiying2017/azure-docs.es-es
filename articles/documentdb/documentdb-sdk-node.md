@@ -1,5 +1,5 @@
 ---
-title: 'API de Node.js y recursos del SDK: Azure DocumentDB | Microsoft Docs'
+title: API, SDK y recursos de Node.js para Azure DocumentDB | Microsoft Docs
 description: "Obtenga toda la información sobre el SDK y la API para Node.js como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Node.js de DocumentDB."
 services: documentdb
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8ffbf7807bdd3d0f9147dcd0237a999386553c37
-ms.openlocfilehash: b84597fb44b28f827a14a1c1b319a766b8a0b4dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>SDK y API de DocumentDB
+# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>SDK de Node.js para DocumentDB: notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/23/2017
 > 
 > 
 
-## <a name="documentdb-nodejs-api-and-sdk"></a>SDK para Node.js de DocumentDB
 <table>
 
 <tr><td>**Descargar SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>

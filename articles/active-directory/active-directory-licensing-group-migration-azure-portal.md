@@ -18,18 +18,18 @@ ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
-ms.openlocfilehash: 7582602b16a9a307cc4e5e9a1862653e25ba300f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: d7c5ba12738c4713517743ae8c44e236c5e1a210
+ms.lasthandoff: 03/08/2017
 
 
 ---
 
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Cómo agregar usuarios con licencia a un grupo para la obtención de licencias en Azure Active Directory
 
-Puede que actualmente haya licencias implementadas para usuarios de organizaciones a través de una "asignación directa", es decir, mediante el uso de scripts de PowerShell u otras herramientas diseñadas para asignar licencias de usuarios individuales. Si desea empezar a usar licencias basadas en grupos para administrar las licencias de su organización, necesita contar con un plan de migración para reemplazar las soluciones existentes por licencias basadas en grupos con facilidad.
+Puede que actualmente haya licencias implementadas para usuarios de organizaciones a través de una "asignación directa"; es decir, mediante el uso de scripts de PowerShell u otras herramientas diseñadas para asignar licencias de usuarios individuales. Si desea empezar a usar licencias basadas en grupos para administrar las licencias de su organización, necesita contar con un plan de migración para reemplazar las soluciones existentes por licencias basadas en grupos con facilidad.
 
-Lo más importante es tener en cuenta que hay que evitar una situación tal en que la migración a licencias basadas en grupos conlleve que los usuarios pierdan temporalmente las licencias que actualmente tienen asignadas. Se debe evitar cualquier proceso que pueda entrañar cambios en las licencias asignadas, a fin de evitar el riesgo de que los usuarios pierdan el acceso a los servicios y a sus datos.
+Lo más importante es tener en cuenta que hay que evitar una situación tal en que la migración a licencias basadas en grupos conlleve que los usuarios pierdan temporalmente las licencias que actualmente tienen asignadas. Se debe evitar cualquier proceso que pueda dar lugar a la eliminación de licencias a fin de evitar el riesgo de que los usuarios pierdan el acceso a los servicios y a sus datos.
 
 ## <a name="recommended-migration-process"></a>Proceso de migración recomendado
 
@@ -41,15 +41,15 @@ Lo más importante es tener en cuenta que hay que evitar una situación tal en q
 
 4. Verifique que dichas licencias se hayan aplicado a todos los usuarios de esos grupos. Para ello, compruebe el estado de procesamiento de cada grupo y los registros de auditoría.
 
-  - Puede realizar una revisión rápida de cada usuario observando los detalles de sus licencias. Observará que tienen las mismas licencias asignadas "directamente" o "heredadas" de los grupos. También se refleja que tienen "rutas de asignación" paralelas, por lo que la asignación directa original puede quitarse con seguridad.
+  - Puede realizar una revisión rápida de cada usuario observando los detalles de sus licencias. Observará que tienen las mismas licencias asignadas "directamente" o "heredadas" de los grupos.
 
-  - Puede ejecutar un script de PowerShell para [verificar cómo se asignan las licencias a los usuarios](active-directory-licensing-group-advanced.md).
+  - Puede ejecutar un script de PowerShell para [verificar cómo se asignan las licencias a los usuarios](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
   - Cuando se asigna la misma licencia de producto al usuario directamente y a través de un grupo, el usuario solo puede consumir una licencia. Por lo tanto, no se necesitan licencias adicionales para realizar la migración.
 
 5. Compruebe si en algún grupo de usuarios aparece el estado de error, a fin de verificar que no se produzcan errores en las asignaciones de licencias. Para más información, vea [Identificación y resolución de problemas de licencias de un grupo](active-directory-licensing-group-problem-resolution-azure-portal.md).
 
-6. Considere la posibilidad de quitar las asignaciones directas originales; puede que desee hacerlo en "ondas" para supervisar primero el resultado en un subconjunto de usuarios.
+6. Considere la posibilidad de quitar las asignaciones directas originales; puede que desee hacerlo gradualmente en "ondas" para supervisar primero el resultado en un subconjunto de usuarios.
 
   Puede dejar las asignaciones directas originales de los usuarios, pero, en ese caso, cuando el usuario deja los grupos con licencia a los que pertenecen, conserva su licencia original, y posiblemente no es esto lo que desea.
 
@@ -65,9 +65,9 @@ El proceso de migración podría ser similar al siguiente:
 
   - Busque "Latest license changes have been applied to all users" (Los últimos cambios de licencia se han aplicado a todos los usuarios) para confirmar que el procesamiento se ha completado.
 
-  - Busque si hay alguna notificación en la parte superior sobre algún usuario cuya licencia no se haya podido asignar correctamente. ¿Se han agotado las licencias para algunos usuarios? ¿Algunos usuarios tienen asignadas SKU de licencias conflictivas que les impidan heredar las licencias asignadas a grupos?
+  - Busque si hay alguna notificación en la parte superior sobre algún usuario cuya licencia no se haya podido asignar correctamente. ¿Se han agotado las licencias para algunos usuarios? ¿Algunos usuarios tienen SKU de licencias conflictivas que les impidan heredar las licencias de grupo?
 
-3. Realice una revisión rápida de algunos usuarios para verificar que tengan aplicadas licencias directas y de grupo. Vaya a la hoja de un usuario, seleccione **Licencias** y examine el estado de las licencias.
+3. Realice una revisión rápida de algunos usuarios para verificar que tengan aplicadas tanto licencias directas como de grupo. Vaya a la hoja de un usuario, seleccione **Licencias** y examine el estado de las licencias.
 
   - Este es el estado de usuario esperado durante la migración:
 
@@ -79,7 +79,7 @@ El proceso de migración podría ser similar al siguiente:
 
       ![comprobación de planes de servicio](media/active-directory-licensing-group-migration-azure-portal/check-service-plans.png)
 
-4. Después de confirmar que las licencias directas y de grupo son equivalentes, puede empezar a quitar a los usuarios las licencias directas. Para probarlo, quítelos directamente en el portal y luego ejecute los scripts de automatización para quitarlos en masa. Este es un ejemplo del mismo usuario con las licencias directas quitadas a través del portal. Tenga en cuenta que el estado de licencia no varía, pero aún no se ven las asignaciones directas.
+4. Después de confirmar que las licencias directas y de grupo son equivalentes, puede empezar a quitar a los usuarios las licencias directas. Para probarlo, quítelos para usuarios individuales en el portal y luego ejecute los scripts de automatización para quitarlos en masa. Este es un ejemplo del mismo usuario con las licencias directas quitadas a través del portal. Tenga en cuenta que el estado de licencia no varía, pero aún no se ven las asignaciones directas.
 
   ![licencias directas quitadas](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 064c8f7c312aaac94f20224e99b9e29c641e0349
-ms.openlocfilehash: 7099081e7294c64c1b9076b58a2c87f4f7ca7e44
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bdaf5afff8466a189afe96517135b1b347b85550
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -25,22 +25,24 @@ ms.lasthandoff: 03/01/2017
 
 Network Watcher es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red mediante Azure. La supervisión del nivel de escenario permite diagnosticar problemas en una vista de nivel de red de un extremo a otro. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="register-the-preview-capability"></a>Registro de la funcionalidad de versión preliminar
 
-Actualmente, Network Watcher se encuentra en versión preliminar y para poder usar las características de Network Watcher, cada una de ellas debe registrarse. Para ello, ejecute el siguiente ejemplo de PowerShell:
+Actualmente, Network Watcher se encuentra en versión preliminar y, para usar las características de Network Watcher, debe registrarse. Para ello, ejecute el siguiente ejemplo de PowerShell:
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Para comprobar que el registro se realizó correctamente ejecute el siguiente ejemplo de Powershell:
+Para comprobar que el registro se realizó correctamente, ejecute el siguiente ejemplo de PowerShell:
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace  Microsoft.Network
 ```
 
-Si la característica se ha registrado correctamente, el resultado debería ser como el siguiente:
+Si la característica se registró correctamente, la salida debería coincidir con lo siguiente:
 
 ```
 FeatureName         ProviderName      RegistrationState
@@ -48,21 +50,23 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-####<a name="instructions-for-cli"></a>Instrucciones para la CLI
+### <a name="instructions-for-cli"></a>Instrucciones para la CLI
 
 Para registrarla
 
 ```CLI
-azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
+azure provider register Microsoft.Network
 ```
+
 Para comprobar que el registro se realizó correctamente, ejecute el siguiente comando de la CLI:
 
 ```CLI
 azure feature show Microsoft.Network AllowNetworkWatcher
 ```
 
-Si la característica se ha registrado correctamente, el resultado debería ser como el siguiente:
+Si la característica se registró correctamente, la salida debería coincidir con lo siguiente:
+
 ```CLI
 info:    Executing command feature show
 data:    Feature Name:       AllowNetworkWatcher
@@ -123,7 +127,7 @@ Ahora que tiene una instancia de Network Watcher, obtenga información acerca de
 * [Registro de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Solución de problemas de una puerta de enlace de Virtual Network](network-watcher-troubleshoot-overview.md)
 
-Una vez que se ha creado una instancia de Network Watcher, para configurar la captura de paquetes consulte el artículo [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md) (Uso de la captura de paquetes para realizar una supervisión de red proactiva con Azure Functions)
+Una vez creada una instancia de Network Watcher, para configurar la captura de paquetes vea el artículo [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) (Crear una captura de paquetes desencadenada por alertas).
 
 [1]: ./media/network-watcher-create/figure1.png
 

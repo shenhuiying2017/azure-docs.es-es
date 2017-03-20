@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 5c2054800d2234653c60c35f9c009499e231fd31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Compruebe si se permite o se deniega el tráfico con la Comprobación del flujo de IP, un componente de Azure Network Watcher
+# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Comprobar si se permite o se deniega el tráfico con la Comprobación del flujo de IP, un componente de Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
+> - [Portal de Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [CLI](network-watcher-check-ip-flow-verify-cli.md)
 > - [API de REST de Azure](network-watcher-check-ip-flow-verify-rest.md)
 
-Comprobación del flujo de IP es una característica de Network Watcher que permite comprobar si se permite el tráfico hacia o desde una máquina virtual. Se puede ejecutar la validación para el tráfico entrante o saliente. Este escenario es útil para averiguar si una máquina virtual puede comunicarse con un recurso externo o con un back-end. Comprobación del flujo de IP se puede usar para comprobar si las reglas de grupos de seguridad de red (NSG) se han configurado correctamente y solucionar los problemas de flujos que las reglas de NSG bloquean. Otra razón para usar la Comprobación del flujo de IP es asegurarse de que el NSG está bloqueando correctamente el tráfico que quiere bloquear.
+La Comprobación del flujo de IP es una característica de Network Watcher que permite comprobar si se permite el tráfico hacia o desde una máquina virtual. Se puede ejecutar la validación para el tráfico entrante o saliente. Este escenario es útil para averiguar si una máquina virtual puede comunicarse con un recurso externo o con un back-end. Comprobación del flujo de IP se puede usar para comprobar si las reglas de grupos de seguridad de red (NSG) se han configurado correctamente y solucionar los problemas de flujos que las reglas de NSG bloquean. Otra razón para usar la Comprobación del flujo de IP es asegurarse de que el NSG está bloqueando correctamente el tráfico que quiere bloquear.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -37,14 +37,16 @@ ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encue
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="scenario"></a>Escenario
 
-Este escenario utiliza la Comprobación del flujo de IP para verificar si una máquina virtual puede comunicarse con otra a través del puerto 443. Si se deniega el tráfico, devuelve la regla de seguridad que está denegando ese tráfico. Para más información sobre la Comprobación del flujo de IP, vea la [introducción a la Comprobación del flujo de IP](network-watcher-ip-flow-verify-overview.md)
+Este escenario usa la Comprobación del flujo de IP para verificar si una máquina virtual puede comunicarse con otra a través del puerto 443. Si se deniega el tráfico, devuelve la regla de seguridad que está denegando ese tráfico. Para más información sobre la Comprobación del flujo de IP, vea [Introducción a la comprobación del flujo de IP](network-watcher-ip-flow-verify-overview.md).
 
 En este escenario, podrá:
 
 * Recuperación de una máquina virtual
-* Llamada a la Comprobación del flujo de IP
+* Llamar a la Comprobación del flujo de IP
 * Comprobar los resultados
 
 ## <a name="log-in-with-armclient"></a>Inicio de sesión con ARMClient
@@ -97,7 +99,7 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 }
 ```
 
-## <a name="call-ip-flow-verify"></a>Llamada a la Comprobación del flujo de IP
+## <a name="call-ip-flow-verify"></a>Llamar a la Comprobación del flujo de IP
 
 En el ejemplo siguiente se crea una solicitud para comprobar el tráfico de una máquina virtual especificada. La respuesta se devuelve si se permite el tráfico o si se deniega el tráfico. Si se deniega el tráfico, también devuelve la regla que bloquea el tráfico.
 

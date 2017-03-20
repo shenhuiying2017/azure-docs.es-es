@@ -4,6 +4,7 @@
 ## [¿Qué es DocumentDB: API para MongoDB?](documentdb-protocol-mongodb.md)
 ## [Conceptos principales](documentdb-resources.md)
 ## [Distribución global](documentdb-distribute-data-globally.md)
+## [Seguridad](documentdb-nosql-database-security.md)
 ## [Análisis del TCO de NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Escenarios
 ### [Casos de uso comunes](documentdb-use-cases.md)
@@ -36,32 +37,33 @@
 ### [Escrituras y lecturas rentables](documentdb-key-value-store-cost.md)
 
 ## Administrar
+### [Unidades de solicitud](documentdb-request-units.md)
 ### [Importación de datos](documentdb-import-data.md)
 ### [Importación a la API de MongoDB](documentdb-mongodb-migrate.md)
 ### [Conexión a una cuenta de MongoDB](documentdb-connect-mongodb-account.md)
 ### [Uso de MongoChef](documentdb-mongodb-mongochef.md)
 ### [Conexión mediante Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelado de datos](documentdb-modeling-data.md)
-### [Uso de datos geoespaciales](documentdb-geospatial.md)
-### [Desarrollo para varias regiones](documentdb-developing-with-multiple-regions.md)
-### [Conmutaciones por error regionales](documentdb-regional-failovers.md)
 ### [Expiración automática de los datos](documentdb-time-to-live.md)
-### [Personalización de índices](documentdb-indexing-policies.md)
-### [Acceso seguro a datos](documentdb-secure-access-to-data.md)
 ### [Copia de seguridad y restauración](documentdb-online-backup-and-restore.md)
+### [Conmutaciones por error regionales](documentdb-regional-failovers.md)
+### Automatización
+#### [CLI de Azure 2.0](documentdb-automation-resource-manager-cli.md)
+#### [CLI de Azure 1.0: Creación de una cuenta](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [CLI de Azure 1.0: Adición o eliminación de regiones](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Seguridad
+#### [Acceso seguro a datos](documentdb-secure-access-to-data.md)
+#### [Compatibilidad de firewall](documentdb-firewall-support.md)
 ### [Retirada de S1, S2, S3](documentdb-performance-levels.md)
-### [Unidades de solicitud](documentdb-request-units.md)
-### [CLI de Azure 2.0](documentdb-automation-resource-manager-cli.md)
-### CLI de Azure 1.0
-#### [Crear una cuenta](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Agregar o quitar regiones](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Compatibilidad de firewall](documentdb-firewall-support.md)
 
 ## Desarrollo
 ### [SQL query](documentdb-sql-query.md)
 ### [Procedimientos almacenados, desencadenadores y UDF](documentdb-programming.md)
+### [Personalización de índices](documentdb-indexing-policies.md)
+### [Desarrollo en varias regiones](documentdb-developing-with-multiple-regions.md)
 ### [Seguimiento de cambios con fuente de cambios](documentdb-change-feed.md)
+### [Uso de datos geoespaciales](documentdb-geospatial.md)
 ### [Pruebas de rendimiento](documentdb-performance-testing.md)
 ### [Consejos de rendimiento](documentdb-performance-tips.md)
 ### Prácticas recomendadas

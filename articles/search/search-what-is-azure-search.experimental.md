@@ -15,9 +15,9 @@ ms.date: 02/15/2017
 ms.author: heidist
 experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
-ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8f4947ba2641bc8a39a71945ff2a6818d1ff7830
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Búsqueda de Azure?
@@ -49,7 +49,7 @@ Los servicios dedicados se ejecutan ininterrumpidamente a escala en el [99,9% de
 
 Otros proveedores de servicios en la nube ofrecen motores de búsqueda personalizados con características que proporcionan una barra de búsqueda en aplicaciones personalizadas. Algunos ofrecen características de línea base similares, con búsqueda de texto completo, búsqueda geográfica y la capacidad para controlar un cierto nivel de ambigüedad en entradas de búsqueda. Normalmente, es una [característica especializada](#feature-drilldown) o la facilidad y sencillez general de las API, las herramientas y la administración, lo que determina la solución que mejor se ajusta a nuestras necesidades.
 
-En comparación con otras soluciones de búsqueda, Azure Search es la más potente con cargas de trabajo de búsqueda de texto completo en almacenes de contenido y bases de datos de Azure, y ofrece un nivel adicional de funcionalidad que es necesario para las aplicaciones que se basan principalmente en la búsqueda para navegar por el contenido y recuperar información. 
+En comparación con otras soluciones de búsqueda, Azure Search es la más potente con cargas de trabajo de búsqueda de texto completo en almacenes de contenido y bases de datos de Azure, y ofrece un nivel adicional de funcionalidad que es necesario para las aplicaciones que se basan principalmente en la búsqueda para navegar por el contenido y recuperar información. Las principales ventajas incluyen:
 
 + Integración de datos de Azure (rastreadores o crawlers) en el nivel de indexación
 + Azure Portal para administración central

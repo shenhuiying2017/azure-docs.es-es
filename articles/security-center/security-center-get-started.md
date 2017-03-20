@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
-ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,7 +92,7 @@ Puede configurar directivas de seguridad para los grupos de recursos y las suscr
    ![Alertas de seguridad en el Centro de seguridad de Azure][7]
 
    > [!NOTE]
-   > Las alertas de seguridad solo están disponibles si se habilita el nivel Estándar de Security Center. Hay disponible una evaluación gratuita durante 90 días de nivel Estándar. Consulte [Pasos siguientes](#next-steps) para más información sobre cómo conseguir el nivel Estándar.
+   > Las alertas de seguridad solo están disponibles si se habilita el nivel Estándar de Security Center. Hay disponible una evaluación gratuita durante 60 días de nivel Estándar. Consulte [Pasos siguientes](#next-steps) para más información sobre cómo conseguir el nivel Estándar.
    >
    >
 2. Seleccione una alerta para ver información adicional. En este ejemplo, vamos a seleccionar **Modified system binary discovered** (Detectado binario del sistema modificado). Al hacerlo, se abren varias hojas que proporcionan detalles adicionales sobre la alerta.

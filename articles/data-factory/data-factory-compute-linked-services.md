@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 789373189ff0ec1dd9c08bc1725bb781f8b7428b
-ms.openlocfilehash: df25e320e046355bc4a538f8acc4bb9e9cd98d8e
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 5b3ff989c31f45f3344d406f9f419510dd380f8b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Para utilizar un clúster de HDInsight basado en Windows, establezca **osType** 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type se debe establecer en **HDInsightOnDemand**. |Sí |
-| clusterSize |Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con cuatro núcleos, por lo que un clúster de nodos de cuatro trabajos necesitará 24 núcleos (4*4 para nodos de trabajo + 2*4 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. |yes |
+| clusterSize |Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. |yes |
 | timeToLive |El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un poco); use esta configuración si es necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado. |Sí |
 | versión |Versión del clúster de HDInsight. El valor predeterminado es 3.1 para el clúster de Windows y 3.2 para el clúster de Linux. |No |
 | linkedServiceName |El servicio vinculado de Almacenamiento de Azure que usará el clúster a petición para almacenar y procesar datos. <p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store.</p>  | Sí |
@@ -242,7 +242,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Lote de 
 }
 ```
 
-Agregue "**.<nombre de región**" al nombre de la cuenta de Batch para la propiedad **accountName**. Ejemplo:
+Agregue "**.\<nombre de región\>**" al nombre de la cuenta de Batch para la propiedad **accountName**. Ejemplo:
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -327,7 +327,7 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 
 | Tipo de usuario | Expira después de |
 |:--- |:--- |
-| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) |12 horas |
+| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, @outlook.com, por ejemplo.) |12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) |14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
 Para evitar o resolver este error, debe volver a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente. 

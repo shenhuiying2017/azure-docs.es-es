@@ -117,7 +117,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
      <li>Seleccione <b>C:\ADFGetStarted</b> como <b>Ubicación</b>.</li>
      <li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
    </ol>
-2.Haga clic en **Herramientas**, seleccione **Administrador de paquetes de NuGet** y haga clic en **Consola del Administrador de paquetes**.
+2. Haga clic en **Herramientas**, seleccione **Administrador de paquetes de NuGet** y haga clic en **Consola del Administrador de paquetes**.
 3. En la Consola del Administrador de paquetes, ejecute el siguiente comando para importar **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell

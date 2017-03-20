@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3e7595baa26ba9eebfcb8a2fd5c2744d9c0fbfcb
-ms.openlocfilehash: 03dbde64aefc12145a589d8b741c67865162b9b5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: f9e4fededc2bbb069cc653791137f248a7dc3fe8
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -35,6 +35,8 @@ Este artículo trata la supervisión en los niveles de escenario y de recurso. L
 ## <a name="network-watcher"></a>Network Watcher
 
 Network Watcher es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red mediante Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 En la actualidad, Network Watcher dispone de las siguientes funcionalidades:
 
@@ -100,7 +102,7 @@ Los recursos de red crean eventos periódicos y espontáneos y estos se registra
 
 Los registros de diagnóstico están disponibles para el [equilibrador de carga](../load-balancer/load-balancer-monitor-log.md), los [grupos de seguridad de red](../virtual-network/virtual-network-nsg-manage-log.md), las rutas y [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
 
-Network Watcher proporciona una vista de los registros de diagnóstico. Esta vista contiene todos los recursos de las redes que admiten el registro de diagnóstico. Desde esta vista puede habilitar y deshabilitar recursos de red de forma cómoda y rápida.
+Network Watcher proporciona una vista de los registros de diagnóstico. Esta vista contiene todos los recursos de las redes que admiten el registro de diagnóstico. Desde esta vista, puede habilitar y deshabilitar los recursos de red de forma cómoda y rápida.
 
 ![logs][logs]
 
@@ -112,7 +114,7 @@ La hoja de solución de problemas, una experiencia del portal, se proporciona ac
 
 ### <a name="resource-health"></a>Estado de los recursos
 
-El estado de los recursos de red se proporciona de forma periódica. Estos recursos incluyen VPN Gateway y el túnel de VPN. Se puede acceder al estado de los recursos desde Azure Portal. Para más información sobre el estado de los recursos, visite [Información general sobre Resource Health](../resource-health/resource-health-overview.md).
+El estado de un recurso de red se proporciona de forma periódica. Estos recursos incluyen VPN Gateway y el túnel de VPN. Se puede acceder al estado de los recursos desde Azure Portal. Para más información sobre el estado de los recursos, visite [Información general sobre Resource Health](../resource-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
