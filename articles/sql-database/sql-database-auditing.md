@@ -3,7 +3,7 @@ title: "Introducción a la auditoría de Azure SQL Database | Microsoft Docs"
 description: "Introducción a la auditoría de bases de datos SQL"
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: giladm
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
@@ -13,12 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 7/3/2017
+ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 506fd7b5cbf11dd4d9348962db5e06077953bd51
-ms.openlocfilehash: 185c6aaa2db0820421c8ea3523865bc90a1475f7
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -76,7 +76,8 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
     <a id="storage-screenshot"></a>
     ![Panel de navegación][4]
 6. Si quiere personalizar los eventos auditados, puede hacerlo mediante PowerShell o la API de REST (consulte la sección [Automation (PowerShell/API de REST)](#subheading-7) para más información.
-7. Haga clic en **Guardar**.
+7. Cuando haya configurado los valores de auditoría, puede activar la nueva **detección de amenazas** (versión preliminar) y configurar los mensajes de correo electrónico para recibir alertas de seguridad. La detección de amenazas le permite recibir alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md) para obtener más detalles.
+8. Haga clic en **Guardar**.
 
 ### <a id="subheading-2-2">Auditoría de tablas</a>
 
@@ -134,7 +135,7 @@ Puede explorar los registros de auditoría con una herramienta como el [Explorad
 Consulte a continuación los aspectos específicos del análisis de los registros de auditoría de **Tabla** y **Blob**.
 
 ### <a id="subheading-3-1">Auditoría de blobs</a>
-Los registros de auditoría de blobs se guatdan como una colección de archivos de blob dentro de un contenedor llamado "**sqldbauditlogs**".
+Los registros de auditoría de blobs se guardan como una colección de archivos de blob dentro de un contenedor llamado "**sqldbauditlogs**".
 
 Para más información sobre la jerarquía de carpetas de almacenamiento de registros de auditoría de blobs, y el formato del registro, consulte la [referencia del formato de registro de auditoría de blobs (descarga del archivo de documento)](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -282,3 +283,4 @@ También puede configurar la auditoría en Azure SQL Database mediante las sigui
 [105]: https://msdn.microsoft.com/library/azure/mt603531(v=azure.200).aspx
 [106]: https://msdn.microsoft.com/library/azure/mt603794(v=azure.200).aspx
 [107]: https://msdn.microsoft.com/library/azure/mt619353(v=azure.200).aspx
+

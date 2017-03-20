@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 8a9e412776acf4e08658517b714d9644b172f523
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: aff8831a48d2283daa727db6a8f47a1ff4b8eb4c
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -29,14 +29,46 @@ ms.lasthandoff: 02/24/2017
 
 Si ya ha implementado la administración de contraseñas, o simplemente desea obtener más información sobre los detalles técnicos del funcionamiento antes de implementarla, en esta sección se le ofrece una introducción apropiada de los conceptos técnicos subyacentes al servicio. Trataremos lo siguiente:
 
-* [**Información general sobre la escritura diferida de contraseñas**](#password-writeback-overview)
-  * [Funcionamiento de la escritura diferida de contraseñas](#how-password-writeback-works)
-  * [Escenarios admitidos para la escritura diferida de contraseñas](#scenarios-supported-for-password-writeback)
-  * [Modelo de seguridad de la escritura diferida de contraseñas](#password-writeback-security-model)
-  * [Uso de ancho de banda de la escritura diferida de contraseñas](#password-writeback-bandwidth-usage)
 * [**¿Cómo funciona el portal de restablecimiento de contraseñas?**](#how-does-the-password-reset-portal-work)
-  * [¿Qué datos sirven para restablecer la contraseña?](#what-data-is-used-by-password-reset)
-  * [Cómo obtener acceso a los datos de restablecimiento de la contraseña de los usuarios](#how-to-access-password-reset-data-for-your-users)
+* [**Información general sobre la escritura diferida de contraseñas**](#password-writeback-overview)
+ * [Funcionamiento de la escritura diferida de contraseñas](#how-password-writeback-works)
+* [**Escenarios admitidos para la escritura diferida de contraseñas**](#scenarios-supported-for-password-writeback)
+ * [Cliente de Azure AD Connect, Sincronización de Azure AD y DirSync admitido](#supported-clients)
+ * [Licencias necesarias para la escritura diferida de contraseñas](#licenses-required-for-password-writeback)
+ * [Modos de autenticación local admitidos para la escritura diferida de contraseñas](#on-premises-authentication-modes-supported-for-password-writeback)
+ * [Operaciones de usuario y administrador admitidas para la escritura diferida de contraseñas](#user-and-admin-operations-supported-for-password-writeback)
+ * [Operaciones de usuario y administrador no admitidas para la escritura diferida de contraseñas](#user-and-admin-operations-not-supported-for-password-writeback)
+* [**Modelo de seguridad de la escritura diferida de contraseñas**](#password-writeback-security-model)
+ * [Detalles de cifrado de la escritura diferida de contraseñas](#password-writeback-encryption-details)
+ * [Uso de ancho de banda de la escritura diferida de contraseñas](#password-writeback-bandwidth-usage)
+* [**Implementación y administración de los datos de restablecimiento de contraseña para los usuarios y acceso a dichos datos**](#deploying-managing-and-accessing-password-reset-data-for-your-users)
+ * [¿Qué datos sirven para restablecer la contraseña?](#what-data-is-used-by-password-reset)
+ * [Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final](#deploying-password-reset-without-requiring-end-user-registration)
+ * [¿Qué ocurre cuando se registra un usuario para el restablecimiento de contraseña?](#what-happens-when-a-user-registers)
+ * [Cómo obtener acceso a los datos de restablecimiento de contraseña de los usuarios](#how-to-access-password-reset-data-for-your-users)
+ * [Establecimiento de datos de restablecimiento de contraseña con PowerShell](#setting-password-reset-data-with-powershell)
+ * [Lectura de datos de restablecimiento de contraseña con PowerShell](#reading-password-reset-data-with-powershell)
+* [**¿Cómo funciona el restablecimiento de contraseña para usuarios B2B?**](#how-does-password-reset-work-for-b2b-users)
+
+## <a name="how-does-the-password-reset-portal-work"></a>¿Cómo funciona el portal de restablecimiento de contraseñas?
+Cuando un usuario navega al portal de restablecimiento de contraseñas, se inicia un flujo de trabajo para determinar si esa cuenta de usuario es válida, a qué organización pertenece, dónde se administra la contraseña del usuario y si el usuario dispone o no de una licencia para usar la característica.  Lea los pasos siguientes para obtener información sobre la lógica de la página de restablecimiento de contraseña.
+
+1. El usuario hace clic en el vínculo ¿No puede acceder a su cuenta? o va directamente a [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+2. El usuario escribe un identificador de usuario y pasa un captcha.
+3. Azure AD comprueba si el usuario es capaz de utilizar esta característica; para ello, hace lo siguiente:
+   * Comprueba que el usuario tiene esta característica habilitada y una licencia de Azure AD asignada.
+     * Si el usuario no tiene asignada una licencia o esta característica no está habilitada, se solicita al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+   * Comprueba que el usuario tiene los datos de comprobación definidos en la cuenta según la directiva del administrador.
+     * Si la directiva requiere solo una comprobación, se garantiza que el usuario tiene los datos correspondientes definidos para al menos una de las comprobaciones habilitadas por la directiva del administrador.
+       * Si el usuario no está configurado, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+     * Si la directiva requiere dos comprobaciones, se garantiza que el usuario tiene los datos correspondientes definidos para al menos dos de las comprobaciones habilitadas por la directiva del administrador.
+       * Si el usuario no está configurado, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+   * Comprueba si la contraseña del usuario se administra o no a nivel local (federada o sincronizada con hash de contraseña).
+     * Si la escritura diferida de contraseñas está implementada y la contraseña del usuario se administra de forma local, se le permite continuar con la autenticación y restablecer la contraseña.
+     * Si la escritura diferida de contraseñas no está implementada y la contraseña del usuario se administra de forma local, se le pide que se ponga en contacto con el administrador para restablecer la contraseña.
+4. Si se determina que el usuario puede restablecer correctamente la contraseña, se le guiará a través del proceso de restablecimiento.
+
+Aprenda más sobre cómo implementar la escritura diferida de contraseñas en [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
 
 ## <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](connect/active-directory-aadconnect.md) que los suscriptores actuales de Azure Active Directory Premium pueden habilitar y utilizar. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
@@ -76,18 +108,85 @@ Si un usuario federado o con sincronización de hash de contraseña cambia o res
 9. Si la operación de establecimiento de la contraseña se realiza correctamente, notificamos al usuario que la contraseña se ha modificado y que puede continuar con su trabajo.
 10. Si se produce un error en la operación de establecimiento de la contraseña, se devolverá el error al usuario y se le permitirá que vuelva a intentarlo.  La operación puede producir un error porque el servicio no estaba disponible, la contraseña seleccionada no cumplía las directivas de la organización, no se encontraba el usuario en el entorno local de AD o por otros motivos.  Disponemos de un mensaje específico para muchos de estos casos, a fin de indicar al usuario qué puede hacer para resolver el problema.
 
-### <a name="scenarios-supported-for-password-writeback"></a>Escenarios admitidos para la escritura diferida de contraseñas
-En la tabla siguiente se describe qué escenarios se admiten para las versiones de nuestras capacidades de sincronización.  En general, se recomienda que instale la versión más reciente de [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
+## <a name="scenarios-supported-for-password-writeback"></a>Escenarios admitidos para la escritura diferida de contraseñas
+En la sección siguiente se describe qué escenarios se admiten para las versiones de nuestras capacidades de sincronización.  En general, siempre recomendamos que use la característica de actualización automática de Azure AD Connect o instale la versión más reciente de [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
 
-  ![][002]
+* [**Clientes de Azure AD Connect, Sincronización de Azure AD y DirSync admitidos**](#supported-clients)
+* [**Licencias necesarias para la escritura diferida de contraseñas**](#licenses-required-for-password-writeback)
+* [**Modos de autenticación local admitidos para la escritura diferida de contraseñas**](#on-premises-authentication-modes-supported-for-password-writeback)
+* [**Operaciones de usuario y administrador admitidas para la escritura diferida de contraseñas**](#user-and-admin-operations-supported-for-password-writeback)
+* [**Operaciones de usuario y administrador no admitidas para la escritura diferida de contraseñas**](#user-and-admin-operations-not-supported-for-password-writeback)
 
-### <a name="password-writeback-security-model"></a>Modelo de seguridad de la escritura diferida de contraseñas
+### <a name="supported-clients"></a>Clientes compatibles
+Siempre recomendamos que use la característica de actualización automática de Azure AD Connect o instale la versión más reciente de [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
+
+* **DirSync (cualquier versión > 1.0.6862)** - _NO SE ADMITE_: Admite solo las funcionalidades de escritura diferida básicas y el grupo de productos ya no se admite. 
+* **Azure AD Sync** - _EN DESUSO_: Admite solo las funcionalidades de escritura en diferido básicas y no cuenta con funcionalidades de desbloqueo de cuenta, registro enriquecido y mejoras de confiabilidad realizadas en Azure AD Connect. Por lo tanto, recomendamos **encarecidamente** actualizar.
+* **Azure AD Connect** - _TOTALMENTE COMPATIBLE_: Admite todas las funcionalidades de escritura diferida. Actualice a la versión más reciente para obtener las mejores y nuevas características, así como la máxima estabilidad y confiabilidad posibles.
+
+### <a name="licenses-required-for-password-writeback"></a>Licencias necesarias para la escritura diferida de contraseñas
+Para poder usar la escritura diferida de contraseñas, debe tener una de las siguientes licencias asignadas en el inquilino.
+
+* **Azure AD Premium P1**: Ninguna limitación respecto al uso de la escritura diferida de contraseñas
+* **Azure AD Premium P2**: Ninguna limitación respecto al uso de la escritura diferida de contraseñas
+* **Enterprise Moblity Suite**: Ninguna limitación respecto al uso de la escritura diferida de contraseñas
+* **Enterprise Cloud Suite**: Ninguna limitación respecto al uso de la escritura diferida de contraseñas
+
+No se puede usar la escritura diferida de contraseñas con cualquier plan de licencias de Office 365, ya sea de prueba o de pago. Debe actualizar a uno de los planes anteriores para poder usar esta característica. 
+
+No tenemos pensado habilitar la escritura diferida de contraseñas para ningún SKU de Office 365.
+
+### <a name="on-premises-authentication-modes-supported-for-password-writeback"></a>Modos de autenticación local admitidos para la escritura diferida de contraseñas
+La escritura diferida de contraseñas funciona para los siguientes tipos de contraseña de usuario:
+
+* **Usuarios solo en la nube**: La escritura diferida de contraseñas no se aplica en este caso, porque no hay contraseña local
+* **Usuarios sincronizados con contraseña**: Se admite la escritura diferida de contraseñas
+* **Usuarios federados**: Se admite la escritura diferida de contraseñas
+* **Usuarios de autenticación de paso a través**: Se admite la escritura diferida de contraseñas
+
+### <a name="user-and-admin-operations-supported-for-password-writeback"></a>Operaciones de usuario y administrador admitidas para la escritura diferida de contraseñas
+Las contraseñas se escriben en diferido en todas las situaciones siguientes:
+
+* **Operaciones de usuario final admitidas**
+ * Cualquier operación de cambio de contraseña voluntaria de autoservicio del usuario final
+ * Cualquier operación de cambio de contraseña exigida de autoservicio del usuario final (por ejemplo, la expiración de contraseña)
+ * Cualquier restablecimiento de contraseña de autoservicio del usuario final que se origina en el [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com)
+* **Operaciones de administrador admitidas**
+ * Cualquier operación de cambio de contraseña voluntaria de autoservicio del administrador
+ * Cualquier operación de cambio de contraseña exigida de autoservicio del administrador (por ejemplo, la expiración de contraseña)
+ * Cualquier restablecimiento de contraseña de autoservicio del administrador que se origina en el [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com)
+ * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de administración de Azure clásico](https://manage.windowsazure.com)
+ * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde [Azure Portal](https://portal.azure.com)
+
+### <a name="user-and-admin-operations-not-supported-for-password-writeback"></a>Operaciones de usuario y administrador no admitidas para la escritura diferida de contraseñas
+Las contraseñas no se escriben en diferido en ninguna de las situaciones siguientes:
+
+* **Operaciones de usuario final no admitidas**
+ * Cualquier usuario final que restablece su contraseña mediante PowerShell v1, v2 o la API Graph de Azure AD
+* **Operaciones de administrador no admitidas**
+ * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de administración de Office](https://portal.office.com)
+ * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde PowerShell v1, v2 o la API Graph de Azure AD
+ 
+Aunque estamos trabajando para quitar estas limitaciones, todavía no tenemos una escala de tiempo concreta que podemos compartir.
+
+## <a name="password-writeback-security-model"></a>Modelo de seguridad de la escritura diferida de contraseñas
 La escritura diferida de contraseñas es un servicio sumamente seguro y sólido.  Para asegurarse de que su información está protegida, habilitamos un modelo de seguridad de cuatro niveles que describimos a continuación.
 
 * **Retransmisión de Bus de servicio específica de inquilino** : al configurar el servicio, configuramos una retransmisión de Bus de servicio específica del inquilino que está protegida por una contraseña segura generada aleatoriamente a la que Microsoft nunca tiene acceso.
 * **Clave de cifrado de contraseñas bloqueadas y criptográficamente segura** : una vez creada la retransmisión de Bus de servicio, creamos una clave simétrica segura que se utiliza para cifrar la contraseña tal como se transfiere a través de la red.  Esta clave reside solo en el almacén secreto de la compañía en la nube, que se bloquea y audita de forma estricta como cualquier contraseña en el directorio.
 * **TLS estándar del sector** : cuando se produce una operación de restablecimiento o cambio de contraseña, ciframos la contraseña de texto no cifrado con la clave pública.  A continuación, la insertamos en un mensaje HTTPS que se envía a través de un canal cifrado con certificados SSL de Microsoft para la retransmisión de Bus de servicio.  Después de que ese mensaje llega al Bus de servicio, el agente local se activa, se autentica en el Bus de servicio con la contraseña segura que se había generado previamente, recoge el mensaje cifrado, lo descifra con la clave privada generada y, a continuación, intenta establecer la contraseña a través de la API SetPassword de AD DS.  Este paso nos permite aplicar la directiva de contraseñas local de AD (complejidad, edad, historial, filtros, etc.) en la nube.
 * **Directivas de expiración de mensajes** : por último, si por alguna razón el mensaje espera en el Bus de servicio porque el servicio local no funciona, se agotará el tiempo de espera y se eliminará transcurridos unos minutos para aumentar aún más la seguridad.
+
+### <a name="password-writeback-encryption-details"></a>Detalles de cifrado de la escritura diferida de contraseñas
+A continuación se describen los pasos de cifrado que se llevan a cabo para una solicitud de restablecimiento de contraseña después de que un usuario la envía, pero antes de que llegue a su entorno local, para garantizar la seguridad y confiabilidad máximas del servicio.
+
+* **Paso 1: Cifrado de contraseña con la clave RSA de 2048 bits**: Una vez que un usuario envía una contraseña para que se escriba en diferido en local, primero se cifra la propia contraseña enviada con una clave RSA de 2048 bits. 
+
+* **Paso 2: Cifrado a nivel de paquete con AES-GCM**: A continuación, todo el paquete (contraseña + metadatos necesarios) se cifra mediante AES-GCM. Esto evita que cualquier persona con acceso directo al canal de ServiceBus subyacente vea o manipula el contenido. 
+
+* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: Además, toda la comunicación con ServiceBus tiene lugar en un canal SSL/TLS. Esto protege el contenido de terceras personas no autorizadas.
+
+* **Paso 4: Sustitución de clave automática cada 6 meses**: Por último, cada 6 meses y de forma automática, o cada vez que la escritura diferida de contraseñas se deshabilita o se vuelve a habilitar en Azure AD Connect, se sustituyen todas estas claves para garantizar la máxima seguridad del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas
 
@@ -104,31 +203,21 @@ La escritura diferida de contraseñas es un servicio de muy bajo consumo de anch
 
 El tamaño de cada uno de los mensajes que se ha descrito anteriormente está normalmente por debajo de 1 kb, lo que significa, que incluso bajo cargas extremas, el propio servicio de escritura diferida de contraseña utilizará solo unos kilobits por segundo como máximo del ancho de banda. Puesto que cada mensaje se envía en tiempo real, solo cuando es necesario debido a una operación de actualización de contraseña, y dado que el tamaño del mensaje es tan pequeño, el uso de ancho de banda de la funcionalidad de escritura diferida es demasiado pequeño para tener ningún impacto cuantificable real.
 
-## <a name="how-does-the-password-reset-portal-work"></a>¿Cómo funciona el portal de restablecimiento de contraseñas?
-Cuando un usuario navega al portal de restablecimiento de contraseñas, se inicia un flujo de trabajo para determinar si esa cuenta de usuario es válida, a qué organización pertenece, dónde se administra la contraseña del usuario y si el usuario dispone o no de una licencia para usar la característica.  Lea los pasos siguientes para obtener información sobre la lógica de la página de restablecimiento de contraseña.
+## <a name="deploying-managing-and-accessing-password-reset-data-for-your-users"></a>Implementación y administración de los datos de restablecimiento de contraseña para los usuarios y acceso a dichos datos
+Puede administrar los datos de restablecimiento de contraseña para los usuarios y acceder a dichos datos a través de Azure AD Connect, PowerShell, Graph o nuestras experiencias de registro.  Puede incluso implementar el restablecimiento de contraseña en toda la organización sin que los usuarios tengan que registrarse para ello aprovechando las opciones descritas a continuación.
 
-1. El usuario hace clic en el vínculo ¿No puede acceder a su cuenta? o va directamente a [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-2. El usuario escribe un identificador de usuario y pasa un captcha.
-3. Azure AD comprueba si el usuario es capaz de utilizar esta característica; para ello, hace lo siguiente:
-   * Comprueba que el usuario tiene esta característica habilitada y una licencia de Azure AD asignada.
-     * Si el usuario no tiene asignada una licencia o esta característica no está habilitada, se solicita al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
-   * Comprueba que el usuario tiene los datos de comprobación definidos en la cuenta según la directiva del administrador.
-     * Si la directiva requiere solo una comprobación, se garantiza que el usuario tiene los datos correspondientes definidos para al menos una de las comprobaciones habilitadas por la directiva del administrador.
-       * Si el usuario no está configurado, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
-     * Si la directiva requiere dos comprobaciones, se garantiza que el usuario tiene los datos correspondientes definidos para al menos dos de las comprobaciones habilitadas por la directiva del administrador.
-       * Si el usuario no está configurado, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
-   * Comprueba si la contraseña del usuario se administra o no a nivel local (federada o sincronizada con hash de contraseña).
-     * Si la escritura diferida de contraseñas está implementada y la contraseña del usuario se administra de forma local, se le permite continuar con la autenticación y restablecer la contraseña.
-     * Si la escritura diferida de contraseñas no está implementada y la contraseña del usuario se administra de forma local, se le pide que se ponga en contacto con el administrador para restablecer la contraseña.
-4. Si se determina que el usuario puede restablecer correctamente la contraseña, se le guiará a través del proceso de restablecimiento.
-
-Aprenda más sobre cómo implementar la escritura diferida de contraseñas en [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
+  * [¿Qué datos sirven para restablecer la contraseña?](#what-data-is-used-by-password-reset)
+  * [Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final](#deploying-password-reset-without-requiring-end-user-registration)
+  * [¿Qué ocurre cuando se registra un usuario para el restablecimiento de contraseña?](#what-happens-when-a-user-registers)
+  * [Cómo obtener acceso a los datos de restablecimiento de contraseña de los usuarios](#how-to-access-password-reset-data-for-your-users)
+  * [Establecimiento de datos de restablecimiento de contraseña con PowerShell](#setting-password-reset-data-with-powershell)
+  * [Lectura de datos de restablecimiento de contraseña con PowerShell](#reading-password-reset-data-with-powershell)
 
 ### <a name="what-data-is-used-by-password-reset"></a>¿Qué datos sirven para restablecer la contraseña?
 En la tabla siguiente se describe dónde y cómo se usan estos datos durante el restablecimiento de la contraseña y está diseñada para ayudarle a decidir qué opciones de autenticación resultan apropiadas para su organización. En esta tabla también se indican los requisitos de formato para los casos donde va a proporcionar datos en nombre de usuarios desde rutas de acceso de entrada que no validan estos datos.
 
 > [!NOTE]
-> El teléfono del trabajo no aparece en el portal de registro porque los usuarios actualmente no pueden editar esta propiedad en el directorio.
+> El teléfono del trabajo no aparece en el portal de registro porque los usuarios actualmente no pueden editar esta propiedad en el directorio. Solo los administradores pueden establecer este valor.
 >
 >
 
@@ -137,6 +226,11 @@ En la tabla siguiente se describe dónde y cómo se usan estos datos durante el 
             <td>
               <p>
                 <strong>Nombre de método de contacto</strong>
+              </p>
+            </td>
+            <td>
+              <p>
+                <strong>Elemento de datos de Active Directory</strong>
               </p>
             </td>
             <td>
@@ -158,6 +252,10 @@ En la tabla siguiente se describe dónde y cómo se usan estos datos durante el 
           <tr>
             <td>
               <p>Teléfono del trabajo</p>
+            </td>
+            <td>
+              <p>telephoneNumber</p>
+              <p>Esta propiedad se puede sincronizar con el atributo PhoneNumber en Azure Active Directory y utilizarse inmediatamente para restablecimiento de contraseña SIN exigir a un usuario que se registre primero.</p>
             </td>
             <td>
               <p>PhoneNumber</p>
@@ -198,6 +296,11 @@ No se admiten extensiones; por tanto, si ha especificado extensiones, las quitar
               <p>Teléfono móvil</p>
             </td>
             <td>
+              <p>Móvil</p>
+              <p>Esta propiedad se puede sincronizar con el atributo MobilePhone en Azure Active Directory y utilizarse inmediatamente para restablecimiento de contraseña SIN exigir a un usuario que se registre primero.</p>
+              <p>En este momento, no es posible sincronizar esta propiedad con AuthenticationPhone.</p>
+            </td>
+            <td>
               <p>AuthenticationPhone</p>
               <p>OR</p>
               <p>MobilePhone</p>
@@ -210,7 +313,7 @@ No se admiten extensiones; por tanto, si ha especificado extensiones, las quitar
               <p>Portal de registro</p>
               <p>Configurable en: </p>
               <p>AuthenticationPhone se puede configurar desde el portal de registro de restablecimiento de contraseña o desde el portal de registro de MFA.</p>
-              <p>MobilePhone se puede configurar desde PowerShell, DirSync, el Portal de administración de Azure y el Portal de administración de Office</p>
+              <p>MobilePhone se puede establecer desde PowerShell, Azure AD Connect, el Portal de administración de Azure y el Portal de administración de Office.</p>
             </td>
             <td>
               <p>+ccc xxxyyyzzzz (p. ej.: +1 1234567890)</p>
@@ -239,6 +342,11 @@ No se admiten extensiones; por tanto, si ha especificado extensiones, las ignora
           <tr>
             <td>
               <p>Correo electrónico alternativo</p>
+            </td>
+            <td>
+              <p>No disponible</p>
+              <p>En este momento, no es posible sincronizar los valores de Active Directory con la propiedad AuthenticationEmail o AlternateEmailAddresses[0]. </p>
+              <p>Puede utilizar PowerShell para establecer AlternateEmailAddresses[0]. En la sección que hay justo debajo de esta tabla encontrará instrucciones para esto.</p>
             </td>
             <td>
               <p>AuthenticationEmail</p>
@@ -274,7 +382,12 @@ Se admiten los correos electrónicos Unicode.<br><br></li>
               <p>Preguntas y respuestas de seguridad</p>
             </td>
             <td>
+              <p>No disponible</p>
+              <p>En este momento, no es posible sincronizar preguntas o respuestas de seguridad de Active Directory.</p>
+            </td>
+            <td>
               <p>No está disponible para modificarlo directamente en el directorio.</p>
+              <p>Solo se puede establecer durante el proceso de registro del usuario final de restablecimiento de contraseña.</p>
             </td>
             <td>
               <p>Usado en:</p>
@@ -291,28 +404,34 @@ Se admiten los correos electrónicos Unicode.<br><br></li>
           </tr>
         </tbody></table>
 
-### <a name="how-to-access-password-reset-data-for-your-users"></a>Cómo obtener acceso a los datos de restablecimiento de la contraseña de los usuarios
-#### <a name="data-settable-via-synchronization"></a>Datos configurables mediante la sincronización
-Desde el entorno local, se pueden sincronizar los campos siguientes:
+
+### <a name="deploying-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
+Si va a implementar el restablecimiento de contraseña sin solicitar a los usuarios que se registren para ello, puede hacerlo fácilmente siguiendo una de las dos opciones siguientes. Esto puede ser una forma útil de desbloquear grandes cantidades de usuarios para usar SSPR mientras se sigue permitiendo que los usuarios validen esta información a través del proceso de registro.
+
+Muchos de nuestros clientes más grandes utilizan esto hoy para empezar a trabajar con el restablecimiento de contraseña al momento.
+
+#### <a name="synchronize-phone-numbers-with-azure-ad-connect"></a>Sincronización de números de teléfono con Azure AD Connect
+Si sincroniza datos con uno o los dos campos siguientes, se pueden utilizar inmediatamente para restablecimiento de contraseña, sin necesidad de que los usuarios tengan que registrarse antes:
 
 * Teléfono móvil
 * Teléfono del trabajo
 
-#### <a name="data-accessible-with-azure-ad-powershell"></a>Datos a los que se puede acceder con Azure AD PowerShell
-Es posible acceder a los siguientes campos mediante Azure AD PowerShell y la API Graph:
+Para información sobre qué propiedades deben actualizarse de forma local, vaya a la sección [¿Qué datos sirven para restablecer la contraseña?](#what-data-is-used-by-password-reset) y busque los campos mencionados anteriormente.  
 
+Asegúrese de que los números de teléfono tienen el formato "+ 1 1234567890" para que funcionen correctamente con nuestro sistema.
+
+#### <a name="set-phone-numbers-or-emails-with-powershell"></a>Establecimiento de números de teléfono o correos electrónicos con PowerShell
+Si establece uno o varios de estos campos, se pueden utilizar inmediatamente para restablecimiento de contraseña, sin necesidad de que los usuarios tengan que registrarse antes:
+
+* Teléfono móvil
+* Teléfono del trabajo
 * Correo electrónico alternativo
-* Teléfono móvil
-* Teléfono del trabajo
-* Teléfono de autenticación
-* Correo electrónico de autenticación
 
-#### <a name="data-settable-with-registration-ui-only"></a>Datos configurables solamente con la IU de registro
-Solo se puede acceder a los campos siguientes a través de la interfaz de usuario del registro de SSPR (https://aka.ms/ssprsetup):
+Para información sobre cómo establecer estas propiedades mediante PowerShell, vaya a la sección [Establecimiento de datos de restablecimiento de contraseña con PowerShell](#setting-password-reset-data-with-powershell).
 
-* Preguntas y respuestas de seguridad
+Asegúrese de que los números de teléfono tienen el formato "+ 1 1234567890" para que funcionen correctamente con nuestro sistema.
 
-#### <a name="what-happens-when-a-user-registers"></a>¿Qué ocurre cuando se registra un usuario?
+### <a name="what-happens-when-a-user-registers"></a>¿Qué ocurre cuando se registra un usuario?
 Cuando se registre un usuario, la página de registro **siempre** establecerá los campos siguientes:
 
 * Teléfono de autenticación
@@ -321,36 +440,103 @@ Cuando se registre un usuario, la página de registro **siempre** establecerá l
 
 Si ha especificado un valor para **Teléfono móvil** o **Correo electrónico alternativo**, los usuarios podrán usarlos inmediatamente para restablecer sus contraseñas, aunque no se hayan registrado para el servicio.  Además, los usuarios verán esos valores cuando se registren por primera vez, y podrán modificarlos si lo desean.  Sin embargo, una vez que se registren correctamente, dichos valores se conservarán en los campos **Teléfono de autenticación** y **Correo electrónico de autenticación**, respectivamente.
 
-Esto puede ser una forma útil de desbloquear grandes cantidades de usuarios para usar SSPR mientras se sigue permitiendo que los usuarios validen esta información a través del proceso de registro.
+### <a name="how-to-access-password-reset-data-for-your-users"></a>Cómo obtener acceso a los datos de restablecimiento de la contraseña de los usuarios
+#### <a name="data-settable-via-synchronization"></a>Datos configurables mediante la sincronización
+Desde el entorno local, se pueden sincronizar los campos siguientes:
 
-#### <a name="setting-password-reset-data-with-powershell"></a>Establecimiento de datos de restablecimiento de contraseñas con PowerShell
+* Teléfono móvil
+* Teléfono del trabajo
+
+#### <a name="data-settable-with-azure-ad-powershell--azure-ad-graph"></a>Datos configurables con Azure AD PowerShell y Azure AD Graph
+Los siguientes campos se pueden establecer utilizando Azure AD PowerShell y la API Graph de Azure AD:
+
+* Correo electrónico alternativo
+* Teléfono móvil
+* Teléfono del trabajo
+
+#### <a name="data-settable-with-registration-ui-only"></a>Datos configurables solamente con la IU de registro
+Solo se puede acceder a los campos siguientes a través de la interfaz de usuario del registro de SSPR (https://aka.ms/ssprsetup):
+
+* Preguntas y respuestas de seguridad
+
+#### <a name="data-readable-with-azure-ad-powershell--azure-ad-graph"></a>Datos que se pueden leer con Azure AD PowerShell y Azure AD Graph
+Es posible acceder a los siguientes campos mediante Azure AD PowerShell y la API Graph de Azure AD:
+
+* Correo electrónico alternativo
+* Teléfono móvil
+* Teléfono del trabajo
+* Teléfono de autenticación
+* Correo electrónico de autenticación
+
+### <a name="setting-password-reset-data-with-powershell"></a>Establecimiento de datos de restablecimiento de contraseñas con PowerShell
 Puede establecer valores para los siguientes campos con Azure AD PowerShell.
 
 * Correo electrónico alternativo
 * Teléfono móvil
 * Teléfono del trabajo
 
+**_PowerShell V1_**
+
 Para empezar, primero deberá [descargar e instalar el módulo de Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
 
-##### <a name="alternate-email"></a>Correo electrónico alternativo
+**_PowerShell V2_**
+
+Para empezar, primero deberá [descargar e instalar el módulo de Azure AD V2 PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
+
+Para instalar rápidamente desde versiones recientes de PowerShell que admiten Install-Module, ejecute estos comandos (la primera línea simplemente comprueba si ya se ha instalado):
+
+```
+Get-Module AzureADPreview
+Install-Module AzureADPreview
+Connect-AzureAD
+```
+
+#### <a name="alternate-email---how-to-set-alternate-email-with-powershell"></a>Correo electrónico alternativo - Cómo establecer el correo electrónico alternativo con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
 ```
 
-##### <a name="mobile-phone"></a>Teléfono móvil
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
+```
+
+#### <a name="mobile-phone---how-to-set-mobile-phone-with-powershell"></a>Teléfono móvil - Cómo establecer el teléfono móvil con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
 ```
 
-##### <a name="office-phone"></a>Teléfono del trabajo
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 1234567890"
+```
+
+#### <a name="office-phone---how-to-set-office-phone-with-powershell"></a>Teléfono del trabajo - Cómo establecer el teléfono del trabajo con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 ```
 
-#### <a name="reading-password-reset-data-with-powershell"></a>Lectura de datos de restablecimiento de contraseñas con PowerShell
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
+```
+
+### <a name="reading-password-reset-data-with-powershell"></a>Lectura de datos de restablecimiento de contraseñas con PowerShell
 Puede leer valores de los siguientes campos con Azure AD PowerShell.
 
 * Correo electrónico alternativo
@@ -359,37 +545,86 @@ Puede leer valores de los siguientes campos con Azure AD PowerShell.
 * Teléfono de autenticación
 * Correo electrónico de autenticación
 
-Para empezar, primero deberá [descargar e instalar el módulo de Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
+#### <a name="alternate-email---how-to-read-alternate-email-with-powershell"></a>Correo electrónico alternativo - Cómo leer el correo electrónico alternativo con PowerShell
+**_PowerShell V1_**
 
-##### <a name="alternate-email"></a>Correo electrónico alternativo
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
 ```
 
-##### <a name="mobile-phone"></a>Teléfono móvil
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Get-AzureADUser -ObjectID user@domain.com | select otherMails
+```
+
+#### <a name="mobile-phone---how-to-read-mobile-phone-with-powershell"></a>Teléfono móvil - Cómo leer el teléfono móvil con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
 ```
 
-##### <a name="office-phone"></a>Teléfono del trabajo
+**_PowerShell v2_**
+
+```
+Connect-AzureAD
+Get-AzureADUser -ObjectID user@domain.com | select Mobile
+```
+
+#### <a name="office-phone---how-to-read-office-phone-with-powershell"></a>Teléfono del trabajo - Cómo leer el teléfono del trabajo con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 ```
 
-##### <a name="authentication-phone"></a>Teléfono de autenticación
+**_PowerShell V2_**
+
+```
+Connect-AzureAD
+Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
+```
+
+#### <a name="authentication-phone---how-to-read-authentication-phone-with-powershell"></a>Teléfono de autenticación - Cómo leer el teléfono de autenticación con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 ```
 
-##### <a name="authentication-email"></a>Correo electrónico de autenticación
+**_PowerShell V2_**
+
+```
+Not possible in PowerShell V2
+```
+
+#### <a name="authentication-email---how-to-read-authentication-email-with-powershell"></a>Correo electrónico de autenticación - Cómo leer el correo electrónico de autenticación con PowerShell
+**_PowerShell V1_**
+
 ```
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
+
+**_PowerShell V2_**
+
+```
+Not possible in PowerShell V2
+```
+## <a name="how-does-password-reset-work-for-b2b-users"></a>¿Cómo funciona el restablecimiento de contraseña para usuarios B2B?
+Todas las configuraciones B2B admiten el cambio y restablecimiento de contraseña.  Lea la información que figura a continuación para conocer los 3 casos B2B explícitos compatibles con el restablecimiento de contraseña.
+
+1. **Usuarios de una organización de asociados con un inquilino de Azure AD existente**: Si la organización con la que se está asociando tiene un inquilino de Azure AD existente, **respetaremos todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino**. Para que el restablecimiento de contraseña funcione, la organización del asociado simplemente necesita asegurarse de que la función SSPR de Azure AD esté habilitada, lo que no supone un cargo adicional para los clientes de Office&365;. Se puede habilitar siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+2. **Usuarios registrados mediante el [registro de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)**: Si la organización con la que se está asociando usaba la función de [registro de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) para entrar en un inquilino, les permitiremos el restablecimiento inmediato con el correo electrónico que registraron.
+3. **Usuarios de B2B**: Los nuevos usuarios de B2B creados mediante las nuevas [funcionalidades de B2B de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) también podrán restablecer inmediatamente sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
+ 
+Para probar cualquiera de estos casos, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados.  Siempre que tengan un correo electrónico alternativo o un correo electrónico de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.  En la información general [¿Qué datos sirven para restablecer la contraseña?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset) puede encontrar más información sobre los datos que usa la función SSPR aquí.
 
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:

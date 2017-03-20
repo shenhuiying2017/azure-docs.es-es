@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 842eb16768fd5064bd57a0c3672e7ae57885720e
-ms.openlocfilehash: 6ed0f07268715102be197bb8a6654fb05b52b0c4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -61,6 +61,10 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 **P.:** ¿Se admiten aplicaciones de .NET Core sin compilar?
 
 **R**: No. Debe implementar aplicaciones de .NET Core compiladas con todas las dependencias. Planeamos realizar una implementación completa y una experiencia de compilación en una futura versión.
+
+**P.: ¿**Admite un compositor como un administrador de dependencias para aplicaciones PHP?
+
+**R**: No. Debe implementar las aplicaciones PHP con todas las dependencias. Planeamos una experiencia de implementación completa en una futura versión.
 
 ## <a name="custom-containers"></a>Contenedores personalizados
 
