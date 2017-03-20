@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 797b467e480ba51c531ea6eddf3ad2447ec16f1a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d971823ecd237c90787d4b923b5f9aad08fff4ee
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -84,10 +85,5 @@ Las normas, las leyes y los requisitos de cumplimiento normativo variarán segú
 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

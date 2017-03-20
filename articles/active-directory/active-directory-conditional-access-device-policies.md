@@ -4,7 +4,7 @@ description: "Detalles sobre cómo las condiciones basadas en el dispositivo con
 services: active-directory
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 613e2447c1e47fcd80f2e9ded9ad2669f8283c3d
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -46,10 +47,5 @@ Se ha previsto ampliar la directiva de acceso condicional a los usuarios de otra
 P: ¿Cuándo se ampliará la directiva de acceso condicional a los servicios de Office 365 para las aplicaciones basadas en el explorador? (Por ejemplo, OWA, SharePoint basado en el explorador).
 
 R: En este momento, el acceso condicional a los servicios de Office365 se limita a las aplicaciones enriquecidas en el dispositivo. Se ha previsto ampliar la directiva de acceso condicional a los usuarios que tengan acceso a los servicios desde exploradores.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
