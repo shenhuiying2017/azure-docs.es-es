@@ -70,7 +70,7 @@ ms.lasthandoff: 03/03/2017
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -241,7 +241,7 @@ ms.lasthandoff: 03/03/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 Al elegir Microsoft Azure como su asociado en la nube listo para SAP, podrá ejecutar de forma confiable sus cargas SAP críticas en una plataforma compatible, ampliable y de uso demostrado en la empresa.  Obtenga la escalabilidad, la flexibilidad y el ahorro de costos de Azure. Con la ampliación de la asociación entre Microsoft y SAP, puede ejecutar las aplicaciones SAP en escenarios de desarrollo y pruebas, y de producción en Azure (y serán totalmente compatibles). De SAP NetWeaver a SAP S4/Hana, Linux a Windows, SAP Hana a SQL, tenemos todo cubierto. 

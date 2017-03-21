@@ -70,7 +70,7 @@ ms.lasthandoff: 03/03/2017
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -245,7 +245,7 @@ ms.lasthandoff: 03/03/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 Microsoft Azure permite a las empresas adquirir recursos de proceso y almacenamiento en un tiempo mínimo sin ciclos de adquisición prolongados. Las máquinas virtuales de Azure permiten a las empresas implementar aplicaciones clásicas (por ejemplo, aplicaciones basadas en SAP NetWeaver) en Azure y extender su confiabilidad y disponibilidad sin tener más recursos disponibles de forma local. Los servicios de máquinas virtuales de Azure también admiten la conectividad entre locales, que permite a las empresas integrar activamente las máquinas virtuales de Azure en sus dominios locales, nubes privadas e infraestructura del sistema SAP.

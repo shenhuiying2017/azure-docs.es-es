@@ -2,7 +2,7 @@
 title: "Creación de un centro de IoT Hub de Azure mediante una plantilla (PowerShell) | Microsoft Docs"
 description: "Describe cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT Hub con PowerShell."
 services: iot-hub
-documentationcenter: .net
+documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 
