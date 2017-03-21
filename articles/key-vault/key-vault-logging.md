@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,6 +64,11 @@ Si tiene varias suscripciones, es posible que deba especificar la que se usó pa
 A continuación, para especificar la suscripción asociada al almacén de claves que registrará, escriba:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
+
+> [!NOTE]
+> Este es un paso importante y especialmente útil si tiene varias suscripciones asociadas a su cuenta. Si este paso se omite, puede que reciba un error al registrar Microsoft.Insights. 
+>   
+>
 
 Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
@@ -120,8 +125,13 @@ Qué se registra:
 ## <a id="access"></a>Acceso a los registros
 Los registros de Key Vault se almacenan en el contenedor **insights-logs-auditevent** de la cuenta de almacenamiento proporcionada. Para mostrar una lista de todos los blobs de este contenedor, escriba:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+En primer lugar, cree una variable para el nombre del contenedor. Se usará en el resto del tutorial.
 
+    $container = 'insights-logs-auditevent'
+
+Para mostrar una lista de todos los blobs de este contenedor, escriba:
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 El resultado será similar al siguiente.
 
 **Identificador URI de contenedor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**

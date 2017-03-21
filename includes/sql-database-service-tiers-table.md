@@ -6,7 +6,7 @@ sql-database-service-tiers.md
 -->
 
 ### <a name="basic-service-tier"></a>Nivel de servicio Básico
-| **Nivel de servicio** | **Básica** |
+| **Nivel de rendimiento** | **Básico** |
 | --- | :---: |
 | DTU máx. | 5 |
 | Tamaño máximo de base de datos* |2 GB|
@@ -17,7 +17,7 @@ sql-database-service-tiers.md
 |||
 
 ### <a name="standard-service-tier"></a>Nivel de servicio Estándar
-| **Nivel de servicio** | **S0** | **S1** | **S2** | **S3** |
+| **Nivel de rendimiento** | **S0** | **S1** | **S2** | **S3** |
 | --- |---:| ---:|---:|---:|---:|
 | DTU máx. | 10 | 20 | | 50 | 100 |
 | Tamaño máximo de base de datos* | 250 GB| 250 GB | 250 GB | 250 GB |
@@ -28,14 +28,25 @@ sql-database-service-tiers.md
 ||||||
 
 ### <a name="premium-service-tier"></a>Nivel de servicio Premium 
-| **Nivel de servicio** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| **Nivel de rendimiento** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | DTU máx. | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Tamaño máximo de base de datos* | 500 GB | 500 GB | 500 GB | 500 GB | 1 TB | 1 TB |
+| Tamaño máximo de base de datos* | 500 GB | 500 GB | 500 GB | 500 GB | 4 TB* | 4 TB* |
 | Almacenamiento máximo de OLTP en memoria | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
 | N.º máximo de trabajadores simultáneos | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Máximo de inicios de sesión simultáneos | 200 | 400| 800| 1600| 2400| 6400 |
 | N.º máximo de sesiones simultáneas | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* El tamaño máximo de la base de datos se refiere al tamaño máximo de los datos en la base de datos.
+### <a name="premium-rs-service-tier"></a>Nivel de servicio RS Premium 
+| **Nivel de rendimiento** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
+| --- |---:|---:|---:|---:|---:|---:|
+| DTU máx. | 125 | 250 | 500 | 1000 |
+| Tamaño máximo de base de datos* | 500 GB | 500 GB | 500 GB | 500 GB |
+| Almacenamiento máximo de OLTP en memoria | 1 GB | 2 GB | 4 GB | 8 GB |
+| N.º máximo de trabajadores simultáneos | 200 | 400 | 800 | 1600 |
+| Máximo de inicios de sesión simultáneos | 200 | 400| 800| 1600|
+| N.º máximo de sesiones simultáneas | 30000| 30000| 30000| 30000|
+|||||||
+
+\* El tamaño máximo de la base de datos se refiere al tamaño máximo de los datos en la base de datos. 

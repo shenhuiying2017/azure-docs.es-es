@@ -276,7 +276,7 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
 
 ## <a name="n-series"></a>Serie N
-Los tamaños de NC y NV también se conocen como instancias habilitadas para GPU. Se trata de máquinas virtuales especializadas que incluyen tarjetas GPU de NVIDIA, optimizadas para diferentes escenarios y casos de uso. Los tamaños de NV están optimizados y diseñados para la visualización remota, streaming, juegos, codificación y escenarios VDI mediante marcos como OpenGL y DirectX. Los tamaños de NC están más optimizados para las aplicaciones de uso intensivo de procesos y red, así como algoritmos, incluidas simulaciones y aplicaciones basadas en CUDA y OpenCL. 
+Los tamaños de NC y NV también se conocen como instancias habilitadas para GPU. Se trata de máquinas virtuales especializadas que incluyen tarjetas GPU de NVIDIA, optimizadas para diferentes escenarios y casos de uso. Los tamaños de NV están optimizados y diseñados para la visualización remota, streaming, juegos, codificación y escenarios VDI mediante marcos como OpenGL y DirectX. Los tamaños de NC están más optimizados para las aplicaciones de uso intensivo de procesos y red, así como algoritmos, incluidas simulaciones y aplicaciones basadas en CUDA y OpenCL. No hay opción de Premium Storage para los tamaños de la serie N.
 
 
 ### <a name="nv-instances"></a>Instancias de NV

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -36,7 +37,7 @@ Puede escribir la aplicación para el servicio Azure Active Directory B2C de dos
 Vuelva a esta sección a menudo para conocer los cambios futuros en Azure Active Directory B2C. También enviaremos tweets acerca de las actualizaciones mediante @AzureAD.
 
 * Conozca nuestro [marco de directivas extensible](active-directory-b2c-reference-policies.md) y los tipos de directivas que puede crear y usar en sus aplicaciones.
-* Agregue un marcador a nuestro [blog de servicio](https://blogs.msdn.microsoft.com/azureadb2c/) para ver notificaciones sobre problemas de servicio menores, el estado y las mitigaciones. Continúe también con la supervisión del [panel de estado de Azure](https://azure.microsoft.com/status/) .
+* Agregue un marcador a nuestro [blog de servicio](https://blogs.msdn.microsoft.com/azureadb2c/) para ver notificaciones sobre problemas de servicio menores, el estado y las mitigaciones. Continúe también con la supervisión del [panel de estado de Azure](https://azure.microsoft.com/status/).
 * [Limitaciones y restricciones actuales del servicio](active-directory-b2c-limitations.md).
 * Por último, un [código de ejemplo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) con Azure AD B2C y ASP.NET Core.
 
@@ -55,8 +56,8 @@ Estos vínculos serán útiles para explorar el servicio en profundidad:
 
 * Consulte la [información de precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Revise nuestros [ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) para Azure Active Directory B2C. 
-* Obtenga ayuda sobre Stack Overflow con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
-* Envíenos sus ideas mediante [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/); ¡queremos conocerlas! Use la frase "AzureADB2C:" en el título de la entrada para que podamos encontrarla.
+* Obtenga ayuda sobre Stack Overflow con la etiqueta [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Envíenos sus ideas mediante [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c); ¡queremos conocerlas!
 * Revise la [referencia del protocolo Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Revise la [referencia de token de Azure AD B2C](active-directory-b2c-reference-tokens.md).
 * Lea las [P+F sobre Azure Active Directory B2C](active-directory-b2c-faqs.md).
@@ -64,10 +65,5 @@ Estos vínculos serán útiles para explorar el servicio en profundidad:
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
