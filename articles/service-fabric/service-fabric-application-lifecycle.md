@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/16/2017
+ms.date: 03/08/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 87a303fc04b2a528928eed5ce8f65a19700e0bc0
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 14cbebe2a00dd1a666971a1d5626b2e467356a24
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,7 +34,8 @@ Los roles del modelo de servicio son:
 * **Desarrollador del servicio**: desarrolla servicios modulares y genéricos que se pueden volver a definir y usar en varias aplicaciones del mismo tipo o de tipos distintos. Por ejemplo, un servicio de cola puede usarse para crear una aplicación de incidencias (departamento de soporte técnico) y una aplicación de comercio electrónico (carro de la compra).
 * **Desarrollador de la aplicación**: crea aplicaciones mediante la integración de una recopilación de servicios para satisfacer ciertos escenarios o requisitos específicos. Por ejemplo, un sitio web de comercio electrónico podría integrar "Servicio front-end sin estado JSON", "Servicio con estado de subasta" y "Servicio con estado de cola" para crear una solución de subasta.
 * **Administrador de aplicaciones**: toma decisiones sobre la configuración de las aplicaciones (relleno de los parámetros de la plantilla de configuración), implementación (asignación a recursos disponibles) y calidad de servicio. Por ejemplo, un administrador de aplicaciones decide la configuración regional de idioma (por ejemplo, inglés para Estados Unidos o japonés para Japón) de la aplicación. Una aplicación implementada diferente puede tener configuraciones distintas.
-* **Operador**: implementa aplicaciones basadas en la configuración de la aplicación y los requisitos especificados por el administrador de aplicaciones.. Por ejemplo, un operador aprovisiona e implementa la aplicación y garantiza que se ejecuta en Azure. Los operadores supervisan la información de rendimiento y estado de la aplicación y mantiene la infraestructura física, según corresponda.
+* <seg>
+  **Operador**: implementa aplicaciones basadas en la configuración de la aplicación y los requisitos especificados por el administrador de aplicaciones..</seg> Por ejemplo, un operador aprovisiona e implementa la aplicación y garantiza que se ejecuta en Azure. Los operadores supervisan la información de rendimiento y estado de la aplicación y mantiene la infraestructura física, según corresponda.
 
 ## <a name="develop"></a>Desarrollo
 1. Un *desarrollador de servicios* desarrolla los distintos tipos de servicios con el modelo de programación [Reliable Actors](service-fabric-reliable-actors-introduction.md) o [Reliable Services](service-fabric-reliable-services-introduction.md).
@@ -98,6 +99,4 @@ Para obtener más información sobre cómo desarrollar, probar y administrar apl
 * [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
 * [Actualización de aplicaciones](service-fabric-application-upgrade.md)
 * [Información general sobre Testability](service-fabric-testability-overview.md)
-* [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
-
 

@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -44,10 +45,5 @@ Esto se aplica a las directivas de MFA/ubicación, así como a las directivas de
 ## <a name="see-also"></a>Consulte también
 * [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 * [Introducción al acceso condicional a Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

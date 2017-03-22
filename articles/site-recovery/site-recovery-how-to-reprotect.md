@@ -15,16 +15,16 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: c4fb25880584add0832464d9049dc6c78059c48b
-ms.openlocfilehash: 39e91dea775cf03f726db29f27f30142b69f9dfe
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: f2da9c4b02f0bb8a93347c05be358516f39e2df0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Reprotección desde Azure a un entorno local
 
 ## <a name="overview"></a>Información general
-En este artículo se describe cómo reproteger máquinas virtuales desde Azure al sitio local. Siga las instrucciones que se describen en este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que han conmutado por error desde el sitio local a Azure mediante este [tutorial](site-recovery-vmware-to-azure-classic.md).
+En este artículo se describe cómo reproteger máquinas virtuales desde Azure al sitio local. Siga las instrucciones que se describen en este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que han conmutado por error desde el sitio local a Azure mediante este [tutorial](site-recovery-failover.md).
 
 Una vez que la reprotección se haya completado y las máquinas virtuales protegidas se estén replicando, puede iniciar una conmutación por recuperación en la máquina local para llevarlas al entorno local.
 
@@ -42,8 +42,8 @@ A continuación se describen los requisitos previos pasos que debe llevar a cabo
 * Si existen instantáneas en una máquina virtual local, la reprotección dará error. Puede eliminar las instantáneas antes de llevar a cabo la reprotección.
 * Antes de conmutar por recuperación, deberá crear dos componentes adicionales:
   * **Crear un servidor de procesos**. El servidor de procesos se usa para recibir los datos de la máquina virtual protegida en Azure y enviar los datos de forma local. Esto requiere disponer de una red de baja latencia entre el servidor de procesos y la máquina virtual protegida. Por lo tanto, el servidor de procesos puede estar en un entorno local (si está utilizando una conexión de ExpressRoute) o en Azure si está usando una VPN.
-  * **Crear un servidor de destino principal**: este servidor recibe datos de conmutación por recuperación. El servidor de administración que creó de forma local tiene instalado de forma predeterminada un servidor de destino maestro. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino maestro distinto para esta operación. 
-        * [Una máquina virtual Linux necesita un servidor de destino principal de Linux](site-recovery-how-to-install-linux-master-target.md). 
+  * **Crear un servidor de destino principal**: este servidor recibe datos de conmutación por recuperación. El servidor de administración que creó de forma local tiene instalado de forma predeterminada un servidor de destino maestro. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino maestro distinto para esta operación.
+        * [Una máquina virtual Linux necesita un servidor de destino principal de Linux](site-recovery-how-to-install-linux-master-target.md).
         * Una máquina virtual con Windows necesita un destino principal de Windows. Puede reutilizar la máquina PS+MT local.
 * El servidor de configuración es necesario localmente cuando realiza una conmutación por recuperación. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. De lo contrario, la conmutación por recuperación no se realizará correctamente. Por lo tanto, asegúrese de realizar una copia de seguridad programada periódica del servidor. En caso de desastre, tendrá que restaurarla con la misma dirección IP para que funcione la conmutación por recuperación.
 * Asegúrese de establecer la opción disk.enableUUID=true de los parámetros de configuración de la máquina virtual de destino maestra en VMware. Si la fila no existe, agréguela. Este paso es necesario a fin de proporcionar un UUID uniforme al VMDK, para que se monte correctamente.
@@ -60,10 +60,10 @@ Si la replicación desde local a Azure puede producirse a través de Internet o 
 
 Las máquinas virtuales de Azure que desea volver a proteger envían los datos de replicación a un servidor de procesos. La red se debe configurar de modo que el servidor de procesos sea accesible desde la máquina virtual de Azure.
 
-Puede implementar un servidor de procesos en Azure o usar el servidor de procesos existente que usó durante la conmutación por error. El punto importante que se debe tener en cuenta es la latencia para enviar los datos desde las máquinas virtuales de Azure al servidor de procesos. 
+Puede implementar un servidor de procesos en Azure o usar el servidor de procesos existente que usó durante la conmutación por error. El punto importante que se debe tener en cuenta es la latencia para enviar los datos desde las máquinas virtuales de Azure al servidor de procesos.
 
 * Si tiene configurada una conexión ExpressRoute, se puede utilizar un servidor de procesos local para enviar los datos. Esto es porque se produciría baja la latencia entre la máquina virtual y el servidor de procesos.
-    
+
     ![Diagrama de la arquitectura de ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
 
@@ -96,11 +96,11 @@ Haga clic en los vínculos siguientes para conocer los pasos necesarios para ins
 * Si la máquina virtual está presente en local en el servidor vCenter, el servidor de destino principal necesita acceso al VMDK de la máquina virtual local. Es necesario para escribir los datos replicados en discos de la máquina virtual. Para ello, debe asegurarse de que **el almacén de datos de la máquina virtual local se monte en el host del destino principal con acceso de lectura y escritura**.
 
 * Si la máquina virtual no está presente en local en el servidor vCenter, necesitará crear una nueva máquina virtual durante la reprotección. Esta máquina virtual se creará en el host ESX en que se crea el destino principal. Así pues, elija con cuidado el host ESX a fin de que la máquina virtual de la conmutación por recuperación se cree en el host que desea.
-    
+
 * **El servidor de destino maestro no puede migrarse con Storage vMotion**. Esto puede provocar un error en la conmutación por recuperación. La máquina virtual no se iniciará puesto que los discos no estarán disponibles.
 
 * Necesita una nueva unidad en el servidor de destino maestro de Windows existente. Esta unidad se denomina "unidad de retención". Agregue un nuevo disco y formatee la unidad. La unidad de retención se utiliza para detener los puntos en el tiempo cuando la máquina virtual se replica en local. A continuación se indican algunos de los criterios de una unidad de retención, sin los cuales la unidad no aparecerá para el servidor de destino maestro.
-   
+
    * El volumen no puede utilizarse para ningún otro propósito (destino de replicación, etc.).
 
    * El volumen no debe estar en modo de bloqueo.
@@ -144,25 +144,26 @@ Antes de volver a realizar la protección, asegúrese de que ha instalado el [se
 
 > [!NOTE]
 > Después de que una máquina virtual arranca en Azure, el agente tarda algún tiempo en registrar de nuevo en el servidor de configuración (hasta 15 minutos). Durante este tiempo, verá que la reprotección produce errores y recibirá un mensaje de error que indica que el agente no está instalado. Espere unos minutos y vuelva a intentarlo.
- 
- 
+
+
 
 1. En Almacén > Elementos replicados, seleccione la máquina virtual que ha sido objeto de la conmutación por error y haga clic con el botón derecho en **Reproteger**. También puede hacer clic en la máquina y seleccionar la opción para reproteger con los botones de comando.
 2. En la hoja, puede ver que la dirección de protección "De Azure a local" ya está seleccionada.
 3. En **Servidor de destino principal** y **Servidor de procesos**, seleccione el servidor de destino principal local y el servidor de procesos.
 4. Seleccione el **almacén de datos** en el que desea recuperar los discos en el entorno local. Esta opción se utiliza cuando se elimina la máquina virtual local y es necesario crear discos nuevos. Esta opción se omite si los discos ya existen, pero debe especificar un valor.
-5. Elija la unidad de retención. 
+5. Elija la unidad de retención.
 6. La directiva de conmutación por recuperación será seleccionada automáticamente.
 7. Tras hacer clic en **Aceptar** para comenzar la reprotección, se inicia un trabajo para replicar la máquina virtual de Azure en el sitio local. Puede realizar el seguimiento del progreso en la pestaña **Trabajos** .
 
-Si desea recuperar en una ubicación alternativa (cuando se elimine la máquina virtual local), seleccione la unidad de retención y el almacén de datos configurado para el servidor de destino principal. Cuando se conmuta por recuperación al sitio local, las máquinas virtuales de VMware del plan de protección de conmutación por recuperación utilizarán el mismo almacén de datos que el servidor de destino principal y se creará una nueva máquina virtual en vCenter. Si desea recuperar la máquina virtual de Azure en una máquina virtual local, los almacenes de datos de la máquina virtual local deben montarse con acceso de lectura y escritura en el host de ESXi del servidor de destino principal.
+Si desea recuperar en una ubicación alternativa (cuando se elimine la máquina virtual local), seleccione la unidad de retención y el almacén de datos configurado para el servidor de destino principal. Cuando se conmuta por recuperación al sitio local, las máquinas virtuales de VMware del plan de protección de conmutación por recuperación utilizarán el mismo almacén de datos que el servidor de destino principal y se creará una nueva máquina virtual en vCenter.
+Si desea recuperar la máquina virtual de Azure en una máquina virtual local, los almacenes de datos de la máquina virtual local deben montarse con acceso de lectura y escritura en el host de ESXi del servidor de destino principal.
     ![](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
 
 También puede volver a proteger a nivel de un plan de recuperación. Si tiene un grupo de replicación, este solo se puede volver a proteger con un plan de recuperación. Al volver a proteger con un plan de recuperación, debe proporcionar los valores anteriores para cada máquina protegida.
 
 > [!NOTE]
 > Un grupo de replicación debe volver a protegerse con el mismo destino maestro. Si se ha vuelto a proteger con un servidor de destino maestro distinto, no se puede obtener para él un momento dado común.
- 
+
 
 Una vez que la reprotección se haya completado correctamente, la máquina virtual entrará en un estado protegido.
 
@@ -172,7 +173,7 @@ Cuando la máquina virtual se encuentre en estado protegido, puede iniciar una c
 
 [Pasos para iniciar la conmutación por recuperación de la máquina virtual](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-failback)
 
-## <a name="common-issues"></a>Problemas comunes 
+## <a name="common-issues"></a>Problemas comunes
 
 * Si las máquinas virtuales se crearon mediante una plantilla, debe asegurarse antes de realizar la protección de que cada máquina virtual tiene un UUID único para los discos. Si el UUID de las máquinas virtuales locales entra en conflicto con el del destino maestro (porque ambos se hayan creado a partir de la misma plantilla), la reprotección producirá un error. Deberá implementar otro destino maestro que no se haya creado a partir de la misma plantilla.
 * Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, se ejecutará correctamente y la conmutación por error funcionará. Durante la reprotección, se produce un error de conmutación por error porque no se pueden detectar los almacenes de datos. El síntoma de este problema es que no se ven los almacenes de datos enumerados durante la reprotección. Para resolverlo, puede actualizar las credenciales de vCenter con la cuenta adecuada que tenga permisos y tratar de realizar el trabajo de nuevo. Para obtener más información, consulte [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
@@ -182,3 +183,4 @@ Cuando la máquina virtual se encuentre en estado protegido, puede iniciar una c
 * Si no puede ponerse en contacto con el servidor de configuración desde el servidor de procesos, compruebe la conectividad con el servidor de configuración por Telnet con el equipo del servidor de configuración en el puerto 443. También puede tratar de hacer ping en el servidor de configuración desde la máquina del servidor de procesos. Un servidor de procesos debe tener también un latido cuando esté conectado al servidor de configuración.
 * Si está tratando de realizar la conmutación por recuperación en un vCenter alternativo, asegúrese de que se detectan tanto el nuevo vCenter como el servidor de destino maestro. Un síntoma típico es que los almacenes de datos no están accesibles ni visibles en el cuadro de diálogo de **Reprotect** (Reproteger).
 * Las máquinas WS2008R2SP1 protegidas como máquinas físicas locales no pueden conmutar por recuperación desde Azure a un entorno local.
+

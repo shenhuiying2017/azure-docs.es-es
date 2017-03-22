@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -149,10 +150,5 @@ Ha instalado las herramientas necesarias para usar Pi e implementado una aplicac
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtención de las herramientas de Azure](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

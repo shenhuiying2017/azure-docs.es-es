@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
-Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante una puerta de enlace de VPN se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
+
+Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante una puerta de enlace de VPN se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración. Este documento proporciona la lista de parámetros de IPsec/IKE para las puertas de enlace de VPN de Azure y una lista de los dispositivos VPN validados que se conectan a dichas puertas de enlace.
 
 
 > [!IMPORTANT]
-> Si experimenta problemas de conectividad entre los dispositivos VPN locales y las puertas de enlace de VPN de Azure, consulte [Problemas conocidos de compatibilidad de dispositivos](#known).
-> 
-> 
+> Si experimenta problemas de conectividad entre los dispositivos VPN locales y las puertas de enlace de VPN de Azure, consulte [Problemas conocidos de compatibilidad de dispositivos](#known). 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Elementos que hay que tener en cuenta para consultar las tablas:
 
-* Ha habido un cambio de terminología del enrutamiento estático y dinámico. Es probable que realice la ejecución en ambos términos. No hay ningún cambio de funcionalidad; solo cambian los nombres.
+* Ha habido un cambio terminológico en las puertas de enlace de VPN de Azure. Es probable que realice la ejecución en ambos términos. No hay ningún cambio de funcionalidad; solo cambian los nombres.
   * Enrutamiento estático = PolicyBased
   * Enrutamiento dinámico = RouteBased
 * Las especificaciones de puerta de enlace de VPN de alto rendimiento y de puerta de enlace de VPN RouteBased son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN RouteBased también son compatibles con la puerta de enlace de VPN de alto rendimiento de Azure.
 
 > [!NOTE]
 > Al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Dispositivos VPN validados
@@ -102,58 +99,80 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | &lt;SP_AzureGatewayIpAddress&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración como **Dirección IP de puerta de enlace**. |
 | &lt;SP_PresharedKey&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración, en Administrar clave. |
 
-## <a name="IPSec"></a>Parámetros de IPsec
+## <a name="IPSec"></a>Parámetros de IPsec/IKE
 > [!NOTE]
-> Aunque los valores que se enumeran en la siguiente tabla son compatibles con la Puerta de enlace de VPN de Azure, actualmente no hay ninguna forma de especificar o seleccionar una combinación específica en la Puerta de enlace de VPN de Azure. Debe especificar las restricciones en el dispositivo VPN local. Además, tiene que fijar el tamaño de segmento máximo en 1350.
->
->
+> Aunque los valores que se enumeran en la siguiente tabla son compatibles con Azure VPN Gateway, actualmente no hay ningún mecanismo que le permita especificar o seleccionar una combinación de algoritmos o parámetros de Azure VPN Gateway. Debe especificar las restricciones en el dispositivo VPN local.
+> 
+> Además, tiene que fijar el **tamaño de segmento máximo** en **1350**.
 
-### <a name="ike-phase-1-setup"></a>Configuración de la fase 1 de IKE
-| **Propiedad** | **PolicyBased** | **Puerta de enlace de VPN de alto rendimiento o estándar y RouteBased** |
-| --- | --- | --- |
-| Versión de IKE |IKEv1 |IKEv2 |
-| Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
-| Método de autenticación |Clave previamente compartida |Clave previamente compartida |
-| Algoritmos de cifrado |AES256 AES128 3DES |AES256 3DES |
-| Algoritmo hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28.800 segundos |10.800 segundos |
+En las tablas siguientes:
 
-### <a name="ike-phase-2-setup"></a>Configuración de la fase 2 de IKE
-| **Propiedad** | **PolicyBased** | **Puerta de enlace de VPN de alto rendimiento o estándar y RouteBased** |
-| --- | --- | --- |
-| Versión de IKE |IKEv1 |IKEv2 |
-| Algoritmo hash |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 |3.600 segundos |3.600 segundos |
-| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 |102.400.000 KB |- |
-| Ofertas de autenticación y cifrado de SA de IPsec (en orden de preferencia) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D |Consulte "Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento" (a continuación). |
-| Confidencialidad directa perfecta (PFS) |No |No (*) |
-| Detección de cuellos del mismo nivel |No compatible |Compatible |
+* SA = Asociación de seguridad
+* La fase 1 de IKE también se denomina "Modo principal"
+* La fase 2 de IKE también se denomina "Modo rápido"
 
-(*) La puerta de enlace de Azure como respondedor IKE puede aceptar los grupos PFS DH 1, 2, 5, 14, 24.
+### <a name="ike-phase-1-main-mode-parameters"></a>Parámetros de la fase 1 de IKE (Modo principal)
+| **Propiedad**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| Versión de IKE           |IKEv1              |IKEv2              |
+| Grupo Diffie-Hellman  |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
+| Método de autenticación |Clave previamente compartida     |Clave previamente compartida     |
+| Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| Vigencia de SA           |28.800 segundos     |10.800 segundos     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento
-En la siguiente tabla encontrará una lista de las ofertas de autenticación y cifrado de SA de IPsec. Las ofertas se enumeran en el orden de preferencia en el que se presentan o se aceptan.
+### <a name="ike-phase-2-quick-mode-parameters"></a>Parámetros de la fase 2 de IKE (modo rápido)
+| **Propiedad**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| Versión de IKE                   |IKEv1          |IKEv2                                        |
+| Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
+| Vigencia de SA (tiempo)            |3.600 segundos  |3.600 segundos                                |
+| Vigencia de SA (bytes)           |102.400.000 KB | -                                           |
+| Confidencialidad directa perfecta (PFS) |No             |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
+| Dead Peer Detection (DPD)     |No compatible  |Compatible                                    |
 
-| **Ofertas de autenticación y cifrado de SA de IPsec** | **Puerta de enlace de Azure como iniciador** | **Puerta de enlace de Azure como respondedor** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 con ESP AES_128 con HMAC nulo |
-| 5 |AH SHA1 con ESP AES_256 con HMAC nulo |AH SHA1 con ESP 3_DES con HMAC nulo |
-| 6 |AH SHA1 con ESP AES_128 con HMAC nulo |AH MD5 con ESP 3_DES con HMAC nulo, sin vida útil propuesta |
-| 7 |AH SHA1 con ESP 3_DES con HMAC nulo |AH SHA1 con ESP 3_DES SHA1, sin vida útil |
-| 8 |AH MD5 con ESP 3_DES con HMAC nulo, sin vida útil propuesta |AH MD5 con ESP 3_DES MD5, sin vida útil |
-| 9 |AH SHA1 con ESP 3_DES SHA1, sin vida útil |ESP DES MD5 |
-| 10 |AH MD5 con ESP 3_DES MD5, sin vida útil |ESP DES SHA1, sin vida útil |
-| 11 |ESP DES MD5 |AH SHA1 con ESP DES HMAC nulo, sin vida útil propuesta |
-| 12 |ESP DES SHA1, sin vida útil |AH MD5 con ESP DES HMAC nulo, sin vida útil propuesta |
-| 13 |AH SHA1 con ESP DES HMAC nulo, sin vida útil propuesta |AH SHA1 con ESP DES SHA1, sin vida útil |
-| 14 |AH MD5 con ESP DES HMAC nulo, sin vida útil propuesta |AH MD5 con ESP DES MD5, sin vida útil |
-| 15 |AH SHA1 con ESP DES SHA1, sin vida útil |ESP SHA, sin vida útil |
-| 16 |AH MD5 con ESP DES MD5, sin vida útil |ESP MD5, sin vida útil |
-| 17 |- |AH SHA, sin vida útil |
-| 18 |- |AH MD5, sin vida útil |
+
+### <a name ="RouteBasedOffers"></a>Ofertas de asociación de seguridad de IPsec (SA de modo rápido de IKE) de VPN del tipo routebased
+En la tabla siguiente se enumeran las ofertas de SA de IPsec (modo rápido de IKE). Las ofertas se enumeran en el orden de preferencia en el que se presentan o se aceptan.
+
+#### <a name="azure-gateway-as-initiator"></a>Puerta de enlace de Azure como iniciador
+|-  |**Cifrado**|**Autenticación**|**Grupo PFS**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |None         |
+| 3 |3DES          |SHA1              |None         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+
+#### <a name="azure-gateway-as-responder"></a>Puerta de enlace de Azure como respondedor
+|-  |**Cifrado**|**Autenticación**|**Grupo PFS**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |None         |
+| 3 |3DES          |SHA1              |None         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+| 7 |DES           |SHA1              |None         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20 ||AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |None         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN de alto rendimiento y RouteBased. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia.  Los clientes pueden elegir usarlo en escenarios de comunicación entre redes virtuales o cuando se aplique el cifrado en otra parte de la solución.
 * Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.

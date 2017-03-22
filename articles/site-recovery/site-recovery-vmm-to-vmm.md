@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 8af22f98b5dfde35df441ba054875616ced9988a
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a2bc32193ad539053984794a411ae7307b8d8532
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/06/2017
 >
 >
 
-En este artículo se describe cómo replicar máquinas virtuales de Hyper-V locales administradas en nubes System Center Virtual Machine Manager (VMM) en un sitio secundario mediante [Azure Site Recovery](site-recovery-overview.md) en Azure Portal. Aprenda más sobre la [arquitectura de este escenario](site-recovery-components.md#hyper-v-vm-replication-to-a-secondary-site).
+En este artículo se describe cómo replicar máquinas virtuales de Hyper-V locales administradas en nubes System Center Virtual Machine Manager (VMM) en un sitio secundario mediante [Azure Site Recovery](site-recovery-overview.md) en Azure Portal. Aprenda más sobre la [arquitectura de este escenario](site-recovery-components.md#hyper-v-to-a-secondary-site).
 
 Publique cualquier comentario que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -99,8 +100,3 @@ Todos los mensajes que se envían y reciben se muestran al instante en la misma 
 ## <a name="summary"></a>Resumen
 
 Ha ejecutado el ejemplo de código para leer los mensajes en Azure Table Storage guardados por la aplicación de Azure Functions.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

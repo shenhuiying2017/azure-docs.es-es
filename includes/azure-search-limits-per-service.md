@@ -3,9 +3,9 @@ El almacenamiento está limitado por el espacio en disco o e *número máximo* d
 | Recurso | Gratuito | Básica | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Contrato de nivel de servicio (SLA) |No <sup>1</sup> |Sí |Sí |Sí |Sí |Sí |
-| Almacenamiento por partición |50 MB |2 GB |25 GB |100 GB* |200 GB |200 GB |
+| Almacenamiento por partición |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Particiones por servicio |N/D |1 |12 |12 |12 |3 <sup>2</sup> |
-| Tamaño de la partición |N/D |2 GB |25 GB |100 GB* |200 GB |200 GB |
+| Tamaño de la partición |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Réplicas |N/D |3 |12 |12 |12 |12 |
 | Índices máximos |3 |5 |50 |200 |200 |1000 GB por partición o 3000 por servicio |
 | Indexadores máximos |3 |5 |50 |200 |200 |Indexador incompatible |
@@ -16,8 +16,3 @@ El almacenamiento está limitado por el espacio en disco o e *número máximo* d
 <sup>1</sup> Las versiones gratuitas y preliminares de los SKU no incluyen contratos de nivel de servicio (SLA). Los Acuerdo de Nivel de Servicio se aplican cuando una SKU pasa a estar disponible de manera general.
 
 <sup>2</sup> S3 HD tiene un límite máximo de 3 particiones, que es inferior al límite de partición para S3. El límite inferior de la partición se impone porque el número de índice para S3 HD es mucho más alto. Como existen límites de servicio en ambos recursos informáticos (almacenamiento y procesamiento) y el contenido (índices y documentos), el límite de contenido se alcanza primero.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

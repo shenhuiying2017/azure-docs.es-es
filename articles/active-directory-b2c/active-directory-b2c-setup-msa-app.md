@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: 866d2b54b0b517cb9984fd5e98840fe3a6c69965
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -59,10 +60,5 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 5. Haga clic en **Identity provider type** (Tipo de proveedor de identidades), seleccione **Microsoft account** (Cuenta Microsoft) y haga clic en **OK** (Aceptar).
 6. Haga clic en **Configurar este proveedor de identidades** (Set up this identity provider) y proporcione los valores de identificador de aplicación y contraseña de la aplicación de la cuenta Microsoft que creó anteriormente.
 7. Haga clic en **OK** (Aceptar) y en **Create** (Crear) para guardar la configuración de la cuenta Microsoft.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

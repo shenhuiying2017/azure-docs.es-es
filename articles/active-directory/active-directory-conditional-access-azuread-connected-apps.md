@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -85,10 +86,5 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

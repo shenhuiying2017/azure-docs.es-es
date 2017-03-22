@@ -1,11 +1,7 @@
 > [!div class="op_single_selector"]
+> * [Función de Azure](../articles/media-services/media-services-dotnet-how-to-use-azure-functions.md)
 > * [.NET](../articles/media-services/media-services-dotnet-how-to-use.md)
-> * [API DE REST](../articles/media-services/media-services-rest-how-to-use.md)
+> * [REST](../articles/media-services/media-services-rest-how-to-use.md)
+>  
 > 
-> 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

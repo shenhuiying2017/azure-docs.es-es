@@ -75,6 +75,20 @@ sql-database-service-tiers.md
 | Cantidad máxima de eDTU por base de datos | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
+### <a name="premium-rs-elastic-pool-limits"></a>Límites de grupo elástico RS Premium
+
+| Tamaño del grupo (eDTU)  | **125** | **250** | **500** | **1000** |
+|:---|---:|---:|---:| ---: | ---: | 
+| Almacenamiento máximo de datos por grupo* | 250 GB| 500 GB | 750 GB | 750 GB |
+| Almacenamiento máximo de OLTP en memoria por grupo* | 1 GB | 2 GB | 4 GB | 10 GB |
+| Máximo número de bases de datos por grupo | 50 | 100 | 100 | 100 |
+| Cantidad máxima de trabajos simultáneos por grupo | 200 | 400 | 800 | 1600 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo | 200 | 400 | 800 | 1600 |
+| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 |
+| Cantidad mínima de eDTU por base de datos | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} |
+| Cantidad máxima de eDTU por base de datos | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | 
+||||||||
+
 > [!IMPORTANT]
 >\* Las bases de datos agrupadas comparten almacenamiento de grupo, por lo que el almacenamiento de los datos en un grupo elástico se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, el que sea menor.
 >

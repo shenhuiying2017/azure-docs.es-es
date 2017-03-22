@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ El Bus de servicio es un servicio en la nube multiinquilino, lo que significa qu
 
 **Ilustración 1: el Bus de servicio proporciona un servicio multiinquilino para conectar aplicaciones a través de la nube.**
 
-Dentro de un espacio de nombres puede usar uno o más ejemplos de cuatro mecanismos de comunicación diferentes, que se conectan a las aplicaciones de forma distinta. Las opciones son las siguientes:
+Dentro de un espacio de nombres puede usar uno o más ejemplos de los tres mecanismos de comunicación diferentes, que se conectan a las aplicaciones de forma distinta. Las opciones son las siguientes:
 
 * *Colas*, que permiten una comunicación unidireccional. Cada cola funciona como un intermediario (al que se le llama a veces *agente*) que almacena los mensajes enviados hasta que se reciben. Cada mensaje lo recibe un único destinatario.
 * *Temas*, que proporcionan una comunicación unidireccional mediante *suscripciones* (un solo tema puede tener varias suscripciones). Al igual que las colas, los temas funcionan como agentes, pero cada suscripción puede usar opcionalmente un filtro para recibir solo los mensajes que cumplan criterios concretos.
@@ -40,7 +41,7 @@ Dentro de un espacio de nombres puede usar uno o más ejemplos de cuatro mecanis
 
 Cuando cree una cola, un tema o una retransmisión, asígneles un nombre. Cuando se combina con el nombre del espacio de nombres, se crea un identificador exclusivo para el objeto. Las aplicaciones pueden proporcionar ese nombre al bus de servicio y, a continuación, usar esa cola, tema o relé para comunicarse con los demás. 
 
-Para usar cualquiera de estos objetos en el escenario de retransmisión, las aplicaciones de Windows pueden usar Windows Communication Foundation (WCF). En el caso de las colas y los temas, las aplicaciones de Windows pueden usar las API de mensajería definidas por el bus de servicio. Para facilitar el uso de estos objetos desde aplicaciones que no sean de Windows, Microsoft proporciona SDK para Java, Node.js y otros lenguajes. También se puede acceder a las colas y a los temas mediante las API de REST a través de HTTP. 
+Para usar cualquiera de estos objetos en el escenario de retransmisión, las aplicaciones de Windows pueden usar Windows Communication Foundation (WCF). En el caso de las colas y los temas, las aplicaciones de Windows pueden usar las API de mensajería definidas por el bus de servicio. Para facilitar el uso de estos objetos desde aplicaciones que no sean de Windows, Microsoft proporciona SDK para Java, Node.js y otros lenguajes. También se puede acceder a las colas y a los temas mediante las [API de REST](/rest/api/servicebus/) sobre HTTP(s). 
 
 Es importante comprender que aunque el Bus de servicio se ejecute en la nube (es decir, en los centros de datos de Azure de Microsoft), las aplicaciones que usa pueden ejecutarse desde cualquier lugar. Puede usar el Bus de servicio para conectarse a aplicaciones que se ejecutan, por ejemplo, en Azure o aplicaciones que se ejecutan dentro de su propio centro de datos. También puede usarlo para conectarse a una aplicación que se ejecuta en Azure o a otra plataforma en la nube con una aplicación local o con tabletas y teléfonos. Es posible incluso conectar aparatos domésticos, sensores y otros dispositivos a una aplicación central o entre ellos. El bus de servicio es un mecanismo de comunicación en la nube al que se puede acceder desde prácticamente cualquier lugar. La forma en la que lo use depende de las tareas que tengan que realizar sus aplicaciones.
 
@@ -55,15 +56,15 @@ El proceso es sencillo: un usuario A envía un mensaje a la cola del Bus de serv
 
 Cada mensaje tiene dos partes: un conjunto de propiedades, cada una de ellas, un par clave/valor, y una carga de mensaje. La carga de mensaje puede ser binaria, texto o incluso XML. El modo en que se usan depende de lo que una aplicación esté tratando de hacer. Por ejemplo, una aplicación que envía un mensaje sobre una venta reciente podría incluir las propiedades *Seller="Ava"* y *Amount=10000*. El cuerpo del mensaje puede contener una imagen escaneada del contrato firmado de la venta o, si no la hubiera, puede aparecer vacío.
 
-El receptor puede leer los mensajes de la cola del bus de servicio de dos formas distintas. La primera opción, denominada *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, quita un mensaje de la cola y lo elimina de inmediato. Esto es sencillo, pero si se produce un error por parte del receptor antes de que finalice el procesamiento del mensaje, este se perderá. Puesto que se quita de la cola, ningún otro receptor podrá obtener acceso a él. 
+El receptor puede leer los mensajes de la cola del bus de servicio de dos formas distintas. La primera opción, denominada *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, quita un mensaje de la cola y lo elimina de inmediato. Esto es sencillo, pero si se produce un error por parte del receptor antes de que finalice el procesamiento del mensaje, este se perderá. Puesto que se quita de la cola, ningún otro receptor podrá obtener acceso a él. 
 
-La segunda opción, *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, se ha creado para solucionar este problema. Como ocurre con **ReceiveAndDelete**, una lectura de **PeekLock** quita un mensaje de la cola. Sin embargo, no elimina el mensaje. En este caso, bloquea el mensaje, por lo que se oculta a los demás receptores. A continuación, espera a que se produzca uno de los tres eventos:
+La segunda opción, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, se ha creado para solucionar este problema. Como ocurre con **ReceiveAndDelete**, una lectura de **PeekLock** quita un mensaje de la cola. Sin embargo, no elimina el mensaje. En este caso, bloquea el mensaje, por lo que se oculta a los demás receptores. A continuación, espera a que se produzca uno de los tres eventos:
 
-* Si el receptor procesa el mensaje correctamente, invoca **[Completo()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** y la cola elimina el mensaje. 
-* Si el receptor decide que no puede procesar el mensaje correctamente, invoca **[Abandonar()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**. La cola quita el bloqueo del mensaje y se pone a disposición de otros receptores.
+* Si el receptor procesa el mensaje correctamente, invoca [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) y la cola elimina el mensaje. 
+* Si el receptor decide que no puede procesar el mensaje correctamente, invoca [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). La cola quita el bloqueo del mensaje y se pone a disposición de otros receptores.
 * Si el receptor no invoca ninguna de esas opciones en un período configurable (60 segundos de forma predeterminada), la cola presupone que se ha producido un error con el receptor. En ese caso, se comporta como si el receptor hubiera llamado a **Abandon**, lo que hace que el mensaje esté disponible para otros receptores.
 
-Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de bus de servicio deben estar preparadas para ello. Para facilitar la detección de duplicados, cada mensaje dispone de una propiedad **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** única que no se modifica de forma predeterminada, independientemente del número de veces que se lea un mensaje en una cola. 
+Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de bus de servicio deben estar preparadas para ello. Para facilitar la detección de duplicados, cada mensaje dispone de una propiedad [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) única que no se modifica de forma predeterminada, independientemente del número de veces que se lea un mensaje en una cola. 
 
 Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones comunicarse incluso si no se están ejecutando a la vez. Esto es especialmente útil con aplicaciones móviles y por lotes. Una cola con varios receptores también proporciona un equilibrio de carga automático, ya que los mensajes enviados se difunden a través de esos receptores.
 
@@ -80,7 +81,7 @@ Un *tema* se parece en muchos aspectos a una cola. Los remitentes envían mensaj
 * El suscriptor 2 recibe mensajes que contienen la propiedad *Seller="Ruby"* o la propiedad *Amount* cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las grandes ventas independientemente de quién las hace.
 * El suscriptor 3 ha establecido su filtro en *True*, lo que significa que recibe todos los mensajes. Por ejemplo, esta aplicación puede ser responsable de mantener una traza de auditoría y, por tanto, necesita ver todos los mensajes.
 
-Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando [**ReceiveAndDelete** o **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Sin embargo, a diferencia de las colas, varias suscripciones pueden recibir un mensaje individual enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir* (o *pub/sub*), es útil cuando hay varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
+Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Sin embargo, a diferencia de las colas, varias suscripciones pueden recibir un mensaje individual enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir* (o *pub/sub*), es útil cuando hay varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
 
 ## <a name="relays"></a>Retransmisiones
 Tanto las colas como los temas proporcionan una comunicación asincrónica unidireccional a través de un agente. El tráfico fluye en una única dirección y no existe una conexión directa entre los remitentes y los receptores. Sin embargo, ¿qué ocurre si no es eso lo que quiere? Supongamos que sus aplicaciones necesitan enviar y recibir mensajes, o que quizás quiere un vínculo directo entre ellas y necesita un agente para almacenar los mensajes. Para afrontar escenarios como este, el Bus de servicio proporciona *retransmisiones*, como muestra la Figura 4.
@@ -116,9 +117,4 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e3c6c6919bb5ce50553a29536f821fe79f577
-ms.openlocfilehash: 3d8ee1d23fab0b410bce711afc27f8bbbad4c7e4
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 8b1d057ab533e5665513b5b5969b48e18a3ae40c
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -28,7 +29,7 @@ Apache HBase es una base de datos NoSQL de código abierto que se compila en Had
 Los datos se almacenan en las filas de una tabla, mientras que los datos de una fila se agrupan por familia de columnas. HBase es una base de datos sin esquemas en el sentido de que no es preciso que ni las columnas ni el tipo de datos almacenados en ellas se definan antes de usarlos. El código abierto se escala linealmente para controlar petabytes de datos en miles de nodos. Puede basarse en la redundancia de datos, el procesamiento por lotes y otras características proporcionadas por aplicaciones distribuidas en el ecosistema Hadoop.
 
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>¿Cómo se implementa HBase en HDInsight de Azure?
-HBase de HDInsight se ofrece como un clúster administrado que se integra en el entorno de Azure. Los clústeres están configurados para almacenar datos directamente en el almacenamiento de blobs de Azure, el cual proporciona una baja latencia y una mayor elasticidad en las opciones de coste y rendimiento. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop. HBase y Hadoop son buenos puntos de partida para proyectos con Big Data en Azure y, en concreto, pueden permitir que aplicaciones en tiempo real funcionen con grandes conjuntos de datos.
+HBase de HDInsight se ofrece como un clúster administrado que se integra en el entorno de Azure. Los clústeres están configurados para almacenar datos directamente en Azure Storage, el cual proporciona una baja latencia y una mayor elasticidad en las opciones de costo y rendimiento. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop. HBase y Hadoop son buenos puntos de partida para proyectos con Big Data en Azure y, en concreto, pueden permitir que aplicaciones en tiempo real funcionen con grandes conjuntos de datos.
 
 La implementación de HDInsight aprovecha la arquitectura de escala de HBase para proporcionar particionamiento automático de tablas, una coherencia fuerte para lecturas y escrituras, y una conmutación automática por error. Se mejora el rendimiento mediante el almacenamiento en caché de memoria para lecturas y streaming de alto rendimiento para escrituras. Se puede crear un clúster de HBase dentro de la red virtual. Para obtener detalles, consulte [Creación de clústeres de HBase en Azure Virtual Network][hbase-provision-vnet].
 
@@ -51,14 +52,14 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
   
     Las aplicaciones pueden ejecutarse en de HBase usándolo como almacén de datos. Entre los ejemplos se incluyen Phoenix, OpenTSDB, Kiji y Titan. Las aplicaciones también pueden integrarse con HBase. Entre los ejemplos se incluyen Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia y Drill.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al uso de HBase con Hadoop en HDInsight][hbase-get-started]
 * [Creación de clústeres de HBase en Azure Virtual Network][hbase-provision-vnet]
 * [Configuración de la replicación geográfica de HBase en HDInsight](hdinsight-hbase-replication.md)
 * [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]
 * [Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)][hbase-build-java-maven]
 
-## <a name="a-namesee-alsoasee-also"></a><a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Apache HBase](https://hbase.apache.org/)
 * [Bigtable: un sistema de almacenamiento distribuido para datos estructurados](http://research.google.com/archive/bigtable.html)
 
@@ -81,9 +82,4 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

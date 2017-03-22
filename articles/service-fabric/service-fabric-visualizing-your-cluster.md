@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: bebfd5e0cc209d8c1fc28d2300c57e3519410954
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -83,11 +84,11 @@ En la tabla siguiente se enumeran las acciones disponibles para cada entidad:
 | Application |Eliminar aplicación |Elimine la aplicación, incluidos todos sus servicios y su estado (si hubiera). |
 | Servicio |Eliminar servicio |Elimine el servicio y su estado (si hubiera). |
 | Nodo |Activar |Active el nodo. |
-| Desactivar (pausa) |Pause el nodo en su estado actual. Los servicios siguen ejecutándose, pero Service Fabric no introduce ni saca nada proactivamente, a menos que se requiera para prevenir una interrupción o una incoherencia de datos. Esta acción se utiliza normalmente para habilitar los servicios de depuración en un nodo específico para asegurarse de que no se mueven durante la inspección. | |
-| Desactivar (reiniciar) |Saque todos los servicios de la memoria de un nodo y cierre los servicios persistentes de forma segura. Suele usarse cuando es necesario reiniciar los procesos de host o el equipo. | |
-| Desactivar (quitar datos) |Cierre todos los servicios que se ejecutan en el nodo después de la creación de suficientes réplicas de reserva con seguridad. Se utiliza normalmente cuando un nodo (o al menos su almacenamiento) se está sacando permanentemente de circulación. | |
-| Quitar el estado del nodo |Quite información de las réplicas de un nodo del clúster. Se utiliza normalmente cuando un nodo con error ya se considera irrecuperable. | |
-| Nodo | Reiniciar | Reinicie el nodo para simular un error de nodo. Puede encontrar más información [aquí](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) ||
+| Nodo | Desactivar (pausa) | Pause el nodo en su estado actual. Los servicios siguen ejecutándose, pero Service Fabric no introduce ni saca nada proactivamente, a menos que se requiera para prevenir una interrupción o una incoherencia de datos. Esta acción se utiliza normalmente para habilitar los servicios de depuración en un nodo específico para asegurarse de que no se mueven durante la inspección. | |
+| Nodo | Desactivar (reiniciar) | Saque todos los servicios de la memoria de un nodo y cierre los servicios persistentes de forma segura. Suele usarse cuando es necesario reiniciar los procesos de host o el equipo. | |
+| Nodo | Desactivar (quitar datos) | Cierre todos los servicios que se ejecutan en el nodo después de la creación de suficientes réplicas de reserva con seguridad. Se utiliza normalmente cuando un nodo (o al menos su almacenamiento) se está sacando permanentemente de circulación. | |
+| Nodo | Quitar el estado del nodo | Quite información de las réplicas de un nodo del clúster. Se utiliza normalmente cuando un nodo con error ya se considera irrecuperable. | |
+| Nodo | Reiniciar | Reinicie el nodo para simular un error de nodo. Puede encontrar más información [aquí](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
 
 Como muchas acciones son destructivas, le pediremos que confirme su intención antes de que finalice la acción.
 
@@ -132,9 +133,4 @@ Si intenta conectarse a Service Fabric Explorer en un clúster seguro, se le ped
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

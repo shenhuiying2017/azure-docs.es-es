@@ -1,10 +1,10 @@
 ---
-title: "Configuración de una conexión de VPN Gateway de punto a sitio a Azure Virtual Network mediante el Portal clásico | Microsoft Docs"
-description: "Conéctese de forma segura a su instancia de Azure Virtual Network mediante la creación de una conexión de puerta de enlace de VPN de punto a sitio."
+title: "Conexión de un equipo a Azure Virtual Network mediante la conectividad de punto a sitio: portal clásico | Microsoft Docs"
+description: "Conéctese de forma segura a Azure Virtual Network clásico mediante la creación de una conexión de punto a sitio de VPN Gateway a través del portal clásico."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 4f5668a5-9b3d-4d60-88bb-5d16524068e0
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
+ms.date: 03/08/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 3ff2dcba568ed7ff83154cb6e1f1861ffb32a0d2
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ffd5690853a7344c7122940ad9676d1903ba2d4a
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante el portal clásico
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal-classic"></a>Configuración de una conexión de punto a sitio a una red virtual mediante el portal clásico (método clásico)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -31,11 +31,11 @@ ms.lasthandoff: 03/03/2017
 > 
 > 
 
-Una configuración de punto a sitio (P2S) permite crear una conexión segura entre un equipo cliente individual y una red virtual. Una conexión P2S resulta útil cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual.
+Una configuración de punto a sitio (P2S) permite crear una conexión segura entre un equipo cliente individual y una red virtual. P2S es una conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros). Las conexiones de punto a sitio son útiles cuando desea conectarse a su red virtual desde una ubicación remota, como desde casa o desde una conferencia, o si tiene pocos clientes que necesiten conectarse a una red virtual. Las conexiones P2S no requieren un dispositivo VPN ni una dirección IP pública. Para establecer la conexión VPN desde el equipo cliente.
 
-Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. Para más información sobre las conexiones de punto a sitio, consulte [Preguntas frecuentes sobre la conexión de punto a sitio](#faq) al final de este artículo.
+Este artículo le guía en la creación de una red virtual con una conexión de punto a sitio mediante el modelo de implementación clásica del portal clásico. Para más información sobre las conexiones de punto a sitio, consulte [Preguntas frecuentes sobre la conexión de punto a sitio](#faq) al final de este artículo.
 
-Este artículo le guía en la creación de una red virtual con una conexión de punto a sitio mediante el modelo de implementación clásica del portal clásico.
+
 
 ### <a name="deployment-models-and-methods-for-p2s-connections"></a>Métodos y modelos de implementación para conexiones P2S
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -47,16 +47,19 @@ La siguiente tabla muestra los dos modelos de implementación y los métodos de 
 ## <a name="basic-workflow"></a>Flujo de trabajo básico
 ![Diagrama de punto a sitio](./media/vpn-gateway-point-to-site-create/p2sclassic.png "punto a sitio")
 
-Los pasos siguientes lo guían por el proceso para crear una conexión de punto a sitio segura con una red virtual. 
-
-La configuración de una conexión de punto a sitio se divide en cuatro secciones. Es importante el orden en el que se configura cada una de estas secciones. No omita pasos ni se adelante.
+Los pasos siguientes lo guían por el proceso para crear una conexión de punto a sitio segura con una red virtual. La configuración de una conexión de punto a sitio se divide en cuatro secciones. Es importante el orden en el que se configura cada una de estas secciones. No omita pasos ni se adelante.
 
 * **Sección 1** Cree una red virtual y una puerta de enlace de VPN.
 * **Sección 2** Cree los certificados usados para la autenticación y cárguelos.
 * **Sección 3** Exporte e instale los certificados de cliente.
 * **Sección 4** Configure el cliente de VPN.
 
+
+
 ## <a name="vnetvpn"></a>Sección 1: Creación de una red virtual y una puerta de enlace de VPN
+
+Antes de empezar, compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
+
 ### <a name="part-1-create-a-virtual-network"></a>Paso 1: Creación de una red virtual
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com). Estos pasos utilizan el Portal clásico, no el Portal de Azure. Actualmente, no se puede crear una configuración P2S mediante el Portal de Azure.
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
@@ -88,57 +91,83 @@ El tipo de puerta de enlace debe configurarse como dinámica. Las puertas de enl
 2. En la parte inferior de la página **Panel**, haga clic en **Crear puerta de enlace**. Aparece un mensaje **¿Desea crear una puerta de enlace para la red virtual "VNet1"?** Haga clic en **Sí** para empezar a crear la puerta de enlace. La puerta de enlace puede tardar hasta 45 minutos en crearse.
 
 ## <a name="generate"></a>Sección 2: Generación y carga de certificados
-Los certificados se usan para autenticar a los clientes VPN para VPN de punto a sitio. Puede usar un certificado raíz generado con una solución de certificado de empresa o usar un certificado autofirmado. Puede cargar hasta 20 certificados raíz en Azure. Una vez cargado el archivo .cer, Azure puede usar la información que contiene para autenticar a los clientes que tengan instalado un certificado de cliente. El certificado de cliente se debe generar a partir del mismo certificado que el archivo .cer representa.
+Azure usa los certificados para autenticar a los clientes de VPN para las VPN de punto a sitio. Después de crear el certificado raíz, exporte los datos (no la clave privada) del certificado público en forma de archivo X.509 .cer codificado en Base&64;. Después, cargue los datos del certificado público del certificado raíz en Azure.
+
+Todos los equipos cliente que se conecten a una red virtual mediante una conexión de punto a sitio debe tener instalado un certificado de cliente. El certificado de cliente se genera a partir del certificado raíz y se instala cada equipo cliente. Si no se ha instalado ningún certificado de cliente válido y el cliente intenta conectarse a la red virtual, la autenticación no se realiza.
 
 En esta sección, hará lo siguiente:
 
-* Obtenga el archivo .cer para un certificado raíz. Puede ser un certificado autofirmado o puede usar su sistema de certificados de empresa.
+* Obtenga el archivo .cer para un certificado raíz. Puede ser un certificado raíz autofirmado o puede usar su sistema de certificados de empresa.
 * Cargue el archivo .cer en Azure.
 * Genere certificados de cliente.
 
 ### <a name="root"></a>Parte 1: Obtención del archivo .cer para el certificado raíz
+
+
 Si usa una solución empresarial, puede utilizar la cadena de certificados existente. Obtenga el archivo .cer para el certificado raíz que desee usar.
 
-Si no usa una solución de certificación de empresa, será preciso que cree un certificado raíz autofirmado. Para crear un certificado autofirmado que contenga los campos necesarios para la autenticación P2S, use makecert. [Creación de certificados raíz autofirmados para conexiones P2S](vpn-gateway-certificates-point-to-site.md) lo guiará por los pasos para crear un certificado raíz autofirmado. Sabemos que makecert está en desuso pero, de momento, es la solución admitida.
 
->[!NOTE]
->Aunque es posible usar PowerShell para crear certificados autofirmados, el certificado que se genera mediante PowerShell no contiene los campos necesarios para la autenticación de punto a sitio.
+Si no usa una solución de certificación de empresa, será preciso que cree un certificado raíz autofirmado. Para crear un certificado raíz autofirmado que contenga los campos necesarios para la autenticación P2S, puede usar PowerShell. En [Funcionamiento de los certificados raíz autofirmados para conexiones de punto a sitio](vpn-gateway-certificates-point-to-site.md) puede obtener ayuda con los pasos necesarios para crear un certificado raíz autofirmado.
+
+> [!NOTE]
+> Anteriormente, makecert era el método recomendado para crear certificados raíz autofirmados y generar certificados de cliente para conexiones de punto a sitio. Ahora puede usar PowerShell para crear estos certificados. Una ventaja del uso de PowerShell es la posibilidad de crear certificados SHA-2. Para ver los paquetes requeridos, consulte [Funcionamiento de los certificados raíz autofirmados para conexiones de punto a sitio](vpn-gateway-certificates-point-to-site.md).
+>
 >
 
 
-#### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>Para obtener el archivo .cer de un certificado raíz autofirmado
+#### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>Para exportar la clave pública para un certificado raíz autofirmado.
 
-1. Para obtener un archivo .cer de un certificado raíz autofirmado, abra **certmgr.msc** y busque el certificado raíz que creó. El certificado se encuentra normalmente en "Certificates-Current User/Personal/Certificates" y su nombre es el que le asignara cuando lo creó. Haga clic con el botón derecho en el certificado raíz autofirmado, luego en **Todas las tareas** y, por último, en **Exportar**. Se abre el **Asistente para exportar certificados**.
-2. En el asistente, haga clic en **Siguiente**, seleccione **No exportar la clave privada** y, después, en **Siguiente**.
-3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base&64; (.CER)**. A continuación, haga clic en **Siguiente**.
+Para cargarse en Azure, las conexiones de punto a sitio requieren la clave pública (.cer). Los siguientes pasos le ayudan a exportar el archivo .cer de un certificado raíz autofirmado.
+
+1. Para obtener un archivo .cer del certificado, abra **certmgr.msc**. Busque el certificado raíz autofirmado; normalmente se encuentra en Certificados - Usuario actual\Personal\Certificados y haga clic en el botón derecho. Haga clic en **Todas las tareas** y, luego, en **Exportar**. Se abre el **Asistente para exportar certificados**.
+2. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
+3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base&64; (.CER)** y, luego, haga clic en **Siguiente**. 
 4. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
-5. Haga clic en **Finalizar** para exportar el certificado.
+5. Haga clic en **Finalizar** para exportar el certificado. Verá **La exportación se realizó correctamente**. Haga clic en **Aceptar** para cerrar el asistente.
 
 ### <a name="upload"></a>Parte 2: Carga del archivo .cer de certificado raíz en el Portal de Azure clásico
-Agregue un certificado de confianza a Azure. Al agregar un archivo X.509 con codificación Base64 (.cer) a Azure, se está indicando que se confíe en el certificado raíz que representa el archivo.
+
+Agregue un certificado de confianza a Azure. Al agregar un archivo X.509 con codificación Base64 (.cer) a Azure, se está indicando que se confíe en el certificado raíz que representa el archivo. Se pueden cargar archivos para un máximo de 20 certificados raíz. No cargue la clave privada para el certificado raíz en Azure. Una vez que se carga el archivo .cer, Azure lo utiliza para autenticar a los clientes que se conectan a la red virtual.
 
 1. En el Portal de Azure clásico, en la página **Certificados** de la red virtual, haga clic en **Cargar un certificado raíz**.
 2. En la página **Carga del certificado** , busque el certificado raíz .cer y, a continuación, haga clic en la marca de verificación.
 
 ### <a name="createclientcert"></a>Parte 3: Generación de un certificado de cliente
-A continuación, genere los certificados de cliente. Puede generar un certificado único para cada cliente que se vaya a conectar o puede usar el mismo en varios clientes. La ventaja de generar certificados de cliente únicos es la capacidad de revocar un solo certificado si es necesario. De lo contrario, si todos usan el mismo certificado de cliente y descubre que necesita revocar el certificado para un cliente, tendrá que generar e instalar nuevos certificados para todos los clientes que usen el certificado para autenticarse.
+Puede generar un certificado único para cada cliente que se vaya a conectar o puede usar el mismo en varios clientes. La ventaja de generar certificados de cliente únicos es la capacidad de revocar un solo certificado si es necesario. Sin embargo, si todos usan el mismo certificado de cliente y necesita revocar el de un solo cliente, tendrá que generar e instalar certificados nuevos para todos los clientes que usen el certificado para autenticarse.
 
 ####<a name="enterprise-certificate"></a>Certificado de empresa
 - Si usa una solución de certificación de empresa, genere un certificado de cliente con el formato de valor de nombre común "name@yourdomain.com", en lugar del formato "nombreDeDominio\nombreDeUsuario".
 - Asegúrese de que el certificado de cliente que emita se base en la plantilla de certificado "Usuario" que tenga "Autenticación de usuario" como primer elemento de la lista de uso, y no Inicio de sesión de tarjeta inteligente, etc. Para comprobar el certificado, haga doble clic en el certificado de cliente y vea **Detalles > Uso mejorado de claves**.
 
-####<a name="self-signed-certificate"></a>Certificado autofirmado 
-Si va a usar un certificado autofirmado, consulte [Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md) para generar un certificado de cliente.
+####<a name="self-signed-root-root-certificate"></a>Certificado raíz autofirmado 
+Si utiliza un certificado raíz autofirmado, consulte [Generate a client certificate using PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) (Generación de un certificado de cliente mediante PowerShell) para ver los pasos necesarios para generar un certificado de cliente que sea compatible con conexiones de punto a sitio.
+
 
 ## <a name="installclientcert"></a>Sección 3: Exportación e instalación del certificado de cliente
-Instale un certificado de cliente en cada equipo que desee conectar a la red virtual. Se necesita un certificado de cliente para la autenticación. Puede automatizar la instalación del certificado de cliente o instalarlo manualmente. En los pasos siguientes aprenderá a exportar e instalar el certificado de cliente de forma manual.
 
-1. Para exportar un certificado de cliente, puede usar *certmgr.msc*. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**.
-2. Exporte el certificado de cliente con la clave privada. Es un archivo *.pfx* . Asegúrese de anotar o recordar la contraseña (clave) que establezca para este certificado.
-3. Copie el archivo *.pfx* en el equipo cliente. En el equipo cliente, haga doble clic en el archivo *.pfx* para instalarlo. Escriba la contraseña cuando se le solicite. No modifique la ubicación de instalación.
+Después de generar un certificado de cliente, debe exportarlo en forma de archivo .pfx y, luego, instalarlo en el equipo cliente. Cada equipo cliente debe tener un certificado de cliente para autenticarse. Puede automatizar la instalación del certificado de cliente o instalarlo manualmente. En los pasos siguientes aprenderá a exportar e instalar el certificado de cliente de forma manual.
+
+### <a name="export-the-client-certificate"></a>Exportación del certificado de cliente
+
+1. Para exportar un certificado de cliente, abra **certmgr.msc**. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**. Se abre el **Asistente para exportar certificados**.
+2. En el asistente, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y, luego, haga clic en **Siguiente**.
+3. En la página **Formato de archivo de exportación** , puede dejar seleccionados los valores predeterminados. A continuación, haga clic en **Siguiente**. 
+4. En la página **Seguridad** , debe proteger la clave privada. Si decide usar una contraseña, asegúrese de anotarla o de recordar la contraseña que estableció para este certificado. A continuación, haga clic en **Siguiente**.
+5. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
+6. Haga clic en **Finalizar** para exportar el certificado.
+
+### <a name="install-the-client-certificate"></a>Instalación del certificado de cliente
+
+Al instalar el certificado de cliente, necesitará la contraseña que se creó cuando se exportó el certificado de cliente.
+
+1. Busque el archivo *.pfx* y cópielo en el equipo cliente. En el equipo cliente, haga doble clic en el archivo *.pfx* para instalarlo. Deje **Ubicación de almacén** como **Usuario actual** y, luego, haga clic en **Siguiente**.
+2. En la página **File to import** (Archivo para importar), no haga ningún cambio. Haga clic en **Next**.
+3. En la página **Protección de clave privada**, escriba la contraseña del certificado, si ha usado una, o compruebe que la entidad de seguridad que instala el certificado sea correcta y, luego, haga clic en **Siguiente**.
+4. En la página **Almacén de certificados**, deje la ubicación predeterminada y, luego, haga clic en **Siguiente**.
+5. Haga clic en **Finalizar** En la **Advertencia de seguridad** para la instalación de certificados, haga clic en **Sí**. Al haberse generado el certificado, puede hacer clic en "Sí" de forma segura. El certificado se importó correctamente.
 
 ## <a name="vpnclientconfig"></a>Sección 4: Configuración del cliente de VPN
-Para conectarse a la red virtual, también necesita configurar un cliente de VPN. El cliente requiere un certificado de cliente y la configuración de cliente VPN adecuada para conectarse. Para configurar un cliente de VPN, realice los pasos siguientes, en orden.
+Para conectarse a la red virtual, también necesita configurar un cliente de VPN. El cliente requiere tanto un certificado de cliente como el paquete de configuración de cliente de VPN adecuado para conectarse correctamente. Para configurar un cliente de VPN, realice los pasos siguientes, en orden.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>Parte 1: Creación del paquete de configuración de cliente de VPN
 1. En el Portal de Azure clásico, en la página **Panel** de la red virtual, vaya al menú de vista rápida en la esquina derecha. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional. Los valores son específicos de la red virtual a la que desea conectarse. Para ver la lista de sistema operativos cliente que se admiten, consulte [Preguntas frecuentes sobre la conexión de punto a sitio](#faq) al final de este artículo.<br><br>Seleccione el paquete de descarga que se corresponde con el sistema operativo del cliente en el que se va a instalar:
@@ -192,8 +221,6 @@ Ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.
-
-Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](/azure/virtual-network) .
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).
 
 

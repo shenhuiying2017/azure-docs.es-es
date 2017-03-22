@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
-ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 7d21ab1180fcd6df39a5dcc5c095c9521c00f6fd
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -37,7 +37,7 @@ Se recomienda crear una función en el portal de Azure Functions mediante las pl
 
 En Azure Portal, en el panel **Integrar** de una función, la plantilla debe mostrar que en **Modo** está seleccionado **Webhook** y en **Tipo de webhook** está seleccionado **JSON genérico**. 
 
-Las funciones de Webhook aceptan una solicitud y las pasan al método mediante una variable `data` . Puede acceder a las propiedades de la carga mediante una notación de puntos, como `data.foo`. Por ejemplo, una función de JavaScript simple que convierte un valor de DateTime en una cadena de fecha es similar al siguiente ejemplo:
+Las funciones de Webhook aceptan una solicitud y las pasan al método mediante una variable `data` . Puede acceder a las propiedades de la carga mediante una notación de puntos, como `data.function-name`. Por ejemplo, una función de JavaScript simple que convierte un valor de DateTime en una cadena de fecha es similar al siguiente ejemplo:
 
 ```
 function start(req, res){

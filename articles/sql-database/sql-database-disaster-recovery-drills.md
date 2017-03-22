@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
-ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 
 #### <a name="recovery"></a>Recuperación
 * Asegúrese de que la configuración de la aplicación en la región de recuperación ante desastres apunta a la base de datos secundaria anterior; recuerde que esta se convertirá en una base de datos principal nueva y totalmente accesible.
-* Realice la [conmutación por error planeada](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) para hacer que la base de datos secundaria se convierta en una primaria
+* Realice la [conmutación por error planeada](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) para hacer que la base de datos secundaria se convierta en una primaria
 * Siga las instrucciones de la guía [Configurar una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
 
 #### <a name="validation"></a>Validación
@@ -64,9 +65,4 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 * Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 * Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte cómo [restaurar una base de datos a partir de las copias de seguridad iniciadas por el servicio](sql-database-recovery-using-backups.md)
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

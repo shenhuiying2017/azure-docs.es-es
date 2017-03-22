@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -111,10 +112,5 @@ Para comenzar a integrar las aplicaciones con Azure AD, eche un vistazo a la [Gu
 
 ## <a name="see-also"></a>Consulte también
 [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

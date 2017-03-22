@@ -70,7 +70,7 @@ ms.lasthandoff: 02/15/2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -299,7 +299,7 @@ ms.lasthandoff: 02/15/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
@@ -347,7 +347,7 @@ En Azure Resource Manager, puede usar los grupos de recursos para administrar to
 
 ## <a name="resources"></a>Recursos
 
-### <a name="a-name42ee2bdb-1efc-4ec7-ab31-fe4c22769b94asap-resources"></a><a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Recursos de SAP
+### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Recursos de SAP
 Cuando se está configurando la implementación de software de SAP, se necesitan los siguientes recursos SAP:
 
 * Nota de SAP [1928533], que incluye:
@@ -370,7 +370,7 @@ Cuando se está configurando la implementación de software de SAP, se necesitan
 
 [comment]: <> (MSSedusch TODO Add ARM patch level for SAP Host Agent in SAP Note 1409604)
 
-### <a name="a-name42ee2bdb-1efc-4ec7-ab31-fe4c22769b94awindows-resources"></a><a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Recursos de Windows
+### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Recursos de Windows
 Estos artículos de Microsoft se refieren a las implementaciones de SAP en Azure:
 
 * [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]
@@ -378,10 +378,10 @@ Estos artículos de Microsoft se refieren a las implementaciones de SAP en Azure
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
 * [Azure Portal][azure-portal]
 
-## <a name="a-nameb3253ee3-d63b-4d74-a49b-185e76c4088eadeployment-scenarios-for-sap-software-on-azure-vms"></a><a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Escenarios de implementación de software de SAP en máquinas virtuales de Azure
+## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Escenarios de implementación de software de SAP en máquinas virtuales de Azure
 Tiene varias opciones para implementar máquinas virtuales y los discos asociados en Azure. Es importante comprender las diferencias entre las opciones de implementación, porque podría seguir pasos diferentes para preparar las máquinas virtuales para la implementación en función del tipo de implementación que elija.
 
-### <a name="a-namedb477013-9060-4602-9ad4-b0316f8bb281ascenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap"></a><a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Escenario 1: Implementación de una máquina virtual de Azure Marketplace para SAP
+### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Escenario 1: Implementación de una máquina virtual de Azure Marketplace para SAP
 Puede usar una imagen proporcionada por Microsoft o por un tercero en Azure Marketplace para implementar la máquina virtual. Marketplace ofrece algunas imágenes de sistema operativo estándar de Windows Server y diferentes distribuciones de Linux. También puede implementar una imagen que incluya SKU del sistema de administración de base de datos (DBMS), por ejemplo, Microsoft SQL Server. Para más información sobre el uso de imágenes con SKU de DBMS, consulte [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide].
 
 El diagrama de flujo siguiente muestra la secuencia de pasos específica de SAP para implementar una máquina virtual desde Azure Marketplace:
@@ -476,7 +476,7 @@ Según cómo esté configurada la red local, quizás tenga que configurar el ser
 #### <a name="join-a-domain-windows-only"></a>Unión a un dominio (solo Windows)
 Si la implementación de Azure está conectada a una instancia local de Active Directory o DNS mediante una conexión de VPN de sitio a sitio de Azure o ExpressRoute (esto se denomina *entre locales* en [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]), se espera que la máquina virtual se una a un dominio local. Para más información acerca de las consideraciones para esta tarea, consulte [Unión de una máquina virtual a un dominio local (solo Windows)][deployment-guide-4.3].
 
-#### <a name="a-nameec323ac3-1de9-4c3a-b770-4ff701def65baconfigure-monitoring"></a><a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configuración de la supervisión
+#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configuración de la supervisión
 Para asegurarse de que su entorno admite SAP, configure la extensión de supervisión mejorada de Azure para SAP tal y como se describe en [Configurar la extensión de supervisión mejorada de Azure para SAP][deployment-guide-4.5]. Compruebe los requisitos previos de la supervisión de SAP y las versiones mínimas del kernel de SAP y de SAP Host Agent requeridas, en los recursos que se indican en [Recursos de SAP][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Comprobación de la supervisión
@@ -489,7 +489,7 @@ Una vez que se ha implementado la máquina virtual en Azure, siga las mismas dir
 
 [comment]: <> (MSSedusch TODO why do we need to recommend a file management, for example, File Server or VHD? Is that so different from on-premises?)
 
-### <a name="a-name54a1fc6d-24fd-4feb-9c57-ac588a55dff2ascenario-2-deploying-a-vm-with-a-custom-image-for-sap"></a><a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Escenario 2: Implementación de una máquina virtual con una imagen personalizada para SAP
+### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Escenario 2: Implementación de una máquina virtual con una imagen personalizada para SAP
 Como las diferentes versiones de un sistema operativo o DBMS tienen requisitos de revisión diferentes, las imágenes que encuentre en Azure Marketplace podrían no ajustarse a sus necesidades. En su lugar, quizás quiera crear una máquina virtual con su propia imagen de máquina virtual de sistema operativo o DBMS, que puede implementar de nuevo más tarde.
 Los pasos para crear una imagen privada de Linux y una imagen privada de Windows son diferentes.
 
@@ -576,7 +576,7 @@ Compruebe si la supervisión funciona según lo descrito en [Comprobaciones y so
 
 
 
-### <a name="a-namea9a60133-a763-4de8-8986-ac0fa33aa8c1ascenario-3-moving-an-on-premises-vm-by-using-a-non-generalized-azure-vhd-with-sap"></a><a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Escenario 3: Traslado de una máquina virtual local con un VHD no generalizado de Azure con SAP
+### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Escenario 3: Traslado de una máquina virtual local con un VHD no generalizado de Azure con SAP
 En este escenario, tiene previsto mover un sistema SAP específico desde un entorno local a Azure. Esto puede hacerse cargando a Azure el disco duro virtual que contiene el sistema operativo, los archivos binarios de SAP y los archivos binarios de DBMS, así como los discos duros virtuales con los archivos de registro y de datos del DBMS. A diferencia del escenario descrito en [Escenario 2: Implementación de una máquina virtual con una imagen personalizada para SAP][deployment-guide-3.3], en este caso se mantiene el nombre de host, el SID de SAP y las cuentas de usuario de SAP en la máquina virtual de Azure, porque se configuraron en el entorno local. No es necesario generalizar el sistema operativo. Este escenario se da con mayor frecuencia entre entornos locales, donde una parte del panorama SAP se ejecuta en un entorno local y otra parte del mismo se ejecuta en Azure.
 
 En este escenario, el agente de máquina virtual no se instala automáticamente durante la implementación. Como el agente de máquina virtual y la extensión de supervisión mejorada de Azure para SAP son un requisito previo para ejecutar SAP, debe descargar, instalar y habilitar los dos componentes manualmente después de crear la máquina virtual.
@@ -671,7 +671,7 @@ Siga los pasos que se explican en el capítulo [Configuración de la extensión 
 ## <a name="detailed-tasks-for-sap-software-deployment-on-a-linux-vm"></a>Tareas detalladas para la implementación de software de SAP en una máquina virtual Linux
 En esta sección se detallan los pasos para realizar tareas específicas en el proceso de configuración e implementación.
 
-### <a name="a-name604bcec2-8b6e-48d2-a944-61b0f5dee2f7adeploy-azure-powershell-cmdlets"></a><a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Implementación de cmdlets de Azure PowerShell
+### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Implementación de cmdlets de Azure PowerShell
 1.  Vaya a [Descargas de Microsoft Azure](https://azure.microsoft.com/downloads/).
 2.  En **Herramientas de línea de comandos**, en **PowerShell**, seleccione **Instalación para Windows**.
 3.  En el cuadro del administrador de descargas de Microsoft para el archivo descargado (por ejemplo, WindowsAzurePowershellGet.3f.3f.3fnew.exe), seleccione **Ejecutar**.
@@ -700,7 +700,7 @@ Si la versión de los cmdlets de Azure instalada en el equipo es la versión act
 ![Pantalla de instalación de cmdlets de Azure PowerShell que indica que está instalada la versión más reciente de los cmdlets de Azure PowerShell][deployment-guide-figure-700]
 <a name="figure-7"></a>
 
-### <a name="a-name1ded9453-1330-442a-86ea-e0fd8ae8cab3adeploy-azure-cli"></a><a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Implementación de la CLI de Azure
+### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Implementación de la CLI de Azure
 1.  Vaya a [Descargas de Microsoft Azure](https://azure.microsoft.com/downloads/).
 2.  En **Herramientas de línea de comandos**, en **Interfaz de línea de comandos de Azure**, seleccione el vínculo **Instalación** correspondiente a su sistema operativo.
 3.  En el cuadro del administrador de descargas de Microsoft para el archivo descargado (por ejemplo, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), seleccione **Ejecutar**.
@@ -724,17 +724,17 @@ El resultado se parecerá al siguiente:
 ![Resultado de la comprobación de versión de CLI de Azure][deployment-guide-figure-760]
 <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
-### <a name="a-name31d9ecd6-b136-4c73-b61e-da4a29bbc9ccajoin-a-vm-to-an-on-premises-domain-windows-only"></a><a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Unión de una máquina virtual a un dominio local (solo Windows)
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Unión de una máquina virtual a un dominio local (solo Windows)
 Si implementa máquinas virtuales de SAP en un escenario entre entornos locales en los que las instancias de Active Directory y DNS locales se extienden a Azure, se espera que las máquinas virtuales estén unidas a un dominio local. Los pasos detallados para unir una máquina virtual a un dominio local y el software adicional que se requiere para ser miembro de un dominio local varía según el cliente. Por lo general, para unir una máquina virtual a un dominio local, debe instalar software adicional, como software antimalware, de copia de seguridad o de supervisión.
 
 En este escenario, también tiene que asegurarse de que si se fuerza la configuración de proxy de Internet cuando una máquina virtual se une a un dominio en su entorno, la cuenta de sistema local de Windows (S-1-5-18) en la máquina virtual invitada tiene la misma configuración de proxy. La manera más sencilla es obligar al servidor proxy mediante una directiva de grupo de dominio que se aplica a los sistemas de del dominio.
 
-### <a name="a-namec7cbb0dc-52a4-49db-8e03-83e7edc2927dadownload-install-and-enable-the-azure-vm-agent"></a><a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Descarga, instalación y habilitación del agente de máquina virtual de Azure
+### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Descarga, instalación y habilitación del agente de máquina virtual de Azure
 Para las máquinas virtuales que se implementan desde una imagen de sistema operativo que no está generalizada (por ejemplo, una imagen que no se origina en la herramienta de preparación del sistema de Windows o sysprep), debe descargar, instalar y habilitar manualmente el agente de máquina virtual de Azure.
 
 Si implementa una máquina virtual desde Azure Marketplace, este paso no es necesario. Las imágenes de Azure Marketplace ya tienen el agente de máquina virtual de Azure.
 
-#### <a name="a-nameb2db5c9a-a076-42c6-9835-16945868e866awindows"></a><a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
+#### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
 1.  Descargue el agente de máquina virtual de Azure:
   1.  Descargue el [paquete del instalador del agente de máquina virtual de Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
   2.  Almacene el paquete MSI del agente de máquina virtual localmente en su equipo o en un servidor.
@@ -747,7 +747,7 @@ Si implementa una máquina virtual desde Azure Marketplace, este paso no es nece
 
 No se necesita ninguna interacción del usuario para actualizar el agente de máquina virtual de Azure. El agente de máquina virtual se actualiza automáticamente y no requiere que la máquina virtual se reinicie.
 
-#### <a name="a-name6889ff12-eaaf-4f3c-97e1-7c9edc7f7542alinux"></a><a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
+#### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
 Use los comandos siguientes para instalar el agente de máquina virtual para Linux:
 
 * **SUSE Linux Enterprise Server (SLES)**
@@ -764,7 +764,7 @@ Use los comandos siguientes para instalar el agente de máquina virtual para Lin
 
 Si el agente ya está instalado, para actualizar el agente de Linux de Azure, siga los pasos descritos en [Actualización del agente de Linux de Azure en una máquina virtual a la última versión desde GitHub][virtual-machines-linux-update-agent].
 
-### <a name="a-namebaccae00-6f79-4307-ade4-40292ce4e02daconfigure-the-proxy"></a><a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configuración de proxy
+### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configuración de proxy
 Los pasos que se siguen para configurar el proxy en Windows son diferentes en Linux.
 
 #### <a name="windows"></a>Windows
@@ -815,12 +815,12 @@ La configuración de proxy en \\etc\\waagent.conf también se aplica a las exten
 
 Para más información sobre las rutas definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío IP][virtual-networks-udr-overview].
 
-### <a name="a-named98edcd3-f2a1-49f7-b26a-07448ceb60caaconfigure-the-azure-enhanced-monitoring-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configuración de la extensión de supervisión mejorada de Azure para SAP
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configuración de la extensión de supervisión mejorada de Azure para SAP
 Cuando la máquina virtual esté preparada tal y como se describe en [Escenarios de implementación de máquinas virtuales para SAP en Azure][deployment-guide-3], el agente de máquina virtual de Azure se instala en la máquina virtual. El siguiente paso es implementar la extensión de supervisión mejorada de Azure para SAP, que está disponible en el repositorio de extensiones de Azure, en los centros de datos globales de Azure. Para más información, consulte [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide-9.1].
 
 Puede usar PowerShell o la CLI de Azure para instalar y configurar la extensión de supervisión mejorada de Azure para SAP. Para instalar la extensión en una máquina virtual Linux o Windows mediante una máquina Windows, consulte [Azure PowerShell][deployment-guide-4.5.1]. Para instalar la extensión en una máquina virtual Linux con un equipo de escritorio Linux, consulte [CLI de Azure][deployment-guide-4.5.2].
 
-#### <a name="a-name987cf279-d713-4b4c-8143-6b11589bb9d4aazure-powershell-for-linux-and-windows-vms"></a><a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell para máquinas virtuales Linux y con Windows
+#### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell para máquinas virtuales Linux y con Windows
 Para instalar la extensión de supervisión mejorada de Azure para SAP mediante PowerShell:
 
 1. Asegúrese de tener instalada la versión más reciente del cmdlet de Azure PowerShell. Para más información, consulte [Implementación de cmdlets de Azure PowerShell][deployment-guide-4.1].  
@@ -852,7 +852,7 @@ La salida del script incluye la información siguiente:
 * Para comprobar que todos los pasos de la supervisión mejorada de Azure se ejecutaron correctamente y de que la infraestructura de Azure proporciona los datos necesarios, continúe con la comprobación de la preparación de la extensión de supervisión mejorada de Azure para SAP, tal y como se describe en [Comprobación de preparación de la supervisión mejorada de Azure para SAP][deployment-guide-5.1].
 * Espere de 15 a 30 minutos para que Diagnósticos de Azure recopile los datos pertinentes.
 
-#### <a name="a-name408f3779-f422-4413-82f8-c57a23b4fc2faazure-cli-for-linux-vms"></a><a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI de Azure para máquinas virtuales de Linux
+#### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI de Azure para máquinas virtuales de Linux
 Para instalar la extensión de supervisión mejorada de Azure para SAP mediante la CLI de Azure:
 
 1. Instale la CLI de Azure tal y como se describe en [Instalación de la CLI de Azure][azure-cli].
@@ -887,12 +887,12 @@ El resultado tendrá un aspecto similar al siguiente:
 …
 ```
 
-## <a name="a-name564adb4f-5c95-4041-9616-6635e83a810bachecks-and-troubleshooting-for-end-to-end-monitoring"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Comprobaciones y solución de problemas de supervisión de extremo a extremo
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Comprobaciones y solución de problemas de supervisión de extremo a extremo
 Después de implementar la máquina virtual de Azure y de configurar la infraestructura de supervisión de Azure correspondiente, revise si todos los componentes de la extensión de supervisión mejorada de Azure funcionan correctamente.
 
 Ejecute la comprobación de la preparación de la extensión de supervisión mejorada de Azure para SAP tal y como se describe en [Comprobación de la preparación de la extensión de supervisión mejorada de Azure para SAP][deployment-guide-5.1]. Si todos los resultados de la comprobación de la preparación son positivos y todos los contadores de rendimiento pertinentes son correctos, la supervisión de Azure se configuró correctamente. Puede continuar con la instalación de SAP Host Agent, tal y como se describe en las notas de SAP en [Recursos de SAP][deployment-guide-2.2]. Si la comprobación de la preparación indica que faltan contadores, ejecute la comprobación del estado de mantenimiento de la infraestructura de supervisión de Azure, tal y como se describe en [Comprobación del estado de la configuración de la infraestructura de supervisión de Azure][deployment-guide-5.2]. Para ver más opciones de solución de problemas, consulte [Solución de problemas de supervisión de Azure para SAP][deployment-guide-5.3].
 
-### <a name="a-namebb61ce92-8c5c-461f-8c53-39f5e5ed91f2areadiness-check-for-the-azure-enhanced-monitoring-extension-for-sap"></a><a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Comprobación de la preparación de la extensión de supervisión mejorada de Azure para SAP
+### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Comprobación de la preparación de la extensión de supervisión mejorada de Azure para SAP
 Con esta comprobación, se asegura de que la infraestructura de supervisión de Azure subyacente proporcione todas las métricas que aparecen dentro de la aplicación SAP.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Ejecución de la comprobación de la preparación en una máquina virtual Windows
@@ -995,7 +995,7 @@ Si ya tiene instalado un servidor de aplicaciones de SAP NetWeaver ABAP, abra la
 
 Si alguno de estos pasos produce un error y para obtener información detallada sobre cómo volver a implementar la extensión, consulte [Solución de problemas de la infraestructura de supervisión de Azure para SAP][deployment-guide-5.3].
 
-### <a name="a-namee2d592ff-b4ea-4a53-a91a-e5521edb6cd1ahealth-check-for-the-azure-monitoring-infrastructure-configuration"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Comprobación del estado de mantenimiento de la configuración de la infraestructura de supervisión de Azure
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Comprobación del estado de mantenimiento de la configuración de la infraestructura de supervisión de Azure
 Si parte de los datos de supervisión no se entregan correctamente según lo indicado en la prueba que se describe en [Comprobación de la preparación de la supervisión mejorada de Azure para SAP][deployment-guide-5.1], ejecute el cmdlet `Test-AzureRmVMAEMExtension` para comprobar si la configuración de la infraestructura de supervisión de Azure y de la extensión de supervisión para SAP es correcta.
 
 1.  Asegúrese de tener instalada la versión más reciente del cmdlet de Azure PowerShell, tal y como se describe en [Implementación de cmdlets de Azure PowerShell][deployment-guide-4.1].
@@ -1017,7 +1017,7 @@ Si parte de los datos de supervisión no se entregan correctamente según lo ind
 
 Asegúrese de que todos los resultados de la comprobación del estado de mantenimiento sean **OK**. Si algunas comprobaciones no muestran **OK**, ejecute el cmdlet de actualización tal y como se describe en [Configuración de la extensión de supervisión mejorada de Azure para SAP][deployment-guide-4.5]. Espere 15 minutos y vuelva a ejecutar las comprobaciones que se describen en [Comprobación de la preparación de la supervisión mejorada de Azure para SAP][deployment-guide-5.1] y [Comprobación del estado de la configuración de la infraestructura de supervisión de Azure][deployment-guide-5.2]. Si las comprobaciones siguen con problemas en algunos contadores o en todos ellos, consulte [Solución de problemas de la infraestructura de supervisión de Azure para SAP][deployment-guide-5.3].
 
-### <a name="a-namefe25a7da-4e4e-4388-8907-8abc2d33cfd8atroubleshooting-the-azure-monitoring-infrastructure-for-sap"></a><a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solución de problemas de la infraestructura de supervisión de Azure para SAP
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solución de problemas de la infraestructura de supervisión de Azure para SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] No aparecen contadores de rendimiento de Azure
 El servicio AzureEnhancedMonitoring Windows recopila métricas de rendimiento en Azure. Si el servicio no se instaló correctamente o si no se está ejecutando en la máquina virtual, no se recopilará ninguna métrica de rendimiento.

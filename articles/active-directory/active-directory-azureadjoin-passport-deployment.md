@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -112,10 +113,5 @@ En la página **Inscripción de SCEP** del perfil de certificado, tiene que sele
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

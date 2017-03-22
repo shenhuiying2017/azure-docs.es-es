@@ -13,13 +13,13 @@ ms.custom: business continuity
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
-ms.openlocfilehash: 444954fa2152fbd8b7e25b9787a13fa4a62ec77f
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 797d91b21fcd71672890c6c77bc81eadd73b47ff
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,11 +39,15 @@ En este tutorial, aprenderá a usar el Portal de Azure para:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](https://azure.microsoft.com/free/) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
+* **Una cuenta de Azure**. Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](https://azure.microsoft.com/free/) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* Debe poder conectarse a Azure Portal mediante una cuenta que sea miembro del rol de colaborador o propietario de la suscripción. Para más información sobre el acceso basado en roles (RBAC), consulte [Introducción a la administración de acceso en Azure Portal](../active-directory/role-based-access-control-what-is.md).
+* **Permisos de creación de Azure**. Debe poder conectarse a Azure Portal mediante una cuenta que sea miembro del rol de colaborador o propietario de la suscripción. Para más información sobre el acceso basado en roles (RBAC), consulte [Introducción a la administración de acceso en Azure Portal](../active-directory/role-based-access-control-what-is.md).
 
-* Ha finalizado la [introducción a los servidores, las bases de datos y las reglas de firewalls de Azure SQL Database mediante Azure Portal y SQL Server Management Studio](sql-database-get-started.md) o la [versión de PowerShell](sql-database-get-started-powershell.md) equivalente de este tutorial. Si no es así, realice el tutorial que es requisito previo o ejecute el script de PowerShell al final de la [versión de PowerShell](sql-database-get-started-powershell.md) de este tutorial antes de continuar.
+* **SQL Server Management Studio**. Puede descargar e instalar la versión de SQL Server Management Studio (SSMS) más reciente de [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Utilice siempre la versión más reciente de SSMS al conectarse a Azure SQL Database, ya que se lanzan funcionalidades nuevas constantemente.
+
+* **Servidor de bases y bases de datos**. Para instalar y configurar un servidor y las dos bases de datos que se usan en este tutorial, haga clic en el botón **Deploy to Azure** (Implementar en Azure). Al hacer clic en el botón se abre la hoja **Deploy from a template** (Implementar desde una plantilla); cree un nuevo grupo de recursos y proporcione la **Admin Login Password** (Contraseña de inicio de sesión del administrador) para el nuevo servidor que va a crear:
+
+   [![descarga](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 > [!NOTE]

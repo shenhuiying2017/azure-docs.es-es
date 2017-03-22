@@ -67,11 +67,11 @@ Abra la hoja Filtro y elija los tipos de evento que desea ver. (Si, posteriormen
 
 Los tipos de evento son:
 
-* **Seguimiento**: - [](app-insights-asp-net-trace-logs.md) registros de diagnóstico, como llamadas a TrackTrace, log4Net, NLog y System.Diagnostic.Trace.
-* **Solicitud**: solicitudes HTTP recibidas por la aplicación de servidor, como páginas, scripts, imágenes, archivos de estilo y datos. Estos eventos se utilizan para crear los gráficos de información general de solicitudes y respuestas.
-* **Vista de página**: - [](app-insights-javascript.md) es la telemetría enviada por el cliente web, que se usa para crear informes de vistas de página. 
-* **Evento personalizado:** [](app-insights-api-custom-events-metrics.md)si ha insertado llamadas a TrackEvent() para supervisar el uso, puede buscarlas aquí.
-* **Excepción** : [](app-insights-asp-net-exceptions.md)excepciones no detectadas en el servidor y las que se registran mediante TrackException().
+* **Seguimiento** - [registros de diagnóstico](app-insights-asp-net-trace-logs.md), como llamadas a TrackTrace, log4Net, NLog y System.Diagnostic.Trace.
+* **Solicitud** - solicitudes HTTP recibidas por la aplicación de servidor, como páginas, scripts, imágenes, archivos de estilo y datos. Estos eventos se utilizan para crear los gráficos de información general de solicitudes y respuestas.
+* **Vista de página** - [es la telemetría enviada por el cliente web](app-insights-javascript.md) , que se usa para crear informes de vistas de página. 
+* **Evento personalizado** - si ha insertado llamadas a TrackEvent() [para supervisar el uso](app-insights-api-custom-events-metrics.md) , puede buscarlas aquí.
+* **Excepción** - [excepciones no detectadas en el servidor](app-insights-asp-net-exceptions.md) y las que se registran mediante TrackException().
 * **Dependencia:** - [ llamadas desde su aplicación de servidor](app-insights-asp-net-dependencies.md) a otros servicios, como API de REST o bases de datos, y llamadas de AJAX desde su [código de cliente](app-insights-javascript.md).
 * **Disponibilidad**: resultados de [pruebas de disponibilidad](app-insights-monitor-web-app-availability.md).
 
@@ -167,15 +167,15 @@ Además de la telemetría inmediata enviada por el SDK de Application Insights, 
 
 [Aprender a enviar registros y telemetría personalizada a Application Insights](app-insights-search-diagnostic-logs.md).
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Preguntas y respuestas
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>¿Qué cantidad de datos se conserva?
+## <a name="questions"></a>Preguntas y respuestas
+### <a name="limits"></a>¿Qué cantidad de datos se conserva?
 
 Consulte [Resumen de límites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>¿Cómo puedo ver datos POST en mis solicitudes de servidor?
 Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](app-insights-search-diagnostic-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Pasos siguientes
+## <a name="add"></a>Pasos siguientes
 * [Escribir consultas complejas en Analytics](app-insights-analytics-tour.md)
 * [Envío de registros y telemetría personalizada a Application Insights](app-insights-search-diagnostic-logs.md).
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta](app-insights-monitor-web-app-availability.md)

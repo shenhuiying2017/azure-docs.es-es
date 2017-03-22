@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -36,10 +37,5 @@ Actualmente, la directiva no se exige a los usuarios invitados de SharePoint. La
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>¿Se aplica una directiva de acceso condicional a las cuentas de servicio?
 **R:** las directivas de acceso condicional se aplican a todas las cuentas de servicio. Aquí se incluyen las cuentas de usuario que se utilizan como cuentas de servicio. En muchos casos, una cuenta de servicio que se ejecuta en modo desatendido no puede satisfacer una directiva. Por ejemplo, esto sucede cuando se requiere MFA. En estos casos, las cuentas de los servicios se pueden excluir de una directiva, para lo que se usa la configuración de administración de directivas de acceso condicional. Aquí encontrará más información acerca de cómo aplicar una directiva a los usuarios.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

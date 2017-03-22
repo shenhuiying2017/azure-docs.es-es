@@ -1,6 +1,6 @@
 ---
 title: "Características de seguridad de Azure que ayudan a la administración de identidades | Microsoft Docs"
-description: " Este artículo proporciona una visión general de las principales características de seguridad de Azure que contribuyen a la administración de identidades. Las soluciones de administración de identidad y acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Esto hace posible que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional.. "
+description: " Este artículo proporciona una visión general de las principales características de seguridad de Azure que contribuyen a la administración de identidades. Las soluciones de administración de la identidad y el acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Además, esto posibilita que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/09/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
-ms.openlocfilehash: 9c5af888ec0130ec8506602ab805221f0a83ea47
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: bb9d08d6164ec01ce1d76fc4a23e782213ecfcd9
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -109,15 +110,15 @@ Más información:
 * [Versión preliminar de Azure Active Directory B2C: tipos de aplicaciones](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Registro de dispositivos
-El Registro de dispositivos de Azure AD es la base de los escenarios de [acceso condicional](../active-directory/active-directory-conditional-access-on-premises-setup.md) basado en dispositivos. Cuando se registra un dispositivo, el Registro de dispositivos de Azure Active Directory le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión. El dispositivo autenticado y los atributos del dispositivo pueden utilizarse para aplicar directivas de acceso condicional para las aplicaciones que se hospedan en la nube y locales.
+El Registro de dispositivos de Azure AD es la base de los escenarios de [acceso condicional](../active-directory/active-directory-conditional-access-device-registration-overview.md) basado en dispositivos. Cuando se registra un dispositivo, el Registro de dispositivos de Azure Active Directory le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión. El dispositivo autenticado y los atributos del dispositivo pueden utilizarse para aplicar directivas de acceso condicional para las aplicaciones que se hospedan en la nube y locales.
 
 Cuando se combina con una solución de administración de dispositivos móviles (MDM) como Intune, los atributos del dispositivo en Azure Active Directory se actualizan con información adicional sobre este. Esto le permite crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento.
 
 Más información:
 
 * [Introducción al Registro de dispositivos de Azure Active Directory](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../active-directory/active-directory-conditional-access-on-premises-setup.md)
 * [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 Privileged Identity Management de Azure Active Directory (AD) le permite administrar, controlar y supervisar las identidades con privilegios y el acceso a los recursos en Azure AD y en otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
@@ -153,9 +154,4 @@ Más información:
 * [Notas del producto sobre identidad híbrida](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog del equipo de Active Directory](https://blogs.technet.microsoft.com/ad/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

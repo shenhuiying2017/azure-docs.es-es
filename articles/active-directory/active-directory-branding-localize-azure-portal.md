@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -48,9 +49,4 @@ Puede transcurrir hasta una hora para que los cambios efectuados se muestren en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Agregar personalización de marca a la página de inicio de sesión](active-directory-branding-custom-signon-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
