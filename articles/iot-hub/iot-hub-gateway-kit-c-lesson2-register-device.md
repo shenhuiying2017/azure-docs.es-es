@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a895f18b4cefc01f12613e701c71bd471bb369c3
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -106,8 +107,3 @@ Ha creado una instancia de IoT Hub y ha registrado en ella el dispositivo local 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración y ejecución de la aplicación de ejemplo BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

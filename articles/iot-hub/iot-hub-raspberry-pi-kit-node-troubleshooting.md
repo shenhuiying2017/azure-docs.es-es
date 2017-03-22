@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -150,10 +151,5 @@ Puede aprovechar todas las capacidades que brinda CLI para crear y administrar t
 
 ## <a name="azure-storage-issues"></a>Problemas de Azure Storage
 El [Explorador de Microsoft Azure Storage (versión preliminar)](http://storageexplorer.com) es una aplicación independiente de Microsoft que permite trabajar con datos de Azure Storage en Windows, macOS y Linux. Con esta herramienta, puede conectarse a la tabla y ver los datos que contiene. Puede utilizar esta herramienta para solucionar los problemas de Azure Storage.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

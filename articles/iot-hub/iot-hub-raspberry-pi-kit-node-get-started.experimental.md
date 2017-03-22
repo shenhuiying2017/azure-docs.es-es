@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1a67616d42d233866d5d3eb86aafb1df911d5cdf
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -129,10 +130,5 @@ Vaya a [Sección opcional: Cambio del comportamiento de encendido y apagado del 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 Si tiene algún problema durante las lecciones, puede encontrar soluciones en el artículo [Troubleshooting](iot-hub-raspberry-pi-kit-node-troubleshooting.md) (Solución de problemas).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

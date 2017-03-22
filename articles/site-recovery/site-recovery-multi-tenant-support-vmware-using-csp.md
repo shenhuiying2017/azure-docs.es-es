@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/21/2017
 ms.author: manayar
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -29,9 +30,9 @@ Tenga en cuenta que esta guía se basa en buena medida en la documentación exis
 ## <a name="multi-tenant-environments"></a>Entornos multiinquilino
 Existen tres modelos principales multiinquilino:
 
-1.  **Proveedor de servicios de hospedaje compartidos (HSP)**: en este caso el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales de varios inquilinos en la misma infraestructura. El asociado puede proporcionar la administración de la recuperación ante desastres como un servicio administrado o ser propiedad esta del inquilino como una solución de recuperación ante desastres de autoservicio.
-2.  **Proveedor de servicios de hospedaje dedicados**: en este caso, el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. De nuevo, el asociado puede proporcionar la administración de la recuperación ante desastres o ser esta un autoservicio que administra el inquilino.
-3.  **Proveedor de servicios administrados (MSP)**: aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y los asociados habilitan y administran la recuperación ante desastres.
+1.    **Proveedor de servicios de hospedaje compartidos (HSP)**: en este caso el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales de varios inquilinos en la misma infraestructura. El asociado puede proporcionar la administración de la recuperación ante desastres como un servicio administrado o ser propiedad esta del inquilino como una solución de recuperación ante desastres de autoservicio.
+2.    **Proveedor de servicios de hospedaje dedicados**: en este caso, el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. De nuevo, el asociado puede proporcionar la administración de la recuperación ante desastres o ser esta un autoservicio que administra el inquilino.
+3.    **Proveedor de servicios administrados (MSP)**: aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y los asociados habilitan y administran la recuperación ante desastres.
 
 ## <a name="shared-hosting-multi-tenant-guidance"></a>Guía para entornos multiinquilino: hospedaje compartido
 Esta guía trata detalladamente el escenario de hospedaje compartido. Los otros dos escenarios son subconjuntos del escenario de hospedaje compartido y usan los mismos principios. Al final de la guía de hospedaje compartido se describen las diferencias.
@@ -63,21 +64,21 @@ La alternativa consiste en asignar la cuenta de usuario y el rol en el objeto Da
 
 El procedimiento de acceso a la cuenta de vCenter es el siguiente:
 
-1.  Cree un nuevo rol mediante la clonación del rol de "Solo lectura" predefinido y proporciónele un nombre adecuado (como Azure_Site_Recovery, que se usa en este ejemplo).
-2.  Asigne los siguientes permisos a este rol:
- *  Almacén de datos -> Asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
- *  Red -> Asignación de red
- *  Recursos-> Asignar máquina virtual al grupo de recursos, migrar apagado de máquina virtual, migrar máquinas virtuales encendidas
- *  Tareas -> Crear tarea, actualizar tarea
- *  Máquina virtual -> Configuración
- *  Máquina virtual -> Interactuar -> Responder a pregunta, conexión de dispositivos, configurar soporte de CD, configurar soporte de disquete, apagar, encender, instalación de herramientas de VMware
- *  Máquina virtual -> Inventario -> Crear, registrar, anular registro
- *  Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual
- *  Máquina virtual -> Instantáneas -> Quitar instantáneas
+1.    Cree un nuevo rol mediante la clonación del rol de "Solo lectura" predefinido y proporciónele un nombre adecuado (como Azure_Site_Recovery, que se usa en este ejemplo).
+2.    Asigne los siguientes permisos a este rol:
+ *    Almacén de datos -> Asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
+ *    Red -> Asignación de red
+ *    Recursos-> Asignar máquina virtual al grupo de recursos, migrar apagado de máquina virtual, migrar máquinas virtuales encendidas
+ *    Tareas -> Crear tarea, actualizar tarea
+ *    Máquina virtual -> Configuración
+ *    Máquina virtual -> Interactuar -> Responder a pregunta, conexión de dispositivos, configurar soporte de CD, configurar soporte de disquete, apagar, encender, instalación de herramientas de VMware
+ *    Máquina virtual -> Inventario -> Crear, registrar, anular registro
+ *    Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual
+ *    Máquina virtual -> Instantáneas -> Quitar instantáneas
 
     ![role-permissions](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
-3.  Asigne el nivel de acceso a la cuenta de vCenter (usada en el CS del inquilino) para los distintos objetos, de la manera siguiente:
+3.    Asigne el nivel de acceso a la cuenta de vCenter (usada en el CS del inquilino) para los distintos objetos, de la manera siguiente:
 
 | **Object** | **Rol** | **Comentarios** |
 | --- | --- | --- |
@@ -127,52 +128,52 @@ Los requisitos previos de la máquina virtual son los mismos que los descritos e
 
 ### <a name="step-1-create-tenant-account"></a>Paso 1: Creación de la cuenta de inquilino
 
-1.  Mediante el [Centro de partners](https://partnercenter.microsoft.com/), inicie sesión en su cuenta de CSP. En el menú del panel de la izquierda, seleccione la opción "Customers" (Clientes).
+1.    Mediante el [Centro de partners](https://partnercenter.microsoft.com/), inicie sesión en su cuenta de CSP. En el menú del panel de la izquierda, seleccione la opción "Customers" (Clientes).
 
     ![csp-dashboard](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
 
-2.  En la página que se abre, haga clic en el botón "Agregar cliente".
+2.    En la página que se abre, haga clic en el botón "Agregar cliente".
 
     ![add-customer](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-3.  En la página New Customer (Nuevo cliente), rellene todos los detalles de la información de la cuenta del inquilino y haga clic en "Next:Subscriptions" (Siguiente:Suscripciones).
+3.    En la página New Customer (Nuevo cliente), rellene todos los detalles de la información de la cuenta del inquilino y haga clic en "Next:Subscriptions" (Siguiente:Suscripciones).
 
     ![fill-details](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
-4.  En la página de selección de las suscripciones, desplácese hacia abajo para agregar la suscripción de "Microsoft Azure". Puede agregar en este momento otras suscripciones o dejarlo para otro momento.
+4.    En la página de selección de las suscripciones, desplácese hacia abajo para agregar la suscripción de "Microsoft Azure". Puede agregar en este momento otras suscripciones o dejarlo para otro momento.
 
     ![add-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-5.  Continúe y, en la siguiente página, revise todos los detalles especificados para el inquilino y haga clic en el botón Enviar.
+5.    Continúe y, en la siguiente página, revise todos los detalles especificados para el inquilino y haga clic en el botón Enviar.
 
     ![customer-summary](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)
 
-6.  Después de crear el cliente, llegará a una página de confirmación con los detalles de la cuenta predeterminada y la contraseña para esa suscripción. Guarde la información y cambie la contraseña más adelante si es necesario mediante el inicio de sesión de Azure Portal. Esta información se puede compartir tal y como está con el inquilino, o también se puede crear una cuenta aparte y compartirse en caso necesario.
+6.    Después de crear el cliente, llegará a una página de confirmación con los detalles de la cuenta predeterminada y la contraseña para esa suscripción. Guarde la información y cambie la contraseña más adelante si es necesario mediante el inicio de sesión de Azure Portal. Esta información se puede compartir tal y como está con el inquilino, o también se puede crear una cuenta aparte y compartirse en caso necesario.
 
 ### <a name="step-2-access-tenant-account"></a>Paso 2: Acceso a la cuenta de inquilino
 
-1.  Puede acceder a la suscripción del inquilino desde la página "Customers" (Clientes) mediante el Panel, como se describe en el paso 1. Vaya hasta aquí y haga clic en el nombre de la cuenta de inquilino que acaba de crear.
-2.  Se abre la sección de suscripciones de dicha cuenta y, desde aquí, puede supervisar las suscripciones existentes de la cuenta y agregar más suscripciones si es necesario. Para administrar las operaciones de recuperación ante desastres del inquilino, seleccione la ' opción All de recursos (portal de Azure) en el lado derecho de la página.
+1.    Puede acceder a la suscripción del inquilino desde la página "Customers" (Clientes) mediante el Panel, como se describe en el paso 1. Vaya hasta aquí y haga clic en el nombre de la cuenta de inquilino que acaba de crear.
+2.    Se abre la sección de suscripciones de dicha cuenta y, desde aquí, puede supervisar las suscripciones existentes de la cuenta y agregar más suscripciones si es necesario. Para administrar las operaciones de recuperación ante desastres del inquilino, seleccione la ' opción All de recursos (portal de Azure) en el lado derecho de la página.
 
     ![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.  Al hacer clic en el botón "All resources" (Todos los recursos) se le concede acceso a las suscripciones de Azure del inquilino; esto mismo lo puede comprobar si marca la instancia de AAD que se muestra en la esquina superior derecha de Azure Portal.
+3.    Al hacer clic en el botón "All resources" (Todos los recursos) se le concede acceso a las suscripciones de Azure del inquilino; esto mismo lo puede comprobar si marca la instancia de AAD que se muestra en la esquina superior derecha de Azure Portal.
 
     ![aad-admin](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
 Ahora puede realizar todas las operaciones de Site Recovery para el inquilino mediante Azure Portal y administrar las operaciones de recuperación ante desastres. Cada vez que acceda a la suscripción del inquilino mediante CSP para la recuperación ante desastres administrada, debe seguir el proceso detallado anteriormente.
 
 ### <a name="step-3-deploy-resources-to-tenant-subscription"></a>Paso 3: Implementación de los recursos en la suscripción de inquilino
-1.  En Azure Portal, cree un grupo de recursos e implemente un almacén de Recovery Services por el proceso habitual. Descargue la clave de registro del almacén.
-2.  Registre el CS para el inquilino con la clave de registro del almacén.
-3.  Escriba las credenciales de las dos cuentas de acceso: la cuenta de acceso de vCenter y la cuenta de acceso de la máquina virtual.
+1.    En Azure Portal, cree un grupo de recursos e implemente un almacén de Recovery Services por el proceso habitual. Descargue la clave de registro del almacén.
+2.    Registre el CS para el inquilino con la clave de registro del almacén.
+3.    Escriba las credenciales de las dos cuentas de acceso: la cuenta de acceso de vCenter y la cuenta de acceso de la máquina virtual.
 
     ![config-accounts](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
 ### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>Paso 4: Registro de la infraestructura de Site Recovery en el almacén de Recovery Services
-1.  Abra Azure Portal y, en el almacén creado anteriormente, registre el servidor de vCenter en el CS registrado en el paso anterior. Para ello, use la cuenta de acceso de vCenter.
-2.  Finalice el proceso de preparación de la infraestructura de Site Recovery del modo habitual.
-3.  Las máquinas virtuales ahora están listas para replicarse. Compruebe que solo están visibles las máquinas virtuales del inquilino en la hoja de selección de máquinas virtuales situada bajo la opción de replicación.
+1.    Abra Azure Portal y, en el almacén creado anteriormente, registre el servidor de vCenter en el CS registrado en el paso anterior. Para ello, use la cuenta de acceso de vCenter.
+2.    Finalice el proceso de preparación de la infraestructura de Site Recovery del modo habitual.
+3.    Las máquinas virtuales ahora están listas para replicarse. Compruebe que solo están visibles las máquinas virtuales del inquilino en la hoja de selección de máquinas virtuales situada bajo la opción de replicación.
 
     ![tenant-vms](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
 
@@ -182,20 +183,15 @@ En el caso de que se use el modo de autoservicio para la recuperación ante desa
 
 El asociado también puede agregar un nuevo usuario a la suscripción de inquilino mediante el portal de CSP, de la manera siguiente:
 
-1.  Vaya a la página de suscripción de CSP del inquilino y seleccione la opción "Users and licenses" (Usuarios y licencias).
+1.    Vaya a la página de suscripción de CSP del inquilino y seleccione la opción "Users and licenses" (Usuarios y licencias).
 
     ![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
     Ahora puede crear un nuevo usuario; para ello, escriba los datos pertinentes y seleccione los permisos, o bien cargue la lista de usuarios mediante un archivo CSV.
-2.  Una vez que se crean los usuarios, vuelva a Azure Portal y, en la hoja Suscripción, seleccione la suscripción correspondiente.
-3.  En la hoja nueva que se abre, seleccione Access Control (IAM) y haga clic en + Agregar para agregar un usuario con el nivel de acceso pertinente. Los usuarios creados mediante el portal de CSP se muestran automáticamente en la hoja que se abre al hacer clic en un nivel de acceso.
+2.    Una vez que se crean los usuarios, vuelva a Azure Portal y, en la hoja Suscripción, seleccione la suscripción correspondiente.
+3.    En la hoja nueva que se abre, seleccione Access Control (IAM) y haga clic en + Agregar para agregar un usuario con el nivel de acceso pertinente. Los usuarios creados mediante el portal de CSP se muestran automáticamente en la hoja que se abre al hacer clic en un nivel de acceso.
 
     ![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     Para la mayoría de las operaciones de administración, el rol de Colaborador es suficiente. Un usuario con este nivel de acceso puede hacerlo todo en una suscripción, excepto cambiar los niveles de acceso (para lo cual se necesita el nivel de acceso de Propietario). También puede ajustar los niveles de acceso según sea necesario.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
