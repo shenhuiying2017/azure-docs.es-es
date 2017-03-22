@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,8 +108,3 @@ Si tiene algún problema durante las lecciones, puede encontrar soluciones en el
 
 ## <a name="explore-more"></a>Explorar más
 Visite la [zona de desarrollador del Kit de puerta de enlace de IoT de Intel](http://software.intel.com/iot/microsoft-azure) para obtener más información.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

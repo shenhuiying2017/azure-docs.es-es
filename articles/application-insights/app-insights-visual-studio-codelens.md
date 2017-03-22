@@ -4,18 +4,19 @@ description: "Acceda rápidamente a la telemetría de sus solicitudes y excepcio
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
 ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
 ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -72,16 +73,11 @@ Para más detalles, haga clic en el indicador de solicitudes de CodeLens:
 * Elija **Tendencia** para ver la tendencia para las solicitudes, las solicitudes con errores o los tiempos de respuesta medios en las últimas 24 horas.
 * Elija el nombre del recurso de Application Insights en la esquina superior izquierda de la vista de detalles de CodeLens para cambiar el recurso que es el origen de los datos de CodeLens.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 |  |  |
 | --- | --- |
 | **[Trabajo con Application Insights en Visual Studio](app-insights-visual-studio.md)**<br/>Busque la telemetría, consulte los datos de CodeLens y configure Application Insights. Todos desde Visual Studio. |![Haga clic con el botón derecho en el proyecto y seleccione Application Insights, Búsqueda.](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Incorporación de datos adicionales](app-insights-asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Trabajo con el portal de Application Insights](app-insights-dashboards.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de la telemetría. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

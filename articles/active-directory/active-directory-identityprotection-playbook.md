@@ -6,18 +6,18 @@ keywords: "azure active directory identity protection, detección de aplicacione
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
 ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -131,15 +131,10 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 10. Ahora puede probar el acceso condicional basado en riesgos mediante la simulación de los eventos de riesgo de IP anónima o ubicaciones desconocidas, porque son eventos de riesgo **Medio** .
 
 
-![Guía](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+![Guía de](./media/active-directory-identityprotection-playbook/200.png "Guía")
 
 
 ## <a name="see-also"></a>Otras referencias
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

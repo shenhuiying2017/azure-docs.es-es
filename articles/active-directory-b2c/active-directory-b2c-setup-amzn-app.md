@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: f3154968710384e3f6186b277c4cae33b25c77d2
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -47,10 +48,5 @@ Para usar Amazon como proveedor de identidades en Azure Active Directory (Azure 
 5. Haga clic en **Identity provider type** (Tipo de proveedor de identidades), seleccione **Amazon** y haga clic en **OK** (Aceptar).
 6. Haga clic en **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de cliente y el secreto de cliente de la aplicación de Amazon que creó anteriormente.
 7. Haga clic en **OK** (Aceptar) y, luego, en **Create** (Crear) para guardar la configuración de Amazon.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

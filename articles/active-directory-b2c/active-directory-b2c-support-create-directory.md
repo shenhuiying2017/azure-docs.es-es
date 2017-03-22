@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 42c00632fee16b61f502b5a8ac15825788403ab8
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -31,10 +32,5 @@ Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](activ
 * Si el inquilino de Azure AD B2C no figura en la lista de inquilinos, pero recibe un mensaje de error ("No se pudo completar la creación del inquilino B2C 'contosob2c'. Para obtener más ayuda, siga este [vínculo](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) "), elimine el inquilino que acaba de crear e inténtelo de nuevo.
 * Tenga en cuenta que existen problemas conocidos al eliminar un inquilino de B2C existente y volver a crearlo con el mismo nombre de dominio. Es necesario crear un inquilino de B2C con otro nombre de dominio.
 * Si estas soluciones no lo ayudan, póngase en contacto con el soporte técnico. Aprenda más sobre [cómo presentar solicitudes de soporte técnico para Azure AD B2C](active-directory-b2c-support.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

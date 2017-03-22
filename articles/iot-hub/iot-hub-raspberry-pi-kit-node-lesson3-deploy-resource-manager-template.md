@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: a3a7ec4c81556e4cb530f32c9997d8701db68b2c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -74,10 +75,5 @@ Ha creado una instancia de Azure Function App para procesar mensajes de IoT Hub,
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Run a sample application to send device-to-cloud messages on Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md) (Ejecución de una aplicación de ejemplo para enviar mensajes de dispositivo a nube en Raspberry Pi 3)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

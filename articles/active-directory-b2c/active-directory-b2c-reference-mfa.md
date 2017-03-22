@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 4226075affd1ae03c7bd258b244718f7bb72f127
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -57,10 +58,5 @@ Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si 
 
 ## <a name="multi-factor-authentication-on-other-policies"></a>Multi-Factor Authentication en otras directivas
 Como se ha descrito anteriormente en relación con las directivas de registro e inicio de sesión, también es posible habilitar Multi-Factor Authentication en las directivas de registro o inicio de sesión y en las directivas de restablecimiento de contraseña. Muy pronto estará disponible en las directivas de edición de perfiles.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

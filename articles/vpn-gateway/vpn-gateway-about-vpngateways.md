@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 009e80535a4ba094d5ea2c706cd126ea518d46bb
-ms.openlocfilehash: 373bc5242c21fb8d993db6dea0bca74ba9d4a836
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 44b393a2316825fd335bca2a1a7bb7033c10a565
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -42,8 +43,8 @@ Cuando configure una instancia de VPN Gateway, los pasos que realice dependen de
 
 
 
-## <a name="a-namediagramsaconnection-topology-diagrams"></a><a name="diagrams"></a>Diagramas de la topología de conexión
-Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Debe determinar la configuración que mejor se adapte a sus necesidades. En las secciones siguientes, puede ver información y diagramas de topología sobre las siguientes conexiones de VPN Gateway. En las secciones siguientes se incluyen tablas que enumeran:
+## <a name="diagrams"></a>Diagramas de la topología de conexión
+Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. En las secciones siguientes, puede ver información y diagramas de topología sobre las siguientes conexiones de VPN Gateway. En las secciones siguientes se incluyen tablas que enumeran:
 
 * Modelo de implementación disponible
 * Herramientas de configuración disponibles
@@ -52,29 +53,29 @@ Es importante saber que hay distintas configuraciones disponibles para las conex
 Use los gráficos y las descripciones como ayuda para seleccionar la topología de conexión que mejor se ajuste a sus requisitos. Los diagramas muestran las principales topologías de referencia, pero también se pueden crear configuraciones más complejas con los diagramas como guía.
 
 
-### <a name="site-to-site-and-multi-site-connections"></a>Conexiones de sitio a sitio y multisitio
-#### <a name="a-names2sasite-to-site"></a><a name="S2S"></a>De sitio a sitio
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Sitio a sitio y multisitio (túnel VPN de IPsec/IKE)
+### <a name="S2S"></a>De sitio a sitio
 Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de NAT. Se pueden utilizar conexiones S2S para las configuraciones híbridas y entre locales.   
 
 ![Ejemplo de conexión de sitio a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
-#### <a name="a-namemultiamulti-site"></a><a name="Multi"></a>Multisitio
+### <a name="Multi"></a>Multisitio
 Este tipo de conexión es una variación de la conexión de sitio a sitio. Puede crear más de una conexión VPN desde la puerta de enlace de red virtual, normalmente conectándose a varios sitios locales. Cuando trabaje con varias conexiones, debe usar una VPN de tipo RouteBased (conocida como puerta de enlace dinámica al trabajar con redes virtuales clásicas). Como cada red virtual solo puede tener una puerta de enlace de red virtual, todas las conexiones a través de la puerta de enlace comparten el ancho de banda disponible. A menudo, esto se llama conexión "multisitio".
 
 ![Ejemplo de conexión multisitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
-#### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modelos de implementación y métodos para conexiones de sitio a sitio y multisitio
+### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modelos de implementación y métodos para conexiones de sitio a sitio y multisitio
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-### <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Conexiones de punto a sitio
-Una configuración de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a su red virtual desde un equipo cliente individual. P2S es una conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros). Las conexiones P2S no requieren un dispositivo VPN ni una dirección IP pública para funcionar. Para establecer la conexión VPN, iníciela desde el equipo cliente. Esta solución es útil cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Se pueden usar conexiones P2S junto con conexiones S2S a través de la misma instancia de VPN Gateway, siempre que todos los requisitos de configuración para ambas conexiones sean compatibles.
+## <a name="P2S"></a>Punto a sitio (VPN a través de SSTP)
+Una configuración de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a su red virtual desde un equipo cliente individual. P2S es una conexión VPN sobre SSTP (Protocolo de túnel de sockets seguros). Las conexiones P2S no requieren un dispositivo VPN ni una dirección IP pública para funcionar. Para establecer la conexión VPN, iníciela desde el equipo cliente. Esta solución es útil cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Se pueden usar conexiones P2S con conexiones S2S a través de la misma instancia de VPN Gateway, siempre que todos los requisitos de configuración para ambas conexiones sean compatibles.
 
 ![Ejemplo de conexión de punto a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
-#### <a name="deployment-models-and-methods-for-point-to-site"></a>Métodos y modelos de implementación disponibles para conexiones de punto a sitio
+### <a name="deployment-models-and-methods-for-point-to-site"></a>Métodos y modelos de implementación disponibles para conexiones de punto a sitio
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
-### <a name="a-namev2vavnet-to-vnet-connections"></a><a name="V2V"></a>Conexiones de red virtual a red virtual
+## <a name="V2V"></a>Conexiones de red virtual a red virtual (túnel VPN de IPsec/IKE)
 La conexión de una red virtual a otra es muy parecida a la conexión de una red virtual a una ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de conexión multisitio. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
 Las redes virtuales que conecta pueden:
@@ -85,28 +86,28 @@ Las redes virtuales que conecta pueden:
 
 ![Ejemplo de conexión de red virtual a red virtual de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
-####<a name="connections-between-deployment-models"></a>Conexiones entre modelos de implementación
+###<a name="connections-between-deployment-models"></a>Conexiones entre modelos de implementación
 Actualmente, Azure tiene dos modelos de implementación: el clásico y el de Resource Manager. Si lleva un tiempo usando Azure, es probable que tenga máquinas virtuales de Azure y roles de instancia que se ejecuten en una red virtual clásica. Es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en Resource Manager. Puede crear una conexión entre las redes virtuales para permitir que los recursos de una red virtual se comuniquen directamente con los recursos de otra.
 
-####<a name="vnet-peering"></a>Emparejamiento de VNET
+###<a name="vnet-peering"></a>Emparejamiento de VNET
 Es posible que pueda usar el emparejamiento de VNET para crear la conexión, siempre que la red virtual cumpla determinados requisitos. El emparejamiento de VNET no utiliza una puerta de enlace de red virtual. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
 
-####<a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
+###<a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-### <a name="a-nameexpressrouteaexpressroute"></a><a name="ExpressRoute"></a>ExpressRoute
+## <a name="ExpressRoute"></a>ExpressRoute (conexión privada dedicada)
 [!INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
 
 Una conexión de ExpressRoute no utiliza una instancia de VPN Gateway, aunque lo use una puerta de enlace de red virtual como parte de su configuración obligatoria. En una conexión de ExpressRoute, se configura una puerta de enlace de red virtual con el tipo de puerta de enlace "ExpressRoute", en lugar de "Vpn". Para más información sobre ExpressRoute, vea la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
-### <a name="a-namecoexistingasite-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Conexiones de sitio a sitio y de ExpressRoute coexistentes
+## <a name="coexisting"></a>Conexiones de sitio a sitio y de ExpressRoute coexistentes
 ExpressRoute es una conexión dedicada directa desde la WAN (no a través de Internet) a servicios Microsoft, incluido Azure. El tráfico VPN de sitio a sitio viaja cifrado a través de la red pública de Internet. Poder configurar las conexiones VPN de sitio a sitio y ExpressRoute para la misma red virtual tiene varias ventajas.
 
 Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExpressRoute, o bien usar la VPN de sitio a sitio para conectarse a sitios que no forman parte de su red, pero que están conectados a través de ExpressRoute. Tenga en cuenta que esta configuración requiere dos puertas de enlace de red virtual en la misma red virtual, una con el tipo de puerta de enlace "Vpn" y otra con -el tipo de puerta de enlace "ExpressRoute".
 
 ![Ejemplo de conexiones coexistentes en ExpressRoute y VPN Gateway](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-#### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Métodos y modelos de implementación disponibles para conexiones S2S y ExpressRoute
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Métodos y modelos de implementación disponibles para conexiones S2S y ExpressRoute
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
 ## <a name="pricing"></a>Precios
@@ -124,10 +125,5 @@ Para más información acerca de las SKU de puerta de enlace para VPN Gateway, c
 - Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md).
 - Consulte las [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) para más información.
 - Consulte [Límites del servicio y la suscripción](../azure-subscription-service-limits.md#networking-limits).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

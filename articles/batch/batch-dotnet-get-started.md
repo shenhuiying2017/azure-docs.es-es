@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Para generar el proyecto de ejemplo, es preciso tener **Visual Studio 2015** . Puede encontrar versiones de prueba y de evaluación gratuita de Visual Studio en [Información general de los productos de Visual Studio 2015][visual_studio].
+Debe tener **Visual Studio 2015 o superior** para compilar el proyecto de ejemplo. Puede encontrar versiones de prueba y de evaluación gratuita de Visual Studio en la [información general de los productos de Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
 El ejemplo [DotNetTutorial][github_dotnettutorial] es uno de los muchos ejemplos de código de Batch que se encuentran en el repositorio [azure-batch-samples][github_samples] de GitHub. Para descargar todos los ejemplos, haga clic en **Clone or download > Download ZIP** (Clonar o descargar > Descargar ZIP) en la página principal del repositorio o haga clic en el vínculo de descarga directa [azure-batch-samples-master.zip][github_samples_zip]. Una vez extraído el contenido del archivo ZIP, puede encontrar la solución en la carpeta siguiente:
@@ -59,7 +59,7 @@ El ejemplo [DotNetTutorial][github_dotnettutorial] es uno de los muchos ejemplos
 El [Explorador de Azure Batch][github_batchexplorer] es una utilidad gratuita que se incluye en el repositorio [azure-batch-samples][github_samples] de GitHub. Aunque esta utilidad no es necesaria para completar este tutorial, puede resultar útil para desarrollar y depurar las soluciones de Lote.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Información general del proyecto de ejemplo DotNetTutorial
-El código de ejemplo *DotNetTutorial* es una solución de Visual Studio 2015 que consta de dos proyectos: **DotNetTutorial** y **TaskApplication**.
+El código de ejemplo *DotNetTutorial* es una solución de Visual Studio que consta de dos proyectos: **DotNetTutorial** y **TaskApplication**.
 
 * **DotNetTutorial** es la aplicación cliente que interactúa con los servicios Lote y Almacenamiento para ejecutar una carga de trabajo paralela en los nodos de proceso (máquinas virtuales). DotNetTutorial se ejecuta en la estación de trabajo local.
 * **TaskApplication** es el programa que se ejecuta en los nodos de proceso de Azure para realizar el trabajo real. En el ejemplo, `TaskApplication.exe` analiza el texto de un archivo descargado de Almacenamiento de Azure (el archivo de entrada). Luego genera un archivo de texto (el archivo de salida) que contiene una lista de las tres palabras que más veces aparecen en el archivo de entrada. Después de crear el archivo de salida, TaskApplication lo carga en Almacenamiento de Azure. Esto hace que esté disponible para la aplicación cliente para su descarga. El proyecto TaskApplication se ejecuta en paralelo en varios nodos de ejecución en el servicio Lote.
@@ -792,7 +792,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Crear contenedores en Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Cargar una aplicación de tarea y archivos de entrada (datos) en los contenedores"

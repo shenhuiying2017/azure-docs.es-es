@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/09/2017
 ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,14 +26,14 @@ El servicio Relay de Azure facilita las aplicaciones híbridas, ya que permite e
 
 El servicio de retransmisión admite mensajería unidireccional tradicional, de solicitud/respuesta y de punto a punto. También admite la distribución de eventos en el ámbito de internet para habilitar escenarios de publicación/suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto. 
 
-En el patrón de transferencia de datos, un servicio local se conecta al servicio de relé mediante un puerto de salida y crea un socket bidireccional para la comunicación enlazada a una dirección de encuentro concreta. Después el cliente puede comunicarse con el servicio local enviando tráfico al servicio de retransmisión destinados a la dirección de encuentro. El servicio de retransmisión "retransmite" los datos al servicio local a través del socket bidireccional específico a cada cliente. El cliente no necesita una conexión directa al servicio local, no es necesario saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
+En el patrón de transferencia de datos, un servicio local se conecta al servicio de relé mediante un puerto de salida y crea un socket bidireccional para la comunicación enlazada a una dirección de encuentro concreta. Después el cliente puede comunicarse con el servicio local enviando tráfico al servicio de retransmisión destinados a la dirección de encuentro. El servicio de retransmisión "retransmite" entonces los datos al servicio local a través de un socket bidireccional dedicado a cada cliente. El cliente no necesita una conexión directa al servicio local, no es necesario saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
 
 Los elementos de las funcionalidades claves que proporciona Relay son mensajes bidireccionales y no almacenados en búfer en los límites de red con limitación de tipo TCP, detección de puntos de conexión, estado de conectividad y seguridad de puntos de conexión superpuesta. Las funcionalidades de Relay se diferencian de las tecnologías de integración en el nivel de red, como VPN, en que pueden alcanzar un punto de conexión de aplicaciones de un solo equipo, mientras que la tecnología VPN es mucho más intrusiva, ya que se basa en modificar el entorno de red.
 
 Relay de Azure tiene dos características:
 
 1. [Conexiones híbridas](#hybrid-connections): usa los sockets web de estándar abierto, con lo que se admiten escenarios multiplataforma.
-2. [Retransmisiones de WCF](#wcf-relays): usa Windows Communication Foundation (WCF) para habilitar las llamadas a procedimientos remotos. Retransmisión de WCF es la oferta de Relay heredada que muchos clientes ya pueden utilizar con sus modelos de programación de WCF.
+2. [Retransmisiones de WCF](#wcf-relays): usa Windows Communication Foundation (WCF) para habilitar las llamadas a procedimientos remotos. WCF Relay es la oferta de Relay heredada que muchos clientes ya pueden utilizar con sus modelos de programación de WCF.
 
 Conexiones híbridas y Retransmisiones de WCF habilitan una conexión segura a los recursos de dentro de una red corporativa. El uso de una u otra depende de sus necesidades particulares que se detallan en la siguiente tabla:
 
@@ -41,12 +42,9 @@ Conexiones híbridas y Retransmisiones de WCF habilitan una conexión segura a l
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS*** | |x |
-| **Java*** | |x |
+| **JavaScript/NodeJS** | |x |
 | **Protocolo abierto basado en estándares** | |x |
 | **Varios modelos de programación de RPC** | |x |
-
-*Por Disponibilidad general
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 La funcionalidad [Conexiones híbridas de Azure Relay](relay-hybrid-connections-protocol.md) es una evolución segura y de protocolo abierto de las características de retransmisión existentes que se pueden implementar en cualquier plataforma y en cualquier lenguaje que tenga una funcionalidad de WebSocket básica, que incluya explícitamente la API de WebSocket en los exploradores web habituales. Conexiones híbridas se basa en HTTP y WebSockets.
@@ -62,10 +60,5 @@ Conexiones híbridas sustituye a la anterior característica, denominada igualme
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introducción a Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 53c9408bedc6c61cdb0e755b46b3090e8723e271
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,10 +101,5 @@ El LED debería encenderse durante dos segundos y apagarse después otros dos se
 
 ### <a name="summary"></a>Resumen
 En esta sección opcional, se explica cómo personalizar los mensajes para que la aplicación de ejemplo pueda controlar el comportamiento de encendido y apagado del LED de manera diferente.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

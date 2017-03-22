@@ -17,8 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ En la lista siguiente se describe el flujo de trabajo general para una migració
 
 En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento durante el proceso de importación.
 
-* Elija el mejor nivel de servicio y de rendimiento que su presupuesto permita para optimizar el rendimiento de la transferencia. Una vez completada la migración, puede seleccionar una opción inferior para ahorrar dinero. Consulte [Cambio del nivel de servicio y el nivel de rendimiento de una base de datos única mediante Azure Portal](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Cambio del nivel de servicio y el nivel de rendimiento de una base de datos única mediante PowerShell](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database) y [Cambio del nivel de servicio y el nivel de rendimiento de una base de datos única mediante Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database).
+* Elija el mejor nivel de servicio y de rendimiento que su presupuesto permita para optimizar el rendimiento de la transferencia. Una vez completada la migración, puede seleccionar una opción inferior para ahorrar dinero. 
 * Reduzca la distancia entre su archivo .BACPAC y el centro de datos de destino.
 * Deshabilite las estadísticas automáticas durante la migración.
 * Cree particiones de tablas e índices.
@@ -119,10 +120,5 @@ Además de realizar búsquedas en Internet y utilizar estos recursos, acuda a lo
 * Para obtener información sobre cómo trabajar con la hora UTC después de la migración, consulte cómo [modificar la zona horaria predeterminada para su zona horaria local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 * Para obtener información acerca de cómo cambiar el idioma predeterminado de una base de datos después de la migración, consulte [cómo cambiar el idioma predeterminado de Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

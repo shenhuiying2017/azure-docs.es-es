@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: bc0fe3341bc5b698032c56dec836b942ce7fa8be
-ms.openlocfilehash: 3ca6156369bf4ae530a91520e86166592181511a
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 75ddbacbd4dd14597b786d26f0730477f6c85811
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -116,9 +116,9 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 * Para obtener información sobre las prácticas recomendadas de Servicios de aplicaciones de Azure, incluida la creación de una arquitectura resistente y escalable, consulte [Prácticas recomendadas: Aplicaciones web del Servicio de aplicaciones de Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * Para ver vídeos sobre cómo escalar aplicaciones del Servicio de aplicaciones, consulte los siguientes recursos:
   
-  * [Cuándo escalar sitios web de Azure: con Stefan Schackow](https://azure.microsoft.com/en-us/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Escalación automática de sitios web de Azure mediante CPU o programación: con Stefan Schackow](https://azure.microsoft.com/en-us/resources/videos/auto-scaling-azure-web-sites/)
-  * [Escalación de sitios web de Azure: con Stefan Schackow](https://azure.microsoft.com/en-us/resources/videos/how-azure-web-sites-scale/)
+  * [Cuándo escalar sitios web de Azure: con Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
+  * [Escalación automática de sitios web de Azure mediante CPU o programación: con Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
+  * [Escalación de sitios web de Azure: con Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/

@@ -170,7 +170,7 @@ Las máquinas de Linux locales, de Azure y ubicadas en nubes que no sean de Azur
 
    + Para buscar la clave de registro y la dirección URL de registro para su cuenta de Automatización, consulte la sección [**Registro seguro**](#secure-registration) .
 
-     Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** coinciden con su caso de uso, o desea incorporar equipos que solo informen a DSC de Azure Automation, pero que no extraigan configuración ni módulos de PowerShell de allí, siga los pasos 3 a 6.** ** De lo contrario, vaya directamente al paso 6.
+     Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** coinciden con su caso de uso, o desea incorporar equipos que solo informen a DSC de Azure Automation, pero que no extraigan configuración ni módulos de PowerShell de allí, siga los pasos 3 a 6. **** De lo contrario, vaya directamente al paso 6.
 
 3. Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
 4. Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que desea incorporar:

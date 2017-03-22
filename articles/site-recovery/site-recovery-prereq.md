@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/11/2016
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: a8e374c247be49d4b1390fb4061b4c9b1311f58a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b20d1a20119e8bffa3ece7105c38b3ee51c942d5
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -104,6 +104,20 @@ A continuación, se muestran los componentes necesarios para la recuperación an
 | --- | --- |
 | **Virtual Machine Manager** |  Se recomienda implementar un servidor Virtual Machine Manager en el sitio principal y otro en el sitio secundario.<br/><br/> Puede [replicar máquinas virtuales entre nubes en un único servidor VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Para ello, necesita al menos dos nubes configuradas en el servidor Virtual Machine Manager.<br/><br/> Los servidores Virtual Machine Manager deben estar ejecutando, como mínimo, System Center 2012 SP1 con las actualizaciones más recientes.<br/><br/> Cada servidor Virtual Machine Manager debe tener al menos una o varias nubes. Además, en todas las nubes se debe haber establecido el perfil de capacidad de Hyper-V. <br/><br/>Las nubes deben contener uno o varios grupos host Virtual Machine Manager. Para más información sobre cómo configurar nubes Virtual Machine Manager, consulte [Preparación de la implementación de Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Los servidores Hyper-V deben estar ejecutando, como mínimo, Windows Server 2012 con el rol Hyper-V y tener instaladas las actualizaciones más recientes.<br/><br/> Un servidor de Hyper-V debe contener una o varias máquinas virtuales.<br/><br/>  Los servidores host de Hyper-V deben estar ubicados en grupos host de las nubes de VMM principal y secundaria.<br/><br/> Si ejecuta Hyper-V en un clúster con Windows Server 2012 R2, se recomienda instalar la [actualización 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Si ejecuta Hyper-V en un clúster con Windows Server 2012 y tiene un clúster basado en una dirección IP estática, el agente de clúster no se crea automáticamente. Debe configurarlo manualmente. Para más información sobre el agente de clúster, consulte [Configure replica broker role (cluster to cluster replication)](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx) (Configurar el rol de agente de réplicas [replicación de clúster a clúster]). |
+| **Proveedor** | Durante la implementación de Site Recovery, se instala Proveedor de Azure Site Recovery en servidores Virtual Machine Manager. El proveedor se comunica con Site Recovery mediante HTTPS 443 para organizar la replicación. La replicación de datos se produce entre los servidores Hyper-V principal y secundario mediante la conexión LAN o VPN.<br/><br/> El proveedor que se ejecuta en el servidor Virtual Machine Manager necesita acceso a estas URL:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>El proveedor debe permitir la comunicación del firewall entre los servidores Virtual Machine Manager y los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), así como el protocolo HTTPS (443). |
 
-| **Proveedor** | Durante la implementación de Site Recovery, se instala el proveedor de Azure Site Recovery en servidores Virtual Machine Manager. El proveedor se comunica con Site Recovery mediante HTTPS 443 para organizar la replicación. La replicación de datos se produce entre los servidores Hyper-V principal y secundario mediante la conexión LAN o VPN.<br/><br/> El proveedor que se ejecuta en el servidor Virtual Machine Manager necesita acceso a estas URL:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>El proveedor debe permitir la comunicación del firewall entre los servidores Virtual Machine Manager y los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), así como el protocolo HTTPS (443). |
+
+## <a name="url-access"></a>Acceso a direcciones URL
+Estas direcciones URL deben estar disponibles desde los servidores de host de Hyper-V, VMM y VMware.
+
+|**URL** | **VMM a VMM** | **VMM a Azure** | **Hyper-V en Azure** | **VMware a Azure** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | PERMITIR | Permitir | Permitir | Permitir |
+|``*.backup.windowsazure.com`` | No se requiere | Permitir | Permitir | Permitir |
+|``*.hypervrecoverymanager.windowsazure.com`` | Permitir | Permitir | Permitir | Permitir |
+|``*.store.core.windows.net`` | Permitir | Permitir | Permitir | Permitir |
+|``*.blob.core.windows.net`` | No se requiere | Permitir | Permitir | Permitir |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | No se requiere | No se requiere | No se requiere | Permitir la descarga SQL |
+|``time.windows.com`` | PERMITIR | Permitir | Permitir | Permitir|
+|``time.nist.gov`` | Permitir | Permitir | Permitir | PERMITIR |
 

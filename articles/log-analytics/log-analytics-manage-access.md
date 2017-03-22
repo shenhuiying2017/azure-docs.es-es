@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
-ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +35,7 @@ Para crear un área de trabajo, necesitará:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinación del número de áreas de trabajo necesarias
 Un área de trabajo es un recurso de Azure y un contenedor donde los datos se recopilan, se agregan, se analizan y se presentan en Azure Portal.
 
-Se pueden crear varias áreas de trabajo para que los usuarios tengan acceso a una o varias de ellas. La reducción del número de áreas de trabajo le permite consultar y correlacionar la mayoría de los datos. En esta sección se describe cuándo puede resultar útil la creación de más de un área de trabajo.
+Puede tener varias áreas de trabajo por suscripción de Azure y puede tener acceso a más de una área de trabajo. Minimizar el número de áreas de trabajo le permite consultar y correlacionar la mayoría de los datos, ya que no es posible realizar consultas a través de varias áreas de trabajo. En esta sección se describe cuándo puede resultar útil la creación de más de un área de trabajo.
 
 En la actualidad, un área de trabajo proporciona:
 
@@ -52,7 +52,7 @@ Dadas estas características anteriores, quizás quiera crear varias áreas de t
 * Un proveedor de servicio administrado que necesita mantener los datos de Log Analytics para cada cliente que administra aislados de los datos de otro cliente.
 * Si se administran varios clientes y se desea que cada cliente, departamento o grupo empresarial vea sus propios datos, pero no los datos de los demás.
 
-Cuando se usan agentes para recopilar datos, se puede configurar cada uno de ellos para que informe a una o varias áreas de trabajo.
+Cuando se usan agentes para recopilar datos, se puede [configurar cada uno de ellos para que informe a una o varias áreas de trabajo](log-analytics-windows-agents.md).
 
 Si usa System Center Operations Manager, cada grupo de administración de Operations Manager se puede conectar con una sola área de trabajo. Se puede instalar Microsoft Monitoring Agent en los equipos administrados por Operations Manager y hacer que el agente informe tanto a Operations Manager como a una diferente área de trabajo de Log Analytics.
 
@@ -71,34 +71,64 @@ Puede ver los detalles sobre el área de trabajo en Azure Portal. También puede
 
 
 ## <a name="manage-accounts-and-users"></a>Administración de cuentas y usuarios
-Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta de usuario (ya sea una cuenta Microsoft o una cuenta profesional) puede tener acceso a varias áreas de trabajo.
+Cada área de trabajo puede tener varias cuentas asociadas, y cada cuenta (ya sea una cuenta Microsoft o una cuenta profesional) puede tener acceso a varias áreas de trabajo.
 
-De forma predeterminada, la cuenta de Microsoft o cuenta profesional que se usa para crear el área de trabajo se convierte en el administrador del área de trabajo. Después, el administrador puede invitar a otras cuentas de Microsoft o seleccionar usuarios de Azure Active Directory.
+De forma predeterminada, la cuenta de Microsoft o la cuenta profesional que crea el área de trabajo se convierte en el administrador del área de trabajo.
 
-La concesión de acceso a los usuarios en el área de trabajo se controla en dos lugares:
+Hay dos modelos de permisos que controlan el acceso a un área de trabajo de Log Analytics:
 
-* En Azure, se puede usar el control de acceso basado en rol para proporcionar acceso a la suscripción de Azure y a los recursos de Azure asociados. Estos permisos también se utilizan para el acceso a PowerShell y la API de REST.
-* En el portal OMS, acceso solo al portal OMS, no a la suscripción de Azure asociada.
+1. Roles de usuario heredados de Log Analytics
+2. [Acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md) 
 
-Para ver datos en los iconos de la solución de copia de seguridad y recuperación de sitios, es necesario tener el permiso del administrador o coadministrador para la suscripción de Azure a la que está vinculada el área de trabajo.   
+En la tabla siguiente se resume el acceso que se puede establecer con cada modelo de permisos:
 
-### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Administración del acceso a Log Analytics mediante el Portal de Azure
-Si concede acceso a los usuarios al área de trabajo de Log Analytics mediante los permisos de Azure (por ejemplo, en Azure Portal), esos mismos usuarios pueden tener acceso al portal de Log Analytics. Si los usuarios se encuentran en Azure Portal, pueden navegar al portal OMS haciendo clic en la tarea **Portal OMS** al visualizar el recurso del área de trabajo de Log Analytics.
+|                          | Portal de Log Analytics | Portal de Azure | API (incluido PowerShell) |
+|--------------------------|----------------------|--------------|----------------------------|
+| Roles de usuario de Log Analytics | Sí                  | No           | No                         |
+| Acceso basado en roles de Azure  | Sí                  | Sí          | Sí                        |
+
+> [!NOTE]
+> Log Analytics va a pasar al uso del acceso basado en roles de Azure como modelo de permisos, para sustituir a los roles de usuario de Log Analytics.
+>
+>
+
+Los roles de usuario heredados de Log Analytics solo controlan el acceso a las actividades realizadas en el [portal de Log Analytics](https://mms.microsoft.com).
+
+Las siguientes actividades en el portal de Log Analytics también requieren permisos de Azure:
+
+| Acción                                                          | Permisos de Azure necesarios | Notas |
+|-----------------------------------------------------------------|--------------------------|-------|
+| Agregar y quitar soluciones de administración                        | Escritura de grupo de recursos <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Cambiar el plan de tarifa                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Ver los datos en los iconos de soluciones *Backup* y *Site Recovery* | Administrador o coadministrador | Accede a los recursos implementados mediante el modelo de implementación clásica |
+ 
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Administración del acceso a Log Analytics mediante permisos de Azure
+Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
+
+Si tiene al menos permiso de lectura de Azure en el área de trabajo de Log Analytics, puede abrir el portal de OMS haciendo clic en la tarea **Portal de OMS** al visualizar el área de trabajo de Log Analytics.
+
+Al abrir el portal de Log Analytics, cambia al uso de los roles de usuario heredados de Log Analytics. Si no tiene una asignación de roles en el portal de Log Analytics, el servicio [comprueba los permisos de Azure que tiene en el área de trabajo](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). La asignación de roles en el portal de Log Analytics se determina de la manera siguiente:
+
+| Condiciones                                                   | Rol de usuario asignado de Log Analytics | Notas |
+|--------------------------------------------------------------|----------------------------------|-------|
+| La cuenta pertenece a un rol de usuario heredado de Log Analytics     | El rol de usuario especificado de Log Analytics | |
+| La cuenta no pertenece a un rol de usuario heredado de Log Analytics <br> Permisos de Azure completos para el área de trabajo (`*` permiso <sup>1</sup>) | Administrador ||
+| La cuenta no pertenece a un rol de usuario heredado de Log Analytics <br> Permisos de Azure completos para el área de trabajo (`*` permiso <sup>1</sup>) <br> *sin acciones* de `Microsoft.Authorization/*/Delete` y `Microsoft.Authorization/*/Write` | Colaborador ||
+| La cuenta no pertenece a un rol de usuario heredado de Log Analytics <br> Permiso de lectura de Azure | Solo lectura ||
+| La cuenta no pertenece a un rol de usuario heredado de Log Analytics <br> Los permisos de Azure no se entienden | Solo lectura ||
+| Para suscripciones administradas por el Proveedor de soluciones en la nube (CSP) <br> La cuenta con la que inicia sesión se encuentra en la instancia de Azure Active Directory vinculada al área de trabajo | Administrador | Normalmente, el cliente de un CSP |
+| Para suscripciones administradas por el Proveedor de soluciones en la nube (CSP) <br> La cuenta con la que inicia sesión no se encuentra en la instancia de Azure Active Directory vinculada al área de trabajo | Colaborador | Normalmente el CSP |
+
+Para más información sobre las definiciones de roles, <sup>1</sup> consulte los [permisos de Azure](../active-directory/role-based-access-control-custom-roles.md). Al evaluar funciones, una acción de `*` no es equivalente a `Microsoft.OperationalInsights/workspaces/*`. 
 
 Algunos aspectos relativos a Azure Portal que deben tenerse en cuenta:
 
-* Esto no es *Control de acceso basado en rol*. Si tiene permisos de acceso de *lector* en Azure Portal para el área de trabajo de Log Analytics, puede realizar cambios mediante el portal de OMS. El portal de OMS tiene un concepto de Administrador, Colaborador y Usuario de solo lectura. Si la cuenta con la que ha iniciado sesión en Azure Active Directory está vinculada al área de trabajo, será administrador en el portal de OMS; de lo contrario, será colaborador.
-* Si inicia sesión en el portal de OMS mediante http://mms.microsoft.com, verá la lista **Seleccionar un área de trabajo** de manera predeterminada. Solo contiene las áreas de trabajo que se agregaron mediante el portal OMS. Para ver las áreas de trabajo a las que tiene acceso con las suscripciones de Azure, será preciso que especifique un inquilino como parte de la dirección URL. Por ejemplo:
-
-  `mms.microsoft.com/?tenant=contoso.com` A menudo, el identificador del inquilino es la última parte de la dirección de correo electrónico con la que inicia sesión.
-* Si la cuenta con la que inicia sesión se encuentra en la instancia de Azure Active Directory del inquilino será *administrador* en el portal OMS. Este suele ser el caso a menos que esté iniciando sesión como un CSP.  Si la cuenta no se encuentra en la instancia de Azure Active Directory del inquilino, será *usuario* en el portal OMS.
+* Si inicia sesión en el portal de OMS mediante http://mms.microsoft.com, verá la lista **Seleccione un área de trabajo**. Esta lista solo contiene áreas de trabajo en las que tiene un rol de usuario de Log Analytics. Para ver las áreas de trabajo a las que tiene acceso con las suscripciones de Azure, será preciso que especifique un inquilino como parte de la dirección URL. Por ejemplo: `mms.microsoft.com/?tenant=contoso.com`. A menudo, el identificador del inquilino es la última parte de la dirección de correo electrónico con la que inicia sesión.
 * Si desea navegar directamente a un portal al que tenga acceso a través de los permisos de Azure, será preciso que especifique el recurso como parte de la dirección URL. Esta dirección URL se puede obtener mediante PowerShell.
 
   Por ejemplo: `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
   La dirección URL tiene el siguiente aspecto: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-Por ejemplo, para agregar o quitar soluciones de administración, el usuario debe ser un administrador o colaborador en la suscripción de Azure cuando usa Azure Portal. Además, el usuario debe ser miembro del rol de administrador o colaborador del área de trabajo de OMS en el portal de OMS.
 
 ### <a name="managing-users-in-the-oms-portal"></a>Administración de usuarios en el portal de OMS
 Los usuarios y grupos se administran en la pestaña **Administrar usuarios** de la pestaña **Cuentas** de la página Configuración.   
@@ -114,7 +144,7 @@ Siga estos pasos para agregar un usuario o un grupo a un área de trabajo.
 3. En la sección **Administrar usuarios**, elija el tipo de cuenta que desea agregar: **Cuenta de organización**, **Cuenta Microsoft** o **Soporte técnico de Microsoft**.
 
    * Si elige Cuenta de Microsoft, escriba la dirección de correo electrónico del usuario asociado a la cuenta de Microsoft.
-   * Si elige Cuenta profesional, puede escribir parte del nombre del grupo o usuario o el alias de correo electrónico, y aparecerá una lista de usuarios y grupos que coinciden con esos datos en un cuadro desplegable. Seleccione un usuario o grupo.
+   * Si elige Cuenta profesional, escriba parte del nombre del grupo o usuario o el alias de correo electrónico, y aparecerá una lista de usuarios y grupos que coinciden con esos datos en un cuadro desplegable. Seleccione un usuario o grupo.
    * Use el servicio de soporte técnico de Microsoft para dar a un ingeniero, o a otro empleado de Microsoft de este servicio, acceso temporal a su área de trabajo para ayudar en la solución de problemas.
 
      > [!NOTE]
@@ -154,7 +184,7 @@ Siga estos pasos para quitar un usuario de un área de trabajo. La eliminación 
 4. En el cuadro de diálogo de confirmación, haga clic en **Sí**.
 
 ### <a name="add-a-group-to-an-existing-workspace"></a>Incorporación de un grupo a un área de trabajo existente
-1. Siga los pasos 1 a 4 indicados más arriba para agregar un usuario a un área de trabajo existente.
+1. En la sección anterior "Agregar un usuario a un área de trabajo existente", siga los pasos del 1 al 4.
 2. En **Elegir usuario/grupo**, seleccione **Grupo**.  
    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
 3. Especifique el nombre para mostrar o la dirección de correo electrónico del grupo que quiere agregar.
@@ -204,7 +234,7 @@ En OMS, existen tres tipos de planes de áreas de trabajo: **Free** (Gratis), **
 ### <a name="using-entitlements-from-an-oms-subscription"></a>Uso de los derechos de una suscripción de OMS
 Para usar los derechos que proceden de la adquisición de OMS E1, OMS E2 OMS o un complemento de OMS para System Center, elija el plan *OMS* de OMS Log Analytics.
 
-Cuando adquiere una suscripción de OMS, los derechos se agregan a su contrato Enterprise. Cualquier suscripción de Azure creada en virtud de este contrato puede usar estos derechos. De este modo, por ejemplo, podrá tener varias áreas de trabajo que usen el derecho de las suscripciones de OMS.
+Cuando adquiere una suscripción de OMS, los derechos se agregan a su contrato Enterprise. Cualquier suscripción de Azure creada en virtud de este contrato puede usar estos derechos. Todas las áreas de trabajo de estas suscripciones usan los derechos de OMS.
 
 Para asegurarse de que el uso de un área de trabajo se realiza con arreglo a los derechos de la suscripción de OMS, deberá:
 
@@ -212,18 +242,18 @@ Para asegurarse de que el uso de un área de trabajo se realiza con arreglo a lo
 2. Seleccionar el plan *OMS* para el área de trabajo
 
 > [!NOTE]
-> Si el área de trabajo se creó antes del 26 de septiembre de 2016 y el plan de precios de Log Analytics es *Premium*, este área de trabajo usará los derechos del complemento de OMS para System Center. También puede usar los derechos, cambiando al plan de tarifa *OMS*.
+> Si el área de trabajo se creó antes del 26 de septiembre de 2016 y el plan de precios de Log Analytics es *Premium*, este área de trabajo usa los derechos del complemento de OMS para System Center. También puede usar los derechos, cambiando al plan de tarifa *OMS*.
 >
 >
 
 Los derechos de la suscripción de OMS no son visibles en el portal de Azure ni en el de OMS. Podrá ver estos derechos y usos en Enterprise Portal.  
 
 Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.
-
+to
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Uso del compromiso de Azure en contratos Enterprise
 Si no tiene una suscripción de OMS, pagará por separado por cada componente de OMS y el uso aparecerá en la factura de Azure.
 
-Si previamente ha pagado una cierta cantidad a Azure como parte de la inscripción Enterprise al que están vinculadas sus suscripciones de Azure, el uso de Log Analytics se descontará de este importe.
+Si tiene un compromiso monetario de Azure sobre la inscripción Enterprise a la que están vinculadas sus suscripciones de Azure, el uso de Log Analytics se descontará de este importe.
 
 Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.  
 
@@ -242,13 +272,13 @@ Si necesita cambiar la suscripción de Azure a la que está vinculada el área d
 >
 >
 
-## <a name="change-your-data-plan-in-the-oms-portal"></a>Cambio del plan de datos en el portal de OMS
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en el portal de OMS
 
-Para cambiar un plan de datos mediante el portal de OMS, el usuario que inició sesión tiene que tener ya una cuenta de Azure.
+Para cambiar el plan de tarifa mediante el portal de OMS, debe tener una suscripción de Azure.
 
 1. En el portal de OMS, haga clic en el icono **Configuración**.
 2. Haga clic en la pestaña **Cuentas** y, luego, en la pestaña **Azure Subscription & Data Plan** (Suscripción y plan de datos de Azure).
-3. Haga clic en el plan de datos que desee usar.
+3. Haga clic en el plan de tarifa que quiere usar.
 4. Haga clic en **Guardar**.  
    ![suscripción y planes de datos](./media/log-analytics-manage-access/subscription-tab.png)
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
-ms.openlocfilehash: 0019b64ba545d91cf32ed2945c5c0d4844e264e1
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b0fb6e2b86aa0a47b7250face90be8ab2d06b78e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,7 +35,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
 ## <a name="prerequisites"></a>Requisitos previos
 Requisitos para realizar esta implementación:
 
-* **Servidor de configuración**: una máquina virtual local que ejecuta Windows Server 2012 R2 y que actúa como el servidor de configuración. Instale los demás componentes de Site Recovery (incluido el servidor de procesos y el servidor de destino principal) en esta máquina virtual. Obtenga más información en [Arquitectura del escenario](site-recovery-components.md#vmware-replication-to-azure) y [Requisitos previos del servidor de configuración/servidor de procesos de escalado horizontal](site-recovery-vmware-to-azure.md#prerequisites).
+* **Servidor de configuración**: una máquina virtual local que ejecuta Windows Server 2012 R2 y que actúa como el servidor de configuración. Instale los demás componentes de Site Recovery (incluido el servidor de procesos y el servidor de destino principal) en esta máquina virtual. Obtenga más información en [Arquitectura del escenario](site-recovery-components.md#vmware-to-azure) y [Requisitos previos del servidor de configuración/servidor de procesos de escalado horizontal](site-recovery-vmware-to-azure.md#prerequisites).
 * **Máquinas virtuales IaaS**: las máquinas virtuales que desea migrar. Migrará estas máquinas virtuales tratándolas como máquinas físicas.
 
 ## <a name="deployment-steps"></a>Pasos de implementación

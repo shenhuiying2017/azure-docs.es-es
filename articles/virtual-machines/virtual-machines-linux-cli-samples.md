@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: ea2124e01753b914ebd1691e5d89091ac5cd5859
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ea9ee62b28069f87404b665151a51c5b73edf353
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,8 +39,6 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 | [Protección del tráfico de red entre máquinas virtuales](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crea dos máquinas virtuales, todos los recursos relacionados y grupos de seguridad de red internos y externos (NSG). |
 |**Supervisión de máquinas virtuales**||
 | [Supervisión de una máquina virtual con Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crea una máquina virtual, instala el agente de Operations Management Suite e inscribe la máquina virtual en un área de trabajo de OMS.  |
-|**Reinicio de máquinas virtuales**||
-| [Reinicio de VM](./scripts/virtual-machines-linux-cli-sample-restart-by-tag.md) | Crea las máquinas virtuales y las reinicia. |
 |**Solución de problemas de máquinas virtuales**||
 | [Solución de problemas de un disco de sistema operativo de máquina virtual](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Permite montar el disco del sistema operativo a partir de una máquina virtual como un disco de datos en una segunda máquina virtual. |
 | | |

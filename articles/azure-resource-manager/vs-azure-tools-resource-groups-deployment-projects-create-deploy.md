@@ -1,5 +1,5 @@
 ---
-title: Proyectos de Visual Studio para el Grupo de recursos de Azure | Microsoft Docs
+title: Proyectos del grupo de recursos de Azure de Visual Studio | Microsoft Docs
 description: Use Visual Studio para crear un proyecto del grupo de recursos de Azure e implementar los recursos en Azure.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
-ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -25,17 +26,18 @@ Con Visual Studio y [Azure SDK](https://azure.microsoft.com/downloads/), puede c
 
 Los proyectos del grupo de recursos de Azure contienen plantillas JSON de Azure Resource Manager que definen los recursos que implementa en Azure. Para más información sobre los elementos de la plantilla del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md). Visual Studio permite modificar estas plantillas y proporciona herramientas que simplifican el trabajo con plantillas.
 
-En este tema, implementará una aplicación web y SQL Database. Sin embargo, los pasos son prácticamente los mismos para cualquier tipo de recurso. Puede implementar fácilmente una máquina virtual y sus recursos relacionados. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes.
+En este artículo se implementa una aplicación web y SQL Database. Sin embargo, los pasos son prácticamente los mismos para cualquier tipo de recurso. Puede implementar fácilmente una máquina virtual y sus recursos relacionados. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes.
 
-En este artículo se muestra Visual Studio 2015 Update 2 y Microsoft Azure SDK para .NET 2.9. Si utiliza Visual Studio 2013 con Azure SDK 2.9, su experiencia es muy similar. Puede usar Azure SDK 2.6 o versiones posteriores; sin embargo, es posible que vea que la interfaz de usuario no coincida con la que se describe en este artículo. Le recomendamos encarecidamente que instale la versión más reciente de [Azure SDK](https://azure.microsoft.com/downloads/) antes de iniciar el procedimiento. 
+Este artículo muestra Visual Studio 2017. Si usa Visual Studio 2015 Update 2 y 
+Microsoft Azure SDK para .NET 2.9 o Visual Studio 2013 con Azure SDK 2.9, los procedimientos son prácticamente los mismos. Puede usar Azure SDK 2.6 o versiones posteriores; sin embargo, es posible que vea que la interfaz de usuario no coincida con la que se describe en este artículo. Le recomendamos encarecidamente que instale la versión más reciente de [Azure SDK](https://azure.microsoft.com/downloads/) antes de iniciar el procedimiento. 
 
 ## <a name="create-azure-resource-group-project"></a>Creación de un proyecto de grupo de recursos de Azure
 En este procedimiento, va a crear un proyecto de grupo de recursos de Azure con la plantilla **Aplicación web + SQL** .
 
-1. En Visual Studio, elija **Archivo**, **Nuevo proyecto** y **C#** o **Visual Basic**. A continuación, elija **Nube** y después el proyecto **Grupo de recursos de Azure**.
+1. En Visual Studio, elija **Archivo**, **Nuevo proyecto** y **C#** o **Visual Basic**. Luego, elija **Nube** y el proyecto **Grupo de recursos de Azure**.
    
     ![Proyecto de implementación de la nube](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Elija la plantilla que desea implementar en el Administrador de recursos de Azure. Observe que hay muchas opciones diferentes basados en el tipo de proyecto que desee implementar. En este tema, elegiremos la plantilla **Aplicación web + SQL** .
+2. Elija la plantilla que desea implementar en el Administrador de recursos de Azure. Observe que hay muchas opciones diferentes basados en el tipo de proyecto que desee implementar. Para este artículo, elija la plantilla **Aplicación web + SQL**.
    
     ![Seleccionar una plantilla](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -47,7 +49,7 @@ En este procedimiento, va a crear un proyecto de grupo de recursos de Azure con 
    > 
    
     Visual Studio crea un proyecto de implementación de grupo de recursos de Azure para la aplicación web y Base de datos SQL.
-3. Para ver lo que se ha creado, expanda los nodos del proyecto de implementación.
+3. Para ver lo que ha creado, examine el nodo del proyecto de implementación.
    
     ![mostrar nodos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
@@ -113,24 +115,24 @@ Puede establecer **numberOfWorkers** en 1.
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Implementación del proyecto de grupo de recursos en Azure
 Ahora está preparado para implementar el proyecto. Cuando implementa un proyecto de grupo de recursos de Azure, lo implementa en un grupo de recursos de Azure. El grupo de recursos es una agrupación lógica de recursos que comparten un ciclo de vida común.
 
-1. En el menú contextual del nodo del proyecto de implementación, elija **Implementar** > **New Implementarment**.
+1. En el menú contextual del nodo del proyecto de implementación, elija **Implementar** > **Nueva**.
    
     ![Implementar, elemento de menú Nueva implementación](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
-    Aparece el cuadro de diálogo **Implementar en grupo de recursos** .
+    Aparece el cuadro de diálogo **Implementar en grupo de recursos**.
    
     ![Cuadro de diálogo Implementar en grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
 2. En el cuadro de lista desplegable **Grupo de recursos** , elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra el cuadro desplegable **Grupo de recursos** y elija **Crear nuevo**.
    
     ![Cuadro de diálogo Implementar en grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
    
-    Aparece el cuadro de diálogo **Crear grupo de recursos** . Asigne al grupo un nombre y una ubicación y seleccione el botón **Crear** .
+    Aparece el cuadro de diálogo **Crear grupo de recursos** . Asigne al grupo un nombre y una ubicación y seleccione el botón **Crear**.
    
     ![Cuadro de diálogo Crear grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
-3. Edite los parámetros para la implementación seleccionando el botón **Editar parámetros** .
+3. Edite los parámetros para la implementación seleccionando el botón **Editar parámetros**.
    
     ![Botón Editar parámetros](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
-4. Proporcione valores para los parámetros vacíos y seleccione el botón **Guardar** . Los parámetros vacíos son **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** y **databaseName**.
+4. Proporcione valores para los parámetros vacíos y seleccione el botón **Guardar**. Los parámetros vacíos son **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** y **databaseName**.
    
     **hostingPlanName** especifica el nombre del [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que se creará. 
    
@@ -141,7 +143,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
     **databaseName** especifica un nombre para la base de datos que va a crear. 
    
     ![Cuadro de diálogo Editar parámetros](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Elija el botón **Implementar** para implementar el proyecto en Azure. Se abre una consola de PowerShell fuera de la instancia de Visual Studio. Cuando se lo pidan, escriba la contraseña del administrador de SQL Server en la consola de PowerShell. **Puede que la consola de PowerShell esté oculta detrás de otros elementos o minimizada en la barra de tareas.**  Busque esta consola y selecciónela para proporcionar la contraseña.
+5. Elija el botón **Implementar** para implementar el proyecto en Azure. Se abre una consola de PowerShell fuera de la instancia de Visual Studio. Cuando se lo pidan, escriba la contraseña del administrador de SQL Server en la consola de PowerShell. **Puede que la consola de PowerShell esté oculta detrás de otros elementos o minimizada en la barra de tareas.** Busque esta consola y selecciónela para proporcionar la contraseña.
    
    > [!NOTE]
    > Visual Studio puede pedirle que instale los cmdlets de Azure PowerShell. Necesita los cmdlets de Azure PowerShell para implementar correctamente los grupos de recursos. Si se le solicita, instálelos.
@@ -150,7 +152,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
 6. La implementación puede tardar unos minutos. En la ventana **Salida** puede ver el estado de la implementación. Cuando se termina la implementación, el último mensaje indica una implementación satisfactoria de una forma parecida a esta:
    
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 7. En un explorador, abra [Azure Portal](https://portal.azure.com/) e inicie sesión en su cuenta. Para ver el grupo de recursos, seleccione **Grupos de recursos** y el grupo de recursos que implementó.
    
     ![seleccionar grupo](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
@@ -162,7 +164,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
     ![Grupo de recursos de Azure implementado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Implementación de código con la infraestructura
-A estas alturas ha implementado la infraestructura de la aplicación, pero no hay ningún código real que se haya implementado con el proyecto. Este tema muestra cómo implementar una aplicación web y las tablas de SQL Database durante la implementación. Si está implementando una máquina virtual en lugar de una aplicación web, tiene que ejecutar algún código en el equipo como parte de la implementación. El proceso para implementar el código para una aplicación web o para configurar una máquina virtual es prácticamente el mismo.
+A estas alturas ha implementado la infraestructura de la aplicación, pero no hay ningún código real que se haya implementado con el proyecto. En este artículo se muestra cómo implementar una aplicación web y las tablas de SQL Database durante la implementación. Si está implementando una máquina virtual en lugar de una aplicación web, tiene que ejecutar algún código en el equipo como parte de la implementación. El proceso para implementar el código para una aplicación web o para configurar una máquina virtual es prácticamente el mismo.
 
 1. Agregue un proyecto a la solución de Visual Studio. Haga clic con el botón derecho en la solución y seleccione **Agregar** > **Nuevo proyecto**.
    
@@ -170,7 +172,7 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 2. Agregue una **aplicación web ASP.NET**. 
    
     ![agregar aplicación web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Seleccione **MVC** y desactive el campo **Host en la nube**, ya que el proyecto del grupo de recursos realiza esa tarea.
+3. Seleccione **MVC**.
    
     ![seleccionar MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
 4. Después de que Visual Studio cree la aplicación web, podrá ver ambos proyectos en la solución.
@@ -194,7 +196,7 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
    * El valor predeterminado **Build;Package** permite a la implementación generar y crear un paquete de implementación web (package.zip).  
      
      No se necesita un perfil de publicación ya que la implementación obtiene la información necesaria de las propiedades para crear el paquete.
-7. Agregue un recurso a la plantilla.
+7. Vuelva a WebSiteSQLDatabase.json y agregue un recurso a la plantilla.
    
     ![agregar recurso](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. En esta ocasión, seleccione **Web Deploy para aplicaciones web**. 
@@ -215,10 +217,5 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre la administración de recursos en el portal, consulte [Administración de los recursos de Azure a través del portal](resource-group-portal.md).
 * Para más información sobre las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
