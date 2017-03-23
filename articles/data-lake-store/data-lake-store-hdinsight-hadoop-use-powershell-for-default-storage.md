@@ -48,8 +48,9 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
 * **Kit de desarrollo de software (SDK) de Windows**: Para instalar el SDK de Windows, vaya a [Descargas y herramientas para Windows 10](https://dev.windows.com/en-us/downloads). El SDK de Windows se usa para crear un certificado de seguridad.
 * **Entidad de servicio de Azure Active Directory**: Este tutorial describe cómo crear una entidad de servicio en Azure Active Directory (Azure AD). Sin embargo, para crear una entidad de servicio, debe ser administrador de Azure AD. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
- >[!NOTE]
- >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. La entidad de servicio se debe crear con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >[!NOTE]
+    >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. La entidad de servicio se debe crear con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >
 
 ## <a name="create-a-data-lake-store-account"></a>Crear una cuenta de Almacén de Data Lake
 Para crear una cuenta de Data Lake Store, realice el siguiente procedimiento:
@@ -68,8 +69,9 @@ Para crear una cuenta de Data Lake Store, realice el siguiente procedimiento:
         # Register for Data Lake Store
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
- > [!NOTE]
- > Si registra el proveedor de recursos de Data Lake Store y recibe un error similar a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, su suscripción podría no estar en la lista de permitidas para Data Lake Store. Para habilitar la suscripción de Azure para la versión preliminar pública de Data Lake Store, siga las instrucciones que se encuentran en [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md).
+    > [!NOTE]
+    > Si registra el proveedor de recursos de Data Lake Store y recibe un error similar a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, su suscripción podría no estar en la lista de permitidas para Data Lake Store. Para habilitar la suscripción de Azure para la versión preliminar pública de Data Lake Store, siga las instrucciones que se encuentran en [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md).
+    > 
 
 2. Cuando se le pida que inicie sesión, hágalo como uno de los propietarios o administradores de la suscripción.
 3. Una cuenta de Data Lake Store se asocia con un grupo de recursos de Azure. Comience a crear un grupo de recursos.
@@ -217,7 +219,8 @@ En esta sección, realiza una conexión de Secure Shell (SSH) en el clúster de 
     Debería ver el resultado de la consulta en la consola SSH.
 
     >[!NOTE]
-       >La ruta de acceso a los datos de ejemplo del comando CREATE TABLE anterior es `adl:///example/data/`, donde `adl:///` es la raíz de clúster. Siguiendo el ejemplo de la raíz de clúster especificada en este tutorial, el comando es `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. Puede usar la alternativa más corta o proporcionar la ruta de acceso a la raíz de clúster completa.
+    >La ruta de acceso a los datos de ejemplo del comando CREATE TABLE anterior es `adl:///example/data/`, donde `adl:///` es la raíz de clúster. Siguiendo el ejemplo de la raíz de clúster especificada en este tutorial, el comando es `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. Puede usar la alternativa más corta o proporcionar la ruta de acceso a la raíz de clúster completa.
+    >
 
 ## <a name="access-data-lake-store-by-using-hdfs-commands"></a>Acceso a Data Lake Store mediante comandos de HDFS
 Después de configurar el clúster de HDInsight para que use Data Lake Store, puede usar los comandos de shell del sistema de archivos distribuido de hadoop (HDFS) para acceder al almacén.

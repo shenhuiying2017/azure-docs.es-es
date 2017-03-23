@@ -25,11 +25,11 @@ ms.lasthandoff: 02/01/2017
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante la CLI de Azure
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [CLI de Azure](virtual-network-create-udr-arm-cli.md)
-- [Plantilla](virtual-network-create-udr-arm-template.md)
-- [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
-- [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+> * [Plantilla](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 

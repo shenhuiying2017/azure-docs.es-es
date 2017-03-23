@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 1738899a271045e37cdcedaaf862553f29ec92f1
 ms.openlocfilehash: b1c06135cf8628197fb9601affd6a7131b41d0ca
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -32,10 +33,5 @@ Habrá ocasiones en las que querrá tomar un resultado intermedio de un experime
 4. Haga clic en la marca de verificación **Aceptar** .
 
 Cuando termine de guardar, el conjunto de datos estará disponible para usarlo dentro de cualquier experimento de su área de trabajo. Puede encontrarlo en la lista **Conjuntos de datos guardados** de la paleta de módulos.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
