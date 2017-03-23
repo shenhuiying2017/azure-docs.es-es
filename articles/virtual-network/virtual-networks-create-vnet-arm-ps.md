@@ -32,13 +32,13 @@ Azure cuenta con dos modelos de implementación: Azure Resource Manager y el cl�
 En este artículo se describe cómo crear una red virtual con el modelo de implementación de Resource Manager mediante PowerShell. También puede crear una red virtual mediante Resource Manager con otras herramientas o crear una red virtual a través del modelo de implementación clásica seleccionando una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Plantilla](virtual-networks-create-vnet-arm-template-click.md)
-- [Portal (clásico)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (clásico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [CLI (clásico)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Plantilla](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portal (clásico)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (clásico)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [CLI (clásico)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
