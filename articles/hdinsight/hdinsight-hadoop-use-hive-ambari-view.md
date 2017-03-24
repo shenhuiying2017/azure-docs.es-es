@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
 ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -61,7 +63,7 @@ En la sección **Database Explorer** (Explorador de base de datos) de la página
 
 A medida que se agregan tablas a través de los pasos descritos en este documento, puede usar el icono de actualización que se encuentra en la esquina superior derecha del Explorador de base de datos para actualizar la lista.
 
-## <a name="a-namehivequeryaquery-editor"></a><a name="hivequery"></a>Editor de consultas
+## <a name="hivequery"></a>Editor de consultas
 
 Utilice los pasos siguientes de la vista de Hive para ejecutar una consulta de Hive.
 
@@ -224,7 +226,7 @@ Para obtener más información sobre el uso de las funciones definidas por el us
 * [Uso de Python con Hive y Pig en HDInsight](hdinsight-python.md)
 * [Cómo agregar una UDF de Hive personalizada a HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a id="nextsteps"></a>Pasos siguientes
 Para obtener información general acerca de Hive en HDInsight:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
@@ -233,10 +235,5 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

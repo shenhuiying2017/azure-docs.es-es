@@ -2,8 +2,7 @@
 title: "¿Qué es el SDK de Azure para .NET?"
 description: "Obtenga información acerca de qué se incluye en el SDK de .NET de Azure."
 documentationcenter: .net
-author: juliako
-manager: wpickett
+author: chrissfanos
 editor: mollybos
 services: 
 ms.assetid: f70279ac-7c56-4d6a-9882-352a8b644a4b
