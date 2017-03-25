@@ -1,7 +1,7 @@
 ## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Cómo crear una red virtual mediante la CLI de Azure
 Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el símbolo del sistema de cualquier equipo que ejecute Windows, Linux o bien OSX. Para crear una red virtual mediante la CLI de Azure, siga estos pasos.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../articles/xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../articles/cli-install-nodejs.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
    
         azure config mode arm
@@ -99,9 +99,4 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
         data:      Address prefix                : 192.168.2.0/24
         data:
         info:    network vnet show command OK
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

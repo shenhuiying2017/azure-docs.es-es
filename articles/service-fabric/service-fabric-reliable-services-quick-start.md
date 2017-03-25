@@ -1,5 +1,5 @@
 ---
-title: "Creación del primer microservicio de Azure confiable en C# | Microsoft Docs"
+title: "Creación de la primera aplicación de Service Fabric en C# | Microsoft Docs"
 description: "Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 41823b962caf25e1826fc06bc49887fd99876fc4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,14 +36,14 @@ Una aplicación de Service Fabric de Azure contiene uno o varios servicios que e
 Para empezar a trabajar con Reliable Services, solo es necesario comprender cuatro conceptos básicos:
 
 * **Tipo de servicio**: se trata de la implementación del servicio. Se ha definido a través de la clase que escribe y que extiende `StatelessService` y cualquier otro código y dependencias utilizados, junto con un nombre y un número de versión.
-* **Instancia de servicio con nombre**: para ejecutar su servicio, debe crear instancias con nombre de su tipo de servicio, de forma muy similar a la creación de instancias de objetos de un tipo de clase. Las instancias de servicio son, en realidad, creaciones de instancias de objetos de la clase de servicio que escribe. 
-* **Host de servicio**: las instancias de servicio con nombre que cree deben ejecutarse dentro de un host. El host del servicio es simplemente un proceso donde se pueden ejecutar instancias de su servicio.
+* **Instancia de servicio con nombre**: para ejecutar su servicio, debe crear instancias con nombre de su tipo de servicio, de forma muy similar a la creación de instancias de objetos de un tipo de clase. Una instancia de servicio tiene un nombre con forma de identificador URI que sigue el esquema "fabric:/" como, por ejemplo, "fabric:/MyApp/MyService".
+* **Host de servicio**: las instancias de servicio con nombre que cree deben ejecutarse dentro de un proceso de host. El host del servicio es simplemente un proceso donde se pueden ejecutar instancias de su servicio.
 * **Registro de servicio**: el registro incluye todos los elementos. El tipo de servicio debe registrarse con Service Fabric en tiempo de ejecución en un host de servicio para permitir que Service Fabric cree instancias de él para ejecutarse.  
 
 ## <a name="create-a-stateless-service"></a>Creación de un servicio sin estado
 Un servicio sin estado es un tipo de servicio que es el que se encuentra actualmente en las aplicaciones en la nube. Se considera sin estado porque el propio servicio no contiene datos que tengan que almacenarse de manera fiable o requieran tener una alta disponibilidad. Si se cierra una instancia de un servicio sin estado, todo su estado interno se pierde. En este tipo de servicio, el estado debe almacenarse en un almacén externo, como Tablas de Azure o una base de datos SQL, para que resulte fiable y tenga una alta disponibilidad.
 
-Inicie Visual Studio 2015 como administrador y cree un nuevo proyecto de aplicación de Service Fabric denominado *HelloWorld*:
+Inicie Visual Studio 2015 o Visual Studio 2017 como administrador y cree un nuevo proyecto de aplicación de Service Fabric denominado *HelloWorld*:
 
 ![Uso del cuadro de diálogo Nuevo proyecto para crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -67,7 +68,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-* Un punto de entrada de comunicación en el que puede conectar su pila de comunicación preferida, como la API web de ASP.NET. Aquí es donde puede empezar a recibir las solicitudes de usuarios y otros servicios.
+* Un punto de entrada de comunicación en el que puede conectar su pila de comunicación preferida, como ASP.NET Core. Aquí es donde puede empezar a recibir las solicitudes de usuarios y otros servicios.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -227,10 +228,5 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 [Actualización de aplicaciones](service-fabric-application-upgrade.md)
 
 [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

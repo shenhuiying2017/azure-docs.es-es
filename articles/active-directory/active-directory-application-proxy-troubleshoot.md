@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -29,10 +29,10 @@ Si se producen errores al obtener acceso a una aplicación publicada o al public
 
 * Abra la consola de Servicios de Windows y compruebe que el servicio **Microsoft AAD Application Proxy Connector** (Conector del proxy de aplicación de Microsoft AAD) está habilitado y en ejecución. Puede que también quiera consultar la página de propiedades del servicio Proxy de aplicación, como se muestra en la imagen siguiente:   
   ![Captura de pantalla de la ventana de propiedades del conector del proxy de aplicación de Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
-* Abra el Visor de eventos y busque eventos del conector del proxy de aplicación en **Registros de aplicaciones y servicios** > **Microsoft** > ** AadApplicationProxy** > **Conector** > **Administrador**.
+* Abra el Visor de eventos y busque eventos del conector del proxy de aplicación en **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector** > **Administrador**.
 * Si es necesario, puede disponer de registros más detallados si activa los registros de análisis y depuración, así como el registro de sesiones del conector del proxy de aplicación.
 
-Para más información sobre la herramienta de solución de problemas de Azure AD, consulte Troubleshooting tool to validate connector networking prerequisites (Herramienta de solución de problemas para validar los requisitos previos de red del conector), disponible en https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites.
+Para más información sobre la herramienta de solución de problemas de Azure AD, consulte [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Herramienta de solución de problemas para validar los requisitos previos de red del conector).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>La página no se representa correctamente.
 Es posible que tenga problemas con la representación o el funcionamiento incorrecto de la aplicación, aunque no reciba ningún mensaje de error específico. Esto puede ocurrir si se publica la ruta de acceso del artículo, pero la aplicación requiere contenido que existe fuera de dicha ruta de acceso.
@@ -42,6 +42,8 @@ Por ejemplo, si publica la ruta de acceso https://yourapp/app, pero la aplicaci�
 Si cambia la ruta de acceso para incluir el contenido al que se hace referencia, pero necesita que los usuarios lleguen a un vínculo más profundo de la ruta de acceso, consulte la entrada del blog [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Establecimiento del vínculo correcto para las aplicaciones del proxy de aplicación en el panel de acceso de Azure AD y en el selector de programas de Office 365).
 
 ## <a name="connector-errors"></a>Errores del conector
+
+Use la [herramienta de prueba Connector Ports del proxy de aplicación de Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) para comprobar que el conector puede comunicarse con el servicio proxy de aplicación. Como mínimo, asegúrese de que la región de centro de EE. UU. y la región más cercana tienen todas las marcas de verificación en verde. Además, cuantas más marcas de verificación verde haya, mayor resistencia habrá. 
 
 Si se produce un error en el registro durante la instalación del Asistente para el conector, hay dos maneras de ver el motivo de dicho error. Se puede examinar el registro de eventos en **Registros de aplicaciones y servicios/\Microsoft\AadApplicationProxy\Connector\Admin, o bien se puede ejecutar el siguiente comando de Windows PowerShell**.
 

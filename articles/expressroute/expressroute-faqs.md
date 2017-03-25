@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
-ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0df7bba472daf2c499f3ccff1296b8a9ee8ab89d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,9 +27,6 @@ ExpressRoute es un servicio de Azure que permite crear conexiones privadas entre
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>¿Cuáles son las ventajas de usar ExpressRoute y conexiones de red privada?
 Las conexiones ExpressRoute no se realizan sobre una conexión a Internet pública, ofrecen una mayor confiabilidad, seguridad y velocidad con una latencia menor y más coherente que las conexiones a Internet típicas. En algunos casos, el uso de conexiones ExpressRoute para transferir datos entre los dispositivos locales y Azure también puede aportar beneficios económicos importantes.
-
-### <a name="what-microsoft-cloud-services-are-supported-over-expressroute"></a>¿Qué servicios en la nube de Microsoft son compatibles con ExpressRoute?
-ExpressRoute admite la mayoría de los servicios de Microsoft Azure hoy en día, incluido Office 365.  Busque pronto actualizaciones de disponibilidad general.
 
 ### <a name="where-is-the-service-available"></a>¿Dónde está disponible el servicio?
 Consulte esta página para la ubicación del servicio y la disponibilidad: [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md).
@@ -99,7 +96,7 @@ Sí. Cada circuito ExpressRoute tiene un par redundante de conexiones cruzadas c
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>¿Se pierde conectividad si se produce un error en uno de mis vínculos de ExpressRoute?
 No perderá conectividad si se produce un error en una de las conexiones cruzadas. Una conexión redundante está disponible para admitir la carga de la red. Asimismo, puede crear varios circuitos en una ubicación de emparejamiento diferente para lograr resistencia frente a errores.
 
-### <a name="a-nameonep2plinkaif-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
+### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 No, solo necesita una conexión física si su proveedor de servicios puede establecer dos circuitos virtuales de Ethernet sobre la conexión física. La conexión física (por ejemplo, una fibra óptica) se termina en un dispositivo de capa 1 (L1) (consulte la imagen que aparece a continuación). Los dos circuitos virtuales de Ethernet se etiquetan con id. de VLAN distintos, uno para el circuito principal y otro para el secundario. Esos id. de VLAN están en el encabezado Ethernet 802.1Q externo. El encabezado Ethernet 802.1Q interno (que no se muestra) está asignado a un [dominio de enrutamiento ExpressRoute](expressroute-circuit-peerings.md) específico. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -111,7 +108,10 @@ No. No admitimos ampliaciones de conectividad de la capa 2 en Azure.
 Sí. Puede disponer de más de un circuito ExpressRoute en su suscripción. El límite predeterminado del número de circuitos dedicados se establece en 10. Puede ponerse en contacto con Soporte técnico de Microsoft para aumentar el límite si es necesario.
 
 ### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>¿Es posible tener circuitos ExpressRoute de otros proveedores de servicios?
-Sí. Puede tener circuitos ExpressRoute de muchos otros proveedores de servicios. Cada circuito ExpressRoute estará asociado solo a un proveedor de servicios.
+Sí. Puede tener circuitos ExpressRoute de muchos otros proveedores de servicios. Cada circuito ExpressRoute estará asociado solo a un proveedor de servicios. 
+
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>¿Puede haber varios circuitos ExpressRoute en la misma ubicación?
+Sí. Puede haber varios circuitos ExpressRoute, con los mismos o distintos proveedores de servicio, en la misma ubicación. Sin embargo, no será posible vincular más de un circuito ExpressRoute a la misma red virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>¿Cómo conecto mis redes virtuales a un circuito ExpressRoute?
 Los pasos básicos se describen a continuación.
@@ -126,7 +126,7 @@ Vea [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y est
 Sí. [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) proporciona una visión general de los límites de conectividad para un circuito ExpressRoute. La conectividad de un circuito ExpressRoute está limitada a una única región geopolítica. La conectividad puede ampliarse a regiones geopolíticas cruzadas habilitando la característica Premium de ExpressRoute.
 
 ### <a name="can-i-link-to-more-than-one-virtual-network-to-an-expressroute-circuit"></a>¿Se puede vincular más de una red virtual a un circuito ExpressRoute?
-Sí. Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute.
+Sí. Puede haber hasta 10 conexiones de redes virtuales en un circuito ExpressRoute estándar y hasta 100 en un [circuito ExpressRoute premium](#expressroute-premium). 
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Tengo varias suscripciones a Azure que contienen redes virtuales. ¿Es posible conectar redes virtuales de diferentes suscripciones a un solo circuito ExpressRoute?
 Sí. Puede autorizar hasta otras 10 suscripciones de Azure para usar un único circuito ExpressRoute. Este límite puede aumentarse al habilitar la característica Premium de ExpressRoute.
@@ -154,6 +154,9 @@ Sí. ExpressRoute puede coexistir con las VPN de sitio a sitio.
 ### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>¿Es posible mover una red virtual de una configuración de sitio a sitio/punto a sitio para usar ExpressRoute?
 Sí. Tendrá que crear una puerta de enlace de ExpressRoute dentro de la red virtual. Habrá un breve tiempo de inactividad asociado al proceso.
 
+### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>¿Por qué hay una dirección IP pública asociada a la puerta de enlace de ExpressRoute en una red virtual?
+Se usa solo para la administración interna. Esta dirección IP pública no está expuesta a Internet y no constituye un riesgo de seguridad de la red virtual.
+
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>¿Qué es necesario para conectarse a Almacenamiento de Azure a través de ExpressRoute?
 Debe establecer un circuito ExpressRoute y configurar rutas para el intercambio de tráfico público.
 
@@ -179,7 +182,7 @@ Los pasos siguientes ayudarán a Azure a reconocer la solicitud de activación:
    * Haga que el proveedor NSP devuelva el tráfico a Azure a través de la interconexión pública.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>¿Es posible cambiar el ancho de banda de un circuito ExpressRoute?
-Sí. Puede aumentar el ancho de banda de un circuito ExpressRoute sin necesidad de eliminarlo. Tendrá que realizar un seguimiento con su proveedor de conectividad para asegurarse de que actualizan los aceleradores en sus redes para admitir el aumento del ancho de banda. Sin embargo no podrá reducir el ancho de banda de un circuito ExpressRoute. Tener que reducir el ancho de banda significa eliminar y volver a crear un circuito ExpressRoute.
+Sí, se puede intentar aumentar en Azure Portal o mediante PowerShell. Si el puerto físico en el que se creó el circuito tiene capacidad disponible, el cambio se realizará correctamente. Si el cambio no se realiza correctamente, significa que no queda capacidad en el puerto actual y que es preciso crear un circuito ExpressRoute nuevo con mayor ancho de banda O que no hay capacidad adicional en dicha ubicación, en cuyo caso no se podrá aumentar el ancho de banda. También tendrá que realizar un seguimiento con su proveedor de conectividad para asegurarse de que actualizan los aceleradores en sus redes para admitir el aumento del ancho de banda. Sin embargo, no se puede reducir el ancho de banda de su circuito ExpressRoute. Tendrá que crear un nuevo circuito ExpressRoute con menor ancho de banda y eliminar el circuito anterior.
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>¿Cómo se cambia el ancho de banda de un circuito ExpressRoute?
 Puede actualizar el ancho de banda del circuito ExpressRoute mediante el cmdlet de PowerShell y la API de circuito dedicado de actualización.
@@ -190,7 +193,7 @@ ExpressRoute Premium es la colección de características que se enumera a conti
 
 * Aumento del límite de la tabla de enrutamiento de 4000 rutas a 10 000 rutas para el emparejamiento privado.
 * Mayor número de redes virtuales que puede conectarse al circuito ExpressRoute (el valor predeterminado es 10). Vea la tabla siguiente para obtener más información.
-* Conectividad global a través de la red principal de Microsoft. Ahora podrá vincular una red virtual en una región geopolítica con un circuito ExpressRoute en otra región. **Ejemplo:** puede vincular una red virtual creada en Europa occidental a un circuito ExpressRoute creado en Silicon Valley.
+* Conectividad global a través de la red principal de Microsoft. Ahora podrá vincular una red virtual en una región geopolítica con un circuito ExpressRoute en otra región. **Ejemplo:** puede vincular una red virtual creada en Europa occidental a un circuito ExpressRoute creado en Silicon Valley. **Otro ejemplo:** en el emparejamiento público, los prefijos de otras regiones geopolíticas se anuncian de forma que sea posible conectarse, por ejemplo, a SQL Azure en Europa occidental desde un circuito en Silicon Valley.
 * Conectividad con los servicios de Office 365 y CRM Online.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>¿Cuántas redes virtuales puedo vincular a un circuito ExpressRoute si habilito ExpressRoute Premium?

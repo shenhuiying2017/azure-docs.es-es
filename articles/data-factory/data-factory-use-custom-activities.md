@@ -15,23 +15,25 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b8a54b6ca0b13c161a35595af7f09e6c5ab203c0
-ms.openlocfilehash: 21190b985860a79e4bebf7bf4845e5954c657b9f
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md)
-> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
-> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
-> * [.NET personalizado](data-factory-use-custom-activities.md)
+> * [Actividad de Hive](data-factory-hive-activity.md) 
+> * [Actividad de Pig](data-factory-pig-activity.md)
+> * [Actividad MapReduce](data-factory-map-reduce.md)
+> * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Actividad de Spark](data-factory-spark.md)
+> * [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Actividad Actualizar recurso de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
+> * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
 
 Hay dos tipos de actividades que puede usar en una canalización de Data Factory de Azure.
@@ -253,7 +255,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path    
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -289,7 +291,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset    
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {

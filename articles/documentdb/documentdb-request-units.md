@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 7c32d69f3d6d2cc60f830db96b6aea47ce8712ca
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Qué ocurre si supero la capacidad de la unidad de solicitud para una colección?
 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitud y cargos de solicitud
-DocumentDB ofrece un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación.  Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, DocumentDB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
+DocumentDB y la API de MongoDB ofrecen un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación.  Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, DocumentDB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
 
 Con DocumentDB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo.  Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo.  Cada operación de DocumentDB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo.  Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*.  La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible. 
 
@@ -51,7 +51,7 @@ Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramach
 > 
 > 
 
-## <a name="specifying-request-unit-capacity"></a>Especificación de la capacidad de unidad de solicitud
+## <a name="specifying-request-unit-capacity-in-documentdb"></a>Especificación de la capacidad de unidad de solicitud en DocumentDB
 Al crear una colección de DocumentDB, especifique el número de unidades de solicitud por segundo (RU por segundo) que desee reservar para la colección. Según el rendimiento aprovisionado, DocumentDB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
 
 DocumentDB requiere que se especifique una clave de partición cuando se aprovisiona una colección con 10 000 unidades de solicitud o un valor superior. También se requiere una clave de partición para escalar el rendimiento de la colección a más de 10 000 unidades de solicitud en el futuro. Por lo tanto, se recomienda encarecidamente configurar una [clave de partición](documentdb-partition-data.md) al crear una colección, sea cual sea su rendimiento inicial. Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos) para que DocumentDB pueda escalar la colección y las solicitudes uniformemente. 
@@ -61,7 +61,7 @@ DocumentDB requiere que se especifique una clave de partición cuando se aprovis
 
 Este es un fragmento de código para crear una colección con 3000 unidades de solicitud por segundo con el SDK de .NET:
 
-```C#
+```csharp
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "coll";
 myCollection.PartitionKey.Paths.Add("/deviceId");
@@ -76,7 +76,7 @@ DocumentDB funciona con un modelo de reserva del rendimiento. Es decir, se le co
 
 Cada colección está asignada a un recurso `Offer` de DocumentDB que contiene metadatos sobre el rendimiento aprovisionado de la colección. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para una colección y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento de la colección a 5000 unidades de solicitud por segundo mediante el SDK de .NET:
 
-```C#
+```csharp
 // Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -89,6 +89,13 @@ offer = new OfferV2(offer, 5000);
 // Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
+
+No se producirá ningún cambio en la disponibilidad de la colección cuando cambie el rendimiento. Por lo general, el nuevo rendimiento reservado es efectivo en cuestión de segundos después de su aplicación.
+
+## <a name="specifying-request-unit-capacity-in-api-for-mongodb"></a>Especificación de la capacidad de unidad de solicitud en la API de MongoDB
+La API de MongoDB permite especificar el número de unidades de solicitud por segundo (RU por segundo) que desee reservar para la colección.
+
+La API de MongoDB funciona con el mismo modelo de reserva basado en el rendimiento que DocumentDB. Es decir, se le cobrará por la cantidad de rendimiento *reservada* para la colección, independientemente de la que *use* activamente. A medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de unidades de solicitud reservadas mediante [Azure Portal](https://portal.azure.com).
 
 No se producirá ningún cambio en la disponibilidad de la colección cuando cambie el rendimiento. Por lo general, el nuevo rendimiento reservado es efectivo en cuestión de segundos después de su aplicación.
 
@@ -125,37 +132,37 @@ Por ejemplo, esta es una tabla que muestra el número de unidades de solicitud q
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1000 RU/s</p></td>
+            <td valign="top"><p>(500 *1) + (100* 5) = 1000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 5) + (100 * 5) = 3000 RU/s</p></td>
+            <td valign="top"><p>(500 *5) + (100* 5) = 3000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1350 RU/s</p></td>
+            <td valign="top"><p>(500 *1,3) + (100* 7) = 1350 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4150 RU/s</p></td>
+            <td valign="top"><p>(500 *1,3) + (500* 7) = 4150 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 10) + (100 * 48) = 9800 RU/s</p></td>
+            <td valign="top"><p>(500 *10) + (100* 48) = 9800 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 10) + (500 * 48) = 29 000 RU/s</p></td>
+            <td valign="top"><p>(500 *10) + (500* 48) = 29 000 RU/s</p></td>
         </tr>
     </tbody>
 </table>
@@ -209,10 +216,42 @@ Por ejemplo:
 5. Registre el cargo de unidad de solicitud de los scripts personalizados (procedimientos almacenados, desencadenadores y funciones definidas por el usuario) usados por la aplicación
 6. Calcule las unidades de solicitud necesarias según el número estimado de operaciones que se prevé ejecutar cada segundo.
 
+### <a id="GetLastRequestStatistics"></a>Uso del comando GetLastRequestStatistics de la API de MongoDB
+La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar la carga de solicitud de operaciones especificadas.
+
+Por ejemplo, en el shell de Mongo, ejecute la operación para la que desea comprobar la carga de solicitud.
+```
+> db.sample.find()
+```
+
+Después, ejecute el comando *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Con esto en mente, un método para calcular la cantidad de rendimiento reservado requerido por la aplicación es registrar el cargo de la unidad de solicitud asociado a la ejecución de las operaciones típicas frente a un documento representativo utilizado por la aplicación y, a continuación, calcular el número de operaciones que prevé realizar cada segundo.
+
+> [!NOTE]
+> Si dispone de tipos de documento que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de documento típico.
+> 
+> 
+
+## <a name="use-api-for-mongodbs-portal-metrics"></a>Uso de las métricas del Portal de la API de MongoDB
+La manera más sencilla de obtener una buena estimación de los cargos en materia de unidad de solicitud de la API de MongoDB es usar las métricas [Azure Portal](https://portal.azure.com). Con los gráficos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
+
+![Métricas del Portal de la API de MongoDB][6]
+
 ## <a name="a-request-unit-estimation-example"></a>Un ejemplo de estimación de la unidad de solicitud
 Considere el siguiente documento de ~1 KB:
 
-```JSON
+```json
 {
  "id": "08259",
   "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
@@ -301,7 +340,7 @@ Con esta información, podemos hacer una estimación de los requisitos de RU par
 
 En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
 
-## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados
+## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados en DocumentDB
 La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
     HTTP Status 429
@@ -311,6 +350,9 @@ La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por
 Si utiliza las consultas de LINQ y de SDK de cliente para .NET, no tendrá que tratar con esta excepción la mayoría del tiempo, ya que la versión actual del SDK de cliente .NET detecta implícitamente esta respuesta, respeta el encabezado retry-after especificado por el servidor y vuelve a intentar la solicitud. A menos que varios clientes obtengan acceso a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente.
 
 Si tiene más de un cliente de manera acumulativa funcionando por encima de la tasa de solicitud, el comportamiento de reintento predeterminado puede no ser suficiente y el cliente producirá una DocumentClientException con el código de estado 429 en la aplicación. En casos como este, puede controlar el comportamiento de reintento y la lógica en el error de la aplicación administrando rutinas o mejorando el rendimiento reservado para la colección.
+
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
+Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el back-end finalizará la solicitud de forma preferente con un código de error*16500*: *Demasiadas solicitudes*. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error *Demasiadas solicitudes*. Si recibe numerosos códigos de error *Demasiadas solicitudes*, puede plantearse agregar un comportamiento de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento reservado de la colección](documentdb-set-throughput.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el rendimiento con bases de datos de Azure DocumentDB, consulte estos recursos:
@@ -328,4 +370,5 @@ Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png
 

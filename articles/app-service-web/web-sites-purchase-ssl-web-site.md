@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
-ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: edcb6d37eb4d82ff5928ee33cf456c3795eb8131
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2017
 > 
 > 
 
-De forma predeterminada, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** ya habilita HTTPS para la aplicación web con un certificado comodín para el dominio *.azurewebsites.net. Si no tiene pensado configurar un dominio personalizado, puede aprovechar el certificado HTTPS predeterminado. Sin embargo, al igual que *[todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), no es tan seguro como usar un dominio personalizado con su propio certificado. Servicio de aplicaciones de Azure ahora proporciona una manera realmente simplificada de adquirir y administrar un certificado SSL desde el Portal de Azure sin tener que salir de dicho portal.  
+De forma predeterminada, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** ya habilita HTTPS para la aplicación web con un certificado comodín para el dominio *.azurewebsites.net. Si no tiene pensado configurar un dominio personalizado, puede aprovechar el certificado HTTPS predeterminado. Sin embargo, al igual que*[todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), no es tan seguro como usar un dominio personalizado con su propio certificado. Servicio de aplicaciones de Azure ahora proporciona una manera realmente simplificada de adquirir y administrar un certificado SSL desde el Portal de Azure sin tener que salir de dicho portal.  
 Este artículo explica cómo comprar y configurar un certificado SSL para su **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** en 3 pasos sencillos. 
 
 > [!NOTE]
@@ -170,8 +170,11 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
   
     Tenga en cuenta que esta dirección IP será distinta de la dirección IP virtual que ha usado previamente para configurar el registro D de su dominio. Si lo ha configurado para usar un cifrado SSL basado en SNI, o no lo ha configurado para usar SSL, esta entrada no contendrá ninguna dirección.
 
-1. Mediante las herramientas proporcionadas por su registrador de nombres de dominio, modifique el registro D de su nombre de dominio personalizado para que apunte a la dirección IP del paso anterior.
+* Mediante las herramientas proporcionadas por su registrador de nombres de dominio, modifique el registro D de su nombre de dominio personalizado para que apunte a la dirección IP del paso anterior.
    Llegados a este punto, debería ser capaz de visitar su aplicación con HTTPS://, en lugar de HTTP://, para comprobar que el certificado se ha configurado correctamente.
+
+## <a name="bkmk_Rekey"></a>Exportación del certificado App Service Certificate
+Puede crear una copia local PFX de un certificado App Service Certificate para que pueda usarlo con otros servicios de Azure. Para obtener más información, **[lea esta publicación del blog](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**.
 
 ## <a name="bkmk_Rekey"></a>Regeneración de la clave del certificado y sincronización de este
 1. Por motivos de seguridad, si necesita regenerar la clave del certificado, simplemente seleccione la opción **"Regenerar clave y sincronizar"** en la hoja **"Propiedades del certificado"**. 

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d6a9be6c5c681cba04fa8ba216c89234ae35b846
-ms.openlocfilehash: 8e554fc73906a912c426cabf6f6dffdc10002c9b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -277,7 +277,7 @@ Las siguientes entidades de Data Factory se definen en la plantilla JSON:
 * [Canalización de datos con una actividad de copia](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
-El servicio vinculado Azure Storage vincula una cuenta de Azure Storage a la factoría de datos. En este tutorial, la misma cuenta de almacenamiento es la cuenta de almacenamiento para HDInsight predeterminada, el almacenamiento de datos de entrada y el almacenamiento de datos de salida. Por consiguiente, se define solo un servicio vinculado Azure Storage. En la definición del servicio vinculado, especifique el nombre y la clave de su cuenta de Azure Storage. Consulte [Servicio vinculado de Azure Storage](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage. 
+El servicio vinculado Azure Storage vincula una cuenta de Azure Storage a la factoría de datos. En este tutorial, la misma cuenta de almacenamiento se usa como la cuenta de almacenamiento para HDInsight predeterminada, el almacenamiento de datos de entrada y el almacenamiento de datos de salida. Por consiguiente, se define solo un servicio vinculado Azure Storage. En la definición del servicio vinculado, especifique el nombre y la clave de su cuenta de Azure Storage. Consulte [Servicio vinculado de Azure Storage](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage. 
 
 ```json
 {

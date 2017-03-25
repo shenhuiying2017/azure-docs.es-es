@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -146,7 +146,7 @@ Las extensiones de prueba para los clientes están disponibles como autoservicio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre escenarios avanzados de administración de licencias a través de grupos, consulte este artículo 
+Para más información sobre escenarios avanzados de administración de licencias a través de grupos, consulte este artículo.
 
 Ahora ya está preparado para configurar y usar algunas características de Azure AD Premium
 

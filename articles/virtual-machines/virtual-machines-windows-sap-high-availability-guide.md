@@ -18,9 +18,9 @@ ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: bcad35fe1df9da06e02eceae6a221c40a9d10bac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 69bce31b59ba3a70b69ab17f91272b45a4f05afc
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 03/01/2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -441,7 +441,7 @@ ms.lasthandoff: 03/01/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
@@ -1241,6 +1241,12 @@ Para configurar un testigo de recurso compartido de archivos de clúster, hay qu
 
   _**Figura 38:** Confirmación de que volvió a configurar el clúster_
 
+Después de instalar correctamente el clúster de conmutación por error de Windows, se deben realizar cambios en algunos umbrales para adaptar la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en este blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Suponiendo que las dos máquinas virtuales que compilación la configuración de clúster de Windows para ASCS/SCS están en la misma subred, los parámetros siguientes deben cambiarse a estos valores:
+- SameSubNetDelay = 2
+- SameSubNetThreshold = 15
+
+Esta configuración se ha probado con los clientes y proporciona un buen compromiso para que, por un lado, sea lo suficientemente resistente. Por otro lado, dicha configuración proporciona una conmutación por error lo suficientemente rápida en condiciones de error real en caso de error de máquinas virtuales o nodos, o de software SAP. 
+
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP
 
 Ahora tiene una configuración de Clústeres de conmutación por error de Windows Server activa en Azure. Pero, para instalar una instancia de ASCS/SCS de SAP, necesita un recurso de disco compartido. No puede crear los recursos de disco compartido que necesita en Azure. SIOS DataKeeper Cluster Edition es una solución de terceros que puede usar para crear recursos de disco compartido.
@@ -1551,7 +1557,7 @@ Para agregar un puerto de sondeo, siga estos pasos:
   }
   ```
 
-  Después de conectar el rol de clúster **SAP <*SID*>**, compruebe que **ProbePort** esté establecido en el nuevo valor.
+  Después de conectar el rol de clúster **SAP <*SID*>**, compruebe que**ProbePort** esté establecido en el nuevo valor.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1651,3 +1657,4 @@ _**Figura 62:** En SIOS DataKeeper, replique el volumen local desde el nodo de c
   ![Figura 64: SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A][sap-ha-guide-figure-5003]
 
   _**Figura 64:** SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A_
+

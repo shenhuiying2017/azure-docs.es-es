@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,7 +55,7 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
-* Un equipo con Visual Studio 2015, o posterior, ya instalado.
+* Un equipo con Visual Studio 2015, o posterior, instalado.
 * Las plantillas de Batch, que están disponibles en la [Galería de Visual Studio][vs_gallery] como extensiones de Visual Studio. Las plantillas se pueden obtener de dos formas:
   
   * Instale las plantillas con el cuadro de diálogo **Extensiones y actualizaciones** de Visual Studio (para obtener más información, vea [Buscar y usar extensiones de Visual Studio][vs_find_use_ext]). En el cuadro de diálogo **Extensiones y actualizaciones** , busque y descargue las dos extensiones siguientes:
@@ -68,7 +68,7 @@ Para utilizar las plantillas de Batch, necesita lo siguiente:
 ## <a name="preparation"></a>Preparación
 Se recomienda crear una solución que puede contener el administrador de trabajos, así como el procesador de tareas, ya que esto puede facilitar el uso compartido de código entre el administrador de trabajos y los programas de procesador de tareas. Para crear esta solución, siga estos pasos:
 
-1. Abra Visual Studio 2015, seleccione **Archivo** > **Nuevo** > **Proyecto**.
+1. Abra Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**.
 2. En **Plantillas**, expanda **Otros tipos de proyectos**, haga clic en **Soluciones de Visual Studio** y, luego, seleccione **Solución en blanco**.
 3. Escriba un nombre que describa la aplicación y el propósito de esta solución (por ejemplo, "LitwareBatchTaskPrograms").
 4. Para crear una solución nueva, haga clic en **Aceptar**.
@@ -87,7 +87,7 @@ La plantilla del administrador de trabajos ayuda a implementar una tarea del adm
 ### <a name="create-a-job-manager-using-the-template"></a>Creación de un administrador de trabajos con la plantilla
 Para agregar un administrador de trabajos a la solución creada anteriormente, siga estos pasos:
 
-1. Abra la solución existente en Visual Studio 2015.
+1. Abra la solución existente en Visual Studio.
 2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Agregar** > **Nuevo proyecto**.
 3. En **Visual C#**, haga clic en **Nube** y, luego, haga clic en **Administrador de trabajos de Azure Batch con separador de trabajos**.
 4. Escriba un nombre que describe la aplicación e identifica este proyecto como el administrador de trabajos (p. ej., "LitwareJobManager").
@@ -256,7 +256,7 @@ Las acciones realizadas por el procesador de tareas pueden ser simples o complej
 ### <a name="create-a-task-processor-using-the-template"></a>Creación de un procesador de tareas con la plantilla
 Para agregar un procesador de tareas a la solución creada anteriormente, siga estos pasos:
 
-1. Abra la solución existente en Visual Studio 2015.
+1. Abra la solución existente en Visual Studio.
 2. En el Explorador de soluciones, haga clic con el botón derecho en la solución; luego, en **Agregar** y en **Nuevo proyecto**.
 3. En **Visual C#**, haga clic en **Nube** y, luego, haga clic en **Procesador de tareas de Azure Batch**.
 4. Escriba un nombre que describe la aplicación e identifica este proyecto como el procesador de tareas (p. ej., "LitwareTaskProcessor").

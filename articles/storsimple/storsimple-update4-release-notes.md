@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -57,9 +57,9 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 4
 
 * **Cambios relacionados con FIPS**. Desde esta versión, FIPS está habilitado de manera predeterminada en todos los dispositivos de la serie StorSimple 8000 tanto para cuentas de Microsoft Azure Government como para cuentas de la nube pública de Azure.
 
-* **Cambios en las actualizaciones**. Desde esta versión, FIPS está habilitado de manera predeterminada en todos los dispositivos de la serie StorSimple 8000 tanto para cuentas de Microsoft Azure Government como para cuentas de la nube pública de Azure.
+* **Actualización de cambios**: en esta versión, se han corregido los errores relacionados con la actualización.
 
-* **Alerta de errores en el disco**. En esta versión, se agregó una alerta nueva que advierte al usuario cuando existen errores latentes en el disco.
+* **Alerta de errores en el disco**. En esta versión, se agregó una alerta nueva que advierte al usuario cuando existen errores latentes en el disco. Si se produce esta alerta, póngase en contacto con el soporte técnico de Microsoft para enviar un disco de sustitución.
 
 * **Cambios en el reemplazo del controlador**. En esta versión, se agregó un cmdlet que permite que el usuario consulte el estado del proceso de reemplazo del controlador. Para más información, vaya al [cmdlet para consultar el estado del reemplazo del controlador](https://technet.microsoft.com/library/dn688168.aspx).
 

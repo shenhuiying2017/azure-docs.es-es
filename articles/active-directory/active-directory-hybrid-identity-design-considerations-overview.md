@@ -15,13 +15,20 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ffcd17f176fa524368029acb363b96b874a4d13a
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: b22e34f9ad0644def8a344b261077b44c34420cb
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Consideraciones de diseño de identidad híbrida de Azure Active Directory
-Los dispositivos basados en el consumidor proliferan en el mundo empresarial y las aplicaciones de software como servicio (SaaS) basadas en la nube son fáciles de adoptar. Como resultado, resulta difícil mantener el control de acceso a las aplicaciones de los usuarios entre centros de datos internos y plataformas en la nube.  Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nube, de forma que se crea una sola identidad de usuario para la autenticación y la autorización en todos los recursos, sin importar su ubicación. A esto le llamamos identidad híbrida. Existen diferentes opciones de configuración y diseño para la identidad híbrida con las soluciones de Microsoft y, en algunos casos, puede ser difícil determinar qué combinación se adaptará mejor a las necesidades de su organización. Esta guía de consideraciones de diseño de identidad híbrida le ayudará a entender cómo diseñar una solución de identidad híbrida que se adapte bien a las necesidades empresariales y tecnológicas de su organización.  En ella se detallan una serie de pasos y tareas que puede seguir como ayuda para diseñar una solución de identidad híbrida que satisfaga los requisitos únicos de su organización. A través de estos pasos y tareas, se presentan las tecnologías y características pertinentes que tienen a su disposición las organizaciones para satisfacer los requisitos funcionales y de calidad de servicio (por ejemplo, disponibilidad, escalabilidad, rendimiento, capacidad de administración y seguridad). En concreto, los objetivos de esta guía son dar respuesta a las siguientes preguntas: 
+Los dispositivos basados en el consumidor proliferan en el mundo empresarial y las aplicaciones de software como servicio (SaaS) basadas en la nube son fáciles de adoptar. Como resultado, resulta difícil mantener el control de acceso a las aplicaciones de los usuarios entre centros de datos internos y plataformas en la nube.  
+
+Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nube, de forma que se crea una sola identidad de usuario para la autenticación y la autorización en todos los recursos, sin importar su ubicación. A esto le llamamos identidad híbrida. Existen diferentes opciones de configuración y diseño para la identidad híbrida con las soluciones de Microsoft y, en algunos casos, puede ser difícil determinar qué combinación se adaptará mejor a las necesidades de su organización. 
+
+Esta guía de consideraciones de diseño de identidad híbrida le ayudará a entender cómo diseñar una solución de identidad híbrida que se adapte bien a las necesidades empresariales y tecnológicas de su organización.  En ella se detallan una serie de pasos y tareas que puede seguir como ayuda para diseñar una solución de identidad híbrida que satisfaga los requisitos únicos de su organización. A través de estos pasos y tareas, se presentan las tecnologías y características pertinentes que tienen a su disposición las organizaciones para satisfacer los requisitos funcionales y de calidad de servicio (por ejemplo, disponibilidad, escalabilidad, rendimiento, capacidad de administración y seguridad). 
+
+En concreto, los objetivos de esta guía son dar respuesta a las siguientes preguntas: 
 
 * ¿Qué preguntas debo hacerme para impulsar un diseño específico de identidad híbrida respecto a una tecnología o dominio del problema, que se adapte a mis necesidades ?
 * ¿Qué secuencia de actividades debo realizar para diseñar una solución de identidad híbrida para el dominio del problema o la tecnología? 
@@ -31,11 +38,15 @@ Los dispositivos basados en el consumidor proliferan en el mundo empresarial y l
  CIO, CITO, arquitectos de identidad jefe, arquitectos de empresa y arquitectos de TI responsables de diseñar una solución de identidad híbrida para organizaciones medianas o grandes.
 
 ## <a name="how-can-this-guide-help-you"></a>¿Cómo puede ayudarle esta guía?
-Puede usar a esta guía para aprender a diseñar una solución de identidad híbrida que sea capaz de integrar un sistema de administración de identidades basado en la nube con su solución de identidad local actual. En el gráfico siguiente se muestra un ejemplo de una solución de identidad híbrida que permite a los administradores de TI integrar su solución actual de Windows Server Active Directory ubicada en el entorno local con Microsoft Azure Active Directory para permitir a los usuarios usar el inicio de sesión único (SSO) en todas las aplicaciones que se encuentran en la nube y locales.
+Puede usar a esta guía para aprender a diseñar una solución de identidad híbrida que sea capaz de integrar un sistema de administración de identidades basado en la nube con su solución de identidad local actual. 
+
+En el gráfico siguiente se muestra un ejemplo de una solución de identidad híbrida que permite a los administradores de TI integrar su solución actual de Windows Server Active Directory ubicada en el entorno local con Microsoft Azure Active Directory para permitir a los usuarios usar el inicio de sesión único (SSO) en todas las aplicaciones que se encuentran en la nube y locales.
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
-La ilustración anterior es un ejemplo de una solución de identidad híbrida que aprovecha los servicios en la nube para integrarse con las funcionalidades locales con el fin de proporcionar una experiencia única en el proceso de autenticación del usuario final y facilitar la administración de esos recursos por parte de TI. Aunque este puede ser un escenario muy común, es probable que el diseño de identidad híbrida de cada organización sea diferente al del ejemplo que se muestra en la ilustración 1, debido a que los requisitos son diferentes. Esta guía proporciona una serie de pasos y las tareas que puede seguir para diseñar una solución de identidad híbrida que cumpla los requisitos únicos de su organización. A través de los siguientes pasos y tareas, la guía presenta las tecnologías y característica pertinentes que están disponibles para usted para satisfacer los requisitos funcionales y de nivel de servicio de su organización.
+La ilustración anterior es un ejemplo de una solución de identidad híbrida que aprovecha los servicios en la nube para integrarse con las funcionalidades locales con el fin de proporcionar una experiencia única en el proceso de autenticación del usuario final y facilitar la administración de esos recursos por parte de TI. Aunque este puede ser un escenario muy común, es probable que el diseño de identidad híbrida de cada organización sea diferente al del ejemplo que se muestra en la ilustración 1, debido a que los requisitos son diferentes. 
+
+Esta guía proporciona una serie de pasos y las tareas que puede seguir para diseñar una solución de identidad híbrida que cumpla los requisitos únicos de su organización. A través de los siguientes pasos y tareas, la guía presenta las tecnologías y característica pertinentes que están disponibles para usted para satisfacer los requisitos funcionales y de nivel de servicio de su organización.
 
 **Suposiciones**: tiene algo de experiencia con Windows Server, Servicios de dominio de Active Directory y Azure Active Directory. En este documento, se supone que está buscando cómo estas soluciones pueden satisfacer sus necesidades de negocio por sí solas o en una solución integrada.
 
@@ -52,10 +63,5 @@ Al final, obtendrá el diseño que mejor se adapte a sus necesidades y solo desp
 
 ## <a name="download-this-guide"></a>Descargar esta guía
 Puede descargar una versión pdf de la guía de consideraciones de diseño de identidad híbrida en la [galería de Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

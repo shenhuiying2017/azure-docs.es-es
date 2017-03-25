@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1821aa2a3d6428ca98cad14b0bf5e8b37ec6cb9c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,25 +40,27 @@ Los pasos siguientes le guiarán en el proceso de agregar una red virtual existe
    
     ![Selección de una red virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 9. En la hoja **Elegir red virtual** , seleccione la red virtual deseada. La hoja muestra todas las redes virtuales que están en la misma región de la suscripción que el laboratorio.  
-10. Después de seleccionar una red virtual, volverá a la hoja **Red virtual** hoja y se habilitarán varios campos.  
+10. Después de seleccionar una red virtual, se le redirigirá a la **red virtual**. Haga clic en la subred de la lista en la parte inferior de la hoja.
+
+    ![Lista de subredes](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-     ![Selección de una red virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
-11. Especifique una descripción para la combinación de red virtual y laboratorio.
-12. Para permitir que una subred se utilice en la creación de máquinas virtuales de laboratorio, seleccione **USE IN VIRTUAL MACHINE CREATION**(USAR EN LA CREACIÓN DE MÁQUINAS VIRTUALES).
-13. Para permitir direcciones IP públicas en una subred, seleccione **ALLOW PUBLIC IP**(PERMITIR IP PÚBLICA).
-14. En el campo **MAXIMUM VIRTUAL MACHINES PER USER** (NÚMERO MÁXIMO DE MÁQUINAS VIRTUALES POR USUARIO), especifique el número máximo de máquinas virtuales por usuario para cada subred. Si quiere un número ilimitado de máquinas virtuales, deje este campo en blanco.
-15. Seleccione **Guardar**.
-16. Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. 
+    Se muestra la hoja de la subred de laboratorio.
+
+    ![Hoja de la subred de laboratorio](./media/devtest-lab-configure-vnet/lab-subnet.png)
+
+11. Especifique un **nombre de subred de laboratorio**.
+12. Para permitir que una subred se utilice en la creación de máquinas virtuales de laboratorio, seleccione **Use in virtual machine creation** (Usar en la creación de máquinas virtuales).
+13. Para habilitar una [dirección IP pública compartida](devtest-lab-shared-ip.md), seleccione **Habilitar IP pública compartida**.
+14. Para permitir direcciones IP públicas en una subred, seleccione **Allow public IP creation** (Permitir IP pública).
+15. En el campo **Maximum virtual machines per user** (Número máximo de máquinas virtuales por usuario), especifique el número máximo de máquinas virtuales por usuario para cada subred. Si quiere un número ilimitado de máquinas virtuales, deje este campo en blanco.
+16. Seleccione **Aceptar** para cerrar la hoja de subred de laboratorio.
+17. Seleccione **Guardar** para cerrar la hoja de red virtual.
+18. Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. 
     Para ver cómo crear una máquina virtual y especificar una red virtual, consulte el artículo [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md). 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de agregar las redes virtuales deseadas al laboratorio, el paso siguiente consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 138560f4bc8e400f7b3ca2d5a1b80ea0c25ec4da
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cdf233c2b141f4c73abcabc199b5fc583f14962c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -35,6 +35,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
 * [**Preguntas sobre el registro de restablecimiento de contraseña**](#password-reset-registration)
 * [**Preguntas sobre el restablecimiento de contraseña**](#password-reset)
+* [**Preguntas sobre el cambio de contraseña**](#password-change)
 * [**Preguntas sobre los informes de la administración de contraseñas**](#password-management-reports)
 * [**Preguntas sobre la escritura diferida de contraseñas**](#password-writeback)
 
@@ -169,6 +170,18 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
   >
 
+## <a name="password-change"></a>Cambio de contraseña
+* **P: ¿Dónde deberían ir los usuarios para cambiar las contraseñas?**
+
+  > **R:** Los usuarios pueden cambiar sus contraseñas en cualquier lugar en que vean su icono o imagen de perfil (como en la esquina superior derecha de las experiencias de [Office 365](https://portal.office.com) o el [Panel de acceso](https://myapps.microsoft.com)). Los usuarios pueden cambiar las contraseñas en la [página de perfil del Panel de acceso](https://account.activedirectory.windowsazure.com/r#/profile). Los usuarios también deberán cambiar automáticamente sus contraseñas en la pantalla de inicio de sesión de Azure AD si estas expiraron. Por último, los usuarios pueden navegar directamente al [portal de cambio de contraseñas de Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) si desean cambiar las contraseñas.
+  >
+  >
+* **P: ¿Los usuarios pueden recibir una notificación en el Portal de Office cuando expira la contraseña local?**
+
+  > **R:** esto es posible actualmente si usa ADFS y sigue estas instrucciones: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) (Envío de notificaciones de directiva de contraseña con ADFS). Esto no es posible hoy si usa la sincronización de hash de contraseña. Esto se debe a que no sincronizamos las directivas de contraseña en el entorno local, por lo que no es posible publicar notificaciones de expiración en las experiencias en la nube. En cualquier caso, también es posible [notificar a los usuarios cuyas contraseñas están a punto de expirar a través de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+  
 ## <a name="password-management-reports"></a>Informes de administración de contraseñas
 * **P: ¿Cuánto tiempo demoran en aparecer los datos en los informes de la administración de contraseñas?**
 
@@ -184,7 +197,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   ![][002]
 * **P: ¿Cuál es el número máximo de eventos que se almacenan en los informes de administración de contraseñas?**
 
-  > **R.:** Hasta 1000 eventos de restablecimiento de contraseña o de registro de restablecimiento de contraseña se almacenan en los informes de administración de contraseñas.  Estamos trabajando para ampliar este número e incluir más eventos.
+  > **R:** Hasta 75 000 eventos de restablecimiento de contraseña o de registro de restablecimiento de contraseña se almacenan en los informes de administración de contraseñas, los que abarcan hasta los últimos 30 días.  Estamos trabajando para ampliar este número e incluir más eventos.
   >
   >
 * **P: ¿Hasta cuándo se remontan los informes de administración de contraseñas?**
@@ -194,7 +207,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Existe un número máximo de filas que pueden aparecer en los informes de administración de contraseñas?**
 
-  > **R.:** Sí, pueden aparecer 1000 filas como máximo en cualquiera de los informes de administración de contraseñas, tanto si se muestran en la interfaz de usuario o se descargan. Actualmente investigamos cómo aumentar este límite.
+  > **R.:** Sí, pueden aparecer 75 000 filas como máximo en cualquiera de los informes de administración de contraseñas, tanto si se muestran en la interfaz de usuario o se descargan. Actualmente investigamos cómo aumentar este límite.
   >
   >
 * **P: ¿Existe una API para acceder a los datos de informes de registro o de restablecimiento de contraseña?**
@@ -233,7 +246,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización

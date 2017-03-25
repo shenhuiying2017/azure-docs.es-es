@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ Acceda a http://localhost/ con un túnel de Secure Shell (SSH) [establecido](con
 ![Interfaz de usuario de DC/OS](./media/dcos/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Exploración de la interfaz de usuario de Marathon
-Para ver la interfaz de usuario de Marathon, vaya a http://localhost/Marathon. En esta pantalla puede iniciar un nuevo contenedor u otra aplicación en el clúster de DC/OS del servicio Contenedor de Azure. También puede ver información acerca de cómo ejecutar contenedores y aplicaciones.  
+Para ver la interfaz de usuario de Marathon, vaya a http://localhost/marathon. En esta pantalla puede iniciar un nuevo contenedor u otra aplicación en el clúster de DC/OS del servicio Contenedor de Azure. También puede ver información acerca de cómo ejecutar contenedores y aplicaciones.  
 
 ![Interfaz de usuario de Marathon](./media/dcos/dcos3.png)
 
@@ -110,9 +111,4 @@ Una vez que finaliza la operación de escalado, verá varias instancias de la mi
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

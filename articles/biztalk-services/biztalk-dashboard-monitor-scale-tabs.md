@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,7 +28,7 @@ Al abrir el Portal de Azure clásico, entrará automáticamente en la pestaña *
 
 De este modo se abre una nueva ventana con las pestañas siguientes. En el tema se describen estas pestañas.
 
-## <a name="quick-start-quick-startquickstart"></a>Inicio rápido (![Inicio rápido][QuickStart])
+## <a name="quickstart-quickstartquickstart"></a>Guía de inicio rápido![Guía de inicio rápido][Quickstart])
 En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas. 
 
 <table border="1">
@@ -39,7 +40,7 @@ En función de la edición de Servicios de BizTalk, puede que no estén disponib
         </td>
     </tr>
     <tr>
-        <td><strong>Crear acuerdos de socios comerciales</strong></td>
+        <td><strong>Crear acuerdos de asociados comerciales</strong></td>
         <td>Abre el Portal de los servicios de BizTalk de Azure hospedados en Azure, donde se agregan socios y se crean los acuerdos X12, AS2 y EDIFACT EDI.
         <br/><br/>En 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuración de los componentes de mensajería EDI en el portal de BizTalk Services</a>, se incluyen los pasos para empezar.
@@ -47,7 +48,7 @@ En función de la edición de Servicios de BizTalk, puede que no estén disponib
     </tr>
 
 <tr>
-        <td><strong>Más información acerca de los servicios de BizTalk</strong></td>
+        <td><strong>Más información sobre BizTalk Services</strong></td>
         <td>Para más información sobre Azure BizTalk Services, vaya al <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">centro de aprendizaje</a>.</td>
 </tr>
 </table>
@@ -121,7 +122,7 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 <td>Puede actualizar el servicio de BizTalk para que use un certificado SSL diferente. Al <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">crear el servicio de BizTalk</a>, se genera automáticamente un certificado SSL autofirmado.</td>
 </tr>
 <tr>
-<td><strong>Download Certificate</strong></td>
+<td><strong>Descarga del certificado</strong></td>
 <td>Puede descargar el certificado SSL usado por su Servicio de BizTalk en una máquina local.</td>
 </tr>
 <tr>
@@ -141,15 +142,15 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 <td>Se autentica con el servicio de BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Edition</strong></td>
+<td><strong>Edición</strong></td>
 <td>Muestra la edición especificada al crear el Servicio de BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Location</strong></td>
+<td><strong>Ubicación</strong></td>
 <td>Muestra la región geográfica donde se hospeda el Servicio de BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Creado</strong></td>
+<td><strong>Created</strong></td>
 <td>Muestra la fecha y la hora en que se creó el Servicio de BizTalk.</td>
 </tr>
 <tr>
@@ -169,7 +170,7 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 <td>Muestra la suscripción que hospeda el Servicio de BizTalk. La suscripción rige el acceso al Portal de Azure clásico.</td>
 </tr>
 <tr>
-<td><strong>Id. de suscripción</strong></td>
+<td><strong>Subscription ID</strong></td>
 <td>Cuando se crea una suscripción, se genera automáticamente un identificador de suscripción. Cuando se usan las API REST, puede que tenga que especificar el identificador de suscripción.</td>
 </tr>
 </table>
@@ -243,7 +244,7 @@ También puede elegir los valores **Relativo** o **Absoluto** y el valor de **In
    ![La métrica Uso de CPU está habilitada][EnabledMetric]
 6. Para eliminar una métrica del gráfico mostrado y de la lista, seleccione **Eliminar métrica** en la barra de tareas. Si desea agregar de nuevo la métrica a la lista, haga clic en **Agregar métricas** en la barra de tareas, active la métrica y seleccione la marca de verificación para volver a la pestaña **Supervisar**. Seleccione el círculo gris para habilitar la métrica.
 
-## <a name="a-namemetricsaavailable-metrics"></a><a name="Metrics"></a>Métricas disponibles
+## <a name="Metrics"></a>Métricas disponibles
 Están disponibles las siguientes métricas y contadores de rendimiento:
 
 <table border="1">
@@ -325,7 +326,7 @@ Establezca Estado de copia de seguridad en Ninguno o Automático. Cuando se esta
 
 [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md) proporciona los detalles. 
 
-## <a name="a-namehybridconnectionsahybrid-connections"></a><a name="HybridConnections"></a>Conexiones híbridas
+## <a name="HybridConnections"></a>Conexiones híbridas
 Las conexiones híbridas conectan una aplicación de Azure, como Web Apps o Mobile Apps de Azure App Service, a un recurso local que usa un puerto TCP estático (por ejemplo, SQL Server, MySQL, HTTP Web API y la mayoría de los servicios web personalizados). Las conexiones híbridas se administran en BizTalk Services mediante el Portal de Azure clásico.
 
 Para crear conexión híbridas en Azure App Service, consulte [Acceso a recursos locales mediante conexiones híbridas en Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
@@ -346,14 +347,9 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
 * [Servicios de BizTalk: gráfico de estado del servicio de BizTalk](biztalk-service-state-chart.md)  
 * [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

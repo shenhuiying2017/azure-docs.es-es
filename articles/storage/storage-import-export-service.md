@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
-ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c30203120a155fd3fc431009baa3e8b318e1330f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -249,8 +250,8 @@ El primer paso al importar datos mediante el servicio Azure Import/Export consis
 1. Identifique los datos que se van a importar. Podrían ser directorios o archivos independientes situados en el servidor local o un recurso compartido de red.  
 2. Determine el número de unidades que necesitará según el tamaño total de los datos. Proporcione el número necesario de unidades de disco duro SATA II o III de 2,5 o 3,5 pulgadas o SSD de 2,5 pulgadas.
 3. Identifique la cuenta de almacenamiento, el contenedor, los directores virtuales y los blobs de destino.
-4.  Determine los directorios o archivos independientes que se copiarán en cada unidad de disco duro.
-5.  Cree los archivos CSV para el conjunto de datos y el conjunto de unidades.
+4.    Determine los directorios o archivos independientes que se copiarán en cada unidad de disco duro.
+5.    Cree los archivos CSV para el conjunto de datos y el conjunto de unidades.
     
     **Archivo CSV de conjunto de datos**
     
@@ -284,8 +285,8 @@ El primer paso al importar datos mediante el servicio Azure Import/Export consis
 
     Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de unidades](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.  Utilice la herramienta [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar sus datos a uno o varios discos duros.
-7.  Puede especificar "Encrypt" en el campo de cifrado en el archivo CSV de conjunto de unidades para habilitar el cifrado de BitLocker en la unidad de disco duro. Como alternativa, también puede habilitar el cifrado de BitLocker manualmente en la unidad de disco duro, especificar "AlreadyEncrypted" y proporcionar la clave en el archivo CSV de conjunto de unidades mientras se ejecuta la herramienta.
+6.    Utilice la herramienta [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) para copiar sus datos a uno o varios discos duros.
+7.    Puede especificar "Encrypt" en el campo de cifrado en el archivo CSV de conjunto de unidades para habilitar el cifrado de BitLocker en la unidad de disco duro. Como alternativa, también puede habilitar el cifrado de BitLocker manualmente en la unidad de disco duro, especificar "AlreadyEncrypted" y proporcionar la clave en el archivo CSV de conjunto de unidades mientras se ejecuta la herramienta.
 
 8. No modifique los datos de las unidades de disco duro o el archivo de diario después de completar la preparación del disco.
 
@@ -422,7 +423,7 @@ No, el servicio de importación y exportación de Azure solo admite blobs en blo
 
 **¿Está disponible el servicio Importación/Exportación de Azure para suscripciones de CSP?**
 
-No, el servicio Importación/Exportación de Azure no admite suscripciones de CSP. En el futuro, se agregará la compatibilidad.
+No, el servicio Azure Import/Export no admite suscripciones a CSP.
 
 **¿Puedo omitir el paso de preparación de las unidades en un trabajo de importación o puedo preparar una unidad sin realizar una copia?**
 
@@ -487,7 +488,7 @@ Algunas ubicaciones de la cuenta de almacenamiento se asignan a ubicaciones de e
 
 El número de teléfono se le proporciona durante la creación del trabajo. Si necesita un nombre de contacto, póngase en contacto con nosotros en waimportexport@microsoft.com y le facilitaremos esa información.
 
-**¿Puedo usar el servicio Importación/Exportación de Azure para copiar buzones PST y datos de SharePoint en Office 365?**
+**¿Puedo usar el servicio Importación/Exportación de Azure para copiar buzones PST y datos de SharePoint en Office&365;?**
 
 Consulte [Importar archivos PST o datos de SharePoint a Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
@@ -499,10 +500,5 @@ Consulte [Flujo de trabajo de copia de seguridad sin conexión en Copia de segur
 * [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 * [Ejemplo de API de REST de Importación/Exportación de Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

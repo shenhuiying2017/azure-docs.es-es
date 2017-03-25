@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
-ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4db7d45678c592749831c6b12d38363134da9e93
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +32,7 @@ En este tutorial, desarrollará un trabajo que lee un archivo de valores separad
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI**. Consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md).
+* **Azure CLI**. Consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md).
   * Descargue e instale la **versión preliminar** [herramientas de la CLI de Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para completar esta demostración.
 * **Autenticación**, mediante el comando siguiente:
   
@@ -161,10 +162,5 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 * Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 * Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
-ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d9c56697a022fac2ad84b7688445cad3e489658
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,34 +64,13 @@ Si sabe que estas condiciones ya existen en su entorno, vaya al artículo [Copia
 ## <a name="create-a-backup-vault-for-a-vm"></a>Creación de un almacén de copia de seguridad para una máquina virtual
 Un almacén de copia de seguridad es una entidad que almacena todas las copias de seguridad y los puntos de recuperación creados con el tiempo. El almacén de copia de seguridad contiene también las directivas de copia de seguridad que se aplicarán a las máquinas virtuales cuya copia de seguridad se está realizando.
 
+> [!IMPORTANT]
+> A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup. Todavía se admitirán los almacenes de Backup existentes y es posible [usar Azure PowerShell para crear almacenes de Backup](./backup-client-automation-classic.md#create-a-backup-vault). Sin embargo, Microsoft recomienda crear almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services.
+
+
 La siguiente imagen muestra las relaciones entre las diversas entidades de Azure Backup:     ![entidades y relaciones de Azure Backup](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
-Para crear un almacén de copia de seguridad:
 
-1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com/).
-2. En Azure Portal, haga clic en **Nuevo** > **Integración híbrida** > **Copia de seguridad**. Al hacer clic en **Copia de seguridad**, cambiará automáticamente al portal clásico (que aparece después de la nota).
-
-    ![Portal de Ibiza](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
-
-   > [!NOTE]
-   > Si la suscripción se usó por última vez en el portal clásico, es posible que la suscripción se abra en el portal clásico. En este evento, para crear un almacén de copia de seguridad, haga clic en **Nuevo** > **Data Services** > **Recovery Services** > **
-Almacén de copia de seguridad** > **Creación rápida** (vea la imagen siguiente).
-   >
-   >
-
-    ![Crear un almacén de copia de seguridad](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
-3. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
-4. En **Región**, seleccione la región geográfica del almacén. El almacén debe estar en la misma región que las máquinas virtuales que desea proteger. Si tiene máquinas virtuales en varias regiones, debe crear un almacén de copia de seguridad en cada región. No es necesario especificar cuentas de almacenamiento para almacenar los datos de copia de seguridad: el almacén de copia de seguridad y el servicio Copia de seguridad de Azure lo controlarán automáticamente.
-5. En **Suscripción** , seleccione la suscripción que desea asociar al almacén de copia de seguridad. Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
-6. Haga clic en **Crear almacén**. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Supervise las notificaciones de estado en la parte inferior del portal.
-
-    ![Crear la notificación del sistema del almacén](./media/backup-azure-vms-prepare/creating-vault.png)
-7. Un mensaje confirmará que el almacén se creó correctamente. En la página de **Recovery Services** se mostrará como **Activo**. Asegúrese de elegir la opción de redundancia de almacenamiento apropiada justo después de crear el almacén. Más información acerca de cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](backup-configure-vault.md#create-a-recovery-services-vault).
-
-    ![Lista de copias de seguridad](./media/backup-azure-vms-prepare/backup_vaultslist.png)
-8. Haga clic en el almacén de copia de seguridad para ir a la página **Inicio rápido** , donde se muestran las instrucciones para realizar la copia de seguridad de las máquinas virtuales de Azure.
-
-    ![Instrucciones de copia de seguridad de máquina virtual en la página del Panel](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 ## <a name="network-connectivity"></a>Conectividad de red
 Para administrar las instantáneas de máquina virtual, la extensión de copia de seguridad necesita conectividad a las direcciones IP públicas de Azure. Sin la conectividad a Internet adecuada, el tiempo de espera de las solicitudes HTTP de la máquina virtual se agota y se produce un error en la operación de copia de seguridad. Si la implementación tiene restricciones de acceso establecidas (a través de un grupo de seguridad de red (NSG), por ejemplo), elija entonces una de estas opciones para proporcionar una ruta de acceso clara para el tráfico de copia de seguridad:

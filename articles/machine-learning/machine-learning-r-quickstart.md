@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
-ms.openlocfilehash: 6a02bb20ff2ed10ed528bfe2a3aae51ab20e4a60
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 598f5ce445e520b6cdc347c80f7f3dcbc9c2c9e5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -51,7 +51,7 @@ En esta sección abordaremos distintos pasos a medida que aprenda a crear, proba
 * Con los datos preparados, realizamos un análisis de las correlaciones existentes entre varias de las variables de nuestro conjunto de datos.
 * Por último, crearemos un modelo de previsión de serie temporal estacional para la producción de leche.
 
-## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interactuación con el lenguaje R en Estudio de aprendizaje automático
+## <a id="mlstudio"></a>Interactuación con el lenguaje R en Estudio de aprendizaje automático
 Esta sección le guiará por algunos aspectos básicos de la interacción con el lenguaje de programación R en el entorno de Estudio de aprendizaje automático. El lenguaje R proporciona una herramienta eficaz para crear módulos de manipulación de datos y de análisis personalizado en el entorno de Aprendizaje automático de Azure.
 
 Utilizaremos RStudio para desarrollar, probar y depurar el código R a escala reducida. A continuación, este código se cortará y pegará en un módulo [Ejecutar script R][execute-r-script] en Machine Learning Studio listo para ejecutarse.  
@@ -132,13 +132,13 @@ Encontrará un tutorial de introducción a RStudio en https://support.rstudio.co
 
 En el [Apéndice A][appendixa], encontrará información adicional sobre el uso de RStudio.  
 
-## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtención de datos dentro y fuera del módulo Ejecutar script de R
+## <a id="scriptmodule"></a>Obtención de datos dentro y fuera del módulo Ejecutar script de R
 En esta sección, veremos cómo introducir y extraer datos del módulo [Ejecutar script R][execute-r-script]. Revisaremos cómo controlar los distintos tipos de datos leídos dentro y fuera del módulo [Ejecutar script R][execute-r-script].
 
 Encontrará el código completo de esta sección en el archivo zip que descargó anteriormente.
 
 ### <a name="load-and-check-data-in-machine-learning-studio"></a>Carga y comprobación de datos en Estudio de aprendizaje automático
-#### <a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>Carga del conjunto de datos
+#### <a id="loading"></a>Carga del conjunto de datos
 En primer lugar, comience por cargar el archivo **csdairydata.csv** en Estudio de aprendizaje automático de Azure.
 
 * Iniciar su entorno Estudio de aprendizaje automático de Azure
@@ -315,7 +315,7 @@ Si nos desplazamos hacia abajo, se puede ver el resultado de gráficos de nuestr
 
 *Ilustración 8. Salida gráfica desde el puerto de dispositivo R.*  
 
-## <a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>Transformación y filtrado de datos
+## <a id="filtering"></a>Transformación y filtrado de datos
 En esta sección se realizarán operaciones básicas de filtrado y transformación de datos de productos lácteos de California. Al final de esta sección, dispondrá de datos en formato adecuado para la creación de un modelo analítico.  
 
 En esta sección se realizarán varias tareas de transformación y limpieza de datos comunes: transformación de tipos, filtrado de tramas de datos, adición de nuevas columnas de cálculo y transformaciones de valor. Esta información general le ayudará a tratar con muchas de las variaciones que encontrará cuando se enfrente a problemas reales.
@@ -598,7 +598,7 @@ Como puede, observar, los valores se han transformado. La producción de leche a
 
 En este momento nuestros datos se limpian y estamos preparados el modelado. Según el resumen de visualización de la salida Conjunto de datos de resultado del módulo [Ejecutar script R][execute-r-script], verá que la columna "Month" es "Categorical" con 12 valores únicos, nuevamente tal como deseaba.
 
-## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Análisis de correlación y objetos de series temporales
+## <a id="timeseries"></a>Análisis de correlación y objetos de series temporales
 En esta sección se explorarán objetos básicos de series temporales R y se analizarán las correlaciones entre algunas de las variables. Nuestro objetivo es producir una trama de datos que contiene la información de correlación en pares en varios intervalos de salida.
 
 El código R completo de esta sección está disponible en el archivo zip descargado anteriormente.
@@ -879,7 +879,7 @@ La ejecución del código genera la salida que se muestra en la ilustración 19 
 
 *Ilustración 19. Resultados del análisis de correlación.*
 
-## <a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Ejemplo de serie temporal: previsión estacional
+## <a id="seasonalforecasting"></a>Ejemplo de serie temporal: previsión estacional
 Nuestros datos están ahora en un formato adecuado para el análisis y hemos determinado que no hay correlaciones significativas entre las variables. Vamos a continuar y a crear un modelo de previsión de serie temporal. Mediante este modelo, realizaremos una previsión de la producción de leche para California para los 12 meses de 2013.
 
 Nuestro modelo de pronóstico tendrá dos componentes, un componente de tendencia y un componente de temporada. La previsión completa es el producto de estos dos componentes. Este tipo de modelo se conoce como un modelo de multiplicación. La alternativa es un modelo de suma. Ya hemos aplicado una transformación de registro a las variables de interés, que hace que este análisis sea manejable.
@@ -1209,7 +1209,7 @@ La ejecución de este código genera el resultado que se muestra en la ilustraci
 
 Según estos resultados, podemos ver que el hecho de agregar factores estacionales al modelo reduce significativamente el error RMS. No es sorprendente que el error RMS de los datos de entrenamiento sea menor que el del pronóstico.
 
-## <a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>APÉNDICE A: guía de RStudio
+## <a id="appendixa"></a>APÉNDICE A: guía de RStudio
 RStudio cuenta con una documentación bastante extensa, por lo que en este apéndice me limitaré a proporcionar vínculos a secciones claves de la documentación de RStudio.
 
 1. Creación de proyectos
@@ -1226,7 +1226,7 @@ RStudio cuenta con una documentación bastante extensa, por lo que en este apén
    
    Las características de solución de problemas en puntos de interrupción se documentan en https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>APÉNDICE B: lectura adicional
+## <a id="appendixb"></a>APÉNDICE B: lectura adicional
 Este tutorial de programación R cubre los aspectos básicos de lo que debe usar el lenguaje R con Estudio de aprendizaje automático de Azure. Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
 
 * R for Beginners de Emmanuel Paradis es un buen punto de partida. Lo encontrará en http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
@@ -1246,7 +1246,8 @@ El libro Introductory Time Series with R de Paul Cowpertwait y Andrew Metcalfe o
 
 Algunos recursos excelentes en Internet:
 
-* DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Tutorial interactivo gratis de R en https://www.datacamp.com/courses/introduction-to-r  
+* DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Tutorial interactivo gratis de R en https://www.datacamp.com/courses/introduction-to-r
+* Una guía de introducción a R de Programiz en https://www.programiz.com/r-programming
 * Un tutorial rápido de R Kelly Black de la Universidad de Clarkson: http://www.cyclismo.org/tutorial/R/
 * Recopilación de más de&60; recursos de R en http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -47,7 +47,7 @@ Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponib
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
-Puede usar el [control de acceso basado en rol de Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) para asignar permisos concretos a un disco administrado a uno o varios usuarios. Managed Disks expone varias operaciones, entre las que se incluyen la lectura, escritura (creación o actualización), eliminación, exportación y recuperación de un [identificador URI de la firma de acceso compartido (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede elegir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use un URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
+Puede usar el [control de acceso basado en rol de Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) para asignar permisos concretos a un disco administrado a uno o varios usuarios. Managed Disks expone varias operaciones, entre las que se incluyen la lectura, escritura (creación o actualización), eliminación y recuperación de un [identificador URI de la firma de acceso compartido (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede elegir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use un URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación 
 

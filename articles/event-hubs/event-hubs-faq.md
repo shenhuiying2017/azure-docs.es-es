@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7bae4ae6d41e6dc6515a3fcdf574ffd193ae1aa3
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -25,8 +25,14 @@ ms.lasthandoff: 03/03/2017
 
 ## <a name="general"></a>General
 
-### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>¿Cuál es la diferencia entre los niveles Basic y Standard de los Centros de eventos?
-El nivel Estándar de Centros de eventos ofrece más características que el nivel Básico, y que algunos sistemas de la competencia. Estas características incluyen períodos de retención superiores a 24 horas y la capacidad para usar una conexión AMQP única para enviar comandos a un gran número de dispositivos con latencias de fracciones de segundos, así como para enviar telemetría desde estos dispositivos a Centros de eventos. El nivel Estándar también ofrece la característica Event Hubs [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview). Puede consultar la lista de características en la página de [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>¿Cuál es la diferencia entre los niveles Básico y Estándar de Event Hubs?
+El nivel Estándar de Azure Event Hubs proporciona más características de las disponibles en el nivel Básico. Estas son las características disponibles en el nivel Estándar:
+* Retención de eventos más prolongada
+* Más conexiones asíncronas, con un cargo por uso por encima del límite de más del número incluido
+* Más de un único grupo de consumidores
+* [Archivar](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+
+Para más información acerca de los planes de tarifa, incluidos Event Hubs dedicado, consulte los [detalles de los precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="what-are-event-hubs-throughput-units"></a>¿Qué son las unidades de procesamiento de los Centros de eventos?
 Las unidades de procesamiento de Centros de eventos se seleccionan explícitamente, mediante el Portal de Azure clásico o las plantillas de Resource Manager para Centros de eventos. Las unidades de procesamiento se aplican a todos los Centros de eventos de un espacio de nombres de Centros de eventos, y cada unidad de procesamiento da derecho al espacio de nombres a las siguientes funcionalidades:

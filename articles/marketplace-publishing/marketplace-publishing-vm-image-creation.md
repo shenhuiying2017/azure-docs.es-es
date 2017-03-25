@@ -383,7 +383,7 @@ A continuación se muestran los pasos para generar la dirección URL de SAS medi
 
 5.  Vaya a la cuenta de almacenamiento y seleccione el contenedor.
 
-6.  Seleccione **"Get Share Access Signature" ** (Obtener la firma de acceso compartido) haciendo clic derecho en el **contenedor**.
+6.  Seleccione **"Get Share Access Signature"** (Obtener la firma de acceso compartido) haciendo clic derecho en el **contenedor**.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 

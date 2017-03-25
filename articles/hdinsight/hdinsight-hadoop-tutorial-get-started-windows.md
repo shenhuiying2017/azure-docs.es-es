@@ -17,8 +17,9 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 8a925c38a561d11f1c0e394b8c993f739e912f54
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -157,8 +158,8 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2013 o 2010.
 2. Haga clic en el menú **Power Query**, en **Desde otros orígenes** y en **Desde HDInsight de Microsoft Azure**.
    
     ![Menú de importación de PowerQuery de Excel abierto para HDInsight de Azure.][image-hdi-gettingstarted-powerquery-importdata]
-3. En **Nombre de cuenta**, escriba el nombre de la cuenta de almacenamiento de Azure Blob Storage asociada al clúster y haga clic en **Aceptar**. (Esta es la cuenta de almacenamiento creada previamente en el tutorial).
-4. En **Clave de cuenta**, escriba la clave de la cuenta de Azure Blob Storage y haga clic en **Guardar**.
+3. Escriba el **Nombre de cuenta** de la cuenta de Azure Storage asociada al clúster y haga clic en **Aceptar**. (Esta es la cuenta de almacenamiento creada previamente en el tutorial).
+4. Escriba la **Clave de cuenta** para la cuenta de Azure Storage y haga clic en **Guardar**.
 5. En el panel derecho, haga doble clic en el nombre del blob. De forma predeterminada, el nombre del blob es el mismo que el del clúster.
 6. Busque **stdout** en la columna **Nombre**. Compruebe que el GUID de la columna **Ruta de acceso de la carpeta** correspondiente coincide con el GUID que copió anteriormente. Una coincidencia sugiere que los datos de salida corresponden al trabajo que envió. Haga clic en **Binario** en la columna a la izquierda de **stdout**.
    
@@ -190,7 +191,7 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 
 * [Introducción al uso de herramientas de Hadoop de HDInsight para Visual Studio][1]
 * [Introducción al emulador de HDInsight][hdinsight-emulator]
-* [Uso de Azure Blob Storage con HDInsight][hdinsight-storage]
+* Consulte [Uso de Azure Storage con HDInsight][hdinsight-storage]
 * [Administración de HDInsight con PowerShell][hdinsight-admin-powershell]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
 * [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce]
@@ -252,10 +253,5 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

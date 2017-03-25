@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/15/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: da98bc3e4dda1a05cba38701c0042f1c023c419a
-ms.openlocfilehash: 40b172356b3171557d6309a6bb2984fba34f485d
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 91a2ac08f6daac8cba195454e09bb07afe265046
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -73,7 +74,7 @@ La actividad de copia también lee y escribe en archivos de formatos especificad
 * Copiar datos en el SQL Server local y escribirlos en Azure Data Lake Store en formato ORC.
 * Copiar archivos comprimidos del sistema de archivos local y, a continuación, descomprimirlos en Azure Data Lake Store.
 
-## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>Movimiento de datos disponible globalmente
+## <a name="global"></a>Movimiento de datos disponible globalmente
 Azure Data Factory solo está disponible en las regiones oeste de EE. UU., este de EE. UU. y Europa del Norte. Sin embargo, el servicio que ofrece la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copia de datos entre almacenes de datos en la nube
@@ -104,7 +105,7 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | . | Oeste de la India | India Central |
 | . | Sur de la India | India Central |
 
-También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para copiar entre almacenes de Azure del Reino Unido, puede especificar `executionLocation` como "Europa del Norte" para transmitir los datos a través de la región Europa del Norte.
+También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para copiar entre almacenes de Azure del Reino Unido, puede especificar `"executionLocation": "North Europe"` como "Europa del Norte" para transmitir los datos a través de la región Europa del Norte (consulte el [JSON de ejemplo](#by-using-json-scripts) como referencia).
 
 > [!NOTE]
 > Si la región del almacén de datos de destino no está en la lista anterior o no se detecta, se producirá un error de forma predeterminada en la actividad de copia, en lugar de pasar a una región alternativa, a menos que se haya especificado `executionLocation`. En el futuro se irá ampliando la lista de regiones admitidas.
@@ -124,7 +125,7 @@ Puede utilizar Editor de Data Factory del Portal de Azure, Visual Studio o Azure
 
 Las propiedades JSON (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades. Las propiedades que están disponibles en la sección `typeProperties` de la actividad varían con cada tipo de actividad.
 
-En el caso de la actividad de copia, la sección `typeProperties` varía en función de los tipos de origen y receptor. Haga clic en un origen o receptor de la sección [Almacenes de datos que se admiten](#supported-data-stores) para obtener más información sobre las propiedades de tipo compatibles con dicho almacén de datos.   
+En el caso de la actividad de copia, la sección `typeProperties` varía en función de los tipos de origen y receptor. Haga clic en un origen o receptor de la sección [Almacenes de datos que se admiten](#supported-data-stores-and-formats) para obtener más información sobre las propiedades de tipo compatibles con dicho almacén de datos.
 
 Este es un ejemplo de definición de JSON:
 
@@ -152,10 +153,9 @@ Este es un ejemplo de definición de JSON:
             "type": "BlobSource"
           },
           "sink": {
-            "type": "SqlSink",
-            "writeBatchSize": 10000,
-            "writeBatchTimeout": "60:00:00"
-          }
+            "type": "SqlSink"
+          },
+          "executionLocation": "North Europe"          
         },
         "Policy": {
           "concurrency": 1,
@@ -191,9 +191,4 @@ La asignación de un determinado sistema de tipo nativo a .NET para el almacén 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de la actividad de copia, consulte [Copia de datos de Blob Storage a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md)para obtener más información sobre cómo mover datos de un almacén de datos local a uno en la nube.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

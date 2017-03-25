@@ -15,22 +15,24 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc30c4283a96f3202e7010828e178895d3613b6
-ms.openlocfilehash: 08245a850e3c78ce893ef18030ee09e701241d1b
-ms.lasthandoff: 12/06/2016
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: afa8c08fc89103a14cc393c62e7f2c9d985426c2
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
-> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
-> * [.NET personalizado](data-factory-use-custom-activities.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Actividad de Hive](data-factory-hive-activity.md) 
+> * [Actividad de Pig](data-factory-pig-activity.md)
+> * [Actividad MapReduce](data-factory-map-reduce.md)
+> * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Actividad de Spark](data-factory-spark.md)
+> * [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Actividad Actualizar recurso de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
+> * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
 La actividad de MapReduce para HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta programas de MapReduce en un clúster de HDInsight basado en Windows/Linux [propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 

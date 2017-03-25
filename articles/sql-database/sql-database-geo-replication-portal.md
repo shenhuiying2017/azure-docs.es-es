@@ -1,6 +1,6 @@
 ---
-title: "Configuración de replicación geográfica para Azure SQL Database con Azure Portal | Microsoft Docs"
-description: "Configuración de replicación geográfica para Azure SQL Database con Azure Portal"
+title: "Azure Portal: replicación geográfica de SQL Database | Microsoft Docs"
+description: "Configuración de replicación geográfica para Azure SQL Database en Azure Portal e inicio de la conmutación por error"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
+ms.date: 03/062/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 6f646b3776f0aa0bbfba227c81ac5fc4fde9265f
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configuración de replicación geográfica activa para Azure SQL Database con Azure Portal
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
-En este artículo se muestra cómo configurar la replicación geográfica activa para SQL Database con [Azure Portal](http://portal.azure.com).
+En este artículo se muestra cómo configurar la replicación geográfica activa para SQL Database en [Azure Portal](http://portal.azure.com) y cómo iniciar la conmutación por error.
 
 Para iniciar una conmutación por error planeada con el Portal de Azure, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-failover-portal.md).
 
@@ -51,9 +51,7 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 > [!NOTE]
 > Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior), se produce un error en el comando.
 > 
-> 
 
-### <a name="add-secondary"></a>Adición de una secundaria
 1. En [Azure Portal](http://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
 2. En la página de SQL Database, seleccione **Replicación geográfica** y, luego, seleccione la región para crear la base de datos secundaria. Puede seleccionar cualquier región menos la que hospeda la base de datos principal, pero se recomienda la [región emparejada](../best-practices-availability-paired-regions.md).
    
@@ -69,6 +67,26 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 7. Cuando se completa el proceso de propagación, la base de datos secundaria muestra su estado.
    
     ![Propagación completa](./media/sql-database-geo-replication-portal/seeding-complete.png)
+
+## <a name="initiate-a-failover"></a>Inicio de una conmutación por error
+
+La base de datos secundaria se puede cambiar para convertirse en la principal.  
+
+1. En el [Azure Portal](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+2. En la hoja SQL Database, seleccione **All settings** (Toda la configuración)  > **Replicación geográfica**.
+3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal y haga clic en **Conmutación por error**.
+   
+    ![Conmutación por error](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+4. Haga clic en **Sí** para iniciar la conmutación por error.
+
+El comando cambiará inmediatamente la base de datos secundaria al rol principal. 
+
+Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. Si la base de datos principal tiene varias bases de datos secundarias, el comando reconfigura automáticamente las demás secundarias para conectarse a la nueva principal. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. 
+
+> [!NOTE]
+> Si la principal está conectada y confirmando transacciones cuando se emite el comando, es posible que produzca alguna pérdida de datos.
+> 
+> 
 
 ## <a name="remove-secondary-database"></a>Elimine una base de datos secundaria
 Esta operación termina de forma permanente la replicación en la base de datos secundaria y el rol de la base de datos secundaria cambia al de una base de datos de lectura y escritura normal. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente, pero la base de datos secundaria no pasa a ser de lectura y escritura hasta después de restaurarse la conectividad.  

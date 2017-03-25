@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
 translationtype: Human Translation
-ms.sourcegitcommit: c2ce603e80243584fdc302c545e520b4503f5555
-ms.openlocfilehash: ca2d8d4b277f48ec46156293f73b18b6c2967c51
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3749d5aac5da83b43d5c6d6b7bd971eac7f07548
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -57,7 +58,7 @@ La instalación de WMF requiere un reinicio. Después del reinicio, la extensió
 ## <a name="powershell-cmdlets"></a>Cmdlets de PowerShell
 Los cmdlets de PowerShell se pueden utilizar con Azure Resource Manager o el modelo de implementación clásica para empaquetar, publicar y supervisar las implementaciones de la extensión DSC. Los siguientes cmdlets enumerados son los módulos de implementación clásica, pero "Azure" se puede reemplazar por "AzureRm" para utilizar el modelo Azure Resource Manager. Por ejemplo, `Publish-AzureVMDscConfiguration` utiliza el modelo de implementación clásica, donde `Publish-AzureRmVMDscConfiguration` usa Azure Resource Manager. 
 
-`Publish-AzureVMDscConfiguration` toma un archivo de configuración, lo examina en busca de recursos de DSC dependientes y crea un archivo .zip que contiene la configuración y los recursos de DSC necesarios para aplicar la configuración. Puede crear también el paquete localmente mediante el parámetro `-ConfigurationArchivePath` . En caso contrario, publica el archivo .zip en Almacenamiento de blobs de Azure y lo protege con un token de SAS.
+`Publish-AzureVMDscConfiguration` toma un archivo de configuración, lo examina en busca de recursos de DSC dependientes y crea un archivo .zip que contiene la configuración y los recursos de DSC necesarios para aplicar la configuración. Puede crear también el paquete localmente mediante el parámetro `-ConfigurationArchivePath` . En caso contrario, publica el archivo .zip en Azure Blob Storage y lo protege con un token de SAS.
 
 El archivo .zip que crea este cmdlet tiene el script de configuración. ps1 en la raíz de la carpeta de archivos. Los recursos tienen la carpeta del módulo colocada en la carpeta de archivos. 
 
@@ -156,10 +157,5 @@ Examine la [plantilla de Azure Resource Manager para la extensión de DSC](virtu
 Para buscar otras funcionalidades que se puedan administrar con DSC de PowerShell, [examine la Galería de PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para encontrar más recursos de DSC.
 
 Para más información sobre cómo pasar parámetros confidenciales a configuraciones, consulte [Cómo pasar las credenciales al controlador de extensiones de la DSC de Azure](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

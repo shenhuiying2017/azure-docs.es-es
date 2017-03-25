@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
-ms.openlocfilehash: 1c8cd0a998d7224caf5dcc70061d288a8e3043ed
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9686a4c7b6a71df20e15653837363e6b69418cc9
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md)
-> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
-> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
-> * [.NET personalizado](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Actividad de Hive](data-factory-hive-activity.md) 
+> * [Actividad de Pig](data-factory-pig-activity.md)
+> * [Actividad MapReduce](data-factory-map-reduce.md)
+> * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Actividad de Spark](data-factory-spark.md)
+> * [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Actividad Actualizar recurso de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
+> * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Introducción
 

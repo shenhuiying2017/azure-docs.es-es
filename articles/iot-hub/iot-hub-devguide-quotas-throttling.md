@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: ebfafd5ee9049b5049070ad111c95746b89e755f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7ad5eb2e53e846e7f19e9f136249e4ae280bf996
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -73,6 +74,9 @@ IoT Hub exige otros límites en sus distintas funcionalidades.
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
 | Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |
 
+> [!NOTE]
+> Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/en-us/support/options/).
+
 ## <a name="next-steps"></a>Pasos siguientes
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
@@ -87,9 +91,4 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

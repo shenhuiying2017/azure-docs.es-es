@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 357a707724266acfef016add97e19d4b1abb41e3
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -30,7 +30,7 @@ Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
-* .NET Framework 4.0 o superior.
+* .NET Framework 4.0 o posterior.
 * Visual Studio.
 * Información sobre [cómo usar las funciones de Azure](../azure-functions/functions-overview.md). Revise también [Enlaces HTTP y webhook en funciones de Azure](../azure-functions/functions-bindings-http-webhook.md).
 
@@ -54,9 +54,9 @@ El webhook espera que una clave de firma (credencial) coincida con la especifica
 
 En el código siguiente, el método **VerifyWebHookRequestSignature** realiza la verificación del mensaje de notificación. El propósito de esta validación es asegurarse de que Azure Media Services ha enviado el mensaje y que no se ha manipulado. La firma es opcional para las funciones de Azure, ya que tiene el valor **Código** como un parámetro de consulta a través de la Seguridad de la capa de transporte (TLS). 
 
-Puede encontrar la definición de la siguiente función de Azure Media Services con .NET [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+Puede encontrar la definición de diversas funciones de Azure con .NET para Media Services (incluidas las que se muestran en este tema) [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-La lista de código siguiente muestra las definiciones de los parámetros de función de Azure y tres archivos que están asociados a la función de Azure: function.json, project.json y run.csx.
+En la lista de código siguiente, se muestran las definiciones de los parámetros de función de Azure y tres archivos que están asociados a la función de Azure: function.json, project.json y run.csx.
 
 ### <a name="application-settings"></a>Configuración de la aplicación 
 
@@ -115,6 +115,10 @@ El archivo project.json contiene dependencias.
 ### <a name="runcsx"></a>run.csx
 
 El código de C# siguiente muestra una definición de una función de Azure que es un webhook. La función escucha la devolución de llamada al webhook desde las notificaciones de Media Services y publica el recurso de salida cuando el trabajo ha finalizado. 
+
+
+>[!NOTE]
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"

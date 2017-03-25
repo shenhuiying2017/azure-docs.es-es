@@ -10,14 +10,15 @@ tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 9ddeaea93af8d5a4356d49da76cb64f5e43657db
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -90,7 +91,7 @@ Las instrucciones se pueden encontrar en el artículo sobre la [creación de ori
     Hive Server Type|Seleccione <strong>Hive Server 2</strong>
     Mechanism|Seleccione <strong>Azure HDInsight Service</strong>
     HTTP Path|Deje este parámetro en blanco.
-    User Name|Escriba hiveuser1@contoso158.onmicrosoft.com.. Si difiere, actualice el nombre de dominio.
+    User Name|Escriba hiveuser1@contoso158.onmicrosoft.com. Actualice el nombre de dominio si es diferente.
     Password|Escriba la contraseña de hiveuser1.
     </table>
 
@@ -143,9 +144,4 @@ Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en 
 * Para conectar Hive mediante Hive JDBC, consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](hdinsight-connect-hive-jdbc-driver.md)
 * Para conectar Excel a Hadoop con Hive ODBC, consulte [Conexión de Excel a Hadoop con el controlador ODBC de Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md)
 * Para conectar Excel a Hadoop con Power Query, consulte [Conexión de Excel a Hadoop con Power Query](hdinsight-connect-excel-power-query.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

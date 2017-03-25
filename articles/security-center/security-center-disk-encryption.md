@@ -1,7 +1,24 @@
-le--- title: Cifrado de una máquina virtual de Azure | Microsoft Docs description: Este documento lo ayuda a cifrar una máquina virtual de Azure después de recibir una alerta de Azure Security Center.
-services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
+---
+title: "Cifrado de una máquina virtual de Azure | Microsoft Docs"
+description: "Este documento le ayuda a cifrar una máquina virtual de Azure después de recibir una alerta de Azure Security Center."
+services: security, security-center
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
+ms.service: security
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/15/2017
+ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Cifrado de una máquina virtual de Azure
@@ -162,3 +179,4 @@ En este documento, ha aprendido cómo cifrar una máquina virtual de Azure. Para
 * [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md) : Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
 * [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) : Encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+

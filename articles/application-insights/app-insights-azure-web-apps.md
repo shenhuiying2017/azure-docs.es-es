@@ -4,18 +4,19 @@ description: "Supervisión del rendimiento de aplicaciones web de Azure Carga y 
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: c5869c2f4f593d8ffd1992ec2a7dbc473898f3ad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 17eadb8e502c0836b38661caf2a275af0e90bdfe
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -50,22 +51,22 @@ Posteriormente, puede compilar y volver a implementar la aplicación con Applica
 ## <a name="build-the-app-with-application-insights"></a>Compilación de la aplicación con Application Insights
 Application Insights puede proporcionar una telemetría más detallada instalando un SDK en la aplicación. En concreto, puede recopilar registros de seguimiento, [escribir telemetría personalizada](app-insights-api-custom-events-metrics.md), y obtener informes de excepción más detallados.
 
-1. En **Visual Studio** (2013 Update 2 o posteriores), agregue el SDK de Application Insights al proyecto.
+1. **En Visual Studio** (2013 Update 2 o posterior), configure Application Insights para el proyecto.
    
-    ![Haga clic con el botón derecho y elija Agregar Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
+    ![Haga clic con el botón derecho en el proyecto web y elija Agregar o Configurar Application Insights](./media/app-insights-azure-web-apps/03-add.png)
    
     Cuando se la pide que inicie sesión, use las credenciales de su cuenta de Azure.
    
     La operación tiene dos efectos:
    
    1. Crea un recurso de Application Insights en Azure, donde se almacenan, analizan y muestran los datos de telemetría.
-   2. Agrega el paquete NuGet de Application Insights al código y lo configura para enviar los datos de telemetría al recurso de Azure.
+   2. Agrega el paquete NuGet de Application Insights al código (si todavía no está) y lo configura para enviar los datos de telemetría al recurso de Azure.
 2. **Pruebe la telemetría** ejecutando la aplicación en la máquina de desarrollo (F5).
 3. **Publique la aplicación** en Azure de la forma habitual. 
 
 *¿Cómo cambio para enviar a un recurso de Application Insights diferente?*
 
-* En Visual Studio haga clic con el botón derecho en el proyecto, elija **Application Insights > Configurar** y elija el recurso que quiera. Tiene la opción de crear un nuevo recurso. Vuelva a compilar e implementar.
+* En Visual Studio, haga clic con el botón derecho en el proyecto, elija **Configurar Application Insights** y seleccione el recurso que desea. Tiene la opción de crear un nuevo recurso. Vuelva a compilar e implementar.
 
 ## <a name="explore-the-data"></a>Exploración de los datos
 1. En la hoja Application Insights del panel de control de la aplicación web, verá Live Metrics, que muestra los errores y solicitudes al segundo o dos segundos de producirse. Esta información es muy útil cuando se vuelve a publicar la aplicación ya que permite ver inmediatamente cualquier problema.
@@ -96,10 +97,5 @@ Para realizar búsquedas más eficaces sobre los datos de telemetría, use el [l
 * [Reciba notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) cada vez que se produzcan eventos de operaciones o las métricas traspasen un umbral.
 * Use [aplicaciones y páginas web de Application Insights para JavaScript](app-insights-web-track-usage.md) para obtener la telemetría del cliente de los exploradores que visitan una página web.
 * [Configure pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md) para recibir una alerta si el sitio deja de estar activo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,44 +12,43 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 03/09/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 8c3479e29b55eacc30842ffdfee23b4a00a13126
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: aa3704fe844a41fef22b8cdd35838c68aebc7752
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Guía de comunicación de dispositivo a nube
 Al enviar información desde la aplicación del dispositivo al back-end de solución, IoT Hub presenta tres opciones:
 
-* [Mensajes de dispositivo a nube (D2C)][lnk-d2c], para telemetría y alertas de series temporales;
-* [Propiedades notificadas][lnk-twins], para notificar información de estado del dispositivo, como funcionalidades disponibles, condiciones y estado de los flujos de trabajo de ejecución prolongada (por ejemplo, configuración y actualizaciones de software);
+* [Mensajes de dispositivo a nube][lnk-d2c], para telemetría y alertas de series temporales.
+* [Propiedades notificadas][lnk-twins], para notificar información de estado del dispositivo, como funcionalidades disponibles, condiciones o estado de los flujos de trabajo de ejecución prolongada. Por ejemplo, configuración y actualizaciones de software.
 * [Cargas de archivos][lnk-fileupload], para archivos multimedia y grandes lotes de telemetría cargados por dispositivos conectados de manera intermitente o comprimidos para ahorrar ancho de banda.
 
 Esta es una comparación detallada de las distintas opciones de comunicación de dispositivo a nube.
 
-|  | Mensajes de D2C | Propiedades notificadas | Cargas de archivos |
+|  | Mensajes de dispositivo a nube | Propiedades notificadas | Cargas de archivos |
 | ---- | ------- | ---------- | ---- |
-| Escenario | Alertas y series temporales de telemetría, por ejemplo, lotes de datos de sensor de 256 KB enviados cada 5 minutos. | Funcionalidades y condiciones disponibles, por ejemplo, modo de conectividad actual del dispositivo (telefonía móvil o wi-fi). Sincronización de flujos de trabajo de ejecución prolongada, como configuración y actualizaciones de software. | Archivos multimedia. Lotes de telemetría (normalmente comprimidos) de gran tamaño. |
+| Escenario | Serie temporal de telemetría y alertas. Por ejemplo, lotes de datos del sensor de 256KB enviados cada 5 minutos. | Funcionalidades disponibles y condiciones. Por ejemplo, el modo actual de conectividad del dispositivo, como móvil o WiFi. Sincronización de flujos de trabajo de ejecución prolongada, como configuración y actualizaciones de software. | Archivos multimedia. Lotes de telemetría (generalmente comprimidos) de gran tamaño. |
 | Almacenamiento y recuperación | Almacenados temporalmente por IoT Hub, hasta 7 días. Solo lectura secuencial. | Almacenados por IoT Hub en el dispositivo gemelo. Recuperables mediante el [lenguaje de consulta de IoT Hub][lnk-query]. | Almacenadas en la cuenta de Azure Storage proporcionada por el usuario. |
 | Tamaño | Hasta 256 KB de mensajes. | El tamaño máximo de las propiedades notificadas es 8 KB. | Tamaño máximo de archivo admitido por Azure Blob Storage. |
-| Frecuencia | Alta. Para más información, consulte [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte [Límites de IoT Hub][lnk-quotas]. |
+| Frecuencia | Alta. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. |
 | Protocol | Disponible en todos los protocolos. | Actualmente solo está disponible cuando se usa MQTT. | Disponible cuando se usa cualquier protocolo, pero hace falta HTTP en el dispositivo. |
 
-> [!NOTE]
-> Es posible que una aplicación deba enviar información como alertas o series temporales de telemetría y también permitir que esté disponible en el dispositivo gemelo. En esos casos, la aplicación de dispositivo puede enviar un mensaje D2C y notificar un cambio de propiedad, o el back-end de solución puede almacenar la información en las etiquetas del dispositivo gemelo cuando recibe un mensaje. Dado que los mensajes D2C permiten una capacidad de proceso mucho mayor que las actualizaciones de dispositivos gemelos, en ocasiones es aconsejable evitar actualizar el dispositivo gemelo con cada mensaje D2C.
-> 
-> 
+Es posible que una aplicación deba enviar información como alertas o series temporales de telemetría y también permitir que esté disponible en el dispositivo gemelo. En este escenario, puede elegir una de las siguientes opciones:
+
+* O bien la aplicación para dispositivos envía un mensaje del dispositivo a la nube y notifica un cambio de propiedad. 
+* O el back-end de solución puede almacenar la información en las etiquetas del dispositivo gemelo cuando recibe el mensaje. 
+
+Dado que los mensajes de dispositivo a nube permiten una capacidad de proceso mucho mayor que las actualizaciones de dispositivos gemelos, a veces es aconsejable evitar actualizar el dispositivo gemelo con cada mensaje de dispositivo a nube.
+
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-fileupload]: iot-hub-devguide-file-upload.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

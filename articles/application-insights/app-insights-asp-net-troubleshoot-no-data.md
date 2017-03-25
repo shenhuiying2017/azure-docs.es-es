@@ -4,18 +4,19 @@ description: "¿No ve los datos en Azure Application Insights? Pruebe aquí."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,16 +36,16 @@ ms.openlocfilehash: 1911fd24f0873a40a186af217b6f8af317abbbc8
 
 * Consulte [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
 
-## <a name="a-nameq01ano-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>No hay ninguna opción "Agregar Application Insights" en Visual Studio
-*Al crear un nuevo proyecto en Visual Studio, o al hacer clic con el botón derecho en un proyecto existente en el Explorador de soluciones, no se ve ninguna opción de Application Insights.*
+## <a name="q01"></a>No hay ninguna opción "Agregar Application Insights" en Visual Studio
+*Cuando hago clic con el botón derecho en un proyecto existente en el Explorador de soluciones, no veo ninguna opción de Application Insights.*
 
 * No todos los tipos de proyectos .NET son compatibles con las herramientas. Se admiten los proyectos WCF y Web. Para otros tipos de proyecto como aplicaciones de escritorio o de servicio, puede [agregar manualmente un SDK de Application Insights al proyecto](app-insights-windows-desktop.md).
-* Asegúrese de que tiene [Visual Studio 2013 Update 3 o posterior](http://go.microsoft.com/fwlink/?LinkId=397827). Viene preinstalado con las Herramientas de Application Insights.
-* Seleccione **Herramientas**, **Extensiones y actualizaciones** y compruebe que **Herramientas de Application Insights** está instalado y habilitado. Si es así, haga clic en **Actualizaciones** para ver si hay alguna disponible.
+* Asegúrese de que tiene [Visual Studio 2013 Update 3 o posterior](http://go.microsoft.com/fwlink/?LinkId=397827). Viene con Developer Analytics Tools preinstalado, que ofrece el SDK de Application Insights.
+* Seleccione **Herramientas**, **Extensiones y actualizaciones** y compruebe que **Developer Analytics Tools** está instalado y habilitado. Si es así, haga clic en **Actualizaciones** para ver si hay alguna disponible.
 * Abra el cuadro de diálogo Nuevo proyecto y elija Aplicación web ASP.NET. Si ve la opción Application Insights aquí, es que las herramientas están instaladas. Si no es así, intente desinstalar y volver a instalar las herramientas de Application Insights.
 
-## <a name="a-nameq02aadding-application-insights-failed"></a><a name="q02"></a>Error al agregar Application Insights
-*Al crear un nuevo proyecto web o al intentar agregar Application Insights a un proyecto existente, aparece un mensaje de error.*
+## <a name="q02"></a>Error al agregar Application Insights
+*Cuando intento agregar Application Insights a un proyecto existente, veo un mensaje de error.*
 
 Causas probables:
 
@@ -59,12 +60,12 @@ Solución:
 * [Agregue Application Insights al proyecto existente](app-insights-asp-net.md): en el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione “Agregar Application Insights”.
 * Si sigue sin funcionar, siga el [procedimiento manual](app-insights-windows-services.md) para agregar un recurso en el portal y, a continuación, agregue el SDK al proyecto. 
 
-## <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
+## <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
 Parece que algo salió mal durante la instalación de Application Insights o puede ser un adaptador del registro.
 
-En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y seleccione **Configurar Application Insights**. Aparecerá un cuadro de diálogo que le invita a iniciar sesión en Azure y a crear un recurso de Application Insights, o a volver a utilizar uno existente.
+En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y elija **Application Insights > Configurar Application Insights**. Aparecerá un cuadro de diálogo que le invita a iniciar sesión en Azure y a crear un recurso de Application Insights, o a volver a utilizar uno existente.
 
-## <a name="a-namenugetbuilda-nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "Faltan paquetes NuGet" en el servidor de compilación
+## <a name="NuGetBuild"></a> "Faltan paquetes NuGet" en el servidor de compilación
 *Todo se compila correctamente al depurar en el equipo de desarrollo pero aparece un error de NuGet en el servidor de compilación.*
 
 Consulte [Restauración de paquetes NuGet](http://docs.nuget.org/Consume/Package-Restore) y [Restauración automática de paquetes](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -75,14 +76,14 @@ Consulte [Restauración de paquetes NuGet](http://docs.nuget.org/Consume/Package
 Causas probables:
 
 * Si se ha creado el recurso de Application Insights manualmente o si el proyecto es de un tipo que no es compatible con las herramientas de Application Insights.
-* Las herramientas de Application Insights están deshabilitadas en Visual Studio.
+* Developer Analytics Tools está deshabilitado en Visual Studio. 
 * Visual Studio es anterior a la actualización 3 de 2013.
 
 Solución:
 
 * Compruebe que la versión de Visual Studio sea la actualización 3 de 2013 o posterior.
-* Seleccione **Herramientas**, **Extensiones y actualizaciones** y compruebe que **Herramientas de Application Insights** está instalado y habilitado. Si es así, haga clic en **Actualizaciones** para ver si hay alguna disponible.
-* En el Explorador de soluciones, haga clic con el botón derecho en el proyecto. Si ve el comando **Configurar Application Insights**, úselo para conectar el proyecto al recurso en el servicio de Application Insights.
+* Seleccione **Herramientas**, **Extensiones y actualizaciones** y compruebe que **Developer Analytics Tools** está instalado y habilitado. Si es así, haga clic en **Actualizaciones** para ver si hay alguna disponible.
+* En el Explorador de soluciones, haga clic con el botón derecho en el proyecto. Si ve el comando **Application Insights > Configurar Application Insights**, úselo para conectar el proyecto al recurso en el servicio de Application Insights.
 
 De lo contrario, el tipo de proyecto no es directamente compatible con las herramientas de Application Insights. Para ver la telemetría, inicie sesión en el [Portal de Azure](https://portal.azure.com), elija Application Insights en la barra de navegación de la izquierda y seleccione la aplicación.
 
@@ -123,7 +124,7 @@ Solución:
     Ahí verá algunos gráficos de resumen. Puede hacer clic en ellos para ver su contenido con más detalle.
 * En Visual Studio, al depurar la aplicación, haga clic en el botón de Application Insights.
 
-## <a name="a-nameq03a-no-server-data-or-no-data-at-all"></a><a name="q03"></a> No hay datos de servidor (o ningún tipo de datos)
+## <a name="q03"></a> No hay datos de servidor (o ningún tipo de datos)
 *Se ejecuta la aplicación y se abre el servicio de Application Insights en Microsoft Azure pero todos los gráficos muestran 'Obtenga información sobre cómo recopilar...' o 'No está configurado.'* O bien, *solo vista de página y datos de usuario, pero no hay datos de servidor.*
 
 * Ejecute la aplicación en modo de depuración en Visual Studio (F5). Utilice la aplicación para generar telemetría. Compruebe que puede ver los eventos registrados en la ventana de resultados de Visual Studio. 
@@ -143,7 +144,7 @@ Solución:
 * ¿Ha escrito algún código para el [SDK del lado servidor](app-insights-api-custom-events-metrics.md) que pueda haber cambiado la clave de instrumentación en instancias `TelemetryClient` o en `TelemetryContext`? ¿O ha escrito una [configuración de filtro o muestreo](app-insights-api-filtering-sampling.md) que pueda estar filtrando demasiado?
 * Si editó ApplicationInsights.config, compruebe minuciosamente la configuración de [TelemetryInitializers y TelemetryProcessors](app-insights-api-filtering-sampling.md). Un parámetro o tipo con un nombre incorrecto puede provocar que el SDK no envíe datos.
 
-## <a name="a-nameq04ano-data-on-page-views-browsers-usage"></a><a name="q04"></a>No hay datos en Vistas de página, Explorador o Uso
+## <a name="q04"></a>No hay datos en Vistas de página, Explorador o Uso
 *Se ven datos en los gráficos de Tiempo de respuesta del servidor y Solicitudes de servidor pero no hay datos en Tiempo de carga de la vista de página, o en las hojas Explorador o Uso.*
 
 Los datos proceden de los scripts de las páginas web. 
@@ -183,10 +184,5 @@ La ciudad, región y dimensiones del país proceden de las direcciones IP y no s
 
 ## <a name="still-not-working"></a>Sigue sin funcionar...
 * [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Además de estos recursos básicos, también debe considerar estos recursos opci
 
 ## <a name="network-interfaces"></a>Interfaces de red
 
-Una [interfaz de red (NIC)](../virtual-network/virtual-network-network-interface-overview.md) es la interconexión entre una máquina virtual y una red virtual (VNet). Una máquina virtual debe tener al menos una NIC, pero puede tener varias, en función del tamaño de la máquina virtual que se cree. Para obtener información acerca de cuántas NIC admite cada tamaño de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-windows-sizes.md). 
+Una [interfaz de red (NIC)](../virtual-network/virtual-network-network-interface.md) es la interconexión entre una máquina virtual y una red virtual (VNet). Una máquina virtual debe tener al menos una NIC, pero puede tener varias, en función del tamaño de la máquina virtual que se cree. Para obtener información acerca de cuántas NIC admite cada tamaño de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-windows-sizes.md). 
 
 Si desea crear una máquina virtual con más de una NIC, debe crearla con un mínimo de dos.  Después de su creación puede agregar NIC adicionales hasta el número que admita el tamaño de la máquina virtual, pero no puede hacerlo si la máquina virtual se creó solo con una, independientemente del número de NIC que admita el tamaño de la máquina virtual. 
 
@@ -180,3 +180,4 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una máquin
 - Aprenda a configurar [rutas definidas por el usuario y el reenvío IP](../virtual-network/virtual-networks-udr-overview.md). 
 - Aprenda a configurar [conexión de red virtual a red virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Aprenda a [solucionar problemas de rutas](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+

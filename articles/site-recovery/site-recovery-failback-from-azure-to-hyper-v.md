@@ -15,13 +15,17 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 88a09929582e69941101e884697592c91c0f5cfa
-ms.openlocfilehash: 862b80bdb00efcbf8863699df12aacdbab60bcef
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: a1769a522d13926e887e82b8d26b36afb4c80b08
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="failback-in-site-recovery"></a>Conmutación por recuperación en Site Recovery
+> [!div class="op_single_selector"]
+> * [Máquinas de VMware o físicas desde Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 En este artículo se describe cómo se realiza la conmutación por recuperación en máquinas virtuales protegidas con Site Recovery. 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -40,7 +44,7 @@ Azure es un entorno de alta disponibilidad y las máquinas virtuales estarán si
 Después de la conmutación por error de la ubicación principal a la secundaria, las máquinas virtuales replicadas no están protegidas por Site Recovery y la ubicación secundaria actúa como ubicación principal. Siga estos procedimientos para realizar la conmutación por recuperación al sitio principal original. En este procedimiento se describe cómo ejecutar una conmutación por error planeada para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual en la pestaña **Máquinas virtuales** .
 
 1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Planned Conmutación por error**.
-2. En la página **Confirmar conmutación por error planeada **, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error. Si la conmutación por error desde la ubicación principal ha funcionado como se esperaba y todas las máquinas virtuales están en la ubicación secundaria, este dato es solo informativo.
+2. En la página **Confirmar conmutación por error planeada**, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error. Si la conmutación por error desde la ubicación principal ha funcionado como se esperaba y todas las máquinas virtuales están en la ubicación secundaria, este dato es solo informativo.
 3. Si realiza la conmutación por recuperación desde Azure, seleccione la configuración en **Sincronización de datos**:
 
    * **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios incrementales)**: esta opción reduce al mínimo el tiempo de inactividad de las máquinas virtuales, ya que realiza la sincronización sin apagarlas. Hace lo siguiente:

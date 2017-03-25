@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: c7f27fe2560c1800f05c205a73fe738cc609d642
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8a6050fc52407ab6b974a9698d970248062665c1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,6 +28,10 @@ En la actualidad, Factoría de datos solo admite el movimiento de datos desde HD
 
 ## <a name="enabling-connectivity"></a>Habilitación de la conectividad
 El servicio Factoría de datos admite la conexión a HDFS local mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace. Use la puerta de enlace para conectar con HDFS, aunque esté hospedado en una máquina virtual de IaaS de Azure.
+
+> [!NOTE]
+> Asegúrese de que Data Management Gateway puede obtener acceso a **TODOS** los [servidor de nodo de nombres]:[puerto de nodo de nombres] y [servidores de nodos de datos]:[puerto de nodo de datos] del clúster de Hadoop. El [puerto de nodo de nombres] predeterminado es 50070 y el [puerto de nodo de datos] es 50075.
+>
 
 Aunque puede instalar la puerta de enlace en el mismo equipo local o en la máquina virtual de Azure como HDFS, se recomienda que instale la puerta de enlace en un equipo independiente o una máquina virtual de IaaS de Azure. Al tener la puerta de enlace en un equipo independiente, se reduce la contención de recursos y se mejora el rendimiento. Al instalar la puerta de enlace en una máquina independiente, la máquina debería poder acceder a la máquina con HDFS.
 
@@ -267,7 +272,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 * Opción 1: [Hacer que la máquina de puerta de enlace se una al dominio Kerberos](#kerberos-join-realm)
 * Opción 2: [Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos](#kerberos-mutual-trust)
 
-### <a name="a-namekerberos-join-realmaoption-1-make-gateway-machine-join-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opción 1: Hacer que la máquina de puerta de enlace se una al dominio Kerberos
+### <a name="kerberos-join-realm"></a>Opción 1: Hacer que la máquina de puerta de enlace se una al dominio Kerberos
 
 #### <a name="requirement"></a>Requisito:
 
@@ -277,7 +282,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En la máquina de puerta de enlace:**
 
-1.  Ejecute la utilidad **Ksetup** para configurar el dominio y el servidor KDC de Kerberos.
+1.    Ejecute la utilidad **Ksetup** para configurar el dominio y el servidor KDC de Kerberos.
 
     La máquina debe configurarse como miembro de un grupo de trabajo dado que un dominio Kerberos es diferente de un dominio de Windows. Para ello, establezca el dominio Kerberos y agregue un servidor KDC de la manera siguiente: Sustituya *REALM.COM* por su dominio respectivo, según sea necesario.
 
@@ -286,7 +291,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
     **Reinicie** la máquina después de ejecutar estos 2 comandos.
 
-2.  Compruebe la configuración con el comando **Ksetup**. La salida debe ser parecida a esta:
+2.    Compruebe la configuración con el comando **Ksetup**. La salida debe ser parecida a esta:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -297,11 +302,11 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 * Configure el conector HDFS mediante la **autenticación de Windows** junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#hdfs-linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
 
-### <a name="a-namekerberos-mutual-trustaoption-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
+### <a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
 
 #### <a name="requirement"></a>Requisito:
-*   La máquina de puerta de enlace debe unirse a un dominio de Windows.
-*   Necesita permiso para actualizar la configuración del controlador de dominio.
+*    La máquina de puerta de enlace debe unirse a un dominio de Windows.
+*    Necesita permiso para actualizar la configuración del controlador de dominio.
 
 #### <a name="how-to-configure"></a>Configuración:
 
@@ -310,7 +315,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En el servidor KDC:**
 
-1.  Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows al que se hace referencia debajo de la plantilla de configuración. De forma predeterminada, la configuración está ubicada en **/etc/krb5.conf**.
+1.    Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows al que se hace referencia debajo de la plantilla de configuración. De forma predeterminada, la configuración está ubicada en **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -346,26 +351,26 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
               REALM.COM = .
              }
 
-        **Restart** the KDC service after configuration.
+        **Reinicie** el servicio KDC después de la configuración.
 
-2.  Prepare una entidad de seguridad llamada **krbtgt/REALM.COM@AD.COM** en el servidor KDC con el siguiente comando:
+2.    Prepare una entidad de seguridad llamada **krbtgt/REALM.COM@AD.COM** en el servidor KDC con el siguiente comando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.  En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local**, agregue `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.    En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local**, agregue `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **En el controlador de dominio:**
 
-1.  Ejecute a continuación los comandos **Ksetup** para agregar una entrada de dominio:
+1.    Ejecute a continuación los comandos **Ksetup** para agregar una entrada de dominio:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad ** krbtgt/REALM.COM@AD.COM**.
+2.    Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.  Seleccione el algoritmo de cifrado usado en Kerberos.
+3.    Seleccione el algoritmo de cifrado usado en Kerberos.
 
     1. Vaya a Administrador de servidores > Administración de directivas de grupo > Dominio > Objetos de directiva de grupo > Default or Active Domain Policy (Directiva de dominio predeterminada o activa) y haga clic en Editar.
 
@@ -379,7 +384,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  Cree la asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos, a fin de usar la entidad de seguridad de Kerberos en el dominio de Windows.
+4.    Cree la asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos, a fin de usar la entidad de seguridad de Kerberos en el dominio de Windows.
 
     1. Inicie las herramientas administrativas > **Usuarios y equipos de Active Directory**.
 
@@ -411,7 +416,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | folderPath |Ruta de acceso a la carpeta. Ejemplo: `myfolder`<br/><br/>Use el carácter de escape "\" para los caracteres especiales de la cadena. Por ejemplo: para folder\subfolder, especifique la carpeta\\\\subcarpeta y para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
-| fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado estaría en el siguiente formato: <br/><br/>Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado estaría en el siguiente formato: <br/><br/>Data<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy se puede usar para especificar un valor de folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza para cada hora de datos. |No |
 | formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat) y [Formato Parquet](#specifying-parquetformat). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**, y los niveles que se admiten son: **Optimal** (Óptimo) y **Fastest** (Más rápido). Para más información, consulte la sección [Especificación de la compresión](#specifying-compression). |No |
@@ -475,9 +480,4 @@ En caso de actividad de copia, si el origen es del tipo **FileSystemSource** , e
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

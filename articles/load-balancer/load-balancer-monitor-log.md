@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
-ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 93640e208c99db41d922399d42c80622022287eb
+ms.lasthandoff: 03/09/2017
 
 ---
 
 # <a name="log-analytics-for-azure-load-balancer"></a>Análisis del registros para el Equilibrador de carga de Azure
 
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal. Pueden extraerse todos los registros desde Azure Blob Storage y verse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
+Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
 * **Registros de auditoría:** puede usar los [registros de auditoría de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Los registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure.
-* **Registros de eventos de alerta:** puede utilizar este registro para ver qué alertas se generan para el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
-* **Registros de sondeo de estado:** puede utilizar este registro para comprobar el estado de mantenimiento del sondeo, cuántas instancias están en línea en el back-end del equilibrador de carga y el porcentaje de máquinas virtuales que reciben tráfico de red del equilibrador de carga. Este registro se escribe en el cambio de evento de estado de sondeo.
+* **Registros de eventos de alerta:** puede utilizar este registro para las alertas generadas por el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
+* **Registros de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
 > El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
@@ -50,7 +50,8 @@ Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si aún no tien
 
 5. En el panel **Diagnósticos**, debajo de **Estado**, seleccione **Activar**.
 6. Haga clic en **Cuenta de almacenamiento**.
-7. En **Registros**, seleccione una cuenta de almacenamiento existente o cree una nueva. Utilice el control deslizante para determinar cuántos días se mantendrán los datos de eventos en los registros de eventos. 8. Haga clic en **Guardar**.
+7. En **Registros**, seleccione una cuenta de almacenamiento existente o cree una nueva. Utilice el control deslizante para determinar cuántos días de datos de eventos se almacenarán en los registros de eventos. 
+8. Haga clic en **Guardar**.
 
     ![Portal - Registros de diagnósticos](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 

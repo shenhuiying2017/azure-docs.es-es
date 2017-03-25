@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecb848efd8516ae43d07f8c6ebbf3868b8e20757
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -38,6 +38,12 @@ Las soluciones de administración permiten obtener información más detallada p
 Con este artículo se agregan soluciones de administración a un área de trabajo mediante el portal de Azure Marketplace. Una vez que agrega una solución, se recopilan datos desde los servidores de la infraestructura y se envían al servicio de OMS. El servicio OMS suele tardar en procesar esto entre unos minutos y una hora. Una vez que el servicio procesa los datos, puede verlos en OMS.
 
 Es posible quitar fácilmente una solución de administración cuando ya no se necesita. Cuando se quita una solución de administración, sus datos no se envían a OMS. Si se encuentra en el plan de tarifa Gratis, al quitar una solución, se puede reducir la cantidad de datos usados, lo que ayuda a mantenerle dentro de la cuota diaria de datos.
+
+## <a name="view-available-management-solutions"></a>Visualización de soluciones de administración disponibles
+
+Azure Marketplace contiene la lista de [Soluciones de administración para Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+Puede instalar las Soluciones de administración de Azure Marketplace, haciendo clic en el vínculo **Obtenerla ahora** en la parte inferior de cada solución.
 
 ## <a name="add-a-management-solution"></a>Incorporación de una solución de administración
 1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.

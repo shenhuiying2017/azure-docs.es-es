@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: d7df8f3271c6c92df427a840d73fdb9a0c6b54a1
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 555f43d6fca2ac6ba53eae94bff22426d667c444
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -94,7 +94,7 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
 5. Agregue una segunda configuración de IP a cada una de las máquinas virtuales. Siga las instrucciones del artículo [Asignación de varias direcciones IP a máquinas virtuales](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add). Use las opciones de configuración siguientes:
 
     ```powershell
-    $NicName = "VM1-NIC"
+    $NicName = "VM1-NIC2"
     $RgName = "contosofabrikam"
     $NicLocation = "West Central US"
     $IPConfigName4 = "VM1-ipconfig2"
@@ -150,11 +150,11 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
     Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
-12. Los siguientes comandos obtienen las NIC y agregan ambas configuraciones de IP de cada NIC al grupo de direcciones de back-end del equilibrador de carga:
+12. Los siguientes comandos obtienen las NIC y agregan ambas configuraciones de IP de cada NIC secundaria al grupo de direcciones de back-end del equilibrador de carga:
 
     ```powershell
-    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC" -ResourceGroupName "MyResourcegroup";
-    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC" -ResourceGroupName "MyResourcegroup";
+    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
+    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC2" -ResourceGroupName "MyResourcegroup";
 
     $nic1.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
     $nic1.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);

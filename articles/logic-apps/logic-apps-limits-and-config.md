@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
-ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,13 +35,13 @@ Son los límites de una única solicitud HTTP o llamada a un conector.
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Tiempo de espera de solicitud|90 segundos|Un [patrón asincrónico](../logic-apps/logic-apps-create-api-app.md) o un [bucle until](logic-apps-loops-and-scopes.md) se pueden compensar, según sea necesario.|
+|Tiempo de espera de solicitud|120 segundos|Un [patrón asincrónico](../logic-apps/logic-apps-create-api-app.md) o un [bucle until](logic-apps-loops-and-scopes.md) se pueden compensar, según sea necesario.|
 
 #### <a name="message-size"></a>Tamaño del mensaje
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Tamaño del mensaje|50 MB|Puede que algunos conectores y API no admitan 50 MB |
+|Tamaño del mensaje|100 MB|Puede que algunos conectores y API no admitan 100 MB. |
 |Límite de evaluación de expresiones|131&072; caracteres.|`@concat()`, `@base64()` y `string` no pueden tener un valor más largo.|
 
 #### <a name="retry-policy"></a>Directiva de reintentos
@@ -50,7 +50,7 @@ Son los límites de una única solicitud HTTP o llamada a un conector.
 |----|----|----|
 |Número de reintentos|4|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retraso máximo entre reintentos|1 hora|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Retraso mínimo entre reintentos|20 segundos|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Retraso mínimo entre reintentos|5 segundos|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### <a name="run-duration-and-retention"></a>Retención y duración de ejecución
 
@@ -93,7 +93,7 @@ Son los límites de una definición de aplicación lógica.
 |----|----|----|
 |Acciones por flujo de trabajo|250|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
 |Niveles de anidamiento de acciones permitidos|5|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
-|Flujos por región y suscripción|1000||
+|Flujos de trabajo por región y suscripción|1000||
 |Desencadenadores por flujo de trabajo|10||
 |Número máximo de caracteres por expresión|8192||
 |Tamaño máximo de `trackedProperties` expresado en caracteres|16&000;|
@@ -134,6 +134,8 @@ Las llamadas realizadas desde una aplicación lógica directamente (es decir, a 
 |Australia Oriental|13.75.153.66, 104.210.89.222, 104.210.89.244, 13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Sudeste de Australia|13.73.115.153, 40.115.78.70, 40.115.78.237, 13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Sur de Brasil|191.235.86.199, 191.235.95.229, 191.235.94.220, 191.235.82.221, 191.235.91.7, 191.234.182.26|
+|Centro de Canadá|52.233.29.92,52.228.39.241,52.228.39.244|
+|Este de Canadá|52.232.128.155,52.229.120.45,52.229.126.25|
 |India Central|52.172.157.194, 52.172.184.192, 52.172.191.194, 52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Central EE. UU.:|13.67.236.76, 40.77.111.254, 40.77.31.87, 13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Asia oriental|168.63.200.173, 13.75.89.159, 23.97.68.172, 13.75.94.173, 40.83.127.19, 52.175.33.254|
@@ -159,6 +161,8 @@ Las llamadas realizadas desde un [conector](../connectors/apis-list.md) proceder
 |Australia Oriental|40.126.251.213|
 |Sudeste de Australia|40.127.80.34|
 |Sur de Brasil|191.232.38.129|
+|Centro de Canadá|52.233.31.197,52.228.42.205,52.228.33.76,52.228.34.13|
+|Este de Canadá|52.229.123.98,52.229.120.178,52.229.126.202,52.229.120.52|
 |India Central|104.211.98.164|
 |Central EE. UU.:|40.122.49.51|
 |Asia oriental|23.99.116.181|

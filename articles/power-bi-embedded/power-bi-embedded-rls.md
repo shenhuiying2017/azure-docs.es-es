@@ -13,15 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1cde5b9ee4c716af07d427d4d0eb3f0775d456ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Seguridad de nivel de fila con Power BI Embedded
+
 Seguridad de nivel de fila (RLS) puede utilizarse para restringir el acceso de usuario a datos determinados dentro de un informe o un conjunto de datos, lo que permite a los distintos usuarios utilizar el mismo informe mientras todos ven datos diferentes. Power BI Embedded ahora admite conjuntos de datos configurados con RLS.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
@@ -35,6 +37,7 @@ Para sacar el máximo partido de RLS, es importante comprender tres conceptos pr
 **Reglas** : los roles tienen reglas y dichas reglas son los filtros reales que se van a aplicar a los datos. Esto podría ser tan simple como "Country = USA" o algo mucho más dinámico.
 
 ### <a name="example"></a>Ejemplo
+
 Durante el resto de este artículo, presentaremos un ejemplo de la creación de un RLS y después su consumo dentro de una aplicación incrustada. Nuestro ejemplo utiliza el archivo PBIX del [ejemplo de análisis de venta minorista](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
@@ -81,9 +84,10 @@ Ahora, los filtros también pueden fluir de la tabla Sales a la tabla **Items** 
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**Nota** Si utiliza el modo DirectQuery para los datos, debe habilitar el filtrado cruzado bidireccional mediante la selección de estas dos opciones:
+> [!NOTE]
+> Si utiliza el modo DirectQuery para los datos, tendrá que habilitar el filtrado cruzado bidireccional, para lo que debe seleccionar estas dos opciones:
 
-1. **Archivo** -> ** Opciones y configuración** -> **Características de vista previa** -> **Enable cross filtering in both directions for DirectQuery** (Habilitar filtrado cruzado en ambas direcciones para DirectQuery).
+1. **Archivo** -> **Opciones y configuración** -> **Características de vista previa** -> **Enable cross filtering in both directions for DirectQuery** (Habilitar filtrado cruzado en ambas direcciones para DirectQuery).
 2. **Archivo** -> **Opciones y configuración** -> **DirectQuery** -> **Allow unrestricted measure in DirectQuery mode** (Permitir medida sin restricciones en el modo DirectQuery).
 
 Para más información acerca de filtrado cruzado bidireccional, descargue el documento [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) ([Filtrado cruzado bidireccional en SQL Server Analysis Services 2016 y Power BI Desktop]).
@@ -112,11 +116,11 @@ Ahora, con todas las piezas juntas, cuando un usuario inicie sesión en nuestra 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Otras referencias
-[Seguridad de nivel de fila](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-
-
-
-<!--HONumber=Jan17_HO1-->
+[Seguridad de nivel de fila](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
+[Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
 
 

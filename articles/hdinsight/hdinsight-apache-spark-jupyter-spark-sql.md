@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/13/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 33256025811f18529c942fa00726b40191127b7a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f43a08a7096476fea79884163f89441e7e0c34cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -91,7 +91,7 @@ En este artículo, se usa el kernel de **PySpark**. Para más información sobre
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Cree un Notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
+3. Cree un cuaderno. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
    ![Creación de un Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Creación de un Jupyter Notebook")
 
@@ -115,16 +115,16 @@ En este artículo, se usa el kernel de **PySpark**. Para más información sobre
 
         # Load the data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-        
+
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-        
+
         # Parse the data in hvacText
         hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-        
+
         # Create a data frame
         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-        
+
         # Register the data fram as a table to run queries against
         hvacdf.registerTempTable("hvac")
 
@@ -135,7 +135,7 @@ En este artículo, se usa el kernel de **PySpark**. Para más información sobre
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Como usa un kernel de PySpark, ahora puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que creó con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles en Jupyter Notebook con clústeres de Spark en HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+   Como usa un kernel de PySpark, ahora puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que creó con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles en Jupyter Notebook con clústeres de Spark en HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    De forma predeterminada, se muestra la siguiente salida tabular.
 

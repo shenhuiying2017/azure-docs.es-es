@@ -1,5 +1,5 @@
 ---
-title: "Automatización de la administración de aplicaciones de Service Fabric con PowerShell | Microsoft Docs"
+title: "Automatización de la administración de aplicaciones de Azure Service Fabric | Microsoft Docs"
 description: "Implementación, actualización, prueba y eliminación de aplicaciones de Service Fabric con PowerShell."
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/14/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: d4a08f7eec5f57b06d87d13abe46942ddc24b482
-ms.openlocfilehash: d1909225a950b961491d3fe426f1e0d6aa5bdd53
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 59133d11d2d66daa44f28ef5b9aa3aae92e56a1e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -113,7 +113,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 En unos minutos, el cmdlet [Get-ServiceFabricApplicationUpgrade](/powershell/servicefabric/vlatest/get-servicefabricapplicationupgrade) muestra que se actualizaron (completaron) todos los dominios de actualización.
 
 ## <a name="task-test-a-service-fabric-application"></a>Tarea: Probar una aplicación de Service Fabric
-Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir errores en infraestructuras no confiables para probar la estabilidad de los servicios. Service Fabric brinda a los desarrolladores la capacidad de inducir acciones de error y probar los servicios en caso de errores mediante el uso de escenarios de prueba en caso de caos y conmutación por error.  Consulte [Información general sobre Testability](service-fabric-testability-overview.md) para obtener información adicional.
+Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir errores en infraestructuras no confiables para probar la estabilidad de los servicios. Service Fabric brinda a los desarrolladores la capacidad de inducir acciones de error y probar los servicios en caso de errores mediante el uso de escenarios de prueba en caso de caos y conmutación por error.  Consulte [Introducción al servicio de análisis de errores](service-fabric-testability-overview.md) para más información.
 
 ### <a name="step-1-run-the-chaos-test-scenario"></a>Paso 1: ejecute el escenario de prueba de caos
 El escenario de caos genera errores en todo el clúster de Service Fabric. El escenario comprime los errores que se ven por lo general durante meses o años en unas pocas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pasan desapercibidos. El ejemplo siguiente ejecuta el escenario de prueba de caos durante 60 segundos.

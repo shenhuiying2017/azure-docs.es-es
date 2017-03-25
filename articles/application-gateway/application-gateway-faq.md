@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fe38c16f94faa3e7a5a2622ff4eb8a1ae93fba20
-ms.openlocfilehash: 1bf1e323798a702029663953d3a30de174aefc4c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -65,6 +65,7 @@ Cuando se usa una dirección IP pública como punto de conexión, esta informaci
 **P. ¿Cambia la dirección IP o el DNS durante la vigencia de Application Gateway?**
 
 La dirección IP virtual puede cambiar si la puerta de enlace se detiene y la inicia otro cliente. El DNS asociado con Application Gateway no cambia durante el ciclo de vida de la puerta de enlace. Por este motivo, se recomienda utilizar un alias CNAME y hacer que señale a la dirección DNS de Application Gateway.
+
 
 **P. ¿Admite Application Gateway direcciones IP estáticas?**
 
@@ -123,6 +124,10 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 
 El campo Host especifica el nombre al que enviar el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es diferente del nombre de host de máquina virtual y está en formato \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>. 
+
+**P. ¿Application Gateway también admite varios inquilinos back-end?**
+
+No, actualmente Application Gateway conserva el encabezado de host entrante y envía el mismo encabezado al back-end. Si el back-end requiere un encabezado distinto, este procedimiento no funcionará. De forma similar si el back-end es de varios inquilinos y se ha habilitado SSL de extremo a extremo, el back-end esperaría nombre del servidor en la extensión SNI. Application Gateway no envía actualmente el encabezado SNI en las solicitudes de back-end en escenarios de SSL de extremo a extremo, que causaría problemas de rutas de acceso a los datos y de sondeo. 
 
 ## <a name="performance"></a>Rendimiento
 
@@ -283,3 +288,4 @@ La razón más común es que el acceso al servidor está bloqueado por un NSG o 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Application Gateway, visite [Introducción a Application Gateway](application-gateway-introduction.md).
+

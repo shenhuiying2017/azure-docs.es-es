@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 59d4e08d0e93096120cc74deb641385084cfd912
-ms.openlocfilehash: 8a4f3616ff314cb280e6673c71ebdcd5d9b3441c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -428,6 +428,8 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
   * P3 (26 GB - 260 GB): hasta 48 bases de datos
   * P4 (53 GB - 530 GB): hasta 64 bases de datos
   * Todas las memorias caché premium con clúster de Redis habilitado: el clúster de Redis solo admite el uso de la base de datos 0 con el fin de que el límite `databases` para cualquier caché premium con clúster de Redis habilitado sea 1; el comando [Select](http://redis.io/commands/select) no se admite. Para más información, consulte [Configuración de Caché en Redis de Azure](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+
+Para obtener más información sobre las bases de datos, consulte el artículo [¿Cuáles son las bases de datos de Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
 > Los ajustes `databases` solo se puede configurar al crear la memoria caché y solo mediante PowerShell, la CLI u otros clientes de administración. Para ver un ejemplo de configuración de `databases` al crear la memoria caché mediante PowerShell, consulte [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
