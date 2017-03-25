@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: bf6ef38ba28d11d7894a30115174582903f84580
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -86,7 +87,7 @@ Siga estos pasos para copiar datos desde el clúster de producción al clúster 
 También puede utilizar el cmdlet de Azure PowerShell `Start-AzureStorageBlobCopy` para copiar blobs entre cuentas de almacenamiento fuera de HDInsight. Para más información, consulte la sección Administración de blobs de Azure de Uso de Azure PowerShell con Almacenamiento de Azure.
 
 ## <a name="client-side-technologies"></a>Tecnologías de cliente
-Por lo general, las tecnologías de cliente, como los [cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md) o el [SDK de .NET para Hadoop](https://hadoopsdk.codeplex.com/), seguirán funcionando igual con clústeres basados en Linux, ya que se basan en API de REST que son iguales en los dos tipos del SO del clúster.
+Por lo general, las tecnologías de cliente, como los [cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md) o el [SDK de .NET para Hadoop](https://hadoopsdk.codeplex.com/), seguirán funcionando igual con clústeres basados en Linux, ya que se basan en API de REST que son iguales en los dos tipos del SO del clúster.
 
 ## <a name="server-side-technologies"></a>Tecnologías de servidor
 En la tabla siguiente se ofrece orientación sobre cómo migrar componentes de servidor que son específicos de Windows.
@@ -94,7 +95,7 @@ En la tabla siguiente se ofrece orientación sobre cómo migrar componentes de s
 | Si utiliza esta tecnología... | Realice esta acción... |
 | --- | --- |
 | **PowerShell** (scripts de servidor, incluidas las acciones de script que se usan durante la creación del clúster) |Vuelva a escribirlos como scripts de Bash. Para acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md) y [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **CLI de Azure** (scripts de servidor) |Mientras que la CLI de Azure está disponible en Linux, no viene preinstalada en los nodos principales del clúster de HDInsight. Si la necesita para el scripting de servidor, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) para obtener información sobre su instalación en plataformas basadas en Linux. |
+| **CLI de Azure** (scripts de servidor) |Mientras que la CLI de Azure está disponible en Linux, no viene preinstalada en los nodos principales del clúster de HDInsight. Si la necesita para el scripting de servidor, consulte [Instalación de la CLI de Azure](../cli-install-nodejs.md) para obtener información sobre su instalación en plataformas basadas en Linux. |
 | **Componentes de .NET** |.NET no se admite completamente en todos los clústeres de HDInsight basados en Linux. Los clústeres Storm en HDInsight basados en Linux creados después del 28/10/2016 admiten topologías de C# de Storm con la plataforma SCP.NET. Se agregará compatibilidad con .NET en futuras actualizaciones. |
 | **Componentes de Win32 o de otras tecnologías de Windows** |Las indicaciones dependen del componente o tecnología. Es posible que encuentre una versión compatible con Linux, o tal vez tenga que encontrar una solución alternativa o volver escribir este componente. |
 

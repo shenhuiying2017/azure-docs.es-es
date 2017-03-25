@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
-ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -96,7 +96,7 @@ recupera todos los dispositivos gemelos ubicados en Estados Unidos configurados 
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-recupera todos los dispositivos gemelos que notificaron conectividad Wi-Fi o con cable. A menudo, es necesario identificar a todos los dispositivos gemelos que contienen una propiedad concreta. IoT Hub admite la función `is_defined()` para esta finalidad. Por ejemplo,
+recupera todos los dispositivos gemelos que notificaron conectividad WiFi o con cable. A menudo, es necesario identificar a todos los dispositivos gemelos que contienen una propiedad concreta. IoT Hub admite la función `is_defined()` para esta finalidad. Por ejemplo,
 
         SELECT * FROM devices
         WHERE is_defined(property.reported.connectivity)
@@ -421,7 +421,7 @@ En condiciones de rutas, se admiten las siguientes funciones matemáticas:
 | ABS(x) | Devuelve el valor absoluto (positivo) de la expresión numérica especificada. |
 | EXP(x) | Devuelve el valor exponencial de la expresión numérica especificada (e^x). |
 | POWER(x,y) | Devuelve el valor de la expresión especificada a la potencia especificada (x^y).|
-| SQUARE(x) | Devuelve el cuadrado del valor numérico especificado. |
+| SQUARE(x)    | Devuelve el cuadrado del valor numérico especificado. |
 | CEILING(x) | Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada. |
 | FLOOR(x) | Devuelve el valor entero más grande menor o igual que la expresión numérica especificada. |
 | SIGN(x) | Devuelve el signo positivo (+1), cero (0) o negativo (-1) de la expresión numérica especificada.|

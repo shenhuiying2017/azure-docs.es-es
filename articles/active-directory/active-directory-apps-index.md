@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ed8ef101a0757fd32585f5b3249e49d4fb0e09b4
-ms.openlocfilehash: ea3aa0b94c6a74747f7efa8633d5b6bfff75a230
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 Esta página proporciona una lista completa de todos los documentos escritos sobre las diversas características relacionadas con aplicaciones de Azure Active Directory (Azure AD).
 
-Hay una breve introducción a cada área de características principal, así como una guía sobre qué artículos leer en función de la información que se busque. 
+Hay una breve introducción a cada área de características principal, así como una guía sobre qué artículos leer en función de la información que se busque.
 
 ## <a name="overview-articles"></a>Artículos de información general
 Los artículos siguientes son buenos puntos de partida para quienes solo deseen una breve explicación de las características de administración de aplicaciones de Azure AD.
@@ -100,7 +100,7 @@ Si la organización mantiene una versión local de Windows Server Active Directo
 | Instrucciones de uso de proveedores externos de identidades para habilitar el inicio de sesión único |[Lista de proveedores externos compatibles de identidades que se puede utilizar para habilitar el inicio de sesión único](https://aka.ms/ssoproviders) |
 | De qué forma pueden disfrutar los usuarios de Windows 10 de las ventajas del inicio de sesión único a través de Azure AD Join |[Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect está disponible para [todas las ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Restablecimiento de contraseña de autoservicio de Azure AD está disponible para [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Escritura diferida de contraseñas en AD local es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) . 
+Azure AD Connect está disponible para [todas las ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Restablecimiento de contraseña de autoservicio de Azure AD está disponible para [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Escritura diferida de contraseñas en AD local es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="conditional-access-enforce-additional-security-requirements-for-high-risk-apps"></a>Acceso condicional: aplicación de requisitos de seguridad adicionales en aplicaciones de alto riesgo
 Una vez configurado el inicio de sesión único en las aplicaciones y los recursos, es posible proteger aún más las aplicaciones confidenciales. Para ello, es preciso aplicar los requisitos de seguridad específicos a cada inicio de sesión en dicha aplicación. Por ejemplo, puede usar Azure AD para exigir que todo el acceso a una aplicación concreta requiera siempre la autenticación multifactor, independientemente de que la aplicación admita de forma innata dicha funcionalidad. Otro ejemplo común de acceso condicional es requerir que los usuarios estén conectados a la red de confianza de la organización para tener acceso a una aplicación especialmente confidencial.
@@ -108,8 +108,8 @@ Una vez configurado el inicio de sesión único en las aplicaciones y los recurs
 | Guía de artículos |  |
 |:---:| --- |
 | Una introducción a las funcionalidades de acceso condicional que se ofrecen a través de Azure AD, Office&365; e Intune |[Administración de riesgos con el acceso condicional](active-directory-conditional-access.md) |
-| Habilitación del acceso condicional para los siguientes tipos de recursos |[Introducción al acceso condicional de Azure Active Directory](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo |[Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Habilitación del acceso condicional para los siguientes tipos de recursos |[Introducción al acceso condicional de Azure Active Directory](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-conditional-access.md) |
+| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo |[Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />: [Pasos para dispositivos Windows 7](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
 | Uso de la aplicación Microsoft Authenticator para la comprobación en dos pasos |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 Acceso condicional es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -142,7 +142,7 @@ Automatice la creación, el mantenimiento y la eliminación de identidades de us
 El aprovisionamiento automático de usuarios está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), se pueden [utilizar grupos para administrar los usuarios que se aprovisionan](#managing-access-to-applications).
 
 ### <a name="building-applications-that-integrate-with-azure-ad"></a>Compilación de aplicaciones que se integran con Azure AD
-Si su organización desarrolla o mantiene aplicaciones de línea de negocio (LoB) o si desarrollador de aplicaciones y tiene clientes que usen Azure Active Directory, los siguientes tutoriales le ayudará a integrar las aplicaciones en Azure AD. 
+Si su organización desarrolla o mantiene aplicaciones de línea de negocio (LoB) o si desarrollador de aplicaciones y tiene clientes que usen Azure Active Directory, los siguientes tutoriales le ayudará a integrar las aplicaciones en Azure AD.
 
 | Guía de artículos |  |
 |:---:| --- |
@@ -178,7 +178,7 @@ Si su empresa se ha asociado con otras compañías, es probable que necesite adm
 En la actualidad, la vista previa de colaboración B2B está disponible para [todas las ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Panel de acceso: portal para acceder a las aplicaciones y características de autoservicio
-El panel de acceso de Azure AD es el lugar en que los usuarios finales pueden iniciar sus aplicaciones y acceder a las características de autoservicio que les permiten administrar sus aplicaciones y pertenencias a grupos. Además del panel de acceso, en la lista siguiente se incluyen otras opciones para acceder a aplicaciones con SSO habilitado. 
+El panel de acceso de Azure AD es el lugar en que los usuarios finales pueden iniciar sus aplicaciones y acceder a las características de autoservicio que les permiten administrar sus aplicaciones y pertenencias a grupos. Además del panel de acceso, en la lista siguiente se incluyen otras opciones para acceder a aplicaciones con SSO habilitado.
 
 | Guía de artículos |  |
 |:---:| --- |
@@ -210,5 +210,4 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 [Servicios de dominio de Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
 

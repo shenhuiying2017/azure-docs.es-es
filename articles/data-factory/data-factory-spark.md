@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2af5d275bb331101b370e4a12043e27b6cdf5b68
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8be5e1525a7c481de5cb02edd26da305af2d4798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -140,10 +140,7 @@ SparkJob2
 > [!IMPORTANT]
 > Para ver un tutorial completo sobre cómo crear una canalización con una actividad de transformación, lea el artículo [Creación de una canalización para transformar datos](data-factory-build-your-first-pipeline-using-editor.md). 
 
-## <a name="spark-sample-on-github"></a>Ejemplo de Spark en GitHub
-Antes de admitir la actividad de Spark, la solución para ejecutar programas de Spark desde la canalización de Data Factory consistía en emplear una actividad de MapReduce. Puede seguir usando la [actividad de MapReduce](data-factory-map-reduce.md) en una canalización de Data Factory para ejecutar programas de Spark en su clúster de Spark de HDInsight. Se recomienda utilizar la actividad de Spark en lugar de la de MapReduce. 
 
-[Spark - Data Factory sample on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) (Spark: ejemplo de Data Factory en GitHub) muestra cómo usar la actividad MapReduce para invocar un programa Spark. El programa Spark se limita a copiar datos de un contenedor de blobs de Azure a otro. 
 
 ## <a name="see-also"></a>Otras referencias
 * [Actividad de Hive](data-factory-hive-activity.md)

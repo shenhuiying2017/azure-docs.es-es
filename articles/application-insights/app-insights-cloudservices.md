@@ -4,7 +4,7 @@ description: "Supervisión de los roles web y de trabajo de manera eficaz con Ap
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.workload: tbd
-ms.date: 11/02/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 42e4fe54eec414549f09b93a3e12ea130eeee68f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -98,19 +99,19 @@ Esto tiene el efecto de insertar las claves de instrumentación de Application I
 
 Si quiere modificar el nivel de información de diagnóstico enviado a Application Insights, puede hacerlo [editando directamente los archivos.cscfg](app-insights-azure-diagnostics.md).
 
-## <a name="a-namesdkainstall-the-sdk-in-each-project"></a><a name="sdk"></a>Instalación del SDK en cada proyecto
+## <a name="sdk"></a>Instalación del SDK en cada proyecto
 Esta opción ofrece la posibilidad de agregar telemetría de empresa personalizada a cualquier rol, para un análisis más detallado de cómo se usa y se ejecuta su aplicación.
 
-En Visual Studio, agregue el SDK de Application Insights a cada proyecto de aplicación de nube.
+En Visual Studio, configure el SDK de Application Insights para cada proyecto de aplicación en la nube.
 
-1. Edite los paquetes NuGet del proyecto.
+1. **Roles web**: haga clic con el botón derecho en el proyecto y elija **Configurar Application Insights** o **Agregar > Telemetría de Application Insights**.
    
-    ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-cloudservices/03-nuget.png)
-2. **Roles web**: agregue [Application Insights para web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versión del SDK incluye módulos que recopilan datos de solicitud HTTP y agregan contexto de servidor como información de roles.
-   
-    **Roles de trabajo**: agregue [Application Insights para servidores de Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
+2. **Roles de trabajo**: 
+ * Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
+ * Agregue [Application Insights para servidores de Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
    
     ![Busque "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
+
 3. Configure el SDK para enviar datos al recurso de Application Insights.
    
     En una función de inicio adecuado, establezca la clave de instrumentación del ajuste de configuración en el archivo .cscfg:
@@ -245,9 +246,4 @@ Si tiene una aplicación móvil de cliente, inserte algún código para enviar e
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

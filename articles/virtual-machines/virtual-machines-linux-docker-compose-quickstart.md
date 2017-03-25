@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
-ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +65,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 Cuando este comando devuelve `Succeeded`, ha terminado la implementación y puede implementar SSH en la VM en el paso siguiente.
 
 ### <a name="azure-cli-10"></a>CLI de Azure 1.0
-Instale la última versión de la [CLI de Azure 1.0](../xplat-cli-install.md) e inicie sesión en una cuenta de Azure. Asegúrese de que está usando el modo de Resource Manager para crear la VM (`azure config mode arm`).
+Instale la última versión de la [CLI de Azure 1.0](../cli-install-nodejs.md) e inicie sesión en una cuenta de Azure. Asegúrese de que está usando el modo de Resource Manager para crear la VM (`azure config mode arm`).
 
 El ejemplo siguiente crea un grupo de recursos llamado `myResourceGroup` en la ubicación `West US` e implementa una VM con la extensión de VM de Docker para Azure. Se utiliza una [plantilla de Azure Resource Manager desde Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para implementar el entorno:
 

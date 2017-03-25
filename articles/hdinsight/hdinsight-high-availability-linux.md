@@ -9,6 +9,7 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c4003809decfb83c08e808f4bd7a14c1ecf05a55
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -210,17 +212,12 @@ Al crear un nuevo clúster, puede especificar el tamaño de los nodos. A continu
 En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponibilidad para Hadoop. Use lo siguiente para obtener más información acerca de las cosas que se mencionan en este documento.
 
 * [Referencia de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md)
+* [Instalación y configuración de la interfaz de la línea de comandos de Azure](../cli-install-nodejs.md)
 * [Instale y configure Azure PowerShell.](/powershell/azureps-cmdlets-docs)
 * [Administración de HDInsight mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs
-[azure-cli]: ../xplat-cli-install.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[azure-cli]: ../cli-install-nodejs.md
 

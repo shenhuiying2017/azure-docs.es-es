@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 71116ade676677c5b6d14b07a038d043fba46032
-ms.openlocfilehash: 02a1aae805aa36aa68f341197e44b19bc6236b7b
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 161d36f0bef4b3cd1ac1ad85d0844a3dd8e51e16
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -24,26 +25,26 @@ ms.openlocfilehash: 02a1aae805aa36aa68f341197e44b19bc6236b7b
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-known-networks-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-known-networks.md)
-> 
-> 
+>
+>
 
 
 Azure Active Directory crea un registro para cada [evento de riesgo](active-directory-identity-protection-risk-events.md) que se detecta. Mediante la información de eventos de riesgo disponible en los informes de seguridad de Azure Active Directory, puede conocer la probabilidad de que haya cuentas de usuario en peligro en su entorno.   
 
-Es posible que Azure Active Directory detecte falsos positivos de los [tipos de eventos de riesgo](active-directory-identity-protection-risk-events.md#risk-event-types) conocidos como *viajes imposibles a ubicaciones inusuales* e *inicios de sesión desde direcciones IP con actividad sospechosa* de direcciones IP que realmente pertenecen a su organización. 
+Es posible que Azure Active Directory detecte falsos positivos de los [tipos de eventos de riesgo](active-directory-reporting-risk-events.md#risk-event-types) conocidos como *viajes imposibles a ubicaciones inusuales* e *inicios de sesión desde direcciones IP con actividad sospechosa* de direcciones IP que realmente pertenecen a su organización. 
 
-Por ejemplo, esto puede ocurrir cuando: 
+Por ejemplo, esto puede ocurrir cuando:
 
-- Un usuario de la oficina de Boston que ha iniciado sesión de forma remota en el centro de datos en San Francisco genera un evento de riesgo del tipo *Inicios de sesión desde varias ubicaciones geográficas*. 
+- Un usuario de la oficina de Boston que ha iniciado sesión de forma remota en el centro de datos en San Francisco genera un evento de riesgo del tipo *Inicios de sesión desde varias ubicaciones geográficas*.
 
-- Un usuario de la organización que intenta iniciar sesión varias veces con una contraseña incorrecta genera un evento de riesgo del tipo *Inicios de sesión desde direcciones IP con actividad sospechosa*. 
+- Un usuario de la organización que intenta iniciar sesión varias veces con una contraseña incorrecta genera un evento de riesgo del tipo *Inicios de sesión desde direcciones IP con actividad sospechosa*.
 
 Para evitar estos casos de generación de eventos de riesgo engañosos, debe agregar intervalos de direcciones IP designadas a la lista de direcciones IP públicas de la organización.    
 
 ### <a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Para ello, realice los pasos siguientes:
 
 1. Inicie sesión en el Portal de administración de Azure.
- 
+
 2. En el panel izquierdo, haga clic en **Active Directory**.
 
     ![Redes conocidas](./media/active-directory-known-networks-azure-portal/01.png)
@@ -73,10 +74,4 @@ Para evitar estos casos de generación de eventos de riesgo engañosos, debe agr
 * [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 * [Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

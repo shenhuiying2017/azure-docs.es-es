@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ba75d58b6e0ce6a75173c6d38ea27e7917a054c8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 88351f0c3333fb06b1949a8ab9f63deea7259a41
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -61,9 +61,9 @@ Azure requiere al menos claves públicas y privadas de 2048 bits con el formato 
 
 Estos son los escenarios de implementación y los tipos de archivos que se usan en cada uno:
 
-1. Las claves **ssh rsa** son necesarias para cualquier implementación que se realice desde [Azure Portal](https://portal.azure.com) y las implementaciones de Resource Manager que realicen con la [CLI de Azure](../xplat-cli-install.md).
+1. Las claves **ssh rsa** son necesarias para cualquier implementación que se realice desde [Azure Portal](https://portal.azure.com) y las implementaciones de Resource Manager que realicen con la [CLI de Azure](../cli-install-nodejs.md).
    * Normalmente estas claves son lo único que necesitan la mayoría de los usuarios.
-2. El archivo `.pem` es necesario para crear máquinas virtuales mediante la implementación clásica. Estas claves se admiten en las implementaciones de clásico al usar [Azure Portal](https://portal.azure.com) o la [CLI de Azure](../xplat-cli-install.md).
+2. El archivo `.pem` es necesario para crear máquinas virtuales mediante la implementación clásica. Estas claves se admiten en las implementaciones de clásico al usar [Azure Portal](https://portal.azure.com) o la [CLI de Azure](../cli-install-nodejs.md).
    * Solo hace falta crear certificados y claves adicionales si se van a administrar recursos creados con el modelo de implementación clásico.
 
 ## <a name="install-git-for-windows"></a>Instalación de Git para Windows

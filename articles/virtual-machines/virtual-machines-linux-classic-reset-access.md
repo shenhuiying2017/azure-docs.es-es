@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ccd4dda3d7077c9884331c7bfa8021ade398ea42
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,14 +45,14 @@ Con la CLI de Azure, puede realizar las tareas siguientes:
 ## <a name="prerequisites"></a>Requisitos previos
 Deberá hacer lo siguiente:
 
-* También necesitará [instalar la CLI de Azure](../xplat-cli-install.md) y [conectarse a su suscripción](../xplat-cli-connect.md) para usar recursos de Azure asociados a su cuenta.
+* También necesitará [instalar la CLI de Azure](../cli-install-nodejs.md) y [conectarse a su suscripción](../xplat-cli-connect.md) para usar recursos de Azure asociados a su cuenta.
 * Establezca el modo correcto para el modelo de implementación clásica escribiendo lo siguiente en el símbolo del sistema:
     ``` 
         azure config mode asm
     ```
 * Obtenga una nueva contraseña o un conjunto de claves SSH, si desea restablecer cualquiera de ellos. No los necesita si desea restablecer la configuración de SSH.
 
-## <a name="a-namepwresetcliareset-the-password"></a><a name="pwresetcli"></a>Restablecer la contraseña
+## <a name="pwresetcli"></a>Restablecer la contraseña
 1. Cree un archivo en el equipo local denominado "PrivateConf.json" con estas líneas. Reemplace **myUserName** y **myP@ssW0rd** por su propio nombre de usuario y una contraseña y establezca su propia fecha de expiración.
 
     ```   
@@ -68,7 +69,7 @@ Deberá hacer lo siguiente:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
     ```
 
-## <a name="a-namesshkeyresetcliareset-the-ssh-key"></a><a name="sshkeyresetcli"></a>Restablecer la clave SSH
+## <a name="sshkeyresetcli"></a>Restablecer la clave SSH
 1. Cree un archivo llamado PrivateConf.json con este contenido. Reemplace los valores de **myUserName** y **mySSHKey** por su propia información.
 
     ```   
@@ -81,7 +82,7 @@ Deberá hacer lo siguiente:
    
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="a-nameresetbothcliareset-both-the-password-and-the-ssh-key"></a><a name="resetbothcli"></a>Restablecimiento de la contraseña y la clave SSH
+## <a name="resetbothcli"></a>Restablecimiento de la contraseña y la clave SSH
 1. Cree un archivo llamado PrivateConf.json con este contenido. Reemplace los valores de **myUserName**, **mySSHKey** y **myP@ssW0rd** por su propia información.
 
     ``` 
@@ -98,7 +99,7 @@ Deberá hacer lo siguiente:
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namecreatenewsudocliacreate-a-new-sudo-user-account"></a><a name="createnewsudocli"></a>Crear una nueva cuenta de usuario de sudo
+## <a name="createnewsudocli"></a>Crear una nueva cuenta de usuario de sudo
 
 Si olvida su nombre de usuario, puede utilizar VMAccess para crear uno nuevo con la autoridad de sudo. En este caso, no se modificarán el nombre de usuario y la contraseña existentes.
 
@@ -108,7 +109,7 @@ Para crear un nuevo usuario de sudo con acceso de clave SSH, utilice el script d
 
 También puede usar [Restablecer la contraseña y la clave SSH](#resetbothcli) para crear un nuevo usuario con acceso de contraseña y de clave SSH.
 
-## <a name="a-namesshconfigresetcliareset-the-ssh-configuration"></a><a name="sshconfigresetcli"></a>Restablecer la configuración de SSH
+## <a name="sshconfigresetcli"></a>Restablecer la configuración de SSH
 Si la configuración de SSH se encuentra en un estado no deseado, podría perder el acceso a la máquina virtual. Puede usar la extensión VMAccess para restablecer la configuración a su estado predeterminado. Para ello, basta con establecer la clave "reset_ssh" en "True". La extensión reinicia el servidor SSH, abre el puerto SSH en su máquina virtual y restablece la configuración de SSH al valor predeterminado. No se cambiará la cuenta de usuario (nombre, contraseña o claves SSH).
 
 > [!NOTE]
@@ -130,7 +131,7 @@ Si la configuración de SSH se encuentra en un estado no deseado, podría perder
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namedeletecliadelete-a-user"></a><a name="deletecli"></a>Eliminar un usuario
+## <a name="deletecli"></a>Eliminar un usuario
 Si desea eliminar una cuenta de usuario sin iniciar sesión en la máquina virtual directamente, puede utilizar esta secuencia de comandos.
 
 1. Cree un archivo llamado PrivateConf.json con este contenido y sustituya el nombre de usuario que quiere eliminar en **removeUserName**. 
@@ -147,14 +148,14 @@ Si desea eliminar una cuenta de usuario sin iniciar sesión en la máquina virtu
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namestatuscliadisplay-the-status-of-the-vmaccess-extension"></a><a name="statuscli"></a>Mostrar el estado de la extensión VMAccess
+## <a name="statuscli"></a>Mostrar el estado de la extensión VMAccess
 Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 
 ```
         azure vm extension get
 ```
 
-## <a name="a-namecheckdiskacheck-consistency-of-added-disks"></a><a name='checkdisk'></a>Comprobar la coherencia de los discos agregados
+## <a name='checkdisk'></a>Comprobar la coherencia de los discos agregados
 Para ejecutar fsck en todos los discos de la máquina virtual de Linux, debe hacer lo siguiente:
 
 1. Cree un archivo llamado PrivateConf.json con este contenido. Comprobar disco toma un valor booleano para comprobar los discos conectados a la máquina virtual o no. 
@@ -171,7 +172,7 @@ Para ejecutar fsck en todos los discos de la máquina virtual de Linux, debe hac
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
     ```
 
-## <a name="a-namerepairdiskarepair-disks"></a><a name='repairdisk'></a>Reparación de los discos
+## <a name='repairdisk'></a>Reparación de los discos
 Para reparar discos que no se están montando o que tienen errores de configuración de montaje, use la extensión VMAccess para restablecer la configuración de montaje en la máquina virtual Linux. Sustituya el nombre del disco en **myDisk**.
 
 1. Cree un archivo llamado PrivateConf.json con este contenido. 
@@ -193,10 +194,5 @@ Para reparar discos que no se están montando o que tienen errores de configurac
 * Si desea usar cmdlets de Azure PowerShell o plantillas de Azure Resource Manager para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco, consulte la [documentación sobre la extensión VMAccess en GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * También puede utilizar el [Portal de Azure](https://portal.azure.com) para restablecer la contraseña o la clave SSH de una máquina virtual de Linux implementada en el modelo de implementación clásica. Actualmente, no puede usar el portal para realizar esta tarea en una máquina virtual de Linux implementada en el modelo de implementación de Resource Manager.
 * Consulte [Acerca de las características y extensiones de las máquinas virtuales](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información sobre el uso de extensiones de máquinas virtuales para las de Azure.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

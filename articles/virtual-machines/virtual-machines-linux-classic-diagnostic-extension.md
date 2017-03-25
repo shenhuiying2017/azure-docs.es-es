@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +46,7 @@ La versión más reciente de la extensión es **2.3** y **cualquier versión ant
 ## <a name="enable-the-extension"></a>Habilitación de la extensión
 Puede habilitar esta extensión a través del [Portal de Azure](https://portal.azure.com/#), Azure PowerShell o scripts de la CLI de Azure.
 
-Para ver y configurar los datos del sistema y de rendimiento directamente desde el portal de Azure, siga [estos pasos en el blog de Azure](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL al blog de Windows blog"/).
+Para ver y configurar los datos de rendimiento y el sistema directamente desde Azure Portal, siga [estos pasos del blog de Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 En este artículo nos centramos en cómo habilitar y configurar la extensión mediante comandos de la CLI de Azure. De esta forma, podrá leer y ver los datos directamente desde la tabla de almacenamiento.
 
@@ -54,7 +55,7 @@ Tenga en cuenta que los métodos de configuración que se describen a continuaci
 ## <a name="prerequisites"></a>Requisitos previos
 * **Versión 2.0.6 o posterior del agente Linux de Azure**.
   Tenga en cuenta que la mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.0.6 o posterior. Puede ejecutar **WAAgent -version** para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior a la 2.0.6, puede seguir [estas instrucciones de GitHub](https://github.com/Azure/WALinuxAgent "instrucciones") para actualizarla.
-* **Azure CLI**. Siga [esta guía de instalación de la CLI](../xplat-cli-install.md) para configurar el entorno de la CLI de Azure en su máquina. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde la interfaz de la línea de comandos (Bash, Terminal o símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo:
+* **Azure CLI**. Siga [esta guía de instalación de la CLI](../cli-install-nodejs.md) para configurar el entorno de la CLI de Azure en su máquina. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde la interfaz de la línea de comandos (Bash, Terminal o símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo:
   
   * Ejecute **azure vm extension set --help** para obtener información de ayuda detallada.
   * Ejecute **azure login** para iniciar sesión en Azure.
@@ -147,10 +148,5 @@ Si ha habilitado el archivo fileCfg o perfCfg (tal y como se describe en los esc
 
 ## <a name="known-issues"></a>Problemas conocidos
 * En la versión actual (2.3) de la extensión de diagnóstico de Linux, solo puede acceder mediante scripts a la información de Rsyslog y al archivo de registro del cliente especificado.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

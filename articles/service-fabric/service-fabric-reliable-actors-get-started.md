@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 25b24e6d267ac14147f426fce46d609954b7dfc9
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 41f9742befcc034f46f166b1f3f3d81ef67f83e7
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +52,7 @@ Conviene destacar las siguientes reglas que pertenecen a las interfaces de actor
 * No se admiten las interfaces genéricas.
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Creación de un proyecto en Visual Studio
-Después de instalar las herramientas de Service Fabric para Visual Studio, puede crear tipos de proyecto nuevos. Los nuevos tipos de proyecto están en la categoría **Nube** del cuadro de diálogo **Nuevo proyecto**.
+Inicie Visual Studio 2015 o Visual Studio 2017 como administrador y cree un nuevo proyecto de aplicación de Service Fabric:
 
 ![Herramientas de Service Fabric para Visual Studio: nuevo proyecto][1]
 
@@ -152,9 +153,4 @@ Durante el proceso de implementación, puede ver el progreso en la ventana **Res
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

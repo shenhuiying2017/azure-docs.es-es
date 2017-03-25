@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
-ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -39,7 +40,7 @@ La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes o
 
 Como consecuencia de esto, debe:
 
-- Proteger todas las identidades independientemente de su nivel de privilegios 
+- Proteger todas las identidades independientemente de su nivel de privilegios
 
 - Evitar de forma proactiva que se haga mal uso de las identidades que están en peligro.
 
@@ -74,12 +75,12 @@ Azure Active Directory Identity Protection es más que una herramienta de superv
 
 ### <a name="vulnerabilities"></a>Puntos vulnerables
 
-Azure Active Directory Identity Protection analiza la configuración y detecta las vulnerabilidades que pueden afectar a las identidades de usuario. Para conocer más detalles, consulte [Vulnerabilidades detectadas por Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
+Azure Active Directory Identity Protection analiza la configuración y detecta las vulnerabilidades que pueden afectar a las identidades de usuario. Para conocer más detalles, consulte [Vulnerabilidades detectadas por Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
 ### <a name="risk-events"></a>Eventos de riesgo
 
 Azure Active Directory utiliza algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las identidades de usuario. El sistema crea un registro para cada acción sospechosa detectada. Estos registros se conocen también como eventos de riesgo.  
-Para más información, consulte [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md) (Eventos de riesgo de Azure Active Directory). 
+Para más información, consulte [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md) (Eventos de riesgo de Azure Active Directory).
 
 
 ## <a name="investigation"></a>Investigación
@@ -101,11 +102,11 @@ En las secciones siguientes se proporcionan más detalles y los pasos que están
 
 ## <a name="risky-sign-ins"></a>Inicios de sesión no seguros
 
-Azure Active Directory detecta algunos [tipos de eventos de riesgo](active-directory-identity-protection-risk-events.md#risk-event-types) en tiempo real. Todos los eventos de riesgo en tiempo real que se hayan detectado durante el inicio de sesión de un usuario contribuyen a la creación de un concepto lógico que se denomina *inicio de sesión peligroso*. Un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. El ciclo de vida de un inicio de sesión peligroso finaliza cuando un usuario cierra la sesión.
+Azure Active Directory detecta algunos [tipos de eventos de riesgo](active-directory-reporting-risk-events.md#risk-event-types) en tiempo real. Todos los eventos de riesgo en tiempo real que se hayan detectado durante el inicio de sesión de un usuario contribuyen a la creación de un concepto lógico que se denomina *inicio de sesión peligroso*. Un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. El ciclo de vida de un inicio de sesión peligroso finaliza cuando un usuario cierra la sesión.
 
 ### <a name="sign-in-risk-level"></a>Nivel de riesgo del inicio de sesión
 
-El nivel de riesgo del inicio de sesión es un indicador (alto, medio o bajo) de la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya realizado un intento de inicio de sesión. 
+El nivel de riesgo del inicio de sesión es un indicador (alto, medio o bajo) de la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya realizado un intento de inicio de sesión.
 
 ### <a name="mitigating-sign-in-risk-events"></a>Mitigación de eventos de riesgo de inicio de sesión
 
@@ -395,9 +396,4 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 * [Azure Active Directory Identity Protection: desbloqueo de usuarios](active-directory-identityprotection-unblock-howto.md)
 
 * [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

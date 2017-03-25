@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1c740ac1f98a07b08bdf922dde99ce54bac23ee5
-ms.openlocfilehash: e41e246b081efbdf5edf70ee5de86cd2a68043b2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -50,9 +50,15 @@ El plan de consumo escala automáticamente los recursos de la CPU y de la memori
 
 Cuando se ejecuta en un plan de consumo, si una instancia de Function App pasa a estar inactiva, los nuevos blobs pueden tardar en procesarse hasta 10 minutos al día. Una vez que Function App se ejecuta, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
 
+Al crear una Function App, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. A nivel interno, Azure Functions usa Azure Storage para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro. Algunas cuentas de almacenamiento no son compatibles con colas ni tablas, como las cuentas de almacenamiento solo para blob (incluido Premium Storage) y las cuentas de almacenamiento de propósito general con replicación ZRS. Estas cuentas se filtran en la hoja Cuenta de almacenamiento al crear una nueva Function App.
+
+Al utilizar el plan de hospedaje de consumo, el contenido de Function App (como archivos de código de función y la configuración de enlace) se almacena en recursos compartidos de Azure Files en la cuenta de almacenamiento principal. Si elimina la cuenta de almacenamiento principal, este contenido se eliminará y no se puede recuperar.
+
+Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción a los servicios de Azure Storage] (.. / storage/storage-introduction.md#introducing-the-azure-storage-services).
+
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 
-Functions emplea un agente de escucha central para evaluar las necesidades de proceso en función de los desencadenadores configurados y para decidir cuándo escalar o reducir horizontalmente. El agente de escucha central procesa de forma continua sugerencias de requisitos de memoria y puntos de datos específicos del desencadenador. Por ejemplo, en el caso de un desencadenador de Azure Queue Storage, los puntos de datos incluyen la longitud de la cola y el tiempo de permanencia en la cola de la entrada más antigua.
+Functions emplea un controlador de escala para evaluar las necesidades de proceso en función de los desencadenadores configurados y para decidir cuándo escalar o reducir horizontalmente. El controlador de escala procesa de forma continua sugerencias de requisitos de memoria y puntos de datos específicos del desencadenador. Por ejemplo, en el caso de un desencadenador de Azure Queue Storage, los puntos de datos incluyen la longitud de la cola y el tiempo de permanencia en la cola de la entrada más antigua.
 
 ![](./media/functions-scale/central-listener.png)
 

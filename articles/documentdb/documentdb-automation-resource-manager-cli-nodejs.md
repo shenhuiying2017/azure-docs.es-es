@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 9ebf15e5f2ca21f3ec39af9be93253694a97cdf8
-ms.openlocfilehash: ba2f9d965528e69ce2d1fce62e5b16e738263c87
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4725f4200446434bfcb8754aac9bf0d99f8a7526
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ En este artículo se muestra cómo crear una cuenta de Azure DocumentDB con las 
 Las cuentas de base de datos de DocumentDB son, en este momento, el único recurso de DocumentDB que se puede crear con plantillas de Resource Manager y la CLI de Azure 1.0.
 
 ## <a name="getting-ready"></a>Preparación
-Para poder usar la CLI de Azure 1.0 con grupos de recursos de Azure, necesitará la versión correcta y una cuenta de Azure. Si no tiene la CLI de Azure 1.0, debe [instalarla](../xplat-cli-install.md).
+Para poder usar la CLI de Azure 1.0 con grupos de recursos de Azure, necesitará la versión correcta y una cuenta de Azure. Si no tiene la CLI de Azure 1.0, debe [instalarla](../cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-10-version"></a>Actualización a la versión 1.0 de la CLI de Azure
 En el símbolo del sistema, escriba `azure --version` para ver si ya tiene instalada la versión 0.10.4 o una posterior. Es posible que se le pida su participación en la recopilación de datos de la CLI de Microsoft Azure en este paso, y puede optar por hacerlo o no.
@@ -42,7 +42,7 @@ En el símbolo del sistema, escriba `azure --version` para ver si ya tiene insta
     azure --version
     0.10.4 (node: 4.2.4)
 
-Si la versión no es 0.10.4 o posterior, tendrá que [instalar la CLI de Azure 1.0](../xplat-cli-install.md) o actualizarla mediante uno de los instaladores nativos o a través de `npm update -g azure-cli`npm`npm install -g azure-cli`. Escriba ** para actualizarla o ** para instalarla.
+Si la versión no es 0.10.4 o posterior, tendrá que [instalar la CLI de Azure 1.0](../cli-install-nodejs.md) o actualizarla mediante uno de los instaladores nativos o a través de `npm update -g azure-cli`npm`npm install -g azure-cli`. Escriba **para actualizarla o** para instalarla.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Definición de su cuenta y suscripción de Azure
 Si aún no tiene una suscripción a Azure pero sí una suscripción a Visual Studio, puede activar sus [ventajas para los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -81,7 +81,7 @@ El shell de comandos también proporciona la siguiente salida:
     +
     info:    login command OK
 
-Además del método de inicio de sesión interactivo que se describe aquí, existen otros métodos de inicio de sesión en la CLI de Azure 1.0. Para más información sobre otros métodos y sobre el control de varias suscripciones, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure 1.0)](../xplat-cli-connect.md).
+Además del método de inicio de sesión interactivo que se describe aquí, existen otros métodos de inicio de sesión en la CLI de Azure 1.0. Para más información sobre otros métodos y sobre el control de varias suscripciones, vea [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure 1.0)](../xplat-cli-connect.md).
 
 ### <a name="switch-to-azure-cli-10-resource-group-mode"></a>Cambio al modo de grupo de recursos de la CLI de Azure 1.0
 De manera predeterminada, la CLI de Azure 1.0 se inicia en el modo de Service Management (modo **asm**). Escriba lo siguiente para cambiar al modo de grupo de recursos.

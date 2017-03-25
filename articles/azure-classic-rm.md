@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 0843651c8fcddbc171bb485ce9c96b53b170881d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f6df10ce5edefbff24011fc20cad8ae927ba5125
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -61,15 +62,10 @@ Con [PowerShell](/powershell/azureps-cmdlets-docs) puede usar una línea de coma
 * **Cmdlets de PowerShell con una plantilla del Administrador de recursos de Azure:** puede usar PowerShell para crear recursos de Azure con una plantilla del Administrador de recursos de Azure. Las plantillas se pueden guardar y modificar para crear versiones. Lea el artículo [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md) para obtener más información. Existen varias [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para soluciones comunes que también se pueden descargar y modificar.
 
 ## <a name="cli"></a>CLI
-Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux mediante la CLI.  Lea el artículo [Instalación de la CLI de Azure](xplat-cli-install.md) para instalar la CLI en el sistema operativo que prefiera. Como en el caso de PowerShell, existen distintos comandos que deben usarse en función de que se estén creando recursos con los modelos de implementación [Resource Manager](xplat-cli-azure-resource-manager.md) o [Clásica (Service Management)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux mediante la CLI.  Lea el artículo [Instalación de la CLI de Azure](cli-install-nodejs.md) para instalar la CLI en el sistema operativo que prefiera. Como en el caso de PowerShell, existen distintos comandos que deben usarse en función de que se estén creando recursos con los modelos de implementación [Resource Manager](xplat-cli-azure-resource-manager.md) o [Clásica (Service Management)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [Resource Manager](azure-resource-manager/resource-group-overview.md).
 * Aprenda a [diseñar plantillas](best-practices-resource-manager-design-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

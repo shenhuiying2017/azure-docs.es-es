@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
-ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -56,7 +56,7 @@ Cuando se crea una nueva cuenta de almacenamiento, se selecciona un modelo de im
 Esta guía se centra en el modelo de Resource Manager, que es el medio recomendado para crear cuentas de almacenamiento. Con las cuentas de almacenamiento de Resource Manager, en lugar de proporcionar acceso a toda la suscripción, puede controlar el acceso en un nivel más detallado en el plano de administración mediante el control de acceso basado en rol (RBAC).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Protección de su cuenta de almacenamiento con el control de acceso basado en rol (RBAC)
-Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o [las API de REST del proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o [las API de REST del proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con el modelo de Resource Manager, se coloca la cuenta de almacenamiento en un grupo de recursos y se controla el acceso al plano de la administración de dicha cuenta de almacenamiento específica mediante Azure Active Directory. Por ejemplo, puede proporcionar a usuarios específicos la posibilidad de tener acceso a las claves de la cuenta de almacenamiento, mientras que otros usuarios pueden ver información sobre la cuenta de almacenamiento pero no pueden tener acceso a sus claves.
 
@@ -223,7 +223,7 @@ Supongamos que se ha puesto en riesgo su Firma de acceso compartido o que desea 
 
 Si utiliza un URI ad hoc, tiene tres opciones. Puede emitir tokens de Firmas de acceso compartido con directivas de expiración breves y simplemente esperar a que las firmas expiren. Puede cambiar el nombre del recurso o eliminarlo (suponiendo que el token estuviera limitado a un único objeto). Puede cambiar las claves de la cuenta de almacenamiento. Esta última opción puede conllevar importantes repercusiones, dependiendo de cuántos servicios estén utilizando esa cuenta de almacenamiento, y no suele ser una buena idea hacerlo sin planificarlo con antelación.
 
-Si está utilizando una Firma de acceso compartido derivada de una directiva de acceso almacenada, puede quitar el acceso revocando la Directiva de acceso almacenada (puede cambiar solo lo que ya ha expirado o bien quitarlo todo en su conjunto). Esto surte efecto inmediatamente e invalida todas las Firmas de acceso compartido creadas utilizando esa Directiva de acceso almacenada. El hecho de actualizar o quitar la Directiva de acceso almacenada puede repercutir en los usuarios que accedan específicamente a ese contenedor, recurso compartido de archivos, tabla o cola a través de la Firma de acceso compartido, pero si se han escrito los clientes de manera que soliciten una nueva Firma de acceso compartido cuando la anterior deje de ser válida, esto funcionará correctamente..
+Si está utilizando una Firma de acceso compartido derivada de una directiva de acceso almacenada, puede quitar el acceso revocando la Directiva de acceso almacenada (puede cambiar solo lo que ya ha expirado o bien quitarlo todo en su conjunto). Esto surte efecto inmediatamente e invalida todas las Firmas de acceso compartido creadas utilizando esa Directiva de acceso almacenada. El hecho de actualizar o quitar la Directiva de acceso almacenada puede repercutir en los usuarios que accedan específicamente a ese contenedor, recurso compartido de archivos, tabla o cola a través de la Firma de acceso compartido, pero si se han escrito los clientes de manera que soliciten una nueva Firma de acceso compartido cuando la anterior deje de ser válida, esto funcionará correctamente.
 
 Dado que el uso de una Firma de acceso compartido derivada de una Directiva de acceso almacenada ofrece la posibilidad de revocar esa firma de acceso compartido de inmediato, se recomienda usar siempre las Directivas de acceso almacenadas cuando sea posible.
 
@@ -341,15 +341,15 @@ La solución admite los siguientes escenarios para las máquinas virtuales IaaS 
 * Habilitación del cifrado en máquinas virtuales IaaS que ejecutan el sistema operativo cliente de Windows
 * Habilitación del cifrado en volúmenes con rutas de montaje
 * Habilitación del cifrado en máquinas virtuales Linux configuradas con seccionamiento de disco (RAID) mediante mdadm
-* Habilitación del cifrado en máquinas virtuales Linux mediante LVM para discos de datos
-* Habilitación del cifrado en máquinas virtuales Windows configuradas mediante espacios de almacenamiento
+* Habilitación del cifrado en máquinas virtuales con Linux mediante LVM para discos de datos
+* Habilitación del cifrado en máquinas virtuales con Windows configuradas mediante Espacios de almacenamiento
 * Se admiten todas las regiones públicas de Azure.
 
 La solución no admite los siguientes escenarios, características y tecnologías en la versión:
 
 * Máquinas virtuales IaaS de nivel básico
 * Deshabilitación del cifrado en una unidad del sistema operativo para máquinas virtuales IaaS Linux
-* Máquinas virtuales de IaaS creadas mediante el método clásico de creación de máquinas virtuales
+* Máquinas virtuales IaaS creadas con el método clásico de generación de máquinas virtuales
 * Integración con el Servicio de administración de claves local
 * Azure Files (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basadas en software
 

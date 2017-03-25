@@ -4,7 +4,7 @@ description: "Describe las condiciones de alerta y gravedad de StorSimple, cómo
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/08/2017
 ms.author: anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c09a105bd321ec29f4331d2ba4c8cf80a796da45
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -155,6 +156,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |:--- |:--- |:--- |
 | El componente de hardware <*id. de componente*> notifica el estado como <*estado*>. | |A veces las condiciones temporales pueden causar estas alertas. Si es el caso, esta alerta se borrará automáticamente después de un tiempo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. |
 | Funcionamiento incorrecto del controlador pasivo. |El controlador pasivo (secundario) no funciona. |El dispositivo está operativo, pero uno de los controladores no funciona. Intente reiniciar ese controlador. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft. |
+| Se ha detectado un error de la unidad inminente. | Se ha detectado un error de la unidad inminente. |Hemos detectado un error inminente de la unidad para el componente de hardware ‘Drive in slot <*Id. de ranura*>, Enclosure <*Id. de contenedor*>’. Considere la posibilidad de sustituir la unidad. <br> Antes de comenzar la sustitución del disco, revise la información siguiente.<br><br>Si el sistema tiene más de un disco defectuoso, no quite más de un SSD o HDD en un determinado momento. Esto puede provocar la pérdida de datos.<br><br>Asegúrese de colocar un SSD de reemplazo en una ranura que previamente contenía un SSD. Lo mismo es cierto para un HDD.<br><br>Las ranuras se numeran de 0 a 11. Un disco defectuoso en la ranura 2 se asigna a un disco defectuoso en la ranura 3 del dispositivo (desde la parte superior izquierda).<br><br>Para más información sobre la sustitución del disco, vaya a https://go.microsoft.com/fwlink/?linkid=838653. Si el problema continúa, póngase en contacto con el soporte técnico de Microsoft a través de https://go.microsoft.com/fwlink/?linkid=838654. |
 
 ### <a name="job-failure-alerts"></a>Alertas de errores de trabajo
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
@@ -213,10 +215,5 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda más sobre [los errores de StorSimple y la solución de problemas de un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

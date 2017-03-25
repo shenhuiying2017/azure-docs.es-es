@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 7877662f43b83d6d60c3ef836d14b291245d8d42
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fe1143a2c6966a547caab6b9bd35d78a91446e34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,12 +44,12 @@ Puede aplicar lo que aprenda aquí a otras aplicaciones web PHP que implemente e
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](app-service-web-php-get-started-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0](app-service-web-php-get-started.md): la CLI de última generación para el modelo de implementación de administración de recursos.
+- [CLI de Azure 2.0](app-service-web-php-get-started.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [PHP 5.6.29](http://php.net/downloads.php)
 * [Compositor](https://getcomposer.org/download/)
-* [CLI de Azure](../xplat-cli-install.md)
+* [CLI de Azure](../cli-install-nodejs.md)
 * [Git](http://www.git-scm.com/downloads)
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -152,7 +152,7 @@ Vamos a configurar estas tareas de forma secuencial.
    > 
    > 
 4. Para las dos últimas tareas (configuración del directorio virtual y habilitación de Composer) se requiere [Azure Portal](https://portal.azure.com), así que inicie sesión en el [portal](https://portal.azure.com) con su cuenta de Azure.
-5. Desde el menú de la izquierda, haga clic en **App Services** > **&lt;app_name > ** > **Extensiones**.
+5. Desde el menú de la izquierda, haga clic en **App Services** > **&lt;app_name >** > **Extensiones**.
    
     ![Habilite Composer para la aplicación PHP (Laravel) en Azure](./media/app-service-web-php-get-started/configure-composer-tools.png)
    

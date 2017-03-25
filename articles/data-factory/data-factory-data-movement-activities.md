@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 91a2ac08f6daac8cba195454e09bb07afe265046
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -83,27 +83,27 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | Geografía del almacén de datos de destino | Región del almacén de datos de destino | Región usada para el movimiento de datos |
 |:--- |:--- |:--- |
 | Estados Unidos | Este de EE. UU. | Este de EE. UU. |
-| . | Este de EE. UU. 2 | Este de EE. UU. 2 |
-| . | Central EE. UU.: | Central EE. UU.: |
-| . | Centro-Norte de EE. UU | Centro-Norte de EE. UU |
-| . | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
-| . | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
-| . | Oeste de EE. UU. | Oeste de EE. UU. |
-| . | Oeste de EE. UU. 2 | Oeste de EE. UU. |
+| &nbsp; | Este de EE. UU. 2 | Este de EE. UU. 2 |
+| &nbsp; | Central EE. UU.: | Central EE. UU.: |
+| &nbsp; | Centro-Norte de EE. UU | Centro-Norte de EE. UU |
+| &nbsp; | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
+| &nbsp; | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
+| &nbsp; | Oeste de EE. UU. | Oeste de EE. UU. |
+| &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. |
 | Canadá | Este de Canadá | Centro de Canadá |
-| . | Centro de Canadá | Centro de Canadá |
+| &nbsp; | Centro de Canadá | Centro de Canadá |
 | Brasil | Sur de Brasil | Sur de Brasil |
 | Europa | Europa del Norte | Europa del Norte |
-| . | Europa occidental | Europa occidental |
+| &nbsp; | Europa occidental | Europa occidental |
 | Asia Pacífico | Sudeste asiático | Sudeste asiático |
-| . | Asia oriental | Sudeste asiático |
+| &nbsp; | Asia oriental | Sudeste asiático |
 | Australia | Australia Oriental | Australia Oriental |
-| . | Sudeste de Australia | Sudeste de Australia |
+| &nbsp; | Sudeste de Australia | Sudeste de Australia |
 | Japón | Este de Japón | Este de Japón |
-| . | Oeste de Japón | Este de Japón |
+| &nbsp; | Oeste de Japón | Este de Japón |
 | India | India Central | India Central |
-| . | Oeste de la India | India Central |
-| . | Sur de la India | India Central |
+| &nbsp; | Oeste de la India | India Central |
+| &nbsp; | Sur de la India | India Central |
 
 También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para copiar entre almacenes de Azure del Reino Unido, puede especificar `"executionLocation": "North Europe"` como "Europa del Norte" para transmitir los datos a través de la región Europa del Norte (consulte el [JSON de ejemplo](#by-using-json-scripts) como referencia).
 

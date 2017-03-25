@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: c17b96fa5d37a8cfbb0b6a5c026891cb84523fac
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8df7eff135b6cb316562a503bb938b051d87562f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -136,7 +136,7 @@ azure vm extension set myResourceGroup myVM \
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Uso de la CLI de Azure 1.0
-Si todavía no la tiene, [instale la CLI de Azure 1.0 y conéctese a su suscripción de Azure](../xplat-cli-install.md). Asegúrese de que está usando el modo de Resource Manager como se indica:
+Si todavía no la tiene, [instale la CLI de Azure 1.0 y conéctese a su suscripción de Azure](../cli-install-nodejs.md). Asegúrese de que está usando el modo de Resource Manager como se indica:
 
 ```azurecli
 azure config mode arm

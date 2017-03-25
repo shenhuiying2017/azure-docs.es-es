@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 26085360a1f2a2ffda3789c654bc7212f2e652f3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7c6ca3789e9a5dcde799d9ef40b58bd2f3c8966c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -98,7 +99,7 @@ class Program
 > 
 
 ## <a name="other-methods"></a>Otros métodos
-* [Interfaz de la línea de comandos de Azure](../xplat-cli-install.md)
+* [Interfaz de la línea de comandos de Azure](../cli-install-nodejs.md)
   
     Al cargar el blob, establezca la propiedad *cacheControl* usando el conmutador `-p`.  En este ejemplo se establece el TTL en una hora (3600 segundos).
   
@@ -118,10 +119,5 @@ Puede comprobar fácilmente el TTL de los blobs.  Mediante las [herramientas par
 ## <a name="next-steps"></a>Pasos siguientes
 * [Lea sobre el encabezado *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9).
 * [Obtenga información sobre cómo administrar la expiración del contenido de Servicio en la nube en la red CDN de Azure](cdn-manage-expiration-of-cloud-service-content.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

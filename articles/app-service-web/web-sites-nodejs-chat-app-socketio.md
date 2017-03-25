@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f5c04525437aefeccbe58e06b084433d0413dc1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +66,7 @@ Siga estos pasos para crear una aplicación web de Azure, habilite la publicaci�
 > 
 > 
 
-1. Instale la interfaz de la línea de comandos de Azure (CLI de Azure) y conéctese a su suscripción de Azure. Consulte [Instalación y configuración de la interfaz de la CLI de Azure](../xplat-cli-install.md).
+1. Instale la interfaz de la línea de comandos de Azure (CLI de Azure) y conéctese a su suscripción de Azure. Consulte [Instalación y configuración de la interfaz de la CLI de Azure](../cli-install-nodejs.md).
 2. Si esta es la primera vez que configura un repositorio en Azure, tendrá que crear unas credenciales de inicio de sesión. En la CLI de Azure, escriba el siguiente comando:
    
         azure site deployment user set [username] [password]
@@ -283,7 +284,7 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [página Precios de aplicaciones web]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Creación de una aplicación de chat Node.js con Socket.IO en Servicio en la nube de Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centro para desarrolladores de Node.js]: /develop/nodejs/
 [App Service]: https://azure.microsoft.com/try/app-service/
@@ -299,9 +300,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
