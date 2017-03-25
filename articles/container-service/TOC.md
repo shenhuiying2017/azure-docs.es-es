@@ -15,6 +15,7 @@
 ### [Habilitación del acceso público a DC/OS](container-service-enable-public-access.md)
 ### [Contenedores de equilibrio de carga de DC/OS](container-service-load-balancing.md)
 ### [Orquestador específico de usuario o aplicación en DC/OS](container-service-application-specific-marathon.md)
+### [Adición de un recurso compartido de archivos](container-service-dcos-fileshare.md)
 ### Supervisión de DC/OS
 #### [Supervisión con ELK](container-service-monitoring-elk.md)
 #### [Supervisión con OMS](container-service-monitoring-oms.md)

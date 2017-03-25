@@ -13,13 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 90d760207ee6b6e0d8c15ff597bf53512f071ef0
-ms.openlocfilehash: ace8475bd9a75eb92a3b5c084ee27b9813f13bfb
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 91c81cdba745be375ea6cbdb689d5b6f46e53f98
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentación sobre máquinas virtuales Windows
 
+<div class="introHolder">
+    <div class="intro">
 Aprenda a crear máquinas virtuales Windows. Tutoriales, referencias de API y otra documentación le ayudan a planear, implementar y administrar un entorno informático de máquina virtual en la nube.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" />Vídeo gratuito de aprendizaje de PluralSight: administración de la infraestructura con Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -160,10 +171,5 @@ Aprenda a crear máquinas virtuales Windows. Tutoriales, referencias de API y ot
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -26,6 +26,7 @@
 ### [Administración de artefactos](devtest-lab-add-vm-with-artifacts.md)
 
 ## Administración de bases de datos y plantillas de máquinas virtuales
+### [Creación de máquinas virtuales reclamables](devtest-lab-add-claimable-vm.md)
 ### [Creación de entornos de varias máquinas virtuales con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Configuración de imágenes de Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Comparación de imágenes y fórmulas](devtest-lab-comparing-vm-base-image-types.md)
