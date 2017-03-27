@@ -1,6 +1,6 @@
 ---
-title: Control de excepciones de Logic Apps | Microsoft Docs
-description: Conozca los patrones para el control de errores y excepciones con Azure Logic Apps
+title: 'Control de errores y excepciones: Azure Logic Apps | Microsoft Docs'
+description: Patrones para el control de errores y excepciones en Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,18 +15,21 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 04d1e26cd88fa6324ba2ea3cc64ae0819b47f3f9
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: be14485c9070d7dce5ecbaea778f31f30e13cfa9
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="logic-apps-error-and-exception-handling"></a>Control de errores y excepciones de Logic Apps
-Logic Apps proporciona un amplio conjunto de herramientas y patrones que garantizan la solidez y resistencia de sus integraciones frente a los errores.  Uno de los desafíos de cualquier arquitectura de integración es asegurar el control adecuado del tiempo de inactividad o de los problemas de sistemas dependientes.  Logic Apps convierte el control de errores en una experiencia de primera clase al proporcionarle las herramientas que necesita para actuar sobre las excepciones y los errores dentro de los flujos de trabajo.
+# <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
+
+Azure Logic Apps proporciona completas herramientas y patrones para garantizar la solidez de sus integraciones y su resistencia frente a los errores. Cualquier arquitectura de integración presenta el reto de asegurarse de controlar correctamente el tiempo de inactividad o los problemas con sistemas dependientes. Logic Apps convierte el control de errores en una experiencia de primera clase al proporcionarle las herramientas que necesita para actuar ante las excepciones y los errores en los flujos de trabajo.
 
 ## <a name="retry-policies"></a>Directivas de reintentos
-El tipo más básico de control de errores y excepciones es una directiva de reintentos.  Esta directiva define si se debe reintentar la acción después de que la solicitud inicial ha agotado el tiempo de espera o ha producido error (toda solicitud que tenga como resultado una respuesta 429 o 5xx).  De forma predeterminada, todas las acciones se reintentan 4 veces adicionales durante intervalos de 20 segundos.  Por lo tanto, si la primera solicitud recibe una respuesta `500 Internal Server Error` , el motor de flujo de trabajo se pausa durante 20 segundos y vuelve a intentar la solicitud.  Si después de todos los reintentos la respuesta sigue siendo una excepción o un error, el flujo de trabajo continúa y marca el estado de la acción como `Failed`.
 
-Puede configurar directivas de reintento en las **entradas** de una acción determinada.  Se puede configurar una directiva de reintentos para probar hasta 4 veces durante intervalos de 1 hora.  Para más información sobre las propiedades de entrada, consulte [MSDN][retryPolicyMSDN].
+Una directiva de reintentos es el tipo más básico de control de errores y excepciones. Si una solicitud inicial ha agotado el tiempo de espera o ha producido error (toda solicitud que tenga como resultado una respuesta 429 o 5xx), esta directiva define si se debe reintentar la acción. De forma predeterminada, todas las acciones se reintentan 4 veces adicionales durante intervalos de 20 segundos. Por lo tanto, si la primera solicitud recibe una respuesta `500 Internal Server Error`, el motor de flujo de trabajo se pausa durante 20 segundos y vuelve a intentar la solicitud. Si, después de todos los reintentos, la respuesta sigue siendo una excepción o un error, el flujo de trabajo continúa y marca el estado de la acción como `Failed`.
+
+Puede configurar directivas de reintentos en las **entradas** para una acción determinada. Por ejemplo, puede configurar una directiva de reintentos para que haga hasta 4 intentos en intervalos de 1 hora. Para ver detalles completos sobre las propiedades de entrada, consulte [Workflow Actions and Triggers][retryPolicyMSDN] (Acciones y desencadenadores de flujo de trabajo).
 
 ```json
 "retryPolicy" : {
@@ -36,7 +39,7 @@ Puede configurar directivas de reintento en las **entradas** de una acción dete
     }
 ```
 
-Si quisiera que la acción HTTP se reintentara 4 veces con intervalos de 10 minutos entre cada reintento, tendría la siguiente definición:
+Si desea que la acción HTTP se reintente 4 veces con intervalos de 10 minutos entre cada reintento, se usaría la siguiente definición:
 
 ```json
 "HTTP": 
@@ -55,10 +58,11 @@ Si quisiera que la acción HTTP se reintentara 4 veces con intervalos de 10 minu
 }
 ```
 
-Para más información sobre la sintaxis admitida, consulte la [sección sobre las directivas de reintentos en MSDN][retryPolicyMSDN].
+Para más información sobre la sintaxis admitida, consulte la [sección sobre la directiva de reintentos en Workflow Actions and Triggers][retryPolicyMSDN] (Acciones y desencadenadores de flujo de trabajo).
 
-## <a name="runafter-property-to-catch-failures"></a>Propiedad RunAfter para detectar errores
-Cada acción de una aplicación lógica declara las acciones que se deben realizar antes de que se inicie la acción.  Se puede considerar esto como el orden de los pasos del flujo de trabajo.  Esta ordenación se conoce como la propiedad `runAfter` en la definición de acción.  Es un objeto que describe qué acciones y estados de acciones ejecutarían la acción.  De forma predeterminada, todas las acciones que se agregan mediante el diseñador se establecen en `runAfter` el paso anterior, si el paso anterior era `Succeeded`.  Sin embargo, este valor se puede personalizar para que ejecute acciones cuando las acciones anteriores sean `Failed`, `Skipped`, o un posible conjunto de estos valores.  Si quisiera agregar un elemento a un tema de Bus de servicio designado después de que una acción específica `Insert_Row` produce error, usaría la siguiente configuración `runAfter`:
+## <a name="catch-failures-with-the-runafter-property"></a>Detección de errores con la propiedad RunAfter
+
+Cada acción de aplicación lógica declara qué acciones deben finalizar antes de que se inicie la acción, algo parecido a ordenar los pasos del flujo de trabajo. En la definición de la acción, esta ordenación se conoce como la propiedad `runAfter`. Esta propiedad es un objeto que describe qué acciones y estados de acciones ejecutan la acción. De forma predeterminada, todas las acciones que se agregan mediante el Diseñador de aplicación lógica se establecen en `runAfter` respecto al paso anterior, si el paso anterior era `Succeeded`. Sin embargo, este valor se puede personalizar para que active acciones cuando las acciones anteriores sean `Failed`, `Skipped` o un posible conjunto de estos valores. Si desea agregar un elemento a un tema de Service Bus designado después de que una acción específica `Insert_Row` produzca un error, podría usar la siguiente configuración `runAfter`:
 
 ```json
 "Send_message": {
@@ -86,7 +90,7 @@ Cada acción de una aplicación lógica declara las acciones que se deben realiz
 }
 ```
 
-Observe que la propiedad `runAfter` está establecida para desencadenarse si el estado de la acción `Insert_Row` es `Failed`.  Para ejecutar la acción si el estado de la acción es `Succeeded`, `Failed`, o `Skipped`, la sintaxis sería:
+Observe que la propiedad `runAfter` está establecida para desencadenarse si el estado de la acción `Insert_Row` es `Failed`. Para ejecutar la acción si el estado de la acción es `Succeeded`, `Failed` o `Skipped`, use esta sintaxis:
 
 ```json
 "runAfter": {
@@ -97,21 +101,21 @@ Observe que la propiedad `runAfter` está establecida para desencadenarse si el 
 ```
 
 > [!TIP]
-> Las acciones que se ejecutan después de que una acción anterior ha producido error, y que finalizan correctamente, se marcarán como `Succeeded`.  Este comportamiento significa que si detectar correctamente todos los errores de un flujo de trabajo, la propia ejecución se marca como `Succeeded`.
-> 
-> 
+> Las acciones que se ejecutan y completan correctamente después de que una acción anterior haya producido error se marcan como `Succeeded`. Este comportamiento significa que, si detecta correctamente todos los errores de un flujo de trabajo, la propia ejecución se marca como `Succeeded`.
 
 ## <a name="scopes-and-results-to-evaluate-actions"></a>Ámbitos y resultados para evaluar acciones
-Del mismo modo que puede establecer la propiedad runafter para acciones individuales, también puede agrupar acciones dentro de un [ámbito](../logic-apps/logic-apps-loops-and-scopes.md) , que actúa como una agrupación lógica de acciones.  Los ámbitos son útiles para organizar las acciones de aplicación lógica y para realizar evaluaciones agregadas sobre el estado de un ámbito.  El ámbito recibirá un estado después de que se hayan completado todas las acciones dentro de un ámbito.  El estado del ámbito se determina con los mismos criterios que una ejecución: si la acción final en una rama de ejecución es `Failed` o `Aborted`, el estado es `Failed`.
 
-Puede ejecutar una acción `runAfter` sobre un ámbito que se ha marcado como `Failed` para desencadenar acciones específicas contra los posibles errores que se produzcan dentro del ámbito.  La ejecución después de que un ámbito produce error le permite crear una sola acción para detectar errores si *cualquier* acción dentro de un ámbito produce error.
+Del mismo modo que puede establecer la propiedad RunAfter para acciones individuales, también puede agrupar acciones dentro de un [ámbito](../logic-apps/logic-apps-loops-and-scopes.md), que actúa como agrupación lógica de acciones. Los ámbitos son útiles para organizar las acciones de aplicación lógica y para realizar evaluaciones agregadas sobre el estado de un ámbito. El ámbito en sí recibe un estado una vez que hayan terminado todas las acciones en un ámbito. El estado del ámbito se determina con los mismos criterios que una ejecución. Si la acción final en una rama de la ejecución es `Failed` o `Aborted`, el estado es `Failed`.
+
+Para activar acciones específicas para los errores que se produjeran dentro del ámbito, puede usar `runAfter` con un ámbito que esté marcado como `Failed`. Si *cualquier* acción en el ámbito produce un error, la ejecución después de que un ámbito produzca un error permite crear una única acción para detectar errores.
 
 ### <a name="getting-the-context-of-failures-with-results"></a>Obtención del contexto de errores con resultados
-La detección de errores de un ámbito es muy útil, pero quizás también quiera el contexto para comprender exactamente las acciones que han producido error, y los errores o códigos de estado que se han devuelto.  La función del flujo de trabajo `@result()` proporciona contexto sobre el resultado de todas las acciones dentro de un ámbito.
 
-`@result()` toma un único parámetro, un nombre de ámbito, y devuelve una matriz de todos los resultados de acción desde dentro de ese ámbito.  Estos objetos de acción incluyen los mismos atributos que el objeto `@actions()`, como la hora de inicio de la acción, la hora de finalización de la acción, el estado de la acción, las entradas de acción, los id. de correlación de acción y la salidas de acción.  Puede emparejar fácilmente una función `@result()` con una propiedad `runAfter` para enviar contexto de las acciones que produjeron error dentro de un ámbito.
+Aunque la detección de errores desde un ámbito es útil, quizás también necesite el contexto como ayuda para comprender exactamente qué acciones han producido un error y los errores o códigos de estado que se hayan devuelto. La función del flujo de trabajo `@result()` proporciona contexto sobre el resultado de todas las acciones en un ámbito.
 
-Si desea ejecutar una acción *para cada una* de las acciones de un ámbito con el estado `Failed`, puede emparejar `@result()` con una acción **[Filter Array](../connectors/connectors-native-query.md)** y un bucle **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)**.  Esto le permite filtrar la matriz de resultados por las acciones que han producido error.  Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle **ForEach** .  A continuación se muestra un ejemplo, seguido de una explicación detallada.  En este ejemplo se envía una solicitud HTTP POST con el cuerpo de respuesta de las acciones que produjeron error dentro del ámbito `My_Scope`.
+`@result()` toma un único parámetro, un nombre de ámbito, y devuelve una matriz de todos los resultados de acción desde dentro de ese ámbito. Estos objetos de acción incluyen los mismos atributos que el objeto `@actions()`, como la hora de inicio de la acción, la hora de finalización de la acción, el estado de la acción, las entradas de acción, los id. de correlación de acción y la salidas de acción. Para enviar el contexto de las acciones que produjeron un error dentro de un ámbito, puede emparejar fácilmente una función `@result()` con una propiedad `runAfter`.
+
+Para ejecutar una acción *para cada una* de las acciones de un ámbito con el estado `Failed`, filtre la matriz de resultados para las acciones que produjeron un error; puede emparejar `@result()` con una acción **[Filtrar matriz](../connectors/connectors-native-query.md)** y un bucle **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)**. Puede tomar la matriz de resultados filtrada y realizar una acción para cada error mediante el bucle **ForEach** . En este ejemplo, seguido de una explicación detallada, se envía una solicitud HTTP POST con el cuerpo de respuesta de todas las acciones que produjeron un error dentro del ámbito `My_Scope`.
 
 ```json
 "Filter_array": {
@@ -152,16 +156,22 @@ Si desea ejecutar una acción *para cada una* de las acciones de un ámbito con 
 }
 ```
 
-Este es un tutorial detallado de lo que sucede:
+Este es un tutorial detallado que describe lo que sucede:
 
-1. Acción **Filter Array** para filtrar el valor de `@result('My_Scope')` y obtener el resultado de todas las acciones de `My_Scope`
-2. La condición de **Filter Array** es cualquier elemento de `@result()` cuyo estado sea igual a `Failed`.  Esto filtra la matriz de todos los resultados de acción de `My_Scope` por solo una matriz de resultados de acción con error.
-3. Realización de una acción **For Each** en las salidas **Filtered Array**.  Se lleva a cabo una acción *for each* para cada resultado de acción con error que hemos filtrado anteriormente.
-   * Si ha habido una única acción en el ámbito que ha producido error, las acciones del bucle `foreach` solo se ejecutarán una vez.  Muchas acciones con error darían lugar a una acción por error.
-4. Envío de una solicitud HTTP POST en el cuero de respuesta del elemento `foreach`, o `@item()['outputs']['body']`.  La forma del elemento `@result()` es la misma que la forma de `@actions()`, y se puede analizar del mismo modo.
-5. También se incluyen dos encabezados personalizados con el nombre de la acción con errores `@item()['name']` y el id. de seguimiento de cliente de la ejecución con errores `@item()['clientTrackingId']`.
+1. Para obtener el resultado de todas las acciones dentro de `My_Scope`, la acción **Filtrar matriz** filtra `@result('My_Scope')`.
 
-Para que sirva de referencia, este es un ejemplo de un único elemento `@result()` .  Puede ver las propiedades `name`, `body` y `clientTrackingId` analizadas en el ejemplo anterior.  Es necesario señalar que fuera de un elemento `foreach`, `@result()` devuelve una matriz de estos objetos.
+2. La condición para **Filtrar matriz** es cualquier elemento `@result()` que tenga el estado `Failed`. Esta condición filtra la matriz con los resultados de todas las acciones de `My_Scope` a una matriz con solo los resultados de acción que hayan producido un error.
+
+3. Realización de una acción **For Each** en las salidas **Filtered Array**. En este paso se realiza una acción *para cada* acción resultante en error que se filtrara antes.
+
+    Si solo hay una acción en el ámbito que produjera error, las acciones en el elemento `foreach` solo se ejecutan una vez. 
+    Muchas acciones con error causan una acción por cada error.
+
+4. Envío de una solicitud HTTP POST en el cuero de respuesta del elemento `foreach`, o `@item()['outputs']['body']`. La forma del elemento `@result()` es la misma que la forma de `@actions()`, y se puede analizar del mismo modo.
+
+5. Incluya dos encabezados personalizados con el nombre de la acción con errores `@item()['name']` y el id. de seguimiento de cliente de la ejecución con errores `@item()['clientTrackingId']`.
+
+Como referencia, este es un ejemplo de un solo elemento `@result()`, que muestra las propiedades `name`, `body` y `clientTrackingId` que se analizan en el ejemplo anterior. Fuera de un elemento `foreach`, `@result()` devuelve una matriz de estos objetos.
 
 ```json
 {
@@ -181,7 +191,7 @@ Para que sirva de referencia, este es un ejemplo de un único elemento `@result(
         },
         "body": {
             "code": "ResourceNotFound",
-            "message": "/docs/foo/bar does not exist"
+            "message": "/docs/folder-name/resource-name does not exist"
         }
     },
     "startTime": "2016-08-11T03:18:19.7755341Z",
@@ -193,22 +203,20 @@ Para que sirva de referencia, este es un ejemplo de un único elemento `@result(
 }
 ```
 
-Puede utilizar las expresiones anteriores para realizar diferentes patrones de control de excepciones.  Puede elegir ejecutar una única acción de control de excepciones fuera del ámbito que acepte toda la matriz filtrada de errores y quite el elemento `foreach`.  También puede incluir otras propiedades útiles desde la respuesta `@result()` mostrada anteriormente.
+Para poner en práctica diferentes patrones de control de excepciones, puede usar las expresiones anteriores. Es posible que elija ejecutar una única acción de control de excepciones fuera del ámbito que acepte toda la matriz filtrada de errores y quite el elemento `foreach`. También puede incluir otras propiedades útiles de la respuesta `@result()` mostrada antes.
 
 ## <a name="azure-diagnostics-and-telemetry"></a>Diagnósticos de Azure y datos de telemetría
-Los patrones vistos anteriormente son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución propiamente dicha.  [Diagnósticos de Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos de flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de almacenamiento de Azure o a un Centro de eventos de Azure.  Puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera, para evaluar los estados de ejecución.  Una posible opción es transmitir todos los eventos mediante el Centro de eventos de Azure a [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/).  En Análisis de transmisiones, puede descartar consultas en directo de anomalías, promedios o errores de los registros de diagnóstico.  Con Análisis de transmisiones es fácil enviar resultados a otros orígenes de datos, como colas, temas, SQL, DocumentDB y Power BI.
+
+Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. 
+[Diagnósticos de Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos de flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de almacenamiento de Azure o a un Centro de eventos de Azure. Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante el Centro de eventos de Azure a [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo partiendo de anomalías, promedios o errores en los registros de diagnóstico. Con Análisis de transmisiones es fácil enviar resultados a otros orígenes de datos, como colas, temas, SQL, DocumentDB y Power BI.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Vea cómo un cliente ha creado un sólido control de errores con Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+
+* [Vea cómo un cliente crea el control de errores con Azure Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Encuentre más escenarios y ejemplos de Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Aprenda a crear implementaciones automatizadas de las aplicaciones lógicas](../logic-apps/logic-apps-create-deploy-template.md)
-* [Diseñe e implemente aplicaciones lógicas desde Visual Studio](logic-apps-deploy-from-vs.md)
+* [Aprenda a crear implementaciones automatizadas para aplicaciones lógicas](../logic-apps/logic-apps-create-deploy-template.md)
+* [Creación e implementación de aplicaciones lógicas con Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
-[retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9
 

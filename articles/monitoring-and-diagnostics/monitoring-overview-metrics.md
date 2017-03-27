@@ -1,8 +1,8 @@
 ---
 title: "Información general sobre las métricas en Microsoft Azure | Microsoft Docs"
-description: "Información general sobre las métricas y sus usos en Microsoft Azure"
+description: "Información general sobre las métricas y su uso en Microsoft Azure"
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/02/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: b1c3eb101a6eebf43237d1f08a30721e80616adc
-ms.lasthandoff: 03/03/2017
-
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.lasthandoff: 03/09/2017
 
 ---
+
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
 
 ## <a name="what-are-metrics"></a>¿Qué son las métricas?
-Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
+Azure Monitor permite utilizar telemetría para obtener información sobre el rendimiento y el estado de las cargas de trabajo en Azure. El tipo de telemetría de datos de Azure más importante son las métricas (también denominadas contadores de rendimiento) emitidas por la mayoría de los recursos de Azure. Azure Monitor proporciona varias maneras de configurar y usar estas métricas para supervisar y solucionar problemas.
 
 ## <a name="what-can-you-do-with-metrics"></a>¿Para qué sirven las métricas?
 Las métricas son una valiosa fuente de telemetría y le permiten realizar las siguientes tareas:
@@ -40,20 +40,24 @@ Las métricas son una valiosa fuente de telemetría y le permiten realizar las s
 Las métricas presentan las características siguientes:
 
 * Todas las métricas tienen una **frecuencia de&1; minuto**. Recibe un valor de métrica del recurso cada minuto, lo que proporciona visibilidad en tiempo real del estado y la integridad del recurso.
-* Las métricas están **disponibles para usarse de inmediato. Es decir, ya no tiene que habilitarlas** ni configurar otros diagnósticos.
+* Las métricas están **disponibles de forma inmediata**. No tiene que habilitarlas ni configurar diagnósticos adicionales.
 * Puede acceder a **30 días del historial** de cada métrica. Puede buscar rápidamente las tendencias recientes y mensuales en el rendimiento o el estado del recurso.
 
 También puede:
 
-* Detectar fácilmente todas las métricas, acceder a ellas y **verlas** en Azure Portal al seleccionar un recurso y trazarlo en un gráfico.
 * Configurar una **regla de alerta de métrica que envía una notificación o realiza una acción automatizada** cuando la métrica cruza el umbral establecido. El escalado automático es una acción automatizada especial que permite escalar horizontalmente los recursos para satisfacer las solicitudes entrantes o las cargas en el sitio web o los recursos de procesos. Puede definir una regla de configuración de escalado automático para escalar o reducir horizontalmente si una métrica supera un umbral.
-* **Archivar** métricas durante más tiempo o usarlas para crear informes sin conexión. Puede redirigir las métricas a Azure Blob Storage al configurar opciones de diagnóstico para el recurso.
-* **Transmitir** métricas a un centro de eventos, lo que permite redirigirlas a Azure Stream Analytics o a aplicaciones personalizadas para realizar análisis casi en tiempo real. Puede hacer uso de la configuración de diagnóstico.
-* **Redirigir** todas las métricas a Log Analytics (OMS) para desbloquear análisis instantáneos, búsquedas y alertas personalizadas de los datos de métricas de los recursos.
+
+* **Redirigir** todas las métricas a Application Insights o Log Analytics (OMS) para habilitar análisis instantáneos, búsquedas y alertas personalizadas de los datos de métricas de los recursos. También puede transmitir métricas a un centro de eventos, lo que permite redirigirlas a Azure Stream Analytics o a aplicaciones personalizadas para realizar análisis casi en tiempo real. Puede configurar la transmisión del centro de eventos con la configuración de diagnóstico.
+
+* **Archivar métricas en almacenamiento** para una retención más prolongada o para crear informes sin conexión. Puede redirigir las métricas a Azure Blob Storage al configurar opciones de diagnóstico para el recurso.
+
+* Detectar fácilmente todas las métricas, acceder a ellas y **verlas** en Azure Portal al seleccionar un recurso y trazarlo en un gráfico.
+
 * **Consumir** las métricas a través de las nuevas API de REST de Azure Monitor.
+
 * **Consultar** métricas con los cmdlets de PowerShell o la API de REST multiplataforma.
-  
-  ![Enrutamiento de métricas en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview0.png)
+
+  ![Enrutamiento de métricas en Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
 ## <a name="access-metrics-via-the-portal"></a>Acceso a métricas a través del portal
 A continuación, mostramos un breve tutorial sobre cómo crear un gráfico de métricas mediante Azure Portal.
@@ -63,7 +67,7 @@ A continuación, mostramos un breve tutorial sobre cómo crear un gráfico de m�
 2. Cree un sitio web de Azure App Service.
 3. Después de crear un sitio web, vaya a la hoja **Información general** del sitio web.
 4. Puede ver las nuevas métricas como un icono de **Supervisión**. Además, podrá editar el icono y seleccionar más métricas.
-   
+
    ![Métricas de un recurso en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Acceso a todas las métricas en un solo lugar
@@ -72,13 +76,13 @@ A continuación, mostramos un breve tutorial sobre cómo crear un gráfico de m�
 3. Seleccione la suscripción, el grupo de recursos y el nombre del recurso en la lista desplegable.
 4. Vea la lista de métricas disponibles. Luego, seleccione la métrica que le interesa y trácela.
 5. Puede anclarla al panel haciendo clic en la opción para anclar que se encuentra en la esquina superior derecha.
-   
+
    ![Acceso a todas las métricas en un solo lugar en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
 > Puede acceder a las métricas en el nivel de host de máquinas virtuales (basadas en Azure Resource Manager) y conjuntos de escalas de máquina virtual sin ninguna configuración adicional de diagnóstico. Estas nuevas métricas a nivel de host están disponibles para las instancias de Windows y Linux. Estas métricas no deben confundirse con las de nivel de SO invitado a las que se accede al activar Diagnósticos de Azure en máquinas virtuales o conjuntos de escalas de máquina virtual. Para obtener más información sobre la configuración de Diagnósticos de Azure, vea [¿Qué es Diagnósticos de Microsoft Azure?](../azure-diagnostics.md)
-> 
-> 
+>
+>
 
 ## <a name="access-metrics-via-the-rest-api"></a>Acceso a métricas a través de la API de REST
 Se puede acceder a las métricas de Azure a través de las API de Azure Monitor. Hay dos API que facilitan la detección de métricas y el acceso a ellas:
@@ -88,8 +92,8 @@ Se puede acceder a las métricas de Azure a través de las API de Azure Monitor.
 
 > [!NOTE]
 > En este artículo se tratan las métricas a través de la [API nueva para las métricas](https://msdn.microsoft.com/library/dn931930.aspx) para recursos de Azure. La versión de API para las nuevas definiciones de métricas es 2016-03-01 y la versión de la API de métricas es 2016-09-01. Se puede acceder a las métricas y definiciones de métricas heredadas con la versión de API 2014-04-01.
-> 
-> 
+>
+>
 
 Para ver un tutorial más detallado mediante las API de REST de Azure Monitor, vea el [Tutorial sobre la API de REST de Azure Monitor](monitoring-rest-api-walkthrough.md).
 
@@ -138,5 +142,5 @@ Consulte los vínculos de este artículo. Además, puede obtener información so
 
 * [Métricas comunes de escalado automático](insights-autoscale-common-metrics.md)
 * [Cómo crear reglas de alertas](insights-alerts-portal.md)
-
+* [Análisis de registros desde Azure Storage con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

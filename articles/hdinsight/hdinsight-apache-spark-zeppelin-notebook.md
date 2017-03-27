@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: df489d70-7788-4efa-a089-e5e5006421e2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: a5494f16e3398be507080dd4fac591144f69d9fc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -159,7 +161,7 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
     ![Reinicio del intérprete de Livy](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Reinicio del intérprete de Zeppeling")
 3. Ejecute una celda de código desde el cuaderno de Zeppelin Notebook existente. Esto creará una nueva sesión de Livy en el clúster de HDInsight.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
@@ -199,10 +201,5 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

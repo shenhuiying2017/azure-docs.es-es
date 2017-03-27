@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f79f6fb82a74d6195491f243dc79db0c6753a894
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ El proceso completo para usar Docker en Azure es simple:
 * Utilice los comandos Docker locales para gestionar sus contenedores de Docker en su VM Docker en Azure.
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>Instalación de la interfaz de la línea de comandos de Azure (CLI de Azure)
-Para instalar y configurar la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md). Para confirmar la instalación, escriba `azure` en el símbolo del sistema y, tras un breve instante, debería ver el arte ASCII de la CLI de Azure, que enumera los comandos básicos que tiene a su disposición. Si la instalación ha funcionado correctamente, debería poder escribir `azure help vm` y ver que uno de los comandos que aparecen en la lista es "docker".
+Para instalar y configurar la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../cli-install-nodejs.md). Para confirmar la instalación, escriba `azure` en el símbolo del sistema y, tras un breve instante, debería ver el arte ASCII de la CLI de Azure, que enumera los comandos básicos que tiene a su disposición. Si la instalación ha funcionado correctamente, debería poder escribir `azure help vm` y ver que uno de los comandos que aparecen en la lista es "docker".
 
 > [!NOTE]
 > Docker cuenta con herramientas de Windows, [Docker Machine](https://docs.docker.com/installation/windows/), que también se puede utilizar para automatizar la creación de un cliente Docker que puede usar para trabajar con máquinas virtuales de Azure como hosts de Docker.
@@ -181,9 +182,4 @@ El daemon de Docker en el host está configurado para que realice escuchas y aut
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
 
 [Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure]:virtual-machines-linux-docker-compose-quickstart.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -12,32 +12,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 03/09/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
-ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 65a9815525c612bdfac569e5ec56a1db53d82c78
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Guía de comunicación de nube a dispositivo
 IoT Hub proporciona tres opciones para aplicaciones de dispositivo que exponen funcionalidades a una aplicación de back-end:
 
-* [Métodos directos][lnk-methods], para comunicaciones que requieren confirmación inmediata de su resultado, normalmente control interactivo del dispositivo, como encender un ventilador;
-* [Propiedades deseadas del dispositivo gemelo][lnk-twins], para comandos de ejecución prolongada destinados a poner el dispositivo en un determinado estado deseado. Por ejemplo, establecer el intervalo de envío de telemetría en 30 minutos;
-* [Mensajes de nube a dispositivo (C2D)][lnk-c2d], para notificaciones unidireccionales a la aplicación de dispositivo.
+* [Métodos directos][lnk-methods], para las comunicaciones que requieren confirmación inmediata del resultado. Los métodos directos se utilizan frecuentemente para el control interactivo de dispositivos, como la activación de un ventilador.
+* [Propiedades deseadas del dispositivo gemelo][lnk-twins], para comandos de ejecución prolongada destinados a poner el dispositivo en un determinado estado deseado. Por ejemplo, establecer el intervalo de envío de telemetría en 30 minutos.
+* [Mensajes de nube a dispositivo][lnk-c2d], para notificaciones unidireccionales a la aplicación de dispositivo.
 
 Esta es una comparación detallada de las distintas opciones de comunicación de nube a dispositivo.
 
-|  | Métodos directos | Propiedades deseadas del dispositivo gemelo | Mensajes C2D |
+|  | Métodos directos | Propiedades deseadas del dispositivo gemelo | Mensajes de nube a dispositivo |
 | ---- | ------- | ---------- | ---- |
 | Escenario | Comandos que necesitan confirmación inmediata, por ejemplo, encender un ventilador. | Comandos de ejecución prolongada destinados a poner el dispositivo en un determinado estado deseado. Por ejemplo, establecer el intervalo de envío de telemetría en 30 minutos. | Notificaciones unidireccionales a la aplicación de dispositivo. |
 | flujo de datos | Bidireccional. La aplicación de dispositivo puede responder al método inmediatamente. El back-end de solución recibe el resultado contextualmente a la solicitud. | Unidireccional. La aplicación de dispositivo recibe una notificación con el cambio de propiedad. | Unidireccional. La aplicación de dispositivo recibe el mensaje.
-| Durabilidad. | No se establece contacto con los dispositivos desconectados. Se notifica al back-end que el dispositivo no está conectado. | Se conservan los valores de propiedad en el dispositivo gemelo. El dispositivo los leerá en la siguiente reconexión. Los valores de propiedad son recuperables con el [lenguaje de consulta de IoT Hub][lnk-query]. | IoT Hub puede conservar los mensajes durante 48 horas como máximo. |
+| Durabilidad. | No se establece contacto con los dispositivos desconectados. Se notifica al back-end de la solución que el dispositivo no está conectado. | Se conservan los valores de propiedad en el dispositivo gemelo. El dispositivo los leerá en la siguiente reconexión. Los valores de propiedad son recuperables con el [lenguaje de consulta de IoT Hub][lnk-query]. | IoT Hub puede conservar los mensajes durante 48 horas como máximo. |
 | Destinos | Un único dispositivo que usa **deviceId**, o varios dispositivos que usan [trabajos][lnk-jobs]. | Un único dispositivo que usa **deviceId**, o varios dispositivos que usan [trabajos][lnk-jobs]. | Dispositivo único por **deviceId**. |
 | Tamaño | Hasta 8 KB de solicitudes y 8 KB de respuestas. | El tamaño máximo de propiedades deseadas es 8 KB. | Mensajes de hasta 64 kB. |
-| Frecuencia | Alta. Para más información, consulte [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte [Límites de IoT Hub][lnk-quotas]. |
+| Frecuencia | Alta. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. |
 | Protocol | Actualmente solo está disponible cuando se usa MQTT. | Actualmente solo está disponible cuando se usa MQTT. | Disponible en todos los protocolos. El dispositivo debe sondear al utilizar HTTP. |
 
 Aprenda a usar métodos directos, propiedades deseadas y mensajes de nube a dispositivo en los siguientes tutoriales:

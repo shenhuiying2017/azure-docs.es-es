@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8ebc1aa663f298d1f3f495523d85bda8777d5d29
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -59,7 +59,7 @@ No existe ningún límite en la cantidad total de datos que puede almacenar una 
 No hay ningún límite en la cantidad total de rendimiento que puede admitir una colección en DocumentDB, si la carga de trabajo se puede distribuir aproximadamente de manera uniforme entre un número suficientemente elevado de claves de partición.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>¿Cuánto cuesta Microsoft Azure DocumentDB?
-Para más información, consulte la página [Detalles de precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Los cargos por uso de DocumentDB están determinados por la cantidad de colecciones en uso, el número de horas en que las colecciones estuvieron en línea, el almacenamiento consumido y el rendimiento aprovisionado de cada colección.
+Para más información, consulte la página [Detalles de precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Los cargos por uso de DocumentDB se determinan según la cantidad de colecciones aprovisionadas, el número de horas que las colecciones estuvieron conectadas y el rendimiento aprovisionado de cada colección.
 
 ### <a name="is-there-a-free-account-available"></a>¿Existe una cuenta gratuita disponible?
 Si es la primera vez que usa Azure, regístrese para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), que ofrece 30 días y 200 USD para que pruebe todos los servicios de Azure. Si tiene una suscripción a Visual Studio, puede recibir [150 USD en créditos gratis de Azure al mes](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure.  
@@ -122,6 +122,26 @@ Sí. Como DocumentDB es un servicio RESTful, los vínculos de recursos son inmut
 
 ### <a name="is-a-local-instance-of-documentdb-available"></a>¿Hay una instancia local de DocumentDB disponible?
 Sí. El [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md) proporciona una emulación de alta fidelidad del servicio DocumentDB. Admite una funcionalidad idéntica a la de Azure DocumentDB, incluida la compatibilidad para crear y consultar documentos JSON, aprovisionar y escalar colecciones y ejecutar procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el Emulador de DocumentDB e implementarlas en Azure a escala global realizando simplemente un solo cambio de configuración en el punto de conexión de la conexión de DocumentDB.
+
+## <a name="database-questions-about-developing-against-api-for-mongodb"></a>Preguntas de bases de datos sobre el desarrollo con la API de MongoDB
+### <a name="what-is-documentdbs-api-for-mongodb"></a>¿Qué es la API de MongoDB de DocumentDB?
+La API de MongoDB de Microsoft Azure DocumentDB es una capa de compatibilidad que permite a las aplicaciones comunicarse de manera sencilla y transparente con el motor de base de datos de DocumentDB mediante los controladores y las API de Apache MongoDB compatibles con la comunidad. Los desarrolladores ahora pueden aprovechar las habilidades y las cadenas de herramienta de MongoDB para crear aplicaciones que emplean DocumentDB, con lo que se benefician de las funcionalidades únicas de esta solución, entre las que se encuentran la indización automática, el mantenimiento de copias de seguridad, los Acuerdos de Nivel de Servicio con respaldo financiero.
+
+### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>¿Cómo puedo conectarme a la base de datos de mi API de MongoDB?
+La forma más rápida de conectarse la API de MongoDB de DocumentDB es a través de [Azure Portal](https://portal.azure.com). Acceda a su cuenta. En el panel de *navegación izquierda* de la cuenta, haga clic en *Inicio rápido*. *Inicio rápido* es la mejor manera de obtener fragmentos de código para conectarse a su base de datos. 
+
+DocumentDB aplica estrictos estándares y requisitos de seguridad. Las cuentas de DocumentDB requieren autenticación y comunicación segura a través de *SSL* para garantizar el uso de la versión&1;.2 del protocolo TLS.
+
+Para obtener más información, consulte el artículo sobre [conectarse a la base de datos de la API de MongoDB](documentdb-connect-mongodb-account.md).
+
+### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>¿Existen otros códigos de error para una base de datos de la API de MongoDB?
+La API de MongoDB tiene sus propios códigos de error, además de los comunes de MongoDB.
+
+
+| Error               | Código  | Descripción  | Solución  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | El número total de unidades de solicitud consumido superó la tasa de unidad de solicitud de aprovisionamiento de la colección y se ha limitado. | Considere la posibilidad de escalar el rendimiento de la colección desde Azure Portal o vuelva a intentarlo. |
+| ExceededMemoryLimit | 16501 | Como se trata de un servicio de varios inquilinos, la operación ha superado la asignación de memoria del cliente. | Reduzca el ámbito de la operación a través de un criterio de consulta más restrictivo o póngase en contacto con el equipo de asistencia técnica desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ejemplo: &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -72,8 +72,6 @@ Puede bloquearles el acceso a [Azure Portal](https://portal.azure.com) a los usu
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
-  Si este vídeo no aparece incrustado, puede verlo [aquí](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
-
 ### <a name="what-is-the-timeline-by-which-azure-ad-b2b-collaboration-will-start-support-for-mfa-and-consumer-email-accounts"></a>¿Cuál es la escala de tiempo por la cual la colaboración B2B de Azure AD empezará a admitir cuentas de correo electrónico de consumidores y MFA?
 Ahora, en esta actualización de la versión preliminar pública se admiten las cuentas de correo electrónico de consumidores y MFA.
 
@@ -89,8 +87,16 @@ Actualmente, no.
 ### <a name="does-microsoft-crm-provide-online-support-to-azure-ad-b2b-collaboration"></a>¿Microsoft CRM proporciona soporte técnico en línea para la colaboración B2B de Azure AD?
 CRM proporcionará soporte técnico para la colaboración B2B de Azure AD después de que esté generalmente disponible.
 
+### <a name="are-b2b-collaboration-guest-users-visible-in-sharepoint-onlineonedrive-people-picker"></a>¿Los usuarios invitados de colaboración B2B son visibles en el selector de personas de SharePoint Online/OneDrive?
+ 
+Sí. Sin embargo, la capacidad de buscar usuarios invitados existentes en el selector de personas de SharePoint Online está desactivada de manera predeterminada para así coincidir con el comportamiento heredado. Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUsers" en el nivel de inquilino y colección de sitios. Para hacerlo, use los cmdlets Set-SPOTenant y Set-SPOSite, que permiten que los miembros busquen a todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan los sitios de SharePoint Online que ya se aprovisionaron.
+
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>¿Cuál es la duración de una contraseña inicial para un usuario de colaboración B2B recién creado?
 Azure AD tiene un conjunto fijo de requisitos de bloqueo de cuentas, seguridad de la contraseña y caracteres que se aplican igualmente a todas las cuentas de usuario en la nube de Azure AD. Las cuentas de usuario en la nube son las cuentas que no se federan con otro proveedor de identidades como las cuentas Microsoft, Facebook, ADFS o incluso otro inquilino en la nube (en el caso de la colaboración B2B). En el caso de las cuentas federadas, la directiva de contraseñas depende de la directiva del espacio local y la configuración de cuenta Microsoft del usuario.
+
+### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Las aplicaciones desean diferenciar su experiencia entre un usuario inquilino y un usuario invitado. ¿Hay instrucciones estándar para esto? ¿La presencia de la notificación del proveedor de identidades es el modelo adecuado para esto?
+ 
+Un usuario invitado puede usar cualquier proveedor de identidades para autenticarse, tal como se analiza en [Propiedades de un usuario de colaboración B2B](active-directory-b2b-user-properties.md). Por lo tanto, la propiedad adecuada para determinar esto es UserType. La notificación UserType no se incluye actualmente en el token. Las aplicaciones deben usar API Graph para consultar el usuario en el directorio y obtener su UserType.
 
 ### <a name="next-steps"></a>Pasos siguientes
 

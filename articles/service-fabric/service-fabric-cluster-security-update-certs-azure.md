@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/09/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -64,7 +64,7 @@ Para facilitar las siguientes tareas, el ejemplo 5-VM-1-NodeTypes-Secure_Step2.J
 
 **Asegúrese de seguir todos los pasos**
 
-**Paso 1:** abra la plantilla de Resource Manager que usó para implementar el clúster.  (Si ha descargado el ejemplo del repositorio anterior, use 5-VM-1-NodeTypes-Secure_Step1.JSON para implementar un clúster seguro y, después, abra esa plantilla).
+**Paso 1:** abra la plantilla de Resource Manager que usó para implementar el clúster. (Si ha descargado el ejemplo del repositorio anterior, use 5-VM-1-NodeTypes-Secure_Step1.JSON para implementar un clúster seguro y, después, abra esa plantilla).
 
 **Paso 2:** agregue **dos parámetros nuevos** "secCertificateThumbprint" y "secCertificateUrlValue" del tipo "string" en la sección de parámetros de la plantilla. Puede copiar el siguiente fragmento de código y agregarlo a la plantilla. En función del origen de la plantilla, esto ya estará definido; si es así, continúe con el paso siguiente. 
  
@@ -84,7 +84,7 @@ Para facilitar las siguientes tareas, el ejemplo 5-VM-1-NodeTypes-Secure_Step2.J
 
 ```
 
-**Paso 3:** modifique el recurso **Microsoft.ServiceFabric/clusters**; busque la definición del recurso "Microsoft.ServiceFabric/clusters" en la plantilla. En las propiedades de esa definición, encontrará una etiqueta JSON "Certificate", similar al siguiente fragmento de código JSON.
+**Paso 3:** modifique el recurso **Microsoft.ServiceFabric/clusters**; busque la definición del recurso "Microsoft.ServiceFabric/clusters" en la plantilla. En las propiedades de esa definición, encontrará una etiqueta JSON "Certificate", similar al siguiente fragmento de código JSON:
 
    
 ```JSON
@@ -108,7 +108,7 @@ Ahora, la definición del recurso debería ser similar a la siguiente (en funci�
      }
 ``` 
 
-Si desea **sustituir el certificado**, especifique el nuevo certificado como principal y cambie el principal actual a secundario.  Como resultado, el certificado principal actual se sustituye por el nuevo certificado en un paso de implementación.
+Si desea **sustituir el certificado**, especifique el nuevo certificado como principal y cambie el principal actual a secundario. Como resultado, el certificado principal actual se sustituye por el nuevo certificado en un paso de implementación.
 
 ```JSON
       "properties": {

@@ -102,7 +102,7 @@
 ### [Migración de los datos](sql-data-warehouse-migrate-data.md)
 ### [Migración a Premium Storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pausa y escalado
+## Administración de procesos
 
 ### [Información general](sql-data-warehouse-manage-compute-overview.md)
 ### [Portal de Azure](sql-data-warehouse-manage-compute-portal.md)

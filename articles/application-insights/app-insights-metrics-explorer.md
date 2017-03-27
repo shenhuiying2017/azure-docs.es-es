@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
-ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ A continuación encontrará un conjunto de ejemplo de gráficos:
 
 ![](./media/app-insights-metrics-explorer/01-overview.png)
 
-Encontrará gráficos de métricas en todas partes en el portal de Application Insights. En la mayoría de los casos, pueden personalizarse y puede agregar más gráficos a la hoja. En la hoja Información general, haga clic para ver gráficos más detallados (que presentan títulos como "Respuestas del servidor") o haga clic en **Explorador de métricas** para abrir una nueva hoja donde podrá crear gráficos personalizados.
+Encontrará gráficos de métricas en todas partes en el portal de Application Insights. En la mayoría de los casos, pueden personalizarse y puede agregar más gráficos a la hoja. En la hoja Información general, haga clic para ver gráficos más detallados (que presentan títulos como "Servidores") o haga clic en **Explorador de métricas** para abrir una nueva hoja donde podrá crear gráficos personalizados.
 
 ## <a name="time-range"></a>Intervalo de tiempo
 En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráficos o cuadrículas.
@@ -175,16 +175,6 @@ Para recibir notificaciones por correo electrónico de los valores no habituales
 
 [Obtenga más información sobre alertas][alerts].
 
-## <a name="export-to-excel"></a>Exportación a Excel
-Puede exportar a un archivo de Excel los datos de métricas que se muestran en el Explorador de métricas. Entre los datos exportados, se incluyen datos de todos los gráficos y tablas, tal como se muestra en el portal.
-
-![En el Explorador de métricas, elija Reglas de alertas, Agregar alerta](./media/app-insights-metrics-explorer/31-export.png)
-
-Los datos para cada tabla o gráfico se exportan a una hoja independiente en el archivo de Excel.
-
-Lo que se muestra es lo que se exporta. Cambie los filtros o el intervalo de tiempo si desea modificar el intervalo de los datos exportados. Para las tablas, si se muestra el comando para **cargar más datos** , puede hacer clic en él antes de hacer clic en el botón de exportación para que se exporten más datos.
-
-*Actualmente, la función de exportación funciona solo para Internet Explorer y Chrome. Estamos trabajando para incluir compatibilidad con otros exploradores.*
 
 ## <a name="continuous-export"></a>Exportación continua
 Si quiere que los datos se exporten continuamente para procesarlos externamente, puede usar la [Exportación continua](app-insights-export-telemetry.md).
@@ -193,7 +183,9 @@ Si quiere que los datos se exporten continuamente para procesarlos externamente,
 Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Análisis
-[Análisis](app-insights-analytics.md) es una forma más versátil de analizar los datos de telemetría mediante un eficaz lenguaje de consulta. Utilícelo si desea combinar o calcular resultados a partir de métricas, o realizar una exploración en profundidad del rendimiento reciente de su aplicación. Por otro lado, utilice el Explorador de métricas si desea actualizaciones automáticas, gráficos en el panel y alertas.
+[Análisis](app-insights-analytics.md) es una forma más versátil de analizar los datos de telemetría mediante un eficaz lenguaje de consulta. Utilícelo si desea combinar o calcular resultados a partir de métricas, o realizar una exploración en profundidad del rendimiento reciente de su aplicación. 
+
+En el gráfico de una métrica, puede hacer clic en el icono Análisis para ir directamente a la consulta de análisis equivalente.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 *No veo ningún dato en el gráfico.*

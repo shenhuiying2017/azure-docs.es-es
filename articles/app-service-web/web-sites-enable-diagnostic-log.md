@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 6a000e84f38e7e2b56f1d79d5c88f1704b6789a0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ En este artículo se usa el [Portal de Azure](https://portal.azure.com), Azure P
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-namewhatisdiagaweb-server-diagnostics-and-application-diagnostics"></a><a name="whatisdiag"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
+## <a name="whatisdiag"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
 Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en **diagnósticos del servidor web** y **diagnóstico de aplicaciones**.
 
 ### <a name="web-server-diagnostics"></a>Diagnósticos del servidor web
@@ -48,7 +48,7 @@ En tiempo de ejecución puede recuperar estos registros para ayudar a solucionar
 
 Las aplicaciones web del Servicio de aplicaciones también registran información de implementación al publicar contenido en una aplicación web. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede usar el registro de implementaciones para determinar por qué se ha producido un error con el script.
 
-## <a name="a-nameenablediagahow-to-enable-diagnostics"></a><a name="enablediag"></a>Habilitación de diagnósticos
+## <a name="enablediag"></a>Habilitación de diagnósticos
 Para habilitar diagnósticos en [Azure Portal](https://portal.azure.com), vaya a la hoja de la aplicación web y haga clic en **Configuración > Registros de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
@@ -90,7 +90,7 @@ Si bien las tres ubicaciones de almacenamiento ofrecen la misma información bá
 >
 >
 
-## <a name="a-namedownloada-how-to-download-logs"></a><a name="download"></a> Descarga de registros
+## <a name="download"></a> Descarga de registros
 Se puede obtener acceso a la información de diagnóstico almacenada en el sistema de archivos de la aplicación web directamente mediante FTP. No obstante, también se puede descargar como un archivo ZIP con Azure PowerShell o mediante la interfaz de la línea de comandos de Azure.
 
 La estructura de directorios en que se almacenan los registros es la siguiente:
@@ -129,7 +129,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 Este comando guardará los registros en la aplicación web denominada "webappname" en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
 > [!NOTE]
-> Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../xplat-cli-install.md).
+> Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../cli-install-nodejs.md).
 >
 >
 
@@ -145,7 +145,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="a-namestreamlogsa-how-to-stream-logs"></a><a name="streamlogs"></a> Registros
+## <a name="streamlogs"></a> Registros
 Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o la interfaz de la línea de comandos de Azure.
 
 > [!NOTE]
@@ -194,11 +194,11 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
     azure site log tail webappname --path http
 
 > [!NOTE]
-> Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli-install.md).
+> Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../cli-install-nodejs.md).
 >
 >
 
-## <a name="a-nameunderstandlogsa-how-to-understand-diagnostics-logs"></a><a name="understandlogs"></a> Información sobre los registros de diagnóstico
+## <a name="understandlogs"></a> Información sobre los registros de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Registros de diagnóstico de aplicaciones
 El diagnóstico de aplicaciones almacena información con un formato específico para aplicaciones .NET, en función de si almacena los registros en el sistema de archivos, en el almacenamiento de tablas o en el almacenamiento de blobs. El conjunto base de datos almacenados es el mismo en los tres tipos de almacenamiento: la fecha y la hora en que se ha producido el evento, el identificador del proceso que ha producido el evento, el tipo de evento (información, advertencia o error) y el mensaje del evento.
 
@@ -274,7 +274,7 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 >
 >
 
-## <a name="a-namenextstepsa-next-steps"></a><a name="nextsteps"></a> Pasos siguientes
+## <a name="nextsteps"></a> Pasos siguientes
 * [Supervisión de aplicaciones web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Análisis de registros de aplicación web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/13/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -32,7 +32,7 @@ La solución se instala para actualizar el tipo de agente que ha instalado. Los 
 Utilice la siguiente información para instalar y configurar la solución.
 
 * Debe tener un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) en cada equipo en el que desee supervisar los cambios.
-* Agregue la solución de seguimiento de cambios al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+* Agregue la solución Change Tracking (seguimiento de cambios) al área de trabajo de OMS desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
 
 ### <a name="configure-windows-files-to-track"></a>Configuración de los archivos de Windows de los que se realizará un seguimiento
 Use los pasos siguientes para configurar los archivos de los que se realizará un seguimiento en los equipos Windows.
@@ -66,7 +66,21 @@ La siguiente tabla muestra los métodos de recopilación de datos y otros detall
 
 | plataforma | Agente directo | Agente de SCOM | Agente Linux | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows y Linux |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) | Entre 15 minutos y 1 hora, según el tipo de cambio. |
+| Windows y Linux |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) | Entre 5 y 50 minutos, según el tipo de cambio. Para más información, siga leyendo. |
+
+
+En la tabla siguiente se muestra la frecuencia de recopilación de datos para los tipos de cambios.
+
+| **Tipo de cambio** | **frequency** | **¿Envía el** **agente** **las diferencias cuando las encuentra?** |
+| --- | --- | --- |
+| Registro de Windows | 50 minutos | no |
+| Archivo de Windows | 30 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
+| Archivo de Linux | 15 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
+| Servicios de Windows | 30 minutos | Sí, cada 30 minutos cuando se detectan cambios. Cada 24 horas se envía una instantánea con independencia de que haya cambio o no. Por lo tanto, se envía la instantánea incluso cuando no hay ningún cambio. |
+| Demonios de Linux | 5 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
+| Software de Windows | 30 minutos | Sí, cada 30 minutos cuando se detectan cambios. Cada 24 horas se envía una instantánea con independencia de que haya cambio o no. Por lo tanto, se envía la instantánea incluso cuando no hay ningún cambio. |
+| Software Linux | 5 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
+
 
 ## <a name="use-change-tracking"></a>Uso de seguimiento de cambios
 Una vez instalada la solución, puede ver el resumen de los cambios para los servidores supervisados mediante el icono **Seguimiento de cambios** en la página **Información general** de OMS.

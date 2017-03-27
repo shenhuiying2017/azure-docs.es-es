@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 2714bfbf2bf35b11ca1ba6ab8b7e4e6bf5431f45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 36c245b98868682c24a87bba6628de492e620012
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -51,10 +52,11 @@ La actividad de Pig de HDInsight en una canalización de Data Factory ejecuta co
 ## <a name="hdinsight-mapreduce-activity"></a>Actividad de MapReduce de HDInsight
 La actividad MapReduce de HDInsight en una canalización de Data Factory ejecuta programas de MapReduce en su propio clúster de HDInsight o en uno basado en Windows/Linux a petición. Consulte el artículo [Actividad de MapReduce](data-factory-map-reduce.md) para obtener más información acerca de esta actividad.
 
-Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster de HDInsight Spark. Consulte [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) (Invocar programas Spark desde Data Factory de Azure) para obtener información detallada.
-
 ## <a name="hdinsight-streaming-activity"></a>Actividad de HDInsight Streaming
 La actividad de streaming de HDInsight en una canalización de Data Factory ejecuta programas de streaming de Hadoop en su propio clúster de HDInsight o en uno basado en Windows/Linux a petición. Vea [Actividad de HDInsight Streaming](data-factory-hadoop-streaming-activity.md) para obtener información sobre esta actividad.
+
+## <a name="hdinsight-spark-activity"></a>Actividad de HDInsight Spark
+La actividad de Spark de HDInsight en una canalización de Data Factory ejecuta consultas de Spark en su propio clúster de HDInsight. Consulte [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) (Invocar programas Spark desde Data Factory de Azure) para obtener información detallada. 
 
 ## <a name="machine-learning-activities"></a>Actividades de Machine Learning
 Azure Data Factory permite crear fácilmente canalizaciones que utilizan un servicio web de Azure Machine Learning publicado para realizar análisis predictivos. Mediante la [actividad de ejecución de Batch](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) en una canalización de Azure Data Factory, puede invocar un servicio web de Machine Learning para realizar predicciones sobre los datos en el lote.
@@ -95,10 +97,5 @@ Azure Data Factory admite las siguientes actividades de transformación de datos
 | [Procedimiento almacenado](data-factory-stored-proc-activity.md) |SQL Azure, Almacenamiento de datos SQL de Azure o SQL Server |
 | [U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |Análisis con Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Lote de Azure |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: b8cad4541d4e17f98a35289c6c031b9331ab4a8b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -240,7 +240,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 También es importante, debido al retraso mencionado anteriormente en la disponibilidad de las muestras, especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Esto es porque los ejemplos tardan aproximadamente un minuto en propagarse por el sistema, por lo que los ejemplos del intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no suelen estar disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
 
 > [!IMPORTANT]
-> Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame el ejemplo más reciente que tengas, independientemente de cuánto tiempo hace que lo tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> Es **muy recomendable** que **evite confiar*solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame el ejemplo más reciente que tengas, independientemente de cuánto tiempo hace que lo tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
 > 
 > 
 
@@ -355,7 +355,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-Además de la API de REST de Batch y del SDK de .NET, puede usar cualquiera de los demás [SDK de Batch](batch-technical-overview.md#batch-development-apis), [cmdlets de PowerShell para Batch ](batch-powershell-cmdlets-get-started.md) y la [CLI de Batch](batch-cli-get-started.md) para trabajar con el escalado automático.
+Además de la API de REST de Batch y del SDK de .NET, puede usar cualquiera de los demás [SDK de Batch](batch-apis-tools.md#batch-development-apis), [cmdlets de PowerShell para Batch ](batch-powershell-cmdlets-get-started.md) y la [CLI de Batch](batch-cli-get-started.md) para trabajar con el escalado automático.
 
 > [!IMPORTANT]
 > Al crear un grupo habilitado para escalado automático, **no** debe especificar el parámetro `targetDedicated`. Además, si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y, después, cambiar su tamaño.

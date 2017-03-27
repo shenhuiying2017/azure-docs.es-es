@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: garbrad
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,8 +58,8 @@ Puede usar los enlaces que proporciona el cliente DHCP para crear y mantener la 
               nsupdate $nsupdatecmds
         fi
 
-        #done
-        exit 0;
+        
+        
 
 También puede usar el comando *nsupdate* para realizar actualizaciones de DNS dinámico seguras. Por ejemplo, cuando usa un servidor Bind DNS, se [genera](http://linux.yyz.us/nsupdate/)un par de claves pública-privada.  El servidor DNS está [configurado](http://linux.yyz.us/dns/ddns-server.html) con la parte pública de la clave de manera que se puede comprobar la firma de la solicitud. Necesita usar la opción *-k* para proporcionar el par de claves a *nsupdate* con el fin de que se firme la solicitud de actualización de DNS dinámico.
 
@@ -67,10 +68,5 @@ Cuando usa un servidor DNS de Windows, puede usar la autenticación Kerberos con
 En caso de ser necesario, puede agregar un sufijo de búsqueda DNS a las máquinas virtuales. El sufijo DNS se especifica en el archivo */etc/resolv.conf* . La mayoría de las distribuciones de Linux administran automáticamente el contenido de este archivo, por lo que normalmente no se puede editar. Sin embargo, puede reemplazar el sufijo si usa el comando *supersede* del cliente DHCP. Para hacerlo, en */etc/dhcp/dhclient.conf*, debe agregar lo siguiente:
 
         supersede domain-name <required-dns-suffix>;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

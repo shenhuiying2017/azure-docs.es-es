@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -228,10 +229,18 @@ Para cada espacio de nombres también es posible establecer la configuración de
 
 También es posible seleccionar los contenedores y las unidades organizativas desde los que el conector debe importar y hacia los que debe exportar.
 
+Cuando hace una búsqueda, se realiza en todos los contenedores de la partición. En casos en los que existe una gran cantidad de contenedores, este comportamiento genera degradación del rendimiento.
+
+>[!NOTE]
+A partir de marzo de 2017, el ámbito de la actualización de las búsquedas de conector LDAP genérico puede verse limitada solo a los contenedores seleccionados. Para hacerlo, active la casilla "Search only in selected containers" (Buscar solo en contenedores seleccionados), tal como se muestra en la imagen a continuación.
+
+![Buscar solo en contenedores seleccionados](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>Configuración de delimitadores
 Esta página siempre tiene un valor preconfigurado y no se puede cambiar. Si se ha identificado el proveedor del servidor, el delimitador podría rellenarse con un atributo inmutable, por ejemplo, el GUID de un objeto. Si no se ha detectado o se sabe que no tiene un atributo inmutable, el conector utiliza dn (nombre distintivo) como delimitador.
 
 ![delimitadores](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 La siguiente es una lista de servidores LDAP y el delimitador que se utiliza:
 
@@ -261,9 +270,4 @@ Para directorios con un registro de cambios diferenciales que se basa en la fech
 
 ## <a name="troubleshooting"></a>Solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM&2010; R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

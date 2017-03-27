@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -103,7 +103,7 @@ Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o c
 | [Cuenta de almacenamiento](../storage/storage-create-storage-account.md) |yes |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
 | [Red virtual](../virtual-network/virtual-networks-overview.md) |Sí |La máquina virtual debe ser miembro de una red virtual. |
 | [Dirección IP pública](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
-| [Interfaz de red](../virtual-network/virtual-network-network-interface-overview.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
+| [Interfaz de red](../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
 | [Discos de datos](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>¿Cómo se crea la primera máquina virtual?

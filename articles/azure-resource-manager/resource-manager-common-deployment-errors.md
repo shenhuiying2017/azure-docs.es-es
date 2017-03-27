@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
-ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,6 +49,7 @@ En este tema se describen los códigos de error siguientes:
 * [Error de autorización](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -122,6 +124,40 @@ Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejempl
   ```
 
 Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga las necesidades de su negocio, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+### <a name="disallowedoperation"></a>DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+Si recibe este error es que está usando una suscripción a la que no se le permite acceder a ningún servicio de Azure, excepto a Azure Active Directory. Puede tener este tipo de suscripción si necesita acceder al portal clásico, pero no se le permitirá implementar recursos. Para resolver este problema, debe usar una suscripción que tenga permiso para implementar recursos.  
+
+Para ver las suscripciones disponibles con PowerShell, use:
+
+```powershell
+Get-AzureRmSubscription
+```
+
+Y, para establecer la suscripción actual, use:
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+Para ver las suscripciones disponibles con la CLI de Azure 2.0, use:
+
+```azurecli
+az account list
+```
+
+Y, para establecer la suscripción actual, use:
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Este error puede tener distintos orígenes.
@@ -387,19 +423,19 @@ Para conocer las versiones de API admitidas para un tipo determinado de recurso,
 Para ver si el proveedor está registrado, utilice el comando `azure provider list` .
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Para registrar un proveedor de recursos, use el comando `azure provider register` y especifique el *espacio de nombres* que desea registrar.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-Para ver las ubicaciones y las versiones de API admitidas por un proveedor de recursos, use:
+Para ver las ubicaciones y las versiones de API admitidas para un tipo de recursos, use:
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -410,18 +446,23 @@ Para obtener información completa de las cuotas, consulte [Límites, cuotas y r
 Para examinar las cuotas de núcleos de su suscripción, puede usar el comando `azure vm list-usage` en la CLI de Azure. En el siguiente ejemplo se muestra que la cuota de núcleos para una cuenta de evaluación gratuita es 4:
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Que devuelve:
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 Si implementa una plantilla que crea más de&4; núcleos en la región oeste de EE. UU., obtendrá un error de implementación similar al siguiente:
@@ -479,13 +520,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 En **PowerShell**, proporcione ese identificador de directiva como el parámetro **Id** para recuperar los detalles de la directiva que bloqueó la implementación.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-En la **CLI de Azure**, proporcione el nombre de la definición de directiva:
+En la **CLI de Azure 2.0**, proporcione el nombre de la definición de directiva:
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 Para más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
@@ -522,21 +563,13 @@ Puede detectar información valiosa sobre cómo se procesa la implementación re
 
    Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
 
-- Azure CLI
+- CLI de Azure 2.0
 
-   En la CLI de Azure, establezca el parámetro **--debug-setting** en Todos, ResponseContent o RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Examine el contenido de la respuesta y la solicitud registradas con lo siguiente:
+   Examine las operaciones de implementación con el siguiente comando:
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
 
 - Plantilla anidada
 
@@ -662,8 +695,8 @@ En la tabla siguiente se enumeran los temas de solución de problemas para otros
 | Automatización |[Sugerencias para la solución de problemas para errores comunes de Automatización de Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Solución de problemas de Microsoft Azure Stack](../azure-stack/azure-stack-troubleshooting.md) |
 | Data Factory |[Solución de problemas de la factoría de datos](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Solución de problemas comunes al implementar servicios en Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
-| Recuperación de sitios |[Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Service Fabric |[Supervisión y diagnóstico de aplicaciones de Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
+| Site Recovery |[Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Almacenamiento |[Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[Solución de problemas de implementación de dispositivos de StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
 | Base de datos SQL |[Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure](../sql-database/sql-database-troubleshoot-common-connection-issues.md) |
@@ -672,9 +705,4 @@ En la tabla siguiente se enumeran los temas de solución de problemas para otros
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 * Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-deployment-operations.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

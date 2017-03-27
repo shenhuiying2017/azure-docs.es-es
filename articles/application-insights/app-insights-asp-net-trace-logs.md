@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f2de2b3f4deb702f6cdc4e36b988ef6ea2697787
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -137,9 +138,9 @@ Utilice los [adaptadores de registro de Java](app-insights-java-trace-logs.md).
 ### <a name="no-log-adapter-option-in-the-configuration-tool"></a>No aparece la opción de adaptador en la herramienta de configuración
 * Debe instalar primero el marco de registro.
 * Si usa System.Diagnostics.Trace, asegúrese de que lo ha [configurado en `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* ¿Tiene la versión más reciente de las herramientas de Application Insights? En el menú **Herramientas** de Visual Studio, elija **Extensiones y actualizaciones** y abra la pestaña **Actualizaciones**. Si las herramientas de Application Insights se encuentran ahí, haga clic para actualizarlas.
+* ¿Tiene la versión más reciente de Application Insights? En el menú **Herramientas** de Visual Studio, elija **Extensiones y actualizaciones** y abra la pestaña **Actualizaciones**. Si Developer Analytics Tools está instalado, haga clic para actualizarlo.
 
-### <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
+### <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
 Parece que ha instalado el paquete de NuGet del adaptador de registro sin tener que instalar Application Insights.
 
 En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y elija **Actualizar Application Insights**. Aparecerá un cuadro de diálogo que le invita a iniciar sesión en Azure y a crear un recurso de Application Insights, o a volver a utilizar uno existente. Esto debería solucionarlo.
@@ -147,13 +148,13 @@ En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationI
 ### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Puedo ver seguimientos en Búsqueda de diagnóstico, pero no los otros eventos.
 A veces, el paso de todos los eventos y solicitudes por la canalización puede llevar un rato.
 
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>¿Qué cantidad de datos se conserva?
+### <a name="limits"></a>¿Qué cantidad de datos se conserva?
 Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan durante siete días.
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>No veo algunas de las entradas del registro que esperaba
 Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Pasos siguientes
+## <a name="add"></a>Pasos siguientes
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta][availability]
 * [Solución de problemas][qna]
 
@@ -165,9 +166,4 @@ Si la aplicación envía una gran cantidad de datos y usa el SDK de Application 
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

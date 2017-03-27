@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72d9c639a6747b0600c5ce3a1276f3c1d2da64b2
-ms.openlocfilehash: 8c3ced706c26e09d709d7cfb4d81534c362e1628
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -91,8 +91,31 @@ DocumentDB admite la conmutación por error automática en caso de una o varias 
 ### <a id="GranularFailover"></a>Diseñado para diferentes granularidades de conmutación por error
 En la actualidad, las funcionalidades de conmutación por error automática y manual se exponen en la granularidad de la cuenta de la base de datos. Tenga en cuenta que, internamente, DocumentDB está diseñado para ofrecer conmutación por error *automática* con una granularidad más fina de una base de datos, colección o incluso partición (de una colección que posee un intervalo de claves). 
 
-### <a id="MultiHomingAPIs"></a>API de hospedaje múltiple
+### <a id="MultiHomingAPIs"></a>API de hospedaje múltiple en DocumentDB
 DocumentDB le permite interactuar con la base de datos mediante puntos de conexión lógicos (independientes de la región) o físicos (específicos de la región). El uso de puntos de conexión lógicos garantiza que la aplicación puede alojarse de forma transparente en múltiples hosts en caso de conmutación por error. Los últimos, los puntos de conexión físicos, proporcionan un control específico de la aplicación para redirigir las lecturas y escrituras a regiones concretas.
+
+### <a id="ReadPreferencesAPIforMongoDB"></a> Preferencias de lectura configurables de la API de MongoDB
+API de MongoDB permite especificar preferencias de lectura de la colección para una base de datos distribuida globalmente. Para lecturas de poca latencia y alta disponibilidad global, se recomienda establecer las preferencias de lectura de la colección en *más cercano*. Una preferencia de lectura de *más cercano* está configurada para leer desde la región más cercana.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
+```
+
+Para las aplicaciones con una región de lectura/escritura principal y una secundaria para escenarios de recuperación ante desastres, se recomienda establecer preferencias de lectura de la colección en *secundaria preferida*. Una preferencia de lectura de *secundaria preferida* está configurado para leer desde la región secundaria cuando la región principal no está disponible.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
+```
+
+Por último, si quiere hacerlo manualmente, especifique las áreas de lectura. Puede establecer la etiqueta de región dentro de sus preferencias de lectura.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+var tag = new Tag("region", "Southeast Asia");
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
+```
 
 ### <a id="TransparentSchemaMigration"></a>Migración transparente y coherente del índice y esquema de la base de datos 
 DocumentDB es totalmente [independiente del esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). El diseño exclusivo de su motor de base de datos le permite indexar de forma automática y sincrónica todos los datos que ingiere sin necesidad de que el usuario aporte ningún esquema ni índices secundarios. Esto le permite recorrer en iteración la aplicación distribuida globalmente rápidamente, sin tener que preocuparse de la migración del índice y del esquema de la base de datos ni coordinar los lanzamientos de aplicaciones de varias fases de cambios de esquema. DocumentDB garantiza que los cambios en directivas de indexación que realiza explícitamente el usuario no generan una degradación del rendimiento ni de la disponibilidad.  
@@ -237,3 +260,4 @@ DocumentDB expone de forma transparente las métricas de rendimiento, latencia, 
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carga, capacidad y disponibilidad en sistemas de quórum)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearización: una condición de corrección para objetos concurrentes)
 9. Acuerdo de Nivel de Servicio de Azure DocumentDB (última actualización, diciembre de 2016)
+

@@ -4,13 +4,11 @@
 
 # Introducción
 
-## [Creación de una zona DNS](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [CLI de Azure](dns-getstarted-create-dnszone-cli.md)
-
-## [Creación de registros DNS](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [CLI de Azure](dns-getstarted-create-recordset-cli.md)
+## Creación de una zona y un registro DNS
+### [Portal](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
+### [CLI de Azure 2.0](dns-getstarted-cli.md)
 
 ## [Delegación del dominio en DNS de Azure](dns-domain-delegation.md)
 ## [Creación de registros DNS personalizados para una aplicación web](dns-web-sites-custom-domain.md)

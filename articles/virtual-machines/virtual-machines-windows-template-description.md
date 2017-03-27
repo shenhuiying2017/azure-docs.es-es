@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
-ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ea363667db5a4ef0dd6c3f06a13f3f8f6c192714
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,10 +31,10 @@ Hay muchas [plantillas en la galería](https://azure.microsoft.com/documentation
 
 En este ejemplo se muestra una sección de recursos típica de una plantilla para crear un número especificado de máquinas virtuales:
 
-```
+```json
 "resources": [
   { 
-    "apiVersion": "2016-03-30", 
+    "apiVersion": "2016-04-30-preview", 
     "type": "Microsoft.Compute/virtualMachines", 
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
@@ -63,10 +63,6 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -75,10 +71,6 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -165,7 +157,7 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
 Cuando se implementan recursos mediante una plantilla, tendrá que especificar una versión de la API que se utilizará. En el ejemplo, se muestra el recurso de máquina virtual con este elemento apiVersion:
 
 ```
-"apiVersion": "2016-03-30",
+"apiVersion": "2016-04-30-preview",
 ```
 
 La versión de la API que especifica en la plantilla afecta a qué propiedades puede definir en la plantilla. En general, seleccionaría la versión de la API más reciente al crear nuevas plantillas. Para las plantillas existentes, puede decidir si quiere continuar usando una versión anterior de la API o actualizar la plantilla para que la versión más reciente aproveche las nuevas características.
@@ -236,15 +228,20 @@ Si necesita más de una máquina virtual para la aplicación, puede utilizar un 
 },
 ```
 
-Además, tenga en cuenta en el ejemplo se utiliza el índice de bucle al especificar algunos de los valores para el recurso. Por ejemplo, si ha especificado un recuento de las tres instancias, la definición de los resultados de VHD en discos denominados "myOSDisk1", "myOSDisk2" y "myOSDisk3":
+Además, tenga en cuenta en el ejemplo se utiliza el índice de bucle al especificar algunos de los valores para el recurso. Por ejemplo, si ha especificado un recuento de las tres instancias, los nombres de los discos del SO son "myOSDisk1", "myOSDisk2" y "myOSDisk3":
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.windows.net/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>Este ejemplo utiliza discos administrados para las máquinas virtuales.
+>
+>
 
 Tenga en cuenta que la creación de un bucle para un recurso de la plantilla puede requerir que se utilice dicho bucle al crear otros recursos o acceder a ellos. Por ejemplo, varias máquinas virtuales no pueden usar la misma interfaz de red; por tanto, si recorre en bucle la creación de tres máquinas virtuales, también debe hacerlo con la generación de las tres interfaces de red. Al asignar una interfaz de red a una máquina virtual, el índice de bucle se utiliza para identificarlo:
 
@@ -278,23 +275,7 @@ Resource Manager implementa en paralelo todos los recursos que no dependan de ot
 }
 ```
 
-Para establecer esta propiedad, debe existir la interfaz de red. Por lo tanto, necesita una dependencia. También debe establecer una dependencia cuando se define un recurso (un elemento secundario) dentro de otro recurso (un elemento primario). Por ejemplo, las extensiones de script personalizado y la configuración de diagnóstico se definen como recursos secundarios de la máquina virtual. No se creará hasta que la máquina virtual exista. Por lo tanto, los recursos se marcan como dependientes de la máquina virtual. 
-
-Quizás se pregunte por qué el recurso de máquina virtual no tiene una dependencia en la cuenta de almacenamiento. La máquina virtual contiene elementos que apunten a la cuenta de almacenamiento.
-
-```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
-```
-
-En este caso, se supone que ya existe la cuenta de almacenamiento. Si esta se implementa en la misma plantilla, debe establecer una dependencia en la cuenta de almacenamiento.
+Para establecer esta propiedad, debe existir la interfaz de red. Por lo tanto, necesita una dependencia. También debe establecer una dependencia cuando se define un recurso (un elemento secundario) dentro de otro recurso (un elemento primario). Por ejemplo, las extensiones de script personalizado y la configuración de diagnóstico se definen como recursos secundarios de la máquina virtual. No se creará hasta que la máquina virtual exista. Por lo tanto, los recursos se marcan como dependientes de la máquina virtual.
 
 ## <a name="profiles"></a>Perfiles
 
@@ -334,83 +315,64 @@ Si desea crear un sistema operativo Linux, puede usar esta definición:
 },
 ```
 
-Los valores de configuración del disco se asignan con el elemento osDisk. En el ejemplo se define la ubicación de almacenamiento de los discos, el modo de almacenamiento en caché de los discos y que se van a crear a partir de una [imagen de la plataforma](virtual-machines-windows-cli-ps-findimage.md):
+Los valores de configuración del disco del SO se asignan con el elemento osDisk. En el ejemplo se define un nuevo disco administrado con el modo de almacenamiento en caché establecido en **ReadWrite** y que se va a crear el disco de un [imagen de plataforma](virtual-machines-windows-cli-ps-findimage.md):
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-existing-disks"></a>Creación de máquinas virtuales a partir de discos existentes
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Creación de máquinas virtuales a partir de discos administrados existentes
 
 Si desea crear máquinas virtuales a partir de discos existentes, quite los elementos imageReference y osProfile, y defina esta configuración de disco:
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-En este ejemplo, el URI apunta a los archivos de VHD existentes, en lugar de a una ubicación para los nuevos archivos. El elemento createOption se establece para conectar los discos existentes.
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>Creación de máquinas virtuales a partir de una imagen administrada
 
-### <a name="create-new-virtual-machines-from-a-custom-image"></a>Creación de máquinas virtuales a partir de una imagen personalizada
-
-Si desea crear una máquina virtual a partir de una [imagen personalizada](virtual-machines-windows-upload-image.md), quite el elemento imageReference y defina esta configuración de disco:
+Si desea crear una máquina virtual a partir de una imagen personalizada, cambie el elemento imageReference y defina esta configuración de disco:
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.windows.net/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-En este ejemplo, el URI de VHD apunta a una ubicación donde se almacenan los discos nuevos y el de imagen apunta a la imagen personalizada que se usará.
-
 ### <a name="attach-data-disks"></a>Conexión de discos de datos
 
-Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [número de discos](virtual-machines-windows-sizes.md) depende del tamaño del disco de sistema operativo que utilice. Con el tamaño de las máquinas virtuales establecido en Standard_DS1_v2, el número máximo de discos de datos que podría agregarse a es&2;. En el ejemplo, se agrega un disco de datos a cada máquina virtual:
+Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [número de discos](virtual-machines-windows-sizes.md) depende del tamaño del disco de sistema operativo que utilice. Con el tamaño de las máquinas virtuales establecido en Standard_DS1_v2, el número máximo de discos de datos que podría agregarse a es&2;. En el ejemplo, se agrega un disco administrado a cada máquina virtual:
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-El VHD de este ejemplo es un nuevo archivo que se crea para el disco. Puede establecer el URI en un VHD existente y el elemento createOption en **Conectar**.
 
 ## <a name="extensions"></a>Extensiones
 

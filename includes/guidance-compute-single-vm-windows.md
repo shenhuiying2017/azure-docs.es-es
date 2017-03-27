@@ -205,12 +205,7 @@ Para una mayor disponibilidad, implemente dos o más máquinas virtuales detrás
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
+[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura de una única máquina virtual Windows en Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
-
-
-<!--HONumber=Jan17_HO2-->
-
-

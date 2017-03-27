@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 37311ea17004d8c5cfe9bfc9360c3972e39fb7f5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: c99788aded849933289555dd133b8146d6b2bdf2
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Clásico: Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Clásico - Portal clásico](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 Este artículo lo guía por la creación de una red virtual y una conexión VPN Gateway de sitio a sitio a una red local mediante el modelo de implementación de Azure Resource Manager y el Azure Portal. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
 
@@ -50,7 +52,7 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 * Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
 * Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](http://azure.microsoft.com/pricing/free-trial).
 
-### <a name="a-namevaluesasample-configuration-values-for-this-exercise"></a><a name="values"></a>Valores de configuración de ejemplo para este ejercicio
+### <a name="values"></a>Valores de configuración de ejemplo para este ejercicio
 Si utiliza este procedimiento para practicar, puede usar también estos valores de configuración de ejemplo:
 
 * **Nombre de red virtual:** TestVNet1
@@ -70,22 +72,22 @@ Si utiliza este procedimiento para practicar, puede usar también estos valores 
 * **Nombre de la puerta de enlace de red local:** Site2
 * **Nombre de conexión:** VNet1toSite2
 
-## <a name="a-namecreatvneta1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Crear una red virtual
+## <a name="CreatVNet"></a>1. Crear una red virtual
 Si ya dispone de una red virtual, compruebe que la configuración sea compatible con el diseño de la puerta de enlace de VPN. Preste especial atención a las subredes que se pueden superponer con otras redes. Si tiene subredes superpuestas, la conexión no funcionará correctamente. Si la red virtual está configurada correctamente, puede comenzar con los pasos descritos en la sección [Especificación de un servidor DNS](#dns) .
 
 ### <a name="to-create-a-virtual-network"></a>Creación de una red virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="a-namesubnetsa2-add-additional-address-space-and-subnets"></a><a name="subnets"></a>2. Incorporación de espacio de direcciones y subredes adicionales
+## <a name="subnets"></a>2. Incorporación de espacio de direcciones y subredes adicionales
 Puede agregar espacio de direcciones y subredes adicionales a la red virtual una vez que se ha creado.
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="a-namednsa3-specify-a-dns-server"></a><a name="dns"></a>3. Especificación de un servidor DNS
+## <a name="dns"></a>3. Especificación de un servidor DNS
 ### <a name="to-specify-a-dns-server"></a>Especificación de un servidor DNS
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
-## <a name="a-namegatewaysubneta4-create-a-gateway-subnet"></a><a name="gatewaysubnet"></a>4. Creación de una subred de puerta de enlace
+## <a name="gatewaysubnet"></a>4. Creación de una subred de puerta de enlace
 Antes de conectar la red virtual a una puerta de enlace, es preciso crear la subred de la puerta de enlace de la red virtual a la que desea conectarse. Si es posible, es preferible crear una subred de puerta de enlace con un bloque CIDR de /28 o /27 para proporcionar suficientes direcciones IP para adaptarse a nuevos requisitos de configuración que puedan surgir en el futuro.
 
 Si va a crear esta configuración como ejercicio, haga referencia a estos [valores](#values) al crear la subred de puerta de enlace.
@@ -93,13 +95,13 @@ Si va a crear esta configuración como ejercicio, haga referencia a estos [valor
 ### <a name="to-create-a-gateway-subnet"></a>Creación de una subred de puerta de enlace
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="a-namevnetgatewaya5-create-a-virtual-network-gateway"></a><a name="VNetGateway"></a>5. Creación de una puerta de enlace de red virtual
+## <a name="VNetGateway"></a>5. Creación de una puerta de enlace de red virtual
 Si va a crear esta configuración como ejercicio, puede consultar los [valores de configuración ejemplo](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Creación de una puerta de enlace de red virtual
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="a-namelocalnetworkgatewaya6-create-a-local-network-gateway"></a><a name="LocalNetworkGateway"></a>6. Creación de una puerta de enlace de red local
+## <a name="LocalNetworkGateway"></a>6. Creación de una puerta de enlace de red local
 La "puerta de enlace de red local" hace referencia a la ubicación local. Asigne a la puerta de enlace de la red local un nombre a través del que Azure pueda hacer referencia a ella. 
 
 Si va a crear esta configuración como ejercicio, puede consultar los [valores de configuración ejemplo](#values).
@@ -107,10 +109,10 @@ Si va a crear esta configuración como ejercicio, puede consultar los [valores d
 ### <a name="to-create-a-local-network-gateway"></a>Creación de una puerta de enlace de red local
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="a-namevpndevicea7-configure-your-vpn-device"></a><a name="VPNDevice"></a>7. Configurar el dispositivo VPN
+## <a name="VPNDevice"></a>7. Configurar el dispositivo VPN
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="a-namecreateconnectiona8-create-a-site-to-site-vpn-connection"></a><a name="CreateConnection"></a>8. Creación de una conexión VPN de sitio a sitio.
+## <a name="CreateConnection"></a>8. Creación de una conexión VPN de sitio a sitio.
 Va a crear la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN. Asegúrese de reemplazar los valores por los suyos. La clave compartida debe coincidir con el valor usado para la configuración del dispositivo VPN. 
 
 Antes de comenzar esta sección, compruebe que la puerta de enlace de red virtual y las puertas de enlace de red local se han terminado de crear. Si va a crear esta configuración como ejercicio, haga referencia a estos [valores](#values) al crear la conexión.
@@ -118,7 +120,7 @@ Antes de comenzar esta sección, compruebe que la puerta de enlace de red virtua
 ### <a name="to-create-the-vpn-connection"></a>Creación de la conexión VPN
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
-## <a name="a-nameverifyconnectiona9-verify-the-vpn-connection"></a><a name="VerifyConnection"></a>9. Comprobación de la conexión VPN
+## <a name="VerifyConnection"></a>9. Comprobación de la conexión VPN
 Puede comprobar la conexión de VPN en el portal, o bien mediante el uso de PowerShell.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
@@ -126,10 +128,5 @@ Puede comprobar la conexión de VPN en el portal, o bien mediante el uso de Powe
 ## <a name="next-steps"></a>Pasos siguientes
 *  Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.
 *  Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

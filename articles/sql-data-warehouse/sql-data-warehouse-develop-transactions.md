@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dde5397405b64d394cdff9c69c05a565c5427f56
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -36,22 +37,22 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 | [DWU][DWU] | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | # Filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
-| DW100 |1 |60 |60 |4 000 000 |240 000 000 |
-| DW200 |1.5 |60 |90 |6.000.000 |360 000 000 |
-| DW300 |2.25 |60 |135 |9 000 000 |540 000 000 |
-| DW400 |3 |60 |180 |12 000 000 |720 000 000 |
-| DW500 |3,75 |60 |225 |15 000 000 |900 000 000 |
-| DW600 |4.5. |60 |270 |18 000 000 |1 080 000 000 |
-| DW1000 |7.5 |60 |450 |30 000 000 |1 800 000 000 |
-| DW1200 |9 |60 |540 |36 000 000 |2 160 000 000 |
-| DW1500 |11,25 |60 |675 |45 000 000 |2 700 000 000 |
-| DW2000 |15 |60 |900 |60 000 000 |3 600 000 000 |
+| DW100 |1 |60 |60 |4&000;&000; |240&000;&000; |
+| DW200 |1.5 |60 |90 |6.000.000 |360&000;&000; |
+| DW300 |2.25 |60 |135 |9&000;&000; |540&000;&000; |
+| DW400 |3 |60 |180 |12&000;&000; |720&000;&000; |
+| DW500 |3,75 |60 |225 |15&000;&000; |900&000;&000; |
+| DW600 |4.5. |60 |270 |18&000;&000; |1&080;&000;&000; |
+| DW1000 |7.5 |60 |450 |30&000;&000; |1&800;&000;&000; |
+| DW1200 |9 |60 |540 |36&000;&000; |2&160;&000;&000; |
+| DW1500 |11,25 |60 |675 |45&000;&000; |2&700;&000;&000; |
+| DW2000 |15 |60 |900 |60&000;&000; |3&600;&000;&000; |
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
 Se aplica el límite de tamaño de la transacción por transacción u operación. No se aplica en todas las transacciones simultáneas. Por tanto, cada transacción puede escribir esta cantidad de datos en el registro. 
 
-Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo sobre [procedimientos recomendados relacionados con las transacciones][procedimientos recomendados relacionados con las transacciones].
+Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo sobre [procedimientos recomendados relacionados con las transacciones][Transactions best practices].
 
 > [!WARNING]
 > El tamaño máximo de la transacción solo se puede conseguir para las tablas de distribución HASH o ROUND_ROBIN donde la propagación de los datos es uniforme. Si la transacción está escribiendo datos de forma sesgada en las distribuciones, es posible que el límite se alcance antes de que la transacción llegue al máximo de su tamaño.
@@ -63,7 +64,7 @@ Para optimizar y minimizar la cantidad de datos que se escriben en el registro, 
 El Almacenamiento de datos SQL usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Esto significa que se ha producido un error en la transacción y que está marcada para reversión únicamente.
 
 > [!NOTE]
-> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, Almacenamiento de datos SQL no permite hacerlo. Si se produce un error dentro de una transacción de Almacenamiento de datos SQL, especificará automáticamente el estado 2 y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
+> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, Almacenamiento de datos SQL no permite hacerlo. Si se produce un error dentro de una transacción de Almacenamiento de datos SQL, especificará automáticamente el estado&2; y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
 > 
 > 
 
@@ -153,7 +154,7 @@ Ahora se observa el comportamiento esperado. Se administra el error en la transa
 Todo lo que ha cambiado es que se tuvo que aplicar `ROLLBACK` de la transacción para leer la información de error en el bloque `CATCH`.
 
 ## <a name="errorline-function"></a>Función Error_Line()
-También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo sobre el [USO DE ETIQUETAS][USO DE ETIQUETAS] para más información sobre esta característica.
+También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo sobre [USO DE ETIQUETAS][LABEL] para más información sobre esta característica.
 
 ## <a name="using-throw-and-raiserror"></a>Uso de THROW y RAISERROR
 THROW es la implementación más moderna para producir excepciones en el Almacenamiento de datos SQL, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
@@ -175,23 +176,18 @@ Los pasos son los siguientes:
 * No existe compatibilidad con DDL como el elemento `CREATE TABLE` de una transacción definida por el usuario
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de la optimización de transacciones, consulte el artículo sobre los [procedimientos recomendados relacionados con las transacciones][procedimientos recomendados relacionados con las transacciones].  Para información sobre los procedimientos recomendados para SQL Data Warehouse, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][Procedimientos recomendados para Almacenamiento de datos SQL de Azure].
+Para más información acerca de la optimización de transacciones, consulte [Procedimientos recomendados relacionados con las transacciones][Transactions best practices].  Para más información sobre otros procedimientos recomendados de SQL Data Warehouse, consulte [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[información general sobre desarrollo]: ./sql-data-warehouse-overview-develop.md
-[procedimientos recomendados relacionados con las transacciones]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
-[USO DE ETIQUETAS]: ./sql-data-warehouse-develop-label.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

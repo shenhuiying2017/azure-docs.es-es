@@ -65,7 +65,7 @@ Los usuarios que crean un almacén de Recovery Services podrán hacer uso de tod
    Como parte de las características de seguridad, cuando se realizan operaciones críticas en Azure Backup, es preciso escribir el PIN de seguridad que se encuentra en Azure Portal. La habilitación de Azure Multi-Factor Authentication agrega una capa de seguridad, lo que garantiza que solo los usuarios autorizados con credenciales válidas de Azure y autenticados desde un segundo dispositivos pueden acceder a Azure Portal y realizar dichas operaciones críticas.
 6. Utilice el botón de alternancia para realizar la **habilitación** y haga clic en el botón **Guardar** de la parte superior para guardar la configuración de seguridad, como se muestra en la ilustración. **Habilitar** solo se puede seleccionar después de seleccionar un valor en la lista desplegable "Have you configured Azure Multi-Factor Authentication?" (¿Ha configurado Azure Multi-Factor Authentication?).
 
-    ![Habilitación de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings.png)
+    ![Habilitación de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recovering-deleted-backup-data"></a>Recuperación de datos de copia de seguridad eliminados
 Como medida de seguridad, Azure Backup conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de detener copia de seguridad con la eliminación de datos de copia de seguridad. Para restaurar estos datos en el período de 14 días, siga estos pasos:

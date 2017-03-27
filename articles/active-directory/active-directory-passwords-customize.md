@@ -15,36 +15,40 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 88a1d39337a8aebf58b6b35841acc4348e1baeae
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b6794425e233508ae72cb3b541738e56044453c1
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
-A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de Azure clásico](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de Azure clásico](https://manage.windowsazure.com), entre las que se incluyen las siguientes:
+A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de Azure clásico](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de Azure clásico](https://manage.windowsazure.com).
 
-| Tema. |  |
-| --- | --- |
-| ¿Cómo se habilita o deshabilita el restablecimiento de contraseña? |[Configuración: usuarios habilitados para el restablecimiento de contraseña](#users-enabled-for-password-reset) |
-| ¿Cómo se limita el ámbito de restablecimiento de contraseña a un conjunto específico de usuarios? |[Restricción del restablecimiento de contraseña a usuarios específicos](#restrict-access-to-password-reset) |
-| ¿Cómo se pueden cambiar los métodos de autenticación que se admiten? |[Configuración: métodos de autenticación disponibles para los usuarios](#authentication-methods-available-to-users) |
-| ¿Cómo se puede cambiar el número de métodos de autenticación necesarios? |[Configuración: número de métodos de autenticación necesarios](#number-of-authentication-methods-required) |
-| ¿Cómo se configuran preguntas de seguridad personalizadas? |[Configuración: preguntas de seguridad personalizadas](#custom-security-questions) |
-| ¿Cómo se configuran preguntas de seguridad localizadas predefinidas? |[Configuración: preguntas de seguridad basadas en el conocimiento](#knowledge-based-security-questions) |
-| ¿Cómo se puede cambiar el número de preguntas de seguridad que son necesarias? |[Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) |
-| ¿Cómo puedo forzar a que mis usuarios se registren al iniciar sesión? |[Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) |
-| ¿Cómo se puede forzar a que los usuarios confirmen de nuevo su registro periódicamente? |[Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
-| ¿Cómo puedo personalizar cómo los usuarios se ponen en contacto con un administrador? |[Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) |
-| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD locales sin restablecer una contraseña? |[Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? |[Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? |[Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? |[Configuración: nombre, marca y logotipo de la empresa ](#password-management-look-and-feel) |
+## <a name="what-customization-options-are-available"></a>¿Qué opciones de personalización hay disponibles?
+En la tabla siguiente se detallan todas las opciones de personalización disponibles con el restablecimiento de contraseña de Azure Active Directory.
+
+| Tema. | Configuración | Licencias necesarias |
+| --- | --- | --- |
+| ¿Cómo se habilita o deshabilita el restablecimiento de contraseña? |[Configuración: usuarios habilitados para el restablecimiento de contraseña](#users-enabled-for-password-reset) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede limitar el ámbito de restablecimiento de contraseña a un conjunto específico de usuarios? |[Restricción del restablecimiento de contraseña a usuarios específicos](#restrict-access-to-password-reset) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede cambiar los métodos de autenticación que se admiten? |[Configuración: métodos de autenticación disponibles para los usuarios](#authentication-methods-available-to-users) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede cambiar el número de métodos de autenticación necesarios? |[Configuración: número de métodos de autenticación necesarios](#number-of-authentication-methods-required) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se configuran preguntas de seguridad personalizadas? |[Configuración: preguntas de seguridad personalizadas](#custom-security-questions) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se configuran preguntas de seguridad localizadas predefinidas? |[Configuración: preguntas de seguridad basadas en el conocimiento](#knowledge-based-security-questions) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede cambiar el número de preguntas de seguridad que son necesarias? |[Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede forzar a que los usuarios se registren al iniciar sesión? |[Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede forzar a que los usuarios confirmen de nuevo su registro periódicamente? |[Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede personalizar el modo en que los usuarios se ponen en contacto con un administrador? |[Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo puedo habilitar o deshabilitar la escritura diferida de contraseñas en la experiencia de administración en la nube? |[Configuración: habilitar o deshabilitar la escritura diferida de contraseñas](#write-back-passwords-to-on-premises-directory) | <ul><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD locales sin restablecer una contraseña? |[Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) | <ul><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? |[Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |  <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? |[Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) | <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
+| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? |[Configuración: nombre, marca y logotipo de la empresa ](#password-management-look-and-feel) |  <ul><li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li><li>Azure AD Basic [solo usuarios en la nube]</li><li>Azure AD Premium P1 o P2 [usuarios locales o en la nube]</li><li>Enterprise Mobility Suite [usuarios locales o en la nube]</li><li>Enterprise Cloud Suite [usuarios locales o en la nube]</li></ul> |
 
 ## <a name="password-management-look-and-feel"></a>Aspecto de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas.  Puede configurar estas opciones en la sección **Propiedades de directorio** de la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
@@ -75,6 +79,15 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
               </td>
               <td>
                 <p>Determina lo que ven los usuarios o administradores de la organización en las comunicaciones por correo electrónico sobre restablecimiento de contraseñas.</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -103,10 +116,16 @@ Determina el nombre descriptivo del remitente; por ejemplo, "Microsoft en nombre
               </td>
               <td>
                 <p>Determina si los usuarios que visitan la página de restablecimiento de contraseña ven el logotipo de Microsoft o su propio logotipo personalizado.  Este elemento de configuración agrega también su marca al panel de acceso y a la página de inicio de sesión.</p>
-                <p>
-
-                </p>
                 <p>Puede obtener más información acerca de la característica de personalización y uso de marca en inquilinos en <a href="https://technet.microsoft.com/library/dn532270.aspx">Añadir marcas de empresa a sus páginas de inicio de sesión y del panel de acceso</a>.</p>
+                                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -114,9 +133,10 @@ Determina el nombre descriptivo del remitente; por ejemplo, "Microsoft en nombre
                 </p>
                 <ul>
                   <li class="unordered">
-Determina si se muestra o no el logotipo en la parte superior del portal de restablecimiento de contraseña en lugar del logotipo de Microsoft predeterminado.<br><br></li>
-                  <li class="unordered">
-                    <strong>Nota:</strong> puede que no vea su logotipo en la primera página del portal de restablecimiento de contraseña si llega directamente a la página de restablecimiento de contraseña.  Una vez que el usuario escriba su identificador de usuario y haga clic en Siguiente, aparecerá su logotipo.  Puede forzar que su logotipo aparezca al cargar la página si pasa el parámetro whr a la página de restablecimiento de contraseña, como se muestra aquí: <a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a>.<br><br></li>
+Determina si se muestra o no el logotipo en la parte superior del portal de restablecimiento de contraseña en lugar del logotipo de Microsoft predeterminado.<br><br>
+                    <strong>Nota:</strong> puede que no vea su logotipo en la primera página del portal de restablecimiento de contraseña si llega directamente a la página de restablecimiento de contraseña. Una vez que un usuario escribe su nombre de usuario y hace clic en Siguiente, aparecerá el logotipo.<br><br>
+Puede forzar la aparición del logotipo cuando se carga una página si pasa el parámetro <code>whr</code>a la página de restablecimiento de contraseña de la siguiente manera: <code><a href="https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com">https://passwordreset.microsoftonline.com?whr=wingtiptoysonline.com</a></code><br><br>
+Puede generar un vínculo que rellena previamente el campo de nombre de usuario si pasa el parámetro <code>username</code>. De este modo, también se cargará el logotipo de la organización (si hay alguno configurado): <code><a href="https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com">https://passwordreset.microsoftonline.com?username=user%40wingtiptoysonline.com</a></code></li>
                 </ul>
                 <p>
                   <strong>Mensajes de correo electrónico de tipo "Póngase en contacto con el administrador":</strong>
@@ -170,6 +190,15 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
               </td>
               <td>
                 <p>Determina si está habilitado el restablecimiento de contraseña para los usuarios en este directorio. </p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -204,6 +233,15 @@ Si está establecido en Sí, los usuarios pueden restablecer sus contraseñas au
               </td>
               <td>
                 <p>Determina si el restablecimiento de contraseña se permite solo a un determinado grupo de usuarios. (Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -233,10 +271,16 @@ Si se establece en Sí, solo los usuarios finales especificados en el control de
               </td>
               <td>
                 <p>Determina qué grupo de usuarios finales puede utilizar el restablecimiento de contraseña. </p>
-                <p>
-
-                </p>
                 <p>(Solo visible si <strong>Restringir acceso para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -273,10 +317,16 @@ Si <strong>Restringir acceso para restablecer la contraseña</strong> está esta
               </td>
               <td>
                 <p>Determina qué desafíos puede utilizar un usuario para restablecer su contraseña.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -333,10 +383,16 @@ Determina qué métodos de autenticación puede utilizar un usuario como desafí
               </td>
               <td>
                 <p>Determina el número mínimo de métodos de autenticación disponibles que un usuario debe superar para restablecer su contraseña.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -373,6 +429,15 @@ Afecta a la cantidad de pasos de verificación que debe superar un usuario antes
               <td>
                 <p>Determina el número mínimo de preguntas que un usuario debe responder al registrarse para la opción de preguntas de seguridad.</p>
                 <p>(Solo visible si está activada la casilla <strong>Preguntas de seguridad</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -403,10 +468,16 @@ Determina el número mínimo de preguntas que debe responder el usuario para que
               </td>
               <td>
                 <p>Determina el número mínimo de preguntas que debe responder el usuario cuando restablece una contraseña.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si está activada la casilla <strong>Preguntas de seguridad</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -437,10 +508,16 @@ En el momento de restablecer la contraseña, este número de preguntas se selecc
               </td>
               <td>
                 <p>Define las preguntas de seguridad predefinidas que los usuarios pueden elegir al registrarse para el restablecimiento de contraseña y al restablecer sus contraseñas.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si está activada la casilla <strong>Preguntas de seguridad</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -488,10 +565,16 @@ Determina qué preguntas puede utilizar un usuario para restablecer una contrase
               </td>
               <td>
                 <p>Define las preguntas de seguridad entre las que los usuarios pueden elegir al registrarse para el restablecimiento de contraseña y al restablecer sus contraseñas.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si está activada la casilla <strong>Preguntas de seguridad</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -538,31 +621,25 @@ Determina qué preguntas puede utilizar un usuario para restablecer una contrase
                 <div id="require-users-to-register-when-signing-in">
                   <p>¿Es necesario que los usuarios se registren al iniciar sesión?</p>
                 </div>
-                <p>
-
-                </p>
               </td>
               <td>
                 <p>Determina si un usuario debe registrar los datos de contacto para el restablecimiento de contraseña la próxima vez que inicie sesión.  
                 </p>
                 <p>Esta funcionalidad sirve para cualquier página de inicio de sesión único que usa una cuenta educativa o profesional.  Tales páginas incluyen todas las de Office 365, el Portal de administración de Azure, el panel de acceso y las aplicaciones desarrolladas federadas o personalizadas que usan Azure AD para iniciar sesión.
                 </p>
-                <p>
-
-                </p>
                 <p>El registro forzoso solo se aplica a los usuarios que están habilitados para el restablecimiento de contraseña, por lo que si ha usado la característica "restringir el acceso al restablecimiento de contraseña" y ha limitado el restablecimiento de contraseña a un grupo de usuarios específico, solo los usuarios de ese grupo deberán registrarse para el restablecimiento de contraseña al iniciar sesión.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Nota:</strong>
                 </p>
@@ -591,18 +668,18 @@ Esta configuración no afecta al comportamiento del portal de registro en sí, s
               </td>
               <td>
                 <p>Cuando está activada la opción para <strong>obligar a los usuarios a registrarse</strong>, esta configuración determina el período de tiempo que puede transcurrir hasta que un usuario deba confirmar nuevamente sus datos. </p>
-                <p>
-
-                </p>
                 <p>(Solo visible si la opción <strong>¿Desea obligar a los usuarios a registrarse cuando inicien sesión en el panel de acceso?</strong> está establecida en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Nota: </strong>
                 </p>
@@ -627,10 +704,16 @@ Esta configuración no afecta al comportamiento del portal de registro en sí, s
               </td>
               <td>
                 <p>Controla si el vínculo para ponerse en contacto con el administrador (ubicado a la izquierda) que aparece en el portal de restablecimiento de contraseña cuando se produce un error o el usuario tarda demasiado tiempo en una operación apunta a una dirección de correo electrónico o una dirección URL personalizada.</p>
-                <p>
-
-                </p>
                 <p>(Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -673,10 +756,16 @@ Si especifica una dirección de correo electrónico, crearemos un vínculo mailt
               </td>
               <td>
                 <p>Controla la dirección URL o de correo electrónico a la que apunta el vínculo <strong>Póngase en contacto con el administrador</strong>. </p>
-                <p>
-
-                </p>
                 <p>(Solo visible si la opción <strong>¿Desea personalizar el vínculo Póngase en contacto con el administrador?</strong> está establecida en <strong>Sí</strong>).</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -707,15 +796,16 @@ Si proporciona una dirección URL, el vínculo se convierte en un href estándar
               </td>
               <td>
                 <p>Controla si la escritura diferida de contraseñas está habilitada para este directorio y, si lo está, indica el estado del servicio de escritura diferida local.</p>
-                <p>
-
-                </p>
                 <p>Esta configuración es útil si desea deshabilitar temporalmente el servicio sin volver a configurar Azure AD Connect.</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
-                <p>
-
-                </p>
                 <p>
                   <strong>Nota:</strong>
                 </p>
@@ -754,13 +844,16 @@ Si el modificador se establece en <strong>Sí</strong>, se habilita la escritura
                 </div>
               </td>
               <td>
-
               <p>Designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin restablecer su contraseña. De forma predeterminada, Azure AD siempre desbloqueará las cuentas al realizar un restablecimiento de contraseña; esta opción le permite separar esas dos operaciones.</p>
-
               <p>Si se establece en "sí", los usuarios tendrán la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin restablecer la contraseña. </p>
-
               <p>Si se establece en "no", los usuarios solo podrán realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.</p>
-
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -769,7 +862,6 @@ Si el modificador se establece en <strong>Sí</strong>, se habilita la escritura
                 <ul>
                   <li class="unordered">
 Para poder usar esta característica, debe instalar la versión de agosto de 2015 de Azure AD Connect o la más reciente (v. 1.0.8667.0 o superior).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Haga clic aquí para descargar la versión más reciente de Azure AD Connect</a>.</li>
-
                   <li class="unordered">
                     <strong>Nota:</strong> para probar esta función, deberá habilitar la escritura diferida de contraseñas y usar una cuenta que tenga como origen el entorno local (por ejemplo, un usuario federado o con contraseña sincronizada) y que tenga una cuenta bloqueada.  Los usuarios que no procedan del entorno local y no tengan una cuenta bloqueada no verán la opción para desbloquear sus cuentas.</li>
                 </ul>
@@ -813,6 +905,15 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
               </td>
               <td>
                 <p>Determina si a todos los administradores globales se les notificará mediante un mensaje a su dirección de correo electrónico principal cuando otro administrador de cualquier tipo restablezca su contraseña.</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -843,6 +944,15 @@ Si esta opción está habilitada cuando el administrador A restablece su contras
               </td>
               <td>
                 <p>Determina si los usuarios finales y los administradores que restablecen sus contraseñas reciben o no una notificación por correo electrónico de que se ha restablecido su contraseña.</p>
+                <br>
+                <p><b><u>Requiere una de las licencias siguientes <a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">más información</a></u></b></p>
+                 <ul>
+                   <li>O365 (cualquier SKU de pago) [solo usuarios en la nube]</li>
+                   <li>Azure AD Basic [solo usuarios en la nube]</li>
+                   <li>Azure AD Premium P1 o P2 [usuarios locales y en la nube]</li>
+                   <li>Enterprise Mobility Suite [usuarios locales y en la nube]</li>
+                   <li>Enterprise Cloud Suite [usuarios locales y en la nube]</li>
+                 </ul>
               </td>
               <td>
                 <p>
@@ -868,7 +978,7 @@ Esta notificación se envía por correo electrónico al nombre principal del usu
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Procedimientos recomendados**](active-directory-passwords-best-practices.md): obtenga información acerca de cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.

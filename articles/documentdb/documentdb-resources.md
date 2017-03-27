@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -161,7 +161,7 @@ Una base de datos de DocumentDB es un contenedor lógico de una o varias colecci
 ![Modelo jerárquico de colecciones y cuenta de base de datos][2]  
 **Una base de datos es un contenedor lógico de usuarios y colecciones**
 
-Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado particionado por colecciones, que forman los dominios de transacción para los documentos que las contienen. 
+Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado y particionado en colecciones.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>Escala elástica de una base de datos de DocumentDB
 Una base de datos de DocumentDB es elástica de forma predeterminada, desde unos pocos GB hasta petabytes de almacenamiento de documentos respaldado y capacidad de proceso aprovisionada de SSD. 
@@ -175,7 +175,7 @@ Una base de datos de la Base de datos de documentos también es un contenedor de
 Como con otros recursos en el modelo de recursos de DocumentDB, las bases de datos se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las [API REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB garantiza una gran coherencia para leer o consultar los metadatos de un recurso de base de datos. Eliminar una base de datos automáticamente garantiza que no puede obtener acceso a ninguna colección o usuario contenidos en la misma.   
 
 ## <a name="collections"></a>Colecciones
-Una colección de DocumentDB es un contenedor de sus documentos JSON. Una colección también es una unidad de escala para transacciones y consultas. 
+Una colección de DocumentDB es un contenedor de sus documentos JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Almacenamiento de documentos respaldado con SSD elástico
 Una colección es elástica de forma intrínseca; crece y se reduce automáticamente a medida que agrega o elimina documentos. Las colecciones son recursos lógicos y pueden abarcar una o varios servidores o particiones físicos. El número de particiones que hay en una colección lo determina DocumentDB basándose en el tamaño de almacenamiento y el rendimiento aprovisionado de la colección. Todas las particiones de DocumentDB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure DocumentDB se encarga de administrar las particiones de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Las colecciones de DocumentDB ofrecen funcionalidades de almacenamiento y procesamiento **prácticamente ilimitadas** . 
@@ -206,7 +206,7 @@ El modelo de consulta de DocumentDB intenta lograr un equilibrio entre funcional
 > 
 > 
 
-### <a name="multi-document-transactions"></a>Transacciones de documentos múltiples
+## <a name="multi-document-transactions"></a>Transacciones de documentos múltiples
 Las transacciones de la base de datos proporcionan un modelo de programación seguro y predecible para tratar cambios concurrentes en los datos. En RDBMS, la forma tradicional de escribir lógica empresarial es escribir **procedimientos almacenados** o **desencadenadores** y enviarlos al servidor de la base de datos para la ejecución transaccional. En RDBMS, es necesario el programador de aplicaciones para tratar con dos lenguajes de programación dispares: 
 
 * El lenguaje de programación de aplicaciones (no transaccional), por ejemplo, JavaScript, Python, C#, Java, etc.

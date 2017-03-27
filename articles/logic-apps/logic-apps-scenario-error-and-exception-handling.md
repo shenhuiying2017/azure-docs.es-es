@@ -17,13 +17,13 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 03467542669d9719d2634d20d4c0e7bba265ac6f
-ms.openlocfilehash: dff2c67f5e529d40d31e9bad1af00938ddf547b8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="scenario-exception-handling-and-logging-errors-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
 
 En este escenario se describe cómo extender una aplicación lógica para controlar mejor las excepciones. Hemos usado un caso de uso real para responder a la pregunta: ¿Admite Azure Logic Apps control de excepciones y errores?
 
@@ -429,9 +429,7 @@ Para ver los registros, también creamos una aplicación web de MVC. Aquí puede
 
 #### <a name="logic-apps-exception-management-api"></a>API de administración de excepciones de Logic Apps
 
-Nuestra aplicación de API de administración de excepciones de Azure Logic Apps de código abierto proporciona la siguiente funcionalidad.
-
-Hay dos controladores
+Nuestra aplicación de API de administración de excepciones de Azure Logic Apps, de código abierto, proporciona la funcionalidad que se describe aquí. Hay dos controladores:
 
 * **ErrorController** inserta un registro de error (documento) en una colección de DocumentDB.
 * **LogController** inserta una entrada de registro (documento) en una colección de DocumentDB.

@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,7 +33,7 @@ Los volcados de montón contienen una instantánea de la memoria de la aplicaci�
 > [!IMPORTANT]
 > Los pasos de este documento solo funcionan con clústeres de HDInsight que usan Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Servicios
+## <a name="whichServices"></a>Servicios
 Puede habilitar los volcados de montón en los siguientes servicios:
 
 * **hcatalog** - tempelton
@@ -42,7 +44,7 @@ Puede habilitar los volcados de montón en los siguientes servicios:
 
 También puede habilitar los volcados de montón para los procesos de asignación y ejecución que ejecuta HDInsight.
 
-## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Información sobre cómo configurar el volcado de montón
+## <a name="configuration"></a>Información sobre cómo configurar el volcado de montón
 Son las opciones de paso (también conocidas como opciones o parámetros) las que habilitan los volcados de montón en JVM cuando se inicia un servicio. Puede realizar esto en la mayoría de los servicios Hadoop modificando el script de shell que se usó al iniciar el servicio.
 
 En cada script hay una exportación de **\*\_OPTS** que contiene las opciones que se pasan a JVM. Por ejemplo, en el script **hadoop env.sh**, la línea que comienza con `export HADOOP_NAMENODE_OPTS=` contiene las opciones del servicio NameNode.
@@ -130,10 +132,5 @@ Para modificar la configuración de un servicio, siga estos pasos:
    > 
    > 
 8. Una vez haya reiniciado los servicios, pulse el botón **Acciones de servicio** para **Desactivar el modo de mantenimiento**. Esto hará que Ambari reanude la supervisión de alertas para el servicio.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

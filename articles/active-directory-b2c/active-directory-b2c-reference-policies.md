@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
-ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7ad7dce6fc7025a6a6e7935d74b3b71a7bfee097
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -130,7 +131,7 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 2. Haga clic en **Directivas de edición de perfiles**.
 3. Haga clic en **+ Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de edición de perfiles usada por su aplicación. Por ejemplo, escriba "SiPe".
-5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
+5. Haga clic en **Proveedores de identidades** y seleccione "Inicio de sesión de cuenta local". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 6. Haga clic en **Atributos de perfil**. Aquí se eligen los atributos que el consumidor puede ver y editar. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione "Nombre para mostrar" y "Código postal".
 8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C_1_SiPe**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Profile editing policies** (Directivas de edición de perfiles).
@@ -168,10 +169,5 @@ Al crear una directiva de inicio de sesión o de registro (con cuentas locales),
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
 * [Deshabilitación de la comprobación de correos electrónicos durante la suscripción de consumidores](active-directory-b2c-reference-disable-ev.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

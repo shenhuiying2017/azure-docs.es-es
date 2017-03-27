@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d04f073ebf846955fde81434fd015ee4b943f695
-ms.openlocfilehash: 179abb91438fb20cd6b6adebfedb8a25e0127ad7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ce7860e291c71e825561caf3ee7eafe904101799
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="direct-methods"></a>Métodos directos
+# <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 ## <a name="overview"></a>Información general
 IoT Hub ofrece la posibilidad de invocar métodos directos en dispositivos desde la nube. Los métodos directos representan una interacción solicitud-respuesta con un dispositivo similar a una llamada HTTP en la cual se completan correctamente o generan un error de inmediato (tras un tiempo de espera que especifica el usuario). Esto es útil para escenarios en los que la línea de acción inmediata difiere en función de si el dispositivo respondió, por ejemplo, enviando una reactivación por SMS a un dispositivo si este está sin conexión (enviar un SMS cuesta más que una llamada de método).
 
@@ -77,7 +78,7 @@ El tiempo de espera se expresa en segundos. Si no se establece el tiempo de espe
 La aplicación de back-end recibe una respuesta que consta de lo siguiente:
 
 * *Código de estado HTTP*, que se usa para errores procedentes de IoT Hub, incluido el error 404 para los dispositivos que no estén conectados
-* *Encabezados* que contienen la etiqueta ETag, el id. de solicitud, el tipo de contenido y la codificación del contenido
+* *Encabezados* que contienen la etiqueta ETag, el identificador de solicitud, el tipo de contenido y la codificación del contenido
 * Un *cuerpo* JSON en el formato siguiente:
 
 ```

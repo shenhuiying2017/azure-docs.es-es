@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3dd67e08951780725c4d81ce54aa841a5d13e59a
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 1209acfb13d53288b1ff0ed232c44c3fdcd3a9f4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,7 +38,7 @@ Si hay un intento de aprovisionar un nuevo objeto con un valor de UPN o ProxyAdd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportamiento con resistencia de atributos duplicados
 En lugar de generar un error completo al aprovisionar o actualizar un objeto con un atributo duplicado, Azure Active Directory "pone en cuarentena" el atributo duplicado que infringe la restricción de unicidad. Si este atributo es necesario para el aprovisionamiento, como en el caso de UserPrincipalName, el servicio asigna un valor de marcador de posición. El formato de estos valores temporales es  
-"***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>. onmicrosoft.com***".  
+"***<OriginalPrefix>+<Número4Dígitos>@<InitialTenantDomain>.onmicrosoft.com***".  
 Si el atributo no es necesario, como en el caso de **ProxyAddress**, Azure Active Directory simplemente pone en cuarentena el atributo en conflicto y continúa con la creación o actualización de objetos.
 
 Al poner en cuarentena el atributo, se envía información sobre el conflicto con el mismo correo electrónico de informe de errores utilizado en el comportamiento anterior. Sin embargo, esta información solo aparece en el informe de errores una vez, cuando se produce la cuarentena; no se vuelve a registrar en futuros correos electrónicos. Además, puesto que la exportación de este objeto se ha realizado correctamente, el cliente de sincronización no registrará ningún error y no volverá a intentar la operación de creación o actualización en ciclos de sincronización posteriores.
@@ -50,7 +51,8 @@ Se trata de un atributo multivalor que se utiliza para almacenar los atributos e
 ### <a name="enabling-duplicate-attribute-resiliency"></a>Habilitación de resistencia de atributos duplicados
 Resistencia de atributo duplicados será el nuevo comportamiento predeterminado en todos los inquilinos de Azure Active Directory. Estarán activos de forma predeterminada para todos los inquilinos que habilitaron la sincronización por primera vez el 22 de agosto de 2016, o en cualquier fecha posterior. Los inquilinos que habilitaron la sincronización antes de esta fecha tendrán la característica habilitada en lotes. Este lanzamiento comenzará en septiembre de 2016 y se enviará una notificación por correo electrónico al contacto de notificación técnica de cada inquilino con la fecha específica en que se habilitará la característica.
 
-Una vez que se ha activado la resistencia de atributo duplicados no se puede deshabilitar.
+> [!NOTE]
+> Una vez que se ha activado la resistencia de atributo duplicados no se puede deshabilitar.
 
 Para comprobar si la característica está habilitada para su inquilino, puede hacerlo descargando la versión más reciente del módulo de PowerShell de Azure Active Directory y ejecutando lo siguiente:
 
@@ -58,11 +60,8 @@ Para comprobar si la característica está habilitada para su inquilino, puede h
 
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
-Si desea habilitar de manera proactiva la característica antes de que se active para su inquilino, puede hacerlo descargando la versión más reciente del módulo de PowerShell de Azure Active Directory y ejecutando lo siguiente:
-
-`Set-MsolDirSyncFeature -Feature DuplicateUPNResiliency -Enable $true`
-
-`Set-MsolDirSyncFeature -Feature DuplicateProxyAddressResiliency -Enable $true`
+> [!NOTE]
+> Ya no puede usar el cmdlet Set-MsolDirSyncFeature para habilitar de forma proactiva la característica Resistencia de atributos duplicados antes de activarla en el inquilino. Para poder probar la característica, deberá crear un inquilino nuevo de Azure Active Directory.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identificación de objetos con el atributo DirSyncProvisioningErrors
 Existen actualmente dos métodos para identificar los objetos que experimentan estos errores debido a conflictos de propiedad duplicada, Azure Active Directory PowerShell y el Portal de administración de Office 365. Existen planes de ampliación con informes adicionales basados en el portal para el futuro.
@@ -174,10 +173,5 @@ Debe apuntar a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/dupl
 * [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Identificar problemas de sincronización de directorios en Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

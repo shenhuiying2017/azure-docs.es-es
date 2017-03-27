@@ -41,6 +41,7 @@
 ## [Combinación de servicios de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Uso de varias configuraciones de IP](load-balancer-multiple-ip.md)
 ### [Uso de varias configuraciones de IP (CLI)](load-balancer-multiple-ip-cli.md)
+### [Uso de varias configuraciones de IP (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log Analytics para Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuración de DHCPv6 para VM de Linux](load-balancer-ipv6-for-linux.md)
 

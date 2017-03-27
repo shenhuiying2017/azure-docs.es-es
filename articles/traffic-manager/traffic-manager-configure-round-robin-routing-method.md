@@ -1,64 +1,8 @@
 ---
-title: "Configuración del método de enrutamiento del tráfico round robin de Traffic Manager | Microsoft Docs"
-description: "Este artículo le ayuda a configurar el equilibrio de carga Round Robin para los extremos del Administrador de tráfico."
-services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
-editor: tysonn
-ms.assetid: 0bd41a6c-8889-4dc8-bc7a-324b681b2959
-ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/18/2016
-ms.author: kumud
+redirect_url: /azure/traffic-manager/traffic-manager-configure-weighted-routing-method
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49979fe1b9694fa55de9190f7071c96752887a87
-
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: e6e078f537b6d26a5fe0772e7c1aba2fec85bfe4
+ms.lasthandoff: 03/22/2017
 
 ---
-<!-- repub for nofollow -->
-
-# <a name="configure-round-robin-routing-method"></a>Configuración del método de enrutamiento round robin
-Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto de extremos idénticos, que incluye servicios en la nube y sitios web, y enviar tráfico a cada uno de ellos de forma equitativa (round robin). En los pasos siguientes se explica cómo configurar el Administrador de tráfico con el fin de realizar este tipo de método de enrutamiento del tráfico. Para obtener más información acerca de los diferentes métodos de enrutamiento del tráfico, consulte [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md).
-
-> [!NOTE]
-> Azure ya proporciona la funcionalidad de equilibrio de carga Round Robin para sitios web en un centro de datos (también denominado región). El Administrador de tráfico permite especificar el método de enrutamiento del tráfico round robin para sitios web en distintos centros de datos.
-> 
-> 
-
-## <a name="routing-traffic-equally-round-robin-across-a-set-of-endpoints"></a>Equilibre el enrutamiento del tráfico de forma equitativa (round robin) en un conjunto de extremos:
-1. En el Portal de Azure clásico, en el panel izquierdo, haga clic en el icono **Administrador de tráfico** para abrir el panel del Administrador de tráfico. Si aún no ha creado su perfil de Administrador de tráfico, consulte [Administración de perfiles del Administrador de tráfico](traffic-manager-manage-profiles.md) para conocer el procedimiento de creación de un perfil básico del Administrador de tráfico.
-2. En el panel Administrador de tráfico del Portal de Azure clásico, localice el perfil del Administrador de tráfico que contiene la configuración que desea modificar y haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
-3. En la página del perfil, haga clic en **Extremos** y compruebe que están presentes los extremos del servicio que desea incluir en la configuración. Para saber cómo agregar o quitar extremos, consulte [Administración de extremos en el Administrador de tráfico](traffic-manager-endpoints.md).
-4. En la página del perfil, haga clic en **Configurar** en la parte superior, para abrir la página de configuración.
-5. En **Configuración del método de enrutamiento del tráfico**, compruebe que dicho método sea **Round Robin**. De lo contrario, haga clic en **Round Robin** en la lista desplegable.
-6. Compruebe que la **Configuración de supervisión** sea correcta. La supervisión garantiza que no se envíe tráfico a los extremos sin conexión. Para supervisar los extremos, debe especificar una ruta de acceso y un nombre de archivo. Tenga en cuenta que una barra diagonal “/“ es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado). Para obtener más información acerca de la supervisión, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
-7. Una vez que haya terminado de cambiar la configuración, haga clic en **Guardar** en la parte inferior de la página.
-8. Pruebe los cambios de la configuración. Para obtener más información, consulte [Comprobación de la configuración del Administrador de tráfico](traffic-manager-testing-settings.md).
-9. Una vez que el perfil del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico. Para obtener más información acerca del procedimiento, consulte [Seleccionar un dominio de la compañía en Internet para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
-
-## <a name="next-steps"></a>Pasos siguientes
-[Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md)
-
-[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
-
-[Configuración del método de enrutamiento de conmutación por error](traffic-manager-configure-failover-routing-method.md)
-
-[Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
-
-[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
-
-[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
-
-[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -13,16 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: fd2649f9936da9f86d4fe24b4fa87ca1733d1f3c
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 07c53a5d6b1881a4c207a2aefed9fcede0fa069e
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Novedades en Power BI Embedded
+
 De forma periódica se publican actualizaciones a **Power BI Embedded** . Sin embargo, no todas las versiones incluirán nuevas características de cara al usuario; algunas se centran en las funcionalidades del servicio back-end. Analizaremos aquí las nuevas funcionalidades para el usuario. Asegúrese de revisarlas periódicamente.
+
+## <a name="march-2017"></a>Marzo de 2017
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ibuN4DzCl5c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+**Funcionalidades de autoservicio**
+
+* [Creación de un informe nuevo](power-bi-embedded-create-report-from-dataset.md)
+* [Informe SaveAs](power-bi-embedded-save-reports.md)
+* Insertar informe en modo de lectura/edición/creación de nuevo 
+* [Toggle report between edit/read modes](power-bi-embedded-toggle-mode.md) (Alternancia de informe entre los modos de edición/lectura)
+
+**Conectividad a datos con las API de REST**
+
+* [Creación de un conjunto de datos](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* Inserción de datos 
+
+**API de administración**
+
+* Clonación de informe y conjunto de datos
+* Enlace de un informe a otro conjunto de datos
+
+**Ejemplos**
+
+* Actualización del [ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>Diciembre de 2016
 
@@ -50,10 +76,5 @@ En esta versión se incluyen:
 * Compatibilidad de Power BI Embedded con SDK de Azure, PowerShell y CLI.
 * Los usuarios pueden exportar datos de visualización a un archivo **.csv**.
 * Power BI Embedded ahora es compatible con los mismos idiomas o configuraciones regionales que Microsoft Azure. Para obtener más información, consulte [Azure - Idiomas](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

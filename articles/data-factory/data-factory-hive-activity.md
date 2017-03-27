@@ -15,23 +15,24 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 5fe5a990423cd24de0ada90a3a7f76899c4ffadc
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e22f76f912e568f1ef0ae636a4b5c0ef24e8854c
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive en Azure Data Factory 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
-> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
-> * [.NET personalizado](data-factory-use-custom-activities.md)
-> 
-> 
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Actividad de Hive](data-factory-hive-activity.md) 
+> * [Actividad de Pig](data-factory-pig-activity.md)
+> * [Actividad MapReduce](data-factory-map-reduce.md)
+> * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Actividad de Spark](data-factory-spark.md)
+> * [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Actividad Actualizar recurso de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
+> * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
 La actividad de Hive de HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta consultas de Hive en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basado en Windows/Linux. Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
@@ -133,9 +134,9 @@ Para ejecutar este script de Hive en una canalización de Data Factory, necesita
 5. Cree una canalización con la actividad HDInsightHive. La actividad de procesa y transforma los datos.
 
     ```JSON   
-    {   
+    {    
         "name": "HiveActivitySamplePipeline",
-        "properties": {
+           "properties": {
         "activities": [
             {
                 "name": "HiveActivitySample",
@@ -145,21 +146,21 @@ Para ejecutar este script de Hive en una canalización de Data Factory, necesita
                     "name": "HiveSampleIn"
                 }
                 ],
-                "outputs": [
-                {
+                 "outputs": [
+                   {
                     "name": "HiveSampleOut"
-                }
-                ],
-                "linkedServiceName": "HDInsightLinkedService",
-                "typeproperties": {
-                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                    "scriptLinkedService": "StorageLinkedService"
-                },
+                   }
+                 ],
+                 "linkedServiceName": "HDInsightLinkedService",
+                 "typeproperties": {
+                       "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                       "scriptLinkedService": "StorageLinkedService"
+                 },
                 "scheduler": {
                     "frequency": "Hour",
-                    "interval": 1
-                }
-            }
+                       "interval": 1
+                 }
+               }
             ]
         }
     }
@@ -242,10 +243,5 @@ Para usar scripts de Hive parametrizados, haga lo siguiente
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

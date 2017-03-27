@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c3959babbfa6d7d512248e262060d44390de28a4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ En Azure se pueden crear máquinas virtuales con cualquiera de las siguientes ve
 - CLI de Azure 1.0: la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
 - [CLI de Azure 2.0 ](virtual-machines-linux-creation-choices.md): la CLI de última generación para el modelo de implementación de administración de recursos.
 
-La CLI de Azure 1.0 se puede usar en distintas plataformas mediante un paquete de npm, paquetes proporcionados por la distribución o un contenedor de Docker. Puede leer más sobre [cómo instalar y configurar la CLI de Azure](../xplat-cli-install.md). Los siguientes tutoriales proporcionan ejemplos sobre el uso de la CLI de Azure 1.0. Lea cada artículo para más información sobre los comandos de inicio rápido de la CLI mostrados:
+La CLI de Azure 1.0 se puede usar en distintas plataformas mediante un paquete de npm, paquetes proporcionados por la distribución o un contenedor de Docker. Puede leer más sobre [cómo instalar y configurar la CLI de Azure](../cli-install-nodejs.md). Los siguientes tutoriales proporcionan ejemplos sobre el uso de la CLI de Azure 1.0. Lea cada artículo para más información sobre los comandos de inicio rápido de la CLI mostrados:
 
 * [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   

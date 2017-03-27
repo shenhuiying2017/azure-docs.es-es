@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 2e2978f6e81b3f584eb73ce10fb373b62f7b85ff
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -305,7 +305,7 @@ Con esta sección, le resultará más fácil encargarse del diagnóstico y la so
 
 **Árbol de decisión de solución de problemas**
 
-- - -
+---
 ¿El problema está relacionado con el rendimiento de uno de los servicios de almacenamiento?
 
 * [Las métricas muestran una AverageE2ELatency alta y una AverageServerLatency baja]
@@ -313,39 +313,39 @@ Con esta sección, le resultará más fácil encargarse del diagnóstico y la so
 * [Las métricas muestran una AverageServerLatency alta]
 * [Observa retrasos inesperados en la entrega de mensajes de una cola]
 
-- - -
+---
 ¿El problema está relacionado con la disponibilidad de uno de los servicios de almacenamiento?
 
 * [Las métricas muestran un aumento de PercentThrottlingError]
 * [Las métricas muestran un aumento de PercentTimeoutError]
 * [Las métricas muestran un aumento de PercentNetworkError]
 
-- - -
-¿La aplicación cliente recibe una respuesta HTTP 4XX (por ejemplo, 404) de un servicio de almacenamiento?
+---
+ ¿La aplicación cliente recibe una respuesta HTTP 4XX (por ejemplo, 404) de un servicio de almacenamiento?
 
 * [El cliente recibe mensajes HTTP 403 (prohibido)]
 * [El cliente recibe mensajes HTTP 404 (no encontrado)]
 * [El cliente recibe mensajes HTTP 409 (conflicto)]
 
-- - -
-[Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors]
+---
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Las métricas de capacidad muestran un aumento inesperado en el uso de la capacidad de almacenamiento]
 
-- - -
-[Se producen reinicios inesperados de máquinas virtuales que tienen muchos VHD adjuntos]
+---
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [El problema se presenta al usar el emulador de almacenamiento para realizar tareas de desarrollo o pruebas]
 
-- - -
-[Se producen problemas al instalar el SDK de Azure para .NET]
+---
+[You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [Tiene otro problema distinto relacionado con un servicio de almacenamiento]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Las métricas muestran una AverageE2ELatency alta y una AverageServerLatency baja
 La siguiente ilustración de la herramienta de supervisión de [Azure Portal](https://portal.azure.com) muestra un ejemplo en el que el valor de **AverageE2ELatency** es significativamente más alto que el valor de **AverageServerLatency**.
 
@@ -478,7 +478,7 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Microsoft.WindowsAzure.Storage |Warning (Advertencia) |2 |85d077ab -… |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (403) Prohibido... |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
 | Microsoft.WindowsAzure.Storage |Warning (Advertencia) |2 |85d077ab -… |Se inició una excepción durante la operación: el servidor remoto devolvió un error: (403) Prohibido... |
-| Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: (403) Prohibido.. |
+| Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: (403) Prohibido. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
 | Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (403) Prohibido. |
 
@@ -554,8 +554,8 @@ Entradas del registro:
 | de8b1c3c-... |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (404) No encontrado... |
 | de8b1c3c-... |Respuesta recibida. Código de estado = 404, Id. de solicitud = 0eaeab3e-..., Content-MD5 = , ETag = . |
 | de8b1c3c-... |Se inició una excepción durante la operación: el servidor remoto devolvió un error: (404) No encontrado... |
-| de8b1c3c-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (404) No encontrado.. |
-| e2d06d78-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (409) Conflicto.. |
+| de8b1c3c-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (404) No encontrado. |
+| e2d06d78-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (409) Conflicto. |
 
 En este ejemplo, el registro muestra que el cliente está intercalando las solicitudes del método **CreateIfNotExists** (identificador de solicitud e2d06d78…) con las solicitudes del método **UploadFromStream** (de8b1c3c-...). Esto sucede porque la aplicación cliente está invocando a estos métodos de forma asincrónica. Debe modificar el código asincrónico del cliente para que cree el contenedor antes de tratar de cargar datos en un BLOB de ese contenedor. Lo ideal es que cree todos los contenedores de antemano.
 

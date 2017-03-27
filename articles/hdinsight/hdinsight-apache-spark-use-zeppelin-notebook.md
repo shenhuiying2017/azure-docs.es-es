@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cb276220-fb02-49e2-ac55-434fcb759629
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: eadf0611ca46a975c364a1b073828c6c3faf5f77
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -216,7 +218,7 @@ Cuando haya instalado correctamente Zeppeling mediante la acción de script, pue
 
     ![Salida de Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Salida de Hive")
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
@@ -250,9 +252,4 @@ Cuando haya instalado correctamente Zeppeling mediante la acción de script, pue
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

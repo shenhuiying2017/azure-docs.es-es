@@ -3,7 +3,7 @@ title: "Comparación de Azure App Service, Virtual Machines, Service Fabric y Cl
 description: "Aprenda a elegir entre el Servicio de aplicaciones de Azure, Máquinas virtuales, Service Fabric y Servicios en la nube para hospedar aplicaciones web."
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
@@ -31,7 +31,7 @@ Service Fabric es una buena opción si se va a crear una aplicación nueva o se 
 
 Si tiene una aplicación que requiera modificaciones sustanciales para ejecutarse en el Servicio de aplicaciones o en Service Fabric, puede elegir Máquinas virtuales para simplificar la migración a la nube. Sin embargo, la configuración, la protección y el mantenimiento adecuados de las máquinas virtuales requieren mucho más tiempo y conocimientos de TI, en comparación con el Servicio de aplicaciones de Azure y Service Fabric. Si está considerando la opción de Máquinas virtuales Azure, tenga en cuenta el esfuerzo constante de mantenimiento requerido para aplicar revisiones al entorno de Máquina virtual, así como para actualizarlo y administrarlo. Máquinas virtuales de Azure es una infraestructura como servicio (IaaS), mientras que Servicio de aplicaciones y Service Fabric son plataformas como servicio (Paas). 
 
-## <a name="a-namefeaturesafeature-comparison"></a><a name="features"></a>Comparación de características
+## <a name="features"></a>Comparación de características
 La siguiente tabla compara las funcionalidades de Servicio de aplicaciones, Servicios en la nube, Máquinas virtuales y Service Fabric para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/support/legal/sla/).
 
 | Característica | Servicio de aplicaciones (aplicaciones web) | Servicios en la nube (roles web) | Máquinas virtuales | Service Fabric | Notas |
@@ -63,7 +63,7 @@ La siguiente tabla compara las funcionalidades de Servicio de aplicaciones, Serv
 | Capacidad de definir/ejecutar tareas de inicio | |X |X |X | |
 | Puede atender eventos de ETW | |X |X |X | |
 
-## <a name="a-namescenariosascenarios-and-recommendations"></a><a name="scenarios"></a>Escenarios y recomendaciones
+## <a name="scenarios"></a>Escenarios y recomendaciones
 Aquí se presentan algunas situaciones habituales de aplicaciones con recomendaciones acerca de la opción de hospedaje web de Azure que podría ser más apropiada en cada caso.
 
 * [Necesito un front-end web con procesamiento en segundo plano y back-end de base de datos para ejecutar aplicaciones empresariales integradas con recursos locales.](#onprem)
@@ -77,7 +77,7 @@ Aquí se presentan algunas situaciones habituales de aplicaciones con recomendac
 * [Tengo una aplicación de línea de negocio que necesita conectarse a la red corporativa.](#lob)
 * [Deseo hospedar una API de REST o un servicio web para los clientes móviles.](#mobile)
 
-### <a name="a-idonprema-i-need-a-web-front-end-with-background-processing-and-database-backend-to-run-business-applications-integrated-with-on-premise-assets"></a><a id="onprem"></a> Necesito un front-end web con procesamiento en segundo plano y back-end de base de datos para ejecutar aplicaciones empresariales integradas con recursos locales.
+### <a id="onprem"></a> Necesito un front-end web con procesamiento en segundo plano y back-end de base de datos para ejecutar aplicaciones empresariales integradas con recursos locales.
 El Servicio de aplicaciones de Azure es una solución excelente para aplicaciones empresariales complejas. Le permite desarrollar aplicaciones que se escalan automáticamente en una plataforma con equilibrio de carga, se protegen con Active Directory y se conectan con sus recursos locales. Esta opción consigue que la administración de estas aplicaciones resulte sencilla gracias a un portal y unas API de categoría superior, y le permite obtener información acerca del uso que los clientes están haciendo de ellas con herramientas específicamente diseñadas. La característica [Webjobs][Webjobs] permite ejecutar tareas y procesos en segundo plano como parte de su nivel web, mientras que la conectividad híbrida y las características de VNET facilitan la reconexión con los recursos locales. El Servicio de aplicaciones de Azure proporciona SLA con un tiempo activo garantizado del 99,9% para las aplicaciones web y le permite:
 
 * Ejecutar sus aplicaciones de manera confiable en una plataforma en la nube que se mantiene por sí misma y aplica revisiones automáticamente.
@@ -86,7 +86,7 @@ El Servicio de aplicaciones de Azure es una solución excelente para aplicacione
 * Cumplir con ISO, SOC2 y PCI.
 * Integrarse con Active Directory
 
-### <a name="a-idcorpa-i-need-a-reliable-way-to-host-my-corporate-website-that-scales-well-and-offers-global-reach"></a><a id="corp"></a> Necesito un método confiable para hospedar mi sitio web corporativo que se escale correctamente y ofrezca un alcance global.
+### <a id="corp"></a> Necesito un método confiable para hospedar mi sitio web corporativo que se escale correctamente y ofrezca un alcance global.
 El Servicio de aplicaciones de Azure es una excelente solución para hospedar sitios web corporativos. Permite a las aplicaciones web escalarse de manera rápida y sencilla para atender con facilidad la demanda en una red global de centros de datos. Ofrece alcance local, tolerancia a errores y administración del tráfico inteligente. Todo en una plataforma que proporciona herramientas de administración de clase superior, con lo que podrá obtener información sobre el estado y el tráfico del sitio rápidamente y con toda facilidad. El Servicio de aplicaciones de Azure proporciona SLA con un tiempo activo garantizado del 99,9% para las aplicaciones web y le permite:
 
 * Ejecutar sus sitios web de manera confiable en una plataforma en la nube que se mantiene por sí misma y aplica revisiones automáticamente.
@@ -96,14 +96,14 @@ El Servicio de aplicaciones de Azure es una excelente solución para hospedar si
 * Cumplir con ISO, SOC2 y PCI.
 * Integrarse con Active Directory
 
-### <a name="a-idiis6a-i-have-an-iis6-application-running-on-windows-server-2003"></a><a id="iis6"></a> Tengo una aplicación IIS6 ejecutándose en Windows Server 2003.
+### <a id="iis6"></a> Tengo una aplicación IIS6 ejecutándose en Windows Server 2003.
 El Servicio de aplicaciones de Azure permite evitar fácilmente los costes de infraestructura asociados a la migración de aplicaciones IIS6 antiguas. Microsoft ha creado [herramientas de migración fáciles de utilizar y una detallada guía sobre migración](https://www.movemetowebsites.net/) que le permiten comprobar la compatibilidad e identificar aquellos cambios que deban realizarse. La integración con Visual Studio, TFS y las herramientas CMS más habituales facilitan la implementación de aplicaciones IIS6 directamente en la nube. Una vez implementadas, Azure Portal proporciona potentes herramientas de administración que permiten reducir verticalmente para administrar costes y aumentar verticalmente para atender la demanda cuando sea necesario. Con la herramienta de migración puede hacer lo siguiente:
 
 * Migrar con rapidez y sencillez su aplicación web de Windows Server 2003 heredada a la nube.
 * Optar por dejar la base de datos SQL adjunta en el entorno local para crear una aplicación híbrida.
 * Mover automáticamente su base de datos SQL junto con la aplicación heredada.
 
-### <a name="a-idsmallbusinessaim-a-small-business-owner-and-i-need-an-inexpensive-way-to-host-my-site-but-with-future-growth-in-mind"></a><a id="smallbusiness"></a>Soy dueño de un negocio pequeño y necesito una forma económica de hospedar mi sitio, pero con un crecimiento a futuro en mente.
+### <a id="smallbusiness"></a>Soy dueño de un negocio pequeño y necesito una forma económica de hospedar mi sitio, pero con un crecimiento a futuro en mente.
 El Servicio de aplicaciones de Azure es una solución excelente para este escenario, porque puede empezar a usarlo gratis y luego agregar más capacidades cuando las necesite. Cada aplicación web gratuita incluye un dominio proporcionado por Azure (*su_compañía*.azurewebsites.net), y la plataforma incluye tanto herramientas de administración e implementación integradas como una galería de aplicaciones que permiten empezar a usarla sin complicaciones. Hay muchos otros servicios y opciones de escalado que permiten que el sitio evolucione con cuando aumente la demanda de los usuarios. Con el Servicio de aplicaciones de Azure, puede:
 
 * Comenzar con el nivel gratis y luego escalar, según sea necesario.
@@ -111,7 +111,7 @@ El Servicio de aplicaciones de Azure es una solución excelente para este escena
 * Agregar servicios y características de Azure adicionales a su aplicación, según sea necesario.
 * Proteger su aplicación web con HTTPS.
 
-### <a name="a-iddesignera-im-a-web-or-graphic-designer-and-i-want-to-design-and-build-websites-for-my-customers"></a><a id="designer"></a> Soy un diseñador gráfico o web y deseo diseñar y compilar sitios web para mis clientes.
+### <a id="designer"></a> Soy un diseñador gráfico o web y deseo diseñar y compilar sitios web para mis clientes.
 Para diseñadores y desarrolladores web, el Servicio de aplicaciones de Azure se integra fácilmente con diversos marcos y herramientas, admite la implementación de Git y FTP y ofrece una integración estrecha con herramientas y servicios como Visual Studio y Base de datos SQL. Con el Servicio de aplicaciones, puede:
 
 * Usar herramientas de línea de comandos para [tareas automatizadas][scripting].
@@ -120,20 +120,20 @@ Para diseñadores y desarrolladores web, el Servicio de aplicaciones de Azure se
 * Integrarse con otros servicios de Azure, como [SQL Database][sqldatabase], [Service Bus][servicebus] y [Storage][Storage] u ofertas de asociados de la [Tienda de Azure][azurestore], como MySQL y MongoDB.
 * Integrarse con herramientas como Visual Studio, Git, WebMatrix, WebDeploy, TFS y FTP.
 
-### <a name="a-idmultitieraim-migrating-my-multi-tier-application-with-a-web-front-end-to-the-cloud"></a><a id="multitier"></a>Estoy migrando mi aplicación de niveles múltiples con un front-end web a la nube.
+### <a id="multitier"></a>Estoy migrando mi aplicación de niveles múltiples con un front-end web a la nube.
 Si está ejecutando una aplicación de niveles múltiples, como por ejemplo un servidor web que se conecta con una base de datos, el Servicio de aplicaciones de Azure es una opción excelente que ofrece una integración estrecha con Base de datos SQL. Y puede utilizar la característica WebJobs para ejecutar procesos de back-end.
 
 Elija Service Fabric para uno o varios de los niveles si necesita más control sobre el entorno del servidor, como la posibilidad de tener acceso remoto al servidor o de configurar las tareas de inicio del servidor.
 
 Elija Máquinas virtuales para uno o varios de los niveles si desea utilizar la imagen de su propia máquina o ejecutar servicios o software de servidor que se no puedan configurar en Service Fabric.
 
-### <a name="a-idcustomamy-application-depends-on-highly-customized-windows-or-linux-environments-and-i-want-to-move-it-to-the-cloud"></a><a id="custom"></a>Mi aplicación depende de entornos Windows o Linux altamente personalizados y deseo moverla a la nube.
+### <a id="custom"></a>Mi aplicación depende de entornos Windows o Linux altamente personalizados y deseo moverla a la nube.
 Si su aplicación requiere una instalación o configuración compleja del software y el sistema operativo, Máquinas virtuales es probablemente la mejor solución. Con Máquinas virtuales, puede hacer lo siguiente:
 
 * Usar la galería de Máquina virtual para que se inicie con un sistema operativo, como Windows o Linux y, a continuación, personalizarla según los requisitos de su aplicación.
 * Crear y cargar una imagen personalizada de un servidor en un entorno local existente para que ejecute en una máquina virtual en Azure.
 
-### <a name="a-idossamy-site-uses-open-source-software-and-i-want-to-host-it-in-azure"></a><a id="oss"></a>Mi sitio usa software de código abierto y deseo hospedarlo en Azure.
+### <a id="oss"></a>Mi sitio usa software de código abierto y deseo hospedarlo en Azure.
 Si el marco de código abierto se admite en el Servicio de aplicaciones, los lenguajes y los marcos requeridos por su aplicación se configuran automáticamente sin necesidad de que realice ninguna acción. El Servicio de aplicaciones le permite:
 
 * Usar muchos lenguajes de código abierto populares, como [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] y [Python][Python].
@@ -142,10 +142,10 @@ Si el marco de código abierto se admite en el Servicio de aplicaciones, los len
 
 Si el marco de código abierto no es compatible con el Servicio de aplicaciones, puede ejecutarlo en una de las otras opciones de hospedaje web de Azure. Con Máquinas virtuales, puede instalar y configurar el software en una imagen de la máquina, que puede basarse en Windows o Linux.
 
-### <a name="a-idlobai-have-a-line-of-business-application-that-needs-to-connect-to-the-corporate-network"></a><a id="lob"></a>Tengo una aplicación de línea de negocio que necesita conectarse a la red corporativa.
+### <a id="lob"></a>Tengo una aplicación de línea de negocio que necesita conectarse a la red corporativa.
 Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Esto se puede hacer en el Servicio de aplicaciones, Service Fabric y Máquinas virtuales mediante el [servicio Red virtual de Azure](/services/virtual-network/). En el Servicio de aplicaciones puede usar la nueva [característica de integración de VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite la ejecución de las aplicaciones de Azure como si se encontraran en su red corporativa.
 
-### <a name="a-idmobileai-want-to-host-a-rest-api-or-web-service-for-mobile-clients"></a><a id="mobile"></a>Deseo hospedar una API de REST o un servicio web para los clientes móviles.
+### <a id="mobile"></a>Deseo hospedar una API de REST o un servicio web para los clientes móviles.
 Los servicios web HTTP le permiten admitir una amplia variedad de clientes, incluidos los clientes móviles. Los marcos como ASP.NET Web API se integran con Visual Studio para facilitar la creación y el consumo de los servicios REST.  Estos servicios se exponen desde un extremo web, por lo que es posible usar cualquier técnica de hospedaje web en Azure para admitir este escenario. Sin embargo, el Servicio de aplicaciones es una elección excelente para hospedar las API de REST. Con el Servicio de aplicaciones, puede:
 
 * Crear rápidamente una [aplicación móvil](../app-service-mobile/app-service-mobile-value-prop.md) o [una aplicación de API](../app-service-api/app-service-api-apps-why-best-platform.md) que hospede el servicio web HTTP en uno de los centros de datos distribuidos globalmente de Azure.
@@ -158,7 +158,7 @@ Los servicios web HTTP le permiten admitir una amplia variedad de clientes, incl
 > 
 > 
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
+## <a id="nextsteps"></a> Pasos siguientes
 Para más información acerca de las tres opciones de hospedaje web, consulte [Introducción a Microsoft Azure](../fundamentals-introduction-to-azure.md).
 
 Para conocer con mayor profundidad las opciones que ha elegido para su aplicación, consulte los recursos siguientes:

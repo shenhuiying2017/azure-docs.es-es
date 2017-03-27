@@ -1,7 +1,7 @@
 ---
-title: "¿Qué es un grupo elástico de Azure? | Microsoft Docs"
-description: Administre cientos o miles de bases de datos mediante un grupo. Un precio para un conjunto de unidades de rendimiento se puede distribuir por el grupo. Agregue o quite bases de datos a voluntad.
-keywords: "grupo elástico, bases de datos sql"
+title: "¿Qué son los grupos elásticos? Administración de varias instancias de SQL Database: Azure | Microsoft Docs"
+description: "Administración y escalado de muchas instancias de SQL Database, cientos y miles, mediante los grupos elásticos. Un precio para los recursos que se puede distribuir cuando sea necesario."
+keywords: varias bases de datos, recursos de base de datos, rendimiento de la base de datos
 services: sql-database
 documentationcenter: 
 author: ddove
@@ -11,35 +11,42 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/24/2017
+ms.date: 03/06/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1cac55acd88babc4ca4b04d2cafc6fa25f1393f0
-ms.openlocfilehash: 59f09d9529e8a97d8a0a4c7d9984a6fed850a57d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 53c54c490e7888edef0dc83d1657adbb3db0b745
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="what-is-an-azure-sql-elastic-pool"></a>¿Qué es un grupo elástico de Azure SQL?
-A un grupo elástico de SQL se le otorga un número determinado de eDTU por un precio establecido, en un servidor lógico de Azure, que se comparten entre un grupo de bases de datos de ese servidor. Los grupos elásticos de SQL Database proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles. Puede crear y administrar un grupo elástico con [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) y la API de REST.
+
+# <a name="how-elastic-pools-help-you-manage-and-scale-multiple-sql-databases"></a>Cómo pueden ayudarle los grupos elásticos a administrar y escalar varias instancias de SQL Database
+
+Los grupos elásticos de SQL Database son una solución simple y rentable para la administración y escalado de varias bases de datos que tienen distintas e imprevisibles demandas de uso. Las bases de datos de un grupo elástico se encuentran en un único servidor de Azure SQL Database y comparten un número establecido de recursos a un precio establecido.
+
+Puede crear y administrar un grupo elástico con [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) y la API de REST. Los recursos de un grupo elástico se miden en [eDTU](sql-database-what-is-a-dtu.md).
+
 
 > [!NOTE]
 > Los grupos elásticos están disponibles con carácter general (GA) en todas las regiones de Azure excepto oeste de la India, donde actualmente se encuentran en versión preliminar.  La disponibilidad general de grupos elásticos en esta región se producirá tan pronto como sea posible.
 >
 >
 
-## <a name="how-it-works"></a>Cómo funciona
-Un modelo de aplicación SaaS común es el modelo de base de datos de inquilino único: cada cliente tiene su propia base de datos. Cada cliente (base de datos) tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estos valores máximos y mínimos de demanda, ¿cómo se pueden asignar recursos de manera eficaz y rentable? Normalmente había dos opciones: (1) aprovisionar en exceso los recursos según el uso máximo y pagar de más o (2) aprovisionar de forma predeterminada para ahorrar costos, en detrimento del rendimiento y la satisfacción del cliente durante las horas de actividad máxima. Los grupos elásticos solucionan este problema y se aseguran de que las bases de datos obtengan los recursos de rendimiento que necesitan y en el momento en que los necesitan. Proporcionan un mecanismo de asignación de recursos simples dentro de un presupuesto predecible. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
+
+## <a name="how-do-elastic-pools-help-manage-database-resources"></a>¿Cómo ayudan los grupos elásticos a administrar los recursos de una base de datos?
+
+Un modelo de aplicación SaaS común es el modelo de base de datos de inquilino único: cada cliente (base de datos) tiene su propia base de datos. Cada cliente tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estos valores máximos y mínimos de demanda, ¿cómo se pueden asignar recursos de manera eficaz y rentable? Normalmente había dos opciones: (1) aprovisionar en exceso los recursos según el uso máximo y pagar de más o (2) aprovisionar de forma predeterminada para ahorrar costos, en detrimento del rendimiento y la satisfacción del cliente durante las horas de actividad máxima. Los grupos elásticos solucionan este problema y se aseguran de que las bases de datos obtengan los recursos de rendimiento que necesitan y en el momento en que los necesitan. Proporcionan un mecanismo de asignación de recursos simples dentro de un presupuesto predecible. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-En Base de datos SQL, la medida relativa de la capacidad de una base de datos para administrar demandas de recursos se expresa en unidades de transacción de base de datos (DTU) para bases de datos únicas y DTU elásticas (eDTU) para bases de datos de grupos elásticos. Consulte el artículo de [introducción a SQL Database](sql-database-technical-overview.md) para obtener más información sobre las DTU y eDTU.
+En SQL Database, la medida relativa de la capacidad de una base de datos para administrar demandas de recursos se expresa en unidades de transacción de base de datos (DTU) para bases de datos únicas y en unidades de transacción de bases de datos elásticas (eDTU) para bases de datos de grupos elásticos. Consulte el artículo de [introducción a SQL Database](sql-database-technical-overview.md) para obtener más información sobre las DTU y eDTU.
 
-A un grupo se le asigna un número fijo de eDTU, por un precio fijo. Dentro del grupo, a las bases de datos individuales se les proporciona la flexibilidad de escalarse automáticamente dentro de unos parámetros establecidos. Con cargas elevadas, una base de datos puede consumir más eDTU para satisfacer la demanda. Las bases de datos con cargas ligeras consumen menos y las bases de datos sin carga no consumen ninguna eDTU. El aprovisionamiento de recursos para el grupo entero en lugar de para bases de datos únicas simplifica las tareas de administración. Además, cuenta con un presupuesto predecible para el grupo.
+A un grupo elástico se le asigna un número establecido de eDTU, a un precio establecido. Dentro del grupo, a las bases de datos individuales se les proporciona la flexibilidad de escalarse automáticamente dentro de unos parámetros establecidos. Con cargas elevadas, una base de datos puede consumir más eDTU para satisfacer la demanda. Las bases de datos con cargas ligeras consumen menos y las bases de datos sin carga no consumen ninguna eDTU. El aprovisionamiento de recursos para el grupo entero en lugar de para bases de datos únicas simplifica las tareas de administración. Además, cuenta con un presupuesto predecible para el grupo.
 
 Se pueden agregar eDTU adicionales a un grupo existente sin que haya un tiempo de inactividad de la base de datos, excepto en los casos en los que las bases de datos se deben mover para proporcionar los recursos de proceso adicionales para la reserva de nuevas eDTU. De manera similar, si ya no se necesitan eDTU adicionales, se pueden quitar de un grupo existente en cualquier momento dado.
 
@@ -74,6 +81,7 @@ En las tablas siguientes se describen los límites de los grupos elásticos y de
 | Cantidad máxima de trabajos simultáneos por grupo |Cantidad máxima de trabajos simultáneos (solicitudes) disponibles de todas las bases de datos del grupo. |
 | Cantidad máxima de inicios de sesión simultáneos por grupo |Cantidad máxima de inicios de sesión simultáneos de todas las bases de datos del grupo. |
 | Cantidad máxima de sesiones simultáneas por grupo |Cantidad máxima de sesiones disponibles de todas las bases de datos del grupo. |
+|||
 
 ### <a name="limits-for-pooled-databases"></a>Límites de las bases de datos agrupadas
 | Propiedad | Description |
@@ -81,6 +89,7 @@ En las tablas siguientes se describen los límites de los grupos elásticos y de
 | Cantidad máxima de eDTU por base de datos |Cantidad máxima de eDTU que puede utilizar cualquier base de datos del grupo, si está disponible según el uso que hacen otras bases de datos del grupo.  La cantidad máxima de eDTU por base de datos no garantiza la disponibilidad de recursos.  Se trata de una configuración global que se aplica a todas las bases de datos del grupo. Establezca una cantidad máxima de eDTU por base de datos lo suficientemente alta como para gestionar los picos de uso de la base de datos. Se admite cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de uso no tienen lugar en todas las bases de datos a la vez. Por ejemplo, supongamos que el pico de uso de cada base de datos es 20 eDTU y solo tiene lugar en el 20 % de las 100 bases de datos del grupo a la vez.  Si la cantidad máxima de eDTU por base de datos se establece en 20, puede asignar al grupo una cantidad 5 veces mayor y establecer las eDTU por grupo en 400. |
 | Cantidad mínima de eDTU por base de datos |Cantidad mínima de eDTU que se garantiza en cualquier base de datos del grupo.  Se trata de una configuración global que se aplica a todas las bases de datos del grupo. La cantidad mínima de eDTU por base de datos se puede establecer en 0, y también se trata del valor predeterminado. Esta propiedad se establece en cualquier valor entre 0 y el uso medio de eDTU por base de datos. El resultado de multiplicar la cantidad de bases de datos del grupo y la cantidad mínima de eDTU por base de datos no puede superar el número de eDTU por grupo.  Por ejemplo, si un grupo tiene 20 bases de datos y la cantidad mínima de eDTU por base de datos establecida es 10, el número de eDTU por grupo debe ser de, al menos, 200. |
 | Almacenamiento máximo por base de datos (GB) |Almacenamiento máximo de una base de datos de un grupo. Las bases de datos agrupadas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita a la menor cantidad de almacenamiento de grupos restante y al almacenamiento máximo por base de datos. El almacenamiento máximo por base de datos hace referencia al tamaño máximo de los archivos de datos y no incluye el espacio utilizado por los archivos de registro. |
+|||
 
 ## <a name="elastic-jobs"></a>Trabajos elásticos
 Con un grupo, las tareas de administración se simplifican al ejecutarse los scripts en **[trabajos elásticos](sql-database-elastic-jobs-overview.md)**. Un trabajo elástico elimina la mayoría de las tediosas tareas asociadas con un gran número de bases de datos. Para comenzar, consulte [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md).
@@ -101,7 +110,7 @@ Para las aplicaciones que tienen requisitos de recuperación más exigentes que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede crear y administrar un grupo elástico con [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) y la API de REST. 
+* Puede crear y administrar un grupo elástico con [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) y la API de REST.
 * Para obtener orientación sobre cuándo usar grupos elásticos, vea la [guía sobre grupos elásticos](sql-database-elastic-pool-guidance.md).
 * Para ver un vídeo, vea el [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 

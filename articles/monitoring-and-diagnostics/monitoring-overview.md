@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
-ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,13 +32,13 @@ Las aplicaciones de nube son complejas y tienen muchas partes móviles. La super
 
 En el siguiente diagrama se muestra una vista conceptual de la supervisión de Azure, incluido el tipo de registros que puede recopilar y lo que puede hacer con esos datos.   
 
-![Modelo lógico para la supervisión y el diagnóstico de recursos que no son de proceso](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![Modelo para la supervisión y el diagnóstico de recursos que no son de proceso](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 Figura 1: Modelo conceptual para la supervisión y el diagnóstico de recursos que no son de proceso
 
 <br/>
 
-![Modelo lógico para la supervisión y el diagnóstico de recursos de proceso](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Modelo para la supervisión y el diagnóstico de recursos que son de proceso](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
 Figura 2: Modelo conceptual para la supervisión y el diagnóstico de recursos de proceso
 
@@ -114,7 +114,8 @@ Algunos ejemplos son:
 * Enviarlas a Event Hubs para poder enrutarlos a herramientas de terceros y realizar el análisis en tiempo real.
 
 ### <a name="automate"></a>Automatizar
-Puede usar datos de supervisión para desencadenar alertas o, incluso, procesos enteros. Algunos ejemplos son:
+Puede usar datos de supervisión para desencadenar alertas o, incluso, procesos enteros.
+Algunos ejemplos son:
 
 * Usar los datos para aumentar o reducir automáticamente el número de instancias de proceso según la carga de la aplicación.
 * Enviar mensajes de correo electrónico cuando una métrica cruza un umbral predeterminado.

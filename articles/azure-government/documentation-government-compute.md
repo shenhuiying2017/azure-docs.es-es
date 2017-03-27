@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/18/2016
+ms.date: 3/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
-ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 146fcd9788bab55e4abd9e70dcfe25741f041d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,16 +28,18 @@ Para más información sobre este servicio y cómo usarlo, consulte [Tamaños de
 ### <a name="variations"></a>Variaciones
 Los productos (VM) están disponibles en Azure Government:
 
-| Productos (VM) | US Gov VA | US Gov IA |
-| --- | --- | --- |
-| A0-A7 |Y |Y |
-| Serie D |Y |N |
-| Serie Dv2 |Y |Y |
-| Serie DS |Y |N |
-| Serie F |Y |Y |
-| Serie Fs |N |N |
-| Serie G |Y |N |
-| Serie GS |Y |N |
+| Productos (VM) | US Gov VA | US Gov IA | Departamento de Defensa del este de EE. UU. | Departamento de Defensa del oeste de EE. UU.
+| --- | --- | --- |--- |--- |
+| A0-A7 |Y |Y |Y |Y |Y |
+| Av2 |Y |Y |Y |Y |Y |
+| Serie D |Y |N |N |N |
+| Serie Dv2 |Y |Y |Y |Y |
+| Serie DS |Y |N |N |N |
+| DSv2-series |Y |N |Y |Y |
+| Serie F |Y |Y |Y |Y |
+| Serie Fs |Y |N |Y |Y |
+| Serie G |Y |N |N |N |
+| Serie GS |Y |N |N |N |
 
 ### <a name="data-considerations"></a>Consideraciones de datos
 La siguiente información identifica el límite de Azure Government para Máquinas virtuales de Azure:
@@ -47,10 +50,5 @@ La siguiente información identifica el límite de Azure Government para Máquin
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información complementaria y actualizaciones suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -17,9 +17,9 @@ ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e692e87899e49f6ad681de8e682492ec69e47eac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/01/2017
 En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante una plantilla de Azure.  Este artículo requiere:
 
 * una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/));
-* la [CLI de Azure](../xplat-cli-install.md) en la que se inició sesión con `azure login`;
+* la [CLI de Azure](../cli-install-nodejs.md) en la que se inició sesión con `azure login`;
 * la CLI de Azure *debe estar en* el modo Azure Resource Manager `azure config mode arm`.
 
 También puede implementar rápidamente una plantilla de máquina virtual Linux mediante [Azure Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

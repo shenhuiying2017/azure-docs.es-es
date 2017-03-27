@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c6acdf97ee5e947ac48866c003480e393dd4bf35
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, los disc
 ## <a name="quick-commands"></a>Comandos rápidos
 Si necesita realizar rápidamente la tarea, en la siguiente sección se detallan los comandos base para cifrar discos virtuales en la máquina virtual. Se puede encontrar información más detallada y contexto para cada paso en el resto del documento, [comenzando aquí](#overview-of-disk-encryption).
 
-Necesita tener instalada la [CLI de Azure más reciente](../xplat-cli-install.md) y haber iniciado sesión con el modo Resource Manager de la forma siguiente:
+Necesita tener instalada la [CLI de Azure más reciente](../cli-install-nodejs.md) y haber iniciado sesión con el modo Resource Manager de la forma siguiente:
 
 ```azurecli
 azure config mode arm
@@ -157,7 +157,7 @@ El cifrado del disco no se admite actualmente en los siguientes escenarios:
 * Actualización de las claves criptográficas en una máquina virtual Linux ya cifrada.
 
 ## <a name="create-the-azure-key-vault-and-keys"></a>Creación del almacén de Azure Key Vault y las claves
-Para completar el resto de esta guía, necesita tener instalada la [CLI de Azure más reciente](../xplat-cli-install.md) y haber iniciado sesión con el modo Resource Manager de la forma siguiente:
+Para completar el resto de esta guía, necesita tener instalada la [CLI de Azure más reciente](../cli-install-nodejs.md) y haber iniciado sesión con el modo Resource Manager de la forma siguiente:
 
 ```azurecli
 azure config mode arm

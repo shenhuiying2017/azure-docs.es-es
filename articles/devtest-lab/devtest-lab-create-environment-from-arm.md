@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: bd280fabf22d569f3c4dae9f00f44b08700c8fc4
-ms.openlocfilehash: f034f028b0b1e0011e152b88d304dd54cfbc8320
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -71,7 +71,7 @@ Los siguientes pasos le ayudarán a agregar un repositorio al laboratorio a trav
     - **Name** (Nombre): nombre del repositorio que se utiliza en el laboratorio.
     - **URL de clonación de Git**: escriba la URL de clonación HTTPS de GIT de GitHub o Visual Studio Team Services.  
     - **Branch** (Rama): nombre de la rama para acceder a las definiciones de plantilla de Azure Resource Manager. 
-    - **Personal access token** (Token de acceso personal): se usa para acceder de forma segura al repositorio. Para obtener el token de Visual Studio Team Services, seleccione ** &lt;SuNombre> > Mi perfil > Seguridad > Public access token** (Token de acceso público). Para obtener el token de GitHub, seleccione su avatar seguido de la selección **Configuración > Public access token** (Token de acceso público). 
+    - **Personal access token** (Token de acceso personal): se usa para acceder de forma segura al repositorio. Para obtener el token de Visual Studio Team Services, seleccione **&lt;SuNombre> > Mi perfil > Seguridad > Public access token** (Token de acceso público). Para obtener el token de GitHub, seleccione su avatar seguido de la selección **Configuración > Public access token** (Token de acceso público). 
     - **Rutas de acceso de carpeta**: en uno de los dos campos de entrada, escriba la ruta de acceso de carpeta que comienza con una barra diagonal (/) correspondiente a la URI de clonación de Git de cualquiera de las definiciones de artefacto (primer campo de entrada) o las definiciones de plantilla de Azure Resource Manager.   
     
         ![Repositorio público](./media/devtest-lab-create-environment-from-arm/repo-values.png)

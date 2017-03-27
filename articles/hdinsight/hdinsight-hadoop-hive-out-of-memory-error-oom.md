@@ -9,15 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/22/2017
 ms.author: rashimg;jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: bf0ff13a2d5ffc5bf0b07b80f482fc4144b0cd0f
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -123,10 +125,5 @@ Basada en estos valores, la consulta se ejecutó correctamente en menos de diez 
 
 ## <a name="conclusion-oom-errors-and-container-size"></a>Conclusión: Errores de memoria insuficiente y tamaño del contenedor
 Recibir un error de memoria insuficiente no significa necesariamente que el tamaño del contenedor sea demasiado pequeño. En su lugar, debe configurar las opciones de memoria para que aumente el tamaño del montón y sea de al menos el 80% del tamaño de memoria del contenedor.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

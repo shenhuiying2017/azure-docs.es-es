@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 214d968c95fec4695f22152cca53a369299b6e10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5dba93fdf9b0f0ca73b47743aa0188dd47094a3f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ El proceso de solución de problemas es el siguiente:
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
 
-Asegúrese de haber instalado la [CLI de Azure 1.0 más reciente](../xplat-cli-install.md) y de usar el modo de Resource Manager:
+Asegúrese de haber instalado la [CLI de Azure 1.0 más reciente](../cli-install-nodejs.md) y de usar el modo de Resource Manager:
 
 ```azurecli
 azure config mode arm

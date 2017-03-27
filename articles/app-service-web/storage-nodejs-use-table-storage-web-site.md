@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5304ddd84bebb19f5f082acb6442faa34b8d84bb
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0183c2c88819dfc67886676fd8c69b246537b6
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -398,7 +399,7 @@ En la carpeta **views**, abra **layout.jade** y reemplace todo el contenido por 
         block content
 
 ### <a name="create-a-config-file"></a>Creación de un archivo de configuración
-Para ejecutar la aplicación localmente, pondremos credenciales de Almacenamiento de Azure en un archivo de configuración. Cree un archivo denominado *config.json* con el siguiente *JSON*:
+Para ejecutar la aplicación localmente, pondremos credenciales de Almacenamiento de Azure en un archivo de configuración. Cree un archivo denominado *config.json*con el siguiente*JSON*:
 
     {
         "STORAGE_NAME": "<storage account name>",
@@ -567,7 +568,7 @@ Si bien los pasos de este artículo describen el uso de Tabla service para almac
 [for free]: http://windowsazure.com
 [Git remoto]: http://git-scm.com/docs/git-remote
 
-[CLI de Azure]: ../xplat-cli-install.md
+[CLI de Azure]:../cli-install-nodejs.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
@@ -591,9 +592,4 @@ Si bien los pasos de este artículo describen el uso de Tabla service para almac
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

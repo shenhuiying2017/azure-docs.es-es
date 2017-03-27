@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 03/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 9e70638af1ecdd0bf89244b2a83cd7a51d527037
-ms.openlocfilehash: 98b841e300d5b704d134bcfab0968523f3b9c3f0
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c5daac3b8374927c094e79299ce52031181ea24d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +34,11 @@ Este conector es compatible con las siguientes ediciones de Salesforce: Develope
 * Para copiar datos de Salesforce en almacenes de datos locales, tiene que tener Data Management Gateway versión 2.0 o posterior instalado en su entorno local.
 
 ## <a name="salesforce-request-limits"></a>Límites de solicitudes de Salesforce
-Salesforce tiene límites para el número total de solicitudes de API y el de solicitudes de API simultáneas. Consulte la sección API Request Limits (Límites de solicitudes de API) del artículo [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de desarrollador de Salesforce) para más información. Tenga en cuenta si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios. Si el número total de solicitudes supera el límite, se bloqueará la cuenta de Salesforce durante 24 horas. También podría recibir el error REQUEST_LIMIT_EXCEEDED en ambos escenarios.
+Salesforce tiene límites para el número total de solicitudes de API y el de solicitudes de API simultáneas. Tenga en cuenta lo siguiente:
+* Si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios.
+* Si el número total de solicitudes supera el límite, la cuenta de Salesforce se bloqueará durante 24 horas.
+
+También podría recibir el error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección API Request Limits (Límites de solicitudes de API) del artículo [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de desarrollador de Salesforce) para más información.
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
 La manera más fácil de crear una canalización que copie datos de Salesforce a cualquiera de los almacenes de datos receptores admitidos es usar el Asistente para copia. Consulte [Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
@@ -250,8 +255,10 @@ En la actividad de copia cuando el origen es del tipo **RelationalSource** (lo q
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperación de datos mediante la cláusula WHERE en la columna DateTime
 Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo:
 
-* **SOQL sample**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
-* **Ejemplo de SQL**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **Ejemplo SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Ejemplo de SQL**:
+    * **Uso del Asistente para copia para especificar la consulta:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Uso de la edición JSON para especificar la consulta (carácter de escape adecuado):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Recuperación de datos de informes de Salesforce
 Puede recuperar datos de informes de Salesforce especificando las consultas como `{call "<report name>"}`, por ejemplo `"query": "{call \"TestReport\"}"`.
@@ -259,8 +266,8 @@ Puede recuperar datos de informes de Salesforce especificando las consultas como
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperación de los registros eliminados desde la papelera de reciclaje de Salesforce
 Para consultar los registros eliminados temporalmente de papelera de reciclaje de Salesforce, puede especificar **"IsDeleted = 1"** en la consulta. Por ejemplo,
 
-* Para consultar solo los registros eliminados, especifique select * from MyTable__c **where IsDeleted= 1**.
-* Para consultar todos los registros, los existentes y los eliminados, especifique select * from MyTable__c **where IsDeleted = 0 o IsDeleted = 1**.
+* Para consultar solo los registros eliminados, especifique select *from MyTable__c**where IsDeleted= 1**.
+* Para consultar todos los registros, los existentes y los eliminados, especifique select *from MyTable__c**where IsDeleted = 0 o IsDeleted = 1**.
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -293,9 +300,4 @@ Para consultar los registros eliminados temporalmente de papelera de reciclaje d
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

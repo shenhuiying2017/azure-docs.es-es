@@ -17,9 +17,9 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ La CLI de Azure es un conjunto de comandos de código abierto y multiplataforma 
 * Ejecute el comando `azure login` de la CLI para autenticarse con Azure Active Directory. Este método le brinda acceso a los comandos de la CLI en ambos [modos de comando](#cli-command-modes). Cuando ejecuta el comando sin opciones adicionales, `azure login` le solicita seguir iniciando sesión de manera interactiva a través de un portal web. Si desea ver opciones adicionales del comando `azure login`, consulte los escenarios de este artículo o escriba `azure login --help`.
 * Si solo necesita usar los comandos de la CLI del modo Azure Service Management (no se recomienda para la mayoría de implementaciones nuevas), puede descargar e instalar un archivo de configuración de publicación en el equipo.
 
-Si no ha instalado aún la CLI, consulte [Instalación de la CLI de Azure](xplat-cli-install.md). Si carece de una suscripción de Azure, puede crear una [cuenta de prueba gratuita](http://azure.microsoft.com/free/) en tan solo unos minutos.
+Si no ha instalado aún la CLI, consulte [Instalación de la CLI de Azure](cli-install-nodejs.md). Si carece de una suscripción de Azure, puede crear una [cuenta de prueba gratuita](http://azure.microsoft.com/free/) en tan solo unos minutos.
 
 Para obtener más información general sobre las diferentes identidades de cuenta y suscripciones de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 

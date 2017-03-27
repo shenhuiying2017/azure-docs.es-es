@@ -12,22 +12,24 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/05/2016
+ms.date: 03/27/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
-ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
 > [!div class="op_single_selector"]
-> * [Portal de Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Portal de Azure clásico](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Portal de Azure clásico (heredado)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Máquinas de VMware o físicas desde Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
-En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure al sitio local. Siga las instrucciones que se describen aquí cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que hayan conmutado por error desde el sitio local a Azure mediante este [tutorial](site-recovery-vmware-to-azure-classic.md).
+En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure al sitio local. Siga las instrucciones que se describen aquí cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que haya vuelto a proteger las máquinas mediante esta [referencia](site-recovery-how-to-reprotect.md).
+
+>[!NOTE]
+>Si usa el Portal de Azure clásico, consulte las instrucciones mencionadas [aquí](site-recovery-failback-azure-to-vmware-classic.md) para obtener una arquitectura mejorada de VMware a Azure y [aquí](site-recovery-failback-azure-to-vmware-classic-legacy.md) para obtener la arquitectura heredada
 
 ## <a name="overview"></a>Información general
 Los diagramas de esta sección muestran la arquitectura de conmutación por recuperación en este escenario.

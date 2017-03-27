@@ -16,9 +16,9 @@ ms.date: 05/16/2016
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1fb88277f6da86c023cd63af0d7c2c5681f8be0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,9 +32,9 @@ Azure ya integra en su plataforma muchas características que admiten aplicacion
 En este artículo se expone un escenario real de recuperación ante desastres en el que toda una región experimenta una interrupción debido a un desastre natural importante o a una interrupción del servicio generalizada. Se trata de casos muy infrecuentes, pero debe estar preparado para la posibilidad de que se produzca una interrupción en toda una región. Si una región completa experimenta una interrupción del servicio, las copias con redundancia local de los datos estarían temporalmente no disponibles. Si ha habilitado la replicación geográfica, se almacenan en una región distinta tres copias adicionales de los blobs y las tablas de Almacenamiento de Azure. En caso de una interrupción completa en una región o de un desastre en el que la región primaria no sea recuperable, Azure reasignará todas las entradas DNS a la región de replicación geográfica.
 
 > [!NOTE]
-> Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se produce una interrupción del servicio en toda la región. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para obtener más información, consulte la sección sobre las [estrategias de datos para la recuperación ante desastres](../resiliency/resiliency-disaster-recovery-azure-applications.md#data-strategies-for-disaster-recovery).
-> 
-> 
+> Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se produce una interrupción del servicio en toda la región. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para obtener más información, consulte la sección sobre las [estrategias de datos para la recuperación ante desastres](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
+>
+>
 
 Para ayudarlo a administrar estos eventos poco frecuentes, le proporcionamos las siguientes orientaciones para máquinas virtuales de Azure destinadas a los casos de interrupción del servicio en toda una región donde se ha implementado la aplicación de máquina virtual de Azure.
 
@@ -43,15 +43,15 @@ En este caso, no se requieren acciones por su parte. Sabe que trabajaremos con r
 
 > [!NOTE]
 > Esta es la mejor opción si no ha configurado Azure Site Recovery, la copia de seguridad de máquina virtual, el almacenamiento con redundancia geográfica con acceso de lectura o el almacenamiento con redundancia geográfica antes de la interrupción. Si ha configurado el almacenamiento con redundancia geográfica o el almacenamiento con redundancia geográfica con acceso de lectura para la cuenta de almacenamiento donde se almacenan los discos duros virtuales de la máquina virtual (VHD), puede fijarse en cómo recuperar el VHD de la imagen base y tratar de aprovisionar una nueva máquina virtual desde ahí. Esta no es la mejor opción, ya que no hay ninguna garantía de sincronización de datos, a menos que se utilice la copia de seguridad de máquina virtual de Azure Site Recovery. Por lo tanto, no se garantiza que esta opción funcione.
-> 
-> 
+>
+>
 
 Para aquellos clientes que desean acceder de inmediato a las máquinas virtuales, están disponibles las dos opciones siguientes.  
 
 > [!NOTE]
 > Tenga en cuenta que en las dos es posible que se produzca una pérdida de datos.     
-> 
-> 
+>
+>
 
 ## <a name="option-2-restore-a-vm-from-a-backup"></a>Opción 2: restaurar una máquina virtual desde una copia de seguridad
 En el caso de los clientes que tienen una copia de seguridad de máquina virtual configurada, puede restaurar dicha máquina virtual desde su punto de copia de seguridad y recuperación.
@@ -65,8 +65,8 @@ Si ha configurado Azure Site Recovery para utilizar las máquinas virtuales de A
 
 > [!NOTE]
 > Aunque el sistema operativo de máquina virtual de Azure y los discos de datos se repliquen en un VHD secundario, si están en una cuenta de almacenamiento con redundancia geográfica o de almacenamiento con redundancia geográfica con acceso de lectura, cada disco duro virtual se replica por separado. Este nivel de replicación no garantiza la coherencia entre los discos duros virtuales replicados. Si su aplicación o las bases de datos que usan estos discos de datos tienen dependencias entre sí, no se garantiza que todos los discos duros virtuales se repliquen como una instantánea. Tampoco se garantiza que la réplica del disco duro virtual desde el almacenamiento con redundancia geográfica o el almacenamiento con redundancia geográfica con acceso de lectura dé lugar a una instantánea coherente entre aplicaciones para arrancar la máquina virtual.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo implementar una estrategia de alta disponibilidad y recuperación ante desastres, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
@@ -78,5 +78,4 @@ Para obtener información sobre cómo realizar copias de seguridad de máquinas 
 Si desea aprender a utilizar Azure Site Recovery para organizar y automatizar la protección de las máquinas físicas (y virtuales) Windows y Linux que se ejecutan en máquinas virtuales de Hyper-V y VMWare, consulte [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
 Si las instrucciones no están claras, o si desea que Microsoft realice las operaciones en su lugar, póngase en contacto con el [servicio de asistencia al cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
 

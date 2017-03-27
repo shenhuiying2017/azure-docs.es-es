@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 354292f51d07bff00e7a6811e4d1d7beb7844920
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,7 +68,7 @@ Para ver una introducción al uso de Storm, consulte [Introducción a Storm en H
 Puede aprovisionar un nuevo clúster de Storm en HDInsight en minutos. Especifique el nombre del clúster, su tamaño, la cuenta del administrador y la cuenta de almacenamiento. Azure crea el clúster, junto con las topologías de ejemplo y un panel de administración web.
 
 > [!NOTE]
-> También puede aprovisionar clústeres de Storm mediante la [CLI de Azure](../xplat-cli-install.md) o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> También puede aprovisionar clústeres de Storm mediante la [CLI de Azure](../cli-install-nodejs.md) o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 En menos de 15 minutos tras el envío de la solicitud, dispondrá de un nuevo clúster de Storm en ejecución y listo para su primera canalización de análisis en tiempo real.
 
@@ -177,7 +177,7 @@ Para obtener más información sobre Trident, consulte el [Tutorial de Trident](
 
 Para obtener ejemplos de topologías de Java y Trident, vea la [lista de topologías de ejemplo de Storm](hdinsight-storm-example-topology.md) o los ejemplos de storm-starter en el clúster de HDInsight.
 
-Los ejemplos de storm-starter se encuentran en el directorio ** /usr/hdp/current/storm-client/contrib/storm-starter** en su clúster de HDInsight.
+Los ejemplos de storm-starter se encuentran en el directorio **/usr/hdp/current/storm-client/contrib/storm-starter** en su clúster de HDInsight.
 
 ### <a name="python"></a>Python
 

@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: aa055ead3dc039745f48f268fe456ae5dab5bf36
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -107,11 +108,7 @@ Se han agregado las siguientes entradas de configuración adicionales.
 ### <a name="your-azure-active-directory-app-was-updated"></a>Se ha actualizado la aplicación Azure Active Directory
 La aplicación Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:Password* en el archivo `web.config`.
 
-[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+## <a name="next-steps"></a>Pasos siguientes
+- [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 576d8663f61d344628a38a98bf9902f4194949d0
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 09860b34bf4b1664e8d82af0e049cfd1a2d8defa
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -170,9 +170,9 @@ En el cuadro de diálogo que se abre, haga clic en **HORA DE INICIO DEL TRABAJO*
 
 Después de que el trabajo se esté ejecutando y esté procesando el flujo de Twitter en tiempo real, elija cómo quiere ver la salida del análisis de sentimiento. Use una herramienta como [Explorador de almacenamiento de Azure](https://http://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede usar [Power BI](https://powerbi.com/) para extender su aplicación con el fin de incluir un panel personalizado como el que se muestra en la captura de pantalla siguiente.
 
-![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
+![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## <a name="another-query-of-interest--in-this-scenario"></a>Otra consulta de interés en este escenario
+## <a name="another-query-of-interest-in-this-scenario"></a>Otra consulta de interés en este escenario
 
 Otra consulta de ejemplo que hemos creado para este escenario se basa en [Ventana deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx). Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para los fines de este tutorial, buscaremos temas que se mencionen más de 20 veces en los últimos cinco segundos.
 
@@ -182,6 +182,19 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY SLIDINGWINDOW(s, 5), topic
 HAVING COUNT(*) > 20
 ```
+
+## <a name="table-of-the-field-headers"></a>Tabla de los encabezados de campo
+
+Para una divulgación completa, las etiquetas de campo que puede utilizar en este ejercicio se muestran en esta tabla. Puede experimentar libremente con el editor de consultas.
+
+Propiedad JSON | definición
+--- | ---
+CreatedAt | hora en que se creó el tweet
+Tema. | Tema que coincide con la palabra clave especificada
+SentimentScore | puntuación de opinión de Sentiment140
+Autor | Identificador de Twitter que envía el tweet
+Texto | cuerpo completo del tweet
+
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

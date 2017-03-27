@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 3aa72480898e00cab8ee48e646ea63ade01f347f
-ms.openlocfilehash: 31c7337bdf9dd302ea2f7c5dd0af9d668b23acb2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ Para ejecutar este tutorial, necesitará:
 >[!NOTE] 
 > Se necesitan el identificador del cliente, la clave y el valor del punto de conexión del token de OAuth2.0 de su aplicación Active Directory para conectarse a su instancia de Azure Data Lake desde SQL Data Warehouse. En el vínculo siguiente se detalla cómo obtener estos valores.
 
-* SQL Server Management Studio o SQL Server Data Tools, para descargar SSMS y conectarse consulte [Consulta de SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms.md)
+* SQL Server Management Studio o SQL Server Data Tools, para descargar SSMS y conectarse consulte [Consulta de SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
 * Una instancia de Azure SQL Data Warehouse; para crear una, siga estas instrucciones: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
@@ -56,7 +57,7 @@ PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos d
 ###  <a name="create-a-credential"></a>Creación de una credencial
 Para acceder a su instancia de Azure Data Lake Store, debe crear una clave maestra de base de datos para cifrar su secreto de credencial que se usa en el paso siguiente.
 Después, cree una credencial con ámbito de base de datos, que almacena las credenciales de la entidad de servicio configuradas en AAD. Para aquellos que han usado PolyBase para conectarse a Microsoft Azure Storage Blob, hay que tener en cuenta que la sintaxis de las credenciales es diferente.
-Para conectarse a Azure Data Lake Store, debe crear una aplicación de Azure Active Directory antes de crear una credencial con ámbito de base de datos.
+Para conectarse a Azure Data Lake Store, **primero** debe crear una aplicación de Azure Active Directory, crear una clave de acceso y conceder acceso a la aplicación al recurso de Azure Data Lake. Las instrucciones para realizar estos pasos se encuentran [aquí](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -72,7 +73,7 @@ CREATE MASTER KEY;
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADL_User
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
@@ -95,7 +96,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
     LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
-    CREDENTIAL = AzureStorageCredential
+    CREDENTIAL = ADLCredential
 );
 ```
 

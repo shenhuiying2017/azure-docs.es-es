@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da949459f734ea08527fe2380ab2a6a06e6976e7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -147,6 +148,11 @@ El parámetro **Zona horaria del servidor de Domino** define la ubicación de su
 
 Esta opción de configuración es necesaria para admitir las operaciones de **importación diferencial** porque permite que el servicio de sincronización determine los cambios entre las dos últimas importaciones.
 
+>[!Note]
+A partir de la actualización de marzo de 2017, la pantalla de parámetros globales incluye una opción para eliminar la base de datos de correo del usuario durante la eliminación del usuario.
+
+![Eliminación del buzón del usuario](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
+
 #### <a name="import-settings-method"></a>Configuración de importación: método
 En **Realizar importación completa mediante** , aparecen estas opciones:
 
@@ -185,7 +191,7 @@ En una implementación de Domino de gran envergadura, es posible que haya varios
 Si la opción **Usar AdminP para actualizar referencias** no está seleccionada, la exportación de atributos de referencia, como member, es una llamada directa y no se usa el proceso AdminP. Solo use esta opción si no se ha configurado AdminP para mantener la integridad referencial.
 
 #### <a name="routing-information"></a>Información de enrutamiento
-En Domino, es posible que un atributo de referencia tenga información de enrutamiento insertada como sufijo del DN. Por ejemplo, el atributo member de un grupo podría contener **CN=example/organization@ABC**). El sufijo @ABC es la información de enrutamiento. Domino usa esta información de enrutamiento para enviar correos electrónicos al sistema de Domino correcto, que puede estar en una organización diferente. En el campo Información de enrutamiento, puede especificar los sufijos de enrutamiento usados dentro de la organización en el ámbito del conector. Si uno de estos valores se encuentra como sufijo en un atributo de referencia, la información de enrutamiento se quita de la referencia. Si el sufijo de enrutamiento de un valor de referencia no coincide con uno de los valores especificados, se crea un objeto \_Contact. Estos objetos \_Contact se crearán con **RO=@<RoutingSuffix>** insertado en el DN. Para estos objetos \_Contact, también se agregan los atributos siguientes para permitir combinarlos con un objeto real, si es necesario: \_routingName, \_contactName, \_displayName y UniversalID.
+En Domino, es posible que un atributo de referencia tenga información de enrutamiento insertada como sufijo del DN. Por ejemplo, el atributo member de un grupo podría contener **CN=example/organization@ABC**. El sufijo @ABC es la información de enrutamiento. Domino usa esta información de enrutamiento para enviar correos electrónicos al sistema de Domino correcto, que puede estar en una organización diferente. En el campo Información de enrutamiento, puede especificar los sufijos de enrutamiento usados dentro de la organización en el ámbito del conector. Si uno de estos valores se encuentra como sufijo en un atributo de referencia, la información de enrutamiento se quita de la referencia. Si el sufijo de enrutamiento de un valor de referencia no coincide con uno de los valores especificados, se crea un objeto \_Contact. Estos objetos \_Contact se crean con **RO=@<RoutingSuffix>** insertado en el DN. Para estos objetos \_Contact, también se agregan los atributos siguientes para permitir combinarlos con un objeto real, si es necesario: \_routingName, \_contactName, \_displayName y UniversalID.
 
 #### <a name="additional-address-books"></a>Libretas de direcciones adicionales
 Si no tiene instalada la característica **Directory Assistance** , que proporciona el nombre de las libretas de direcciones secundarias, puede escribirlos manualmente.
@@ -320,7 +326,7 @@ Los recursos se pueden importar al servicio de sincronización y exportarlos des
 ### <a name="mail-in-databases"></a>Bases de datos de correo de entrada
 Una base de datos de correo de entrada está diseñada para recibir mensajes de correo. Es un buzón de Lotus Domino que no está asociado a ninguna cuenta de usuario de Lotus Domino específica (es decir, no tiene archivo de identificación ni contraseña propios). Una base de datos de correo de entrada tiene un valor UserId único ("nombre corto") asociado y su propia dirección de correo electrónico.
 
-Si se necesita un buzón independiente con su propia dirección de correo electrónico que se pueda compartir entre distintos usuarios (por ejemplo: group@contoso.com),, se crea una base de datos de correo de entrada. El acceso a este buzón se controla a través de su lista de control de acceso (ACL), que contiene los nombres de los usuarios de Notes que tienen permiso para abrir el buzón.
+Si se necesita un buzón independiente con su propia dirección de correo electrónico que se pueda compartir entre distintos usuarios (por ejemplo: group@contoso.com), se crea una base de datos de correo de entrada. El acceso a este buzón se controla a través de su lista de control de acceso (ACL), que contiene los nombres de los usuarios de Notes que tienen permiso para abrir el buzón.
 
 Para ver una lista de los atributos necesarios, consulte la sección llamada [Atributos obligatorios](#mandatory-attributes) más adelante en este artículo.
 
@@ -489,9 +495,4 @@ En Domino, existen varias maneras de extender el esquema para que aparezca como 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM&2010; R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

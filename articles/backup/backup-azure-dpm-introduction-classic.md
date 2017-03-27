@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 03/10/2017
 ms.author: nkolli;giridham;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: f4a5412615e23cc90acc54a9c7430b01fe77dbcf
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9d1e68b0e73c60542de566c32c92caf0b3c4630c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -61,11 +62,13 @@ Una vez tomada la instantánea, los datos se transfieren por el servicio de Copi
 ## <a name="prerequisites"></a>Requisitos previos
 Prepare Copia de seguridad de Azure para crear copias de seguridad de los datos de DPM de la manera siguiente:
 
-1. **Crear un almacén de copia de seguridad** : cree un almacén en la consola de Copia de seguridad de Azure.
+1. **Creación de un almacén de copia de seguridad**
+
+  > [!IMPORTANT]
+  > A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup. Todavía se admitirán los almacenes de Backup existentes y es posible [usar Azure PowerShell para crear almacenes de Backup](./backup-client-automation-classic.md#create-a-backup-vault). Sin embargo, Microsoft recomienda crear almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services.
+
 2. **Descargar las credenciales de almacén** : en Copia de seguridad de Azure, cargue el certificado de administración que creó en el almacén.
 3. **Instalar Azure Backup Agent y registrar el servidor** : en Copia de seguridad de Azure, instale el agente en cada servidor DPM y registre cada servidor en el almacén de copia de seguridad.
-
-[!INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
 [!INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -102,9 +105,4 @@ No se admiten los siguientes:
 > A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -132,9 +133,4 @@ En la plantilla de ejemplo usada en este artículo se incluyen las variables y l
 | lbName |Especifique el nombre del equilibrador de carga. Este nombre se muestra en el portal o se usa al hacer referencia a él con un comando de la CLI o de PowerShell. |
 
 Las variables restantes de la plantilla contienen valores derivados que se asignan cuando Azure crea los recursos. No cambie esas variables.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

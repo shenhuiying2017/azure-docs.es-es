@@ -17,9 +17,9 @@ ms.date: 09/30/2016
 ms.author: josephd
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: b668e32bf00ec32c7ffa77594bd1fb07440cf1ac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9e8eb54913b1e7e3f40ac2c9b80b0818eee3a35f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -79,7 +79,7 @@ Consulte [este artículo](https://technet.microsoft.com/library/mt723354.aspx) l
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## <a name="managing-the-sharepoint-farms"></a>Administración de las granjas de SharePoint
-Puede administrar los servidores de estas granjas a través de conexiones de Escritorio remoto. Para obtener más información, vea [Conexión a la máquina virtual e inicio de sesión](virtual-machines-windows-hero-tutorial.md#connect-to-the-virtual-machine-and-sign-on).
+Puede administrar los servidores de estas granjas a través de conexiones de Escritorio remoto. Para obtener más información, vea [Conexión a la máquina virtual e inicio de sesión](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
 En el sitio de Administración central de SharePoint, puede configurar Mis sitios, aplicaciones de SharePoint y más funcionalidad. Para obtener más información, consulte [Configuración de SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 

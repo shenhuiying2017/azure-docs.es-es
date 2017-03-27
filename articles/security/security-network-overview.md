@@ -1,6 +1,6 @@
 ---
 title: Conceptos y requisitos de seguridad de red en Azure| Microsoft Docs
-description: " Este artículo permite comprender de forma sencilla la oferta de Microsoft Azure en el área de la seguridad de red. Proporcionamos explicaciones básicas de los conceptos y requisitos fundamentales de la seguridad de red, así como información sobre lo que puede ofrecer Azure en cada una de estas áreas.. "
+description: " Este artículo permite comprender de forma sencilla la oferta de Microsoft Azure en el área de la seguridad de red. Proporcionamos explicaciones básicas de los conceptos y requisitos fundamentales de la seguridad de red, así como información sobre lo que puede ofrecer Azure en cada una de estas áreas. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/13/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -203,7 +204,7 @@ Más información:
 ## <a name="logging"></a>Registro
 El registro en el nivel de red es una función clave en cualquier escenario de seguridad de red. En Azure, puede registrar la información obtenida de los grupos de seguridad de red a fin de obtener información de registro de nivel de red. Con el registro de NSG, obtiene información de:
 
-* Los registros de auditoría: estos registros se utilizan para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure.
+* [Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md): estos registros se utilizan para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure. Anteriormente se les llamaba "Registros de auditoría" o "Registros operativos".
 * Los registros de eventos: estos registros proporcionan información sobre las reglas NSG que se aplicaron.
 * Registros de contador: estos registros le permiten saber cuántas veces se aplica cada regla de grupos de seguridad de red para denegar o permitir el tráfico.
 
@@ -267,9 +268,4 @@ Azure Security Center le ayuda a optimizar y controlar la seguridad de la red al
 Más información:
 
 * [Introducción al Centro de seguridad de Azure](../security-center/security-center-intro.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

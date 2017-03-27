@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52d41bbac22c6a20b1632b529b061ed7e640ea1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eec68b1cbfbddf0b72b55376ee11451b25898b68
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Versión 0.9.1 o una posterior de la interfaz de la línea de comandos. Para instalar la última versión y conectarla a su suscripción de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](../xplat-cli-install.md).
+* Versión 0.9.1 o una posterior de la interfaz de la línea de comandos. Para instalar la última versión y conectarla a su suscripción de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](../cli-install-nodejs.md).
 * Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtención de ayuda con la interfaz de la línea de comandos entre plataformas de Azure
@@ -59,7 +60,7 @@ Si duda de qué parámetros necesita un comando, consulte la ayuda usando --help
 
 También puede leer los tutoriales siguientes para familiarizarse con el Administrador de recursos de Azure en la interfaz de la línea de comandos entre plataformas de Azure:
 
-* [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure.](../xplat-cli-install.md)
+* [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure.](../cli-install-nodejs.md)
 * [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md)
 
 ## <a name="connect-to-your-subscriptions"></a>Conectarse a sus suscripciones
@@ -94,7 +95,7 @@ A continuación, para especificar la suscripción que se debe usar, escriba:
 
     azure account set <subscription name>
 
-Para obtener más información sobre la configuración de la interfaz de la línea de comandos entre plataformas de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](../xplat-cli-install.md).
+Para obtener más información sobre la configuración de la interfaz de la línea de comandos entre plataformas de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](../cli-install-nodejs.md).
 
 ## <a name="switch-to-using-azure-resource-manager"></a>Cambio al Administrador de recursos de Azure
 El Almacén de claves necesita el Administrador de recursos de Azure. Por lo tanto, escriba lo siguiente para cambiar al modo del Administrador de recursos de Azure:
@@ -251,10 +252,5 @@ Ejemplo de cómo quitar un secreto específico:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

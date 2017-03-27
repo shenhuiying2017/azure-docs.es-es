@@ -17,6 +17,7 @@ ms.author: magoedte;bwren
 translationtype: Human Translation
 ms.sourcegitcommit: e6033f089152c27713f98f12634c53012f5ff070
 ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -121,10 +122,5 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con runbooks, consulte [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

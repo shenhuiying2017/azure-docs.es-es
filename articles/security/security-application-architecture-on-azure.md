@@ -1,6 +1,6 @@
 ---
 title: "Integración de la seguridad en diseños de arquitectura de Azure | Microsoft Docs"
-description: " Este artículo le ayudará a comprender la arquitectura de aplicaciones y servicios en Azure para facilitar la integración de características de seguridad en el diseño y la implementación.. "
+description: " Este artículo le ayudará a comprender la arquitectura de aplicaciones y servicios en Azure para facilitar la integración de características de seguridad en el diseño y la implementación. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
-ms.openlocfilehash: e7ccc71f222d4af9a52cbf55bb6bb446f211e819
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -48,16 +49,11 @@ Cada proyecto incluye:
 [Vea el vídeo de entrenamiento de Visio y de los símbolos](http://aka.ms/CnESymbolsVideo), y [descargue el conjunto de símbolos empresariales y en la nube](http://aka.ms/CnESymbols) para ayudarle a crear materiales técnicos que describen Azure, Windows Server, SQL Server, etc. Puede utilizar los símbolos en diagramas de arquitectura, materiales de entrenamiento, presentaciones, hojas de datos, infografía, notas del producto e incluso en libros de terceros si estos entrenan a personas para usar los productos de Microsoft. Sin embargo, no están pensados para su uso en interfaces de usuario.
 
 ## <a name="3d-blueprint-visio-template"></a>Plantilla de Visio de proyectos&3;D
-Las versiones 3D de los [Proyectos de arquitectura de Microsoft](http://aka.ms/azblueprints) se crearon inicialmente en una herramienta de terceros. Una nueva plantilla de Visio 2013 (y versiones posteriores) incluida el 5 de agosto de 2015 como parte de un [Curso de certificación de arquitectura de Microsoft distribuido en EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
+Las versiones 3D de los [Proyectos de arquitectura de Microsoft](http://aka.ms/azblueprints) se crearon inicialmente en una herramienta de terceros. Una nueva plantilla de Visio 2013 (y versiones posteriores) incluida el 5 de agosto de 2015 como parte de un [Curso de certificación de arquitectura de Microsoft distribuido en EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
 La plantilla también está disponible fuera del curso.
 
 * [Ver el vídeo de entrenamiento](http://aka.ms/3dBlueprintTemplateVideo) primero para saber lo que puede hacer
 * Descargar la [plantilla de Visio de proyectos 3D de Microsoft](http://aka.ms/3DBlueprintTemplate)
-* Descargar los [símbolos de nube y empresariales](../architecture-overview.md#drawing-symbol-and-icon-sets) para utilizar con la plantilla 3D
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Descargar los [símbolos de nube y empresariales](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) para utilizar con la plantilla 3D
 

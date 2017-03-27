@@ -2,7 +2,6 @@
 title: "Solución de problemas de Data Management Gateway | Microsoft Docs"
 description: "Ofrece sugerencias para solucionar problemas relacionados con la puerta de enlace de administración de datos."
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
@@ -91,10 +91,12 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 ![La clave de la puerta de enlace no es válida o está vacía](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
-La clave de la puerta de enlace se ha vuelto a generar o la puerta de enlace se ha eliminado en el portal.
+La clave de la puerta de enlace se ha vuelto a generar o la puerta de enlace se ha eliminado en Azure Portal. También puede ocurrir que el programa de instalación de Data Management Gateway no sea el más reciente.
 
 #### <a name="resolution"></a>Resolución
-Si la puerta de enlace sigue existiendo, vuelva a generar la clave de puerta de enlace en el portal y use el botón Copiar para copiar la clave completa. Péguela en la ventana para registrar la puerta de enlace. En caso contrario, vuelva a crear la puerta de enlace y empiece de nuevo.
+Compruebe si el programa de instalación de Data Management Gateway es la versión más reciente. Puede encontrar la versión más reciente en el [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=271260).
+
+Si se trata de la versión más reciente o la actual y existe una puerta de enlace en el Portal, vuelva a generar una clave de la puerta de enlace en Azure Portal, use el botón Copiar para copiar la clave entera y, después, péguela en esta ventana para registrar la puerta de enlace. En caso contrario, vuelva a crear la puerta de enlace y empiece de nuevo.
 
 ### <a name="6-problem"></a>6. Problema
 Puede que vea el siguiente mensaje de error al volver a registrar una puerta de enlace.
@@ -284,9 +286,4 @@ Puede obtener información detallada de los registros de la puerta de enlace en 
  Al solucionar problemas relacionados con la puerta de enlace, busque eventos de error en el Visor de eventos.
 
 ![Puerta de enlace de administración de datos: Registros en el Visor de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

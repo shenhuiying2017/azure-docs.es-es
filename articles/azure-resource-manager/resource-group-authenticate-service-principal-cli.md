@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a99b55c98f29356fb78e053434f6f3fc5c9d0efc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ Cuando haya una aplicación o un script que necesite acceder a recursos, puede c
 * No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian. 
 * Puede usar un certificado para automatizar la autenticación al ejecutar un script desatendido.
 
-En este tema se muestra cómo usar la [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) para configurar una aplicación de forma que se ejecute con sus propias credenciales e identidad.
+En este tema se muestra cómo usar la [CLI de Azure para Mac, Linux y Windows](../cli-install-nodejs.md) para configurar una aplicación de forma que se ejecute con sus propias credenciales e identidad.
 
 Con la CLI de Azure, tiene dos opciones para autenticar la aplicación de AD:
 
@@ -372,10 +373,5 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entid
 ## <a name="next-steps"></a>Pasos siguientes
 * Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 * Para más información sobre el uso de certificados y la CLI de Azure, consulte [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)(Autenticación basada en certificados con entidades de servicio de Azure desde la línea de comandos de Linux). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

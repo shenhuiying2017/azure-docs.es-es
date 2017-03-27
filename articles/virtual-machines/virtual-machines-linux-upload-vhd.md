@@ -95,7 +95,7 @@ A continuación, cree la máquina virtual con [az vm create](/cli/azure/vm#creat
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk myUMDiskFromVHD
 ```
 
 ### <a name="unmanaged-disks"></a>Discos no administrados

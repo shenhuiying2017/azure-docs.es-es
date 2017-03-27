@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -89,49 +90,11 @@ Consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manag
 
 Si se deshabilitan todos los puntos de conexión de un perfil o si se deshabilita el perfil en sí, Traffic Manager envía una respuesta "NXDOMAIN" a una nueva consulta de DNS.
 
-## <a name="faq"></a>P+F
-
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>¿Puedo usar el Administrador de tráfico con puntos de conexión de varias suscripciones?
-
-No se pueden usar puntos de conexión de varias suscripciones con Azure Web Apps. Azure Web Apps requiere que cualquier nombre de dominio personalizado usado con Web Apps se use únicamente en una suscripción. No es posible usar Web Apps desde varias suscripciones con el mismo nombre de dominio.
-
-Para otros tipos de punto de conexión, es posible usar el Administrador de tráfico con puntos de conexión de más de una suscripción. La forma en que configure Traffic Manager depende de si usa el modelo de implementación clásica o el de Resource Manager.
-
-* En Resource Manager, pueden agregarse puntos de conexión de cualquier suscripción al Administrador de tráfico, siempre y cuando la persona que configura el perfil de este servicio tenga acceso de lectura al punto de conexión. Estos permisos pueden concederse mediante la funcionalidad de [control de acceso basado en rol (RBAC) de Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
-* En la interfaz del modelo de implementación clásica, Traffic Manager requiere que Cloud Services o Web Apps, cuando estén configurados como puntos de conexión de Azure, se encuentren en la misma suscripción que el perfil de Traffic Manager. Los puntos de conexión de servicio en la nube en otras suscripciones se pueden agregar a Traffic Manager como puntos de conexión "externos". Estos puntos de conexión externos se facturan como puntos de conexión de Azure, en lugar de a la tarifa Puntos de conexión externos.
-
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>¿Puedo usar Traffic Manager con espacios de ensayo de servicio en la nube?
-
-Sí. Los espacios de ensayo de servicio en la nube se pueden configurar en Traffic Manager como puntos de conexión externos. Las comprobaciones de estado se siguen cobrando a la tarifa Puntos de conexión de Azure. Asimismo, dado que el tipo de punto de conexión externo está en uso, no se recopilan automáticamente los cambios en el servicio subyacente. Con puntos de conexión externos, Traffic Manager no detecta cuándo se detiene o elimina el servicio en la nube. Por lo tanto, Traffic Manager sigue facturando las comprobaciones de estado hasta que se deshabilita o elimina el punto de conexión.
-
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>¿Admite el Administrador de tráfico puntos de conexión IPv6?
-
-Traffic Manager no proporciona actualmente servidores de nombres que admitan direcciones IPv6. Sin embargo, aún se puede usar Traffic Manager con clientes IPv6 que se conecten a puntos de conexión IPv6. Un cliente no envía solicitudes de DNS directamente a Traffic Manager. En su lugar, el cliente usa un servicio DNS recursivo. Un cliente solo IPv6 envía solicitudes al servicio DNS recursivo por medio de IPv6. Después, el servicio recursivo debería poder entrar en contacto con los servidores de nombres de Traffic Manager mediante IPv4.
-
-Traffic Manager responde con el nombre DNS del punto de conexión. Para admitir un punto de conexión IPv6, debe existir un registro AAAA de DNS que apunte el nombre DNS del punto de conexión a la dirección IPv6. Las comprobaciones de estado de Traffic Manager solo admiten direcciones IPv4. El servicio debe exponer un punto de conexión IPv4 en el mismo nombre DNS.
-
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>¿Puedo usar el Administrador de tráfico con más de una aplicación web en la misma región?
-
-Normalmente, el Administrador de tráfico se utiliza para dirigir el tráfico a las aplicaciones implementadas en diferentes regiones. Sin embargo, también se puede utilizar en los casos en que una aplicación tenga más de una implementación en la misma región. Los puntos de conexión de Azure de Traffic Manager no permiten que se agregue más de un punto de conexión de aplicación web de la misma región de Azure al mismo perfil de Traffic Manager.
-
-En los pasos siguientes se ofrece una solución alternativa a esta restricción:
-
-1. Compruebe que los puntos de conexión estén en diferentes "unidades de escalado" de aplicación web. Un nombre de dominio debe estar asignado a un único sitio en una unidad de escalado concreta. Por lo tanto, dos aplicaciones web en la misma unidad de escalado no pueden compartir un perfil de Traffic Manager.
-2. Agregue el nombre de dominio personal como nombre de host personalizado a cada aplicación web. Cada aplicación web debe estar en una unidad de escalado distinta. Todas las aplicaciones web deben pertenecer a la misma suscripción.
-3. Agregue un único punto de conexión de aplicación web al perfil de Traffic Manager como punto de conexión de Azure.
-4. Agregue cada punto de conexión de aplicación web adicional al perfil del Administrador de tráfico como punto de conexión externo. Los puntos de conexión externos solo se pueden agregar mediante el modelo de implementación de Resource Manager.
-5. Cree un registro CNAME de DNS en su dominio personal que apunte al nombre DNS del perfil de Traffic Manager (<…>.trafficmanager.net).
-6. Acceda al sitio mediante el nombre de dominio personal, no el nombre DNS del perfil del Administrador de tráfico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md).
 * Obtenga información sobre la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md)del Administrador de tráfico.
 * Conozca los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md)del Administrador de tráfico.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

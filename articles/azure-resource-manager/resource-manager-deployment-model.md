@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: d6ac6253caaf5af1f8a14a499653c8afcbb7a2d8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c56a1dc92c27d55b90554e23dd9763ff98ce6cc7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -212,15 +213,10 @@ Toda la automatización y los scripts que ha creado continúan funcionando para 
 
 **¿Dónde puedo encontrar ejemplos de plantillas del Administrador de recursos de Azure?**
 
-Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](https://azure.microsoft.com/documentation/templates/).
+Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver un tutorial sobre la creación de la plantilla que define una máquina virtual, una cuenta de almacenamiento y una red virtual, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

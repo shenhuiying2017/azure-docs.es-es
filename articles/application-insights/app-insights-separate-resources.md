@@ -4,18 +4,19 @@ description: "Supervisar el rendimiento y el uso de la aplicación en diferentes
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 43fb1e764c929be14d42c3d214b051aeb5367d77
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
 
 En primer lugar, hay que comprender la pregunta. Application Insights almacena y procesa los datos recibidos de la aplicación en un *recurso*de Azure. Cada recurso se identifica con una *clave de instrumentación* (iKey). En la aplicación, la clave se proporciona al SDK de Application Insights para que este pueda enviar los datos que recopila al recurso adecuado. La clave se puede proporcionar en el código o en ApplicationInsights.config. Al cambiar la clave en el SDK, puede dirigir los datos a distintos recursos. 
 
-En un caso sencillo, cuando se crea el código para una nueva aplicación, también se crea un recurso en Application Insights. En Visual Studio, esto se hace automáticamente en el cuadro de diálogo *Nuevo proyecto* .
+En un caso sencillo, cuando registra una aplicación con Application Insights, crea un recurso nuevo en Application Insights. En Visual Studio, los cuadros de diálogo *Configurar Application Insights* o *Agregar Application Insights* lo hacen por usted.
 
 Si se trata de un sitio web de gran volumen, es posible que se implemente en más de una instancia del servidor.
 
@@ -61,7 +62,7 @@ Para facilitar el cambio automático de clave cuando se lanza la aplicación, es
 
 (Si el sistema es un servicio en la nube de Azure, hay [otra forma de configurar claves separadas](app-insights-cloudservices.md)).
 
-### <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Copia de la clave de instrumentación
+### <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 
 *C#*
@@ -115,10 +116,5 @@ La clave de instrumentación identifica al recurso que ha creado.
 ![Haga clic en Essentials y elija la clave de instrumentación, CTRL + C](./media/app-insights-separate-resources/02-props.png)
 
 Necesita las claves de instrumentación de todos los recursos a los que la aplicación enviará datos.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

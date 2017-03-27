@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4b8eb863a1fcb65c307870619ea9d8942c57a906
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 335c6fc1bab097367f2d380466d19ea70c7660c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -187,7 +187,7 @@ Node.js proporciona un abundante ecosistema de módulos que puede utilizar con s
 
 Si tiene problemas con la aplicación una vez implementada en Azure, consulte [Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure](web-sites-nodejs-debug.md) para obtener información acerca de cómo diagnosticar el problema.
 
-Este artículo usa el Portal de Azure para crear una aplicación web. También puede usar la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) o [Azure PowerShell](/powershell/azureps-cmdlets-docs) para realizar las mismas operaciones.
+Este artículo usa el Portal de Azure para crear una aplicación web. También puede usar la [interfaz de la línea de comandos de Azure](../cli-install-nodejs.md) o [Azure PowerShell](/powershell/azureps-cmdlets-docs) para realizar las mismas operaciones.
 
 Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 

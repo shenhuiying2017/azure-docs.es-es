@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
-ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,8 +42,9 @@ Storage Service Encryption: SSE Files Preview se puede utilizar para cifrar los 
 Para participar en SSE Files Preview, póngase en contacto con ssediscussions@microsoft.com.
 
 Para más información, consulte la sección de preguntas más frecuentes.
+
 ### <a name="availability-for-file-storage"></a>Disponibilidad de File Storage
-El cifrado del servicio Storage para File Storage está disponible actualmente en las regiones de Asia oriental, Europa del Norte y este de EE. UU. 2.
+El cifrado del servicio de almacenamiento para File Storage está disponible actualmente en estas regiones: este de EE. UU., este de EE. UU.&2;, centro de EE. UU., centro-norte de EE. UU., centro-sur de EE. UU., centro-oeste de EE. UU., oeste de EE. UU., oeste de EE. UU.&2;, Asia Oriental, Europa del Norte, Europa Occidental, este de Australia y sudeste de Australia.
 
 
 Para habilitar o deshabilitar el cifrado del servicio Storage para una cuenta de almacenamiento, inicie sesión en [Azure Portal](https://azure.portal.com) y seleccione una cuenta de almacenamiento. En la hoja Configuración, busque la sección Blob service como se muestra en esta captura de pantalla y haga clic en Cifrado.
@@ -174,7 +175,7 @@ R: No por el momento, porque Microsoft administra completamente las claves.
 
 R: SSE no viene habilitado de manera predeterminada; puede usar el Portal de Azure para habilitarlo. También puede habilitar de manera programática esta característica a través de la API de REST del proveedor de recursos de almacenamiento.
 
-**P: ¿Qué diferencia tiene con Cifrado de discos de Azure?**
+**P: ¿Qué diferencia tiene con Azure Disk Encryption?**
 
 R: Esta característica se usa para cifrar los datos en el Almacenamiento de blobs de Azure. Cifrado de discos de Azure se usa para cifrar discos de datos y SO en VM de IaaS. Para obtener más detalles, visite nuestra [Guía de seguridad para almacenamiento](storage-security-guide.md).
 

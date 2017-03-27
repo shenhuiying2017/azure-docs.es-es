@@ -1,5 +1,5 @@
 ---
-title: "Conexión de plantillas relacionadas para la implementación de Azure | Microsoft Docs"
+title: "Plantillas vinculadas para la implementación de Azure | Microsoft Docs"
 description: "Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a6c3e0150a60777d9f824cb1e0768bd44a8c981e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ Desde dentro de una plantilla de Azure Resource Manager, puede realizar la vincu
 Puede pasar parámetros de una plantilla principal a una plantilla vinculada de nuevo, y esos parámetros pueden asignarse directamente a parámetros o variables expuestas por la plantilla de llamada. La plantilla vinculada también puede pasar una variable de salida de nuevo a la plantilla de origen, lo que permite un intercambio de datos bidireccional entre las plantillas.
 
 ## <a name="linking-to-a-template"></a>Vinculación con una plantilla
-Cree un vínculo entre dos plantillas mediante la adición de un recurso de implementación dentro de la plantilla principal que apunta a la plantilla vinculada. Para ello, debe establecer la propiedad **templateLink** en el URI de la plantilla vinculada. Puede proporcionar valores de parámetro para la plantilla vinculada especificando los valores directamente en la plantilla o mediante la vinculación a un archivo de parámetros. El siguiente ejemplo usa la propiedad **parameters** para especificar un valor de parámetro directamente.
+Cree un vínculo entre dos plantillas mediante la adición de un recurso de implementación dentro de la plantilla principal que apunta a la plantilla vinculada. Para ello, debe establecer la propiedad **templateLink** en el URI de la plantilla vinculada. Los valores de los parámetros de la plantilla se pueden proporcionar directamente en la plantilla o en archivo de parámetros. El siguiente ejemplo usa la propiedad **parameters** para especificar un valor de parámetro directamente.
 
 ```json
 "resources": [ 
@@ -87,7 +88,7 @@ En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra
 ],
 ```
 
-Aunque el token se pasa como una cadena segura, el URI de la plantilla vinculada, incluido el token de SAS, se registra en las operaciones de implementación para ese grupo de recursos. Para limitar la exposición, establezca una caducidad para el token.
+Aunque el token se pasa como una cadena segura, el identificador URI de la plantilla vinculada, incluido el token de SAS, se registra en las operaciones de implementación. Para limitar la exposición, establezca una caducidad para el token.
 
 Resource Manager controla cada plantilla vinculada como una implementación independiente. En el historial de implementación para el grupo de recursos, vea implementaciones independientes del elemento primario y las plantillas anidadas.
 
@@ -308,26 +309,36 @@ En PowerShell, se obtiene un token para el contenedor y se implementan las plant
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-En la CLI de Azure, se obtiene un token para el contenedor y se implementan las plantillas con el código siguiente. Actualmente, debe proporcionar un nombre para la implementación cuando se utiliza un identificador URI para la plantilla que incluye un token de SAS.  
+En la CLI de Azure 2.0, se obtiene un token para el contenedor y se implementan las plantillas con el código siguiente:
 
+```azurecli
+seconds='@'$(( $(date +%s) + 1800 ))
+expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name storagecontosotemplates \
+    --query connectionString)
+token=$(az storage container generate-sas \
+    --name templates \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name parent.json \
+    --output tsv \
+    --connection-string $connection)
+parameter='{"containerSasToken":{"value":"?'$token'"}}'
+az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
-expiretime=$(date -I'minutes' --date "+30 minutes")  
-azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
-azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
-```
-
-Se le pide que proporcione el token de SAS como parámetro. Tiene que anteponer **?**al token.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md)
 * Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

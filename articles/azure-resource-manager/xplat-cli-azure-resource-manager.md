@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/14/2017
 La interfaz de línea de comandos de Azure (CLI de Azure) es una de las diversas herramientas que puede usar para implementar y administrar recursos con Resource Manager. En este artículo se describen formas habituales de administrar los recursos y los grupos de recursos de Azure con la CLI de Azure en el modo Resource Manager. Para información sobre el uso de la CLI para implementar recursos, consulte [Implementación de recursos con plantillas de Azure Resource Manager y la CLI de Azure](resource-group-template-deploy-cli.md). Para información sobre el Administrador de recursos de Azure, consulte [Información general de Azure Resource Manager](resource-group-overview.md).
 
 > [!NOTE]
-> Para administrar recursos de Azure con la CLI de Azure, necesitará [instalar la CLI de Azure](../xplat-cli-install.md) e [iniciar sesión en Azure](../xplat-cli-connect.md) mediante el comando `azure login`. Asegúrese de que la CLI está en modo de Resource Manager (ejecute `azure config mode arm`). Si ha realizado estas acciones, ya está preparado para comenzar.
+> Para administrar recursos de Azure con la CLI de Azure, necesitará [instalar la CLI de Azure](../cli-install-nodejs.md) e [iniciar sesión en Azure](../xplat-cli-connect.md) mediante el comando `azure login`. Asegúrese de que la CLI está en modo de Resource Manager (ejecute `azure config mode arm`). Si ha realizado estas acciones, ya está preparado para comenzar.
 > 
 > 
 

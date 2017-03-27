@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 59be15f2d17bbcbc4db6dd9d291cb1ea5991db2e
-ms.openlocfilehash: a753ac16e3329c85656682314824eb14ad8a4e52
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/01/2017
 
 Probablemente haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal MyApps. Aunque habrá casos en los que deba ponerse en contacto con el departamento de soporte técnico o con su administrador para resolver un problema, en este tema hemos recopilado pasos a preguntas comunes que puede intentar primero por su cuenta. 
 
-Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md).
+Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
   
 
 ## <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
@@ -49,7 +49,7 @@ MyApps es un portal web que le permite:
 3.    Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
 4.    Haga clic en **Submit**(Enviar).
 
-Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md).
+Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>¿Cómo configuro el restablecimiento de contraseña?

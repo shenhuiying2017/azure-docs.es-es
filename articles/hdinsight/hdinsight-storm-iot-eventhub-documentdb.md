@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 78980635-8bef-4c33-96c3-fae50e932e31
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 46bc5b3b70120cd631523fd2b27ad8b9a47e3c6d
 ms.openlocfilehash: 952480e71dac19c7772198516863b3e64be1a6b3
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -61,10 +63,5 @@ Se puede encontrar una solución completa y automatizada para este escenario com
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más topologías de ejemplo de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
