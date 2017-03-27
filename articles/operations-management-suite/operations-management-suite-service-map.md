@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
-ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,10 +55,26 @@ Las máquinas se pueden expandir en la asignación para mostrar los procesos en 
 
 De forma predeterminada, las asignaciones de Mapa de servicio muestran los últimos 10 minutos de la información de dependencia.  Con los controles de tiempo en la parte superior izquierda, se pueden consultar las asignaciones para intervalos de tiempo históricos hasta durante una hora, para mostrar cómo se buscan dependencias en el pasado, por ejemplo, durante un incidente o antes de que se produzca un cambio.    Los datos de Mapa de servicio se almacenan durante 30 días en áreas de trabajo pagadas y durante 7 días en áreas de trabajo disponibles.
 
-## <a name="status-badges"></a>Notificaciones de estado
+## <a name="status-badges-and-border-coloring"></a>Notificaciones de estado y colores en el borde
 En la parte inferior de cada servidor en el mapa puede haber una lista de notificaciones de estado que expresan información de estado acerca del servidor.  Las notificaciones indican que hay cierta información pertinente para el servidor de una de las integraciones de solución de OMS.  Al hacer clic en una notificación se le conducirá directamente a los detalles del estado en el panel derecho.  Las notificaciones de estado actualmente disponibles incluyen alertas, cambios, seguridad y actualizaciones.
 
-![Conexiones con errores](media/oms-service-map/status-badges.png)
+Según la gravedad de las notificaciones de estado, los bordes del nodo de la máquina puede ser rojos (Crítico), amarillos (Advertencia) o azules (Informativo).  El color representa el estado más grave de cualquiera de las notificaciones de estado.  Un borde gris indica que un nodo no tiene actualmente indicadores de estado.
+
+![Notificaciones de estado](media/oms-service-map/status-badges.png)
+
+## <a name="role-icons"></a>Iconos de rol
+Ciertos procesos cumplen roles determinados en las máquinas: servidores web, servidores de aplicaciones, base de datos, etc.  El mapa de servicio indicará las casillas de proceso y máquina con iconos de rol para permitir la identificación rápida del rol que desempeña un proceso o un servidor.
+
+| Icono de rol | Descripción |
+|:--|:--|
+| ![Servidor Web](media/oms-service-map/role-web-server.png) | Servidor Web |
+| ![Servidor de aplicaciones](media/oms-service-map/role-application-server.png) | Servidor de aplicaciones |
+| ![Servidor de bases de datos](media/oms-service-map/role-database.png) | Servidor de bases de datos |
+| ![Servidor LDAP](media/oms-service-map/role-ldap.png) | Servidor LDAP |
+| ![Servidor SMB](media/oms-service-map/role-smb.png) | Servidor SMB |
+
+![Iconos de rol](media/oms-service-map/role-icons.png)
+
 
 ## <a name="failed-connections"></a>Conexiones con errores
 Las conexiones erróneas se muestran en las asignaciones de Mapa de servicio para procesos y equipos, con una línea roja discontinua que muestra si no se puede llegar a un proceso o un puerto de un sistema cliente.  Se informa de las conexiones erróneas de cualquier sistema con un agente de Mapa de servicio implementado si ese sistema es el que intenta establecer la conexión con errores.  Mapa de servicio mide esto mediante la observación de los sockets TCP que no pudieron establecer una conexión.  Esto puede deberse a un firewall, una configuración incorrecta en el cliente o a un servidor o un servicio remoto que no está disponible.

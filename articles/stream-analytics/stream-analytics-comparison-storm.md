@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,6 +28,7 @@ Obtenga instrucciones para seleccionar una plataforma de análisis en la nube me
 Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas importantes capacidades distintivas que diferencian estos servicios. Las capacidades, así como las limitaciones, de estos servicios se enumeran a continuación para ayudarle a llegará a la solución que necesita para lograr sus objetivos.
 
 ## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparación de Storm con Análisis de transmisiones: características generales
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -137,7 +139,9 @@ Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster 
         </tr>
     </tbody>
 </table>
-## Creación en cada plataforma de análisis ##
+
+## <a name="authoring-on-each-analytics-platform"></a>Creación en cada plataforma de análisis ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -261,7 +265,9 @@ Sí, puede escribir en Storm el código personalizado en C#, Java u otros lengua
         </tr>
     </tbody>
 </table>
-## Salidas y orígenes de datos ##
+
+## <a name="data-sources-and-outputs"></a>Salidas y orígenes de datos ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -350,7 +356,9 @@ Cualquier formato de codificación de datos ha de implementarse a través del c�
         </tr>
     </tbody>
 </table>
-## Administración y operaciones ##
+
+## <a name="management-and-operations"></a>Administración y operaciones ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -509,7 +517,9 @@ Contrato de nivel de servicio con un tiempo de actividad del clúster de Storm d
         </tr>
     </tbody>
 </table>
-## Características avanzadas ##
+
+## <a name="advanced-features"></a>Características avanzadas ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -585,9 +595,4 @@ Disponible a través de Storm Bolts.
         </tr>
     </tbody>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

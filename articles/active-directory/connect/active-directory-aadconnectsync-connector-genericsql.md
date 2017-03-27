@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -145,10 +145,25 @@ En esta página, puede configurar en todos los atributos de referencia a qué pa
 
 Si utiliza **DN is anchor**(DN es el delimitador), debe usar el mismo tipo de objeto que el que desde el que hace referencia. No se puede hacer referencia a otro tipo de objeto.
 
+>[!NOTE]
+A partir de la actualización de marzo de 2017, ahora hay una opción para "*". Cuando se elige esta opción, se importan todos los tipos de miembro posibles.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+Después de la importación, verá una imagen similar a la que se encuentra a continuación:
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
 ### <a name="global-parameters"></a>Parámetros globales
 La página Parámetros globales se utiliza para configurar la importación diferencial, el formato de fecha y hora, y el método de contraseña.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ "*", que también se conoce como**cualquier opción**, no se puede usar durante las operaciones de exportación o eliminación.
 
 El conector de SQL genérico admite los siguientes métodos para la importación diferencial:
 

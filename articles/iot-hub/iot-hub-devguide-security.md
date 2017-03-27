@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 0644efd8753c33c0404b45f567759c0be666bcef
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -329,7 +329,7 @@ await registryManager.AddDeviceAsync(device);
 El [SDK de dispositivos IoT de Azure para .NET][lnk-client-sdk] (versión 1.0.11 o posterior) permite utilizar certificados X.509.
 
 ### <a name="c-support"></a>Compatibilidad con C\#
-La clase **DeviceAuthenticationWithX509Certificate** permite crear instancias  **DeviceClient** mediante un certificado X.509.
+La clase **DeviceAuthenticationWithX509Certificate** permite crear instancias  **DeviceClient** mediante un certificado X.509. El certificado X.509 tiene que tener el formato PFX (también llamado PKCS #12) que incluye la clave privada. 
 
 A continuación, veremos un fragmento de código de ejemplo:
 

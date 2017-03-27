@@ -227,10 +227,11 @@
 ## administración
 ### Crear un centro de IoT 
 #### [Uso del portal](iot-hub-create-through-portal.md)
+#### [Uso de PowerShell](iot-hub-create-using-powershell.md)
 #### [Uso de la CLI 2.0](iot-hub-create-using-cli.md)
 #### [Uso de la CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Uso de la API de REST](iot-hub-rm-rest.md)
-#### [Uso de PowerShell](iot-hub-rm-template-powershell.md)
+#### [Uso de una plantilla de PowerShell](iot-hub-rm-template-powershell.md)
 #### [Uso de una plantilla de .NET](iot-hub-rm-template.md)
 ### [Configuración de la carga de archivos](iot-hub-configure-file-upload.md)
 ### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)

@@ -5,7 +5,7 @@
 Antes de comenzar con la configuración, compruebe que dispone de los elementos siguientes.
 
 * Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Instale la versión más reciente de la CLI de Azure, disponible para Windows, Linux o Mac. Puede consultar mas información disponible en [Instalación de la CLI de Azure](../articles/xplat-cli-install.md).
+* Instale la versión más reciente de la CLI de Azure, disponible para Windows, Linux o Mac. Puede consultar mas información disponible en [Instalación de la CLI de Azure](../articles/cli-install-nodejs.md).
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure.
 
@@ -54,9 +54,4 @@ El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. 
 ```azurecli
 azure provider register --namespace Microsoft.Network
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -109,11 +109,11 @@
 #### [Patrones de redes de clúster](service-fabric-patterns-networking.md)
 #### [Tipos de nodos y conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md)
 #### [Escalado de un clúster](service-fabric-cluster-scale-up-down.md)
+#### [Escalado de un clúster mediante programación](service-fabric-cluster-programmatic-scaling.md)
 #### [Actualización de un clúster](service-fabric-cluster-upgrade.md)
 #### [Eliminación de un clúster](service-fabric-cluster-delete.md)
 #### [Control de acceso](service-fabric-cluster-security-roles.md)
 #### [Configuración de un clúster](service-fabric-cluster-fabric-settings.md)
-#### [Protección de un clúster mediante certificados](service-fabric-windows-cluster-x509-security.md)
 #### [Incorporación o sustitución de certificados de clúster](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Prueba de un Party Cluster gratis](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Administración del ciclo de vida de las aplicaciones
 ### [Información general](service-fabric-application-lifecycle.md)
-### [Configuración de integración continua](service-fabric-set-up-continuous-integration.md)
+### [Configuración de integración continua con VSTS](service-fabric-set-up-continuous-integration.md)
+### [Implementación de su aplicación de Linux Java con Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [Descripción de la configuración de ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Implementación o eliminación de aplicaciones
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

@@ -3,7 +3,7 @@ title: "Autenticación y autorización para API Apps en Azure App Service | Micr
 description: "Obtenga información acerca de los servicios de autenticación y autorización que el Servicio de aplicaciones de Azure proporciona para Aplicaciones de API."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
@@ -77,7 +77,7 @@ Para las opciones 1 y 2, active **Autenticación de App Service** y en la lista 
 
 Para más información sobre cómo configurar la autenticación, consulte [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). El artículo se aplica a aplicaciones de API, así como a aplicaciones móviles, e incluye vínculos a otros artículos para los demás proveedores de autenticación.
 
-## <a name="a-idinternala-service-account-authentication"></a><a id="internal"></a> Autenticación de cuentas de servicio
+## <a id="internal"></a> Autenticación de cuentas de servicio
 La autenticación del Servicio de aplicaciones también funciona en escenarios internos, como para la realización de llamadas de una aplicación de API a otra. En este escenario se puede obtener un token mediante credenciales para una cuenta de servicio, en lugar de las credenciales de usuario final. Las cuentas de servicio también se conocen como *entidades de servicio* en Azure Active Directory y la autenticación que usa dichas cuenta también se conoce como escenario entre servicios. 
 
 En los escenarios entre servicios, proteja la aplicación de API llamada mediante Azure Active Directory y proporcione un token de autorización de la entidad de servicio de AAD al llamar a la aplicación de API. Puede obtener un token mediante la especificación del identificador de cliente y el secreto de cliente desde la aplicación de AAD. No se necesita ningún código especial solo para Azure, como el que se solía usar para controlar el token de Zumo de Servicios móviles. Un ejemplo del uso de este escenario por parte de aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md).

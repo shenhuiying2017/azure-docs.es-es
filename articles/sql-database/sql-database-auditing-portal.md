@@ -13,18 +13,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 2/25/2017
+ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 2882c41ced74c35e28a9237f3f08b6e6f687b846
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
+ms.lasthandoff: 03/10/2017
 
 
 ---
+
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Configuración y administración de la auditoría de base de datos SQL en Azure Portal
 
-En la siguiente sección se describe cómo configurar y administrar la auditoría mediante Azure Portal. Para configurar y administrar la auditoría con PowerShell, consulte [Configuración de la auditoría con PowerShell](sql-database-auditing-powershell.md). Para configurar y administrar la auditoría con la API de REST, consulte [Configuración de la auditoría con la API de REST](sql-database-auditing-rest.md).
+En la siguiente sección se describe cómo configurar y administrar la auditoría mediante Azure Portal. Para configurar y administrar la auditoría con PowerShell, consulte [Configuración de la auditoría con PowerShell](sql-database-auditing-powershell.md). 
 
 Para obtener información general sobre auditoría, consulte [Auditoría de SQL Database](sql-database-auditing.md).
 
@@ -44,8 +45,10 @@ Para obtener información general sobre auditoría, consulte [Auditoría de SQL 
 
     <a id="storage-screenshot"></a>
     ![Panel de navegación][4]
-6. Si quiere personalizar los eventos auditados, puede hacerlo a través de [PowerShell](sql-database-auditing-powershell.md) o de la [API de REST](sql-database-auditing-rest.md).
-7. Haga clic en **Guardar**.
+6. Si quiere personalizar los eventos auditados, puede hacerlo a través de PowerShell o de la API de REST.
+7. Cuando haya configurado los valores de auditoría, puede activar la nueva detección de amenazas (versión preliminar) y configurar los mensajes de correo electrónico para recibir alertas de seguridad. La detección de amenazas le permite recibir alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Consulte [Detección de amenazas](sql-database-threat-detection.md) para más información.
+8. Haga clic en **Guardar**.
+
 
 ## <a name="table-auditing"></a>Auditoría de tablas
 
@@ -61,7 +64,7 @@ Para obtener información general sobre auditoría, consulte [Auditoría de SQL 
 4. Si prefiere no heredar la configuración de auditoría del servidor, **desactive** la opción **Heredar la configuración de auditoría del servidor**, **active** Auditoría y elija el tipo **Tabla**.
 
     ![Panel de navegación][3-tbl]
-5. Seleccione **Detalles de almacenamiento** para abrir la hoja de almacenamiento de registros de auditoría. Seleccione la cuenta de almacenamiento de Azure donde se guardan los registros, y el período de retención, después del cual los registros antiguos se eliminarán. **Sugerencia:** use la misma cuenta de almacenamiento para todas las bases de datos auditadas a fin de aprovechar al máximo las plantillas de informes de auditoría (*[consulte la captura de pantalla en la sección Auditoría de blobs](#storage-screenshot)*).
+5. Seleccione **Detalles de almacenamiento** para abrir la hoja de almacenamiento de registros de auditoría. Seleccione la cuenta de almacenamiento de Azure donde se guardan los registros y el período de retención, después del cual los registros antiguos se eliminarán. **Sugerencia:** use la misma cuenta de almacenamiento para todas las bases de datos auditadas a fin de aprovechar al máximo las plantillas de informes de auditoría (*[consulte la captura de pantalla en la sección Auditoría de blobs](#storage-screenshot)*).
 6. Haga clic en **Eventos auditados** para personalizar los eventos que se van a auditar. En la hoja Registro por evento, haga clic en **Acierto** y **Error** para registrar todos los eventos, o elija categorías individuales de eventos.
 
     ![Panel de navegación][5]
@@ -83,7 +86,7 @@ Al usar bases de datos con replicación geográfica, es posible configurar la au
    * Después de habilitar la auditoría de blobs en la base de datos principal, también se habilitará en la base de datos secundaria.
 
     > [!IMPORTANT]
-    > De forma predeterminada, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. Para evitarlo, habilite la auditoría de blobs en el servidor secundario y configure un almacenamiento local en la configuración de almacenamiento del servidor secundario, así se invalidará la ubicación de almacenamiento de la base de datos secundaria y se guardarán los registros de auditoría de cada base de datos en un almacenamiento local.  
+    > De forma predeterminada, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. Para evitarlo, habilite la auditoría de blobs en el servidor secundario y configure un almacenamiento local en su configuración de almacenamiento, así se invalidará la ubicación de almacenamiento de la base de datos secundaria y se guardarán los registros de auditoría de cada base de datos en un almacenamiento local.  
 
 ## <a name="viewing-blob-auditing-logs"></a>Visualización de registros de auditoría de blobs
 
@@ -186,7 +189,6 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para configurar y administrar la auditoría con PowerShell, consulte [Configuración de la auditoría de base de datos mediante PowerShell](sql-database-auditing-powershell.md).
-* Para configurar y administrar la auditoría con la API de REST, consulte [Configuración de la auditoría de base de datos mediante la API de REST](sql-database-auditing-rest.md).
 * Para obtener información general sobre la auditoría, consulte [Auditoría de base de datos](sql-database-auditing.md).
 
 

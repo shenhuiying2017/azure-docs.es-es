@@ -559,7 +559,7 @@ Si recibe el error "Error al procesar la solicitud" mientras intenta implementar
     - Región: seleccione la región más cercana a los usuarios de la aplicación.
     - Servidor de base de datos: haga clic en Ninguna base de datos y luego en **Crear**. 
 
-4. En la "pantalla de todo-net-app *", haga clic en **Validar conexión**. Después de comprobar la conexión, haga clic en **Publicar**. 
+4. En la "pantalla de todo-net-app *", haga clic en**Validar conexión**. Después de comprobar la conexión, haga clic en**Publicar**. 
     
     Seguidamente la aplicación aparece en su explorador.
 

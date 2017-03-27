@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: 49bec6125bcd76c3bb52f1237b0f0e0ceff85ffb
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b615f97484033bb406022e84fbcf50f88458de3c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,7 +45,7 @@ Para más información sobre cómo trabajar con permisos con clústeres de HDIns
 
 ## <a name="access-control"></a>Control de acceso
 
-Si usa una suscripción de Azure donde no es el administrador o propietario (por ejemplo, una suscripción propiedad de la empresa), debe comprobar que el inicio de sesión de Azure tiene al menos acceso de **Colaborador** al grupo de recursos de Azure que contiene el clúster de HDInsight.
+Si usa una suscripción de Azure donde no es el administrador o propietario (por ejemplo, una suscripción propiedad de la empresa), debe comprobar que la cuenta de Azure tenga al menos acceso de **Colaborador** al grupo de recursos de Azure que contiene el clúster de HDInsight.
 
 Además, si va a crear un clúster de HDInsight, un usuario con al menos acceso de **Colaborador** a la suscripción de Azure debe haber registrado previamente el proveedor para HDInsight. El registro del proveedor se produce cuando un usuario con acceso de Colaborador a la suscripción crea un recurso por primera vez en la suscripción. También puede realizarse sin crear ningún recurso mediante el [registro de un proveedor con REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
@@ -55,7 +56,7 @@ Para más información sobre cómo trabajar con la administración de acceso, co
 
 ## <a name="understanding-script-actions"></a>Descripción de las acciones de script
 
-Una acción de script es un script de Bash al que se proporciona un URI y unos parámetros, y que luego se ejecuta en los nodos del clúster de HDInsight. Estas son algunas características de las acciones de script.
+Una acción de script es simplemente un script de Bash al que proporciona un URI y para el que proporciona parámetros. El script se ejecuta en nodos del clúster de HDInsight. Estas son algunas características de las acciones de script.
 
 * Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
 
@@ -66,12 +67,14 @@ Una acción de script es un script de Bash al que se proporciona un URI y unos p
         > [!NOTE]
         > La entidad de servicio que HDInsight usa para acceder a Data Lake Store debe tener acceso de lectura al script.
 
-    * Una **cuenta de almacenamiento de blobs** que sea la cuenta de almacenamiento principal o una adicional para el clúster de HDInsight. Puesto que, durante la creación del clúster, se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento, estas ofrecen una forma de usar una acción de script no público.
+    * Un blob de una **cuenta de Azure Storage** que sea la cuenta de almacenamiento principal o adicional del clúster de HDInsight. Puesto que, durante la creación del clúster, se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento, estas ofrecen una forma de usar una acción de script no público.
 
-    * Una dirección https://docs.microsoft.com/en-us/azure/service-bus/, por ejemplo, Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    * Un servicio público de uso compartido de archivos, como Azure Blob, GitHub, OneDrive, Dropbox, etc.
 
         Para obtener ejemplos de URI de scripts que se almacenan en un contenedor de blobs (con legibilidad pública), consulte la sección [Ejemplo de scripts de acción de script](#example-script-action-scripts) .
 
+        > [!WARNING]
+        > HDInsight solo admite cuentas de Azure Storage de __uso general__. No admite actualmente el tipo de cuenta de __Blob Storage__.
 
 * Su **ejecución se puede limitar a determinados tipos de nodos**, por ejemplo, nodos principales o de trabajo.
 
@@ -115,7 +118,7 @@ El siguiente diagrama ilustra el momento en que acción de script se ejecuta dur
 
 ![Fases y personalización de clústeres de HDInsight durante la creación de clústeres][img-hdi-cluster-states]
 
-Se ejecuta el script durante la configuración de HDInsight. En esta fase, el script se ejecuta de forma paralela en todos los nodos especificados del clúster con privilegios raíz en los nodos.
+El script se ejecuta mientras se configura HDInsight. En esta fase, el script se ejecuta de forma paralela en todos los nodos especificados del clúster con privilegios raíz en los nodos.
 
 > [!NOTE]
 > Como el script se ejecuta con privilegios raíz en los nodos del clúster, puede realizar operaciones como la detención y el inicio de servicios, incluidos los servicios de Hadoop. Si detiene los servicios, tiene que asegurarse de que los servicios de Ambari y los demás servicios de Hadoop estén en funcionamiento antes de que finalice la ejecución del script. Estos servicios son necesarios para determinar correctamente el estado del clúster mientras se crea.
@@ -126,7 +129,7 @@ Durante este proceso, puede especificar que se invoquen varias acciones de scrip
 > [!IMPORTANT]
 > Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o se superará el tiempo de espera. Durante el aprovisionamiento del clúster, el script se ejecuta a la vez con otros procesos de instalación y configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 >
-> Para minimizar el tiempo necesario para ejecutar el script, evite tareas tales como descargar y compilar aplicaciones desde el origen. En su lugar, compile previamente la aplicación y almacene la versión binaria en el almacenamiento de blobs de Azure para que se pueda descargar rápidamente en el clúster.
+> Para minimizar el tiempo necesario para ejecutar el script, evite tareas tales como descargar y compilar aplicaciones desde el origen. En su lugar, compile previamente la aplicación y almacene la versión binaria en Azure Storage para que se pueda descargar rápidamente en el clúster.
 
 
 ### <a name="script-action-on-a-running-cluster"></a>Acción de script en un clúster en ejecución
@@ -540,7 +543,7 @@ Antes de continuar, asegúrese de que ha instalado y configurado Azure PowerShel
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Aplicación de una acción de script a un clúster en ejecución desde la CLI de Azure
 
-Antes de continuar, asegúrese de que ha instalado y configurado la CLI de Azure. Para más información, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
+Antes de continuar, asegúrese de que ha instalado y configurado la CLI de Azure. Para más información, consulte [Instalación de la CLI de Azure](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -697,7 +700,7 @@ Puede usar la interfaz de usuario web de Ambari para ver la información registr
 
     ![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
-    Seleccione esta entrada y profundice a través de los vínculos para ver el resultado STDOUT y STDERR que se genera cuando el script se ejecutó en el clúster.
+    Seleccione esta entrada run\customscriptaction y profundice mediante los vínculos para ver la salida STDOUT y STDERR. Esta salida se genera cuando se ejecuta el script y puede contener información útil.
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Acceso a los registros desde la cuenta de almacenamiento predeterminada
 
@@ -738,7 +741,7 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 
 ### <a name="cannot-import-name-blobservice"></a>No se puede importar el nombre BlobService
 
-__Síntomas__: se produce un error en la acción del script y se muestra un error similar al siguiente al ver la operación en Ambari:
+__Síntomas__: se produce un error en la acción de script y se muestra un error similar al siguiente al ver la operación en Ambari:
 
 ```
 Traceback (most recent call list):
@@ -783,9 +786,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 * [Adición de almacenamiento adicional a un clúster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

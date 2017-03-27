@@ -1,62 +1,8 @@
 ---
-title: "Configuración del método de enrutamiento del tráfico de conmutación por error de Traffic Manager | Microsoft Docs"
-description: "Este artículo le ayudará a configurar el método de enrutamiento del tráfico de conmutación por error en el Administrador de tráfico"
-services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
-editor: tysonn
-ms.assetid: 1a6b13a0-5f23-4624-be64-606156f0dc4b
-ms.service: traffic-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/18/2016
-ms.author: kumud
+redirect_url: /azure/traffic-manager/traffic-manager-configure-priority-routing-method
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 849e277bcd059c270d681a55b954a5b86f4a5935
-
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 129b834f78ccb8277065123f2cfdf2f7776ceabf
+ms.lasthandoff: 03/22/2017
 
 ---
-<!-- repub for nofollow -->
-
-# <a name="configure-failover-routing-method"></a>Configuración del método de enrutamiento de conmutación por error
-En ocasiones, una organización desea proporcionar confiabilidad en sus servicios. Puede hacerlo mediante servicios de copia de seguridad en caso de que el servicio principal esté desactivado. Un patrón habitual de la conmutación por error del servicio es que proporciona un conjunto de servicios idénticos y que envía el tráfico a un servicio principal, mientras mantiene una lista configurada de uno o más servicios de copia de seguridad. Puede configurar este tipo de copia de seguridad con servicios en la nube y sitios web de Azure siguiendo los procedimientos que se indican a continuación.
-
-Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del método de enrutamiento del tráfico de conmutación por error para sitios web en un centro de datos (también conocido como región), independientemente del modo del sitio web. El Administrador de tráfico permite especificar el método de enrutamiento del tráfico de conmutación por error para sitios web en distintos centros de datos.
-
-## <a name="to-configure-failover-traffic-routing-method"></a>Para configurar el método de enrutamiento de tráfico de conmutación por error:
-1. En el Portal de Azure clásico, en el panel izquierdo, haga clic en el icono **Administrador de tráfico** para abrir el panel del Administrador de tráfico. Si aún no ha creado su perfil de Administrador de tráfico, consulte [Administración de perfiles del Administrador de tráfico](traffic-manager-manage-profiles.md) para conocer el procedimiento de creación de un perfil básico de Administrador de tráfico.
-2. En el panel Administrador de tráfico del Portal de Azure clásico, localice el perfil del Administrador de tráfico que contiene la configuración que quiere modificar y haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
-3. En la página del perfil, haga clic en **Extremos** en la parte superior y compruebe que estén presentes tanto los servicios en la nube como los sitios web (extremos) que desee incluir en la configuración. Para obtener el procedimiento para agregar o quitar extremos, consulte [Administración de extremos en el Administrador de tráfico](traffic-manager-endpoints.md).
-4. En la página del perfil, haga clic en **Configurar** en la parte superior, para abrir la página de configuración.
-5. En **Configuración del método de enrutamiento del tráfico**, compruebe que dicho método sea **Conmutación por error**. De no ser así, haga clic en **Conmutación por error** en la lista desplegable.
-6. En **Lista de prioridades de conmutación por error**, ajuste el orden de la conmutación por error de los extremos. Cuando seleccione el método de enrutamiento del tráfico de **Conmutación por error** , el orden de los extremos seleccionados es importante. El extremo principal se encuentra en primer lugar. Utilice las flechas hacia arriba y hacia abajo para cambiar el orden según lo desee. Para obtener más información sobre cómo establecer la prioridad de conmutación por error con Windows PowerShell, consulte [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
-7. Compruebe que la **Configuración de supervisión** sea correcta. La supervisión garantiza que no se envíe tráfico a los extremos sin conexión. Para supervisar los extremos, debe especificar una ruta de acceso y un nombre de archivo. Tenga en cuenta que una barra diagonal “/“ es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado). Para obtener más información acerca de la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
-8. Una vez que haya terminado de cambiar la configuración, haga clic en **Guardar** en la parte inferior de la página.
-9. Pruebe los cambios de la configuración. Consulte [Comprobar la configuración del Administrador de tráfico](traffic-manager-testing-settings.md) para obtener más información.
-10. Una vez que el perfil del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico. Para obtener más información acerca de este procedimiento, consulte [Seleccionar un dominio de la compañía en Internet para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
-
-## <a name="next-steps"></a>Pasos siguientes
-[Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md)
-
-[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
-
-[Configuración del método de enrutamiento round robin](traffic-manager-configure-round-robin-routing-method.md)
-
-[Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
-
-[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
-
-[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
-
-[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

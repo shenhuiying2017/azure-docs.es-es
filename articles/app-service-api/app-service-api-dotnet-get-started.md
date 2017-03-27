@@ -3,7 +3,7 @@ title: "Introducción a API Apps y ASP.NET en App Service | Microsoft Docs"
 description: "Obtenga información acerca de cómo crear, implementar y consumir una aplicación de API de ASP.NET en el Servicio de aplicaciones de Azure con Visual Studio 2015."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
@@ -199,7 +199,7 @@ Swashbuckle funciona con cualquier proyecto de ASP.NET Web API. Si desea agregar
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Creación de una aplicación de API en Azure e implementación de código en ella
+## <a id="createapiapp"></a> Creación de una aplicación de API en Azure e implementación de código en ella
 En esta sección, se usan las herramientas de Azure integradas en el Asistente para **publicación web** de Visual Studio para crear una aplicación de API en Azure. A continuación, se implementa el proyecto ToDoListDataAPI en la nueva aplicación de API y se llama a la API, para lo que se ejecuta la interfaz de usuario de Swagger.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto ToDoListDataAPI y haga clic en **Publicar**.
@@ -303,7 +303,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
     
     Cuando se selecciona una aplicación de API para la que se va a generar código de cliente, Visual Studio recupera los metadatos de esta dirección URL.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generación de código de cliente para la capa de datos
+## <a id="codegen"></a> Generación de código de cliente para la capa de datos
 Una de las ventajas de integrar Swagger en aplicaciones de API de Azure es la generación automática de código. Las clases de cliente generadas hacen que sea más fácil escribir código que llame a una aplicación de API.
 
 El proyecto ToDoListAPI ya tiene el código de cliente generado, pero en los siguientes pasos lo eliminará y lo volverá a crear para ver cómo se genera código.

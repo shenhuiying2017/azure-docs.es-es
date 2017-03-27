@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: edc6b5f7a90babaa1f50b14f40eaed1e8582cd2e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: instalar la CLI de Azure
 
-Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](../xplat-cli-install.md) e [iniciar sesión en Azure](../xplat-cli-connect.md). 
+Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](../cli-install-nodejs.md) e [iniciar sesión en Azure](../xplat-cli-connect.md). 
 
 > [!NOTE]
 > Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../active-directory/sign-up-organization.md).

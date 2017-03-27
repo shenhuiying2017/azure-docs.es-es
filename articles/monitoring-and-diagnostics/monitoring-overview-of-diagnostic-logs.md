@@ -12,35 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/12/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="overview-of-azure-diagnostic-logs"></a>Información general sobre los registros de diagnóstico de Azure
-Los **registros de diagnóstico de Azure** son registros emitidos por un recurso que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso (por ejemplo, los registros del sistema de eventos de Windows son una categoría de registro de diagnóstico para máquinas virtuales, mientras que los registros de blob, tabla y cola son categorías para cuentas de almacenamiento). Se diferencian del [registro de actividad (antes conocido como registro de auditoría o registro operativo)](monitoring-overview-activity-logs.md) en que proporcionan información sobre las operaciones realizadas en recursos de su suscripción. No todos los recursos admiten el nuevo tipo de registros de diagnóstico que se describe aquí. La lista de servicios admitidos de más adelante muestra qué tipos de recursos admiten los nuevos registros de diagnóstico.
+# <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Recopile y use los datos de diagnóstico provenientes de los recursos de Azure
 
-![Ubicación lógica de registros de diagnóstico](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+## <a name="what-are-azure-diagnostic-logs"></a>Qué son los registros de diagnóstico de Azure
+Los **registros de diagnóstico de Azure** son registros emitidos por un recurso que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso. Por ejemplo, los registros del sistema de eventos de Windows son una categoría de registro de diagnóstico para máquinas virtuales y los registros de blob, tabla y cola son categorías de los registros de diagnóstico para cuentas de almacenamiento.
+
+Los registros de diagnóstico son distintos del [registro de actividad (anteriormente conocido como registro de auditoría o registro operativo)](monitoring-overview-activity-logs.md). El registro de actividad proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. Los registros de diagnóstico proporcionan información detallada sobre las operaciones que el mismo recurso realiza.
+
+No todos los recursos admiten el nuevo tipo de registros de diagnóstico que se describe aquí. En este artículo se incluye una sección en la que se muestran los tipos de recurso que admiten los nuevos registros de diagnóstico.
+
+![Comparación de los registros de diagnóstico y otros tipos de registros ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+
+Ilustración 1: Comparación de los registros de diagnóstico y otros tipos de registros
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Qué se puede hacer con los registros de diagnóstico
 Estas son algunas de las cosas que puede hacer con los registros de diagnóstico:
+
+![Ubicación lógica de registros de diagnóstico](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * Guardarlos en una [**cuenta de almacenamiento**](monitoring-archive-diagnostic-logs.md) para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante **Configuración de diagnóstico**.
 * [Transmitirlos a **centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
 * Analizarlos con [Log Analytics de OMS](../log-analytics/log-analytics-azure-storage.md)
 
-El espacio de nombres del centro de eventos o la cuenta de almacenamiento no tiene que estar en la misma suscripción que el recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
+Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 Los registros de diagnóstico para recursos no de proceso se configuran mediante Configuración de diagnóstico. **Configuración de diagnóstico** para un control de recurso:
 
 * Dónde se envían los registros de diagnóstico (cuenta de almacenamiento, centros de eventos o Log Analytics de OMS).
 * Qué categorías de registro se envían.
-* Cuánto tiempo debe retenerse cada categoría de registro en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, este valor puede oscilar entre 1 y 2147483647. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto. Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
+* El tiempo durante el cual cada categoría de registro se debe conservar en una cuenta de almacenamiento
+    - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
+    - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto.
+    - Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
 Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos para un recurso en Azure Portal, mediante los comandos de Azure PowerShell y de la CLI, o mediante la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -141,33 +155,33 @@ Puede combinar estos parámetros para habilitar varias opciones de salida.
 Para cambiar la configuración de diagnóstico con la API de REST de Azure Monitor, consulte [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>Administración de Configuración de diagnóstico en el portal
-Para asegurarse de que todos los recursos se han definido correctamente con Configuración de diagnóstico, puede navegar a la hoja **Supervisión** del portal y abrir la hoja **Registros de diagnóstico**.
+Asegúrese de que todos los recursos estén instalados con la configuración de diagnóstico. Vaya a la hoja **Supervisión** del portal y abra la hoja **Registros de diagnóstico**.
 
 ![Hoja Registros de diagnóstico en el portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 Puede que tenga que hacer clic en "More services" (Más servicios) para encontrar la hoja Supervisión.
 
-En esta hoja, puede ver y filtrar todos los recursos que permiten ver los registros de diagnóstico si tienen los diagnósticos habilitados y a qué cuenta de almacenamiento, centro de eventos o área de trabajo de Log Analytics se redirigen tales registros.
+En esta hoja puede ver y filtrar todos los recursos que admiten los registros de diagnóstico y ver si están habilitados para los diagnósticos. También puede revisar a qué cuenta de almacenamiento, centro de eventos o área de trabajo de Log Analytics fluyen esos registros.
 
 ![Resultados de la hoja Registros de diagnóstico en el portal](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
-Al hacer clic en un recurso, se mostrarán todos los registros que se han almacenado en la cuenta de almacenamiento y se ofrece la opción para desactivar o modificar la configuración de diagnóstico. Haga clic en el icono de descarga para descargar los registros para un período de tiempo determinado.
+Al hacer clic en un recurso, se muestran todos los registros que se han almacenado en la cuenta de almacenamiento y se ofrece la opción para desactivar o modificar la configuración de diagnóstico. Haga clic en el icono de descarga para descargar los registros para un período de tiempo determinado.
 
 ![Hoja Registros de diagnóstico de un recurso](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
 
 > [!NOTE]
-> Los registros de diagnóstico solo aparecerán en esta vista y estarán disponibles para su descarga si ha configurado las opciones de diagnóstico para guardarlos en una cuenta de almacenamiento.
+> Los registros de diagnóstico solo aparecen en esta vista y estarán disponibles para su descarga si ha configurado las opciones de diagnóstico para guardarlos en una cuenta de almacenamiento.
 >
 >
 
-Al hacer clic en el vínculo de **Configuración de diagnóstico**, se abrirá la hoja Configuración de diagnóstico, donde puede habilitar, deshabilitar o modificar la configuración para el recurso seleccionado.
+Al hacer clic en el vínculo **Configuración de diagnóstico**, se abre la hoja Configuración de diagnóstico, donde puede habilitar, deshabilitar o modificar la configuración para el recurso seleccionado.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Servicios admitidos y esquema para registros de diagnóstico
-El esquema para los registros de diagnóstico varía según la categoría de registro y el recurso. A continuación, se muestran los servicios admitidos y su esquema.
+El esquema para los registros de diagnóstico varía según la categoría de registro y el recurso.   
 
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Load Balancer |[Análisis del registros para el Equilibrador de carga de Azure (vista previa)](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log Analytics para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Puertas de enlace de aplicaciones |[Registro de diagnóstico para la Puerta de enlace de aplicaciones](../application-gateway/application-gateway-diagnostics.md) |
 | Almacén de claves |[Registro del Almacén de claves de Azure](../key-vault/key-vault-logging.md) |
@@ -211,7 +225,8 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 |Microsoft.StreamAnalytics/streamingjobs|Creación|Creación|
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Transmisión de registros de diagnóstico de Azure a **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Cambio de la configuración de diagnóstico con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Análisis de los registros con Log Analytics de OMS](../log-analytics/log-analytics-azure-storage.md)
+* [Análisis de registros desde Azure Storage con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

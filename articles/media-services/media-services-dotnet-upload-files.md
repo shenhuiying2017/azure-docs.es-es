@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 03/12/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd4fa1c5927fb85a406a99bf5d2dacbb0fcbb2f
-ms.openlocfilehash: 0cdc48927c22292a4637a4e40b4ecd5be5e4478e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 08dfdb54db0655bc025f8c268988804b069f70c6
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -35,10 +36,10 @@ Los archivos del recurso se denominan **archivos de recursos**. La instancia de 
 > [!NOTE]
 > Se aplican las siguientes consideraciones:
 > 
-> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
 > * La longitud del nombre no debe ser superior a 260 caracteres.
 > * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
->
+> * Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 > 
 
 Al crear recursos, puede especificar las siguientes opciones de cifrado. 
@@ -60,13 +61,8 @@ Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el S
 En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carga de un solo archivo con el SDK .NET de Servicios multimedia
-El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas siguientes: 
+El código de ejemplo siguiente usa el SDK de .NET para cargar un único archivo. Se crean y se destruyen las instancias AccessPolicy y Locator mediante la función Upload. 
 
-* Crea un activo vacío.
-* Crea una instancia de AssetFile que necesitamos asociar con el recurso.
-* Crea una instancia de AccessPolicy que define los permisos y la duración del acceso al recurso.
-* Crea una instancia de Locator que proporciona acceso al recurso.
-* Carga un solo archivo multimedia en los Servicios multimedia. 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
@@ -77,29 +73,18 @@ El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas sigu
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions); 
+            IAsset inputAsset = _context.Assets.Create(assetName, assetCreationOptions);
 
             var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-
-            Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-            var policy = _context.AccessPolicies.Create(
-                                    assetName,
-                                    TimeSpan.FromDays(30),
-                                    AccessPermissions.Write | AccessPermissions.List);
-
-            var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
 
             Console.WriteLine("Upload {0}", assetFile.Name);
 
             assetFile.Upload(singleFilePath);
             Console.WriteLine("Done uploading {0}", assetFile.Name);
 
-            locator.Delete();
-            policy.Delete();
-
             return inputAsset;
         }
+
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Carga de varios archivos con el SDK .NET de Servicios multimedia
 El código siguiente muestra cómo crear un recurso y cargar varios archivos.
@@ -182,7 +167,7 @@ Al cargar un número elevado de recursos, tenga en cuenta lo siguiente.
 * Aumente NumberOfConcurrentTransfers desde el valor predeterminado de 2 a un valor superior como 5. La configuración de esta propiedad afecta a todas las instancias de **CloudMediaContext**. 
 * Mantenga ParallelTransferThreadCount en el valor predeterminado de 10.
 
-## <a name="a-idingestinbulkaingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Servicios multimedia
+## <a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Servicios multimedia
 La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Servicios multimedia de Microsoft Azure ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Servicios multimedia de Microsoft Azure completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
 
 Para crear un nuevo IngestManifest, llame al método Create expuesto por la colección de IngestManifests en CloudMediaContext. Este método creará un nuevo IngestManifest con el nombre de manifesto proporcionado.
@@ -314,10 +299,5 @@ También puede usar Azure Functions para desencadenar un trabajo de codificació
 Ahora que ha cargado un recurso en Media Services, vaya al tema [Obtención de un procesador multimedia][How to Get a Media Processor].
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

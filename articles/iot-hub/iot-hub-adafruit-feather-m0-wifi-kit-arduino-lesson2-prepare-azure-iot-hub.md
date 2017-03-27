@@ -1,5 +1,5 @@
 ---
-title: "Conexión de Raspberry Pi (C) a Azure IoT: Lección 2: Registro del dispositivo | Microsoft Docs"
+title: "Conexión de Arduino a Azure IoT: Lección 2: Registro del dispositivo | Microsoft Docs"
 description: Cree un grupo de recursos, una instancia de IoT Hub de Azure y registre Adafruit Feather M0 WiFi en IoT Hub de Azure mediante la CLI de Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e81ff09443b8d4930f20d0bbeb100c4a90f92a7f
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ac9421be9211d53f8b5239c356201ee3efd27999
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -103,8 +104,3 @@ Ha creado un centro de IoT Hub y ha registrado la placa de Arduino con una ident
 
 [troubleshoot]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
 [process-and-store-iot-hub-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -144,7 +144,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 > Todos los recursos (por ejemplo, el almacén de claves, la cuenta de almacenamiento y la máquina virtual) deben pertenecer a la misma región y suscripción de Azure.
 
 > [!NOTE]
-> Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región de Azure. Si se configuran en regiones independientes, se producirá un error al habilitar la característica Azure Disk Encryption.
+> Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región de Azure. Si se configuran en regiones distintas, se producirá un error al habilitar la característica Azure Disk Encryption.
 
 * Para instalar y configurar el almacén de claves para Azure Disk Encryption, vea "Instalación y configuración del almacén de claves para Azure Disk Encryption" en el apéndice.
 * Para instalar y configurar la aplicación Azure AD en Azure Active Directory para Azure Disk Encryption, consulte "Instalación de la aplicación de Azure AD en Azure Active Directory" en la sección "Requisitos previos" de este artículo.
@@ -177,7 +177,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
   > En el [SDK de Azure PowerShell (versión 1.1.0)](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016) no se admite Azure Disk Encryption. Si recibe un error relacionado con el uso de Azure PowerShell 1.1.0, vea [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Error de Azure Disk Encryption relacionado con Azure PowerShell 1.1.0).
 
 * Para ejecutar cualquiera de los comandos de la CLI de Azure y asociarlo a una suscripción de Azure, primero debe instalar la CLI de Azure:
-  * Para instalar la CLI de Azure y asociarla a una suscripción de Azure, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
+  * Para instalar la CLI de Azure y asociarla a una suscripción de Azure, consulte [Instalación de la CLI de Azure](../cli-install-nodejs.md).
   * Para utilizar la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager, vea [Comandos de la CLI de Azure en el modo de Resource Manager](../virtual-machines/azure-cli-arm-commands.md).
 * La solución Azure Disk Encryption usa el protector de claves externas de BitLocker para máquinas virtuales IaaS con Windows. Si las máquinas virtuales están unidas en un dominio, no inserte directivas de grupo que exijan protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](https://technet.microsoft.com/library/ee706521).
 * Para crear una aplicación de Azure AD, crear un nuevo almacén de claves o configurar el ya existente y habilitar el cifrado, consulte [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) (Script de PowerShell de requisito previo de Azure Disk Encryption).
@@ -259,7 +259,7 @@ Para crear una aplicación de Azure AD, ejecute los siguientes cmdlets de PowerS
 Una vez finalizado este paso, cargue un archivo PFX en el almacén de claves y habilite la directiva de acceso necesaria para implementar dicho certificado en una máquina virtual.
 
 ##### <a name="use-an-existing-azure-ad-application"></a>Uso de una aplicación de Azure AD existente
-Si va a configurar una autenticación basada en certificado para una aplicación existente, use los cmdlets de PowerShell que se muestran aquí. Asegúrese de que los ejecuta desde una ventana nueva de PowerShell.
+Si va a configurar una autenticación basada en certificado para una aplicación existente, use los cmdlets de PowerShell que se muestran aquí. Asegúrese de ejecutarlos desde una ventana nueva de PowerShell.
 
     $certLocalPath = 'C:\certs\myaadapp.cer'
     $aadClientID = '<Client ID of your Azure AD application>'
@@ -338,7 +338,7 @@ Para comprender algunos de los términos comunes que usa esta tecnología, utili
 | ARM | Administrador de recursos de Azure |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) es una tecnología de cifrado de volúmenes de Windows reconocida por el sector que se usa para habilitar el cifrado de disco en máquinas virtuales IaaS con Windows. |
 | BEK | Las claves de cifrado de BitLocker se usan para cifrar el volumen de arranque del sistema operativo y los volúmenes de datos. Las claves de BitLocker están protegidas en un almacén de claves como secretos. |
-| CLI | Vea [Instalación de la CLI de Azure](../xplat-cli-install.md). |
+| CLI | Vea [Instalación de la CLI de Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) es el subsistema de cifrado transparente de disco basado en Linux que se usa para habilitar el cifrado de disco en las máquinas virtuales IaaS con Linux. |
 | KEK | La clave de cifrado de claves (KEK) es la clave asimétrica (RSA 2048) que puede usar para proteger o encapsular el secreto. Se puede proporcionar una clave protegida mediante módulos de seguridad de hardware (HSM) o una clave protegida mediante software. Para obtener más información, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | cmdlets de PS | Consulte [Cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs). |
@@ -560,7 +560,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 > _KeyEncryptionKeyURL_ es un parámetro opcional. Puede aportar su propia KEK para proteger aún más la clave de cifrado de datos (frase de contraseña secreta) en el almacén de claves.
 
 #### <a name="cli-commands"></a>Comandos de la CLI
-Puede habilitar el cifrado de disco en el VHD cifrado mediante la instalación y el uso del [comando de la CLI](../xplat-cli-install.md). Para habilitar el cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante comandos de la CLI, haga lo siguiente:
+Puede habilitar el cifrado de disco en el VHD cifrado mediante la instalación y el uso del [comando de la CLI](../cli-install-nodejs.md). Para habilitar el cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante comandos de la CLI, haga lo siguiente:
 
 1. Configuración de directivas de acceso en el almacén de claves:
 

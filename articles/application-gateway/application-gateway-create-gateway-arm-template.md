@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 5cdd26529ed06b7903ae232ab8da4527e79a8a68
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 02b758b06332abe190b322c83da7c4135d358fa4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -164,7 +165,7 @@ Para implementar la plantilla de Azure Resource Manager descargada mediante la C
 
 ### <a name="step-1"></a>Paso 1
 
-Si es la primera vez que usa la CLI de Azure, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
+Si es la primera vez que usa la CLI de Azure, consulte [Instalación de la CLI de Azure](../cli-install-nodejs.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
 
 ### <a name="step-2"></a>Paso 2
 
@@ -246,10 +247,5 @@ Si desea más información acerca de las opciones de equilibrio de carga en gene
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

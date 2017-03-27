@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1f5f0b1aca581900b94f0f87563c5c7e720f46c8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -52,6 +52,10 @@ DocumentDB crea un pequeño número de particiones físicas detrás de cada cole
 
 Por ejemplo, supongamos que crea una colección con un rendimiento de 25 000 solicitudes por segundo y DocumentDB pueden admitir 10 000 solicitudes por segundo por partición física individual. DocumentDB crearía tres particiones físicas (P1, P2 y P3) para la colección. Durante la inserción o lectura de un documento, el servicio DocumentDB aplica un algoritmo hash al valor `Department` correspondiente para asignar datos a las tres particiones P1, P2 y P3. Por ejemplo, si "Marketing" y "Sales" aplican el algoritmo hash a 1, ambos se almacenan en P1. Y si P1 se llena, DocumentDB divide P1 en dos particiones nuevas, P4 y P5. A partir de ese momento, el servicio puede mover "Marketing" a P4 y "Sales" a P5, y luego eliminar P1. Estos movimientos de claves de partición entre las particiones son transparentes para la aplicación y no afectan en absoluto a la disponibilidad de la colección.
 
+## <a name="sharding-in-api-for-mongodb"></a>Particionamiento en la API para MongoDB
+Las colecciones particionadas de la API para MongoDB usan la misma infraestructura que las colecciones con particiones de DocumentDB. Al igual que estas, las colecciones particionadas tener cualquier número de particiones y cada partición tiene una cantidad fija de almacenamiento basado en SSD asociado. Las colecciones particionadas ofrecen funcionalidades de almacenamiento y procesamiento prácticamente ilimitadas. La clave de partición de la API para MongoDB es equivalente a la clave de partición de DocumentDB; a la hora de decidir una clave de partición, asegúrese de leer las secciones [Claves de partición](#partition-keys) y [Diseño de la creación de particiones](#designing-for-partitioning).
+
+<a name="partition-keys"></a>
 ## <a name="partition-keys"></a>Claves de partición
 La elección de la clave de partición es una decisión importante que deberá realizarse en el tiempo de diseño. Debe elegir un nombre de propiedad JSON con una amplia gama de valores y con mayor probabilidad de tener patrones de acceso distribuidos uniformemente. 
 
@@ -160,7 +164,7 @@ En la tabla siguiente se enumeran las diferencias entre trabajar con colecciones
     </tbody>
 </table>
 
-## <a name="working-with-the-sdks"></a>Trabajar con los SDK
+## <a name="working-with-the-documentdb-sdks"></a>Uso de los SDK de DocumentDB
 A partir de la [versión de la API de REST de 16-12-2015](https://msdn.microsoft.com/library/azure/dn781481.aspx), Azure DocumentDB admite la creación automática de particiones. Para poder crear colecciones particionadas, es necesario descargar la versión del SDK 1.6.0 (o posteriores) en una de las plataformas admitidas del SDK (.NET, Node.js, Java o Python). 
 
 ### <a name="creating-partitioned-collections"></a>Creación de colecciones con particiones
@@ -276,7 +280,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-DocumentDB admite [funciones de agregado] (las [funciones de agregado](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` y `AVG` sobre las colecciones con particiones mediante SQL a partir de SDK 1.12.0, y las versiones superiores. Las consultas deben incluir un único operador de agregado y deben incluir un valor individual en la proyección.
+DocumentDB admite las [funciones de agregado](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` y `AVG` en colecciones con particiones mediante SQL a partir del SDK 1.12.0, y versiones posteriores. Las consultas deben incluir un único operador de agregado y deben incluir un valor individual en la proyección.
 
 ### <a name="parallel-query-execution"></a>Ejecución de consultas en paralelo
 Los SDK de DocumentDB de la versión 1.9.0 y posterior admiten opciones de ejecución de consultas en paralelo, que permiten realizar consultas de baja latencia en colecciones con particiones, incluso cuando tienen que acceder a un gran número de particiones. Por ejemplo, la siguiente consulta está configurada para ejecutarse en paralelo en particiones.
@@ -309,9 +313,34 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     
 En la siguiente sección, veremos cómo puede moverse a colecciones con particiones desde colecciones de partición única.
 
+## <a name="creating-an-api-for-mongodb-sharded-collection"></a>Creación de una API para la colección particionada de MongoDB
+La manera más sencilla de crear una colección particionada de la API para MongoDB es mediante la herramienta, el controlador o el SDK que prefiera. En este ejemplo, usaremos el shell de Mongo para crear la colección.
+
+En el shell de Mongo:
+
+```
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
+    
+Resultados:
+
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
+
 <a name="migrating-from-single-partition"></a>
 
-## <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migración desde colecciones de partición única a colecciones con varias particiones
+## <a name="migrating-from-single-partition-to-partitioned-collections-in-documentdb"></a>Migración desde colecciones de una partición a colecciones con varias particiones en DocumentDB
+
+> [!IMPORTANT]
+> Si va a importar a la API para MongoDB, siga estas [instrucciones](documentdb-mongodb-migrate.md).
+> 
+> 
+
 Cuando una aplicación que usa colecciones con partición única necesita mayor capacidad de procesamiento (>10 000 RU/s) o de almacenamiento de datos (>10 GB), puede usar la [herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar los datos desde la colección de partición única a una colección con varias particiones. 
 
 Para migrar desde una colección de partición única a una colección con varias particiones
@@ -328,6 +357,7 @@ Para migrar desde una colección de partición única a una colección con varia
 
 Ahora que hemos completado los aspectos básicos, echemos un vistazo a algunas consideraciones de diseño que deben tenerse en cuenta a la hora de trabajar con claves de partición de datos en DocumentDB.
 
+<a name="designing-for-partitioning"></a>
 ## <a name="designing-for-partitioning"></a>Diseño de la creación de particiones
 La elección de la clave de partición es una decisión importante que deberá realizarse en el tiempo de diseño. En esta sección se describen algunos de los compromisos que implica la selección de una clave de partición para la colección.
 

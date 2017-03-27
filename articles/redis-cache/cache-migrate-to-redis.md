@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/23/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
-ms.openlocfilehash: e739bb129ea2b280803380f3f9c20ca052b3f122
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: af5e181ce254fefe55c847d9988dd8245c75e864
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -43,7 +44,7 @@ El Servicio de caché administrado de Azure y Caché en Redis de Azure guardan c
 
 | Características del Servicio de caché administrado | Compatibilidad con el Servicio de caché administrado | Compatibilidad con Caché en Redis de Azure |
 | --- | --- | --- |
-| Cachés con nombre |Se configura una caché predeterminada y, en las ofertas de caché Estándar y Premium, se pueden configurar, si se desea, hasta nueve cachés con nombre adicionales. |Las instancias de Caché en Redis de Azure tienen un número configurable de bases de datos (valor predeterminado: 16) que pueden utilizarse para implementar una funcionalidad similar a las memorias caché con nombre. Para obtener más información, consulte [Configuración de servidor predeterminada en Redis](cache-configure.md#default-redis-server-configuration). |
+| Cachés con nombre |Se configura una caché predeterminada y, en las ofertas de caché Estándar y Premium, se pueden configurar, si se desea, hasta nueve cachés con nombre adicionales. |Las instancias de Caché en Redis de Azure tienen un número configurable de bases de datos (valor predeterminado: 16) que pueden utilizarse para implementar una funcionalidad similar a las memorias caché con nombre. Para obtener más información, consulte [What are Redis databases?](cache-faq.md#what-are-redis-databases) (¿Qué son las bases de datos de Redis?) y [Configuración predeterminada del servidor Redis](cache-configure.md#default-redis-server-configuration). |
 | Alta disponibilidad |Proporciona alta disponibilidad para los elementos de la caché en las ofertas de caché Estándar y Premium. Si los elementos se pierden debido a un error, aún se puede acceder a las copias de seguridad de los elementos en la caché. Las escrituras en la caché secundaria se realizan de manera sincrónica. |Existe alta disponibilidad en las ofertas de caché Estándar y Premio, que tienen una configuración de réplica-principal de dos nodos (cada partición de una caché Premium tiene un par de réplica-principal). Las escrituras en la réplica se realizan de forma asincrónica. Para obtener más información, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/). |
 | Notificaciones |Permite a los clientes recibir notificaciones asincrónicas cuando se producen diversas operaciones de caché en una caché con nombre. |Las aplicaciones cliente pueden usar pub/sub de Redis o [notificaciones de Keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para lograr una funcionalidad similar a las notificaciones. |
 | Caché local |Almacena una copia de los objetos en caché de forma local en el cliente para un acceso a un más rápido. |Las aplicaciones cliente deberán implementar esta funcionalidad mediante un diccionario o una estructura de datos parecida. |
@@ -186,10 +187,5 @@ Caché en Redis de Azure cuenta con proveedores de estado de sesión ASP.NET y a
 
 ## <a name="next-steps"></a>Pasos siguientes
 Explore la [documentación de Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/cache/) , encontrará tutoriales, ejemplos, vídeos y mucho más.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

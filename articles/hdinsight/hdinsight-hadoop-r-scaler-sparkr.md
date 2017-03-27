@@ -1,0 +1,553 @@
+---
+title: Mezcla de ScaleR y SparkR con Azure HDInsight | Microsoft Docs
+description: Uso de ScaleR y SparkR con R Server y HDInsight
+services: hdinsight
+documentationcenter: 
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
+ms.service: hdinsight
+ms.custom: hdinsightactive
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/24/2017
+ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e8fb7642dca815c64b9aed8184672259d3facf8
+ms.lasthandoff: 03/10/2017
+
+
+---
+
+# <a name="mixing-use-of-scaler-and-sparkr-in-hdinsight"></a>Uso mixto de ScaleR y SparkR en HDInsight
+
+Aprenda usar SparkR para la manipulación de datos en Spark en combinación con Microsoft R Server para el análisis. Aunque ambos paquetes se ejecutan encima del motor de ejecución de Spark de Hadoop para aprovechar las funcionalidades más recientes en el procesamiento distribuido, se les impide el uso compartido de datos en memoria al requerir sus propias sesiones de Spark. Hasta que esto se remedie en una próxima versión de R Server, la solución consiste en mantener sesiones de Spark no superpuestas e intercambiar datos mediante archivos intermedios. Como verá, ambos requisitos son bastante sencillos de conseguir.
+
+Para demostrarlo, usaremos un ejemplo compartido inicialmente en una charla en Strata 2016 por Mario Inchiosa y Roni Burd, también disponible en el seminario web [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Creación de una plataforma escalable de ciencia de datos con R). En el ejemplo se usa SparkR para unir el conocido conjunto de datos de retraso de llegadas de líneas aéreas con datos meteorológicos en aeropuertos de salida y llegada, y se usan esos datos como entrada para un modelo de regresión logística de ScaleR para predecir los retrasos en la llegada de los vuelos.
+
+El código que examinaremos se escribió originalmente para R Server ejecutándose en Spark en un clúster de HDInsight de Azure, pero el concepto de uso mixto de SparkR y ScaleR en un script se aplica igualmente a entornos locales. En las siguientes secciones, se presupone un nivel de conocimiento intermedio de R y la biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) de R Server y se introduce el uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) por el camino.
+
+## <a name="the-airline-and-weather-datasets"></a>Los conjuntos de datos de líneas aéreas y meteorológicos
+
+El conjunto de datos público de líneas aéreas AirOnTime08to12CSV contiene información detallada sobre las llegadas y salidas de todos los vuelos comerciales dentro de EE. UU., desde octubre de 1987 a diciembre de 2012. Se trata de un conjunto de datos grande: hay casi 150 millones de registros en total. Es algo inferior a 4 GB desempaquetado. Está disponible en los [archivos del gobierno de los Estados Unidos](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236), y para su conveniencia, en un archivo zip (AirOnTimeCSV.zip) que contiene un conjunto de 303 archivos CSV separados por meses del [repositorio de conjuntos de datos de Revolution Analytics](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/).
+
+Para ver los efectos de la meteorología en el retraso de los vuelos, necesitamos también los datos meteorológicos de cada uno de los aeropuertos. Estos datos se pueden descargar como archivos zip sin procesar por mes del [repositorio de Administración Nacional Oceánica y Atmosférica](http://www.ncdc.noaa.gov/orders/qclcd/). Para los fines de este ejemplo, extraemos datos meteorológicos del período comprendido entre mayo de 2007 y diciembre de 2012 y usamos los archivos de datos por hora dentro de cada uno de los 68 archivos zip mensuales. Los archivos zip mensuales también contienen una asignación (AAAAMMstation.txt) entre el id. de la estación meteorológica (WBAN), el aeropuerto con el que está asociada (CallSign) y el ajuste de la zona horaria del aeropuerto de UTC (TimeZone); todo esto lo necesitamos al realizar la combinación con los datos de retraso de las líneas aéreas.
+
+## <a name="setting-up-the-spark-environment"></a>Configuración del entorno de Spark
+
+Configuramos el entorno de Spark como primer paso antes de preparar los datos meteorológicos y combinarlos con los datos de líneas aéreas antes del modelado. Empezamos por apuntar al directorio que contiene nuestros directorios de datos de entrada, crear un contexto de proceso de Spark y crear una función de registro para el registro informativo en la consola:
+
+```
+workDir        <- '~'  
+myNameNode     <- 'default' 
+myPort         <- 0
+inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+
+# create a persistent Spark session to reduce startup times 
+#   (remember to stop it later!)
+ 
+sparkCC        <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort, persistentRun=TRUE)
+
+# create working directories 
+
+rxHadoopMakeDir('/user')
+rxHadoopMakeDir('user/RevoShare')
+rxHadoopMakeDir('user/RevoShare/remoteuser')
+
+(dataDir <- '/share')
+rxHadoopMakeDir(dataDir)
+rxHadoopListFiles(dataDir) 
+
+setwd(workDir)
+getwd()
+
+# version of rxRoc that runs in a local CC 
+rxRoc <- function(...){
+  rxSetComputeContext(RxLocalSeq())
+  roc <- RevoScaleR::rxRoc(...)
+  rxSetComputeContext(sparkCC)
+  return(roc)
+}
+
+logmsg <- function(msg) { cat(format(Sys.time(), "%Y-%m-%d %H:%M:%S"),':',msg,'\n') } 
+t0 <- proc.time() 
+
+#..start 
+
+logmsg('Start') 
+(trackers <- system("mapred job -list-active-trackers", intern = TRUE))
+logmsg(paste('Number of task nodes=',length(trackers)))
+```
+
+Luego, agregamos "Spark_Home" a la ruta de acceso de búsqueda de paquetes R de forma que podamos usar SparkR, e inicializamos una sesión de SparkR.
+
+```
+#..setup for use of SparkR  
+
+logmsg('Initialize SparkR') 
+
+.libPaths(c(file.path(Sys.getenv("SPARK_HOME"), "R", "lib"), .libPaths()))
+library(SparkR)
+
+sparkEnvir <- list(spark.executor.instances = '10',
+                   spark.yarn.executor.memoryOverhead = '8000')
+
+sc <- sparkR.init(
+  sparkEnvir = sparkEnvir,
+  sparkPackages = "com.databricks:spark-csv_2.10:1.3.0"
+)
+
+sqlContext <- sparkRSQL.init(sc)
+```
+
+## <a name="preparing-the-weather-data"></a>Preparación de los datos meteorológicos
+
+Para preparar los datos meteorológicos, los subagrupamos en las columnas necesarias para el modelado: "Visibility", "DryBulbCelsius", "DewPointCelsius", "RelativeHumidity", "WindSpeed" y "Altimeter", agregamos un código de aeropuerto asociado con la estación meteorológica y convertimos las medidas de hora local a UTC.
+
+Para comenzar, creamos un archivo para asignar la información de la estación meteorológica (WBAN) a un código de aeropuerto. Para ello, podríamos usar el archivo de asignación incluido con los datos meteorológicos asignando el campo CallSign (por ejemplo, LAX) en el archivo de datos meteorológicos al origen en los datos de líneas aéreas; sin embargo, casualmente tenemos otra asignación a mano que asigna WBAN a AirportID (por ejemplo, 12892 para LAX) e incluye TimeZone que se ha guardado en un archivo CSV llamado "wban-to-airport-id-tz.CSV" que vamos a usar, por ejemplo:
+
+| AirportID | WBAN | TimeZone
+|-----------|------|---------
+| 10685 | 54831 | -6
+| 14871 | 24232 | -8
+| .. | .. | ..
+
+El código siguiente lee cada uno de los archivos de datos meteorológicos sin procesar por hora, los subagrupa en las columnas que vamos a necesitar, combina el archivo de asignación de la estación meteorológica, ajusta las horas y fechas de medidas a UTC y luego escribe una nueva versión del archivo.
+
+```
+# Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
+
+adjustTime <- function(dataList)
+{
+  dataset0 <- as.data.frame(dataList)
+  
+  dataset1 <- base::merge(dataset0, wbanToAirIDAndTZDF1, by = "WBAN")
+
+  if(nrow(dataset1) == 0) {
+    dataset1 <- data.frame(
+      Visibility = numeric(0),
+      DryBulbCelsius = numeric(0),
+      DewPointCelsius = numeric(0),
+      RelativeHumidity = numeric(0),
+      WindSpeed = numeric(0),
+      Altimeter = numeric(0),
+      AdjustedYear = numeric(0),
+      AdjustedMonth = numeric(0),
+      AdjustedDay = integer(0),
+      AdjustedHour = integer(0),
+      AirportID = integer(0)
+    )
+    
+    return(dataset1)
+  }
+  
+  Year <- as.integer(substr(dataset1$Date, 1, 4))
+  Month <- as.integer(substr(dataset1$Date, 5, 6))
+  Day <- as.integer(substr(dataset1$Date, 7, 8))
+  
+  Time <- dataset1$Time
+  Hour <- ceiling(Time/100)
+  
+  Timezone <- as.integer(dataset1$TimeZone)
+  
+  adjustdate = as.POSIXlt(sprintf("%4d-%02d-%02d %02d:00:00", Year, Month, Day, Hour), tz = "UTC") + Timezone * 3600
+
+  AdjustedYear = as.POSIXlt(adjustdate)$year + 1900
+  AdjustedMonth = as.POSIXlt(adjustdate)$mon + 1
+  AdjustedDay   = as.POSIXlt(adjustdate)$mday
+  AdjustedHour  = as.POSIXlt(adjustdate)$hour
+  
+  AirportID = dataset1$AirportID
+  Weather = dataset1[,c("Visibility", "DryBulbCelsius", "DewPointCelsius", "RelativeHumidity", "WindSpeed", "Altimeter")]
+  
+  data.set = data.frame(cbind(AdjustedYear, AdjustedMonth, AdjustedDay, AdjustedHour, AirportID, Weather))
+  
+  return(data.set)
+}
+
+wbanToAirIDAndTZDF <- read.csv("wban-to-airport-id-tz.csv")
+
+colInfo <- list(
+  WBAN = list(type="integer"),
+  Date = list(type="character"),
+  Time = list(type="integer"),
+  Visibility = list(type="numeric"),
+  DryBulbCelsius = list(type="numeric"),
+  DewPointCelsius = list(type="numeric"),
+  RelativeHumidity = list(type="numeric"),
+  WindSpeed = list(type="numeric"),
+  Altimeter = list(type="numeric")
+)
+
+weatherDF <- RxTextData(file.path(inputDataDir, "WeatherRaw"), colInfo = colInfo)
+
+weatherDF1 <- RxTextData(file.path(inputDataDir, "Weather"), colInfo = colInfo,
+                filesystem=hdfsFS)
+
+rxSetComputeContext("localpar")
+rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
+           transformFunc = adjustTime,
+           transformObjects = list(wbanToAirIDAndTZDF1 = wbanToAirIDAndTZDF))
+```
+
+## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importación de los datos de líneas aéreas y meteorológicos en Spark DataFrames
+
+Ahora usaremos la función [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) de SparkR para importar los datos de líneas aéreas y meteorológicos en Spark DataFrames. Observe que esta función, al igual que muchos otros métodos de Spark, se ejecuta de forma diferida, lo que significa que se pone en la cola para la ejecución pero no se ejecuta hasta que realmente es necesario.
+
+```
+airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
+weatherPath <- file.path(inputDataDir, "Weather") # pre-processed weather data
+rxHadoopListFiles(airPath) 
+rxHadoopListFiles(weatherPath) 
+
+# create a SparkR DataFrame for the airline data
+
+logmsg('create a SparkR DataFrame for the airline data') 
+# use inferSchema = "false" for more robust parsing
+airDF <- read.df(sqlContext, airPath, source = "com.databricks.spark.csv", 
+                 header = "true", inferSchema = "false")
+
+# Create a SparkR DataFrame for the weather data
+
+logmsg('create a SparkR DataFrame for the weather data') 
+weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv", 
+                     header = "true", inferSchema = "true")
+```
+
+## <a name="data-cleansing-and-transformation"></a>Limpieza y transformación de datos
+
+A continuación, vamos a hacer algo de limpieza en los datos de líneas aéreas que hemos importado para cambiar el nombre de las columnas; solo mantendremos las variables que necesitamos y redondearemos las horas de salida programadas a la hora más cercana para permitir la combinación con los datos meteorológicos más recientes antes de la salida.
+
+```
+logmsg('clean the airline data') 
+airDF <- rename(airDF,
+                ArrDel15 = airDF$ARR_DEL15,
+                Year = airDF$YEAR,
+                Month = airDF$MONTH,
+                DayofMonth = airDF$DAY_OF_MONTH,
+                DayOfWeek = airDF$DAY_OF_WEEK,
+                Carrier = airDF$UNIQUE_CARRIER,
+                OriginAirportID = airDF$ORIGIN_AIRPORT_ID,
+                DestAirportID = airDF$DEST_AIRPORT_ID,
+                CRSDepTime = airDF$CRS_DEP_TIME,
+                CRSArrTime =  airDF$CRS_ARR_TIME
+)
+
+# Select desired columns from the flight data. 
+varsToKeep <- c("ArrDel15", "Year", "Month", "DayofMonth", "DayOfWeek", "Carrier", "OriginAirportID", "DestAirportID", "CRSDepTime", "CRSArrTime")
+airDF <- select(airDF, varsToKeep)
+
+# Apply schema
+coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "character", "integer", "integer", "integer", "integer")
+
+# Round down scheduled departure time to full hour.
+airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
+```
+
+Ahora, se llevarán a cabo operaciones similares en los datos meteorológicos:
+
+```
+# Average weather readings by hour
+logmsg('clean the weather data') 
+weatherDF <- agg(groupBy(weatherDF, "AdjustedYear", "AdjustedMonth", "AdjustedDay", "AdjustedHour", "AirportID"), Visibility="avg",
+                  DryBulbCelsius="avg", DewPointCelsius="avg", RelativeHumidity="avg", WindSpeed="avg", Altimeter="avg"
+                  )
+
+weatherDF <- rename(weatherDF,
+                    Visibility = weatherDF$'avg(Visibility)',
+                    DryBulbCelsius = weatherDF$'avg(DryBulbCelsius)',
+                    DewPointCelsius = weatherDF$'avg(DewPointCelsius)',
+                    RelativeHumidity = weatherDF$'avg(RelativeHumidity)',
+                    WindSpeed = weatherDF$'avg(WindSpeed)',
+                    Altimeter = weatherDF$'avg(Altimeter)'
+)
+```
+
+## <a name="joining-the-weather-and-airline-data"></a>Combinación de los datos de líneas aéreas y meteorológicos
+
+Ahora vamos a usar la función [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) de SparkR para realizar una combinación externa izquierda de los datos de líneas áreas y meteorológicos por AirportID y datetime de salida. La combinación externa nos permite conservar todos los registros de datos de líneas aéreas incluso si no hay ningún dato meteorológico coincidente. Tras la combinación, se quitarán algunas columnas redundantes y se cambiará el nombre de las columnas que quedan para quitar el prefijo DataFrame entrante introducido por la combinación.
+
+```
+logmsg('Join airline data with weather at Origin Airport')
+joinedDF <- SparkR::join(
+  airDF,
+  weatherDF,
+  airDF$OriginAirportID == weatherDF$AirportID &
+    airDF$Year == weatherDF$AdjustedYear &
+    airDF$Month == weatherDF$AdjustedMonth &
+    airDF$DayofMonth == weatherDF$AdjustedDay &
+    airDF$CRSDepTime == weatherDF$AdjustedHour,
+  joinType = "left_outer"
+)
+
+# Remove redundant columns
+vars <- names(joinedDF)
+varsToDrop <- c('AdjustedYear', 'AdjustedMonth', 'AdjustedDay', 'AdjustedHour', 'AirportID')
+varsToKeep <- vars[!(vars %in% varsToDrop)]
+joinedDF1 <- select(joinedDF, varsToKeep)
+
+joinedDF2 <- rename(joinedDF1,
+                    VisibilityOrigin = joinedDF1$Visibility,
+                    DryBulbCelsiusOrigin = joinedDF1$DryBulbCelsius,
+                    DewPointCelsiusOrigin = joinedDF1$DewPointCelsius,
+                    RelativeHumidityOrigin = joinedDF1$RelativeHumidity,
+                    WindSpeedOrigin = joinedDF1$WindSpeed,
+                    AltimeterOrigin = joinedDF1$Altimeter
+)
+```
+
+De igual forma, uniremos los datos de líneas áreas y meteorológicos según el valor de AirportID y datetime de llegada.
+
+```
+logmsg('Join airline data with weather at Destination Airport')
+joinedDF3 <- SparkR::join(
+  joinedDF2,
+  weatherDF,
+  airDF$DestAirportID == weatherDF$AirportID &
+    airDF$Year == weatherDF$AdjustedYear &
+    airDF$Month == weatherDF$AdjustedMonth &
+    airDF$DayofMonth == weatherDF$AdjustedDay &
+    airDF$CRSDepTime == weatherDF$AdjustedHour,
+  joinType = "left_outer"
+)
+
+# Remove redundant columns
+vars <- names(joinedDF3)
+varsToDrop <- c('AdjustedYear', 'AdjustedMonth', 'AdjustedDay', 'AdjustedHour', 'AirportID')
+varsToKeep <- vars[!(vars %in% varsToDrop)]
+joinedDF4 <- select(joinedDF3, varsToKeep)
+
+joinedDF5 <- rename(joinedDF4,
+                    VisibilityDest = joinedDF4$Visibility,
+                    DryBulbCelsiusDest = joinedDF4$DryBulbCelsius,
+                    DewPointCelsiusDest = joinedDF4$DewPointCelsius,
+                    RelativeHumidityDest = joinedDF4$RelativeHumidity,
+                    WindSpeedDest = joinedDF4$WindSpeed,
+                    AltimeterDest = joinedDF4$Altimeter
+                    )
+```
+
+## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Guardado de los resultados en CSV para el intercambio con ScaleR
+
+Así finalizan las combinaciones que debemos hacer, así que hemos terminado con SparkR. Guardaremos los datos del elemento "joinedDF5" final de Spark DataFrame en un archivo CSV para la entrada en ScaleR y luego cerraremos la sesión de SparkR. Indicaremos explícitamente a SparkR que guarde el CSV resultante en 80 particiones distintas para permitir suficiente paralelismo en el procesamiento de ScaleR.
+
+```
+logmsg('output the joined data from Spark to CSV') 
+joinedDF5 <- repartition(joinedDF5, 80) # write.df below will produce this many CSVs
+
+# write result to directory of CSVs
+write.df(joinedDF5, file.path(dataDir, "joined5Csv"), "com.databricks.spark.csv", "overwrite", header = "true")
+
+# We can shut down the SparkR Spark context now
+sparkR.stop()
+
+# remove non-data files
+rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
+```
+
+## <a name="import-to-xdf-for-use-by-scaler"></a>Importación en XDF para su uso por ScaleR
+
+Podríamos usar el archivo CSV de datos de líneas áreas y meteorológicos combinados tal y como están para el modelado mediante un origen de datos de texto de ScaleR, pero lo vamos a importar en XDF ya que es más eficaz al ejecutar operaciones múltiples en el conjunto de datos.
+
+```
+logmsg('Import the CSV to compressed, binary XDF format') 
+
+# set the Spark compute context for R Server 
+rxSetComputeContext(sparkCC)
+rxGetComputeContext()
+
+colInfo <- list(
+  ArrDel15 = list(type="numeric"),
+  Year = list(type="factor"),
+  Month = list(type="factor"),
+  DayofMonth = list(type="factor"),
+  DayOfWeek = list(type="factor"),
+  Carrier = list(type="factor"),
+  OriginAirportID = list(type="factor"),
+  DestAirportID = list(type="factor"),
+  RelativeHumidityOrigin = list(type="numeric"),
+  AltimeterOrigin = list(type="numeric"),
+  DryBulbCelsiusOrigin = list(type="numeric"),
+  WindSpeedOrigin = list(type="numeric"),
+  VisibilityOrigin = list(type="numeric"),
+  DewPointCelsiusOrigin = list(type="numeric"),
+  RelativeHumidityDest = list(type="numeric"),
+  AltimeterDest = list(type="numeric"),
+  DryBulbCelsiusDest = list(type="numeric"),
+  WindSpeedDest = list(type="numeric"),
+  VisibilityDest = list(type="numeric"),
+  DewPointCelsiusDest = list(type="numeric")
+)
+
+joinedDF5Txt <- RxTextData(file.path(dataDir, "joined5Csv"),
+                           colInfo = colInfo, fileSystem = hdfsFS)
+rxGetInfo(joinedDF5Txt) 
+
+destData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
+
+rxImport(inData = joinedDF5Txt, destData, overwrite = TRUE)
+
+rxGetInfo(destData, getVarInfo = T)
+
+# File name: /user/RevoShare/dev/delayDataLarge/joined5XDF 
+# Number of composite data files: 80 
+# Number of observations: 148619655 
+# Number of variables: 22 
+# Number of blocks: 320 
+# Compression type: zlib 
+# Variable information: 
+#   Var 1: ArrDel15, Type: numeric, Low/High: (0.0000, 1.0000)
+# Var 2: Year
+# 26 factor levels: 1987 1988 1989 1990 1991 ... 2008 2009 2010 2011 2012
+# Var 3: Month
+# 12 factor levels: 10 11 12 1 2 ... 5 6 7 8 9
+# Var 4: DayofMonth
+# 31 factor levels: 1 3 4 5 7 ... 29 30 2 18 31
+# Var 5: DayOfWeek
+# 7 factor levels: 4 6 7 1 3 2 5
+# Var 6: Carrier
+# 30 factor levels: PI UA US AA DL ... HA F9 YV 9E VX
+# Var 7: OriginAirportID
+# 374 factor levels: 15249 12264 11042 15412 13930 ... 13341 10559 14314 11711 10558
+# Var 8: DestAirportID
+# 378 factor levels: 13303 14492 10721 11057 13198 ... 14802 11711 11931 12899 10559
+# Var 9: CRSDepTime, Type: integer, Low/High: (0, 24)
+# Var 10: CRSArrTime, Type: integer, Low/High: (0, 2400)
+# Var 11: RelativeHumidityOrigin, Type: numeric, Low/High: (0.0000, 100.0000)
+# Var 12: AltimeterOrigin, Type: numeric, Low/High: (28.1700, 31.1600)
+# Var 13: DryBulbCelsiusOrigin, Type: numeric, Low/High: (-46.1000, 47.8000)
+# Var 14: WindSpeedOrigin, Type: numeric, Low/High: (0.0000, 81.0000)
+# Var 15: VisibilityOrigin, Type: numeric, Low/High: (0.0000, 90.0000)
+# Var 16: DewPointCelsiusOrigin, Type: numeric, Low/High: (-41.7000, 29.0000)
+# Var 17: RelativeHumidityDest, Type: numeric, Low/High: (0.0000, 100.0000)
+# Var 18: AltimeterDest, Type: numeric, Low/High: (28.1700, 31.1600)
+# Var 19: DryBulbCelsiusDest, Type: numeric, Low/High: (-46.1000, 53.9000)
+# Var 20: WindSpeedDest, Type: numeric, Low/High: (0.0000, 136.0000)
+# Var 21: VisibilityDest, Type: numeric, Low/High: (0.0000, 88.0000)
+# Var 22: DewPointCelsiusDest, Type: numeric, Low/High: (-43.0000, 29.0000)
+
+finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
+
+```
+
+## <a name="splitting-data-for-training-and-test"></a>División de los datos para entrenamiento y pruebas
+
+Usaremos rxDataStep para dividir los datos de 2012 con fines de prueba y mantendremos el resto para entrenamiento.
+
+```
+# split out the training data
+
+logmsg('split out training data as all data except year 2012')
+trainDS <- RxXdfData( file.path(dataDir, "finalDataTrain" ),fileSystem = hdfsFS)
+
+rxDataStep( inData = finalData, outFile = trainDS,
+            rowSelection = ( Year != 2012 ), overwrite = T )
+
+# split out the testing data
+
+logmsg('split out the test data for year 2012') 
+testDS <- RxXdfData( file.path(dataDir, "finalDataTest" ), fileSystem = hdfsFS)
+
+rxDataStep( inData = finalData, outFile = testDS,
+            rowSelection = ( Year == 2012 ), overwrite = T )
+
+rxGetInfo(trainDS)
+rxGetInfo(testDS)
+```
+
+## <a name="train-and-test-a-logistic-regression-model"></a>Entrenamiento y prueba de un modelo de regresión logístico
+
+Bueno, pues ya estamos listos para crear un modelo. Para ver la influencia de los datos meteorológicos sobre el retraso en la hora de llegada, usaremos la rutina de regresión logística de ScaleR para modelar si en un retraso en la llegada de más de 15 minutos influyen la fecha relativa, los aeropuertos de salida y de llegada y las condiciones meteorológicas en los aeropuertos de salida y de llegada, etc.
+
+```
+logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
+formula <- as.formula(ArrDel15 ~ Year + Month + DayofMonth + DayOfWeek + Carrier +
+                     OriginAirportID + DestAirportID + CRSDepTime + CRSArrTime + 
+                     RelativeHumidityOrigin + AltimeterOrigin + DryBulbCelsiusOrigin +
+                     WindSpeedOrigin + VisibilityOrigin + DewPointCelsiusOrigin + 
+                     RelativeHumidityDest + AltimeterDest + DryBulbCelsiusDest +
+                     WindSpeedDest + VisibilityDest + DewPointCelsiusDest
+                   )
+
+# Use the scalable rxLogit() function but set max iterations to 3 for the purposes of 
+# this exercise 
+
+logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
+
+base::summary(logitModel)
+```
+
+Ahora veamos cómo se hace esto en los datos de prueba; para ello, realizamos algunas predicciones y examinamos ROC y AUC.
+
+```
+# Predict over test data (Logistic Regression).
+
+logmsg('predict over the test data') 
+logitPredict <- RxXdfData(file.path(dataDir, "logitPredict"), fileSystem = hdfsFS)
+
+# Use the scalable rxPredict() function
+
+rxPredict(logitModel, data = testDS, outData = logitPredict,
+          extraVarsToWrite = c("ArrDel15"), 
+          type = 'response', overwrite = TRUE)
+
+# Calculate ROC and Area Under the Curve (AUC).
+
+logmsg('calculate the roc and auc') 
+logitRoc <- rxRoc("ArrDel15", "ArrDel15_Pred", logitPredict)
+logitAuc <- rxAuc(logitRoc)
+head(logitAuc)
+logitAuc
+
+plot(logitRoc)
+```
+
+## <a name="scoring-elsewhere"></a>Puntuación en otros lugares
+
+También se puede usar el modelo para puntuar datos en otra plataforma, para lo cual se guarda en un archivo RDS y luego se transfiere e importa ese RDS en el entorno de puntuación de destino, como SQL Server R Services. Al hacerlo, es importante asegurarse de que los niveles de factor de los datos que se van a puntuar coincidan con aquellos sobre los que se creó el modelo. Para conseguir esto, se extrae y se guarda la información de columna asociada con los datos de modelado mediante la función rxCreamnateColInfo() de ScaleR y luego se aplica esa información de columna al origen de datos de entrada para realizar la predicción. Ahora guardamos simplemente algunas filas del conjunto de datos de prueba y extraemos y usamos la información de columna de este ejemplo en el script de predicción.
+
+```
+# save the model and a sample of the test dataset 
+
+logmsg('save serialized version of the model and a sample of the test data')
+rxSetComputeContext('localpar') 
+saveRDS(logitModel, file = "logitModel.rds")
+testDF <- head(testDS, 1000)  
+saveRDS(testDF    , file = "testDF.rds"    )
+list.files()
+
+rxHadoopListFiles(file.path(inputDataDir,''))
+rxHadoopListFiles(dataDir)
+
+# stop the spark engine 
+rxStopEngine(sparkCC) 
+
+logmsg('Done.')
+elapsed <- (proc.time() - t0)[3]
+logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
+```
+
+## <a name="summary"></a>Resumen
+
+¡Ya está! En este artículo, hemos mostrado cómo se puede combinar el uso de SparkR para la manipulación de datos con ScaleR para el desarrollo de modelos en Hadoop Spark, siempre que recuerde mantener sesiones de Spark distintas, ejecutar solo una sesión cada vez e intercambiar datos mediante archivos CSV. Aunque sencillo, este proceso será mucho más fácil en una próxima versión de R Server cuando SparkR y ScaleR puedan compartir una sesión de Spark y, por tanto, Spark DataFrames.
+
+## <a name="next-steps-and-more-information"></a>Pasos siguientes y más información
+
+- Para más información sobre uso de R Server en Spark, consulte la [guía de introducción en MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+
+- Para información general sobre R Server, consulte el artículo [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) (Introducción a R).
+
+- Otros artículos de interés son [R Server en Azure HDInsight](hdinsight-hadoop-r-server-get-started.md) y [Introducción a R Server en Azure HDInsight](hdinsight-hadoop-r-server-overview.md).
+
+Para más información sobre el uso de SparkR, consulte lo siguiente:
+
+- [Documento de Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)
+
+- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) (Información general de SparkR) de Databricks
+

@@ -15,14 +15,18 @@ ms.workload: azure-government
 ms.date: 10/20/2016
 ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: f245bf964664a0817ba26580aea9990b1767da82
-ms.openlocfilehash: 9b2fee2e98c11ef0468cef3f2bdc81e15698a6fe
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: e2d82497c2ceaa9a6c0a1592b5785449f095f85c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-government-marketplace-images"></a>Imágenes de Azure Government Marketplace
 ## <a name="overview"></a>Información general
 Microsoft Azure Government Marketplace es una experiencia similar al portal público de Azure.  Los clientes pueden elegir implementar imágenes preconfiguradas de Microsoft y nuestros socios o cargar sus propios discos duros virtuales.  Esto proporciona flexibilidad para implementar sus propias imágenes estándar si es necesario.
+
+## <a name="variations"></a>Variaciones
+* Las imágenes de Marketplace no se admiten actualmente en DoD.
 
 A continuación se proporciona una lista de imágenes disponibles en Azure Government Marketplace.  Algunas de las imágenes prediseñadas incluyen licencias de pago por uso para software específico.  Revise la página <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Precios de máquinas virtuales</a> para obtener más orientación y trabajar con su equipo de cuentas de Microsoft o revendedor para obtener un precio específico de Azure Government.
 
@@ -251,9 +255,4 @@ Los recursos siguientes deben proporcionar más información al implementar desd
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

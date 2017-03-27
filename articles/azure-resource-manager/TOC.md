@@ -7,14 +7,13 @@
 
 # Introducción
 ## [Exportación de la plantilla](resource-manager-export-template.md)
-## [Tutorial de plantillas](resource-manager-template-walkthrough.md)
+## [Creación de su primera plantilla](resource-manager-create-first-template.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [VS Code con Resource Manager](resource-manager-vs-code.md)
 
 # Procedimientos
 ## Crear plantillas
 ### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
-### [Creación de plantillas](resource-group-authoring-templates.md)
+### [Secciones de plantilla](resource-group-authoring-templates.md)
 ### [Funciones de plantillas](resource-group-template-functions.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Establecimiento del nombre y tipo del recurso secundario](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Esquemas de plantilla](https://github.com/Azure/azure-resource-manager-schemas)
+## [Formato de plantilla](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Recursos

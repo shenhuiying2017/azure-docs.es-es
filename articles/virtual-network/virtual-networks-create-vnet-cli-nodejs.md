@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: b171f51d2bdaa9056429fd214809cf7123ba6326
-ms.openlocfilehash: 50a0dfdd9c71dcf54bed7a72f7fdf5a7db532572
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: acfb9345b789df7664075ef0fb6280beedf0dfb9
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,7 +40,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 Para crear una red virtual mediante la CLI de Azure, realice los siguientes pasos:
 
-1. Instale y configure la CLI de Azure siguiendo los pasos del artículo [Instalación y configuración de la interfaz de la CLI de Azure](../xplat-cli-install.md).
+1. Instale y configure la CLI de Azure siguiendo los pasos del artículo [Instalación y configuración de la interfaz de la CLI de Azure](../cli-install-nodejs.md).
 
 2. Creación de una red virtual y una subred:
 
@@ -120,4 +120,4 @@ Aprenda a conectar:
 
 - Una máquina virtual (VM) a una red virtual, para lo cual debería leer el artículo [Creación de una máquina virtual Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). En lugar de crear una red virtual y la subred en los pasos de los artículos, puede seleccionar una red virtual y una subred a la que conectar una máquina virtual.
 - La red virtual a otras redes virtuales. Para ello, lea el artículo [Conexión de redes virtuales](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-- La red virtual a una red local mediante una red privada virtual (VPN) de sitio a sitio o un circuito ExpressRoute. Aprenda cómo hacerlo leyendo los artículos [Conexión de una red virtual a una red local mediante una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) y [Conexión de una red virtual a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+- La red virtual a una red local mediante una red privada virtual (VPN) de sitio a sitio o un circuito ExpressRoute. Aprenda cómo hacerlo leyendo los artículos [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Conexión de una red virtual a una red local mediante una VPN de sitio a sitio) y [Conexión de una red virtual a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

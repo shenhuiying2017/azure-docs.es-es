@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 076e97d1a264216d7f51914ed53dc70450aa2677
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -244,7 +245,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 
 | Propiedad | Description |
 | --- | --- |
-| `name` |Obligatorio. Este es el nombre del perfil de puntuación. Sigue las mismas convenciones de nomenclatura de un campo. Debe comenzar por una letra, no puede contener puntos, dos puntos o símbolos @ y no puede comenzar con la frase "Búsquedaazure" (distingue entre mayúsculas y minúsculas). |
+| `name` |Obligatorio. Este es el nombre del perfil de puntuación. Sigue las mismas convenciones de nomenclatura de un campo. Debe comenzar por una letra, no puede contener puntos, dos puntos o símbolos @ y no puede comenzar con la frase «Búsquedaazure» (distingue entre mayúsculas y minúsculas). |
 | `text` |Contiene la propiedad Weights. |
 | `weights` |Opcional. Par de nombre-valor que especifica un nombre de campo y un peso relativo. El peso relativo debe ser un número entero positivo o un número de punto flotante. Puede especificar el nombre del campo sin un peso correspondiente. Weights se usa para indicar la importancia de un campo en relación con otro. |
 | `functions` |Opcional. Tenga en cuenta que las funciones de puntuación solo pueden aplicarse a campos filtrables. |
@@ -257,7 +258,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 | `magnitude:boostingRangeEnd` |Establece el valor final del intervalo en el que se puntúa la magnitud. El valor debe ser un número entero o un número de punto flotante. En cuanto a las clasificaciones por estrellas de 1 a 4, esto equivaldría a 4. |
 | `magnitude:constantBoostBeyondRange` |Los valores válidos son true o false (valor predeterminado). Cuando se establece en true, la potenciación completa continuará aplicándose a los documentos que tienen un valor para el campo de destino superior al extremo superior del intervalo. Si es false, la potenciación de esta función no se aplicará a los documentos que tengan un valor para el campo de destino que se encuentre fuera del intervalo. |
 | `freshness` |La función de puntuación del índice de actualización se usa para modificar las puntuaciones de clasificación de los elementos basados en valores de campos de DateTimeOffset. Por ejemplo, un elemento con una fecha más reciente puede clasificarse por encima de los elementos más antiguos. (Tenga en cuenta que también es posible clasificar elementos, como eventos del calendario con fechas futuras, de manera que los elementos más cercanos al presente tengan una clasificación más alta que los elementos más alejados en el futuro). En la versión actual del servicio, uno de los extremos del intervalo se corregirá a la hora actual. El otro extremo es un momento en el pasado basado en el elemento `boostingDuration`. Para potenciar un intervalo de horas en el futuro use una `boostingDuration`negativa. La velocidad a la que cambia la potenciación desde un intervalo máximo y mínimo viene determinada por la interpolación aplicada al perfil de puntuación (consulte la figura siguiente). Para invertir el factor de potenciación aplicado, seleccione un factor de potenciación de menos de 1. |
-| `freshness:boostingDuration` |Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration ][#bkmk_boostdur] en la sección siguiente para obtener información sobre la sintaxis y ejemplos. |
+| `freshness:boostingDuration` |Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration](#bkmk_boostdur) en la sección siguiente para obtener información sobre la sintaxis y ejemplos. |
 | `distance` |La función de puntuación de la distancia se usa para afectar a la puntuación de documentos en función de la cercanía o distancia respecto a una ubicación geográfica de referencia. La ubicación de referencia se proporciona como parte de la consulta en un parámetro (mediante el parámetro de consulta `scoringParameter` ) como argumento lon, lat. |
 | `distance:referencePointParameter` |Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos](search-api-2015-02-28-preview.md#SearchDocs) para obtener descripciones de los parámetros de consulta. |
 | `distance:boostingDistance` |Número que indica la distancia en kilómetros desde la ubicación de referencia donde finaliza el intervalo de potenciación. |
@@ -304,9 +305,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

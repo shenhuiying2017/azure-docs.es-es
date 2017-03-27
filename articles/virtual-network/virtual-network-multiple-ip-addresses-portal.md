@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 6e7eac6ae505c627ffa1d63aace76b9006d92c74
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6101c58e41202091ac89320177b0ca5bc36483a8
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -28,47 +28,25 @@ ms.lasthandoff: 02/14/2017
 >
 En este artículo se describe cómo crear una máquina virtual con el modelo de implementación de Azure Resource Manager mediante Azure Portal. No se pueden asignar varias direcciones IP a los recursos creados mediante el modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación).
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
+## <a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
 Si desea crear una VM con varias direcciones IP, debe crearla mediante PowerShell o la CLI de Azure. Para aprender cómo, haga clic en las opciones PowerShell o CLI en la parte superior de este artículo. Puede crear una VM con una sola dirección IP privada estática y (opcionalmente) una única dirección IP pública mediante el portal siguiendo los pasos descritos en los artículos [Creación de la primera máquina virtual de Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creación de una máquina virtual de Linux en Azure mediante el portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Después de crear la VM, puede cambiar los tipos de direcciones IP y agregar más direcciones IP mediante el portal siguiendo los pasos de la sección [Incorporación de direcciones IP a una VM](#add) de este artículo.
 
-## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Incorporación de direcciones IP a una VM
+## <a name="add"></a>Incorporación de direcciones IP a una VM
 
 Puede agregar direcciones IP públicas y privadas a una NIC completando los pasos siguientes. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#Scenario) de este artículo, pero no es necesario que lo haga.
 
-### <a name="a-namecoreaddacore-steps"></a><a name="coreadd"></a>Pasos principales
+### <a name="coreadd"></a>Pasos principales
 
-1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Esta operación puede tardar unos minutos.
-    
-2. Vaya Azure Portal en https://portal.azure.com e inicie sesión en él, si es necesario.
-3. En el portal, haga clic en **Más servicios** > tipo *Máquinas virtuales* en el cuadro de filtro y luego haga clic en **Máquinas virtuales**.
-4. En la hoja **Máquinas virtuales**, haga clic en la VM a la que desea agregar direcciones IP. Haga clic en **Interfaces de red** en la hoja de la máquina virtual que aparece y luego seleccione la interfaz de red a la que desea agregar direcciones IP. En el ejemplo mostrado en la siguiente imagen, está seleccionada la NIC denominada *myNIC* de la VM llamada *myVM*:
+1. Vaya Azure Portal en https://portal.azure.com e inicie sesión en él, si es necesario.
+2. En el portal, haga clic en **Más servicios** > tipo *Máquinas virtuales* en el cuadro de filtro y luego haga clic en **Máquinas virtuales**.
+3. En la hoja **Máquinas virtuales**, haga clic en la VM a la que desea agregar direcciones IP. Haga clic en **Interfaces de red** en la hoja de la máquina virtual que aparece y luego seleccione la interfaz de red a la que desea agregar direcciones IP. En el ejemplo mostrado en la siguiente imagen, está seleccionada la NIC denominada *myNIC* de la VM llamada *myVM*:
 
     ![Interfaz de red](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-5. En la hoja que aparece para la NIC que se ha seleccionado, haga clic en **Configuraciones IP**, tal y como se muestra en la siguiente imagen:
+4. En la hoja que aparece para la NIC que se ha seleccionado, haga clic en **Configuraciones IP**, tal y como se muestra en la siguiente imagen:
 
     ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
 
@@ -103,7 +81,7 @@ Una dirección IP pública se agrega mediante la asociación de un recurso de di
 > Las direcciones IP públicas tienen un precio simbólico. Para más información sobre los precios de las direcciones IP, lea la página [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Existe un límite para el número de direcciones IP públicas que pueden usarse dentro de una suscripción. Para más información sobre los límites, lea el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#networking-limits).
 > 
 
-### <a name="a-namecreate-public-ipacreate-a-public-ip-address-resource"></a><a name="create-public-ip"></a>Creación de un recurso de dirección IP pública
+### <a name="create-public-ip"></a>Creación de un recurso de dirección IP pública
 
 Una dirección IP pública es una configuración para un recurso de dirección IP pública. Si tiene un recurso de dirección IP pública que no está asociado actualmente a una configuración de IP que desea asociar a una configuración de IP, omita los pasos siguientes y complete los pasos de una de las secciones siguientes, según sea preciso. Si no tiene un recurso de dirección IP pública disponible, complete los pasos siguientes para crear uno:
 

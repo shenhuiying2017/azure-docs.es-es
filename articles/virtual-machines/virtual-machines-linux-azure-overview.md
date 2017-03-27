@@ -3,7 +3,7 @@ title: "Introducción a las máquinas virtuales Linux en Azure | Microsoft Docs"
 description: "Describe los servicios de proceso, almacenamiento y red de Azure con máquinas virtuales de Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: rickstercdn
 manager: timlt
 editor: 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
-ms.author: squillace
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
-ms.openlocfilehash: e46490a75b0b759e94ba8b090f394d0ba3366dc4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: dbafa7ab292d634d7bd2427803e5a7f78963d7ff
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
@@ -27,12 +27,12 @@ Microsoft Azure es una colección cada vez mayor de servicios en la nube, públi
 Si está familiarizado con las distintas características de AWS de Amazon, puede examinar el [documento de asignación de definiciones](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)donde se comparan Azure y AWS.
 
 ## <a name="regions"></a>Regiones
-Los recursos de Microsoft Azure se distribuyen en diversas regiones geográficas de todo el mundo.  Un "region" representa varios centros de datos en una única área geográfica.  A partir del 1 de enero de 2016, esto incluye: 8 en América, 2 en Europa, 6 en Asia Pacífico, 2 en China continental y 3 en India.  Si lo desea, puede consultar la lista completa de todas las regiones de Azure, existentes y de próxima incorporación.
+Los recursos de Microsoft Azure se distribuyen en diversas regiones geográficas de todo el mundo.  Un "region" representa varios centros de datos en una única área geográfica.  Tenemos 34 regiones con disponibilidad general en todo el mundo con 4 regiones anunciadas adicionales. Como seguimos expandiendo nuestra cobertura global, mantenemos una lista actualizada de regiones existentes y anunciadas recientemente.
 
 * [Regiones de Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Disponibilidad
-Para que su implementación pueda optar a nuestro contrato de nivel de servicio de máquina virtual 99,95, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Esto garantizará que las máquinas virtuales estén distribuidas en varios dominios de error en nuestros centros de datos e implementadas en hosts con diferentes tiempos de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) completo se explica la disponibilidad garantizada de Azure como un conjunto. 
+Se anunció un Acuerdo de Nivel de Servicio líder de la industria de máquinas virtuales de una sola instancia del 99,9 % siempre y cuando la máquina virtual se implemente con Premium Storage en todos los discos.  Para que su implementación pueda optar a nuestro Acuerdo de Nivel de Servicio estándar de máquina virtual del 99,95 %, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Esto garantizará que las máquinas virtuales estén distribuidas en varios dominios de error en nuestros centros de datos e implementadas en hosts con diferentes tiempos de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) completo se explica la disponibilidad garantizada de Azure como un conjunto. 
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -73,7 +73,7 @@ Azure está implementando la compatibilidad con [cloud-init](http://cloud-init.i
 * [Uso de cloud-init en máquinas virtuales con Linux](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quotas"></a>Cuotas
-Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de un gran número de máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región.  Para aumentar estos límites de cuota, envíe una incidencia de soporte técnico y solicite un aumento del límite.  Más información sobre los límites de cuota:
+Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de un gran número de máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región.  Los límites de cuota se pueden elevar rápida y fácilmente presentando una incidencia de soporte técnico solicitando un aumento del límite.  Más información sobre los límites de cuota:
 
 * [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md)
 
@@ -104,7 +104,6 @@ Con la nueva cuenta de Azure, puede comenzar inmediatamente a usar Azure Portal,
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 Ya dispone de una cuenta de Azure, del portal web de Azure y de la CLI de Azure.  El siguiente paso consiste en crear un par de claves SSH que se utiliza para acceder mediante SSH a Linux sin utilizar una contraseña.  [Cree claves SSH en Linux y Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para habilitar inicios de sesión sin contraseñas y disfrutar de una mayor seguridad.
-
 
 ### <a name="create-a-vm-using-the-cli"></a>Creación de una máquina virtual con la CLI
 Una forma rápida de implementar una máquina virtual sin abandonar el terminal en el que está trabajando es crear una máquina virtual Linux.  Toda la información que se puede especificar en el portal web está disponible a través de un indicador o conmutador de línea de comandos.  
@@ -141,6 +140,5 @@ Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesi�
 ## <a name="next-steps"></a>Pasos siguientes
 Ya tiene una visión general de Linux en Azure.  El siguiente paso consiste en empezar a crear algunas máquinas virtuales.
 
-* [Creación de una máquina virtual con Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Explore nuestra creciente lista de scripts de ejemplo para tareas comunes mediante la CLI de Azure](virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

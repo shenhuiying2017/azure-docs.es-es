@@ -53,7 +53,7 @@ Ejecute estos comandos para crear el grupo de recursos y la implementación desp
 Al ejecutar el comando **New-AzureRmResourceGroupDeployment** , se le pedirá que escriba los valores de los parámetros en la plantilla. Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en implementar los recursos.
 
 ## <a name="azure-cli"></a>CLI de Azure
-[Instale la CLI de Azure](../articles/xplat-cli-install.md), inicie sesión y asegúrese de habilitar los comandos de Resource Manager. Para más información sobre cómo hacerlo, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+[Instale la CLI de Azure](../articles/cli-install-nodejs.md), inicie sesión y asegúrese de habilitar los comandos de Resource Manager. Para más información sobre cómo hacerlo, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Ejecute estos comandos para crear el grupo de recursos y la implementación después de reemplazar el texto entre corchetes con el nombre del grupo de recursos, la ubicación, el nombre de la implementación y el nombre de plantilla:
 
@@ -66,9 +66,4 @@ Al ejecutar el comando **azure group deployment create** , se le pedirá que esc
 Descubra todas las plantillas que están a su disposición en [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Obtenga más información sobre [Administrador de recursos de Azure](../articles/resource-group-template-deploy.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

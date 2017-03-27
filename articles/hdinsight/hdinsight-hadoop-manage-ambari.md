@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
 ms.openlocfilehash: 34f5c92dc565e644bd8c569bfbea65e92ace5a19
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -29,7 +31,7 @@ Apache Ambari simplifica la administración y la supervisión de un clúster de 
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
-## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a> ¿Qué es Ambari?
+## <a id="whatis"></a> ¿Qué es Ambari?
 
 [Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -196,7 +198,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
      > [!NOTE]
      > No use esta acción en clústeres de HDInsight.
 
-### <a name="a-idserviceaservices"></a><a id="service"></a>Servicios
+### <a id="service"></a>Servicios
 
 En la página **Dashboard** (Panel) o **Services** (Servicios), use el botón **Actions** (Acciones) que se encuentra en la parte inferior de la lista de servicios para detener e iniciar todos los servicios.
 
@@ -240,10 +242,5 @@ Las vistas de Ambari permiten a los desarrolladores conectar elementos de interf
 * Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Vista de Tez: la vista de Tez permite comprender mejor y optimizar los trabajos ya que proporciona información sobre cómo se ejecutan los trabajos de Tez y qué recursos se emplean en el trabajo.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

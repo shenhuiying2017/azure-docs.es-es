@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
-ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -232,7 +232,7 @@ Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar
 Puede hacer lo siguiente sin experimentar tiempo de inactividad:
 
 * Habilitar o deshabilitar el complemento ExpressRoute Premium en su circuito ExpressRoute.
-* Aumentar el ancho de banda de su circuito ExpressRoute. Tenga en cuenta que no se admite la degradación del ancho de banda de un circuito.
+* Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. Tenga en cuenta que no se admite la degradación del ancho de banda de un circuito. 
 * Cambio del plan de medición de datos limitados a datos ilimitados. Tenga en cuenta que no es posible cambiar el plan de medición de datos ilimitados a datos limitados.
 * Puede habilitar y deshabilitar *Allow Classic Operations*(Permitir operaciones clásicas).
 
@@ -286,7 +286,9 @@ Puede deshabilitar el complemento ExpressRoute Premium en el circuito existente 
 Consulte la página [P+F de ExpressRoute](expressroute-faqs.md) para conocer las opciones de ancho de banda compatibles con su proveedor. Puede elegir cualquier tamaño que sea mayor que el de su circuito existente siempre que lo permita el puerto físico (en el que se creó el circuito).
 
 > [!IMPORTANT]
-> No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Degradar de ancho de banda requiere que cancele el aprovisionamiento del circuito ExpressRoute y, a continuación, vuelva a aprovisionar un nuevo circuito ExpressRoute.
+> Si el puerto existente no tiene la capacidad adecuada, tendrá que volver a crear el circuito ExpressRoute. El circuito no se puede actualizar si no hay más capacidad disponible en la ubicación.
+>
+> No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Para degradar un ancho de banda, es necesario desaprovisionar el circuito ExpressRoute y luego volver a aprovisionar un nuevo circuito ExpressRoute.
 > 
 > 
 

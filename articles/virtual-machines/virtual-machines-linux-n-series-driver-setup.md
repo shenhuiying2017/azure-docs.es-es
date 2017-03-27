@@ -13,85 +13,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 03/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 0d7eba02757fb1b2263cf11c561b374eab837f21
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1701646ce8cb9494561c37d46cd435b4e7608fe8
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-linux-vms"></a>Configuración de controladores de GPU para máquinas virtuales Linux de la serie N
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan una distribución de Linux compatible, debe instalar los controladores de gráficos de NVIDIA en cada máquina virtual después de la implementación. Este artículo también está disponible para [máquinas virtuales con Windows](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para conocer las especificaciones de máquina virtual de la serie N, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="set-up-gpu-drivers-for-n-series-vms-running-linux"></a>Configuración de controladores de GPU para máquinas virtuales de la serie N con Linux
+
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan una distribución de Linux compatible, debe instalar los controladores de gráficos de NVIDIA en cada máquina virtual después de la implementación. También está disponible la información de instalación del controlador para las [máquinas virtuales Windows](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+
+> [!IMPORTANT]
+> Actualmente, la compatibilidad con la GPU de Linux solo está disponible en las máquinas virtuales de Azure NC que ejecutan Ubuntu Server 16.04 LTS.
+> 
+
+Para conocer las especificaciones de máquina virtual de la serie N, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vea también [Consideraciones generales para máquinas virtuales de serie N](#general-considerations-for-n-series-vms).
 
 
 
-## <a name="supported-gpu-drivers"></a>Controladores de GPU admitidos
+## <a name="install-nvidia-cuda-drivers"></a>Instalación de controladores NVIDIA CUDA
+
+Estos son los pasos para instalar controladores NVIDIA en máquinas virtuales Linux NC desde la versión 8.0 del kit de herramientas de NVIDIA CUDA. Los desarrolladores de C y C++, si lo desean, pueden instalar el kit de herramientas completo para crear aplicaciones aceleradas por GPU. Para obtener más información, consulte la [guía de instalación de CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Actualmente, la compatibilidad con la GPU de Linux solo está disponible en las máquinas virtuales de Azure NC que ejecutan Ubuntu Server 16.04 LTS.
+> Los vínculos de descarga de controladores que se proporcionan aquí están actualizados en el momento de la publicación. Para ver los controladores más recientes, visite el sitio web de [NVIDIA](http://www.nvidia.com/).
 
-### <a name="nvidia-tesla-drivers-for-nc-vms"></a>Controladores de NVIDIA Tesla para máquinas virtuales NC
-
-* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899) (instalador autoextraíble .run)
-
-## <a name="tesla-driver-installation-on-ubuntu-1604-lts"></a>Instalación del controlador Tesla en Ubuntu 16.04 LTS
-
-1. Realice una conexión SSH a la máquina virtual de la serie N de Azure.
-
-2. Para comprobar que el sistema dispone de una GPU compatible con CUDA, ejecute el siguiente comando:
-
-    ```bash
-    lspci | grep -i NVIDIA
-    ```
-    Verá un resultado similar al siguiente ejemplo (mostrando una tarjeta NVIDIA Tesla K80):
-
-    ![Resultado del comando de Ispci](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
-
-3. Descargue el archivo .run para el controlador para su distribución. El siguiente comando de ejemplo descarga el controlador Ubuntu 16.04 LTS Tesla en el directorio /tmp:
-
-    ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
-    ```
-
-4. Si necesita instalar `gcc` y `make` en el sistema (necesario para los controladores de Tesla), escriba lo siguiente:
-
-    ```bash
-    sudo apt-get update
-    
-    sudo apt install gcc
-
-    sudo apt install make
-    ```
-
-4. Cambie al directorio que contiene el instalador del controlador y ejecute comandos similares al siguiente:
-
-    ```bash
-    chmod +x NVIDIA-Linux-x86_64-367.48.run
-    
-    sudo sh ./NVIDIA-Linux-x86_64-367.48.run
-    ```
-
-## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
-
-
-Para consultar el estado del dispositivo de GPU, ejecute la utilidad de línea de comandos [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) que se instala con el controlador. 
-
-![Estado del dispositivo de NVIDIA](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
-
-## <a name="optional-installation-of-nvidia-cuda-toolkit-on-ubuntu-1604-lts"></a>Instalación opcional del Kit de herramientas de NVIDIA CUDA en Ubuntu 16.04 LTS
-
-Si lo desea, puede instalar el Kit de herramientas de NVIDIA CUDA 8.0 en máquinas virtuales de NC con Ubuntu 16.04 LTS. Además de los controladores GPU, el Kit de herramientas proporciona un entorno de desarrollo completo para desarrolladores C y C++ que crean aplicaciones con aceleración mediante GPU.
-
-Para instalar el Kit de herramientas de CUDA, ejecute comandos similares al siguiente:
+Para instalar el kit de herramientas de CUDA, realice una conexión SSH a cada máquina virtual. Para comprobar que el sistema dispone de una GPU compatible con CUDA, ejecute el siguiente comando:
 
 ```bash
-CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
+lspci | grep -i NVIDIA
+```
+Verá un resultado similar al siguiente ejemplo (mostrando una tarjeta NVIDIA Tesla K80):
+
+![Resultado del comando de Ispci](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
+
+Luego, ejecute los comandos específicos de su distribución.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+```bash
+CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 
 wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -102,9 +70,49 @@ rm -f /tmp/${CUDA_REPO_PKG}
 sudo apt-get update
 
 sudo apt-get install cuda-drivers
+
+```
+La instalación puede tardar varios minutos.
+
+Para instalar (opcional) el kit de herramientas CUDA completo, escriba:
+
+```bash
+sudo apt-get install cuda
 ```
 
-La instalación puede tardar varios minutos.
+Reinicie la máquina virtual y continúe para comprobar la instalación.
+
+## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
+
+
+Para consultar el estado del dispositivo de GPU, acceda mediante SSH a la máquina virtual y ejecute la utilidad de línea de comandos [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) que se instala con el controlador. 
+
+![Estado del dispositivo de NVIDIA](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
+
+## <a name="cuda-driver-updates"></a>Actualizaciones de controladores CUDA
+
+Se recomienda actualizar periódicamente los controladores CUDA después de la implementación.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+```
+
+Una vez finalizada la actualización, reinicie la máquina virtual.
+
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../includes/virtual-machines-n-series-considerations.md)]
+
+* No se recomienda instalar X Server u otros sistemas que usan el controlador nouveau en máquinas virtuales Ubuntu NC. Antes de instalar controladores de GPU NVIDIA, debe deshabilitar al controlador nouveau.  
+
+* Si desea capturar una imagen de una máquina virtual Linux en la que ha instalado controladores NVIDIA, consulte [Procedimiento para generalizar y capturar una máquina virtual Linux](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

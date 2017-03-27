@@ -13,30 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 03/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 12da8c9f7b55a8758d7f4bf743cd85e493fb24b9
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: a9d496d696298d800bc40b1f3880c95f84e5f29f
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-sql-database-and-performance-for-single-databases"></a>Azure SQL Database y rendimiento de bases de datos únicas
-Azure SQL Database ofrece tres [niveles de servicio](sql-database-service-tiers.md): Básico, Estándar y Premium. Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
+Azure SQL Database ofrece cuatro [niveles de servicio](sql-database-service-tiers.md): Básico, Estándar, Premium y Premium RS. Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
 
 > [!NOTE]
 > Este artículo se centra en la guía de rendimiento para bases de datos únicas de Azure SQL Database. Para obtener instrucciones sobre rendimiento relativas a los grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md). Observe, sin embargo, que muchas de las recomendaciones de optimización de este artículo se pueden aplicar a bases de datos de un grupo elástico y obtener ventajas de rendimiento similares.
 > 
 > 
-
-Estos son los tres niveles de servicio de Azure SQL Database entre los que puede elegir (el rendimiento se mide en unidades de procesamiento de base de datos, o [DTU](sql-database-what-is-a-dtu.md)):
-
-* **Básico**. El nivel de servicio Básico ofrece una buena predicción del rendimiento para cada base de datos, hora a hora. En una base de datos básica, hay suficientes recursos para proporcionar un buen rendimiento en bases de datos pequeñas que no tienen varias solicitudes simultáneas.
-* **Estándar**. El nivel de servicio Estándar ofrece una funcionalidad mejorada para predecir el rendimiento y ofrece un buen rendimiento para bases de datos con solicitudes simultáneas, tales como aplicaciones web y de grupo de trabajo. Cuando se usa una base de datos con un nivel de servicio Estándar, puede ajustar el tamaño de la aplicación de base de datos según un rendimiento predecible, minuto a minuto.
-* **Premium**. El nivel de servicio Premium proporciona un rendimiento predecible, segundo a segundo, para cada base de datos Premium. Si elige el nivel de servicio Premium, puede cambiar el tamaño de la aplicación de base de datos según la carga máxima para dicha base de datos. El plan elimina los casos en los que variaciones en el rendimiento pueden ocasionar que consultas de pequeño tamaño tarden más de lo habitual en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación de productos en aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas.
-
-En cada nivel de servicio se establece el nivel de rendimiento, de modo que tiene la flexibilidad de pagar únicamente por la capacidad que necesita. También puede [ajustar la capacidad](sql-database-service-tiers.md), hacia arriba o hacia abajo, según los cambios en la carga de trabajo. Por ejemplo, si la carga de trabajo de la base de datos es alta durante la temporada de compra de vuelta al colegio, puede aumentar el nivel de rendimiento de la base de datos durante un tiempo establecido, de julio a septiembre. Luego, puede reducirla cuando finalice la temporada de actividad máxima. Puede optimizar su entorno de nube para la estacionalidad de su negocio y así minimizar lo que paga. Este modelo también funciona bien para los ciclos de lanzamiento de productos de software. Un equipo de pruebas puede asignar capacidad mientras realiza ejecuciones de prueba y luego liberar esa capacidad cuando finalicen las pruebas. En un modelo de solicitud de capacidad, se paga por la capacidad que necesite, así se evita gastos en recursos dedicados que raramente usa.
 
 ## <a name="why-service-tiers"></a>¿Por qué niveles de servicio?
 Aunque cada carga de trabajo de base de datos puede variar, los niveles de servicio tienen como fin proporcionar una previsión del rendimiento en diversos niveles de rendimiento. Los clientes con requisitos de recursos de base de datos a gran escala pueden trabajar en un entorno informático más dedicado.
@@ -56,12 +48,18 @@ La mayoría de los casos de uso del nivel de servicio Premium tienen una o varia
 * **Muchas solicitudes simultáneas**. Algunas aplicaciones de base de datos atienden muchas solicitudes simultáneas, por ejemplo, cuando dan servicio a un sitio web con un volumen elevado de tráfico. Los niveles de servicio Básico y Estándar limitan el número de solicitudes simultáneas por base de datos. Las aplicaciones que requieren más conexiones necesitarían elegir un tamaño de reserva adecuado para controlar el número máximo de solicitudes necesarias.
 * **Baja latencia**. Algunas aplicaciones necesitan garantizar una respuesta de la base de datos en un tiempo mínimo. Si se llama a un procedimiento almacenado determinado como parte de una operación de cliente más amplia, podría ser necesario volver de esa llamada en no más de 20 milisegundos el 99 % del tiempo. Este tipo de aplicación se beneficia del nivel de servicio Premium para asegurarse de que haya la capacidad de proceso necesaria.
 
+* **Premium RS**. Diseñado para clientes que tienen cargas de trabajo intensivas de E/S pero que no requieren las mayores garantías de disponibilidad. Los ejemplos incluyen las pruebas en cargas de trabajo de alto rendimiento, o en una carga de trabajo analítico en el que la base de datos no es el sistema de registro.
+
 El nivel de servicio que necesite para su base de datos SQL depende de los requisitos de carga máxima para cada dimensión de recursos. Algunas aplicaciones usan pocas cantidades de un recurso pero tienen necesidades considerables de otros.
 
 ## <a name="service-tier-capabilities-and-limits"></a>Límites y capacidades de nivel de servicio
 Cada nivel de servicio y nivel de rendimiento están asociados a distintos límites y características de rendimiento. En la tabla siguiente se describen estas características para una base de datos única.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+
+> [!IMPORTANT]
+> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente en versión preliminar pública en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Europa Occidental, Asia Suroriental, Japón Oriental, Este de Australia, centro de Canadá y Canadá Oriental. Para las limitaciones actuales, consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+>
 
 ### <a name="maximum-in-memory-oltp-storage"></a>Almacenamiento máximo OLTP en memoria
 Puede usar la vista **sys.dm_db_resource_stats** para supervisar el uso del almacenamiento en memoria de Azure. Para más información sobre la supervisión, consulte [Supervisión del almacenamiento OLTP en memoria](sql-database-in-memory-oltp-monitoring.md).
@@ -189,7 +187,7 @@ En el siguiente ejemplo se muestran distintas maneras en que puede usar la vista
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. Con la información anterior sobre los valores medio y máximo de cada métrica de recursos, puede evaluar si la carga de trabajo se ajusta bien al nivel de rendimiento que eligió. Por lo general, los valores medios de **sys.resource_stats** son una buena referencia para el tamaño de destino. Debería ser su vara de medida principal. Por ejemplo, podría estar usando el nivel de servicio Estándar con el nivel de rendimiento S2. Los porcentajes de uso medio de CPU y de lecturas y escrituras de E/S están por debajo del 40 por ciento, el número medio de trabajadores está por debajo de 50 y el número medio de sesiones está por debajo de 200. La carga de trabajo podría ajustarse al nivel de rendimiento S1. Es fácil ver si la base de datos se ajusta a los límites de trabajadores y de sesión. Para ver si una base de datos se ajusta a un nivel de rendimiento inferior con respecto a CPU, lecturas y escrituras, divida el número de DTU del nivel de rendimiento inferior por el número de DTU de su nivel de rendimiento actual y multiplique el resultado por 100:
    
-    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+    **S1 DTU / S2 DTU * 100 = 20 / 50* 100 = 40**
    
     El resultado es la diferencia porcentual de rendimiento relativa entre los dos niveles de rendimiento. Si el uso de recursos no supera esta cantidad, la carga de trabajo podría ajustarse al nivel de rendimiento inferior. Sin embargo, debe examinar todos los intervalos de valores de uso de recursos y determinar, según el porcentaje, con qué frecuencia se ajustaría la carga de trabajo de la base de datos al nivel de rendimiento inferior. La siguiente consulta proporciona el porcentaje de ajuste por dimensión de recursos según el umbral del 40 % que hemos calculado en este ejemplo.
    

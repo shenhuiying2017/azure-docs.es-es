@@ -16,9 +16,9 @@ ms.date: 01/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: a7d6cad6faa5fc3a64fe416b44a03ad3992c7862
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 64a7bfeefd8282f854aa5b143a1708dfbe02ff42
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -110,7 +110,7 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
-| ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como por [RFC7232][lnk-rfc7232]. |
+| ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232][lnk-rfc7232]. |
 | auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
 | auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
 | status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |

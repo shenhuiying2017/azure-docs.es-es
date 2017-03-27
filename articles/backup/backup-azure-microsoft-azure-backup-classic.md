@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2d32e8bb650d682684be0e093a9f5dfd9d536a8f
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -52,31 +53,19 @@ El primer paso para que funcione el servidor de Copia de seguridad de Azure es t
 >
 >
 
-Si planea unir este servidor a un dominio en algún momento, se recomienda que la actividad de unión a dominio se realice antes de la instalación del servidor de Copia de seguridad de Azure. *No se permite*mover una máquina servidor de Copia de seguridad de Azure existente a un dominio nuevo después de la implementación.
+Si planea unir el servidor de copia de seguridad de Azure a un dominio, se recomienda que una el servidor físico o la máquina virtual al dominio antes de instalar el software del servidor de copia de seguridad de Azure. *No se permite* mover un servidor de copia de seguridad de Azure a un dominio nuevo después de la implementación.
 
 ## <a name="2-backup-vault"></a>2. Almacén de copia de seguridad
 ![step2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Tanto si envía datos de copia de seguridad a Azure como si los mantiene localmente, el software debe estar conectado a Azure. Más concretamente, la máquina del servidor de Copia de seguridad de Azure debe estar registrada en un almacén de copia de seguridad.
+Si envía datos de copia de seguridad a Azure o los mantiene localmente, el servidor de copia de seguridad de Azure debe registrarse en un almacén.
 
-Para crear un almacén de copia de seguridad:
+> [!IMPORTANT]
+> A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup. Todavía se admitirán los almacenes de Backup existentes y es posible [usar Azure PowerShell para crear almacenes de Backup](./backup-client-automation-classic.md#create-a-backup-vault). Sin embargo, Microsoft recomienda crear almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services.
+>
+>
 
-1. Inicie sesión en el [Portal de administración](http://manage.windowsazure.com/).
-2. Haga clic en **Nuevo** > **Data Services** > **Recovery Services** > **Almacén de copia de seguridad** > **Creación rápida**. Si tiene varias suscripciones asociadas a su cuenta profesional, elija la suscripción adecuada que se asociará al almacén de copia de seguridad.
-3. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. Esto debe ser único para cada suscripción.
-4. En **Región**, seleccione la región geográfica del almacén. Normalmente, la región del almacén se selecciona basándose en las restricciones de latencia de red o de soberanía de los datos.
 
-    ![Crear un almacén de copia de seguridad](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
-5. Haga clic en **Crear almacén**. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Supervise las notificaciones de estado en la parte inferior del portal.
-
-    ![Crear la notificación del sistema del almacén](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
-6. Un mensaje confirma que el almacén se ha creado correctamente y se mostrará en la página de servicios de recuperación como activo.
-    ![Lista de almacenes de copia de seguridad](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-
-   > [!IMPORTANT]
-   > Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Puede encontrar más información sobre las opciones [con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) y [con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage) en esta sección de [información general](../storage/storage-redundancy.md).
-   >
-   >
 
 ## <a name="3-software-package"></a>3. Paquete de software
 ![step3](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -124,6 +113,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
    > El servidor de Copia de seguridad de Azure no funcionará con una instancia remota de SQL Server. La instancia que se utiliza en el servidor de Copia de seguridad de Azure debe ser local.
    >
    >
+
 4. Proporcione una ubicación donde instalar los archivos del servidor de Copia de seguridad de Microsoft Azure y haga clic en **Next**(Siguiente).
 
     ![Requisitos previos de Copia de seguridad de Microsoft Azure2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
@@ -209,9 +199,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 * [Copia de seguridad de SQL Server](backup-azure-backup-sql.md)
 * [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 * [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

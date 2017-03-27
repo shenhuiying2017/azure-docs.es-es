@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 503cf4afba4575492984891a681c187a8683a553
-ms.openlocfilehash: 9d8fd7ec594671e1ea7bf06459494f1c3a1adbdf
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 0184e95ca56e4bc4ffbe860da2b7a5cae9b5a043
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -33,7 +33,7 @@ La solución Azure SQL Monitoring, al igual que otras disponibles para Log Analy
 
 ## <a name="connected-sources"></a>Orígenes conectados
 
-A diferencia de la mayoría de las otras soluciones de Log Analytics, la solución Azure SQL Monitoring no usa agentes para conectarse al servicio Log Analytics.
+La solución Azure SQL Monitoring no usa agentes para conectarse al servicio Log Analytics.
 
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
@@ -42,7 +42,8 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | [Agentes de Windows](log-analytics-windows-agents.md) | No | La solución no utiliza agentes directos de Windows. |
 | [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no utiliza agentes directos de Linux. |
 | [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
-| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | Sí | Se envían datos de métricas de Azure a Log Analytics mediante la cuenta de almacenamiento. |
+| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | Log Analytics no lee los datos de una cuenta de almacenamiento. |
+| [Diagnóstico de Azure](log-analytics-azure-storage.md) | Sí | Azure envía directamente los datos de métricas de Azure a Log Analytics. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,7 +55,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 Realice los pasos siguientes para agregar la solución Azure SQL Monitoring al área de trabajo.
 
-1. Agregue la solución Azure SQL Monitoring al área de trabajo mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).
+1. Agregue la Azure SQL Analytics al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).
 2. En Azure Portal, haga clic en **Nuevo** (el símbolo +) y, a continuación, en la lista de recursos, seleccione **Supervisión y administración**.  
     ![Supervisión + Administración](./media/log-analytics-azure-sql/monitoring-management.png)
 3. En la lista **Supervisión y administración**, haga clic en **Ver todo**.

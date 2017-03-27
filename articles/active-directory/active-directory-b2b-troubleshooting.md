@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: f85c6bcc2abbd14c7879462f7013a97f550fdca5
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,6 +35,11 @@ Si el usuario externo al que está invitando ya tiene un objeto de contacto, no 
 
 En los casos donde los usuarios externos no se rellenan en la lista, el objeto puede tardar unos minutos en replicarse.
 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un usuario invitado de B2B no aparece en el selector de personas de SharePoint Online/OneDrive 
+ 
+La capacidad de buscar usuarios invitados existentes en el selector de personas de SharePoint Online está desactivada de manera predeterminada para así coincidir con el comportamiento heredado.
+Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUsers" en el nivel de inquilino y colección de sitios. Para hacerlo, use los cmdlets Set-SPOTenant y Set-SPOSite, que permiten que los miembros busquen a todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan los sitios de SPO que ya se aprovisionaron.
+
 ## <a name="invitations-have-been-disabled-for-directory"></a>Las invitaciones se han deshabilitado para el directorio
 
 Si recibe un mensaje de error que indica que no tiene permisos para invitar a usuarios, compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos. Esto puede hacerse en Configuración de usuario:
@@ -46,9 +52,9 @@ Si hace poco ha modificado estos valores o asignado el rol de invitador invitado
 
 Estos son algunos de los errores comunes:
 
-### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>El administrador del invitado no permite que los usuarios de EmailVerified se creen en su inquilino:
+### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>El administrador del invitado no permite que los usuarios de EmailVerified se creen en su inquilino
 
-Al invitar a los usuarios cuya organización está usando Azure Active Directory donde no existe cuenta del usuario concreto (no se encuentra en AAD contoso.com). El administrador de contoso.com puede tener una directiva en lugar de evitar que se creen usuarios. El usuario externo debe ponerse en contacto con su administrador para determinar si se permiten usuarios externos; el administrador de dicho usuario puede que tenga que permitir usuarios de EmailVerified en su dominio (consulte este [artículo](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters) sobre cómo permitir usuarios de EmailVerified).
+Cuando se invita a usuarios cuya organización usa Azure Active Directory, pero donde no existe la cuenta de usuario en concreto (por ejemplo, el usuario no existe en Azure AD contoso.com). El administrador de contoso.com puede tener una directiva en lugar de evitar que se creen usuarios. El usuario debe consultar al administrador y determinar si se permiten los usuarios externos. Es posible que el administrador del usuario externo necesite permitir usuarios comprobados por correo electrónico en el dominio (consulte este [artículo](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters) sobre cómo permitir usuarios comprobados por correo electrónico).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -58,7 +64,7 @@ No se puede invitar al usuario en los casos donde el usuario externo esté usand
 
 Para resolver este problema, el administrador del usuario externo debe sincronizar la cuenta del usuario con Azure Active Directory.
 
-## <a name="how-does--which-is-normally-an-invalid-character-sync-with-azure-ad"></a>¿Cómo "\#", que suele ser un carácter no válido, se sincroniza con Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>¿Cómo "\#", que habitualmente no es un carácter válido, se sincroniza con Azure AD?
 
 "\#" es un carácter reservado en los UPN para los usuarios externos o la colaboración B2B de Azure AD (es decir, el usuario &lt;user@contoso.com&gt; invitado, se convierte en &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;). Por tanto, no se permite usar \# en los UPN procedentes de entornos locales para iniciar sesión en Azure Portal.
 
@@ -89,9 +95,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

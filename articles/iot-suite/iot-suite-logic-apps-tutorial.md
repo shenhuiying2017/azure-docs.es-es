@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/09/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
-ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -31,6 +31,8 @@ Antes de comenzar este tutorial, debe:
 
 * Aprovisionar la solución preconfigurada de supervisión remota en su suscripción de Azure.
 * Crear una cuenta de SendGrid para poder enviar un correo electrónico que desencadene el proceso de negocio. Puede registrarse para obtener una cuenta de evaluación gratuita en [SendGrid](https://sendgrid.com/) haciendo clic en **Try for Free**(Probar gratis). Después de haberse registrado para crear una cuenta de evaluación gratuita, deberá generar una [clave de API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) en SendGrid que conceda permisos para enviar correo. La necesitará más adelante en el tutorial.
+
+Para completar este tutorial, necesita Visual Studio 2015 o Visual Studio 2017 para modificar las acciones en el back-end de soluciones preconfiguradas.
 
 Suponiendo que ya se haya aprovisionado la solución preconfigurada de supervisión remota, vaya al grupo de recursos correspondiente a esa solución en[ Azure Portal][lnk-azureportal]. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada. En el grupo de recursos, puede ver todos los recursos de Azure aprovisionados previamente para su solución (a excepción de la aplicación Azure Active Directory, que se puede encontrar en el Portal de Azure clásico). La captura de pantalla siguiente muestra una hoja de **grupo de recursos** de ejemplo para una solución preconfigurada de supervisión remota:
 
@@ -117,8 +119,8 @@ En esta sección, se conectará la solución preconfigurada a la aplicación ló
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. Guarde los cambios de la solución y salga de Visual Studio.

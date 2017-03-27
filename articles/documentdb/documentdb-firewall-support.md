@@ -14,11 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/10/2017
 ms.author: ankshah
 translationtype: Human Translation
-ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
-ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7acbdda2e8179219c21370d20d30a94feb405fce
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -47,25 +48,32 @@ Al agregar instancias adicionales de máquina virtual al grupo, se les proporcio
 ## <a name="connections-from-the-internet"></a>Conexiones desde Internet
 Cuando se accede a una cuenta de base de datos de DocumentDB desde un equipo de Internet, se debe agregar la dirección IP del cliente o el intervalo de direcciones IP de la máquina a la lista de direcciones IP permitidas para dicha cuenta. 
 
-## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> Configuración de la directiva de control de acceso IP
-La directiva de control de acceso basado en IP se puede establecer mediante programación a través la [CLI de Azure](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) actualizando la propiedad `ipRangeFilter`. Los intervalos o direcciones IP deben ir separados por comas y no deben contener espacios. Ejemplo: "13.91.6.132,13.91.6.1/24". Al actualizar la cuenta de la base de datos mediante estos métodos, asegúrese de rellenar todas las propiedades para evitar que se restablezca la configuración predeterminada.
+## <a id="configure-ip-policy"></a> Configuración de la directiva de control de acceso IP
+La directiva de control de acceso basado en IP se puede establecer en Azure Portal mediante programación a través la [CLI de Azure](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) actualizando la propiedad `ipRangeFilter`. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Ejemplo: "13.91.6.132,13.91.6.1/24". Al actualizar la cuenta de la base de datos mediante estos métodos, asegúrese de rellenar todas las propiedades para evitar que se restablezca la configuración predeterminada.
 
 > [!NOTE]
 > Al habilitar una directiva de control de acceso IP para su cuenta de base de datos de DocumentDB, todo el acceso a esta cuenta desde máquinas fuera de la lista configurada de intervalos de direcciones IP permitidas se bloquea. En virtud de este modelo, la exploración de la operación de plano de datos desde el portal también se bloqueará para garantizar la integridad del control de acceso.
 
+Para simplificar el desarrollo, Azure Portal lo ayuda a identificar y agregar la dirección IP de su equipo cliente a la lista de permitidos, por lo que las aplicaciones que se ejecutan en la máquina pueden tener acceso a la cuenta de DocumentDB. Tenga en cuenta que la dirección IP de cliente se detecta tal como se muestra en el Portal. Es posible que sea la dirección IP del cliente de la máquina, pero también podría ser la de la puerta de enlace de red. No olvide quitarla antes de pasar a la fase de producción.
+
+Para establecer la directiva de control de acceso de IP en Azure Portal, vaya a la hoja de la cuenta de DocumentDB, haga clic en **Firewall** en el menú de navegación, y en **ACTIVADO**. 
+
+![Captura de pantalla que muestra cómo abrir la hoja Firewall en Azure Portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
+
+En el panel nuevo, especifique si Azure Portal puede tener acceso a la cuenta y agregar otras direcciones e intervalos según corresponda. Después, haga clic en **Guardar**.  
+
+![Captura de pantalla que muestra cómo configurar un firewall en Azure Portal](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
+
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Solución de problemas de la directiva de control de acceso IP
 ### <a name="portal-operations"></a>Operaciones del portal
-Al habilitar una directiva de control de acceso IP para su cuenta de base de datos de DocumentDB, todo el acceso a esta cuenta desde máquinas fuera de la lista configurada de intervalos de direcciones IP permitidas se bloquea. En virtud de este modelo, la exploración de la operación de plano de datos desde el portal también se bloqueará para garantizar la integridad del control de acceso. 
+Al habilitar una directiva de control de acceso IP para su cuenta de base de datos de DocumentDB, todo el acceso a esta cuenta desde máquinas fuera de la lista configurada de intervalos de direcciones IP permitidas se bloquea. Por lo tanto, si desea habilitar las operaciones en el plano de los datos del Portal como explorar las colecciones y consultar documentos, debe permitir expresamente el acceso a Azure Portal usando la hoja **Firewall** del Portal. 
+
+![Captura de pantalla que muestra cómo habilitar el acceso a Azure Portal](./media/documentdb-firewall-support/documentdb-azure-portal-access-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK y API de Rest
 Por motivos de seguridad, el acceso a través del SDK o la API de REST desde máquinas que no en la lista de permitidos, devolverá una respuesta genérica 404 No encontrado sin más detalles. Compruebe la lista de direcciones IP permitidas configurada para su cuenta de base de datos de DocumentDB para asegurarse de que se aplica la configuración de directiva correcta a dicha cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las sugerencias de rendimiento relacionadas con la red, consulte [Sugerencias de rendimiento](documentdb-performance-tips.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

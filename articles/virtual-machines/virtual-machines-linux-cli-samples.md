@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ea9ee62b28069f87404b665151a51c5b73edf353
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 59dfe13e70a5a20da4965f8a698380dc78b21028
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 |**Máquinas virtuales de red**||
 | [Protección del tráfico de red entre máquinas virtuales](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crea dos máquinas virtuales, todos los recursos relacionados y grupos de seguridad de red internos y externos (NSG). |
 |**Supervisión de máquinas virtuales**||
-| [Supervisión de una máquina virtual con Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crea una máquina virtual, instala el agente de Operations Management Suite e inscribe la máquina virtual en un área de trabajo de OMS.  |
+| [Supervisión de una máquina virtual con Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una máquina virtual, instala el agente de Operations Management Suite e inscribe la máquina virtual en un área de trabajo de OMS.  |
 |**Solución de problemas de máquinas virtuales**||
 | [Solución de problemas de un disco de sistema operativo de máquina virtual](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Permite montar el disco del sistema operativo a partir de una máquina virtual como un disco de datos en una segunda máquina virtual. |
 | | |

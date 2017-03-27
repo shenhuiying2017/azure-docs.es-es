@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
-ms.openlocfilehash: f574612734ff9cef0c717d5a12ee2962ef211178
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3db31549b02fbcb72ce2b0c5da32d7800f8287f3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,11 +41,11 @@ Podrá:
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](app-service-web-get-started-php-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager
-- [CLI de Azure 2.0 ](app-service-web-get-started-php.md): la CLI de última generación para el modelo de implementación de administración de recursos.
+- [CLI de Azure 2.0](app-service-web-get-started-php.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](../xplat-cli-install.md).
+* [Azure CLI](../cli-install-nodejs.md).
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]

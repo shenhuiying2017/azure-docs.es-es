@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -41,7 +42,7 @@ Mahout es una biblioteca de [aprendizaje automático][ml] para Apache Hadoop. Ma
 
 Para más información sobre la versión de Mahout en HDInsight, consulte [Versiones de HDInsight y componentes de Hadoop](hdinsight-component-versioning.md).
 
-## <a name="a-namerecommendationsaunderstanding-recommendations"></a><a name="recommendations"></a>Descripción de recomendaciones
+## <a name="recommendations"></a>Descripción de recomendaciones
 
 Una de las funciones que proporciona Mahout es un motor de recomendaciones. Este motor acepta datos en formato de `userID`, `itemId` y `prefValue` (la preferencia por el elemento). Mahout puede realizar entonces análisis de ocurrencias conjuntas para determinar: *los usuarios que tienen predilección por un elemento también la tienen por estos otros elementos*. Mahout determinará los usuarios con preferencias de elementos similares, lo que se puede usar para realizar recomendaciones.
 

@@ -10,6 +10,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +20,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 6971e123b388eab689e02a5c67809509c2ad29c6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -63,10 +65,5 @@ Hay diferentes opciones en lo que respecta a cómo ejecutar consultas de Hive:
 * [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md): aprenda a crear clústeres de Interactive Hive en HDInsight.
 * [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md): obtenga información sobre cómo usar Beeline para enviar consultas de Hive.
 * [Conexión de Excel a Hadoop con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md): aprenda a conectar Excel con Hive.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

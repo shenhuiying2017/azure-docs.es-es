@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 18d70fc1dc85efe699e6ec498e024a0b8d3525f0
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4505bb5f572add13c21df06fc7997358eaae6352
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 * **VM de Azure creada en el modelo de implementación de Resource Manager**: si no ha creado una VM de Linux, puede usar el [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), la [CLI de Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [plantillas de Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
   
     Configure la máquina virtual como considere necesario. Por ejemplo, [agregue discos de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), aplique actualizaciones e instale aplicaciones. 
-* **CLI de Azure**: instale la [CLI de Azure](../xplat-cli-install.md) en un equipo local.
+* **CLI de Azure**: instale la [CLI de Azure](../cli-install-nodejs.md) en un equipo local.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Paso 1: Quitar el agente Linux de Azure
 En primer lugar, ejecute el comando **waagent** con el parámetro **deprovision** en la máquina virtual Linux. Este comando elimina los archivos y los datos para que la máquina virtual esté lista para la generalización. Para más información, consulte [Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

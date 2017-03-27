@@ -12,47 +12,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
-ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Información general sobre el registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información sobre las operaciones realizadas en recursos de su suscripción. El registro de actividad se conocía antes como "Registros de auditoría" o "Registros operativos", ya que notifica eventos del plano de control para las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las de los recursos que usan el modelo Clásico/"RDFE".
+El **registro de actividad de Azure** es un registro que proporciona información sobre las operaciones realizadas en recursos de su suscripción. El registro de actividad se conocía antes como "Registros de auditoría" o "Registros operativos", ya que notifica eventos del plano de control para las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones de los recursos que usan el modelo Clásico/"RDFE".
 
-El registro de actividad se diferencia de los [registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md)en que estos últimos son emitidos por un solo recurso. Estos registros proporcionan datos sobre el funcionamiento de ese recurso, en lugar de las operaciones en ese recurso.
+![Comparación de los registros de actividad y otros tipos de registros ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+
+Ilustración 1: Comparación de los registros de actividad y otros tipos de registros
+
+El registro de actividad es distinto de los [registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md). Los registros de actividad proporcionan datos sobre las operaciones en un recurso desde el exterior. Es un recurso el que emite los registros de diagnóstico, los que proporcionan información sobre la operación de dicho recurso.
 
 Puede recuperar los eventos del registro de actividad mediante Azure Portal, la CLI, los cmdlets de PowerShell y la API de REST de Azure Monitor.
 
-Vea este vídeo [sobre la introducción del registro de actividad](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
 > [!WARNING]
-> El registro de actividad de Azure sirve principalmente para las actividades que se producen en Azure Resource Manager, no para las que utilizan el modelo Clásico/RDFE. Tenga en cuenta que algunos tipos de recursos clásicos tienen un proveedor de recursos de servidor proxy en Azure Resource Manager (p. ej., Microsoft.ClassicCompute). Si un usuario interactúa con un tipo de recurso clásico a través de Azure Resource Manager con estos proveedores de recursos de servidor proxy, las operaciones aparecerán en el registro de actividad. Si un usuario interactúa con un tipo de recurso clásico en el portal clásico o fuera de los servidores proxy de Azure Resource Manager, las acciones del usuario solo se grabarán en el registro de operaciones, al que solo se puede acceder desde el portal clásico.
+> El registro de actividad de Azure sirve principalmente para las actividades que se producen en Azure Resource Manager. No hace seguimiento de los recursos que usan el modelo Clásico/RDFE. Algunos tipos de recursos clásicos tienen un proveedor de recursos de servidor proxy en Azure Resource Manager (por ejemplo, Microsoft.ClassicCompute). Si interactúa con un tipo de recurso clásico a través de Azure Resource Manager con estos proveedores de recursos de servidor proxy, las operaciones aparecen en el registro de actividad. Si interactúa con un tipo de recurso clásico en el portal clásico o fuera de los servidores proxy de Azure Resource Manager, sus acciones solo se registran en el registro de operaciones. Solo se puede tener acceso al registro de operaciones desde el portal clásico.
 >
 >
+
+Vea el vídeo siguiente sobre la introducción del registro de actividad.
+[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Qué se puede hacer con el registro de actividad
 Estas son algunas de las cosas que puede hacer con el registro de actividad:
 
-* Verlo y realizar consultas en él en el **Portal de Azure**.
-* Consultarlo por medio de la API de REST, un cmdlet de PowerShell o la CLI.
-* [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](insights-auditlog-to-webhook-email.md)
-* [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](monitoring-archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
-* Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Transmitirlo al **Centro de eventos**](monitoring-stream-activity-logs-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
+![Registro de actividad de Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
-El espacio de nombres del centro de eventos o la cuenta de almacenamiento no tiene que estar en la misma suscripción que la que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
+
+* [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](insights-auditlog-to-webhook-email.md)
+* [Transmitirlo al **Centro de eventos**](monitoring-stream-activity-logs-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
+* Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](monitoring-archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
+* Verlo y realizar consultas en él en el **Portal de Azure**.
+* Consultarlo mediante un cmdlet de PowerShell, la CLI o la API de REST.
+
+
+Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
 ## <a name="export-the-activity-log-with-log-profiles"></a>Exportación del registro de actividad con perfiles de registro
 Un **perfil de registro** controla cómo se exporta el registro de actividad. Con un perfil de registro, puede configurar:
 
 * Dónde se debería enviar el registro de actividad (cuenta de almacenamiento o centros de eventos)
-* Qué categorías de eventos (Escritura, Eliminación, Acción) se deberían enviar. *Tenga en cuenta que el significado de "categoría" en el contexto del perfil de registro es diferente que el significado de la propiedad "categoría" en un evento de registro de actividad. Mientras que "categoría" en el perfil de registro representa el tipo de operación (Escritura, Eliminación, Acción), la propiedad "categoría" en un evento de registro de actividad representa el origen o el tipo de evento (Administración, Estado del servicio, Alerta, etc.).*
+* Qué categorías de eventos (Escritura, Eliminación, Acción) se deberían enviar. *El significado de "categoría" en los eventos de registro de actividad y los perfiles de registro es distinto. En el perfil de registro, "Categoría" representa el tipo de operación (escritura, eliminación, acción). En un evento de registro de actividad, la propiedad de "categoría" representa el origen o el tipo de un evento (por ejemplo, Administration, ServiceHealth, Alert, etc.).*
 * Qué regiones (ubicaciones) se deben exportar
-* Cuánto tiempo debe retenerse el registro de actividad en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto. Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
+* El tiempo durante el que se debe conservar un registro de actividad en una cuenta de almacenamiento.
+    - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
+    - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de Event Hubs u OMS), las directivas de retención no surten ningún efecto.
+    - Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
 Estas opciones se pueden configurar a través de la opción de exportación en la hoja de registro de actividad en el portal. También pueden configurarse mediante programación [con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), los cmdlets de PowerShell o con la CLI. Una suscripción solo puede tener un perfil de registro.
 
@@ -60,18 +74,18 @@ Estas opciones se pueden configurar a través de la opción de exportación en l
 Puede transmitir el registro de actividad a un centro de eventos o almacenarlo en una cuenta de almacenamiento mediante la opción "Exportar" en el Portal de Azure.
 
 1. Vaya a la hoja de **registro de actividad** mediante el menú en el lado izquierdo del portal.
-   
+
     ![Ir al registro de actividad en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Haga clic en el botón **Exportar** en la parte superior de la hoja.
-   
+
     ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. En la hoja que aparece, puede seleccionar:  
-   
+
    * Las regiones para las que le gustaría exportar eventos
    * La cuenta de almacenamiento en la que desea guardar los eventos
    * El número de días que desea conservar estos eventos en el almacenamiento. Un valor de 0 días conserva los registros para siempre.
    * El espacio de nombres de Service Bus en el que quiere que se cree un centro de eventos para transmitir estos eventos.
-     
+
      ![Exportar en hoja de registro de actividad](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
 
@@ -240,10 +254,4 @@ Cada evento del registro de actividad tiene un blob JSON similar al siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad (antes, Registros de auditoría)](../azure-resource-manager/resource-group-audit.md)
 * [Transmisión del registro de actividad de Azure a centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

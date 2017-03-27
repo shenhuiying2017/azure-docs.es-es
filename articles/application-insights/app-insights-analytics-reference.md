@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 802086b95b949cf4aa14af044f69e500b31def44
-ms.openlocfilehash: 5241a36fbc7008baad5369452d3332d84335a661
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,9 +32,9 @@ Fuentes adicionales de información:
  
 
 ## <a name="index"></a>Índice
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Consultas y operadores** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Consultas y operadores** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -108,17 +108,74 @@ requests
 | summarize count() by client_City;
 ```
 
-Autocombinación:
+### <a name="materialize"></a>materialize
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+Use materialize() para mejorar el rendimiento cuando el resultado de una cláusula let se usa más de una vez de bajada. Materialize() evalúa y almacena en caché el resultado de una cláusula let tabular en el momento de la ejecución de la consulta, lo que garantiza que la consulta no se ejecute más de una vez.
 
+**Sintaxis**
+
+    materialize(expression)
+
+**Argumentos**
+
+* `expresion`: expresión tabular que se evaluará y almacenará en caché durante la ejecución de la consulta.
+
+**Sugerencias**
+
+* Use materialize cuando tenga operadores join/union en los que sus operandos tengan subconsultas mutuas que se pueden ejecutar una vez (consulte los ejemplos a continuación).
+* También resulta útil en escenarios en los que necesita usar operadores join/union para las bifurcaciones.
+* Materialize solo se puede usar en instrucciones let si se asigna un nombre al resultado en caché.
+* Materialze tiene un límite de tamaño de caché de 5 GB. Este límite es por nodo de clúster y es mutuo para todas las consultas.
+
+**Ejemplo: autocombinación**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+La versión no almacenada en caché usa el resultado `scope` dos veces:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## <a name="queries-and-operators"></a>Consultas y operadores
 Una consulta sobre datos de telemetría se compone de una referencia a una secuencia de origen, seguida de una canalización de filtros. Por ejemplo:
@@ -149,6 +206,30 @@ Una consulta puede ir precedida por una o más [cláusulas let](#let-clause), qu
 > `T` se utiliza en los siguientes ejemplos de consultas para indicar la tabla de origen o la canalización anterior.
 > 
 > 
+
+### <a name="as-operator"></a>Operador as
+
+Enlaza de forma temporal un nombre a la expresión tabular de entrada.
+
+**Sintaxis**
+
+    T | as name
+
+**Argumentos**
+
+* *name:* nombre temporal para la tabla
+
+**Notas**
+
+* Use [let](#let-clause) en lugar de *as* si desea usar el nombre en una subexpresión más adelante.
+* Use *as* para especificar el nombre de la tabla tal como aparece en el resultado de un operador [union](#union-operator), [find](#find-operator) o [search](#search-operator).
+
+**Ejemplo**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
 
 ### <a name="count-operator"></a>Operador count
 El operador `count` devuelve el número de registros (filas) en el conjunto de registros de entrada.
@@ -276,7 +357,7 @@ Tenga en cuenta que los patrones son contiguos: pueden solaparse y, normalmente,
     El número de inicializaciones determina el número de puntos de búsqueda local iniciales del algoritmo. En algunos casos, según la estructura de los datos, un número de inicializaciones creciente aumenta el número o la calidad de los resultados mediante un espacio de búsqueda mayor con un equilibrio de consulta más lento. El argumento num_seeds tiene una disminución de los resultados en ambas direcciones, por lo que reducirlo por debajo de 5 proporcionará una mejora de rendimiento insignificante, mientras que aumentarlo por encima de 50 rara vez generará patrones adicionales.
   
     Ejemplo: `T | evaluate autocluster("num_seeds=50")`
-* `size_weight=`* 0<double<1*+ (valor predeterminado: 0,5)
+* `size_weight=`*0<double<1*+ (valor predeterminado: 0,5)
   
     Proporciona control sobre el equilibrio entre genérico (gran cobertura) e informativo (muchos valores compartidos). Aumentar size_weight normalmente reduce el número de patrones, y cada patrón tiende a abarcar un porcentaje mayor. Reducir size_weight normalmente genera patrones más específicos, con más valores compartidos y una cobertura de porcentaje más pequeña. La fórmula interna es la media geométrica ponderada entre la puntuación genérica normalizada y la puntuación informativa con size_weight y 1-size_weight como los pesos. 
   
@@ -464,7 +545,7 @@ Busca filas que coinciden con un predicado a través de un conjunto de tablas.
 
 De forma predeterminada, la tabla de salida contiene:
 
-* `source_`: Un indicador de la tabla de origen para cada fila.
+* `source_`: Un indicador de la tabla de origen para cada fila. Use [as](#as-operator) al final de cada expresión de tabla, si desea especificar el nombre que aparece en esta columna.
 * Las columnas mencionadas explícitamente en el predicado
 * Las columnas no vacías comunes a todas las tablas de entrada.
 * `pack_`: Una bolsa de propiedades que contiene los datos de las otras columnas.
@@ -505,7 +586,19 @@ Busque la telemetría más reciente en cualquier campo que contenga el término 
 * Agregue condiciones basadas en tiempo al predicado `where`.
 * Use cláusulas `let` en lugar de escribir consultas alineadas.
 
+### <a name="getschema-operator"></a>Operador getschema
 
+   T | getschema
+   
+Genera una tabla que muestra los nombres de columna y los tipos de la tabla de entrada.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Resultados de getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### <a name="join-operator"></a>Operador join
     Table1 | join (Table2) on CommonColumn
@@ -593,6 +686,37 @@ Vuelve al número especificado de filas de la tabla de entrada. No hay ninguna g
 `Take` es una manera sencilla y eficaz de ver un ejemplo de los resultados cuando se está trabajando de forma interactiva. Tenga en cuenta que no hay garantía de que se generen ningunas filas específicas o de que lo hagan en un orden determinado.
 
 Hay un límite implícito en el número de filas devueltas al cliente, aunque no utilice `take`. Para eliminar este límite, use la opción de solicitud de cliente `notruncation` .
+
+### <a name="make-series-operator"></a>Operador make-series
+
+Realiza una agregación. A diferencia de [summarize](#summarize-operator), hay solo una fila de salida para cada grupo. En las columnas de resultados, los valores de cada grupo se empaquetan en matrices. 
+
+**Sintaxis**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Argumentos**
+
+* *Column* : nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión.
+* *DefaultValue:* si no hay ninguna fila con valores específicos de AxisColumn y GroupExpression, se asignará un valor DefaultValue al elemento correspondiente de la matriz en los resultados. 
+* *Aggregation:* expresión numérica que usa una [función de agregación](#aggregations). 
+* *AxisColumn:* columna en la que se ordena la serie. Se puede considerar como una escala de tiempo, pero se acepta cualquier tipo numérico.
+*start, stop, step:* define la lista de valores de AxisColumn de cada fila. Cualquier otra columna de agregación de resultados tiene una matriz de la misma longitud. 
+* *GroupExpression* : una expresión sobre las columnas que proporciona un conjunto de valores distintivos. Hay una fila en la salida para cada valor de GroupExpression. Habitualmente se trata de un nombre de columna que ya proporciona un conjunto restringido de valores. 
+
+**Sugerencia**
+
+Las matrices de resultados se representan en un gráfico de análisis del mismo modo que la operación summarize correspondiente.
+
+**Ejemplo**
+
+requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+
+![Resultados de make-series](./media/app-insights-analytics-reference/make-series.png)
 
 ### <a name="mvexpand-operator"></a>Operador mvexpand
     T | mvexpand listColumn 
@@ -695,7 +819,7 @@ Los elementos de la cláusula `with` se comparan a su vez con el texto de origen
 * En un análisis de regex, una expresión regular puede utilizar el operador de minimización '?' para pasar lo antes posible a la siguiente coincidencia.
 * Un nombre de columna con un tipo analiza el texto como el tipo especificado. A menos que kind=relaxed, un análisis incorrecto invalida la coincidencia del patrón completo.
 * Un nombre de columna sin tipo, o con el tipo 'string', copia el número mínimo de caracteres que se va a obtener en la siguiente coincidencia.
-* ' * ' omite el número mínimo de caracteres que se va a obtener en la siguiente coincidencia. Puede utilizar ' *' al principio y al final del patrón, o bien después de un tipo que no sea una cadena, o entre las coincidencias de la cadena.
+* ' *' omite el número mínimo de caracteres que se va a obtener en la siguiente coincidencia. Puede utilizar '*' al principio y al final del patrón, o bien después de un tipo que no sea una cadena, o entre las coincidencias de la cadena.
 
 Todos los elementos de un patrón de análisis deben coincidir correctamente; de lo contrario, no se producirá ningún resultado. La excepción a esta regla es que cuando kind=relaxed, si no se puede analizar una variable con tipo, el resto del análisis continúa.
 
@@ -839,7 +963,7 @@ Genera una tabla de valores de una columna única. Tenga en cuenta que no tiene 
 * *Stop*: el valor más alto que se genera en la salida (o un límite en el valor más alto, si el valor *step* supera este valor).
 * *Step* : la diferencia entre dos valores consecutivos. 
 
-Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en función de una tabla de entrada, utilice la función [range**](#range), quizás con el [operador mvexpand](#mvexpand-operator).) 
+Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en función de una tabla de entrada, utilice la [*función* range](#range), quizás con el [operador mvexpand](#mvexpand-operator).) 
 
 **Devuelve**
 
@@ -888,7 +1012,8 @@ Intenta agrupar registros similares. Para cada grupo, el operador envía el valo
 **Argumentos**
 
 * *ColumnName* : la columna que se va a examinar. Tiene que ser de tipo cadena.
-* *Threshold* : un valor en el intervalo {0..1}. El valor predeterminado es 0.001. Para las entradas grandes, el valor threshold debe ser pequeño. 
+* <seg>
+  *Threshold* : un valor en el intervalo {0..1}.</seg> El valor predeterminado es 0.001. Para las entradas grandes, el valor threshold debe ser pequeño. 
 
 **Devuelve**
 
@@ -961,6 +1086,45 @@ El hecho de aplicar un muestreo sobre una población y realizar cálculos adicio
 let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
 requests | where OperationName in (sampleops) | summarize total=count() by OperationName
 ```
+### <a name="search-operator"></a>Operador search
+
+Busca cadenas en varias tablas y columnas.
+
+**Sintaxis**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Encuentra las apariciones de la cadena de token determinada en cualquier columna de cualquier tabla.
+ 
+* *TableName* Nombre de una tabla que se define globalmente (solicitudes, excepciones, etc.) o mediante una [cláusula let](#let-clause). Puede usar caracteres comodín, como r*.
+* *SearchToken:* cadena de token que debe coincidir con una palabra completa. Puede usar caracteres comodín a la derecha. "Amster*" coincide con "Amsterdam", pero "Amster" no.
+* *SearchPredicate:* expresión booleana sobre las columnas de las tablas. Puede usar "*" como carácter comodín en los nombres de las columnas.
+
+**Ejemplos**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
 
 ### <a name="sort-operator"></a>Operador sort
     T | sort by country asc, price desc
@@ -1027,6 +1191,32 @@ El resultado tiene tantas filas como el número de combinaciones distintivas de 
 > [!NOTE]
 > Aunque puede proporcionar expresiones arbitrarias para las expresiones de agregación y las de agrupación, resulta más eficaz usar nombres de columna simples, o bien aplicar `bin()` a una columna numérica.
 
+### <a name="table-operator"></a>Operador table
+
+    table('pageViews')
+
+La tabla mencionada en la cadena de argumento.
+
+**Sintaxis**
+
+    table(tableName)
+
+**Argumentos**
+
+* *tableName:* una cadena. El nombre de una tabla, que puede ser estático, o el resultado de una cláusula let.
+
+**Ejemplos**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
+
 ### <a name="take-operator"></a>Operador take
 Alias de [limit](#limit-operator)
 
@@ -1089,7 +1279,7 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 * `kind`: 
   * `inner` : el resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
   * `outer` : el resultado tiene todas las columnas que aparecen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName*, cuyo valor indica qué tabla de origen ha aportado cada fila.
+* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName*, cuyo valor indica qué tabla de origen ha aportado cada fila. Use [as](#as-operator) al final de cada expresión de tabla, si desea especificar el nombre que aparece en esta columna.
 
 **Devuelve**
 
@@ -1097,38 +1287,28 @@ Una tabla con tantas filas como haya en todas las tablas de entrada y tantas col
 
 No hay ningún orden garantizado de las filas.
 
-**Ejemplo**
-
-Unión de todas las tablas cuyos nombres comienzan con "tt":
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Ejemplo**
 
-El número de usuarios distintivos que han creado un evento `exceptions` o un evento `traces` a lo largo del día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command":
+El número de usuarios diferentes que han generado un evento `exceptions` o un evento `traces` durante las últimas 12 horas. En el resultado, la columna "SourceTable" indicará si hay "exceptions" o "traces":
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 Esta versión más eficaz, produce el mismo resultado. Filtra cada tabla antes de crear la unión:
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Use [as](#as-operator) para especificar el nombre que aparecerá en la columna de origen.
 
 #### <a name="forcing-an-order-of-results"></a>Modificar el orden de los resultados
 
