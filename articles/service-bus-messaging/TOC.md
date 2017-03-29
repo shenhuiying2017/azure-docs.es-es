@@ -1,6 +1,7 @@
 # Información general
 ## [¿Qué es la mensajería de Service Bus?](service-bus-messaging-overview.md)
-## [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
+## [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+## [Arquitectura del Bus de servicio](service-bus-architecture.md)
 ## [Preguntas más frecuentes](service-bus-faq.md)
 
 # Introducción
