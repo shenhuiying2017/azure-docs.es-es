@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: eedddf7a40acfba7513efd810d115f1afe2f224d
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -114,7 +114,7 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 2. Ejecute `yo azuresfjava:AddService`
 
 ### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Uso del complemento de Eclipse para Service Fabric de Java en Linux
-Para agregar un servicio a una aplicación existente creada con el complemento de Eclipse para Service Fabric, consulte la documentación [aquí](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
+Para agregar un servicio a una aplicación existente creada con el complemento de Eclipse para Service Fabric, consulte la documentación [aquí](service-fabric-get-started-eclipse.md#add-a-service-fabric-service-to-your-service-fabric-application).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación e implementación de su primera aplicación de Java para Service Fabric mediante el complemento de Service Fabric para Eclipse en Linux](service-fabric-get-started-eclipse.md)

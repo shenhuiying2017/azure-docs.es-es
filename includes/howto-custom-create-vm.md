@@ -35,7 +35,7 @@ Una máquina virtual *personalizada* es una máquina virtual que se crea con el 
 14. Si desea que la máquina virtual pertenezca a un conjunto de disponibilidad, en **Conjunto de disponibilidad**, seleccione **Crear conjunto de disponibilidad** o agréguela a un conjunto de disponibilidad existente.
     
     **Nota**: las máquinas virtuales de un conjunto de disponibilidad se implementan en distintos dominios de error. La colocación de varias máquinas virtuales en un conjunto de disponibilidad ayuda a garantizar que la aplicación esté disponible durante los errores de red, los errores de hardware de disco local y cualquier tiempo de inactividad planificado.
-15. En **Extremos**, revise los nuevos extremos que se crearán para permitir las conexiones con la máquina virtual, como el cliente Shell seguro (SSH) o Escritorio remoto. Puede también agregar puntos de conexión ahora, o crearlos más tarde. Para obtener instrucciones acerca de cómo crearlos más adelante, consulte [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+15. En **Extremos**, revise los nuevos extremos que se crearán para permitir las conexiones con la máquina virtual, como el cliente Shell seguro (SSH) o Escritorio remoto. Puede también agregar puntos de conexión ahora, o crearlos más tarde. Para obtener instrucciones acerca de cómo crearlos más adelante, consulte [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 16. En **Agente de máquina virtual**, decida si va a instalar el Agente de VM. Este agente proporciona el entorno para que pueda instalar las extensiones que pueden ayudarlo a interactuar con la máquina virtual. Para conocer los detalles, consulte [Administrar extensiones](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 17. Haga clic en la flecha para crear la máquina virtual.
     
@@ -45,10 +45,5 @@ Una máquina virtual *personalizada* es una máquina virtual que se crea con el 
 Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el portal se muestre el estado como en ejecución, podrá iniciar sesión en la máquina virtual. Si desea instrucciones, consulte uno de los artículos siguientes:
 
 * [Creación de un par de claves SSH pública y privada para máquinas virtuales Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure clásico](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure clásico](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
