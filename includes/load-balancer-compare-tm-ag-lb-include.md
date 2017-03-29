@@ -11,8 +11,8 @@ En la tabla siguiente se resumen las características ofrecidas por cada servici
 | Servicio | Azure Load Balancer | Application Gateway | Traffic Manager |
 | --- | --- | --- | --- |
 | Technology |Nivel de transporte (nivel 4) |Nivel de aplicación (nivel 7) |Nivel de DNS |
-| Protocolos de aplicación admitidos |Cualquiera |HTTP y HTTPS |Cualquiera (es necesario un punto de conexión HTTP para la supervisión del punto de conexión) |
-| Extremos |Instancias de rol de máquinas virtuales de Azure y servicios en la nube |Cualquier dirección IP interna de Azure o dirección IP de Internet pública  |Azure Virtual Machines, Cloud Services, Azure Web Apps y puntos de conexión externos |
+| Protocolos de aplicación admitidos |Cualquiera |HTTP, HTTPS y WebSockets |Cualquiera (es necesario un punto de conexión HTTP para la supervisión del punto de conexión) |
+| Extremos |Instancias de rol de máquinas virtuales de Azure y servicios en la nube |Cualquier dirección IP interna de Azure, dirección IP de Internet pública, máquina virtual de Azure, o servicio en la nube de Azure |Azure Virtual Machines, Cloud Services, Azure Web Apps y puntos de conexión externos |
 | Compatibilidad de redes virtuales |Puede usarse para aplicaciones accesibles desde Internet e internas (red virtual) |Puede usarse para aplicaciones accesibles desde Internet e internas (red virtual) |Solo es compatible con aplicaciones accesibles desde Internet |
 | Supervisión de puntos de conexión |Se admite a través de sondeos |Se admite a través de sondeos |Se admite a través de HTTP/HTTPS GET |
 
@@ -20,14 +20,11 @@ Azure Load Balancer o Application Gateway enrutan el tráfico de red a los punto
 
 | Tipo | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |
-| Protocolos |UDP/TCP |HTTP/HTTPS |
+| Protocolos |UDP/TCP |HTTP, HTTPS y WebSockets |
 | Reserva de IP |Compatible |No compatible |
 | Modo de equilibrio de carga |5 tuplas (IP de origen, puerto de origen, IP de destino, puerto de destino, tipo de protocolo) |Round Robin<br>Enrutamiento basado en URL |
 | Modo de equilibrio de carga (IP de origen / sesiones temporales) |2 tuplas (IP de origen e IP de destino), 3 tuplas (IP de origen, IP de destino y puerto). Se puede escalar o reducir verticalmente según el número de máquinas virtuales |Afinidad basada en cookies<br>Enrutamiento basado en URL |
 | Sondeos de estado |Intervalo de sondeo predeterminado: 15 segundos. Se excluye de la rotación tras dos errores continuos. Admite sondeos definidos por el usuario |Intervalo de sondeo inactivo: 30 segundos. Se excluye tras cinco errores consecutivos de tráfico real o tras un solo error de sondeo en modo inactivo. Admite sondeos definidos por el usuario |
 | Descarga de SSL |No compatible |Compatible |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| Enrutamiento basado en dirección URL | No compatible | Compatible|
+| Directiva SSL | No compatible | Compatible|

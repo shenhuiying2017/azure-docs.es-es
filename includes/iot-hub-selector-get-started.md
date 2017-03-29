@@ -16,10 +16,5 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 * Usar el Portal de Azure para crear un Centro de IoT.
 * Crear una identidad de dispositivo en el Centro de IoT.
-* Crear una aplicación de dispositivo simulado que envía telemetría al back-end de la solución y recibe comandos de él.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* Cree una aplicación de dispositivo simulado que envía la telemetría al back-end de la solución.
 

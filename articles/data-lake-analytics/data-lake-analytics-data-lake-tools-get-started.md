@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -128,9 +128,9 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para m�
        Se mostrarán los nombres completados automáticamente y los miembros de las entidades conjunto de filas, clases, bases de datos, esquemas y objetos definidos por el usuario (UDO).
 
        IntelliSense para las entidades de catálogo (bases de datos, esquemas, tablas, UDO, etc.) está relacionado con la cuenta de proceso. Puede comprobar la cuenta de proceso activa actual, la base de datos y el esquema en la barra de herramientas superior y cambiarlos en las listas desplegables.
-   * **Expandir columnas ***
+   * **Expandir columnas***
 
-       Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mueva el cursor del mouse sobre el subrayado azul y haga clic en la flecha abajo.
+       Haga clic a la derecha de *; aparecerá subrayado azul bajo*. Mueva el cursor del mouse sobre el subrayado azul y haga clic en la flecha abajo.
        ![Data Lake Tools para Visual Studio expande columnas *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        Haga clic en **Expand Columns (Expandir columnas)**y la herramienta reemplazará * por los nombres de columna.
@@ -197,73 +197,13 @@ La reproducción del trabajo permite ver el progreso de la ejecución del trabaj
 Data Lake Tools for Visual Studio permite realizar superposiciones de colores seleccionables por el usuario en la vista del trabajo para indicar el progreso, la E/S de datos, el tiempo de ejecución, la capacidad de proceso de E/S de cada fase. De este modo, los usuarios pueden determinar posibles problemas y las propiedades de distribución del trabajo de forma directa e intuitiva. Puede elegir un origen de datos para mostrar en la lista desplegable.  
 
 ## <a name="run-u-sql-locally"></a>Ejecución de U-SQL localmente
-Con la experiencia de ejecución local de U-SQL en Visual Studio, puede:
 
-* Ejecutar scripts de U-SQL localmente, junto con los ensamblados de C#.
-* Depurar ensamblados de C# localmente.
-* Cree, elimine y vea bases de datos locales, ensamblados, esquemas y tablas en el Explorador de servidores de la misma manera que puede hacerlo para el servicio de Análisis con Azure Data Lake.
+Puede usar Azure Data Lake Tools para Visual Studio y el SDK de U-SQL para Azure Data Lake para ejecutar trabajos de U-SQL en la estación de trabajo local, de la misma forma que en el servicio Azure Data Lake. Estas dos características de ejecución local ahorran tiempo para probar y depurar los trabajos de U-SQL. 
 
-Aparecerá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *DataRoot* en *C:\LocalRunRoot*. Se usará la carpeta DataRoot:
+* [Prueba y depuración de trabajos U-SQL mediante la ejecución local y el SDK de U-SQL para Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Para almacenar metadatos, como tablas, bases de datos, funciones TVF, etc.
-* Para un script determinado: si se hace referencia a una ruta de acceso relativa en rutas de acceso de entrada y salida, buscaremos la DataRoot (así como la ruta de acceso del script si es su entrada).
-* NO se hará referencia a la carpeta DataRoot si está intentando registrar un ensamblado y usar una ruta de acceso relativa (vea la parte "Usar ensamblados al realizar la ejecución local" para más detalles).
 
-El vídeo siguiente muestra la característica de ejecución local U-SQL:
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones
-* No se puede crear la tabla/DB, etc. en el Explorador de servidores para la cuenta local.
-* Cuando se hace referencia a una ruta de acceso relativa:
-
-  * En la entrada del script (EXTRACT * FROM “/path/abc”): se buscará tanto en la ruta de acceso de DataRoot como en la ruta de acceso del script.
-  * En la salida del script (OUTPUT TO “path/abc”): se usará la ruta de acceso de DataRoot como la carpeta de salida.
-  * En el registro de ensamblado (CREATE ASSEMBLY xyz FROM “/path/abc”): se buscará en la ruta de acceso del script, pero no la DataRoot.
-  * En la vista/TVF registrada u otras entidades de metadatos: se buscará en la ruta de acceso de DataRoot, pero no en la ruta de acceso del script.
-
-    En el caso de los scripts ejecutados en el servicio Data Lake, la cuenta de almacenamiento predeterminada se utilizará como carpeta raíz y, por tanto, las búsquedas se realizarán en dicha cuenta.
-
-### <a name="test-u-sql-scripts-locally"></a>Probar scripts de U-SQL localmente
-Para obtener instrucciones sobre el desarrollo de scripts de U-SQL, vea [Desarrollar scripts U-SQL](#develop-and-test-u-sql-scripts). Para compilar y ejecutar localmente scripts de U-SQL, seleccione **(Local)** en la lista desplegable del clúster y haga clic en **Enviar**. Asegúrese de que se hace referencia a los datos correctos; haga referencia a la ruta de acceso absoluta o coloque los datos en la carpeta DataRoot.
-
-![Enviar proyecto U-SQL de Visual Studio localmente](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-También puede hacer clic con el botón derecho en un script y luego hacer clic en la opción **Run Local Plan** (Ejecutar plan local) del menú contextual o presionar **CTRL+F5** para desencadenar la ejecución local.
-
-### <a name="use-assemblies-in-local-run"></a>Usar ensamblados en la ejecución local
-Hay dos maneras de ejecutar los archivos de C# personalizados:
-
-* Escriba ensamblados en el archivo de código subyacente y los ensamblados se registrarán automáticamente y se quitarán una vez finalizado el script.
-* Cree un proyecto de ensamblado de C# y registrar la dll de salida a la cuenta local a través de un script como a continuación. Tenga en cuenta que la ruta de acceso es en relación con el script en lugar de con la carpeta DataRoot.
-
-![Usar ensamblados en ejecución local de u-sql](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Depurar scripts y ensamblados de C# localmente
-Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio de análisis de Azure Data Lake. Puede establecer puntos de interrupción en el código subyacente del archivo y en un proyecto de C# al que se hace referencia.
-
-**Para depurar el código local en el código subyacente del archivo.**
-
-1. Establezca puntos de interrupción en el archivo de código subyacente.
-2. Presione **F5** para depurar el script localmente.
-
-El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos pdb.
-
-**Para depurar el código local en un proyecto de C# al que se hace referencia.**
-
-1. Cree un proyecto de ensamblado de C# y compílelo para generar la dll de salida.
-2. Registre la dll mediante una instrucción de U-SQL:
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. Establezca puntos de interrupción en el código de C#.
-4. Presione **F5** para depurar el script con referencia a la dll de C# localmente.  
-
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
 * [Introducción a Data Lake Analytics mediante el portal de Azure](data-lake-analytics-get-started-portal.md)
