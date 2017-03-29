@@ -80,7 +80,7 @@ Consulte en la tabla siguiente los pares de regiones actuales:
 | Gobierno de EE. UU. - Iowa |Gobierno de EE. UU. - Virginia |
 | Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
 | Europa del Norte |Europa occidental |
-| Oeste de Reino Unido |Sur del Reino Unido&2; |
+| Oeste de Reino Unido |Sur del Reino Unido |
 | Centro de Alemania |Noreste de Alemania |
 | Sudeste de Asia |Asia oriental |
 | Sudeste de Australia |Australia Oriental |

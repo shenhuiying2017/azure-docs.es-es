@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell
+# <a name="get-started"></a>Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Para instrucciones sobre cómo crear una máquina virtual y asignar una NIC, con
 2. Cargue la configuración de back-end en una variable.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Cargue la interfaz de red ya creada en una variable. El nombre de la variable es **$nic**. El nombre de la interfaz de red es el mismo que el del ejemplo anterior.
@@ -282,7 +283,7 @@ Para instrucciones sobre cómo crear una máquina virtual y asignar una NIC, con
 1. Con el equilibrador de carga del ejemplo anterior, asigne un objeto de equilibrador de carga a la variable **$slb** con `Get-AzureLoadBalancer`.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. En el ejemplo siguiente, agregará una nueva regla NAT de entrada, mediante el puerto 81 en el grupo de front-end y el puerto 8181 en el grupo de back-end, a un equilibrador de carga existente.
@@ -302,7 +303,7 @@ Para instrucciones sobre cómo crear una máquina virtual y asignar una NIC, con
 Use el comando`Remove-AzureLoadBalancer` para eliminar un equilibrador de carga creado previamente denominado **NRP-LB** en un grupo de recursos llamado **NRP-RG**.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

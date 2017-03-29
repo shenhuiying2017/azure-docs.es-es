@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5eff828095cd58732c78d4af43b5ff5420dfe8fd
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -201,7 +202,7 @@ Para obtener más información sobre la creación de una máquina virtual, consu
     ```powershell
     New-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
     $availabilitySet = Get-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG
-    New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName $LRS
+    New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName "Standard_LRS"
     $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
@@ -234,9 +235,4 @@ Para obtener más información sobre la creación de una máquina virtual, consu
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
