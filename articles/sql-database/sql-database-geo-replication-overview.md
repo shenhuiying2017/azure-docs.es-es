@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ La replicación geográfica activa le permite configurar hasta cuatro bases de d
 
 Si, por cualquier motivo, se produce un error en la base de datos principal o, simplemente, debe desconectarse, puede *conmutar por error* a cualquiera de las secundarias. Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal.
 
-Puede conmutar por error a una base de datos secundaria mediante [Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), la [API de REST: conmutación por error planeada](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) o la [API de REST: conmutación por error no planeada](https://msdn.microsoft.com/library/azure/mt582027.aspx).
+Puede conmutar por error a una base de datos secundaria mediante [Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), la [API de REST: conmutación por error planeada](https://msdn.microsoft.com/library/mt575007.aspx) o la [API de REST: conmutación por error no planeada](https://msdn.microsoft.com/library/mt582027.aspx).
 
 Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
@@ -107,10 +107,10 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descripción |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Obtiene una o más bases de datos. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtiene una o más bases de datos. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |Convierte una base de datos secundaria en principal para iniciar la conmutación por error. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |Finaliza una replicación de datos entre una base de datos SQL y la base de datos secundaria especificada. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |Convierte una base de datos secundaria en principal para iniciar la conmutación por error. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |Finaliza una replicación de datos entre una base de datos SQL y la base de datos secundaria especificada. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Obtiene los vínculos de replicación geográfica entre una Base de datos SQL de Azure y un grupo de recursos o SQL Server. |
 |  | |
 
@@ -119,7 +119,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 | --- | --- |
 | [Crear o actualizar base de datos (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Crea, actualiza o restaura una base de datos principal o secundaria. |
 | [Obtener el estado de creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Devuelve el estado durante una operación de creación. |
-| [Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |Promueve una base de datos secundaria en una asociación de replicación geográfica para convertirla en la nueva base de datos principal. |
+| [Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://msdn.microsoft.com/library/azure/mt575007.aspx) |Promueve una base de datos secundaria en una asociación de replicación geográfica para convertirla en la nueva base de datos principal. |
 | [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://msdn.microsoft.com/library/azure/mt582027.aspx) |Forzar una conmutación por error a la base de datos secundaria y establecer la base de datos secundaria como principal. |
 | [Obtener vínculos de replicación](https://msdn.microsoft.com/library/azure/mt600929.aspx) |Obtiene todos los vínculos de replicación para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
 | [Obtener vínculo de replicación](https://msdn.microsoft.com/library/azure/mt600778.aspx) |Obtiene un vínculo de replicación específico para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |

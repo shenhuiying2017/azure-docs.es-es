@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -34,9 +34,6 @@ Después de configurar una instancia de Puerta de enlace de aplicaciones de Azur
 * Las máquinas virtuales de back-end o instancias del conjunto de escalas de máquina virtual no responden a la sonda de estado predeterminada.
 * La configuración de las sondas de estado personalizadas no es válida o adecuada.
 * El tiempo de espera de solicitud se superó o hay problemas de conectividad con las solicitudes de usuario.
-
-> [!note]
-> Application Gateway conserva el encabezado de host entrante y envía el mismo encabezado al back-end. Si el back-end requiere un encabezado distinto, este procedimiento no funcionará. De forma similar si el back-end es de varios inquilinos y se ha habilitado SSL de extremo a extremo, el back-end esperaría nombre del servidor en la extensión SNI. Application Gateway no envía actualmente el encabezado SNI en las solicitudes de back-end en escenarios de SSL de extremo a extremo, que causaría problemas de rutas de acceso a los datos y de sondeo.
 
 ## <a name="empty-backendaddresspool"></a>Valor de BackendAddressPool vacío
 
@@ -109,7 +106,7 @@ Los errores 502 también pueden ser indicativos frecuentes de que la sonda de es
 * Si BackendHttpSetting especifica un puerto distinto de 80, se debe configurar que el sitio predeterminado escuche en ese puerto.
 * La llamada a http://127.0.0.1:puerto debe devolver el código de resultado HTTP 200. dentro del periodo de espera de 30 segundos.
 * Asegúrese de que el puerto configurado está abierto y de que no hay ninguna regla de firewall ni grupos de seguridad de red de Azure que bloqueen el tráfico entrante o saliente en dicho puerto.
-* Si usa el servicio en la nube o las máquinas virtuales clásicas de Azure con una IP pública o un FQDN, asegúrese de que esté abierto el [punto de conexión](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondiente.
+* Si usa el servicio en la nube o las máquinas virtuales clásicas de Azure con una IP pública o un FQDN, asegúrese de que esté abierto el [punto de conexión](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondiente.
 * Si la máquina virtual se configura mediante Azure Resource Manager y la instancia de Puerta de enlace de aplicaciones se implementó fuera de la red virtual, debe establecerse el [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) para permitir el acceso en el puerto deseado.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas con la sonda de estado personalizada

@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 21ec1f15dc7055cdd3b281216abfbac8554abad0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c8b8b6af19a347804563b091760b18dfc47aa503
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ En un nivel alto, el diagrama siguiente muestra el clúster de HPC Pack que crea
 * **Licencia de Microsoft Office** : si implementa nodos de proceso con una imagen de máquina virtual de Marketplace HPC Pack con Microsoft Excel, se instala una versión de evaluación de 30 días de Microsoft Excel Professional Plus 2013. Después del período de evaluación, debe proporcionar una licencia de Microsoft Office válida para activar Excel y seguir ejecutando cargas de trabajo. Consulte [Activación de Excel](#excel-activation) que aparece más adelante en este artículo. 
 
 ## <a name="step-1-set-up-an-hpc-pack-cluster-in-azure"></a>Paso 1. Configuración e un clúster de HPC Pack en Azure
-Mostramos&2; opciones para configurar el clúster: primero, con una plantilla de inicio rápido de Azure y el Portal de Azure; segundo, con un script de implementación de Azure PowerShell.
+Mostramos 2 opciones para configurar el clúster: primero, con una plantilla de inicio rápido de Azure y el Portal de Azure; segundo, con un script de implementación de Azure PowerShell.
 
 ### <a name="option-1-use-a-quickstart-template"></a>Opción 1. Uso de una plantilla de inicio rápido
 Use una plantilla de inicio rápido de Azure para implementar rápida y fácilmente un clúster de HPC Pack en el Portal de Azure. Al abrir la plantilla en el portal, obtendrá una interfaz de usuario simple donde debe especifique la configuración del clúster. A continuación se muestran los pasos que se deben seguir. 
@@ -91,7 +92,7 @@ El script de implementación de HPC Pack IaaS proporciona otra manera versátil 
 
 **Creación del archivo de configuración**
 
- El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster que consta de un nodo principal y 18 nodos de proceso creados a partir de la imagen del nodo de proceso que incluye Microsoft Excel, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+ El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster que consta de un nodo principal y 18 nodos de proceso creados a partir de la imagen del nodo de proceso que incluye Microsoft Excel, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación HPC Pack IaaS](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -355,9 +356,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [run]: ./media/virtual-machines-windows-excel-cluster-hpcpack/run.png
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

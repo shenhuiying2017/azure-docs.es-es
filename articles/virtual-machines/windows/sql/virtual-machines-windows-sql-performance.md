@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 16b659bf07cc44d56234bb5532f931d5ca6fb0a6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +37,7 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 
 | Ámbito | Optimizaciones |
 | --- | --- |
-| [Tamaño de VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes.md#ds-series) o superior para la edición SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes.md#ds-series) o superior para las ediciones SQL Standard y Web. |
+| [Tamaño de VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) o superior para la edición SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) o superior para las ediciones SQL Standard y Web. |
 | [Almacenamiento](#storage-guidance) |Use [Almacenamiento premium](../../../storage/storage-premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../../../storage/storage-create-storage-account.md) y la VM con SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
 | [Discos](#disks-guidance) |Use un mínimo de 2 [discos P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (1 para archivos de registro; 1 para archivos de datos y TempDB).<br/><br/>Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/>Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y TempDB.<br/><br/>No habilite el almacenamiento en caché en discos que hospedan el archivo de registro.<br/><br/>Importante: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/>Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados. |
 | [E/S](#io-guidance) |Habilite la compresión de páginas de bases de datos.<br/><br/>Habilite la inicialización instantánea de archivos para archivos de datos.<br/><br/>Limite o deshabilite el crecimiento automático de la base de datos.<br/><br/>Deshabilite la reducción automática de la base de datos.<br/><br/>Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.<br/><br/>Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.<br/><br/>Configure ubicaciones predeterminadas para los archivos de base de datos y de copia de seguridad.<br/><br/>Habilite páginas bloqueadas.<br/><br/>Aplique correcciones de rendimiento de SQL Server. |
@@ -130,7 +130,7 @@ Algunas implementaciones pueden lograr ventajas de rendimiento adicionales media
 * **Archivos de datos de SQL Server en Azure**: esta nueva característica, [Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx), está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si está interesado en explorar SQL Server y Premium Storage en mayor profundidad, vea el artículo sobre el [uso de Azure Premium Storage con SQL Server en máquinas virtuales](../sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage.md).
+Si está interesado en explorar SQL Server y Premium Storage en mayor profundidad, vea el artículo sobre el [uso de Azure Premium Storage con SQL Server en máquinas virtuales](../classic/sql-server-premium-storage.md).
 
 Para ver prácticas recomendadas de seguridad, vea [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 

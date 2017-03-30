@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b64978da0513ac5daf8e7c4699cf6e3501d63fd9
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 1dc2883056eab9764cda674b42fa40c517550ccd
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -190,7 +190,7 @@ Después de escribir los valores necesarios, acepte los *términos y condiciones
    ![Envío de una implementación de plantillas](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Pasos posteriores a la restauración
-* Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/virtual-machines-linux-classic-reset-access.md). Se recomienda utilizar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
+* Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/linux/classic/reset-access.md). Se recomienda utilizar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
 * Se instalarán las extensiones presentes durante la configuración de la copia de seguridad, pero no se habilitarán. Vuelva a instalar las extensiones si surge algún problema. 
 * Si la máquina virtual de copia de seguridad tiene una dirección IP estática, tras la restauración, la máquina virtual restaurada tendrá una dirección IP dinámica para evitar conflictos cuando se crea una máquina virtual restaurada. Más información sobre cómo se puede [agregar una dirección IP estática a la máquina virtual restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * La máquina virtual restaurada no tendrá un conjunto de valores de disponibilidad. Se recomienda usar la opción de discos de restauración y [agregar un conjunto de disponibilidad](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) cuando se crea una máquina virtual desde PowerShell o plantillas mediante los discos restaurados. 
@@ -206,7 +206,7 @@ Es posible hacer una copia de seguridad y restaurar las máquinas virtuales con 
 
 * Máquinas virtuales en el equilibrador de carga (interno y externo)
 * Máquinas virtuales con varias direcciones IP reservadas
-* Paso&3;: Creación de máquinas virtuales con varias NIC
+* Paso 3: Creación de máquinas virtuales con varias NIC
 
 > [!IMPORTANT]
 > Al crear la configuración especial de red para las máquinas virtuales, debe usar PowerShell para crear máquinas virtuales a partir de los discos restaurados.

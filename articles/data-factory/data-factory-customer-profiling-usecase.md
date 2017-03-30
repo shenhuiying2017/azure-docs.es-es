@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: abc3fa751b3926dbbb9dc040abc40632e316e2a0
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,7 +32,7 @@ El objetivo de Contoso es identificar oportunidades de aumento de ventas potenci
 En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketing que ha lanzado recientemente. Empezaremos con los registros de juegos sin procesar, los procesaremos y enriqueceremos con los datos de ubicación geográfica, los combinaremos con datos de referencia de anuncios y, por último, los copiaremos en una base de datos SQL de Azure para analizar el impacto de la campaña.
 
 ## <a name="deploy-solution"></a>Implementación de la solución
-Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de almacenamiento de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account) y una [base de datos SQL de Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
+Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de almacenamiento de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) y una [base de datos SQL de Azure](../sql-database/sql-database-get-started.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
 
 1. Cree una factoría de datos o abra una. Vea [Copia de datos de Blob Storage a SQL Database con Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener los pasos para crear una factoría de datos.
 2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
@@ -67,10 +68,5 @@ En este ejemplo, Data Factory se utiliza para coordinar las actividades que copi
 
 ## <a name="benefits"></a>Ventajas
 Al optimizar el análisis de su perfil de usuario y armonizarlo con los objetivos empresariales, la empresa de juegos puede recopilar rápidamente los patrones de uso y analizar la eficacia de sus campañas de marketing.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

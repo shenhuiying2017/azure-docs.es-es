@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 0de0590c1cf5c71a7174fdcca84847b378aa40f8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Más información sobre la administración de contraseñas
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -120,7 +120,7 @@ En la sección siguiente se describe qué escenarios se admiten para las version
 ### <a name="supported-clients"></a>Clientes compatibles
 Siempre recomendamos que use la característica de actualización automática de Azure AD Connect o instale la versión más reciente de [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
 
-* **DirSync (cualquier versión > 1.0.6862)** - _NO SE ADMITE_: Admite solo las funcionalidades de escritura diferida básicas y el grupo de productos ya no se admite. 
+* **DirSync (cualquier versión > 1.0.6862)** - _NO SE ADMITE_: Admite solo las funcionalidades de escritura diferida básicas y el grupo de productos ya no se admite.
 * **Azure AD Sync** - _EN DESUSO_: Admite solo las funcionalidades de escritura en diferido básicas y no cuenta con funcionalidades de desbloqueo de cuenta, registro enriquecido y mejoras de confiabilidad realizadas en Azure AD Connect. Por lo tanto, recomendamos **encarecidamente** actualizar.
 * **Azure AD Connect** - _TOTALMENTE COMPATIBLE_: Admite todas las funcionalidades de escritura diferida. Actualice a la versión más reciente para obtener las mejores y nuevas características, así como la máxima estabilidad y confiabilidad posibles.
 
@@ -132,7 +132,7 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 * **Enterprise Moblity Suite**: Ninguna limitación respecto al uso de la escritura diferida de contraseñas
 * **Enterprise Cloud Suite**: Ninguna limitación respecto al uso de la escritura diferida de contraseñas
 
-No se puede usar la escritura diferida de contraseñas con cualquier plan de licencias de Office 365, ya sea de prueba o de pago. Debe actualizar a uno de los planes anteriores para poder usar esta característica. 
+No se puede usar la escritura diferida de contraseñas con cualquier plan de licencias de Office 365, ya sea de prueba o de pago. Debe actualizar a uno de los planes anteriores para poder usar esta característica.
 
 No tenemos pensado habilitar la escritura diferida de contraseñas para ningún SKU de Office 365.
 
@@ -166,7 +166,7 @@ Las contraseñas no se escriben en diferido en ninguna de las situaciones siguie
 * **Operaciones de administrador no admitidas**
  * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de administración de Office](https://portal.office.com)
  * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde PowerShell v1, v2 o la API Graph de Azure AD
- 
+
 Aunque estamos trabajando para quitar estas limitaciones, todavía no tenemos una escala de tiempo concreta que podemos compartir.
 
 ## <a name="password-writeback-security-model"></a>Modelo de seguridad de la escritura diferida de contraseñas
@@ -180,9 +180,9 @@ La escritura diferida de contraseñas es un servicio sumamente seguro y sólido.
 ### <a name="password-writeback-encryption-details"></a>Detalles de cifrado de la escritura diferida de contraseñas
 A continuación se describen los pasos de cifrado que se llevan a cabo para una solicitud de restablecimiento de contraseña después de que un usuario la envía, pero antes de que llegue a su entorno local, para garantizar la seguridad y confiabilidad máximas del servicio.
 
-* **Paso 1: Cifrado de contraseña con la clave RSA de 2048 bits**: Una vez que un usuario envía una contraseña para que se escriba en diferido en local, primero se cifra la propia contraseña enviada con una clave RSA de 2048 bits. 
+* **Paso 1: Cifrado de contraseña con la clave RSA de 2048 bits**: Una vez que un usuario envía una contraseña para que se escriba en diferido en local, primero se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
 
-* **Paso 2: Cifrado a nivel de paquete con AES-GCM**: A continuación, todo el paquete (contraseña + metadatos necesarios) se cifra mediante AES-GCM. Esto evita que cualquier persona con acceso directo al canal de ServiceBus subyacente vea o manipula el contenido. 
+* **Paso 2: Cifrado a nivel de paquete con AES-GCM**: A continuación, todo el paquete (contraseña + metadatos necesarios) se cifra mediante AES-GCM. Esto evita que cualquier persona con acceso directo al canal de ServiceBus subyacente vea o manipula el contenido.
 
 * **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: Además, toda la comunicación con ServiceBus tiene lugar en un canal SSL/TLS. Esto protege el contenido de terceras personas no autorizadas.
 
@@ -623,13 +623,13 @@ Todas las configuraciones B2B admiten el cambio y restablecimiento de contraseñ
 1. **Usuarios de una organización de asociados con un inquilino de Azure AD existente**: Si la organización con la que se está asociando tiene un inquilino de Azure AD existente, **respetaremos todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino**. Para que el restablecimiento de contraseña funcione, la organización del asociado simplemente necesita asegurarse de que la función SSPR de Azure AD esté habilitada, lo que no supone un cargo adicional para los clientes de Office 365. Se puede habilitar siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
 2. **Usuarios registrados mediante el [registro de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)**: Si la organización con la que se está asociando usaba la función de [registro de autoservicio](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) para entrar en un inquilino, les permitiremos el restablecimiento inmediato con el correo electrónico que registraron.
 3. **Usuarios de B2B**: Los nuevos usuarios de B2B creados mediante las nuevas [funcionalidades de B2B de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) también podrán restablecer inmediatamente sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
- 
+
 Para probar cualquiera de estos casos, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados.  Siempre que tengan un correo electrónico alternativo o un correo electrónico de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.  En la información general [¿Qué datos sirven para restablecer la contraseña?](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset) puede encontrar más información sobre los datos que usa la función SSPR aquí.
 
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización

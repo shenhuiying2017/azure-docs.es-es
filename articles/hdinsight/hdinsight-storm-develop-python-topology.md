@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -157,10 +157,8 @@ Para detener la topología, use **Ctrl + C**.
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          Reemplace USERNAME por un usuario de SSH de su clúster y CLUSTERNAME por el nombre del clúster de HDInsight.
-     2. Después de que se ha copiado el archivo en el clúster, use SSH para conectarse al clúster y enviar el trabajo. Para obtener más información sobre el uso de SSH con HDInsight, consulte una de las siguientes secciones:
-        
-        * [Uso de SSH con HDInsight basado en Linux desde Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Uso de SSH con HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. Después de que se ha copiado el archivo en el clúster, use SSH para conectarse al clúster y enviar el trabajo. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+     
      3. Después de que se ha conectado, use lo siguiente para iniciar la topología:
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount

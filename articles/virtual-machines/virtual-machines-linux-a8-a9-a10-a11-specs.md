@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e6818ea7db680f34bb4ee900396c74fc6e42c4b6
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e2e39b0fa9c45027c51bc5e063df990faf934ff5
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Acerca de las máquinas virtuales de la serie H y A de procesos intensivos para Linux
@@ -30,7 +30,7 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="access-to-the-rdma-network"></a>Acceso a la red RDMA
-Puede crear clústeres de máquinas virtuales con Linux compatibles con RDMA que ejecuten una de las siguientes distribuciones de HPC de Linux compatibles y una implementación de MPI compatible para aprovechar la red RDMA de Azure. Para conocer las opciones de implementación y los pasos de una configuración de ejemplo, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Puede crear clústeres de máquinas virtuales con Linux compatibles con RDMA que ejecuten una de las siguientes distribuciones de HPC de Linux compatibles y una implementación de MPI compatible para aprovechar la red RDMA de Azure. Para conocer las opciones de implementación y los pasos de una configuración de ejemplo, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 * **Distribuciones** : debe implementar máquinas virtuales de SUSE Linux Enterprise Server (SLES) compatibles con RDMA o imágenes de HPC basadas en OpenLogic CentOS en Azure Marketplace. Las siguientes imágenes de Marketplace admiten conectividad RDMA:
   
@@ -56,10 +56,10 @@ Puede crear clústeres de máquinas virtuales con Linux compatibles con RDMA que
 
   * **Imágenes de HPC basadas en CentOS**: Intel MPI 5.1 ya está instalado.  
     
-    Se necesita configuración adicional del sistema para ejecutar trabajos MPI en máquinas virtuales en clúster. Por ejemplo, en un clúster de máquinas virtuales, debe establecer la confianza entre los nodos de proceso. Para configuraciones típicas, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+    Se necesita configuración adicional del sistema para ejecutar trabajos MPI en máquinas virtuales en clúster. Por ejemplo, en un clúster de máquinas virtuales, debe establecer la confianza entre los nodos de proceso. Para configuraciones típicas, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="considerations-for-hpc-pack-and-linux"></a>Consideraciones sobre el HPC Pack y Linux
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), la solución gratuita de administración de clústeres y trabajos de HPC de Microsoft, proporciona una opción para usar las instancias de proceso intensivo con Linux. Las últimas versiones de HPC Pack admiten varias distribuciones de Linux en nodos de ejecución implementados en máquinas virtuales de Azure, administradas por un nodo principal de Windows Server. Con los nodos de proceso de Linux compatibles con RDMA que ejecutan Intel MPI, HPC Pack puede programar y ejecutar aplicaciones que tienen acceso a la red RDMA de Linux MPI. Para comenzar, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), la solución gratuita de administración de clústeres y trabajos de HPC de Microsoft, proporciona una opción para usar las instancias de proceso intensivo con Linux. Las últimas versiones de HPC Pack admiten varias distribuciones de Linux en nodos de ejecución implementados en máquinas virtuales de Azure, administradas por un nodo principal de Windows Server. Con los nodos de proceso de Linux compatibles con RDMA que ejecutan Intel MPI, HPC Pack puede programar y ejecutar aplicaciones que tienen acceso a la red RDMA de Linux MPI. Para comenzar, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](linux/classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="network-topology-considerations"></a>Consideraciones sobre la topología de red
 * En las máquinas virtuales con Linux compatibles con RDMA de Azure, Eth1 se reserva para el tráfico de red RDMA. No cambie ninguna configuración Eth1 ni ninguna información del archivo de configuración que haga referencia a esta red. Eth0 se reserva para el tráfico de red regular de Azure.
@@ -70,6 +70,6 @@ Puede crear clústeres de máquinas virtuales con Linux compatibles con RDMA que
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre la disponibilidad y los precios de los tamaños de proceso intensivo, consulte los [precios de las máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Para más información sobre las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para empezar a implementar y usar los tamaños de proceso intensivo con RDMA en Linux, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Para empezar a implementar y usar los tamaños de proceso intensivo con RDMA en Linux, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 
