@@ -14,12 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
-ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -338,7 +338,7 @@ Ahora que ha terminado de configurar Active Directory y los objetos de usuario, 
 
 ## <a name="create-sql-servers"></a>Creación de instancias de SQL Server
 ### <a name="create-and-configure-the-sql-server-vms"></a>Creación y configuración de las máquinas virtuales de SQL Server
-A continuación, cree tres máquinas virtuales, incluidas dos de SQL Server y un nodo de clúster WSFC. Para crear las máquinas virtuales, vuelva al grupo de recursos **SQL-HA-RG**, haga clic en **Agregar**, busque el elemento apropiado de la galería, **Máquina virtual**, y haga clic en **De la galería**. Use la información de la tabla siguiente para ayudarlo a crear las máquinas virtuales:
+A continuación, cree tres máquinas virtuales, incluidas dos de SQL Server y una para el nodo de clúster adicional. Para crear las máquinas virtuales, vuelva al grupo de recursos **SQL-HA-RG**, haga clic en **Agregar**, busque el elemento apropiado de la galería, **Máquina virtual**, y haga clic en **De la galería**. Use la información de la tabla siguiente para ayudarlo a crear las máquinas virtuales:
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3021ebbe88705b0c5a1691a45ed0ba400af6dd34
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Service Fabric se ejecuta en un conjunto de escalado de máquinas virtuales est�
 
 Service Fabric es único en relación con otras características de red en un aspecto. [Azure Portal](https://portal.azure.com) usa internamente el proveedor de recursos de Service Fabric para llamar a un clúster con el fin de obtener información de los nodos y las aplicaciones. El proveedor de recursos de Service Fabric requiere acceso de entrada público al puerto de la puerta de enlace HTTP (puerto 19080 de forma predeterminada) en el punto de conexión de administración. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utiliza el punto de conexión de administración para administrar el clúster. Este puerto también lo emplea el proveedor de recursos de Service Fabric para consultar información sobre el clúster con el fin de que se muestre en Azure Portal. 
 
-Si el puerto 190980 no es accesible desde el proveedor de recursos de Service Fabric, aparecerá un mensaje del tipo *No se encontraron los nodos* en el portal, y la lista de nodos y aplicaciones aparecerá vacía. Si desea ver el clúster en Azure Portal, el equilibrador de carga debe exponer una dirección IP pública y el grupo de seguridad de red debe permitir el tráfico entrante en el puerto 19080. Si no se cumplen estos requisitos de configuración, Azure Portal no mostrará el estado del clúster.
+Si el puerto 19080 no es accesible desde el proveedor de recursos de Service Fabric, aparecerá un mensaje del tipo *No se encontraron los nodos* en el portal, y la lista de nodos y aplicaciones aparecerá vacía. Si desea ver el clúster en Azure Portal, el equilibrador de carga debe exponer una dirección IP pública y el grupo de seguridad de red debe permitir el tráfico entrante en el puerto 19080. Si no se cumplen estos requisitos de configuración, Azure Portal no mostrará el estado del clúster.
 
 ## <a name="templates"></a>Plantillas
 

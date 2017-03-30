@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/20/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: f2586eae5ef0437b7665f9e229b0cc2749bff659
-ms.openlocfilehash: 894856c6386b26610ca5078238a88adcdd2d9a03
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="working-with-the-change-feed-support-in-azure-documentdb"></a>Compatibilidad con la fuente de cambios en Azure DocumentDB
-[Azure DocumentDB](documentdb-introduction.md) es un servicio de base de datos NoSQL rápido y flexible que se usa para almacenar elevados volúmenes de datos de transacciones y operaciones con una latencia predecible inferior a&10; milisegundos en lecturas y escrituras. Esto hace que sea adecuado para IoT, juegos y aplicaciones de registro de operaciones. Un patrón de diseño habitual en estas aplicaciones es controlar los cambios realizados en datos de DocumentDB y actualizar las vistas materializadas, realizar análisis en tiempo real, archivar los datos en almacenamiento en frío y desencadenar notificaciones ante determinados eventos en función de estos cambios. La **compatibilidad con la fuente de cambios** de DocumentDB le permite crear soluciones eficientes y escalables para cada uno de estos patrones.
+[Azure DocumentDB](documentdb-introduction.md) es un servicio de base de datos NoSQL rápido y flexible que se usa para almacenar elevados volúmenes de datos de transacciones y operaciones con una latencia predecible inferior a 10 milisegundos en lecturas y escrituras. Esto hace que sea adecuado para IoT, juegos y aplicaciones de registro de operaciones. Un patrón de diseño habitual en estas aplicaciones es controlar los cambios realizados en datos de DocumentDB y actualizar las vistas materializadas, realizar análisis en tiempo real, archivar los datos en almacenamiento en frío y desencadenar notificaciones ante determinados eventos en función de estos cambios. La **compatibilidad con la fuente de cambios** de DocumentDB le permite crear soluciones eficientes y escalables para cada uno de estos patrones.
 
 Gracias a la compatibilidad con la fuente de cambios, DocumentDB proporciona una lista ordenada de documentos de una colección de DocumentDB en el orden en que se modificaron. Esta fuente se puede usar para estar al tanto de las modificaciones en los datos dentro de la colección y realizar acciones tales como:
 
@@ -66,9 +67,9 @@ La fuente de cambios de DocumentDB está habilitada de forma predeterminada para
 
 ![Procesamiento distribuido de la fuente de cambio de DocumentDB](./media/documentdb-change-feed/changefeedvisual.png)
 
-En la sección siguiente, se describe cómo acceder a la fuente de cambios mediante la API de REST y los SDK de DocumentDB.
+En la sección siguiente, se describe cómo acceder a la fuente de cambios mediante la API de REST y los SDK de DocumentDB. Para las aplicaciones .NET, se recomienda usar la [biblioteca de procesadores de fuente de cambios]() para procesar los eventos desde la fuente de cambios.
 
-## <a name="working-with-the-rest-api-and-sdk"></a>API de REST y SDK
+## <a id="rest-apis"></a>Trabajo con la API de REST y el SDK
 DocumentDB proporciona contenedores elásticos de almacenamiento y capacidad de proceso denominados **colecciones**. Los datos dentro de las colecciones están agrupados de manera lógica mediante [claves de partición](documentdb-partition-data.md) para mejorar la escalabilidad y el rendimiento. DocumentDB proporciona varias API para acceder a estos datos, entre las que se incluyen búsqueda por id. (leer/obtener), consulta y fuentes de lectura (exámenes). La fuente de cambios se puede obtener rellenando dos nuevos encabezados de solicitud para la API `ReadDocumentFeed` de DocumentDB; luego se puede procesar en paralelo entre intervalos de claves de partición.
 
 ### <a name="readdocumentfeed-api"></a>ReadDocumentFeed API
@@ -88,8 +89,6 @@ Se pueden limitar los resultados mediante el encabezado `x-ms-max-item-count`, y
 
 **Fuente de documento de lectura en serie**
 
-![Ejecución en serie de ReadDocumentFeed de DocumentDB](./media/documentdb-change-feed/readfeedserial.png)
-
 También puede recuperar la fuente de documentos mediante uno de los [SDK de DocumentDB](documentdb-sdk-dotnet.md) admitidos. Por ejemplo, el fragmento de código siguiente muestra cómo ejecutar ReadDocumentFeed en. NET.
 
     FeedResponse<dynamic> feedResponse = null;
@@ -99,15 +98,10 @@ También puede recuperar la fuente de documentos mediante uno de los [SDK de Doc
     }
     while (feedResponse.ResponseContinuation != null);
 
-> [!NOTE]
-> La fuente de cambios necesita las versiones del SDK 1.11.0 y superior (actualmente disponible en versión preliminar privada).
-
 ### <a name="distributed-execution-of-readdocumentfeed"></a>Ejecución distribuida del ReadDocumentFeed
 En el caso de colecciones que contienen terabytes de datos o mayores, o que realizan la ingesta de grandes volúmenes de actualizaciones, la ejecución en serie de la fuente de lectura desde una única máquina cliente puede que no sea una solución práctica. Para estos escenarios de macrodatos, DocumentDB proporciona API que distribuyen las llamadas a `ReadDocumentFeed` de manera transparente entre varios lectores/consumidores cliente. 
 
 **Fuente de documentos de lectura distribuida**
-
-![Ejecución distribuida de ReadDocumentFeed de DocumentDB](./media/documentdb-change-feed/readfeedparallel.png)
 
 Para proporcionar procesamiento escalable de cambios incrementales, DocumentDB admite un modelo de escalado horizontal para la API de fuente de cambios que se basa en intervalos de claves de partición.
 
@@ -337,15 +331,27 @@ También puede filtrar la fuente de cambios usando la lógica del lado cliente p
         // trigger an action, like call an API
     }
 
+## <a id="change-feed-processor"></a>Biblioteca de procesadores de fuente de cambios
+La [biblioteca de procesadores de fuente de cambios de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) se puede usar para distribuir el procesamiento de eventos, desde la fuente de cambios, entre muchos consumidores. Debe usar esta implementación para compilar los lectores de eventos de cambios en la plataforma .NET. La clase `ChangeFeedProcessorHost` proporciona un entorno de tiempo de ejecución seguro, seguro para subprocesos y de varios procesos para las implementaciones de procesadores de eventos que también ofrecen administración de concesión de puntos de comprobación y particiones.
+
+Para usar la clase [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs), puede implementar [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). Esta interfaz contiene tres métodos:
+
+* OpenAsync
+* CloseAsync
+* ProcessEventsAsync
+
+Para iniciar el procesamiento de eventos, cree una instancia de ChangeFeedProcessorHost, proporcionando los parámetros adecuados para la colección de DocumentDB. Luego, llame a `RegisterObserverAsync` para registrar su implementación de `IChangeFeedObserver` con el entorno de tiempo de ejecución. En este punto, el host intentará adquirir una concesión en cada intervalo de claves de partición en la colección de DocumentDB con un algoritmo "expansivo". Estas concesiones durarán un período de tiempo determinado y, a continuación, deben renovarse. A medida que nuevos nodos, instancias de trabajo en este caso, pasan a estar en línea, colocan reservas de concesión y, con el tiempo, la carga cambia entre los nodos a medida que cada una trata de adquirir más concesiones.
+
+![Uso del host de procesador de fuente de cambios de DocumentDB](./media/documentdb-change-feed/changefeedprocessor.png)
+
+Con el tiempo, se establece un equilibrio. Esta capacidad dinámica permite la aplicación del escalado automático basado en CPU a los consumidores para escalar vertical y horizontalmente. Si los cambios están disponibles en DocumentDB a una mayor velocidad de la que los consumidores pueden procesar, el aumento de la CPU en los consumidores puede usarse para producir un escalado automático en el recuento de instancias de trabajador.
+
+La clase ChangeFeedProcessorHost también implementa un mecanismo de punto de comprobación con una colección de concesiones de DocumentDB independiente. Este mecanismo almacena el desplazamiento en función de la partición, para que cada consumidor pueda determinar cuál fue el último punto de comprobación del cliente anterior. A medida que las particiones pasan de un nodo a otro a través de concesiones, este es el mecanismo de sincronización que facilita el desplazamiento de cargas.
+
 En este artículo se proporciona un tutorial sobre la compatibilidad con la fuente de cambios de DocumentDB y cómo controlar los cambios realizados en datos de DocumentDB mediante la API de REST o los SDK de DocumentDB. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Pruebe los [ejemplos de código de fuente de cambios de DocumentDB incluidos en Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 * Aprenda sobre el [modelo y la jerarquía de recursos de DocumentDB](documentdb-resources.md).
 * Comience con la codificación con los [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) de DocumentDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

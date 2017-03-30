@@ -27,7 +27,7 @@
 ### [Consideraciones especiales para instancias](active-directory-aadconnect-instances.md)
 ### [Cuando ya tiene una cuenta de Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Administración de Azure AD Connect](active-directory-aadconnect-whats-next.md)
-### [Renovación de certificados para Office&365; y Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Renovación de certificados para Office 365 y Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Habilitación de la escritura diferida](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opciones de inicio de sesión de usuario](active-directory-aadconnect-user-signin.md)
 ### [Compatibilidad con varios dominios para la federación](active-directory-aadconnect-multiple-domains.md)
@@ -62,6 +62,7 @@
 ### [Errores durante la sincronización](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [El objeto no está sincronizado](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sincronización de contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Recuperación del límite de 10 GB de LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referencia
 ## [Sincronización de identidades y resistencia de atributos duplicados](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

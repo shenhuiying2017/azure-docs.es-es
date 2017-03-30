@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: sdanie
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e12667bc82043fbdc0b3f113533cf518f39be
-ms.openlocfilehash: 9593f49d98794e72728e0683e34a407e39144a5d
-ms.lasthandoff: 01/21/2017
-
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e8347c21610118af4ebaa80b24edd0838bc58cf8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>Uso de la Caché en rol para Caché de Azure
@@ -139,7 +139,7 @@ Cuando el clúster de caché está configurado, puede configurar los clientes de
 <a name="NuGet"></a>
 
 ## <a name="configure-the-cache-clients"></a>Configuración de los clientes de caché
-Para obtener acceso a la caché en rol, los clientes deben estar en la misma implementación. Si el clúster de caché es de rol dedicado, entonces los clientes son otros roles de la implementación. Si el clúster de caché es un rol colocalizado, los clientes podrán ser los otros roles de la implementación o los propios roles que hospedan el clúster de caché. Se ofrece un paquete de NuGet que se puede usar para configurar cada rol de cliente que tiene acceso a la caché. Para configurar un rol con el fin de que tenga acceso a un clúster de caché mediante el paquete de NuGet de caché, haga clic con el botón derecho en el proyecto de rol del **Explorador de soluciones** y seleccione **Administración de paquetes de NuGet**. 
+Para obtener acceso a In-Role Cache, los clientes deben estar en la misma implementación. Si el clúster de caché es de rol dedicado, entonces los clientes son otros roles de la implementación. Si el clúster de caché es un rol colocalizado, entonces los clientes pueden ser los otros roles de la implementación o los propios roles que hospedan el clúster de caché. Se ofrece un paquete de NuGet que se puede usar para configurar cada rol de cliente que tiene acceso a la caché. Para configurar un rol con el fin de que tenga acceso a un clúster de caché mediante el paquete de NuGet de caché, haga clic con el botón derecho en el proyecto de rol del **Explorador de soluciones** y seleccione **Administración de paquetes de NuGet**. 
 
 ![RoleCache4][RoleCache4]
 

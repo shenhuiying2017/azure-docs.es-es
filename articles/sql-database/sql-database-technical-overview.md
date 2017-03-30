@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>¿Qué es SQL Database? Introducción a SQL Database
 SQL Database es un servicio de bases de datos relacionales de Microsoft Cloud que usa el motor de Microsoft SQL Server líder del mercado, lo que le permite controlar cargas de trabajo críticas. SQL Database ofrece un rendimiento predecible en varios niveles de servicio, escalabilidad dinámica sin tiempo de inactividad, continuidad empresarial integrada y protección de datos (todo ello casi sin administración). Estas funcionalidades permiten centrarse en el desarrollo rápido de aplicaciones y en reducir el plazo de acceso al mercado, en lugar de tener que dedicar tiempo y recursos a la administración tanto de máquinas virtuales como de la infraestructura. Al basarse en el motor [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), SQL Database admite las herramientas, bibliotecas y API de SQL Server existentes. Como consecuencia, facilita el desarrollo de nuevas soluciones, el movimiento de soluciones de SQL Server existentes y la ampliación de las soluciones de SQL Server existentes a Microsoft Cloud sin necesidad de adquirir nuevos conocimientos.
 
-Este artículo presenta los principales conceptos y características de Base de datos SQL relacionados con el rendimiento, escalabilidad y facilidad de uso, con vínculos para explorar los detalles. Si está listo para empezar con los tutoriales prácticos, diríjase a [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started.md) o [Creación de un nuevo grupo de bases de datos elásticas con Azure Portal](sql-database-elastic-pool-manage-portal.md). En este vídeo encontrará una breve demostración.
+Este artículo presenta los principales conceptos y características de Base de datos SQL relacionados con el rendimiento, escalabilidad y facilidad de uso, con vínculos para explorar los detalles. Consulte estas guías de inicio rápido para comenzar:
+ - [Creación de una base de datos SQL en Azure Portal](sql-database-get-started-portal.md)  
+ - [Creación de una base de datos SQL con la CLI de Azure](sql-database-get-started-cli.md)
+ - [Creación de una base de datos SQL con PowerShell](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+Para obtener ejemplos de la CLI de Azure y de PowerShell, consulte:
+ - [Ejemplos de la CLI de Azure para Azure SQL Database](sql-database-cli-samples.md)
+ - [Ejemplos de Azure PowerShell para Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste del rendimiento y escalabilidad sin tiempo de inactividad
 El servicio SQL Database ofrece tres niveles de servicio: Básico, Estándar y Premium. Cada nivel de servicio ofrece [diferentes niveles de rendimiento y capacidades](sql-database-service-tiers.md) para admitir todos los tipos de cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, [cambiar el nivel de servicio](sql-database-service-tiers.md) manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. Y todo esto se puede hacer que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.

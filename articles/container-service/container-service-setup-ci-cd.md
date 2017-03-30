@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -288,6 +288,7 @@ Si abre la definición de compilación en VSTS, verá algo parecido a esto:
     ```
 
     * Como valor de la etiqueta, puede especificar la dirección URL del nombre de dominio completo de su agente de ACS o un dominio personalizado (por ejemplo, app.contoso.com). Para averiguar el nombre de dominio completo del agente de ACS, ejecute el comando `az acs list` y compruebe la propiedad para `agentPoolProfiles.fqdn`. Por ejemplo: `myacsagents.westus.cloudapp.azure.com`.
+    * La aplicación de ejemplo escucha de forma predeterminada en el puerto 80; para los usuarios que tengan sus aplicaciones de Docker escuchando en otros puertos, por ejemplo, `port 8080` o `443`, conecte el número de puerto al FQDN. Por ejemplo: `myacsagents.westus.cloudapp.azure.com:8080`. Sin embargo, cuando trata de acceder a la aplicación desde fuera, debe consultar en el puerto 80.
     * Si sigue la convención de nombre de archivo docker-compose.env.*environment-name*.yml, esta configuración solo afecta al entorno con nombre (en este caso, el entorno con el nombre *Production* [Producción]). Inspeccione la definición de la versión en VSTS, la tarea de implementación de cada entorno está configurada para leer de un archivo docker-compose cuyo nombre sigue esta convención.
 
 1. Confirme e inserte el archivo en el repositorio del código fuente maestro para iniciar otra compilación.

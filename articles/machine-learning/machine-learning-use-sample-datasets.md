@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
-ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: dd4a672d419a0f5140ffc006bcf58a9bf1e752f4
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -56,7 +57,7 @@ Códigos para aeropuertos de EE. UU.<p> </p>Este conjunto de datos contiene una
 <tr>
   <td valign=top>Información sobre los precios de los automóviles (datos sin procesar)</td>
   <td valign=top>
-Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.<p> </p>La puntuación de riesgo se asocia inicialmente con el precio del automóvil y, a continuación, se ajusta para el riesgo real en un proceso que los actuarios conocen como simbología. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es seguro.<p> </p><b>Uso:</b> predecir la puntuación de riesgo por características, utilizando una clasificación de regresión o de múltiples variantes. <p> </p><b>Investigación relacionada:</b> Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
+Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.<p> </p>La puntuación de riesgo se asocia inicialmente con el precio del automóvil y, a continuación, se ajusta para el riesgo real en un proceso que los actuarios conocen como simbología. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es seguro.<p> </p><b>Uso:</b> predecir la puntuación de riesgo por características utilizando una clasificación de regresión o de múltiples variantes. <p> </p><b>Investigación relacionada:</b> Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -151,7 +152,7 @@ Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en Tra
 <tr>
   <td valign=top>Información sobre puntualidad de vuelos (datos sin procesar)</td>
   <td valign=top>
-Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubre de 2011.<p> </p><b>Uso:</b> predecir retrasos en los vuelos. <p> </p><b>Investigación relacionada:</b> datos tomados del Departamento de Transporte de EE.UU. <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubre de 2011.<p> </p><b>Uso:</b> predecir retrasos en los vuelos. <p> </p><b>Investigación relacionada:</b> datos tomados del Departamento de Transporte de EE. UU. <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -204,21 +205,21 @@ Subconjunto de datos de la base de datos del Instituto Nacional de la Diabetes y
 <tr>
   <td valign=top>Datos de clientes de restaurantes</td>
   <td valign=top>
-Conjunto de metadatos sobre clientes que incluye información demográfica y preferencias.<p> </p><b>Uso:</b> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
+Conjunto de metadatos sobre clientes que incluye información demográfica y preferencias.<p> </p><b>Uso:</b> usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
   </td>
 </tr>
 
 <tr>
   <td valign=top>Datos de características de restaurantes</td>
   <td valign=top>
-Un conjunto de metadatos acerca de restaurantes y sus características, como el tipo de comida, el estilo de comedor y la ubicación.<p> </p><b>Uso:</b> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
+Un conjunto de metadatos acerca de restaurantes y sus características, como el tipo de comida, el estilo de comedor y la ubicación.<p> </p><b>Uso:</b> usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
   </td>
 </tr>
 
 <tr>
   <td valign=top>Valoraciones de restaurantes</td>
   <td valign=top>
-Contiene valoraciones que los usuarios realizan sobre restaurantes en una escala de 0 a 2.<p> </p><b>Uso:</b> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
+Contiene valoraciones que los usuarios realizan sobre restaurantes en una escala de 0 a 2.<p> </p><b>Uso:</b> usar este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Investigación relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
   </td>
 </tr>
 
@@ -283,7 +284,7 @@ Conjunto de datos de la competición de minería de datos y detección de conoci
 </tr>
 
 <tr ID=rcv1-v2-topics-qrels>
-  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
 Asignaciones de tema para artículos de prensa en el conjunto de datos de noticias de Reuters RCV1 V2. Un artículo de prensa se puede asignar a varios temas. El formato de cada fila es "&lt;nombre del tema&gt; &lt;identificador del documento&gt; 1". El conjunto de datos contiene 2,6 millones de asignaciones de tema. David proporcionó el conjunto de datos. D. Lewis.
   </td>
@@ -305,9 +306,4 @@ Estos datos se han extraído del concurso de evaluación del rendimiento de los 
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

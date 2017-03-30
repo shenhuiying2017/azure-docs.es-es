@@ -1,6 +1,6 @@
 ---
-title: "Creación de un proyecto de Azure con Visual Studio | Microsoft Docs"
-description: "Creación de un proyecto de Azure en Visual Studio"
+title: "Creación de un proyecto de servicio en la nube de Azure con Visual Studio | Microsoft Docs"
+description: "Obtenga información sobre cómo crear un proyecto de servicio en la nube de Azure con Visual Studio"
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -12,52 +12,50 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/21/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d933117cf513436e04c79a335998f2ddba848dc4
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: b1870b5db6e194f61d2f8b526e0c81b4d46699e4
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="creating-an-azure-project-with-visual-studio"></a>Creación de un proyecto de Azure en Visual Studio
-Azure Tools para Visual Studio ofrece una plantilla que permite crear un servicio en la nube para Azure. Las herramientas también ayudan a configurar, depurar e implementar el servicio en la nube en Azure.
+# <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Creación de un proyecto de servicio en la nube de Azure con Visual Studio
+Azure Tools para Visual Studio proporciona una plantilla de proyecto que permite crear un servicio en la nube de Azure. Una vez creado el proyecto, Visual Studio le permite configurar, depurar e implementar el servicio en la nube en Azure.
 
-Una solución de servicios en la nube de Azure contiene los siguientes tipos de proyecto:
+## <a name="steps-to-create-an-azure-cloud-service-project-in-visual-studio"></a>Pasos para crear un proyecto de servicio en la nube de Azure en Visual Studio
+En esta sección se le enseñará cómo crear un proyecto de servicio en la nube de Azure en Visual Studio con uno o más roles web.  
 
-* **Proyecto de Azure**
-  
-    El proyecto de Azure tiene asociaciones a los proyectos de rol de la solución. También incluye los archivos de definición del servicio y de configuración del servicio. El archivo de definición de servicio define la configuración de tiempo de ejecución de la aplicación, incluidos los roles que se requieren, los extremos y el tamaño de máquina virtual. El archivo de configuración de servicio configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. Para obtener más información sobre estas opciones, consulte [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-* **Proyecto de rol web**
-  
-    Un rol de trabajo realiza el procesamiento en segundo plano. Un rol de trabajo puede comunicarse con servicios de almacenamiento y con otros servicios basados en Internet. Un rol de trabajo puede tener varios extremos HTTP, HTTPS o TCP.
-  
-  * **Rol web de ASP.NET**, para compilar una aplicación ASP.NET con un front-end web
-  * **Rol web de ASP.NET MVC5**
-  * **Rol web de ASP.NET MVC4**
-  * **Rol web de ASP.NET MVC3**
-  * **Rol web de servicio WCF**, para crear un servicio WCF
-  * **Rol web de aplicación de negocios de Silverlight** (requiere Visual Studio 2012)
-* **Rol de trabajo de caché**
-  
-    Rol que proporciona una memoria caché dedicada a la aplicación.
-* **Rol de trabajo con cola de bus de servicio**
-  
-    Cola de bus de servicio que ofrece la funcionalidad de Message Queue Server para comunicarse con el proceso de trabajo. Para obtener más información, consulte [Utilización de las colas del bus de servicio](http://go.microsoft.com/fwlink/?LinkId=260560).
+1. Inicie Visual Studio como administrador.
 
-## <a name="to-create-an-azure-cloud-service-project-in-visual-studio"></a>Abra el proyecto de servicio en la nube en Visual Studio.
-1. Inicie Microsoft Visual Studio como administrador.
-2. En la barra de menús, elija **Archivo**, **Nuevo**, **Proyecto**.
-3. En el panel **Tipos de proyecto**, elija **Nube** en los nodos de plantilla del proyecto de Visual C# o Visual Basic.
-4. En el panel **Plantillas**, elija **Servicio en la nube de Azure**.
-5. Especifique la versión de .NET Framework que quiere usar para desarrollar el proyecto.
-6. Escriba un nombre y una ubicación para el proyecto y un nombre para la solución. Elija el botón **Aceptar** .
-7. En el cuadro de diálogo **Nuevo proyecto de Azure** , elija los roles que quiera agregar y elija el botón de flecha derecha para agregarlos a la solución. Puede agregar tantos roles como sea necesario.
-8. Para cambiar el nombre de un rol que agregó al proyecto, mantenga puntero sobre el rol en el cuadro de diálogo **Nuevo proyecto de Azure** y elija el icono **Cambiar nombre** situado a la derecha del rol. También puede cambiar el nombre de un rol dentro de la solución una vez agregado.
+1. En el menú principal, seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
+1. Seleccione **Nube** en los nodos de plantillas de proyectos de Visual C# o Visual Basic y, luego, seleccione **Servicio en la nube de Azure** en la lista de plantillas.
 
+    ![Nuevo servicio en la nube de Azure](./media/vs-azure-tools-azure-project-create/new-project-wizard-for-cloud-service.png)
 
+1. Especifique la versión de .NET Framework que quiere usar para desarrollar el proyecto.
 
-<!--HONumber=Nov16_HO3-->
+1. Escriba un nombre y una ubicación para el proyecto y un nombre para la solución. 
 
+1. Seleccione **Aceptar**.
+
+1. En el cuadro de diálogo **Nuevo servicio en la nube de Microsoft Azure**, seleccione los roles que desea agregar y elija el botón de flecha a la derecha para agregarlos a la solución.
+
+    ![Selección de nuevos roles de servicio en la nube de Azure](./media/vs-azure-tools-azure-project-create/new-cloud-service.png)
+
+1. Para cambiar el nombre de un rol que haya agregado, mantenga el puntero sobre el rol en el cuadro de diálogo **Nuevo servicio en la nube de Microsoft Azure** y, en el menú contextual, seleccione **Cambiar nombre**. También puede cambiar el nombre de un rol dentro de la solución (en el **Explorador de soluciones**) una vez que lo haya agregado.
+
+    ![Cambio de nombre de rol de servicio en la nube de Azure](./media/vs-azure-tools-azure-project-create/new-cloud-service-rename.png)
+
+El proyecto de Azure de Visual Studio tiene asociaciones a los proyectos de rol de la solución. El proyecto incluye también el *archivo de definición de servicio* y el *archivo de configuración de servicio*:
+
+- **Archivo de definición de servicio**: define la configuración del entorno de tiempo de ejecución de la aplicación, incluidos los roles que se requieren, los puntos de conexión y el tamaño de máquina virtual. 
+- **Archivo de configuración de servicio**: configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. 
+
+Para más información sobre estos archivos, consulte [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+- [Administración de roles en los proyectos de servicio en la nube de Azure con Visual Studio](./vs-azure-tools-cloud-service-project-managing-roles.md)
 

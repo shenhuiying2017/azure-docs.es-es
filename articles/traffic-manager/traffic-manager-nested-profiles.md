@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 3e48a28aa1ecda6792e79646a33875c8f01a878f
-ms.openlocfilehash: fdf22a3f8d0ba6f1838af4f5e6924c8c0a18ef64
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -32,7 +33,7 @@ Los ejemplos siguientes muestran cómo usar perfiles anidados de Traffic Manager
 
 Supongamos que ha implementado una aplicación en las siguientes regiones de Azure: oeste de EE. UU., Europa Occidental y Asia Oriental. Usará el método de enrutamiento de tráfico de "rendimiento" de Traffic Manager para distribuir el tráfico a la región más cercana al usuario.
 
-![Perfil único del Administrador de tráfico][1]
+![Perfil único del Administrador de tráfico][4]
 
 Ahora, suponga que desea probar una actualización de su servicio antes de implementarla más ampliamente. Desea usar el método de enrutamiento de tráfico "ponderado", que puede dirigir un porcentaje pequeño del tráfico a la implementación de prueba. Configure la implementación de prueba junto con la implementación de producción existente en Europa occidental.
 
@@ -48,13 +49,13 @@ Cuando el perfil primario utiliza el método de enrutamiento de tráfico de "ren
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Ejemplo 2: Supervisión de puntos de conexión en perfiles anidados
 
-El Administrador de tráfico supervisa activamente el estado de cada punto de conexión de servicio. Si un punto de conexión es incorrecto, Traffic Manager dirige a los usuarios a puntos de conexión alternativos para mantener la disponibilidad del servicio. Este comportamiento de conmutación por error y supervisión de los puntos de conexión se aplica a todos los métodos de enrutamiento de tráfico. Para más información, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md). La supervisión de puntos de conexión funciona de manera diferente para perfiles anidados. Con perfiles anidados, el perfil primario no realiza comprobaciones de estado en el perfil secundario directamente. En su lugar, el estado de los puntos de conexión del perfil secundario se usa para calcular el estado general del perfil secundario. Esta información de estado se propaga hacia arriba en la jerarquía de perfil anidado. El perfil primario usa este estado agregado para determinar si se debe dirigir el tráfico al perfil secundario. Consulte la sección de [preguntas más frecuentes](#faq) de este artículo para obtener todos los detalles sobre la supervisión del estado de los perfiles anidados.
+El Administrador de tráfico supervisa activamente el estado de cada punto de conexión de servicio. Si un punto de conexión es incorrecto, Traffic Manager dirige a los usuarios a puntos de conexión alternativos para mantener la disponibilidad del servicio. Este comportamiento de conmutación por error y supervisión de los puntos de conexión se aplica a todos los métodos de enrutamiento de tráfico. Para más información, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md). La supervisión de puntos de conexión funciona de manera diferente para perfiles anidados. Con perfiles anidados, el perfil primario no realiza comprobaciones de estado en el perfil secundario directamente. En su lugar, el estado de los puntos de conexión del perfil secundario se usa para calcular el estado general del perfil secundario. Esta información de estado se propaga hacia arriba en la jerarquía de perfil anidado. El perfil primario usa este estado agregado para determinar si se debe dirigir el tráfico al perfil secundario. Consulte la sección de [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-nested-profiles) para obtener todos los detalles sobre la supervisión del estado de los perfiles anidados.
 
 Volviendo al ejemplo anterior, supongamos que la implementación de producción en Europa Occidental no funciona. De forma predeterminada, el perfil "secundario" dirigirá todo el tráfico a la implementación de prueba. Si la implementación de prueba tampoco funciona, el perfil primario determinará que el perfil secundario no debe recibir tráfico ya que todos los puntos de conexión secundarios tienen un estado incorrecto. A continuación, el perfil primario distribuirá el tráfico a las demás regiones.
 
 ![Conmutación por error de perfil anidado (comportamiento predeterminado)][3]
 
-Puede que esta solución le satisfaga. O puede que le preocupe que todo el tráfico de Europa Occidental va ahora a la implementación de prueba en lugar de un tráfico de subconjunto limitado. Independientemente del estado de la implementación de prueba, puede que desee conmutar por error a las demás regiones cuando se produzca un error en la implementación de producción de Europa Occidental. Para habilitar esta conmutación por error, puede especificar el parámetro 'MinChildEndpoints' al configurar el perfil secundario como un punto de conexión del perfil primario. El parámetro determina el número mínimo de puntos de conexión disponibles en el perfil secundario. El valor predeterminado es&1;. En este escenario, debe establecer el valor de MinChildEndpoints en 2. Por debajo de este umbral, el perfil primario considerará que todo el perfil secundario no está disponible y dirigirá el tráfico a los otros puntos de conexión.
+Puede que esta solución le satisfaga. O puede que le preocupe que todo el tráfico de Europa Occidental va ahora a la implementación de prueba en lugar de un tráfico de subconjunto limitado. Independientemente del estado de la implementación de prueba, puede que desee conmutar por error a las demás regiones cuando se produzca un error en la implementación de producción de Europa Occidental. Para habilitar esta conmutación por error, puede especificar el parámetro 'MinChildEndpoints' al configurar el perfil secundario como un punto de conexión del perfil primario. El parámetro determina el número mínimo de puntos de conexión disponibles en el perfil secundario. El valor predeterminado es 1. En este escenario, debe establecer el valor de MinChildEndpoints en 2. Por debajo de este umbral, el perfil primario considerará que todo el perfil secundario no está disponible y dirigirá el tráfico a los otros puntos de conexión.
 
 En la siguiente ilustración, se muestra esta configuración:
 
@@ -97,56 +98,11 @@ La configuración de supervisión en un perfil de Traffic Manager se aplica a to
 
 ![Supervisión de puntos de conexión del Administrador de tráfico con configuración por punto de conexión][10]
 
-## <a name="faq"></a>P+F
-
-### <a name="how-do-i-configure-nested-profiles"></a>¿Cómo se configuran los perfiles anidados?
-
-Los perfiles anidados de Traffic Manager se pueden configurar mediante Azure Resource Manager y las API de REST del portal clásico, cmdlets de Azure PowerShell y comandos de la CLI de Azure multiplataforma. También son compatibles con el nuevo Azure Portal. No son compatibles con el portal clásico.
-
-### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>¿Cuántas capas de anidamiento admite el Administrador de tráfico?
-
-Puede anidar perfiles con hasta 10 niveles de profundidad. No se permiten "bucles".
-
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>¿Puedo combinar otros tipos de puntos de conexión con perfiles secundarios anidados, en el mismo perfil del Administrador de tráfico?
-
-Sí. No hay ninguna restricción en el modo de combinar puntos de conexión de diferentes tipos dentro de un perfil.
-
-### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>¿Cómo se aplica el modelo de facturación para perfiles anidados?
-
-El uso de perfiles anidados no afecta de forma negativa a los precios.
-
-La facturación de Traffic Manager tiene dos componentes: comprobaciones de estado del punto de conexión y millones de consultas DNS.
-
-* Comprobaciones de estado del punto de conexión: cuando un perfil secundario se configura como punto de conexión de un perfil primario no se aplica ningún cargo. La supervisión de los puntos de conexión del perfil secundario se facturan de la manera habitual.
-* Consultas de DNS: cada consulta se cuenta una sola vez. Las consultas a un perfil primario que devuelven un punto de conexión de un perfil secundario solo se cuentan con respecto al perfil primario.
-
-Para obtener todos los detalles, consulte la [página de precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
-
-### <a name="is-there-a-performance-impact-for-nested-profiles"></a>¿Se ve afectado el rendimiento por el uso de perfiles anidados?
-
-No. No hay ningún efecto sobre el rendimiento derivado del uso de perfiles anidados.
-
-Los servidores de nombres de Traffic Manager atravesarán la jerarquía de perfil internamente cuando se procese cada consulta de DNS. Una consulta de DNS realizada a un perfil primario puede recibir una respuesta de DNS con un punto de conexión de un perfil secundario. Se usará un único registro CNAME tanto si usa un solo perfil como si usa perfiles anidados. No hay necesidad de crear un registro CNAME para cada perfil de la jerarquía.
-
-### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>¿Cómo calcula Traffic Manager el estado de un punto de conexión anidado en un perfil primario?
-
-El perfil primario no realiza comprobaciones de estado en el perfil secundario directamente. En su lugar, el estado de los puntos de conexión del perfil secundario se usa para calcular el estado general del perfil secundario. Esta información se propaga hacia arriba en la jerarquía del perfil anidado para determinar el estado del punto de conexión anidado. El perfil primario usa este estado agregado para determinar si se puede dirigir el tráfico al perfil secundario.
-
-En la tabla siguiente se describe el comportamiento de las comprobaciones de estado de Traffic Manager para un punto de conexión anidado.
-
-| Estado de supervisión de perfiles secundarios | Estado de supervisión de extremos principales | Notas |
-| --- | --- | --- |
-| Deshabilitado. Se ha deshabilitado el perfil secundario. |Stopped |El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal. |
-| Degradado. Al menos un punto de conexión de perfil secundario se encuentra en estado Degradado. |En línea: el número de puntos de conexión en línea en el perfil secundario es, como mínimo, el valor de MinChildEndpoints.<BR>CheckingEndpoint: el número de puntos de conexión en línea más CheckingEndpoint en el perfil secundario es, como mínimo, el valor de MinChildEndpoints.<BR>Degradado: en caso contrario. |El tráfico se enruta a un punto de conexión con estado CheckingEndpoint. Si MinChildEndpoints se establece demasiado alto, el punto de conexión siempre se degradará. |
-| En línea. Al menos un punto de conexión de perfil secundario se encuentra en estado En línea. Ningún punto de conexión está en estado Degradado. |Consulte más arriba. | |
-| CheckingEndpoints. Al menos un punto de conexión de perfil secundario es "CheckingEndpoint". Ningún punto de conexión está "En línea" o "Degradado". |Igual que el anterior. | |
-| Inactivo. Todos los puntos de conexión de perfil secundario están en estado "Deshabilitado" o "Detenido", o bien se trata de un perfil sin ningún punto de conexión. |Stopped | |
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre [cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md)
+Más información sobre los [perfiles de Traffic Manager](traffic-manager-overview.md)
 
-Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-profiles.md)
+Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -159,9 +115,4 @@ Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

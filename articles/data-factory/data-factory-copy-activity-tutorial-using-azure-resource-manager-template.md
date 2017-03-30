@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -313,7 +314,7 @@ Cree un archivo JSON denominado **ADFCopyTutorialARM Parameters.json** que conti
 1. Inicie **Azure PowerShell** y ejecute el siguiente comando:
    * Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
     ```PowerShell
@@ -408,7 +409,7 @@ Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta
 ConnectionString utiliza los parámetros storageAccountName y storageAccountKey. Los valores de estos parámetros se pasan mediante el uso de un archivo de configuración. La definición también usa las variables azureStroageLinkedService y dataFactoryName definidas en la plantilla. 
 
 #### <a name="azure-sql-database-linked-service"></a>Servicio vinculado a Azure SQL Database
-Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de usuario y contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
+Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de usuario y contraseña del usuario en esta sección. Consulte [Servicio vinculado de Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties) para obtener información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure SQL.  
 
 ```json
 {
@@ -431,7 +432,7 @@ Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de
 ConnectionString usa los parámetros sqlServerName, databaseName, sqlServerUserName y sqlServerPassword cuyos valores se pasan mediante un archivo de configuración. La definición también usa las siguientes variables de la plantilla: azureSqlLinkedServiceName y dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>Conjunto de datos del blob de Azure
-Especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob. 
+Especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob. 
 
 ```json
 {
@@ -473,7 +474,7 @@ Especifique los nombres del contenedor de blobs, la carpeta y el archivo que con
 ```
 
 #### <a name="azure-sql-dataset"></a>Conjunto de datos de Azure SQL
-Especifique el nombre de la tabla la instancia de Azure SQL Database que contiene los datos copiados desde Azure Blob Storage. Consulte las [propiedades del conjunto de datos del blob de Azure](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure SQL. 
+Especifique el nombre de la tabla la instancia de Azure SQL Database que contiene los datos copiados desde Azure Blob Storage. Consulte las [propiedades del conjunto de datos del blob de Azure](data-factory-azure-sql-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure SQL. 
 
 ```json
 {
@@ -591,8 +592,3 @@ También puede volver a usar la plantilla para llevar a cabo tareas repetidas. P
 | [Procesos](data-factory-create-pipelines.md) |Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory de Azure. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

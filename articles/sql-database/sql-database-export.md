@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2461f706f8fc1150e69312098640c0676206a531
-ms.openlocfilehash: 4edd728fe4798450106a4991b353b9dac9de0d88
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -45,7 +45,7 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 
 * Para que una exportación sea transaccionalmente coherente, debe asegurarse de que no haya ninguna actividad de escritura durante la exportación, o bien de exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de Azure SQL Database.
 * Si va a exportar a Blob Storage, el tamaño máximo de un archivo BACPAC es 200 GB. Para archivar un archivo BACPAC de mayor tamaño, exporte al almacenamiento local.
-* No se admite la exportación de un archivo BACPAC en Premium Storage de Azure con los métodos que se describen en este artículo.
+* No se admite la exportación de un archivo BACPAC en Azure Premium Storage con los métodos que se describen en este artículo.
 * Si la operación de exportación desde Azure SQL Database demora más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
   * Aumentar temporalmente el nivel de servicio.
   * Detener toda actividad de lectura y escritura durante la exportación.

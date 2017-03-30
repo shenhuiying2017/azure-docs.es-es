@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -48,6 +48,9 @@ Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponib
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
 Puede usar el [control de acceso basado en rol de Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) para asignar permisos concretos a un disco administrado a uno o varios usuarios. Managed Disks expone varias operaciones, entre las que se incluyen la lectura, escritura (creación o actualización), eliminación y recuperación de un [identificador URI de la firma de acceso compartido (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede elegir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use un URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
+
+### <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup 
+Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks solo admite el almacenamiento con redundancia local (LRS) como opción de replicación, lo que significa que mantiene tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de copia de seguridad. En [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) puede encontrar más información al respecto. 
 
 ## <a name="pricing-and-billing"></a>Precios y facturación 
 
@@ -114,19 +117,21 @@ Una instantánea es una copia de un disco en un momento dado. Solo se aplica a u
 
 ¿Qué sucede si una máquina virtual tiene cinco discos y se seccionan? Puede tomar una instantánea de cada uno de los discos, pero en la máquina virtual no se conoce el estado de los discos (las instantáneas solo "conocen" un disco). En este caso, las instantáneas tendrían que coordinarse entre sí, algo que actualmente no se no se admite.
 
-## <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup 
+## <a name="managed-disks-and-encryption"></a>Managed Disks y cifrado
 
-Se pueden realizar copias de seguridad de máquinas virtuales con discos no administrados mediante Azure Backup. [Más detalles](../backup/backup-azure-vms-first-look-arm.md).
+Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero de ellos es el cifrado de servicio de almacenamiento (SSE), que se realiza mediante el servicio Storage. El segundo es Azure Disk Encryption, que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales. 
 
-El servicio Azure Backup también se puede usar con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. En [Uso de máquinas virtuales de disco administrado con Azure Backup](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) puede encontrar más información al respecto. 
+### <a name="storage-service-encryption-sse"></a>cifrado del servicio de almacenamiento (SSE)
 
-## <a name="managed-disks-and-storage-service-encryption-sse"></a>Managed Disks y Cifrado del servicio de almacenamiento (SSE)
-
-Azure Storage admite el cifrado automático los datos escritos en una cuenta de almacenamiento. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](storage-service-encryption.md). ¿Qué ocurre con los datos de los discos administrados? Actualmente, no es posible habilitar el Cifrado del servicio Storage para almacenamiento, pero lo será en el futuro. Mientras tanto, debe saber cómo usar un archivo de VHD que reside en una cuenta de almacenamiento cifrada y se ha cifrado. 
+Azure Storage admite el cifrado automático los datos escritos en una cuenta de almacenamiento. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](storage-service-encryption.md). ¿Qué ocurre con los datos de los discos administrados? Actualmente, no es posible habilitar el cifrado del servicio Storage para Managed Disks. Sin embargo, se publicará en el futuro. Mientras tanto, debe saber cómo usar un archivo de VHD que reside en una cuenta de almacenamiento cifrada y se ha cifrado. 
 
 SSE cifra los datos a medida que se escriban en la cuenta de almacenamiento. Si tiene un archivo VHD que alguna vez se ha cifrado con SSE, no se puede usar para crear una máquina virtual que utiliza Managed Disks. Un disco cifrado no administrado no se puede convertir en un disco administrado. Y, por último, si deshabilita el cifrado en dicha cuenta de almacenamiento, no volverá y descifrará el archivo VHD. 
 
 Para usar un disco que se ha cifrado, primero debe copiar el archivo VHD a una cuenta de almacenamiento que nunca se haya cifrado. A continuación, puede crear una máquina virtual con Managed Disks y especificar dicho archivo VHD durante la creación, o bien adjuntar el archivo VHD copiado a una máquina virtual en ejecución con Managed Disks. 
+
+### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+
+Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Esto incluye Managed Disks. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con el Almacén de claves de Azure para permitirle controlar y administrar las claves de cifrado del disco. Para más información, vea [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

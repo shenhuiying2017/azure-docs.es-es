@@ -25,8 +25,8 @@ El paquete de NuGet se descarga y agrega las referencias de ensamblado requerida
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+También puede instalar el paquete NuGet StackExchange.Redis haciendo clic en **Administrador de paquetes NuGet**, **Consola del Administrador de paquetes** desde el menú **Herramientas** y ejecutando el comando siguiente en la ventana `Package Manager Console`.
+    
+```
+Install-Package StackExchange.Redis
+```

@@ -144,7 +144,7 @@ En esta sección, creará una aplicación de consola de Node.js que llame a un m
     ```
     var methodParams = {
         methodName: methodName,
-        payload: 'a line to be written',
+        payload: 'hello world',
         timeoutInSeconds: 30
     };
    

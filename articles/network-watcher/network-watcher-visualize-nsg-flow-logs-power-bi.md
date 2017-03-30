@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: dfb33a30cac74875281645e74339be152d8ef476
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -70,7 +70,7 @@ También tiene que tener el cliente de Power BI Desktop instalado en su equipo y
 
 ## <a name="understanding-the-visuals"></a>Descripción de los objetos visuales
 
-En la plantilla se proporcionan un conjunto de objetos visuales que le ayudan a comprender los datos del registro de flujo de NSG. Las siguientes imágenes muestran un ejemplo del aspecto del panel cuando se rellena con datos. A continuación se examina con más detalle cada objeto visual 
+En la plantilla se proporcionan un conjunto de objetos visuales que lo ayudan a comprender los datos del registro de flujo de NSG. Las siguientes imágenes muestran un ejemplo del aspecto del panel cuando se rellena con datos. A continuación se examina con más detalle cada objeto visual 
 
 ![Power BI][5]
  
@@ -78,7 +78,7 @@ El objeto visual Top Talkers muestra las direcciones IP que han iniciado la mayo
 
 ![Toptalkers][6]
 
-Los siguientes gráficos de series temporales muestran el número de flujos en el período. El gráfico superior está segmentado por la dirección del flujo y el inferior está segmentado por la decisión MADD (permitir o denegar). Con este objeto visual, puede examinar las tendencias del tráfico a través del tiempo y detectar cualquier pico o disminución anormal o la segmentación del tráfico.
+Los siguientes gráficos de series temporales muestran el número de flujos en el período. El gráfico superior está segmentado por la dirección del flujo y el inferior está segmentado por la decisión MADD (permitir o denegar). Con este objeto visual, puede examinar las tendencias del tráfico a través del tiempo y detectar cualquier pico o disminución anómala la segmentación del tráfico.
 
 ![flowsoverperiod][7]
 

@@ -7,7 +7,7 @@
 3. Para agregar una etiqueta, escriba una clave y un valor o seleccione uno existente en el menú desplegable. Seleccione **Guardar**.
 
      ![Agregar nueva etiqueta](./media/resource-manager-tag-resources/tag-resources.png)
-3. Para ver todos los recursos con un valor de etiqueta, seleccione **>** (Más servicios) y filtre por **Etiquetas**. Seleccione **Etiquetas** entre las opciones disponibles.
+3. Para ver todos los recursos con un valor de etiqueta, seleccione **>** (Más servicios) y escriba la palabra **Etiquetas** en el cuadro de texto de filtro. Seleccione **Etiquetas** entre las opciones disponibles.
    
      ![Buscar etiquetas mediante el centro de exploración](./media/resource-manager-tag-resources/browse-tags.png)
 4. Verá un resumen de las etiquetas de sus suscripciones.
@@ -22,8 +22,3 @@
 7. Puede seleccionar la etiqueta anclada desde el panel para ver los recursos que contienen esa etiqueta.
 
      ![Anclar etiquetas al panel](./media/resource-manager-tag-resources/show-pinned-tag.png)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

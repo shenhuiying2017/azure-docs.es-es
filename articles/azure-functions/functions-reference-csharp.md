@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: 6b2473ef6336aea5c9a79aad78e02bcfc38b9018
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 38546a1cc3ae1696dbb37d4dd47d2d540ecd08fa
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -169,9 +169,11 @@ Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json*
 }
 ```
 
-Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json`net46` especifique * como se muestra aquí.
+Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json`net46` especifique* como se muestra aquí.
 
 Al cargar un archivo *project.json* , el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"` . Basta con agregar las instrucciones `using` necesarias al archivo *run.csx* para que use los tipos definidos en los paquetes NuGet.
+
+En el tiempo de ejecución de funciones, la restauración de NuGet funciona comparando `project.json` y `project.lock.json`. Si las marcas de fecha y hora de los archivos no coinciden, se ejecuta una restauración de NuGet y se descargan los paquetes actualizados. Sin embargo, si coincide con las marcas de fecha y hora de los archivos, NuGet no realiza una restauración. Por lo tanto, `project.lock.json` no debe implementarse, ya que hace que NuGet pasa por alto la restauración y la función no tendrá los paquetes necesarios. Para evitar la implementación del archivo de bloqueo, agregue `project.lock.json` al archivo `.gitignore`.
 
 ### <a name="how-to-upload-a-projectjson-file"></a>Cómo cargar un archivo project.json
 1. En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure. 

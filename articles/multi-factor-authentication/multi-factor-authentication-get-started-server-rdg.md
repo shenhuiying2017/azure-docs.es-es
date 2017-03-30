@@ -12,38 +12,68 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d0e35237b412d4c3bcc26c77d124f3ed2fef6403
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
-En muchos casos, la puerta de enlace de escritorio remoto usa el NPS local para autenticar usuarios. En este documento se describe cómo enrutar la solicitud RADIUS desde la puerta de enlace de Escritorio remoto (a través del NPS local) al servidor Multi-Factor Authentication.
+A menudo, Puerta de enlace de Escritorio remoto utiliza los servicios de directivas de red (NPS) local para autenticar a los usuarios. En este artículo se describe cómo enrutar la solicitud RADIUS desde Puerta de enlace de Escritorio remoto (a través del NPS local) a Servidor Multi-Factor Authentication. La combinación de Azure MFA y de Puerta de enlace de Remoto significa que los usuarios pueden tener acceso a sus entornos de trabajo desde cualquier lugar al tiempo que mantienen el control de los recursos corporativos al requerir una autenticación segura. 
 
-El servidor Multi-Factor Authentication debe instalarse en un servidor independiente, que luego entregará la solicitud RADIUS a NPS en el servidor de puerta de enlace de escritorio remoto. Cuando NPS valide el nombre de usuario y la contraseña, devolverá una respuesta al servidor Multi-Factor Authentication que realiza el segundo factor de la autenticación antes de devolver un resultado a la puerta de enlace.
+Puesto que no se admite la autenticación de Windows para los servicios de terminal en Server 2012 R2, utilice Puerta de enlace de Escritorio remoto y RADIUS para integrar con el servidor MFA. 
 
-## <a name="configure-the-rd-gateway"></a>Configuración de la puerta de enlace de escritorio remoto
-La puerta de enlace de escritorio remoto debe configurarse para enviar autenticación RADIUS a un servidor de Azure Multi-Factor Authentication. En cuanto se instale, se configure y se ponga en funcionamiento la puerta de enlace de escritorio remoto, acceda a las propiedades de la puerta de enlace de escritorio remoto. Vaya a la pestaña de Almacén de CAP de RD y cámbielo para usar un servidor central que ejecute NPS en lugar del servidor local que ejecuta NPS. Agregue uno o más servidores de Azure Multi-Factor Authentication como servidores RADIUS y especifique un secreto compartido para cada servidor.
+El servidor Multi-Factor Authentication debe instalarse en un servidor independiente, que luego entrega la solicitud RADIUS a NPS en el servidor de Puerta de enlace de Escritorio remoto. Cuando NPS valide el nombre de usuario y la contraseña, devuelve una respuesta a Servidor Multi-Factor Authentication que realiza el segundo factor de la autenticación antes de devolver un resultado a la puerta de enlace.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Un servidor Azure MFA unido a un dominio. Si no tiene uno ya instalado, siga los pasos de [Introducción a Servidor Azure Multi-factor Authentication](multi-factor-authentication-get-started-server.md).
+- Una Puerta de enlace de Escritorio remoto que se autentica con los servicios de la directiva de red.
+
+## <a name="configure-the-remote-desktop-gateway"></a>Configuración de Puerta de enlace de Escritorio remoto
+Configure Puerta de enlace de Escritorio remoto para enviar la autenticación RADIUS a una instancia de Servidor Azure Multi-Factor Authentication. 
+
+1. En Administrador de puerta de enlace de Escritorio remoto, haga clic en el nombre del servidor y seleccione **Propiedades**.
+2. Vaya a la pestaña **Almacén de CAP de RD** y seleccione **Servidor central que ejecuta NPS**. 
+3. Agregue una o más instancias de Servidor Azure Multi-Factor Authentication como servidores RADIUS al especificar una dirección IP en cada servidor. 
+4. Cree un secreto compartido para cada servidor.
 
 ## <a name="configure-nps"></a>Configuración de NPS
-La puerta de enlace de escritorio remoto usa NPS para enviar la solicitud de RADIUS a la Azure Multi-Factor Authentication. Debe cambiarse un tiempo de espera para evitar superar el tiempo de espera de la puerta de enlace de escritorio remoto antes de que se haya completado la autenticación multifactor. Use el procedimiento siguiente para configurar NPS.
+La puerta de enlace de escritorio remoto usa NPS para enviar la solicitud de RADIUS a la Azure Multi-Factor Authentication. Para configurar NPS, primero cambie la configuración de tiempo de espera para evitar que Puerta de enlace de Escritorio remoto agote el tiempo de espera antes de que se complete la verificación en dos pasos. Después, actualice NPS para recibir autenticaciones RADIUS desde el servidor MFA. Use el procedimiento siguiente para configurar NPS:
 
-1. En NPS, expanda el menú de clientes RADIUS y servidor de la columna izquierda y haga clic en Grupos de servidores RADIUS remotos. Acceda a las propiedades del GRUPO DE SERVIDORES DE PUERTA DE ENLACE DE TS. Edite los servidores RADIUS que se muestran y vaya a la pestaña de equilibrio de carga. Cambie el "Número de segundos sin respuesta antes de que se considere a la solicitud eliminada" y el "Número de segundos entre solicitudes cuando el servidor se identifica como no disponible" a entre 30 y 60 segundos. Haga clic en la pestaña Autenticación/Cuenta y asegúrese de que los puertos RADIUS especificados coincidan con los puertos en los que estará escuchando el servidor Multi-Factor Authentication.
-2. NPS también debe configurarse para recibir autenticaciones RADIUS desde el servidor de Azure Multi-Factor Authentication. Haga clic en Clientes RADIUS en el menú de la izquierda. Agregue el servidor de Azure Multi-Factor Authentication como cliente RADIUS. Elija un nombre descriptivo y especifique un secreto compartido.
-3. Expanda la sección de Directivas del panel izquierdo y haga clic en Directivas de solicitud de conexión. Debe contener una directiva de solicitud de conexión denominada DIRECTIVA DE AUTORIZACIÓN DE PUERTA DE ENLACE TS creada al configurar la puerta de enlace RD. Esta directiva reenvía las solicitudes RADIUS al servidor Multi-Factor Authentication.
-4. Copie esta directiva para crear una nueva. En la nueva directiva, agregue una condición que haga coincidir el nombre descriptivo del cliente con el nombre descriptivo establecido en el paso 2 anterior para el cliente RADIUS del servidor Azure Multi-Factor Authentication. Cambie el proveedor de autenticación a Equipo Local. Esta directiva garantiza que cuando se recibe una solicitud RADIUS desde el servidor Azure Multi-Factor Authentication, la autenticación se produce localmente en lugar de enviar una solicitud RADIUS al servidor Azure Multi-Factor Authentication que daría lugar a una condición de bucle. Para evitar la condición de bucle, esta nueva directiva debe situarse POR ENCIMA de la directiva original que la reenvía al servidor Multi-Factor Authentication.
+### <a name="modify-the-timeout-policy"></a>Modificación de la directiva de tiempo de espera
+
+1. En NPS, abra el menú **Clientes y servidores RADIUS** de la columna izquierda y seleccione **Grupos de servidores RADIUS remotos**. 
+2. Seleccione el **GRUPO DE SERVIDORES DE PUERTA DE ENLACE DE TS**. 
+3. Vaya a la pestaña **Equilibrio de carga**. 
+4. Cambie tanto "Número de segundos sin respuesta antes de que se considere a la solicitud eliminada" como el "Número de segundos entre solicitudes cuando el servidor se identifica como no disponible" a un valor entre 30 y 60 segundos. (Si encuentra que el servidor sigue agotando el tiempo de espera durante la autenticación, puede regresar a este punto y aumentar el número de segundos).
+5. Vaya a la pestaña **Autenticación/Cuenta** y compruebe de que los puertos RADIUS especificados coincidan con los puertos en los que está escuchando la instancia de Servidor Multi-Factor Authentication.
+
+### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>Preparación de NPS para recibir autenticaciones del servidor MFA
+
+1. Haga clic en **Clientes RADIUS** bajo Clientes y servidores RADIUS en la columna izquierda y seleccione **Nuevo**.
+2. Agregue el servidor de Azure Multi-Factor Authentication como cliente RADIUS. Elija un nombre descriptivo y especifique un secreto compartido.
+3. Abra el menú **Directivas** en la columna izquierda y seleccione **Directivas de solicitud de conexión**. Debe ver una directiva denominada DIRECTIVA DE AUTORIZACIÓN DE PUERTA DE ENLACE TS creada al configurar la puerta de enlace RD. Esta directiva reenvía las solicitudes RADIUS al servidor Multi-Factor Authentication.
+4. Haga clic en **DIRECTIVA DE AUTORIZACIÓN DE PUERTA DE ENLACE TS** y seleccione **Duplicar directiva**. 
+5. Abra la nueva directiva y vaya a la pestaña **Condiciones**.
+6. Agregue una condición que haga coincidir el nombre descriptivo del cliente con el nombre descriptivo establecido en el paso 2 para el cliente RADIUS de Servidor Azure Multi-Factor Authentication. 
+7. Vaya a la pestaña **Configuración** y seleccione **Autenticación**.
+8. Cambie el proveedor de autenticación a **Autenticar solicitudes en este servidor**. Esta directiva garantiza que cuando NPS recibe una solicitud RADIUS desde el servidor Azure MFA, la autenticación se produce localmente en lugar de enviar una solicitud RADIUS a Servidor Azure Multi-Factor Authentication que daría lugar a una condición de bucle. 
+9. Para evitar una condición de bucle, asegúrese de que la nueva directiva se ordena encima de la directiva original, en el panel **Directivas de solicitud de conexión**.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Configuración de Azure Multi-Factor Authentication
 
 El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS entre la puerta de enlace de escritorio remoto y NPS.  Debe instalarse en un servidor unido a un dominio independiente del servidor de puerta de enlace de escritorio remoto. Use el procedimiento siguiente para configurar el servidor Azure Multi-Factor Authentication.
 
-1. Abra el servidor Azure Multi-Factor Authentication y haga clic en el icono de autenticación RADIUS. Marque la casilla de verificación Habilitar autenticación RADIUS.
-2. En la pestaña Clientes, asegúrese de que los puertos coincidan con lo que se configura en NPS y haga clic en el botón Agregar . Agregue la dirección IP del servidor de puerta de enlace de escritorio remoto, el nombre de la aplicación (opcional) y un secreto compartido. El secreto compartido deberá ser el mismo en el servidor Azure Multi-Factor Authentication y en la puerta de enlace de escritorio remoto.
-3. Haga clic en la pestaña Destino y elija el botón de opción Servidores RADIUS.
-4. Haga clic en el botón Agregar . Escriba la dirección IP, el secreto compartido y los puertos del servidor NPS. A menos que use un NPS central, el cliente RADIUS y el destino RADIUS coincidirán. El secreto compartido debe coincidir con el configurado en la sección de cliente RADIUS del servidor NPS.
+1. Abra Servidor Azure Multi-Factor Authentication y seleccione el icono de autenticación RADIUS. 
+2. Active la casilla **Habilitar autenticación RADIUS**.
+3. En la pestaña Clientes, asegúrese de que los puertos coincidan con lo que se configura en NPS y seleccione **Agregar**.
+4. Agregue la dirección IP del servidor de Puerta de enlace de Escritorio remoto, el nombre de la aplicación (opcional) y un secreto compartido. El secreto compartido debe ser el mismo en Servidor Azure Multi-Factor Authentication y en Puerta de enlace de Escritorio remoto.
+3. Vaya a la pestaña **Destino** y seleccione el botón de opción **Servidores RADIUS**.
+4. Seleccione **Agregar** y escriba la dirección IP, el secreto compartido y los puertos del servidor NPS. A menos que use un NPS central, el cliente RADIUS y el destino RADIUS coincidirán. El secreto compartido debe coincidir con el configurado en la sección de cliente RADIUS del servidor NPS.
 
 ![Autenticación Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
@@ -52,9 +82,4 @@ El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS 
 - Integración de Azure MFA y [aplicaciones web de IIS](multi-factor-authentication-get-started-server-iis.md)
 
 - Obtenga respuestas en las [P+F sobre Azure Multi-Factor Authentication](multi-factor-authentication-faq.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

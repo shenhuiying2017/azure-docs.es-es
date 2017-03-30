@@ -1,6 +1,6 @@
 ---
 title: "Configuración de los roles para un servicio en la nube de Azure con Visual Studio | Microsoft Docs"
-description: Aprenda a instalar y a configurar roles para servicios en la nube de Azure mediante Visual Studio.
+description: Aprenda a instalar y a configurar roles para Azure Cloud Services con Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -12,72 +12,77 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 03/21/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f5078530c8beeea6a534b34fa6b319bd56178660
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9e79f275b8de045892517ec33581b72195a81f32
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="configure-the-roles-for-an-azure-cloud-service-with-visual-studio"></a>Configuración de los roles para un servicio en la nube de Azure con Visual Studio
-Un servicio en la nube de Azure puede tener uno o más roles web o de trabajo. Para cada rol debe definir cómo se configura ese rol y también configurar cómo se ejecuta. Para obtener más información sobre los roles en servicios en la nube, vea el vídeo [Introducción a los servicios en la nube de Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). La información para su servicio en la nube se almacena en los siguientes archivos:
+# <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Configuración de los roles para un servicio de Azure con Visual Studio
+Un servicio en la nube de Azure puede tener uno o más roles web o de trabajo. Para cada rol, debe definir cómo se configura ese rol y cómo se ejecuta. Para obtener más información sobre los roles en servicios en la nube, vea el vídeo [Introducción a los servicios en la nube de Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
 
-* **ServiceDefinition.csdef**
-  
-    El archivo de definición de servicio define la configuración del tiempo de ejecución de su servicio en la nube, incluidos los roles que se requieren, los extremos y el tamaño de la máquina virtual. Ninguno de los datos almacenados en este archivo se puede cambiar cuando se ejecuta el rol.
-* **ServiceConfiguration.cscfg**
-  
-    El archivo de configuración de servicio configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. Los datos almacenados en este archivo se pueden cambiar mientras se ejecuta el rol.
+La información para su servicio en la nube se almacena en los siguientes archivos:
 
-Para poder almacenar diferentes valores para esta configuración para el funcionamiento de su rol, puede tener varias configuraciones del servicio. Puede usar una configuración de servicio diferente para cada entorno de implementación. Por ejemplo, puede establecer su cadena de conexión de la cuenta de almacenamiento para usar el emulador de almacenamiento de Azure local en una configuración de servicio local y crear otra configuración del servicio para usar el almacenamiento de Azure en la nube.
+- **ServiceDefinition.csdef**: el archivo de definición de servicio define la configuración del tiempo de ejecución de su servicio en la nube, incluidos los roles que se requieren, los puntos de conexión y el tamaño de la máquina virtual. Ninguno de los datos almacenados en `ServiceDefinition.csdef` se puede cambiar cuando se ejecuta el rol.
+- **ServiceConfiguration.cscfg**: el archivo de configuración de servicio configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. Los datos almacenados en `ServiceConfiguration.cscfg` se pueden cambiar mientras se ejecuta el rol.
 
-Cuando cree un nuevo servicio en la nube de Azure en Visual Studio, se crearán dos configuraciones de servicio de forma predeterminada. Estas configuraciones se agregan a su proyecto de Azure. Las configuraciones se denominan:
+Para almacenar diferentes valores de la configuración que controlan el funcionamiento de su rol, puede tener varias configuraciones del servicio. Puede usar una configuración de servicio diferente para cada entorno de implementación. Por ejemplo, puede establecer su cadena de conexión de la cuenta de almacenamiento para usar el Emulador de Azure Storage local en una configuración de servicio local y crear otra configuración del servicio para usar Azure Storage en la nube.
 
-* ServiceConfiguration.Cloud.cscfg
-* ServiceConfiguration.Local.cscfg
+Al crear un servicio en la nube de Azure en Visual Studio, se crean y se agregan al proyecto de Azure dos configuraciones de servicio automáticamente:
+
+- `ServiceConfiguration.Cloud.cscfg`
+- `ServiceConfiguration.Local.cscfg`
 
 ## <a name="configure-an-azure-cloud-service"></a>Configurar un servicio en la nube de Azure
-Puede configurar un servicio en la nube de Azure desde el Explorador de soluciones en Visual Studio, como se muestra en la siguiente ilustración.
+Puede configurar un servicio en la nube de Azure desde el Explorador de soluciones en Visual Studio, como se muestra en los siguientes pasos:
 
-![Configuración de un servicio en la nube](./media/vs-azure-tools-configure-roles-for-cloud-service/IC713462.png)
+1. Cree o abra un proyecto de servicio en la nube de Azure en Visual Studio.
 
-### <a name="to-configure-an-azure-cloud-service"></a>Para configurar un servicio en la nube de Azure
-1. Para configurar cada rol en un proyecto de Azure desde el **Explorador de soluciones**, abra el menú contextual para el rol en el proyecto de Azure y luego elija **Propiedades**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, en el menú contextual, seleccione **Propiedades**.
    
-    Se mostrará una página con el nombre del rol en el editor de Visual Studio. La página muestra los campos de la pestaña **Configuración** .
-2. En la lista **Configuración del servicio** , elija el nombre de la configuración del servicio que quiere editar.
+    ![Menú contextual del proyecto en el Explorador de soluciones](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-project-context-menu.png)
+
+1. En la página de propiedades del proyecto, seleccione la pestaña **Desarrollo**. 
+
+    ![Página de propiedades del proyecto: pestaña Desarrollo](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-development-tab.png)
+
+1. En la lista **Configuración del servicio**, seleccione el nombre de la configuración del servicio que desea modificar. (si desea realizar cambios en todas las configuraciones del servicio para este rol, seleccione **Todas las configuraciones**).
    
-    Si desea realizar cambios en todas las configuraciones del servicio para este rol, puede elegir **Todas las configuraciones**.
+    > [!IMPORTANT]
+    > Si elige una configuración de servicio específica, algunas propiedades están deshabilitadas porque solo se pueden establecer para todas las configuraciones. Para modificar estas propiedades, debe seleccionar **Todas las configuraciones**.
+    > 
+    > 
    
-   > [!IMPORTANT]
-   > Si elige una configuración de servicio específica, algunas propiedades están deshabilitadas porque solo se pueden establecer para todas las configuraciones. Para editar estas propiedades, debe elegir Todas las configuraciones.
-   > 
-   > 
-   
-    Ahora puede elegir una pestaña para actualizar cualquier propiedad habilitada en esa vista.
+    ![Lista Configuración del servicio para un servicio en la nube de Azure](./media/vs-azure-tools-configure-roles-for-cloud-service/cloud-service-service-configuration-property.png)
 
 ## <a name="change-the-number-of-role-instances"></a>Cambiar el número de instancias de rol
-Para mejorar el rendimiento de su servicio en la nube, puede cambiar el número de instancias de un rol que se están ejecutando, en función del número de usuarios o de la carga esperada para un rol concreto. Se crea una máquina virtual independiente para cada instancia de un rol cuando se ejecuta el servicio en la nube en Azure. Esto afectará a la facturación de la implementación de este servicio en la nube. Para más información sobre la facturación, consulte [Comprender la factura de Microsoft Azure](billing/billing-understand-your-bill.md).
+Para mejorar el rendimiento de su servicio en la nube, puede cambiar el número de instancias de un rol que se están ejecutando, en función del número de usuarios o de la carga esperada para un rol concreto. Se crea una máquina virtual independiente para cada instancia de un rol cuando se ejecuta el servicio en la nube en Azure. Esto afecta a la facturación de la implementación de este servicio en la nube. Para más información sobre la facturación, consulte [Comprender la factura de Microsoft Azure](billing/billing-understand-your-bill.md).
 
-### <a name="to-change-the-number-of-instances-for-a-role"></a>Para cambiar el número de instancias para un rol
-1. Elija la pestaña **Configuración** .
-2. En la lista **Configuración del servicio** , elija la configuración del servicio que quiera actualizar.
+1. Cree o abra un proyecto de servicio en la nube de Azure en Visual Studio.
+
+1. En el **Explorador de soluciones**, expanda el nodo del proyecto. En el nodo **Roles**, haga clic con el botón derecho en el rol que desea actualizar y, en el menú contextual, seleccione **Propiedades**.
+
+    ![Menú contextual del rol de Azure en el Explorador de soluciones](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+
+1. Seleccione la pestaña **Configuración**.
+
+    ![Pestaña Configuración](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page.png)
+
+1. En la lista **Configuración del servicio**, seleccione la configuración del servicio que quiera actualizar.
    
-   > [!NOTE]
-   > Puede establecer el recuento de instancias para una configuración de servicio específico o para todas las configuraciones de servicio.
-   > 
-   > 
-3. En el cuadro de texto **Recuento de instancias** , escriba el número de instancias que quiere iniciar para este rol.
-   
-   > [!NOTE]
-   > Cada instancia se ejecuta en una máquina virtual independiente al publicar su servicio en la nube en Azure.
-   > 
-   > 
-4. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
+    ![Lista Configuración de servicio](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-select-configuration.png)
+
+1. En el cuadro de texto **Recuento de instancias** , escriba el número de instancias que quiere iniciar para este rol. Cada instancia se ejecuta en una máquina virtual independiente al publicar el servicio en la nube en Azure.
+
+    ![Actualizar el recuento de instancias](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-instance-count.png)
+
+1. En la barra de herramientas de Visual Studio, seleccione **Guardar**.
 
 ## <a name="manage-connection-strings-for-storage-accounts"></a>Administrar cadenas de conexión para cuentas de almacenamiento
-Puede agregar, quitar o modificar cadenas de conexión para sus configuraciones de servicio. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cadena de conexión local para una configuración de servicio local que tiene un valor de `UseDevelopmentStorage=true`. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure.
+Puede agregar, quitar o modificar cadenas de conexión para sus configuraciones de servicio. Por ejemplo, es posible que quiera una cadena de conexión local para una configuración de servicio local que tiene un valor de `UseDevelopmentStorage=true`. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure.
 
 > [!WARNING]
 > Al especificar la información de la clave de la cuenta de almacenamiento de Azure para una cadena de conexión de la cuenta de almacenamiento, esta información se almacena localmente en el archivo de configuración de servicio. Sin embargo, esta información no se almacena actualmente como texto cifrado.
@@ -86,47 +91,60 @@ Puede agregar, quitar o modificar cadenas de conexión para sus configuraciones 
 
 Si usa un valor diferente para cada configuración de servicio, no tendrá que usar cadenas de conexión diferentes en su servicio en la nube ni modificar su código al publicar su servicio en la nube en Azure. Puede usar el mismo nombre para la cadena de conexión en el código y el valor será diferente, en función de la configuración del servicio que selecciona al crear su servicio en la nube o al publicarlo.
 
-### <a name="to-manage-connection-strings-for-storage-accounts"></a>Para administrar cadenas de conexión para cuentas de almacenamiento
-1. Elija la pestaña **Configuración** .
-2. En la lista **Configuración del servicio** , elija la configuración del servicio que quiera actualizar.
-   
-   > [!NOTE]
-   > Puede actualizar las cadenas de conexión para una configuración de servicio específica, pero si necesita agregar o eliminar una cadena de conexión, debe seleccionar Todas las configuraciones.
-   > 
-   > 
-3. Para agregar una cadena de conexión, elija el botón **Agregar configuración** . Se agrega una nueva entrada a la lista.
-4. En el cuadro de texto **Nombre** , escriba el nombre que quiere usar para la cadena de conexión.
-5. En la lista desplegable **Tipo**, elija **Cadena de conexión**.
-6. Para cambiar el valor de la cadena de conexión, elija el botón de puntos suspensivos (...). Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento** .
-7. Para usar el emulador de la cuenta de almacenamiento local, elija el botón de opción **Emulador de Microsoft Azure Storage** y luego elija el botón **Aceptar**.
-8. Para usar una cuenta de almacenamiento en Azure, elija el botón de opción **Su suscripción** y seleccione la cuenta de almacenamiento que quiera.
-9. Para usar las credenciales personalizadas, elija el botón de opciones **Credenciales especificadas manualmente** . Escriba el nombre de la cuenta de almacenamiento y la clave principal o secundaria. Para obtener información sobre cómo crear una cuenta de almacenamiento y sobre cómo escribir los detalles de la cuenta de almacenamiento en el cuadro de diálogo **Crear cadena de conexión de almacenamiento** , vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
-10. Para eliminar una cadena de conexión, selecciónela y luego elija el botón **Quitar configuración** .
-11. Elija el icono **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
-12. Para obtener acceso a la cadena de conexión en el archivo de configuración de servicio, debe obtener el valor de la opción de configuración. El código siguiente muestra un ejemplo de donde se crea el almacenamiento de blobs y se cargan los datos mediante una cadena de conexión `MyConnectionString` desde el archivo de configuración de servicio cuando un usuario elige **Button1** en la página Default.aspx del rol web para un servicio en la nube de Azure. Agregue las siguientes instrucciones using a Default.aspx.cs:
-    
-     ```
-     using Microsoft.WindowsAzure;
-     using Microsoft.WindowsAzure.Storage;
-     using Microsoft.WindowsAzure.ServiceRuntime;
-     ```
-13. Abra Default.aspx.cs en la vista de diseño y agregue un botón del cuadro de herramientas. Agregue el siguiente código al método `Button1_Click` . Este código usa `GetConfigurationSettingValue` para obtener el valor del archivo de configuración de servicio para la cadena de conexión. A continuación, se crea un blob en la cuenta de almacenamiento a la que se hace referencia en la cadena de conexión `MyConnectionString` y finalmente el programa agrega texto al blob.
-    
-     ```
-     protected void Button1_Click(object sender, EventArgs e)
-     {
-         // Setup the connection to Azure Storage
-         var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("MyConnectionString"));
-         var blobClient = storageAccount.CreateCloudBlobClient();
-         // Get and create the container
-         var blobContainer = blobClient.GetContainerReference("quicklap");
-         blobContainer.CreateIfNotExists();
-         // upload a text blob
-         var blob = blobContainer.GetBlockBlobReference(Guid.NewGuid().ToString());
-         blob.UploadText("Hello Azure");
-    
-     }
-     ```
+1. Cree o abra un proyecto de servicio en la nube de Azure en Visual Studio.
+
+1. En el **Explorador de soluciones**, expanda el nodo del proyecto. En el nodo **Roles**, haga clic con el botón derecho en el rol que desea actualizar y, en el menú contextual, seleccione **Propiedades**.
+
+    ![Menú contextual del rol de Azure en el Explorador de soluciones](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+
+1. Seleccione la pestaña **Configuración**.
+
+    ![Pestaña Settings](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab.png)
+
+1. En la lista **Configuración del servicio**, seleccione la configuración del servicio que quiera actualizar.
+
+    ![Configuración de servicio](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-select-configuration.png)
+
+1. Para agregar una cadena de conexión, seleccione **Agregar configuración**.
+
+    ![Agregar cadena de conexión](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-add-setting.png)
+
+1. Una vez agregada la nueva configuración a la lista, actualice la fila de la lista con la información necesaria.
+
+    ![New connection string](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-add-setting-new-setting.png)
+
+    - **Nombre**: escriba el nombre que desea utilizar para la cadena de conexión.
+    - **Tipo**: seleccione **Cadena de conexión** en la lista desplegable.
+    - **Valor**: puede escribir la cadena de conexión directamente en la celda **Valor** o seleccionar los puntos suspensivos (...) para trabajar en el cuadro de diálogo **Crear cadena de conexión de almacenamiento**.  
+
+1. En el cuadro de diálogo **Crear cadena de conexión de almacenamiento**, seleccione una opción en **Conectar utilizando**. A continuación, siga las instrucciones para la opción que seleccione:
+
+    - **Emulador de Microsoft Azure Storage**: si selecciona esta opción, las demás opciones del cuadro de diálogo están deshabilitadas cuando afectan solo a Azure. Seleccione **Aceptar**.
+    - **Su suscripción**: si selecciona esta opción, utilice la lista desplegable para seleccionar e iniciar sesión en una cuenta de Microsoft, o bien agregue una cuenta de Microsoft. Seleccione una suscripción de Azure y una cuenta de almacenamiento. Seleccione **Aceptar**.
+    - **Credenciales especificadas manualmente**: escriba el nombre de la cuenta de almacenamiento y la clave principal o secundaria. Seleccione una opción en **Conexión** (se recomienda HTTPS en la mayoría de los escenarios). Seleccione **Aceptar**.
+
+1. Para eliminar una cadena de conexión, selecciónela y seleccione **Quitar configuración**.
+
+1. En la barra de herramientas de Visual Studio, seleccione **Guardar**.
+
+## <a name="programmatically-access-a-connection-string"></a>Acceso mediante programación a una cadena de conexión
+
+En los pasos siguientes se muestra cómo acceder mediante programación a una cadena de conexión con C#.
+
+1. Agregue las siguientes directivas de uso en un archivo de C# donde va a usar la configuración:
+
+    ```csharp
+    using Microsoft.WindowsAzure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.ServiceRuntime;
+    ```
+
+1. En el código siguiente se muestra un ejemplo de cómo acceder a una cadena de conexión. Reemplace el marcador de posición &lt;ConnectionStringName> por el valor adecuado. 
+
+    ```csharp
+    // Setup the connection to Azure Storage
+    var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("<ConnectionStringName>"));
+    ```
 
 ## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Agregar valores personalizados para usarlos en su servicio en la nube de Azure
 La configuración personalizada del archivo de configuración de servicio le permite agregar un nombre y un valor para una cadena de una configuración de servicio específico. Puede elegir usar esta configuración para definir una característica en su servicio en la nube leyendo el valor de la configuración y usando este valor para controlar la lógica de su código. Puede cambiar estos valores de configuración de servicio sin tener que volver a generar el paquete de servicio o cuando se ejecuta el servicio en la nube. Su código puede buscar las notificaciones de cuando cambia un valor. Vea [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
@@ -135,200 +153,130 @@ Puede agregar, quitar o modificar valores personalizados para sus configuracione
 
 Al usar un valor diferente para cada configuración de servicio, no tendrá que usar distintas cadenas en su servicio en la nube ni modificar su código al publicar su servicio en la nube en Azure. Puede usar el mismo nombre para la cadena en el código y el valor será diferente, en función de la configuración del servicio que selecciona al crear su servicio en la nube o al publicarlo.
 
-### <a name="to-add-custom-settings-to-use-in-your-azure-cloud-service"></a>Para agregar valores personalizados para usarlos en su servicio en la nube de Azure
-1. Elija la pestaña **Configuración** .
-2. En la lista **Configuración del servicio** , elija la configuración del servicio que quiera actualizar.
-   
-   > [!NOTE]
-   > Puede actualizar las cadenas para una configuración de servicio específico, pero si necesita agregar o eliminar una cadena, debe seleccionar **Todas las configuraciones**.
-   > 
-   > 
-3. Para agregar una cadena, elija el botón **Agregar configuración** . Se agrega una nueva entrada a la lista.
-4. En el cuadro de texto **Nombre** , escriba el nombre que quiere usar para la cadena.
-5. En la lista desplegable **Tipo**, elija **Cadena**.
-6. Para agregar o cambiar el valor de la cadena, en el cuadro de texto **Valor** escriba el nuevo valor.
-7. Para eliminar una cadena, seleccione la cadena y luego elija el botón **Quitar configuración** .
-8. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
-9. Para obtener acceso a la cadena en el archivo de configuración de servicio, debe obtener el valor de la opción de configuración.
-   
-    Debe asegurarse de que las siguientes instrucciones using se han agregado a Default.aspx.cs igual que lo hizo en el procedimiento anterior.
-   
-    ```
+1. Cree o abra un proyecto de servicio en la nube de Azure en Visual Studio.
+
+1. En el **Explorador de soluciones**, expanda el nodo del proyecto. En el nodo **Roles**, haga clic con el botón derecho en el rol que desea actualizar y, en el menú contextual, seleccione **Propiedades**.
+
+    ![Menú contextual del rol de Azure en el Explorador de soluciones](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+
+1. Seleccione la pestaña **Configuración**.
+
+    ![Pestaña Settings](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab.png)
+
+1. En la lista **Configuración del servicio**, seleccione la configuración del servicio que quiera actualizar.
+
+    ![Lista Configuración de servicio](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-select-configuration.png)
+
+1. Para agregar una configuración personalizada, seleccione **Agregar configuración**.
+
+    ![Agregar configuración personalizada](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-add-setting.png)
+
+1. Una vez agregada la nueva configuración a la lista, actualice la fila de la lista con la información necesaria.
+
+    ![Nueva configuración personalizada](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-add-setting-new-setting.png)
+
+    - **Nombre**: escriba el nombre de la configuración.
+    - **Tipo de**: seleccione **Cadena** en la lista desplegable.
+    - **Valor**: escriba el valor de la configuración. Puede especificar el valor directamente en la celda **Valor** o seleccionar los puntos suspensivos (...) para escribir el valor en el cuadro de diálogo **Editar cadena**.  
+
+1. Para eliminar una configuración personalizada, selecciónela y elija **Quitar configuración**.
+
+1. En la barra de herramientas de Visual Studio, seleccione **Guardar**.
+
+## <a name="programmatically-access-a-custom-settings-value"></a>Acceso mediante programación al valor de una configuración personalizada
+ 
+En los pasos siguientes se muestra cómo acceder mediante programación a una configuración personalizada con C#.
+
+1. Agregue las siguientes directivas de uso en un archivo de C# donde va a usar la configuración:
+
+    ```csharp
     using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
-10. Agregue el código siguiente al método `Button1_Click` para acceder a esta cadena de la misma manera que lo haría para una cadena de conexión. El código puede realizar algún código concreto en función del valor de la cadena de configuración para el archivo de configuración de servicio que se usa.
+
+1. En el código siguiente se muestra un ejemplo de cómo acceder a una configuración personalizada. Reemplace el marcador de posición &lt;SettingName> por el valor adecuado. 
     
-     ```
-     var settingValue = RoleEnvironment.GetConfigurationSettingValue("MySetting");
-     if (settingValue == “ThisValue”)
-     {
-     // Perform these lines of code
-     }
-     ```
+    ```csharp
+    var settingValue = RoleEnvironment.GetConfigurationSettingValue("<SettingName>");
+    ```
 
 ## <a name="manage-local-storage-for-each-role-instance"></a>Administrar el almacenamiento local para cada instancia de rol
-Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. 
+Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Otras instancias del rol para las que están almacenados los datos u otros roles no pueden acceder a los datos almacenados.  
 
-Los valores de almacenamiento local se aplican a todas las configuraciones de servicio. Solo puede agregar, quitar o modificar el almacenamiento local para todas las configuraciones de servicio.
+1. Cree o abra un proyecto de servicio en la nube de Azure en Visual Studio.
 
-### <a name="to-manage-local-storage-for-each-role-instance"></a>Para administrar el almacenamiento local para cada instancia de rol
-1. Elija la pestaña **Almacenamiento local** .
-2. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
-3. Para agregar una entrada de almacenamiento local, elija el botón **Agregar almacenamiento local** . Se agrega una nueva entrada a la lista.
-4. En el cuadro de texto **Nombre** , escriba el nombre que quiere usar para este almacenamiento local.
-5. En el cuadro de texto **Tamaño** , escriba el tamaño en MB que necesita para este almacenamiento local.
-6. Para quitar los datos en este almacenamiento local cuando se recicla la máquina virtual para este rol, active la casilla **Limpiar al reciclar rol** .
-7. Para editar una entrada de almacenamiento local existente, elija la fila que necesita actualizar. Luego podrá editar los campos, como se describe en los pasos anteriores.
-8. Para eliminar una entrada de almacenamiento local, elija la entrada de almacenamiento en la lista y luego elija el botón **Quitar el almacenamiento local** .
-9. Para guardar estos cambios en el archivo de configuración de servicio, elija el icono **Guardar** en la barra de herramientas.
-10. Para tener acceso al almacenamiento local que ha agregado en el archivo de configuración de servicio, debe obtener el valor de la opción de configuración del recurso local. Use las siguientes líneas de código para tener acceso a este valor y cree un archivo llamado **MyStorageTest.txt** y escriba una línea de datos de prueba en ese archivo. Puede agregar este código al método `Button_Click` que usó en los procedimientos anteriores:
-11. Debe asegurarse de que se agregan las siguientes instrucciones using a Default.aspx.cs:
+1. En el **Explorador de soluciones**, expanda el nodo del proyecto. En el nodo **Roles**, haga clic con el botón derecho en el rol que desea actualizar y, en el menú contextual, seleccione **Propiedades**.
+
+    ![Menú contextual del rol de Azure en el Explorador de soluciones](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+
+1. Seleccione la pestaña **Almacenamiento local**.
+
+    ![Pestaña Almacenamiento local](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab.png)
+
+1. En la lista **Configuración del servicio**, asegúrese de que está seleccionada la opción **Todas las configuraciones**, ya que la configuración de almacenamiento local afecta a todas las configuraciones del servicio. Cualquier otro valor hará que todos los campos de entrada en la página se deshabiliten. 
+
+    ![Lista Configuración de servicio](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-service-configuration.png)
+
+1. Para agregar una entrada de almacenamiento local, seleccione **Agregar almacenamiento local**.
+
+    ![Agregar almacenamiento local](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-add-local-storage.png)
+
+1. Una vez agregada la nueva entrada de almacenamiento local a la lista, actualice la fila de la lista con la información necesaria.
+
+    ![Nueva entrada de almacenamiento local](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-new-local-storage.png)
+
+    - **Nombre**: escriba el nombre que desea utilizar para el nuevo almacenamiento local.
+    - **Tamaño (MB)**: especifique el tamaño en MB que necesita para el nuevo almacenamiento local.
+    - **Limpiar al reciclar rol**: seleccione esta opción para quitar los datos del almacenamiento local cuando se recicla la máquina virtual para este rol.
+
+1. Para eliminar una entrada de almacenamiento local, selecciónela y active **Remove Local Storage** (Quitar almacenamiento local).
+
+1. En la barra de herramientas de Visual Studio, seleccione **Guardar**.
+
+## <a name="programmatically-accessing-local-storage"></a>Acceso mediante programación al almacenamiento local
+
+En esta sección se indica cómo acceder mediante programación al almacenamiento local con C# mediante la escritura de un archivo de texto de prueba: `MyLocalStorageTest.txt`.  
+
+### <a name="write-a-text-file-to-local-storage"></a>Escritura de un archivo de texto en el almacenamiento local
+
+En el código siguiente se muestra un ejemplo de cómo escribir un archivo de texto en el almacenamiento local. Reemplace el marcador de posición &lt;LocalStorageName> por el valor adecuado. 
+
+    ```csharp
+    // Retrieve an object that points to the local storage resource
+    LocalResource localResource = RoleEnvironment.GetLocalResource("<LocalStorageName>");
     
-     ```
-     using System.IO;
-     using System.Text;
-     ```
-12. Agregue el siguiente código al método `Button1_Click` . Esto crea el archivo en el almacenamiento local y escribe los datos de prueba en ese archivo.
+    //Define the file name and path
+    string[] paths = { localResource.RootPath, "MyLocalStorageTest.txt" };
+    String filePath = Path.Combine(paths);
     
-     ```
-     // Retrieve an object that points to the local storage resource
-     LocalResource localResource = RoleEnvironment.GetLocalResource("LocalStorage1");
+    using (FileStream writeStream = File.Create(filePath))
+    {
+        Byte[] textToWrite = new UTF8Encoding(true).GetBytes("Testing Web role storage");
+        writeStream.Write(textToWrite, 0, textToWrite.Length);
+    }
+
+    ```
+
+### <a name="find-a-file-written-to-local-storage"></a>Búsqueda de un archivo escrito en el almacenamiento local
+
+Para ver el archivo creado por el código de la sección anterior, siga estos pasos:
     
-     //Define the file name and path
-     string[] paths = { localResource.RootPath, "MyStorageTest.txt" };
-     String filePath = Path.Combine(paths);
-    
-     using (FileStream writeStream = File.Create(filePath))
-     {
-           Byte[] textToWrite = new UTF8Encoding(true).GetBytes("Testing Web role storage");
-           writeStream.Write(textToWrite, 0, textToWrite.Length);
-     }
-     ```
-13. (Opcional) Para ver este archivo que ha creado al ejecuta su servicio en la nube localmente, lleve a cabo los pasos siguientes:
-    
-    1. Ejecute el rol web y seleccione **Button1** para asegurarse de que se llama al código que se encuentra dentro de `Button1_Click`.
-    2. En el área de notificación, abra el menú contextual del icono de Azure y elija **Mostrar la interfaz de usuario del emulador de proceso**. Aparece el cuadro de diálogo **Emulador de proceso de Azure** .
-    3. Seleccione el rol web.
-    4. En la barra de menús, elija **Herramientas**, **Abrir almacén local**. Aparecerá una ventana del explorador de Windows.
-    5. En la barra de menús, escriba **MyStorageTest.txt** en el cuadro de texto **Búsqueda** y luego elija **Entrar** para iniciar la búsqueda.
-       
-       El archivo se muestra en los resultados de la búsqueda.
-    6. Para ver el contenido del archivo, abra el menú contextual para el archivo y elija **Abrir**.
+1.  En el área de notificación de Windows, haga clic con el botón derecho en el icono de Azure y, en el menú contextual, seleccione **Show Compute Emulator UI** (Mostrar la interfaz de usuario del emulador de proceso). 
 
-## <a name="collect-cloud-service-diagnostics"></a>Recopilar diagnóstico del servicio en la nube
-Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Estos datos se agregan a una cuenta de almacenamiento. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cuenta de almacenamiento local para una configuración de servicio local que tiene un valor de UseDevelopmentStorage=true. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure. Para obtener más información sobre los diagnósticos de Azure, consulte Recopilar datos de registro mediante Diagnósticos de Azure.
+    ![Mostrar el emulador de proceso de Azure](./media/vs-azure-tools-configure-roles-for-cloud-service/show-compute-emulator.png)
 
-> [!NOTE]
-> La configuración del servicio local ya está configurada para usar los recursos locales. Si usa la configuración del servicio en la nube para publicar su servicio en la nube de Azure, la cadena de conexión que especifique al publicar también se utiliza para la cadena de conexión de diagnóstico a menos que haya especificado una cadena de conexión. Si empaqueta su servicio en la nube con Visual Studio, no se cambia la cadena de conexión en la configuración del servicio.
-> 
-> 
+1. Seleccione el rol web.
 
-### <a name="to-collect-cloud-service-diagnostics"></a>Para recopilar diagnóstico del servicio en la nube
-1. Elija la pestaña **Configuración** .
-2. En la lista **Configuración del servicio**, elija la configuración del servicio que quiere actualizar o elija **Todas las configuraciones**.
-   
-   > [!NOTE]
-   > Puede actualizar la cuenta de almacenamiento para una configuración de servicio específica, pero si quiere habilitar o deshabilitar los diagnósticos, debe elegir Todas las configuraciones.
-   > 
-   > 
-3. Para habilitar los diagnósticos, active la casilla **Habilitar diagnósticos** .
-4. Para cambiar el valor de la cuenta de almacenamiento, elija el botón de puntos suspensivos (...).
-   
-    Aparecerá el cuadro de diálogo **Crear cadena de conexión de almacenamiento** .
-5. Para usar una cadena de conexión local, elija la opción del emulador de almacenamiento de Azure y luego elija el botón **Aceptar** .
-6. Para usar una cuenta de almacenamiento asociada a su suscripción de Azure, elija la opción **Su suscripción** .
-7. Para usar una cuenta de almacenamiento para la cadena de conexión local, elija la opción **Credenciales especificadas manualmente** .
-   
-    Para obtener más información sobre cómo crear una cuenta de almacenamiento y sobre cómo escribir los detalles de la cuenta de almacenamiento en el cuadro de diálogo **Crear cadena de conexión de almacenamiento** , vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
-8. Elija la cuenta de almacenamiento que quiera usar en **Nombre de cuenta**.
-   
-    Si va a especificar manualmente sus credenciales de la cuenta de almacenamiento, copie o escriba su clave principal en **Clave de cuenta**. Esta clave se puede copiar desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar esta clave, siga estos pasos desde la vista **Cuentas de almacenamiento** en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885):
-   
-   1. Seleccione la cuenta de almacenamiento que quiera usar para su servicio en la nube.
-   2. Elija el botón **Administrar claves de acceso** que se encuentra en la parte inferior de la pantalla. Aparecerá el cuadro de diálogo **Administrar claves de acceso** .
-   3. Para copiar la clave de acceso, elija el botón **Copiar al Portapapeles** . Ahora puede pegar esta clave en el campo **Clave de cuenta** .
-9. Para usar la cuenta de almacenamiento proporcionada como la cadena de conexión para diagnósticos (y almacenamiento en caché) cuando publica su servicio en la nube en Azure, active la casilla **Actualizar cadenas de conexión de almacenamiento de desarrollo para diagnóstico y almacenamiento en caché con las credenciales de la cuenta de almacenamiento de Azure al publicar en Azure** .
-10. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
+    ![Emulador de proceso de Azure](./media/vs-azure-tools-configure-roles-for-cloud-service/compute-emulator.png)
 
-## <a name="change-the-size-of-the-virtual-machine-used-for-each-role"></a>Cambiar el tamaño de la máquina virtual que se usa para cada rol
-Puede establecer el tamaño de la máquina virtual para cada rol. Solo puede establecer este tamaño para todas las configuraciones de servicio. Si selecciona un tamaño de máquina menor, se asignarán menos núcleos de CPU, memoria y almacenamiento en disco local. El ancho de banda asignado también es menor. Para obtener más información sobre estos tamaños y los recursos asignados, vea [Tamaños para los Servicios en la nube](cloud-services/cloud-services-sizes-specs.md).
+1. En el menú **Microsoft Azure Compute Emulator** (Emulador de proceso de Microsoft Azure), seleccione **Herramientas** > **Open local store** (Abrir almacén local).
 
-Los recursos necesarios para cada máquina virtual en Azure afectan al costo de ejecutar su servicio en la nube en Azure. Para más información sobre la facturación de Azure, consulte [Comprender la factura de Microsoft Azure](billing/billing-understand-your-bill.md).
+    ![Opción de menú Open local store (Abrir almacén local)](./media/vs-azure-tools-configure-roles-for-cloud-service/compute-emulator-open-local-store-menu.png)
 
-### <a name="to-change-the-size-of-the-virtual-machine"></a>Para cambiar el tamaño de la máquina virtual
-1. Elija la pestaña **Configuración** .
-2. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
-3. Para seleccionar el tamaño de la máquina virtual para este rol, elija el tamaño adecuado en la lista **Tamaño de VM** .
-4. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
-
-## <a name="manage-endpoints-and-certificates-for-your-roles"></a>Administrar extremos y certificados para sus roles
-Para configurar los extremos de redes, especifique el protocolo, el número de puerto y, para HTTPS, la información del certificado SSL. Las versiones anteriores a junio de 2012 admiten HTTP, HTTPS y TCP. La versión de junio de 2012 admite esos protocolos y UDP. No puede usar UDP para los extremos de entrada en el emulador de proceso. Puede usar ese protocolo solo para los extremos internos.
-
-Para mejorar la seguridad de su servicio en la nube de Azure, puede crear extremos que usen el protocolo HTTPS. Por ejemplo, si tiene un servicio en la nube que se usa por los clientes para pedidos de compra, querrá asegurarse de que su información es segura usando SSL.
-
-También puede agregar extremos que se pueden usar interna o externamente. Los extremos externos se denominan extremos de entrada. Un extremo de entrada permite otro punto de acceso a los usuarios para su servicio en la nube. Si tiene un servicio WCF, es posible que quiera exponer un extremo interno para que un rol web tenga acceso a este servicio.
-
-> [!IMPORTANT]
-> Solo puede actualizar extremos para todas las configuraciones de servicio.
-> 
-> 
-
-Si agrega extremos HTTPS, debe usar un certificado SSL. Para ello, puede asociar certificados a su rol para todas las configuraciones de servicio y usarlos para sus extremos.
-
-> [!IMPORTANT]
-> Estos certificados no se empaquetan con su servicio. Debe cargar sus certificados por separado en Azure mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
-> 
-> 
-
-Cualquier certificado de administración que asocie a sus configuraciones de servicio solo se aplicarán cuando se ejecute su servicio en la nube en Azure. Cuando su servicio en la nube se ejecute en el entorno de desarrollo local, se usará un certificado estándar administrado por el emulador de proceso de Azure.
-
-### <a name="to-add-a-certificate-to-a-role"></a>Para agregar un certificado a un rol
-1. Elija la pestaña **Certificados** .
-2. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
-   
-   > [!NOTE]
-   > Para agregar o quitar certificados, debe seleccionar Todas las configuraciones. Puede actualizar el nombre y la huella digital de una configuración de servicio concreta si es necesario.
-   > 
-   > 
-3. Para agregar un certificado para este rol, elija el botón **Agregar certificado** . Se agrega una nueva entrada a la lista.
-4. En el cuadro de texto **Nombre** , escriba el nombre del certificado.
-5. En la lista **Ubicación del almacén** , elija la ubicación del certificado que quiere agregar.
-6. En la lista **Nombre de almacén** , elija el almacén que quiere usar para seleccionar el certificado.
-7. Para agregar el certificado, elija el botón de puntos suspensivos (...). Aparecerá el cuadro de diálogo **Seguridad de Windows** .
-8. Elija el certificado que quiera usar en la lista y luego elija el botón **Aceptar** .
-   
-   > [!NOTE]
-   > Al agregar un certificado del almacén de certificados, cualquier certificado intermedio se agrega automáticamente a la configuración. Estos certificados intermedios también se deben cargar en Azure para configurar el servicio correctamente para SSL.
-   > 
-   > 
-9. Para eliminar un certificado, seleccione el certificado y luego presione el botón **Quitar certificado** .
-10. Elija el icono **Guardar** en la barra de herramientas para guardar estos cambios en los archivos de configuración de servicio.
-
-### <a name="to-manage-endpoints-for-a-role"></a>Para administrar extremos para un rol
-1. Elija la pestaña **Extremos** .
-2. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
-3. Para agregar un extremo, elija el botón **Agregar extremo** . Se agrega una nueva entrada a la lista.
-4. En el cuadro de texto **Nombre** , escriba el nombre que quiera usar para este extremo.
-5. Elija el tipo de extremo que necesita en la lista **Tipo** .
-6. Elija el protocolo para el extremo que necesita en la lista **Protocolo** .
-7. Si es un extremo de entrada, en el cuadro de texto **Puerto público** , escriba el puerto público que quiere usar.
-8. En el cuadro de texto **Puerto privado** escriba el puerto privado que quiere usar.
-9. Si el extremo requiere el protocolo https, en la lista **Nombre del certificado SSL** , elija un certificado para usarlo.
-   
-   > [!NOTE]
-   > En esta lista se muestran los certificados que se han agregado para este rol en la pestaña **Certificados** .
-   > 
-   > 
-10. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en los archivos de configuración de servicio.
+1. Cuando se abra la ventana Explorador de Windows, escriba "MyLocalStorageTest.txt" en el cuadro de texto **Buscar** y pulse **Entrar** para iniciar la búsqueda. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

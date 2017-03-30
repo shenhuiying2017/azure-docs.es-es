@@ -1,22 +1,22 @@
 ---
-title: "Administración de precios y volúmenes de datos de Application Insights | Microsoft Docs"
+title: "Administración de precios y volúmenes de datos de Azure Application Insights | Microsoft Docs"
 description: "Administre los volúmenes de telemetría y supervise los costos en Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
-ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ Hay dos planes de precios. El plan predeterminado se conoce como Básico. Puede 
 
 Si tiene preguntas sobre cómo funciona los precios para Application Insights, no dude en publicar una pregunta en nuestro [foro](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="the-pricing-plans"></a>Los planes de precios
+## <a name="the-price-plans"></a>Los planes de precios
 
 Consulte la [página de precios de Application Insights][pricing] para ver los precios actuales en su moneda.
 
@@ -157,10 +157,9 @@ Para conocer la frecuencia de muestreo real independientemente de dónde se ha a
 En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores. 
 
 
-## <a name="transition-from-the-old-pricing-tiers"></a>Transición desde los planes de tarifa anteriores
+## <a name="automation"></a>Automatización
 
-Las aplicaciones existentes pueden seguir usando los planes de tarifa antiguos hasta febrero de 2017. Llegado ese momento, la mayoría de las aplicaciones se moverán automáticamente al plan Básico. Aquellas que usen la exportación continua o el conector de OMS Log Analytics se moverán al plan Empresa.
-
+Puede escribir un script para establecer el plan de precios con la administración de recursos de Azure. [Más información](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Resumen de límites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

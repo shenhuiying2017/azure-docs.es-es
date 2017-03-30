@@ -10,12 +10,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
-ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -68,24 +68,34 @@ Necesita:
 ## <a name="define-your-schema"></a>Definición del esquema
 
 Para poder importar datos, debe definir un *origen de datos,* que especifica el esquema de los datos.
+Puede tener hasta 50 orígenes de datos en un único recurso de Application Insights.
 
-1. Inicio del Asistente para orígenes de datos
+1. Inicie el Asistente para orígenes de datos.
 
     ![Agregar nuevo origen de datos](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Cargue un archivo de datos de ejemplo. (Opcional si va a cargar una definición de esquema).
+    Proporcione un nombre para el nuevo origen de datos.
 
-    La primera fila del ejemplo puede corresponderse con encabezados de columna. (Puede cambiar los nombres de campo en el paso siguiente).
+2. Defina el formato de los archivos que va a cargar.
 
-    El ejemplo debe incluir al menos 10 filas de datos.
+    Puede definir manualmente el formato o cargar un archivo de ejemplo.
 
-3. Revise el esquema que ha obtenido el asistente. Si infirió los tipos de un ejemplo, probablemente tendrá que ajustar los tipos inferidos de las columnas.
+    Si los datos tienen el formato CSV, la primera fila del ejemplo puede corresponderse con encabezados de columna. Puede cambiar los nombres de campo en el paso siguiente.
 
-   (Opcional). Cargue una definición de esquema. Consulte el formato siguiente.
+    El ejemplo debe incluir al menos 10 filas o registros de datos.
 
-4. Seleccione una marca de tiempo. Todos los datos de Analytics deben tener un campo de marca de tiempo. Debe tener el tipo `datetime`, pero no es necesario asignarle el nombre "marca de tiempo". Si los datos tienen una columna que contiene una fecha y hora en formato ISO, elija esta opción como la columna de marca de tiempo. En caso contrario, elija "as data arrived" (cuando llegan los datos), y el proceso de importación agregará un campo de marca de tiempo.
+    Los nombres de campo o columna deben ser alfanuméricos (sin espacios ni signos de puntuación).
 
-    ![Revisión del esquema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    ![Carga de un archivo de ejemplo](./media/app-insights-analytics-import/sample-data-file.png)
+
+
+3. Revise el esquema que ha obtenido el asistente. Si infirió los tipos de un ejemplo, probablemente tenga que ajustar los tipos inferidos de las columnas.
+
+    ![Revisión del esquema inferido](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+ * (Opcional). Cargue una definición de esquema. Consulte el formato siguiente.
+
+ * Seleccione una marca de tiempo. Todos los datos de Analytics deben tener un campo de marca de tiempo. Debe tener el tipo `datetime`, pero no es necesario asignarle el nombre "marca de tiempo". Si los datos tienen una columna que contiene una fecha y hora en formato ISO, elija esta opción como la columna de marca de tiempo. En caso contrario, elija "as data arrived" (cuando llegan los datos), y el proceso de importación agregará un campo de marca de tiempo.
 
 5. Cree el origen de datos.
 
@@ -133,6 +143,9 @@ Puede llevar a cabo el siguiente proceso manualmente o configurar un sistema aut
 
  * Los blobs pueden tener un tamaño de hasta 1 GB sin comprimir. Los blobs grandes de cientos de MB son ideales desde la perspectiva del rendimiento.
  * Es posible comprimir con Gzip para mejorar el tiempo de carga y la latencia de los datos, a fin de que estén disponibles para consultarlos. Use la extensión de nombre de archivo `.gz`.
+ * Se recomienda usar una cuenta de almacenamiento independiente para este fin, con el fin de evitar que se realicen llamadas de distintos servicios, lo que empeora el rendimiento.
+ * Al enviar datos de alta frecuencia, cada pocos segundos, se recomienda utilizar más de una cuenta de almacenamiento, por motivos de rendimiento.
+
  
 2. [Cree una clave de firma de acceso compartido para el blob](../storage/storage-dotnet-shared-access-signature-part-2.md). La clave debe tener un período de caducidad de un día y proporcionar acceso de lectura.
 3. Realice una llamada de REST para notificar a Application Insights que hay datos en espera.
@@ -181,6 +194,7 @@ Los datos se encuentran disponibles en Analytics después de unos minutos.
  * El nombre de origen de datos es incorrecto.
 
 Se puede encontrar información más detallada en el mensaje de error de respuesta.
+
 
 ## <a name="sample-code"></a>Código de ejemplo
 

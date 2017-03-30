@@ -17,21 +17,21 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configuración de direcciones IP privadas para una máquina virtual mediante Azure Portal
 
 > [!div class="op_single_selector"]
-- [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
-- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-- [CLI de Azure](virtual-networks-static-private-ip-arm-cli.md)
-- [Portal de Azure (clásico)](virtual-networks-static-private-ip-classic-pportal.md)
-- [PowerShell (clásico)](virtual-networks-static-private-ip-classic-ps.md)
-- [CLI de Azure (clásico)](virtual-networks-static-private-ip-classic-cli.md)
+> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+> * [CLI de Azure](virtual-networks-static-private-ip-arm-cli.md)
+> * [Portal de Azure (clásico)](virtual-networks-static-private-ip-classic-pportal.md)
+> * [PowerShell (clásico)](virtual-networks-static-private-ip-classic-ps.md)
+> * [CLI de Azure (clásico)](virtual-networks-static-private-ip-classic-cli.md)
 
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -98,9 +98,9 @@ Para agregar una dirección IP privada estática a la VM creada con los pasos an
 > 
 
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Eliminación de una dirección IP privada estática de una VM
-Para quitar la dirección IP privada estática de la VM creada anteriormente, siga el siguiente paso.
+Para quitar la dirección IP privada estática de la máquina virtual creada anteriormente, siga este paso:
 
-1. En la hoja **Direcciones IP** que se muestra arriba, haga clic en **Dinámica** en **Asignación** y, después, haga clic en **Guardar**.
+En la hoja **Direcciones IP** que se muestra arriba, haga clic en **Dinámica** en **Asignación** y, después, haga clic en **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .

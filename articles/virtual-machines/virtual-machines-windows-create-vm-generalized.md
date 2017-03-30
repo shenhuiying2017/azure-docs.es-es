@@ -1,6 +1,6 @@
 ---
 title: "Creación de una máquina virtual a partir de un VHD generalizado | Microsoft Docs"
-description: "Aprenda a crear y configurar una máquina virtual Windows a partir de una imagen de VHD generalizado con Azure PowerShell en el modelo de implementación de Resource Manager."
+description: "Aprenda a crear y configurar una máquina virtual Windows a partir de una imagen de VHD generalizado en una cuenta de almacenamiento con Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 12832620d94226b6cfe391471c22fad2d1e3cf7e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-vhd-image"></a>Creación una máquina virtual a partir de una imagen VHD generalizado
-Una imagen de VHD generalizado tiene toda la información de cuenta personal elimina con [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Puede crear un VHD generalizado ejecutando Sysprep en una máquina virtual local, [cargando el VHD en Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o ejecutando Sysprep en una máquina virtual de Azure existente, y [copiando el VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="create-a-vm-from-a-generalized-vhd-image-in-a-storage-account"></a>Creación una máquina virtual a partir de una imagen VHD generalizado en una cuenta de almacenamiento 
 
-Si desea crear una máquina virtual a partir de un VHD especializado, consulte [Crear una VM a partir de un VHD especializado](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este tema trata la creación de una máquina virtual desde un disco no administrado generalizado que se encuentra en una cuenta de almacenamiento. Una imagen de VHD generalizado tiene toda la información de cuenta personal elimina con [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Puede crear un VHD generalizado ejecutando Sysprep en una máquina virtual local, [cargando el VHD en Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o ejecutando Sysprep en una máquina virtual de Azure existente, y [copiando el VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-La forma más rápida de crear una máquina virtual a partir de un disco duro virtual generalizado es usar una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
+Si desea crear una máquina virtual a partir de un VHD especializado en una cuenta de almacenamiento, consulte [Crear una VM a partir de un VHD especializado](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+Para obtener información sobre el uso de discos administrados en lugar de discos en una cuenta de almacenamiento, consulte los artículos sobre cómo [crear una imagen de máquina virtual administrada](virtual-machines-windows-capture-image-resource.md) y [una máquina virtual a partir de una imagen administrada](virtual-machines-windows-create-vm-generalized-managed.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Si va a usar un VHD cargado desde una máquina virtual local, como la que creó con Hyper-V, debe asegurarse de que siguió las instrucciones de [Preparación de un disco duro virtual de Windows para cargar en Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -34,6 +36,7 @@ Si va a usar un VHD cargado desde una máquina virtual local, como la que creó 
 Los VHD cargados y los de máquina virtual de Azure existentes deben generalizarse para poder crear una máquina virtual con este método. Para obtener más información, consulte el artículos obre cómo [generalizar una máquina virtual Windows con Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## <a name="set-the-uri-of-the-vhd"></a>Establecimiento del URI del VHD
+
 El URI para el VHD que se usará está en el formato: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. En este ejemplo, el VHD denominado "**myVHD**" es la cuenta de almacenamiento **mystorageaccount** del contenedor **mycontainer**.
 
 ```powershell
@@ -171,10 +174,5 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Azure Po
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 165e4394d21a0202a320a8697360b715517bc7a2
 ms.lasthandoff: 03/15/2017
 
 
@@ -50,13 +50,7 @@ La siguiente tabla sirve de ayuda para tomar la decisión de elegir entre distin
 
 ## <a name="billing"></a>Facturación
 
-Se le cobrará en función de los minutos reales de uso de las unidades reservadas de multimedia. A continuación figura un ejemplo más detallado. Suponga que Joe tenía cero unidades reservadas de multimedia para empezar y a las 10:00 de ese día establece su cuenta para usar dos unidades reservadas S1. Por la tarde llegan más vídeos, por lo que Joe cambia su cuenta para usar cuatro unidades reservadas S3 a las 13:15. Todos los vídeos se procesan a las 16:00 y después Joe desactiva las unidades reservadas en su cuenta (establece el número de dichas unidades en cero). El uso de Joe se calcula de la siguiente manera.
-
-Unidades reservadas de multimedia S1: 2 unidades × 3,25 horas (de 10:00 a 13:15) × 0,02 USD/hr = 0,13 USD Unidades reservadas de multimedia S3: 4 unidades × 2,75 horas (de 13:15 a 16:00) × 0,08 USD/hr = 0,88 USD
-
-Por lo tanto, el costo total para Joe por usar unidades reservadas de multimedia ese día sería&0;,13 USD +&0;,88 USD =&1;,01 USD. A diferencia de las unidades reservadas de multimedia, las unidades de streaming se cobran en función del número mayor de unidades de streaming aprovisionadas cada día (límite máximo).
-
-Para más información, consulte [Precios: Media Services](https://azure.microsoft.com/pricing/details/media-services/). La sección Preguntas más frecuentes ofrece explicaciones detalladas.  
+Se le cobrará en función de los minutos reales de uso de las unidades reservadas de multimedia. Para obtener una explicación detallada, vea la sección de preguntas más frecuentes de la página de [precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Cuotas y limitaciones
 Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).

@@ -3,22 +3,21 @@
 
 # Introducción
 ## [Implementación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
-## [Implementación de un conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
-## [Implementación de un conjunto de escalado sencillo mediante una plantilla de Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Implementación de un conjunto de escalado con PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
 
 # Procedimientos
 ## Planeamiento y diseño
 ### [Consideraciones de diseño](virtual-machine-scale-sets-design-overview.md)
-## Escritura de plantillas de conjunto de escalado en
-### [Implementación de un conjunto de escalado sencillo](virtual-machine-scale-sets-mvss-start.md)
-### [Implementación de un conjunto de escalado en una red virtual existente](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Creación de una plantilla
+### [Más información acerca de las plantillas de conjunto de escalado](virtual-machine-scale-sets-mvss-start.md)
+### [Incorporación de una red virtual](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Implementación
-### [Conjunto de escalado con el portal](virtual-machine-scale-sets-portal-create.md)
+### [Creación con el portal](virtual-machine-scale-sets-portal-create.md)
+### [Creación con Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Creación con PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
 ### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
-### [Conjunto de escalado con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Conjunto de escalado con PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Conjunto de escalado con la CLI de Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Conjunto de escalado de Linux con escalado automático](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Conjunto de escalado de Windows con escalado automático](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplicaciones en conjuntos de escalado](virtual-machine-scale-sets-deploy-app.md)

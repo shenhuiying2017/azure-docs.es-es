@@ -1,5 +1,5 @@
 ---
-title: " Administración de un servidor de configuración en Azure Site Recovery | Microsoft Docss"
+title: " Administración de un servidor de configuración en Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se describe cómo configurar y administrar un servidor de configuración."
 services: site-recovery
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
-ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3a02171d52b6d963a93a654d2506269e29f1be8e
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -128,7 +128,7 @@ ProxyPassword="Password"
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registro de un servidor de configuración con un almacén de Recovery Services diferente
 1. Inicie sesión en el servidor de configuración.
-2. En el símbolo del sistema de administrador, ejecute el comando:
+2. En el símbolo del sistema de administrador, ejecute el comando
 
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
@@ -216,7 +216,7 @@ La validez del certificado SSL para todas las instalaciones que han sucedido ant
 
 | **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |<&300; GB |500 GB o menos |Replicar menos de 100 máquinas. |
+| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Replicar menos de 100 máquinas. |
 | 12 vCPUs (2 sockets * 6 núcleos @ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar entre 100 y 150 máquinas. |
 | 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar entre 150 y 200 máquinas. |
 

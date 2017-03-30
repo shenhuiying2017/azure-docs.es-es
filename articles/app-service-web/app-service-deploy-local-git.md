@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Para completar este tutorial, necesita:
 > 
 > 
 
-## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>Paso 1: Creación de un repositorio local
+## <a name="Step1"></a>Paso 1: Creación de un repositorio local
 Realice las tareas siguientes al crear un nuevo repositorio Git.
 
 1. Inicie una herramienta de línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal** .
@@ -46,7 +46,7 @@ Realice las tareas siguientes al crear un nuevo repositorio Git.
    
         git init
 
-## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>Paso 2: Confirmación del contenido
+## <a name="Step2"></a>Paso 2: Confirmación del contenido
 El Servicio de aplicaciones admite aplicaciones creadas en varios lenguajes de programación. 
 
 1. Si el repositorio ya incluye contenido, omita este punto y vaya al punto 2. Si el repositorio todavía no incluye contenido, simplemente llénelo con un archivo .html estático, tal como se indica a continuación: 
@@ -60,7 +60,7 @@ El Servicio de aplicaciones admite aplicaciones creadas en varios lenguajes de p
    
         git commit -m "Hello Azure App Service"
 
-## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>Paso 3: Habilitación del repositorio de aplicaciones de App Service
+## <a name="Step3"></a>Paso 3: Habilitación del repositorio de aplicaciones de App Service
 Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su aplicación del Servicio de aplicaciones.
 
 1. Inicie sesión en el [Portal de Azure].
@@ -71,7 +71,7 @@ Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su a
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>Paso 4: Implementación del proyecto
+## <a name="Step4"></a>Paso 4: Implementación del proyecto
 Siga los pasos que se indican a continuación para publicar una aplicación en el Servicio de aplicaciones mediante un Git local.
 
 1. En la hoja de la aplicación en Azure Portal, haga clic en **Configuración > Propiedades** para la **Dirección URL de Git**.
@@ -97,7 +97,7 @@ Siga los pasos que se indican a continuación para publicar una aplicación en e
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. Haga clic en el botón **Examinar** situado en la parte superior de la hoja de la aplicación para comprobar que el contenido se haya implementado. 
 
-## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>Solución de problemas
+## <a name="Step5"></a>Solución de problemas
 Estos son los errores o problemas que suelen aparecer al usar Git para publicar en una aplicación del Servicio de aplicaciones en Azure:
 
 - - -
@@ -133,6 +133,15 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
     git push azure master
 
 - - -
+**Síntoma**: error de RPC; resultado=22; código HTTP=502.
+
+**Causa**: este error puede producirse si se trata de insertar un repositorio de git de gran tamaño a través de HTTPS.
+
+**Resolución**: cambie la configuración de git en la máquina local para aumentar el tamaño de postBuffer.
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Síntoma**: Error: los cambios se han confirmado en el repositorio remoto, pero la aplicación web no se ha actualizado.
 
 **Causa**: este error puede ocurrir si está implementando una aplicación Node.js que contiene un archivo package.json que especifica módulos requeridos adicionales.
@@ -152,7 +161,7 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
 * [Documentación de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continuous-deployment.md)
 * [Uso de PowerShell para Azure](/powershell/azureps-cmdlets-docs)
-* [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli-install.md)
+* [Cómo utilizar la interfaz de línea de comandos de Azure](../cli-install-nodejs.md)
 
 [Servicio de aplicaciones de Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
