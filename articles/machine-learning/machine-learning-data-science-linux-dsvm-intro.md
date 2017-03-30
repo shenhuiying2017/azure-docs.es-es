@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: f355ea88f4d14e48d9523a0ac7aff965171bed4b
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ba0fc8849a7131a2dee8c9e7db546ca1a22e05df
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -26,8 +26,10 @@ Linux Data Science Virtual Machine es una máquina virtual de Azure que incluye 
 
 * Microsoft R Server Developer Edition
 * Distribución de Anaconda Python (versiones 2.7 y 3.5), incluidas las bibliotecas de análisis de datos más conocidas
-* JupyterHub: servidor de cuadernos de Jupyter Notebook multiusuario compatible con kernels de Julia, Python y R.
-* Explorador de almacenamiento de Azure
+* JuliaPro : distribución protegida del lenguaje Julia con bibliotecas populares científicas y de análisis de datos
+* Instancia independiente de Spark y Hadoop de un solo nodo (HDFS, Yarn)
+* JupyterHub: servidor de Jupyter Notebook multiusuario compatible con kernels de R, Python, PySpark y Julia
+* Explorador de Azure Storage
 * Interfaz de la línea de comandos de Azure (CLI) para administrar recursos de Azure
 * Base de datos de PostgreSQL
 * Herramientas de aprendizaje automático
@@ -37,7 +39,8 @@ Linux Data Science Virtual Machine es una máquina virtual de Azure que incluye 
   * [Rattle](http://rattle.togaware.com/) (sigla del inglés “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): herramienta que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R
 * Azure SDK en Java, Python, node.js, Ruby, PHP
 * Bibliotecas en R y Python para usarlas en Aprendizaje automático de Azure y en otros servicios de Azure
-* Editores y herramientas de desarrollo (Eclipse, Emacs, gedit, vi)
+* Editores y herramientas de desarrollo (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
+
 
 La ciencia de datos implica la iteración de una secuencia de tareas:
 
@@ -117,32 +120,38 @@ La VM de Linux ya está provista del servidor X2Go y está preparada para acepta
 Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, ya podrá empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Herramientas instaladas en Linux Data Science Virtual Machine
-### <a name="microsoft-r-open"></a>Microsoft R Open
-R es uno de los lenguajes más conocidos para el análisis de datos y el aprendizaje automático. Si quiere usar R para análisis, la máquina virtual incluye Microsoft R Open (MRO) con la biblioteca Math Kernel Library (MKL). MKL optimiza las operaciones matemáticas comunes en algoritmos de análisis. MRO es totalmente compatible con CRAN-R; cualquiera de las bibliotecas de R publicadas en CRAN puede instalarse en MRO. Puede editar los programas de R en uno de los editores predeterminados, como vi, Emacs o gedit. También puede descargar y usar otros IDE, así como [RStudio](http://www.rstudio.com). Para su comodidad, se proporciona un script sencillo (installRStudio.sh) en el directorio **/dsvm/tools** que instala RStudio. Si está usando el editor Emacs, tenga en cuenta que el paquete ESS de Emacs (Emacs Speaks Statistics), que simplifica el trabajo con los archivos de R en el editor Emacs, se ha instalado previamente.
+### <a name="microsoft-r-server"></a>Microsoft R Server
+R es uno de los lenguajes más conocidos para el análisis de datos y el aprendizaje automático. Si quiere usar R para el análisis, la máquina virtual incluye Microsoft R Server (MRS) con Microsoft R Open (MRO) y la biblioteca Math Kernel Library (MKL). MKL optimiza las operaciones matemáticas comunes en algoritmos de análisis. MRO es totalmente compatible con CRAN-R; cualquiera de las bibliotecas de R publicadas en CRAN puede instalarse en MRO. MRS ofrece el escalado y la operacionalización de los modelos de R en servicios web. Puede editar los programas de R en uno de los editores predeterminados, como RStudio, vi, Emacs o gedit. Si está usando el editor Emacs, tenga en cuenta que el paquete ESS de Emacs (Emacs Speaks Statistics), que simplifica el trabajo con los archivos de R en el editor Emacs, se ha instalado previamente.
 
-Para iniciar R, simplemente escriba **R** en el shell. Esto le dirigirá a un entorno interactivo. Para desarrollar el programa de R, se suele usar un editor como Emacs, vi o gedit, y se ejecutan los scripts en R. Si instala RStudio, tendrá un entorno de IDE gráfico completo para desarrollar su programa de R.
+Para iniciar la consola de R, simplemente escriba **R** en el shell. Esto le dirigirá a un entorno interactivo. Para desarrollar el programa de R, se suele usar un editor como Emacs, vi o gedit, y se ejecutan los scripts en R. Con RStudio, tendrá un entorno de IDE gráfico completo para desarrollar su programa de R.
 
 También hay un script de R para que pueda instalar los [20 paquetes principales de R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) si lo desea. Este script se puede ejecutar una vez que esté en la interfaz interactiva de R, a la que se puede acceder (como se mencionó anteriormente) escribiendo **R** en el shell.  
 
 ### <a name="python"></a>Python
 Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 y 3.5. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. Puede usar los editores de texto predeterminados. Además, puede usar Spyder, un IDE de Python que integra las distribuciones de Anaconda Python. Spyder necesita un escritorio gráfico o el reenvío de X11. Se proporciona un acceso directo a Spyder en el escritorio gráfico.
 
-Ya que tenemos tanto Python 2.7 como 3.5, necesita activar específicamente la versión de Python con la que quiera trabajar en la sesión actual. El proceso de activación establece la variable PATH de acuerdo con la versión deseada de Python.
+Ya que tenemos tanto Python 2.7 como 3.5, necesita activar específicamente la versión de Python (entorno conda) con la que quiera trabajar en la sesión actual. El proceso de activación establece la variable PATH de acuerdo con la versión deseada de Python.
 
-Para activar Python 2.7, ejecute el comando siguiente desde el shell:
+Para activar el entorno conda Python 2.7, ejecute lo siguiente en el shell:
 
     source /anaconda/bin/activate root
 
 Python 2.7 se instalará en */anaconda/bin*.
 
-Para activar Python 3.5, ejecute el comando siguiente desde el shell:
+Para activar el entorno conda Python 3.5, ejecute lo siguiente en el shell:
 
     source /anaconda/bin/activate py35
 
 
 Python 3.5 se instalará en */anaconda/envs/py35/bin*.
 
-Después, para invocar la sesión interactiva de Python, escriba **python** en el shell. Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **spyder** para iniciar el IDE de Python.
+Después, para invocar la sesión interactiva de Python, escriba **python** en el shell. Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **pycharm** para iniciar el IDE de PyCharm Python.
+
+Para instalar bibliotecas adicionales de Python, debe ejecutar el comando ```conda``` o ````pip```` en sudo y proporcionar la ruta de acceso completa del administrador de paquetes de Python (conda o pip) para instalar en el entorno correcto de Python. Por ejemplo:
+
+    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se accede a Jupyter Notebook mediante JupyterHub. Inicie sesión con su nombre de usuario y contraseña de Linux local.
@@ -163,12 +172,31 @@ Puede acceder al servidor de Jupyter Notebook desde cualquier host. Solo tiene q
 
 Hemos empaquetado algunos cuadernos de ejemplo (uno en Python y otro en R). Puede ver el vínculo a los ejemplos en la página principal del cuaderno después de que se autentique en Jupyter Notebook con el nombre de usuario y la contraseña de Linux local. Puede crear un nuevo cuaderno seleccionando **Nuevo** y, después, el kernel de lenguaje apropiado. Si no ve el botón **Nuevo**, haga clic en el icono de **Jupyter** en la parte superior izquierda para ir a la página principal del servidor de Notebook.
 
+### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
+Una instancia independiente de Apache Spark está preinstalada en la DSVM de Linux para ayudarlo a desarrollar aplicaciones de Spark localmente antes de probarlas e implementarlas en clústeres de gran tamaño. Puede ejecutar programas PySpark mediante el kernel de Jupyter. Cuando abre Jupyter y hace clic en el botón "Nuevo", puede ver una lista de los kernels disponibles. "Spark - Python" es el kernel de PySpark que le permitirá compilar aplicaciones Spark mediante el lenguaje Python. También puede usar un IDE de Python, como PyCharm o Spyder, para compilar el programa Spark. Como se trata de una instancia independiente, la pila de Spark se ejecuta dentro del programa de cliente que ejecuta la llamada. Esto permite que la solución de problemas sea más rápida y simple en comparación con el desarrollo en un clúster de Spark. 
+
+Se proporciona un bloc de notas de PySpark de ejemplo en Jupyter que puede encontrar en el directorio "SparkML" dentro del directorio particular de Jupyter ($HOME/notebooks/SparkML/pySpark). 
+
+Si programa en R para Spark, puede usar Microsoft R Server, SparkR o sparklyr. 
+
+Antes de ejecutar en el contexto de Spark en Microsoft R Server, debe llevar a cabo un paso de configuración por una sola vez a fin de habilitar un HDFS de Hadoop de un solo nodo y una instancia de Yarn. De manera predeterminada, los servicios de Hadoop están instalados pero deshabilitados en la DSVM. Para habilitarlos, debe ejecutar los comandos siguientes como raíz la primera vez:
+
+    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+    chmod 0600 ~hadoop/.ssh/authorized_keys
+    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+
+Puede detener los servicios relacionados de Hadoop cuando no los necesite; para hacerlo, ejecute ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` En el directorio `/dsvm/samples/MRS` hay disponible un ejemplo que demuestra cómo desarrollar y probar MRS en un contexto de Spark remoto (que es la instancia independiente de Spark en la DSVM). 
+
 ### <a name="ides-and-editors"></a>IDE y editores
-Puede elegir varios editores de código. Esto incluye vi/VIM, Emacs, gEdit y Eclipse. gEdit y Eclipse son editores gráficos y necesitará iniciar sesión en un escritorio gráfico para poder usarlos. Puede iniciar estos editores desde los accesos directos del menú de aplicaciones y el escritorio.
+Puede elegir varios editores de código. Estos incluyen vi/VIM, Emacs, gEdit, PyCharm, RStudio,Eclipse e IntelliJ. gEdit, Eclipse, IntelliJ, RStudio y PyCharm son editores gráficos y necesitará iniciar sesión en un escritorio gráfico para poder usarlos. Puede iniciar estos editores desde los accesos directos del menú de aplicaciones y el escritorio.
 
 **VIM** y **Emacs** son editores basados en texto. En Emacs, hemos instalado un paquete de complementos denominado Emacs Speaks Statistics (ESS) que facilita el trabajo con R en el editor de Emacs. Puede obtener más información en [ESS](http://ess.r-project.org/).
 
-**Eclipse** es un IDE extensible de código abierto que admite varios lenguajes. La edición de desarrolladores de Java es la instancia instalada en la VM. Hay complementos disponibles para algunos de los lenguajes más conocidos que pueden instalarse para ampliar el entorno de Eclipse. También disponemos de un complemento instalado en Eclipse denominado **Kit de herramientas de Azure para Eclipse**. Permite crear, desarrollar, probar e implementar aplicaciones de Azure mediante el entorno de desarrollo Eclipse que admite lenguajes como Java. También hay **Azure SDK para Java** que permite el acceso a diferentes servicios de Azure desde el interior de un entorno de Java. Puede obtener más información acerca del kit de herramientas de Azure para Eclipse en [Kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse.md).
+**Eclipse** es un IDE extensible de código abierto que admite varios lenguajes. La edición de desarrolladores de Java es la instancia instalada en la VM. Hay complementos disponibles para algunos de los lenguajes más conocidos que pueden instalarse para ampliar el entorno. También disponemos de un complemento instalado en Eclipse denominado **Kit de herramientas de Azure para Eclipse**. Permite crear, desarrollar, probar e implementar aplicaciones de Azure mediante el entorno de desarrollo Eclipse que admite lenguajes como Java. También hay **Azure SDK para Java** que permite el acceso a diferentes servicios de Azure desde el interior de un entorno de Java. Puede obtener más información acerca del kit de herramientas de Azure para Eclipse en [Kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** se instala mediante el paquete de texlive junto con un paquete [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) del complemento de Emacs, lo que simplifica la creación de los documentos LaTex con Emacs.  
 
@@ -259,12 +287,8 @@ Se trata de un kit de herramientas de aprendizaje profundo de código abierto. E
 
 Para ver un ejemplo básico, ejecute los comandos siguientes en el shell:
 
-    # Copy samples to your home directory and execute cntk
-    cp -r /dsvm/tools/CNTK-2016-02-08-Linux-64bit-CPU-Only/Examples/Other/Simple2d cntkdemo
-    cd cntkdemo/Data
-    cntk configFile=../Config/Simple.cntk
-
-Encontrará la salida del modelo en *~/cntkdemo/Output/Models*.
+    cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
+    cntk configFile=lr_bs.cntk makeMode=false command=Train
 
 Para obtener más información, consulte la sección sobre CNTK de [GitHub](https://github.com/Microsoft/CNTK) y la [wiki de CNTK](https://github.com/Microsoft/CNTK/wiki).
 

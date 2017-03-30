@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 1886f806d0c1bdbf5e24720ff84cd00ce2c6d77a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1fd8fe3847299d98a55a16ab400b43be074a5f33
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -72,14 +72,10 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
    
         using System;
         using System.IO;
-        using System.Threading;
+    using System.Security.Cryptography.X509Certificates; // Solo se necesita si está usando una aplicación de Azure AD creada con certificados      using System.Threading;
    
-        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.Azure.Management.DataLake.StoreUploader;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+    using Microsoft.Azure.Management.DataLake.Store.Models;  using Microsoft.Azure.Management.DataLake.StoreUploader;  using Microsoft.IdentityModel.Clients.ActiveDirectory;  using Microsoft.Rest.Azure.Authentication;
 
 7. Declare las variables como se muestra a continuación y especifique los valores del nombre de Data Lake Store y del nombre del grupo de recursos que ya existen. Además, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione aquí deben existir en el equipo. Agregue el siguiente fragmento de código después de las declaraciones de espacios de nombres.
    
@@ -139,11 +135,12 @@ El siguiente fragmento de código se puede utilizar para autenticar la aplicaci�
     // Service principal / appplication authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-    var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
+    var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Si utilice autenticación de servicio a servicio con certificado
 Como alternativa, el siguiente fragmento de código puede utilizarse para autenticar la aplicación de forma **no interactiva**, para lo que se usará el certificado para una entidad de servicio o aplicación de Azure Active Directory. Utilícelo con una [aplicación de Azure AD con certificados](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) ya existente.
@@ -151,28 +148,27 @@ Como alternativa, el siguiente fragmento de código puede utilizarse para autent
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
+    var clientCert = <AAD-application-client-certificate>
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
+    var creds = await ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate);
 
 ## <a name="create-client-objects"></a>Creación de objetos de cliente
 El fragmento de código siguiente crea los objetos de cliente del sistema de archivos y cuenta de Data Lake Store, que se usan para emitir solicitudes al servicio.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
-
-    _adlsClient.SubscriptionId = _subId;
 
 ## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Enumeración de todas las cuentas de Data Lake Store de una suscripción
 El siguiente fragmento de código enumera todas las cuentas de Data Lake Store de una suscripción de Azure dada.
 
     // List all ADLS accounts within the subscription
-    public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
+    public static async Task<List<DataLakeStoreAccount>> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List();
+        var response = await _adlsClient.Account.ListAsync();
         var accounts = new List<DataLakeStoreAccount>(response);
 
         while (response.NextPageLink != null)
@@ -188,9 +184,9 @@ El siguiente fragmento de código enumera todas las cuentas de Data Lake Store d
 El siguiente fragmento muestra un método `CreateDirectory` que puede utilizar para crear un directorio en una cuenta de Data Lake Store.
 
     // Create a directory
-    public static void CreateDirectory(string path)
+    public static async Task CreateDirectory(string path)
     {
-        _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
+        await _adlsFileSystemClient.FileSystem.MkdirsAsync(_adlsAccountName, path);
     }
 
 ## <a name="upload-a-file"></a>Cargar un archivo
@@ -211,9 +207,9 @@ El siguiente fragmento muestra un método `UploadFile` que puede utilizar para c
 El siguiente fragmento muestra un método `GetItemInfo` que puede utilizar para recuperar la información sobre un archivo o directorio disponible en Data Lake Store. 
 
     // Get file or directory info
-    public static FileStatusProperties GetItemInfo(string path)
+    public static async Task<FileStatusProperties> GetItemInfo(string path)
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
+        return await _adlsFileSystemClient.FileSystem.GetFileStatusAsync(_adlsAccountName, path).FileStatus;
     }
 
 ## <a name="list-file-or-directories"></a>Enumeración de archivos o directorios
@@ -229,20 +225,20 @@ El siguiente fragmento muestra un método `ListItem` que puede utilizar para enu
 El siguiente fragmento muestra un método `ConcatenateFiles` que se utiliza para concatenar archivos. 
 
     // Concatenate files
-    public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
+    public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
     {
-        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
+        await _adlsFileSystemClient.FileSystem.ConcatAsync(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
 ## <a name="append-to-a-file"></a>Anexión a un archivo
 El siguiente fragmento muestra un método `AppendToFile` que se utiliza para anexar datos a un archivo que ya está almacenado en una cuenta de Data Lake Store.
 
     // Append to file
-    public static void AppendToFile(string path, string content)
+    public static async Task AppendToFile(string path, string content)
     {
         using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
         {
-            _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+            await _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
         }
     }
 
@@ -250,12 +246,12 @@ El siguiente fragmento muestra un método `AppendToFile` que se utiliza para ane
 El siguiente fragmento muestra un método `DownloadFile` que se utiliza para descargar un archivo de una cuenta de Data Lake Store.
 
     // Download file
-    public static void DownloadFile(string srcPath, string destPath)
+    public static async Task DownloadFile(string srcPath, string destPath)
     {
-        using (var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath))
+        using (var stream = await _adlsFileSystemClient.FileSystem.OpenAsync(_adlsAccountName, srcPath))
         using (var fileStream = new FileStream(destPath, FileMode.Create))
         {
-            stream.CopyTo(fileStream);
+            await stream.CopyToAsync(fileStream);
         }
     }
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: afd43fb536278d6aa76acaf7c9d18714bc5acd2b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -154,6 +155,12 @@ Estos pasos dan por supuesto que ya ha creado una red virtual y una subred en la
 > Si tiene reglas personalizadas que bloquean el tráfico entrante (como una regla **Denegar todo**), puede que necesite ajustar los valores de prioridad de estos ejemplos. Las reglas de los ejemplos deben producirse antes de las reglas que bloquean el acceso. De lo contrario, la regla **Denegar todo** se probará en primer lugar y nunca se aplicarán las reglas de este ejemplo. No debe bloquear las reglas predeterminadas de una red de Azure Virtual Network. Por ejemplo, no debería crear una regla **Denegar todo** que se aplique antes que la regla predeterminada **PERMITIR RED VIRTUAL ENTRANTE** (que tiene una prioridad de 65000).
 > 
 > Para obtener más información sobre las reglas de grupos de seguridad de red, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md).
+
+**Usando la plantilla de administración de recursos de Azure**
+
+Usando la siguiente plantilla de administración de recursos de Azure de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) para crear un clúster de HDInsight en una red virtual con las configuraciones de red segura:
+
+[Implementación de una red virtual de Azure segura y un clúster de Hadoop de HDInsight en la red virtual](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 **Uso de Azure PowerShell**
 

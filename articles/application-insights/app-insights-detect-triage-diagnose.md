@@ -4,19 +4,19 @@ description: Analice los bloqueos y detecte y diagnostique problemas de rendimie
 author: alancameronwills
 services: application-insights
 documentationcenter: 
-manager: douge
+manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -70,7 +70,7 @@ En la misma página de información general de Application Insights, hay un grá
 
 El tiempo de carga de la página del explorador se obtiene de la telemetría enviada directamente desde las páginas web. El tiempo de respuesta del servidor, el número de solicitudes del servidor y el número de solicitudes con error se miden en el servidor web y se envían a Application Insights desde allí.
 
-Marcela está un poco preocupada por el gráfico de respuesta del servidor, que muestra el tiempo promedio que pasa entre la recepción en el de una solicitud HTTP del explorador de un usuario y la devolución de la respuesta. No es infrecuente ver una variación en este gráfico, porque la carga del sistema varía. No obstante, en este caso, parece haber una correlación entre los pequeños aumentos en el recuento de solicitudes y los grandes aumentos en el tiempo de respuesta. Esto podría indicar que el sistema está funcionando al borde de sus límites.
+Marcela está un poco preocupada por el gráfico de respuesta del servidor. Dicho gráfico muestra el tiempo promedio que pasa entre la recepción en él de una solicitud HTTP del explorador de un usuario y la devolución de la respuesta. No es infrecuente ver una variación en este gráfico, porque la carga del sistema varía. No obstante, en este caso, parece haber una correlación entre los pequeños aumentos en el recuento de solicitudes y los grandes aumentos en el tiempo de respuesta. Esto podría indicar que el sistema está funcionando al borde de sus límites.
 
 Abre los gráficos de servidores:
 
@@ -98,7 +98,7 @@ También le sorprendió no haber tenido que configurar esta alerta. De hecho, la
 
 ![correo electrónico de diagnóstico proactivo](./media/app-insights-detect-triage-diagnose/21.png)
 
-Se trata de un correo electrónico muy útil. No solo genera una alarma, sino que lleva a cabo también gran parte de las tareas de diagnóstico y evaluación de errores.
+Se trata de un correo electrónico muy útil. No solo genera una alarma. También lleva a cabo gran parte de las tareas de diagnóstico y evaluación de errores.
 
 Muestra cuántos clientes se ven afectados y en qué páginas web u operaciones. Marcela puede decidir si necesita implicar a todo el equipo que trabaja en esto como un simulacro de incendio o si se puede ignorar hasta la próxima semana.
 
@@ -146,20 +146,20 @@ De hecho, su estrategia es incluso más amplia que eso: envían telemetría en t
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException se usa para informar de excepciones porque envía una copia de la pila; TrackEvent se emplea para informar de otros eventos. Puede vincular cualquier propiedad que podría resultar útil en el diagnóstico.
+TrackException se usa para informar de excepciones porque envía una copia de la pila. TrackEvent se emplea para informar de otros eventos. Puede vincular cualquier propiedad que podría resultar útil en el diagnóstico.
 
 Las excepciones y los eventos se muestran en la hoja [Diagnostic Search](app-insights-diagnostic-search.md) (Búsqueda de diagnóstico). Puede profundizar en ellos para ver propiedades adicionales y el seguimiento de la pila.
 
 ![En la búsqueda de diagnóstico, utilice filtros para mostrar determinados tipos de datos.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 ## <a name="monitoring-user-activity"></a>Seguimiento de la actividad de usuario
-Cuando el tiempo de respuesta es bueno de manera coherente y hay algunas excepciones, el equipo de desarrollo puede pensar en cómo mejorar la experiencia del usuario y en cómo animar a más usuarios a lograr los objetivos deseados.
+Cuando el tiempo de respuesta es bueno de manera coherente y hay algunas excepciones, el equipo de desarrollo puede continuar con la usabilidad. Puede pensar en cómo mejorar la experiencia del usuario y en cómo animar a más usuarios a lograr los objetivos deseados.
 
-Por ejemplo, un viaje de usuario típico a través del sitio web tiene un claro 'embudo': muchos clientes examinan las tasas de diferentes tipos de préstamo; algunos de ellos rellenan el formulario de presupuesto; y de aquellos que reciben un presupuesto, algunos siguen adelante y obtienen el préstamo.
+Por ejemplo, un viaje de usuario típico a través del sitio web tiene un claro "embudo". Muchos clientes examinan las tasas de diferentes tipos de préstamo. Algunos de ellos rellenan el formulario de presupuesto. De aquellos que reciben un presupuesto, algunos siguen adelante y obtienen el préstamo.
 
 ![Recuentos de vistas de página](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Teniendo en cuenta dónde abandonan los mayores números de clientes, la empresa puede calcula cómo conseguir que más usuarios pasen a la parte inferior del embudo. En algunos casos se puede producir en la experiencia de usuario (UX) experiencia: por ejemplo, es difícil encontrar el botón "siguiente" o las instrucciones no son evidentes. Lo más probable es que haya motivos empresariales más importantes para los abandonos: quizás las tasas de préstamo son demasiado altas.
+Teniendo en cuenta dónde abandonan los mayores números de clientes, la empresa puede calcula cómo conseguir que más usuarios pasen a la parte inferior del embudo. En algunos casos se puede producir un error en la experiencia de usuario (UX): por ejemplo, es difícil encontrar el botón "siguiente" o las instrucciones no son evidentes. Lo más probable es que haya motivos empresariales más importantes para los abandonos: quizás las tasas de préstamo son demasiado altas.
 
 Independientemente de los motivos, los datos ayudan al equipo a averiguar qué hacen los usuarios. Se pueden insertar más llamadas de seguimiento para averiguar más detalles. TrackEvent() se puede usar para contar las acciones del usuario, desde los detalles mínimos como los clics de botón individuales hasta logros importantes como la liquidación de un préstamo.
 
@@ -202,7 +202,7 @@ Algunos problemas de dependencia lenta son problemas de ubicación geográfica. 
 
 **¿Qué hicimos?** Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema.
 
-**¿Qué está ocurriendo?** Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su marco de registro favorito o con TrackTrace() o TrackEvent().  
+**¿Qué está ocurriendo?** Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su plataforma de registro favorita o con TrackTrace() o TrackEvent().  
 
 Fabrikam tenía un problema intermitente con las transferencias entre cuentas, pero solo con determinados tipos de cuenta. Para entender mejor lo que estaba ocurriendo, insertaron llamadas a TrackTrace() en los puntos clave del código y asociaron el tipo de cuenta como una propiedad para cada llamada. De esta forma fue fácil filtrar solo esos seguimientos en la búsqueda de diagnóstico. También asociaron valores de parámetros como propiedades y medidas a las llamadas de seguimiento.
 
@@ -219,6 +219,10 @@ Application Insights puede usarse también para saber qué hacen los usuarios co
 
 ## <a name="your-applications"></a>Sus aplicaciones
 Así es como un equipo usa Application Insights no solo para solucionar problemas individuales, sino también para mejorar su ciclo de vida de desarrollo. Espero que les haya dado algunas ideas sobre cómo Application Insights puede ayudarle con la administración del rendimiento de sus propias aplicaciones.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede comenzar a trabajar de varias maneras, según las características de la aplicación. Seleccione lo que más le convenga:

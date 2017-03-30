@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
-ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -197,6 +197,10 @@ Sin embargo, tenga en cuenta que el número de versión de la compilación solo 
 Si usa Visual Studio Team Services, puede [obtener un marcador de anotación](app-insights-annotations.md) agregado a los gráficos, siempre que publique una nueva versión. La siguiente imagen muestra cómo aparece este marcador.
 
 ![Captura de pantalla de la anotación de la versión de ejemplo en un gráfico](./media/app-insights-asp-net/release-annotation.png)
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 **[Trabajo con Application Insights en Visual Studio](app-insights-visual-studio.md)**<br/>Incluye información acerca de la depuración con telemetría, la búsqueda de diagnóstico y la profundización en el código.

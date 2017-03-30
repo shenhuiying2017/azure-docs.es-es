@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/27/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Autenticación de Runbooks con una cuenta de ejecución de Azure
-En este tema se muestra cómo configurar una cuenta de Automation en Azure Portal mediante la característica de cuenta de ejecución para autenticar runbooks que administran recursos en Azure Resource Manager o Azure Service Management.
+En este tema se mostrará cómo configurar una cuenta de Automatización desde el Portal de Azure mediante la característica de cuenta de ejecución para autenticar los runbooks que administran recursos en Azure Resource Manager o Azure Service Management.
 
-Al crear una cuenta de Automation en el Azure Portal, se crea automáticamente:
+Al crear una nueva cuenta de Automatización en el portal de Azure, se crea automáticamente:
 
-* Una cuenta de ejecución, que crea una entidad de servicio en Azure Active Directory, un certificado, y asigna el control de acceso basado en rol (RBAC) de Colaborador, que se usa para administrar recursos de Resource Manager mediante runbooks.   
-* Una cuenta de ejecución clásica mediante la carga de un certificado de administración, que se usa para administrar Azure Service Management o recursos clásicos mediante runbooks.  
+* Una cuenta de ejecución que crea a una nueva entidad de servicio en Azure Active Directory y un certificado, y asigna el control de acceso basado en rol (RBAC) Colaborador, que se utilizará para administrar los recursos de Resource Manager mediante Runbooks.   
+* Una cuenta de ejecución de Azure clásico mediante la carga de un certificado de administración, que se utilizará para administrar Azure Service Management o recursos clásicos mediante Runbooks.  
 
 Esto simplifica el proceso y ayuda a que empezar rápidamente a generar e implementar Runbooks que den soporte técnico a sus necesidades de automatización.      
 
@@ -41,17 +41,14 @@ Con una cuenta de ejecución y una cuenta de ejecución de Azure clásico puede:
 > La [característica de integración de alertas](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) de Azure con Automation Global Runbooks necesita una cuenta de Automation que esté configurada como una cuenta de ejecución y una cuenta de ejecución clásica. Puede seleccionar una cuenta de Automatización que ya tenga una cuenta de ejecución y de ejecución de Azure clásico definida, o bien crear una nueva.
 >  
 
-Le mostramos cómo crear la cuenta de Automation desde Azure Portal, actualizarla mediante PowerShell, administrar la configuración de la cuenta y demostrar cómo autenticarla en sus runbooks.
+Le mostraremos cómo crear la cuenta de Automation desde Azure Portal, actualizarla mediante PowerShell, administrar la configuración de la cuenta y demostrar cómo autenticarla en sus runbooks.
 
 Antes de hacerlo, hay algunas cosas que debe conocer y considerar.
 
 1. Esto no afecta a las cuentas de Automatización existentes creadas con el modelo de implementación clásico o con Resource Manager.  
 2. Esto solo funcionará para las cuentas de Automatización creadas a través del Portal de Azure.  El intento de crear una cuenta desde el portal clásico no replicará la configuración de la cuenta de ejecución.
-3. Si actualmente tiene runbooks y recursos (es decir, programaciones, variables, etc.) que creó anteriormente para administrar recursos clásicos y desea que dichos runbooks se autentiquen con la nueva cuenta de ejecución clásica, debe crear dicha cuenta mediante Administración de una cuenta de ejecución o actualizar su cuenta existente mediante el siguiente script de PowerShell.  
-4. Para realizar la autenticación con la nueva cuenta de ejecución y la cuenta de Automation clásica, debe modificar los runbooks existentes con el código de ejemplo proporcionado en la sección [Ejemplos de código de autenticación](#authentication-code-examples).  
-   
-    >[!NOTE] 
-    >La cuenta de ejecución es para realizar la autenticación con los recursos de Resource Manager mediante la entidad de servicio basada en certificado, mientras que la cuenta de ejecución clásica es para realizar la autenticación con los recursos de Service Management con un certificado de administración.     
+3. Si actualmente tiene runbooks y recursos (es decir, programaciones, variables, etc.) que creó anteriormente para administrar recursos clásicos y desea que dichos runbooks se autentiquen con la nueva cuenta de ejecución de Azure clásico, deberá crear dicha cuenta mediante Administración de una cuenta de ejecución o actualizar su cuenta existente mediante el siguiente script de PowerShell.  
+4. Para realizar la autenticación con la nueva cuenta de Automatización de ejecución y de ejecución de Azure clásico, será preciso que modifique los Runbooks existentes con el código de ejemplo siguiente.  **Tenga en cuenta** que la cuenta de ejecución es para realizar la autenticación con los recursos de Resource Manager con la entidad de servicio basada en certificados, mientras que la cuenta de ejecución de Azure clásico es para realizar la autenticación con los recursos de Service Management con el certificado de administración.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Creación de una nueva cuenta de Automation desde Azure Portal
 En esta sección, realizará los pasos que se describen a continuación para crear una nueva cuenta de Azure Automation desde Azure Portal.  Así se crean tanto la cuenta de ejecución como la cuenta de ejecución de Azure clásico.  
@@ -88,7 +85,7 @@ Una vez que se crea la cuenta de Automatización, se también varios recursos au
 | --- | --- |
 | Runbook AzureAutomationTutorial |Un runbook gráfico de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución y que obtiene todos los recursos de Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Un Runbook de PowerShell de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución y que obtiene todos los recursos de Resource Manager. |
-| AzureRunAsCertificate |Recurso de certificado creado automáticamente durante la creación de la cuenta de Automation o mediante el siguiente script de PowerShell de una cuenta existente.  Permite realizar la autenticación con Azure, con el fin de poder administrar los recursos de Azure Resource Manager desde los Runbooks.  Este certificado tiene una duración de un año. |
+| AzureRunAsCertificate |Recurso de certificado creado automáticamente durante la creación de la cuenta de Automatización o mediante el siguiente script de PowerShell de una cuenta existente.  Permite realizar la autenticación con Azure, con el fin de poder administrar los recursos de Azure Resource Manager desde los Runbooks.  Este certificado tiene una duración de un año. |
 | AzureRunAsConnection |Recurso de conexión creado automáticamente durante la creación de la cuenta de Automatización o mediante el siguiente script de PowerShell de una cuenta existente. |
 
 La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clásico.<br>
@@ -148,7 +145,7 @@ Los pasos siguientes describen cómo eliminar y volver a crear la cuenta de ejec
 1. Abra la cuenta de Automation en Azure Portal.  
 2. En la hoja de la cuenta de Automation, en el panel de propiedades de la cuenta, seleccione **Run As Accounts** (Cuentas de ejecución) en la sección **Account Settings** (Configuración de la cuenta).
 3. En la hoja de propiedades **Run As Accounts** (Cuentas de ejecución), seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar y, en la hoja de propiedades de la cuenta seleccionada, haga clic en **Eliminar**.<br><br> ![Eliminación de una cuenta de ejecución](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Recibirá un aviso para comprobar que desea continuar.
-4. Mientras se está eliminando la cuenta, puede seguir el progreso desde el menú, en **Notificaciones**.  Cuando haya finalizado la eliminación, puede volver a crearla en la hoja de propiedades **Cuentas de ejecución** y seleccionar la opción de creación de la **cuenta de ejecución de Azure**.<br><br> ![Nueva creación de la cuenta de ejecución de Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+4. Mientras se está eliminando la cuenta, puede seguir el progreso desde el menú, en **Notificaciones**.  Cuando haya finalizado la eliminación, puede volver a crear la cuenta desde la hoja de propiedades **Cuentas de ejecución** y seleccionar la opción de creación de la **cuenta de ejecución de Azure**.<br><br> ![Nueva creación de la cuenta de ejecución de Automation](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### <a name="misconfiguration"></a>Error de configuración
 Si alguno de los elementos de configuración necesarios para que la cuenta de ejecución o la cuenta de ejecución clásica funcionen correctamente se elimina o no se ha creado correctamente durante la configuración inicial, como:
@@ -335,9 +332,9 @@ Si selecciona la opción para crear una cuenta de ejecución clásica después d
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
 
         # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues  
 
-        if ($CreateClassicRunAsAccount) {
+        if ($CreateClassicRunAsAccount) {  
             # Create Run As Account using Service Principal
             $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
             $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
@@ -392,15 +389,9 @@ Si selecciona la opción para crear una cuenta de ejecución clásica después d
     > 
     > 
 
-Después de que el script finaliza correctamente, si creó una cuenta de ejecución clásica, siga los pasos para [cargar el certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico.  Si creó una cuenta de ejecución clásica con un certificado público autofirmado (formato .cer), puede encontrar una copia del certificado creado en la carpeta de archivos temporales del equipo bajo el perfil de usuario usado para ejecutar la sesión de PowerShell: *%USERPROFILE%\AppData\Local\Temp*.  Si, por el contrario, configuró la cuenta de ejecución clásica para usar un certificado generado por la entidad de certificación empresarial (formato .cer), deberá usar este certificado.  Una vez cargado el certificado, consulte el [código de ejemplo](#sample-code-to-authenticate-with-service-management-resources) para validar la configuración de credenciales con recursos de administración de Service Management.  
+Después de que el script se complete correctamente, si creó una cuenta de ejecución clásica con certificado público autofirmado (formato .cer), el script lo creará y guardará en la carpeta de archivos temporales de su equipo, en el perfil de usuario que se usó para ejecutar la sesión de PowerShell (*%USERPROFILE%\AppData\Local\Temp*). Si creó una cuenta de ejecución clásica con un certificado público de empresa (formato .cer), debe usar este certificado.  Siga los pasos para [cargar un certificado de Management API](../azure-api-management-certs.md) en el Portal de Azure clásico y consulte el [código de ejemplo](#sample-code-to-authenticate-with-service-management-resources) para validar la configuración de credenciales con recursos de Service Management.  Si no creó una cuenta de ejecución clásica, consulte el [código de ejemplo](#sample-code-to-authenticate-with-resource-manager-resources) que se muestra a continuación para realizar la autenticación con recursos de Resource Manager y validar la configuración de credenciales.
 
-Si no creó una cuenta de ejecución clásica, consulte el [código de ejemplo](#sample-code-to-authenticate-with-resource-manager-resources) que se muestra a continuación para realizar la autenticación con recursos de Resource Manager y validar la configuración de credenciales.   
-
-##  <a name="authentication-code-examples"></a>Ejemplos de código de autenticación
-
-En los ejemplos siguientes se muestra cómo autenticar los runbooks contra los recursos de Resource Manager o del modelo clásico mediante una cuenta de ejecución.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Autenticación con recursos de Resource Manager
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Código de ejemplo para autenticarse con recursos de Resource Manager
 Puede usar el código de ejemplo actualizado siguiente, procedente del Runbook de ejemplo **AzureAutomationTutorialScript** , para autenticarse con la cuenta de ejecución y administrar los recursos de Resource Manager con sus Runbooks.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +426,7 @@ El script incluye dos líneas adicionales de código para admitir la referencia 
 
 Observe que el cmdlet usado para autenticarse en el Runbook - **Add-AzureRmAccount**usa el conjunto de parámetros *ServicePrincipalCertificate* .  Se autentica mediante el certificado de la entidad de servicio, no las credenciales.  
 
-### <a name="authenticate-with-service-management-resources"></a>Autenticación con recursos de Service Management
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Código de ejemplo para autenticarse con los recursos de Service Management
 Puede usar el código de ejemplo actualizado siguiente, procedente del Runbook de ejemplo **AzureClassicAutomationTutorialScript** , para autenticarse con la cuenta de ejecución y administrar los recursos del modelo clásico con sus Runbooks.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

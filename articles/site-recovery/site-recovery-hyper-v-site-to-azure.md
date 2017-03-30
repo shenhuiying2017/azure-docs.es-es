@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c7ef2a9535362a3dc352b92732abcdf6cd4836c2
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9da7a59ca5d544121dc9c540a25a3b975988e9a1
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/06/2017
 >
 >
 
-En este artículo se describe cómo replicar máquinas virtuales locales de Hyper-V en Azure mediante [Azure Site Recovery[](site-recovery-overview.md) en Azure Portal.
+En este artículo se describe cómo replicar máquinas virtuales locales de Hyper-V en Azure mediante [Azure Site Recovery](site-recovery-overview.md) en Azure Portal.
 
 Puede replicar las máquinas virtuales de Hyper-V a Azure Storage y conmutar estas últimas por error si su sitio primario deja de estar disponible. Puede acceder a cargas de trabajo en Azure y conmutar por error al entorno local cuando vuelva a funcionar con normalidad. También puede usar las instrucciones en este artículo para migrar máquinas virtuales a Azure. En una situación de migración, replicará y conmutará por error máquinas virtuales, pero no las conmuta por recuperación.
 
@@ -228,7 +228,7 @@ Si desea crear una red mediante el modelo clásico, lo hará en el [Portal de Az
 2. En **Crear y asociar directiva** , especifique un nombre de directiva.
 3. En **Frecuencia de copia** , especifique la frecuencia con la que desea replicar diferencias de datos después de la replicación inicial (cada 30 segundos, 5 o 15 minutos).
 4. En **Retención de punto de recuperación**, especifique, en horas, el tiempo que estará disponible el periodo de retención para cada punto de recuperación. Los equipos protegidos se pueden recuperar en cualquier punto dentro de un período.
-5. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (entre&1; y&12; horas) con la que se crearán los puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Hyper-V usa dos tipos de instantáneas, una instantánea estándar que proporciona una instantánea incremental de toda la máquina virtual y una instantánea coherente con la aplicación que toma una instantánea en un momento concreto de los datos de la aplicación dentro de la máquina virtual. Las instantáneas coherentes con la aplicación utilizan el Servicio de instantáneas de volumen (VSS) para asegurarse de que las aplicaciones se encuentren en un estado coherente cuando se captura la instantánea. Tenga en cuenta que si habilita las instantáneas coherentes con la aplicación, se verá afectado el rendimiento de aplicaciones que se ejecutan en las máquinas virtuales de origen. Asegúrese de que el valor establecido es menor que el número de puntos de recuperación adicionales configurados.
+5. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (entre 1 y 12 horas) con la que se crearán los puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Hyper-V usa dos tipos de instantáneas, una instantánea estándar que proporciona una instantánea incremental de toda la máquina virtual y una instantánea coherente con la aplicación que toma una instantánea en un momento concreto de los datos de la aplicación dentro de la máquina virtual. Las instantáneas coherentes con la aplicación utilizan el Servicio de instantáneas de volumen (VSS) para asegurarse de que las aplicaciones se encuentren en un estado coherente cuando se captura la instantánea. Tenga en cuenta que si habilita las instantáneas coherentes con la aplicación, se verá afectado el rendimiento de aplicaciones que se ejecutan en las máquinas virtuales de origen. Asegúrese de que el valor establecido es menor que el número de puntos de recuperación adicionales configurados.
 6. En **Hora de inicio de la replicación inicial** , especifique cuándo debe comenzar la replicación inicial. La replicación se produce utilizando el ancho de banda de Internet, así que puede que deba programarla fuera del horario de trabajo. y, a continuación, haga clic en **Aceptar**.
 
     ![Directiva de replicación](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
@@ -393,7 +393,7 @@ Se debe elegir para satisfacer los requisitos de cumplimiento o durante el mante
 
 1. Seleccione **Planes de recuperación > nombre_PlanDeRecuperación**.
 2. En la hoja Plan de recuperación, haga clic en **Conmutación por error planeada**.
-3. En la página **Confirmar conmutación por error planeada **, elija las ubicaciones de origen y de destino.
+3. En la página **Confirmar conmutación por error planeada**, elija las ubicaciones de origen y de destino.
 4. Cuando se inicia una conmutación por error planeada, el primer paso es apagar las máquinas virtuales para garantizar que se no se produce ninguna pérdida de datos. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** . Si se produce un error en la conmutación por error (ya sea en una máquina virtual o en un script incluido en el plan de recuperación), la conmutación por error planeada de un plan de recuperación se detiene. Puede iniciar la conmutación por error nuevo.
 6. Una vez creadas las máquinas virtuales de réplica, pasan a estar en estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error.
 7. Cuando se ha completado la replicación, las máquinas virtuales se inician en la ubicación secundaria.

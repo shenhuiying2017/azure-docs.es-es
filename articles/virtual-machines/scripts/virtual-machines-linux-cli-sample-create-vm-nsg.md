@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 864c59488ef68a2da04bb9bedacf24dff4f59a25
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8584bdfc8171eaf4bd95c62166938e8086996721
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/01/2017
 
 Este script crea dos máquinas virtuales y protege el tráfico entrante en ambas. Una máquina virtual es accesible en Internet y tiene un grupo de seguridad de red (NSG) configurado para permitir el tráfico en el puerto 80 y el puerto 22. La segunda máquina virtual no es accesible en Internet, y tiene un NSG configurado para permitir el tráfico únicamente a la primera máquina virtual. 
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `az login`.
+Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
@@ -36,7 +36,7 @@ Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución d
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

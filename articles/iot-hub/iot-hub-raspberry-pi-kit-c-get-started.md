@@ -13,13 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: c74e8c40ba259df8d22c11f930073ab83e900c62
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d78a77ab28989bbac031e7dd967c050b1322ad7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -29,6 +29,9 @@ ms.lasthandoff: 03/02/2017
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 En este tutorial, empezará por aprender los principios básicos del uso de Raspberry Pi 3 que ejecuta Raspbian. A continuación, aprenderá a conectar sin problemas los dispositivos en la nube con [Azure IoT Hub](iot-hub-what-is-iot-hub.md). Para obtener ejemplos de Windows 10 IoT Core, vaya al [Centro de desarrollo de Windows](http://www.windowsondevices.com/).
+
+> [!NOTE]
+> ¿Le encanta a Docker o prefiere generar código fuente en el equipo host? Si es así, pruebe la solución basada en Docker en [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker).
 
 ## <a name="lesson-1-configure-your-device"></a>Lección 1: Configuración del dispositivo
 ![Diagrama integral de la lección 1](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)

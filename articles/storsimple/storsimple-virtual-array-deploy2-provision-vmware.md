@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f0ccf2706b5ce514613712fb866dc2d0120b0ad3
-ms.openlocfilehash: fe420fc0d4e5e2b7c625bf3a3d87005fdbcff200
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
@@ -166,7 +166,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 30. En la página **Select a Disk** (Seleccionar un disco), elija **Create a new virtual disk** (Crear un nuevo disco virtual). Haga clic en **Siguiente**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. En la página **Create a Disk** (Crear un disco), cambie el valor de **Disk Size** (Tamaño de disco) a 500 GB (o más). En **Disk Provisioning** (Aprovisionamiento de disco), seleccione **Thin Provision** (Aprovisionamiento fino). Haga clic en **Next**.
+31. En la página **Create a Disk** (Crear un disco), cambie el valor de **Disk Size** (Tamaño de disco) a 500 GB (o más). Aunque el requisito mínimo son 500 GB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que no se puede expandir o reducir el disco una vez aprovisionado. Para obtener más información sobre el tamaño del disco para aprovisionar, revise la sección de ajuste de tamaño en el documento de [procedimientos recomendados](storsimple-ova-best-practices.md). En **Disk Provisioning** (Aprovisionamiento de disco), seleccione **Thin Provision** (Aprovisionamiento fino). Haga clic en **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. En la página **Opciones avanzadas** , acepte el valor predeterminado.

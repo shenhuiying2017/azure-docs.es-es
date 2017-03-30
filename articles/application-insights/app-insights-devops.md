@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -164,6 +164,10 @@ Cuando se genera una alerta, Application Insights puede crear automáticamente u
 * Rendimiento: el impacto es muy bajo. la telemetría se procesa por lotes.
 * [Soporte técnico](app-insights-get-dev-support.md) : puede aprovechar el programa de soporte técnico de Azure. Existen foros activos donde puede obtener respuestas de nuestros desarrolladores. Y por último, podemos proporcionarle ayuda individual.
 * [Precios](app-insights-pricing.md) : puede comenzar de forma gratuita y continuar así mientras el volumen sea bajo.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:

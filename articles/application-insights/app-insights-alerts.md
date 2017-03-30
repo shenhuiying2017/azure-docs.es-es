@@ -1,28 +1,29 @@
 ---
-title: "Definición de alertas en Application Insights | Microsoft Docs"
+title: Establecimiento de alertas en Azure Application Insights | Microsoft Docs
 description: "Reciba notificaciones acerca de tiempos de respuesta lentos, excepciones y otros cambios de rendimiento o uso de la aplicación web."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 2146030449c691af166d6a9b134d22d4504d7641
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
 [Azure Application Insights][start] puede avisarle sobre los cambios en las métricas de rendimiento o de uso de la aplicación web. 
 
-Application Insights supervisa la aplicación activa en una [amplia variedad de plataformas][platforms] para ayudarle a diagnosticar problemas de rendimiento y entender los patrones de uso.
+Application Insights supervisa la aplicación activa en una [amplia variedad de plataformas][platforms] para ayudarlo a diagnosticar problemas de rendimiento y entender los patrones de uso.
 
 Hay tres tipos de alertas:
 
@@ -47,7 +48,7 @@ Abra la hoja Reglas de alerta y, a continuación, utilice el botón Agregar.
 
 *No puedo ver el botón Agregar alerta* 
 
-* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a la hoja Access Control. [Más información sobre Access Control][roles].
+* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a la hoja Access Control. [Más información sobre el control de acceso][roles].
 
 > [!NOTE]
 > En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo](app-insights-proactive-failure-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes. 
@@ -94,6 +95,10 @@ No olvide que los [diagnósticos proactivos de frecuencia de errores](app-insigh
 * [Uso de PowerShell para automatizar la configuración de alertas](app-insights-powershell-alerts.md)
 * [Uso de Webhook para automatizar la respuesta a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="see-also"></a>Consulte también
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
 * [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](app-insights-powershell-alerts.md)
@@ -106,10 +111,5 @@ No olvide que los [diagnósticos proactivos de frecuencia de errores](app-insigh
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

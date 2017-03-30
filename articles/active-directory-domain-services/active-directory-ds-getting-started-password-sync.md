@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e4b1907b95576468654703c843a5f6e06846814b
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f994edd71c6d8ca8a2c3f5de370115747f87da57
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -68,7 +68,7 @@ Después de haber cambiado su contraseña, la nueva contraseña se podrá usar e
 <br>
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
+* [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
 * [Introducción a la administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Habilitación de la sincronización de contraseñas con Azure AD Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)

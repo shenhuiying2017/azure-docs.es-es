@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 07d91dfa905d22334bd051f9d5f3d936d38efc88
-ms.openlocfilehash: 0253b5368acc370580dda645cf15b99a2acc437d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3632b990d89144d6ad3678a9b1548ce2c736088f
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-highly-available-vm"></a>Creación de una máquina virtual de alta disponibilidad
 
-Este ejemplo de script crea todo lo necesario para ejecutar varias máquinas virtuales Ubuntu configuradas con valores de alta disponibilidad y equilibrio de carga. El resultado de este script son tres máquinas virtuales unidas en un conjunto de disponibilidad de Azure y accesibles mediante Azure Load Balancer. 
+Este ejemplo de script crea todo lo necesario para ejecutar varias máquinas virtuales Ubuntu configuradas con valores de alta disponibilidad y equilibrio de carga. Después de ejecutar el script, tendrá tres máquinas virtuales unidas en un conjunto de disponibilidad de Azure y accesibles mediante Azure Load Balancer. 
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `az login`.
+Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
@@ -36,7 +36,7 @@ Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución d
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

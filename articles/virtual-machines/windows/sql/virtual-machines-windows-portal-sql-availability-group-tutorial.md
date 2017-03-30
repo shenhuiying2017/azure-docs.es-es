@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 5e41a20f563eab6b236eaa6eaf0ce1d20ebfa493
-ms.openlocfilehash: d8982dda38df92c94e7dac4b5a1cf451bab3a5ce
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -89,7 +90,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
 3. Seleccione **Dirección IP estática** y especifique una dirección disponible en la subred en la que está SQL Server en el cuadro de texto Dirección. A continuación, haga clic en **Aceptar**.
 4. En la sección **Recursos principales de clúster**, haga clic con el botón derecho en el nombre del clúster y haga clic en **Poner en línea**. Después espere hasta que ambos recursos estén en línea. Cuando el recurso de nombre de clúster está en línea, actualiza el servidor DC con una nueva cuenta de equipo de AD. Use esta cuenta de AD para ejecutar más tarde el servicio de clúster del grupo de disponibilidad.
 
-### <a name="a-nameaddnodeaadd-the-other-sql-server-to-cluster"></a><a name="addNode"></a>Agregar el otro servidor SQL Server al clúster
+### <a name="addNode"></a>Agregar el otro servidor SQL Server al clúster
 
 Agregue el otro servidor SQL Server al clúster.
 
@@ -222,7 +223,7 @@ Repeat these steps on the second SQL Server.
 7. En el **Explorador de objetos**, haga clic con el botón derecho en **Bases de datos** y luego en **Nueva base de datos**.
 8. En **Nombre de base de datos**, escriba **MyDB1** y después haga clic en **Aceptar**.
 
-### <a name="a-namebackupsharea-create-a-backup-share"></a><a name="backupshare"></a> Creación de un recurso compartido de copia de seguridad
+### <a name="backupshare"></a> Creación de un recurso compartido de copia de seguridad
 
 1. En el primer servidor SQL Server, en **Administrador del servidor**, haga clic en **Herramientas**. Abra **Administración de equipos**.
 
@@ -295,7 +296,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Asistente para nuevo grupo de disponibilidad, seleccionar sincronización de datos iniciales](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\**. Haga clic en **Siguiente**.
+8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\**. Haga clic en**Siguiente**.
 
    >[!NOTE]
    >La sincronización completa realiza una copia de seguridad completa de la base de datos en la primera instancia de SQL Server y la restaura en la segunda instancia. Para bases de datos grandes, no se recomienda la sincronización completa porque puede llevar mucho tiempo. Puede reducir este tiempo realizando manualmente una copia de seguridad de la base de datos y restaurándola con `NO RECOVERY`. Si ya se ha restaurado la base de datos con `NO RECOVERY` en el segundo servidor SQL Server antes de configurar el grupo de disponibilidad, elija **Solo unirse**. Si desea realizar la copia de seguridad después de configurar el grupo de disponibilidad, elija **Omitir la sincronización de datos iniciales**.
@@ -331,7 +332,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
    ![Grupo de disponibilidad en el administrador de clústeres de conmutación por error.](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > No trate de realizar una conmutación por error del grupo de disponibilidad desde el Administrador de clústeres de conmutación por error. Todas las operaciones de conmutación por error deben realizarse desde el **Panel AlwaysOn** de SSMS. Para obtener más información, consulte [Restricciones en el uso del Administrador de clústeres de conmutación por error de WSFC con Grupos de disponibilidad](https://msdn.microsoft.com/library/ff929171.aspx).
+   > No trate de realizar una conmutación por error del grupo de disponibilidad desde el Administrador de clústeres de conmutación por error. Todas las operaciones de conmutación por error deben realizarse desde el **Panel AlwaysOn** de SSMS. Para obtener más información, consulte el artículo de [restricciones en el uso del Administrador de clústeres de conmutación por error con grupos de disponibilidad](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
 En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias de SQL Server. Puede mover el grupo de disponibilidad entre instancias. No se puede conectar al grupo de disponibilidad aún porque no tiene un agente de escucha. En Azure Virtual Machines, el agente de escucha requiere un equilibrador de carga. El siguiente paso consiste en crear el equilibrador de carga en Azure.
@@ -433,7 +434,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Haga clic en **Aceptar** para configurar las reglas de equilibrio de carga.
 
-## <a name="a-nameconfigure-listenera-configure-the-listener"></a><a name="configure-listener"></a> Configuración del agente de escucha
+## <a name="configure-listener"></a> Configuración del agente de escucha
 
 El siguiente paso es configurar un agente de escucha del grupo de disponibilidad en el clúster de conmutación por error.
 
@@ -502,9 +503,4 @@ La conexión SQLCMD se establece automáticamente con la instancia de SQL Server
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Agregar una dirección IP a un equilibrador de carga para un segundo grupo de disponibilidad](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

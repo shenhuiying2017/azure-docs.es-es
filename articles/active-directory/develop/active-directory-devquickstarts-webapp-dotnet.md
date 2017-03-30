@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 4094759caba015b9d609b616d5099a6e109bf1d4
-ms.openlocfilehash: 6ac0c3b2893b96f93bf2aeadd61b263654957477
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -46,8 +46,8 @@ Para configurar la aplicación para autenticar a los usuarios, primero regístre
 5. Siga las indicaciones para crear una nueva **aplicación web o WebAPI**.
   * **Nombre**: describe la aplicación a los usuarios.
   * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación. La dirección URL predeterminada del esqueleto es https://localhost:44320/.
-  * El **URI de id. de aplicación** es un identificador único para la aplicación. La convención de nomenclatura es `https://<tenant-domain>/<app-name>` (por ejemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 6. Después de haber completado el registro, Azure AD le asigna a la aplicación un id. de aplicación único. Copie el valor de la página de aplicación para usarlo en las secciones siguientes.
+7. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. El **URI de identificador de aplicación** es un identificador único para la aplicación. La convención de nomenclatura es `https://<tenant-domain>/<app-name>` (por ejemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Paso 2: Configuración de la aplicación para que use la canalización de autenticación OWIN
 En este paso, configuraremos el middleware OWIN para usar el protocolo de autenticación OpenID Connect. Usará OWIN para emitir solicitudes de inicio y cierre de sesión, administrar sesiones de usuario, obtener información del usuario, etc.

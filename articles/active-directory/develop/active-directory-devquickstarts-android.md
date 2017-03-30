@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: f9809095128d0069d076d18486cae05b65498fa8
-ms.openlocfilehash: bde8ef9c4f51c38f8e5b41857be02ade43260824
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -62,8 +63,9 @@ Aquí suponemos que va a registrar la API de REST TODO mencionada anteriormente.
 4. Haga clic en **Registros de aplicaciones** y seleccione **Agregar**.
 5. Escriba un nombre descriptivo para la aplicación (por ejemplo, **TodoListService**), seleccione **Aplicación web y/o API web** y haga clic en **Siguiente**.
 6. Para la URL de inicio de sesión, escriba la dirección URL base para el ejemplo. De manera predeterminada, será `https://localhost:8080`.
-7. Para el URI de id. de aplicación, escriba `https://<your_tenant_name>/TodoListService`. Reemplace `<your_tenant_name>` por el nombre de su inquilino de Azure AD. Haga clic en **Aceptar** para completar el registro.
+7. Haga clic en **Aceptar** para completar el registro.
 8. Mientras sigue en Azure Portal, vaya a la página de la aplicación, busque el valor del id. de aplicación y cópielo. Lo necesitará más adelante cuando configure la aplicación.
+9. En la página **Configuración** -> **Propiedades**, actualice la aplicación del URI del identificador de aplicación y escriba `https://<your_tenant_name>/TodoListService`. Reemplace `<your_tenant_name>` por el nombre de su inquilino de Azure AD.
 
 ## <a name="step-3-register-the-sample-android-native-client-application"></a>Paso 3: registre la aplicación de cliente nativo de Android de ejemplo
 Debe registrar la aplicación web en este ejemplo. Esto permite a su aplicación comunicarse con la recién registrada API web. Azure AD rechazará incluso que la aplicación pueda solicitar el inicio de sesión, a menos que esté registrada. Eso forma parte de la seguridad del modelo.
@@ -384,9 +386,4 @@ La versión 1.1.0 de ADAL admite el cuadro de diálogo NTLM que se procesa a tra
 Obtenga información sobre la [Habilitación de SSO entre aplicaciones en Android mediante ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

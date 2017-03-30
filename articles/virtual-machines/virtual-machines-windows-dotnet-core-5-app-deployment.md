@@ -17,9 +17,9 @@ ms.date: 11/21/2016
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 495ee4a14e779099f828db0c08068bc3772cd7d4
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 2d60af167b8d7805e6f01264de84fb1351d85f98
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -120,6 +120,46 @@ En el siguiente código JSON, observe que el script se almacena en GitHub. Este 
   }
 }
 ```
+
+Como se mencionó anteriormente, también es posible almacenar los scripts personalizados en Azure Blob Storage. Hay dos opciones para almacenar los recursos de script en Blob Storage; ya sea hacer que el script o el contenedor sean públicos y sigan el mismo enfoque anterior, o que se guarde en Blob Storage privado que requiere que proporcione storageAccountName y storageAccountKey a la definición de recursos de CustomScriptExtension.
+
+En el ejemplo siguiente hemos realizado un paso adicional. Aunque es posible proporcionar el nombre de la cuenta de almacenamiento y la clave como un parámetro o variable durante la implementación, las plantillas de Resource Manager proporcionan la función `listKeys` que puede obtener la clave de cuenta de almacenamiento mediante programación e insertarla en la plantilla automáticamente durante la implementación.
+
+En la definición de recursos CustomScriptExtension de ejemplo, nuestro script personalizado ya se ha cargado en una cuenta de Azure Storage denominada `mystorageaccount9999`, que existe en otro grupo de recursos denominado `mysa999rgname`. Cuando se implementa una plantilla que contiene este recurso, la función `listKeys` mediante programación obtiene la clave de cuenta de almacenamiento para la cuenta de almacenamiento `mystorageaccount9999` en el grupo de recursos `mysa999rgname` y realiza la inserción en la plantilla automáticamente.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://mystorageaccount9999.blob.core.windows.net/container/configure-music-app.ps1"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]",
+      "storageAccountName": "mystorageaccount9999",
+      "storageAccountKey": "[listKeys(resourceId('mysa999rgname','Microsoft.Storage/storageAccounts', mystorageaccount9999), '2015-06-15').key1]"
+    }
+  }
+}
+```
+
+La principal ventaja de este enfoque es que no requiere que cambie los parámetros de plantilla o la implementación en el caso de cambios de claves de cuentas de almacenamiento.
 
 Para más información sobre el uso de la extensión de script personalizado, consulte [Uso de la extensión de script personalizado para máquinas virtuales de Linux con plantillas de Azure Resource Manager](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

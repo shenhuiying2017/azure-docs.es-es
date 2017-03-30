@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -87,7 +87,7 @@ El hecho de no elegir ningún valor de una propiedad en particular tiene el mism
 ### <a name="narrow-your-search"></a>Acotación de la búsqueda
 Observe que los recuentos a la derecha de los valores de filtro muestran cuántas repeticiones hay en el conjunto filtrado actual. 
 
-En este ejemplo, es obvio que la solicitud "Rpt/Empleados" genera la mayor parte de los&500; errores:
+En este ejemplo, es obvio que la solicitud "Rpt/Empleados" genera la mayor parte de los 500 errores:
 
 ![Expanda una propiedad y elija un valor](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -174,6 +174,10 @@ Consulte [Resumen de límites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>¿Cómo puedo ver datos POST en mis solicitudes de servidor?
 Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](app-insights-search-diagnostic-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Pasos siguientes
 * [Escribir consultas complejas en Analytics](app-insights-analytics-tour.md)

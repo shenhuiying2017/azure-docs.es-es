@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ffa31e7eee7642c29a846658b999828434347316
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,13 +81,35 @@ También puede hacer clic en la cuenta **(Local)** en la parte superior en la ve
 
     ![Trabajos de envío de ejecución local de Data Lake Tools para Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Depurar scripts y ensamblados de C# localmente
+
+Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio Azure Data Lake Analytics. Puede establecer puntos de interrupción en el código subyacente del archivo y en un proyecto de C# al que se hace referencia.
+
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Para depurar el código local en el código subyacente del archivo.
+
+1. Establezca puntos de interrupción en el archivo de código subyacente.
+2. Presione F5 para depurar el script localmente.
+
+> [!NOTE]
+   > El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos pdb.  
+   >
+   >
+
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Para depurar el código local en un proyecto de C# al que se hace referencia.
+
+1. Cree un proyecto de ensamblado de C# y compílelo para generar la dll de salida.
+2. Registre la dll mediante una instrucción de U-SQL:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Establezca puntos de interrupción en el código de C#.
+4. Presione F5 para depurar el script con referencia a la dll de C# localmente.
+
 ## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Uso de la ejecución local del SDK de U-SQL para Data Lake
 
 Además de ejecutar scripts U-SQL localmente mediante Visual Studio, puede usar el SDK de U-SQL para Azure Data Lake para ejecutar scripts U-SQL localmente con la línea de comandos e interfaces de programación. A través de estos elementos, puede escalar la prueba local de U-SQL.
 
 Obtenga más información sobre el [SDK de U-SQL para Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
-
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

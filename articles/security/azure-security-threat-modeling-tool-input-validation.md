@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 translationtype: Human Translation
-ms.sourcegitcommit: 8251f44200c11d3efcec04b7ac99857232b2f9ed
-ms.openlocfilehash: 6fd76f305536a7b5682eb4d9c3f87b82c2e1b405
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 19b03b14dc3b04472cd2ae59d38422edce47ef35
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -43,6 +43,7 @@ ms.lasthandoff: 02/15/2017
 | Pasos | XSLT es compatible con el scripting dentro de hojas de estilos mediante el elemento `<msxml:script>`. Esto permite que se usen funciones personalizadas en una transformación XSLT. El script se ejecuta en el contexto del proceso que lleva a cabo la transformación. El script XSLT debe estar deshabilitado cuando se encuentra en un entorno que no sea de confianza para evitar la ejecución de código no de confianza. *Si usa .NET:* el scripting XSLT está deshabilitado de forma predeterminada; sin embargo, debe asegurarse de que no se haya habilitado explícitamente por medio de la propiedad `XsltSettings.EnableScript`.|
 
 ### <a name="example"></a>Ejemplo 
+
 ```C#
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
@@ -50,12 +51,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 
 ### <a name="example"></a>Ejemplo
 Si lo usa con MSXML 6.0, el scripting XSLT está deshabilitado de forma predeterminada. Sin embargo, debe asegurarse de que no se haya habilitado explícitamente por medio de la propiedad AllowXsltScript del objeto DOM XML. 
+
 ```C#
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Ejemplo
 Si usa MSXML 5 o una versión anterior, el scripting XSLT está habilitado de forma predeterminada y debe deshabilitarlo explícitamente. Establezca la propiedad AllowXsltScript del objeto DOM XML en false. 
+
 ```C#
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
@@ -75,6 +78,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 Para habilitar de forma global el encabezado necesario para todas las páginas de la aplicación, puede realizar una de las siguientes acciones: 
 
 * Agregue el encabezado en el archivo Web.config si la aplicación está hospedada con Internet Information Services (IIS) 7. 
+
 ```
 <system.webServer> 
   <httpProtocol> 
@@ -86,6 +90,7 @@ Para habilitar de forma global el encabezado necesario para todas las páginas d
 ```
 
 * Agregue el encabezado mediante el método Application\_BeginRequest global. 
+
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
 {
@@ -94,6 +99,7 @@ void Application_BeginRequest(object sender, EventArgs e)
 ```
 
 * Implemente un módulo HTTP personalizado 
+
 ``` 
 public class XContentTypeOptionsModule : IHttpModule 
   {
@@ -121,6 +127,7 @@ public class XContentTypeOptionsModule : IHttpModule
 ``` 
 
 * Puede habilitar el encabezado necesario solo para páginas específicas si lo agrega a respuestas individuales: 
+
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
 ``` 
@@ -138,6 +145,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 
 ### <a name="example"></a>Ejemplo
 Para el código de .NET Framework, puede usar los enfoques siguientes:
+
 ```C#
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
@@ -155,6 +163,7 @@ Tenga en cuenta que el valor predeterminado de `ProhibitDtd` en `XmlReaderSettin
 
 ### <a name="example"></a>Ejemplo
 Para deshabilitar la resolución de entidades para XmlDocuments, use la sobrecarga `XmlDocument.Load(XmlReader)` del método Load y establezca las propiedades adecuadas en el argumento XmlReader para deshabilitar la resolución, como se muestra en el código siguiente: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
@@ -165,6 +174,7 @@ doc.Load(reader);
 
 ### <a name="example"></a>Ejemplo
 Si no es posible deshabilitar la resolución de entidades para su aplicación, establezca la propiedad XmlReaderSettings.MaxCharactersFromEntities en un valor razonable según las necesidades de su aplicación. Esto limitará el impacto de posibles ataques DoS de expansión exponencial. En el código siguiente se muestra un ejemplo de este enfoque: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -174,6 +184,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 
 ### <a name="example"></a>Ejemplo
 Si tiene que resolver entidades en línea pero no necesita resolver externas, establezca la propiedad XmlReaderSettings.XmlResolver en null. Por ejemplo: 
+
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
@@ -207,6 +218,7 @@ Tenga en cuenta que en MSXML6, ProhibitDTD está establecido en true (deshabilit
 
 ### <a name="example"></a>Ejemplo
 En lo que respecta al último punto sobre la validación de la firma de formato del archivo, consulte más detalles en la clase que sigue: 
+
 ```C#
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
@@ -322,6 +334,7 @@ En lo que respecta al último punto sobre la validación de la firma de formato 
 
 ### <a name="example"></a>Ejemplo 
 En el código siguiente, se muestra cómo usar parámetros con seguridad de tipos con SqlParameterCollection al llamar a un procedimiento almacenado. 
+
 ```C#
 using System.Data;
 using System.Data.SqlClient;
@@ -361,6 +374,7 @@ En el ejemplo de código anterior, el valor de entrada no puede tener más de 11
 | Pasos | El scripting entre sitios (normalmente abreviado como XSS) es un vector de ataque para servicios en línea o cualquier aplicación o componente que consuma una entrada desde la Web. Las vulnerabilidades de XSS pueden permitir que un atacante ejecute un script en la máquina de otro usuario por medio de una aplicación web vulnerable. Los scripts malintencionados sirven para robar cookies y alterar de otras formas la máquina de la víctima mediante JavaScript. Se impide el XSS mediante la validación de la entrada del usuario para asegurarse de que esté bien formada y codificada antes de representarla en una página web. La validación de la entrada y la codificación de la salida se pueden realizar con Web Protection Library. Para el código administrado (C\#, VB.net, etc.), use uno o varios métodos de codificación adecuados de Web Protection (Anti-XSS) Library, según el contexto donde se manifieste la entrada del usuario:| 
 
 ### <a name="example"></a>Ejemplo
+
 ```C#
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
@@ -408,6 +422,7 @@ En el ejemplo de código anterior, el valor de entrada no puede tener más de 11
 
 ### <a name="example"></a>Ejemplo
 Los siguientes son ejemplos inseguros: 
+
 ```
 document.getElementByID("div1").innerHtml = value;
 $("#userName").html(res.Name);
@@ -451,6 +466,7 @@ No utilice `innerHtml`; en su lugar, use `innerText`. Igualmente, en lugar de `$
 
 ### <a name="example"></a>Ejemplo
 Por ejemplo, la siguiente configuración produce una excepción RegexMatchTimeoutException si el procesamiento excede los 5 segundos: 
+
 ```C#
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
@@ -464,10 +480,11 @@ Por ejemplo, la siguiente configuración produce una excepción RegexMatchTimeou
 | Tecnologías aplicables | MVC5, MVC6 |
 | Attributes              | N/D  |
 | Referencias              | N/D  |
-| Paso | Las páginas Web ASP.Net (Razor) realizan la codificación de HTML automáticamente. Todas las cadenas impresas por fragmentos de código insertados (bloques (@) se codifican en HTML de forma automática. Sin embargo, cuando se invoca el método `HtmlHelper.Raw`, devuelve marcado que no está codificado en HTML. Si se utiliza el método auxiliar `Html.Raw()`, omite la protección de codificación automática que proporciona Razor.|
+| Paso | Las páginas Web ASP.Net (Razor) realizan la codificación de HTML automáticamente. Todas las cadenas impresas por fragmentos de código insertados (bloques @) se codifican en HTML de forma automática. Sin embargo, cuando se invoca el método `HtmlHelper.Raw`, devuelve marcado que no está codificado en HTML. Si se utiliza el método auxiliar `Html.Raw()`, omite la protección de codificación automática que proporciona Razor.|
 
 ### <a name="example"></a>Ejemplo
 El siguiente ejemplo es inseguro: 
+
 ```C#
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
@@ -492,6 +509,7 @@ No utilice `Html.Raw()` a menos que necesite mostrar marcado. Este método no re
 
 ### <a name="example"></a>Ejemplo
 El ejemplo siguiente es de un procedimiento almacenado dinámico inseguro: 
+
 ```C#
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
@@ -551,6 +569,7 @@ AS
 
 ### <a name="example"></a>Ejemplo
 El código siguiente lo demuestra: 
+
 ```C#
 using System.ComponentModel.DataAnnotations;
 
@@ -567,9 +586,11 @@ namespace MyApi.Models
         public double Weight { get; set; }
     }
 }
+```
 
-### Example
-In the action method of the API controllers, validity of the model has to be explicitly checked as shown below: 
+### <a name="example"></a>Ejemplo
+En el método de acción de los controladores de API, la validez del modelo se debe comprobar explícitamente como se muestra a continuación: 
+
 ```C#
 namespace MyApi.Controllers
 {
@@ -616,6 +637,7 @@ namespace MyApi.Controllers
 
 ### <a name="example"></a>Ejemplo
 En el código siguiente, se muestra cómo usar parámetros con seguridad de tipos con SqlParameterCollection al llamar a un procedimiento almacenado. 
+
 ```C#
 using System.Data;
 using System.Data.SqlClient;
@@ -664,3 +686,4 @@ En el ejemplo de código anterior, el valor de entrada no puede tener más de 11
 | Attributes              | N/D  |
 | Referencias              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
 | Pasos | <p>La validación de datos y de entrada constituye una importante línea de defensa para la protección de la aplicación WCF. Debería validar todos los parámetros expuestos en las operaciones del servicio WCF para proteger el servicio frente al ataque de un cliente malintencionado. A la inversa, debería validar todos los valores devueltos recibidos por el cliente para protegerlo frente al ataque de un servicio malintencionado.</p><p>WCF proporciona diferentes puntos de extensibilidad que permiten personalizar el comportamiento en tiempo de ejecución de WCF mediante la creación de extensiones personalizadas. Los inspectores de mensajes y de parámetros son dos mecanismos de extensibilidad que se usan para ejercer un mayor control sobre los datos que pasan entre un cliente y un servicio. Debería usar inspectores de parámetros para la validación de entrada e inspectores de mensajes solo cuando necesite inspeccionar el mensaje completo que fluye dentro y fuera de un servicio.</p><p>Para llevar a cabo la validación de entrada, generará una clase .NET e implementará un inspector de parámetros personalizado para validar los parámetros en las operaciones de su servicio. Después, implementará un comportamiento de punto de conexión personalizado para habilitar la validación tanto en el cliente como en el servicio. Por último, implementará un elemento de configuración personalizado en la clase que permita exponer el comportamiento de punto de conexión personalizado extendido en el archivo de configuración del servicio o del cliente.</p>|
+

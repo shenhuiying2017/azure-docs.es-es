@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/23/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 711aaed5521625ee4c4250ad7a2aa6f8b1d6666f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9be2feb40ded3abae1ca0b762234f764b4a87f1e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,9 @@ ms.lasthandoff: 03/11/2017
 
 En este escenario aprenderá cómo crear un grupo de recursos, el plan de servicio de aplicaciones de Linux y la aplicación web, y cómo implementar una aplicación de ASP.NET Core utilizando un contenedor de Docker desde Azure Container Registry.
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `az login`.
+Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
+
+Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
 ## <a name="create-app-sample"></a>Creación de una aplicación de ejemplo
 

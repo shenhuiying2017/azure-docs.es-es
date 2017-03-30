@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 03/20/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1fb7b268e83da66a4bb9fe6d3e053b7a673d3555
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ Con **Power BI Embedded**, puede integrar informes de Power BI directamente en l
 Power BI Embedded es un **servicio de Azure** que permitirá a los ISV y a los desarrolladores de software exponer las experiencias de datos de Power BI en sus aplicaciones. Como desarrollador, ha creado aplicaciones y esas aplicaciones tienen sus propios usuarios y un diferente conjunto de características. También podría ocurrir que estas aplicaciones tengan algunos elementos de datos integrados como gráficos e informes que ahora pueden disponer de la tecnología de Microsoft Power BI Embedded. No necesita una cuenta de Power BI para utilizar la aplicación. Pueden seguir iniciando sesión en su aplicación como antes, y ver e interactuar con la experiencia de informes de Power BI sin necesitar ninguna licencia adicional.
 
 ## <a name="licensing-for-microsoft-power-bi-embedded"></a>Licencias de Microsoft Power BI Embedded
-En el modelo de uso de **Microsoft Power BI Embedded** , la administración de licencias de Power BI no es responsabilidad del usuario final.  En su lugar, el desarrollador de la aplicación que está consumiendo los elementos visuales, adquiere **sesiones** que se cobran a la suscripción que posee esos recursos. Puede encontrar información adicional en la página de precios (https://azure.microsoft.com/es-es/pricing/details/power-bi-embedded/).
+En el modelo de uso de **Microsoft Power BI Embedded** , la administración de licencias de Power BI no es responsabilidad del usuario final.  En su lugar, el desarrollador de la aplicación que está consumiendo los elementos visuales, adquiere **sesiones** que se cobran a la suscripción que posee esos recursos. Puede encontrar más información sobre los precios en la página de [precios](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Modelo conceptual de Microsoft Power BI Embedded
 

@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 1ed2ee17e6b4d0256707bc63ac450b33ad9ef162
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: db91a464843a7c2dc5460f12f7f306972d3a7da8
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="convert-a-machine-learning-training-experiment-to-a-predictive-experiment"></a>Convertir un experimento de entrenamiento en Aprendizaje automático en un experimento predictivo
 Aprendizaje automático de Azure permite compilar, probar e implementar soluciones de análisis predictivo.
 
-Una vez que haya creado e iterado en un *experimento de entrenamiento* para entrenar el modelo de análisis predictivo y esté listo para usarlo para puntuar nuevos datos, deberá preparar y simplificar el experimento para puntuar. A continuación, puede implementar este *experimento predictivo* como servicio web de Azure para que los usuarios puedan enviar datos al modelo y recibir las predicciones del modelo.
+Una vez que haya creado e iterado en un *experimento de entrenamiento* para entrenar el modelo de análisis predictivo y esté listo para usarlo para puntuar nuevos datos, deberá preparar y simplificar el experimento para puntuar. A continuación, puede activar este *experimento predictivo* como servicio web de Azure para que los usuarios puedan enviar datos al modelo y recibir las predicciones del modelo.
 
 Al efectuar la conversión a un experimento predictivo, estará preparando el modelo entrenado para implementarlo como servicio web. Los usuarios del servicio web enviarán datos de entrada a su modelo y el modelo devolverá los resultados de predicción. Por lo tanto, cuando efectúe la conversión a un experimento predictivo, deberá tener en cuenta cómo espera que usen el modelo los demás.
 
@@ -40,7 +40,7 @@ El proceso de convertir un experimento de entrenamiento en un experimento predic
 Después de ejecutar el experimento (botón **EJECUTAR** de la parte inferior del lienzo del experimento), el botón **Set Up Web Service** (Configurar servicio web), donde debe seleccionar la opción **Predictive Web Service** (Servicio web predictivo), realizará automáticamente los tres pasos para convertir el experimento de entrenamiento en un experimento predictivo:
 
 1. Guarda el modelo entrenado como módulo en la sección **Modelos entrenados** de la paleta del módulo (a la izquierda del lienzo del experimento) y, a continuación, reemplaza el algoritmo de aprendizaje automático y los módulos de [Entrenar modelo][train-model] con el modelo entrenado guardado.
-2. Elimina los módulos que claramente no se necesitan. En nuestro ejemplo, esto incluye los módulos [Split Data][split] (Dividir datos), un segundo [Puntuar modelo][score-model] y [Evaluar modelo][evaluate-model].
+2. Elimina los módulos que claramente no se necesitan. En nuestro ejemplo, esto incluye los módulos [Dividir datos][split], un<sup> </sup>segundo [Puntuar modelo][score-model] y [Evaluar modelo][evaluate-model].
 3. Crea módulos de y salida del servicio web y los agrega en ubicaciones predeterminadas en el experimento.
 
 Por ejemplo, en el siguiente experimento se entrena un modelo de árbol de decisión aumentada de dos clases con los datos del censo de muestra:
@@ -58,7 +58,7 @@ Al convertir este experimento de entrenamiento en un experimento predictivo, alg
   
     Por ejemplo, en este ejemplo, el conjunto de datos de ejemplo puede tener valores que faltan e incluye columnas que no son necesarias para formar el modelo. Por lo tanto, se incluyó un módulo [Limpiar datos que faltan][clean-missing-data] para tratar los valores ausentes y un módulo [Seleccionar columnas de conjunto de datos][select-columns] para excluir las columnas adicionales del flujo de datos. Si sabe que a los datos que se van a enviar para puntuar a través del servicio web no les van a faltar valores, puede quitar el módulo [Limpiar datos que faltan][clean-missing-data]. Sin embargo, dado que el módulo [Seleccionar columnas de conjunto de datos][select-columns] ayuda a definir el conjunto de funciones que se puntúan, no se puede quitar.
 * **Entrenar**: estos módulos se usan para entrenar el modelo. Cuando hace clic en **Configurar servicio web**, estos módulos se reemplazan por un módulo de modelo entrenado individual. Este módulo nuevo se guarda en la sección **Modelos entrenados** de la paleta de módulos.
-* **Puntuación** : en este ejemplo, el módulo Dividir se usa para dividir el flujo de datos en un conjunto de datos de prueba y datos de entrenamiento. En el experimento predictivo esto no es necesario y se puede quitar. De forma similar, el segundo módulo [Puntuar modelo][score-model] y el módulo [Evaluar modelo][evaluate-model] se usan para comparar los resultados de los datos de prueba, por lo que estos módulos tampoco son necesarios en el experimento predictivo. No obstante, el módulo [Puntuar modelo][score-model] restante es necesario para devolver un resultado de puntuación a través del servicio web.
+* **Puntuación**: en este ejemplo, el módulo [Dividir datos][split] se usa para dividir el flujo de datos en un conjunto de datos de prueba y datos de entrenamiento. En el experimento predictivo esto no es necesario y se puede quitar. De forma similar, el<sup> </sup>segundo módulo [Puntuar modelo][score-model] y el módulo [Evaluar modelo][evaluate-model] se usan para comparar los resultados de los datos de prueba, por lo que estos módulos tampoco son necesarios en el experimento predictivo. No obstante, el módulo [Puntuar modelo][score-model] restante es necesario para devolver un resultado de puntuación a través del servicio web.
 
 Este es el aspecto de nuestro ejemplo después de hacer clic en **Configurar servicio web**:
 

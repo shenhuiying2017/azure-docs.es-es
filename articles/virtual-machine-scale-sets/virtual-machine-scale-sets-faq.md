@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/08/2017
+ms.date: 3/17/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8d0adfb995ecfb56ff33814e462a88f3d1102d58
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 850459a79c723de0eb3249cfe9ea19bc988ca318
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -467,7 +467,7 @@ Debe configurar las opciones protegidas con la clave y el nombre de la cuenta de
 Consulte: https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/. 
  
   
-### <a name="what-is-the-resourceguid-property-on-a-nic-for-its-not-documented-here"></a>¿Para qué sirve la propiedad resourceGuid en una NIC? No se documenta aquí.
+### <a name="what-is-the-resourceguid-property-on-a-nic-for"></a>¿Para qué sirve la propiedad resourceGuid en una NIC?
 
 Es un identificador único. Las capas inferiores registrarán este identificador en algún momento en el futuro. 
  
@@ -481,6 +481,9 @@ El método de asignación de las direcciones IP del conjunto de escalado es siem
 
 Consulte https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet. 
 
+### <a name="how-do-i-add-a-scale-sets-first-vms-ip-address-to-the-output-of-a-template"></a>¿Cómo se agrega la dirección IP de la primera máquina virtual del conjunto de escalado a la salida de una plantilla?
+
+Consulte: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
 
 

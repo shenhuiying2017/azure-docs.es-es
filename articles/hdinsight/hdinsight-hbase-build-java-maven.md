@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e7a2fef8860984c2e4e3749202868940b836ca9f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
 ## <a name="requirements"></a>Requisitos
 * [JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior
 * [Maven](http://maven.apache.org/)
-* [Un clúster de HDInsight basado en Windows con HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* Un clúster de HDInsight basado en Windows con HBase
 
     > [!NOTE] 
     > Los pasos descritos en este documento se han probado con las versiones 3.2 y 3.3 del clúster de HDInsight. Los valores predeterminados proporcionados en los ejemplos corresponden a la versión 3.3 de un clúster de HDInsight.
@@ -616,10 +618,5 @@ Reemplace **hdinsightclustername** por el nombre del clúster de HDInsight.
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Sin resultados o resultados inesperados al usar Start-HBaseExample
 Use el parámetro `-showErr` para ver el error estándar (STDERR) producido mientras se ejecutaba el trabajo.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

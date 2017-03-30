@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a4b067e732bccb01faa96f23dbfd2ed65b7711a0
-ms.openlocfilehash: 62326da2e801a7c6e01d29e2298bd3552f331647
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a27ec9e1ebfde3493e41c493b85c0dc7f0ada2a0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,17 +33,13 @@ Data Factory admite la conexión a orígenes de Oracle locales mediante la puert
 ## <a name="supported-versions-and-installation"></a>Versiones compatibles e instalación
 El conector de Oracle admite dos versiones de controladores:
 
-- El **controlador de Microsoft para Oracle** se incluye con la puerta de enlace de administración de datos a partir de la versión 2.7. Se **recomienda** utilizar este controlador. Con este controlador, tan solo es necesario instalar la puerta de enlace para conectarse a Oracle y, además, mejora el rendimiento de la copia. Es compatible con bases de datos Oracle 10g Release 2 o versiones posteriores.
+- El **controlador de Microsoft para Oracle** se incluye con la puerta de enlace de administración de datos a partir de la versión 2.7. Se **recomienda** utilizar este controlador. Tan solo es necesario instalar la puerta de enlace para conectarse a Oracle y, además, mejora el rendimiento de la copia. Es compatible con bases de datos Oracle 10g Release 2 o versiones posteriores.
 
     > [!NOTE]
     > Actualmente, el controlador de Microsoft para Oracle solo permite copiar datos de Oracle, pero no escribir en Oracle. Y tenga en cuenta que la funcionalidad de conexión de prueba de la pestaña Diagnósticos de Data Management Gateway. Como alternativa, puede usar al Asistente para copiar para validar la conectividad.
     >
 
-- **Proveedor de datos de Oracle para. NET:** también es posible usar el proveedor de datos de Oracle para copiar datos desde Oracle o en Oracle. Este componente se incluye en [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32/64 bits) en la máquina en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o posterior.
-
-    Si elige XCopy Installation (Instalación de XCopy), siga los pasos del archivo readme.htm. Se recomienda elegir el programa de instalación con la interfaz de usuario (no puede ser una de XCopy).
-
-    Después de instalar el proveedor, **reinicie** el servicio de host de la puerta de enlace de administración de datos en la máquina con el applet Servicios o el Administrador de configuración de la puerta de enlace de administración de datos.  
+- **Proveedor de datos de Oracle para. NET**: La versión 2.7 o superior de Data Management Gateway incluye este componente, por lo que no es necesario instalarlo por separado. Si utiliza una puerta de enlace de una versión inferior a la 2.7, se recomienda que instale la última versión de la puerta de enlace de [aquí](https://www.microsoft.com/download/details.aspx?id=39717). Puede encontrar la versión de la puerta de enlace en la página de Ayuda del Administrador de configuración de puerta de enlace de administración de datos (busque "Data Management Gateway").
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
 La manera más fácil de crear una canalización que copie datos de una base de datos Oracle a cualquiera de los almacenes de datos receptores admitidos y viceversa es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
@@ -416,7 +412,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesOracle** |Sí |
 | driverType | Especifique qué controlador usar para copiar datos en bases de datos de Oracle o desde ellas. Los valores permitidos son **Microsoft** u **ODP** (valor predeterminado). Consulte la sección [Versiones compatibles e instalación](#supported-versions-and-installation) para obtener información detallada sobre los controladores. | No |
-| connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos de Oracle para la propiedad connectionString. Vea los siguientes ejemplos. | Sí |
+| connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos de Oracle para la propiedad connectionString. | Sí |
 | gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor de Oracle local |Sí |
 
 Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información sobre cómo establecer las credenciales para un origen de datos de Oracle local.
@@ -477,7 +473,7 @@ En la actividad de copia, si el origen es de tipo **OracleSource**, están dispo
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: select * from MyTable |No (si se especifica **tableName** de **dataset**) |
+| oracleReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select *from MyTable <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: select* from MyTable |No (si se especifica **tableName** de **dataset**) |
 
 ### <a name="oraclesink"></a>OracleSink
 **OracleSink** admite las siguientes propiedades:

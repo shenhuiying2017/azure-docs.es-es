@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 1820b25f1cf426d0a81588a00dc5f26073ebb9f8
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 38e8320c09c5aa870018081a29911611f09a3e3a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -390,15 +391,15 @@ Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta
     "type": "linkedservices",
     "name": "[variables('azureStorageLinkedServiceName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]"
+          "[variables('dataFactoryName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "AzureStorage",
-        "description": "Azure Storage linked service",
-        "typeProperties": {
+          "type": "AzureStorage",
+          "description": "Azure Storage linked service",
+          "typeProperties": {
             "connectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]"
-        }
+          }
     }
 }
 ```
@@ -412,18 +413,18 @@ Consulte el artículo [Servicios vinculados de proceso](data-factory-compute-lin
     "type": "linkedservices",
     "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]"
+          "[variables('dataFactoryName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
+          "type": "HDInsightOnDemand",
+          "typeProperties": {
             "clusterSize": 1,
             "version": "3.2",
             "timeToLive": "00:05:00",
             "osType": "windows",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
-        }
+          }
     }
 }
 ```
@@ -438,64 +439,64 @@ Tenga en cuenta los siguientes puntos:
 Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de datos de entrada de blob de Azure
-Especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob. 
+Especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob. 
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('blobInputDatasetName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]"
+          "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-        "typeProperties": {
+          "type": "AzureBlob",
+          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+          "typeProperties": {
             "fileName": "[parameters('inputBlobName')]",
             "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'))]",
             "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
+                  "type": "TextFormat",
+                  "columnDelimiter": ","
             }
-        },
-        "availability": {
+          },
+          "availability": {
             "frequency": "Month",
             "interval": 1
-        },
-        "external": true
+          },
+          "external": true
     }
 }
 ```
 Esta definición usa los siguientes parámetros definidos en la plantilla de parámetros: blobContainer, inputBlobFolder y inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Conjunto de datos de salida de blob de Azure
-Especifique los nombres del contenedor de blobs y la carpeta que contiene los datos de salida. Consulte las [propiedades del conjunto de datos de Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.  
+Especifique los nombres del contenedor de blobs y la carpeta que contiene los datos de salida. Consulte las [propiedades del conjunto de datos de Azure Blob](data-factory-azure-blob-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.  
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('blobOutputDatasetName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]"
+          "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
-        "typeProperties": {
+          "type": "AzureBlob",
+          "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+          "typeProperties": {
             "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'))]",
             "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
+                  "type": "TextFormat",
+                  "columnDelimiter": ","
             }
-        },
-        "availability": {
+          },
+          "availability": {
             "frequency": "Month",
             "interval": 1
-        }
+          }
     }
 }
 ```
@@ -510,51 +511,51 @@ Defina una canalización que transforme los datos mediante la ejecución de un s
     "type": "datapipelines",
     "name": "[variables('pipelineName')]",
     "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]",
-        "[variables('hdInsightOnDemandLinkedServiceName')]",
-        "[variables('blobInputDatasetName')]",
-        "[variables('blobOutputDatasetName')]"
+          "[variables('dataFactoryName')]",
+          "[variables('azureStorageLinkedServiceName')]",
+          "[variables('hdInsightOnDemandLinkedServiceName')]",
+          "[variables('blobInputDatasetName')]",
+          "[variables('blobOutputDatasetName')]"
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-        "description": "Pipeline that transforms data using Hive script.",
-        "activities": [
+          "description": "Pipeline that transforms data using Hive script.",
+          "activities": [
         {
-            "type": "HDInsightHive",
-            "typeProperties": {
+              "type": "HDInsightHive",
+              "typeProperties": {
                 "scriptPath": "[concat(parameters('blobContainer'), '/', parameters('hiveScriptFolder'), '/', parameters('hiveScriptFile'))]",
                 "scriptLinkedService": "[variables('azureStorageLinkedServiceName')]",
                 "defines": {
-                    "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
-                    "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
+                      "inputtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('inputBlobFolder'))]",
+                      "partitionedtable": "[concat('wasb://', parameters('blobContainer'), '@', parameters('storageAccountName'), '.blob.core.windows.net/', parameters('outputBlobFolder'))]"
                 }
-            },
-            "inputs": [
+              },
+              "inputs": [
             {
-                "name": "[variables('blobInputDatasetName')]"
+                  "name": "[variables('blobInputDatasetName')]"
             }
-            ],
-            "outputs": [
+              ],
+              "outputs": [
             {
-                "name": "[variables('blobOutputDatasetName')]"
+                  "name": "[variables('blobOutputDatasetName')]"
             }
-            ],
-            "policy": {
+              ],
+              "policy": {
                 "concurrency": 1,
                 "retry": 3
-            },
-            "scheduler": {
+              },
+              "scheduler": {
                 "frequency": "Month",
                 "interval": 1
-            },
-            "name": "RunSampleHiveActivity",
-            "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
+              },
+              "name": "RunSampleHiveActivity",
+              "linkedServiceName": "[variables('hdInsightOnDemandLinkedServiceName')]"
         }
-        ],
-        "start": "2016-10-01T00:00:00Z",
-        "end": "2016-10-02T00:00:00Z",
-        "isPaused": false
+          ],
+          "start": "2016-10-01T00:00:00Z",
+          "end": "2016-10-02T00:00:00Z",
+          "isPaused": false
     }
 }
 ```
@@ -619,10 +620,5 @@ Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una 
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

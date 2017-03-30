@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
-ms.openlocfilehash: ab027e1f21e8c2c33829f833395a6872cb7bcdd8
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: ce37bb41babb7bf894c23add994bf2c144ee6549
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -75,6 +75,9 @@ Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de tra
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>¿Puedo crear una solución preconfigurada si tengo Microsoft Azure para DreamSpark?
 En este momento, no se puede crear una solución preconfigurada con una cuenta de [Microsoft Azure para DreamSpark][lnk-dreamspark]. Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure][lnk-30daytrial] en un par de minutos, lo que le permite crear una solución preconfigurada.
+
+### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>¿Puedo crear una solución preconfigurada si tengo alguna suscripción del Proveedor de soluciones en la nube (CSP)?
+En este momento, no se puede crear una solución preconfigurada con una suscripción del Proveedor de soluciones en la nube (CSP). Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure][lnk-30daytrial] en un par de minutos, lo que le permite crear una solución preconfigurada.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>¿Cómo se eliminan inquilinos de AAD?
 Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Tutorial para la eliminación de inquilinos de Azure AD).

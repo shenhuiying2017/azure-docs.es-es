@@ -27,7 +27,7 @@ Azure App Service proporciona un entorno escalable, seguro y fácil de usar para
 ## <a name="architecture-and-planning"></a>Arquitectura y planeación
 Una instalación básica de WordPress solamente tiene dos requisitos:
 
-* **Base de datos MySQL**: este requisito está disponible a través de [ClearDB en Azure Marketplace][cdbnstore]. Como alternativa, puede administrar su propia instalación de MySQL en Azure Virtual Machines usando [Windows] [ mysqlwindows] o [Linux][mysqllinux].
+* **Base de datos MySQL**: este requisito está disponible a través de [ClearDB en Azure Marketplace][cdbnstore]. Como alternativa, puede administrar su propia instalación de MySQL en Azure Virtual Machines usando [Windows] [mysqlwindows] o [Linux][mysqllinux].
 
   > [!NOTE]
   > ClearDB proporciona varias configuraciones de MySQL. Cada configuración tiene diferentes características de rendimiento. Consulte [Azure Store][cdbnstore] para más información sobre las ofertas proporcionadas a través de dicha tienda o directamente en el [sitio web de ClearDB](http://www.cleardb.com/pricing.view).

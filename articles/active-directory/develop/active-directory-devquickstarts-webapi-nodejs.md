@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 682f6d0919df20cd3643abf04e1d5192be116399
-ms.openlocfilehash: f20c2c2c37692d439ca8e023cf9d5a48cd42c973
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 707bb2b7cd9796e0e05234aa08002bbc1820f871
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -70,11 +70,11 @@ Para crear una aplicación:
 
       * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación.  La dirección URL predeterminada del código de ejemplo es `https://localhost:8080`.
 
-      * El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, por ejemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-
 6. Después de registrarse, Azure AD asigna a su aplicación un identificador de aplicación individual. Este valor se necesita en las siguientes secciones, así que cópielo de la página de aplicación.
 
-7. Cree un **clave** para la aplicación desde la página **Configuración** y cópiela en otro lugar. La necesitará en breve.
+7. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, por ejemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+
+8. Cree un **clave** para la aplicación desde la página **Configuración** y cópiela en otro lugar. La necesitará en breve.
 
 ## <a name="step-3-download-nodejs-for-your-platform"></a>Paso 3: Descarga de Node.js para la plataforma
 Para usar correctamente este ejemplo, debe disponer de una instalación en funcionamiento de Node.js.

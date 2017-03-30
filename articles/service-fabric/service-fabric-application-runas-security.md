@@ -17,6 +17,7 @@ ms.author: mfussell
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -172,7 +173,7 @@ En el archivo de PowerShell, agregue el siguiente procedimiento para establecer 
 ## <a name="use-console-redirection-for-local-debugging"></a>Uso de la redirección de la consola para la depuración local
 En ocasiones, resulta útil ver el resultado de la consola tras ejecutar un script con fines de depuración. Para ello, puede establecer una directiva de redirección de la consola que escriba la salida en un archivo. La salida del archivo se escribe en la carpeta de aplicación denominada **log** en el nodo donde se ha implementado y ejecutado la aplicación. (Vea dónde encontrar esto en el ejemplo anterior).
 
-> [!NOTE]
+> [!WARNING]
 > No use nunca la directiva de redirección de la consola en una aplicación implementada en producción, ya que esto puede afectar a la capacidad de conmutación por error de la aplicación. *Solo* debe usarla con fines de depuración y desarrollo local.  
 > 
 > 
@@ -379,9 +380,4 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores:
 * [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

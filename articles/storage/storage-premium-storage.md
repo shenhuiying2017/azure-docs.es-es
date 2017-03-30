@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 26e78f559fa9a82183a26034580148e39331a214
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -59,7 +59,7 @@ Cualquier otro objeto colocado en una cuenta de Premium Storage será un blob en
 
 **Cuenta de Premium Storage**: para empezar a usar Premium Storage, cree una cuenta de Premium Storage para discos no administrados. Si prefiere usar [Azure Portal](https://portal.azure.com), puede crear una cuenta de Premium Storage mediante la especificación del nivel de rendimiento "Premium" y de "Almacenamiento con redundancia local (LRS)" como opción de replicación. También puede crear una cuenta de Premium Storage si especifica "Premium_LRS" como tipo con la versión 2014-02-14, o posterior, de la [API de REST de Storage](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference); la versión 2014-10-01, o posterior, (implementaciones de la versión clásica) de la [API de REST de Service Management](http://msdn.microsoft.com/library/azure/ee460799.aspx); la [Referencia de la API de REST del proveedor de recursos de Azure Storage](/rest/api/storagerp) (implementaciones de Resource Manager) y la versión 0.8.10, o posterior, de [Azure PowerShell](../powershell-install-configure.md). Obtenga información acerca de los límites de la cuenta de Almacenamiento premium en la siguiente sección, en [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#premium-storage-scalability-and-performance-targets.md).
 
-**Almacenamiento con redundancia local Premium**: una cuenta de Premium Storage solo admite el almacenamiento con redundancia local (LRS) como opción de replicación, lo que significa que mantiene tres copias de los datos en una única región. Para consideraciones relativas a la replicación geográfica cuando se usa el Almacenamiento premium, consulte la sección [Instantáneas y Copy Blob](#snapshots-and-copy-blob) de este artículo.
+**Almacenamiento con redundancia local Premium**: una cuenta de Premium Storage solo admite el almacenamiento con redundancia local (LRS) como opción de replicación, lo que significa que mantiene tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de copia de seguridad. 
 
 Azure usa la cuenta de almacenamiento como contenedor para los discos no administrados. Cuando crea una máquina virtual de Azure de las series DS, DSv2, GS o Fs con discos no administrados y selecciona una cuenta de Premium Storage, tanto el disco del sistema operativo como el de datos se almacenan en dicha cuenta de almacenamiento.
 
@@ -256,14 +256,14 @@ Al usar Almacenamiento premium, se aplican las siguientes consideraciones de fac
 Para información detallada acerca de los precios de Premium Storage, de las máquinas virtuales compatibles con Premium Storage y de Managed Disks, consulte los siguientes artículos:
 
 * [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
-* [Precios de Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup 
 
-Se pueden realizar copias de seguridad de máquinas virtuales con discos no administrados mediante Azure Backup. [Más detalles](../backup/backup-azure-vms-first-look-arm.md).
+Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de copia de seguridad.
 
-El servicio Azure Backup también se puede usar con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. En [Uso de máquinas virtuales de disco administrado con Azure Backup](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) puede encontrar más información al respecto. 
+Use el servicio Azure Backup con discos administrados y sin administrar para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Obtenga más información sobre esto en los artículos relacionados con el [uso de máquinas virtuales de disco administrado con Azure Backup](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) y el [uso de máquinas virtuales de disco no administrado con Azure Backup](../backup/backup-azure-vms-first-look-arm.md) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el Almacenamiento premium de Azure, consulte los siguientes artículos.
@@ -278,3 +278,4 @@ Para más información sobre el Almacenamiento premium de Azure, consulte los si
 ### <a name="blog-posts"></a>Entradas de blog
 * [Azure Premium Storage Generally Available (Disponibilidad general del Almacenamiento premium de Azure)](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud (Anuncio de la serie GS: Incorporación de compatibilidad con el Almacenamiento premium a las mayores máquinas virtuales en la nube pública)](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+

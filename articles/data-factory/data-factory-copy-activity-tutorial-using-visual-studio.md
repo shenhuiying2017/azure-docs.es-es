@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
-ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -97,7 +97,7 @@ En este paso, crea dos servicios vinculados: **AzureStorageLinkedService1** y **
 4. Guarde el archivo **AzureSqlLinkedService1.json** . 
 
 > [!NOTE]
-> Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Azure SQL Database mediante Azure Data Factory](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Azure SQL Database mediante Azure Data Factory](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -169,7 +169,7 @@ En este paso, se crea un conjunto de datos denominado **InputDataset** que apunt
     ```
             
 > [!NOTE]
-> Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Blob de Azure mediante Azure Data Factory](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) .
+> Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Blob de Azure mediante Azure Data Factory](data-factory-azure-blob-connector.md#dataset-properties) .
 > 
 > 
 
@@ -216,7 +216,7 @@ En este paso se crea un conjunto de datos de salida denominado **OutputDataset**
    * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
 > [!NOTE]
-> Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Azure SQL Database mediante Azure Data Factory](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Azure SQL Database mediante Azure Data Factory](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 

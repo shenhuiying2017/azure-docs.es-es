@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: bf1b8783ccbc3b3e3185eb10c7f772b58352aab7
-ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Azure Portal se puede usar para registrar una aplicación en un inquilino de Azu
 
 ## <a name="update-application-settings-from-the-azure-portal"></a>Actualización de la configuración de la aplicación desde Azure Portal
 
-Mediante Azure Portal se puede modificar fácilmente una configuración de la aplicación existente. Por ejemplo, puede que desee configurar una dirección URL de respuesta, que es donde Azure AD emite las respuestas a los tokens. También puede configurar permisos para otras aplicaciones, por ejemplo para permitir que una aplicación acceda a la API de MS Graph. Todo esto se puede hacer desde la página de configuración de la aplicación.
+Mediante Azure Portal se puede modificar fácilmente una configuración de la aplicación existente. Por ejemplo, puede que desee configurar una dirección URL de respuesta, que es donde Azure AD emite las respuestas a los tokens. También puede configurar permisos para otras aplicaciones, por ejemplo, para permitir que una aplicación acceda a la API de Microsoft Graph. Todo esto se puede hacer desde la página de configuración de la aplicación.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
@@ -44,7 +45,7 @@ Mediante Azure Portal se puede modificar fácilmente una configuración de la ap
   * La página **Propiedades** permite modificar la información general de la aplicación. Aquí se incluyen el nombre de la aplicación, la dirección URL de inicio de sesión y la dirección URL de cierre de sesión.
   * La página **Direcciones URL de respuesta** le permite agregar una dirección URL de respuesta, que es el lugar al que Azure AD envía las respuestas de los tokens.
   * La página **Propietarios** permite agregar los propietarios de las aplicaciones.
-  * La página **Permisos** permite configurar los permisos de la aplicación. Por ejemplo, para tener acceso a la API de MS Graph, haga clic en **Agregar**, seleccione **Microsoft Graph** en el selector de API y, después, elija el permiso requerido, por ejemplo **Leer datos de directorio**.
+  * La página **Permisos** permite configurar los permisos de la aplicación. Por ejemplo, para tener acceso a la API de Microsoft Graph, haga clic en **Agregar**, seleccione **Microsoft Graph** en el selector de API y, después, elija el permiso requerido, por ejemplo, **Leer datos de directorio**.
   * La página **Claves** permite agregar secretos de aplicaciones. El secreto solo se mostrará una vez inmediatamente después de su creación, por lo que debe asegurarse de copiarlo si desea usarlo más adelante.
 
 ## <a name="use-the-inline-manifest-editor"></a>Utilice el editor de manifiestos en línea
@@ -61,9 +62,4 @@ El editor de manifiestos en línea se puede usar para modificar determinadas pro
 
 1. Consulte las [guías de inicio rápido](active-directory-developers-guide.md) para ver tutoriales detallados de las aplicaciones que realizan la autenticación mediante Azure AD.
 2. Consulte la lista completa de ejemplos de código en [Github](https://github.com/azure-samples).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

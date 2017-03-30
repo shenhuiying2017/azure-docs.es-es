@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: e2e1c68b83e9b9ec5a3865e89a98b80cf59cdfad
-ms.openlocfilehash: 038b862a355310d264dacb4c619fb6558a0edffc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -54,9 +54,10 @@ Para proteger su aplicación, primero debe crear una aplicación en el inquilino
 5. Siga las indicaciones y cree una nueva **aplicación web y/o API web**.
   * **Nombre** describe la aplicación a los usuarios. Escriba **Servicio de lista de tareas pendientes**.
   * El **Uri de redirección** es una combinación de esquema y cadena que usa Azure AD para devolver los tokens solicitados por la aplicación. Escriba `https://localhost:44321/` para este valor.
-  * Para **AppID URI**, especifique un identificador específico del inquilino. Por ejemplo, escriba: `https://contoso.onmicrosoft.com/TodoListService`.
-  
-6. Guarde la configuración. Deje abierto el portal, ya que también deberá registrar su aplicación cliente en breve.
+
+6. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. Especifique un identificador específico del inquilino. Por ejemplo, escriba: `https://contoso.onmicrosoft.com/TodoListService`.
+
+7. Guarde la configuración. Deje abierto el portal, ya que también deberá registrar su aplicación cliente en breve.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Paso 2: Configuración de la aplicación para que use la canalización de autenticación OWIN
 Para validar solicitudes y tokens entrantes, debe configurar la aplicación para que se comunique con Azure AD.

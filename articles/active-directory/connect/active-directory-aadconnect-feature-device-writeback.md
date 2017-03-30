@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
 ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -45,7 +46,7 @@ Lleve a cabo los siguientes pasos para prepararse para usar la reescritura de di
 1. Desde el equipo donde está instalado Azure AD Connect, inicie PowerShell en modo elevado.
 2. Si el módulo de Active Directory PowerShell NO está instalado, instálelo mediante el siguiente comando:
    
-   `Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
+   `Add-WindowsFeature RSAT-AD-PowerShell`
 3. Si NO está instalado el módulo de Azure Active Directory PowerShell, descárguelo e instálelo desde el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente tiene una dependencia en el Ayudante para el inicio de sesión, que se instala con Azure AD Connect.
 4. Con credenciales de administrador de organización, ejecute los comandos siguientes y luego salga de PowerShell.
    
@@ -138,10 +139,5 @@ Compruebe la configuración en Active Directory:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

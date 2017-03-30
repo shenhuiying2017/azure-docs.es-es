@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 995f185f99c80809a5c4c2925b8d594b1d5568ff
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -97,6 +97,13 @@ Azure AD tiene un conjunto fijo de requisitos de bloqueo de cuentas, seguridad d
 ### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Las aplicaciones desean diferenciar su experiencia entre un usuario inquilino y un usuario invitado. ¿Hay instrucciones estándar para esto? ¿La presencia de la notificación del proveedor de identidades es el modelo adecuado para esto?
  
 Un usuario invitado puede usar cualquier proveedor de identidades para autenticarse, tal como se analiza en [Propiedades de un usuario de colaboración B2B](active-directory-b2b-user-properties.md). Por lo tanto, la propiedad adecuada para determinar esto es UserType. La notificación UserType no se incluye actualmente en el token. Las aplicaciones deben usar API Graph para consultar el usuario en el directorio y obtener su UserType.
+
+### <a name="where-can-find-a-b2b-collaboration-community-to-share-solutions-and-submit-ideas"></a>¿Dónde puede encontrar una comunidad de colaboración B2B para compartir soluciones y enviar ideas?
+
+Escuchamos constantemente sus comentarios sobre las formas de mejorar la colaboración B2B. Le invitamos a participar en el debate, compartir los escenarios de usuario, los procedimientos recomendados y lo que le gusta de la colaboración B2B de Azure AD en la [comunidad técnica de Microsoft](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)
+ 
+También a enviar sus ideas y vote por características futuras en el sitio web de [ideas de colaboración B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
+
 
 ### <a name="next-steps"></a>Pasos siguientes
 

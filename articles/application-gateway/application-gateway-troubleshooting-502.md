@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,6 +34,9 @@ Después de configurar una instancia de Puerta de enlace de aplicaciones de Azur
 * Las máquinas virtuales de back-end o instancias del conjunto de escalas de máquina virtual no responden a la sonda de estado predeterminada.
 * La configuración de las sondas de estado personalizadas no es válida o adecuada.
 * El tiempo de espera de solicitud se superó o hay problemas de conectividad con las solicitudes de usuario.
+
+> [!note]
+> Application Gateway conserva el encabezado de host entrante y envía el mismo encabezado al back-end. Si el back-end requiere un encabezado distinto, este procedimiento no funcionará. De forma similar si el back-end es de varios inquilinos y se ha habilitado SSL de extremo a extremo, el back-end esperaría nombre del servidor en la extensión SNI. Application Gateway no envía actualmente el encabezado SNI en las solicitudes de back-end en escenarios de SSL de extremo a extremo, que causaría problemas de rutas de acceso a los datos y de sondeo.
 
 ## <a name="empty-backendaddresspool"></a>Valor de BackendAddressPool vacío
 
@@ -150,10 +154,5 @@ El servicio Application Gateway permite a los usuarios configurar esta opción m
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si los pasos anteriores no resuelven el problema, abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

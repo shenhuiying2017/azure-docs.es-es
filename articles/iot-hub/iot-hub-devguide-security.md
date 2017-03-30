@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1345af54729f278229c98e596d0d213331c2faaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -293,7 +293,7 @@ Puede usar cualquier certificado X.509 para autenticar dispositivos con el Centr
 
 * **Un certificado X.509 existente**. Puede que un dispositivo ya tenga un certificado X.509 asociado. El dispositivo puede usar este certificado para autenticarse con el Centro de IoT.
 * **Un certificado X-509 autofirmado y generado automáticamente**. Un fabricante de dispositivos o implementador interno pueden generar estos certificados y almacenar la clave privada correspondiente (y el certificado) en el dispositivo. Puede usar herramientas como [OpenSSL][lnk-openssl] y la utilidad [Windows SelfSignedCertificate][lnk-selfsigned] para este propósito.
-* **Certificado X.509 firmado por una CA**. También puede utilizar un certificado X.509 generado y firmado por una entidad de certificación (CA) con el objetivo de identificar un dispositivo y autenticarlo con el Centro de IoT.
+* **Certificado X.509 firmado por una CA**. También puede utilizar un certificado X.509 generado y firmado por una entidad de certificación (CA) con el objetivo de identificar un dispositivo y autenticarlo con el Centro de IoT. IoT Hub solo comprueba que la huella digital presentada coincide con la configurada. IoT Hub no valida la cadena de certificados.
 
 Un dispositivo puede usar un token de seguridad o un certificado X.509 para realizar la autenticación, pero no ambos.
 

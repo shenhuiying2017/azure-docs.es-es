@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
-ms.openlocfilehash: b1af197b425b0f8951e011f24609b9bf4769f931
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1d84fa975d29386bc021d7446ecea1553ca6418d
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual con la CLI de Azure
 
-Este script crea una máquina virtual de Azure con un sistema operativo Windows Server 2016 y recursos de red relacionados. Una vez que el script se haya ejecutado correctamente, se puede tener acceso a la máquina virtual a través de RDP.
+Este script crea una máquina virtual de Azure donde se ejecuta Windows Server 2016. Después de ejecutar el script, puede acceder a la máquina virtual a través de una conexión al Escritorio remoto.
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `az login`. Además, debe cambiar la variable $AdminPassword al principio del script por una contraseña única para cumplir los requisitos de complejidad.
+Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en Windows, consulte [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
@@ -36,7 +36,7 @@ Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución d
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

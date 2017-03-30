@@ -11,45 +11,45 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: f2cd7f0882f31de5f4bb99f772c38a0fff28cd59
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución integral de problemas mediante los registros y las métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## <a name="overview"></a>Información general
 Poder diagnosticar y solucionar problemas es una habilidad clave a la hora de crear y mantener aplicaciones de cliente con el servicio Almacenamiento de Microsoft Azure. Las aplicaciones de Azure suelen ser de naturaleza dispersa, de modo que diagnosticar y solucionar errores y problemas de rendimiento puede resultar más complicado que hacerlo en entornos tradicionales.
 
-En este tutorial explicaremos cómo reconocer algunos errores que pueden afectar al rendimiento y cómo solucionarlos completamente usando herramientas proporcionadas por Microsoft y por el servicio Almacenamiento de Azure, todo ello para optimizar la aplicación cliente.
+En este tutorial explicamos cómo reconocer algunos errores que pueden afectar al rendimiento y cómo solucionarlos completamente usando herramientas proporcionadas por Microsoft y por el servicio Azure Storage, todo ello para optimizar la aplicación cliente.
 
 Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de almacenamiento de Azure, vea [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Herramientas para solucionar problemas de aplicaciones de Almacenamiento de Azure
 Para solucionar problemas en aplicaciones cliente que usan Almacenamiento de Microsoft Azure, puede usar una combinación de herramientas que permita saber cuándo se produjo un problema y cuál puede ser la causa. Estas herramientas son:
 
-* **Análisis de almacenamiento de Azure**. [Análisis de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/hh343270.aspx) proporciona las métricas y registros del servicio Almacenamiento de Azure.
+* **Análisis de almacenamiento de Azure**. [Análisis de almacenamiento de Azure](/rest/api/storageservices/fileservices/Storage-Analytics) proporciona las métricas y registros del servicio Almacenamiento de Azure.
   
-  * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343264.aspx) para más información sobre los tipos de métricas de las que hace un seguimiento el análisis de almacenamiento.
-  * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Almacenamiento de Azure. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros del análisis de almacenamiento.
+  * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas del análisis de almacenamiento](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento el análisis de almacenamiento.
+  * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Almacenamiento de Azure. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro del análisis de almacenamiento](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros del análisis de almacenamiento.
 
 > [!NOTE]
 > En este momento, las cuentas de almacenamiento con un tipo de replicación de almacenamiento con redundancia de zona (ZRS) no tienen habilitadas las métricas o la funcionalidad de registro. 
 > 
 > 
 
-* **Portal de Azure**. Puede configurar las métricas y el registro de su cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
+* **Azure Portal**. Puede configurar las métricas y el registro de su cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
   
-    Consulte [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en el Portal de Azure.
+    Consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en Azure Portal.
 * **AzCopy**. Los registros del servidor de Almacenamiento de Azure se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para obtener más información sobre AzCopy.
 * **Analizador de mensajes de Microsoft**. El analizador de mensajes es una herramienta que usa archivos de registro y que muestra los datos de registro en un formato visual para que sean más fáciles de filtrar, buscar y agrupar en conjuntos útiles; gracias a esto, podrá analizar errores y problemas de rendimiento. Vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para más información sobre el analizador de mensajes.
 
 ## <a name="about-the-sample-scenario"></a>Acerca del escenario de ejemplo
-Para este tutorial, analizaremos un escenario donde las métricas de Almacenamiento de Azure indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Almacenamiento de Azure. La métrica de tasa de éxito de bajo porcentaje (señalada como **PercentSuccess** en el [Portal de Azure](https://portal.azure.com) y en las tablas de métricas) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, analizaremos un escenario donde las métricas de Almacenamiento de Azure indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Almacenamiento de Azure. La métrica de tasa de éxito de bajo porcentaje (señalada como **PercentSuccess** en [Azure Portal](https://portal.azure.com) y en las tablas de métricas) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Como parte de su funcionalidad habitual, es posible que las operaciones de Almacenamiento de Azure devuelvan códigos de estado HTTP mayores que 299. Aun así, en algunos casos estos errores indicarán que es posible que pueda optimizar su aplicación cliente para mejorar el rendimiento.
 
@@ -88,16 +88,16 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 * El **registro de seguimiento de red HTTP**, que recopila datos sobre las solicitudes HTTP/HTTPS y datos de respuesta, incluidas las operaciones de Almacenamiento de Azure. En este tutorial, crearemos un seguimiento de red a través del analizador de mensajes.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar el registro y las métricas del lado servidor
-Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través del [Portal de Azure](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
+Primero, necesitaremos configurar el registro y las métricas de Almacenamiento de Azure para disponer de datos de la aplicación cliente que analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [Habilitación de las Métricas de almacenamiento y las Métricas de visualización](http://msdn.microsoft.com/library/azure/dn782843.aspx) y [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx) en MSDN para más información sobre la configuración del registro y las métricas
 
-**Mediante el Portal de Azure**
+**Mediante Azure Portal**
 
 Para configurar el registro y las métricas de la cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com), siga las instrucciones que encontrará en el apartado [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md).
 
 > [!NOTE]
-> No se pueden establecer métricas por minuto con el Portal de Azure. pero le recomendamos establecerlas en este tutorial para investigar cualquier problema de rendimiento que ocurra en su aplicación. Las métricas por minuto se pueden establecer con PowerShell (tal como se indica aquí) o mediante programación con la biblioteca de cliente de almacenamiento.
+> No se pueden establecer métricas por minuto con Azure Portal. pero le recomendamos establecerlas en este tutorial para investigar cualquier problema de rendimiento que ocurra en su aplicación. Las métricas por minuto se pueden establecer con PowerShell (tal como se indica aquí) o mediante programación con la biblioteca de cliente de almacenamiento.
 > 
-> Tenga en cuenta que el Portal de Azure no mostrará las métricas por minuto, solo las métricas por horas.
+> Tenga en cuenta que Azure Portal no mostrará las métricas por minuto, solo las métricas por horas.
 > 
 > 
 
@@ -171,15 +171,17 @@ En este tutorial, primero deberá recopilar y guardar un seguimiento de red en e
 
 Vea el tema sobre el [uso de las características de seguimiento de red](http://technet.microsoft.com/library/jj674819.aspx) en TechNet para más información.
 
-## <a name="review-metrics-data-in-the-azure-portal"></a>Revisar los datos de las métricas en el Portal de Azure
-Una vez que la aplicación haya estado en ejecución durante un rato, puede revisar los gráficos de las métricas que aparezcan en el [Portal de Azure](https://portal.azure.com) para ver el rendimiento de su servicio. En primer lugar, diríjase a su cuenta de almacenamiento del Portal de Azure y agregue un gráfico para la métrica **Porcentaje de éxito** .
+## <a name="review-metrics-data-in-the-azure-portal"></a>Revisar los datos de las métricas en Azure Portal
+Una vez que la aplicación haya estado en ejecución durante un rato, puede revisar los gráficos de las métricas que aparezcan en [Azure Portal](https://portal.azure.com) para ver el rendimiento de su servicio.
 
-En el Portal de Azure, verá el **Porcentaje de operaciones correctas** en el gráfico de supervisión, junto con otras métricas que pueda haber agregado. En el escenario que pasaremos a examinar mediante el análisis de los registros del analizador de mensajes, podrá ver que la tasa de porcentaje de éxito es ligeramente inferior al 100 %.
+Primero, vaya a la cuenta de almacenamiento en Azure Portal. De forma predeterminada, se muestra un diagrama de supervisión con la métrica **Porcentaje de operaciones correctas** en la hoja de la cuenta. Si ha modificado el gráfico para mostrar diferentes métricas, agregue la métrica **Porcentaje de operaciones correctas**.
 
-Para más información sobre cómo agregar métricas a la página de supervisión, consulte [Uso de métricas en la tabla de métricas](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
+Ahora verá el **Porcentaje de operaciones correctas** en el diagrama de supervisión, junto con otras métricas que pueda haber agregado. En el escenario que pasaremos a examinar mediante el análisis de los registros del analizador de mensajes, podrá ver que la tasa de porcentaje de éxito es ligeramente inferior al 100 %.
+
+Para obtener más información sobre cómo agregar y personalizar gráficos de métricas, vea [Personalización de gráficos de métricas](storage-monitor-storage-account.md#customize-metrics-charts).
 
 > [!NOTE]
-> Una vez habilitadas las métricas de almacenamiento, los datos de las métricas tardarán un rato en aparecer en el Portal de Azure. Hasta que no haya transcurrido la hora actual, las métricas de la hora anterior no se mostrarán en el Portal de Azure. Asimismo, recuerde que las métricas por minuto no se muestran en el Portal de Azure. así que es posible que tarde hasta dos horas en ver los datos de las métricas tras habilitarlas.
+> Una vez habilitadas las métricas de almacenamiento, los datos de las métricas tardarán un rato en aparecer en Azure Portal. Hasta que no haya transcurrido la hora actual, las métricas de la hora anterior no se mostrarán en Azure Portal. Asimismo, recuerde que las métricas por minuto no se muestran en Azure Portal. así que es posible que tarde hasta dos horas en ver los datos de las métricas tras habilitarlas.
 > 
 > 
 
@@ -305,7 +307,7 @@ Una vez aplicado este filtro, verá que las filas del registro de cliente se exc
 Las herramientas de almacenamiento incluyen filtros predefinidos que puede usar para acotar los datos de registro y, así, dar con los errores o tendencias que esté buscando. Ahora aplicaremos dos filtros predefinidos: uno que filtre los registros de servidor y de seguimiento de red para los errores 404 y otro que filtre los datos de un intervalo de tiempo específico.
 
 1. Abra la ventana de la herramienta de filtro de vista si aún no está abierta. En la cinta de opciones de la barra de herramientas, seleccione **Tool Windows** (Ventanas de herramientas) y, luego, **View Filter** (Filtro de vista).
-2. En la ventana de filtro de vista, seleccione **Library** (Biblioteca) y busque en `Azure Storage` para encontrar los filtros de Azure Storage. Seleccione el filtro **404 (Not Found) messages in all logs**(Mensajes&404; [no encontrado] en todos los registros).
+2. En la ventana de filtro de vista, seleccione **Library** (Biblioteca) y busque en `Azure Storage` para encontrar los filtros de Azure Storage. Seleccione el filtro **404 (Not Found) messages in all logs**(Mensajes 404 [no encontrado] en todos los registros).
 3. Vaya de nuevo al menú **Library** (Biblioteca) y localice y seleccione **Global Time Filter** (Filtro de tiempo global).
 4. Edite las marcas de tiempo que se muestran en el filtro del intervalo que quiera ver. Esto servirá para reducir el intervalo de datos que va a analizar.
 5. Su filtro debería ser similar al que aparece en el siguiente ejemplo. Haga clic en **Apply** (Aplicar) para aplicar el filtro a la cuadrícula de análisis.
@@ -369,11 +371,6 @@ Para más información sobre los escenarios de solución integral de problemas e
 
 * [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 * [Análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-* [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md)
+* [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
 * [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 * [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

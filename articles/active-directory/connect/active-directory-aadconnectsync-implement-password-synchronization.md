@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 03/21/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 64b6447608ecdd9bdd2b307f4bff2cae43a4b13f
-ms.openlocfilehash: cff066ff2943443749ee8eb2ef71c7ca93bb829c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 946f135e832667ad6e32743be2b07b4f86cd1cae
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -67,10 +67,29 @@ La característica de sincronización de contraseñas reintenta automáticamente
 La sincronización de una contraseña no influye en el usuario con la sesión iniciada actualmente.
 Si se sincroniza un cambio de contraseña mientras tiene iniciada sesión en un servicio en la nube, este cambio no afectará de inmediato a la sesión actual del servicio en la nube. Sin embargo, cuando el servicio en la nube requiera de nuevo su autenticación, deberá proporcionar la nueva contraseña.
 
+Hay que tener en cuenta que el usuario debe introducir sus credenciales corporativas una segunda vez para autenticarse en Azure AD, independientemente de si ha iniciado sesión en su red corporativa. Estos patrones puede reducirse, sin embargo, si el usuario activa la casilla "Mantener la sesión iniciada" en el inicio de sesión. Si se activa, establece una cookie de sesión que deriva la autenticación durante un breve período. El comportamiento de "Mantener la sesión iniciada" se puede habilitar o deshabilitar por el administrador de Azure Active Directory.
+
 > [!NOTE]
 > Solo se admite la sincronización de la contraseña para el usuario del tipo de objeto de Active Directory. No se admite para el tipo de objeto iNetOrgPerson.
->
->
+
+### <a name="detailed-description-of-how-password-synchronization-works"></a>Descripción detallada de cómo funciona la sincronización de contraseña
+A continuación se describe en profundidad cómo funciona la sincronización de contraseña entre Active Directory y Azure Active Directory.
+
+![Flujo detallado de contraseñas](./media/active-directory-aadconnectsync-implement-password-synchronization/arch3.png)
+
+
+1. Cada dos minutos, el agente de sincronización de contraseña en el servidor de AD Connect solicita hashes de contraseña almacenados (el atributo unicodePwd) desde un controlador de dominio a través protocolo de replicación [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) estándar que se utiliza para sincronizar datos entre controladores de dominio. La cuenta de servicio debe tener los permisos para replicar cambios de directorio y para replicar cambios de directorio en todos los AD (se conceden de manera predeterminada en la instalación) para obtener los hashes de contraseña.
+2. Antes del envío, el controlador de dominio cifra el hash de contraseña MD4 mediante una clave que es un hash de [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) de la clave de sesión RPC y valor sal. Después envía el resultado al agente de sincronización de contraseña a través de RPC. El controlador de dominio también pasa el valor sal al agente de sincronización mediante el protocolo de replicación del controlador de dominio, por lo que el agente podrá descifrar el sobre.
+3.    Cuando el agente de sincronización de contraseña tiene el sobre cifrado, usa [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) y el valor sal para generar una clave para descifrar los datos recibidos a su formato original de MD4. En ningún momento el agente de sincronización de contraseña tiene acceso a la contraseña de texto no cifrado. El uso del agente de sincronización de contraseña de MD5 es estrictamente para compatibilidad del protocolo de replicación con el controlador de dominio y solo se usa en local entre el controlador de dominio y el agente de sincronización de contraseña.
+4.    El agente de sincronización de contraseña amplía el hash de contraseña binario de 16 bits a 64 bytes al convertir en primer lugar el hash con una cadena hexadecimal de 32 bytes y, después, convertir esta cadena de nuevo en binario con codificación UTF-16.
+5.    El agente de sincronización de contraseña agrega un valor sal, que consta de un valor sal de longitud de 10 bytes, al archivo binario de 64 bits para proteger aún más el valor hash original.
+6.    El agente de sincronización de contraseña combina el hash MD4 con el valor sal y los introduce en la función [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt), con 1000 iteraciones del algoritmo hash [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) algoritmo hash con clave.
+Azure AD 
+7.    El agente de sincronización de contraseña toma el hash de 32 bits resultante, concatena el valor sal y el número de iteraciones de SHA256 con él (para su uso con Azure AD) y después transmite la cadena desde AD Connect a Azure AD a través de SSL.</br> 
+8.    Cuando un usuario intenta iniciar sesión en Azure AD y escribe su contraseña, esta se ejecuta a través del mismo proceso MD4 + sal + PBKDF2 + HMAC-SHA256. Si el hash resultante coincide con el valor hash almacenado en Azure AD, el usuario ha especificado la contraseña correcta y se autentica. 
+
+>[!Note] 
+>El hash MD4 original no se transmite a Azure AD; en su lugar, se transmite el hash SHA256 del hash MD4 original. Como resultado, si se obtiene el hash almacenado en Azure AD, no se puede usar en un ataque pass-the-hash en local.
 
 ### <a name="how-password-synchronization-works-with-azure-ad-domain-services"></a>Funcionamiento de la sincronización de contraseñas con Servicios de dominio de Azure AD
 También puede utilizar la característica de sincronización de contraseñas para sincronizar las contraseñas locales con los [Servicios de dominio de AD de Azure](../../active-directory-domain-services/active-directory-ds-overview.md). Este escenario permite a los Servicios de dominio de Azure AD autenticar a los usuarios en la nube con todos los métodos disponibles en la instancia de AD local. Esta experiencia es similar al uso de la Herramienta de migración Active Directory (ADMT) en un entorno local.
@@ -78,7 +97,11 @@ También puede utilizar la característica de sincronización de contraseñas pa
 ### <a name="security-considerations"></a>Consideraciones sobre la seguridad
 Al sincronizar contraseñas, la versión de texto sin formato de su contraseña no se expone a la característica de sincronización de contraseñas ni a Azure AD ni a ninguno de los servicios asociados.
 
-Además, la instancia de Active Directory local no requiere que se almacene la contraseña en un formato cifrado reversible. Se usa un resumen del hash de contraseña de Active Directory para la transmisión entre Azure Active Directory y AD local. El resumen del hash de contraseña no se puede usar para obtener acceso a recursos en su entorno local.
+La autenticación del usuario tiene lugar en Azure AD, en lugar de en la propia instancia de Active Directory de la organización. Si su organización se preocupa por los datos de la contraseña que salen de local de cualquier forma, tenga en cuenta el hecho de que los datos de la contraseña SHA256 almacenados en Azure AD (un hash del hash MD4 original) son mucho más seguros que el contenido almacenado en Active Directory. Además, como no se puede descifrar este hash SHA256, no se vuelve al entorno de Active Directory de la organización y se presenta como una contraseña de usuario válida en un ataque pass-the-hash.
+
+
+
+
 
 ### <a name="password-policy-considerations"></a>Consideraciones de la directiva de contraseña
 Existen dos tipos de directivas de contraseña que se ven afectados por la habilitación de la sincronización de contraseñas:
@@ -91,12 +114,13 @@ Cuando se habilita la sincronización de contraseñas, las directivas de complej
 
 > [!NOTE]
 > Las contraseñas para los usuarios que se crean directamente en la nube siguen estando sujetas a las directivas de contraseñas tal como se definen en la nube.
->
->
 
 **Password expiration policy**  
 Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*No caduca nunca*".
+
 Puede seguir iniciando sesión en servicios en la nube con una contraseña sincronizada que haya caducado en su entorno local. La contraseña en la nube se actualizará la próxima vez que cambie la contraseña en el entorno local.
+
+**Expiración de la cuenta**: si su organización usa el atributo accountExpires como parte de la administración de cuentas de usuario, tenga en cuenta que este atributo no está sincronizado con Azure AD. Como resultado, una cuenta de AD expirada en un entorno configurado para la sincronización de contraseña seguirá activa en Azure AD. Se recomienda que, si la cuenta ha expirado, una acción de flujo de trabajo debe desencadenar un script de PowerShell que deshabilite la cuenta de Azure AD del usuario. Por el contrario, cuando la cuenta está habilitada, debe habilitarse Azure AD.
 
 ### <a name="overwriting-synchronized-passwords"></a>Sobrescritura de las contraseñas sincronizadas
 Un administrador puede restablecer manualmente la contraseña utilizando Windows PowerShell.
@@ -104,6 +128,24 @@ Un administrador puede restablecer manualmente la contraseña utilizando Windows
 En este caso, la nueva contraseña sobrescribe la contraseña sincronizada y todas las directivas de contraseñas definidas en la nube se aplican a la nueva contraseña.
 
 Si cambia la contraseña local de nuevo, la nueva contraseña se sincroniza con la nube y reemplaza a la contraseña actualizada manualmente.
+
+La sincronización de una contraseña no influye en el usuario con la sesión iniciada actualmente en Azure. Si se sincroniza un cambio de contraseña mientras tiene iniciada sesión en un servicio en la nube, este cambio no afectará de inmediato a la sesión actual del servicio en la nube. KMSI ampliará la duración de esta diferencia. Cuando el servicio en la nube requiera de nuevo su autenticación, deberá proporcionar la nueva contraseña.
+
+### <a name="additional-advantages"></a>Ventajas adicionales
+
+- Por lo general, la sincronización de contraseña es más fácil de implementar que un servicio de federación. No requiere ningún servidor adicional y elimina la dependencia en un servicio de federación de alta disponibilidad para autenticar a los usuarios. 
+- La sincronización de contraseña también puede habilitarse además de la federación, por lo que puede utilizarse como una acción de reserva si el servicio de federación produce una interrupción del servicio.
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="enabling-password-synchronization"></a>Habilitación de la sincronización de contraseñas
 La sincronización de contraseñas está habilitada de forma automática cuando se instala Azure AD Connect utilizando la **Configuración rápida**. Para conocer más detalles, consulte [Introducción a Azure AD Connect mediante la configuración rápida](active-directory-aadconnect-get-started-express.md).

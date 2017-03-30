@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d6e58625e7f90e6290268b55e488540436d3a4da
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 92e573d7f3ebfbe41c8012068a8262d6fc324da8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -158,7 +158,7 @@ Si no usa una solución de certificación de empresa, será preciso que cree un 
 
 #### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>Para exportar la clave pública para un certificado raíz autofirmado
 
-Para cargarse en Azure, las conexiones de punto a sitio requieren la clave pública (.cer). Los siguientes pasos le ayudan a exportar el archivo .cer de un certificado raíz autofirmado.
+Para cargarse en Azure, las conexiones de punto a sitio requieren la clave pública (.cer). Los pasos siguientes ayudan a exportar el archivo .cer para el certificado raíz autofirmado.
 
 1. Para obtener un archivo .cer del certificado, abra **certmgr.msc**. Busque el certificado raíz autofirmado; normalmente se encuentra en Certificados - Usuario actual\Personal\Certificados y haga clic en el botón derecho. Haga clic en **Todas las tareas** y, luego, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
@@ -182,7 +182,7 @@ Si genera un certificado de cliente desde un certificado raíz autofirmado media
 
 1. Para exportar un certificado de cliente, abra **certmgr.msc**. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y, luego, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación** , puede dejar seleccionados los valores predeterminados. A continuación, haga clic en **Siguiente**. 
+3. En la página **Formato de archivo de exportación**, deje seleccionados los valores predeterminados. Asegúrese de que **Incluir todos los certificados en la ruta de certificación si es posible** esté seleccionada. A continuación, haga clic en **Siguiente**.
 4. En la página **Seguridad** , debe proteger la clave privada. Si decide usar una contraseña, asegúrese de anotarla o de recordar la contraseña que estableció para este certificado. A continuación, haga clic en **Siguiente**.
 5. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
 6. Haga clic en **Finalizar** para exportar el certificado.

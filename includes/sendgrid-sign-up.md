@@ -14,7 +14,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 5. Escriba un **nombre** para identificar el servicio SendGrid en la configuración de Azure. Los nombres deben tener de 1 a 100 caracteres y contener únicamente caracteres alfanuméricos, guiones, puntos y caracteres de subrayado. El nombre debe ser único en la lista de elementos de la Tienda de Azure.
 6. Escriba y confirme la **contraseña**.
 7. Elija la **suscripción**.
-8. Cree un **grupo de recursos ** o use uno existente.
+8. Cree un **grupo de recursos** o use uno existente.
 9. En la sección **Plan de tarifa**, seleccione el plan de SendGrid en el que desea registrarse.
 
     ![sendgrid-pricing][sendgrid-pricing]
@@ -59,7 +59,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
     ![key][key]
 2. La contraseña es la que eligió en el momento de la configuración. Si desea hacer algún cambio, puede seleccionar **Cambiar contraseña** o **Restablecer contraseña**.
 
-Para administrar la configuración de las opciones de entrega de correo electrónico, haga clic en el botón **Administrar**. De esta forma, se le redirigirá al [panel de SendGrid][SendGrid dashboard]
+Para administrar la configuración de las opciones de entrega de correo electrónico, haga clic en el botón **Administrar**. De esta forma, se le redirigirá al panel de SendGrid.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Para administrar la configuración de las opciones de entrega de correo electró
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Para administrar la configuración de las opciones de entrega de correo electró
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-

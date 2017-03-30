@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 3d78af41bbe13bcec9336452110a857d114ad006
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,7 +119,7 @@ Los ámbitos de la directiva se evalúan en el orden siguiente.
 3. Ámbito de la API
 4. Ámbito de la operación
 
-Las instrucciones dentro de ellos se evalúan según la ubicación del elemento `base` , si existe.
+Las instrucciones dentro de ellos se evalúan según la ubicación del elemento `base` , si existe. Una directiva global no tiene una directiva principal y el uso del elemento `<base>` en ella no surte efecto.
 
 Por ejemplo, si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa directiva en concreto, se aplicarán ambas directivas. Administración de API tiene en cuenta el orden determinista de declaraciones de directiva combinadas mediante el elemento base. 
 
@@ -133,11 +133,9 @@ Por ejemplo, si tiene una directiva de nivel global y una directiva configurada 
 </policies>
 ```
 
-En la definición de directiva del ejemplo anterior, la instrucción `cross-domain` se ejecutaría antes de las directivas superiores que, a su vez, irían seguidas de la directiva `find-and-replace`.
+En la definición de directiva del ejemplo anterior, la instrucción `cross-domain` se ejecutaría antes de las directivas superiores que, a su vez, irían seguidas de la directiva `find-and-replace`. 
 
-Si la misma directiva aparece dos veces en la instrucción de directiva, se aplica la directiva más recientemente evaluada. Puede utilizar esto para reemplazar las directivas que se definen en un ámbito superior. Para ver las directivas en el ámbito actual en el editor de directivas, haga clic en **Recalcular la directiva en vigor del ámbito seleccionado**.
-
-Tenga en cuenta que una directiva global no tiene una directiva principal y el uso del elemento `<base>` en ella no surte efecto. 
+Para ver las directivas en el ámbito actual en el editor de directivas, haga clic en **Recalcular la directiva en vigor del ámbito seleccionado**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Visualice el siguiente vídeo acerca de expresiones de directivas.

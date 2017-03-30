@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: db34a785cfe32f5b871af115aa621e34bf7ac60b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 383929ee41e7d174b4534f988554ba28bb41b9bb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +39,7 @@ Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución d
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar los grupos de recursos, las máquinas virtuales y todos los recursos relacionados.
+Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
 az group delete -n az-cli-vhd

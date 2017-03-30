@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2de833df26de9a9e160dd0cfcc1589eb0ebb7d34
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5bded9c15ef6ec5464952d533c6681801f137749
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -51,6 +51,10 @@ ms.lasthandoff: 03/15/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11221122httpswwwnugetorgpackagesmicrosoftazuredocumentdb1122"></a><a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+* Corrección de un problema que, en ocasiones, provoca una excepción WebException: No se puede resolver el nombre remoto.
+* Se ha agregado compatibilidad para leer un documento escrito directamente mediante la adición de nuevas sobrecargas a la API ReadDocumentAsync.
 
 ### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
 * Se agregó compatibilidad con consultas de agregación para LINQ (COUNT, MIN, MAX, SUM y AVG).
@@ -212,6 +216,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |20 de marzo de 2017 |--- |
 | [1.12.1](#1.12.1) |14 de marzo de 2017 |--- |
 | [1.12.0](#1.12.0) |15 de febrero de 2017 |--- |
 | [1.11.4](#1.11.4) |06 de febrero de 2017 |--- |

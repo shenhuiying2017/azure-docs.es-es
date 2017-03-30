@@ -146,8 +146,8 @@ Docker en Microsoft Azure:
 
 * [Extensión de VM de Docker para Linux en Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Guía de usuario de la extensión de máquina virtual de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-* [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Uso de la extensión de la máquina virtual de Docker con Azure Portal](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Uso de la extensión de la máquina virtual de Docker con Azure Portal](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Uso de una máquina Docker en Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Uso de Docker con Swarm en Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Introducción a Docker y Compose en Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -193,8 +193,3 @@ Desproteja [Docker](https://www.docker.com) y [Contenedores de Windows](https://
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -26,11 +26,11 @@
 ## Conectar
 
 ### [Información general](sql-data-warehouse-connect-overview.md)
-### [Cadenas de conexión](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalación de Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Cadenas de conexión](sql-data-warehouse-connection-strings.md)
 
 ## Crear
 ### [Portal de Azure](sql-data-warehouse-get-started-provision.md)

@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
-Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante una puerta de enlace de VPN se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración. Este documento proporciona la lista de parámetros de IPsec/IKE para las puertas de enlace de VPN de Azure y una lista de los dispositivos VPN validados que se conectan a dichas puertas de enlace.
+Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante una puerta de enlace de VPN se requiere un dispositivo VPN. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee conexiones seguras entre su red local y la red virtual. Este artículo incluye la lista de parámetros de IPsec/IKE para las puertas de enlace de VPN de Azure, y una lista de los dispositivos VPN validados que se conectan a dichas puertas de enlace.
 
 
 > [!IMPORTANT]
@@ -47,30 +47,31 @@ Hemos validado un conjunto de dispositivos VPN estándar en colaboración con pr
 
 Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada. Para obtener soporte para los dispositivos VPN, póngase en contacto con el fabricante.
 
-| **Proveedor** | **Familia de dispositivos** | **Versión mínima de sistema operativo** | **PolicyBased** | **RouteBased** |
-| --- | --- | --- | --- | --- |
-| Allied Telesis |Enrutadores VPN de la serie AR |2.9.2 |Próximamente |No compatible |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall de la serie F |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Instrucciones de configuración](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Instrucciones de configuración](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall de la serie X |Barracuda Firewall 6.5 |[Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |No compatible |
-| Brocade |Vyatta 5400 vRouter |Virtual Router 6.6R3 GA |[Instrucciones de configuración](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |No compatible |
-| Punto de comprobación |Puerta de enlace de seguridad |R77.30 |[Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco |ASA |8.3 |[Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |No compatible |
-| Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Ejemplos de Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Ejemplos de Cisco*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix |NetScaler MPX, SDX, VPX |10.1 y superior |[Instrucciones de integración](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |No compatible |
-| Dell SonicWALL |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie E-Class NSA |SonicOS 5.8.x<br>[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)<br>[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
-| F5 |Serie BIG-IP |12.0 |[Instrucciones de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Instrucciones de configuración](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.4.2 |[Instrucciones de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Instrucciones de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
-| Internet Initiative Japan (IIJ) |Serie SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Instrucciones de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |No compatible |
-| Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
-| Juniper |Serie J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
-| Juniper |ISG |ScreenOS 6.3 |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
-| Juniper |SSG |ScreenOS 6.2 |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
-| Microsoft |Servicio de acceso remoto y enrutamiento |Windows Server 2012 |No compatible |[Ejemplos de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| Open Systems AG |Mission Control Security Gateway |N/D |[Guía de instalación](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Guía de instalación](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
+|**Proveedor**          |**Familia de dispositivos**     |**Versión mínima de sistema operativo** |**PolicyBased** |**RouteBased** |
+| ---                | ---                  | ---                   | ---            | ---           |
+| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |No compatible  |[Guía de configuración](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
+| Allied Telesis     |Enrutadores VPN de la serie AR |2.9.2                  |Próximamente     |No compatible  |
+| Barracuda Networks, Inc. |Barracuda NextGen Firewall de la serie F |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Guía de configuración](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Guía de configuración](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. |Barracuda NextGen Firewall de la serie X |Barracuda Firewall 6.5 |[Guía de configuración](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |No compatible |
+| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[Guía de configuración](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |No compatible |
+| Punto de comprobación |Puerta de enlace de seguridad |R77.30 |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guía de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Cisco              |ASA       |8.3 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |No compatible |
+| Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Ejemplos de configuración*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Citrix |NetScaler MPX, SDX, VPX |10.1 y superior |[Guía de configuración](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |No compatible |
+| Dell SonicWALL |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| F5 |Serie BIG-IP |12.0 |[Guía de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guía de configuración](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
+| Fortinet |FortiGate |FortiOS 5.4.2 |[Guía de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Guía de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
+| Internet Initiative Japan (IIJ) |Serie SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guía de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |No compatible |
+| Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper |Serie J |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper |ISG |ScreenOS 6.3 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper |SSG |ScreenOS 6.2 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
+| Microsoft |Servicio de acceso remoto y enrutamiento |Windows Server 2012 |No compatible |[Ejemplos de configuración](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Open Systems AG |Mission Control Security Gateway |N/D |[Guía de configuración](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Guía de configuración](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Próximamente) |No compatible |
-| Palo Alto Networks |Todos los dispositivos que ejecutan PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o posterior<br>RouteBased: 7.1.4 |[Instrucciones de configuración](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Instrucciones de configuración](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| WatchGuard |Todo |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Instrucciones de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Instrucciones de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| Palo Alto Networks |Todos los dispositivos que ejecutan PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o posterior<br>RouteBased: 7.1.4 |[Guía de configuración](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guía de configuración](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| WatchGuard |Todo |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) Los enrutadores de la serie ISR 7200 solo admiten VPN PolicyBased.
 
@@ -118,14 +119,14 @@ En las tablas siguientes:
 | Grupo Diffie-Hellman  |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
 | Método de autenticación |Clave previamente compartida     |Clave previamente compartida     |
 | Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| Vigencia de SA           |28.800 segundos     |10.800 segundos     |
+| Vigencia de SA           |28.800 segundos     |28.800 segundos     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parámetros de la fase 2 de IKE (modo rápido)
 | **Propiedad**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | Versión de IKE                   |IKEv1          |IKEv2                                        |
 | Algoritmos de cifrado y hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
-| Vigencia de SA (tiempo)            |3.600 segundos  |3.600 segundos                                |
+| Vigencia de SA (tiempo)            |3.600 segundos  |27 000 segundos                                |
 | Vigencia de SA (bytes)           |102.400.000 KB | -                                           |
 | Confidencialidad directa perfecta (PFS) |No             |[Ofertas de SA de QM del tipo routebased](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |No compatible  |Compatible                                    |

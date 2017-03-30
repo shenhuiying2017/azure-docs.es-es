@@ -21,6 +21,7 @@
 ## Compilación de una aplicación web
 ### [Aplicación web de .NET](documentdb-dotnet-application.md)
 ### [Aplicación web de .NET para API de MongoDB](documentdb-mongodb-application.md)
+### [Aplicación de Xamarin](documentdb-mobile-apps-with-xamarin.md)
 ### [Aplicación web de Node.js](documentdb-nodejs-application.md)
 ### [Aplicaciones web de Java](documentdb-java-application.md)
 ### [Aplicación web de Python Flask](documentdb-python-application.md)

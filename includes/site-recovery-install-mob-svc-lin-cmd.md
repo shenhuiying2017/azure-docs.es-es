@@ -1,9 +1,9 @@
-1. Copie el instalador en una carpeta local (es decir, /tmp) en el servidor que desea proteger y ejecute los siguientes comandos desde una ventana de terminal.
+1. Copie el instalador en una carpeta local (por ejemplo, /tmp) del servidor que desea proteger. En un terminal, ejecute los siguientes comandos:
   ```
   cd /tmp
   tar -xvzf Microsoft-ASR_UA*release.tar.gz
   ```
-2. Ahora se puede instalar Mobility Service mediante la siguiente línea de comandos
+2. Para instalar Mobility Service, ejecute el siguiente comando:
 
   ```
   sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
@@ -13,23 +13,18 @@
 
 |Parámetro|Tipo|Descripción|Valores posibles|
 |-|-|-|-|
-|-t |Obligatorio|Tipo de agente<br>(Dejará de utilizarse en la próxima versión)|*ambos*|
-|-a |Obligatorio|Configuración de agente<br>(Dejará de utilizarse en la próxima versión) |*host*|
+|-t |Obligatorio|Tipo de agente<br>(en desuso en una próxima versión)|*ambos*|
+|-a |Obligatorio|Configuración de agente<br>(en desuso en una próxima versión) |*host*|
 |-R |Opcional|Rol del agente|Agente<br>MasterTarget|
-|-d |Opcional|Ubicación donde se instalará Mobility Service|/usr/local/ASR|
-|-i |Obligatorio|Dirección IP del servidor de configuración.|Cualquier dirección IP válida|
+|-d |Opcional|Ubicación en que se instalará Mobility Service|/usr/local/ASR|
+|-i |Obligatorio|Dirección IP del servidor de configuración|Cualquier dirección IP válida|
 |-p |Obligatorio|Puerto en el que el servidor de configuración escucha las conexiones entrantes|443|
-|-s |Obligatorio|Inicio del servicio después de una instalación correcta<br>(Dejará de utilizarse en la próxima versión)|*y*|
-|-c |Obligatorio|Modo de comunicación entre el agente y el servidor de procesos<br>(Dejará de utilizarse en la próxima versión) |*https*|
+|-s |Obligatorio|Inicia el servicio después de una instalación correcta<br>(en desuso en una próxima versión)|*y*|
+|-c |Obligatorio|Modo de comunicación entre el agente y el servidor de procesos<br>(en desuso en una próxima versión) |*https*|
 |-P |Obligatorio|Frase de contraseña del servidor de configuración|Cualquier ruta de acceso local o UNC válida|
 
 
-#### <a name="sample-usage"></a>Ejemplo de uso
+#### <a name="example"></a>Ejemplo
 ```
 sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase
 ```
-
-
-<!--HONumber=Jan17_HO3-->
-
-

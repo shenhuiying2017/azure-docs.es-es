@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -96,7 +96,7 @@ En el siguiente diagrama, se ilustra esta configuración:
 
 En este escenario, cada máquina virtual del grupo back-end tiene tres interfaces de red:
 
-* DIP: una NIC virtual asociada a la máquina virtual (recurso NIC de Azure)
+* DIP: una NIC virtual asociada a la máquina virtual (configuración IP del recurso NIC de Azure)
 * VIP1: una interfaz de bucle invertido en el SO invitado que se configura con la dirección IP de VIP1
 * VIP2: una interfaz de bucle invertido en el SO invitado que se configura con la dirección IP de VIP2
 

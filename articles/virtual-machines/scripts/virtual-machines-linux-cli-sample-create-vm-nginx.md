@@ -16,23 +16,21 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 07d91dfa905d22334bd051f9d5f3d936d38efc88
-ms.openlocfilehash: 94e2593271bd7828aab4dcefc0d0df47086e47ad
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f460662b17e421c0bb07c70f466a7425e5480bf9
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-vm-with-nginx"></a>Creación de una máquina virtual con NGINX
 
-Este script crea una máquina virtual de Azure y, a continuación, usa la extensión de scripts personalizados para máquinas virtuales de Azure para instalar NGINX. Una vez ejecutado el script, el sitio web de demostración es accesible en la dirección IP pública de la máquina virtual.
+Este script crea una máquina virtual de Azure y, a continuación, usa la extensión de scripts personalizados para máquinas virtuales de Azure para instalar NGINX. Una vez ejecutado el script, puedo acceder al sitio web de demostración en la dirección IP pública de la máquina virtual.
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `az login`.
+Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 
 ## <a name="sample-script"></a>Script de ejemplo
-
-El script siguiente crea la máquina virtual y llama a la extensión de scripts personalizados.
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Creación rápida de una máquina virtual")]
 
@@ -42,6 +40,8 @@ La extensión de scripts personalizados copia este script en la máquina virtual
 
 ```bash
 #!/bin/bash
+
+# update package source
 apt-get -y update
 
 # install NGINX
@@ -50,7 +50,7 @@ apt-get -y install nginx
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

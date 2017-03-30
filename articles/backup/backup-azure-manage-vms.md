@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: d64ca980b82e279e446d2ea279124ae3f54b0f49
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -95,7 +96,7 @@ En el procedimiento anterior, abrió el panel del almacén. Para abrir el panel 
    * detener la protección de máquinas virtuales <br\>
    * reanudar la protección de una máquina virtual <br\>
    * eliminar los datos de una copia de seguridad (o un punto de recuperación) <br\>
-   * [restaurar una copia de seguridad (o un punto de recuperación)](backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br\>
+   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
 Para los procedimientos siguientes, el punto de partida es el panel del elemento del almacén.
 
@@ -220,9 +221,4 @@ Para eliminar datos de copia de seguridad en una máquina virtual con la *copia 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Para más información sobre la supervisión de eventos, consulte [Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure](backup-azure-monitor-vms.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

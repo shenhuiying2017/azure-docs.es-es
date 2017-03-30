@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
 ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -118,10 +119,5 @@ Aquí vamos a usar una combinación **LEFT OUTER** en el mismo flujo de datos (a
 
 ## <a name="conclusion"></a>Conclusión
 El objetivo de este tutorial es mostrar cómo escribir diferentes consultas en el lenguaje de consulta de Stream Analytics y ver los resultados en el explorador. Sin embargo, se trata solo de una introducción. Es mucho más lo que puede hacer con Stream Analytics. Stream Analytics admite una gran variedad de entradas y salidas, e incluso puede usar las funciones de Azure Machine Learning, lo que hace que sea una herramienta sólida para el análisis de flujos de datos. Puede empezar a explorar más sobre Stream Analytics mediante nuestro [mapa de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Para más información acerca de cómo escribir consultas, lea el artículo sobre [patrones comunes de consulta](stream-analytics-stream-analytics-query-patterns.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 609f2a06b1091a61cd95c54ea9f62888e11f16c1
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -82,8 +83,8 @@ En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicad
 En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se recomienda almacenar TempDB en un disco que admita Premium Storage y que tenga habilitado el almacenamiento en caché de lectura. Esta recomendación tiene una excepción: si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si almacena esta base de datos en la unidad **D** local, que en estos tamaños de equipos también está ubicada en un disco SSD.
 
 ### <a name="data-disks"></a>Discos de datos
-* **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB.
-* **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS disponibles para los discos de datos y de registro. Para ver esta información, vea las tablas de E/S por segundo por [tamaño de máquina virtual](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y tamaño del disco en el artículo sobre el [uso de Premium Storage para discos](../../../storage/storage-premium-storage.md). Use estas directrices:
+* **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de almacenamiento Premium proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Almacenamiento Premium para discos](../../../storage/storage-premium-storage.md). 
+* **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Observe que diferentes tamaños de máquinas virtuales tienen distintos límites en el número de IOPS y ancho de banda admitidos. Vea las tablas de IOPS por [tamaño de máquina virtual](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use estas directrices:
 
   * Para Windows 8/Windows Server 2012 o versiones posteriores, use [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx). Configure el tamaño de franja en 64 KB para cargas de trabajo de OLTP y 256 KB para cargas de trabajo de almacenamiento de datos para evitar el impacto del rendimiento debido a la falta de alineación de particiones. Además, establezca el número de columnas = número de discos físicos. Para configurar un espacio de almacenamiento con más de 8 discos, debe usar PowerShell (no la interfaz de usuario del Administrador del servidor) para establecer explícitamente el número de columnas para que coincida con el número de discos. Para más información sobre cómo configurar [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx), vea [Storage Spaces Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx) (Cmdlets de espacios de almacenamiento en Windows PowerShell).
   * Para Windows 2008 R2 o versiones anteriores, puede usar discos dinámicos (volúmenes seccionados del SO) y el tamaño de la franja siempre es 64 KB. Tenga en cuenta que esta opción es obsoleta a partir de Windows 8/Windows Server 2012. Para obtener información, vea la declaración de soporte técnico en [Servicio de disco virtual está realizando la transición a la API de administración de almacenamiento de Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
@@ -134,9 +135,4 @@ Si está interesado en explorar SQL Server y Premium Storage en mayor profundida
 Para ver prácticas recomendadas de seguridad, vea [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
 Revise otros temas de la máquina virtual de SQL Server en [Información general de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

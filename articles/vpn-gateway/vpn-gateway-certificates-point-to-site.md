@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: cb66edd0c0ff1f0b78232233719dd44329584c78
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 20fb95341d6240b883e711cf771c33f6d8978cb9
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -49,7 +49,7 @@ Las conexiones de punto a sitio requieren la clave pública (.cer) para cargarse
 
 1. Para obtener un archivo .cer del certificado, abra **certmgr.msc**. Busque el certificado raíz autofirmado; normalmente se encuentra en Certificados - Usuario actual\Personal\Certificados y haga clic en el botón derecho. Haga clic en **Todas las tareas** y, luego, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base&64; (.CER)** y, luego, haga clic en **Siguiente**. 
+3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base 64 (.CER)** y, luego, haga clic en **Siguiente**. 
 4. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
 5. Haga clic en **Finalizar** para exportar el certificado. Verá **La exportación se realizó correctamente**. Haga clic en **Aceptar** para cerrar el asistente.
 
@@ -89,7 +89,7 @@ Si va a crear más certificados de cliente, o bien no está usando la misma sesi
 2. Busque el nombre del firmante de la lista devuelta y, luego, copie la huella digital que se encuentra junto a él en un archivo de texto. En el ejemplo siguiente, hay dos certificados. El nombre CN es el nombre del certificado raíz autofirmado a partir del que va a generar un certificado secundario. En este caso, "P2SRootCert".
 
         Thumbprint                                Subject
-        ----------                                -------
+
         AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
         7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
 
@@ -117,7 +117,7 @@ Al generar un certificado de cliente, se instala automáticamente en el equipo q
 
 1. Para exportar un certificado de cliente, abra **certmgr.msc**. De forma predeterminada, los certificados de cliente que ha generado se encuentran en "Certificates - Current User\Personal\Certificates". Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y, luego, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación** , puede dejar seleccionados los valores predeterminados. A continuación, haga clic en **Siguiente**. 
+3. En la página **Formato de archivo de exportación**, deje seleccionados los valores predeterminados. Asegúrese de que Incluir todos los certificados en la ruta de certificación si es posible esté seleccionada. A continuación, haga clic en **Siguiente**.
 4. En la página **Seguridad** , debe proteger la clave privada. Si decide usar una contraseña, asegúrese de anotarla o de recordar la contraseña que estableció para este certificado. A continuación, haga clic en **Siguiente**.
 5. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
 6. Haga clic en **Finalizar** para exportar el certificado.    

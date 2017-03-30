@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 582cb9dee06c6ec4b030ded866a0f92a575b93ed
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -417,18 +417,17 @@ En la tabla siguiente se proporciona una descripción de los elementos JSON espe
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureDataLakeStore** | Sí |
-| dataLakeStoreUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el formato siguiente: **https://[nombredecuenta].azuredatalakestore.net/webhdfs/v1** o **adl://[nombredecuenta].azuredatalakestore.net/**. | Sí |
+| dataLakeStoreUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el siguiente formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sí |
 | subscriptionId | Identificador de suscripción de Azure al que pertenece Data Lake Store. | Necesario para el receptor |
 | resourceGroupName | Nombre del grupo de recursos de Azure al que pertenece Data Lake Store. | Necesario para el receptor |
 
 ### <a name="using-service-principal-authentication-recommended"></a>Uso de la autenticación de entidad de servicio (se recomienda)
-Para usar la autenticación de entidad de servicio, en primer lugar, es preciso registrar una entidad de la aplicación en Azure Active Directory (AAD) y concederle acceso en Data Lake Store. Después, se pueden especificar las propiedades siguientes en Azure Data Factory con el identificador de aplicación correspondiente, información de clave e inquilino de aplicación para copiar datos desde Data Lake Store o a este. Consulte [Autenticación entre servicios con Data Lake Store mediante Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para averiguar cómo configurarlo y recuperar la información necesaria.
+Para usar la autenticación de entidad de servicio, registre una entidad de la aplicación en Azure Active Directory (AAD) y concédale acceso a Data Lake Store. Vea [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para obtener pasos detallados. Tome nota de los siguientes valores: **id. de aplicación**, **clave de aplicación** e **id. de inquilino**. Utilice esta información para la definición de servicio vinculado. 
 
 > [!IMPORTANT]
-> Cuando use el Asistente para copia con el fin de crear recursos, asegúrese de conceder a la entidad de servicio al menos el rol de lectura en Control de acceso (IAM) de la cuenta de ADLS con, al menos, el permiso de lectura y ejecución para la raíz ADLS ("/") y sus elementos secundarios, para poder navegar correctamente entre las carpetas. De lo contrario, puede que aparezca el error "Las credenciales proporcionadas no son válidas".
+> Si usa el Asistente para copia con el fin de crear canalizaciones de datos, asegúrese de conceder a la entidad de servicio al menos el rol de lectura en Control de acceso (IAM) para la cuenta de Data Lake Store y, al menos, el permiso de lectura y ejecución para la raíz de Data Lake Store ("/") y sus elementos secundarios. De lo contrario, puede que aparezca el error "Las credenciales proporcionadas no son válidas".
 >
-> Si ha creado o actualizado recientemente una entidad de servicio desde AAD, puede tardar unos minutos en entrar en vigor. Primero, compruebe la entidad de servicio y la configuración ACL de ADLS: si todavía ve el error que dice "Las credenciales proporcionadas no son válidas", espere unos instantes y vuelva a intentarlo.
->
+> Después de crear o actualizar una entidad de servicio en AAD, pueden transcurrir unos minutos hasta que los cambios entren en vigor. En primer lugar, compruebe la entidad de servicio y la configuración de ACL de Data Lake Store. Si aún aparece el error "Las credenciales proporcionadas no son válidas", espere unos instantes e inténtelo de nuevo.
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
@@ -455,7 +454,7 @@ Para usar la autenticación de entidad de servicio, en primer lugar, es preciso 
 ```
 
 ### <a name="using-user-credential-authentication"></a>Uso de la autenticación de credenciales de usuario
-Como alternativa, puede utilizar la autenticación de credenciales de usuario para realizar copias a Data Lake Store, o desde este, mediante la especificación de propiedades siguientes.
+También puede utilizar la autenticación de credenciales de usuario para realizar copias a Data Lake Store, o desde este, mediante la especificación de propiedades siguientes.
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
@@ -480,7 +479,11 @@ Como alternativa, puede utilizar la autenticación de credenciales de usuario pa
 ```
 
 #### <a name="token-expiration"></a>Expiración del token
-El código de autorización que genera al hacer clic en el botón **Autorizar** expira después de un tiempo. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21-09-31Z".
+El código de autorización que genera al hacer clic en el botón **Autorizar** expira después de un tiempo. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el mensaje de error siguiente cuando **expira el token** de autenticación:
+ 
+```
+"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+```
 
 | Tipo de usuario | Expira después de |
 |:--- |:--- |
@@ -530,7 +533,7 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos 
 | fileName |Nombre del archivo en el almacén de Azure Data Lake. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas. <br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el archivo específico.<br/><br/>Cuando no se especifica fileName, la copia incluirá todos los archivos de folderPath para el conjunto de datos de entrada.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo tendría este formato:Data<Guid>.txt (por ejemplo: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Uso de la propiedad partitionedBy](#using-partitionedby-property) para ver información detallada y ejemplos. |No |
 | formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat) y [Formato Parquet](#specifying-parquetformat). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**, y los niveles que se admiten son: **Optimal** (Óptimo) y **Fastest** (Más rápido). Para más información, consulte la sección [Especificación de la compresión](#specifying-compression). |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Los niveles admitidos son **Optimal** y **Fastest**. Para más información, consulte la sección [Especificación de la compresión](#specifying-compression). |No |
 
 ### <a name="using-partitionedby-property"></a>Uso de la propiedad partitionedBy
 Puede especificar un valor folderPath dinámico y un nombre de archivo para los datos de series temporales con la sección **partitionedBy** , macros de Data Factory y las variables del sistema SliceStart y SliceEnd, que indican las horas de inicio y de finalización de un segmento de datos especificado.
@@ -581,7 +584,7 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| copyBehavior |Especifica el comportamiento de copia. |**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/>**FlattenHierarchy:** todos los archivos de la carpeta de origen se crean en el primer nivel de la carpeta de destino. Los archivos de destino se crean con un nombre generado automáticamente.<br/><br/>**MergeFiles:** combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. |No |
+| copyBehavior |Especifica el comportamiento de copia. |<b>PreserveHierarchy:</b> conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/><b>FlattenHierarchy:</b> todos los archivos de la carpeta de origen se crean en el primer nivel de la carpeta de destino. Los archivos de destino se crean con un nombre generado automáticamente.<br/><br/><b>MergeFiles:</b> combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. |No |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -590,8 +593,5 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
-
-En función de si se ha planeado el movimiento de datos inicial con un gran volumen de datos históricos o una carga de datos de producción incremental, Data Factory de Azure tiene opciones para mejorar el rendimiento de esas tareas. El parámetro de simultaneidad es una parte de la **actividad de copia** y define el número de ventanas de actividad diferentes que se procesarán en paralelo. El parámetro **parallelCopies** define el paralelismo de la única ejecución de actividad. Es importante tener en cuenta estos parámetros al diseñar las canalizaciones de movimiento de datos con Data Factory de Azure para lograr el mejor rendimiento.
-
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
 

@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 03/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0d284e122704ba01676c4b0028e196fe47bca8
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Uso de Apache Kafka (versión preliminar) con Storm en HDInsight
@@ -127,7 +127,7 @@ En los pasos de este documento se muestra cómo usar estas variables de entorno.
 
 ## <a name="create-a-kafka-topic"></a>Creación de un tema de Kafka
 
-1. Conéctese al clúster de Kafka con SSH. Reemplace **USERNAME** por el nombre de usuario SSH que usó al crear el clúster. Reemplace **BASENAME** por el nombre base que se utilizó al crear el clúster.
+1. Conéctese al clúster de Kafka con SSH. Reemplace `USERNAME` por el nombre de usuario SSH que usó al crear el clúster. Reemplace `BASENAME` por el nombre base que se utilizó al crear el clúster.
    
         ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
    
@@ -139,36 +139,62 @@ En los pasos de este documento se muestra cómo usar estas variables de entorno.
 
     * [Uso de SSH (PuTTY) con HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Desde la conexión de SSH al clúster Kafka, use los comandos siguientes para obtener los nodos de Zookeeper de Ambari:
+2. Desde la conexión SSH al clúster de Kafka, use los comandos siguientes para establecer las variables del nombre del clúster y el inicio de sesión HTTP. Estos valores se usan en otros pasos de esta sección.
 
-        # Install JQ to make working with JSON easier
-        sudo apt -y install jq
-        # Query Ambari for 
-        KAFKAZKHOSTS=`curl -u admin:PASSWORD -G "http://headnodehost:8080/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
-    
-    Reemplace __PASSWORD__ por la contraseña de administrador que utilizó al crear el clúster. Reemplace __BASENAME__ por el nombre base que utilizó al crear el clúster.
+  ```bash
+  ADMIN='admin' #replace with the name of the admin account for the cluster
+  PASSWORD='password' #replace with the password for the admin account
+  ```
 
-    Este comando lee los valores de los hosts de Zookeeper desde Ambari y los almacena en la variable KAFKAZKHOSTS. Para ver estos valores, use lo siguiente:
+3. Use los siguientes comandos para instalar la utilidad `jq`, recuperar el nombre del clúster y establecer la variable `KAFKAZKHOSTS`:
 
-        echo $KAFKAZKHOSTS
-    
+  ```bash
+  sudo apt -y install jq
+  CLUSTERNAME=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name'`
+  KAFKAZKHOSTS=`curl -u $ADMIN:$PASSWORD -G "http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+  ```
+
+    Use el siguiente comando para recuperar el nombre del clúster:
+
+  ```bash
+  echo $CLUSTERNAME
+  ```
+
     La salida de este comando es similar al ejemplo siguiente:
 
-        zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
+  ```bash
+  kafka-myhdi
+  ```
 
-    Guarde los valores devueltos por este comando porque se usan al iniciar la topología en el clúster de Storm.
+    Use el siguiente comando para comprobar que se está ejecutando `KAFKAZKHOSTS`:
+
+  ```bash
+  echo $KAFKAZKHOSTS
+  ```
+
+    La salida de este comando es similar al ejemplo siguiente:
+
+  ```bash
+  zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181
+  ```
+
+    Guarde el nombre del clúster de Kafka y la información del host de Zookeeper, ya que estos valores se usan al iniciar la topología en el clúster de Storm.
 
     > [!NOTE]
-    > Los comandos anteriores usan __http://headnodehost:8080/__, que conecta a Ambari directamente. Si tiene que recuperar esta información desde fuera del clúster, a través de Internet, debe usar __https://kafka-BASENAME/__ en su lugar.
+    > Los comandos anteriores usan __http://headnodehost:8080/__, que conecta a Ambari directamente. Si tiene que recuperar esta información desde fuera del clúster, a través de Internet, debe usar __https://kafka-NOMBREBASE.azurehdinsight.net/__ en su lugar.
 
-3. Use el comando siguiente para crear un tema en Kafka:
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
-   
+4. Use el comando siguiente para crear un tema en Kafka:
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic stormtest --zookeeper $KAFKAZKHOSTS
+  ```
+
     Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`, y luego crea un tema de Kafka llamado **stormtest**. Para comprobar que el tema se creó, use el siguiente comando para enumerar los temas:
-   
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
-   
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
+  ```
+
     La salida de este comando muestra los temas de Kafka, que contienen el nuevo tema **stormtest**.
 
 Deje la conexión SSH al clúster Kafka activa, porque puede usarla para comprobar que la topología de Storm está escribiendo mensajes en el tema.
@@ -176,45 +202,55 @@ Deje la conexión SSH al clúster Kafka activa, porque puede usarla para comprob
 ## <a name="download-and-compile-the-project"></a>Descarga y compilación del proyecto
 
 1. En el entorno de desarrollo, descargue el proyecto de [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), abra una línea de comandos y cambie los directorios a la ubicación en la que descargó el proyecto.
-   
+
     Dedique unos momentos a examinar el código y entender cómo funciona el proyecto.
 
 2. Desde el directorio **hdinsight-storm-java-kafka**, use el siguiente comando para compilar el proyecto y crear un paquete de implementación:
-   
-        mvn clean package
-   
+
+  ```bash
+  mvn clean package
+  ```
+
     El proceso de empaquetado crea un archivo llamado `KafkaTopology-1.0-SNAPSHOT.jar` en el directorio `target`.
 
 3. Use los siguientes comandos para copiar el paquete en el clúster de Storm en HDInsight. Reemplace **USERNAME** por el nombre de usuario SSH para el clúster. Reemplace **BASENAME** por el nombre base que utilizó al crear el clúster.
-   
-        scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-   
+
+  ```bash
+  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+  ```
+
     Cuando se le solicite, escriba la contraseña que utilizó al crear los clústeres.
 
 4. Use el comando siguiente para copiar el archivo `set-env-variables.sh` desde el directorio `scripts` del proyecto al clúster de Storm:
 
-        scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
-    
+  ```bash
+  scp ./scripts/set-env-variables.sh USERNAME@storm-BASENAME-ssh.azurehdinsight.net:set-env-variables.sh
+  ```
+
     Este script se usa para establecer las variables de entorno que las topologías de Storm usan para comunicarse con el clúster de Kafka.
 
 ## <a name="start-the-writer"></a>Inicio del escritor
 
 1. Para conectarse al clúster de Storm mediante SSH, utilice lo siguiente. Reemplace **USERNAME** por el nombre de usuario SSH que usó al crear el clúster. Reemplace **BASENAME** por el nombre base que se utilizó al crear el clúster.
-   
-        ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
-   
+
+  ```bash
+  ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
+  ```
+
     Cuando se le solicite, escriba la contraseña que utilizó al crear los clústeres.
-   
+
     Para más información sobre el uso de SSH con HDInsight, consulte los documentos siguientes:
-   
+
     * [Uso de SSH con HDInsight basado en Linux desde Linux, Unix, macOS y Bash en Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     * [Uso de SSH (PuTTY) con HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Desde la conexión de SSH al clúster Storm, use los siguientes comandos para ejecutar el script de `set-env-variables.sh`:
 
-        chmod +x set-env-variables.sh
-        . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
+  ```bash
+  chmod +x set-env-variables.sh
+  . ./set-env-variables.sh KAFKACLUSTERNAME PASSWORD
+  ```
 
     Reemplace __KAFKACLUSTERNAME__ por el nombre del clúster Kafka. Reemplace __PASSWORD__ por la contraseña de inicio de sesión de administrador del clúster Kafka.
 
@@ -229,25 +265,27 @@ Deje la conexión SSH al clúster Kafka activa, porque puede usarla para comprob
         $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.cloudapp.net:2181
 
 3. Desde la conexión de SSH al clúster Storm, use el siguiente comando para iniciar la topología del escritor:
-   
+
         storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml -e
-   
+
     Los parámetros que se usan en este comando son los siguientes:
-   
-    * **org.apache.storm.flux.Flux**: use Flux para configurar y ejecutar esta topología.
-   
-    * **--remoto**: envíe la topología a Nimbus. La topología se distribuye entre los nodos de trabajo del clúster.
-   
-    * **-R /writer.yaml**: use el archivo **writer.yaml** para configurar la topología. `-R` indica que este recurso está incluido en el archivo jar. Se encuentra en la raíz de jar, por lo que `/writer.yaml` es la ruta de acceso a él.
-   
-    * **-e**: utilizar la sustitución de variables de entorno. Flux recoge los valores de $KAFKABROKERS y $KAFKATOPIC establecidos previamente, y los usa en el archivo reader.yaml archivo en lugar de las entradas `${ENV-KAFKABROKER}` y `${ENV-KAFKATOPIC}`.
+
+    * `org.apache.storm.flux.Flux`: use Flux para configurar y ejecutar esta topología.
+
+    * `--remote`: envíe la topología a Nimbus. La topología se distribuye entre los nodos de trabajo del clúster.
+
+    * `-R /writer.yaml`: use el archivo `writer.yaml` para configurar la topología. `-R` indica que este recurso está incluido en el archivo jar. Se encuentra en la raíz de jar, por lo que `/writer.yaml` es la ruta de acceso a él.
+
+    * `-e`: use la sustitución de variables de entorno. Flux recoge los valores de $KAFKABROKERS y $KAFKATOPIC establecidos previamente, y los usa en el archivo reader.yaml archivo en lugar de las entradas `${ENV-KAFKABROKER}` y `${ENV-KAFKATOPIC}`.
 
 5. Una vez que ha iniciado la topología, cambie a la conexión SSH al clúster Kafka y use el siguiente comando para ver los mensajes escritos al tema **stormtest**:
-   
-         /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
-   
+
+  ```bash
+  /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtest
+  ```
+
     Este comando usa un script incluido con Kafka para supervisar el tema. Tras unos instantes, empezará a devolver frases aleatorias que se han escrito en el tema. La salida es similar a la del ejemplo siguiente:
-   
+
         i am at two with nature             
         an apple a day keeps the doctor away
         snow white and the seven dwarfs     
@@ -262,14 +300,16 @@ Deje la conexión SSH al clúster Kafka activa, porque puede usarla para comprob
         snow white and the seven dwarfs     
         i am at two with nature             
         an apple a day keeps the doctor away
-   
+
     Use Ctrl+C para detener el script.
 
 ## <a name="start-the-reader"></a>Inicio del lector
 
 1. Desde la sesión de SSH al clúster Storm, use el siguiente comando para iniciar la topología del lector:
-   
-        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+
+  ```bash
+  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+  ```
 
 2. Cuando se inicie la topología, abra la interfaz de usuario de Storm. Esta interfaz de usuario web se encuentra en https://storm-BASENAME.azurehdinsight.net/stormui. Reemplace __BASENAME__ por el nombre base que utilizó al crear el clúster. 
 
@@ -305,8 +345,10 @@ Deje la conexión SSH al clúster Kafka activa, porque puede usarla para comprob
 
 Desde una sesión de SSH al clúster Storm, use los siguientes comandos para detener las topologías de Storm:
 
-    storm kill kafka-writer
-    storm kill kafka-reader
+  ```bash
+  storm kill kafka-writer
+  storm kill kafka-reader
+  ```
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 

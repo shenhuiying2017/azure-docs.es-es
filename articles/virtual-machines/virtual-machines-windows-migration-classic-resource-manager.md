@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2c96a3ca5fd72a4a3c992206aeb93f201342dd6a
-ms.openlocfilehash: aafaacea59c2c7fc463fb84207417d2c4e1d81ff
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 23f4813b3ba587784f5b31cfa633cdf27373843d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -89,9 +90,8 @@ Actualmente no se admiten las siguientes características. Opcionalmente, puede 
 | Proceso |Discos de máquinas virtuales no asociados. |
 | Proceso |Imágenes de máquina virtual. |
 | Red |ACL de puntos de conexión. |
-| Red |Puertas de enlace de red virtual (puertas de enlace de Azure ExpressRoute, puerta de enlace de aplicaciones). |
+| Red |Puertas de enlace de ExpressRoute, Application Gateway (las puertas de enlace de VPN son compatibles). |
 | Red |Redes virtuales que usan el emparejamiento de VNET. (Migre la red virtual a ARM y luego emparéjela). Más información sobre el [emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md). |
-| Red |Perfiles del Administrador de tráfico. |
 
 ### <a name="unsupported-configurations"></a>Configuraciones no admitidas
 Actualmente no se admiten las siguientes configuraciones.
@@ -110,6 +110,8 @@ Actualmente no se admiten las siguientes configuraciones.
 | HDInsight de Azure |Redes virtuales que contienen servicios de HDInsight |Actualmente no se admite. |
 | Dynamics Lifecycle Services |Redes virtuales que contienen máquinas virtuales administradas por Dynamics Lifecycle Services |Actualmente no se admite. |
 | Azure AD Domain Services |Redes virtuales que contienen servicios de dominio de Azure AD |Actualmente no se admite. |
+| Azure RemoteApp |Redes virtuales que contienen implementaciones de Azure RemoteApp |Actualmente no se admite. |
+| Administración de API de Azure |Redes virtuales que contienen implementaciones de Azure API Management |Actualmente no se admite. Para migrar la red virtual de IaaS, cambie la red virtual de la implementación de API Management que no es una operación de tiempo de inactividad. |
 | Proceso |Extensiones de Azure Security Center con una red virtual que tiene VPN Gateway en conectividad de tránsito o una puerta de enlace de ExpressRoute con servidor DNS local |Azure Security Center instala automáticamente las extensiones en las máquinas virtuales para supervisar la seguridad y generar alertas. Si está habilitada la directiva de Azure Security Center en la suscripción, estas extensiones se suelen instalar automáticamente. La migración de la puerta de enlace de ExpressRoute no se admite actualmente y las puertas de enlace de VPN con conectividad de tránsito pierde el acceso local. La eliminación de la puerta de enlace de ExpressRoute o la migración de la puerta de enlace VPN con conectividad de tránsito provoca que el acceso de Internet a la cuenta de almacenamiento de VM se pierda cuando se realiza la confirmación de la migración. Si esto ocurre, la migración no continúa, ya que no se puede rellenar el blob de estado del agente invitado. Se recomienda deshabilitar la directiva de Azure Security Center en la suscripción 3 horas antes de continuar con la migración. |
 
 ## <a name="the-migration-experience"></a>Experiencia de migración
@@ -150,7 +152,16 @@ Seleccione la red virtual o el servicio hospedado (si no es una red virtual) que
 
 Después, la plataforma de Azure comienza la migración de los metadatos del modelo clásico al de Resource Manager para los recursos en migración.
 
-Una vez completada la operación de preparación, tiene la opción de visualizar los recursos tanto en el modelo clásico como en el de Resource Manager. Para cada servicio en la nube en el modelo de implementación clásica, la plataforma de Azure crea un nombre de grupo de recursos con el patrón `cloud-service-name>-migrated`.
+Una vez completada la operación de preparación, tiene la opción de visualizar los recursos tanto en el modelo clásico como en el de Resource Manager. Para cada servicio en la nube en el modelo de implementación clásica, la plataforma de Azure crea un nombre de grupo de recursos con el patrón `cloud-service-name>-Migrated`.
+
+> [!NOTE]
+> No es posible seleccionar el nombre del grupo de recursos creado para los recursos migrados (es decir, "migrados"), pero una vez completada la migración, puede usar la característica de movimiento de Azure Resource Manager para mover recursos a cualquier grupo de recursos que desee. Para leer más sobre esto, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
+
+Estas son dos pantallas que muestran el resultado después de una correcta operación de preparación. La primera pantalla muestra un grupo de recursos que contiene el servicio en la nube original. La segunda pantalla muestra el nuevo grupo de recursos "migrado" que contiene los recursos equivalentes de Azure Resource Manager.
+
+![Captura de pantalla que muestra el servicio en la nube clásico de Portal](./media/virtual-machines-windows-migration-classic-resource-manager/portal-classic.png)
+
+![Captura de pantalla que muestra los recursos de ARM de Portal en la preparación](./media/virtual-machines-windows-migration-classic-resource-manager/portal-arm.png)
 
 > [!NOTE]
 > Las máquinas virtuales que no se encuentran en una red virtual clásica se detienen y desasignan en esta fase de la migración.
@@ -183,6 +194,11 @@ Después de finalizar la validación, puede confirmar la migración. Los recurso
 > Se trata de una operación idempotente. Si se produce un error, se recomienda que vuelva a intentar la operación. Si sigue sin poder completarla, cree una incidencia de soporte técnico o publique una entrada con la etiqueta ClassicIaaSMigration en el [foro de máquinas virtuales](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 >
 >
+<br>
+Este es un diagrama de flujo de los pasos durante el proceso de migración
+
+![Captura de pantalla que muestra los pasos de migración](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 **¿Afecta este plan de migración a alguno de los servicios o las aplicaciones existentes que se ejecutan en máquinas virtuales de Azure?**
@@ -237,7 +253,7 @@ Publique sus problemas y preguntas sobre la migración en nuestro [foro de máqu
 
 Todos los recursos para los que se proporcionen nombres explícitamente en el modelo de implementación clásica se conservan durante la migración. En algunos casos, se crean recursos nuevos. Por ejemplo, se crea una interfaz de red para cada máquina virtual. Actualmente, no se admite la capacidad de controlar los nombres de estos recursos nuevos creados durante la migración. Registre sus votos para esta característica en el [foro de comentarios de Azure](http://feedback.azure.com).
 
-**Aparece el mensaje *"La máquina virtual notifica el estado de agente general No preparado. Por lo tanto, la VM no se puede migra. Asegúrese de que el agente de VM notifica el estado de agente general como Preparado"* o *"la máquina virtual contiene la extensión cuyo estado no se notifica desde la VM. Por lo tanto, esta VM no se puede migrar."***
+**Aparece el mensaje*"La máquina virtual notifica el estado de agente general No preparado. Por lo tanto, la VM no se puede migra. Asegúrese de que el agente de VM notifica el estado de agente general como Preparado"* o *"la máquina virtual contiene la extensión cuyo estado no se notifica desde la VM. Por lo tanto, esta VM no se puede migrar."***
 
 Este mensaje se recibe cuando la máquina virtual no tiene conectividad saliente a Internet. El agente de VM utiliza conectividad saliente para llegar a la cuenta de almacenamiento de Azure a fin de actualizar el estado del agente cada cinco minutos.
 
@@ -249,9 +265,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 * [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 * [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Revisión de los errores más comunes en la migración](virtual-machines-migration-errors.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

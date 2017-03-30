@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 03/16/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 36b3eab758d006710467d23a30f889b605df1583
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: dd6e6184dd755ea356cae1c4d50a2b7ba39da9fb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -55,6 +55,14 @@ ms.lasthandoff: 03/07/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="1.11.0"/>1.11.0</a>
+* Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG).
+* Se agregó la opción para controlar el grado de paralelismo de las consultas de partición cruzada.
+* Se agregó la opción para deshabilitar la comprobación de SSL cuando se ejecuta en el emulador de DocumentDB.
+* Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
+* Se corrigió el error de token de continuación de la colección de una sola partición (github #107).
+* Se corrigió el error executeStoredProcedure en el control 0 como parámetro único (github #155).
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Encabezado de agente de usuario fijo para incluir la versión del SDK.
@@ -150,6 +158,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |16 de marzo de 2017 |--- |
 | [1.10.2](#1.10.2) |27 de enero de 2017 |--- |
 | [1.10.1](#1.10.1) |22 de diciembre de 2016 |--- |
 | [1.10.0](#1.10.0) |03 de octubre de 2016 |--- |
