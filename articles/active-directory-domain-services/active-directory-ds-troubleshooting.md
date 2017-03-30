@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 30248b5f00aaf2d81db79b5a690760f816384723
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -129,7 +129,7 @@ Para resolver este error, habilite esta aplicación e intente habilitar Domain S
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Los usuarios no pueden iniciar sesión en el dominio administrado de los Servicios de dominio de Azure AD
 Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en el dominio administrado creado recientemente, lleve a cabo los siguientes pasos de solución de problemas:
 
-* **Inicio de sesión con formato UPN:** intente iniciar sesión con el formato UPN (por ejemplo, 'joeuser@contoso.com') en lugar del formato de SAMAccountName (CONTOSO\joeuser). El atributo SAMAccountName puede generarse automáticamente para los usuarios cuyo prefijo UPN sea demasiado largo o coincida con el de otro usuario del dominio administrado. El formato UPN garantiza que sea único dentro de un inquilino de Azure AD.
+* **Inicio de sesión con formato UPN:** trate de iniciar sesión con el formato UPN; por ejemplo, "joeuser@contoso.com" en lugar del formato de SAMAccountName (CONTOSO\joeuser). El atributo SAMAccountName puede generarse automáticamente para los usuarios cuyo prefijo UPN sea demasiado largo o coincida con el de otro usuario del dominio administrado. El formato UPN garantiza que sea único dentro de un inquilino de Azure AD.
 
 > [!NOTE]
 > Recomendamos usar el formato UPN para iniciar sesión en el dominio administrado de Azure AD Domain Services.
@@ -137,7 +137,7 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
 >
 
 * Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la Guía de introducción.
-* **Cuentas externas** Asegúrese de que la cuenta de usuario afectada no es una cuenta externa en el inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft (por ejemplo, 'joe@live.com') o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
+* **Cuentas externas** Asegúrese de que la cuenta de usuario afectada no es una cuenta externa en el inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft; por ejemplo, "joe@live.com" o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
 * **Cuentas sincronizadas** : si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe que ha hecho lo siguiente:
 
   * Ha implementado la [versión más reciente recomendada de Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594)o se ha actualización a dicha versión.
@@ -151,6 +151,8 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Los usuarios quitados del inquilino de Azure AD no se quitan de su dominio administrado
 Azure AD protege contra la eliminación accidental de objetos de usuario. Cuando elimina una cuenta de usuario del inquilino de Azure AD, se mueve el objeto de usuario correspondiente a la Papelera de reciclaje. Cuando esta operación de eliminación se sincroniza con el dominio administrado, hace que la cuenta de usuario correspondiente se marque como deshabilitada. Esta característica ayuda a recuperar o restaurar la cuenta de usuario más adelante.
+
+La cuenta de usuario permanece en estado deshabilitado en el dominio administrado, incluso si vuelve a crear una cuenta de usuario con la misma UPN en su directorio de Azure AD. Para quitar la cuenta de usuario de su dominio administrado, tiene que forzar la eliminación del usuario del inquilino de Azure AD.
 
 Para quitar por completo la cuenta de usuario de su dominio administrado, elimine el usuario de forma permanente del inquilino de Azure AD. Use el cmdlet de PowerShell Remove-MsolUser con la opción "-RemoveFromRecycleBin", tal como se describe en este [artículo de MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
-ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: fb61a2d622b0d829a134b6ce5dfef6e9fb44fa1e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -148,43 +148,31 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     
     d. Haga clic en **Aceptar**.
 
-6. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
-
-7. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+6. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. En la sección **Configuración de OfficeSpace Software**, haga clic en **Configurar OfficeSpace Software** para abrir la ventana **Configurar inicio de sesión**.
+7. Haga clic en **Guardar**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. En la sección **Configuración de OfficeSpace Software**, haga clic en **Configurar OfficeSpace Software** para abrir la ventana **Configurar inicio de sesión**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. En otra ventana del explorador web, inicie sesión en como administrador en el inquilino de OfficeSpace Software.
+9. En otra ventana del explorador web, inicie sesión en como administrador en el inquilino de OfficeSpace Software.
 
-13. Vaya a **Settings** (Configuración) y haga clic en **Connectors** (Conectores).
+10. Vaya a **Settings** (Configuración) y haga clic en **Connectors** (Conectores).
 
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Haga clic en **Autorización de SAML**.
+11. Haga clic en **Autenticación SAML**.
 
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. En la sección **Autorización SAML** , realice los pasos siguientes:
+12. En la sección **Autenticación SAML** , realice los pasos siguientes:
 
     ![Configuración del inicio de sesión único en la aplicación](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 

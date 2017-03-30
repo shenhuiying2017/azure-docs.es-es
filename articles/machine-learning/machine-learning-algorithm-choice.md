@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
-ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
-ms.lasthandoff: 12/19/2016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 720822c4a6a2b236ca772016c647827050e27d44
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -34,13 +34,13 @@ En este artículo se explica cómo usarla.
 > 
 > 
 
-Esta hoja de referencia rápida está pensada para un público muy específico: científicos de datos principiantes con conocimientos de aprendizaje automático de nivel universitario que intentan elegir un algoritmo para empezar en Estudio de aprendizaje automático de Azure. Eso significa que en ella se hacen algunas generalizaciones y simplificaciones exageradas, pero le servirá para orientarse bien. También significa que hay muchos algoritmos que no están incluidos aquí. A medida que Aprendizaje automático de Azure vaya creciendo y abarcando un conjunto más completo de métodos disponibles, iremos agregándolos.
+Esta hoja de referencia rápida está pensada para un público muy específico: científicos de datos principiantes con conocimientos de aprendizaje automático de nivel universitario que intentan elegir un algoritmo para empezar en Estudio de aprendizaje automático de Azure. Eso significa que en ella se hacen algunas generalizaciones y simplificaciones exageradas, pero le sirve para orientarse bien. También significa que hay muchos algoritmos que no están incluidos aquí. A medida que Aprendizaje automático de Azure vaya creciendo y abarcando un conjunto más completo de métodos disponibles, iremos agregándolos.
 
-Estas recomendaciones son una recopilación de los comentarios y las sugerencias de varios científicos de datos y expertos en aprendizaje automático. No estuvimos de acuerdo en todo, pero intentamos combinar las opiniones para llegar a un consenso general. La mayoría de los argumentos de desacuerdo comienzan con "Depende...".
+Estas recomendaciones son una recopilación de los comentarios y las sugerencias de muchos científicos de datos y expertos en aprendizaje automático. No estuvimos de acuerdo en todo, pero intentamos combinar las opiniones para llegar a un consenso general. La mayoría de los argumentos de desacuerdo comienzan con "Depende...".
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Cómo usar la hoja de referencia rápida
-Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente formato: "Para *&lt;etiqueta de ruta de acceso&gt;*, use *&lt;algoritmo&gt;*". Por ejemplo, "Para *velocidad*, use la *regresión logística de dos clases*". Ciertas veces, se aplicará más de una rama.
-Otras, ninguna de ellas será la ideal. Tienen la finalidad de ser recomendaciones generales, así que no se preocupe si no son exactas.
+Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente formato: "Para *&lt;etiqueta de ruta de acceso&gt;*, use *&lt;algoritmo&gt;*". Por ejemplo, "Para *velocidad*, use la *regresión logística de dos clases*". Ciertas veces, se aplica más de una rama.
+Otras, ninguna de ellas es la ideal. Tienen la finalidad de ser recomendaciones generales, así que no se preocupe si no son exactas.
 Varios de los científicos de datos con los que hablé dijeron que la única forma de encontrar el mejor algoritmo es probarlos todos.
 
 Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
@@ -54,9 +54,9 @@ Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.corta
 ### <a name="supervised"></a>Supervisado
 Los algoritmos de aprendizaje supervisado hacen predicciones basadas en un conjunto de ejemplos. Por ejemplo, los precios históricos de las acciones pueden usarse para hacer estimaciones aventuradas de los precios futuros. Cada ejemplo usado para el entrenamiento se etiqueta con el valor de interés; en este caso, el precio de las acciones. Un algoritmo de aprendizaje supervisado busca patrones en esas etiquetas de valor. Puede usar cualquier información que pueda ser relevante, como el día de la semana, la temporada, datos financieros de la empresa, el tipo de sector o la presencia de eventos geopolíticos perjudiciales, y cada algoritmo busca tipos diferentes de patrones. Una vez que el algoritmo encuentra el mejor patrón posible, lo usa para hacer predicciones de datos de prueba sin etiquetar; en este caso, los precios futuros.
 
-Este es un tipo conocido y útil del aprendizaje automático. Con una única excepción: todos los módulos de Aprendizaje automático de Azure son algoritmos de aprendizaje supervisado. Hay varios tipos específicos de aprendizaje supervisado representados en Aprendizaje automático de Azure: la clasificación, la regresión y la detección de anomalías.
+El aprendizaje supervisado es un tipo conocido y útil de aprendizaje automático. Con una única excepción: todos los módulos de Azure Machine Learning son algoritmos de aprendizaje supervisado. Hay varios tipos específicos de aprendizaje supervisado representados en Aprendizaje automático de Azure: la clasificación, la regresión y la detección de anomalías.
 
-* **Clasificación**. Cuando los datos se usan para predecir una categoría, el aprendizaje supervisado también se denomina clasificación. Esto ocurre cuando se asigna una imagen, como una foto de un 'gato' o un 'perro'. Cuando hay solo dos opciones, esto se denomina clasificación **de dos clases** o **binomial**. Cuando hay más categorías, como cuando se predice el ganador del torneo March Madness de la NCAA, este problema se conoce como **clasificación multiclase**.
+* **Clasificación**. Cuando los datos se usan para predecir una categoría, el aprendizaje supervisado también se denomina clasificación. Esto ocurre cuando se asigna una imagen, como una foto de un 'gato' o un 'perro'. Cuando hay solo dos opciones, se denomina clasificación **de dos clases** o **binomial**. Cuando hay más categorías, como cuando se predice el ganador del torneo March Madness de la NCAA, este problema se conoce como **clasificación multiclase**.
 * **Regresión**. Cuando se predice un valor, como el precio de las acciones, el aprendizaje supervisado se denomina regresión.
 * **Detección de anomalías**. A veces, el objetivo es identificar puntos de datos que simplemente no son habituales. En la detección de fraudes, por ejemplo, los patrones de gasto de tarjeta de crédito muy poco habituales son sospechosos. Las posibles variaciones son tan numerosas y los ejemplos de formación son tan pocos, que no es posible saber de qué actividad fraudulenta se trata. El enfoque que toma la detección de anomalías es simplemente aprender qué puede considerarse como actividad normal (haciendo uso de las transacciones no fraudulentas del historial) e identificar todo lo que sea significativamente diferente.
 
@@ -122,17 +122,17 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 | [red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [uno frente a todos](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Vea las propiedades del método de dos clases seleccionado |
 | **Regresión** | | | | | |
-| [lineal ](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Bayesiano lineal](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Uso de memoria grande |
 | [cuantil de bosque rápido](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuciones en lugar de predicciones de puntos |
 | [red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Logarítmico lineal técnicamente. Para la predicción de recuentos |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Logarítmico lineal técnicamente. Para la predicción de recuentos |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Para la predicción de ordenación de clasificaciones |
 | **Detección de anomalías** | | | | | |
 | [máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Especialmente útil para conjuntos de características de gran tamaño |
-| [Detección de anomalías basada en PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
+| [Detección de anomalías basada en PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
 | [K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Un algoritmo de agrupación en clústeres |
 
 **Propiedades de algoritmo:**
@@ -164,7 +164,7 @@ Los bosques de decisión ([regresión](https://msdn.microsoft.com/library/azure/
 
 ***Un árbol de decisión subdivide un espacio de características en regiones de valores más o menos uniformes***
 
-Ya que un espacio de características se puede subdividir en regiones arbitrariamente pequeñas, es fácil imaginar dividirlo lo suficiente como para tener un punto de datos por región (un ejemplo extremo de sobreajuste). Para evitar esto, se genera un conjunto grande de árboles con precisión matemática para que los árboles no se correlacionen. El resultado promedio de este "bosque de decisión" es un árbol que evita el sobreajuste. Los bosques de decisión pueden llegar a usar demasiada memoria. Las selvas de decisión son una variante que consume menos memoria a costa de un tiempo de entrenamiento ligeramente más prolongado.
+Ya que un espacio de características se puede subdividir en regiones arbitrariamente pequeñas, es fácil imaginar dividirlo lo suficiente como para tener un punto de datos por región. Se trata de un ejemplo extremo de sobreajuste. Para evitar esto, se genera un conjunto grande de árboles con precisión matemática para que los árboles no se correlacionen. El resultado promedio de este "bosque de decisión" es un árbol que evita el sobreajuste. Los bosques de decisión pueden llegar a usar demasiada memoria. Las selvas de decisión son una variante que consume menos memoria a costa de un tiempo de entrenamiento ligeramente más prolongado.
 
 Los árboles de decisión impulsados evitan el sobreajuste al limitar la cantidad de veces que pueden subdividir y la cantidad de puntos de datos que se permiten en cada región. El algoritmo genera una secuencia de árboles, cada uno de los cuales aprende a compensar el error que deja el árbol anterior. El resultado es un lector muy preciso que tiende a usar una gran cantidad de memoria. Para obtener la descripción técnica completa, vea el [documento original de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
@@ -196,11 +196,15 @@ Mediante una extensión inteligente de SVM no lineales, la [SVM de una clase](ht
 Los métodos bayesianos tienen una calidad muy deseable: evitan el sobreajuste. Para ello, hacen algunas suposiciones anticipadas sobre la posible distribución de la respuesta. Otra característica de este enfoque es que tienen muy pocos parámetros. Azure Machine Learning tiene dos algoritmos bayesianos tanto para la clasificación ([automática de puntos de Bayes de dos clases](https://msdn.microsoft.com/library/azure/dn905930.aspx)) como para la regresión ([regresión lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
 Tenga en cuenta que se asume que los datos se pueden dividir o encajan en una línea recta.
 
-En una nota histórica, se desarrollaron las máquinas de puntos de Bayes en Microsoft Research. Presentan un trabajo teórico excepcional. Al alumno interesado se le dirige al [artículo original de JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) y a un [blog revelador de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Como nota histórica, se desarrollaron las máquinas de puntos de Bayes en Microsoft Research. Presentan un trabajo teórico excepcional. Al alumno interesado se le dirige al [artículo original de JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) y a un [blog revelador de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Algoritmos especializados
-Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de la colección de Azure Machine Learning, hay algoritmos que se especializan en la predicción de rangos ([regresión ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)), la predicción de totales ([regresión de Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) y la detección de anomalías (uno basado en el [análisis de componentes principales](https://msdn.microsoft.com/library/azure/dn913102.aspx) y otro en [máquinas de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)).
-Además, hay un algoritmo único de agrupación en clústeres ([K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de la colección de Azure Machine Learning, existen algoritmos que se especializan en:
+
+- predicción de rangos ([regresión ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
+- predicción de totales ([regresión de Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
+- detección de anomalías (uno basado en el [análisis de componentes principales](https://msdn.microsoft.com/library/azure/dn913102.aspx) y otro en [máquinas de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx))
+- agrupación en clústeres ([K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![Detección de anomalías basada en PCA][8]
 
@@ -208,7 +212,7 @@ Además, hay un algoritmo único de agrupación en clústeres ([K-Means](https:/
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 
-***Un conjunto de datos se agrupa en cinco clústeres mediante K-Means***
+***Un conjunto de datos se agrupa en 5 clústeres mediante K-Means***
 
 También hay un [clasificador multiclase uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)que divide el problema de clasificación de clase N en problemas de clasificación de dos clases N-1. La precisión, el tiempo de entrenamiento y las propiedades de linealidad se determinan con los clasificadores de dos clases que se usan.
 
@@ -221,7 +225,7 @@ VW es un reto a la categorización, ya que puede aprender problemas tanto de cla
 VW, iniciado y liderado por el propio John Langford de Microsoft Research, es una entrada de Fórmula Uno en un campo de algoritmos de coches de línea. No todos los problemas se adaptan a VW, pero si el suyo lo hace, es posible que valga la pena que aumente la curva de aprendizaje en esa interfaz. También está disponible como [código fuente abierto independiente](https://github.com/JohnLangford/vowpal_wabbit) en varios idiomas.
 
 ## <a name="more-help-with-algorithms"></a>Más ayuda con los algoritmos
-* Para obtener una infografía descargable que describe los algoritmos y proporciona ejemplos, vea [Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](machine-learning-basics-infographic-with-algorithm-examples.md).
+* Para una infografía descargable que describe los algoritmos y proporciona ejemplos, consulte [Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos](machine-learning-basics-infographic-with-algorithm-examples.md).
 * Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Azure Machine Learning Studio, vea [Initialize Model][initialize-model] (Inicializar modelo) en Machine Learning Studio: Algorithm and Module Help (Ayuda de módulos y algoritmos de Machine Learning Studio).
 * Para ver una lista completa de todos los algoritmos de Azure Machine Learning Studio, consulte [A-Z List of Machine Learning Studio Modules] (Lista de la A a la Z de módulos de Machine Learning Studio) en Machine Learning Studio: Algorithm and Module Help (Ayuda de módulos y algoritmos de Machine Learning Studio).
 * Para descargar e imprimir un diagrama con información general de las funcionalidades de Azure Machine Learning Studio, consulte [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).

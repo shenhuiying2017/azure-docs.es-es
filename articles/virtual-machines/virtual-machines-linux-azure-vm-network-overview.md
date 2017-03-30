@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f5f611ce6944d37e0afcc9a14fa79d0356d55347
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,10 +48,10 @@ Cuando crea una máquina virtual en el Azure Portal mediante el modelo de implem
 
 * [Creación de un nombre de dominio completo en Azure Portal](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="virtual-nics"></a>NIC virtuales
+## <a name="network-interfaces"></a>Interfaces de red
 Una interfaz de red (NIC) es la interconexión entre una máquina virtual (VM) y la red de software subyacente. Este artículo explica qué es una interfaz de red y cómo se utiliza en el modelo de implementación de Azure Resource Manager.
 
-* [Información general sobre interfaces de red virtual](../virtual-network/virtual-network-network-interface-overview.md)
+* [Interfaces de red virtual](../virtual-network/virtual-network-network-interface.md)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>NIC virtuales y etiquetado de DNS
 Si tiene un servidor que debe ser persistente, pero ese servidor se trata sin la atención debida y se cierra y se implementa con frecuencia, tendrá que usar el etiquetado DNS en la NIC para conservar la persistencia del nombre en la red virtual.  Con el siguiente tutorial configurará una NIC de nombre persistente con una IP estática.
@@ -66,10 +67,5 @@ Se usa una puerta de enlace de red virtual para enviar tráfico de red entre red
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 
 * [Creación de un equilibrador de carga interno mediante la CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

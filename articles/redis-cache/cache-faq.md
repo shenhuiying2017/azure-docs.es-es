@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 705e64d52d796ae861465f71de397d11bf14086e
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -134,7 +134,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes:
 * Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250 000 * 10 = 2,5 millones de solicitudes por segundo.
 * El rendimiento para los tamaños de clave más grandes es mayor en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño de clave de&1; KB |
+| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB |
 | --- | --- | --- | --- | --- |
 | **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS)** |
 | C0 |250 MB |Compartido |5 / 0.625 |600 |

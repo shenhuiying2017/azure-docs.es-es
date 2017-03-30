@@ -1,21 +1,22 @@
 ---
-title: "Uso de Analytics: la eficaz herramienta de búsqueda de Application Insights | Microsoft Docs"
+title: "Uso de Analytics: la eficaz herramienta de búsqueda de Azure Application Insights | Microsoft Docs"
 description: "Uso de Analytics, la eficaz herramienta de búsqueda de Application Insights. "
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
-ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -171,7 +172,7 @@ Con Power BI, puede crear paneles que reúnan datos de una gran variedad de orí
 
 Obtenga un vínculo en **Export, Share link** (Exportar, compartir vínculo) que puede enviar a otro usuario. Siempre que el usuario tenga [acceso a su grupo de recursos](app-insights-resources-roles-access-control.md), la consulta se abrirá en la interfaz de usuario de Analytics.
 
-(En el vínculo, aparece el texto de consulta después de "?q=", comprimido en gzip y codificado en base&64;. Puede escribir código para generar vínculos profundos que se proporcionan a los usuarios. Sin embargo, el método recomendado para ejecutar Analytics desde código es mediante la [API de REST](https://dev.applicationinsights.io/).)
+(En el vínculo, aparece el texto de consulta después de "?q=", comprimido en gzip y codificado en base 64. Puede escribir código para generar vínculos profundos que se proporcionan a los usuarios. Sin embargo, el método recomendado para ejecutar Analytics desde código es mediante la [API de REST](https://dev.applicationinsights.io/).)
 
 
 ## <a name="automation"></a>Automatización
@@ -222,13 +223,10 @@ La tabla de solicitudes resultante tiene una columna adicional, `realName`.
 
 Si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), puede utilizar Analytics para consultar los registros. Use el [complemento que canaliza los datos a Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## <a name="video"></a>Vídeo
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

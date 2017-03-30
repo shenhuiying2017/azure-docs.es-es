@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: 51913b5e0d43514f50f2d51500f2149438d87045
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Para habilitar su aplicación a fin de autenticar a los usuarios, primero deber�
 5. Siga las indicaciones y cree una nueva **Aplicación web y/o API web**.
   * El **nombre** de la aplicación describirá su aplicación a los usuarios finales
   * La **dirección URL de inicio de sesión** es la dirección URL base de su aplicación.  El valor predeterminado del esquema es `http://localhost:8080/adal4jsample/`.
-  * El **URI de id. de aplicación** es un identificador único de su aplicación.  La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `http://localhost:8080/adal4jsample/`
 6. Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de aplicación único.  Necesitará este valor en las secciones siguientes, así que cópielo de la pestaña de la aplicación.
+7. En la página **Configuración** -> **Propiedades** de la aplicación, actualice el URI del identificador de la aplicación. El **URI de id. de aplicación** es un identificador único de su aplicación.  La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej., `http://localhost:8080/adal4jsample/`.
 
 Una vez en el portal de la aplicación, cree una **Clave** en la página **Configuración** de la aplicación y cópiela.  Lo necesitará en breve.
 
@@ -267,10 +268,5 @@ Ahora debería tener un archivo `adal4jsample.war` en su directorio `/targets`. 
 Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona en forma de archivo .zip aquí](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Desconexión de un disco de datos de una máquina virtual Windows | Microsoft Docs"
+title: "Desconexión de un disco de datos de una máquina virtual Windows: Azure | Microsoft Docs"
 description: "Aprenda a desconectar un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación de Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 7274a86ada8115e86156592cf034d0350f59ebab
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,12 +34,14 @@ Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuev
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desconexión de un disco de datos mediante el portal
 1. En el centro del portal, seleccione **Máquinas virtuales**.
-2. Seleccione la máquina virtual que tiene el disco de datos que quiere desconectar y haga clic en **Todas las configuraciones**.
-3. En la hoja **Configuración**, seleccione **Discos**.
-4. En la hoja **Discos** , seleccione el disco de datos que desearía desconectar.
-5. En la hoja del disco de datos, haga clic en **Separar**.
+2. Seleccione la máquina virtual que tiene el disco de datos que quiere desconectar y haga clic en **Detener** para desasignar la máquina virtual.
+3. En la hoja de la máquina virtual, seleccione **Discos**.
+4. En la parte superior de la hoja **Discos**, seleccione **Editar**.
+5. En la hoja **Discos**, en el extremo derecho del disco de datos que desea desconectar, haga clic en el botón de desconexión ![imagen del botón de desconexión](./media/virtual-machines-common-detach-disk/detach.png).
+5. Después de quitar el disco, haga clic en Guardar en la parte superior de la hoja.
+6. En la hoja de la máquina virtual, haga clic en **Información general** y, luego, haga clic en el botón **Iniciar** de la parte superior de la hoja para reiniciar la máquina virtual.
 
-    ![Captura de pantalla que muestra el botón Desacoplar.](./media/virtual-machines-windows-detach-disk/detach-disk.png)
+
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
@@ -55,15 +58,9 @@ Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-
-Para más información, consulte [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx)
+Para obtener más información, consulte [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea reutilizar el disco de datos, basta con que lo [conecte a otra máquina virtual](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

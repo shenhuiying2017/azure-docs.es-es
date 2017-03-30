@@ -1,6 +1,6 @@
 ---
-title: "Creación de una imagen de máquina virtual desde una máquina virtual de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una imagen de máquina virtual generalizada a partir de una máquina virtual de Azure existente creada en el modelo de implementación de Resource Manager"
+title: "Descarga de la plantilla para una máquina virtual de Azure | Microsoft Docs"
+description: "Descarga de la plantilla para una máquina virtual con el objetivo de ayudar a automatizar las implementaciones en el modelo de implementación de Resource Manager"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
-ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 63d9d9ea257ece3af710e25dcf7cfa3c6e2fb8d5
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -50,10 +51,5 @@ También puede descargar el archivo de plantilla .json mediante el cmdlet [Expor
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la implementación de recursos mediante plantillas, consulte el [tutorial de plantillas de Resource Manager](../resource-manager-template-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

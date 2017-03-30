@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
-ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="azure-log-integration-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre la integración de registro de Azure (P+F)
 Estas P+F responden a preguntas acerca de la integración de registro de Azure, un servicio que le permite integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración proporciona un panel unificado de todos los recursos, locales o en la nube, para que pueda agregar, correlacionar, analizar y alertar de eventos de seguridad asociados a las aplicaciones.
+
+## <a name="is-the-azure-log-integration-software-free"></a>¿Es el software Integración de registro de Azure gratuito?
+Sí. No hay ningún cargo por el software Integración de registro de Azure. 
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>¿Cómo puedo ver las cuentas de almacenamiento desde las que el servicio de integración de registro de Azure extrae los registros de máquinas virtuales de Azure?
 Ejecute el comando **azlog source list**.

@@ -10,21 +10,23 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 03/21/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 56e9deea4e070a99e47b7de7c5686526a4528fb6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a13ac5ab425ccbbe53d77cb9f5a8ebf02d009370
+ms.lasthandoff: 03/22/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Cree una máquina virtual Windows en Azure Portal.
 
-Las máquinas virtuales de Azure pueden crearse a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar máquinas virtuales y todos los recursos de Azure asociados.
+Las máquinas virtuales de Azure pueden crearse a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar máquinas virtuales y todos los recursos asociados. Este inicio rápido le ayuda a crear una máquina virtual mediante Azure Portal. 
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
 
@@ -36,7 +38,7 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 3. Seleccione **Proceso** en la hoja **Nuevo**, seleccione **Windows Server 2016 Datacenter** en la hoja **Proceso** y, luego, haga clic en el botón **Crear**.
 
-4. Rellene el formulario **Datos básicos** de la máquina virtual. En **Grupo de recursos**, cree uno. Un grupo de recursos es un contenedor lógico en el que se administran y crean los recursos de Azure. Cuando haya terminado, haga clic en **Aceptar**.
+4. Rellene el formulario **Datos básicos** de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. En **Grupo de recursos**, cree uno. Un grupo de recursos es un contenedor lógico en el que se administran y crean los recursos de Azure. Cuando haya terminado, haga clic en **Aceptar**.
 
     ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/virtual-machine-quick-start/create-windows-vm-portal-basic-blade.png)  
 
@@ -50,19 +52,17 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
-Una vez finalizada la implementación, cree una conexión del Escritorio remoto con la máquina virtual.
+Una vez finalizada la implementación, cree una conexión de Escritorio remoto con la máquina virtual.
 
-1. Haga clic en el botón **Conectar** está disponible en la hoja de la máquina virtual. Así se crea y se descarga un archivo de protocolo de escritorio remoto (archivo.rdp), que es como un acceso directo de conexión a la máquina. Abra este archivo para conectarse a la máquina virtual.
+1. Haga clic en el botón **Conectar** está disponible en la hoja de la máquina virtual. Se crea y se descarga un archivo de Protocolo de Escritorio remoto (archivo .rdp).
 
     ![Portal 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Haga clic en **Conectar** en la ventana Remote Desktop Connection.
+2. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le solicite, haga clic en **Conectar**. En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) de Mac App Store.
 
-    ![Portal 10](./media/virtual-machine-quick-start/portal-quick-start-10.png) 
+3. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, haga clic en **Aceptar**.
 
-4. Escriba el nombre de usuario y la contraseña que estableció al crear la máquina virtual y, a continuación, haga clic en **Aceptar**.
-
-5. Puede que reciba una advertencia de certificado; haga clic en **Sí** para continuar con la conexión.
+4. Recibirá una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en **Sí** o **Conectar** para continuar con la conexión.
 
 ## <a name="delete-virtual-machine"></a>Eliminación de máquinas virtuales
 

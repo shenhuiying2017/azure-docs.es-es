@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 17de66693661e56e9b456581c97a47cfb91cd886
-ms.openlocfilehash: bf08cc7ebb56aaf77c1718545ed4374f47933975
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2dc56240894666b2fa24baf4902c3097e97d656e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ Aprenda a configurar un clúster de Linux RDMA en Azure con [máquinas virtuales
 ## <a name="cluster-deployment-options"></a>Opciones de implementación de clúster
 A continuación se facilitan métodos que puede usar para crear un clúster de Linux RDMA con o sin un programador de trabajos.
 
-* **Scripts de la CLI de Azure**: como se muestra más adelante en este artículo, use la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI) para automatizar la implementación de un clúster de máquinas virtuales compatibles con RDMA. La CLI en modo de Administración de servicios crea los nodos del clúster en serie en el modelo de implementación clásica, por lo que la implementación de muchos nodos de proceso puede tardar varios minutos. Para habilitar la conexión de red de RDMA cuando se usa el modelo de implementación clásica, implemente las máquinas virtuales en el mismo servicio en la nube.
+* **Scripts de la CLI de Azure**: como se muestra más adelante en este artículo, use la [interfaz de la línea de comandos de Azure](../cli-install-nodejs.md) (CLI) para automatizar la implementación de un clúster de máquinas virtuales compatibles con RDMA. La CLI en modo de Administración de servicios crea los nodos del clúster en serie en el modelo de implementación clásica, por lo que la implementación de muchos nodos de proceso puede tardar varios minutos. Para habilitar la conexión de red de RDMA cuando se usa el modelo de implementación clásica, implemente las máquinas virtuales en el mismo servicio en la nube.
 * **Plantillas de Azure Resource Manager**: también puede usar el modelo de implementación de Resource Manager para implementar un clúster de máquinas virtuales compatibles con RDMA que se conecte a la red de RDMA. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos proporcionan una manera rápida y confiable de implementar un clúster de Linux. Para habilitar la conexión de red de RDMA cuando se usa el modelo de implementación de Resource Manager, implemente las máquinas virtuales en el mismo conjunto de disponibilidad.
 * **HPC Pack**: cree un clúster de Microsoft HPC Pack en Azure y agregue nodos de ejecución compatibles con RDMA que ejecuten una distribución de Linux compatible para acceder a la red de RDMA. Para más información, consulte [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -38,7 +39,7 @@ A continuación se facilitan métodos que puede usar para crear un clúster de L
 Los pasos siguientes muestran cómo usar la CLI de Azure para implementar una máquina virtual de HPC de SUSE Linux Enterprise Server 12 SP1 (SLES) desde Azure Marketplace, personalizarla y crear una imagen de máquina virtual personalizada. Después puede usar la imagen para automatizar la implementación de un clúster de máquinas virtuales compatibles con RDMA.
 
 > [!TIP]
-> Siga los mismos pasos para implementar un clúster de máquinas virtuales compatibles con RDMA basadas en otras imágenes de HPC compatibles en Azure Marketplace. Es posible que, como se indica, algunos pasos sean ligeramente distintos. Por ejemplo, Intel MPI solo se incluye y configura en algunas de estas imágenes. Además, si implementa una máquina virtual de HPC de SLES 12 en lugar de una máquina virtual de HPC de SLES 12 SP1, debe actualizar los controladores de RDMA. Para más información, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Siga los mismos pasos para implementar un clúster de máquinas virtuales compatibles con RDMA basadas en imágenes de HPC basadas en CentOS en Azure Marketplace. Es posible que, como se indica, algunos pasos sean ligeramente distintos. 
 >
 >
 
@@ -47,7 +48,7 @@ Los pasos siguientes muestran cómo usar la CLI de Azure para implementar una m�
 * **Suscripción de Azure**: si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
 * **Disponibilidad de tamaño de máquina virtual**: los siguientes tamaños de instancia son compatibles con RDMA: H16r, H16mr, A8 y A9. Para ver la disponibilidad en las regiones de Azure, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/) .
 * **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales de proceso intensivo. Por ejemplo, necesita al menos 128 núcleos si desea implementar máquinas virtuales A8 o A9 tal y como se muestra en este artículo. La suscripción también podría limitar el número de núcleos que se pueden implementar en ciertas familias de tamaño de máquina virtual, como la serie H. Para solicitar un aumento de cuota, [abra una solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
-* **CLI de Azure**: [instale](../xplat-cli-install.md) la CLI de Azure y [conéctela a su suscripción de Azure](../xplat-cli-connect.md) en el equipo cliente.
+* **CLI de Azure**: [instale](../cli-install-nodejs.md) la CLI de Azure y [conéctela a su suscripción de Azure](../xplat-cli-connect.md) en el equipo cliente.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Aprovisionamiento de una máquina virtual de HPC de SLES 12 SP1
 Después de iniciar sesión en Azure con la CLI de Azure, ejecute `azure config list` para confirmar que la salida muestra el modo de Administración del servicio de Azure. Si no es así, ejecute este comando para establecer el modo:
@@ -379,9 +380,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 * Implemente y ejecute las aplicaciones Linux MPI en el clúster de Linux.
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 * Pruebe una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para crear un clúster de Intel Lustre mediante una imagen HPC basada en CentOS. Para más información, consulte [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/) (Implementación de la edición de nube de Intel para Lustre en Microsoft Azure).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

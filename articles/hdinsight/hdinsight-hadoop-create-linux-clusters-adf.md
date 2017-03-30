@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 121be952ea49a8ff47f7e2528adbc87e05359a15
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -81,7 +81,7 @@ Puede utilizar hasta tres cuentas de almacenamiento en este escenario:
 - la cuenta de almacenamiento para los datos de entrada
 - la cuenta de almacenamiento para los datos de salida
 
-Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los&3; objetivos. El script de ejemplo de Azure PowerShell de esta sección realiza las siguientes tareas:
+Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los 3 objetivos. El script de ejemplo de Azure PowerShell de esta sección realiza las siguientes tareas:
 
 1. Inicie sesión en Azure.
 2. Cree un grupo de recursos de Azure.
@@ -221,7 +221,7 @@ Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL prep
 
     ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    Si profundiza en la lista, verá&3; carpetas de enero, febrero y marzo. Además, hay un registro para cada mes.
+    Si profundiza en la lista, verá 3 carpetas de enero, febrero y marzo. Además, hay un registro para cada mes.
 
     ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 

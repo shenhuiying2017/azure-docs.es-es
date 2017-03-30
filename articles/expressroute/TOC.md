@@ -2,27 +2,25 @@
 ## [¿Qué es ExpressRoute?](expressroute-introduction.md)
 ## [Preguntas más frecuentes sobre ExpressRoute](expressroute-faqs.md)
 ## [Modelos de conectividad](expressroute-connectivity-models.md)
+## [Circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md)
 ## [Ubicaciones y asociados](expressroute-locations.md)
 ### [Proveedores por ubicación](expressroute-locations-providers.md)
 ### [Ubicaciones por proveedor](expressroute-locations.md)
+## [Puertas de enlace de red virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Introducción
-## [Flujos de trabajo](expressroute-workflows.md)
 ## [Requisitos previos](expressroute-prerequisites.md)
-## [Circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md)
+## [Flujos de trabajo](expressroute-workflows.md)
 ## [Requisitos de enrutamiento](expressroute-routing.md)
-## [Optimización del enrutamiento](expressroute-optimize-routing.md)
 ## [Requisitos NAT](expressroute-nat.md)
 ## [Requisitos QoS](expressroute-qos.md)
 ## [Movimiento de circuitos del portal clásico a Resource Manager](expressroute-move.md)
-## [Puertas de enlace de red virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Procedimientos
 ## Creación y modificación de un circuito
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
-## Creación y modificación de configuraciones de enrutamiento
+## Creación y modificación de la configuración de emparejamiento
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (clásico)](expressroute-howto-routing-classic.md)
@@ -38,11 +36,12 @@
 ### [PowerShell (clásico)](expressroute-howto-coexist-classic.md)
 ## [Migración de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
 ## Configuración de un enrutador para ExpressRoute
-### [Ejemplos de configuración de enrutador](expressroute-config-samples-routing.md)
+### [Configuración de un enrutador](expressroute-config-samples-routing.md)
 ### [Ejemplos de configuración de enrutador para NAT](expressroute-config-samples-nat.md)
 
 ## Prácticas recomendadas
 ### [Procedimientos recomendados para seguridad de red y servicios en la nube](../best-practices-network-security.md)
+## [Optimización del enrutamiento](expressroute-optimize-routing.md)
 ### [Enrutamiento asimétrica](expressroute-asymmetric-routing.md)
 
 ## Solución de problemas

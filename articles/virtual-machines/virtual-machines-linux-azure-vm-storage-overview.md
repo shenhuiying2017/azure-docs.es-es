@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
-ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 1ada403a502972ee0d8cd96af2d62d923d43f6cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -30,13 +30,13 @@ Las VM de Azure ahora están disponibles a través de [Azure Managed Disks](../s
 
 - Compatibilidad con escalabilidad automática. Azure crea los discos y administra el almacenamiento subyacente para admitir hasta 10 000 discos por suscripción.
 - Mayor confiabilidad con conjuntos de disponibilidad. Azure garantiza que los discos de VM están aislados automáticamente entre sí dentro de los conjuntos de disponibilidad.
-- Mayor control de acceso. Managed Disks expone varias operaciones controladas por [Control de acceso basado en rol (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md). 
+- Mayor control de acceso. Managed Disks expone varias operaciones controladas por [Control de acceso basado en rol (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md).
 
-Los precios de Managed Disks son distintos de los precios de los discos no administrados. Para esa información, consulte [Pricing and Billing for Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing) (Precios y facturación de Managed Disks). 
+Los precios de Managed Disks son distintos de los precios de los discos no administrados. Para esa información, consulte [Pricing and Billing for Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing) (Precios y facturación de Managed Disks).
 
 Puede convertir VM existentes que usan discos no administrados para que usen discos administrados con [az vm convert](/cli/azure/vm#convert). Para más información, consulte [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Conversión de una VM Linux de discos no administrados a Azure Managed Disks). No puede convertir un disco no administrado en un disco administrado si el disco no administrado se encuentra en una cuenta de almacenamiento que está, o en algún momento ha estado, cifrada con el [Cifrado del servicio Azure Storage (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los siguientes pasos explican cómo convertir discos no administrados que están, o han estado, en una cuenta de almacenamiento cifrada:
 
-- [Copie el disco duro virtual (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) con [az storage blob copy start](/cli/azure/storage/blob/copy#start) en una cuenta de almacenamiento que nunca se ha habilitado para el Cifrado del servicio Azure Storage.
+- Copie el disco duro virtual (VHD) con [az storage blob copy start](/cli/azure/storage/blob/copy#start) en una cuenta de almacenamiento que nunca se ha habilitado para el Cifrado del servicio Azure Storage.
 - Cree una VM que use discos administrados y especifique el archivo de VHD durante la creación con [az vm create](/cli/azure/vm#create).
 - O conecte el VHD copiado con [az vm disk attach](/cli/azure/vm/disk#attach) a una VM en ejecución con discos administrados.
 
@@ -62,7 +62,7 @@ Luego, cree la VM con el comando `az vm create`, como en el ejemplo siguiente. R
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -76,7 +76,7 @@ az vm create \
 --storage-sku Premium_LRS
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -234,9 +234,9 @@ Hablaremos acerca del cifrado del servicio de almacenamiento (SSE) y el modo de 
 * [Guía de seguridad de Azure Storage](../storage/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disco temporal
-Cada máquina virtual contiene un disco temporal. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) o al [volver a implementar una máquina virtual](virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante un reinicio estándar de la máquina virtual, los datos de la unidad temporal deben conservarse.
+Cada máquina contiene un disco temporal. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) o cuando [vuelva a implementar una máquina virtual](virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante un reinicio estándar de la máquina virtual, los datos de la unidad temporal deben conservarse.
 
-En las máquinas virtuales de Linux, el disco es normalmente **/dev/sdb** y se formatea y monta en **/mnt** por el agente de Linux de Azure. El tamaño del disco temporal varía, según el tamaño de la máquina virtual. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md).
+En las máquinas virtuales de Linux, el disco es normalmente **/dev/sdb** y lo formatea y lo monta en **/mnt** el agente de Linux de Azure. El tamaño del disco temporal varía, según el tamaño de la máquina virtual. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md).
 
 Para más información sobre cómo usa Azure el disco temporal, consulte [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
@@ -246,5 +246,4 @@ Para más información sobre cómo usa Azure el disco temporal, consulte [Unders
 
 ## <a name="storage-limits"></a>Límites de almacenamiento
 * [Límites del servicio Storage](../azure-subscription-service-limits.md#storage-limits)
-
 

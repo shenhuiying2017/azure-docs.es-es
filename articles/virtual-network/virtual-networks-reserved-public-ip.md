@@ -1,5 +1,5 @@
 ---
-title: "Administración de direcciones IP reservadas (clásico) mediante PowerShell | Microsoft Docs"
+title: "Administración de direcciones IP reservadas (clásico) de Azure mediante PowerShell | Microsoft Docs"
 description: "Conozca las direcciones IP reservadas (clásico) y cómo administrarlas mediante PowerShell."
 services: virtual-network
 documentationcenter: na
@@ -15,19 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 55071ffe1bcc17b2181b4c52f51d28571a2f0eff
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 276b1bcebbe3c32d6fead8ee240dd1ddfb01c872
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="reserved-ip-addresses-classic"></a>Direcciones IP reservadas (clásico)
 
 > [!div class="op_single_selector"]
-- [Portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [CLI de Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Plantilla](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (clásico)](virtual-networks-reserved-public-ip.md)
+> * [Portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [CLI de Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Plantilla](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (clásico)](virtual-networks-reserved-public-ip.md)
 
 Las direcciones IP en Azure se dividen en dos categorías: dinámicas y reservadas. Las direcciones IP públicas administradas por Azure son dinámicas de forma predeterminada. Esto significa que la dirección IP usada para un determinado servicio en la nube (VIP) o para tener acceso a una máquina virtual o instancia de rol directamente (ILPIP) puede cambiar de vez en cuando, cuando los recursos se cierran o desasignan.
 
@@ -164,10 +165,5 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 * Descubra cómo funcionan las [direcciones IP](virtual-network-ip-addresses-overview-classic.md) en el modelo de implementación clásica.
 * Obtenga más información acerca de las [direcciones IP privadas reservadas](virtual-networks-reserved-private-ip.md).
 * Obtenga más información acerca de las [direcciones IP públicas de nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

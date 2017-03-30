@@ -15,14 +15,19 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d4618e70ed3a940c686f9ed539ce207fd59306e8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 052785aa225086e55a40c061765770b9eebaa154
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Incorporación de una máquina virtual a un laboratorio de Azure DevTest Labs
 Puede agregar una máquina virtual a un laboratorio a partir de una *base* que puede ser una [imagen personalizada](devtest-lab-create-template.md), una [fórmula](devtest-lab-manage-formulas.md) o una [imagen de Marketplace](devtest-lab-configure-marketplace-images.md). En este tutorial se explica cómo usar Azure Portal para agregar una máquina virtual a un laboratorio de DevTest Labs.
+
+> [!NOTE]
+> [Agregar una máquina virtual reclamable](devtest-lab-add-claimable-vm.md) muestra cómo convertir una máquina virtual en reclamable para que esté disponible con el fin de que pueda usarlo cualquier usuario del laboratorio.
+>
+>
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Pasos para agregar una máquina virtual a un laboratorio de Azure DevTest Labs
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -34,14 +39,14 @@ Puede agregar una máquina virtual a un laboratorio a partir de una *base* que p
 
 1. En la hoja **Elegir una base** , seleccione una base para la máquina virtual.
 1. En la hoja **Máquina virtual**, escriba un nombre para la nueva máquina virtual en el cuadro de texto **Nombre de la máquina virtual**.
-   
+
     ![Hoja de la máquina virtual de laboratorio](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Escriba un **Nombre de usuario** al que se concederán privilegios de administrador en la máquina virtual.  
-1. Si quiere usar una contraseña almacenada en su [almacén secreto](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), seleccione **Use a saved secret** (Usar un secreto guardado) y especifique un valor de clave que corresponda a su secreto (contraseña). De lo contrario, escriba una contraseña en el campo de texto **Escriba un valor**.
+1. Si quiere usar una contraseña almacenada en su [almacén secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), seleccione **Use a saved secret** (Usar un secreto guardado) y especifique un valor de clave que corresponda a su secreto (contraseña). De lo contrario, escriba una contraseña en el campo de texto **Escriba un valor**.
 1. El valor **Virtual machine disk type** (Tipo de disco de máquina virtual) determina qué tipo de disco de almacenamiento se admite para las máquinas virtuales del laboratorio.
 1. Seleccione **Tamaño de máquina virtual** y seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
-1. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base. 
+1. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base.
     **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
 1. Seleccione **Configuración avanzada** para configurar las opciones de expiración y las opciones de red de la máquina virtual.
 1. Si desea ver o copiar la plantilla de Azure Resource Manager, vaya a la sección [Almacenamiento de una plantilla de Azure Resource Manager](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) y vuelva aquí cuando haya finalizado.
@@ -51,6 +56,4 @@ Puede agregar una máquina virtual a un laboratorio a partir de una *base* que p
 ## <a name="next-steps"></a>Pasos siguientes
 * Una vez creada la máquina virtual, puede conectarse a la misma seleccionando **Conectar** en la hoja de la máquina virtual.
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
-
-
 

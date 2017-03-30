@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
 ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -103,7 +104,7 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 9. Obtenga el identificador de aplicación.
 
     ```PowerShell
-    $azureAdApplication 
+    $azureAdApplication    
     ```
     Anote el identificador de aplicación (**applicationID** de la salida).
 
@@ -134,9 +135,6 @@ Debe tener los cuatro valores siguientes de estos pasos:
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
-        <startup>
-            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-        </startup>
         <appSettings>
             <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
@@ -153,16 +151,18 @@ Debe tener los cuatro valores siguientes de estos pasos:
 5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
     ```csharp
-    using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
     ```
 
 6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos de entrada y salida, y una canalización. También se usa para supervisar los segmentos de un conjunto de datos en tiempo de ejecución.
@@ -172,10 +172,9 @@ Debe tener los cuatro valores siguientes de estos pasos:
     string resourceGroupName = "ADFTutorialResourceGroup";
     string dataFactoryName = "APITutorialFactory";
 
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+            GetAuthorizationHeader().Result);
 
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
@@ -199,7 +198,7 @@ Debe tener los cuatro valores siguientes de estos pasos:
             {
                 Name = dataFactoryName,
                 Location = "westus",
-                Properties = new DataFactoryProperties() { }
+                Properties = new DataFactoryProperties()
             }
         }
     );
@@ -317,7 +316,6 @@ Debe tener los cuatro valores siguientes de estos pasos:
                     {
                         TableName = "emp"
                     },
-
                     Availability = new Availability()
                     {
                         Frequency = SchedulePeriod.Hour,
@@ -347,8 +345,8 @@ Debe tener los cuatro valores siguientes de estos pasos:
                 {
                     Description = "Demo Pipeline for data transfer between blobs",
 
-            // Initial value for pipeline's active period. With this, you won't need to set slice status
-            Start = PipelineActivePeriodStartTime,
+                    // Initial value for pipeline's active period. With this, you won't need to set slice status
+                    Start = PipelineActivePeriodStartTime,
                     End = PipelineActivePeriodEndTime,
 
                     Activities = new List<Activity>()
@@ -379,7 +377,7 @@ Debe tener los cuatro valores siguientes de estos pasos:
                                 }
                             }
                         }
-                    },
+                    }
                 }
             }
         });
@@ -394,7 +392,7 @@ Debe tener los cuatro valores siguientes de estos pasos:
 
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
+        Console.WriteLine("Pulling the slice status");        
         // wait before the next status check
         Thread.Sleep(1000 * 12);
 
@@ -458,33 +456,18 @@ Debe tener los cuatro valores siguientes de estos pasos:
 14. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**.
 
     ```csharp
-    public static string GetAuthorizationHeader()
+    public static async Task<string> GetAuthorizationHeader()
     {
-        AuthenticationResult result = null;
-        var thread = new Thread(() =>
-        {
-            try
-            {
-                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
-                result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
-            }
-            catch (Exception threadEx)
-            {
-                Console.WriteLine(threadEx.Message);
-            }
-        });
-
-        thread.SetApartmentState(ApartmentState.STA);
-        thread.Name = "AcquireTokenThread";
-        thread.Start();
-        thread.Join();
+        AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        ClientCredential credential = new ClientCredential(
+            ConfigurationManager.AppSettings["ApplicationId"],
+            ConfigurationManager.AppSettings["Password"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientCredential: credential);
 
         if (result != null)
-        {
             return result.AccessToken;
-        }
 
         throw new InvalidOperationException("Failed to acquire token");
     }
@@ -511,13 +494,5 @@ Debe tener los cuatro valores siguientes de estos pasos:
 | [Procesos](data-factory-create-pipelines.md) |Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory de Azure. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
-[Referencia de la API de .NET de Data Factory](/dotnet/api/) | Proporciona información acerca del SDK de .NET de Data Factory (busque Microsoft.Azure.Management.DataFactories.Models en la vista de árbol). 
-
-
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[Referencia de la API de .NET de Data Factory](/dotnet/api/) | Proporciona información acerca del SDK de .NET de Data Factory (busque Microsoft.Azure.Management.DataFactories.Models en la vista de árbol).
 

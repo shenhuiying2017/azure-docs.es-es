@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 30f56224a00957127497b6a05a809453294ea94e
-ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -79,7 +80,7 @@ No. StorSimple Virtual Array en CSP se podrá administrar a través de Azure Por
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>He aprovisionado una suscripción independiente de StorSimple para mi cliente. ¿Tengo que usar Azure Portal para administrar el dispositivo? 
 Sí. 
 
-### <a name="is-the-microsoft-field-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>¿Se compensa al equipo de campo de Microsoft como consecuencia de las ventas de StorSimple a través de CSP?
+### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>¿Se compensa al equipo de cuentas de Microsoft como consecuencia de las ventas de StorSimple a través de CSP?
 Sí. Tanto el ejecutivo de cuentas del asociado como el equipo de la cuenta de clientes del cliente final recibirán compensación por las ventas de CSP. Se espera que los asociados tomen el control a la hora de vender el valor y las ofertas que les diferencian del resto.
 
 ## <a name="support-for-storsimple-and-csp"></a>Soporte técnico de StorSimple y CSP
@@ -98,9 +99,4 @@ Para más información acerca de StorSimple para CSP, vaya a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si está listo para implementar StorSimple, vaya a [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Implementación de StorSimple Virtual Array para el programa Proveedor de soluciones en la nube).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

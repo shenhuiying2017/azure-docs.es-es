@@ -69,16 +69,18 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
     ```csharp
-    using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
     ```
 6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos de entrada y salida, y una canalización. También se usa para supervisar los segmentos de un conjunto de datos en tiempo de ejecución.
 
@@ -87,10 +89,9 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
     string resourceGroupName = "resourcegroupname";
     string dataFactoryName = "APITutorialFactorySP";
     
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+        GetAuthorizationHeader().Result);
     
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
     
@@ -111,7 +112,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
             {
                 Name = dataFactoryName,
                 Location = "westus",
-                Properties = new DataFactoryProperties() { }
+                Properties = new DataFactoryProperties()
             }
         }
     );
@@ -250,7 +251,8 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                         Name = "BlobToBlob",
                         Inputs = new List<ActivityInput>()
                         {
-                            new ActivityInput() {
+                            new ActivityInput()
+                {
                                 Name = Dataset_Source
                             }
                         },
@@ -280,36 +282,17 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 11. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo que le permite proporcionar un **nombre de usuario** y una **contraseña** para iniciar sesión en Azure Portal.
 
     ```csharp
-    public static string GetAuthorizationHeader()
+    public static async Task<string> GetAuthorizationHeader()
     {
-        AuthenticationResult result = null;
-        var thread = new Thread(() =>
-        {
-            try
-            {
-                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                result = context.AcquireToken(
-                    resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                    clientId: ConfigurationManager.AppSettings["AdfClientId"],
-                    redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                    promptBehavior: PromptBehavior.Always);
-            }
-            catch (Exception threadEx)
-            {
-                Console.WriteLine(threadEx.Message);
-            }
-        });
-
-        thread.SetApartmentState(ApartmentState.STA);
-        thread.Name = "AcquireTokenThread";
-        thread.Start();
-        thread.Join();
+        var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientId: ConfigurationManager.AppSettings["AdfClientId"],
+            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+            promptBehavior: PromptBehavior.Always);
 
         if (result != null)
-        {
             return result.AccessToken;
-        }
 
         throw new InvalidOperationException("Failed to acquire token");
     }
@@ -359,14 +342,13 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
     Console.ReadKey();
     
     var datasliceRunListResponse = client.DataSliceRuns.List(
-            resourceGroupName,
-            dataFactoryName,
-            Dataset_Destination,
-            new DataSliceRunListParameters()
-            {
-                DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-            }
-        );
+        resourceGroupName,
+        dataFactoryName,
+        Dataset_Destination,
+        new DataSliceRunListParameters()
+        {
+            DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+        });
     
     foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
     {
@@ -409,12 +391,18 @@ El código de ejemplo anterior de este tutorial inicia un cuadro de diálogo par
 Cree el método GetAuthorizationHeaderNoPopup.
 
 ```csharp
-public static string GetAuthorizationHeaderNoPopup()
+public static async Task<string> GetAuthorizationHeaderNoPopup()
 {
     var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
     var context = new AuthenticationContext(authority.AbsoluteUri);
-    var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
-    AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+    var credential = new ClientCredential(
+        ConfigurationManager.AppSettings["AdfClientId"],
+    ConfigurationManager.AppSettings["AdfClientSecret"]);
+    
+    AuthenticationResult result = await context.AcquireTokenAsync(
+        ConfigurationManager.AppSettings["WindowsManagementUri"],
+    credential);
+
     if (result != null)
         return result.AccessToken;
 
@@ -428,7 +416,7 @@ Reemplace la llamada a **GetAuthorizationHeader** por una llamada a **GetAuthori
 TokenCloudCredentials aadTokenCredentials =
     new TokenCloudCredentials(
     ConfigurationManager.AppSettings["SubscriptionId"],
-    GetAuthorizationHeaderNoPopup());
+    GetAuthorizationHeaderNoPopup().Result);
 ```
 
 Así es como puede crear la aplicación de Active Directory, entidad de servicio, y asignarla al rol de Colaborador de Data Factory:

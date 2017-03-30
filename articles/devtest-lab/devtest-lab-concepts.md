@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c81b83143afaab3acf625dc98269b35973185d77
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,9 +38,14 @@ La lista siguiente contiene las definiciones y los conceptos clave de DevTest La
 Un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de esos recursos especificando límites y cuotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
+Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
 
-[Información general sobre las máquinas virtuales Windows en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-overview) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
+[Información general sobre las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
+
+## <a name="claimable-vm"></a>Creación de máquinas virtuales reclamables
+Una máquina virtual reclamable de Azure Claimable es una que está disponible para que pueda usarla cualquier usuario de laboratorio con permisos. Un administrador de laboratorio puede preparar las máquinas virtuales con los artefactos y las imágenes base específicas, y guardarlas en un grupo compartido. Luego, un usuario de laboratorio puede solicitar una máquina virtual de trabajo del grupo cuando necesite una con esa configuración concreta.
+
+Una máquina virtual reclamable no se asigna inicialmente a ningún usuario concreto, pero se mostrará en la lista de todos los usuarios en "Claimable virtual machines" (Máquinas virtuales reclamables). Después de que un usuario reclame una máquina virtual, se mueve hasta su área "Mis máquinas virtuales" y ya no podrá reclamarla otro usuario.
 
 ## <a name="environment"></a>Environment
 En DevTest Labs, un entorno hace referencia a una colección de recursos de Azure en un laboratorio. [Esta entrada de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) describe cómo crear entornos de varias máquinas virtuales a partir de las plantillas de Azure Resource Manager.
@@ -89,7 +94,7 @@ Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un
 ## <a name="arm-templates"></a>Plantillas de ARM
 Todos los conceptos tratados en este artículo pueden configurarse mediante el uso de las plantillas de Azure Resource Manager (ARM). Las plantillas de ARM le permiten definir la configuración y la infraestructura de la solución de Azure, e implementarla varias veces en un estado coherente.
 
-[Las plantillas de ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describen la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de una plantilla.
+[Las plantillas de ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describen la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de una plantilla.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

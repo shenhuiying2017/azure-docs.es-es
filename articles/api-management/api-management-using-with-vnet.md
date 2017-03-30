@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
-ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,8 +28,8 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 
 > [!NOTE]
 > Azure API Management admite redes virtuales clásicas y de Azure Resource Manager.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Habilitar la conexión de VNET
 > [!NOTE]
@@ -59,20 +59,20 @@ Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Adm
 
 > [!IMPORTANT]
 > Al implementar una instancia de Azure API Management en una VNET de Resource Manager, el servicio debe estar en una subred dedicada que no contiene ningún otro recurso excepto instancias de Azure API Management. Si se intenta implementar una instancia de Azure API Management en una subred de VNET de Resource Manager que contiene otros recursos, se producirá un error en la implementación.
-> 
-> 
+>
+>
 
 ![Selección de una VPN][api-management-setup-vpn-select]
 
-Haga clic en **Guardar** en la parte superior de la pantalla. 
+Haga clic en **Guardar** en la parte superior de la pantalla.
 
 > [!NOTE]
 > Tenga en cuenta que la dirección VIP de la instancia de API Management cambiará cada vez que se habilita o deshabilita VNET.  
 > La dirección VIP también cambia cuando se mueve API Management de **externo** a **interno** o viceversa.
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Si quita API Management de una red virtual o cambia aquella en la que se implementa, la red virtual usada anteriormente puede permanecer bloqueada hasta 4 horas. Durante este periodo no será posible eliminar la red virtual ni implementar un nuevo recurso en ella.
 
 ## <a name="enable-vnet-powershell"> </a>Habilitar una conexión de VNET con cmdlets de PowerShell
@@ -94,7 +94,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 > [!IMPORTANT]
 > Se recomienda que, si está utilizando un servidor de DNS personalizado para la red virtual, lo configure **antes** de la implementación de un servicio de API Management en él. En caso contrario, es necesario reiniciar la instancia de CloudService que hospeda el servicio a fin de que integre la nueva configuración de servidor DNS.
-> 
+>
 
 * **Puertos necesarios para API Management**: el tráfico entrante y saliente en la subred en la que se implementa API Management puede controlarse mediante el [grupo de seguridad de red][Network Security Group]. Si alguno de estos puertos no está disponible, es posible que API Management no funcione correctamente y sea inaccesible. Tener bloqueados uno o varios de estos puertos es otro problema común de una configuración incorrecta cuando se usa API Management con una red virtual.
 
@@ -134,7 +134,7 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 
 
 ## <a name="related-content"> </a>Contenido relacionado
-* [Conexión de una red virtual a back-end mediante VPN Gateway][Different topologies to connect to Vpn Gateway]
+* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure](api-management-howto-api-inspector.md)
 
@@ -149,7 +149,6 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 

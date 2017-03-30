@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
-ms.openlocfilehash: cccbddd6993e3011e3e76bc84ffc212f3f8b1d55
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 2aaf9bfaade060817fa7e42299ad20a2e8f78eaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Movimiento de una máquina virtual Windows a otro grupo de recursos o suscripción de Azure
 Este artículo le guiará en el procedimiento para mover una máquina virtual Windows entre suscripciones o grupos de recursos. Mover máquinas virtuales entre suscripciones puede ser útil si originalmente creó una en una suscripción personal y ahora quiere moverla a la suscripción de su compañía para seguir trabajando.
 
-> [!NOTE]
-> Como parte de esta operación, se crean nuevos id. de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos id. de recursos. 
+> [!IMPORTANT]
+>No se puede mover discos administrados en este momento. 
+>
+>Como parte de esta operación, se crean nuevos identificadores de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos identificadores de recursos. 
 > 
 > 
 
@@ -62,10 +65,5 @@ Se le pedirá que confirme que desea mover los recursos especificados. Escriba *
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

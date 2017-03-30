@@ -560,6 +560,6 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 7/3/2017
 ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: fdb80e3379adfa9d65d6e5891cb701cee86eb1b9
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -42,8 +42,8 @@ La auditoría de Base de datos SQL le permite:
 
 Existen dos **métodos de auditoría**:
 
-* **Auditoría de blobs**: los registros se escriben en Azure Blob Storage. Es el método de auditoría más reciente, que proporciona **mayor rendimiento**, admite **auditoría de nivel de objeto de mayor granularidad** y es **más rentable**.
-* **Auditoría de tablas**: los registros se escriben en Azure Table Storage.
+* **Auditoría de blobs**: los registros se escriben en Azure Blob Storage. Es el método de auditoría más reciente, que proporciona **mayor rendimiento**, admite **auditoría de nivel de objeto de mayor granularidad** y es **más rentable**. La auditoría de blobs va a sustituir la auditoría de tabla.
+* **Auditoría de tablas (obsoleto)**: los registros se escriben en Azure Table Storage.
 
 > [!IMPORTANT]
 > La introducción de la nueva auditoría de blobs aporta un cambio importante en cómo se va a heredar la directiva de auditoría de servidor por la base de datos. Consulte la sección [Diferencias de blobs o tablas en la herencia de directivas de auditoría de servidor](#subheading-8) para más información.
@@ -79,7 +79,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 7. Cuando haya configurado los valores de auditoría, puede activar la nueva **detección de amenazas** (versión preliminar) y configurar los mensajes de correo electrónico para recibir alertas de seguridad. La detección de amenazas le permite recibir alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md) para obtener más detalles.
 8. Haga clic en **Guardar**.
 
-### <a id="subheading-2-2">Auditoría de tablas</a>
+### <a id="subheading-2-2">Auditoría de tablas</a> (obsoleto)
 
 > Antes de configurar la **auditoría de tablas**, compruebe si usa un ["Cliente de nivel inferior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Además, si tiene una configuración de firewall estricta, tenga en cuenta que el [punto de conexión de IP de la base de datos cambiará](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) al habilitar la auditoría de tablas.
 
@@ -119,7 +119,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
     > <br><br>
     > En caso contrario, se **recomienda habilitar solo la auditoría de blobs de nivel de servidor** y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
 
-###<a name="atable-auditinga"></a><a>Auditoría de tablas</a>
+###<a name="atable-auditinga-deprecated"></a><a>Auditoría de tablas</a> (obsoleto)
 
 Si **está habilitada la auditoría de tabla de nivel de servidor**, solo se aplica a la base de datos, si se activa la casilla "Heredar la configuración del servidor" en la hoja de la base de datos (está activada de forma predeterminada para todas las bases de datos recién creadas y existentes).
 
@@ -169,7 +169,7 @@ Existen varios métodos para ver los registros de auditoría de blobs:
 
 3. Hemos creado una **aplicación de ejemplo** que se ejecuta en Azure y utiliza las API públicas de OMS para insertar los registros de auditoría SQL en OMS para su uso mediante el panel de OMS ([consulte aquí para más información](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-### <a id="subheading-3-2">Auditoría de tablas</a>
+### <a id="subheading-3-2">Auditoría de tablas</a> (obsoleto)
 Los registros de auditoría de tablas se guardan como una colección de instancias de Azure Storage Table con un prefijo **SQLDBAuditLogs**.
 
 Para más información sobre el formato de registro de auditoría de tablas, consulte la [referencia del formato de registro de auditoría de tablas (descarga del archivo de documento)](http://go.microsoft.com/fwlink/?LinkId=506733).
@@ -245,7 +245,7 @@ También puede configurar la auditoría en Azure SQL Database mediante las sigui
    * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx) (Obtención de la directiva de auditoría de bobs de la base de datos)
    * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx) (Obtención de la directiva de auditoría de blobs del servidor)
    * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx) (Obtención de resultados de funcionamiento de la auditoría de blobs del servidor)
-3. **API de REST, auditoría de tablas**
+3. **API de REST: Auditoría de tablas (obsoleto)**
 
    * [Create or Update Database Auditing Policy](https://msdn.microsoft.com/library/azure/mt604471.aspx) (Creación o actualización de la directiva de auditoría de la base de datos)
    * [Create or Update Server Auditing Policy](https://msdn.microsoft.com/library/azure/mt604383.aspx) (Creación o actualización de la directiva de auditoría del servidor)

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 2aba475cd93e4d3ec37d2eb70f7ba06bc317c222
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6b36c479c987c801d34f90a4300b7221354b9615
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,6 +32,7 @@ Este artículo se centra en entender las necesidades de almacenamiento y las con
 ## <a name="implementation-guidelines-for-storage"></a>Directrices de implementación para el almacenamiento
 Decisiones:
 
+* ¿Va a usar Azure Managed Disks o discos no administrados?
 * ¿Necesita usar el almacenamiento Estándar o Premium para la carga de trabajo?
 * ¿Necesita crear bandas en los discos para crear discos de más de 1023 GB?
 * ¿Necesita crear bandas en los discos para lograr un rendimiento óptimo de E/S para la carga de trabajo?
@@ -44,6 +45,8 @@ Tareas:
 
 ## <a name="storage"></a>Almacenamiento
 Almacenamiento de Azure es una parte clave del proceso de implementación y administración de aplicaciones y máquinas virtuales. Almacenamiento de Azure proporciona servicios para almacenar datos de archivos, datos sin estructura y mensajes, y también forma parte de la infraestructura que da soporte a las máquinas virtuales.
+
+[Azure Managed Disks](../storage/storage-managed-disks-overview.md) controla automáticamente el almacenamiento en segundo plano. Con los discos no administrados, era preciso crear cuentas de almacenamiento que contuvieran los discos (archivos VHD) de las máquinas virtuales de Azure. Al escalar verticalmente, era preciso asegurarse de que se habían creado cuentas de almacenamiento adicionales, para que no se superar el límite de IOPS de almacenamiento con cualquiera de los discos. Si Managed Disks controla el almacenamiento, desaparecen los límites de la cuenta de almacenamiento (por ejemplo, 20 000 IOPS por cuenta). Tampoco es preciso copiar las imágenes personalizadas (archivos VHD) en varias cuentas de almacenamiento. Puede administrarlas en una ubicación central (una cuenta de almacenamiento por región de Azure) y utilizarlas para crear cientos de máquinas virtuales en una suscripción. Se recomienda utilizar Managed Disks para las nuevas implementaciones.
 
 Existen dos tipos de cuentas de almacenamiento disponibles para la compatibilidad con máquinas virtuales.
 
@@ -81,7 +84,9 @@ Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las s
 Para más información, consulte [Configuración del LVM en una máquina virtual Linux en Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="multiple-storage-accounts"></a>Cuentas de almacenamiento múltiples
-Al diseñar el entorno de Azure Storage, puede utilizar varias cuentas de almacenamiento a medida que el número de VM implementadas aumente. Este enfoque ayuda a distribuir la E/S entre la infraestructura subyacente de Azure Storage con el fin de mantener un rendimiento óptimo para las VM y aplicaciones. Al diseñar las aplicaciones que se van a implementar, tenga en cuenta los requisitos que E/S de cada VM tendrá y compense esas VM entre las cuentas de Azure Storage. Trate de evitar agrupar todas las máquinas virtuales que exigen E/S elevadas en una o dos cuentas de almacenamiento.
+En esta sección no se aplica a [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ya que no creará cuentas de almacenamiento independientes. 
+
+Al diseñar el entorno de Azure Storage para los discos no administrados, puede utilizar varias cuentas de almacenamiento a medida que el número de máquinas virtuales implementadas aumente. Este enfoque ayuda a distribuir la E/S entre la infraestructura subyacente de Azure Storage con el fin de mantener un rendimiento óptimo para las VM y aplicaciones. Al diseñar las aplicaciones que se van a implementar, tenga en cuenta los requisitos que E/S de cada VM tendrá y compense esas VM entre las cuentas de Azure Storage. Trate de evitar agrupar todas las máquinas virtuales que exigen E/S elevadas en una o dos cuentas de almacenamiento.
 
 Para obtener más información sobre las funcionalidades de E/S de las distintas opciones de Azure Storage y algunos máximos recomendados, consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../storage/storage-scalability-targets.md).
 

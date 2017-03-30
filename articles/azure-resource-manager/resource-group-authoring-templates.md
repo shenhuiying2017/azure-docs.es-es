@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a75863878a97c1202e9b9946b0bff19261952c21
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ En la estructura más simple, una plantilla contiene los siguientes elementos:
 Examinaremos las secciones de la plantilla con mayor detenimiento más adelante en este tema.
 
 ## <a name="expressions-and-functions"></a>Expresiones y funciones
-La sintaxis básica de la plantilla es JSON. Sin embargo, las expresiones y funciones amplían el JSON que está disponible en la plantilla. Con las expresiones, se crean valores que no son valores literales estrictos. Las expresiones se incluyen entre los corchetes `[` y `]` y se evalúan cuando se implementa la plantilla. Pueden aparecer expresiones en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete `[`, debe usar dos corchetes `[[`.
+La sintaxis básica de la plantilla es JSON. Sin embargo, las expresiones y funciones amplían los valores JSON disponibles en la plantilla.  Las expresiones se escriben en los literales de cadena JSON cuyo primer y último caracteres son los corchetes `[` y `]`, respectivamente. El valor de la expresión se evalúa cuando se implementa la plantilla.   Mientras se escribe como un literal de cadena, el resultado de evaluar la expresión puede ser de un tipo diferente de JSON, como una matriz o un entero, dependiendo de la expresión real.  Tenga en cuenta que para que tenga una cadena literal a partir de un corchete `[`, pero que no se interprete como una expresión, agregue un corchete más para iniciar la cadena con `[[`.
 
 Normalmente, se usan expresiones con funciones para realizar operaciones con el fin de configurar la implementación. Al igual que en JavaScript, las llamadas de función tienen el formato **functionName(arg1,arg2,arg3)**. Se hace referencia a las propiedades mediante los operadores dot e [index] .
 
@@ -431,9 +432,4 @@ Para más información sobre cómo trabajar con resultados, consulte [Uso compar
 * Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Este escenario es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](resource-group-template-functions.md#resourceid).
 
 [deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

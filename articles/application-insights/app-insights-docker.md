@@ -1,21 +1,22 @@
 ---
-title: Supervisar aplicaciones Docker en Application Insights
+title: "Supervisión de aplicaciones de Docker en Azure Application Insights | Microsoft Docs"
 description: "En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b888f3e7fd56aaf8104c1b76264a3753ca37f7c9
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -109,7 +110,7 @@ Contadores de rendimiento de tiempo de procesador y memoria disponible, enriquec
 
 ![ejemplo](./media/app-insights-docker/15.png)
 
-## <a name="q-a"></a>Preguntas y respuestas
+## <a name="q--a"></a>Preguntas y respuestas
 *¿Qué me da Application Insights que no me dé Docker?*
 
 * Desglose detallado de los contadores de rendimiento por contenedor e imagen.
@@ -118,12 +119,15 @@ Contadores de rendimiento de tiempo de procesador y memoria disponible, enriquec
 
 *¿Cómo se obtienen datos de telemetría de la propia aplicación?*
 
-* Instale el SDK de Application Insights en la aplicación. 
-  Más información sobre: [aplicaciones web de Java](app-insights-java-get-started.md) y [aplicaciones web de Windows](app-insights-asp-net.md).
+* Instale el SDK de Application Insights en la aplicación. Más información sobre: [aplicaciones web de Java](app-insights-java-get-started.md) y [aplicaciones web de Windows](app-insights-asp-net.md).
 
+## <a name="video"></a>Vídeo
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="next-steps"></a>Pasos siguientes
 
-<!--HONumber=Nov16_HO3-->
-
+* [Application Insights para Java](app-insights-java-get-started.md)
+* [Application Insights para Node.js](app-insights-nodejs.md)
+* [Application Insights para ASP.NET](app-insights-asp-net.md)
 

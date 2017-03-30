@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 787ef52580f5f8bfc51229787c5594883cef3a77
-ms.openlocfilehash: a41548557a91ff91f2496e371dd285977861ab69
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ Mientras se ejecuta la topología, puede supervisarla en la interfaz de usuario 
 Estos son algunos escenarios comunes de solución de problemas.
 * **El tiempo de espera de muchas tuplas se está agotando.** Examine cada nodo de la topología para determinar dónde está el cuello de botella. El motivo más habitual de ello es que los bolts no puedan seguir el ritmo de los spouts. Como consecuencia, las tuplas quedan atascadas en los búferes internos a la espera de ser procesadas. Considere la posibilidad de aumentar el valor de tiempo de espera o de reducir el número máximo de spouts pendientes.
 
-* **Existe una latencia alta total en la ejecución de los procesos, pero una latencia baja en los procesos de bolt.** En este caso, puede que las tuplas no se estén procesando lo suficientemente rápido. Compruebe que haya un número suficiente de confirmadores. Otra posibilidad es que esperen en la cola demasiado tiempo hasta que los bolts empiezan a procesarlas. Reduzca el máximo de spouts pendientes.
+* **Existe una latencia alta total en la ejecución de los procesos, pero una latencia baja en los procesos de bolt.** En este caso, es posible que las tuplas no se reconozcan lo suficientemente rápido. Compruebe que hay un número suficiente de elementos de reconocimiento. Otra posibilidad es que esperen en la cola demasiado tiempo hasta que los bolts empiezan a procesarlas. Reduzca el máximo de spouts pendientes.
 
 * **Existe una latencia alta en la ejecución de bolts.** Esto significa que el método execute() de su bolt está tardando demasiado. Optimice el código o examine el comportamiento de vaciado y los tamaños de escritura.
 

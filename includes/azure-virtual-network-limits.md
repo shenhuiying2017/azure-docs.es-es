@@ -17,7 +17,7 @@ Los límites siguientes se aplican solo a los recursos de redes administrados a 
 | VIP privada (ILB) por implementación |1 |1 |
 | Listas de control de acceso (ACL) de extremo |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción.
 
 | Recurso | Límite predeterminado | Límite máximo |
@@ -26,6 +26,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Subredes por red virtual |1000 |ponerse en contacto con el servicio de soporte técnico |
 | Servidores DNS por red virtual |9 |25 |
 | Direcciones IP privadas por red virtual |4096 |4096 |
+| Direcciones IP privadas por interfaz de red |50 |ponerse en contacto con el servicio de soporte técnico |
 | Conexiones TCP concurrentes para una máquina virtual o instancia de rol |500 KB |500 KB |
 | Interfaces de red (NIC) |300 |10000 |
 | Grupos de seguridad de red (NSG) |100 |400 |
@@ -39,12 +40,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | IP de front-end pública por equilibrador de carga |10 |póngase en contacto con el soporte técnico |
 | IP de front-end privada por equilibrador de carga |10 |póngase en contacto con el soporte técnico |
 | Emparejamientos de redes virtuales por red virtual |10 |50 |
-| Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 |
+| Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 | |
+| Configuraciones de IP secundarias por red virtual |1000 |ponerse en contacto con el servicio de soporte técnico |
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, póngase en contacto con el soporte técnico.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Control del enrutamiento y las aplicaciones virtuales con una plantilla | Microsoft Docs
+title: Control del enrutamiento y las aplicaciones virtuales en Azure | Microsoft Docs
 description: Aprenda a controlar el enrutamiento y las aplicaciones virtuales con una plantilla de Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creación de rutas definidas por el usuario (UDR) con una plantilla
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [CLI de Azure](virtual-network-create-udr-arm-cli.md)
-- [Plantilla](virtual-network-create-udr-arm-template.md)
-- [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
-- [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+> * [Plantilla](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
+> * [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: Azure Resource Manager y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este artículo trata sobre el modelo de implementación del Administrador de recursos. 
@@ -175,7 +176,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 Para implementar la plantilla de ARM mediante la CLI de Azure, complete los siguientes pasos:
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el siguiente comando para cambiar al modo de Resource Manager:
 
     ```azurecli
@@ -406,9 +407,4 @@ Para implementar la plantilla de ARM mediante la CLI de Azure, complete los sigu
 > [!TIP]
 > Si no ve todos los recursos, ejecute el comando `azure group deployment show` para asegurarse de que el estado de aprovisionamiento de la implementación sea *Correcto*.
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

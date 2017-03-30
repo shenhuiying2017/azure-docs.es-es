@@ -16,9 +16,9 @@ ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ed0910e4843ab8ab80dae1c16b15487d92017e24
+ms.lasthandoff: 03/17/2017
 
 
 ---

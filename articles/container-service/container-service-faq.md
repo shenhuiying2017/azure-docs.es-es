@@ -18,9 +18,9 @@ ms.date: 03/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -105,7 +105,7 @@ Puede encontrar la cadena de conexión en Azure Portal o mediante las herramient
 
 3. En la hoja **Historial de implementación**, haga clic en la implementación cuyo nombre comience por **microsoft-acs**, seguido de una fecha de implementación. Ejemplo: microsoft-acs-201701310000.  
 
-4. En la página **Summary** (Resumen), en **Salidas**, varios vínculos de clúster son <provided> </provided>. **SSHMaster0** proporciona una cadena de conexión de SSH para el primer patrón del clúster de servicio de contenedor. 
+4. En la página **Resumen**, en **Salidas**, se proporcionan varios vínculos de clúster. **SSHMaster0** proporciona una cadena de conexión de SSH para el primer patrón del clúster de servicio de contenedor. 
 
 Como se indicó anteriormente, también puede utilizar las herramientas de Azure para buscar el FQDN del patrón. Realice una conexión de SSH con el patrón mediante el FQDN de este y el nombre de usuario que especificó al crear el clúster. Por ejemplo:
 
@@ -122,3 +122,4 @@ Para más información, consulte [Conexión a un clúster de Azure Container Ser
 
 * [Más información](container-service-intro.md) sobre Azure Container Service.
 * Implementar un clúster del servicio de contenedores mediante el [portal](container-service-deployment.md) o la [CLI de Azure 2.0](container-service-create-acs-cluster-cli.md).
+

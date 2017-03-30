@@ -1,5 +1,5 @@
 ---
-title: "Exploración de métricas en Application Insights | Microsoft Docs"
+title: "Exploración de métricas en Azure Application Insights | Microsoft Docs"
 description: "Interpretación de los gráficos en el Explorador de métricas y personalización de las hojas del Explorador de métricas."
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -195,6 +195,10 @@ En el gráfico de una métrica, puede hacer clic en el icono Análisis para ir d
     Si desea establecer filtros diferentes en gráficos diferentes, créelos en hojas diferentes y guárdelos como elementos favoritos independientes. Si lo desea, puede anclarlos al panel para verlos en paralelo.
 * Si agrupa un gráfico por una propiedad que no está definida en la métrica, no habrá nada en el gráfico. Intente borrar "Agrupar por" o elija una propiedad de agrupación diferente.
 * Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para servicios web de Java, aplicaciones de escritorio de Windows, [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Azure Cloud Services](app-insights-azure.md). No están disponible para los sitios web de Azure.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Supervisión del uso con Application Insights](app-insights-overview-usage.md)

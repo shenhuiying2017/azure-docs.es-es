@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 3df12cd8700a75c1288967e86cd92e6ed4886d59
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -52,12 +53,9 @@ Cuando se establece la conexión de retransmisión, los clientes pueden intercam
 Ahora que ha leído una introducción sobre la arquitectura de Service Bus, visite los siguientes vínculos para más información:
 
 * [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-* [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
+* [Introducción a Azure Relay](../service-bus-relay/relay-what-is-it.md)
+* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * Una [solución de mensajería en cola mediante las colas de Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

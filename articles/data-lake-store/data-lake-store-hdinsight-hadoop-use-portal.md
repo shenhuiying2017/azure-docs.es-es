@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 03/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: d1d780eb2c635f60409396804c0b8b706e59127b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: f7c977dc2e385819dada976afa9497e9a20fd90c
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -56,87 +56,99 @@ Antes de comenzar este tutorial, asegúrese de que ha cumplido los requisitos si
 
 * **Una entidad de servicio de Azure Active Directory**. En este tutorial se proporcionan instrucciones sobre cómo crear entidades de servicio en Azure Active Directory (Azure AD). Sin embargo, para crear una entidad de servicio, debe ser administrador de Azure AD. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
- >[!NOTE]
- >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >[!NOTE]
+    >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >
 
 ## <a name="create-an-hdinsight-cluster-with-access-to-a-data-lake-store"></a>Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal
-En esta sección, se crea un clúster de Hadoop en HDInsight que usa Data Lake Store como almacenamiento adicional. En esta versión, para un clúster de Hadoop, puede usar Data Lake Store solo como almacenamiento adicional para el clúster. El almacenamiento predeterminado sigue siendo Azure Blob Storage. En primer lugar, crea la cuenta de almacenamiento y los contenedores de almacenamiento necesarios para el clúster.
+En esta sección, se crea un clúster de Hadoop en HDInsight que usa Data Lake Store como almacenamiento predeterminado o adicional.
+
+### <a name="create-a-cluster-with-data-lake-store-as-default-storage"></a>Creación de un clúster con Data Lake Store como almacenamiento predeterminado
+
+>[!NOTE]
+>Puede usar esta opción solo con clústeres de HDInsight 3.5.(Standard Edition). En los clústeres de HDInsight 3.5 esta opción no está disponible para el tipo de clúster de HBase.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Para iniciar el aprovisionamiento de un clúster de HDInsight, siga las instrucciones descritas en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-provision-clusters.md).
+2. Para iniciar el aprovisionamiento de un clúster de HDInsight, siga las instrucciones descritas en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
-3. En la hoja **Almacenamiento**, especifique si desea usar Blob Storage o Data Lake Store como almacenamiento predeterminado y luego lleve a cabo una de las acciones siguientes:
+3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, haga clic en **Data Lake Store**.
 
- * Para usar Data Lake Store como almacenamiento predeterminado, vaya al paso 4.
+4. Seleccione una cuenta existente de Data Lake Store y especifique la ruta de acceso de la carpeta raíz en la que se van a guardar los archivos específicos del clúster.
 
- * Para usar Blob Storage como almacenamiento predeterminado:
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-    a. En **Tipo de almacenamiento principal**, seleccione **Azure Storage**.
+    
+    En la captura de pantalla anterior, la ruta de acceso de la carpeta raíz es /clusters/myhdiadlcluster, donde *myhdiadlcluster* es el nombre del clúster que se está creando. En tal caso, asegúrese de que la carpeta */clústeres* ya existe en la cuenta de Data Lake Store. La carpeta *myhdiadlcluster* se crea durante la creación del clúster. De forma similar, si la ruta de acceso raíz se estableció en */hdinsight/clusters/data/myhdiadlcluster*, asegúrese de que */hdinsight/clústeres/datos/* existe en la cuenta de Data Lake Store.
 
-    b. En **Método de selección**, realice una de las acciones siguientes:      * Para especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure, seleccione **Mis suscripciones** y después seleccione la cuenta de almacenamiento.      * Para especificar una cuenta de almacenamiento que está fuera de su suscripción de Azure, seleccione **Clave de acceso** y luego proporcione la información de la cuenta de almacenamiento externa.
+5. Haga clic en **Acceso a Data Lake Store** para configurar el acceso entre la cuenta de Data Lake Store y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso entre el clúster de HDInsight y Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
 
-    c. En **Contenedor predeterminado**, escriba el nombre de contenedor predeterminado que se sugiere en el portal o especifique el suyo propio.
 
- Cuando use Blob Storage como almacenamiento predeterminado, puede seguir utilizando Data Lake Store como almacenamiento adicional para el clúster. Para ello, haga clic en **Acceso a Data Lake Store** y después vaya al paso 5.
+### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Creación de un clúster con Data Lake Store como almacenamiento adicional 
 
- ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-4. Para usar Data Lake Store como almacenamiento predeterminado:
+2. Para iniciar el aprovisionamiento de un clúster de HDInsight, siga las instrucciones descritas en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
- a. En **Tipo de almacenamiento principal**, haga clic en **Data Lake Store**.
+3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Storage**.
+ 
+4. En **Método de selección**, realice una de las siguientes acciones:
 
- b. Seleccione una cuenta existente de Data Lake Store, especifique la ruta de acceso de la carpeta raíz en la que se van a guardan los archivos específicos del clúster, establezca **Ubicación** en **Este de EE. UU. 2** y, por último, haga clic en **Acceso a Data Lake Store**.
+    * Para especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure, seleccione **Mis suscripciones** y después seleccione la cuenta de almacenamiento.
 
- >[!NOTE]
- >Puede usar esta opción solo con clústeres de HDInsight 3.5.(Standard Edition). En los clústeres de HDInsight 3.5 esta opción no está disponible para el tipo de clúster de HBase.
+    * Para especificar una cuenta de almacenamiento que está fuera de su suscripción de Azure, seleccione **Clave de acceso** y luego proporcione la información de la cuenta de almacenamiento externa.
 
- En la siguiente captura de pantalla, la ruta de acceso de la carpeta raíz es /clusters/myhdiadlcluster, donde *myhdiadlcluster* es el nombre del clúster que se está creando. En tal caso, asegúrese de que la carpeta */clústeres* ya existe en la cuenta de Data Lake Store. La carpeta *myhdiadlcluster* se crea durante la creación del clúster. De forma similar, si la ruta de acceso raíz se estableció en */hdinsight/clusters/data/myhdiadlcluster*, asegúrese de que */hdinsight/clústeres/datos/* existe en la cuenta de Data Lake Store.
+5. En **Contenedor predeterminado**, conserve el nombre de contenedor predeterminado que se sugiere en el portal o especifique el suyo propio.
 
- ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-5. En la hoja **Acceso a Data Lake Store**, realice una de las siguientes acciones:
+6. Cuando use Blob Storage como almacenamiento predeterminado, puede seguir utilizando Data Lake Store como almacenamiento adicional para el clúster. Para ello, haga clic en **Acceso a Data Lake Store** para configurar el acceso entre la cuenta de Data Lake Store y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso entre el clúster de HDInsight y Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
- * Para usar a una entidad de servicio existente, vaya al paso 6.
- * Para crear una entidad de servicio:
+## <a name="configure-access-between-hdinsight-cluster-and-data-lake-store"></a>Configuración del acceso entre el clúster de HDInsight y Data Lake Store
+
+En esta sección, se configura el acceso entre clústeres de HDInsight y Data Lake Store mediante una entidad de servicio de Azure Active Directory
+
+1. En la hoja **Acceso de Data Lake Store**, especifique si desea usar una nueva entidad de servicio o una entidad de servicio existente. Con este paso se crea una nueva entidad de servicio. Para usar a una entidad de servicio existente, vaya al paso siguiente.
 
     a. En la hoja **Acceso a Data Lake Store**, haga clic en **Crear nuevo** y luego haga clic en **Entidad de servicio**.
 
     b. En la hoja **Crear una entidad de servicio**, especifique los valores necesarios.  
 
-    c. Haga clic en **Crear**.  
-    Se crean automáticamente un certificado y una aplicación de Azure AD.
+    c. Haga clic en **Crear**. Se crean automáticamente un certificado y una aplicación de Azure AD.
 
     ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
     También puede hacer clic en **Descargar certificado** para descargar el certificado asociado a la entidad de servicio creada. La descarga del certificado es útil si desea usar la misma entidad de servicio cuando cree clústeres de HDInsight adicionales. Haga clic en **Seleccionar**.
 
-6. Para usar una entidad de servicio existente:
+2. Para usar una entidad de servicio existente, realice los pasos indicados a continuación.
 
- a. En la hoja **Acceso a Data Lake Store**, haga clic en **Usar existente** y luego haga clic en **Entidad de servicio**.
+    a. En la hoja **Acceso a Data Lake Store**, haga clic en **Usar existente** y luego haga clic en **Entidad de servicio**.
 
- b. En la hoja **Seleccionar una entidad de servicio**, busque una entidad de servicio existente. Haga clic en la entidad de servicio que desee usar y después en **Seleccionar**.
+    b. En la hoja **Seleccionar una entidad de servicio**, busque una entidad de servicio existente. Haga clic en la entidad de servicio que desee usar y después en **Seleccionar**.
 
- c. En la hoja **Acceso a Data Lake Store**, cargue el certificado (archivo .pfx) asociado a la entidad de servicio seleccionada y especifique la contraseña del certificado.
+    c. En la hoja **Acceso a Data Lake Store**, cargue el certificado (archivo .pfx) asociado a la entidad de servicio seleccionada y especifique la contraseña del certificado.
 
- ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-7. En la hoja **Acceso a Data Lake Store**, haga clic en **Acceso**.  
-La hoja **Seleccionar permisos de archivo** se abre de forma predeterminada. En ella se muestran todas las cuentas de Data Lake Store de su suscripción.
+7. En la hoja **Acceso a Data Lake Store**, haga clic en **Acceso**. La hoja **Seleccionar permisos de archivo** se abre de forma predeterminada. En ella se muestran todas las cuentas de Data Lake Store de su suscripción.
 
-8. Seleccione la cuenta de Data Lake Store que desea asociar con el clúster.
- Se muestran todos los archivos y carpetas de esa cuenta. A continuación, puede asignar permisos en el nivel de archivo o carpeta. Para asignar permisos en el nivel raíz de la cuenta, active la casilla situada junto al nombre de cuenta.
+8. Seleccione la cuenta de Data Lake Store que desea asociar con el clúster. 
 
- ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
+    **Si está utilizando Data Lake Store como almacenamiento predeterminado**, debe asignar permisos en dos niveles.
 
- > [!NOTE]
- > Si usa la cuenta de Data Lake Store como almacenamiento predeterminado para un clúster, asigne permisos a la entidad de servicio en el nivel raíz de la cuenta de Data Lake Store.
+    a. En primer lugar, debe asignar permisos en el nivel raíz de la cuenta de Data Lake Store. Para ello, pase el mouse (sin hacer clic) sobre el nombre de la cuenta de Data Lake Store para que aparezca la casilla de verificación. Active la casilla.
 
-9. Si desea asignar permisos para archivos o carpetas dentro de una cuenta, seleccione la cuenta de Data Lake Store en la ventana **Seleccionar permisos de archivo**.
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-10. En el panel de la derecha, seleccione los archivos o las carpetas a los que desea asignar permisos, seleccione los permisos (Lectura, Escritura o Ejecución), especifique si los permisos se aplican de forma recursiva también a los elementos secundarios y luego haga clic en **Seleccionar**.
+    b. A continuación, debe asignar permisos a la raíz de almacenamiento del clúster de HDInsight. Según la captura de pantalla anterior, la raíz de almacenamiento del clúster es la carpeta **/clusters** que se especificado al seleccionar Data Lake Store como valor predeterminado de almacenamiento.
+
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.add.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
+
+    **Si está utilizando Data Lake Store como almacenamiento adicional**, debe asignar permiso solo para la carpeta a la que desea tener acceso desde el clúster de HDInsight. Por ejemplo, en la siguiente captura de pantalla, se proporciona acceso únicamente a la carpeta **hdiaddonstorage** en una cuenta de Data Lake Store.
 
     ![Asignación de permisos de entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Asignación de permisos de entidad de servicio al clúster de HDInsight")
+
+9. Para todas las cuentas y rutas seleccionadas, seleccione los permisos (Lectura, Escritura o Ejecución) y especifique si los permisos se aplican de forma recursiva también a los elementos secundarios y luego haga clic en **Seleccionar**.
 
 11. En la ventana **Asignar los permisos seleccionados**, para asignar los permisos para la entidad de servicio de Azure Active Directory en la cuenta, los archivos o las carpetas que seleccionó, haga clic en **Ejecutar**.
 
@@ -146,15 +158,18 @@ La hoja **Seleccionar permisos de archivo** se abre de forma predeterminada. En 
 
 13. En **Acceso a Data Lake Store**, haga clic en **Seleccionar** y continúe con la creación del clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
-14. Una vez completada la configuración del clúster, en la hoja de clúster, compruebe los resultados llevando a cabo una de las siguientes acciones o las dos:
+## <a name="verify-cluster-set-up"></a>Comprobación de la configuración del clúster
 
- * Para comprobar que el almacenamiento asociado para el clúster es la cuenta de Data Lake Store especificada, haga clic en **Cuentas de almacenamiento** en el panel izquierdo.
+Una vez completada la configuración del clúster, en la hoja de clúster, compruebe los resultados llevando a cabo una de las siguientes acciones o las dos:
 
-        ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Add service principal to HDInsight cluster")
+* Para comprobar que el almacenamiento asociado para el clúster es la cuenta de Data Lake Store especificada, haga clic en **Cuentas de almacenamiento** en el panel izquierdo.
 
- * Para comprobar que la entidad de servicio está correctamente asociada con el clúster de HDInsight, haga clic en **Acceso a Data Lake Store** en el panel izquierdo.
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-       ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
+* Para comprobar que la entidad de servicio está correctamente asociada con el clúster de HDInsight, haga clic en **Acceso a Data Lake Store** en el panel izquierdo.
+
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
+
 
 ## <a name="examples"></a>Ejemplos
 

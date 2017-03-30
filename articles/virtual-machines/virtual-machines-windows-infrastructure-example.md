@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: b01825022189722c9c0d396984a1a369a5d57584
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 7471fa4c73c8aef11bf81cb652cd2bce77ac5420
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -48,7 +48,7 @@ El diseño resultante incluirá:
 
 * Una suscripción y una cuenta de Azure
 * Un único grupo de recursos
-* Cuentas de almacenamiento
+* Azure Managed Disks
 * Una red virtual con dos subredes
 * Conjuntos de disponibilidad para las máquinas virtuales con un rol similar
 * Máquinas virtuales
@@ -57,8 +57,6 @@ Todo lo anterior seguirá estas convenciones de nomenclatura:
 
 * Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
   * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE. UU. 2") es la ubicación.
-* Las cuentas de almacenamiento usan adventureazosusesa**[descripción]**
-  * Se agregó adventure al prefijo para proporcionar exclusividad y que los nombres de cuentas de almacenamiento no admiten el uso de guiones.
 * Las redes virtuales usan AZOS-USE-VN**[número]**
 * Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
 * Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
@@ -66,11 +64,11 @@ Todo lo anterior seguirá estas convenciones de nomenclatura:
 ## <a name="azure-subscriptions-and-accounts"></a>Suscripciones y cuentas de Azure
 Adventure Works Cycles usa la suscripción Enterprise, denominada Adventure Works Enterprise Subscription, para proporcionar la facturación de esta carga de trabajo de TI.
 
-## <a name="storage-accounts"></a>Cuentas de almacenamiento
-Adventure Works Cycles determinó que necesitaba dos cuentas de almacenamiento:
+## <a name="storage"></a>Almacenamiento
+Adventure Works Cycles determina que deben usar Azure Managed Disks. Al crear máquinas virtuales, se utilizan ambos niveles de almacenamiento disponible:
 
-* **adventureazosusesawebapp** para el almacenamiento estándar de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.
-* **adventureazosusesasql** para el Almacenamiento premium de máquinas virtuales de SQL Server y sus discos de datos.
+* **Almacenamiento estándar** de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.
+* **Premium Storage** de máquinas virtuales de SQL Server y sus discos de datos.
 
 ## <a name="virtual-network-and-subnets"></a>Red virtual y subredes
 Dado que la red virtual no necesita una conectividad continua con la red local de Adventure Work Cycles, la empresa optó por una red virtual solo en la nube.
@@ -114,7 +112,7 @@ Aquí está la configuración resultante.
 Esta configuración incluye:
 
 * Una red virtual solo en la nube con dos subredes (FrontEnd y BackEnd)
-* Dos cuentas de almacenamiento
+* Azure Managed Disks con discos Standard y Premium
 * Cuatro conjuntos de disponibilidad, uno para cada nivel de la tienda en línea
 * Las máquinas virtuales para los cuatro niveles
 * Un conjunto externo de carga equilibrada para el tráfico web basado en HTTPS de Internet a los servidores web

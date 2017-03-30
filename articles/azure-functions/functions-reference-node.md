@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
-ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -163,6 +163,8 @@ module.exports = function(context) {
     var matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
+
+El nodo debe tener `package.json` en la raíz de la aplicación de función, por lo que las funciones pueden compartir paquetes almacenados en caché. Si hay conflictos de versiones, puede agregar `package.json` en un nivel de función. Sin embargo, se debe evitar por motivos de rendimiento. 
 
 ## <a name="environment-variables"></a>Variables de entorno
 Para obtener una variable de entorno o un valor de configuración de aplicación, use `process.env`, como se muestra en el ejemplo de código siguiente:

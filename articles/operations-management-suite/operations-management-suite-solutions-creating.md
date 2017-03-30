@@ -1,5 +1,5 @@
 ---
-title: "Creación de soluciones de administración en Operations Management Suite (OMS) | Microsoft Docs"
+title: "Compilación de una solución de administración en OMS | Microsoft Docs"
 description: "Las soluciones de administración amplían la funcionalidad de Operations Management Suite (OMS) proporcionando escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de OMS.  En este artículo se proporciona información sobre cómo crear soluciones de administración que se pueden usar en su propio entorno o ponerse a disposición de sus clientes."
 services: operations-management-suite
 documentationcenter: 
@@ -12,263 +12,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fc8b76bf996060e226ac3f508a1ecffca6fc3c98
-ms.openlocfilehash: caa2f96d452174ebb13c5cbf67737f20e2a2134d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="creating-management-solutions-in-operations-management-suite-oms-preview"></a>Creación de soluciones de administración en Operations Management Suite (OMS) (versión preliminar)
+# <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Diseño y compilación de una solución de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
-> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.  
->
->
+> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   j
 
-Las soluciones de administración amplían la funcionalidad de Operations Management Suite (OMS) proporcionando escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de OMS.  En este artículo se proporcionan detalles sobre cómo crear soluciones de administración propias que puede usar en su propio entorno o poner a disposición de los clientes a través de la comunidad.
+Las [soluciones de administración](operations-management-suite-solutions.md) amplían la funcionalidad de Operations Management Suite (OMS) proporcionando escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de OMS.  Este artículo presenta un proceso básico para diseñar y compilar una solución de administración que es adecuada para los requisitos más comunes.  Si no está familiarizado con la creación de soluciones de administración puede utilizar este proceso como punto de partida, y luego aprovechar los conceptos para soluciones más complejas a medida que sus requisitos evolucionan.
 
-## <a name="planning-your-management-solution"></a>Planeación de las soluciones de administración
-Las soluciones de administración de OMS incluyen varios recursos que admiten un escenario de administración concreto.  Al planear la solución, debe centrarse en el escenario que está intentando lograr y todos los recursos necesarios para su funcionamiento.  Cada solución debe estar autocontenida y definir cada recurso que necesite, incluso si otras soluciones definen uno o más recursos.  Cuando se instala una solución de administración, se crea cada uno de los recursos a menos que ya existan, y se puede definir lo que ocurre en los recursos cuando se quita una solución.  
+## <a name="what-is-a-management-solution"></a>¿Qué es una solución de administración?
 
-Por ejemplo, una solución de administración podría incluir un [runbook de Azure Automation](../automation/automation-intro.md) que recopila los datos en el repositorio de Log Analytics mediante una [programación](../automation/automation-schedules.md) y una [vista](../log-analytics/log-analytics-view-designer.md) que proporciona distintas visualizaciones de los datos recopilados.  La misma programación podría utilizarse en otra solución.  Como autor de la solución de administración, podría definir los tres recursos, pero especificar que el runbook y la vista deben eliminarse automáticamente cuando se quita la solución.    También podría definir la programación, pero especifique qué debe permanecer en su lugar si la solución se ha quitado en caso de que aún la use otra solución.
+Las soluciones de administración contienen OMS y recursos de Azure que funcionan conjuntamente para lograr un escenario de supervisión determinado.  Se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contienen detalles de cómo instalar y configurar sus recursos contenidos cuando se instala la solución.
 
-## <a name="management-solution-files"></a>Archivos de las soluciones de administración
-Las soluciones de administración se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../azure-resource-manager/resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo definir recursos de solución típicos.
-
-La estructura básica de un archivo de una solución de administración, que se muestra a continuación, es la misma que la de una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format).  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
-
-    {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
-       "parameters": {  },
-       "variables": {  },
-       "resources": [  ],
-       "outputs": {  }
-    }
-
-## <a name="parameters"></a>Parámetros
-Los [parámetros](../azure-resource-manager/resource-group-authoring-templates.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
-
-Cuando un usuario instala su solución de administración mediante plantillas de [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) o [de inicio rápido de Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), se le pide que seleccione un [área de trabajo de OMS y una cuenta de Automation](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  Estos se usan para rellenar los valores de cada uno de los parámetros estándar.  Al usuario no se le pide que proporcione valores directamente para los parámetros estándar, pero se le pide que proporcione valores para cualquier parámetro adicional.
-
-Cuando el usuario instala la solución [otro método](operations-management-suite-solutions.md#finding-and-installing-management-solutions), debe proporcionar un valor para todos los parámetros estándar y todos los parámetros adicionales.
-
-A continuación se muestra un parámetro de ejemplo.
-
-    "Daily Start Time": {
-        "type": "string",
-        "metadata": {
-            "description": "Enter time for starting VMs by resource group.",
-            "control": "datetime",
-            "category": "Schedule"
-        }
-
-En la tabla siguiente se describen los atributos de un parámetro.
-
-| Atributo | Descripción |
-|:--- |:--- |
-| type |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
-| categoría |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
-| control |Funcionalidad adicional para los parámetros de cadena.<br><br>datetime: se muestra el control de fecha y hora.<br>guid: el valor del GUID se genera automáticamente y no se muestra el parámetro. |
-| Description |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
-
-### <a name="standard-parameters"></a>Parámetros estándar
-En la tabla siguiente se enumeran los parámetros estándar de todas las soluciones de administración.  Estos valores se rellenan para el usuario en lugar de pedírseles cuando se instala la solución desde las plantillas de Azure Marketplace o de inicio rápido.  El usuario debe proporcionar los valores si la solución se instala con otro método.
-
-> [!NOTE]
-> La interfaz de usuario de las plantillas de Azure Marketplace y de inicio rápido espera los nombres de parámetro en la tabla.  Si usa nombres de parámetros diferentes, se le preguntarán al usuario y no se rellenarán automáticamente.
->
->
-
-| Parámetro | Tipo | Descripción |
-|:--- |:--- |:--- |
-| accountName |string |Nombre de la cuenta de Automation de Azure. |
-| pricingTier |string |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Automation de Azure. |
-| regionId |string |Región de la cuenta de Azure Automation. |
-| solutionName |string |Nombre de la solución. |
-| workspaceName |string |Nombre del área de trabajo de Log Analytics. |
-| workspaceRegionId |string |Región del área de trabajo de Log Analytics. |
-
-### <a name="sample"></a>Muestra
-A continuación se muestra una entidad de parámetro de ejemplo para una solución.  Incluye todos los parámetros estándar y dos parámetros adicionales de la misma categoría.
-
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "A valid Log Analytics workspace name"
-            }
-        },
-        "accountName": {
-               "type": "string",
-               "metadata": {
-                   "description": "A valid Azure Automation account name"
-               }
-        },
-        "workspaceRegionId": {
-               "type": "string",
-               "metadata": {
-                   "description": "Region of the Log Analytics workspace"
-            }
-        },
-        "regionId": {
-            "type": "string",
-            "metadata": {
-                "description": "Region of the Azure Automation account"
-            }
-        },
-        "pricingTier": {
-            "type": "string",
-            "metadata": {
-                "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
-            }
-        }
+La estrategia básica consiste en iniciar la solución de administración mediante la creación de los componentes individuales en el entorno de Azure.  Una vez que tenga la funcionalidad funcionando correctamente, puede empezar a empaquetarlos en un [archivo de solución de administración](operations-management-suite-solutions-solution-file.md). 
 
 
-Consulte los valores de parámetro de otros elementos de la solución con la sintaxis **parameters('nombre de parámetro')**.  Por ejemplo, para tener acceso al nombre de área de trabajo, use **parameters('workspaceName')**
+## <a name="design-your-solution"></a>Diseño de la solución
+El modelo más común para una solución de administración se muestra en el diagrama siguiente.  Los distintos componentes en este modelo se describen a continuación.
 
-## <a name="variables"></a>Variables
-El elemento **Variables** incluye valores que usará en el resto de la solución de administración.  Estos valores no se exponen al usuario que instala la solución.  Están destinados a proporcionar al creador una única ubicación donde pueda administrar los valores que pueden utilizarse varias veces a lo largo de la solución. Debe colocar los valores específicos para su solución en variables en lugar de codificarlos en el elemento **resources**.  De este modo, el código es más legible y los valores se pueden cambiar fácilmente en versiones posteriores.
-
-A continuación se muestra un ejemplo del elemento **variables** con parámetros típicos usados en las soluciones.
-
-    "variables": {
-        "SolutionVersion": "1.1",
-        "SolutionPublisher": "Contoso",
-        "SolutionName": "My Solution",
-        "LogAnalyticsApiVersion": "2015-11-01-preview",
-        "AutomationApiVersion": "2015-10-31"
-    },
-
-Consulte los valores de las variables a través de la solución con la sintaxis **variables('nombre de variable')**.  Por ejemplo, para tener acceso a la variable SolutionName, se usaría **variables('solutionName')**.
-
-## <a name="resources"></a>Recursos
-El elemento **resources** define los distintos recursos incluidos en la solución de administración.  Se trata de la parte más grande y compleja de la plantilla.  Los recursos se definen con la siguiente estructura.  
-
-    "resources": [
-        {
-            "name": "<name-of-the-resource>",            
-            "apiVersion": "<api-version-of-resource>",
-            "type": "<resource-provider-namespace/resource-type-name>",        
-            "location": "<location-of-resource>",
-            "tags": "<name-value-pairs-for-resource-tagging>",
-            "comments": "<your-reference-notes>",
-            "dependsOn": [
-                "<array-of-related-resource-names>"
-            ],
-            "properties": "<unique-settings-for-the-resource>",
-            "resources": [
-                "<array-of-child-resources>"
-            ]
-        }
-    ]
-
-### <a name="dependencies"></a>Dependencias
-El elemento **dependsOn** especifica una [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en otro recurso.  Cuando se instala la solución, un recurso no se crea hasta que no se hayan creado todas sus dependencias.  Por ejemplo, puede que su solución [inicie un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) cuando se instala mediante un [recurso de trabajo](operations-management-suite-solutions-resources-automation.md#automation-jobs).  El recurso de trabajo será dependiente del recurso de runbook para asegurarse de que el runbook se crea antes de que se cree el trabajo.
-
-### <a name="oms-workspace-and-automation-account"></a>Área de trabajo de OMS y cuenta de Automation
-La mayoría de las soluciones requieren que un [área de trabajo de OMS](../log-analytics/log-analytics-manage-access.md) contenga vistas y que una [cuenta de Automation](../automation/automation-security-overview.md#automation-account-overview) contenga runbooks y recursos relacionados.  Estos deben estar disponibles antes de que se creen los recursos de la solución y no se deben definir en la propia solución.  El usuario [especificará un área de trabajo y una cuenta](operations-management-suite-solutions.md#oms-workspace-and-automation-account) al implementar la solución, pero usted, como autor, debe tener en cuenta los siguientes puntos.
-
-## <a name="solution-resource"></a>Recursos de solución
-Cada solución requiere una entrada de recursos en el elemento **resources** que define la propia solución.  Esta tendrá un tipo de **Microsoft.OperationsManagement/solutions** y tener la siguiente estructura.  A continuación se muestra un ejemplo de un recurso de solución.  Sus distintos elementos se describen en las siguientes secciones.
-
-    "name": "[concat(variables('SolutionName'), '[ ' ,parameters('workspacename'), ' ]')]",
-    "location": "[parameters('workspaceRegionId')]",
-    "tags": { },
-    "type": "Microsoft.OperationsManagement/solutions",
-    "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-    "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]",
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-    ]
-    "properties": {
-        "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
-        "referencedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/schedules/', variables('ScheduleName'))]"
-        ],
-        "containedResources": [
-            "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/', variables('RunbookName'))]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/views/', variables('ViewName'))]"
-        ]
-    },
-    "plan": {
-        "name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
-        "Version": "[variables('SolutionVersion')]",
-        "product": "AzureSQLAnalyticSolution",
-        "publisher": "[variables('SolutionPublisher')]",
-        "promotionCode": ""
-    }
-
-### <a name="solution-name"></a>Nombre de la solución
-El nombre de la solución debe ser único en su suscripción de Azure. El valor que se recomienda usar es el siguiente.  Este usa una variable denominada **SolutionName** para el nombre base y el parámetro **workspaceName** para asegurarse de que el nombre sea único.
-
-    [concat(variables('SolutionName'), ' [' ,parameters('workspaceName'), ']')]
-
-Esto se resolvería en un nombre similar al siguiente.
-
-    My Solution Name [MyWorkspace]
+![Información general de la solución OMS](media/operations-management-suite-solutions/solution-overview.png)
 
 
-### <a name="dependencies"></a>Dependencias
-El recurso de la solución debe tener un [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
+### <a name="data-sources"></a>Orígenes de datos
+El primer paso para diseñar una solución es determinar los datos que necesita del repositorio de Log Analytics.  Los datos se pueden recopilar mediante un [origen de datos](../log-analytics/log-analytics-data-sources.md) u [otra solución](operations-management-suite-solutions.md), o puede que la solución tenga que proporcionar el proceso para recopilarlos.
 
-### <a name="properties"></a>Propiedades
-Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto incluye los recursos a los que hace referencia la solución y contenidos en ella, que define cómo se administra el recurso después de instalar la solución.  Cada recurso de la solución debe aparecer en una de las propiedades **referencedResources** o **containedResources**.
+Hay varias maneras de recopilar orígenes de datos en el repositorio de Log Analytics, como se describe en [Orígenes de datos en Log Analytics](../log-analytics/log-analytics-data-sources.md).  Esto incluye los eventos en el registro de eventos de Windows o los generados por Syslog, además de los contadores de rendimiento para los clientes de Windows y Linux.  También puede recoger datos de recursos de Azure recopilados por Azure Monitor.  
 
-| Propiedad | Descripción |
-|:--- |:--- |
-| workspaceResourceId |Identificador del área de trabajo de OMS en el formulario *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<nombre del espacio de trabajo\>*. |
-| referencedResources |Lista de recursos de la solución que no se deben quitar cuando se quita la solución. |
-| containedResources |Lista de recursos de la solución que debe quitarse cuando se quita la solución. |
+Si necesita datos que no son accesibles a través de cualquiera de los orígenes de datos disponibles, puede usar la [API del recopilador de datos HTTP](../log-analytics/log-analytics-data-collector-api.md) que le permite escribir datos en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a una API de REST.  La forma más común de recopilación de datos personalizados en una solución de administración consiste en crear un [runbook en Azure Automation](../automation/automation-runbook-types.md) que recopila los datos necesarios de los recursos de Azure o de recursos externos, y utiliza la API del recopilador de datos para escribir en el repositorio.  
 
-El ejemplo anterior es para una solución con un runbook, una programación y una vista.  Se hace *referencia a la programación y al runbook * en el elemento **properties** de modo que no se quitan cuando se quita la solución.  La vista está *contenida*, por lo que se quita cuando se quita la solución.
+### <a name="log-searches"></a>Búsqueda de registros
+Las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) se usan para extraer y analizar datos en el repositorio de Log Analytics.  Las utilizan vistas y alertas, y además permiten al usuario realizar análisis ad hoc de los datos en el repositorio.  
 
-### <a name="plan"></a>Plan
-La entidad **plan** del recurso de la solución tiene las propiedades en la tabla siguiente.
+Debe definir las consultas que cree que le resultarán útiles para el usuario, incluso si no hay vistas o alertas que las utilicen.  Estas estarán disponibles para los usuarios como búsquedas guardadas en el portal, y también puede incluirlas en un [elemento de visualización Lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) en la vista personalizada.
 
-| Propiedad | Description |
-|:--- |:--- |
-| name |Nombre de la solución. |
-| versión |Versión de la solución según determine el autor. |
-| product |Cadena única para identificar la solución. |
-| publisher |Publicador de la solución. |
+### <a name="alerts"></a>Alertas
+[Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
 
-## <a name="other-resources"></a>Otros recursos:
-Puede obtener los detalles y ejemplos de recursos que son comunes en las soluciones de administración en los siguientes artículos.
+Si el problema potencialmente puede corregirse con un proceso automatizado, entonces usted normalmente creará un runbook en Azure Automation para realizar esta corrección.  La mayoría de los servicios de Azure pueden administrarse con [cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) que el runbook aprovechará para realizar esta funcionalidad.
 
-* [Vistas y paneles](operations-management-suite-solutions-resources-views.md)
-* [Recursos de Automation](operations-management-suite-solutions-resources-automation.md)
+Si la solución requiere una funcionalidad externa en respuesta a una alerta, puede usar una [respuesta webhook](../log-analytics/log-analytics-alerts-actions.md).  Esto le permite llamar a un servicio web externo enviando información de la alerta.
 
-## <a name="testing-a-management-solution"></a>Prueba de una solución de administración
-Antes de implementar su solución de administración, se recomienda que la pruebe mediante [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Esto validará su archivo de solución y le ayudará a identificar los problemas antes de intentar implementarlo.
+### <a name="views"></a>Vistas
+Las vistas de análisis de Log Analytics se usan para visualizar los datos del repositorio de Log Analytics.  Cada solución normalmente contendrá una sola vista con un [icono](../log-analytics/log-analytics-view-designer-tiles.md) que se muestra en el panel principal del usuario.  La vista puede contener cualquier número de [elementos de visualización](../log-analytics/log-analytics-view-designer-parts.md) para proporcionar al usuario diferentes visualizaciones de los datos recopilados.
+
+[Cree vistas personalizadas usando el Diseñador de vistas](../log-analytics/log-analytics-view-designer.md) que más adelante puede exportar para su inclusión en el archivo de solución.  
+
+
+## <a name="create-solution-file"></a>Creación del archivo de solución
+Una vez que haya configurado y probado los componentes que van a formar parte de la solución, puede [crear el archivo de solución](operations-management-suite-solutions-solution-file.md).  Para ello implementará los componentes de la solución en un [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) que incluye un [recurso de solución](operations-management-suite-solutions-solution-file.md#solution-resource) con relaciones con los otros recursos en el archivo.  
+
+
+## <a name="test-your-solution"></a>Prueba de la solución
+Mientras se desarrolla la solución, tiene que instalarla y probarla en el área de trabajo.  Puede hacerlo usando cualquiera de los métodos disponibles para [probar e instalar plantillas de Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+
+## <a name="publish-your-solution"></a>Publicación de la solución
+Una vez haya finalizado y probado la solución, puede ponerla a disposición de los clientes a través de los siguientes orígenes.
+
+- **Plantillas de inicio rápido de Azure**.  [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) es un conjunto de plantillas de Resource Manager aportadas por la comunidad a través de GitHub.  Puede hacer que su solución esté disponible siguiendo la información en la [guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) le permite distribuir y vender su solución a otros desarrolladores, fabricantes de software independientes y profesionales de TI.  Puede obtener información sobre cómo publicar la solución en Azure Marketplace en [Publicación y administración de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.
-* [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
-* [Incorporación de runbooks de Automation y otros recursos](operations-management-suite-solutions-resources-automation.md) a la solución de administración.
+* Obtenga información acerca de cómo [crear un archivo de solución](operations-management-suite-solutions-solution-file.md) para la solución de administración.
 * Obtenga más información en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

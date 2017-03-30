@@ -16,19 +16,24 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
-ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5152367ec4a2ef225f08f2b8d4cb2e92eea8ce26
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure
-En estos pasos se describe cómo utilizar los comandos de la interfaz de la línea de comandos (CLI) de Azure para migrar recursos de infraestructura como servicio (IaaS) del modelo de implementación clásica al modelo de implementación de Azure Resource Manager. El artículo requiere la [CLI de Azure](../xplat-cli-install.md).
+En estos pasos se describe cómo utilizar los comandos de la interfaz de la línea de comandos (CLI) de Azure para migrar recursos de infraestructura como servicio (IaaS) del modelo de implementación clásica al modelo de implementación de Azure Resource Manager. El artículo requiere la [CLI de Azure](../cli-install-nodejs.md).
 
 > [!NOTE]
 > Todas las operaciones que se describen aquí son idempotentes. Si tiene un problema diferente de una función no admitida o un error de configuración, se recomienda que vuelva a intentar la operación de preparación, anulación o confirmación. De ese modo, la plataforma intentará de nuevo la acción.
 > 
 > 
+
+<br>
+Este es un diagrama de flujo para identificar el orden en que tienen que ejecutarse durante un proceso de migración.
+
+![Captura de pantalla que muestra los pasos de migración](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>Paso 1: Preparación para la migración
 Estos son algunos de los procedimientos recomendados a la hora de evaluar la migración de recursos de IaaS desde el modelo clásico a Resource Manager:
@@ -37,7 +42,7 @@ Estos son algunos de los procedimientos recomendados a la hora de evaluar la mig
 * Si tiene actualmente scripts automatizados que implementan la infraestructura y las aplicaciones, intente crear una configuración de prueba similar usando esos scripts para la migración. También puede configurar entornos de ejemplo mediante el Portal de Azure.
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Paso 2: Establecimiento de la suscripción y registro del proveedor
-Para los escenarios de migración, debe configurar el entorno para el modelo clásico y el de Resource Manager. [Instale la CLI de Azure](../xplat-cli-install.md) y [seleccione la suscripción](../xplat-cli-connect.md).
+Para los escenarios de migración, debe configurar el entorno para el modelo clásico y el de Resource Manager. [Instale la CLI de Azure](../cli-install-nodejs.md) y [seleccione la suscripción](../xplat-cli-connect.md).
 
 Inicie sesión en su cuenta.
 

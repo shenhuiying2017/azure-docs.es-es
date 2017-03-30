@@ -1,3 +1,8 @@
+## <a name="microsoft-open-source-code-of-conduct"></a>Código de conducta de Microsoft Open Source
+
+Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Código de conducta de código abierto de Microsoft).
+Para más información, consulte las [preguntas más frecuentes del código de conducta](https://opensource.microsoft.com/codeofconduct/faq/) o póngase en contacto con [opencode@microsoft.com](mailto:opencode@microsoft.com) si tiene cualquier otra pregunta o comentario.
+
 # <a name="azure-technical-documentation-contributor-guide"></a>Guía del colaborador de documentación técnica de Azure
 Ha encontrado el repositorio de GitHub que contiene los archivos de origen de la documentación técnica que se publica en [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
@@ -20,9 +25,6 @@ Puede enviar actualizaciones a la [documentación de Azure](https://docs.microso
 
 * Puede colaborar fácilmente en artículos técnicos en la interfaz de usuario de GitHub. Busque el artículo en este repositorio, o consulte al artículo en [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) y haga clic en el vínculo del artículo que abre el origen del artículo en GitHub.
 * Si realiza cambios sustanciales en un artículo existente, agrega o cambia imágenes, o colabora en un nuevo artículo, necesitará bifurcar este repositorio, instalar GIT Bash, MarkdownPad y obtener información acerca de algunos comandos de GIT.
-
-## <a name="code-of-conduct"></a>Código de conducta
-Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Código de conducta de código abierto de Microsoft). Para más información, consulte las [preguntas más frecuentes del código de conducta](https://opensource.microsoft.com/codeofconduct/faq/) o póngase en contacto con [opencode@microsoft.com](mailto:opencode@microsoft.com) si tiene cualquier otra pregunta o comentario.
 
 ## <a name="about-your-contributions-to-azure-content"></a>Acerca de su colaboración en el contenido de Azure
 ### <a name="minor-corrections"></a>Correcciones menores
@@ -83,9 +85,4 @@ Se asignan etiquetas automatizadas a las solicitudes de incorporación de cambio
 
 ## <a name="more-resources"></a>Más recursos
 Consulte en el [índice de la guía del colaborador](contributor-guide/contributor-guide-index.md) todos nuestros temas de orientación.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

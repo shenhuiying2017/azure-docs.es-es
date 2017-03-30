@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
-ms.openlocfilehash: f7e4f1832a8edd029fcef08e295b6c79c033b664
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -55,7 +55,7 @@ Cargue el archivo **.cap** desde la captura de paquetes. Este archivo puede enco
 
 ### <a name="step-3"></a>Paso 3
 
-Para ver el tiempo de ida y vuelta (RTT) inicial en las conversaciones de TCP, solo se examinarán los dos primeros paquetes que participan en el protocolo de enlace TCP. Usaremos los dos primeros paquetes en el protocolo de enlace de tres vías, que son [SYN], [SYN, ACK]. Estos se nombran por las marcas establecidas en el encabezado TCP. El último paquete del protocolo de enlace, [ACK], no se usará en este escenario. El cliente envía el paquete [SYN]. Cuando se recibe, el servidor envía el paquete [ACK] como confirmación de la recepción de SYN del cliente. Aprovechando el hecho de que la respuesta del servidor requiere muy poca sobrecarga, calculamos el RTT sumando la hora a la que el cliente recibió el paquete [SYN, ACK] y la hora a la que el cliente envió el paquete [SYN].
+Para ver el tiempo de ida y vuelta (RTT) inicial en las conversaciones de TCP, solo se examinarán los dos primeros paquetes que participan en el protocolo de enlace TCP. Usaremos los dos primeros paquetes en el protocolo de enlace de tres vías, que son [SYN], [SYN, ACK]. Estos se nombran por las marcas establecidas en el encabezado TCP. El último paquete del protocolo de enlace, [ACK], no se usará en este escenario. El cliente envía el paquete [SYN]. Cuando se recibe, el servidor envía el paquete [ACK] como confirmación de la recepción de SYN del cliente. Aprovechando el hecho de que la respuesta del servidor requiere muy poca sobrecarga, calculamos el RTT restando la hora a la que el cliente recibió el paquete [SYN, ACK] y la hora a la que el cliente envió el paquete [SYN].
 
 Con WireShark este valor se calcula automáticamente.
 

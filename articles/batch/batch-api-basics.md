@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0682a048429d8e980da529975a24dde28a9812fe
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
 ms.lasthandoff: 03/15/2017
 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 
 En este artículo se proporciona información general acerca los componentes principales del servicio Lote de Azure y se describen los principales recursos y características del servicio que pueden usar los desarrolladores de Lote para crear soluciones de proceso en paralelo a gran escala.
 
-Utilizará muchos de los recursos y las características que se describen en este artículo, tanto si está desarrollando una aplicación informática distribuida o un servicio que emita llamadas directas a la [API de REST][batch_rest_api], como si usa uno de los [SDK de Batch](batch-technical-overview.md#batch-development-apis).
+Utilizará muchos de los recursos y las características que se describen en este artículo, tanto si está desarrollando una aplicación informática distribuida o un servicio que emita llamadas directas a la [API de REST][batch_rest_api], como si usa uno de los [SDK de Batch](batch-apis-tools.md#batch-development-apis).
 
 > [!TIP]
 > Para ver una introducción de nivel superior sobre el servicio Lote, consulte [Datos básicos de Lote de Azure](batch-technical-overview.md).
@@ -427,6 +427,7 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
+* Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
 * Recorra paso a paso una aplicación de Lote de ejemplo en [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md). También existe una [versión para Python](batch-python-tutorial.md) del tutorial, en la que se ejecuta una carga de trabajo en nodos de proceso de Linux.
 * Descargue y compile el proyecto de ejemplo [Batch Explorer][github_batchexplorer] para usarlo mientras desarrolla sus soluciones de Batch. Mediante Batch Explorer puede realizar lo siguiente y mucho más:
 

@@ -9,27 +9,27 @@ editor:
 tags: azure-resource-manager
 ms.assetid: 5452a0b8-21a6-4699-8d6a-e2d8faf32c25
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 317c05f9f8faa335cdd3588c3b50a89948066d11
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Creación de rutas definidas por el usuario (UDR) en la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [CLI de Azure](virtual-network-create-udr-arm-cli.md)
-- [Plantilla](virtual-network-create-udr-arm-template.md)
-- [PowerShell: implementación clásica](virtual-network-create-udr-classic-ps.md)
-- [CLI: implementación clásica](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
+> * [Plantilla](virtual-network-create-udr-arm-template.md)
+> * [PowerShell: implementación clásica](virtual-network-create-udr-classic-ps.md)
+> * [CLI: implementación clásica](virtual-network-create-udr-classic-cli.md)
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea 
 
@@ -60,9 +60,9 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
     --location centralus \
     --name UDR-FrontEnd
     ```
-    
+
     Salida:
-    
+
     ```json
     {
     "etag": "W/\"<guid>\"",
@@ -104,9 +104,8 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
     "resourceGroup": "testrg"
     }
     ```
-    
     Parámetros:
-    
+
     * **--route-table-name**. Nombre de la tabla de rutas a la que se agregará la ruta. En este escenario, *UDR-FrontEnd*.
     * **--address-prefix**. Prefijo de dirección de la subred a la que se destinan los paquetes. En este escenario, *192.168.2.0/24*.
     * **--next-hop-type**. Tipo de objeto al que se enviará el tráfico. Los valores posibles son *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
@@ -116,10 +115,10 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 
     ```azurecli
     az network vnet subnet update \
-    > --resource-group testrg \
-    > --vnet-name testvnet \
-    > --name FrontEnd \
-    > --route-table UDR-FrontEnd
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name FrontEnd \
+    --route-table UDR-FrontEnd
     ```
 
     Salida:
@@ -149,7 +148,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
         }
     }
     ```
-    
+
     Parámetros:
     
     * **--vnet-name**. Nombre de la red virtual donde se encuentra la subred. En este escenario, *TestVNet*.
@@ -160,35 +159,34 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 
 1. Ejecute el comando siguiente para crear una tabla de rutas para la subred back-end:
 
-        ```azurecli
-        az network route-table create \
-        --resource-group testrg \
-        --name UDR-BackEnd \
-        --location centralus
-        ```
+    ```azurecli
+    az network route-table create \
+    --resource-group testrg \
+    --name UDR-BackEnd \
+    --location centralus
+    ```
 
 2. Ejecute el comando siguiente para crear una ruta en la tabla de rutas para enviar todo el tráfico destinado a la subred front-end (192.168.1.0/24) a la VM **FW1** (192.168.0.4):
 
-        ```azurecli
-        az network route-table route create \
-        --resource-group testrg \
-        --name RouteToFrontEnd \
-        --route-table-name UDR-BackEnd \
-        --address-prefix 192.168.1.0/24 \
-        --next-hop-type VirtualAppliance \
-        --next-hop-ip-address 192.168.0.4
-        ```
+    ```azurecli
+    az network route-table route create \
+    --resource-group testrg \
+    --name RouteToFrontEnd \
+    --route-table-name UDR-BackEnd \
+    --address-prefix 192.168.1.0/24 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 192.168.0.4
+    ```
 
 3. Ejecute el comando siguiente para asociar la tabla de rutas a la subred **BackEnd**:
 
-        ```azurecli
-        az network vnet subnet update \
-        --resource-group testrg \
-        --vnet-name testvnet \
-        --name BackEnd \
-        --route-table UDR-BackEnd
-        ```
-
+    ```azurecli
+    az network vnet subnet update \
+    --resource-group testrg \
+    --vnet-name testvnet \
+    --name BackEnd \
+    --route-table UDR-BackEnd
+    ```
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>Habilitación del reenvío IP en FW1
 
@@ -196,42 +194,38 @@ Para habilitar el reenvío IP en la NIC que ha usado **FW1**, siga los pasos sig
 
 1. Ejecutar el comando [az network nic show](/cli/az/network/nic#show) con un filtro JMESPATH para mostrar el valor actual **enable-ip-forwarding** de **Habilitar reenvío IP**. Se debe establecer en *false*.
 
-        ```azurecli
-        az network nic show \
-        --resource-group testrg \
-        --nname nicfw1 \
-        --query 'enableIpForwarding' -o tsv
-        ```
-
-        Output:
-
-        ```bash
-        false
-        ```
-
-2. Ejecute el comando siguiente para habilitar el reenvío IP:
-
-        ```azurecli
-        az network nic update \
-        > --resource-group testrg \
-        > --name nicfw1 \
-        > --ip-forwarding true
-        ```
-
-    Puede examinar la salida que se transmite a la consola de o simplemente vuelva a probar el valor **enableIpForwarding** específico:
-
-        ```azurecli
-        az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
-        ```
+    ```azurecli
+    az network nic show \
+    --resource-group testrg \
+    --nname nicfw1 \
+    --query 'enableIpForwarding' -o tsv
+    ```
 
     Salida:
 
-        ```bash
+        false
+
+2. Ejecute el comando siguiente para habilitar el reenvío IP:
+
+    ```azurecli
+    az network nic update \
+    --resource-group testrg \
+    --name nicfw1 \
+    --ip-forwarding true
+    ```
+
+    Puede examinar la salida que se transmite a la consola de o simplemente vuelva a probar el valor **enableIpForwarding** específico:
+
+    ```azurecli
+    az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv
+    ```
+
+    Salida:
+
         true
-        ```
-    
+
     Parámetros:
-    
-    * **--ip-forwarding**. *true* o *false*.
+
+    **--ip-forwarding**: *true* o *false*.
 
 

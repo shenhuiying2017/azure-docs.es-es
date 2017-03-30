@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
 ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -87,10 +88,5 @@ Actualmente, existe una limitación según la que el token de autenticación deb
 Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida del Almacén de Data Lake. Haga clic en el vínculo “Renovar autorización” y, durante unos segundos, se mostrará una página con el mensaje “Redirigiendo a la autorización...”. La página se cerrará automáticamente y, si la operación se realiza correctamente, indicará “La autorización se ha renovado correctamente”. Después, debe hacer clic en “Guardar” en la parte inferior de la página y podrá continuar reiniciando el trabajo desde la hora de la última detención para evitar la pérdida de datos.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

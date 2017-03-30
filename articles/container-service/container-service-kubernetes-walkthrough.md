@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -142,7 +142,7 @@ Para ver la interfaz web Kubernetes, puede usar:
 ```console
 kubectl proxy
 ```
-Esta opción ejecuta un proxy autenticado simple en localhost, que puede usar para ver la [interfaz de usuario web de Kubernetes](http://localhost:8001/ui). Para más información, consulte [Uso de la interfaz de usuario web de Kubernetes con Azure Container Service](container-service-kubernetes-ui.md).
+Esta opción ejecuta un proxy autenticado simple en localhost, que puede usar para ver la interfaz de usuario web de Kubernetes que se ejecuta en [http://localhost:8001/ui](http://localhost:8001/ui). Para más información, consulte [Uso de la interfaz de usuario web de Kubernetes con Azure Container Service](container-service-kubernetes-ui.md).
 
 ![Imagen del panel de Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -157,13 +157,13 @@ kubectl get pods
 Mediante el nombre de pod, puede ejecutar un comando remoto en el pod.  Por ejemplo:
 
 ```console
-kubectl exec nginx-701339712-retbj date
+kubectl exec <pod name> date
 ```
 
 También puede obtener una sesión totalmente interactiva mediante las marcas `-it`:
 
 ```console
-kubectl exec nginx-701339712-retbj -it bash
+kubectl exec <pod name> -it bash
 ```
 
 ![Sesión remota dentro de un contenedor](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)

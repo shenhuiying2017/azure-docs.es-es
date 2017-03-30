@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fee6c375f93e1e669c031d8ca63470f7f48fadf2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -65,9 +65,10 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 * [Mi artefacto produjo errores durante la creación de la máquina virtual. ¿Cómo se soluciona este problema?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [¿Por qué mi máquina virtual existente no se guarda correctamente?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [¿Por qué obtengo un error "No se encuentra el recurso primario" al aprovisionar desde PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
-Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta.
+Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
 
 * Publique una pregunta en el [hilo de Disqus](#comments) al final de estas preguntas más frecuentes y ponerse en contacto con el equipo de Caché de Microsoft Azure y otros miembros de la comunidad con cualquier tema que tenga relación con este artículo.
 * Para llegar a más público, puede publicar una pregunta en el [foro de MSDN de Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)y ponerse en contacto con el equipo de Azure DevTest Labs y otros miembros de la Comunidad.
@@ -157,7 +158,12 @@ Estamos diseñando una solución para mover directamente las máquinas virtuales
 Se admite la conexión de varios discos a las máquinas virtuales.  
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si quiero usar una imagen de sistema operativo Windows para mi prueba, ¿tengo que comprar una suscripción a MSDN?
-Sí, debe [comprar una suscripción a MSDN](https://www.visualstudio.com/products/how-to-buy-vs) si necesita usar imágenes de sistema operativo de cliente (Windows 7 y versiones posteriores) para las pruebas. [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) muestra créditos de Azure para cada oferta de MSDN y proporciona más detalles.
+Si necesita utilizar imágenes de sistema operativo cliente de Windows (Windows 7 o posterior) para el desarrollo o las pruebas en Azure, entonces sí que tendrá que hacer una de estas cosas:
+
+- [Adquirir una suscripción a MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- Si tiene un contrato Enterprise, crear una suscripción a Azure con la [oferta Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+
+Para obtener más información acerca de los créditos de Azure para cada oferta de MSDN, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>¿Cómo se puede automatizar el proceso de carga de archivos VHD para crear imágenes personalizadas?
 Hay dos opciones:
@@ -225,18 +231,18 @@ No hay ningún límite en el número de laboratorios que se pueden crear por sus
 No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. No obstante, actualmente el laboratorio admite solo la ejecución de 40 máquinas virtuales al mismo tiempo en almacenamiento estándar y 25 máquinas virtuales de forma simultánea en almacenamiento premium. En estos momentos estamos trabajando para aumentar estos límites.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>¿Cómo se puede compartir un vínculo directo a mi laboratorio?
-Para compartir un vínculo directo a los usuarios de laboratorio, puede realizar el procedimiento siguiente.
+Para compartir un vínculo directo a los usuarios de laboratorio, puede realizar el procedimiento siguiente:
 
 1. Vaya al laboratorio en Azure Portal.
 2. Copie la dirección URL del laboratorio desde el explorador y compártala con los usuarios del laboratorio.
 
 > [!NOTE]
-> Si los usuarios de laboratorio son usuarios externos con un [cuenta MSA](#what-is-a-microsoft-account) y no pertenecen al directorio Active Directory de su empresa, es posible que reciban un error al navegar al vínculo proporcionado. De ser así, indíqueles que hagan clic en su nombre en la esquina superior derecha de Azure Portal y seleccionen el directorio donde existe el laboratorio en la sección **Directorio** del menú.
+> Si los usuarios de laboratorio son usuarios externos con una [cuenta Microsoft](#what-is-a-microsoft-account) y no pertenecen al directorio Active Directory de su empresa, es posible que reciban un error al navegar al vínculo proporcionado. De ser así, indíqueles que hagan clic en su nombre en la esquina superior derecha de Azure Portal y seleccionen el directorio donde existe el laboratorio en la sección **Directorio** del menú.
 >
 >
 
 ### <a name="what-is-a-microsoft-account"></a>¿Qué es una cuenta Microsoft?
-Una cuenta de Microsoft es lo que se utiliza para casi todo lo que hace con servicios y dispositivos de Microsoft. Es una combinación de dirección de correo electrónico y contraseña que utiliza para iniciar sesión en Skype, Outlook.com, OneDrive, Windows Phone y Xbox LIVE, e implica que los archivos, fotografías, contactos y configuraciones pueden seguirle a cualquier dispositivo.
+Una cuenta de Microsoft es lo que se utiliza para casi todo lo que hace con servicios y dispositivos de Microsoft. Es una combinación de dirección de correo electrónico y contraseña que utiliza para iniciar sesión en Skype, Outlook.com, OneDrive, Windows Phone y Xbox LIVE, e implica que los archivos, fotografías, contactos y configuraciones pueden acompañarle a cualquier dispositivo.
 
 > [!NOTE]
 > La cuenta Microsoft antes se llamaba "Windows Live ID".
@@ -244,7 +250,7 @@ Una cuenta de Microsoft es lo que se utiliza para casi todo lo que hace con serv
 >
 
 ### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Mi artefacto produjo errores durante la creación de la máquina virtual. ¿Cómo se soluciona este problema?
-Consulte la entrada de blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Solución de problemas de artefactos con errores en AzureDevTestLabs), escrito por uno de nuestros MVP, para más información sobre cómo obtener los registros relacionados con el artefacto con errores.
+Consulte la entrada de blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Solución de problemas de artefactos con errores en AzureDevTestLabs), escrito por uno de nuestros MVP, para obtener más información sobre cómo obtener los registros relacionados con el artefacto con errores.
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>¿Por qué mi máquina virtual existente no se guarda correctamente?
 Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, pruebe a quitar los puntos, o reemplácelos por guiones, y luego intente guardar de nuevo la máquina virtual.
@@ -253,4 +259,9 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si no existe, recibirá un error **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
 Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de ARM para implementar a través de PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el nombre del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+
+### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
+Los errores de implementación de máquina virtual se capturan en los registros de actividad. Puede encontrar registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que seleccione la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]). 
+
+En ocasiones, se produce el error de implementación antes de iniciar la implementación de VM; por ejemplo, cuando se supera el límite de suscripción para un recurso creado con la máquina virtual. En este caso, se capturan los detalles del error en los **Registros de actividad** a nivel de laboratorio que puede encontrar en la parte inferior de los parámetros de **Configuration and policies** (Configuración y directivas). Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 

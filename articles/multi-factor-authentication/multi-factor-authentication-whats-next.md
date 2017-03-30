@@ -15,16 +15,25 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
-ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: df4340ce5185405334f08f6098590f84b067dafd
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora que ya está preparado y con todo funcionando.  Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication.  No todas estas características están disponibles en todas las versiones de Azure Multi-Factor Authentication.
 
-| Característica | Descripción | |:--- |:--- || | [Alerta de fraude](#fraud-alert) |La alerta de fraude se puede instalar y configurar de tal forma que los usuarios puedan informar acerca de intentos fraudulentos de acceder a sus recursos. | | [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez y "omitir" la autenticación multifactor. | | [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados le permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. | | [almacenamiento en caché](#caching-in-azure-multi-factor-authentication) |El almacenamiento en caché le permite establecer un período específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. | | [IP de confianza](#trusted-ips) |Los administradores de un inquilino administrado o federado pueden usar IP de confianza para omitir la verificación en dos pasos de los usuarios que inician sesión desde la intranet local de la empresa. | | [Contraseñas de aplicación](#app-passwords) |Las contraseñas de aplicación permiten omitir la autenticación multifactor de aplicaciones no compatibles con esta funcionalidad sin que por ello dejen de funcionar. | | [Recordar Multi-Factor Authentication en dispositivos y exploradores recordados](#remember-multi-factor-authentication-for-devices-that-users-trust) | Le permite recordar dispositivos durante un número determinado de días después de que un usuario haya iniciado sesión correctamente en el uso de MFA. | | [Métodos de comprobación seleccionables](#selectable-verification-methods) | Le permite elegir los métodos de autenticación que los usuarios pueden utilizar. |
+| Característica | Descripción | 
+|:--- |:--- |
+| [Alerta de fraude](#fraud-alert) |Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos. |
+| [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez omitiendo la autenticación multifactor. |
+| [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. |
+| [Almacenamiento en caché](#caching-in-azure-multi-factor-authentication) |El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. |
+| [Direcciones IP de confianza](#trusted-ips) |Los administradores de un inquilino administrado o federado pueden usar IP de confianza para omitir la verificación en dos pasos de los usuarios que inician sesión desde la intranet local de la empresa. |
+| [Contraseñas de aplicación](#app-passwords) |Las contraseñas de aplicación permiten omitir la autenticación multifactor en aplicaciones no compatibles con esta funcionalidad sin que por ello dejen de funcionar. |
+| [Recordar la autenticación multifactor para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA. |
+| [Métodos de verificación seleccionables](#selectable-verification-methods) |Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Acceso al Portal de administración de Azure MFA
 

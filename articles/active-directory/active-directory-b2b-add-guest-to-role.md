@@ -14,20 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: f0d8eaef0933a43d5eefb06b1444e74fa5f5b3eb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory
 
-Aunque los usuarios de colaboración B2B de Azure Active Directory (Azure AD) se agregan como usuarios invitados al directorio y los permisos de invitado del directorio están restringidos de forma predeterminada, su empresa puede necesitar algunos usuarios invitados para cubrir más roles con privilegios en su organización. Para ello, se pueden agregar usuarios invitados a los roles que desee, según las necesidades de su organización.
+Los usuarios de colaboración B2B de Azure Active Directory (Azure AD) se agregan como usuarios invitados al directorio y los permisos de invitado del directorio están restringidos de forma predeterminada. Asimismo, su empresa puede necesitar algunos usuarios invitados para cubrir más roles con privilegios en su organización. Para respaldar la definición de roles de privilegios más elevados, se pueden agregar usuarios invitados a los roles que desee, según las necesidades de su organización.
 
 ## <a name="default-role"></a>Rol predeterminado
 

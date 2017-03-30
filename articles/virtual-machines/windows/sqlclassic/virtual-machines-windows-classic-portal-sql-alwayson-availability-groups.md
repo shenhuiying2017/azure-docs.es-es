@@ -13,28 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c1a1c7d2fd56e20d30cf0468de2d7d6c2935ef3e
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1390a0caf4e9cfe2af8bd6171a4d07f58da4bc43
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Configuración de grupos de disponibilidad Always On en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]
-> * [Resource Manager: plantilla](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Azure Resource Manager: configuración manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 > * [Portal de Azure clásico: interfaz de usuario](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 > * [Portal de Azure clásico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
-
 <br/>
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. 
+
+Para completar esta tarea con el modelo de Azure Resource Manager, consulte el artículo de [grupos de disponibilidad AlwaysOn de SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 Este tutorial integral muestra cómo implementar grupos de disponibilidad mediante SQL Server AlwaysOn ejecutándose en máquinas virtuales de Azure.
 
@@ -43,14 +40,14 @@ Al final del tutorial, la solución SQL Server AlwaysOn en Azure constará de lo
 * Una red virtual que contiene varias subredes, incluida una subred front-end y back-end
 * Un controlador de dominio con un dominio de Active Directory (AD)
 * Dos máquinas virtuales de SQL Server implementadas en la subred back-end y unidas al dominio de AD
-* Un clúster WSFC de tres nodos con el modelo de cuórum Mayoría de nodo
+* Un clúster de conmutación por error de tres nodos con el modelo de cuórum Mayoría de nodo
 * Un grupo de disponibilidad con dos réplicas de confirmación sincrónica de una base de datos de disponibilidad
 
 La siguiente ilustración es una representación gráfica de la solución.
 
 ![Arquitectura de pruebas para AG en Azure](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC791912.png)
 
-Tenga en cuenta que se trata de una de las posibles configuraciones. Por ejemplo, puede minimizar el número de máquinas virtuales para un grupo de disponibilidad de dos réplicas para ahorrar horas de cálculo en Azure con el controlador de dominio como el testigo de recurso compartido de archivos de cuórum en un clúster WSFC de dos nodos. Este método reduce el recuento de máquinas virtuales en uno respecto a la configuración anterior.
+Tenga en cuenta que se trata de una de las posibles configuraciones. Por ejemplo, puede minimizar el número de máquinas virtuales para un grupo de disponibilidad de dos réplicas para ahorrar horas de proceso en Azure con el controlador de dominio como el testigo de recurso compartido de archivos de cuórum en un clúster de dos nodos. Este método reduce el recuento de máquinas virtuales en uno respecto a la configuración anterior.
 
 En este tutorial se da por hecho lo siguiente:
 
@@ -151,7 +148,7 @@ Los pasos siguientes configuran las cuentas de Active Directory (AD) para su uso
    | **Otras opciones de contraseña** |Seleccionado |
    | **La contraseña nunca expira** |Activado |
 5. Haga clic en **Aceptar** para crear el usuario **Install**. Esta cuenta se usará para configurar el clúster de conmutación por error y el grupo de disponibilidad.
-6. Cree dos usuarios adicionales con los mismos pasos: **CORP\SQLSvc1** y **CORP\SQLSvc2**. Estas cuentas se usarán para las instancias de SQL Server. A continuación, tiene que conceder a **CORP\Install** los permisos necesarios para configurar clústeres de conmutación por error de Windows Service (WSFC).
+6. Cree dos usuarios adicionales con los mismos pasos: **CORP\SQLSvc1** y **CORP\SQLSvc2**. Estas cuentas se usarán para las instancias de SQL Server. A continuación, tiene que conceder a **CORP\Install** los permisos necesarios para configurar clústeres de conmutación por error de Windows.
 7. En el **Centro de administración de Active Directory**, seleccione **corp (local)** en el panel izquierdo. Luego, en el panel **Tareas** a la derecha, haga clic en **Propiedades**.
    
     ![Propiedades de usuario CORP](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784627.png)
@@ -166,7 +163,7 @@ Los pasos siguientes configuran las cuentas de Active Directory (AD) para su uso
 Ahora que ha terminado de configurar Active Directory y los objetos de usuario, creará tres máquinas virtuales de SQL Server y las unirá a este dominio.
 
 ## <a name="create-the-sql-server-vms"></a>Creación de las máquinas virtuales de SQL Server
-A continuación, cree tres máquinas virtuales, incluido un nodo de clúster WSFC y dos máquinas virtuales de SQL Server. Para crear cada una de las máquinas virtuales, vuelva al Portal de Azure clásico, haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, finalmente, en **De la galería**. Después use las plantillas de la tabla siguiente para ayudarle a crear las máquinas virtuales.
+Después, cree tres máquinas virtuales, incluido un nodo de clúster y dos máquinas virtuales con SQL Server. Para crear cada una de las máquinas virtuales, vuelva al Portal de Azure clásico, haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, finalmente, en **De la galería**. Después use las plantillas de la tabla siguiente para ayudarle a crear las máquinas virtuales.
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
@@ -231,15 +228,15 @@ Una vez que las tres máquinas virtuales estén totalmente aprovisionadas, tendr
 
 Las máquinas virtuales de SQL Server están aprovisionadas y en ejecución, pero se instalan con SQL Server con las opciones predeterminadas.
 
-## <a name="create-the-wsfc-cluster"></a>Creación del clúster WSFC
-En esta sección, cree el clúster de WSFC que hospedará el grupo de disponibilidad que creará más adelante. Por ahora, debería haber hecho lo siguiente para cada una de las tres máquinas virtuales que se usarán en el clúster de WSFC:
+## <a name="create-the-failover-cluster"></a>Creación del clúster de conmutación por error
+En esta sección, cree el clúster de conmutación por error que hospedará el grupo de disponibilidad que creará más adelante. Por ahora, debería haber hecho lo siguiente para cada una de las tres máquinas virtuales que se usarán en el clúster de conmutación por error:
 
 * Están totalmente aprovisionadas en Azure
 * La máquina virtual está unida al dominio
 * Se ha agregado **CORP\Install** al grupo de administradores locales
 * Se agregó la característica Clústeres de conmutación por error.
 
-Todos estos son los requisitos previos en cada máquina virtual para que pueda unirse al clúster de WSFC.
+Todos estos son los requisitos previos en cada máquina virtual para que pueda unirse al clúster de conmutación por error.
 
 Además, tenga en cuenta que la red virtual de Azure no se comporta de la misma manera que una red local. Tendrá que crear el clúster en el orden siguiente:
 
@@ -307,7 +304,7 @@ Estas acciones pueden realizarse en cualquier orden. No obstante, los pasos sigu
 4. Haga clic en **Conectar** para conectarse a la instancia predeterminada de SQL Server.
 5. En el **Explorador de objetos**, expanda **Seguridad** y luego expanda **Inicios de sesión**.
 6. Haga clic con el botón derecho en el inicio de sesión **NT AUTHORITY\System** y haga clic en **Propiedades**.
-7. En la página **Elementos protegibles ** para el servidor local, seleccione **Conceder** para los siguientes permisos y haga clic en **Aceptar**.
+7. En la página **Elementos protegibles** para el servidor local, seleccione **Conceder** para los siguientes permisos y haga clic en **Aceptar**.
    
    * Modificar cualquier grupo de disponibilidad
    * Conectar SQL
@@ -342,7 +339,7 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
 ### <a name="create-the-mydb1-database-on-contososql1"></a>Cree la base de datos de MyDB1 en ContosoSQL1:
 1. Si no cerró aún las sesiones de escritorio remoto para **ContosoSQL1** y **ContosoSQL2**, hágalo ahora.
 2. Inicie el archivo RDP para **ContosoSQL1** e inicie sesión como **CORP\Install**.
-3. En el **Explorador de archivos**, en **C:\**, cree un directorio denominado **backup**. Usará este directorio para la copia de seguridad y restauración de la base de datos.
+3. En el **Explorador de archivos**, en **C:\**, cree un directorio denominado**backup**. Usará este directorio para la copia de seguridad y restauración de la base de datos.
 4. Haga clic con el botón derecho en el nuevo directorio, seleccione **Compartir con** y luego haga clic en **Personas específicas**, tal como se muestra a continuación.
    
     ![Creación de una carpeta de copia de seguridad](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665521.gif)
@@ -408,7 +405,7 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
      ![Grupo de disponibilidad en el administrador de clústeres de conmutación por error.](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
 > [!WARNING]
-> No trate de realizar una conmutación por error del grupo de disponibilidad desde el Administrador de clústeres de conmutación por error. Todas las operaciones de conmutación por error deben realizarse desde el **Panel AlwaysOn** de SSMS. Para obtener más información, consulte [Restricciones en el uso del Administrador de clústeres de conmutación por error de WSFC con Grupos de disponibilidad](https://msdn.microsoft.com/library/ff929171.aspx).
+> No trate de realizar una conmutación por error del grupo de disponibilidad desde el Administrador de clústeres de conmutación por error. Todas las operaciones de conmutación por error deben realizarse desde el **Panel AlwaysOn** de SSMS. Para obtener más información, consulte el artículo de [restricciones en el uso del Administrador de clústeres de conmutación por error con grupos de disponibilidad](https://msdn.microsoft.com/library/ff929171.aspx).
 > 
 > 
 

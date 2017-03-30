@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6f487e2e8f368240339ef5e0015c85591522e49a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -62,7 +63,7 @@ La API ofrece las siguientes funcionalidades:
     "sendInvitationMessage": false
     ```
 
-  En este caso, obtendrá una URL de canje a través de la AP, que puede incrustar en una plantilla de correo electrónico, mensaje instantáneo u otro método de distribución que prefiera.
+  En este caso, obtendrá una URL de canje a través de la API, que puede incrustar en una plantilla de correo electrónico, mensaje instantáneo u otro método de distribución que prefiera.
 
 6. Finalmente, si es administrador, puede invitar al usuario como miembro.
 
@@ -79,24 +80,25 @@ En este modo, el usuario que usa la API debe tener los permisos necesarios para 
 
 ### <a name="app-only-mode"></a>Modo de solo aplicación
 En el contexto de solo aplicación, la aplicación necesita los ámbitos User.ReadWrite.All o Directory.ReadWrite.All para que la invitación se realice correctamente.
-Para obtener más información, consulte: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes.
+
+Para obtener más información, consulte: https://graph.microsoft.io/docs/authorization/permission_scopes.
 
 
 ## <a name="powershell"></a>PowerShell
-Ahora es posible usar PowerShell para agregar e invitar a usuarios externos a una organización fácilmente. Basta con crear una nueva invitación mediante el cmdlet
+Ahora es posible usar PowerShell para agregar e invitar a usuarios externos a una organización fácilmente. Cree una nueva invitación mediante el cmdlet:
 
 ```
 New-AzureADMSInvitation
 ```
 
-con las opciones siguientes:
+Puede usar las siguientes opciones:
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-cuyas descripciones siguen referencia de la API de invitación de [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation).
+También puede comprobar la referencia de la API de invitación en [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -109,13 +111,8 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md)
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
 * [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
-* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory](active-directory-b2b-faq.md)
+* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

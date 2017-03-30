@@ -29,7 +29,7 @@ Antes de poder desconectar un disco de una máquina virtual, es necesario conoce
 3. Anota el LUN o **número de unidad lógica** para el disco que quieres desacoplar.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Supresión de las referencias al sistema operativo en el disco
-Antes de desconectar el disco del invitado de Linux, debe asegurarse de que todas las particiones del disco no están en uso. Asegúrese de que el sistema operativo no intenta volver a montarlas después de un reinicio. Estos pasos deshacen la configuración que probablemente se creó al [conectar](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) el disco.
+Antes de desconectar el disco del invitado de Linux, debe asegurarse de que todas las particiones del disco no están en uso. Asegúrese de que el sistema operativo no intenta volver a montarlas después de un reinicio. Estos pasos deshacen la configuración que probablemente se creó al [conectar](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) el disco.
 
 1. Use el comando `lsscsi` para detectar el identificador de dispositivo. `lsscsi` puede instalarse mediante `yum install lsscsi` (en distribuciones basadas en Red Hat) o mediante `apt-get install lsscsi` (en distribuciones basadas en Debian). Puede encontrar el identificador de disco que está buscando utilizando el número de LUN. El último número de la tupla en cada fila es el LUN. En el siguiente ejemplo de `lsscsi`, LUN 0 se asigna a */dev/sdc*
 

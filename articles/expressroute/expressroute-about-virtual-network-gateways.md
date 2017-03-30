@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b58a8f7f87a231bd44c9224e3c889c31336ee0b1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,17 +31,22 @@ Cuando se envíe el tráfico de red en una conexión privada dedicada, use el ti
 
 Cada red virtual tiene una única puerta de enlace de red virtual por cada tipo de puerta de enlace. Por ejemplo, puede tener una puerta de enlace de una red virtual que use -GatewayType Vpn y otra que use -GatewayType ExpressRoute. Este artículo se centra en la puerta de enlace de red virtual de ExpressRoute.
 
-## <a name="a-namegwskuagateway-skus"></a><a name="gwsku"></a>SKU de puerta de enlace
+## <a name="gwsku"></a>SKU de puerta de enlace
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 Si desea actualizar la puerta de enlace a una SKU de puerta de enlace más eficaz, en la mayoría de los casos puede usar el cmdlet de PowerShell Resize-AzureRmVirtualNetworkGateway. Esto funcionará para las actualizaciones de SKU Standard y HighPerformance. Sin embargo, para actualizar a la SKU UltraPerformance, debe volver a crear la puerta de enlace.
 
-### <a name="a-nameaggthroughputaestimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>Rendimiento agregado estimado por SKU de puerta de enlace
+### <a name="aggthroughput"></a>Rendimiento agregado estimado por SKU de puerta de enlace
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-## <a name="a-nameresourcesarest-apis-and-powershell-cmdlets"></a><a name="resources"></a>API de REST y cmdlets de PowerShell
+> [!IMPORTANT]
+> El rendimiento de la aplicación depende de varios factores, como la latencia de extremo a extremo y el número de flujos de tráfico de abre la aplicación. Los números de la tabla representan el límite superior que teóricamente la aplicación puede alcanzar en un entorno ideal. 
+> 
+>
+
+## <a name="resources"></a>API de REST y cmdlets de PowerShell
 Para más información sobre recursos técnicos y requisitos de sintaxis específicos al usar API de REST y cmdlets de PowerShell para configuraciones de puerta de enlace de red virtual, consulte las páginas siguientes:
 
 | **Clásico** | **Resource Manager** |
@@ -50,10 +56,5 @@ Para más información sobre recursos técnicos y requisitos de sintaxis especí
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Información técnica de ExpressRoute](expressroute-introduction.md) para más información sobre configuraciones de conexión disponibles. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

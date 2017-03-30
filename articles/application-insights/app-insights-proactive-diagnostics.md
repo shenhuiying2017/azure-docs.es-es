@@ -1,5 +1,5 @@
 ---
-title: "Detección inteligente en Application Insights | Microsoft Docs"
+title: "Detección inteligente en Azure Application Insights | Microsoft Docs"
 description: "Application Insights realiza un análisis profundo automático de la telemetría de la aplicación y le advierte de los posibles problemas."
 services: application-insights
 documentationcenter: windows
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 30124e697af5f7560e8070ce43c5a985bd2c403b
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: fe2596a7fed52118425c612ebf50c01134928bf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -47,6 +48,10 @@ Hay tres tipos de detección:
 
 (Los vínculos a la Ayuda de cada notificación llevan a los artículos pertinentes).
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
@@ -58,10 +63,5 @@ La detección inteligente es completamente automática. Pero ¿quizás le gustar
 
 * [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

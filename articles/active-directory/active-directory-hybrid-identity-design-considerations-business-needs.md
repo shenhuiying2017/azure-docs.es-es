@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 03/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -56,7 +56,7 @@ También tiene que tener en cuenta los servicios en la nube que su compañía po
 * ¿Está esta integración actualmente en producción o se trata de una prueba piloto?
 
 > [!NOTE]
-> Si no tiene una idea precisa de la asignación de todas las aplicaciones y servicios en la nube, puede usar la herramienta Cloud App Discovery. Esta herramienta puede proporcionar al departamento de TI visibilidad en la estructura empresarial de la organización y las aplicaciones de nube del consumidor. Gracias a esto, es más fácil que nunca detectar las zonas oscuras de TI en su empresa, con la obtención de información detallada sobre modelos de uso y los usuarios que acceden a las aplicaciones en la nube. Para obtener acceso a esta herramienta, acuda a [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+> Si no tiene una idea precisa de la asignación de todas las aplicaciones y servicios en la nube, puede usar la herramienta Cloud App Discovery. Esta herramienta puede proporcionar al departamento de TI visibilidad en la estructura empresarial de la organización y las aplicaciones de nube del consumidor. Gracias a esto, es más fácil que nunca detectar las zonas oscuras de TI en su empresa, con la obtención de información detallada sobre modelos de uso y los usuarios que acceden a las aplicaciones en la nube. Para comenzar, consulte [Detección de aplicaciones de nube](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 

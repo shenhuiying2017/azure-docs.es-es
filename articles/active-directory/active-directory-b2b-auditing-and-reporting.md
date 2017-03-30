@@ -1,6 +1,6 @@
 ---
 title: "Auditoría y generación de informes para usuarios de colaboración B2B de Azure Active Directory | Microsoft Docs"
-description: "Las propiedades de un usuario de colaboración B2B de Azure Active Directory son configurables."
+description: "Las propiedades de un usuario invitado son configurables en la colaboración B2B de Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
-ms.openlocfilehash: fd2fe0046d0709bc4527cb680795610daae01a87
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 867a1c8dda37815663fa3fb095351fa3854a52cc
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 
-# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoría y generación de informes para usuarios de colaboración&2;B
-Con usuarios invitados, en esta versión preliminar tiene funcionalidades de auditoría a la par con usuarios miembros. A continuación, se muestra un ejemplo del historial de canje e invitación de los usuario Sam Oogle al que se acaba de invitar:
+# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoría y generación de informes para usuarios de colaboración 2B
+Con usuarios invitados, en esta versión preliminar tiene funcionalidades de auditoría similares a las de los usuarios miembros. A continuación, se muestra un ejemplo del historial de canje e invitación de los usuario Sam Oogle al que se acaba de invitar:
 
 ![Registro de auditoría](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 

@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicaciones web en tiempo de ejecución con Application Insights
 
 
-Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. En las aplicaciones hospedadas por un servidor IIS local, instale el Monitor de estado; o bien, si son aplicaciones web de Azure o se ejecutan en una máquina virtual de Azure, puede instalar la extensión Application Insights. (También hay varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Azure Cloud Services](app-insights-cloudservices.md)). Necesita una suscripción a [Microsoft Azure](http://azure.com) .
+Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Si las aplicaciones se hospedan en un servidor IIS local, instale el Monitor de estado. Si son aplicaciones web de Azure o se ejecutan en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure. (También hay varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Azure Cloud Services](app-insights-cloudservices.md)). Necesita una suscripción a [Microsoft Azure](http://azure.com) .
 
 ![gráficos de ejemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -65,7 +65,7 @@ Si la aplicación se ejecuta como un servicio web de Azure, aquí se muestra có
 Si la aplicación se hospeda en un servidor IIS, habilite Application Insights con el Monitor de estado.
 
 1. En el servidor web IIS, inicie sesión con las credenciales de administrador.
-2. Si todavía no está instalado el Monitor de estado de Application Insights, descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Si el Monitor de estado de Application Insights no está instalado aún, descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) (o ejecute [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) y busque en él el Monitor de estado de Application Insights).
 3. En el Monitor de estado, seleccione la aplicación web instalada o el sitio web que desea supervisar. Inicie sesión con sus credenciales de Azure.
 
     Configure el recurso donde desee ver los resultados en el portal de Application Insights. (Normalmente, es mejor crear un nuevo recurso. Seleccione un recurso existente si ya tiene [pruebas web][availability] o la [supervisión de cliente][client] para esta aplicación). 
@@ -76,7 +76,7 @@ Si la aplicación se hospeda en un servidor IIS, habilite Application Insights c
 
     ![Seleccione Reiniciar en la parte superior del cuadro de diálogo.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
-    El servicio web se interrumpirá durante un breve período.
+    El servicio web se interrumpe durante un breve período.
 
 ## <a name="customize-monitoring-options"></a>Personalización de las opciones de supervisión
 
@@ -90,7 +90,7 @@ Si desea volver a publicar sin agregar Application Insights al código, tenga en
 
 1. Si edita el archivo ApplicationInsights.config, realice una copia del mismo antes de volver a publicar la aplicación.
 2. Vuelva a publicar la aplicación.
-3. Vuelva a habilitar la supervisión de Application Insights. (Utilice el método adecuado: ya sea el panel de control de la aplicación web de Azure o el Monitor de estado en un host IIS).
+3. Vuelva a habilitar la supervisión de Application Insights. (Use el método adecuado: ya sea el panel de control de la aplicación web de Azure o el Monitor de estado en un host IIS).
 4. Restablezca las modificaciones realizadas en el archivo .config.
 
 
@@ -98,7 +98,7 @@ Si desea volver a publicar sin agregar Application Insights al código, tenga en
 
 ### <a name="cant-connect-no-telemetry"></a>¿No se puede conectar? ¿No hay telemetría?
 
-* Deberá abrir [algunos puertos de salida](app-insights-ip-addresses.md#outgoing-ports) en el firewall del servidor para permitir que el Monitor de estado funcione.
+* Abra los [puertos de salida necesarios](app-insights-ip-addresses.md#outgoing-ports) en el firewall del servidor para que el Monitor de estado funcione.
 
 * Abrir el Monitor de estado y seleccione la aplicación en el panel izquierdo. Compruebe si hay algún mensaje de diagnóstico para esta aplicación en la sección "Notificaciones de configuración":
 
@@ -106,7 +106,7 @@ Si desea volver a publicar sin agregar Application Insights al código, tenga en
 * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
   * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, anote la identidad.
   * En el panel de control de administración del equipo, agregue esta identidad al grupo Usuarios del monitor de sistema.
-* Si tiene instalado MMA/SCOM en el servidor, algunas versiones pueden entrar en conflicto. Desinstale SCOM y el Monitor de estado y vuelva a instalar las versiones más recientes.
+* Si tiene instalado MMA/SCOM (Systems Center Operation Manager) en el servidor, algunas versiones pueden entrar en conflicto. Desinstale SCOM y el Monitor de estado y vuelva a instalar las versiones más recientes.
 * Consulte [Solución de problemas][qna].
 
 ## <a name="system-requirements"></a>Requisitos del sistema
@@ -120,7 +120,7 @@ Compatibilidad de sistema operativo para el Monitor de estado de Application Ins
 
 con el último Service Pack y .NET Framework 4.5
 
-En Windows 7, 8, 8.1 y 10 del lado cliente, de nuevo con .NET Framework 4.5
+En el lado de cliente: Windows 7, 8, 8.1 y 10, de nuevo con .NET Framework 4.5
 
 La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 
@@ -151,7 +151,7 @@ Encuentre las aplicaciones en supervisión:
 * `-InstrumentationKey` El valor ikey del recurso de Application Insights donde quiere que se muestren los resultados.
 * Este cmdlet solo afecta a las aplicaciones que no se han instrumentado, es decir, aquellas cuyo SdkState == NotInstrumented.
 
-    El cmdlet no afecta a una aplicación que ya se ha instrumentado, ya sea en tiempo de compilación mediante la adición del SDK en el código o en tiempo de ejecución mediante un uso anterior de este cmdlet.
+    El cmdlet no afecta a una aplicación que ya se ha instrumentado. No importa que se instrumentara en tiempo de compilación mediante la adición del SDK al código, o en tiempo de ejecución mediante un uso anterior de este cmdlet.
 
     La versión del SDK utilizada para instrumentar la aplicación es la versión que se ha descargado más recientemente en este servidor.
 
@@ -183,6 +183,10 @@ Encuentre las aplicaciones en supervisión:
 `Update-ApplicationInsightsVersion`
 
 * Permite descargar el SDK más reciente de Application Insights en el servidor.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next"></a>Pasos siguientes
 

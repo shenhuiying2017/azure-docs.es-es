@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e44199dec6de1e89545f3d122481aa81e97d75ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -155,7 +155,7 @@ Las siguientes características se agregaron en la versión 1.1:
 * Un patrón de estrategia `MessageProcessor` le permite especificar un procesador por cola/tema.
 * La simultaneidad del procesamiento de mensajes se admite de manera predeterminada. 
 * La personalización sencilla de `OnMessageOptions` a través de `ServiceBusConfiguration.MessageOptions`.
-* Se permite especificar [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) en `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (en los escenarios donde es probable que no tenga derechos de administración). 
+* Se permite especificar [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) en `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (en los escenarios donde es probable que no tenga derechos de administración). Tenga en cuenta que WebJobs de Azure no puede aprovisionar automáticamente temas y colas inexistente sin Manage AccessRights.
 
 ## <a id="queues"></a>Temas relacionados tratados en el artículo de procedimientos de las colas de almacenamiento
 Para obtener información acerca de los escenarios del SDK de trabajos web no específicos del Bus de servicio, vea [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/16/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b4ae6b16880e4a5e53c8f94dc814e25254c20d73
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 905357b9e2262b86cde31874287cc0b89eef4815
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -27,7 +27,7 @@ Azure DevTest Labs usa direcciones IP compartidas para minimizar las direcciones
 
 ## <a name="shared-ip-setting"></a>Configuración de IP compartidas
 
-Cuando se crea un laboratorio, reside en una subred de una red virtual.  De forma predeterminada, esta subred se crea con la opción **Habilitar IP pública compartida** establecida en *Sí*.  Esta configuración crea una dirección IP pública para toda la subred.  Puede desactivar esta opción después de crear un laboratorio [siguiendo los pasos descritos en este artículo](devtest-lab-configure-vnet.md).
+Cuando se crea un laboratorio, reside en una subred de una red virtual.  De forma predeterminada, esta subred se crea con la opción **Habilitar IP pública compartida** establecida en *Sí*.  Esta configuración crea una dirección IP pública para toda la subred.  Para obtener más información sobre cómo configurar redes virtuales y subredes, vea [Configuración de una red virtual en Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
 ![Nueva subred de laboratorio](media/devtest-lab-shared-ip/lab-subnet.png)
 
