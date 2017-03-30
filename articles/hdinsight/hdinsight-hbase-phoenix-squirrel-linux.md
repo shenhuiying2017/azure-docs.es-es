@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 42d64d58fab19fc564fbcbf19f464bce8cf46eb7
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 04e078d662c861d5c587c571a42478603e291587
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -50,7 +50,8 @@ Cuando se conecte a un clúster de HBase, deberá conectarse a uno de los ZooKee
 
 **Para usar SQLLine**
 
-1. Conéctese al clúster con SSH. Para obtener instrucciones, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md), según el sistema operativo de su equipo cliente.
+1. Conéctese al clúster con SSH. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Desde SSH, introduzca los siguientes comandos para ejecutar SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin

@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f79068d5d1bb28762640545ebf13784b7070440e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ No necesita el SDK de Azure para generar los scripts para proyectos web. Esta ca
 Tiene a su disposición herramientas y recursos adicionales para trabajar con PowerShell en Visual Studio para el desarrollo de Azure. Vea [Herramientas de PowerShell para Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Generación de los scripts de publicación
-Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). También puede [generar scripts de publicación para aplicaciones web en Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
+Puede generar los scripts de publicación para una máquina virtual que hospeda el sitio web al crea un nuevo proyecto siguiendo [estas instrucciones](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). También puede [generar scripts de publicación para aplicaciones web en Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Scripts que genera Visual Studio
 Visual Studio genera una carpeta de nivel de solución denominada **PublishScripts** que contiene dos archivos de Windows PowerShell, un script de publicación para su máquina virtual o sitio web, y un módulo que contiene funciones que puede usar en los scripts. Visual Studio también genera un archivo en el formato JSON que especifica los detalles del proyecto que va a implementar.
@@ -343,9 +344,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y consulte otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

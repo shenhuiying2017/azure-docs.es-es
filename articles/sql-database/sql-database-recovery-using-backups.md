@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 02/20/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab3a9b28e5bcf5e1a481cc204b46617c20287a8
-ms.openlocfilehash: 2f75c492313b1ab7f4abe82a98640d535c3d7909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 751e1eaf65da889ab5c7dc26145c017682a12a4d
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -55,7 +55,7 @@ El tiempo de recuperación para restaurar una base de datos mediante copias de s
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-Puede restaurar una base de datos existente a un momento anterior en el tiempo como una nueva base de datos en el mismo servidor lógico con [Azure Portal](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Puede restaurar una base de datos existente a un momento anterior en el tiempo como una nueva base de datos en el mismo servidor lógico con [Azure Portal](sql-database-point-in-time-restore-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Durante la restauración, no se puede sobrescribir la base de datos existente.
@@ -69,7 +69,7 @@ Por lo general, una base de datos se restaura a un punto anterior para fines de 
 * ***Recuperación de datos:*** si va a recuperar datos de la base de datos restaurada para recuperarse de un error de usuario o de aplicación, debe escribir y ejecutar cualquier script de recuperación de datos necesario para extraer datos de la base de datos restaurada a la base de datos original. Aunque la operación de restauración puede tardar mucho tiempo en finalizar, la base de datos restaurada será visible en la lista de bases de datos en todo el proceso de restauración. Si elimina la base de datos durante la restauración, la operación de restauración se cancela y no se le cobra por la base de datos que no finalizó la restauración. 
 
 ## <a name="deleted-database-restore"></a>Restauración de la base de datos eliminada
-Puede restaurar una base de datos eliminada a la hora de eliminación de una base de datos eliminada en el mismo servidor lógico con [Azure Portal](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) o la [API de REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Puede restaurar una base de datos eliminada a la hora de eliminación de una base de datos eliminada en el mismo servidor lógico con [Azure Portal](sql-database-restore-deleted-database-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md) o la [API de REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Si elimina una instancia de servidor de Azure SQL Database, todas sus bases de datos también se eliminan y no se pueden recuperar. En estos momentos no es posible restaurar un servidor eliminado.
@@ -94,8 +94,8 @@ Como se dijo anteriormente, además de Azure Portal, la recuperación de una bas
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descripción |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Obtiene una o más bases de datos. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx) |Obtiene una base de datos eliminada que se puede restaurar. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Obtiene una o más bases de datos. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Obtiene una base de datos eliminada que se puede restaurar. |
 | [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Obtiene una copia de seguridad con redundancia geográfica de una base de datos. |
 | [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Restaura una Base de datos SQL. |
 |  | |

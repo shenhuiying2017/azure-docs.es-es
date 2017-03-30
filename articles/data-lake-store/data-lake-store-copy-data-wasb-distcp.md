@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1e66ce0af4d3d33b584f9f3a881c34aa04e783b7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 12aea210308636677ba2905887ddd24dc5c35238
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,7 +44,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 Un clúster de HDInsight incluye la utilidad Distcp, que puede utilizarse para copiar datos de orígenes diferentes en un clúster de HDInsight. Si ha configurado el clúster de HDInsight para utilizar el Almacén de Data Lake como almacenamiento adicional, la utilidad Distcp puede utilizarse también directamente y sin configuraciones adicionales para copiar datos a y desde una cuenta de Almacén de Data Lake. En esta sección veremos cómo usar la utilidad Distcp.
 
-1. Desde el escritorio, use SSH para conectarse al clúster. Consulte [Conexión a un clúster de HDInsight basado en Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Ejecute los comandos desde el símbolo del sistema SSH.
+1. Desde el escritorio, use SSH para conectarse al clúster. Consulte [Conexión a un clúster de HDInsight basado en Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Ejecute los comandos desde el símbolo del sistema SSH.
 
 2. Compruebe si puede tener acceso a los blobs de Almacenamiento de Azure (WASB). Ejecute el siguiente comando:
 

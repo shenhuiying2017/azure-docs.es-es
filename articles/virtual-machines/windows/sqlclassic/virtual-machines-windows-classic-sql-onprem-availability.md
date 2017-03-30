@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: d96140483edffb1f94add16598bf0dc0a85dd6da
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,16 +85,11 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 > 
 
 ## <a name="create-an-availability-group-listener"></a>Creación del agente de escucha del grupo de disponibilidad
-Después de crear el grupo de disponibilidad, debe crear un agente de escucha para que los clientes se conecten a las réplicas. Los agentes de escucha dirigen las conexiones entrantes a la réplica principal o a una réplica secundaria de solo lectura. Para más información sobre los agentes de escucha, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Después de crear el grupo de disponibilidad, debe crear un agente de escucha para que los clientes se conecten a las réplicas. Los agentes de escucha dirigen las conexiones entrantes a la réplica principal o a una réplica secundaria de solo lectura. Para más información sobre los agentes de escucha, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-int-listener.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Además de usar el **Asistente para agregar una réplica de Azure** para ampliar el grupo de disponibilidad AlwaysOn a Azure, también puede mover algunas cargas de trabajo de SQL Server por completo a Azure. Para más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

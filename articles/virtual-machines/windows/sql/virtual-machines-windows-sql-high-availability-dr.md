@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: eabba7daa746a836592f775858782aa77fcebd9b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8a6b48437eecd9f2f5c3fe8447b31192d8318149
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -102,7 +102,7 @@ Existen dos opciones principales para configurar el agente de escucha: externa (
 Si el grupo de disponibilidad abarca varias subredes de Azure (como por ejemplo, una implementación que comprenda varias regiones de Azure), la cadena de conexión de cliente debe incluir "**MultisubnetFailover = True**". Esto se traduce en intentos de conexión en paralelo a las réplicas de las diferentes subredes. Para obtener instrucciones sobre cómo configurar un agente de escucha, consulte
 
 * [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
-* [Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* [Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-ext-listener.md).
 
 Puede seguir conectándose a cada réplica de disponibilidad por separado conectándose directamente a la instancia del servicio. Además, puesto que los grupos de disponibilidad AlwaysOn son compatibles con las versiones anteriores de los clientes de creación de reflejo de la base de datos, puede conectarse a las réplicas de disponibilidad como asociados de creación de reflejo de la base de datos siempre y cuando las réplicas estén configuradas de forma similar al reflejo de la base de datos:
 

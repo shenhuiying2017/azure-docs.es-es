@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 814292d76601452493c1d708c39d42da909036d9
-ms.openlocfilehash: 1e436978da0f2fc8c122a1a99bd891fe82929f50
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: be73e3d009cfcbdd585d81512afaed752ae07364
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -51,7 +52,7 @@ Azure Search requiere un canal cifrado para todas las solicitudes del indexador 
 Después de configurar la conexión cifrada requerida por Azure Search, existen pasos adicionales de configuración intrínsecos a SQL Server en las máquinas virtuales de Azure. Si aún no lo ha hecho, el paso siguiente es finalizar la configuración mediante cualquiera de estos artículos:
 
 * En el caso de una máquina virtual de **Resource Manager** , consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* En el caso de una máquina virtual **clásica** , consulte [Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+* En el caso de una máquina virtual **clásica** , consulte [Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)](../virtual-machines/windows/classic/sql-connect.md).
 
 En concreto, consulte en ambos artículos la sección dedicada a la "conexión a través de Internet".
 
@@ -87,10 +88,5 @@ Si utiliza Azure Portal para crear un indexador, la lógica del portal de Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Dejando a un lado la configuración, ya puede especificar un servicio SQL Server en la máquina virtual de Azure como origen de los datos de un indexador de Azure Search. Consulte [Conexión de Azure SQL Database a Azure Search con indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para más información.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

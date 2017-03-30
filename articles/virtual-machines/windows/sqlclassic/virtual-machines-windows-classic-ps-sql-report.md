@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: b036296a4b4ce8ba3e6707226642a928381bcf31
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -77,7 +78,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
    * **PUNTOS DE CONEXIÓN** Mantenga los puntos de conexión **Escritorio remoto** y **PowerShell** y después agregue un punto de conexión HTTP o HTTPS, en función del entorno.
      
      * **HTTP**: los puertos públicos y privados predeterminados son **80**. Tenga en cuenta que si usa un puerto privado distinto de 80, tendrá que modificar **$HTTPport = 80** en el script de http.
-     * **HTTPS**: los puertos públicos y privados predeterminados son **443**. Una práctica recomendada de seguridad consiste en cambiar el puerto privado y configurar el firewall y el servidor de informes para usar el puerto privado. Para más información sobre los puntos de conexión, consulte [Configuración de extremos en una máquina virtual](../../virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenga en cuenta que si usa un puerto distinto de 443, debe cambiar el parámetro **$HTTPsport = 443** en el script de HTTPS.
+     * **HTTPS**: los puertos públicos y privados predeterminados son **443**. Una práctica recomendada de seguridad consiste en cambiar el puerto privado y configurar el firewall y el servidor de informes para usar el puerto privado. Para más información sobre los puntos de conexión, consulte [Configuración de extremos en una máquina virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenga en cuenta que si usa un puerto distinto de 443, debe cambiar el parámetro **$HTTPsport = 443** en el script de HTTPS.
    * Haga clic en Siguiente. ![Siguiente](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. En la última página del asistente, mantenga el valor predeterminado de **Instalar el agente de VM** seleccionado. Los pasos descritos en este tema no usan al agente de máquina virtual, pero si piensa mantener esta máquina virtual, el agente de máquina virtual y las extensiones le permitirán mejorar la máquina virtual.  Para más información sobre el agente de máquina virtual, consulte [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una de las extensiones predeterminadas instaladas y en ejecución es la extensión "BGINFO" que se muestra en el escritorio de la máquina virtual, información del sistema como la dirección IP interna y el espacio libre en disco.
 9. Haga clic en Completo. ![Aceptar](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -607,10 +608,5 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Vínculos a otros recursos para SQL Server en máquinas virtuales de Azure
 [Información general sobre SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

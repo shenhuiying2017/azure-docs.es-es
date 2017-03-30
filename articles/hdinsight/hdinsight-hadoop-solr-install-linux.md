@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: e270f3dfdaf248ed40d539fa1d2e69a3930d03c6
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2214315f084aec80986fe30ebcaff6813162c5f8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,10 +81,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguiente:
-   
-   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
      
      > [!IMPORTANT]
      > En unos pasos más adelante en este documento, usará un túnel SSL para conectarse a la interfaz de usuario web Solr. Para poder seguir estos pasos, tiene que establecer un túnel SSL y, a continuación, configurar el explorador para que lo utilice.
@@ -173,10 +170,8 @@ Una vez establecido un túnel SSH, siga estos pasos para usar el panel de Solr:
    
    1. Use SSH para conectarse al clúster en el puerto 22. Por ejemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`, donde **USERNAME** es el nombre de usuario SSH y **CLUSTERNAME** es el nombre del clúster.
       
-       Para más información sobre el uso de SSH, consulte los documentos siguientes:
-      
-      * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-      * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+       Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
    2. Use el comando siguiente para obtener el nombre de host completo:
       
            hostname -f

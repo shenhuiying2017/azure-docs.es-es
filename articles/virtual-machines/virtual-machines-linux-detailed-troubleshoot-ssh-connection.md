@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
-ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
-ms.lasthandoff: 11/30/2016
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 81f73e6c1c4fa48c0235cb497fa9e15b0c92a668
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -120,7 +120,7 @@ Si puede crear una conexión SSH con una máquina virtual en la misma red virtua
 * **La configuración del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** El puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual. (El puerto predeterminado es 22). En el caso de máquinas virtuales creadas con el modelo de implementación de Resource Manager, compruebe el número de puerto TCP de SSH en Azure Portal seleccionando **Máquinas virtuales** > *Nombre de máquina virtual* > **Configuración** > **Puntos de conexión**.
 * **La ACL del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** Una ACL permite especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al punto de conexión. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md).
 
-Para descartar el punto de conexión como causa del problema, quite el actual, cree uno y especifique el nombre SSH (puerto TCP 22 para el número de puerto público y privado). Para obtener más información, vea [Configuración de puntos de conexión en una máquina virtual en Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para descartar el punto de conexión como causa del problema, quite el actual, cree uno y especifique el nombre SSH (puerto TCP 22 para el número de puerto público y privado). Para obtener más información, vea [Configuración de puntos de conexión en una máquina virtual en Azure](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <a id="nsg"></a>
 
@@ -133,7 +133,7 @@ La última causa de los posibles problemas puede residir en la propia máquina v
 
 ![Diagrama que resalta la máquina virtual de Azure basada en Linux](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Si aún no lo ha hecho, siga las instrucciones [para restablecer una contraseña o clave SSH para máquinas virtuales basadas en Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Si aún no lo ha hecho, siga las instrucciones [para restablecer una contraseña o clave SSH para máquinas virtuales basadas en Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Pruebe de nuevo la conexión desde su equipo. Si sigue sin funcionar, estos son algunos de los posibles problemas:
 

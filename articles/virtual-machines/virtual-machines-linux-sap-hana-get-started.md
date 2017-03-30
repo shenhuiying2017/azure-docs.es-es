@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: bd70596bcc34684a6f751076e71cb3d0aa3877dd
-ms.openlocfilehash: 4c40fd95f42f4e89e86d829c8a32583a0398c74e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 24a01d243cda0d04b6b179ab3f87f1d5fcdce61b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -402,7 +402,7 @@ Finalmente, después de la instalación del servidor de aplicaciones SAP y la GU
 
 ## <a name="about-sap-azure-certifications-and-running-sap-hana-on-azure"></a>Acerca de las certificaciones de Azure de SAP y la ejecución de SAP HANA en Azure
 Para más información, consulte la siguiente documentación:
-* Información general de Azure de SAP sobre la ejecución de SAP en Azure con el sistema operativo Windows en modo clásico: [Uso de SAP en máquinas virtuales Windows en Azure](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Información general de Azure de SAP sobre la ejecución de SAP en Azure con el sistema operativo Windows en modo clásico: [Uso de SAP en máquinas virtuales Windows en Azure](windows/classic/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Información acerca de las plantillas existentes de SAP para su uso por parte de clientes: [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) (Plantillas de inicio rápido de Azure para SAP).
 * Información general de Azure de SAP sobre la ejecución de SAP en Azure con el sistema operativo Linux en el modelo de Azure Resource Manager: [Uso de SAP en máquinas virtuales Linux (VM)](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Directorio de hardware certificado para SAP HANA, donde aparecen los tipos de máquina virtual de Azure que son compatibles para la producción: [Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) (Directorio de hardware certificado para SAP HANA®).
