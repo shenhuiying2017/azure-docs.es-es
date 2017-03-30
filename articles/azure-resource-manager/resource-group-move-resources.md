@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
-ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -119,6 +119,8 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 > [!NOTE] 
 > Actualmente no se puede mover una instancia de Virtual Network que contenga VPN Gateway hasta que la puerta de enlace de VPN Gateway se haya quitado temporalmente. Una vez quitada, se podrá mover correctamente la instancia de Virtual Network y crear esa puerta de enlace.
 >
+> Actualmente no se puede mover una red virtual emparejada hasta que el emparejamiento de VNET se haya deshabilitado. Una vez deshabilitada, se podrá mover correctamente la red virtual y habilitar el emparejamiento de VNET.
+>
  
 ## <a name="services-that-do-not-enable-move"></a>Servicios que no permiten el traslado
 Los servicios que actualmente no permiten trasladar un recurso son:
@@ -134,6 +136,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Almacén de Servicios de recuperación: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Servicios de recuperación, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
 * Seguridad
 * Virtual Machines con certificados almacenados en Key Vault
+* Máquinas virtuales con discos administrados
 * Conjuntos de escalado de máquinas virtuales
 * Redes virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Puerta de enlace de VPN

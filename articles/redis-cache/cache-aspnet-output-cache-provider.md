@@ -15,9 +15,9 @@ ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 70341f4a14ee807a085931c3480a19727683e958
-ms.openlocfilehash: ce0f2ddb42e19ee33767878797188e924f5cd1e9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 845f25637a0e48460fc76c1ee36060274b3cec38
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -27,15 +27,15 @@ El proveedor de la caché de salida de Redis es un mecanismo de almacenamiento f
 Para usar el proveedor de la caché de salida de Redis, configure primero la caché y luego configure la aplicación de ASP.NET mediante el paquete NuGet del proveedor de la caché de salida de Redis. En este tema se proporcionan instrucciones sobre cómo configurar la aplicación para usar el proveedor de la caché de salida de Redis. Para obtener más información sobre cómo crear y configurar una instancia de Caché en Redis de Azure, consulte [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>Almacenamiento de los resultados de página de ASP.NET en la caché
-Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet del proveedor de la caché de salida de Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**.
+Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet de estado de sesiones de Redis Cache, haga clic en **Administrar paquetes NuGet**, **Consola del administrador de paquetes** en el menú **Herramientas**.
 
-![Paquetes NuGet de administración de Caché en Redis de Azure](./media/cache-aspnet-output-cache-provider/redis-cache-manage-nuget-menu.png)
+Ejecute el siguiente comando desde la ventana `Package Manager Console`.
+    
+```
+Install-Package Microsoft.Web.RedisOutputCacheProvider
+```
 
-Escriba **RedisOutputCacheProvider** en el cuadro de texto de búsqueda, selecciónelo en los resultados y haga clic en **Instalar**.
-
-![Proveedor de la caché de salida de Caché en Redis de Azure](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
-
-El paquete NuGet del proveedor de la caché de salida de Redis tiene una dependencia del paquete StackExchange.Redis.StrongName. Si el paquete StackExchange.Redis.StrongName no existe en el proyecto, se instalará.
+El paquete NuGet del proveedor de la caché de salida de Redis tiene una dependencia del paquete StackExchange.Redis.StrongName. Si el paquete StackExchange.Redis.StrongName no existe en el proyecto, se instalará. Para obtener más información sobre el paquete de NuGet del proveedor de caché de salida de Redis, vea la página [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) de NuGet.
 
 >[!NOTE]
 >Tenga en cuenta que, además del paquete StackExchange.Redis.StrongName con nombre seguro, también está la versión con nombre no seguro de StackExchange.Redis. Si su proyecto está utilizando la versión de StackExchange.Redis con nombre no seguro deberá desinstalarla, ya que de lo contrario se producirán conflictos de nomenclatura en el proyecto. Para obtener más información sobre estos paquetes, consulte [Configuración de los clientes de la caché de .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
@@ -76,7 +76,7 @@ Configure los atributos con los valores de la hoja de la caché en el Portal de 
 * **ssl** : true si desea proteger las comunicaciones de la caché o el cliente con SLS; de lo contrario, false. Asegúrese de especificar el puerto correcto.
   * El puerto no SSL está deshabilitado de forma predeterminada para las cachés nuevas. Especifique true en este valor para usar el puerto SSL. Para más información sobre cómo habilitar el puerto no SSL, consulte la sección [Puertos de acceso](cache-configure.md#access-ports) del tema de [Configuración de caché](cache-configure.md).
 * **databaseId** : especifique qué base de datos se usará para los datos de salida de la caché. Si no se especifica, se usa el valor predeterminado de 0.
-* **applicationName**`<AppName>_<SessionId>_Data`: las claves se almacenan en Redis como. Este esquema de nomenclatura permite que varias aplicaciones compartan la misma clave. Este parámetro es opcional y, si no se especifica, se usa un valor predeterminado.
+* **applicationName**: las claves se almacenan en Redis como `<AppName>_<SessionId>_Data`. Este esquema de nomenclatura permite que varias aplicaciones compartan la misma clave. Este parámetro es opcional y, si no se especifica, se usa un valor predeterminado.
 * **connectionTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de connectTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de connectTimeout, que es 5000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de syncTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de syncTimeout, que es 1000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 

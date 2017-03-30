@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia con .NET
-Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede comprobar el progreso utilizando el almacenamiento en cola de Azure para supervisar las notificaciones de trabajos de Servicios multimedia (como se describe en este tema) o definiendo un controlador de eventos StateChanged (como se describe en [este](media-services-check-job-progress.md) tema).  
+Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede comprobar el progreso utilizando Azure Queue Storage para supervisar las notificaciones de trabajos de Azure Media Services (como se describe en este artículo). También puede definir un controlador de eventos **StateChanged**, como se describe en [Supervisión del progreso de los trabajos mediante .NET](media-services-check-job-progress.md).  
 
-## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>Uso del almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia
-Microsoft Azure Media Services tiene la capacidad de entregar mensajes de notificación a [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md) cuando procesa trabajos multimedia. En este tema se muestra cómo obtener estos mensajes de notificación del almacenamiento en cola.
+## <a name="use-queue-storage-to-monitor-media-services-job-notifications"></a>Uso de Queue Storage para supervisar las notificaciones sobre trabajos de Media Services
+Al procesar trabajos multimedia, Media Services puede entregar notificaciones a [Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). En este tema se muestra cómo obtener estos mensajes de notificación del almacenamiento en cola.
 
-Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería en cola de Azure es fiable y altamente escalable. El almacenamiento en cola de sondeo es preferible a otros métodos.
+Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería de Queue Storage es fiable y altamente escalable. El sondeo de mensajes en Queue Storage es preferible a otros métodos.
 
-Un escenario común para escuchar notificaciones de Servicios multimedia es si va a desarrollar un sistema de administración de contenido que necesita realizar alguna tarea adicional después de que se complete un trabajo de codificación (por ejemplo, la activación del siguiente paso del flujo de trabajo o la publicación de contenido).
+Un escenario común para escuchar notificaciones de Media Services es si va a desarrollar un sistema de administración de contenido que necesita realizar alguna tarea adicional después de que se complete un trabajo de codificación (por ejemplo, para desencadenar el siguiente paso del flujo de trabajo o publicar contenido).
 
 ### <a name="considerations"></a>Consideraciones
-Tenga en cuenta lo siguiente al desarrollar aplicaciones de Servicios multimedia que usen la cola de almacenamiento de Azure.
+Tenga en cuenta lo siguiente al desarrollar aplicaciones de Media Services que usen Queue Storage:
 
-* El servicio de colas no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* Colas de almacenamiento de Azure no es un servicio push; tiene que sondear la cola.
+* Queue Storage no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Queue Storage no es un servicio de inserción. Tiene que sondear la cola.
 * Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
-* Colas de almacenamiento de Azure tiene algunas limitaciones y particularidades que se describen en el siguiente artículo: [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* Queue Storage tiene algunas limitaciones y particularidades que deben tenerse en cuenta. Estas se describen en [Colas de Azure y de Azure Service Bus: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Ejemplo de código
 El ejemplo de código de esta sección realiza lo siguiente:
 
 1. Define la clase **EncodingJobMessage** que se asigna al formato de mensaje de notificación. El código deserializa los mensajes recibidos de la cola en objetos del tipo **EncodingJobMessage** .
-2. Carga la información de cuenta de almacenamiento y Servicios multimedia del archivo app.config. Usa esta información para crear los objetos **CloudMediaContext** y **CloudQueue**.
+2. Carga la información de cuenta de almacenamiento y Servicios multimedia del archivo app.config. El ejemplo de código usa esta información para crear los objetos **CloudMediaContext** y **CloudQueue**.
 3. Crea la cola que va a recibir los mensajes de notificación sobre el trabajo de codificación.
 4. Crea el extremo de notificación que se asigna a la cola.
 5. Adjunta el extremo de notificación al trabajo y envía el trabajo de codificación. Puede tener varios extremos de notificación adjuntos a un trabajo.
-6. En este ejemplo, solo nos interesan los estados finales del procesamiento de trabajos, por lo que pasamos **NotificationJobState.FinalStatesOnly** al método **AddNew**.
+6. Pasa **NotificationJobState.FinalStatesOnly** al método **AddNew** (en este ejemplo, solo nos interesan los estados finales del procesamiento del trabajo).
 
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. Si se pasa NotificationJobState.All, es de esperar que se obtengan todas las notificaciones de cambio de estado: En cola -> Programado -> Procesando -> Finalizado. Sin embargo, como se indicó anteriormente, el servicio de Colas de almacenamiento de Azure no garantiza la entrega ordenada. Puede utilizar la propiedad de marca de tiempo (definida en el tipo EncodingJobMessage en el ejemplo siguiente) para ordenar los mensajes. Es posible que reciba mensajes de notificación duplicados. Utilice la propiedad ETag (definida en el tipo de EncodingJobMessage) para comprobar si existen duplicados. También es posible que se omitan algunas notificaciones de cambio de estado.
+7. Si se pasa **NotificationJobState.All**, se obtienen todas las notificaciones de cambio de estado siguientes: en cola, programado, procesando y finalizado. Sin embargo, como se indicó anteriormente, Queue Storage no garantiza la entrega ordenada. Para ordenar los mensajes, utilice la propiedad **Timestamp** (definida en el tipo **EncodingJobMessage** en el ejemplo siguiente). Los mensajes duplicados son posibles. Para comprobar si existen duplicados, utilice la **propiedad ETag** (definida en el tipo de **EncodingJobMessage**). También es posible que se omitan algunas notificaciones de cambio de estado.
 8. Espera a que el trabajo llegue al estado Finalizado comprobando la cola cada 10 segundos. Elimina los mensajes una vez que se hayan procesado.
 9. Elimina la cola y el extremo de notificación.
 

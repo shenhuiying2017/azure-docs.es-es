@@ -1,10 +1,10 @@
 ---
-title: "Establecimiento de una dirección IP privada interna estática"
+title: "Establecimiento de una dirección IP privada interna estática: máquina virtual de Azure (clásica)"
 description: "Descripción y administración de direcciones IP estáticas internas (DIP)"
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 41b98df79b9ab9ee179ab8984d14c9e9c15fa646
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -107,10 +108,5 @@ Para agregar una dirección IP interna estática a la máquina virtual creada co
 [IP pública a nivel de instancia (ILIP)](virtual-networks-instance-level-public-ip.md)
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

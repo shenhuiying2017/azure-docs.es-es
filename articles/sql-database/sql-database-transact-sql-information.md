@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
+ms.date: 03/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 78ed4e170c4c296ae78b79c553228d8ea11c0f49
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database   
-Cuando se [migra la base de datos](sql-database-cloud-migrate.md) de SQL Server a Azure SQL Server, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este tema se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. 
+Cuando se [migra la base de datos](sql-database-cloud-migrate.md) de SQL Server a Azure SQL Server, es posible que descubra que la base de datos requiere cierta reingeniería antes de que se pueda migrar el servidor SQL Server. En este tema se proporcionan instrucciones para ayudarle a realizar esta reingeniería y entender las razones subyacentes por las que es necesaria. Para detectar incompatibilidades, utilice el [Asistente para migración de datos (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Información general
 La mayoría de las características de Transact-SQL que usan las aplicaciones se admiten en Microsoft SQL Server y Azure SQL Database. Por ejemplo, los componentes principales de SQL, como tipos de datos, operadores, funciones de cadena, aritméticas, lógicas y de cursor, funcionan de la misma forma en SQL Server y SQL Database. Pero hay algunas diferencias de T-SQL en los elementos DDL (lenguaje de definición de datos) y DML (lenguaje de manipulación de datos) que generan instrucciones y consultas de T-SQL que solo se admiten parcialmente (como se describe más adelante en este tema).
@@ -38,7 +38,7 @@ Para obtener una lista de las funciones compatibles y no compatibles con SQL Dat
 ## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Instrucciones de sintaxis de Transact-SQL con diferencias parciales
 Las instrucciones DDL (lenguaje de definición de datos) principales están disponibles, pero algunas instrucciones DDL tienen extensiones relacionadas con la ubicación de disco y las características no admitidas. 
 
-- Las instrucciones CREATE y ALTER DATABASE tienen más de&30; opciones. Las instrucciones incluyen la ubicación de archivos, FILESTREAM y opciones de agente de servicio que solo se aplican a SQL Server. Puede que esto no sea importante si se crean las bases de datos antes de la migración, pero si se va a migrar código de T-SQL que crea bases de datos, se debe comparar [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) con la sintaxis de SQL Server en [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) para asegurarse de que se admiten todas las opciones que se usan. CREATE DATABASE para Azure SQL Database también tiene opciones de objetivo de servicio y escalado flexible que se aplican únicamente a SQL Database.
+- Las instrucciones CREATE y ALTER DATABASE tienen más de 30 opciones. Las instrucciones incluyen la ubicación de archivos, FILESTREAM y opciones de agente de servicio que solo se aplican a SQL Server. Puede que esto no sea importante si se crean las bases de datos antes de la migración, pero si se va a migrar código de T-SQL que crea bases de datos, se debe comparar [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) con la sintaxis de SQL Server en [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) para asegurarse de que se admiten todas las opciones que se usan. CREATE DATABASE para Azure SQL Database también tiene opciones de objetivo de servicio y escalado flexible que se aplican únicamente a SQL Database.
 - Las instrucciones CREATE y ALTER TABLE tienen opciones FileTable que no se pueden usar en SQL Database porque no se admite FILESTREAM.
 - Se admiten las instrucciones de inicio de sesión CREATE y ALTER, pero SQL Database no ofrece todas las opciones. Para que la base de datos sea más portable, SQL Database promueve la utilización de usuarios de base de datos independiente en lugar de inicios de sesión siempre que sea posible. Para más información, vea [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) y [Control y concesión de acceso a bases de datos](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 

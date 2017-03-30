@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
-ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Azure proporciona la funcionalidad de supervisar recursos con registros y métri
 Application Gateway proporciona la funcionalidad de supervisar el estado de los miembros individuales de los grupos de back-end el portal, PowerShell y la CLI. En los registros de diagnóstico de rendimiento se puede encontrar un resumen de estado agregado de los grupos back-end. El informe de estado de back-end refleja el resultado del sondeo de estado de Application Gateway en las instancias de back-end. Cuando el sondeo es correcto y el back-end puede atender el tráfico, se considera que el estado es correcto; en caso contrario, se considera incorrecto.
 
 > [!important]
-> Si hay un grupo de seguridad de red en la subred de Application Gateway, se deberían abrir los intervalos de puertos 65503-65534 en las instancias de Application Gateway.
+> Si hay un grupo de seguridad de red en la subred de Application Gateway, se deberían abrir los intervalos de puertos 65503-65534 en la subred de Application Gateway para los miembros del grupo de back-end. Estos puertos son necesarios para que funcione correctamente el estado de back-end.
 
 ### <a name="view-backend-health-through-the-portal"></a>Visualización del estado de back-end a través del portal
 
@@ -316,3 +316,4 @@ Para conocer más detalles sobre los webhooks y cómo usarlos con alertas, visit
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
+

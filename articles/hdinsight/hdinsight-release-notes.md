@@ -9,6 +9,7 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 2/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: de252e1d2945f236a4192c5737ed8ec88a6f7444
-ms.openlocfilehash: da5929df1e5db0acae41d757a7e7272014bf9dee
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7a9e23e8d06bc73855058242cdebd315c9d4d243
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -75,7 +76,7 @@ Los números de versión completos de los clústeres de HDInsight basados en Win
 * R Server 8.0.5: básicamente, una versión con corrección de errores. Consulte [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) (Notas de la versión de R Server) para obtener más información.
 * Paquete AzureML en el nodo perimetral: [este paquete de R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) permite que se publiquen modelos de R y se consuman como servicio web de Azure Machine Learning.  Consulte la sección [Uso de modelos](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) del artículo [Información general de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-overview.md) para más información.
 * Dependencias de Linux de los [100 paquetes de R más populares](https://github.com/metacran/cranlogs) : estas dependencias de paquete de Linux vienen ahora preinstaladas.
-* Opción de usar el repositorio CRAN al agregar paquetes de R a los nodos de datos. Consulte la sección [Instalar paquetes de R](hdinsight-hadoop-r-server-get-started.md#install-r-packages) del artículo [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md) para más información.
+* Opción de usar el repositorio CRAN al agregar paquetes de R a los nodos de datos. Para obtener más información, consulte el artículo [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md).
 * Se ha mejorado la confiabilidad del aprovisionamiento de R Server cuando se crean clústeres.
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>Notas de la versión del 08/01/2016 de HDInsight
@@ -1128,7 +1129,7 @@ Esta versión contiene las siguientes actualizaciones de componentes.
 </tr>
 <tr>
 <td>Cambios en el nombre de archivo JAR de HDP</td>
-<td>En la versión 3.0 del clúster de HDI, hay un par de cambios en los archivos JAR internos instalados por HDP. jetty&6;.1.26.jar se ha reemplazado por jetty&6;.1.26.hwx.jar. jetty-util-6.1.26.jar se ha reemplazado por jetty-util-6.1.26.hwx.jar. Estos cambios se aplican a los proyectos de Hadoop, Mahout, WebHCat y Oozie.</td>
+<td>En la versión 3.0 del clúster de HDI, hay un par de cambios en los archivos JAR internos instalados por HDP. jetty 6.1.26.jar se ha reemplazado por jetty 6.1.26.hwx.jar. jetty-util-6.1.26.jar se ha reemplazado por jetty-util-6.1.26.hwx.jar. Estos cambios se aplican a los proyectos de Hadoop, Mahout, WebHCat y Oozie.</td>
 <td>Hadoop, Mahout, WebHCat, Oozie</td>
 <td>Hadoop, HBase</td>
 <td>N/D</td>
@@ -1288,7 +1289,7 @@ Para obtener más información sobre la configuración de memoria que usan YARN 
 
 Respecto al mensaje de error de Azure PowerShell y el SDK de HDInsight: "*El clúster no está configurado para el acceso a servicios HTTP*":
 
-* Este error es un [problema de compatibilidad](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conocido que puede deberse a una diferencia entre la versión del SDK de HDInsight o de Azure PowerShell y la versión del clúster. Los clústeres creados a partir del 15/8 cuentan con nueva funcionalidad de aprovisionamiento en redes virtuales. Pero las versiones anteriores del SDK de HDInsight o de Azure PowerShell no interpretan correctamente esta funcionalidad. El resultado es un error en algunas operaciones de envío. Si usa las API del SDK de HDInsight o cmdlets de Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**), para enviar trabajos, esas operaciones pueden generar el mensaje de error "* El clúster <clustername> no está configurado para el acceso a servicios HTTP*". O bien, (en función de la operación), puede recibir otros mensajes de error, como "*No se puede conectar al clúster*".
+* Este error es un [problema de compatibilidad](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conocido que puede deberse a una diferencia entre la versión del SDK de HDInsight o de Azure PowerShell y la versión del clúster. Los clústeres creados a partir del 15/8 cuentan con nueva funcionalidad de aprovisionamiento en redes virtuales. Pero las versiones anteriores del SDK de HDInsight o de Azure PowerShell no interpretan correctamente esta funcionalidad. El resultado es un error en algunas operaciones de envío. Si usa las API del SDK de HDInsight o cmdlets de Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**), para enviar trabajos, esas operaciones pueden generar el mensaje de error "*El clúster <clustername> no está configurado para el acceso a servicios HTTP*". O bien, (en función de la operación), puede recibir otros mensajes de error, como "*No se puede conectar al clúster*".
 * Estos problemas de compatibilidad se han resuelto en las últimas versiones del SDK de HDInsight y Azure PowerShell. Se recomienda actualizar el SDK de HDInsight a la versión 1.3.1.6 o posterior y Azure PowerShell Tools a la versión 0.8.8 o posterior. Puede obtener acceso al último SDK de HDInsight desde [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) y a Azure PowerShell Tools en [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Notas de la versión del 12/09/2014 de HDinsight 3.1

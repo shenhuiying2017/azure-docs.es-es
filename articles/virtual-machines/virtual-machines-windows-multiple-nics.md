@@ -12,21 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/27/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 46156a3331585b47761432c13462dffeb0b7eeb5
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 95b2820d2f68be34cca7b8d414c581ba44a29804
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="creating-a-windows-vm-with-multiple-nics"></a>Creación de una máquina virtual Windows con varias tarjetas de interfaz de red
+# <a name="create-a-windows-vm-with-multiple-nics"></a>Creación de una máquina virtual Windows con varias tarjetas de interfaz de red
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común sería tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se proporcionan comandos rápidos para crear una máquina virtual que tiene conectadas varias NIC. Para más información, lo que incluye cómo crear varias NIC dentro de sus propios scripts de PowerShell, lea más sobre la [implementación de máquinas virtuales con varias NIC](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Diferentes [tamaños de máquina virtual](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
-
-> [!WARNING]
-> Cuando crea una máquina virtual, debe asociar varias NIC; no es posible agregar NIC a una máquina virtual existente. También puede [crear una máquina virtual en función de los discos virtuales originales](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y crear varias NIC mientras implementa la máquina virtual.
-> 
-> 
 
 ## <a name="create-core-resources"></a>Creación de recursos principales
 Asegúrese de que tiene la [Azure PowerShell más reciente instalada y configurada](/powershell/azureps-cmdlets-docs). Inicie sesión en una cuenta de Azure:
@@ -132,6 +128,66 @@ Por último, cree una máquina virtual:
 New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
 ```
 
+## <a name="add-a-nic-to-an-existing-vm"></a>Adición de una NIC a una máquina virtual existente
+
+Ahora es posible agregar una NIC a una máquina virtual existente. Para usar esta característica, primero debe cancelar la asignación de la máquina virtual mediante el cmdlet Stop-AzureRmVM.
+
+```powershell
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+A continuación, obtenga la configuración existente de la máquina virtual mediante el cmdlet Get-AzureRmVM
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Puede crear una nueva NIC en la **misma red virtual que la máquina virtual** tal como se muestra al principio de este artículo o adjuntar una NIC existente. Supondremos que está adjuntando una NIC existente `MyNic3` en la red virtual. 
+
+```powershell
+$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+```
+
+> [!NOTE]
+> Una de las NIC en una máquina virtual de varias NIC debe ser principal, por lo que vamos a configurar la nueva NIC como principal. Si la NIC anterior en la máquina virtual es principal, no es necesario especificar el conmutador principal. Si desea cambiar la NIC principal en la máquina virtual, siga los pasos siguientes
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+
+# Find out all the NICs on the VM and find which one is Primary
+$vm.NetworkProfile.NetworkInterfaces
+
+# Set the NIC 0 to be primary
+$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+
+# Update the VM state in Azure
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+```
+
+## <a name="remove-a-nic-from-an-existing-vm"></a>Eliminación de una NIC de una máquina virtual existente
+
+Una NIC también pueden quitarse de una máquina virtual. Para usar esta característica, primero debe cancelar la asignación de la máquina virtual mediante el cmdlet Stop-AzureRmVM.
+
+```powershell
+Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+A continuación, obtenga la configuración existente de la máquina virtual mediante el cmdlet Get-AzureRmVM
+
+```powershell
+$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+```
+
+Vea ahora todas las NIC en la máquina virtual y copie el nombre de la que desea quitar
+
+```powershell
+$vm.NetworkProfile.NetworkInterfaces
+
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+```
+
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creación de varias NIC con plantillas de Resource Manager
 Las plantillas de Azure Resource Manager emplean archivos JSON declarativos para definir el entorno. Puede leer la [introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Las plantillas de Resource Manager ofrecen una manera de crear varias instancias de un recurso durante la implementación; por ejemplo, se pueden crear varias NIC. Utilizará el comando *copy* para especificar el número de instancias que se crearán:
 
@@ -155,11 +211,5 @@ Puede leer un ejemplo completo de [cómo crear varias NIC con plantillas de Reso
 ## <a name="next-steps"></a>Pasos siguientes
 Asegúrese de revisar los [tamaños de máquina virtual Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) al intentar crear una máquina virtual con varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual. 
 
-Recuerde que no se pueden agregar NIC adicionales a una máquina virtual existente; debe crear todas las NIC al implementar la máquina virtual. Tenga cuidado al planear las implementaciones para asegurarse de que dispone de toda la conectividad de red necesaria desde el principio.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

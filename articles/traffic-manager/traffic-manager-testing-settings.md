@@ -1,6 +1,6 @@
 ---
-title: "Pruebas de la configuración de Traffic Manager | Microsoft Docs"
-description: "Este artículo le ayudará a probar la configuración del Administrador de tráfico"
+title: "Comprobación de la configuración de Azure Traffic Manager | Microsoft Docs"
+description: "Este artículo lo ayudará a comprobar la configuración de Traffic Manager."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="test-your-traffic-manager-settings"></a>Pruebe su configuración del Administrador de tráfico
+# <a name="verify-traffic-manager-settings"></a>Comprobación de la configuración de Traffic Manager
 
 Para probar la configuración de Traffic Manager, debe tener varios clientes, en diversas ubicaciones, desde los que pueda ejecutar las pruebas. Después, desactive los puntos de conexión en el perfil de Traffic Manager de uno en uno.
 
@@ -74,9 +75,4 @@ Como alternativa, existen servicios gratuitos en la Web para indagación y búsq
 * [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
 * [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 * [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

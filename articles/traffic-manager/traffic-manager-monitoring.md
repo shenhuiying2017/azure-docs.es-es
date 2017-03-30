@@ -1,5 +1,5 @@
 ---
-title: "Supervisión de puntos de conexión de Traffic Manager y conmutación por error | Microsoft Docs"
+title: "Supervisión de puntos de conexión de Azure Traffic Manager y conmutación por error | Microsoft Docs"
 description: "Este artículo le puede ayudar a comprender la forma en que el Administrador de tráfico utiliza la supervisión de puntos de conexión y la conmutación por error automática de los puntos de conexión para permitir que los clientes de Azure implementen aplicaciones de alta disponibilidad"
 services: traffic-manager
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 4df9f744c7dde9224157eca1f869c0c420036d76
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: cec4f541ebac6202a3880ec7338a9f0a0ac645b5
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="traffic-manager-endpoint-monitoring-and-failover"></a>Supervisión de puntos de conexión del Administrador de tráfico y conmutación por error
+# <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
 El Administrador de tráfico de Azure incluye la supervisión de puntos de conexión integrados y la conmutación por error automática de los puntos de conexión. Esta característica le ayuda a ofrecer aplicaciones de alta disponibilidad que son resistentes a los errores de punto de conexión, como los errores de las regiones de Azure.
 
@@ -131,71 +132,7 @@ Para más información, consulte [Métodos de enrutamiento del Administrador de 
 
 Para obtener más información sobre la solución de problemas de comprobaciones se estado erróneas, consulte [Solución de problemas de estado degradado en Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-## <a name="faq"></a>P+F
 
-### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>¿Traffic Manager es resistente a errores de región de Azure?
-
-Traffic Manager es un componente clave de la entrega de aplicaciones de alta disponibilidad en Azure.
-Para ofrecer alta disponibilidad, Traffic Manager debe tener un grado de disponibilidad excepcionalmente alto y ser resistente a errores regionales.
-
-Por diseño, los componentes de Traffic Manager son resistentes a un error completo de cualquier región de Azure. Esta resistencia se aplica a todos los componentes del Administrador de tráfico: los servidores de nombres DNS, la API, la capa de almacenamiento y el servicio de supervisión del punto de conexión.
-
-En el improbable caso de una interrupción de toda una región de Azure, se espera que Traffic Manager continúe funcionando con normalidad. Las aplicaciones implementadas en varias regiones de Azure pueden confiar en Traffic Manager para dirigir el tráfico a una instancia disponible de su aplicación.
-
-### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>¿Cómo afecta al Administrador de tráfico la elección de la ubicación del grupo de recursos?
-
-El Administrador de tráfico es servicio global individual. No es regional. La elección de la ubicación del grupo de recursos no supone ninguna diferencia con respecto a los perfiles del Administrador de tráfico implementados en dicho grupo de recursos.
-
-Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación, que determina la ubicación predeterminada de los recursos implementados en dicho grupo de recursos. Cuando se crea un perfil de Traffic Manager, se crea en un grupo de recursos. Todos los perfiles de Traffic Manager usan **global** como ubicación, lo que omite la configuración predeterminada del grupo de recursos.
-
-### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>¿Cómo se determina el estado actual de cada punto de conexión?
-
-El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), los [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) y la [CLI de Azure multiplataforma](../xplat-cli-install.md) del Monitor de tráfico.
-
-Azure no proporciona información histórica sobre el estado del punto de conexión o la capacidad de generar alertas sobre los cambios de estado del punto de conexión.
-
-### <a name="can-i-monitor-https-endpoints"></a>¿Puedo supervisar puntos de conexión HTTPS?
-
-Sí. El Administrador de tráfico admite el sondeo a través de HTTPS. Configure **HTTPS** como protocolo de la configuración de supervisión.
-
-Traffic Manager no puede proporcionar ninguna validación de certificado, incluidos:
-
-* No se validan certificados del servidor
-* No se admiten certificados del servidor de SNI
-* No se admiten certificados de cliente
-
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>¿Qué encabezado host se utiliza en las comprobaciones de estado de punto de conexión?
-
-Traffic Manager usa encabezados de host en las comprobaciones de estado HTTP y HTTPS. El encabezado de host que usa Traffic Manager es el nombre del destino del punto de conexión configurado en el perfil. El valor utilizado en el encabezado host no se puede especificar por separado de la propiedad 'target'.
-
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>¿Cuáles son las direcciones IP desde las que proceden las comprobaciones de estado?
-
-La lista siguiente contiene las direcciones IP desde las que pueden originarse las comprobaciones de estado de Traffic Manager. Puede usar esta lista para asegurarse de que se permiten conexiones entrantes de estas direcciones IP en los puntos de conexión para comprobar su estado de mantenimiento.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -206,9 +143,4 @@ Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-ro
 Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-manage-profiles.md)
 
 [Solución de problemas de estado degradado en el Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

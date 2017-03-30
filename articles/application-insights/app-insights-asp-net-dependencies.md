@@ -1,22 +1,22 @@
 ---
-title: Seguimiento de dependencia en Application Insights
+title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: "Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,6 +34,8 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
   * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
 * Páginas web
   * Llamadas AJAX
+
+La supervisión funciona mediante la [instrumentación del código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) alrededor de los métodos seleccionados. La sobrecarga de rendimiento es mínima.
 
 También puede escribir sus propias llamadas de SDK para supervisar otras dependencias, en el código de cliente y servidor, que usan la [API de TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
@@ -75,14 +77,14 @@ Haga clic en los gráficos de resumen o los elementos de tabla para buscar repet
 Los **número de errores** se muestran en la hoja **Errores**. Un error es cualquier código de retorno que no está en el intervalo 200-399, o bien uno desconocido.
 
 > [!NOTE]
-> **¿El porcentaje de errores es&100;?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
+> **¿El porcentaje de errores es 100?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
 >
 >
 
 ## <a name="ajax-calls"></a>Llamadas AJAX
 La hoja Exploradores muestra la duración y la frecuencia de errores de las llamadas AJAX de [JavaScript en las páginas web](app-insights-javascript.md). Se muestran como dependencias.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnóstico de solicitudes lentas
+## <a name="diagnosis"></a> Diagnóstico de solicitudes lentas
 Cada evento de solicitud está asociado a las llamadas de dependencia, las excepciones y otros eventos de los que se realizan un seguimiento mientras la aplicación está procesando la solicitud. Por lo tanto, si algunas solicitudes no se procesan correctamente, puede averiguar si se debe a respuestas lentas de una dependencia.
 
 Veamos un ejemplo.
@@ -202,6 +204,10 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 * Actualice a la versión más reciente del SDK Si la versión de .NET es inferior a la 4.6, siga estos pasos:
   * Host de IIS: instale el [agente de Application Insights](app-insights-monitor-performance-live-website-now.md) en los servidores host.
   * Aplicación web de Azure: abra la pestaña Application Insights en el panel de control de la aplicación web e instale Application Insights.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Excepciones](app-insights-asp-net-exceptions.md)

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 03/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
-ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6dea1af021599eb530a4feb3257238e088191d5f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,9 +46,9 @@ Las siguientes aplicaciones admiten el acceso condicional para Office 365 y otra
 | Office 365 SharePoint Online |Windows 8.1, Windows 7, Windows 7 |Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Aplicaciones móviles de Office |
 | Office 365 SharePoint Online |Mac OS X |Aplicaciones de Office 2016 para la autenticación multifactor y la ubicación únicamente; compatibilidad con directivas basadas en dispositivos prevista para el futuro |
-| Yammer para Office 365 |Windows 10, iOS y Android |Aplicación de Yammer para Office |
+| Yammer para Office 365 |Windows 10, iOS; Android support planned for the future |Aplicación de Yammer para Office |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS y Android |Aplicación de Dynamics CRM |
-| Servicio de PowerBI |Windows 10, Windows 8.1, Windows 7, iOS y Android |Aplicación de PowerBI |
+| Servicio de PowerBI |Windows 10, Windows 8.1, Windows 7 e iOS|Aplicación de Power BI (aplicación para Android no compatible) |
 | Servicio Azure Remote App |Windows 10, Windows 8.1, Windows 7, iOS, Android y Mac OS X |Azure RemoteApp |
 | Cualquier servicio de aplicaciones de Mis aplicaciones |Android e iOS |Cualquier servicio de aplicaciones de Mis aplicaciones |
 
@@ -108,9 +109,4 @@ Al aplicar las tres reglas siguientes a la relación de confianza para usuario a
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

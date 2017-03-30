@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +47,7 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 * [Error intermitente de ES: "El host está apagado (Error 112)" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar comandos list en el punto de montaje](#errorhold)
 * [Error de montaje 115 al tratar de montar Azure Files en la VM de Linux](#error15)
 * [El recurso compartido de archivos de Azure montado en la máquina virtual de Linux experimenta un rendimiento lento](#delayproblem)
-
+* [Error de montaje 11: el recurso no está disponible temporalmente al montarse en el kernel de Ubuntu 4.8 o posterior](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
@@ -271,6 +271,14 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Si no están presentes las opciones cache=strict o serverino, desmonte y vuelva a montar Azure Files ejecutando el comando mount desde la [documentación](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) y vuelva a comprobar que la entrada "/etc/fstab" tiene las opciones correctas.
 
+<a id="ubuntumounterror"></a>
+## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Error de montaje 11: el recurso no está disponible temporalmente al montarse en el kernel de Ubuntu 4.8 o posterior
+
+### <a name="cause"></a>Causa
+Problema conocido en el kernel de Ubuntu 16.10 (v.4.8), donde el cliente notifica que el cifrado es compatible, pero realmente no lo es. 
+
+### <a name="solution"></a>Solución
+Hasta que se corrija en Ubuntu 16.10, especifique la opción de montaje "vers=2.1" o use Ubuntu 16.04.
 ## <a name="learn-more"></a>Más información
 * [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
 * [Introducción a Azure File Storage en Linux](storage-how-to-use-files-linux.md)

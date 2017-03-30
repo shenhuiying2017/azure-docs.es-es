@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 18bb55a638b998dec0182a61a95c4bbde80bb0d3
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2cf4f498a107b8c6085489723ae946b119bb6244
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -54,11 +54,11 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje a
 
 * Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son reglas generales aproximadas. Algunas se pueden ignorar y otras se pueden infringir de forma fragante. Su finalidad es sugerir un punto de partida. No tema ejecutar una competición directa entre varios algoritmos en sus datos. Realmente no hay sustituto para comprender los principios de cada algoritmo y el sistema que generó los datos.
 
-* Cada algoritmo de aprendizaje automático tiene su propio estilo o *sesgo inductivo*. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero saber cuál funcionará mejor de antemano no siempre es posible. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Cada algoritmo de aprendizaje automático tiene su propio estilo o *sesgo inductivo*. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero no siempre es posible saber de antemano cuál es la mejor opción. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. Este es un ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Existen tres categorías principales de aprendizaje automático: **aprendizaje supervisado**, **aprendizaje sin supervisar** y **aprendizaje de refuerzo**.
 
-  * En el **aprendizaje supervisado**, cada punto de datos está etiquetado o asociado con una categoría o valor de interés.  Un ejemplo de una etiqueta de categoría es asignar una imagen como un 'gato' o 'perro'.  Un ejemplo de una etiqueta de valor es el precio de venta asociado a un coche usado. El objetivo del aprendizaje supervisado es estudiar muchos ejemplos etiquetados como estos y luego poder realizar predicciones sobre puntos de datos futuros, por ejemplo, para identificar nuevas fotos con el animal correcto o asignar precios de venta precisos a otros coches usados. Este es un tipo conocido y útil del aprendizaje automático. Todos los módulos de Azure Machine Learning son algoritmos de aprendizaje supervisado, excepto [agrupación en clústeres k-means][k-means-clustering].
+  * En el **aprendizaje supervisado**, cada punto de datos está etiquetado o asociado con una categoría o valor de interés.  Un ejemplo de una etiqueta de categoría es asignar una imagen como un 'gato' o 'perro'.  Un ejemplo de una etiqueta de valor es el precio de venta asociado a un coche usado. El objetivo del aprendizaje supervisado es estudiar muchos ejemplos etiquetados como los anteriores y, luego, poder realizar predicciones sobre los puntos de datos futuros. Por ejemplo, identificar nuevas fotografías con el animal correcto o asignar precios de venta precisos a otros coches usados. Este es un tipo conocido y útil del aprendizaje automático. Todos los módulos de Azure Machine Learning son algoritmos de aprendizaje supervisado, excepto [agrupación en clústeres k-means][k-means-clustering].
 
   * En el **aprendizaje sin supervisar**, los puntos de datos no tienen etiquetas asociadas a ellos. En su lugar, el objetivo de un algoritmo de aprendizaje sin supervisar es organizar los datos de alguna manera o describir su estructura. Esto puede significar agruparlos en clústeres, como hace K-means, o buscar diferentes maneras de examinar datos complejos para que parezcan más simples.
 
@@ -70,7 +70,7 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje a
 
 * Se pueden clasificar los datos en más de una categoría, bien mediante un clasificador multiclase por naturaleza, o combinando un conjunto de clasificadores de dos clases en un **conjunto**. En el enfoque de conjunto, hay un clasificador de dos clases distinto para cada clase y cada uno separa los datos en dos categorías: "esta clase" y "esta clase no". Luego, estos clasificadores votan la asignación correcta del punto de datos. Este es el principio operativo que subyace a [Multiclase uno contra todos][one-vs-all-multiclass].
 
-* Varios métodos, incluida la regresión logística y la máquina del punto de Bayes, se basan en el supuesto de **límites de clase lineal**, es decir, que los límites entre las clases son aproximadamente líneas rectas (o hiperplanos en la mayoría de los casos). Con frecuencia es una característica de los datos que no conoce hasta que intenta separarlos, pero es algo que normalmente se puede aprender visualizándolos de antemano. Si los límites de clase son muy irregulares, quédese con árboles de decisión, selvas de decisión, máquinas de vectores de soporte o redes neurales.
+* Varios métodos, como la regresión logística y la máquina del punto de Bayes, suponen **límites de clase lineal**. Es decir, dan por hecho que los límites entre las clases son aproximadamente rectas (o hiperplanas en el caso más general). Con frecuencia es una característica de los datos que no conoce hasta que intenta separarlos, pero es algo que normalmente se puede aprender visualizándolos de antemano. Si los límites de clase son muy irregulares, quédese con árboles de decisión, selvas de decisión, máquinas de vectores de soporte o redes neurales.
 
 * Las redes neurales pueden usarse con variables de categorías creando una **variable ficticia** para cada categoría y estableciéndola en 1 en aquellos casos en los que se aplique la categoría, o en 0 cuando no sea así.
 

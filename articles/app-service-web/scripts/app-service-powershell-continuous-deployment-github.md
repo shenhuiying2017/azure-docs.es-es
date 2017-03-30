@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 9b6429027a0d9f95ddced8b6616693ac2959a014
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b6b82aa6f129a008091e4abc1798b9b5d402c28e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 03/10/2017
 
 Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, configura la implementación continua desde un repositorio de GitHub. Para la implementación de GitHub sin una implementación continua, consulte [Creación de una aplicación web e implementación de código desde GitHub](app-service-powershell-deploy-github.md).
 
-Antes de ejecutar este script, asegúrese de lo siguiente:
+Si es necesario, instale PowerShell con la instrucción que se encuentra en la [Guía de instalación de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/). Asegúrese de lo siguiente:
 
-- Se ha creado una conexión con Azure mediante el cmdlet `Login-AzureRmAccount`.
+- Se ha creado una conexión con Azure mediante el comando `az login`.
 - El código de la aplicación está en un repositorio de GitHub público o privado del que usted es el propietario.
 - Ha [creado un token de acceso en su cuenta de GitHub](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
@@ -56,7 +56,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Para más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
 Puede encontrar ejemplos de Azure PowerShell para Azure App Service Web Apps en los [ejemplos de PowerShell](../app-service-powershell-samples.md).
 

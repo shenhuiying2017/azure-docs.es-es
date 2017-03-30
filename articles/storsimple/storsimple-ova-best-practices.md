@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/01/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 48f89fd53f88f7bd757265d248e5aa6e53ae8d38
-ms.openlocfilehash: 27cfc75c90a5ba0699af0491f52747e8a1ea711a
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f04cf73d9cb651bf97aff855bf7d19e296796e50
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -157,7 +157,7 @@ En una matriz virtual se pueden aprovisionar recursos compartidos cuando está c
 Tenga en cuenta los siguientes procedimientos recomendadas al aprovisionar recursos compartidos o volúmenes en el dispositivo virtual.
 
 * Los tamaños de archivo en relación al tamaño aprovisionado de un recurso compartido en capas pueden afectar al rendimiento de los niveles. Si trabaja con archivos de gran tamaño, la salida en niveles se realizará más lentamente. Cuando trabaje con esta clase de archivos, es recomendable que el archivo de mayor tamaño no ocupe más del 3 % del tamaño recurso compartido.
-* En la matriz virtual se pueden crear un máximo de 16 volúmenes o recursos compartidos. Si se anclan localmente, el tamaño de los volúmenes o recursos compartidos puede oscilar entre 50 GB y 2 TB. Si están en capas, los volúmenes o recursos compartidos deben oscilar entre 500 GB y 20 TB. 
+* En la matriz virtual se pueden crear un máximo de 16 volúmenes o recursos compartidos. Para los límites de tamaño de los recursos compartidos y volúmenes en capas y anclados localmente, siempre haga referencia a los [límites de StorSimple Virtual Array](storsimple-ova-limits.md).
 * Al crear un volumen, tenga en cuenta tanto el consumo de datos esperado como el crecimiento futuro. El volumen no se puede expandir más adelante.
 * Una vez creado el volumen, no se puede reducir el tamaño del volumen de StorSimple.
 * Si escribe en un volumen en capas en StorSimple, cuando los datos del volumen alcanzan un umbral concreto (en relación con el espacio local reservado para el volumen), se limitará la operación de E/S. Si se sigue escribiendo en este volumen, la E/S se ralentiza considerablemente. Aunque se puede escribir en un volumen en capas más allá de su capacidad aprovisionada (no impedimos activamente que el usuario escriba más allá de la capacidad aprovisionada), verá una notificación de alerta en el sentido de que haya una suscripción excesiva. Una vez que vea la alerta, es imperativo que tome medidas de subsanación como eliminar el volumen (en la actualidad no se admite la expansión de volúmenes).

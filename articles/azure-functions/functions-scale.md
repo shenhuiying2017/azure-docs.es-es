@@ -18,9 +18,9 @@ ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 4eb138348686e9d7befe4d5433d174374977c2a1
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -38,7 +38,7 @@ Cuando se crea una aplicación de función, debe configurar un plan de hospedaje
 
 ### <a name="consumption-plan"></a>Plan de consumo
 
-En el **plan de consumo**, se asignan aplicaciones de función a una instancia de procesamiento de procesos. Si sea necesario, se agregan o se quitan más instancias de forma dinámica. Además, las funciones se ejecutan en paralelo, con lo que se reduce al máximo el tiempo total necesario para procesar las solicitudes. La aplicación de función contenedora suma el tiempo de ejecución de cada función. El costo se basa en el tamaño de la memoria, y el tiempo total entre todas las funciones de una aplicación de función se mide en gigabytes por segundo. Se trata de una opción excelente si los requisitos de proceso son intermitentes o las horas de trabajo suelen ser muy reducidas, ya que permite pagar solo por los recursos de proceso cuando se estén usando realmente. En la siguiente sección se proporcionan más información sobre el funcionamiento del plan de consumo.
+En el **plan de consumo**, se asignan aplicaciones de función a una instancia de procesamiento de procesos. Si sea necesario, se agregan o se quitan más instancias de forma dinámica. Además, las funciones se ejecutan en paralelo, con lo que se reduce al máximo el tiempo total necesario para procesar las solicitudes. La aplicación de función contenedora suma el tiempo de ejecución de cada función. El costo se basa en el tamaño de la memoria, y el tiempo total de ejecución entre todas las funciones de una aplicación de función. Use un plan de consumo cuando sus necesidades de proceso sean intermitentes o cuando los tiempos de ejecución de los trabajos sean breves. Este plan permite pagar solo por los recursos de proceso cuando se utilicen. En la siguiente sección se proporcionan más información sobre el funcionamiento del plan de consumo.
 
 ### <a name="app-service-plan"></a>Plan de App Service
 
@@ -46,13 +46,13 @@ En el **plan de App Service**, las aplicaciones de función se ejecutan en máqu
 
 ## <a name="how-the-consumption-plan-works"></a>Funcionamiento del plan de consumo
 
-El plan de consumo escala automáticamente los recursos de la CPU y de la memoria mediante la incorporación de más instancias de procesamiento en función de los requisitos del tiempo de ejecución de las funciones de una aplicación de función. A cada instancia de procesamiento de la aplicación de función se le asignan hasta 1,5 GB de recursos de memoria.
+El plan de consumo escala automáticamente recursos de CPU y memoria al agregar instancias de procesamiento adicionales basadas en las necesidades de las funciones que se ejecutan en la aplicación de función. A cada instancia de procesamiento de la aplicación de función se le asignan hasta 1,5 GB de recursos de memoria.
 
 Cuando se ejecuta en un plan de consumo, si una instancia de Function App pasa a estar inactiva, los nuevos blobs pueden tardar en procesarse hasta 10 minutos al día. Una vez que Function App se ejecuta, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
 
-Al crear una Function App, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. A nivel interno, Azure Functions usa Azure Storage para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro. Algunas cuentas de almacenamiento no son compatibles con colas ni tablas, como las cuentas de almacenamiento solo para blob (incluido Premium Storage) y las cuentas de almacenamiento de propósito general con replicación ZRS. Estas cuentas se filtran en la hoja Cuenta de almacenamiento al crear una nueva Function App.
+Al crear una Function App, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. A nivel interno, Azure Functions usa Azure Storage para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro. Algunas cuentas de almacenamiento no son compatibles con colas ni tablas, como las cuentas de almacenamiento solo para blob (incluido Premium Storage) y las cuentas de almacenamiento de propósito general con replicación ZRS. Estas cuentas se filtran en la hoja Cuenta de almacenamiento al crear una Function App.
 
-Al utilizar el plan de hospedaje de consumo, el contenido de Function App (como archivos de código de función y la configuración de enlace) se almacena en recursos compartidos de Azure Files en la cuenta de almacenamiento principal. Si elimina la cuenta de almacenamiento principal, este contenido se eliminará y no se puede recuperar.
+Al utilizar el plan de hospedaje de consumo, el contenido de Function App (como archivos de código de función y la configuración de enlace) se almacena en recursos compartidos de Azure Files en la cuenta de almacenamiento principal. Si elimina la cuenta de almacenamiento principal, este contenido se suprimirá y no se podrá recuperar.
 
 Para más información sobre los tipos de cuenta de almacenamiento, consulte [Introducción a los servicios de Azure Storage] (.. / storage/storage-introduction.md#introducing-the-azure-storage-services).
 
@@ -62,7 +62,7 @@ Functions emplea un controlador de escala para evaluar las necesidades de proces
 
 ![](./media/functions-scale/central-listener.png)
 
-La unidad de escalado es la aplicación de función. En este caso, escalar horizontalmente significa agregar más instancias de una aplicación de función. Inversamente, a medida que se reduce la demanda de procesos, se eliminan instancias de Function App. Finalmente, el número de instancias se reduce verticalmente hasta cero cuando no se ejecuta ninguno. 
+La unidad de escalado es la aplicación de función. En este caso, escalar horizontalmente significa agregar más instancias de una aplicación de función. Inversamente, a medida que se reduce la demanda de procesos, se eliminan instancias de Function App. Finalmente, el número de instancias se reduce verticalmente hasta cero cuando no se ejecuta ninguna función. 
 
 ### <a name="billing-model"></a>Modelo de facturación
 

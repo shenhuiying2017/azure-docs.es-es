@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a49021d7887ee91da902e5c3dea8cbc6cb3de29d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -219,6 +219,27 @@ Ahora que ya está interesado, probablemente pensará que necesita un doctorado 
 Para posibilitar cualquiera de estos escenarios de Machine Learning, podemos usar [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para introducir la información de distintos orígenes, así como [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para procesar dicha información y generar una salida que pueda tratar Azure Machine Learning.
 
 Otra opción disponible es usar [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) para analizar el contenido de nuestros usuarios; no solo podemos comprenderlos mejor (mediante el análisis de lo que escriben con [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), sino que también podemos detectar contenido no deseado o contenido para adultos y actuar en consecuencia con [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services incluye una gran cantidad de soluciones listas para usar que no requieren ningún conocimiento de Machine Learning para usarlas.
+
+## <a name="a-planet-scale-social-experience"></a>Una experiencia social a escala mundial
+Hay un último, pero no por ello menos importante, tema que abordaremos: la **escalabilidad**. Cuando se diseña una arquitectura, resulta fundamental que cada componente pueda escalar por sí mismo, ya sea porque es necesario procesar más datos o porque se desea tener una mayor cobertura geográfica (o ambas opciones). Afortunadamente, llevar a cabo una tarea así de compleja es una **experiencia inmediata** con DocumentDB.
+
+DocumentDB admite la [creación de particiones dinámica](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) inmediata mediante la creación automática de particiones según una **clave de partición** determinada (que se define como uno de los atributos en los documentos). Definir la clave de partición correcta se debe realizar en el momento del diseño, teniendo en cuenta los [procedimientos recomendados](documentdb-partition-data.md#designing-for-partitioning) disponibles; en caso de una experiencia social, la estrategia de creación de particiones debe alinearse con la forma en que consulta (se prefieren las lecturas dentro de la misma partición) y escribe (evite las "zonas activas" distribuyendo las escrituras en varias particiones). Algunas opciones son: particiones basadas en una clave temporal (día/mes/semana), por categoría de contenido, por región geográfica, por usuario; en realidad, todo depende de cómo consultará los datos y cómo los mostrará en la experiencia social. 
+
+Un punto interesante que vale la pena mencionar es que DocumentDB ejecutará las consultas (incluidas las [agregaciones](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) en todas las particiones de forma transparente, por lo que no necesita agregar ninguna lógico a medida que crecen los datos.
+
+Con el tiempo, a la larga el tráfico crecerá y su consumo de recursos (que se mide en [RU](documentdb-request-units.md) o unidades de solicitud) aumentará. Leerá y escribirá con más frecuencia a medida que crece la base de usuarios y ellos comenzarán a crear y leer más contenido; la capacidad de **escalar el rendimiento** resulta vital. Aumentar las unidades de solicitud es muy simple: podemos hacerlo con algunos clics en Azure Portal o a través de la [emisión de comandos mediante la API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+
+![Escalado vertical y definición de una clave de partición](./media/documentdb-social-media-apps/social-media-apps-scaling.png)
+
+¿Qué ocurre si las cosas siguen mejorando y los usuarios de otra región, otro país u otro continente descubren su plataforma y comienzan a usarla? ¡Una gran sorpresa!
+
+Pero... momento: pronto se da cuenta de que su experiencia con la plataforma no es óptima, porque están tan lejos de la región de operaciones que la latencia es enorme y, por supuesto, no quiere que abandonen la plataforma. ¡Si tan solo hubiese una forma sencilla de **extender su alcance global**! Y la hay.
+
+DocumentDB le permite [replicar los datos global](documentdb-portal-global-replication.md) y transparentemente con un par de clics y seleccionar de forma automática entre las regiones disponibles del [código de cliente](documentdb-developing-with-multiple-regions.md). Esto también significa que tiene [varias regiones de conmutación por error](documentdb-regional-failovers.md). 
+
+Cuando replica globalmente los datos, debe asegurarse de que los clientes puedan aprovecharlos. Si usa un front-end web o tiene acceso a las API desde clientes para dispositivos móviles, puede implementar [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) y clonar la instancia de Azure App Service en todas las regiones deseadas mediante una [configuración de rendimiento](../app-service-web/web-sites-traffic-manager.md) para admitir la cobertura global extendida. Cuando los clientes tienen acceso al front-end o a las API, se enrutarán a la instancia de App Service más cercana, que, a su vez, se conectará a la réplica local de DocumentDB.
+
+![Incorporación de la cobertura global en la plataforma social](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Conclusión
 Este artículo trata de ofrecer alternativas de bajo costo y excelentes resultados en el proceso integral de creación de redes sociales en Azure. Con este objetivo, se fomenta el uso de una solución de almacenamiento en varias capas y distribución de datos denominada "Escalera".

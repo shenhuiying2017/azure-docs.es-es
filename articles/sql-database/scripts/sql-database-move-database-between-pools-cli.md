@@ -14,12 +14,12 @@ ms.devlang: CLI
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/14/2017
+ms.date: 03/16/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 4e5775784458054413ff36f8cf72014739134ae5
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 46c5ec2a546bc475551f2922facb8cf7c568a1fb
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 
 Este script de ejemplo de la CLI crea dos grupos elásticos, traslada una base de datos de un grupo elástico al otro y, a continuación, traslada una base de datos fuera de un grupo elástico a un nivel de rendimiento de base de datos única. 
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `az login`. 
+Si es necesario, instale la CLI de Azure con las instrucciones que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)y, luego, ejecute `az login` para crear una conexión con Azure.
 
 Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en Windows, consulte [Using the Azure CLI on Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
 

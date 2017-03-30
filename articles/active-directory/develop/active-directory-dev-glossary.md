@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 03/20/2017
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
-ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d65d5292d51c58b92f68dd469bf1eb0ccdc47ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -86,7 +87,7 @@ Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def
 Una aplicación cliente solicita [autorización](#authorization) a un propietario del recurso para participar en un flujo de [concesión de autorización de OAuth2](#authorization-grant) y puede acceder a los datos y las API en nombre del propietario del recurso. La plataforma de autorización de OAuth2 [define dos tipos de clientes][OAuth2-Client-Types], "confidencial" y "público", en función de la capacidad del cliente para mantener la confidencialidad de sus credenciales. Las aplicaciones pueden implementar un [cliente web (confidencial)](#web-client) que se ejecuta en un servidor web, un [cliente nativo (público)](#native-client) instalado en un dispositivo y un [cliente basado en agente usuario (público)](#user-agent-based-client) que se ejecuta en el explorador de un dispositivo.
 
 ## <a name="consent"></a>consentimiento
-El proceso de un [propietario de recursos](#resource-owner) que concede autorización a una [aplicación cliente](#client-application), [permisos](#permissions) específicos para acceder a recursos protegidos, en nombre del propietario del recurso. Según los permisos solicitados por el cliente, se le solicitará al administrador o usuario su consentimiento para permitir el acceso a los datos de la organización o individuales, respectivamente. Tenga en cuenta que en un escenario [multiinquilino](#multi-tenant-application), la [entidad de servicio](#service-principal-object) de la aplicación también se registra en el inquilino del usuario que concede el consentimiento.
+El proceso de un [propietario de recursos](#resource-owner) que concede autorización a una [aplicación cliente](#client-application), para acceder a recursos protegidos bajo [permisos](#permissions) específicos, en nombre del propietario del recurso. Según los permisos solicitados por el cliente, se le solicitará al administrador o usuario su consentimiento para permitir el acceso a los datos de la organización o individuales, respectivamente. Tenga en cuenta que en un escenario [multiinquilino](#multi-tenant-application), la [entidad de servicio](#service-principal-object) de la aplicación también se registra en el inquilino del usuario que concede el consentimiento.
 
 ## <a name="id-token"></a>token de identificador
 Un [token de seguridad](#security-token) de [OpenID Connect][OpenIDConnect-ID-Token] proporcionado por un [punto de conexión de autorización](#authorization-endpoint) del [servidor de autorización](#authorization-server), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
@@ -94,7 +95,7 @@ Un [token de seguridad](#security-token) de [OpenID Connect][OpenIDConnect-ID-To
 Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para obtener más información.
 
 ## <a name="multi-tenant-application"></a>aplicación multiinquilino
-Una clase de [aplicación cliente](#client-application) que permite iniciar sesión y [consentir](#consent) a usuarios aprovisionados en un [inquilino](#tenant) de Azure AD, incluidos inquilinos que no son aquel con el que el cliente está registrado. Por el contrario, una aplicación registrada como único inquilino solo permite inicios de sesión desde cuentas de usuario aprovisionadas en el mismo inquilino que donde se registra la aplicación. De forma predeterminada, las aplicaciones [cliente nativas](#native-client) son aplicaciones multiinquilino, mientras que las aplicaciones [cliente web](#web-client) tienen la capacidad de seleccionar entre uno y varios inquilinos.
+Una clase de aplicación que permite iniciar sesión y [consentir](#consent) a usuarios aprovisionados en un [inquilino](#tenant) de Azure AD, incluidos inquilinos que no son aquel con el que el cliente está registrado. De forma predeterminada, las aplicaciones [cliente nativas](#native-client) son aplicaciones multiinquilino, mientras que las aplicaciones [cliente web](#web-client) y [recurso web/API](#resource-server) tienen la capacidad de seleccionar entre uno y varios inquilinos. Por el contrario, una aplicación web registrada como único inquilino solo permite inicios de sesión desde cuentas de usuario aprovisionadas en el mismo inquilino que donde se registra la aplicación.
 
 Consulte [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiinquilino][AAD-Multi-Tenant-Overview] para más información.
 
@@ -104,12 +105,12 @@ Un tipo de [aplicación cliente](#client-application) que se instala de forma na
 ## <a name="permissions"></a>permisos
 Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de recursos](#resource-server) mediante la declaración de las solicitudes de permiso. Existen dos tipos:
 
-* Permisos "delegados", que solicitan acceso [basado en el ámbito](#scopes) con autorización delegada del [propietario del recurso](#resource-owner) que ha iniciado sesión y se presentan al recurso en tiempo de ejecución como [notificaciones "scp"](#claim) en el [token de acceso](#access-token) del cliente.
-* Permisos de "aplicación", que solicitan acceso [basado en rol](#roles) bajo las credenciales o la identidad de la aplicación cliente y se presentan al recurso en tiempo de ejecución como [notificaciones de "roles"](#claim) en el token de acceso del cliente.
+* Permisos "delegados", que especifican un acceso [basado en el ámbito](#scopes) con autorización delegada del [propietario del recurso](#resource-owner) que ha iniciado sesión y se presentan al recurso en tiempo de ejecución como [notificaciones "scp"](#claim) en el [token de acceso](#access-token) del cliente.
+* Permisos de "aplicación", que especifican acceso [basado en rol](#roles) bajo las credenciales o la identidad de la aplicación cliente y se presentan al recurso en tiempo de ejecución como [notificaciones de "roles"](#claim) en el token de acceso del cliente.
 
 También se revelan durante el proceso de [consentimiento](#consent) , ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
 
-Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configuración" de [Azure Portal][AZURE-portal], bajo "Permisos necesarios", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
+Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configuración" de [Azure Portal][AZURE-portal], bajo "Permisos necesarios", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propietario del recurso
 De acuerdo con la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una entidad capaz de conceder acceso a un recurso protegido. Cuando el propietario del recurso es una persona, se conoce como usuario final. Por ejemplo, cuando una [aplicación cliente](#client-application) desea acceder al buzón del usuario a través de la [API Graph de Microsoft][Microsoft-Graph], requiere el permiso del propietario de los recursos del buzón de correo.
@@ -175,7 +176,7 @@ Un tipo de [aplicación cliente](#client-application) que ejecuta todo el códig
 ## <a name="next-steps"></a>Pasos siguientes
 La [Guía del desarrollador de Azure Active Directory][AAD-Dev-Guide] es el portal para consultar todos los temas relacionados con el desarrollo de Azure AD, incluida una descripción general de la [integración de aplicaciones][AAD-How-To-Integrate] y los aspectos básicos de la [autenticación de Azure AD y de los escenarios de autenticación admitidos][AAD-Auth-Scenarios].
 
-Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a afinar y remodelar nuestro contenido.
+Use la siguiente sección de comentarios para proporcionar comentarios y nos ayudará a refinar y a dar forma a nuestro contenido, incluidas las solicitudes para las nuevas definiciones o la actualización de las existentes.
 
 <!--Image references-->
 
@@ -208,9 +209,4 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,111 +15,173 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c18ef38661e31e16114b88bdfad36320776ef12b
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 5c30f459d9fed71fede2da71306a9b48892566f3
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
-La siguiente configuración de grupos unificados se puede aplicar en su directorio:
 
-1. Clasificaciones: lista de clasificaciones separadas por coma que pueden configurar los usuarios en un grupo. Por ejemplo "Classified" (Sin clasificar), "Secret" (Secreto) y "Top Secret" (Alto secreto).
-2. Usage Guidelines URL (URL de instrucciones de uso): una dirección URL que lleva a los usuarios a los términos de uso de los grupos unificados, según se define en su organización. Esta dirección URL se mostrará en la interfaz de usuario donde los usuarios utilizan grupos.
-3. Group creation enabled (Creación de grupos habilitada): si a ningún usuario, a algunos o a todos ellos se les permite crear grupos unificados. Cuando se establece en activado, todos los usuarios pueden crear grupos. Cuando se establece en desactivado, ningún usuario puede crear grupos. Cuando esta opción está desactivada, también puede especificar un grupo de seguridad a cuyos usuarios se les siga permitiendo crear grupos.
+Nota: Este contenido solo se aplica a los grupos unificados, también conocidos como grupos de Office365.
 
-Estas opciones se configuran mediante objetos Settings y SettingsTemplate. Inicialmente, no verá ningún objeto Settings en el directorio. Esto significa que el directorio está configurado con los valores predeterminados. Para cambiar la configuración predeterminada, creará un nuevo objeto de configuración mediante una plantilla de configuración. Las plantillas de configuración las define Microsoft.
+La configuración de Office365 se configuran mediante objetos de configuración y un objeto SettingsTemplate. Inicialmente, no verá ningún objeto Settings en el directorio. Esto significa que el directorio está configurado con los valores predeterminados. Para cambiar la configuración predeterminada, tiene que crear un nuevo objeto de configuración mediante una plantilla de configuración. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo para su directorio, utilizará la plantilla denominada "Group.Unified". Para configurar los valores del grupo para un único grupo, utilizará la plantilla denominada "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo. 
 
-Puede descargar el módulo que contiene los cmdlets usados para estas operaciones en el [sitio de Microsoft Connect](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).
+Los cmdlets forman parte del módulo Azure Active Directory PowerShell V2. Para más información acerca de este módulo y para obtener instrucciones cómo descargar e instalar el módulo en el equipo, consulte [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azuread/) (Azure Active Directory PowerShell versión 2).
 
 ## <a name="create-settings-at-the-directory-level"></a>Creación de una configuración en el nivel de directorio
-Con estos pasos se crean configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos de Office del directorio.
+Con estos pasos se crean configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos unificados del directorio.
 
-1. Si no sabe qué objeto SettingTemplate debe usar, este cmdlet devuelve la lista de plantillas de configuración:
+1. En los cmdlets DirectorySettings debe especificar el identificador de la plantilla SettingsTemplate que desea usar. Si no conoce este identificador, este cmdlet devuelve la lista de plantillas de configuración:
 
-    `Get-MsolAllSettingTemplate`
+    PS C:> Get-AzureADDirectorySettingTemplate
 
-    ![Lista de plantillas de configuración](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
+Esta llamada de cmdlet devolverá todas las plantillas que están disponibles:
+
+```
+Id                                   DisplayName         Description
+--                                   -----------         -----------
+62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
+08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
+4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
+898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
+5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule       Settings ...
+```
 2. Para agregar una dirección URL de instrucciones de uso, primero debe obtener el objeto SettingsTemplate que define el valor pertinente, es decir, la plantilla Group.Unified:
 
-    `$template = Get-MsolSettingTemplate –TemplateId 62375ab9-6b52-47ed-826b-58e47e0e304b`
+    $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+
 3. A continuación, cree un nuevo objeto de configuración basado en esa plantilla:
 
-    `$setting = $template.CreateSettingsObject()`
+    $Setting = $template.CreateDirectorySetting()
+    
 4. Luego, actualice el valor de instrucciones de uso:
 
-    `$setting["UsageGuidelinesUrl"] = "<https://guideline.com>"`
+    $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+    
 5. Por último, aplique la configuración:
 
-    `New-MsolSettings –SettingsObject $setting`
+    New-AzureADDirectorySetting -DirectorySetting $settings
 
-    ![Agregar una dirección URL de instrucción de uso](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
+Tras completarse correctamente, el cmdlet devuelve el identificador del nuevo objeto de configuración:
+
+
+    Id                                   DisplayName TemplateId                           Values
+    --                                   ----------- ----------                           ------
+    c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
+
 
 Esta es la configuración definida en el objeto SettingsTemplate Group.Unified.
 
 | **Configuración** | **Descripción** |
 | --- | --- |
-|  <ul><li>ClassificationList<li>Tipo: String<li>Valor predeterminado: “” |Una lista de valores de clasificación delimitados por coma que se puede aplicar a grupos unificados. |
-|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li> Valor predeterminado: True. |Marca que indica si se permite la creación de grupos unificados en el directorio. |
-|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Valor predeterminado: “” |GUID del grupo de seguridad al que se permite crear grupos unificados incluso cuando EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Valor predeterminado: True. |Marca que indica si se permite la creación de grupos unificados en el directorio. |
+|  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Valor predeterminado: “” |El GUID del grupo de seguridad para el se permite a los miembros crear grupos unificados incluso cuando EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Valor predeterminado: “” |Un vínculo a las instrucciones de uso de grupos. |
+|  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. |
+|  <ul><li>DefaultClassification<li>Tipo: String<li>Valor predeterminado: “” | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Valor predeterminado: “” |Todavía no implementado
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: Boolean<li>Valor predeterminado: False. | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li>Valor predeterminado: True. | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos unificados. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Valor predeterminado: “” | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
+|  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li>Valor predeterminado: True. | Un valor booleano que indica si está permitido o no agregar invitados a este directorio.|
+|  <ul><li>ClassificationList<li>Tipo: String<li>Valor predeterminado: “” |Una lista de valores de clasificación delimitados por coma que se puede aplicar a grupos unificados. |
+|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Valor predeterminado: True. | Un valor booleano que indica si los usuarios no administradores pueden crear o no nuevos grupos unificados. |
+'
 
 ## <a name="read-settings-at-the-directory-level"></a>Lectura de la configuración en el nivel de directorio
 Con estos pasos se lee la configuración en el nivel de directorio, la cual se aplica a todos los grupos de Office del directorio.
 
 1. Lea toda la configuración de directorio existente:
 
-    `Get-MsolAllSettings`
+    `Get-AzureADDirectorySetting -All $True'
+
+Este cmdlet devuelve una lista de toda la configuración del directorio: ' Id                                   DisplayName   TemplateId                           Values
+--                                   -----------   ----------                           ------
+c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...`
+
+
 2. Lea toda la configuración de un grupo específico:
 
-    `Get-MsolAllSettings -TargetType Groups -TargetObjectId <groupObjectId>`
-3. Lea la configuración de directorio específica, mediante el GUID de SettingId:
+    `Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups`
 
-    `Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+3. Lea todos los valores de configuración de directorio de un objeto de configuración del directorio específico, con el GUID de identificador de configuración:
 
-    ![GUID de identificador de configuración](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
+    `(Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values'
+
+Este cmdlet devuelve los nombres y los valores de este objeto de configuración para este grupo específico: ' Name                          Value
+----                          -----
+ClassificationDescriptions DefaultClassification PrefixSuffixNamingRequirement AllowGuestsToBeGroupOwner     False AllowGuestsToAccessGroups     True GuestUsageGuidelinesUrl GroupCreationAllowedGroupId AllowToAddGuests              True UsageGuidelinesUrl            <https://guideline.com> ClassificationList EnableGroupCreation           True` '
+
+## <a name="update-settings-for-a-specific-group"></a>Actualización de la configuración de un grupo específico
+
+1. Busque la plantilla de configuración denominada "Groups.Unified.Guest"
+
+    Get-AzureADDirectorySettingTemplate
+
+    Id                                   DisplayName            Description
+    --                                   -----------            -----------
+    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group  4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...  898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...  5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
+
+2. Recupere el objeto de plantilla para la plantilla Groups.Unified.Guest:
+
+    $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+
+3. Cree un nuevo objeto de configuración a partir de la plantilla:
+
+
+    $Setting = $Template.CreateDirectorySetting()
+
+
+4. Establezca la configuración al valor requerido:
+
+
+    $Setting["AllowToAddGuests"]=$False
+
+
+6. Cree la nueva configuración para el grupo necesario en el directorio:
+
+
+    New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
+
+
+    Id                                   DisplayName TemplateId                           Values
+    --                                   ----------- ----------                           ------
+    25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
+
 
 ## <a name="update-settings-at-the-directory-level"></a>Actualización de la configuración en el nivel de directorio
-Con estos pasos se actualiza la configuración en el nivel de directorio, la cual se aplica a todos los grupos de Office del directorio.
 
-1. Obtenga el objeto Settings existente:
+Con estos pasos se actualizan configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos unificados del directorio. En estos ejemplos se asume que ya hay un objeto de configuración en el directorio.
 
-    `$setting = Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
-2. Obtenga el valor que quiere actualizar:
+1. Busque el objeto de configuración existente:
 
-    `$value = $Setting.GetSettingsValue()`
+    Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ`
+
+    Id                                   DisplayName   TemplateId                           Values
+    --                                   -----------   ----------                           ------
+    c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
+
+    $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323`
+
 3. Actualice el valor:
 
-    `$value["AllowToAddGuests"] = "false"`
+    $Setting["AllowToAddGuests"] = "false"`
+
 4. Actualice la configuración:
 
-    `Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
+    Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting`
 
 ## <a name="remove-settings-at-the-directory-level"></a>Eliminación de la configuración en el nivel de directorio
 Con estos pasos se elimina la configuración en el nivel de directorio, lo cual se aplica a todos los grupos de Office del directorio.
 
-    `Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
+    Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c`
 
 ## <a name="cmdlet-syntax-reference"></a>Referencia de sintaxis de cmdlet
-Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
+Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](https://docs.microsoft.com/en-us/powershell/azuread/).
 
-## <a name="settingstemplate-object-reference-groupunified-settingstemplate-object"></a>Referencia de objeto SettingsTemplate (objeto Group.Unified de SettingsTemplate)
-* "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Una marca booleana que indica si la característica de creación de grupos unificados está activada".
-* "name": "GroupCreationAllowedGroupId", "type": "System.Guid", "defaultValue": "", "description": "GUID del grupo de seguridad que está en la lista de permitidos para crear grupos unificados".
-* "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "Una lista de valores de clasificación válidos delimitados por coma que se pueden aplicar a grupos unificados".
-* "name": "UsageGuidelinesUrl", "type": "System.String", "defaultValue": "", "description": "Un vínculo a las instrucciones de uso de grupos".
-
-| name | type | defaultValue | Descripción |
-| --- | --- | --- | --- |
-| "EnableGroupCreation" |"System.Boolean" |"true" |"Una marca booleana que indica si la característica de creación de grupos unificados está activada". |
-| "GroupCreationAllowedGroupId" |"System.Guid" |"" |"GUID del grupo de seguridad que está en la lista de permitidos para crear grupos unificados". |
-| "ClassificationList" |"System.String" |"" |"Una lista de valores de clasificación delimitados por coma que se pueden aplicar a grupos unificados". |
-| "UsageGuidelinesUrl" |"System.String" |"" |"Un vínculo a las instrucciones de uso de grupos". |
-
-## <a name="next-steps"></a>Pasos siguientes
-Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
-
-Se pueden encontrar instrucciones adicionales en [Rob's Groups Blog](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad), el blog de Rob Jong, jefe de programas de Microsoft.
+## <a name="additional-reading"></a>Lecturas adicionales
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)

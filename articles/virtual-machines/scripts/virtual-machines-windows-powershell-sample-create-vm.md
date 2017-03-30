@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fc02a169bf38de911401a390c3157e400ec74578
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b62637150773bdfb48ff654675af5c4ffdd67919
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creación una máquina virtual completamente configurada con PowerShell
 
-Este script crea una máquina virtual de Azure con un sistema operativo Windows Server y recursos de red relacionados. Una vez que el script se haya ejecutado correctamente, se puede tener acceso a la máquina virtual a través de SSH. 
+Este script crea una máquina virtual de Azure donde se ejecuta Windows Server 2016. Después de ejecutar el script, puede acceder a la máquina virtual a través de SSH.
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el comando `Login-AzureRmAccount`.
+Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) y, luego, ejecute `Login-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -34,7 +34,7 @@ Antes de ejecutar este script, asegúrese de que se haya creado una conexión co
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

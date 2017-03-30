@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 03/14/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 78b476b31f030fba4034dc1f499b020d244e8288
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bfbd08b40e7d16efd5784497512f9063eb17d808
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -48,7 +48,7 @@ Sí. Para obtener instrucciones, consulte [Creación de una copia de una máquin
 Las dos nuevas áreas Canadá central y Canadá oriental no se registran automáticamente para la creación de máquinas virtuales en las suscripciones de Azure existentes. Este registro se realizará automáticamente cuando se implementa una máquina virtual mediante el Portal de Azure en cualquier otra región usando Azure Resource Manager. Después de implementar una máquina virtual en cualquier otra región de Azure, las áreas nuevas deberán estar disponibles para las máquinas virtuales siguientes.
 
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>¿Puedo agregar una NIC a mi máquina virtual después de crearla?
-No. Solo se puede agregar una NIC en el momento de la creación.
+Sí, ahora es posible. En primer lugar, la máquina virtual debe detenerse desasignada. A continuación, puede agregar o quitar una NIC (a menos que sea la última en la máquina virtual). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>¿Hay algún requisito de nombre de equipo?
 Sí. El nombre del equipo puede tener un máximo de 64 caracteres. Consulte [Directrices de nomenclatura de la infraestructura](virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información sobre la nomenclatura de sus recursos.

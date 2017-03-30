@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,10 +34,10 @@ El siguiente diagrama muestra la solución completa en máquinas virtuales de Az
 
 El diagrama anterior muestra:
 
-- Dos máquinas virtuales de Azure en un clúster de conmutación por error de Windows Server (WSFC). Cuando una máquina virtual está en un WSFC también se denomina un *nodo de clúster* o *nodos*.
+- Dos máquinas virtuales de Azure en un clúster de conmutación por error de Windows. Cuando una máquina virtual está en un clúster de conmutación por error también se denomina un *nodo de clúster* o *nodos*.
 - Cada máquina virtual tiene dos, o más, discos de datos.
 - S2D sincroniza los datos del disco de datos y presenta el almacenamiento sincronizado como grupo de almacenamiento. 
-- El grupo de almacenamiento presenta un volumen compartido de clúster (CSV) al WSFC.
+- El grupo de almacenamiento presenta un volumen compartido de clúster (CSV) al clúster de conmutación por error.
 - El rol de clúster de FCI de SQL Server usa el CSV para las unidades de datos. 
 - Un equilibrador de carga de Azure que almacene la dirección IP para la FCI de SQL Server.
 - Un conjunto de disponibilidad de Azure contiene todos los recursos.
@@ -76,11 +77,11 @@ Para poder seguir las instrucciones de este artículo, debe tener:
 - Una cuenta con permiso para crear objetos en la máquina virtual de Azure.
 - Una red virtual de Azure y una subred con espacio de direcciones IP suficiente para los siguientes componentes:
    - Ambas máquinas virtuales.
-   - La dirección IP de WSFC.
+   - La dirección IP del clúster de conmutación por error.
    - Una dirección IP para cada FCI.
 - DNS configurado en la red de Azure que señala a los controladores de dominio. 
 
-Una vez que cumpla los requisitos previos, puede pasar a la creación de un WSFC. El primer paso es crear las máquinas virtuales. 
+Una vez que cumpla los requisitos previos, puede pasar a la creación de un clúster de conmutación por error. El primer paso es crear las máquinas virtuales. 
 
 ## <a name="step-1-create-virtual-machines"></a>Paso 1: Crear máquinas virtuales
 
@@ -135,9 +136,9 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un WSFC
       - **{BYOL} SQL Server 2016 Standard en Windows Server Datacenter 2016** 
    
    >[!IMPORTANT]
-   >Después de crear la máquina virtual, quite la instancia de SQL Server independiente preinstalada. Tras configurar WSFC y S2D, tendrá que usar los medios de SQL Server preinstalado para crear la FCI de SQL Server. 
+   >Después de crear la máquina virtual, quite la instancia de SQL Server independiente preinstalada. Tras configurar el clúster de conmutación por error y S2D, tendrá que usar los medios de SQL Server preinstalado para crear la FCI de SQL Server. 
 
-   Como alternativa, puede utilizar imágenes de Azure Marketplace que solo tienen el sistema operativo. Elija una imagen de **Windows Server 2016 Datacenter** e instale la FCI de SQL Server después de configurar WSFC y S2D. Esta imagen no contiene los medios de instalación de SQL Server. Coloque los medios de instalación en una ubicación en la que pueda ejecutar la instalación de SQL Server para cada servidor.
+   Como alternativa, puede utilizar imágenes de Azure Marketplace que solo tienen el sistema operativo. Elija una imagen de **Windows Server 2016 Datacenter** e instale la FCI de SQL Server después de configurar el clúster de conmutación por error y S2D. Esta imagen no contiene los medios de instalación de SQL Server. Coloque los medios de instalación en una ubicación en la que pueda ejecutar la instalación de SQL Server para cada servidor.
 
 1. Una vez que Azure cree las máquinas virtuales, conéctese a cada una de ellas con RDP. 
 
@@ -179,15 +180,15 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un WSFC
 
 1. [Agregue las máquinas virtuales a un dominio preexistente](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-Después de crear y configurar las máquinas virtuales, puede configurar el WSFC.
+Después de crear y configurar las máquinas virtuales, puede configurar el clúster de conmutación por error.
 
-## <a name="step-2-configure-the-windows-server-failover-cluster-wsfc-with-s2d"></a>Paso 2: Configurar el clúster de conmutación por error de Windows Server (WSFC) con S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Paso 2: Configurar el clúster de conmutación por error de Windows con S2D
 
-El siguiente paso es configurar el WSFC con S2D. En este paso, realizará los siguientes pasos secundarios:
+El siguiente paso es configurar el clúster de conmutación por error con S2D. En este paso, realizará los siguientes pasos secundarios:
 
 1. Agregue la característica Agrupación en clústeres de conmutación por error de Windows
-1. Valide el clúster
-1. Creación del WSFC
+1. Validación del clúster
+1. Creación del clúster de conmutación por error
 1. Cree el testigo en la nube
 1. Agregue almacenamiento
 
@@ -240,34 +241,34 @@ Para validar el clúster con PowerShell, ejecute el siguiente script en una sesi
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-Después de validar el clúster, cree el WSFC.
+Después de validar el clúster, cree el clúster de conmutación por error.
 
-### <a name="create-the-wsfc"></a>Creación del WSFC
+### <a name="create-the-failover-cluster"></a>Creación del clúster de conmutación por error
 
-Esta guía hace referencia a [crear el WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Esta guía hace referencia a la [Creación del clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
-Para crear el WSFC, se necesitan: 
+Para crear el clúster de conmutación por error, necesita: 
 - Los nombres de las máquinas virtuales que se convierten en nodos del clúster. 
-- El nombre del WSFC. Use uno válido. 
-- Dirección IP del WSFC. Puede usar una dirección IP que no se utilice en la misma red virtual de Azure y subred como nodos del clúster. 
+- Un nombre para el clúster de conmutación por error
+- Una dirección IP para el clúster de conmutación por error. Puede usar una dirección IP que no se utilice en la misma red virtual de Azure y subred como nodos del clúster. 
 
-El siguiente PowerShell crea un WSFC. Actualice el script con los nombres de los nodos (los nombres de las máquinas virtuales) y una dirección IP disponible desde la red virtual de Azure: 
+El siguiente PowerShell crea un clúster de conmutación por error. Actualice el script con los nombres de los nodos (los nombres de las máquinas virtuales) y una dirección IP disponible desde la red virtual de Azure: 
 
 ```PowerShell
-New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
 ### <a name="create-a-cloud-witness"></a>Creación de un testigo en la nube
 
 Testigo en la nube es un nuevo tipo de testigo de quórum de clúster almacenado en una instancia de Azure Storage Blob. Esto elimina la necesidad de que una máquina virtual independiente hospede un recurso compartido testigo.
 
-1. [Cree un testigo en la nube para el WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+1. [Cree un testigo en la nube para el clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
 1. Cree un contenedor de blobs. 
 
 1. Guarde las claves de acceso y la dirección URL del contenedor.
 
-1. Configure al testigo de quórum del clúster de WSFC. Vea, [Configuración del testigo de quórum en la interfaz de usuario]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la interfaz de usuario.
+1. Configure el testigo de quórum de clúster del clúster de conmutación por error. Vea, [Configuración del testigo de quórum en la interfaz de usuario]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) en la interfaz de usuario.
 
 ### <a name="add-storage"></a>Agregue almacenamiento
 
@@ -297,13 +298,13 @@ Los discos de S2D deben estar vacío y no pueden tener particiones ni otros dato
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-wsfc-failover"></a>Paso 3: Probar la conmutación por error de WSFC
+## <a name="step-3-test-failover-cluster-failover"></a>Paso 3: Probar la conmutación por error del clúster de conmutación por error
 
-En Administrador de clústeres de conmutación por error, compruebe que puede mover el recurso de almacenamiento al otro nodo del clúster. Si se puede conectar al WSFC con **Administrador de clústeres de conmutación por error** y mover el almacenamiento de un nodo al otro, está listo para configurar la FCI. 
+En Administrador de clústeres de conmutación por error, compruebe que puede mover el recurso de almacenamiento al otro nodo del clúster. Si se puede conectar al clúster de conmutación por error con **Administrador de clústeres de conmutación por error** y mover el almacenamiento de un nodo al otro, está listo para configurar la FCI. 
 
 ## <a name="step-4-create-sql-server-fci"></a>Paso 4: Crear la FCI de SQL Server
 
-Después de haber configurado el WSFC y todos los componentes del clúster, incluido el almacenamiento, puede crear la FCI de SQL Server. 
+Después de haber configurado el clúster de conmutación por error y todos los componentes del clúster, incluido el almacenamiento, puede crear la FCI de SQL Server. 
 
 1. Conéctese a la primera máquina virtual con RDP. 
 
@@ -468,15 +469,10 @@ En las máquinas virtuales de Azure, Microsoft DTC (Coordinador de transacciones
 
 [Instalación de S2D con escritorio remoto (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment) 
 
-[Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server&2016;](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Espacios de almacenamiento directo en Windows Server&2016;](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Espacios de almacenamiento directo en Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Compatibilidad de SQL Server con S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

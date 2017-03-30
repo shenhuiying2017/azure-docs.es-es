@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
-ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ea42f634fabbbaf13f0d97c71a9cb8d1d8102dea
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -32,103 +32,64 @@ ms.lasthandoff: 01/18/2017
 
 En este tema se explica cómo usar Azure PowerShell con plantillas de Resource Manager para implementar sus recursos en Azure. La plantilla puede ser un archivo local o en un archivo externo que está disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
 
-> [!TIP]
-> Para obtener ayuda con la depuración de un error durante la implementación, consulte:
-> 
-> * [Visualización de operaciones de implementación](resource-manager-deployment-operations.md) para obtener información que lo ayude a solucionar el error
-> * [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) para obtener información sobre cómo resolver errores comunes de implementación
-> 
-> 
+## <a name="deploy"></a>Implementación
+* Para empezar a trabajar en la implementación rápidamente, use los siguientes comandos para implementar una plantilla local con parámetros en línea:
 
-## <a name="quick-steps-to-deployment"></a>Pasos rápidos para la implementación
-Para empezar a trabajar rápidamente con la implementación, use los siguientes comandos:
+  ```powershell
+  Login-AzureRmAccount
+  Set-AzureRmContext -SubscriptionID {your-subscription-ID}
+  New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
+  New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json -storageNamePrefix contoso -storageSKU Standard_GRS
+  ```
 
-```powershell
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json -TemplateParameterFile c:\MyTemplates\example.params.json
-```
+  La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje que incluye el resultado:
 
-Estos comandos crean un grupo de recursos e implementan una plantilla en dicho grupo de recursos. El archivo de plantilla y parámetros son locales. Si funciona, tiene todo lo que necesita para implementar recursos. Sin embargo, hay más opciones disponibles para especificar los recursos que se van a implementar. En el resto de este artículo se describen todas las diferentes opciones disponibles durante la implementación. 
+  ```powershell
+  ProvisioningState       : Succeeded
+  ```
+
+* El cmdlet `Set-AzureRmContext` solo se necesita si desea usar una suscripción distinta de la suscripción predeterminada. Para ver todas las suscripciones y sus identificadores, use:
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+
+* Para implementar una plantilla externa, use el parámetro **TemplateUri**:
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri https://raw.githubusercontent.com/exampleuser/MyTemplates/master/storage.json -storageNamePrefix contoso -storageSKU Standard_GRS
+  ```
+
+* Para pasar los valores de parámetro en un archivo, use el parámetro **TemplateParameterFile**:
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  ```
+
+  El archivo de parámetros debe estar en el siguiente formato:
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+        "storageNamePrefix": {
+            "value": "contoso"
+        },
+        "storageSKU": {
+            "value": "Standard_GRS"
+        }
+     }
+   }
+   ```
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-## <a name="deploy"></a>Implementación
-1. Inicio de sesión en la cuenta de Azure
+Para usar el modo completo, utilice el parámetro **Modo**:
 
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-    Se devuelve un resumen de la cuenta.
-    
-   ```powershell
-   Environment           : AzureCloud
-   Account               : someone@example.com
-   TenantId              : {guid}
-   SubscriptionId        : {guid}
-   SubscriptionName      : Example Subscription
-   CurrentStorageAccount :
-   ```
-
-2. Si tiene varias suscripciones, proporcione el identificador de suscripción que quiera usar para la implementación con el comando **Set-AzureRmContext**. 
-   
-   ```powershell
-   Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
-   ```
-3. Al implementar una plantilla, debe especificar un grupo de recursos que contendrá los recursos implementados. Si ya tiene un grupo de recursos en el que desea realizar la implementación, puede omitir este paso y usar ese grupo. 
-   
-     Para crear un grupo de recursos, proporcione un nombre y una ubicación para el grupo de recursos. Debe proporcionar una ubicación para el grupo de recursos porque este almacena metadatos sobre los recursos. Por motivos de cumplimiento, debería especificar dónde se almacenan esos metadatos. Por lo general, se recomienda especificar una ubicación en la que vayan a residir la mayoría de los recursos. Si usa la misma ubicación, puede simplificar la plantilla.
-   
-   ```powershell
-   New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
-   ```
-   
-     Se devuelve un resumen del grupo de recursos nuevo.
-4. Antes de ejecutar la implementación, puede validar la configuración de la implementación. El cmdlet **Test-AzureRmResourceGroupDeployment** le permite buscar problemas antes de crear los recursos reales. En el ejemplo siguiente se muestra cómo validar una implementación.
-   
-   ```powershell
-   Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
-   ```
-5. Para implementar recursos en el grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL de la plantilla y cualquier otro parámetro necesario para el escenario. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
-   
-     Para implementar una plantilla local, use el parámetro **TemplateFile**:
-   
-   ```powershell
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json
-   ```
-   
-     Para implementar una plantilla externa, use el parámetro **TemplateUri**:
-   
-   ```powershell
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri https://raw.githubusercontent.com/exampleuser/MyTemplates/master/example.json
-   ```
-   
-     Los dos ejemplos anteriores no incluyen valores de parámetro. Obtendrá información sobre las opciones para pasar valores de parámetro en la sección [Parámetros](#parameters). Por ahora, se le pide que proporcione los valores de parámetro con la sintaxis siguiente:
-
-   ```powershell  
-   cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-   Supply values for the following parameters:
-   (Type !? for Help.)
-   firstParameter: <type here>
-   ```
-     
-     Una vez implementados los recursos, verá un resumen de la implementación. El resumen incluye un valor **ProvisioningState**, que indica si la implementación se realizó correctamente.
-
-   ```powershell   
-   DeploymentName    : ExampleDeployment
-   ResourceGroupName : ExampleResourceGroup
-   ProvisioningState : Succeeded
-   Timestamp         : 4/14/2015 7:00:27 PM
-   Mode              : Incremental
-   ```
-      
-6. Si desea registrar más información sobre la implementación que pueda ayudarle a solucionar los errores de implementación, use el parámetro **DeploymentDebugLogLevel**. Puede especificar que se registren el contenido de la solicitud y el de la respuesta, o ambos, con la operación de implementación.
-   
-   ```powershell
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
-   ```
-   
-     Para obtener más información sobre cómo usar este contenido de depuración a fin de solucionar problemas en implementaciones, consulte [View deployment operations](resource-manager-deployment-operations.md) (Ver operaciones de implementación).
+```powershell
+New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
+```
 
 ## <a name="deploy-private-template-with-sas-token"></a>Implementación de una plantilla privada con el token de SAS
 Puede agregar las plantillas a una cuenta de almacenamiento y establecer vínculos a ellas durante la implementación con un token de SAS.
@@ -139,90 +100,164 @@ Puede agregar las plantillas a una cuenta de almacenamiento y establecer víncul
 > 
 
 ### <a name="add-private-template-to-storage-account"></a>Adición de plantilla privada a la cuenta de almacenamiento
-Con los pasos siguientes se configura una cuenta de almacenamiento para plantillas:
-
-1. Cree un grupo de recursos.
+El siguiente ejemplo configura un contenedor de una cuenta de almacenamiento privado y carga una plantilla:
    
-   ```powershell
-   New-AzureRmResourceGroup -Name ManageGroup -Location "West US"
-   ```
-2. Cree una cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe ser único en Azure, así que indique su propio nombre para la cuenta.
-   
-   ```powershell
-   New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates -Type Standard_LRS -Location "West US"
-   ```
-3. Configure la cuenta de almacenamiento actual.
-   
-   ```powershell
-   Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-   ```
-4. Cree un contenedor. El permiso está establecido en **Desactivado** , lo que significa que el contenedor solo es accesible para el propietario.
-   
-   ```powershell
-   New-AzureStorageContainer -Name templates -Permission Off
-   ```
-5. Agregue la plantilla al contenedor.
-   
-   ```powershell
-   Set-AzureStorageBlobContent -Container templates -File c:\Azure\Templates\azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name ManageGroup -Location "South Central US"
+New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
+Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+New-AzureStorageContainer -Name templates -Permission Off
+Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
+```
 
 ### <a name="provide-sas-token-during-deployment"></a>Provisión del token de SAS durante la implementación
-Para implementar una plantilla privada en una cuenta de almacenamiento, recupere un token de SAS e inclúyalo en el URI de la plantilla.
-
-1. Si ha cambiado la cuenta de almacenamiento actual, establezca como cuenta de almacenamiento actual la que contiene las plantillas.
+Para implementar una plantilla privada en una cuenta de almacenamiento, genere un token de SAS e inclúyalo en el identificador URI de la plantilla. Establezca el tiempo de expiración con un margen suficiente para completar la implementación.
    
-   ```powershell
-   Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-   ```
-2. Cree un token de SAS con permisos de lectura y un tiempo de expiración para limitar el acceso. Recupere el URI completo de la plantilla que incluye el token de SAS.
-   
-   ```powershell
-   $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob azuredeploy.json -Permission r -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
-   ```
-3. Implemente la plantilla proporcionando el URI que incluye el token de SAS.
-   
-   ```powershell
-   New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
-   ```
+```powershell
+Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+$templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
+```
 
 Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, consulte [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 
 ## <a name="parameters"></a>Parámetros
-
-Tiene las opciones siguientes para proporcionar valores de parámetro: 
    
-- Parámetros en línea. Incluya nombres de parámetro individuales en el cmdlet (por ejemplo, **-myParameterName**).
-
-   ```powershell   
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
-   ```
-- Objeto de parámetro. Incluya el parámetro **-TemplateParameterObject**.
-
-   ```powershell   
-   $parameters = @{"<ParameterName>"="<Parameter Value>"}
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterObject $parameters
-   ```
-- Archivo de parámetro local. Incluya el parámetro **-TemplateParameterFile**.
-
-   ```powershell   
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile c:\MyTemplates\example.params.json
-   ```
-- Archivo de parámetro externo. Incluya el parámetro **-TemplateParameterUri**.
-
-   ```powershell   
-   New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri https://raw.githubusercontent.com/exampleuser/MyTemplates/master/example.params.json
-   ```
-      
-[!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)] 
-
 Si la plantilla incluye un parámetro con el mismo nombre que uno de los parámetros en el comando de PowerShell, se le pedirá que proporcione un valor para ese parámetro. Azure PowerShell presenta el parámetro de la plantilla incluirá postfijo **FromTemplate**. Por ejemplo, un parámetro denominado **ResourceGroupName** de su plantilla entra en conflicto con el parámetro **ResourceGroupName** del cmdlet [AzureRmResourceGroupDeployment nuevo](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroupdeployment). Se le pedirá que proporcione un valor para **ResourceGroupNameFromTemplate**. Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
-
-## <a name="parameter-precedence"></a>Prioridad de parámetros
 
 Puede usar parámetros en línea y un archivo de parámetros local en la misma operación de implementación. Por ejemplo, puede especificar algunos valores en el archivo de parámetros local y agregar otros valores en línea durante la implementación. Si proporciona valores para un parámetro en el archivo de parámetros local y en línea, el valor en línea tiene prioridad.
 
 Sin embargo, cuando se utiliza un archivo de parámetros externo, no se pueden pasar otros valores ya sea en línea o desde un archivo local. Cuando se especifica un archivo de parámetros en el parámetro **TemplateParameterUri**, se omiten todos los parámetros en línea. Proporcione todos los valores de parámetro en el archivo externo. Si la plantilla incluye un valor confidencial que no puede incluir en el archivo de parámetros, agregue ese valor a un almacén de claves o proporcione dinámicamente todos los valores de parámetro en línea.
+
+## <a name="debug"></a>Depurar
+
+Si desea registrar más información sobre la implementación que pueda ayudarle a solucionar los errores de implementación, use el parámetro **DeploymentDebugLogLevel**. Puede especificar que se registren el contenido de la solicitud y el de la respuesta, o ambos, con la operación de implementación.
+   
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleGroup -TemplateFile storage.json
+```
+
+Para obtener detalles sobre un error en la operación de implementación, use:
+
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+```
+
+Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+
+## <a name="complete-deployment-script"></a>Script de implementación completo
+
+En el ejemplo siguiente se muestra el script de PowerShell para la implementación de una plantilla que genera la característica [Exportar plantilla](resource-manager-export-template.md):
+
+```powershell
+<#
+ .SYNOPSIS
+    Deploys a template to Azure
+
+ .DESCRIPTION
+    Deploys an Azure Resource Manager template
+
+ .PARAMETER subscriptionId
+    The subscription id where the template will be deployed.
+
+ .PARAMETER resourceGroupName
+    The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
+
+ .PARAMETER resourceGroupLocation
+    Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
+
+ .PARAMETER deploymentName
+    The deployment name.
+
+ .PARAMETER templateFilePath
+    Optional, path to the template file. Defaults to template.json.
+
+ .PARAMETER parametersFilePath
+    Optional, path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
+#>
+
+param(
+ [Parameter(Mandatory=$True)]
+ [string]
+ $subscriptionId,
+
+ [Parameter(Mandatory=$True)]
+ [string]
+ $resourceGroupName,
+
+ [string]
+ $resourceGroupLocation,
+
+ [Parameter(Mandatory=$True)]
+ [string]
+ $deploymentName,
+
+ [string]
+ $templateFilePath = "template.json",
+
+ [string]
+ $parametersFilePath = "parameters.json"
+)
+
+<#
+.SYNOPSIS
+    Registers RPs
+#>
+Function RegisterRP {
+    Param(
+        [string]$ResourceProviderNamespace
+    )
+
+    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
+    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
+}
+
+#******************************************************************************
+# Script body
+# Execution begins here
+#******************************************************************************
+$ErrorActionPreference = "Stop"
+
+# sign in
+Write-Host "Logging in...";
+Login-AzureRmAccount;
+
+# select subscription
+Write-Host "Selecting subscription '$subscriptionId'";
+Select-AzureRmSubscription -SubscriptionID $subscriptionId;
+
+# Register RPs
+$resourceProviders = @();
+if($resourceProviders.length) {
+    Write-Host "Registering resource providers"
+    foreach($resourceProvider in $resourceProviders) {
+        RegisterRP($resourceProvider);
+    }
+}
+
+#Create or check for existing resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
+if(!$resourceGroup)
+{
+    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
+    if(!$resourceGroupLocation) {
+        $resourceGroupLocation = Read-Host "resourceGroupLocation";
+    }
+    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+}
+else{
+    Write-Host "Using existing resource group '$resourceGroupName'";
+}
+
+# Start the deployment
+Write-Host "Starting deployment...";
+if(Test-Path $parametersFilePath) {
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
+} else {
+    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
+}
+``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).

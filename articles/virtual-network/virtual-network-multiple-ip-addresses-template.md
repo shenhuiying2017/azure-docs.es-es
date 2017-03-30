@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
-ms.openlocfilehash: 080404a7b4fde0e2fd8b8be407090190d07c6f2a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 5267ed6a2d9278b79e9fb98c1067eceae819cb6f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -27,13 +27,11 @@ ms.lasthandoff: 02/22/2017
 
 En este artículo se describe cómo crear una máquina virtual con el modelo de implementación de Azure Resource Manager mediante una plantilla de Resource Manager. No se pueden asignar varias direcciones IP públicas y privadas a la misma NIC al implementar una máquina virtual a través del modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación).
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="template-description"></a>Descripción de la plantilla
 
-La implementación de una plantilla le permite crear rápida y coherentemente recursos de Azure con valores de configuración diferentes. Lea el artículo [Tutorial de la plantilla de Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) si no está familiarizado con las plantillas de Azure Resource Manager. La plantilla [Implementación de una máquina virtual con varias direcciones IP](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig) se utiliza en este artículo.
+La implementación de una plantilla le permite crear rápida y coherentemente recursos de Azure con valores de configuración diferentes. Lea el artículo [Tutorial de la plantilla de Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-network%2ftoc.json) si no está familiarizado con las plantillas de Azure Resource Manager. La plantilla [Implementación de una máquina virtual con varias direcciones IP](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig) se utiliza en este artículo.
 
 <a name="resources"></a>La implementación de la plantilla crea los siguientes recursos:
 
@@ -49,8 +47,8 @@ La implementación de una plantilla le permite crear rápida y coherentemente re
 
 |Nombre|Descripción|
 |---|---|
-|adminUsername|Nombre de usuario de administrador. El nombre de usuario debe cumplir con los [requisitos de nombre de usuario de Azure](../virtual-machines/virtual-machines-windows-faq.md).|
-|adminPassword|Contraseña de administrador: la contraseña de administrador debe cumplir con los [requisitos de contraseña de Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Nombre de usuario de administrador. El nombre de usuario debe cumplir con los [requisitos de nombre de usuario de Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|adminPassword|Contraseña de administrador: la contraseña de administrador debe cumplir con los [requisitos de contraseña de Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nombre DNS para PublicIPAddressName1. El nombre DNS se resolverá como una de las direcciones IP públicas asignadas a la máquina virtual. El nombre debe ser único dentro de la región de Azure (ubicación) en la que crea la máquina virtual.|
 |dnsLabelPrefix1|Nombre DNS para PublicIPAddressName2. El nombre DNS se resolverá como una de las direcciones IP públicas asignadas a la máquina virtual. El nombre debe ser único dentro de la región de Azure (ubicación) en la que crea la máquina virtual.|
 |OSVersion|La versión de Windows o Linux para la máquina virtual. El sistema operativo es una imagen totalmente revisada de la versión de Windows o Linux determinada seleccionada.|
@@ -68,29 +66,9 @@ Puede usar Azure Portal, PowerShell o la interfaz de la línea de comandos (CLI)
 
 Para implementar la plantilla mediante Azure Portal, complete los siguientes pasos:
 
-1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
-    ```
-    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Esta operación puede tardar unos minutos.
-
-2. Modifique la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
-3. Implemente la plantilla con uno de los métodos siguientes:
-    - **Seleccionar la plantilla en el portal:** complete los pasos descritos en el artículo [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template). Elija la plantilla preexistente denominada *101-vm-varios-ipconfig*.
+1. Modifique la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para obtener más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Implemente la plantilla con uno de los métodos siguientes:
+    - **Seleccionar la plantilla en el portal:** complete los pasos descritos en el artículo [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template). Elija la plantilla preexistente denominada *101-vm-varios-ipconfig*.
     - **Directamente:** haga clic en el botón siguiente para abrir la plantilla directamente en el portal:<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Independientemente del método que elija, deberá suministrar valores para los [parámetros](#parameters) enumerados anteriormente en este artículo. Una vez que se implemente la máquina virtual, conéctese a ella y agregue las direcciones IP privadas al sistema operativo que implementó completando los pasos en la sección [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
@@ -99,27 +77,7 @@ Independientemente del método que elija, deberá suministrar valores para los [
 
 Para implementar la plantilla mediante PowerShell, complete los siguientes pasos:
 
-1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
-    ```
-    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Esta operación puede tardar unos minutos.
-
-2. Implemente la plantilla siguiendo los pasos descritos en el artículo [Implementación de una plantilla con PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). El artículo describe varias opciones para la implementación de una plantilla. Si decide implementar con `-TemplateUri parameter`, e identificador URI de esta plantilla es *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si decide implementar con el parámetro `-TemplateFile`, copie el contenido del [archivo de plantilla](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) desde GitHub en un nuevo archivo en su equipo. Modifique el contenido de la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Implemente la plantilla siguiendo los pasos descritos en el artículo [Implementación de una plantilla con PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy). El artículo describe varias opciones para la implementación de una plantilla. Si decide implementar con `-TemplateUri parameter`, e identificador URI de esta plantilla es *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si decide implementar con el parámetro `-TemplateFile`, copie el contenido del [archivo de plantilla](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) desde GitHub en un nuevo archivo en su equipo. Modifique el contenido de la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independientemente de la opción que elija para la implementación de la plantilla, debe proporcionar valores para los valores de parámetro que se enumeran en la sección [parámetros](#parameters) de este artículo. Si decide proporcionar parámetros mediante un archivo de parámetros, copie el contenido del [archivo de parámetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub en un nuevo archivo en el equipo. Modifique los valores en el archivo. Use el archivo que creó como valor para el parámetro `-TemplateParameterFile`.
     
@@ -128,39 +86,19 @@ Para implementar la plantilla mediante PowerShell, complete los siguientes pasos
     >[!TIP]
     >Si no está seguro de si dnslabelprefix está disponible, escriba el comando `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` para averiguarlo. Si está disponible, el comando devolverá `True`.
 
-3. Una vez que se implemente la máquina virtual, conéctese a ella y agregue las direcciones IP privadas al sistema operativo que implementó completando los pasos en la sección [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
+2. Una vez que se implemente la máquina virtual, conéctese a ella y agregue las direcciones IP privadas al sistema operativo que implementó completando los pasos en la sección [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
 
 ## <a name="deploy-using-the-azure-cli"></a>Implementación mediante la CLI de Azure
 
 Para implementar la plantilla mediante la CLI de Azure 1.0, complete los siguientes pasos:
 
-1. Regístrese para obtener la versión preliminar ejecutando los siguientes comandos de PowerShell después de iniciar sesión y seleccionar la suscripción adecuada:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
-    ```
-    No trate de completar los pasos restantes hasta que vea el siguiente resultado cuando ejecute el comando ```Get-AzureRmProviderFeature```:
-        
-    ```powershell
-    FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
-    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-    ```
-        
-    >[!NOTE] 
-    >Esta operación puede tardar unos minutos.
-
-2. Implemente la plantilla siguiendo los pasos descritos en el artículo [Implementación de una plantilla con la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). El artículo describe varias opciones para la implementación de una plantilla. Si decide implementar con `--template-uri` (-f), e identificador URI de esta plantilla es *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si decide implementar con el parámetro `--template-file` (-f), copie el contenido del [archivo de plantilla](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) desde GitHub en un nuevo archivo en su equipo. Modifique el contenido de la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+1. Implemente la plantilla siguiendo los pasos descritos en el artículo [Implementación de una plantilla con la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy). El artículo describe varias opciones para la implementación de una plantilla. Si decide implementar con `--template-uri` (-f), e identificador URI de esta plantilla es *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Si decide implementar con el parámetro `--template-file` (-f), copie el contenido del [archivo de plantilla](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) desde GitHub en un nuevo archivo en su equipo. Modifique el contenido de la plantilla, si lo desea. La plantilla implementa los recursos y la configuración que aparece en la sección [recursos](#resources) de este artículo. Para más información sobre las plantillas y cómo crearlas, lea el artículo [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independientemente de la opción que elija para la implementación de la plantilla, debe proporcionar valores para los valores de parámetro que se enumeran en la sección [parámetros](#parameters) de este artículo. Si decide proporcionar parámetros mediante un archivo de parámetros, copie el contenido del [archivo de parámetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) de GitHub en un nuevo archivo en el equipo. Modifique los valores en el archivo. Use el archivo que creó como valor para el parámetro `--parameters-file` (-e).
     
     Para determinar los valores válidos para los parámetros de OSVersion, ImagePublisher e imageOffer, complete los pasos del artículo sobre [navegación y selección de imágenes de la máquina virtual de Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
-3. Una vez que se implemente la máquina virtual, conéctese a ella y agregue las direcciones IP privadas al sistema operativo que implementó completando los pasos en la sección [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
+2. Una vez que se implemente la máquina virtual, conéctese a ella y agregue las direcciones IP privadas al sistema operativo que implementó completando los pasos en la sección [Incorporación de direcciones IP a un sistema operativo de la máquina virtual](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
