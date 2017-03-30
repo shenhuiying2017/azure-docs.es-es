@@ -5,20 +5,17 @@
 ## [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
 ## [Creación de la base de datos: CLI de Azure](sql-database-get-started-cli.md)
 ## [Creación de la base de datos: PowerShell](sql-database-get-started-powershell.md)
-## Conectar
+## Administrar
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [Código de VS](sql-database-connect-query-vscode.md)
+## Conectar
 ### [C#](sql-database-connect-query-dotnet.md)
 # Muestras
 ## [CLI de Azure](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Tutoriales
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Recuperación
-### [Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Diseño de una base de datos](sql-database-design-first-database.md)
+
 # Conceptos
 ## Bases de datos y servidores
 ### [Bases de datos](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Acceso de base de datos 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Protección de datos
 ### [Autenticación de Azure AD](sql-database-aad-authentication-configure.md)
 ### [Auditoría](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Cifrado: almacén de certificados](sql-database-always-encrypted.md)
 ### [Cifrado: almacén de claves](sql-database-always-encrypted-azure-key-vault.md)
 ### [Configuración del enmascaramiento](sql-database-dynamic-data-masking-get-started-portal.md)
-## Creación de copias de seguridad y restauración de datos
-### [Restauración: Portal](sql-database-restore-database-portal.md)
+## Recuperación
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Tabla única](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Retención
 ### [Retención: Portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Retención: PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Recuperación de una sola tabla](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Datos de replicación geográfica
 ### [Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL: Configuración](sql-database-geo-replication-transact-sql.md)

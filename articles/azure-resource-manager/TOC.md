@@ -14,11 +14,11 @@
 ## Crear plantillas
 ### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
-### [Funciones de plantillas](resource-group-template-functions.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
+### [Establecimiento de la ubicación](resource-manager-template-location.md)
+### [Asignación de etiquetas](resource-manager-template-tags.md)
 ### [Establecimiento del nombre y tipo del recurso secundario](resource-manager-template-child-resource.md)
 ### [Creación de varias instancias de un tipo de recurso](resource-group-create-multiple.md)
-### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
 ### [Compartición del estado entre plantillas vinculadas](best-practices-resource-manager-state.md)
 ### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API DE REST](resource-group-template-deploy-rest.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
 ## Administrar
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [CLI de Azure](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Ver operaciones de implementación](resource-manager-deployment-operations.md)
 
 # Referencia
+## [Funciones de plantillas](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [CLI de Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
