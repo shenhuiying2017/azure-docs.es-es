@@ -17,6 +17,7 @@ ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,7 +31,7 @@ Análisis multimedia de Azure permite a los desarrolladores empezar a trabajar r
 
 El siguiente diagrama muestra **Análisis multimedia** y otras partes principales de la plataforma de Servicios multimedia. 
 
-![Flujo de trabajo de VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![Flujo de trabajo de VoD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 Los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Almacenamiento de blobs de Azure. 
 
@@ -129,9 +130,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

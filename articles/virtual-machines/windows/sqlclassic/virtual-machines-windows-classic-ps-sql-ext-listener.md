@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 64d3f55445c82bf2be3ca8e64d7ea5d19e70310b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
 > [!div class="op_single_selector"]
-> * [Agente de escucha interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Agente de escucha externo](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Agente de escucha interno](../classic/ps-sql-int-listener.md)
+> * [Agente de escucha externo](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -33,7 +34,7 @@ En este tema se muestra cómo configurar un agente de escucha para un grupo de d
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
-El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
+El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](../classic/portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Instrucciones y limitaciones de los agentes de escucha externos
 Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del grupo de disponibilidad en Azure cuando se implementa con la dirección VIP pública del servicio en la nube:
@@ -47,7 +48,7 @@ Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del gr
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determinar la accesibilidad del agente de escucha
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artículo se centra en la creación de un agente de escucha que usa **equilibrio de carga externo**. Si quiere un agente de escucha que sea privado para su red virtual, vea la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha con ILB](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Este artículo se centra en la creación de un agente de escucha que usa **equilibrio de carga externo**. Si quiere un agente de escucha que sea privado para su red virtual, vea la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha con ILB](../classic/ps-sql-int-listener.md).
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
 El equilibrio de carga externo usa la dirección IP virtual pública del servicio en la nube que hospeda las máquinas virtuales. Por lo que en este caso no tiene que crear ni configurar el equilibrador de carga.
@@ -132,10 +133,5 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

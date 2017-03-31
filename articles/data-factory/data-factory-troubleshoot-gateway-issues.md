@@ -15,9 +15,9 @@ ms.date: 01/25/2017
 ms.author: jingwang
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d04bf7c5a457b90c5128050642bee6a2623787a0
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
@@ -40,7 +40,7 @@ La máquina donde intenta instalar la puerta de enlace no puede descargar la ver
 #### <a name="resolution"></a>Resolución
 Compruebe si la configuración del firewall o del servidor proxy bloquea la conexión de red desde el equipo al [Centro de descarga](https://download.microsoft.com/) y actualice la configuración según corresponda.
 
-Como alternativa, puede descargar el archivo de instalación para la puerta de enlace más reciente desde el [centro de descarga](https://www.microsoft.com/en-US/download/details.aspx?id=39717) en otros equipos que pueden tener acceso al centro de descarga. A continuación, puede copiar el archivo del instalador en el equipo de host de puerta de enlace y ejecutarlo manualmente para instalar y actualizar la puerta de enlace.
+Como alternativa, puede descargar el archivo de instalación para la puerta de enlace más reciente desde el [centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) en otros equipos que pueden tener acceso al centro de descarga. A continuación, puede copiar el archivo del instalador en el equipo de host de puerta de enlace y ejecutarlo manualmente para instalar y actualizar la puerta de enlace.
 
 ### <a name="2-problem"></a>2. Problema
 Se muestra este error al hacer clic en **Instalar directamente en este equipo** en Azure Portal para intentar instalar una puerta de enlace.

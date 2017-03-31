@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb4188bed4839aea6d19c49a8f0e6d154a343ec1
-ms.openlocfilehash: e0f77f88ee91b263c49a148197e418fdf64cca0b
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 9702f179a65754be88646987f868385b02a9f2d7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -483,7 +484,7 @@ Si coloca varios archivos (file.txt, file2.txt, file3.txt) con el mismo contenid
 
 El archivo de salida tiene ahora tres líneas, una por cada archivo de entrada (blob) en la carpeta asociada con el segmento (2015-11-16-00).
 
-Se crea una tarea para cada ejecución de actividad. En este ejemplo, solamente hay una actividad en la canalización. Cuando se procesa un segmento en la canalización, la actividad personalizada se ejecuta en Lote de Azure para procesar el segmento. Puesto que hay&5; segmentos (cada segmento puede tener varios blobs o archivos), se crearán&5; tareas en Azure Batch. Cuando se ejecuta una tarea en Lote, lo que realmente se está ejecutando es la actividad personalizada.
+Se crea una tarea para cada ejecución de actividad. En este ejemplo, solamente hay una actividad en la canalización. Cuando se procesa un segmento en la canalización, la actividad personalizada se ejecuta en Lote de Azure para procesar el segmento. Puesto que hay 5 segmentos (cada segmento puede tener varios blobs o archivos), se crearán 5 tareas en Azure Batch. Cuando se ejecuta una tarea en Lote, lo que realmente se está ejecutando es la actividad personalizada.
 
 En el siguiente tutorial, se proporcionan más detalles.
 
@@ -809,7 +810,7 @@ El servicio Data Factory crea un trabajo en el servicio Lote de Azure con el nom
 
 Se crea una tarea en el trabajo para cada ejecución de actividad de un segmento. Si hay 10 segmentos listos para ser procesados, se crean 10 tareas en este trabajo. Si el grupo tiene varios nodos de procesos, puede haber más de un segmento en ejecución en paralelo. También puede haber más de un segmento en ejecución en el mismo proceso si el número máximo de tareas se establece un valor mayor que 1.
 
-En este ejemplo, hay&5; segmentos y, por tanto,&5; tareas en Azure Batch. Ahora que el valor **concurrency** está establecido en **5** en el JSON de la canalización de Azure Data Factory y que **Maximum tasks per VM** (Máximo de tareas por máquina virtual) está establecido en **2** en el grupo de Azure Batch con **2** máquinas virtuales, las tareas se ejecutarán muy rápido (compruebe los tiempos de inicio y finalización de las tareas).
+En este ejemplo, hay 5 segmentos y, por tanto, 5 tareas en Azure Batch. Ahora que el valor **concurrency** está establecido en **5** en el JSON de la canalización de Azure Data Factory y que **Maximum tasks per VM** (Máximo de tareas por máquina virtual) está establecido en **2** en el grupo de Azure Batch con **2** máquinas virtuales, las tareas se ejecutarán muy rápido (compruebe los tiempos de inicio y finalización de las tareas).
 
 Use el portal para ver el trabajo de Lote y las tareas que están asociadas con los **segmentos** y para comprobar en qué máquina virtual se ejecuta cada segmento.
 
@@ -869,7 +870,7 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 3. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado de Azure Batch en la solución de Data Factory para que use el nuevo grupo que creó. (Consulte Paso 4: Creación y ejecución de la canalización con una actividad personalizada para más información sobre la configuración **Máximo de tareas por máquina virtual** ).
 4. Cree un grupo de Lote de Azure con la característica **Autoescala** . El escalado automático de los nodos de ejecución de un grupo de Lote de Azure es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. Por ejemplo, podría crear un grupo de Lote de Azure con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes:
 
-   Una máquina virtual por tarea pendiente cada vez (por ejemplo,&5; tareas pendientes ->&5; máquinas virtuales):
+   Una máquina virtual por tarea pendiente cada vez (por ejemplo, 5 tareas pendientes -> 5 máquinas virtuales):
     
     ```
     pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
@@ -891,10 +892,10 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 ### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de los datos
 Después de procesar datos, puede consumirlos con herramientas en línea como **Microsoft Power BI**. Estos vínculos lo ayudarán a comprender Power BI y aprender a usarlo en Azure:
 
-* [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
-* [Introducción a Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
-* [Actualizar datos en Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
-* [Azure y Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
+* [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+* [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
+* [Azure y Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referencias
 * [Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -911,9 +912,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 121be952ea49a8ff47f7e2528adbc87e05359a15
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a77aa4a44bbb7dafffa4269c3713153df9bbced9
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -335,7 +336,7 @@ Para más información, consulte la sección [Servicio vinculado a petición de 
 > A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombredefactoría dedatos**-**nombredelserviciovinculado**-marcadefechayhora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de datos de entrada de blob de Azure
-En la definición del conjunto de datos de entrada, especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](../data-factory/data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob. 
+En la definición del conjunto de datos de entrada, especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob. 
 
 ```json
 
@@ -377,7 +378,7 @@ Observe la siguiente configuración concreta en la definición de JSON:
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Conjunto de datos de salida de blob de Azure
-En la definición del conjunto de datos de salida, especifique los nombres del contenedor de blobs y de la carpeta que contiene los datos de salida. Consulte las [propiedades del conjunto de datos de Azure Blob](../data-factory/data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.  
+En la definición del conjunto de datos de salida, especifique los nombres del contenedor de blobs y de la carpeta que contiene los datos de salida. Consulte las [propiedades del conjunto de datos de Azure Blob](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.  
 
 ```json
 

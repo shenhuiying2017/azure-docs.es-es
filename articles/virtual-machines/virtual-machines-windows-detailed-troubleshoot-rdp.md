@@ -7,8 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: >
-  cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
+keywords: "no se puede conectar a un escritorio remoto, solucionar problemas de escritorio remoto, no puede conectarse a escritorio remoto, errores de escritorio remotos, solución de problemas de escritorio remoto, problemas de escritorio remoto"
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -18,8 +17,9 @@ ms.topic: support-article
 ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 8835427415e8e01e851796eaf323bce7d1918c8c
-ms.openlocfilehash: 5c9d51d633b07497c230be9da2646bf49b6e8c0e
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 35dbfaa1cdc274fb2c1fcb3afc68547ffefe80ab
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -108,7 +108,7 @@ Si puede conectarse a una máquina virtual en el mismo servicio en la nube o la 
 * La configuración del punto de conexión para el tráfico de Escritorio remoto en la máquina virtual de destino: el puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que está escuchando el servicio de Escritorio remoto de la máquina virtual (el valor predeterminado es 3389).
 * La ACL del punto de conexión del tráfico de Escritorio remoto en la máquina virtual de destino: las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de Escritorio remoto al extremo. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, vea [qué es una lista de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md)
 
-Para comprobar si el punto de conexión es la causa del problema, quite el punto de conexión actual y cree uno nuevo. Para ello, elija un puerto aleatorio en el intervalo que va entre 49152 y 65535 para el número de puerto externo. Para más información, consulte [Configuración de puntos de conexión en una máquina virtual](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para comprobar si el punto de conexión es la causa del problema, quite el punto de conexión actual y cree uno nuevo. Para ello, elija un puerto aleatorio en el intervalo que va entre 49152 y 65535 para el número de puerto externo. Para más información, consulte [Configuración de puntos de conexión en una máquina virtual](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Causa 4: grupos de seguridad de red
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas del grupo de seguridad de red para asegurarse de que se permite el tráfico de Escritorio remoto desde Internet:
@@ -125,7 +125,7 @@ Para más información, consulte [¿Qué es un grupo de seguridad de red?](../vi
 ## <a name="source-5-windows-based-azure-vm"></a>Causa 5: máquina virtual de Azure basada en Windows
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Use el [paquete de diagnóstico de IaaS de Azure (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para ver si el error se debe a la propia máquina virtual de Azure. Si este paquete de diagnóstico no puede resolver el problema de **conectividad de RDP a una máquina virtual de Azure (se requiere reinicio)**, siga las instrucciones de [este artículo](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En este artículo se restablece el servicio de Escritorio remoto en la máquina virtual:
+Siga las instrucciones de [este artículo](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En este artículo se restablece el servicio de Escritorio remoto en la máquina virtual:
 
 * Se habilitará la regla predeterminada «Escritorio remoto» del firewall de Windows (puerto TCP 3389).
 * Se habilitarán las conexiones a Escritorio remoto estableciendo en 0 el valor HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections del Registro.
@@ -167,7 +167,7 @@ Después de escribir las credenciales de administrador válidas, debería ver al
 La primera parte de este indicador es el nombre del servicio en la nube que contiene la máquina virtual de destino, que podría ser diferente de "cloudservice4testing.cloudapp.net". Ahora puede emitir comandos de Azure PowerShell para este servicio en la nube, para investigar los problemas que se mencionaron y corregir la configuración.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Para corregir manualmente el puerto TCP de escucha de Servicios de Escritorio remoto
-Si no puede ejecutar el [paquete de diagnóstico de IaaS de Azure (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para solucionar el problema **Conectividad de RDP a una máquina virtual de Azure (se requiere reinicio)** , en el símbolo del sistema de la sesión remota de Azure PowerShell, ejecute este comando.
+En la sesión remota de Azure PowerShell, ejecute este comando.
 
     Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
@@ -186,8 +186,6 @@ Salga de la sesión remota de Azure PowerShell con este comando.
 Compruebe que el punto de conexión de Escritorio remoto para la máquina virtual de Azure también usa el puerto TCP 3398 como puerto interno. Reinicie la máquina virtual de Azure y vuelva a intentar la conexión a Escritorio remoto.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[Paquete de diagnóstico de Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
-
 [Restablecimiento del servicio Escritorio remoto o la contraseña para máquinas virtuales Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
@@ -195,10 +193,5 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Solución de problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

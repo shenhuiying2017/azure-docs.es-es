@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
-ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 19247b7d8333e8bd73d33a7838e99180369b8681
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -216,7 +216,7 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
    
    ![Comprobación de los puntos de conexión de Cloud Services en Azure Portal](./media/virtual-machines-windows-troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
-   Si no tiene un punto de conexión que permita el tráfico RDP, [cree un punto de conexión de Cloud Services](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Permita TCP en el puerto 3389 privado.
+   Si no tiene un punto de conexión que permita el tráfico RDP, [cree un punto de conexión de Cloud Services](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Permita TCP en el puerto 3389 privado.
 3. **Revise los diagnósticos de arranque de la máquina virtual**. En este paso para solucionar problemas se revisan los registros de la consola de la máquina virtual para determinar si la máquina virtual está notificando de un problema. No todas las máquinas virtuales tienen diagnósticos de arranque habilitados, por lo que este paso para solucionar problemas puede ser opcional.
    
     Los pasos para solucionar problemas específicos quedan fuera del ámbito de este artículo, pero pueden indicar un problema más amplio que está afectando a la conectividad RDP. Para más información acerca de cómo revisar los registros de la consola y la captura de pantalla de la máquina virtual, consulte la entrada del blog [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) (Diagnósticos de arranque para máquinas virtuales).

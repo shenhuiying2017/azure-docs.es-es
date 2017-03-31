@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: e6a3e91e5821e761af0ff710da2a817eb7c185bb
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 32e86b0c3e7c0091b1a0510aa682419d2d030dd8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -40,10 +40,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 ## <a name="install-freetds"></a>Instalación de FreeTDS
 1. Use SSH para conectarse al clúster de HDInsight basado en Linux. La dirección que se usará al conectarse es `CLUSTERNAME-ssh.azurehdinsight.net`; y el puerto, `22`.
 
-    Para obtener más información sobre el uso de SSH para conectarse a HDInsight, vea los siguientes documentos:
+    Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * **Clientes de Linux, Unix y OS X**: vea [Conectarse a un clúster de HDInsight basado en Linux desde Linux, OS X o Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * **Clientes de Windows**: vea [Conectarse a un clúster de HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 2. Use el siguiente comando para instalar FreeTDS:
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin

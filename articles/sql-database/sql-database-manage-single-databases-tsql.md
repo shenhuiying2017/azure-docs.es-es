@@ -16,14 +16,15 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 38c53d6f1a2635afbba199e6f0a2adb23abb6a3a
-ms.openlocfilehash: fcf8326edc2ff84d274f7c4dadeae1fbe2595349
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 951c88124219a6962f655b91275aec64c716b1cd
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="create-and-manage-single-azure-sql-databases-with-transact-sql"></a>Creación y administración de instancias de Azure SQL Database únicas con Transact-SQL
 
-Puede crear y administrar instancias de Azure SQL Database únicas con [Azure Portal](https://portal.azure.com/), PowerShell, Transact-SQL, la API de REST o C#. Este tema trata de cómo usar Azure Portal. Para PowerShell, consulte [Creación y administración de bases de datos únicas con Powershell](sql-database-manage-single-databases-powershell.md). Para Transact-SQL, consulte [Creación y administración de bases de datos únicas con Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+Puede crear y administrar instancias de Azure SQL Database únicas con [Azure Portal](https://portal.azure.com/), PowerShell, Transact-SQL, la API de REST o C#. Este tema trata de cómo usar Azure Portal. Para PowerShell, consulte [Creación y administración de bases de datos únicas con Powershell](scripts/sql-database-create-and-configure-database-powershell.md). Para Transact-SQL, consulte [Creación y administración de bases de datos únicas con Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 ## <a name="create-an-azure-sql-database-using-transact-sql-in-sql-server-management-studio"></a>Creación de una base de datos SQL de Azure mediante Transact-SQL en SQL Server Management Studio
 
@@ -53,9 +54,4 @@ Cambio del tamaño máximo de la base de datos usando [Transact-SQL (T-SQL)](htt
 * Para ver cómo realizar tareas de administración con SQL Server Management Studio, consulte [SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Para obtener más información sobre el servicio SQL Database, lea el [artículo en el que se describe qué es SQL Database](sql-database-technical-overview.md). 
 * Para obtener más información sobre las características y los servidores de bases de datos de Azure SQL Database, visite [el artículo al respecto](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

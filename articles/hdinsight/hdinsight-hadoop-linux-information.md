@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 207eb60a359be1d9d9b68a92ac0c8255e7217a97
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 792907646a602004904eef5c4000f464881c6c4b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -212,10 +213,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 * **Hadoop**: al reducir verticalmente el número de nodos en un clúster, se reinician algunos de los servicios del clúster. Esto puede provocar que los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puedes volver a enviar los trabajos una vez finalizada la operación.
 * **HBase**: los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Para equilibrar manualmente servidores regionales, siga estos pasos:
 
-    1. Conéctate al clúster de HDInsight con SSH: Para obtener más información sobre el uso de SSH con HDInsight, consulta uno de los siguientes documentos:
-
-        * [Uso de SSH con HDInsight de Linux, Unix y Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Uso de SSH (PuTTY) con HDInsight de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    1. Conéctate al clúster de HDInsight con SSH: Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     2. Usa lo siguiente para iniciar el shell de HBase:
 

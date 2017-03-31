@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f18e11ac7482b78925d1885ceb20696146603ad2
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ Cuando se inicia el Asistente para la instalación, aparece una página con esta
 
 ![Página con una lista de tareas adicionales](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Si ha instalado ADFS con Azure AD Connect podrá ver incluso más opciones. Estas opciones adicionales que tenga por ADFS se documentan en [Administración de AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
+Si ha instalado ADFS con Azure AD Connect podrá ver incluso más opciones. Estas opciones adicionales que tenga por ADFS se documentan en [Administración de AD FS](active-directory-aadconnect-federation-management.md#manage-ad-fs).
 
 Seleccione una de las tareas y haga clic en **Siguiente** para continuar.
 

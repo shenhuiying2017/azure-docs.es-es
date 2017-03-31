@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 6195b80037762a7f71eee9138c765e4d342acd5f
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="do-you-need-help-with-myapps"></a>¿Necesita ayuda con MyApps?
 
-Probablemente haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal MyApps. Aunque habrá casos en los que deba ponerse en contacto con el departamento de soporte técnico o con su administrador para resolver un problema, en este tema hemos recopilado pasos a preguntas comunes que puede intentar primero por su cuenta. 
+Probablemente haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal MyApps. Aunque habrá casos en los que deba ponerse en contacto con el departamento de soporte técnico o con su administrador para resolver un problema, en este tema hemos recopilado pasos a preguntas comunes que puede intentar primero por su cuenta.
 
-Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
-  
+Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md#reset-your-password).
+
 
 ## <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
 
@@ -35,9 +35,9 @@ MyApps es un portal web que le permite:
 
 - Administrar e iniciar aplicaciones basadas en la nube
 - Administrar la pertenencia a grupos
-- Administrar la configuración del perfil 
+- Administrar la configuración del perfil
 
-![Panel de acceso][1] 
+![Panel de acceso][1]
 
 
 
@@ -49,7 +49,7 @@ MyApps es un portal web que le permite:
 3.    Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
 4.    Haga clic en **Submit**(Enviar).
 
-Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>¿Cómo configuro el restablecimiento de contraseña?
@@ -58,7 +58,7 @@ Para más información, consulte [Actualización de la propia contraseña](activ
 2.    En **Administrar cuenta**, haga clic en **Configurar autoservicio de restablecimiento de contraseña**.
 3.    Siga los pasos descritos en el cuadro de diálogo y envíe.
 
-Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?

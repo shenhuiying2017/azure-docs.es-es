@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: b4de2d04c331ac608c77057613276ac8f85ec600
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,7 +65,7 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 
 Se recomienda usar siempre las directivas de acceso almacenadas, para que pueda revocar las firmas o ampliar la fecha de caducidad según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
 
-Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte&1;: Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md)
+Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="create-a-stored-policy-and-generate-a-sas"></a>Creación de una directiva almacenada y generación de una SAS
 Ahora, debe crear una directiva almacenada mediante programación. Puede encontrar el ejemplo de C# y Python de creación de una directiva almacenada y SAS en [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
@@ -195,10 +195,7 @@ Para comprobar que tiene el acceso restringido, utilice los métodos siguientes:
 * Para clústeres de HDInsight **basados en Windows** , use el Escritorio remoto para conectarse al clúster. Para más información, vea [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp) (Conectarse a HDInsight mediante RDP).
   
     Una vez conectado, use el icono de **línea de comandos de Hadoop** en el escritorio para abrir un símbolo del sistema.
-* Para clústeres de HDInsight **basados en Linux** , use SSH para conectarse al clúster. Vea uno de los siguientes documentos para obtener información sobre el uso de SSH con clústeres basados en Linux:
-  
-  * [Usar SSH con Hadoop basado en Linux en HDInsight desde Linux, Unix, OS X o Bash en Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Uso de SSH con Hadoop en HDInsight basado en Linux desde Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Para clústeres de HDInsight **basados en Linux** , use SSH para conectarse al clúster. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Una vez conectado al clúster, siga estos pasos para comprobar que solo puede leer y listar elementos en la cuenta de almacenamiento de SAS:
 
