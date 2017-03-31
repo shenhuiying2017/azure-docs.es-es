@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 334819e0819206d1bd928c0861b25cc59dd29fa7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e4e9e16c62ab1262021d1a719f5aa15d936f4843
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Visión operativa con los informes de administración de contraseñas
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -94,10 +94,10 @@ Los siguientes tipos de actividad aparecen en la categoría de evento de auditor
 * [**Restablecimiento de contraseña (autoservicio)**](#activity-type-reset-password-self-service): indica que un usuario restableció correctamente su contraseña en el [portal de restablecimiento de contraseña de Azure AD](https://passwordreset.microsoftonline.com).
 * [**Progreso de la actividad del flujo de restablecimiento de contraseña de autoservicio**](#activity-type-self-serve-password-reset-flow-activity-progress): indica cada paso específico que un usuario sigue como parte del proceso de restablecimiento de contraseña (como atravesar una puerta de autenticación específica para el restablecimiento de contraseña).
 * [**Desbloqueo de la cuenta de usuario**](#activity-type-unlock-user-account-self-service): indica que un usuario desbloqueó correctamente su cuenta de Active Directory sin restablecer la contraseña en el [portal de restablecimiento de contraseña de Azure AD](https://passwordreset.microsoftonline.com) mediante la característica para [desbloquear cuentas de AD sin restablecimiento](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password).
-* [**Usuario registrado para el restablecimiento de contraseña de autoservicio**](#activity-type-user-registered-for-self-service-password-reset): indica que un usuario registró toda la información requerida para restablecer la contraseña de acuerdo con la directiva de restablecimiento de contraseña del inquilino especificado actualmente. 
+* [**Usuario registrado para el restablecimiento de contraseña de autoservicio**](#activity-type-user-registered-for-self-service-password-reset): indica que un usuario registró toda la información requerida para restablecer la contraseña de acuerdo con la directiva de restablecimiento de contraseña del inquilino especificado actualmente.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de actividad: Bloqueado para el restablecimiento de contraseña de autoservicio
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un usuario intentó restablecer una contraseña, usar una puerta específica o validar un número de teléfono más de 5 veces en total en 24 horas.
 * **Actor de la actividad**: el usuario que no pudo realizar operaciones de restablecimiento adicionales. Puede tratarse de un usuario final o un administrador.
@@ -107,7 +107,7 @@ En la lista siguiente se explica en detalle esta actividad:
 * **Motivo del error del estado de la actividad**: no aplicable
 
 ### <a name="activity-type-change-password-self-service"></a>Tipo de actividad: Cambio de contraseña (autoservicio)
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un usuario realizó un cambio de contraseña voluntario o forzado (por expiración).
 * **Actor de la actividad**: el usuario que cambió la contraseña. Puede tratarse de un usuario final o un administrador.
@@ -115,11 +115,11 @@ En la lista siguiente se explica en detalle esta actividad:
 * **Estados permitidos de la actividad**
  * _Correcto_: indica que un usuario cambió correctamente la contraseña.
  * _Error_: indica que un usuario no pudo cambiar la contraseña. Si hace clic en la fila podrá ver la categoría **Motivo del estado de la actividad** para más información sobre por qué se produjo el error.
-* **Motivo del error del estado de la actividad** - 
+* **Motivo del error del estado de la actividad** -
  * _FuzzyPolicyViolationInvalidPassword_: el usuario seleccionó una contraseña que se prohibió automáticamente debido a que las funcionalidades de detección de contraseñas prohibidas de Microsoft consideraron que era demasiado común o especialmente poco segura.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Tipo de actividad: Restablecimiento de contraseña (de parte del administrador)
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un administrador realizó un restablecimiento de contraseña en nombre de un usuario en Azure Portal.
 * **Actor de la actividad**: el administrador que realizó el restablecimiento de contraseña en nombre de otro usuario final o administrador. Debe ser un administrador global, administrador de contraseñas, administrador de usuarios o administrador del departamento de soporte técnico.
@@ -129,7 +129,7 @@ En la lista siguiente se explica en detalle esta actividad:
  * _Error_: indica que un administrador no pudo cambiar la contraseña de un usuario. Si hace clic en la fila podrá ver la categoría **Motivo del estado de la actividad** para más información sobre por qué se produjo el error.
 
 ### <a name="activity-type-reset-password-self-service"></a>Tipo de actividad: Restablecimiento de contraseña (autoservicio)
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un usuario restableció correctamente su contraseña en el [portal de restablecimiento de contraseña de Azure AD](https://passwordreset.microsoftonline.com).
 * **Actor de la actividad**: el usuario que restableció la contraseña. Puede tratarse de un usuario final o un administrador.
@@ -137,11 +137,11 @@ En la lista siguiente se explica en detalle esta actividad:
 * **Estados permitidos de la actividad**
  * _Correcto_: indica que un usuario restableció correctamente su propia contraseña.
  * _Error_: indica que un usuario no pudo restablecer su propia contraseña. Si hace clic en la fila podrá ver la categoría **Motivo del estado de la actividad** para más información sobre por qué se produjo el error.
-* **Motivo del error del estado de la actividad** - 
+* **Motivo del error del estado de la actividad** -
  * _FuzzyPolicyViolationInvalidPassword_: el administrador seleccionó una contraseña que se prohibió automáticamente debido a que las funcionalidades de detección de contraseñas prohibidas de Microsoft consideraron que era demasiado común o especialmente poco segura.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo de actividad: Progreso de la actividad del flujo de restablecimiento de contraseña de autoservicio
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica cada paso específico que un usuario sigue como parte del proceso de restablecimiento de contraseña (como atravesar una puerta de autenticación específica para el restablecimiento de contraseña).
 * **Actor de la actividad**: el usuario que realizó parte del flujo de restablecimiento de contraseña. Puede tratarse de un usuario final o un administrador.
@@ -153,7 +153,7 @@ En la lista siguiente se explica en detalle esta actividad:
  * Consulte la tabla siguiente para ver [todos los motivos del estado permitido de la actividad de restablecimiento](#allowed-values-for-details-column)
 
 ### <a name="activity-type-unlock-user-account-self-service"></a>Tipo de actividad: Desbloqueo de la cuenta de usuario (autoservicio)
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un usuario desbloqueó correctamente su cuenta de Active Directory sin restablecer la contraseña en el [portal de restablecimiento de contraseña de Azure AD](https://passwordreset.microsoftonline.com) mediante la característica para [desbloquear cuentas de AD sin restablecimiento](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password).
 * **Actor de la actividad**: el usuario que desbloqueó su cuenta sin restablecer la contraseña. Puede tratarse de un usuario final o un administrador.
@@ -163,13 +163,13 @@ En la lista siguiente se explica en detalle esta actividad:
  * _Error_: indica que un usuario no pudo desbloquear su cuenta. Si hace clic en la fila podrá ver la categoría **Motivo del estado de la actividad** para más información sobre por qué se produjo el error.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Tipo de actividad: Usuario registrado para el restablecimiento de contraseña de autoservicio
-En la lista siguiente se explica en detalle esta actividad: 
+En la lista siguiente se explica en detalle esta actividad:
 
-* **Descripción de la actividad**: indica que un usuario registró toda la información requerida para restablecer la contraseña de acuerdo con la directiva de restablecimiento de contraseña del inquilino especificado actualmente. 
+* **Descripción de la actividad**: indica que un usuario registró toda la información requerida para restablecer la contraseña de acuerdo con la directiva de restablecimiento de contraseña del inquilino especificado actualmente.
 * **Actor de la actividad**: el usuario que se registró para el restablecimiento de contraseña. Puede tratarse de un usuario final o un administrador.
 * **Destino de la actividad**: el usuario que se registró para el restablecimiento de contraseña. Puede tratarse de un usuario final o un administrador.
 * **Estados permitidos de la actividad**
- * _Correcto_: indica que un usuario se registró correctamente para el restablecimiento de contraseña de acuerdo con la directiva actual. 
+ * _Correcto_: indica que un usuario se registró correctamente para el restablecimiento de contraseña de acuerdo con la directiva actual.
  * _Error_: indica que un usuario no pudo registrarse para el restablecimiento de contraseña. Si hace clic en la fila podrá ver la categoría **Motivo del estado de la actividad** para más información sobre por qué se produjo el error. Nota: Esto no significa que un usuario no puede restablecer su propia contraseña, sino simplemente que no completó el proceso de registro. Si en la cuenta hay datos no comprobados que son correctos (como un número de teléfono no validado), de todos modos pueden usarlos para restablecer la contraseña, incluso si no están comprobados. Para más información, consulte [¿Qué ocurre cuando se registra un usuario?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
 ## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Recuperación de eventos de administración de contraseñas desde la API de eventos e informes de Azure AD
@@ -184,7 +184,7 @@ Cuando tenga un script de trabajo, querrá examinar los eventos de registro y el
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): muestra las columnas disponibles para los eventos de registro de restablecimiento de contraseña.
 
 ### <a name="reporting-api-data-retrieval-limitations"></a>Informes de las limitaciones de recuperación de datos de la API
-Actualmente, la API de eventos e informes de Azure AD recupera hasta **75 000 eventos individuales** de tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) y [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), con lo que abarca los **últimos 30 días**. 
+Actualmente, la API de eventos e informes de Azure AD recupera hasta **75 000 eventos individuales** de tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) y [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), con lo que abarca los **últimos 30 días**.
 
 Si necesita recuperar o almacenar datos más allá de este período, se sugiere mantenerlos en una base de datos externa y usar la API para consultar las diferencias que se generen. Un procedimiento recomendado es comenzar a recuperar estos datos cuando inicie el proceso de registro de restablecimiento de contraseña en la organización, mantenerlos en una base de datos externa y, luego, hacer seguimiento de las diferencias a partir de este momento.
 
@@ -300,7 +300,7 @@ A continuación se muestra la lista de los tipos de resultados que puede esperar
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización

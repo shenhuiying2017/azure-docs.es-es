@@ -17,15 +17,15 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: e0950a5c2c7d40751664c0c5a60facef68a79b2a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [Clásico](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [Clásico](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -45,7 +45,7 @@ Cuando se habilita esta característica, automáticamente se instala el conector
 Use PowerShell para configurar la integración de Almacén de claves de Azure. Las secciones siguientes proporcionan una visión general de los parámetros necesarios y, a continuación, un script de PowerShell de ejemplo.
 
 ### <a name="install-the-sql-server-iaas-extension"></a>Instalación de la extensión IaaS de SQL Server
-Primero, [instale la extensión IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Primero, [instale la extensión IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
 ### <a name="understand-the-input-parameters"></a>Descripción de los parámetros de entrada
 En la tabla siguiente se enumeran los parámetros necesarios para ejecutar el script de PowerShell en la sección siguiente.

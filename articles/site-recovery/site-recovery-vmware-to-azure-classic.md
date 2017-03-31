@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 37291b16a966c17b684a4622f15d0393a5a5ce6d
-ms.openlocfilehash: 0984ccc8163c94f56517e65919f8ea089a3e8b5f
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,12 +66,12 @@ La implementación mejorada es una actualización importante. A continuación, p
 * Puede configurar planes de recuperación que agrupen las cargas de trabajo de aplicaciones organizadas en niveles en distintas máquinas. Si realiza la conmutación por recuperación de esos planes, Site Recovery proporcionará coherencia para varias máquinas virtuales, con la finalidad de recuperar las máquinas virtuales que ejecutan las mismas cargas de trabajo a un punto de datos coherente.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
-### <a name="windows-64-bit-only"></a>Windows (solo&64; bits)
+### <a name="windows-64-bit-only"></a>Windows (solo 64 bits)
 * Windows Server 2008 R2 SP1 y versiones posteriores
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (solo&64; bits)
+### <a name="linux-64-bit-only"></a>Linux (solo 64 bits)
 * Red Hat Enterprise Linux 6.7, 7.1 y 7.2
 * CentOS 6.5, 6.6, 6.7, 7.0, 7.1 y 7.2
 * Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
@@ -101,7 +101,7 @@ Cuando planea la capacidad, debe considerar lo siguiente:
 
 ### <a name="source-environment-considerations"></a>Consideraciones sobre el entorno de origen
 * **Frecuencia diaria de cambios máxima**: un equipo protegido solo puede utilizar un único servidor de procesos. Un único servidor de procesos puede gestionar hasta 2 TB de cambios de datos diariamente. Por lo tanto, la frecuencia diaria de cambio de datos máxima que admite una máquina protegida es de 2 TB.
-* **Rendimiento máximo**: una máquina replicada puede pertenecer a una cuenta de almacenamiento en Azure. Una cuenta de almacenamiento estándar puede controlar un máximo de 20 000 solicitudes por segundo y se recomienda mantener la cantidad de E/S por segundo en una máquina de origen en 20 000. Por ejemplo, si tiene una máquina de origen con 5 discos y cada disco genera 120 E/S por segundo (8 KB de tamaño) en el origen, se encontrará dentro del límite de 500 de E/S por segundo por disco de Azure. El número de cuentas de almacenamiento necesarias = E/S por segundo de origen total/20&000;.
+* **Rendimiento máximo**: una máquina replicada puede pertenecer a una cuenta de almacenamiento en Azure. Una cuenta de almacenamiento estándar puede controlar un máximo de 20 000 solicitudes por segundo y se recomienda mantener la cantidad de E/S por segundo en una máquina de origen en 20 000. Por ejemplo, si tiene una máquina de origen con 5 discos y cada disco genera 120 E/S por segundo (8 KB de tamaño) en el origen, se encontrará dentro del límite de 500 de E/S por segundo por disco de Azure. El número de cuentas de almacenamiento necesarias = E/S por segundo de origen total/20 000.
 
 ### <a name="management-server-considerations"></a>Consideraciones sobre el servidor de administración
 El servidor de administración ejecuta los componentes de Site Recovery que controlan la optimización, la replicación y la administración de datos. Debe poder controlar la capacidad de frecuencia diaria de cambios en todas las cargas de trabajo que se ejecutan en máquinas protegidas y cuenta con el ancho de banda suficiente para realizar una replicación continua de los datos en Azure Storage. Concretamente:
@@ -114,7 +114,7 @@ La tabla siguiente resume las recomendaciones de tamaño para el servidor de adm
 
 | **CPU del servidor de administración** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz) |16 GB |<&300; GB |500 GB o menos |Implemente un servidor de administración con esta configuración para replicar menos de 100 máquinas. |
+| 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Implemente un servidor de administración con esta configuración para replicar menos de 100 máquinas. |
 | 12 vCPU (2 sockets * 6 núcleos a 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Implemente un servidor de administración con esta configuración para replicar entre 100 y 150 máquinas. |
 | 16 vCPU (2 sockets * 8 núcleos a 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Implemente un servidor de administración con esta configuración para replicar entre 150 y 200 máquinas. |
 | Implementar otro servidor de procesos | | |2 TB |Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB. |
@@ -168,7 +168,7 @@ Esta tabla describe un escenario en el cual:
 
 | **Servidor de administración original**<br/><br/>(servidor de configuración) | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 16 GB de RAM |4 vCPU (2 sockets * 2 núcleos a 2,5 GHz), 8 GB de RAM |<&300; GB |250 GB o menos |Puede replicar 85 máquinas o menos. |
+| 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 16 GB de RAM |4 vCPU (2 sockets * 2 núcleos a 2,5 GHz), 8 GB de RAM |< 300 GB |250 GB o menos |Puede replicar 85 máquinas o menos. |
 | 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 16 GB de RAM |8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 12 GB de RAM |600 GB |250 GB a 1 TB |Puede replicar entre 85 y 150 máquinas. |
 | 12 vCPU (2 sockets * 6 núcleos a 2,5 GHz), 18 GB de RAM |12 vCPU (2 sockets * 6 núcleos a 2,5 GHz), 24 GB de RAM |1 TB |1 TB a 2 TB |Puede replicar entre 150 y 225 máquinas. |
 
@@ -201,7 +201,7 @@ Solo en el caso de máquina virtual Linux, asegúrese de establecer la opción d
 ## <a name="step-1-create-a-vault"></a>Paso 1: Creación de un almacén
 1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
 2. Expanda **Data Services** > **Recovery Services** y haga clic en **Almacén de Site Recovery**.
-3. Haga clic en **Crear nuevo	** > **Creación rápida**.
+3. Haga clic en **Crear nuevo** > **Creación rápida**.
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 5. En **Región**, seleccione la región geográfica del almacén. Para ver las regiones admitidas, consulte [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Haga clic en **Crear almacén**.
@@ -232,7 +232,7 @@ Si desea replicar máquinas virtuales de VMware, siga estos pasos en el servidor
 1. En el servidor de administración, abra la consola de Site Recovery en Azure. En la página **Recovery Services**, haga clic en el almacén para abrir la página **Inicio rápido**. También puede abrir la página **Inicio rápido** en cualquier momento haciendo clic en el icono.
 
     ![Icono de Inicio rápido](./media/site-recovery-vmware-to-azure-classic/quick-start-icon.png)
-2. En la página **Inicio rápido**, haga clic en **Prepare Target Resources** (Preparar los recursos de destino)  > **Descargar una clave de registro**. El archivo de registro se genera automáticamente. Es válido durante&5; días a partir del momento en que se genera.
+2. En la página **Inicio rápido**, haga clic en **Prepare Target Resources** (Preparar los recursos de destino)  > **Descargar una clave de registro**. El archivo de registro se genera automáticamente. Es válido durante 5 días a partir del momento en que se genera.
 
 ## <a name="step-5-install-the-management-server"></a>Paso 5: Instalación del servidor de administración
 > [!TIP]
@@ -454,7 +454,7 @@ Los instaladores están disponibles en C:\Program Files (x86)\Microsoft Azure Si
 
 | Sistema operativo de origen | Archivo de instalación del servicio de movilidad |
 | --- | --- |
-| Windows Server&64; (solo&64; bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server 64 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -579,7 +579,7 @@ El estado de protección también se puede supervisar en **Elementos protegidos*
 3. Puede cambiar las siguientes opciones:
 
    * **Nombre de la máquina virtual de Azure**: el nombre que tendrá la máquina en Azure después de la conmutación por error. El nombre debe cumplir con los requisitos de Azure.
-   * **Tamaño de la máquina virtual de Azure**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Para más información sobre los tamaños y adaptadores, consulte las [tablas de tamaños](../virtual-machines/virtual-machines-linux-sizes.md#size-tables). Observe lo siguiente:
+   * **Tamaño de la máquina virtual de Azure**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Para más información sobre los tamaños y adaptadores, consulte las [tablas de tamaños](../virtual-machines/virtual-machines-linux-sizes.md). Observe lo siguiente:
 
      * Cuando modifique el tamaño de una máquina virtual y guarde la configuración, el número de adaptadores de red cambiará la próxima vez que abra la pestaña **Configurar**. El número mínimo de adaptadores de red en máquinas virtuales de destino es igual al número mínimo de adaptadores de red en una máquina virtual de origen. El número máximo de adaptadores de red se determina por el tamaño de la máquina virtual.
        * Si el número de adaptadores de red en la máquina de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.

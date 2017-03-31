@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
-ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a5fbd7cd4b57b1bd54c5483fc39733cfd3a8dcca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -87,10 +89,8 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 2. Después de crear un túnel SSH y configurar el explorador para redirigir el tráfico mediante proxy a través de él, debe encontrar el nombre de host del nodo principal primario. Para ello, puede conectarse al clúster mediante SSH en el puerto 22. Por ejemplo, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`, donde **USERNAME** es el nombre de usuario SSH y **CLUSTERNAME** es el nombre del clúster.
 
-    Para más información sobre el uso de SSH, consulte los documentos siguientes:
+    Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * [Uso de SSH con HDInsight desde un cliente Linux, Unix o Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilización de SSH con HDInsight desde un cliente Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. Una vez conectado, use el comando siguiente para obtener el nombre de dominio completo del nodo principal primario:
 
         hostname -f
@@ -154,9 +154,4 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

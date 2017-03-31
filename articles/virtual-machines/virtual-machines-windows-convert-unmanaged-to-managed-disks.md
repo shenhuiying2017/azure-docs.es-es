@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
-ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 96137d49d3caa0444400edcfcfaa097dc71ba8e3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Conversión de máquinas virtuales de Azure existentes en discos administrados del mismo tipo de almacenamiento
 
 > [!IMPORTANT]
-> Después de realizar el procedimiento siguiente, hay un blob único que permanece en el contenedor de VHD predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". Este archivo se crea en Azure solo cuando se ha instalado [extensiones de VM](virtual-machines-windows-classic-agents-and-extensions.md) en la máquina virtual. No elimine este objeto de estado de mantenimiento restante. En futuros trabajos se abordará este problema.
+> Después de realizar el procedimiento siguiente, hay un blob único que permanece en el contenedor de VHD predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". Este archivo se crea en Azure solo cuando se ha instalado [extensiones de VM](windows/classic/agents-and-extensions.md) en la máquina virtual. No elimine este objeto de estado de mantenimiento restante. En futuros trabajos se abordará este problema.
 
 En esta sección se explica cómo transformar las máquinas virtuales de Azure existentes de discos no administrados en cuentas de almacenamiento a discos administrados si va a usar el mismo tipo de almacenamiento. Puede usar este proceso para convertir discos no administrados (SSD) premium en discos administrados premium, o bien discos no administrados (HDD) estándar en discos administrados estándar. 
 

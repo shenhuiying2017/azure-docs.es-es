@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 03/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3051ed0385b81892b8495e83817ed8255dbce8cd
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -70,7 +70,6 @@ Publicación: marzo de 2017
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * LDAP genérico:
- * Corrección para el error en que el atributo multivalor de importación diferencial de límite de SQL genérico no se puede importar
  * Conector GLDAP no ve todos los atributos en AD LDS
  * El asistente se interrumpe cuando no se detectan atributos de UPN desde el esquema de directorio de LDAP
  * Error de importaciones diferenciales cuando no hay errores de detección durante la importación completa, cuando no se selecciona el atributo "objectclass"
@@ -79,6 +78,7 @@ genérico. Solo se muestran objetos desde la partición RootDSE.
 
 
 * SQL genérico:
+ * Corrección para el error en que el atributo multivalor de importación diferencial de límite de SQL genérico no se puede importar
  * Cuando se exportan valores eliminados o agregados del atributo multivalor, no se eliminan ni agregan en el origen de datos.  
 
 

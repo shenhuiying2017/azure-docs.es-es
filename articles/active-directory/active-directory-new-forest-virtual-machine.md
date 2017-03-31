@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
-ms.openlocfilehash: 50ba1caa406ab168acf08506a92c67250397a1e9
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 46e248112985b2e8f58f90e15cf885839d3cfcc8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ No existe mucha diferencia entre instalar un controlador de dominio en Azure y u
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Crear máquinas virtuales para ejecutar el controlador de dominio y los roles de servidor DNS
 Repita los pasos siguientes para crear máquinas virtuales para hospedar el rol de controlador de dominio según sea necesario. Debe implementar al menos dos controladores de dominio virtuales para proporcionar redundancia y tolerancia a errores. Si la red virtual de Azure incluye al menos dos controladores de dominio que están configurados de manera similar (es decir, son ambos catálogos globales, servidor DNS de ejecución y no contienen ningún rol FSMO, etc.), a continuación, coloque las máquinas virtuales que ejecutan los controladores de dominio en un conjunto de disponibilidad para aumentar la tolerancia a errores.
 
-Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. En el portal clásico, haga clic en **Nuevo** > **Calcular** > **Máquina virtual** > **De la galería**. Utilice los valores siguientes para completar el asistente. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
 
@@ -68,7 +68,7 @@ Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfa
    |  **Configuración de la máquina virtual** |<p>Nombre de máquina virtual: escriba un nombre de etiqueta única (por ejemplo, AzureDC1).</p><p>Nuevo nombre de usuario: escriba el nombre de un usuario. Este usuario será un miembro del grupo local Administradores en la máquina virtual. Necesitará este nombre para iniciar sesión en la máquina virtual por primera vez. La cuenta incorporada con el nombre de Administrador no funcionará.</p><p>Nueva contraseña/Confirmar: Escriba una contraseña</p> |
    |  **Configuración de la máquina virtual** |<p>Servicio en la nube: elija <b>Crear un nuevo servicio en la nube</b> para la primera máquina virtual y seleccione ese mismo nombre de servicio en la nube al crear más máquinas virtuales que hospedan el rol de controlador de dominio.</p><p>Nombre de DNS del servicio en la nube: Especifique un nombre único global</p><p>Región/grupo de afinidad/red virtual: Especifique el nombre de red virtual (por ejemplo, WestUSVNet).</p><p>Cuenta de almacenamiento: elija <b>Use una cuenta de almacenamiento generada de forma automática</b> para la primera máquina virtual y, a continuación, seleccione ese mismo nombre de cuenta de almacenamiento al crear más máquinas virtuales que vayan a hospedar el rol de controlador de dominio.</p><p>Conjunto de disponibilidad: elija <b>Crear un conjunto de disponibilidad</b>.</p><p>Nombre del conjunto de disponibilidad: Escriba un nombre para el conjunto de disponibilidad al crear la primera máquina virtual y, a continuación, seleccione ese mismo nombre al crear más máquinas virtuales.</p> |
    |  **Configuración de la máquina virtual** |<p>Seleccione <b>Instalar el agente de máquina virtual</b> y cualquier otra extensión que necesite.</p> |
-2. Conecte un disco a cada máquina virtual que ejecutará el rol de servidor de controlador de dominio. Se necesita el disco adicional para almacenar la base de datos, los registros y SYSVOL de AD. Especifique un tamaño para el disco (por ejemplo, 10 GB) y deje la **Preferencia de caché de host** establecida en **Ninguno**. Para ver los pasos, consulte [Acoplamiento de un disco de datos a una máquina virtual de Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Conecte un disco a cada máquina virtual que ejecutará el rol de servidor de controlador de dominio. Se necesita el disco adicional para almacenar la base de datos, los registros y SYSVOL de AD. Especifique un tamaño para el disco (por ejemplo, 10 GB) y deje la **Preferencia de caché de host** establecida en **Ninguno**. Para ver los pasos, consulte [Acoplamiento de un disco de datos a una máquina virtual de Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Una vez que inicie sesión por primera vez en la máquina virtual, abra **Administrador del servidor** > **Servicios de archivos y almacenamiento** para crear un volumen en este disco con NTFS.
 4. Reserve una dirección IP estática para las máquinas virtuales que ejecutarán el rol de controlador de dominio. Para reservar una dirección IP estática, descargue el instalador de plataforma web de Microsoft, [instale Azure PowerShell](/powershell/azureps-cmdlets-docs) y ejecute el cmdlet Set-AzureStaticVNetIP. Por ejemplo:
 
@@ -102,7 +102,7 @@ Después de finalizada la instalación del controlador de dominio, vuelva a cone
    |  **Configuración de la máquina virtual** |<p>Seleccione <b>Instalar el agente de máquina virtual</b> y cualquier otra extensión que necesite.</p> |
 2. Una vez aprovisionada cada máquina virtual, inicie sesión y únalas al dominio. En **Administrador del servidor**, haga clic en **servidor Local** > **GRUPO DE TRABAJO** > **Cambiar...** y seleccione **Dominio** y escriba el nombre del dominio local. Proporcione las credenciales de un usuario de dominio y, a continuación, reinicie la máquina virtual para completar la unión al dominio.
 
-Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Para más información acerca del uso de Windows PowerShell, consulte [Introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) y [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx) (Referencia de cmdlets de Azure).
 

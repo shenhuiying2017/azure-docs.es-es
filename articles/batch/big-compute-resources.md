@@ -15,9 +15,9 @@ ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5e605c8c509c93feb822781257ad979a0dea00aa
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 671d5c3e88585d7874dbfb0b03adc3cd9374ceca
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -79,8 +79,8 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 ## <a name="compute-intensive-instances"></a>Instancias de proceso intensivo
 Azure ofrece un [rango de tamaños de VM](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), que incluye instancias de [serie H con un proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con capacidad para conectarse a una red RDMA de back-end, para ejecutar cargas de trabajo HPC de Linux y Windows. 
 
-* [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](../virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 Para cargas de trabajo intensivas de la GPU, eche un vistazo al artículo de [tamaños NC y NV](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/).
 

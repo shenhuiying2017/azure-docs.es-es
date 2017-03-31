@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c059d39840ae268da647cffd2bfcb937f006356a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -175,7 +175,7 @@ Después de habilitar correctamente la copia de seguridad, la directiva de copia
 Si tiene problemas al registrar la máquina virtual, consulte la siguiente información sobre cómo instalar el agente de VM y sobre conectividad de red. Probablemente no necesite la siguiente información si va a proteger máquinas virtuales creadas en Azure. Sin embargo, si migró las máquinas virtuales a Azure, asegúrese entonces de que ha instalado correctamente el agente de VM y que la máquina virtual se puede comunicar con la red virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instale el agente de máquina virtual en la máquina virtual.
-El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Esta información se proporciona para las situaciones donde *no* se utiliza una máquina virtual creada desde la galería de Azure; por ejemplo, si ha migrado una máquina virtual desde un centro de datos local. En tal caso, debe instalarse el agente de máquina virtual con el fin de proteger la máquina virtual. Más información sobre el [agente de máquina virtual](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
+El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Esta información se proporciona para las situaciones donde *no* se utiliza una máquina virtual creada desde la galería de Azure; por ejemplo, si ha migrado una máquina virtual desde un centro de datos local. En tal caso, debe instalarse el agente de máquina virtual con el fin de proteger la máquina virtual. Más información sobre el [agente de máquina virtual](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
 
 Si tiene problemas para realizar una copia de seguridad de la máquina virtual de Azure, asegúrese de que el agente de máquina virtual de Azure está instalado correctamente en la máquina virtual (consulte la tabla siguiente). La tabla siguiente proporciona información adicional acerca del agente de máquina virtual para las máquinas virtuales de Windows y Linux.
 

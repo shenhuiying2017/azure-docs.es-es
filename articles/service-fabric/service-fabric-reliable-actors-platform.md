@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: c2e8f2d2f26bb93af5c2858242392b3dc207beb4
-ms.openlocfilehash: 2a3a5647f506d61e853f465f241d66fbe8c4ced0
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: ba07b1bf1b49ebb24a7d5cfbaad71f5f17c49192
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,7 +31,7 @@ En este artículo se explica cómo funciona Reliable Actors en la plataforma de 
 En conjunto, estos componentes forman el marco de trabajo de Reliable Actor. 
 
 ## <a name="service-layering"></a>Servicio en capas
-Debido a que el propio servicio de actor es de tipo Reliable Services, todos los conceptos de [modelo de aplicación](service-fabric-application-model.md), ciclo de vida, [empaquetado](service-fabric-application-model.md#package-an-application), [implementación](service-fabric-deploy-remove-applications.md), actualización y escalado de Reliable Services se aplican del mismo modo a los servicios de actor. 
+Debido a que el propio servicio de actor es de tipo Reliable Services, todos los conceptos de [modelo de aplicación](service-fabric-application-model.md), ciclo de vida, [empaquetado](service-fabric-package-apps.md), [implementación](service-fabric-deploy-remove-applications.md), actualización y escalado de Reliable Services se aplican del mismo modo a los servicios de actor. 
 
 ![Servicio de actor en capas][1]
 
@@ -248,9 +249,4 @@ Cuando se usan GUID y cadenas, se aplica un algoritmo hash a los valores en un I
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 24410a07995d5ac813b2bf4cdeed320c72ce7e06
-ms.openlocfilehash: 7845b552bd1360927eae414f57fefbd74ac0b7f7
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: d0fc5de34f7d9e5a607495eb97d9e35dc9eb21f9
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -110,7 +110,7 @@ La extensión [CustomScript](https://github.com/Azure/azure-linux-extensions/tre
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Autenticación: nombres de usuario, contraseñas y claves SSH
 Al crear una máquina virtual FreeBSD con el Azure Portal, debe proporcionar un nombre de usuario, una contraseña o una clave pública SSH.
-Los nombres de usuario para implementar una máquina virtual de FreeBSD en Azure no deben coincidir con los nombres de cuentas del sistema (UID <&100;) ya presentes en la máquina virtual ("raíz", por ejemplo).
+Los nombres de usuario para implementar una máquina virtual de FreeBSD en Azure no deben coincidir con los nombres de cuentas del sistema (UID < 100) ya presentes en la máquina virtual ("raíz", por ejemplo).
 Actualmente, solo se admite la clave RSA SSH. Una clave SSH multilínea debe comenzar con `---- BEGIN SSH2 PUBLIC KEY ----` y terminar con `---- END SSH2 PUBLIC KEY ----`.
 
 ## <a name="obtaining-superuser-privileges"></a>Obtención de privilegios de superusuario
@@ -128,5 +128,5 @@ La versión 2.2.2 de [Agente invitado de máquina virtual de Azure](https://gith
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Acuda a [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) para crear una máquina virtual de FreeBSD.
-* Si desea incorporar su propio FreeBSD a Azure, consulte [Creación y carga de un VHD de FreeBSD en Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+* Si desea incorporar su propio FreeBSD a Azure, consulte [Creación y carga de un VHD de FreeBSD en Azure](linux/classic/freebsd-create-upload-vhd.md).
 

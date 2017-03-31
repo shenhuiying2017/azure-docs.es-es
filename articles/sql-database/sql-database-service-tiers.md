@@ -17,9 +17,9 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 4307797b3961d8efef4045590e340268f0ad226d
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ab637f9910523cc8d8967dd1507dbcfad9f7ae88
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -61,7 +61,7 @@ En primer lugar, decida si desea ejecutar una base de datos única con una canti
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Niveles de servicio de la Base de datos única y niveles de rendimiento
-Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel que mejor satisfaga las demandas de cargas de trabajo mediante [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
+Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel que mejor satisfaga las demandas de cargas de trabajo mediante [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
 
 Independientemente de la cantidad de bases de datos hospedadas, la base de datos seguirá recibiendo un conjunto de recursos garantizado, y las características de rendimiento previstas de la base de datos no se verán afectadas.
 
@@ -73,7 +73,7 @@ Independientemente de la cantidad de bases de datos hospedadas, la base de datos
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Escalado y reducción vertical de una base de datos única
 
-Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente una base de datos única de forma dinámica, en función de la experiencia real. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos con la utilización de [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
+Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente una base de datos única de forma dinámica, en función de la experiencia real. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos con la utilización de [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -89,7 +89,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 * Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
 
 > [!IMPORTANT]
-> Para obtener instrucciones detalladas, consulte [Administración de bases de datos únicas con Azure Portal](sql-database-manage-single-databases-portal.md), [Administración de bases de datos únicas con Powershell](sql-database-manage-single-databases-powershell.md) o [Administración de bases de datos únicas con Transact-SQL](sql-database-manage-single-databases-tsql.md).
+> Para obtener instrucciones detalladas, consulte [Administración de bases de datos únicas con Azure Portal](sql-database-manage-single-databases-portal.md), [Administración de bases de datos únicas con Powershell](scripts/sql-database-monitor-and-scale-database-powershell.md) o [Administración de bases de datos únicas con Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Niveles de servicio de grupos elásticos y rendimiento en las eDTU
@@ -109,7 +109,7 @@ Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir
 * El cambio del número mínimo de eDTU por base de datos o del máximo de eDTU por base de datos suele completarse en cinco minutos o menos.
 * El tiempo para cambiar el tamaño del grupo (eDTU) depende el tamaño combinado de todas las bases de datos del grupo. Los cambios tienen un duración media de 90 minutos o menos por cada 100 GB. Por ejemplo, si el espacio total que usan todas las bases de datos del grupo es de 200 GB, la latencia esperada para cambiar las eDTU de grupo por grupo será de 3 horas o menos.
 
-Para obtener instrucciones detalladas, consulte [Administración de un grupo elástico en Azure Portal](sql-database-elastic-pool-manage-portal.md), [Administración de un grupo elástico con Powershell](sql-database-elastic-pool-manage-powershell.md), [Administración de un grupo elástico con Transact-SQL](sql-database-elastic-pool-manage-tsql.md), o [Administración de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md).
+Para obtener instrucciones detalladas, consulte [Administración de un grupo elástico en Azure Portal](sql-database-elastic-pool-manage-portal.md), [Administración de un grupo elástico con Powershell](scripts/sql-database-monitor-and-scale-pool-powershell.md), [Administración de un grupo elástico con Transact-SQL](sql-database-elastic-pool-manage-tsql.md), o [Administración de un grupo elástico con C#](sql-database-elastic-pool-manage-csharp.md).
 
 ## <a name="creating-or-upgrading-to-4tb"></a>Creación o actualización a la opción de 4 TB
 

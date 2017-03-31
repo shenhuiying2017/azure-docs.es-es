@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: c4cf6ab29ebf5b3397017cf754ee04bf57ab1555
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1b9401d7c2f756081d585b9432ceef412ab1f807
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Copia de seguridad automatizada para SQL Server 2014 en Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-backup.md)
-> * [Clásico](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Clásico](../classic/sql-automated-backup.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ Copia de seguridad automatizada configura automáticamente [Copia de seguridad a
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para ver la versión clásica de este artículo, consulte [Copia de seguridad automatizada para SQL Server en máquinas virtuales de Azure (implementación clásica)](../sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md).
+Para ver la versión clásica de este artículo, consulte [Copia de seguridad automatizada para SQL Server en máquinas virtuales de Azure (implementación clásica)](../classic/sql-automated-backup.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar Copia de seguridad automatizada, tenga en cuenta los siguientes requisitos previos:
@@ -149,10 +150,5 @@ Puede encontrar directrices adicionales sobre la copia de seguridad y la restaur
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

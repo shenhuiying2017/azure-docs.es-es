@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 71c896673706fad3eb215f12893b65af7b697843
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4f5ae7c1750d697e7dae3f03ea5d3936c9fee52b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +30,7 @@ Configure un equipo cliente local para enviar trabajos a un clúster de [Microso
 ![Enviar un trabajo a un clúster de Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Un **nodo principal de HPC Pack implementado en una máquina virtual de Azure**: se recomienda usar herramientas automáticas, como una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o un [script de Azure PowerShell](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), para implementar el nodo principal y el clúster. Para completar los pasos de este artículo se necesitan el nombre DNS del nodo principal y las credenciales de un administrador de clústeres.
+* Un **nodo principal de HPC Pack implementado en una máquina virtual de Azure**: se recomienda usar herramientas automáticas, como una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o un [script de Azure PowerShell](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), para implementar el nodo principal y el clúster. Para completar los pasos de este artículo se necesitan el nombre DNS del nodo principal y las credenciales de un administrador de clústeres.
 * **Equipo cliente**: se necesita un equipo cliente con Windows o Windows Server que pueda ejecutar utilidades de cliente de HPC Pack (consulte los [requisitos del sistema](https://technet.microsoft.com/library/dn535781.aspx)). Si solo desea usar el portal web de HPC Pack o la API de REST para enviar trabajos, puede usar el equipo cliente que prefiera.
 * **Soporte de instalación de HPC Pack** : para instalar las utilidades de cliente de HPC Pack, el paquete de instalación gratuito de la versión más reciente de HPC Pack (HPC Pack 2012 R2) está disponible en el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Asegúrese de descargar la misma versión de HPC Pack que está instalada en la VM del nodo principal.
 
@@ -40,7 +40,7 @@ Para habilitar una interfaz de REST para enviar trabajos al clúster a través d
 Para obtener información detallada sobre los procedimientos, consulte [Instalación de los componentes web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Algunas plantillas de inicio rápido de Azure para HPC Pack instalan y configuran los componentes web automáticamente. Si usa el [script de implementación de IaaS de HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para crear el clúster, puede instalar y configurar opcionalmente los componentes web como parte de la implementación.
+> Algunas plantillas de inicio rápido de Azure para HPC Pack instalan y configuran los componentes web automáticamente. Si usa el [script de implementación de IaaS de HPC Pack](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para crear el clúster, puede instalar y configurar opcionalmente los componentes web como parte de la implementación.
 > 
 > 
 

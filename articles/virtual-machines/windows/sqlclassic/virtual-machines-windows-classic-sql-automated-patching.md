@@ -16,19 +16,20 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 73032c8ed1f74139f5998ad24f5a9e9861c1e990
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 69e3172b1eac844863f51997f3061619f50b68da
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
-> * [Clásico](virtual-machines-windows-classic-sql-automated-patching.md)
+> * [Clásico](../classic/sql-automated-patching.md)
 > 
 > 
 
-Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esto garantiza que se actualiza el sistema y que cualquier reinicio asociado se producto en el mejor momento posible para la base de datos. Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esto garantiza que se actualiza el sistema y que cualquier reinicio asociado se producto en el mejor momento posible para la base de datos. Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para ver la versión de Resource Manager de este artículo, consulte [Aplicación de revisión automatizada para SQL Server en Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-patching.md).
@@ -53,7 +54,7 @@ Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguien
 
 **Extensión IaaS de SQL Server**:
 
-* [Instale la extensión IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+* [Instale la extensión IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Settings
 En la siguiente tabla se describen las opciones que pueden configurarse para Aplicación de revisión automatizada. Para las máquinas virtuales clásicas, debe usar PowerShell para configurar estas opciones.
@@ -87,13 +88,8 @@ La instalación y configuración del agente de Iaas de SQL Server puede tardar a
 Para deshabilitar Aplicación de revisión automatizada, ejecute el script sin el parámetro -Enable en New-AzureVMSqlServerAutoPatchingConfig. Al igual que la instalación, la deshabilitación de Aplicación de revisión automatizada puede tardar algunos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
 Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

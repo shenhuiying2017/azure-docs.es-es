@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 03/29/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6d048b73528d1812f1be9585d30812ca4aeaa397
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -25,7 +25,6 @@ ms.lasthandoff: 03/17/2017
 Microsoft Azure Traffic Manager permite controlar cómo se distribuye el tráfico de red a implementaciones de aplicaciones que se ejecutan en distintos centros de datos. Se configura cada implementación de aplicaciones como un "punto de conexión" en Traffic Manager. Cuando Traffic Manager recibe una solicitud de DNS, elige un punto de conexión disponible para devolverlo en la respuesta DNS. Traffic Manager basa la elección en el estado actual del punto de conexión y el método de enrutamiento del tráfico. Para obtener más información, consulte [Cómo funciona el Administrador de tráfico](traffic-manager-how-traffic-manager-works.md).
 
 El Administrador de tráfico admite tres tipos de puntos de conexión:
-
 * **puntos de conexión de Azure** se utilizan para los servicios hospedados en Azure.
 * **puntos de conexión externos** se emplean para los servicios hospedados fuera de Azure; es decir, de forma local o con otro proveedor de hospedaje.
 * **puntos de conexión anidados** se utilizan para combinar los perfiles del Administrador de tráfico con el objetivo de crear esquemas de enrutamiento de tráfico más flexibles y, de este modo, satisfacer los requisitos de implementaciones más complejas y de mayor envergadura.
@@ -54,7 +53,7 @@ Los puntos de conexión externos se usan para servicios fuera de Azure. Por ejem
 * Para reducir la latencia de aplicación para usuarios de todo el mundo, extienda una aplicación local existente a más ubicaciones geográficas en Azure. Para más información, consulte [Método de enrutamiento del tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 * Use Azure para ofrecer más capacidad para una aplicación local existente, bien de forma continua o bien empleando el modelo de migración a la nube para satisfacer un pico de demanda.
 
-En algunos casos, resulta útil usar puntos de conexión externos para hacer referencia a servicios de Azure (consulte las [preguntas más frecuentes](#faq) para ver ejemplos). En este caso, las comprobaciones de estado se facturan a la tarifa Puntos de conexión de Azure, y no Puntos de conexión externos. Sin embargo, a diferencia de los puntos de conexión de Azure, si detiene o elimina el servicio subyacente, se le seguirá cobrando por las comprobaciones de estado hasta que deshabilite o elimine el punto de conexión en Traffic Manager.
+En algunos casos, resulta útil usar puntos de conexión externos para hacer referencia a servicios de Azure (consulte las [preguntas más frecuentes](traffic-manager-faqs.md#traffic-manager-endpoints) para ver ejemplos). En este caso, las comprobaciones de estado se facturan a la tarifa Puntos de conexión de Azure, y no Puntos de conexión externos. Sin embargo, a diferencia de los puntos de conexión de Azure, si detiene o elimina el servicio subyacente, se le seguirá cobrando por las comprobaciones de estado hasta que deshabilite o elimine el punto de conexión en Traffic Manager.
 
 ## <a name="nested-endpoints"></a>puntos de conexión anidados
 
@@ -66,7 +65,7 @@ A la hora de configurar aplicaciones web como puntos de conexión en el Administ
 
 1. Solo se puede utilizar con Traffic Manager Web Apps del nivel de SKU "Estándar" o superiores. Si se intenta agregar una aplicación web de una SKU inferior, se producirá un error. Si se cambia el nivel de SKU de una aplicación web existente a otro inferior, Traffic Manager deja de enviar tráfico a esa aplicación web.
 2. Cuando un punto de conexión recibe una solicitud HTTP, usa el encabezado "host" de la solicitud para determinar qué aplicación web debe atenderla. El encabezado host contiene el nombre DNS utilizado para iniciar la solicitud, por ejemplo, "contosoapp.azurewebsites.net". Para usar otro nombre DNS con la aplicación web, este debe estar registrado como nombre de dominio personalizado para la aplicación. Al agregar un punto de conexión de aplicación web como punto de conexión de Azure, el nombre DNS del perfil de Traffic Manager se registra automáticamente para la aplicación. Este registro se elimina automáticamente cuando se elimina el punto de conexión.
-3. Cada perfil del Administrador de tráfico puede tener, como máximo, un punto de conexión de aplicación web en cada región de Azure. Como solución alternativa para esta restricción, puede configurar una aplicación web como punto de conexión externo. Para más información, consulte las [preguntas más frecuentes](#faq).
+3. Cada perfil del Administrador de tráfico puede tener, como máximo, un punto de conexión de aplicación web en cada región de Azure. Como solución alternativa para esta restricción, puede configurar una aplicación web como punto de conexión externo. Para más información, consulte las [preguntas más frecuentes](traffic-manager-faqs.md#traffic-manager-endpoints).
 
 ## <a name="enabling-and-disabling-endpoints"></a>Habilitación y deshabilitación de puntos de conexión
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 51aabf4938714c597ae0cfb2ec524f326b6e355a
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/21/2017
 Al implementar la aplicación web, el back-end móvil y la aplicación de API en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puede implementar en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada al ejecutar en el modo del plan de App Service **Estándar** o **Premium**. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio de implementación ofrece las ventajas siguientes:
 
 * Puede validar los cambios en la aplicación en una ranura de implementación de ensayo antes de intercambiarla con la ranura de producción.
-* La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#configure-auto-swap-for-your-web-app) .
+* La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
 * Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado".
 
 Cada modo del plan del Servicio de aplicaciones admite un número distinto de espacios de implementación. Para averiguar el número de ranuras compatibles con el modo de la aplicación, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
@@ -130,6 +130,8 @@ Al usar la opción **Intercambio con vista previa** (consulte [Intercambiar ranu
 Puede previsualizar exactamente cómo se comportará la aplicación con la configuración de la ranura de destino. Una vez que complete la validación, completará el intercambio en un paso independiente. Este paso tiene la ventaja añadida de que la ranura de origen ya se ha activado con la configuración deseada y los clientes no experimentarán tiempos de inactividad.  
 
 En los cmdlets de Azure PowerShell se incluyen ejemplos para los cmdlets de Azure PowerShell disponibles para el intercambio de varias fases se incluyen para la sección de ranuras de implementación.
+
+<a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Configuración de intercambio automático
 El intercambio automático optimiza los escenarios de DevOps donde desee implementar continuamente la aplicación sin arranques en frío ni tiempos de inactividad para los clientes finales de la aplicación. Cuando se configura una ranura de implementación para el intercambio automático en producción, cada vez que inserte una actualización de código para esa ranura, App Service coloca automáticamente la aplicación en producción, una vez que ya esté activa en la ranura.

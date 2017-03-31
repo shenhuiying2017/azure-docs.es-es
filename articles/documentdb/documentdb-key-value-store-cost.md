@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
-ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 4d6ea897ec24ab9cbf5c131cd4629f45447f1460
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -30,7 +31,7 @@ En este artículo se describe el costo de DocumentDB para operaciones simples de
 
 ## <a name="why-we-use-request-units-rus"></a>¿Por qué usamos unidades de solicitud (RU)?
 
-El rendimiento de DocumentDB se basa en la cantidad de [unidades de solicitud](documentdb-programming.md) (RU) aprovisionadas para la partición. El aprovisionamiento tiene una granularidad de un segundo y se adquiere en RU/s ([no se debe confundir con la facturación horaria](https://azure.microsoft.com/pricing/details/documentdb/)). Las RU deben considerarse una moneda que simplifica el aprovisionamiento de rendimiento necesario para la aplicación. Nuestros clientes no tienen que pensar en diferenciar entre unidades de capacidad de lectura y escritura. El modelo de moneda única de RU crea eficiencias para compartir la capacidad aprovisionada entre lecturas y escrituras. Este modelo de capacidad aprovisionada permite que el servicio proporcione un rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad. Por último, utilizamos RU para modelar el rendimiento, pero cada RU aprovisionada también tiene una cantidad definida de recursos (memoria y núcleos). RU/s no es solo E/S por segundo.
+El rendimiento de DocumentDB se basa en la cantidad de [unidades de solicitud](documentdb-request-units.md) (RU) aprovisionadas para la partición. El aprovisionamiento tiene una granularidad de un segundo y se adquiere en RU/s ([no se debe confundir con la facturación horaria](https://azure.microsoft.com/pricing/details/documentdb/)). Las RU deben considerarse una moneda que simplifica el aprovisionamiento de rendimiento necesario para la aplicación. Nuestros clientes no tienen que pensar en diferenciar entre unidades de capacidad de lectura y escritura. El modelo de moneda única de RU crea eficiencias para compartir la capacidad aprovisionada entre lecturas y escrituras. Este modelo de capacidad aprovisionada permite que el servicio proporcione un rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad. Por último, utilizamos RU para modelar el rendimiento, pero cada RU aprovisionada también tiene una cantidad definida de recursos (memoria y núcleos). RU/s no es solo E/S por segundo.
 
 Como un sistema de base de datos distribuido globalmente, DocumentDB es el único servicio de Azure que proporciona un Acuerdo de Nivel de Servicio sobre latencia, rendimiento y coherencia además de alta disponibilidad. El rendimiento que se aprovisiona se aplica a cada una de las regiones asociadas a su cuenta de base de datos de DocumentDB. Para lecturas, DocumentDB ofrece varios [niveles de coherencia](documentdb-consistency-levels.md) bien definidos entre los que elegir. 
 
@@ -50,14 +51,9 @@ Si aprovisiona 1000 RU/s, esto asciende a 3,6 millones de RU/hora y costará 0,0
 |1 KB|0,022 USD|0,111 USD|
 |100 KB|0,222 USD|1,111 USD|
 
-La mayoría de los almacenes de blobs u objetos básicos cobran&0;,40 USD por cada millón de transacciones de lectura y&5; USD por cada millón de transacciones de escritura. Si se usa de forma óptima, DocumentDB puede ser hasta un 98 % más económico que estas otras soluciones (para transacciones de 1 KB).
+La mayoría de los almacenes de blobs u objetos básicos cobran 0,40 USD por cada millón de transacciones de lectura y 5 USD por cada millón de transacciones de escritura. Si se usa de forma óptima, DocumentDB puede ser hasta un 98 % más económico que estas otras soluciones (para transacciones de 1 KB).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Permanezca atento para buscar nuevos artículos sobre la optimización del aprovisionamiento de recursos de DocumentDB. Mientras tanto, no dude en usar nuestra [calculadora de RU](https://www.documentdb.com/capacityplanner).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

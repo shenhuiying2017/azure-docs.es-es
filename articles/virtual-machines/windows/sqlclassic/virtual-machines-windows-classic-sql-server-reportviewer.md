@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
-ms.openlocfilehash: 084200ba25f0eb213100c638d164441c2618efe0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ Para incorporar ReportViewer en su sitio web de Microsoft Azure, debe completar 
 * **Publicar** la aplicación web ASP.NET en Azure
 
 ## <a name="prerequisites"></a>Requisitos previos
-Revise la sección "Recomendación general y procedimientos recomendados" de [SQL Server Business Intelligence en máquinas virtuales de Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+Revise la sección "Recomendación general y procedimientos recomendados" de [SQL Server Business Intelligence en máquinas virtuales de Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]
 > Los controles ReportViewer se incluyen con Visual Studio, Standard Edition o superior. Si usa Web Developer Express Edition, debe instalar el [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) para usar las características de tiempo de ejecución de ReportViewer.
@@ -89,13 +90,8 @@ Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en A
 ## <a name="resources"></a>Recursos
 [Informes de Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-classic-ps-sql-bi.md)
+[Business Intelligence de SQL Server en Máquinas virtuales de Azure](../classic/ps-sql-bi.md)
 
-[Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo](virtual-machines-windows-classic-ps-sql-report.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+[Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo](../classic/ps-sql-report.md)
 
 

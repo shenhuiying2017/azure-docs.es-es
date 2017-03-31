@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e9e8dfa79ac0b902b8ecbcf9911e38ef49f754ec
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -110,7 +111,7 @@ En los datos de entrenamiento, hay 16 funciones extraídas de imágenes de letra
 
 Figura 6. Experimento del problema de clasificación multiclase de reconocimiento de letras
 
-Al visualizar los resultados del módulo [Puntuar modelo][score-model] haciendo clic en el puerto de salida del módulo [Puntuar modelo][score-modelscore-model] y, a continuación, haciendo clic en **Visualizar**, debería ver contenido como el que se muestra en la figura 7.
+Al visualizar los resultados del módulo [Puntuar modelo][score-model] haciendo clic en el puerto de salida del módulo [Puntuar modelo][score-model] y, a continuación, haciendo clic en **Visualizar**, debería ver contenido como el que se muestra en la figura 7.
 
 ![Resultados del modelo de puntuación](./media/machine-learning-interpret-model-results/7.png)
 
@@ -314,9 +315,4 @@ Figura 26. Resultado de servicio web del problema de recomendación de restauran
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

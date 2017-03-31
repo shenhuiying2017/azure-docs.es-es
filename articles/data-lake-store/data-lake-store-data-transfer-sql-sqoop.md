@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
-ms.openlocfilehash: d536ba2bd44941d036a00a74243cb37b8ae69abb
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 7f165111cd089d5f32f309235dcbc24d11fb5d64
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-store"></a>Uso de Sqoop en un clúster de HDInsight con acceso a Almacén de Data Lake
 Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha configurado el clúster de HDInsight para utilizar Almacén de Data Lake como almacenamiento adicional, puede usar Sqoop (sin cambios de configuración) para importar o exportar datos entre una base de datos relacional (en este ejemplo, Base de datos SQL de Azure) y una cuenta de Almacén de Data Lake.
 
-1. Para este tutorial, se supone que ha creado un clúster de Linux, por lo que debe usar SSH para conectarse al clúster. Consulte [Conexión a un clúster de HDInsight basado en Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect).
+1. Para este tutorial, se supone que ha creado un clúster de Linux, por lo que debe usar SSH para conectarse al clúster. Consulte [Conexión a un clúster de HDInsight basado en Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Compruebe que puede acceder a la cuenta de Almacén de Data Lake desde el clúster. Ejecute el siguiente comando desde el símbolo del sistema de SSH:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
@@ -109,7 +109,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Cada archivo **part-m-*** corresponde a una fila de la tabla de origen, **Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
+    Cada archivo **part-m-***corresponde a una fila de la tabla de origen,**Table1**. Puede ver el contenido de los archivos part-m-* que desea comprobar.
 
 
 ### <a name="export-data-from-data-lake-store-into-azure-sql-database"></a>Exportación de datos de Almacén de Data Lake a Base de datos SQL de Azure

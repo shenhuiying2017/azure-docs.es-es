@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 891d950c7d4984b39f2e03af3d0f66af5594a348
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,7 +29,7 @@ Una lista de control de acceso (ACL) de extremo es una mejora de seguridad dispo
 > 
 > 
 
-Las listas de control de acceso se pueden configurar mediante PowerShell o el Portal de administración. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso (ACL) para extremos usando PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red con el Portal de administración, vea [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Las listas de control de acceso se pueden configurar mediante PowerShell o el Portal de administración. Para configurar una ACL de red con PowerShell, consulte [Administración de listas de control de acceso (ACL) para extremos usando PowerShell](virtual-networks-acl-powershell.md). Para configurar una ACL de red con el Portal de administración, vea [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Con las ACL de red, puede hacer lo siguiente:
 
@@ -90,10 +91,5 @@ Las ACL de red pueden especificarse en un extremo del conjunto con equilibrio de
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

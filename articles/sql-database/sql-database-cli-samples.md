@@ -10,16 +10,16 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b358c7c83898a96f09bda78787868510d1176bcc
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: f4fab4159ed4ff14adad9b1ad63315fe1acfe9e9
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -30,10 +30,10 @@ En la tabla siguiente se incluyen vínculos a scripts de la CLI de Azure para Az
 | |  |
 |---|---|
 |**Creación de una base de datos única y un grupo elástico**||
-| [Creación de una base de datos única y configuración de una regla de firewall](scripts/sql-database-create-and-configure-database-cli.md) | Crea una instancia única de Azure SQL Database y configura una regla de firewall en el nivel de servidor. |
-| [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/sql-database-move-database-between-pools-cli.md) | Crea grupos elásticos, traslada instancias agrupadas de Azure SQL Database y cambia los niveles de rendimiento.|
+| [Creación de una base de datos única y configuración de una regla de firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una instancia única de Azure SQL Database y configura una regla de firewall en el nivel de servidor. |
+| [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea grupos elásticos, traslada instancias agrupadas de Azure SQL Database y cambia los niveles de rendimiento.|
 |**Escalado de una base de datos única y un grupo elástico**||
-| [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-cli.md) | Escala una instancia única de Azure SQL Database a un nivel de rendimiento diferente después de consultar la información de tamaño de la base de datos. |
-| [Escalado de un grupo elástico](scripts/sql-database-scale-pool-cli.md) | Escala un grupo elástico a un nivel de rendimiento diferente.  |
+| [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Escala una instancia única de Azure SQL Database a un nivel de rendimiento diferente después de consultar la información de tamaño de la base de datos. |
+| [Escalado de un grupo elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Escala un grupo elástico a un nivel de rendimiento diferente.  |
 |||
 

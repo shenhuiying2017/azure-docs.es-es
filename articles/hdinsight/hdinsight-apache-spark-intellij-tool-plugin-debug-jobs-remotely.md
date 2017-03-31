@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9b822da3d8fd2706bc65ab842d063be66904649f
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -75,7 +77,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
            192.xxx.xx.xx hn1-nitinp
            192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
 6. En el equipo conectado a la red virtual de Azure que el clúster de HDInsight usa, compruebe que pueda hacer ping a ambos nodos principales mediante la dirección IP, así como el nombre de host.
-7. Conéctese mediante SSH con el nodo principal del clúster según las instrucciones en [Conexión a un clúster de HDInsight basado en Linux](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster). En el nodo principal del clúster, haga ping a la dirección IP del equipo de escritorio. Debe probar la conectividad a ambas direcciones IP asignadas al equipo, una para la conexión de red y otro para la red virtual de Azure a la que está conectado el equipo.
+7. Conéctese mediante SSH con el nodo principal del clúster según las instrucciones en [Conexión a un clúster de HDInsight basado en Linux](hdinsight-hadoop-linux-use-ssh-unix.md). En el nodo principal del clúster, haga ping a la dirección IP del equipo de escritorio. Debe probar la conectividad a ambas direcciones IP asignadas al equipo, una para la conexión de red y otro para la red virtual de Azure a la que está conectado el equipo.
 8. Repita los pasos también para el otro nodo principal. 
 
 ## <a name="step-4-create-a-spark-scala-application-using-the-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Paso 4: Creación de una aplicación Scala Spark mediante las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ y configuración para la depuración remota
@@ -254,7 +256,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
    
     ![Ejecutar el programa en modo de depuración](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Otras referencias
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
@@ -279,10 +281,5 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

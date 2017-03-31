@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: f43dc60993a9f73b0327ae524a45e915f42935a2
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: bfbbc3a0a1c433f97cb23137b6dcf74db03909a6
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 
 Este script de ejemplo de PowerShell crea dos grupos elásticos, traslada una base de datos de un grupo elástico al otro y, a continuación, traslada una base de datos fuera de un grupo elástico a un nivel de rendimiento de base de datos única. 
 
-Antes de ejecutar este script, asegúrese de que se haya creado una conexión con Azure mediante el cmdlet `Add-AzureRmAccount`.
+[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

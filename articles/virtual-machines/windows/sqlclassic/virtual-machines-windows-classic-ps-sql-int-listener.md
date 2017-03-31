@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/01/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 8e59988f24748a82d4e143295bab9bdaa65cf8e4
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d09d2b869606995d227aa485a85acd67c18ee4e5
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure
 > [!div class="op_single_selector"]
-> * [Agente de escucha interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Agente de escucha externo](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Agente de escucha interno](../classic/ps-sql-int-listener.md)
+> * [Agente de escucha externo](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -37,18 +37,18 @@ En este tema se muestra cómo configurar un agente de escucha para un grupo de d
 
 Para configurar un agente de escucha ILB para un grupo de disponibilidad AlwaysOn en el modelo de Resource Manager, consulte [Configuración de un equilibrador de carga interno para un grupo de disponibilidad AlwaysOn de Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
+El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](../classic/portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
 
 ## <a name="guidelines-and-limitations-for-internal-listeners"></a>Instrucciones y limitaciones de los agentes de escucha internos
 Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del grupo de disponibilidad en Azure mediante ILB:
 
 * El agente de escucha del grupo de disponibilidad es compatible con Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
-* Solo se admite un agente de escucha de grupo de disponibilidad interno para cada servicio en la nube, ya que el agente de escucha se configura según el ILB y solo hay un ILB por cada servicio en la nube. Sin embargo, es posible crear varios agentes de escucha externos. Para más información, consulte [Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* Solo se admite un agente de escucha de grupo de disponibilidad interno para cada servicio en la nube, ya que el agente de escucha se configura según el ILB y solo hay un ILB por cada servicio en la nube. Sin embargo, es posible crear varios agentes de escucha externos. Para más información, consulte [Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-ext-listener.md).
 
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determinar la accesibilidad del agente de escucha
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artículo se centra en la creación de un agente de escucha que usa un **equilibrador de carga interno (ILB)**. Si necesita un agente de escucha público o externo, consulte la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha externo](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Este artículo se centra en la creación de un agente de escucha que usa un **equilibrador de carga interno (ILB)**. Si necesita un agente de escucha público o externo, consulte la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha externo](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
 En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el script siguiente.
@@ -71,7 +71,7 @@ Tienes que crear un extremo de carga equilibrada para cada máquina virtual que 
    
         (Get-AzureVNetConfig).XMLConfiguration
 2. Tome nota del nombre de la **Subred** que contenga las máquinas virtuales que hospeden las réplicas. Este se usará en el parámetro **$SubnetName** en el script.
-3. A continuación, en la subred que contiene las máquinas virtuales que hospedan las réplicas, tome nota del nombre del elemento **VirtualNetworkSite** y del elemento **AddressPrefix** inicial. Busque una dirección IP disponible pasando ambos valores al comando **Test-AzureStaticVNetIP** y examinando el parámetro** AvailableAddresses**. Por ejemplo, si el nombre de la red virtual fuera*MyVNet* y tuviera un intervalo de direcciones de subred que empezase por *172.16.0.128*, el siguiente comando mostraría las direcciones disponibles:
+3. A continuación, en la subred que contiene las máquinas virtuales que hospedan las réplicas, tome nota del nombre del elemento **VirtualNetworkSite** y del elemento **AddressPrefix** inicial. Busque una dirección IP disponible pasando ambos valores al comando **Test-AzureStaticVNetIP** y examinando el parámetro**AvailableAddresses**. Por ejemplo, si el nombre de la red virtual fuera*MyVNet* y tuviera un intervalo de direcciones de subred que empezase por *172.16.0.128*, el siguiente comando mostraría las direcciones disponibles:
    
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 4. Elija una de las direcciones disponibles y úsela en el parámetro **$ILBStaticIP** del script siguiente.

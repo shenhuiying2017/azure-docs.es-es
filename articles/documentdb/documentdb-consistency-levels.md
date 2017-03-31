@@ -17,9 +17,9 @@ ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: af8e53d7cc074bf669b967014223ee88476d1686
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -77,7 +77,7 @@ En la siguiente tabla, se reflejan las diversas garantías de coherencia que cor
 | **Garantía de prefijo coherente** |Sí |Sí |Sí |Sí |
 | **Lecturas monotónicas** |yes |Sí, entre regiones fuera de la ventana de obsolescencia y dentro de una región todo el tiempo. |Sí, para la sesión dada |No |
 | **Escrituras monotónicas** |Sí |Sí |Sí |Sí |
-| **Lectura de sus escrituras** |Sí |Sí |Sí (en la región de escritura) |No |
+| **Lectura de sus escrituras** |Sí |Sí (en la región de escritura) | Sí |No |
 
 ## <a name="configuring-the-default-consistency-level"></a>Configuración del nivel de coherencia predeterminado
 1. En la barra de accesos directos del [Portal de Azure](https://portal.azure.com/), haga clic en **DocumentDB (NoSQL)**.

@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/25/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
-ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: fc5c87e45f3c92172f01a462451bc145ce8b0b16
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ El panel de WebJobs en el Portal de Azure proporciona capacidades de administrac
 * [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Uso de Azure Service Bus con el SDK de WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Referencia rápida del SDK de WebJobs de Azure (descarga de PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Referencia rápida del SDK de WebJobs de Azure (descarga de PDF)](https://go.microsoft.com/fwlink/p/?linkid=845558)
 * [Documentación de configuración de WebJobs en GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Vídeos
   * [WebJobs y SDK de WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)

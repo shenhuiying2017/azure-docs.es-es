@@ -15,13 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 18d33244603cff921f1282ba41f3aeb6e42ae542
-ms.openlocfilehash: 60ed242b78576d4673e41801a8687a354d09bf9c
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c3476908447380ccd7e8b9c0f1c2a55ae763cc1e
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Administración de listas de control de acceso de puntos de conexión con PowerShell en el modelo de implementación clásico
-Puede crear y administrar listas de control de acceso (ACL) de red para extremos mediante Azure PowerShell o en el Portal de administración. En este tema, encontrará procedimientos para realizar tareas comunes de ACL mediante PowerShell. Para obtener la lista de cmdlets de Azure PowerShell, consulte [Cmdlets de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Para obtener más información acerca de las ACL, consulte [Acerca de las listas de control de acceso (ACL) de red](virtual-networks-acl.md). Si quiere administrar las ACL usando el Portal de administración, vea [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Puede crear y administrar listas de control de acceso (ACL) de red para extremos mediante Azure PowerShell o en el Portal de administración. En este tema, encontrará procedimientos para realizar tareas comunes de ACL mediante PowerShell. Para obtener la lista de cmdlets de Azure PowerShell, consulte [Cmdlets de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Para obtener más información acerca de las ACL, consulte [Acerca de las listas de control de acceso (ACL) de red](virtual-networks-acl.md). Si quiere administrar las ACL usando el Portal de administración, vea [Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="manage-network-acls-by-using-azure-powershell"></a>Administrar las ACL de red mediante Azure PowerShell
 Puede usar cmdlets de Azure PowerShell para crear, quitar y configurar (establecer) listas de control de acceso (ACL) de red. Hemos incluido ejemplos de algunas de las formas en que puede configurar una ACL mediante PowerShell.
@@ -88,10 +89,5 @@ En ciertas situaciones, puede que desee quitar un objeto de ACL de red de un ext
 
 ## <a name="next-steps"></a>Pasos siguientes
 [¿Qué es una lista de control de acceso (ACL) de red?](virtual-networks-acl.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

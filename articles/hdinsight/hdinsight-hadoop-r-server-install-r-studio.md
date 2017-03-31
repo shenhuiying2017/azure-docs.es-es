@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 970419650e1d3e22637733fdb4fba72ff27f5339
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -44,10 +44,8 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 
    * Nodo principal `CLUSTERNAME-ssh.azurehdinsight.net`
    * Nodo perimetral `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. SSH en el nodo perimetral del clúster mediante el patrón de nomenclatura anterior. 
+2. SSH en el nodo perimetral del clúster mediante el patrón de nomenclatura anterior. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * Si se conecta desde un cliente Linux, consulte [Conexión a un clúster de HDInsight basado en Linux](hdinsight-hadoop-linux-use-ssh-unix.md).
-   * Si se conecta desde un cliente Windows, consulte [Conexión a un clúster de HDInsight basado en Linux mediante PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. Una vez conectado, se convierte en un usuario raíz en el clúster. En la sesión SSH, use el comando siguiente.
 
         sudo su -
@@ -81,7 +79,7 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
        Reemplace **USERNAME** por un usuario SSH para su clúster de HDInsight y **CLUSTERNAME** por el nombre de su clúster de HDInsight. También puede usar una clave SSH en lugar de una contraseña si agrega `-i id_rsa_key`.        
    * Si usa un cliente de Windows con PuTTY:
 
-     1. Abra PuTTY y escriba la información de conexión. Si no está familiarizado con PuTTY, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obtener información sobre cómo usarlo con HDInsight.
+     1. Abra PuTTY y escriba la información de conexión.
      2. En la sección **Category** (Categoría) a la izquierda del cuadro de diálogo, expanda **Connection** (Conexión), **SSH** y, a continuación, seleccione **Tunnels** (Túneles).
      3. Proporcione la siguiente información en el formulario **Options controlling SSH port forwarding** (Opciones que controlan el desvío de puertos SSH):
 

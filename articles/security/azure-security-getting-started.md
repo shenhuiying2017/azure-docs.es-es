@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
-ms.openlocfilehash: 3ad511b55e33653ea0cf7df2c885d27c1c07441d
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -130,7 +131,7 @@ Puede usar las siguientes tecnologías de Azure Virtual Network para ayudar a pr
 * [**Enrutamiento definido por el usuario**](../virtual-network/virtual-networks-udr-overview.md) Puede controlar el enrutamiento de paquetes a través de un dispositivo virtual mediante la creación de rutas definidas por el usuario que especifican el próximo salto de los paquetes que fluyen a una subred específica para que así vayan a su dispositivo de seguridad de red virtual.
 * [**Reenvío de IP**](../virtual-network/virtual-networks-udr-overview.md) Un dispositivo de seguridad de red virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP en la máquina virtual.
 * [**Tunelización forzada**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet generado por las máquinas virtuales en una red virtual de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio para inspección y auditoría.
-* [**Listas ACL de puntos de conexión**](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Puede controlar en qué equipos se permiten las conexiones entrantes de Internet a una máquina virtual en la red virtual mediante la definición de las listas ACL de puntos de conexión.
+* [**Listas ACL de puntos de conexión**](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Puede controlar en qué equipos se permiten las conexiones entrantes de Internet a una máquina virtual en la red virtual mediante la definición de las listas ACL de puntos de conexión.
 * [**Soluciones de seguridad de red de asociados**](https://azure.microsoft.com/marketplace/). Hay una serie de soluciones de seguridad de red de asociados a la que puede tener acceso desde Azure Marketplace.
 
 ### <a name="how-azure-implements-virtual-networks-and-firewalls"></a>Cómo implementa Azure las redes virtuales y los firewalls
@@ -147,7 +148,7 @@ Si Azure mueve los datos del cliente como parte de las operaciones normales o du
 ## <a name="secure-remote-access"></a>Acceso remoto seguro
 Los datos almacenados en la nube deben tener suficientes medidas de seguridad habilitadas para evitar vulnerabilidades de seguridad y mantener la confidencialidad e integridad durante el tránsito. Esto incluye controles de red que se enlazan con los mecanismos de administración de acceso e identidades auditables basados en las directivas de una organización.
 
-La tecnología de cifrado integrada permite cifrar las comunicaciones dentro y entre las implementaciones, entre las regiones de Azure y de Azure a centros de datos locales. El acceso de administrador a máquinas virtuales mediante [sesiones de escritorio remoto](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) y Azure Portal está siempre cifrado.
+La tecnología de cifrado integrada permite cifrar las comunicaciones dentro y entre las implementaciones, entre las regiones de Azure y de Azure a centros de datos locales. El acceso de administrador a máquinas virtuales mediante [sesiones de escritorio remoto](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) y Azure Portal está siempre cifrado.
 
 Para ampliar su centro de datos local a la nube de forma segura, Azure proporciona [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) y [VPN de punto a sitio](../vpn-gateway/vpn-gateway-point-to-site-create.md), así como vínculos dedicados con [ExpressRoute](../expressroute/expressroute-introduction.md) (las conexiones a Azure Virtual Network a través de VPN están cifradas).
 
@@ -194,9 +195,4 @@ Azure tiene controles de seguridad para implementar la mitigación de amenazas y
 [Centro de respuesta de seguridad de Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Blog de Active Directory](http://blogs.technet.com/b/ad/)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

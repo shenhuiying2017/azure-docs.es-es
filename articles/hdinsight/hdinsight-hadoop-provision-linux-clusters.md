@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,10 +48,10 @@ Cada tipo de clúster tiene dentro su propio número de nodos, la terminología 
 
 | Tipo | Nodos | Diagrama |
 | --- | --- | --- |
-| Hadoop |Nodo principal (2), nodo de datos (más de&1;) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
-| HBase |Servidor principal (2), servidor de región (más de&1;), nodo maestro/ZooKeeper (3) |![Nodos de clúster de HBase en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
-| Storm |Nodo Nimbus (2), servidor de supervisor (más de&1;), nodo ZooKeeper (3) |![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
-| Spark |Nodo principal (2), nodo de trabajo (más de&1;), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
+| Hadoop |Nodo principal (2), nodo de datos (más de 1) |![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png) |
+| HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/ZooKeeper (3) |![Nodos de clúster de HBase en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png) |
+| Storm |Nodo Nimbus (2), servidor de supervisor (más de 1), nodo ZooKeeper (3) |![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png) |
+| Spark |Nodo principal (2), nodo de trabajo (más de 1), nodo ZooKeeper (3) (gratis para el tamaño de máquina virtual ZooKeeper A1) |![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png) |
 
 En las tablas siguientes se indican los tamaños de máquina virtual predeterminados para HDInsight:
 
@@ -149,7 +149,7 @@ Cada clúster de HDInsight está asociado a una suscripción a Azure.
 Con los clústeres de HDInsight, puede configurar dos cuentas de usuario durante la creación del clúster:
 
 * Usuario de HTTP. El nombre de usuario predeterminado es *admin*. Emplea la configuración básica en el portal de Azure. A veces, se denomina "Usuario de clúster".
-* Usuario de SSH (clústeres de Linux). Se usa para conectarse al clúster mediante SSH. Puede crear más cuentas de usuario de SSH cuando cree el clúster siguiendo los pasos indicados en [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Usuario de SSH (clústeres de Linux). Se usa para conectarse al clúster mediante SSH. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
   > [!NOTE]
   > En clústeres basados en Windows, puede crear un usuario de RDP para conectarse al clúster mediante RDP.
