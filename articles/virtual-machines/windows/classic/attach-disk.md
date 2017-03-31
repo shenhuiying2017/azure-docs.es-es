@@ -68,7 +68,7 @@ Continúe siguiendo las instrucciones para conectar un [nuevo disco](#option-1-a
 1. Conexión a una máquina virtual. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Después de iniciar sesión en la máquina virtual, abra el **Administrador del servidor**. En el panel izquierdo, seleccione **Servicios de archivos y almacenamiento**.
 
-    ![Abrir Administrador de servidores](./media/attach-disk/fileandstorageservices.png)
+    ![Abrir Administrador de servidores](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Seleccione **Discos**.
 4. En la sección **Discos** aparecen todos los discos. A menudo, una máquina virtual tiene los discos 0, 1 y 2. El disco 0 es el del sistema operativo, el 1 es el disco temporal y el 2 es el disco de datos que acaba de conectar a la máquina virtual. El disco de datos muestra la partición como **Desconocida**.
