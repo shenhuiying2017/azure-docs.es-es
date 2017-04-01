@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
+ms.lasthandoff: 12/13/2016
 
 
 ---
-# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
+# <a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carga de los datos en una trama de datos Pandas
@@ -50,7 +51,7 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
 
 Ya puede explorar los datos y generar características en este conjunto de datos.
 
-## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Exploración de datos
+## <a name="blob-dataexploration"></a>Exploración de datos
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
 1. Inspeccionar el número de filas y columnas 
@@ -95,10 +96,10 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Generación de características
+## <a name="blob-featuregen"></a>Generación de características
 Es posible generar características con Python de la siguiente manera:
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
+### <a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
 Las características de categorías se pueden crear como sigue:
 
 1. Inspeccione la distribución de la columna de categorías:
@@ -117,7 +118,7 @@ Las características de categorías se pueden crear como sigue:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Generación de características de discretización
+### <a name="blob-binningfeature"></a>Generación de características de discretización
 Para generar características discretizadas, se procede de la siguiente manera:
 
 1. Agregue una secuencia de columnas para discretizar una columna numérica
@@ -131,7 +132,7 @@ Para generar características discretizadas, se procede de la siguiente manera:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Aprendizaje automático de Azure
+## <a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Aprendizaje automático de Azure
 Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Aprendizaje automático de Azure, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Estudio de aprendizaje automático de Azure 
 
 1. Escriba la trama de datos en el archivo local
@@ -167,10 +168,5 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

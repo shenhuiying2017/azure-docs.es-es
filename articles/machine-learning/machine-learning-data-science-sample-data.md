@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: c046220304075242f655bced2f0f16a6fb692ad3
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive
+# <a name="heading"></a>Muestra de datos en contenedores de blob de Azure, SQL Server y tablas de Hive
 Este documento incluye vínculos a temas que trata cómo muestrear los datos que se almacenan en una de las tres diferentes ubicaciones de Azure:
 
 * **datos del contenedor de blobs de Azure** descargándolos mediante programación y, a continuación, realizando un muestreo de ellos con el código Python de ejemplo.
@@ -35,10 +36,5 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 
 ## <a name="why-sample-data"></a>¿Por qué realizar un muestreo de datos?
 Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -27,8 +27,6 @@ Los registros de flujo del grupo de seguridad de red le permiten visualizar info
 
 Puede ser difícil obtener información sobre los datos de registro de flujo mediante la búsqueda manual de los archivos de registro. En este artículo se proporcionan una solución para visualizar los registros de flujo más recientes y obtener información sobre el tráfico en la red.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Escenario
 
 En el siguiente escenario, conectamos Power BI Desktop a la cuenta de almacenamiento que hemos configurado como el receptor de los datos del registro de flujo de NSG. Una vez que se conecta a la cuenta de almacenamiento, Power BI descarga y analiza los registros para proporcionar una representación visual del tráfico que registran los grupos de seguridad de red.
