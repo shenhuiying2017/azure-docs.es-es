@@ -31,8 +31,6 @@ ms.lasthandoff: 03/22/2017
 La característica Topología de Network Watcher proporciona una representación visual de los recursos de red de una suscripción. En el portal, esta visualización se muestra automáticamente. La información subyacente a la vista de topología en el portal se puede obtener mediante PowerShell.
 Esta funcionalidad hace que la información de la topología sea más versátil porque otras herramientas pueden usar los datos para crear la visualización.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 La interconexión se modela en dos relaciones.
 
 - **Contención**: por ejemplo, una red virtual contiene una subred que incluye una NIC.

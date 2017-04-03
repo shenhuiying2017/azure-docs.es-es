@@ -31,8 +31,6 @@ En este artículo se recorren algunos escenarios preconfigurados en una captura 
 
 Se asume también que ya se ejecutó una captura de paquetes en una máquina virtual. Para aprender a crear una captura de paquetes, consulte [Administración de capturas de paquete con el portal](network-watcher-packet-capture-manage-portal.md) o, si es con REST, consulte [Administración de capturas de paquete con la API de REST](network-watcher-packet-capture-manage-rest.md).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Escenario
 
 En este escenario, podrá:

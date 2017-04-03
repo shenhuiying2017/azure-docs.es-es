@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
 ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
+ms.lasthandoff: 12/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ El Feature Pack de SSIS permite administrar flujos más complejos al empaquetar 
 
 * Para ejecutar un script de Hive en un clúster de HDInsight de Azure con SSIS, use [Tarea de Hive para HDInsight de Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 * Para ejecutar un script de Pig en un clúster de HDInsight de Azure con SSIS, use [Tarea de Pig para HDInsight de Azure](https://msdn.microsoft.com/library/mt146781.aspx).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -705,10 +706,5 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 ## <a name="summary"></a>Resumen
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

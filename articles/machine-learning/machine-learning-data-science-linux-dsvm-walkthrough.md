@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
 ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
 ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -530,9 +531,4 @@ También puede consultar con Squirrel SQL. Siga pasos similares para PostgreSQL,
 Para ver una introducción de los temas que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [Proceso de ciencia de los datos en equipos (TDSP)](http://aka.ms/datascienceprocess).
 
 Para ver una descripción de otros tutoriales completos que demuestren los pasos del proceso de ciencia de los datos en equipo en escenarios concretos, consulte [Tutoriales del proceso de ciencia de datos en equipos](data-science-process-walkthroughs.md). En los tutoriales también se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
