@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 05fb0b7e80684737277626c12468ca9c754a0ac9
+ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
 ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/22/2017
 Las capturas de paquetes contienen datos de red que permiten realizar análisis forense de la red e inspección profunda de paquetes. Hay muchas herramientas de código abierto que puede usar para analizar las capturas de paquetes y obtener información sobre la red. Una de estas herramientas es CapAnalysis, una herramienta de código abierto para la visualización de captura de paquetes. La visualización de los datos de captura de paquetes es una forma muy eficaz de derivar rápidamente información sobre patrones y anomalías dentro de la red. Las visualizaciones también proporcionan un medio para compartir dicha información de una manera fácil de consumir.
 
 Azure Network Watcher proporciona la capacidad para capturar estos valiosos datos permitiéndole realizar capturas de paquetes en su red. En este artículo, proporcionamos un tutorial en el que se explica cómo visualizar y obtener información de las capturas de paquetes usando CapAnalysis con Network Watcher.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Escenario
 

@@ -29,8 +29,6 @@ Un caso de uso más extendido se encuentra en el cumplimiento de seguridad y aud
 
 En el portal las reglas se dividen en vigente, subred, interfaz de red y predeterminada. Esto proporciona una vista sencilla de las reglas que se aplican a una máquina virtual. Se incluye un botón de descarga para descargar fácilmente todas las reglas de seguridad con independencia de la pestaña en un archivo CSV.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![vista de grupos de seguridad][1]
 
 Se pueden seleccionar las reglas y se abre una nueva hoja para mostrar el grupo de seguridad de red y los prefijos de origen y de destino. En esta hoja puede navegar directamente al recurso del grupo de seguridad de red.

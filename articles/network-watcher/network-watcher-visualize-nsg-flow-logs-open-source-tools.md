@@ -27,8 +27,6 @@ Los registros de flujo de grupo de seguridad de red proporcionan información qu
 
 El análisis y la extracción de información de forma manual de estos registros de flujo pueden resultar difíciles. Sin embargo, hay varias herramientas de código abierto que pueden ayudar a visualizar estos datos. En este artículo se proporciona una solución para visualizar estos registros mediante Elastic Stack, lo que le permitirá indexar y visualizar rápidamente el flujo de registros en un panel de Kibana.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Escenario
 
 En este artículo, se configurará una solución que le permitirá visualizar registros de flujo de grupo de seguridad de red con Elastic Stack.  Un complemento de entrada de Logstash obtendrá los registros de flujo directamente del blob de almacenamiento configurado como contenedor de los registros de flujo. A continuación, con Elastic Stack, se indexarán los registros de flujo y se usarán para crear un panel de Kibana para visualizar la información.

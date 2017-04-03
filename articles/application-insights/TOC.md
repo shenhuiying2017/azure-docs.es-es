@@ -111,7 +111,7 @@
 ### [Administración de cuotas y precios](app-insights-pricing.md)
 ### [Supervisión del rendimiento de la aplicación con Application Insights para SCOM](app-insights-scom.md)
 
-##Exportación
+## Exportación
 ### [Exportación continua](app-insights-export-telemetry.md)
 ### [Modelo de exportación de datos](app-insights-export-data-model.md)
 ### [Exportación a Power BI](app-insights-export-power-bi.md)
@@ -159,10 +159,5 @@
 ### [Soporte técnico](app-insights-get-dev-support.md)
 
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

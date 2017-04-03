@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: d11f023f263b0bb504e2ecb0ff69bb0cc726618b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -104,10 +105,5 @@ Hay muchas opciones dependiendo de qué lenguajes y entornos de desarrollo o her
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificación del escenario de análisis avanzado
 Cuando haya respondido a las preguntas de la sección anterior, estará listo para determinar qué escenario se adapta mejor a su caso. Los escenarios de ejemplo que se describen en [Escenarios para análisis avanzado en Aprendizaje automático de Azure](machine-learning-data-science-plan-sample-scenarios.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
