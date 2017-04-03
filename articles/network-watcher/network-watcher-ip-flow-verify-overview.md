@@ -29,8 +29,6 @@ La comprobación de flujo de IP tiene como destino una interfaz de red de una m�
 
 Es necesario crear una instancia de Network Watcher en todas las regiones en las que planea ejecutar la comprobación de flujo de IP. Network Watcher es un servicio regional y solo se puede ejecutar con recursos de la misma región. Esto no afecta a los resultados de la comprobación de flujo de IP ya que, aun así, se devolverá la ruta asociada con la NIC.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![1][1]
 
 ## <a name="next-steps"></a>Pasos siguientes

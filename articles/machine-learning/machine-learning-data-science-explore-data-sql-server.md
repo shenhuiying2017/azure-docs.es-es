@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1654c100c1c57b04a61cf2b9d2cf37d58cec1870
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,7 +33,7 @@ El siguiente **menú** vincula a temas que describen cómo usar herramientas par
 > 
 > 
 
-## <a name="a-namesql-dataexplorationaexplore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Exploración de los datos de SQL con scripts de SQL
+## <a name="sql-dataexploration"></a>Exploración de los datos de SQL con scripts de SQL
 A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar para explorar los almacenes de datos en SQL Server.
 
 1. Obtener el número de observaciones por día
@@ -53,7 +54,7 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
 > 
 > 
 
-## <a name="a-namepythonaexplore-sql-data-with-python"></a><a name="python"></a>Exploración de los datos de SQL con Python
+## <a name="python"></a>Exploración de los datos de SQL con Python
 Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta en [Proceso de datos de Blob de Azure en su entorno de ciencia de datos](machine-learning-data-science-process-data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):
@@ -71,10 +72,5 @@ Ya puede trabajar con la trama de datos de Pandas como se explica en el artícul
 
 ## <a name="cortana-analytics-process-in-action-example"></a>Ejemplo de proceso de análisis de Cortana en acción
 Para ver un tutorial de ejemplo completo del proceso de Cortana Analytics usando un conjunto de datos público, consulte [Proceso de ciencia de datos en equipos en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

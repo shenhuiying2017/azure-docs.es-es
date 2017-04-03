@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
 ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -196,10 +197,5 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Lea el artículo [Diez cosas que puede hacer en Data Science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [Proceso de ciencia de los datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
 * Visite [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para ver ejemplos de aprendizaje automático y de análisis de datos usando Cortana Intelligence Suite. También hemos proporcionado un icono en el menú **Inicio** y en el escritorio de la máquina virtual para el acceso a esta galería.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

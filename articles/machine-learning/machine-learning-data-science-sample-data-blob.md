@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 7873ad084c9d77eea556ae3fec846bebd4c99ebd
+ms.lasthandoff: 12/20/2016
 
 
 ---
-# <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
+# <a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure descargándolos mediante programación y luego realizando un muestreo de los mismos con procedimientos escritos en Python.
 
 El siguiente **menú** está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. 
@@ -68,7 +69,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 
 Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del 1 por ciento, para la generación de características y exploración más a fondo.
 
-## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Carga de datos y lectura en Aprendizaje automático de Azure
+## <a name="heading"></a>Carga de datos y lectura en Aprendizaje automático de Azure
 Puede usar el ejemplo de código siguiente para muestrear los datos y usarlos directamente en Azure Machine Learning:
 
 1. Escribir la trama de datos en un archivo local
@@ -100,10 +101,5 @@ Puede usar el ejemplo de código siguiente para muestrear los datos y usarlos di
 3. Lea los datos del blob de Azure con el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) de Azure Machine Learning, como se muestra en la imagen siguiente:
 
 ![lector de blobs](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

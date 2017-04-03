@@ -37,8 +37,6 @@ ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encue
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Escenario
 
 Este escenario usa la Comprobación del flujo de IP para verificar si una máquina virtual puede comunicarse con otra a través del puerto 443. Si se deniega el tráfico, devuelve la regla de seguridad que está denegando ese tráfico. Para más información sobre la Comprobación del flujo de IP, vea [Introducción a la comprobación del flujo de IP](network-watcher-ip-flow-verify-overview.md).

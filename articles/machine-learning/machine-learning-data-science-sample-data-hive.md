@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 0f3264abf6216270aa9cdd62ce3acf8640e2375a
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -39,7 +40,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 ## <a name="how-to-submit-hive-queries"></a>Cómo enviar consultas de Hive
 Las consultas de subárbol se pueden enviar desde la consola de línea de comandos de Hadoop del nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](machine-learning-data-science-move-hive-tables.md#submit).
 
-## <a name="a-nameuniforma-uniform-random-sampling"></a><a name="uniform"></a> Muestra aleatoria uniforme
+## <a name="uniform"></a> Muestra aleatoria uniforme
 El muestreo aleatorio uniforme implica que cada fila del conjunto de datos tiene la misma probabilidad de muestreo. Esto se puede implementar añadiendo un campo adicional de rand() al conjunto de datos en la consulta "select" interna, y en la consulta "select" externa esa condición en ese campo aleatorio.
 
 Aquí se muestra una consulta de ejemplo:
@@ -57,7 +58,7 @@ Aquí se muestra una consulta de ejemplo:
 
 En este caso, `<sample rate, 0-1>` especifica la proporción de registros que los usuarios quieren usar como muestra.
 
-## <a name="a-namegroupa-random-sampling-by-groups"></a><a name="group"></a> Muestreo aleatorio por grupos
+## <a name="group"></a> Muestreo aleatorio por grupos
 Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor concreto de una variable de categoría. Esto es lo que significa "muestreo por grupos".
 Por ejemplo, si tiene una variable de categoría "Estado", que tiene como valores NY, MA, CA, NJ, PA, etc., querrá que los registros de un mismo estado estén siempre juntos, ya están muestreados o no.
 
@@ -87,7 +88,7 @@ Aquí se muestra una consulta de ejemplo que realiza un muestreo por grupo:
         )c
     on b.catfield=c.catfield
 
-## <a name="a-namestratifiedastratified-sampling"></a><a name="stratified"></a>Muestreo estratificado
+## <a name="stratified"></a>Muestreo estratificado
 El muestreo aleatorio se estratifica con respecto a una variable de categoría cuando las muestras obtenidas tienen valores de esa categoría que se encuentran en la misma proporción que en la población original de la que se obtuvieron las muestras. En el mismo ejemplo que el anterior, suponga que los datos tienen subpoblaciones según los estados; por ejemplo, NJ tiene 100 observaciones, NY tiene 60 observaciones y WA tiene 300 observaciones. Si especifica que la tasa de muestreo estratificado sea 0,5, la muestra obtenida debería tener aproximadamente 50, 30 y 150 observaciones de NJ, NY y WA, respectivamente.
 
 Aquí se muestra una consulta de ejemplo:
@@ -107,10 +108,5 @@ Aquí se muestra una consulta de ejemplo:
 
 
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [Manual de lenguaje: muestreo](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

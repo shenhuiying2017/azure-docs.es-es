@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
 ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -41,7 +42,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 > 
 > 
 
-## <a name="a-namesmalllocalascenario-1-small-to-medium-tabular-dataset-in-a-local-files"></a><a name="smalllocal"></a>Escenario \#1: Conjunto de datos tabular de tamaño pequeño a medio de archivos locales
+## <a name="smalllocal"></a>Escenario \#1: Conjunto de datos tabular de tamaño pequeño a medio de archivos locales
 ![Archivos locales de tamaño pequeño a medio][1]
 
 #### <a name="additional-azure-resources-none"></a>Recursos adicionales de Azure: ninguno
@@ -49,7 +50,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 2. Cargue un conjunto de datos.
 3. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos cargados.
 
-## <a name="a-namesmalllocalprocessascenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Escenario \#2: Conjunto de datos de tamaño pequeño a medio de archivos locales que requieren procesamiento
+## <a name="smalllocalprocess"></a>Escenario \#2: Conjunto de datos de tamaño pequeño a medio de archivos locales que requieren procesamiento
 ![Archivos locales de tamaño pequeño a medio con procesamiento][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (servidor IPython Notebook)
@@ -62,7 +63,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 7. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 8. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos introducidos.
 
-## <a name="a-namelargelocalascenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Escenario \#3: Conjunto de datos grande de archivos locales, con blobs de Azure como destino
+## <a name="largelocal"></a>Escenario \#3: Conjunto de datos grande de archivos locales, con blobs de Azure como destino
 ![Archivos locales grandes][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (servidor IPython Notebook)
@@ -77,7 +78,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 9. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 10. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos ingeridos.
 
-## <a name="a-namesmalllocaltodbascenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Escenario \#4: Conjunto de datos de tamaño pequeño a medio de archivos locales, con SQL Server en una máquina virtual de Azure como destino
+## <a name="smalllocaltodb"></a>Escenario \#4: Conjunto de datos de tamaño pequeño a medio de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Archivos locales de tamaño pequeño a medio a Base de datos SQL de Azure][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
@@ -107,7 +108,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 10. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 11. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos ingeridos.
 
-## <a name="a-namelargelocaltodbascenario-5-large-dataset-in-a-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Escenario \#5: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
+## <a name="largelocaltodb"></a>Escenario \#5: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Archivos locales grandes a Base de datos SQL de Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
@@ -148,7 +149,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 8. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 9. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados
 
-## <a name="a-namelargedbtodbascenario-6-large-dataset-in-a-sql-server-database-on-prem-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
+## <a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Base de datos SQL local a Base be datos SQL de Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
@@ -196,7 +197,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 
 [Mover una base de datos mediante las opciones desasociación y asociación (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="a-namelargedbtohiveascenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Escenario \#7: Big Data de archivos locales, con base de datos de Hive como destino en clústeres de Hadoop de Azure HDInsight
+## <a name="largedbtohive"></a>Escenario \#7: Big Data de archivos locales, con base de datos de Hive como destino en clústeres de Hadoop de Azure HDInsight
 ![Datos de gran tamaño en Hive de destino local][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Clúster de Hadoop de HDInsight de Azure y máquina virtual de Azure (servidor IPython Notebook)
@@ -240,7 +241,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 9. Lea los datos directamente desde `Hive Queries` mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 10. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
-## <a name="a-namedecisiontreeadecision-tree-for-scenario-selection"></a><a name="decisiontree"></a>Árbol de decisión de selección de escenario
+## <a name="decisiontree"></a>Árbol de decisión de selección de escenario
 - - -
 El diagrama siguiente resume los escenarios descritos anteriormente y las opciones de la Tecnología y procesos de análisis avanzado elegidas que le guiarán a través de los escenarios detallados. Tenga en cuenta que el procesamiento de datos, la exploración, la ingeniería de características y el muestreo pueden tener lugar en uno o varios métodos o entornos (en los entornos de origen, intermedio o de destino) y pueden continuar de forma iterativa según sea necesario. El diagrama solo sirve para ilustrar algunos de los flujos de posibles y no proporciona una enumeración exhaustiva.
 
@@ -265,9 +266,4 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;deguhath
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 99f12dc1ea65d4b9be3249ea5d5c7452f5a8d72e
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -1107,10 +1108,5 @@ Para ver una introducción de los temas que lo guiarán por las tareas que compo
 [Tutoriales del proceso de ciencia de datos en equipos](data-science-process-walkthroughs.md) describe otros tutoriales de extremo a extremo que muestran los pasos en el proceso de ciencia de datos de equipo en escenarios específicos. En los tutoriales también se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.
 
 [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md) muestra cómo utilizar código de Scala para cargar y puntuar automáticamente nuevos conjuntos de datos con modelos de aprendizaje automático creados en Spark y guardarlos en Almacenamiento de blobs de Azure. Se pueden seguir las instrucciones de ese artículo y, simplemente, reemplazar el código de Python por el de Scala que se indica aquí para permitir el uso automatizado.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

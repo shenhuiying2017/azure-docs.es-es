@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -60,7 +61,7 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
 
 Ya puede explorar los datos y generar características en este conjunto de datos.
 
-## <a name="a-nameblob-dataexplorationaexamples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Ejemplos de exploración de datos con Pandas
+## <a name="blob-dataexploration"></a>Ejemplos de exploración de datos con Pandas
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
 1. Inspeccionar el **número de filas y columnas** 
@@ -104,10 +105,5 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
    
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

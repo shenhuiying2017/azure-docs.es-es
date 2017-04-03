@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
 ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -88,10 +89,5 @@ Para transferir blobs de un contenedor de Azure a otro, use el siguiente comando
 > 3. No se puede especificar un **archivo de blob específico** para descargar mediante el parámetro */Source* . Para descargar un archivo específico, especifique el nombre del archivo blob que se va a descargar mediante el parámetro */Pattern* . **/S** se puede usar para que AzCopy busque de forma recursiva un patrón de nombre de archivo. Sin el parámetro de patrón, AzCopy descargará todos los archivos en ese directorio.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

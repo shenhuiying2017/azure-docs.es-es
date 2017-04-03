@@ -25,8 +25,6 @@ ms.lasthandoff: 03/04/2017
 
 Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de estas puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace de red virtual y las conexiones. Se puede llamar a este servicio mediante PowerShell, la CLI o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace de red virtual o la conexión y devuelve los resultados pertinentes. Esta solicitud es una transacción de larga duración; los resultados se devuelven cuando se completa el diagnóstico.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="results"></a>Results
 
 Los resultados preliminares devueltos proporcionan una perspectiva general del estado del recurso. Se puede proporcionar información más detallada para recursos, tal como se muestra en la sección siguiente:

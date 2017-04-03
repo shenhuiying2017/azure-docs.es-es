@@ -34,8 +34,6 @@ Con Network Watcher, la característica de alertas y Functions del ecosistema de
 En este ejemplo, la máquina virtual está enviando más segmentos TCP de lo habitual, y le gustaría recibir alertas al respecto. Los segmentos TCP se usan como ejemplo, pero podría usar cualquier condición de alerta. Al recibir una alerta, quiere tener datos de nivel de paquete para comprender por qué la comunicación ha aumentado y así poder realizar los pasos para devolver la máquina a la comunicación normal.
 En este escenario se supone que tiene una instancia existente de Network Watcher y que se va a usar un grupo de recursos con una máquina virtual válida.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Escenario
 
 Para automatizar este proceso, crearemos y conectaremos una alerta en nuestra máquina virtual para que se active cuando se produzca el incidente y una función de Azure para llamar en Network Watcher.

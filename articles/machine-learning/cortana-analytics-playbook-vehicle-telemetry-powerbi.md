@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -419,10 +420,5 @@ Página 6: Logotipo de Contoso
 ![Telemetría del vehículo - Organizar panel 2](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 ¡Enhorabuena! Ha creado correctamente los informes y el panel para obtener información predictiva y por lotes en tiempo real sobre los hábitos de mantenimiento y conducción.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

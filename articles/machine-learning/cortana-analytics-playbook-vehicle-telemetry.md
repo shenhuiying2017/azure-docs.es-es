@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 3467c5549381f1354987fead424646afe847739c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -57,10 +58,5 @@ Esta solución tiene acceso a dos **orígenes de datos**diferentes:
 
 * **Diagnósticos y señales de vehículos simuladas**: un simulador telemático de vehículo emite información de diagnóstico y señales que se corresponden con el estado del vehículo y el patrón de conducción en un momento determinado. 
 * **Catálogo de vehículo**: un conjunto de datos de referencia que contiene una asignación de número de identificación del vehículo a modelo.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
