@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/31/2017
 ms.author: haining;garye
 translationtype: Human Translation
 ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
 ms.openlocfilehash: 106efcd5580f91d6d1ed926b19c142d8ea0b0c7c
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -113,10 +114,5 @@ Actualmente, la plataforma de la competición solo admite las entradas enviadas 
 **¿Se conservan las entradas o soluciones de las competiciones de los usuarios?**
 
 Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
