@@ -9,16 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ El siguiente procedimiento usa una plantilla de Azure Resource Manager para crea
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Creación de tablas e inserción de datos
-Puede usar SSH para conectarse a los clústeres de HBase y, después, usar el Shell de HBase para crear tablas de HBase e insertar y consultar datos. Para más información sobre el uso de SSH, consulte [Usar SSH con Hadoop basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) y [Usar SSH con Hadoop basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+Puede usar SSH para conectarse a los clústeres de HBase y, después, usar el Shell de HBase para crear tablas de HBase e insertar y consultar datos. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Para la mayoría de las personas, los datos aparecen en formato tabular:
 
@@ -223,6 +224,11 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
         -v
 
 Para más información sobre Rest de HBase, consulte la [guía de referencia de Apache HBase](https://hbase.apache.org/book.html#_rest).
+
+>
+> [!NOTE]
+> Thrift no es compatible con HBase en HDInsight.
+>
 
 ## <a name="check-cluster-status"></a>Comprobar el estado del clúster
 HBase en HDInsight se incluye con una interfaz de usuario web para la supervisión de clústeres. Mediante la interfaz de usuario web, puede solicitar estadísticas o información acerca de las regiones.

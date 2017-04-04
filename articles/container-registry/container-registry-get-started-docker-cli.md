@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: dlepow
+editor: cristyg
 tags: 
 keywords: 
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
@@ -18,21 +18,17 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
-ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: b6c26f28aa1e574ba3aabe53eda359cb6bf2edcc
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
-Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de [Docker](http://hub.docker.com), de una forma similar a la que [Docker Hub](https://hub.docker.com/) almacena imágenes públicas. Use la [interfaz de la línea de comandos de Docker](https://docs.docker.com/engine/reference/commandline/cli/) (CLI de Docker) para [iniciar sesión](https://docs.docker.com/engine/reference/commandline/login/), [insertar](https://docs.docker.com/engine/reference/commandline/push/), [extraer](https://docs.docker.com/engine/reference/commandline/pull/) y realizar otras operaciones en el registro de contenedor. 
+Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de [Docker](http://hub.docker.com), de una forma similar a la que [Docker Hub](https://hub.docker.com/) almacena imágenes públicas. Use la [interfaz de la línea de comandos de Docker](https://docs.docker.com/engine/reference/commandline/cli/) (CLI de Docker) para [iniciar sesión](https://docs.docker.com/engine/reference/commandline/login/), [insertar](https://docs.docker.com/engine/reference/commandline/push/), [extraer](https://docs.docker.com/engine/reference/commandline/pull/) y realizar otras operaciones en el registro de contenedor.
 
 Para más información sobre el entorno y los conceptos, consulte [la información general](container-registry-intro.md)
 
 
-> [!NOTE]
-> Container Registry está actualmente en vista previa.
-> 
-> 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure 2.0](container-registry-get-started-azure-cli.md).
@@ -41,17 +37,17 @@ Para más información sobre el entorno y los conceptos, consulte [la informaci�
 ## <a name="log-in-to-a-registry"></a>Inicio de sesión en un registro
 Ejecute `docker login` para iniciar sesión en el registro de contenedor con sus [credenciales de registro](container-registry-authentication.md).
 
-En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/active-directory-application-objects.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. 
+En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/active-directory-application-objects.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización.
 
 ```
-docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 > [!TIP]
-> Asegúrese de especificar el nombre completo del registro (todo en minúsculas). En este ejemplo, es `myregistry-contoso.azurecr.io`.
+> Asegúrese de especificar el nombre completo del registro (todo en minúsculas). En este ejemplo, es `myregistry.azurecr.io`.
 
 ## <a name="steps-to-pull-and-push-an-image"></a>Pasos para extraer e insertar una imagen
-En el ejemplo siguiente se descarga una imagen de Nginx desde el registro público de Docker Hub, se le asigna una etiqueta para el registro de contenedor de Azure privado, se le inserta en el registro y luego se extrae de nuevo.
+En el ejemplo siguiente se descarga la imagen de Nginx desde el registro público de Docker Hub, se le asigna una etiqueta para el registro de contenedor de Azure privado, se le inserta en el registro y luego se extrae de nuevo.
 
 **1. Extraiga la imagen oficial de Docker para Nginx**
 
@@ -62,7 +58,7 @@ docker pull nginx
 ```
 **2. Inicie el contenedor de Nginx**
 
-El comando siguiente inicia el contenedor local de Nginx de forma interactiva (para que pueda ver la salida de Nginx) y escucha en el puerto 8080. Quita el contenedor en ejecución una vez detenido.
+El comando siguiente inicia el contenedor local de Nginx de forma interactiva en el puerto 8080, permitiéndole ver la salida de Nginx. Quita el contenedor en ejecución una vez detenido.
 
 ```
 docker run -it --rm -p 8080:80 nginx
@@ -79,42 +75,45 @@ Para detener el contenedor en ejecución, pulse [CTRL] + [C].
 El siguiente comando crea un alias de la imagen, con una ruta de acceso completa al registro. Este ejemplo especifica el espacio de nombres `samples` para evitar el desorden en la raíz del registro.
 
 ```
-docker tag nginx myregistry-exp.azurecr.io/samples/nginx
+docker tag nginx myregistry.azurecr.io/samples/nginx
 ```  
 
 **4. Inserte la imagen en el registro**
 
 ```
-docker push myregistry-contoso.azurecr.io/samples/nginx
-``` 
+docker push myregistry.azurecr.io/samples/nginx
+```
 
 **5. Extraiga la imagen del registro**
 
 ```
-docker pull myregistry-contoso.azurecr.io/samples/nginx
-``` 
+docker pull myregistry.azurecr.io/samples/nginx
+```
 
 **6. Inicie el contenedor de Nginx del registro**
 
 ```
-docker run -it --rm -p 8080:80 myregistry-exp.azurecr.io/samples/nginx
+docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
 Vaya a [http://localhost:8080](http://localhost:8080) para ver el contenedor en ejecución.
 
 Para detener el contenedor en ejecución, pulse [CTRL] + [C].
 
-**6. Quite la imagen**
+**7. (Opcional) Quite la imagen**
 
 ```
-docker rmi myregistry-contoso.azurecr.io/samples/nginx
+docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
+##<a name="concurrent-limits"></a>Límites simultáneos
+En algunos escenarios, la ejecución de llamadas de forma simultánea podría producir errores. La tabla siguiente contiene los límites de llamadas simultáneas con las operaciones "Insertar" y "Extraer" en el registro de contenedor de Azure:
 
+| Operación  | Límite                                  |
+| ---------- | -------------------------------------- |
+| EXTRAER       | Hasta 10 extracciones simultáneas por registro |
+| INSERTAR       | Hasta 5 inserciones simultáneas por registro |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos, ya está listo para empezar a usar el registro. Por ejemplo, empiece por implementar imágenes del contenedor en un clúster de [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/).
-
-
-
 

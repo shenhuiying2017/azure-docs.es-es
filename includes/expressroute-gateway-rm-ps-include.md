@@ -33,7 +33,7 @@ Lista de referencia de configuración:
 3. Almacene el objeto de red virtual como una variable.
    
         $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-4. Agregue una subred de puerta de enlace a su red virtual. A la subred de puerta de enlace debe asignarle el nombre "GatewaySubnet". Se recomienda que cree una puerta de enlace con un valor /27 o mayor (/26, /25, etc.).
+4. Agregue una subred de puerta de enlace a su red virtual. A la subred de puerta de enlace debe asignarle el nombre "GatewaySubnet". Se recomienda que cree una subred de puerta de enlace con un valor /27 o mayor (/26, /25, etc.).
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 5. Establezca la configuración.
@@ -72,8 +72,3 @@ Hay varias [SKU de puerta de enlace](../articles/expressroute/expressroute-about
 Utilice el siguiente comando para quitar una puerta de enlace.
 
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
-
-
-<!--HONumber=Nov16_HO3-->
-
-

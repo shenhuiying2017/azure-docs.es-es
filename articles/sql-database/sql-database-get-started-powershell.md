@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell: creación de instancias únicas de SQL Database | Microsoft Docs"
+title: "Azure PowerShell: Creación de una instancia de SQL Database | Microsoft Docs"
 description: "Aprenda a crear un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y bases de datos en Azure Portal."
 keywords: "tutorial de base de datos SQL, creación de una base de datos SQL"
 services: sql-database
@@ -17,21 +17,21 @@ ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fe527f7de573b87fbc644cb6d71ae13816bc284b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 70cf89a5832aee2d0c303e0d40e104d84837b50c
+ms.lasthandoff: 03/25/2017
 
 ---
 
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Creación de una sola instancia de Azure SQL Database con PowerShell
 
-PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla el uso de PowerShell para implementar una instancia de Azure SQL Database en un grupo de recursos de Azure de un servidor lógico de SQL Database.
+PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla el uso de PowerShell para implementar una instancia de Azure SQL Database en un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md), en un [servidor lógico de Azure SQL Database](sql-database-features.md).
 
-Antes de empezar, asegúrese de tener instalada la versión más reciente de PowerShell. Se ha instalado la CLI de Azure. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+Antes de empezar, asegúrese de tener instalada la versión más reciente de PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-Inicie sesión en la suscripción de Azure con el comando [Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando [Add-AzureRmAccount](https://docs.microsoft.com/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) y siga las instrucciones de la pantalla.
 
 ```powershell
 Add-AzureRmAccount
@@ -39,14 +39,14 @@ Add-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con el comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
 ## <a name="create-a-logical-server"></a>un servidor lógico
 
-Cree un servidor lógico de SQL Database con el comando [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). En el ejemplo siguiente se crea un servidor denominado aleatoriamente en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
+Cree un [servidor lógico de Azure SQL Database](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) con el comando [New-AzureRmSqlServer](sql-database-features.md). Un servidor lógico contiene un conjunto de bases de datos administradas como un grupo. En el ejemplo siguiente se crea un servidor con nombre aleatorio en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
 
 ```powershell
 $servername = "server-$(Get-Random)"
@@ -58,7 +58,7 @@ New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configuración de una regla de firewall del servidor
 
-Para crear una regla de firewall de nivel de servidor de SQL Database, ejecute el comando [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD conectarse a una instancia de SQL Database a través del firewall del servicio de SQL Database. En el ejemplo siguiente se crea una regla de firewall para un intervalo de direcciones predefinidas que, en este ejemplo, es todo el intervalo de direcciones IP posible. Cambie estos valores predefinidos por los valores de su dirección IP o intervalo de direcciones IP externas. 
+Para crear una [regla de firewall de nivel de servidor de Azure SQL Database](sql-database-firewall-configure.md), ejecute el comando [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD conectarse a una instancia de SQL Database a través del firewall del servicio de SQL Database. En el ejemplo siguiente se crea una regla de firewall para un intervalo de direcciones predefinidas que, en este ejemplo, es todo el intervalo de direcciones IP posible. Cambie estos valores predefinidos por los valores de su dirección IP o intervalo de direcciones IP externas. 
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
@@ -68,7 +68,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-blank-database"></a>Crear una base de datos en blanco
 
-Cree una instancia de SQL Database en blanco con un nivel de rendimiento S0 en el servidor con el comando [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). En el ejemplo siguiente se crea una base de datos denominada `mySampleDatabase`. Cambie este valor predefinido por el que prefiera.
+Cree una instancia de SQL Database vacía con un [nivel de rendimiento S0](sql-database-service-tiers.md) en el servidor con el comando [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). En el ejemplo siguiente se crea una base de datos denominada `mySampleDatabase`. Cambie este valor predefinido por el que prefiera.
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
@@ -79,7 +79,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar todos los recursos creados por este tutorial de inicio rápido, ejecute el siguiente comando:
+Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no va a continuar, use este comando para eliminar todos los recursos creados mediante esta guía de inicio rápido.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"

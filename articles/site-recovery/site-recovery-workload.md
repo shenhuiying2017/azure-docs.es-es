@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -130,6 +130,19 @@ Use Site Recovery para proteger una implementación de SAP como se indica a cont
 * Simplifique el desarrollo y las pruebas de SAP mediante la creación de una copia de producción a petición para probar y depurar aplicaciones.
 
 [Más información](http://aka.ms/asr-sap) sobre cómo proteger SAP.
+
+## <a name="protect-iis"></a>Protección de IIS
+Use Site Recovery para proteger una implementación de IIS como se indica a continuación:
+
+Azure Site Recovery proporciona la función de recuperación ante desastres mediante la replicación de los componentes críticos de su entorno en un sitio remoto inactivo o en una nube pública, como Microsoft Azure. Dado que la máquina virtual con el servidor web y la base de datos se replica en el sitio de recuperación, no es preciso realizar copias de seguridad de los archivos de configuración o de los certificados por separado. Los enlaces y las asignaciones de las aplicaciones que dependen de las variables de entorno que se cambian después de la conmutación por error se pueden actualizar a través de los scripts integrados en los planes de la recuperación ante desastres. Las máquinas virtuales solo se muestran en el sitio de recuperación en caso de conmutación por error. Y no solo esto, Azure Site Recovery también le ayuda a orquestar la conmutación por error de un extremo a otro a través de las siguientes funcionalidades:
+
+-    Secuenciación del apagado e inicio de las máquinas virtuales en los distintos niveles.
+-    Incorporación de scripts que permiten la actualización de las dependencias y los enlaces de las aplicaciones después de que se hayan iniciado. Los scripts también se pueden utilizar para actualizar el servidor DNS para que apunte al sitio de recuperación.
+-    Asignación de direcciones IP a máquinas virtuales antes de la conmutación por error mediante la asignación de las redes principal y de recuperación y, por consiguiente, el uso de scripts que no es preciso actualizarlos después de la conmutación por error.
+-    Funcionalidad de conmutación por error con un solo clic para varias aplicaciones web en los servidores web, con lo que se elimina el alcance de una confusión en caso de desastre.
+-    Funcionalidad de probar los planes de recuperación en un entorno aislado en los simulacros de recuperación ante desastres.
+
+[Más información](https://aka.ms/asr-iis) acerca de cómo una granja de servidores web de IIS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Comprobación de los requisitos previos](site-recovery-prereq.md) 

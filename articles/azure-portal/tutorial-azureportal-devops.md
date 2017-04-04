@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -62,10 +63,10 @@ Con el [Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/
 9. Una vez elegido el proyecto y la rama, haga clic en Aceptar. Debería empezar a ver las notificaciones de una implementación.
    
    ![imagen9][image9]
-10. Vaya a Github para ver el webhook que se creó para integrar el repositorio de control de origen con Azure. El Portal de Azure permite la integración con Github con solo unos pocos pasos sencillos.
+10. Vuelva a GitHub para ver el webhook que se creó para integrar el repositorio de control de origen con Azure. Azure Portal permite la integración con GitHub con unos pocos pasos sencillos.
     
     ![imagen10][image10]
-11. Para demostrar la implementación continua, puede agregar rápidamente algún contenido al repositorio. Para ver un ejemplo simple, agregue un archivo de texto de ejemplo en un repositorio de Github. Puede usar .NET, Ruby, Python o algún otro tipo de aplicación con el Servicio de aplicaciones. Puede agregar un archivo de texto o una aplicación de ASP.NET MVC, Java o Ruby en el repositorio que elija.
+11. Para demostrar la implementación continua, puede agregar rápidamente algún contenido al repositorio. Para ver un ejemplo simple, agregue un archivo de texto de ejemplo a un repositorio de GitHub. Puede usar .NET, Ruby, Python o algún otro tipo de aplicación con el Servicio de aplicaciones. Puede agregar un archivo de texto o una aplicación de ASP.NET MVC, Java o Ruby en el repositorio que elija.
     
     ![imagen11][image11]
 12. Después de confirmar los cambios en el repositorio, verá que una nueva implementación se inicia en el área de notificaciones del Portal. Si no ve los cambios rápidamente después de confirmar en el repositorio, haga clic en Sincronizar.
@@ -334,9 +335,4 @@ En este tutorial se muestra parte de la capacidad de la plataforma Azure al habi
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
