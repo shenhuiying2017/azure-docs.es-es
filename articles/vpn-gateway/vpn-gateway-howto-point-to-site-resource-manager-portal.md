@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5627cd7370ce6d9503b4c98b15a19592b8f228de
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c3fd647fdd21f6978e4d631ca9b10429e963cd05
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -81,6 +81,9 @@ Las capturas de pantalla de esta sección se proporcionan como ejemplo de refere
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>Parte 4: Especificación de un servidor DNS (opcional)
+
+No se requiere la DNS para una conexión de punto a sitio. Sin embargo, si desea tener resolución de nombres para los recursos que se implementan en su red virtual, debe especificar un servidor DNS. Esta configuración le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual. No crea un servidor DNS.
+
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="creategw"></a>Parte 5: Creación de una puerta de enlace de red virtual
@@ -94,7 +97,7 @@ Las conexiones de punto a sitio requieren la siguiente configuración:
 
 ## <a name="generatecert"></a>Parte 6: Generación de certificados
 
-Azure usa los certificados para autenticar a los clientes de VPN para las VPN de punto a sitio. Después de crear el certificado raíz, exporte los datos (no la clave privada) del certificado público en forma de archivo X.509 .cer codificado en Base&64;. Después, cargue los datos del certificado público del certificado raíz en Azure.
+Azure usa los certificados para autenticar a los clientes de VPN para las VPN de punto a sitio. Después de crear el certificado raíz, exporte los datos (no la clave privada) del certificado público en forma de archivo X.509 .cer codificado en Base 64. Después, cargue los datos del certificado público del certificado raíz en Azure.
 
 Todos los equipos cliente que se conecten a una red virtual mediante una conexión de punto a sitio debe tener instalado un certificado de cliente. El certificado de cliente se genera a partir del certificado raíz y se instala cada equipo cliente. Si no se ha instalado ningún certificado de cliente válido y el cliente intenta conectarse a la red virtual, la autenticación no se realiza.
 
@@ -116,11 +119,11 @@ Si no usa una solución de certificación de empresa, será preciso que cree un 
 
 #### <a name="to-export-the-public-key-for-a-self-signed-root-certificate"></a>Para exportar la clave pública para un certificado raíz autofirmado
 
-Para cargarse en Azure, las conexiones de punto a sitio requieren la clave pública (.cer). Los siguientes pasos le ayudan a exportar el archivo .cer de un certificado raíz autofirmado.
+Para cargarse en Azure, las conexiones de punto a sitio requieren la clave pública (.cer). Los pasos siguientes ayudan a exportar el archivo .cer para el certificado raíz autofirmado.
 
 1. Para obtener un archivo .cer del certificado, abra **certmgr.msc**. Busque el certificado raíz autofirmado; normalmente se encuentra en Certificados - Usuario actual\Personal\Certificados y haga clic en el botón derecho. Haga clic en **Todas las tareas** y, luego, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base&64; (.CER)** y, luego, haga clic en **Siguiente**. 
+3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base 64 (.CER)** y, luego, haga clic en **Siguiente**. 
 4. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
 5. Haga clic en **Finalizar** para exportar el certificado. Verá **La exportación se realizó correctamente**. Haga clic en **Aceptar** para cerrar el asistente.
 
@@ -140,7 +143,7 @@ Si genera un certificado de cliente desde un certificado raíz autofirmado media
 
 1. Para exportar un certificado de cliente, abra **certmgr.msc**. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**. Se abre el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y, luego, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación** , puede dejar seleccionados los valores predeterminados. A continuación, haga clic en **Siguiente**. 
+3. En la página **Formato de archivo de exportación**, deje seleccionados los valores predeterminados. Asegúrese de que **Incluir todos los certificados en la ruta de certificación si es posible** esté seleccionada. A continuación, haga clic en **Siguiente**. 
 4. En la página **Seguridad** , debe proteger la clave privada. Si decide usar una contraseña, asegúrese de anotarla o de recordar la contraseña que estableció para este certificado. A continuación, haga clic en **Siguiente**.
 5. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
 6. Haga clic en **Finalizar** para exportar el certificado.   
@@ -157,7 +160,7 @@ Si genera un certificado de cliente desde un certificado raíz autofirmado media
 Una vez creada la puerta de enlace, puede cargar el archivo .cer para un certificado raíz de confianza en Azure. Se pueden cargar archivos para un máximo de 20 certificados raíz. No cargue la clave privada para el certificado raíz en Azure. Una vez que se carga el archivo .cer, Azure lo utiliza para autenticar a los clientes que se conectan a la red virtual.
 
 1. Los certificados se agregan en la hoja **Point-to-site configuration** (Configuración de punto a sitio) de la sección **Certificado raíz**.  
-2. Asegúrese de exportar el certificado raíz como archivo X.509 codificado base&64; (.cer). La exportación se debe realizar en este formato para poder abrir el certificado con un editor de texto.
+2. Asegúrese de exportar el certificado raíz como archivo X.509 codificado base 64 (.cer). La exportación se debe realizar en este formato para poder abrir el certificado con un editor de texto.
 3. Abra el certificado con un editor de texto como Bloc de notas. Copie solo la siguiente sección como una línea continua:
    
     ![Datos del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
@@ -186,10 +189,7 @@ Puede utilizar el mismo paquete de configuración de cliente VPN en todos los eq
     ![Descarga del cliente de VPN 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
 2. Seleccione el paquete correcto para el cliente y haga clic en **Descargar**. Guarde el archivo del paquete de configuración. Este se instalará en todos los equipos cliente que se conecten a la red virtual.
 
-    ![Descarga del cliente de VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/client.png)
-
-   * Para los clientes de 64 bits, seleccione **AMD64**.
-   * Para los clientes de 32 bits, seleccione **x86**.
+    ![Descarga del cliente de VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### <a name="step-2---install-the-client-configuration-package"></a>Parte 2: Instalación del paquete de configuración del cliente
 

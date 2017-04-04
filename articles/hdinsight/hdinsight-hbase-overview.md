@@ -10,16 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 8b1d057ab533e5665513b5b5969b48e18a3ae40c
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 45fb85f83570ed7d79e70dc6fb8f0fdabb7ea191
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -35,6 +36,11 @@ La implementación de HDInsight aprovecha la arquitectura de escala de HBase par
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>¿Cómo se administran los datos en HBase de HDInsight?
 En HBase, los datos pueden administrarse mediante los comandos `create`, `get`, `put` y `scan` del shell de HBase. Los datos se escriben en la base de datos mediante `put` y se leen con `get`. El comando de `scan` se usa para obtener datos de varias filas de una tabla. Los datos también se pueden administrar usando la API de C# de HBase, que proporciona una biblioteca de cliente en la parte superior de la API de REST de HBase. Asimismo, una base de datos de HBase se puede consultar usando Hive. Para obtener una introducción a estos modelos de programación, consulte [Introducción al uso de HBase con Hadoop en HDInsight][hbase-get-started]. También existen coprocesadores, que permiten el procesamiento de datos en los nodos que hospedan la base de datos.
+
+>
+> [!NOTE]
+> Thrift no es compatible con HBase en HDInsight.
+>
 
 ## <a name="scenarios-use-cases-for-hbase"></a>Escenarios: Casos de uso de HBase
 El caso de uso canónico para el que se creó BigTable y, por extensión, HBase, fue la búsqueda web. Los motores de búsqueda crean índices que asignan términos a las páginas web que los contienen. Sin embargo, hay muchos otros casos de uso a los que se adapta HBase, varios de los cuales se muestran en esta sección.

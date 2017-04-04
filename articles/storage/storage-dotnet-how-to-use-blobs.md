@@ -12,21 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 24b23c412ae4e092427b4e68b16df0369f9e9f0e
-ms.lasthandoff: 12/09/2016
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
+ms.lasthandoff: 03/28/2017
 
 ---
-
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Introducción al Almacenamiento de blobs de Azure mediante .NET
+
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Información general
 Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
 ### <a name="about-this-tutorial"></a>Acerca de este tutorial
@@ -34,7 +33,7 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 
 **Requisitos previos:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/)
 * [Biblioteca de cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * Una [cuenta de almacenamiento de Azure](storage-create-storage-account.md#create-a-storage-account)
@@ -50,8 +49,8 @@ Para ver ejemplos adicionales con el almacenamiento de blobs, consulte [Introduc
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Incorporación de declaraciones de espacio de nombres
-Agregue las siguientes instrucciones **using** en la parte superior del archivo `program.cs`:
+### <a name="add-using-directives"></a>Adición de directivas using
+Agregue las siguientes directivas **using** al principio del archivo `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -97,12 +96,12 @@ container.SetPermissions(
     new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 ```
 
-Cualquier usuario de Internet puede ver los blobs de los contenedores públicos, pero solo es posible modificarlos o eliminarlos si se dispone de la clave de acceso apropiada o una firma de acceso compartido.
+Cualquier usuario de Internet puede ver blobs de en contenedores públicos. Sin embargo, solo es posible modificarlos o eliminarlos si se dispone de la clave de acceso a la cuenta apropiada o una firma de acceso compartido.
 
 ## <a name="upload-a-blob-into-a-container"></a>Cargar un blob en un contenedor
 El almacenamiento de blobs de Azure admite blobs en bloques y en páginas.  En la mayoría de los casos, se recomienda usar blobs en bloques.
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream** . De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier secuencia de datos en ella llamando al método **UploadFromStream** . De este modo, se crea el blob si no existía anteriormente, o bien se sobrescribe si ya existía.
 
 En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
 
@@ -128,7 +127,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 ```
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
-Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, puede utilizar el método **ListBlobs** del contenedor para recuperar los blobs y los directorios que contiene. Para acceder a las numerosas propiedades y métodos de una lista **IListBlobItem** recuperada, debe convertir esta última en un objeto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**.  Si se desconoce el tipo, puede realizar una comprobación de tipo para determinar el formato al que se debe convertir.  En el código siguiente, se demuestra cómo recuperar el URI de cada elemento del contenedor _photos_ y proporcionarlo como salida:
+Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, puede utilizar el método **ListBlobs** del contenedor para recuperar los blobs y los directorios que contiene. Para acceder al gran número de propiedades y métodos de una lista **IListBlobItem** devuelta, debe convertirla en un objeto **CloudBlockBlob**, **CloudPageBlob** o **CloudBlobDirectory**. Si se desconoce el tipo, puede realizar una comprobación de tipo para determinar el formato al que se debe convertir. En el código siguiente, se demuestra cómo recuperar el URI de cada elemento del contenedor _photos_ y proporcionarlo como salida:
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -167,24 +166,28 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 }
 ```
 
-Como se mostró anteriormente, puede asignar nombre a los blobs incluyendo información de ruta de acceso. De este modo crea una estructura de directorios virtuales que puede organizar y recorrer tal como lo haría en un sistema de archivos tradicional. Tenga en cuenta que la estructura de directorios es solo virtual: los únicos recursos disponibles en el almacenamiento de blobs son contenedores y blobs. Sin embargo, la biblioteca de clientes de almacenamiento ofrece un objeto **CloudBlobDirectory** para hacer referencia a un directorio virtual y simplificar el proceso de trabajo con blobs organizados de este modo.
+Mediante la inclusión de la información de la ruta de acceso en los nombres de blobs se puede crear una estructura de directorios virtuales que puede organizar y recorrer, tal como lo haría en un sistema de archivos tradicional. La estructura de directorios es solo virtual (los únicos recursos disponibles en Blob Storage son contenedores y blobs). Sin embargo, la biblioteca de clientes de almacenamiento ofrece un objeto **CloudBlobDirectory** para hacer referencia a un directorio virtual y simplificar el proceso de trabajo con blobs organizados de este modo.
 
-Por ejemplo, observe el siguiente conjunto de blobs en bloques incluidos en un contenedor denominado _photos_:
+Por ejemplo, observe el siguiente conjunto de blobs en bloques incluidos en un contenedor denominado *photos*:
 
-    photo1.jpg
-    2010/architecture/description.txt
-    2010/architecture/photo3.jpg
-    2010/architecture/photo4.jpg
-    2011/architecture/photo5.jpg
-    2011/architecture/photo6.jpg
-    2011/architecture/description.txt
-    2011/photo7.jpg
+```
+photo1.jpg
+2010/architecture/description.txt
+2010/architecture/photo3.jpg
+2010/architecture/photo4.jpg
+2011/architecture/photo5.jpg
+2011/architecture/photo6.jpg
+2011/architecture/description.txt
+2011/photo7.jpg
+```
 
-Al llamar a **ListBlobs** en el contenedor _photos_ (como en el ejemplo anterior), se devuelve una lista jerárquica. Contiene objetos **CloudBlobDirectory** y **CloudBlockBlob** que representan, respectivamente, los directorios y los blobs del contenedor. El resultado tiene el siguiente aspecto:
+Al llamar a **ListBlobs** en el contenedor *photos* (como en el fragmento de código anterior), se devuelve una lista jerárquica. Contiene objetos **CloudBlobDirectory** y **CloudBlockBlob** que representan, respectivamente, los directorios y los blobs del contenedor. El resultado tiene el siguiente aspecto:
 
-    Directory: https://<accountname>.blob.core.windows.net/photos/2010/
-    Directory: https://<accountname>.blob.core.windows.net/photos/2011/
-    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
+Directory: https://<accountname>.blob.core.windows.net/photos/2010/
+Directory: https://<accountname>.blob.core.windows.net/photos/2011/
+Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
 
 También existe la opción de establecer el parámetro **UseFlatBlobListing** del método **ListBlobs** en **true**. En este caso, los blobs del contenedor se devuelven como objetos **CloudBlockBlob** . La llamada a **ListBlobs** para devolver una lista plana tiene el siguiente aspecto:
 
@@ -198,15 +201,16 @@ foreach (IListBlobItem item in container.ListBlobs(null, true))
 
 y el resultado tiene este aspecto:
 
-    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
-    Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
-    Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
-    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
-    Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
-    Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
-    Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
-    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
-
+```
+Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
+Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
+Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
+Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
+Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
+Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
+Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
+Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+```
 
 ## <a name="download-blobs"></a>Descargar blobs
 Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **DownloadToStream** . En el siguiente ejemplo, se usa el método **DownloadToStream** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar en un archivo local.
@@ -316,7 +320,7 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
 ```
 
 ## <a name="writing-to-an-append-blob"></a>Escritura en un blob en anexos
-Un blob en anexos es un nuevo tipo de blob, que se introdujo con la versión 5.x de la biblioteca de cliente de almacenamiento de Azure para. NET. Un blob en anexos se optimiza para las operaciones de anexado, como el registro. Como un blob en bloques, un blob en anexos se compone también de bloques, pero en el caso del blob en anexos cuando se agrega un nuevo bloque, siempre se anexa al final del blob. No se puede actualizar o eliminar un bloque existente en un blob en anexos. Los identificadores de bloque para un blob en anexos no está expuestos como lo están en el caso de los blobs en bloques.
+Un blob en anexos se optimiza para las operaciones de anexado, como el registro. Como un blob en bloques, un blob en anexos se compone también de bloques, pero en el caso del blob en anexos cuando se agrega un nuevo bloque, siempre se anexa al final del blob. No se puede actualizar o eliminar un bloque existente en un blob en anexos. Los identificadores de bloque para un blob en anexos no está expuestos como lo están en el caso de los blobs en bloques.
 
 Cada bloque en un blob en anexos puede tener un tamaño diferente, hasta un máximo de 4 MB y el blob puede incluir un máximo de 50.000 bloques. El tamaño máximo de un blob en anexos es, por tanto, ligeramente superior a 195 GB (4 MB X 50.000 bloques).
 
@@ -361,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Consulte [Descripción Blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
+Consulte [Descripción Blobs en bloques, en anexos y en páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
 
 ## <a name="managing-security-for-blobs"></a>Administración de la seguridad para blobs
 De forma predeterminada, Almacenamiento de Azure protege sus datos al limitar el acceso al propietario de la cuenta, quien está en posesión de las claves de acceso a ella. Cuando necesite compartir datos Blob en su cuenta de almacenamiento, es importante hacerlo sin poner en peligro la seguridad de las claves de acceso de la cuenta. Además, puede cifrar los datos Blob para cerciorarse de que es seguro pasar por la red y el Almacenamiento de Azure.
@@ -384,28 +388,17 @@ Almacenamiento de Azure admite el cifrado de datos Blob en el cliente y en el se
 Ahora que está familiarizado con los aspectos básicos del Almacenamiento de blobs, siga estos vínculos para obtener más información.
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de almacenamiento de Microsoft Azure
-* [Explorador de almacenamiento de Microsoft Azure (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Almacenamiento de Azure en Windows, OS X y Linux.
+* El [Explorador de Microsoft Azure Storage (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 
 ### <a name="blob-storage-samples"></a>Ejemplos de Almacenamiento de blobs
 * [Introducción a almacenamiento de blobs de Azure en .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### <a name="blob-storage-reference"></a>Referencia de Almacenamiento de blobs
-* [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
+* [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+* [Referencia de API de REST](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Guías conceptuales
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 * [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
 * [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-
-[Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
-[Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
-[Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
-[Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
-[Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 

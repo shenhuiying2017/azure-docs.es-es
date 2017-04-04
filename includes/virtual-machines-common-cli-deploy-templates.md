@@ -121,8 +121,8 @@ En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de A
 | MicrosoftSQLServer |WS2012R2 SQL2014 |Enterprise-Optimized-for-OLTP |12.0.2430 |
 | Canonical |UbuntuServer |12.04.5-LTS |12.04.201504230 |
 | Canonical |UbuntuServer |14.04.2-LTS |14.04.201503090 |
-| Microsoft Windows Server |Windows Server |Centro de datos de&2012; |3.0.201503 |
-| Microsoft Windows Server |Windows Server |Centro de datos de&2012;-R2 |4.0.201503 |
+| Microsoft Windows Server |Windows Server |Centro de datos de 2012 |3.0.201503 |
+| Microsoft Windows Server |Windows Server |Centro de datos de 2012-R2 |4.0.201503 |
 | Microsoft Windows Server |Windows Server |Windows-Server-Technical-Preview |5.0.201504 |
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
@@ -677,9 +677,9 @@ De nuevo, deberá buscar los valores que desee especificar para los parámetros 
 ### <a name="step-2-obtain-the-vhd"></a>Paso 2: Obtención del disco duro virtual
 Obviamente, necesitará un archivo .vhd para esto. Puede usar otro que ya creado en Azure, o puede cargar uno.
 
-Para una máquina virtual Windows, consulte [Creación y carga de un VHD de Windows Server en Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para una máquina virtual Windows, consulte [Creación y carga de un VHD de Windows Server en Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Para una máquina virtual Linux, consulte [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Para una máquina virtual Linux, consulte [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Paso 3: Creación de la máquina virtual con la plantilla
 Ahora ya puede crear una máquina virtual nueva basada en .vhd. Cree un grupo en el cual realizar la implementación a través de `azure group create <location>`:

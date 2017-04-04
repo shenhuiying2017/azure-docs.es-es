@@ -1,14 +1,14 @@
 
 
 
-Un conjunto de disponibilidad ayuda a mantener las máquinas virtuales disponibles durante períodos de inactividad, como por ejemplo mientras se realiza mantenimiento. Colocar dos o más máquinas virtuales similarmente configuradas en un conjunto de disponibilidad crea la redundancia necesaria para mantener la disponibilidad de las aplicaciones o servicios que ejecuta su máquina virtual. Para obtener información detallada acerca del funcionamiento, consulte [Administración de la disponibilidad de las máquinas virtuales][Administración de la disponibilidad de las máquinas virtuales].
+Un conjunto de disponibilidad ayuda a mantener las máquinas virtuales disponibles durante períodos de inactividad, como por ejemplo mientras se realiza mantenimiento. Colocar dos o más máquinas virtuales similarmente configuradas en un conjunto de disponibilidad crea la redundancia necesaria para mantener la disponibilidad de las aplicaciones o servicios que ejecuta su máquina virtual. Para obtener información detallada acerca de su funcionamiento, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure][Manage the availability of virtual machines].
 
-Es una buena práctica usar una combinación de conjuntos de disponibilidad y extremos de equilibrio de carga para ayudar a asegurar de que su aplicación está siempre disponible y ejecutándose de forma eficaz. Para obtener información acerca de los puntos de conexión con equilibrio de carga, consulte [Equilibrio de carga para servicios de infraestructura de Azure][Equilibrio de carga para servicios de infraestructura de Azure].
+Es una buena práctica usar una combinación de conjuntos de disponibilidad y extremos de equilibrio de carga para ayudar a asegurar de que su aplicación está siempre disponible y ejecutándose de forma eficaz. Para obtener información detallada acerca de los puntos de conexión de carga equilibrada, consulte [Load balancing for Azure infrastructure services][Load balancing for Azure infrastructure services] (Equilibrio de carga en los servicios de infraestructura de Azure).
 
 Puede agregar máquinas virtuales clásicas en un conjunto de disponibilidad mediante una de estas dos opciones:
 
-* [Opción 1: Creación de una máquina virtual y un conjunto de disponibilidad al mismo tiempo][Opción 1: Creación de una máquina virtual y un conjunto de disponibilidad al mismo tiempo]. A continuación, agregue nuevas máquinas virtuales al conjunto cuando cree en dichas máquinas virtuales.
-* [Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad][Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad].
+* [Opción 1: creación simultánea de una máquina virtual y un conjunto de disponibilidad][Option 1: Create a virtual machine and an availability set at the same time]. A continuación, agregue nuevas máquinas virtuales al conjunto cuando cree en dichas máquinas virtuales.
+* [Opción 2: incorporación de una máquina virtual existente a un conjunto de disponibilidad][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
 > En el modelo clásico, las máquinas virtuales que desee poner en el mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.
@@ -36,7 +36,7 @@ Para utilizar el Portal de Azure:
 8. Revise las opciones de configuración. Cuando haya terminado, haga clic en **Crear**.
 9. Mientras Azure crea la máquina virtual, puede realizar el seguimiento del progreso desde el menú del concentrador, en **Máquinas virtuales** .
 
-Para usar los comandos de Azure PowerShell para crear una máquina virtual de Azure y agregarla a un conjunto de disponibilidad nuevo o existente, consulte [Creación de una máquina virtual de Windows con PowerShell y el modelo de implementación clásica](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Para usar los comandos de Azure PowerShell para crear una máquina virtual de Azure y agregarla a un conjunto de disponibilidad nuevo o existente, consulte [Creación de una máquina virtual de Windows con PowerShell y el modelo de implementación clásica](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a id="addmachine"> </a>Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad.
 En el Portal de Azure, puede agregar máquinas virtuales clásicas existentes a un conjunto de disponibilidad existente o crear uno nuevo para ellas. (Recuerde que las máquinas virtuales del mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.) Estos pasos son prácticamente los mismos. Con Azure PowerShell, puede agregar la máquina virtual a un conjunto de disponibilidad existente.
@@ -64,17 +64,12 @@ Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerS
 > 
 
 <!-- LINKS -->
-[Opción 1: Creación de una máquina virtual y un conjunto de disponibilidad al mismo tiempo]: #createset
-[Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad]: #addmachine
+[Option 1: Create a virtual machine and an availability set at the same time]: #createset
+[Option 2: Add an existing virtual machine to an availability set]: #addmachine
 
-[Equilibrio de carga para servicios de infraestructura de Azure]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
-[Administración de la disponibilidad de las máquinas virtuales]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[Load balancing for Azure infrastructure services]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[Manage the availability of virtual machines]:../articles/virtual-machines/linux/manage-availability.md
 
-[Creación de una máquina virtual que ejecuta Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Información general sobre Virtual Network]: ../articles/virtual-network/virtual-networks-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
 

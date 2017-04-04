@@ -18,13 +18,13 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
-ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Establecimiento de una conexión remota a un clúster de Kuburnetes, DC/OS o Docker Swarm
+# <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Establecimiento de una conexión remota a un clúster de Kubernetes, DC/OS o Docker Swarm
 Después de crear un clúster de Azure Container Service, es preciso conectarse al clúster para implementar y administrar las cargas de trabajo. En este artículo se describe cómo conectarse a la máquina virtual maestra del clúster desde un equipo remoto. 
 
 Los clústeres de Kubernetes, DC/OS y Docker Swarm proporcionan los puntos de conexión de HTTP localmente. En el caso de Kubernetes, dicho punto de conexión se expone de forma segura en Internet y para acceder a él es preciso ejecutar la herramienta de línea de comandos `kubectl` desde cualquier equipo conectado a Internet. 

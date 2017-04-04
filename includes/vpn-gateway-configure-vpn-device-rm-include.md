@@ -1,14 +1,16 @@
+Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. Hay muchos dispositivos VPN diferentes que funcionan con Azure. Para obtener información acerca de los dispositivos VPN y de la configuración, consulte [Dispositivos VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). Antes de configurar el dispositivo VPN, compruebe si hay [problemas conocidos de compatibilidad de dispositivos](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) para el dispositivo VPN que desea usar. Para más información sobre la configuración del dispositivo VPN específica, trabaje con el fabricante del dispositivo.
 
-Para configurar el dispositivo VPN, necesitará la dirección IP pública de la puerta de enlace de red virtual para configurar el dispositivo VPN local. Trabaje con el fabricante del dispositivo para obtener información de configuración específica y configure el dispositivo. Consulte [Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) para más información sobre los dispositivos VPN que funcionan bien con Azure.
+Al configurar el dispositivo VPN, necesitará los elementos siguientes:
 
-Para buscar la dirección IP pública de la puerta de enlace de red virtual con PowerShell, utilice el ejemplo siguiente:
+- **La dirección IP pública** de la puerta de enlace de red virtual.
 
-    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    -  Para buscar la dirección IP pública mediante Azure Portal, vaya a **Puertas de enlace de red virtual** y haga clic en el nombre de la puerta de enlace. 
 
-También puede utilizar el Portal de Azure para ver la dirección IP pública de la puerta de enlace de red virtual. Vaya a **Puertas de enlace de red virtual**y, luego, haga clic en el nombre de su puerta de enlace.
+    - Para buscar la dirección IP pública de la puerta de enlace de red virtual con PowerShell, utilice el ejemplo siguiente, reemplazando los valores por los suyos propios.
+
+            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+- **Una clave compartida**. Se trata de la misma clave compartida que se va a especificar al crear la conexión VPN de sitio a sitio. En nuestros ejemplos, se utiliza una clave compartida muy básica. Debe generar una clave más compleja para su uso.
 
 
-
-<!--HONumber=Nov16_HO2-->
 
 

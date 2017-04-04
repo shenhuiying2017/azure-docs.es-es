@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 24bb7e2ffd212594f50bab735e86d74ab95d8c62
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -40,7 +40,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 La mayoría de los trabajos de Hadoop son trabajos por lotes. Se crea un clúster, se ejecutan algunos trabajos y luego se elimina el clúster. En esta sección, se crea un clúster de Hadoop en HDInsight mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). La plantilla de Resource Manager es totalmente personalizable y facilita la creación de recursos de Azure, como HDInsight. No es necesario tener experiencia en el uso de la plantilla de Resource Manager para seguir este tutorial. Para conocer otros métodos de creación de clústeres y las propiedades que se usan en este tutorial, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Utilice el selector en la parte superior de la página para elegir las opciones de creación del clúster.
 
-La plantilla de Resource Manager utilizada en este tutorial se encuentra en [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+La plantilla de Resource Manager utilizada en este tutorial se encuentra en [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal. 
    

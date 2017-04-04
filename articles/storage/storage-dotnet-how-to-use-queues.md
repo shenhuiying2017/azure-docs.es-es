@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
-ms.openlocfilehash: d55b72ac50072a36ecf4547a478ed092ea7aa68a
-ms.lasthandoff: 12/12/2016
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5876a22651a5ebee2d60992cf08aeae54256fb7d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -49,8 +49,8 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### <a name="add-namespace-declarations"></a>Incorporación de declaraciones de espacio de nombres
-Agregue las siguientes instrucciones `using` en la parte superior del archivo `program.cs`:
+### <a name="add-using-directives"></a>Adición de directivas using
+Agregue las siguientes directivas `using` al principio del archivo `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager

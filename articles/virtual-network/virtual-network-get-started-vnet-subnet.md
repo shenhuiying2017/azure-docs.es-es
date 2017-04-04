@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -240,9 +240,9 @@ Se permite la conexión saliente a Internet porque todo el tráfico saliente est
 
 Para eliminar todos los recursos creados en este artículo, complete los pasos siguientes:
 
-1. Para ver el grupo de recursos MyRG que creó en este artículo, complete los pasos del 1 al 3 en la sección [Revisión de los recursos](#review) en este artículo. Una vez más, revise los recursos del grupo de recursos. Si ha creado el grupo de recursos MyRG, según los pasos anteriores, verá los 12 recursos que se muestran en la imagen del paso 3.
+1. Para ver el grupo de recursos MyRG que creó en este artículo, complete los pasos del 1 al 3 en la sección [Revisión de los recursos](#review) en este artículo. Una vez más, revise los recursos del grupo de recursos. Si ha creado el grupo de recursos MyRG, según los pasos anteriores, verá los 12 recursos que se muestran en la imagen del paso 4.
 2. En la hoja MyRG, haga clic en el botón **Eliminar**.
-3. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Si ve recursos distintos de los que aparecen en el paso 3 de la sección [Revisión de los recursos](#review) en este artículo, haga clic en **Cancelar**. Si solo ve los 12 recursos creados como parte de este artículo, escriba *MyRG* como nombre de grupo de recursos y haga clic en **Eliminar**. Al eliminarse un grupo de recursos, se eliminan todos los recursos que contiene, por lo que siempre debe asegurarse de comprobar su contenido antes de eliminarlo. El portal elimina todos los recursos incluidos en el grupo de recursos y, después, el grupo de recursos en sí. Este proceso tarda varios minutos.
+3. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Si ve recursos distintos de los que aparecen en el paso 4 de la sección [Revisión de los recursos](#review) en este artículo, haga clic en **Cancelar**. Si solo ve los 12 recursos creados como parte de este artículo, escriba *MyRG* como nombre de grupo de recursos y haga clic en **Eliminar**. Al eliminarse un grupo de recursos, se eliminan todos los recursos que contiene, por lo que siempre debe asegurarse de comprobar su contenido antes de eliminarlo. El portal elimina todos los recursos incluidos en el grupo de recursos y, después, el grupo de recursos en sí. Este proceso tarda varios minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
