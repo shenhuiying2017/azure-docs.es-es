@@ -1,5 +1,5 @@
 ---
-title: "CLI de Azure: creación y consulta de instancias únicas de SQL Database | Microsoft Docs"
+title: "CLI de Azure: creación de una base de datos SQL | Microsoft Docs"
 description: "Aprenda a crear un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y bases de datos con la CLI de Azure."
 keywords: "tutorial de base de datos SQL, creación de una base de datos SQL"
 services: sql-database
@@ -12,22 +12,22 @@ ms.service: sql-database
 ms.custom: quick start
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: cli
+ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 03/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8322e46f462b6c940f9808411d99aa1cee0beea5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3d642447526c5562ae3bfad5e4a4592e33e766aa
+ms.lasthandoff: 03/25/2017
 
 ---
 
-# <a name="create-and-query-a-single-azure-sql-database-with-the-azure-cli"></a>Creación y consulta de instancias únicas de Azure SQL Database con la CLI de Azure
+# <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Creación de una sola instancia de Azure SQL Database con la CLI de Azure
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla la implementación de una instancia de Azure SQL Database con la CLI de Azure.
+La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla el uso de la CLI de Azure para implementar una instancia de Azure SQL Database en un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) de un [servidor lógico de SQL Database](sql-database-features.md).
 
-Antes de empezar, asegúrese de que se ha instalado la CLI de Azure. Para más información, consulte la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Antes de empezar, asegúrese de que se ha instalado la CLI de Azure. Para obtener más información, consulte la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
@@ -39,14 +39,14 @@ az login
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
+Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-a-logical-server"></a>un servidor lógico
 
-Cree un servidor lógico con el comando [az sql server create](/cli/azure/sql/server#create). En el ejemplo siguiente se crea un servidor denominado aleatoriamente en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
+Cree un [servidor lógico de Azure SQL Database](sql-database-features.md) con el comando [az sql server create](/cli/azure/sql/server#create). Un servidor lógico contiene un conjunto de bases de datos administradas como un grupo. En el ejemplo siguiente se crea un servidor con nombre aleatorio en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
 
 ```azurecli
 servername=server-$RANDOM
@@ -56,25 +56,25 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 
 ## <a name="configure-a-server-firewall-rule"></a>Configuración de una regla de firewall del servidor
 
-Cree una regla de firewall de nivel de servidor con el comando[az sql server create](/cli/azure/sql/server/firewall-rule#create). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD conectarse a una instancia de SQL Database a través del firewall del servicio de SQL Database. En el ejemplo siguiente se crea una regla de firewall para un intervalo de direcciones predefinidas que, en este ejemplo, es todo el intervalo de direcciones IP posible. Cambie estos valores predefinidos por los valores de su dirección IP o intervalo de direcciones IP externas. 
+Cree una [regla de firewall de nivel de servidor de Azure SQL Database](sql-database-firewall-configure.md) con el comando [az sql server firewall create](/cli/azure/sql/server/firewall#create). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD conectarse a una instancia de SQL Database a través del firewall del servicio de SQL Database. En el ejemplo siguiente se crea una regla de firewall para un intervalo de direcciones predefinidas que, en este ejemplo, es todo el intervalo de direcciones IP posible. Cambie estos valores predefinidos por los valores de su dirección IP o intervalo de direcciones IP externas. 
 
 ```azurecli
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
     -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
-## <a name="create-a-database-in-the-server"></a>Creación de una base de datos en el servidor
+## <a name="create-a-database-in-the-server-with-sample-data"></a>Creación de una base de datos en el servidor con datos de ejemplo
 
-Cree una base de datos en el servidor con el comando[az sql db create](/cli/azure/sql/db#create). En el ejemplo siguiente se crea una base de datos en blanco denominada `mySampleDatabase`. Cambie este valor predefinido por el que prefiera.
+Cree una base de datos con un [nivel de rendimiento S0](sql-database-service-tiers.md) en el servidor con el comando [az sql db create](/cli/azure/sql/db#create). En el ejemplo siguiente se crea una base de datos llamada `mySampleDatabase` y se cargan en ella los datos del ejemplo AdventureWorksLT. Estos valores predefinidos se pueden reemplazar si se desea (otras guías de inicio rápido de esta colección se basan en los valores de esta).
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server $servername \
-    --name mySampleDatabase --service-objective S0
+    --name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar todos los recursos creados por este tutorial de inicio rápido, ejecute el siguiente comando:
+Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no va a continuar, use este comando para eliminar todos los recursos creados mediante esta guía de inicio rápido.
 
 ```azurecli
 az group delete --name myResourceGroup

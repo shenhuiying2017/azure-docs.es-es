@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -604,7 +604,7 @@ Ahora debería ver la salida de la aplicación GetStarted. La salida debe coinci
 ¡Enhorabuena! Ha completado el tutorial de Node.js y tiene su primera aplicación de consola de DocumentDB.
 
 ## <a id="GetSolution"></a>Obtención de la solución completa del tutorial de Node.js
-Si no dispuso de tiempo para completar los pasos de este tutorial, o simplemente desea descargar el código, puede obtenerlo de [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+Si no dispuso de tiempo para completar los pasos de este tutorial, o simplemente desea descargar el código, puede obtenerlo de [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Para ejecutar la solución GetStarted que contiene todos los ejemplos de este artículo, necesitará lo siguiente:
 

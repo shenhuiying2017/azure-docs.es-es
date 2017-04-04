@@ -14,7 +14,3 @@ Asegúrese de que ya haya creado un espacio de nombres de Relay, como se muestra
 6. Haga clic en **Crear**en la parte inferior de la hoja.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-

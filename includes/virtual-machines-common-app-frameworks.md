@@ -26,7 +26,7 @@ En esta tabla se puede encontrar más información sobre los parámetros que se 
 Además de estas plantillas, puede buscar en las [plantillas de la galería](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="azure-portal"></a>Portal de Azure
-Es fácil implementar una plantilla con el Portal de Azure; solo tiene que enviarle una dirección URL. Necesita el nombre del archivo de plantilla para implementarla. Puede encontrar el nombre examinando las páginas de la galería de plantillas o mediante una búsqueda en el repositorio de GitHub. Cambie {nombre de la plantilla} en esta dirección URL por el nombre de la plantilla que desea implementar y luego escríbala en el explorador:
+Es fácil implementar una plantilla con el Portal de Azure; solo tiene que enviarle una dirección URL. Necesita el nombre del archivo de plantilla para implementarla. Para encontrarlo, examine las páginas de la galería de plantillas o busque en el repositorio de GitHub. Cambie {nombre de la plantilla} en esta dirección URL por el nombre de la plantilla que desea implementar y luego escríbala en el explorador:
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 295203755487ace6193d97737be635d4a61fe337
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -79,7 +79,7 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho grupo de recursos. Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" Los grupos de recursos almacenan metadatos acerca de los recursos. Por consiguiente, al especificar la ubicación del grupo de recursos, se especifica el lugar en que se almacenan dichos metadatos. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
 
 ## <a name="resource-providers"></a>Proveedores de recursos
-Cada proveedor de recursos ofrece un conjunto de recursos y operaciones para trabajar con un servicio de Azure. Por ejemplo, si desea almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos dispone de un tipo de recurso llamado **almacenes** que permite crear el almacén de claves; también cuenta con un tipo de recurso denominado **almacenes/secretos** que permite crear un secreto en un almacén de claves. 
+Cada proveedor de recursos ofrece un conjunto de recursos y operaciones para trabajar con un servicio de Azure. Por ejemplo, si desea almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos ofrece un tipo de recurso denominado **almacenes** para crear el almacén de claves. 
 
 Antes de comenzar a implementar los recursos, debe conocer los proveedores de recursos disponibles. Conocer los nombres de los recursos y sus proveedores ayuda a definir los recursos que desea implementar en Azure.
 
@@ -118,7 +118,7 @@ Para más información, consulte [Proveedores, regiones, versiones de API y esqu
 ## <a name="template-deployment"></a>Implementación de plantilla
 Con Resource Manager, puede crear una plantilla (en formato JSON) que defina la infraestructura y la configuración de su solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Cuando crea una solución desde el Portal, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero, puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas. Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](resource-manager-export-template.md).
 
-Para aprender más sobre el formato de la plantilla y cómo se crea, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md) y [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
+Para más información sobre el formato de la plantilla y cómo se crea, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md). Para ver la sintaxis JSON para los tipos de recursos, consulte [Define resources in Azure Resource Manager templates](/azure/templates/) (Definición de recursos en plantillas de Azure Resource Manager).
 
 Resource Manager procesa la plantilla como cualquier otra solicitud (consulte la imagen para [Capa de administración coherente](#consistent-management-layer)). Analiza la plantilla y convierte su sintaxis en operaciones de API de REST para los proveedores de recursos adecuados. Por ejemplo, cuando Resource Manager recibe una plantilla con la siguiente definición de recursos:
 
@@ -333,10 +333,9 @@ Además de estos ejemplos, puede buscar en los ejemplos de la galería.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si desea ver una sencilla introducción sobre el uso de plantillas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
-* Para ver un tutorial más detallado sobre la creación de una plantilla, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
+* Para ver un tutorial más detallado sobre la creación de una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
 * Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](resource-group-template-functions.md)
 * Para más información sobre el uso de Visual Studio con Resource Manager, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Para más información sobre el uso de Visual Studio Code con Resource Manager, consulte [Trabajo con plantillas de Azure Resource Manager en Visual Studio Code](resource-manager-vs-code.md).
 
 La siguiente es una demostración de esta introducción.
 

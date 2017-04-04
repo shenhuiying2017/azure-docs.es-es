@@ -18,48 +18,51 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
-ms.openlocfilehash: 69d1750f13b5507268229b29a392c38662c0f5f0
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
+ms.lasthandoff: 03/24/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introducción a los registros de contenedores privados de Docker
-> [!NOTE]
-> Container Registry está actualmente en vista previa.
 
 
-Azure Container Registry es un servicio administrado de [registro de Docker](https://docs.docker.com/registry/) basado en Docker Registry v2 de código abierto. Cree y mantenga los registros de contenedor de Azure para almacenar y administrar las imágenes privadas del [contenedor Docker](https://www.docker.com/what-docker). Use registros de contenedor en Azure con el desarrollo de contenedor y las canalizaciones de implementación existentes y apóyese en el conjunto de la experiencia de la comunidad de Docker.
+Azure Container Registry es un servicio administrado de [Docker Registry](https://docs.docker.com/registry/) basado en Docker Registry 2.0 de código abierto. Cree y mantenga los registros de contenedor de Azure para almacenar y administrar las imágenes privadas del [contenedor Docker](https://www.docker.com/what-docker). Use registros de contenedor en Azure con el desarrollo de contenedor y las canalizaciones de implementación existentes y apóyese en el conjunto de la experiencia de la comunidad de Docker.
 
 Para más información sobre Docker y los contenedores, consulte:
 
 * [Guía del usuario de Docker](https://docs.docker.com/engine/userguide/)
-* [Anuncio de versión preliminar de Azure Container Registry](https://azure.microsoft.com/blog/azure-container-registry-preview/) 
 
-## <a name="key-concepts"></a>Conceptos clave
-* **Registro**: cree un registro de contenedor o varios en la suscripción de Azure. Cada registro está respaldado por una [cuenta de almacenamiento](../storage/storage-introduction.md) estándar de Azure en la misma ubicación. Cree un registro en la misma ubicación de Azure que las implementaciones para aprovechar las ventajas del almacenamiento local, cercano a la red, de las imágenes de contenedor. 
 
-  Los registros se denominan en un dominio raíz en función del [inquilino de Azure Active Directory](../active-directory/active-directory-howto-tenant.md) de la suscripción. Por ejemplo, si tiene una cuenta profesional en el dominio Contoso, el nombre completo del registro se parecerá a `myregistry-contoso.azurecr.io`. 
-  
-  Puede [controlar el acceso](container-registry-authentication.md) a un registro de contenedor mediante una [entidad de servicio](../active-directory/active-directory-application-objects.md) respaldada por Azure Active Directory o una cuenta de administrador proporcionada. Ejecute el comando estándar `docker login` para autenticarse con un registro. 
 
-* **Repositorio**: un registro contiene uno o varios repositorios, que son grupos de imágenes de contenedor. Azure Container Registry es compatible con los espacios de nombres del repositorio de varios niveles. Esta característica le permite agrupar colecciones de imágenes relacionadas con una aplicación específica o una colección de aplicaciones con equipos operativos o de desarrollo específicos. Por ejemplo:
-  
-  * `myregistry-contoso.azurecr.io/aspnetcore:1.0.1` representa una imagen de toda la organización
-  * `myregistry-contoso.azurecr.io/warrantydept/dotnet-build` representa una imagen que se utiliza para compilar aplicaciones .NET y compartirlas en el departamento de garantías
-  * `myregistry-contoso.azrecr.io/warrantydept/customersubmissions/web` representa una imagen web, agrupada en la aplicación constomersubmissions, propiedad del departamento de garantías
-
-* **Imagen**: se almacena en un repositorio, cada imagen es una instantánea de solo lectura de un contenedor Docker. Los registros de contenedor de Azure pueden incluir imágenes de Windows y de Linux. Controle los nombres de imagen de todas las implementaciones de contenedor. Use [comandos de Docker](https://docs.docker.com/engine/reference/commandline/) estándar para insertar imágenes en un repositorio o extraer una imagen de un repositorio. 
-
-* **Contenedor**: un contenedor define una aplicación de software y las dependencias ajustadas en un sistema de archivos completo que incluye el código, el tiempo de ejecución, las herramientas del sistema y las bibliotecas. Ejecute contenedores Docker basados en imágenes de Windows o Linux que extrae de un registro de contenedor. Los contenedores que se ejecutan en una sola máquina comparten el kernel del sistema operativo. Los contenedores Docker son totalmente portables a todas las principales distribuciones de Linux, Mac y Windows.
 
 ## <a name="use-cases"></a>Casos de uso
 Extraiga imágenes desde un registro de contenedor de Azure a varios destinos de implementación:
 
 * **Sistemas escalables de orquestación** que administran aplicaciones en contenedores a través de clústeres de hosts, incluidos [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) y [Kubernetes](http://kubernetes.io/docs/).
-* **Servicios de Azure** que admiten la creación y ejecución de aplicaciones a escala, entre los que se incluyen [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) y [Service Fabric](../service-fabric/index.md). 
+* **Servicios de Azure** que admiten la creación y ejecución de aplicaciones a escala, entre los que se incluyen [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) y [Service Fabric](../service-fabric/index.md).
 
 Los desarrolladores también pueden insertar en un registro de contenedor como parte de un flujo de trabajo de desarrollo de contenedor. Por ejemplo, puede dirigir un registro de contenedor desde una herramienta de desarrollo e integración continua como [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 
+
+
+
+
+## <a name="key-concepts"></a>Conceptos clave
+* **Registro**: cree un registro de contenedor o varios en la suscripción de Azure. Cada registro está respaldado por una [cuenta de almacenamiento](../storage/storage-introduction.md) estándar de Azure en la misma ubicación. Aproveche las ventajas del almacenamiento local, cercano a la red, de las imágenes de contenedor mediante la creación de un registro en la misma ubicación de Azure que las implementaciones.
+
+  Los registros se denominan en un dominio raíz en función del [inquilino de Azure Active Directory](../active-directory/active-directory-howto-tenant.md) de la suscripción. Por ejemplo, si tiene una cuenta profesional en el dominio Contoso, el nombre completo del registro se parecerá a `myregistry-contoso.azurecr.io`.
+
+  Puede [controlar el acceso](container-registry-authentication.md) a un registro de contenedor mediante una [entidad de servicio](../active-directory/active-directory-application-objects.md) respaldada por Azure Active Directory o una cuenta de administrador proporcionada. Ejecute el comando estándar `docker login` para autenticarse con un registro.
+
+* **Repositorio**: un registro contiene uno o varios repositorios, que son grupos de imágenes de contenedor. Azure Container Registry es compatible con los espacios de nombres del repositorio de varios niveles. Esta característica le permite agrupar colecciones de imágenes relacionadas con una aplicación específica o una colección de aplicaciones con equipos operativos o de desarrollo específicos. Por ejemplo:
+
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` representa una imagen de toda la organización
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` representa una imagen que se utiliza para compilar aplicaciones .NET y compartirlas en el departamento de garantías
+  * `myregistry.azrecr.io/warrantydept/customersubmissions/web` representa una imagen web, agrupada en la aplicación de envíos al cliente, propiedad del departamento de garantías.
+
+* **Imagen**: se almacena en un repositorio, cada imagen es una instantánea de solo lectura de un contenedor Docker. Los registros de contenedor de Azure pueden incluir imágenes de Windows y de Linux. Controle los nombres de imagen de todas las implementaciones de contenedor. Use [comandos de Docker](https://docs.docker.com/engine/reference/commandline/) estándar para insertar imágenes en un repositorio o extraer una imagen de un repositorio.
+
+* **Contenedor**: un contenedor define una aplicación de software y las dependencias ajustadas en un sistema de archivos completo que incluye el código, el tiempo de ejecución, las herramientas del sistema y las bibliotecas. Ejecute contenedores Docker basados en imágenes de Windows o Linux que extrae de un registro de contenedor. Los contenedores que se ejecutan en una sola máquina comparten el kernel del sistema operativo. Los contenedores Docker son totalmente portables a todas las principales distribuciones de Linux, Mac y Windows.
 
 
 
