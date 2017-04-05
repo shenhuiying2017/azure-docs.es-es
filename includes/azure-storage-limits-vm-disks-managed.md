@@ -21,4 +21,4 @@
 | Máximo de IOPS por VM |80 000 IOPS con máquina virtual GS5<sup>1</sup> |
 | Rendimiento máximo por VM |2000 MB/s con máquina virtual GS5<sup>1</sup> |
 
-<sup>1</sup>Consulte [Tamaños de las máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para conocer los límites de otros tamaños de máquina virtual. 
+<sup>1</sup>Consulte [Tamaños de las máquinas virtuales](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para conocer los límites de otros tamaños de máquina virtual. 

@@ -23,7 +23,7 @@ Para aumentar o disminuir el número de máquinas virtuales en un conjunto de es
 
 Si va a volver a implementar una plantilla para modificar la capacidad, puede definir una plantilla mucho más pequeña que solo incluya la SKU y la capacidad actualizada. Aquí se muestra un ejemplo de esto: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Para recorrer los pasos que crean un conjunto de escala que se escala automáticamente, consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Para recorrer los pasos que crean un conjunto de escala que se escala automáticamente, consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Supervisión del conjunto de escala de máquinas virtuales
 Actualmente se recomienda usar el [Explorador de recursos de Azure](https://resources.azure.com) para ver los conjuntos de escala de máquinas virtuales. Los conjuntos de escala de máquinas virtuales son un recurso en Microsoft.Compute, por lo que en este sitio puede verlos si expande los vínculos siguientes:
@@ -64,7 +64,7 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Preguntas más frecuentes sobre los conjuntos de escala de máquinas virtuales
 **P.** ¿Cuántas máquinas virtuales puede tener en un conjunto de escala de máquinas virtuales?
 
-**R.** &100; si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40, porque las imágenes personalizadas se limitan a una única cuenta de almacenamiento durante la vista previa.
+**R.** 100 si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40, porque las imágenes personalizadas se limitan a una única cuenta de almacenamiento durante la vista previa.
 
 **P** ¿Qué otros límites de recursos existen para los conjuntos de escala de máquinas virtuales?
 
@@ -115,9 +115,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 **P.** ¿Funcionan los conjuntos de escala de máquinas virtuales con los conjuntos de disponibilidad de Azure?
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con tres dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

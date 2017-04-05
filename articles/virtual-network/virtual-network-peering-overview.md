@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Requisitos y aspectos clave del emparejamiento de VNET:
 * El emparejamiento de redes virtuales se realiza entre dos redes virtuales, pero no hay ninguna relación transitiva derivada entre los emparejamientos. Por ejemplo, si VNetA está emparejada con VNetB y VNetB está emparejada con VNetC, VNetA *no* está emparejada con VNetC.
 * Puede emparejar redes virtuales que existen en dos suscripciones distintas, siempre y cuando un usuario con privilegios de ambas suscripciones lo autorice y las suscripciones estén asociadas al mismo inquilino de Active Directory.
 * Las redes virtuales se pueden emparejar si ambas se crean mediante el modelo de implementación de Resource Manager o si se crea una mediante el modelo de implementación de Resource Manager y la otra se crea mediante el modelo de implementación clásica. Sin embargo, dos redes virtuales creadas mediante el modelo de implementación clásica no se pueden emparejar entre sí. Cuando se crean redes virtuales emparejadas mediante diferentes modelos de implementación, las redes virtuales deben existir en la *misma* suscripción. La capacidad de emparejar redes virtuales creadas mediante diferentes modelos de implementación que existen en las *diferentes* suscripciones está **versión preliminar**. Consulte el artículo sobre la [creación de un emparejamiento de red virtual con Powershell](virtual-networks-create-vnetpeering-arm-ps.md) para más información.
-* Aunque la comunicación entre las máquinas virtuales en redes virtuales emparejadas no tiene restricciones de ancho de banda adicionales, hay un ancho de banda de red máximo en función del tamaño de máquina virtual que se aplica. Para más información sobre el ancho de banda de red máximo para los diferentes tamaños de máquina virtual, consulte los artículos sobre los tamaños de máquina virtual [Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+* Aunque la comunicación entre las máquinas virtuales en redes virtuales emparejadas no tiene restricciones de ancho de banda adicionales, hay un ancho de banda de red máximo en función del tamaño de máquina virtual que se aplica. Para más información sobre el ancho de banda de red máximo para los diferentes tamaños de máquina virtual, consulte los artículos sobre los tamaños de máquina virtual [Windows](../virtual-machines/windows/sizes.md) o [Linux](../virtual-machines/linux/sizes.md).
 
 ![Emparejamiento de VNET básico](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Hay límites en el número de emparejamientos de que se permiten en una red virt
 ## <a name="pricing"></a>Precios
 Hay un cargo nominal para el tráfico de entrada y salida que utiliza un emparejamiento de red virtual. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Aprenda a crear un emparejamiento de red virtual con:
 
 * [Portal de Azure](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Plantilla de Azure Resource Manager](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -129,10 +129,5 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 2. En el menú contextual, elija el comando **Apagar**, o bien elija **Configurar** si lo que desea es ver la página de configuración de la máquina virtual y, después, haga clic en el botón **Apagar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de la creación de máquinas virtuales, consulte [Creación de una máquina virtual Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una máquina virtual Windows en el Portal de vista previa de Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Para más información acerca de la creación de máquinas virtuales, consulte [Creación de una máquina virtual Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una máquina virtual Windows en el Portal de vista previa de Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

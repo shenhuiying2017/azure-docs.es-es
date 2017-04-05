@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Persistencia de disco 
-
-En la tabla siguiente se ilustran los diferentes estados de los diferentes discos de una máquina virtual de Azure y se indica si los datos se guardan o no en cada estado.
-
-| Disco | Iniciar | Detener/<br>desasignar | Pausar | Reiniciar<br>boot | Apagar<br>Abajo | Eliminar | Error | Cambiar de tamaño | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Disco de SO | Sí | Sí  | Sí | Sí | Sí  | No | No  | Sí | 
-| RAM  | Sí | Sí | Sí | Sí | No   | No | No | No | 
-| Disco temporal local | Sí | No | Sí | No | No  | No | No | No | 
-| Disco de datos conectado | Sí | Sí | Sí | Sí | Sí  | Sí | Sí | Sí | 
 
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
