@@ -12,74 +12,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/26/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c7ca2909de28936f17ab7ac03815d693032b04f
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 614f212bb9afb71bb432bec3df7201807083b7f5
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adición de almacenamiento de Azure mediante Servicios conectados de Visual Studio
-## <a name="overview"></a>Información general
-Con Visual Studio 2015, puede conectar cualquier servicio en la nube de C#, cualquier servicio móvil de back-end de .NET, cualquier servicio o sitio web de ASP.NET, cualquier servicio de ASP.NET 5 o cualquier servicio de trabajo web de Azure al Almacenamiento de Azure mediante el cuadro de diálogo **Agregar servicios conectados** . La funcionalidad del servicio conectado agrega todo el código de conexión y las referencias necesarios y modifica los archivos de configuración de forma adecuada. El cuadro de diálogo también le lleva a documentación que le indica cuáles son los pasos siguientes para iniciar el almacenamiento de blobs, las colas y las tablas.
+Con Visual Studio, puede conectar cualquiera de lo siguiente a Azure Storage mediante el uso del cuadro de diálogo **Add Connected Services** (Agregar servicios conectados):
 
-## <a name="supported-project-types"></a>Tipos de proyecto compatibles
-Puede usar el cuadro de diálogo Servicios conectados para conectarse al Almacenamiento de Azure en los siguientes tipos de proyecto
+- Servicio en la nube de C#
+- Servició móvil de back-end de .NET
+- Servicio o sitio web de ASP.NET
+- Servicio de ASP.NET Core
+- Servicio de trabajos web de Azure 
 
-* Proyectos web de ASP.NET
-* Proyectos de ASP.NET 5
-* Proyectos de rol de trabajo y de rol web de servicio en la nube de .NET
-* Proyectos de servicios móviles de .NET
-* Proyectos de trabajos web de Azure
+La funcionalidad del servicio conectado agrega todo el código de conexión y las referencias necesarios al proyecto y modifica los archivos de configuración de forma adecuada. 
+
+Cuando se completa, el cuadro de diálogo **Add Connected Services** (Agregar servicios conectados) muestra automáticamente documentación que detalla los pasos necesarios para empezar a trabajar con el almacenamiento de blobs, colas y tablas.
 
 ## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Conexión con Almacenamiento de Azure mediante el cuadro de diálogo Servicios conectados
-1. Asegúrese de que tiene una cuenta de Azure. Si aún no tiene ninguna, puede registrarse para obtener una [evaluación gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Cuando tenga una cuenta de Azure, puede crear cuentas de almacenamiento, crear servicios móviles y configurar Azure Active Directory.
-2. Abra el proyecto en Visual Studio, abra el menú contextual del nodo **Referencias** en el Explorador de soluciones y luego elija **Agregar servicio conectado**.
-   
-    ![Adición de un servicio conectado](./media/vs-azure-tools-connected-services-storage/IC796702.png)
-3. En el cuadro de diálogo **Agregar servicio conectado**, seleccione **Azure Storage** y elija el botón **Configurar**. Es posible que se le pida que inicie sesión en Azure si aún no lo ha hecho.
-   
-    ![Cuadro de diálogo Agregar servicio conectado - Almacenamiento](./media/vs-azure-tools-connected-services-storage/IC796703.png)
-4. En el cuadro de diálogo **Azure Storage**, elija una cuenta de almacenamiento existente y seleccione **Agregar**.
-   
-    Si necesita crear una nueva cuenta de almacenamiento, vaya al siguiente paso. De lo contrario, vaya al paso 6.
-   
-    ![Cuadro de diálogo Almacenamiento de Azure](./media/vs-azure-tools-connected-services-storage/IC796704.png)
-5. Para crear una cuenta de almacenamiento: 
-   
-   1. Elija el botón **Crear una nueva cuenta de almacenamiento** en la parte inferior del cuadro de diálogo Almacenamiento de Azure.
-   2. Rellene el diálogo cuadro **Crear cuenta de almacenamiento** y elija el botón **Crear**.
-      
-       ![Cuadro de diálogo Almacenamiento de Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
-      
-       Cuando vuelva al cuadro de diálogo **Almacenamiento de Azure** , el nuevo almacenamiento debe aparecer en la lista.
-   3. Seleccione el nuevo almacenamiento en la lista y haga clic en **Agregar**.
-6. El servicio de almacenamiento conectado aparece bajo el nodo Referencias de servicio  del proyecto de trabajo web.
-   
-    ![Almacenamiento de Azure en el proyecto de trabajos web](./media/vs-azure-tools-connected-services-storage/IC796705.png)
-7. Revise la página Introducción que aparece y consulte cómo se ha modificado el proyecto. Una página Introducción aparece en el explorador siempre que se agregue un servicio conectado. Puede revisar los pasos siguientes sugeridos y los ejemplos de código, o pasar a la página ¿Qué ha ocurrido? para ver qué referencias se agregaron al proyecto y cómo se han modificado los archivos de configuración y códigos.
+1. Abra el proyecto en Visual Studio.
 
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo **Servicios conectados** y, en el menú contextual, seleccione **Agregar servicio conectado**.
+   
+    ![Incorporación de un servicio conectado de Azure](./media/vs-azure-tools-connected-services-storage/IC796702.png)
+
+1. En la página **Servicios conectados**, seleccione **Almacenamiento en la nube con Azure Storage**.
+   
+    ![Incorporación de Azure Storage](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
+
+1. En el cuadro de diálogo **Azure Storage**, elija una cuenta de almacenamiento existente y seleccione **Agregar**.
+   
+    Si necesita crear una cuenta de almacenamiento, vaya al siguiente paso. De lo contrario, vaya al paso 6.
+    
+    ![Incorporación de una cuenta de almacenamiento existente al proyecto](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
+
+1. Para crear una cuenta de almacenamiento: 
+   
+   1. Seleccione **Crear una nueva cuenta de almacenamiento** en la parte inferior del cuadro de diálogo.
+
+   1. Rellene el cuadro de diálogo **Crear cuenta de almacenamiento** y seleccione **Crear**.
+      
+       ![Nueva cuenta de almacenamiento de Azure](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+      
+   1. Cuando se muestre el cuadro de diálogo **Azure Storage**, la nueva cuenta de almacenamiento aparecerá en la lista. Seleccione la nueva cuenta de almacenamiento en la lista y seleccione **Agregar**.
+
+1. El servicio de almacenamiento conectado aparece bajo el nodo **Referencias de servicio** del proyecto.
+   
 ## <a name="how-your-project-is-modified"></a>¿Cómo se modifica el proyecto?
-Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencias y modifica determinados archivos de configuración. Los cambios específicos dependen del tipo de proyecto. 
+Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencias y modifica determinados archivos de configuración. Los cambios específicos dependen del tipo de proyecto: 
 
-* Para los proyectos de ASP.NET, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
-* Para los proyectos de ASP.NET 5, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
-* Para los proyectos de servicio en la nube (roles web y roles de trabajo), vea [¿Qué ha ocurrido? – Proyectos de servicio en la nube](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
-* Para los proyectos de trabajo web, consulte [¿Qué ha ocurrido? - Proyectos de trabajo web](storage/vs-storage-webjobs-what-happened.md).
+- Proyecto de ASP.NET - [¿Qué ha ocurrido? - Proyectos de ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126)
+- Proyecto de ASP.NET Core - [¿Qué ha ocurrido? - Proyectos de ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124) 
+- Proyecto de servicio en la nube (roles web y roles de trabajo) - [¿Qué ha ocurrido? - Proyectos de servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=516965)
+- Proyecto de trabajo web - [¿Qué ha ocurrido? - Proyectos de trabajo web](storage/vs-storage-webjobs-what-happened.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-1. Con los ejemplos de código de introducción como guía, cree el tipo de almacenamiento que desee y luego comience a escribir código para acceder a su cuenta de almacenamiento.
-2. Formule preguntas y obtenga ayuda
-   
-   * [Foro de MSDN: Almacenamiento de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
-   * [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-   * [Almacenamiento en azure.microsoft.com](https://azure.microsoft.com/services/storage/)
-   * [Documentación de almacenamiento en azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+- [Foro de MSDN: Almacenamiento de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+- [Blog del equipo de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+- [Documentación de Almacenamiento de Azure](https://docs.microsoft.com/azure/storage/)
 

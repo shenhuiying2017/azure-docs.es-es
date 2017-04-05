@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: cc095b419eae7e85590cdd323a5cf3809c45452e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8c4c8db3cf57537dd77d33b3ded2dc24167f511f
+ms.lasthandoff: 03/25/2017
 
 ---
 
@@ -67,17 +67,29 @@ Para solucionar este problema, se recomienda utilizar una redirección HTTP para
 
 En nuestra cola de trabajos pendientes de características realizamos un seguimiento de los dominios vacíos que son totalmente compatibles con el Administrador de tráfico. Puede dar su apoyo a esta solicitud de característica [votando por ella en nuestro sitio de comentarios de la comunidad](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
+### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>¿Traffic Manager considera la dirección de subred de cliente cuando controla las consultas de DNS? 
+No, en este momento Traffic Manager solo considera la dirección IP de origen de la consulta de DNS que recibe, lo que en la mayoría de los casos es la dirección IP de la resolución de DNS, cuando se realizan búsquedas de métodos de enrutamiento geográfico y de rendimiento.  
+En concreto, [RFC 7871: subred de cliente en consultas de DNS](https://tools.ietf.org/html/rfc7871) que proporciona un [mecanismo de extensión para DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que puede pasar a la dirección de subred de cliente desde las resoluciones que la admiten a los servidores DNS actualmente no es compatible con Traffic Manager. Puede dar su apoyo a esta solicitud de característica a través del [sitio de comentarios de la comunidad](https://feedback.azure.com/forums/217313-networking).
+
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de enrutamiento del tráfico geográfico de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>¿En qué casos de uso el enrutamiento geográfico resulta útil? 
-El enrutamiento geográfico tipo se puede usar en cualquier escenario en el que el cliente de Azure necesite distinguir a sus usuarios en función de las regiones geográficas. Un ejemplo de esto es proporcionar a los usuarios de regiones específicas una experiencia de usuario diferente a los usuarios de otras regiones. Otro ejemplo es cumplir los mandatos de soberanía de datos locales que requieren que los usuarios de una región específica sean atendidos solo por puntos de conexión de dicha región.
+El tipo de enrutamiento geográfico se puede usar en cualquier escenario en el que el cliente de Azure necesite distinguir a sus usuarios en función de las regiones geográficas. Por ejemplo, si usa el método de enrutamiento de tráfico geográfico, puede darle a los usuarios provenientes de regiones específicas una experiencia de usuario distinta de las de otras regiones. Otro ejemplo es cumplir los mandatos de soberanía de datos locales que requieren que los usuarios de una región específica sean atendidos solo por puntos de conexión de dicha región.
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>¿Cuáles son las regiones que son compatibles con Traffic Manager para el enrutamiento geográfica? 
 Puede encontrar la jerarquía de países o regiones utilizada por Traffic Manager [aquí](traffic-manager-geographic-regions.md). Aunque esta página se mantendrá actualizada con cualquier cambio que se realice, puede recuperar mediante programación la misma información mediante la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>¿Cómo determina Traffic Manager desde dónde consulta un usuario? 
 Traffic Manager busca la dirección IP de origen de la consulta (probablemente se trata de un solucionador DNS local que realiza la consulta en nombre del usuario) y usa una dirección IP interna a la asignación de la región para determinar la ubicación. Esta asignación se actualiza de forma continuada para tener en cuenta los cambios de Internet. 
+
+### <a name="is-it-guaranteed-that-traffic-manager-will-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>¿Está garantizado que Traffic Manager determinará correctamente la ubicación geográfica exacta del usuario en cada caso?
+No, Traffic Manager no puede garantizar que la región geográfica que se infiere de la dirección IP de origen de una consulta de DNS siempre corresponderá a la ubicación del usuario debido a las razones siguientes: 
+
+- En primer lugar, tal como se describía en la P+F anterior, la dirección IP de origen que vemos es la de una resolución DNS que realiza la búsqueda en nombre del usuario. Si bien la ubicación geográfica de la resolución DNS es un buen proxy para la ubicación geográfica del usuario, también puede ser distinta dependiendo de la huella del servicio de resolución DNS y el servicio de resolución DNS específico que eligió usar un cliente. Por ejemplo, un cliente ubicado en Malasia podría especificar en la configuración de su dispositivo que se use un servicio de resolución DNS cuyo servidor DNS en Singapur se podría detectar para controlar las resoluciones de consulta de ese usuario o dispositivo. En ese caso, Traffic Manager solo verá la dirección IP de la resolución que corresponda a la ubicación de Singapur. Además, consulte la P+F anterior relacionada con la compatibilidad de direcciones de subred de cliente en esta página.
+
+- En segundo lugar, Traffic Manager usa un mapa interno para traducir la dirección IP a la región geográfica. Si bien este mapa se valida y actualiza constantemente para aumentar la precisión y responder al carácter evolutivo de Internet, de todos modos existe la posibilidad de que nuestra información no sea una representación exacta de la ubicación geográfica de todas las direcciones IP.
+
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>¿El punto de conexión debe encontrarse físicamente en la misma región que la configurada para el enrutamiento geográfico? 
 No, la ubicación del punto de conexión no impone restricción alguna sobre qué las regiones pueden asignarse a él. Por ejemplo, un punto de conexión en la región de Azure del centro de EE. UU. puede hacer que todos los usuarios de la India se redirijan a él.
@@ -87,7 +99,7 @@ Sí, si el método de enrutamiento de un perfil no es geográfico, puede usar la
 
 
 ### <a name="when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic-i-am-getting-an-error"></a>Cuando intento cambiar el método de enrutamiento de un perfil existente a geográfico, obtengo un error.
-Todos los puntos de conexión en un perfil con necesidades de enrutamiento geográfico deben tener al menos una región asignada a ellos. Para convertir un perfil existente al tipo de enrutamiento geográfico, primero debe asociar las regiones geográficas a todos sus puntos de conexión mediante la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) antes de cambiar el tipo de enrutamiento a geográfico. Si usa el portal, tendrá que eliminar primero los puntos de conexión, cambiar el método de enrutamiento del perfil a geográfico y, después, agregar los puntos de conexión junto con su asignación de región geográfica. 
+Todos los puntos de conexión en un perfil con una necesidad de enrutamiento geográfico deben tener al menos una región asignada a ellos. Para convertir un perfil existente al tipo de enrutamiento geográfico, primero debe asociar las regiones geográficas a todos sus puntos de conexión mediante la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) antes de cambiar el tipo de enrutamiento a geográfico. Si usa el portal, tendrá que eliminar primero los puntos de conexión, cambiar el método de enrutamiento del perfil a geográfico y, después, agregar los puntos de conexión junto con su asignación de región geográfica. 
 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>¿Por qué se recomienda encarecidamente que los clientes creen perfiles anidados en lugar de puntos de conexión en un perfil con el enrutamiento geográfico habilitado? 
@@ -95,7 +107,7 @@ Una región puede asignarse a un único punto de conexión dentro de un perfil s
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>¿Existen restricciones en la versión de API que admite este tipo de enrutamiento?
 
-Sí, solo la API versión 2017-03-01 y más reciente admiten el tipo de enrutamiento geográfico. Las versiones anteriores de la API no se pueden usar para crear perfiles de tipo de enrutamiento geográfico ni para asignar regiones geográficas a puntos de conexión. Si se usa una versión anterior de la API para recuperar perfiles desde una suscripción de Azure, no se devolverá ningún perfil de tipo de enrutamiento geográfico. Además, al usar las versiones anteriores de la API, los perfiles devueltos que tengan puntos de conexión con una asignación de región geográfica no mostrarán su asignación de región geográfica.
+Sí, solo la API versión 2017-03-01 y más recientes admiten el tipo de enrutamiento geográfico. Las versiones anteriores de la API no se pueden usar para crear perfiles de tipo de enrutamiento geográfico ni para asignar regiones geográficas a puntos de conexión. Si se usa una versión anterior de la API para recuperar perfiles desde una suscripción de Azure, no se devolverá ningún perfil de tipo de enrutamiento geográfico. Además, al usar las versiones anteriores de la API, los perfiles devueltos que tengan puntos de conexión con una asignación de región geográfica no mostrarán su asignación de región geográfica.
 
 
 
@@ -219,7 +231,7 @@ El uso de perfiles anidados no afecta de forma negativa a los precios.
 
 La facturación de Traffic Manager tiene dos componentes: comprobaciones de estado del punto de conexión y millones de consultas DNS.
 
-* Comprobaciones de estado del punto de conexión: cuando un perfil secundario se configura como punto de conexión de un perfil primario no se aplica ningún cargo. La supervisión de los puntos de conexión del perfil secundario se facturan de la manera habitual.
+* Comprobaciones de estado del punto de conexión: cuando un perfil secundario se configura como punto de conexión de un perfil primario no se aplica ningún cargo. La supervisión de los puntos de conexión del perfil secundario se factura de la manera habitual.
 * Consultas de DNS: cada consulta se cuenta una sola vez. Las consultas a un perfil primario que devuelven un punto de conexión de un perfil secundario solo se cuentan con respecto al perfil primario.
 
 Para obtener todos los detalles, consulte la [página de precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).

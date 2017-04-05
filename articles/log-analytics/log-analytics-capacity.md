@@ -1,6 +1,6 @@
 ---
-title: "Solución de administración de capacidad en Log Analytics | Microsoft Docs"
-description: "Puede usar la solución de planeamiento de capacidad de Log Analytics para conocer la capacidad de los servidores de Hyper-V administrados por System Center Virtual Machine Manager."
+title: "Solución Capacidad y rendimiento en Azure Log Analytics | Microsoft Docs"
+description: "Use la solución Capacidad y rendimiento en Log Analytics para conocer la capacidad de los servidores de Hyper-V."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,170 +12,126 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/29/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
-ms.openlocfilehash: c34cda0da164c711c8effc78d2af38ad8df581aa
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: af4aa0c69587b6a0448c470892e566b7efec4858
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="capacity-management-solution-in-log-analytics"></a>Solución de administración de capacidad en Log Analytics
-Puede usar la solución Administración de capacidad de Log Analytics para conocer la capacidad de los servidores de Hyper-V. Esta solución requiere System Center Operations Manager y System Center Virtual Machine Manager. Si usa agentes conectados directamente, la solución Planeamiento de capacidad no es funcional. La solución lee los contadores de rendimiento en el servidor supervisado y envía datos de uso al servicio OMS en la nube para procesarlos. La lógica se aplica a los datos usados y el servicio en la nube registra los datos. Con el tiempo, se identifican los patrones de uso y se proyecta la capacidad según el consumo actual.
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Con la solución Capacidad y rendimiento (versión preliminar) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
-Por ejemplo, una proyección puede identificar cuándo se requieren núcleos de procesador adicionales o una memoria adicional para un servidor individual. En este ejemplo, la proyección podría indicar que en 30 días, el servidor necesitará memoria adicional. Esta proyección puede ayudarlo a planear una actualización de memoria durante la próxima ventana de mantenimiento del servidor.
+![Solución Capacidad y rendimiento](./media/log-analytics-capacity/capacity-solution.png) La solución Capacidad y rendimiento se puede usar en Log Analytics para conocer la capacidad de los servidores de Hyper-V. La solución proporciona información sobre el entorno de Hyper-V, ya que muestra el uso general (CPU, memoria y disco) de los hosts y las máquinas virtuales que se ejecutan en esos hosts de Hyper-V. Se recopilan métricas de la CPU, la memoria y los discos en todos los hosts y en las máquinas virtuales que se ejecutan en ellos.
+
+La solución consigue lo siguiente:
+
+-    Muestra los hosts con el uso máximo y mínimo de la CPU y de la memoria
+-    Muestra las máquinas virtuales con el uso máximo y mínimo de la CPU y de la memoria
+-    Muestra las máquinas virtuales con el uso máximo y mínimo de las IOPS y del rendimiento
+-    Muestra qué máquinas virtuales se ejecutan en los hosts
+-    Muestra los discos con mayor rendimiento, IOPS y latencia en volúmenes compartidos de clúster
+- Permite personalizar y filtrar por grupos
 
 > [!NOTE]
-> La solución de administración de capacidad no está disponible para agregarse a áreas de trabajo. Los clientes que tengan instalada la solución de administración de capacidad pueden seguir usándola.  
->
->
+> La versión anterior de la solución Capacidad y rendimiento, denominada Administración de capacidad, requiere System Center Operations Manager y System Center Virtual Machine Manager. Esta solución actualizada no tiene esas dependencias.
 
-La solución de reemplazo Capacidad y rendimiento está disponible en versión preliminar privada. Se ha diseñado para abordar los siguientes problemas de la solución Administración de capacidad original que nos han comunicado los clientes:
 
-* Obligación de usar tanto Virtual Machine Manager como Operations Manager
-* Imposibilidad de personalizar o filtrar por grupos
-* Agregaciones de datos por hora poco frecuentes
-* Inexistencia de información de nivel de máquina virtual
-* Confiabilidad de los datos
+## <a name="connected-sources"></a>Orígenes conectados
 
-Ventajas de la nueva solución de capacidad:
+En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
-* Posibilidad de recopilar datos pormenorizados con mejor precisión y confiabilidad
-* Compatibilidad con Hyper-V sin necesidad de VMM
-* Información sobre el uso de nivel de máquina virtual
+| Origen conectado | Soporte técnico | Descripción |
+|---|---|---|
+| [Agentes de Windows](log-analytics-windows-agents.md) | Sí | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
+| [Agentes de Linux](log-analytics-linux-agents.md) | No    | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sí |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y OMS. Los datos se reenvían del grupo de administración al repositorio de OMS.|
+| [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | Azure Storage no incluye datos de capacidad y rendimiento.|
 
-Actualmente, la nueva solución requiere Hyper-V Server 2012 o posterior. La solución da información sobre el entorno de Hyper-V y visibilidad de la utilización en general (CPU, memoria y disco) de los hosts y las máquinas virtuales que se ejecutan en esos servidores de Hyper-V. Se recopilan métricas de CPU, memoria y disco en todos los hosts y en las máquinas virtuales que se ejecutan en ellos.
+## <a name="prerequisites"></a>Requisitos previos
 
-La documentación restante de esta página se refiere a la solución anterior Administración de capacidad. Esta documentación se actualizará cuando se lance la versión preliminar pública de la nueva solución.
+- Los agentes de Windows o de Operations Manager deben instalarse en hosts de Hyper-V, no máquinas virtuales, con Windows Server 2012, o cualquier versión superior.
 
-## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
-Utilice la siguiente información para instalar y configurar la solución.
 
-* Se necesita Operations Manager para la solución de administración de capacidad.
-* Se necesita Virtual Machine Manager para la solución de administración de capacidad.
-* Se necesita conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional sobre de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
-* Operations Manager debe estar conectado a Log Analytics.
-* Agregue la solución de administración de capacidad al área de trabajo de OMS a través del proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+## <a name="configuration"></a>Configuración
 
-## <a name="capacity-management-data-collection-details"></a>Detalles de la recolección de datos de la administración de capacidad
-La administración de capacidad recopila datos de rendimiento, metadatos y datos de estado con los agentes habilitados.
+Realice el siguiente paso para agregar la solución Capacidad y rendimiento a un área de trabajo.
 
-En la siguiente tabla se muestran los métodos de recolección de datos y otros detalles sobre cómo se recopilan datos para la administración de capacidad.
+- Agregue la solución Capacidad y rendimiento a un área de trabajo de OMS mediante el proceso que se describe en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](log-analytics-add-solutions.md).
 
-| plataforma | Agente directo | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Sí](./media/log-analytics-capacity/oms-bullet-green.png) |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Sí](./media/log-analytics-capacity/oms-bullet-green.png) |![Sí](./media/log-analytics-capacity/oms-bullet-green.png) |cada hora |
+## <a name="management-packs"></a>Módulos de administración
 
-En la tabla siguiente se muestran ejemplos de tipos de datos recopilados por la administración de capacidad:
+Si el grupo de administración de SCOM está conectado al área de trabajo de OMS, los módulos de administración siguientes se instalarán en SCOM al agregar esta solución. No es necesario realizar tareas de configuración o mantenimiento de estos módulos de administración.
 
-| **Tipo de datos** | **Fields** |
-| --- | --- |
-| Metadatos |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
-| Rendimiento |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
-| Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
+- Microsoft.IntelligencePacks.CapacityPerformance (Microsoft.IntelligencePacks.UpdateAssessment)
 
-## <a name="capacity-management-page"></a>Página de administración de la capacidad
-Después de instalar la solución de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de OMS.
+El evento 1201 es similar:
 
-![imagen del icono Planeamiento de capacidad](./media/log-analytics-capacity/oms-capacity01.png)
 
-El icono abre el panel **Administración de capacidad** , donde puede ver un resumen de la capacidad del servidor. La página muestra los iconos siguientes en los que puede hacer clic:
+```
+New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", version:"1.10.3190.0" received.
+```
 
-* *Cuenta de la máquina virtual*: muestra el número de días que quedan para la capacidad de las máquinas virtuales.
-* *Proceso*: muestra los núcleos de procesador y la memoria disponible.
-* *Almacenamiento*: muestra el espacio en disco utilizado y el promedio de latencia del disco.
-* *Búsqueda:*explorador de datos que puede usar para buscar cualquier dato en el sistema OMS.
+Cuando se actualice la solución Capacidad y rendimiento, el número de versión cambiará.
 
-![imagen del panel Administración de capacidad](./media/log-analytics-capacity/oms-capacity02.png)
+Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
 
-### <a name="to-view-a-capacity-page"></a>Visualización de una página de capacidad
-* En la página **Información general**, haga clic en **Administración de capacidad** y, a continuación, haga clic en **Proceso** o **Almacenamiento**.
+## <a name="using-the-solution"></a>Uso de la solución
 
-## <a name="compute-page"></a>Página Proceso
-Puede usar el panel **Proceso** en OMS de Microsoft Azure para ver información de capacidad sobre el uso, los días proyectados de capacidad y la eficacia relacionada con la infraestructura. El área **Uso** permite ver el uso de la memoria y los núcleos de CPU en los hosts de máquina virtual. Puede usar la herramienta de proyección para calcular cuánta capacidad se espera que esté disponible para un intervalo de fechas determinado. Puede usar el área **Eficacia** para ver lo eficaces que son sus hosts de máquina virtual. Puede ver detalles sobre los elementos vinculados haciendo clic en ellos.
+Al agregar la solución Capacidad y rendimiento a un área de trabajo, se agrega al panel Información general. Este icono muestra un recuento del número de hosts de Hyper-V activos actualmente y el número de máquinas virtuales activas que se han supervisado durante el período seleccionado.
 
-Puede generar un libro de Excel para las siguientes categorías:
+![Icono Capacidad y rendimiento](./media/log-analytics-capacity/capacity-tile.png)
 
-* Hosts principales con mayor uso de núcleo
-* Hosts principales con mayor uso de memoria
-* Hosts principales con máquinas virtuales ineficaces
-* Hosts principales por uso
-* Últimos hosts según la utilización
 
-![imagen de la página de procesos de Administración de capacidad](./media/log-analytics-capacity/oms-capacity03.png)
+### <a name="review-utilization"></a>Revisión de la utilización
 
-Las áreas siguientes se muestran en el panel **Proceso** :
+Haga clic en el icono Capacidad y rendimiento para abrir el panel Capacidad y rendimiento. El panel incluye las columnas de la tabla siguiente. Cada columna muestra hasta los diez principales elementos que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros haciendo clic en **Ver todo** en la parte inferior de la columna o haciendo clic en el encabezado de la columna.
 
-**Uso**: permite ver el uso de la memoria y los núcleos de CPU en los hosts de máquina virtual.
+- **Hosts**
+    - **Utilización de la CPU del host** Muestra una tendencia gráfica de la utilización de la CPU de los equipos host y una lista de hosts, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de host para abrir la búsqueda de registros y ver datos del contador de CPU relativos a máquinas virtuales hospedadas.
+    - **Utilización de memoria del host** Muestra una tendencia gráfica de la utilización de la memoria de los equipos host y una lista de hosts, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de host para abrir la búsqueda de registros y ver datos del contador de la memoria relativos a máquinas virtuales hospedadas.
+- **Máquinas virtuales**
+    - **Utilización de la CPU de VM** Muestra una tendencia gráfica de la utilización de la CPU de las máquinas virtuales y una lista de máquinas virtuales, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador de CPU relativos a la máquina virtual.
+    - **Utilización de la memoria de VM** Muestra una tendencia gráfica de la utilización de la memoria de las máquinas virtuales y una lista de máquinas virtuales, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador de memoria relativos a la máquina virtual.
+    - **E/S por segundo de disco total de VM** Muestra una tendencia gráfica de las IOPS de disco totales de las máquinas virtuales y una lista de las máquinas virtuales con las IOPS de cada una de ellas, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador de IOPS de disco relativos a la máquina virtual.
+    - **Rendimiento de disco total de VM** Muestra una tendencia gráfica del rendimiento de disco total de las máquinas virtuales y una lista de las máquinas virtuales con el rendimiento de disco total de cada una de ellas, basándose en el período seleccionado. Mantenga el puntero sobre el gráfico de líneas para ver los detalles de un momento dado concreto de las 3 principales máquinas virtuales. Haga clic en el gráfico para ver más detalles en la búsqueda de registros. Haga clic en cualquier nombre de máquina virtual para abrir la búsqueda de registros y ver detalles agregados del contador del el rendimiento de disco total relativos a la máquina virtual.
+- **Volúmenes compartidos en clúster**
+    - **Rendimiento total** Muestra la suma de las operaciones de lectura y de escritura en los volúmenes compartidos en clúster.
+    - **Total de E/S por segundo** Muestra la suma de las operaciones de entrada y salida por segundo en los volúmenes compartidos en clúster.
+    - **Latencia total** Muestra la latencia total en los volúmenes compartidos en clúster.
+- **Densidad de host** El icono superior muestra el número total de hosts y máquinas virtuales disponibles para la solución. Haga clic en el icono superior para ver más detalles en la búsqueda de registros. También se enumeran todos los hosts y el número de máquinas virtuales que se hospedan. Haga clic en un host para profundizar en los resultados de la máquina virtual en una búsqueda de registros.
 
-* *Núcleos usados*: suma de todos los hosts (% de CPU utilizado multiplicado por el número de núcleos físicos en el host).
-* *Núcleos libres*: núcleos físicos totales menos los núcleos usados.
-* *Porcentaje de núcleos disponible*: los núcleos físicos libres divididos por el número total de núcleos físicos.
-* *Núcleos virtuales por VM*: número total de núcleos virtuales del sistema dividido entre el número total de máquinas virtuales del sistema.
-* *Relación entre núcleos virtuales y núcleos físicos*: relación entre la cantidad total de núcleos físicos y los núcleos físicos que utilizan las máquinas virtuales en el sistema.
-* *Número de núcleos de virtuales disponibles*: relación entre núcleo virtual y núcleos físicos multiplicada por el número de núcleos físicos disponibles.
-* *Memoria usada*: suma de la memoria que utilizan todos los hosts.
-* *Memoria libre*: memoria física total menos la memoria usada.
-* *Porcentaje de memoria disponible*: memoria física libre dividida por la memoria física total.
-* *Memoria virtual por VM*: memoria virtual total del sistema dividida entre el número total de máquinas virtuales del sistema.
-* *Proporción entre memoria virtual y memoria física*: total de memoria virtual del sistema dividido por el total de memoria física del sistema.
-* *Memoria virtual disponible*: relación entre la memoria virtual y la memoria física multiplicada por la memoria física disponible.
 
-**Herramienta de proyección**
+![Hoja Hosts de panel](./media/log-analytics-capacity/dashboard-hosts.png)
 
-Mediante la herramienta de proyección, puede ver las tendencias históricas del uso de los recursos. Se incluyen las tendencias de uso de las máquinas virtuales, la memoria, los núcleos y el almacenamiento. La capacidad de proyección utiliza un algoritmo de proyección que permite saber cuándo se están agotando los distintos recursos. Esto permite calcular el planeamiento de capacidad correcto para que pueda saber si debe adquirir más capacidad (por ejemplo, memoria, núcleos o almacenamiento).
+![Hoja Máquinas virtuales de panel](./media/log-analytics-capacity/dashboard-vms.png)
 
-**Eficacia**
 
-* *VM inactiva*: aquellas que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
-* *VM sobreutilizada*: aquellas que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
-* *Host inactivo*: aquellos que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
-* *Host sobreutilizado*: aquellos que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
+### <a name="evaluate-performance"></a>Evaluación del rendimiento
 
-### <a name="to-work-with-items-on-the-compute-page"></a>Uso de los elementos de la página Proceso
-1. En el panel **Proceso**, en el área **Uso**, puede ver información acerca de los núcleos de CPU y la memoria en uso.
-2. Haga clic en un elemento para abrirlo en la página **Buscar** y ver información detallada al respecto.
-3. En la herramienta de **Proyección** , mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
-4. En el área **Eficacia** , puede ver la información sobre la eficacia de la capacidad acerca de las máquinas virtuales y los hosts de máquina virtual.
+Los entornos informáticos de producción difieren considerablemente de una organización a otra. Además, la capacidad y las cargas de trabajo de rendimiento pueden depender del funcionamiento de las máquinas virtuales y de lo que se considere normal. Es probable que los procedimientos concretos que le ayudan a medir el rendimiento no se apliquen a su entorno. Por consiguiente, es mejor usar instrucciones más generales. Microsoft publica varios artículos con instrucciones que pueden ayudarle a medir el rendimiento.
 
-## <a name="direct-attached-storage-page"></a>Página Almacenamiento con conexión directa
-Puede usar el panel **Almacenamiento con conexión directa** de OMS para ver información de capacidad sobre el uso del almacenamiento, el rendimiento del disco y los días proyectados de capacidad de disco. El área **Uso** permite ver el uso del espacio de disco en los hosts de máquina virtual. Puede utilizar el área **Rendimiento del disco** para ver el rendimiento del disco y la latencia de los hosts de máquina virtual. También puede usar la herramienta de proyección para calcular cuánta capacidad se espera que esté disponible para un intervalo de fechas determinado. Puede ver detalles sobre los elementos vinculados haciendo clic en ellos.
+En resumen, la solución recopila datos de capacidad y rendimiento de varios orígenes, entre los que se incluyen los contadores de rendimiento. Use los datos de capacidad y rendimiento que se presentan en distintas superficies en la solución y compare los resultados con los del artículo [Measuring Performance on Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) (Medición del rendimiento en Hyper-V). Aunque el artículo se publicó hace un tiempo, las métricas, consideraciones y directrices siguen teniendo la validez. El artículo contiene vínculos a otros recursos útiles.
 
-Puede generar un libro de Excel a partir de esta información de capacidad para las siguientes categorías:
 
-* Mayor uso de espacio de disco por host
-* Mayor promedio de latencia por host
+## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 
-Las áreas siguientes se muestran en la página **Almacenamiento** :
+En la tabla siguiente se proporcionan búsquedas de registros de ejemplo en los datos de capacidad y rendimiento que ha recopilado y calculado esta solución.
 
-* *Uso*: conozca el uso del espacio de disco en los hosts de máquina virtual.
-* *Espacio en disco total*: suma (espacio en disco lógico) para todos los hosts
-* *Espacio en disco usado*: suma (espacio en disco lógico usado) para todos los hosts
-* *Espacio en disco disponible*: espacio en disco total menos espacio en disco usado
-* *Porcentaje utilizado del disco*: espacio en disco usado dividido por el espacio en disco total
-* *Porcentaje en disco disponible*: espacio en disco disponible dividido por espacio en disco total
+| Consultar | Descripción |
+|---|---|
+| Todas las configuraciones de memoria del host | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
+| Todas las configuraciones de memoria de la máquina virtual | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
+| Desglose de E/S por segundo total del disco en todas las máquinas virtuales | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Desglose del rendimiento total del disco en todas las máquinas virtuales | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Desglose de E/S por segundo total en todos los CSV | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Desglose del rendimiento total del disco en todos los CSV | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
+| Desglose de la latencia total en todos los CSV | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
-![imagen de la página Administración de capacidad del almacenamiento con conexión directa](./media/log-analytics-capacity/oms-capacity04.png)
-
-**Rendimiento de disco**
-
-Si usa OMS, puede ver las tendencias históricas de uso del espacio del disco. La capacidad de proyección utiliza un algoritmo para proyectar el uso futuro. Sobre el uso del espacio en particular, la capacidad de proyección permite proyectar cuándo puede quedarse sin espacio de disco. Esta previsión permite planear el almacenamiento adecuado y saber cuándo es preciso adquirir más.
-
-**Herramienta de proyección**
-
-Mediante la herramienta de proyección, puede ver las tendencias históricas del uso del espacio de disco. También permite proyectar cuándo se quedará sin espacio de disco. Esta previsión permite planear la capacidad de almacenamiento adecuada y saber cuándo es preciso adquirir más.
-
-### <a name="to-work-with-items-on-the-direct-attached-storage-page"></a>Uso de los elementos de la página Almacenamiento con conexión directa
-1. En el panel **Almacenamiento con conexión directa**, en el área **Uso**, puede ver la información sobre el uso del disco.
-2. Haga clic en un elemento vinculado para abrirlo en la página **Buscar** con objeto de ver información detallada al respecto.
-3. En el área **Rendimiento del disco** , puede ver la información sobre el rendimiento y la latencia del disco.
-4. En la **herramienta de Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
-
-## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre la administración de capacidad.
 
 
 
-<!--HONumber=Nov16_HO3-->
-
+## <a name="next-steps"></a>Pasos siguientes
+* Use [Búsqueda de datos mediante búsquedas de registros](log-analytics-log-searches.md) para ver datos detallados de Capacidad y rendimiento.
 
