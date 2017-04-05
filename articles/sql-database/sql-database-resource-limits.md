@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 15692a155cdb55d8dc6eeeb68df264411e46b662
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -52,7 +52,7 @@ Para una base de datos única, los límites de una base de datos se definen medi
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente en versión preliminar pública en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Europa Occidental, Asia Suroriental, Japón Oriental, Este de Australia, centro de Canadá y Canadá Oriental. Para las limitaciones actuales, consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente en versión preliminar pública en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Europa Occidental, Asia Suroriental, Japón Oriental, Este de Australia, centro de Canadá y Canadá Oriental.
 >
 
 ### <a name="elastic-pools"></a>Grupos elásticos
@@ -67,10 +67,10 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 | --- | --- | --- |
 | Bases de datos que usan exportación automatizada por suscripción |10 |La exportación automatizada le permite crear una programación personalizada para realizar copias de seguridad de las bases de datos SQL. La versión preliminar de esta característica finalizará el 1 de marzo de 2017.  |
 | Bases de datos por servidor |Hasta 5000 |Se permiten hasta 5000 bases de datos por servidor en servidores V12. |
-| DTU por servidor |45000 |Se permiten&45000; DTU por servidor en servidores V12 para el aprovisionamiento de bases de datos independientes y grupos elásticos. El número total de grupos y bases de datos independientes permitidos por servidor está limitado únicamente por el número de DTU de servidor.  
+| DTU por servidor |45000 |Se permiten 45000 DTU por servidor en servidores V12 para el aprovisionamiento de bases de datos independientes y grupos elásticos. El número total de grupos y bases de datos independientes permitidos por servidor está limitado únicamente por el número de DTU de servidor.  
 
 > [!IMPORTANT]
-> La exportación automática de Azure SQL Database Automated Export se encuentra ahora en versión preliminar y se retirará el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, ya no podrá configurar la exportación automatizada en cualquier instancia de SQL Database. Los trabajos de exportación automatizada existentes continuarán funcionando hasta el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, podrá usar la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) o [Azure Automation](../automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un script de ejemplo, puede descargar [este que está disponible en Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> La exportación automática de Azure SQL Database Automated Export se encuentra ahora en versión preliminar y se retirará el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, ya no podrá configurar la exportación automatizada en cualquier instancia de SQL Database. Los trabajos de exportación automatizada existentes continuarán funcionando hasta el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, podrá usar la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) o [Azure Automation](../automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un script de ejemplo, puede descargar [este que está disponible en GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).
 >
 
 
@@ -80,5 +80,4 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md)
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
-
 

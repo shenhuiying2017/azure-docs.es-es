@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 88956ec33009bfd6ce5047085f6d7512d951edee
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,6 +31,7 @@ En este artículo se muestra cómo adjuntar discos nuevos y existentes a una má
 * Para un disco existente, el archivo .vhd debe estar disponible en una cuenta de almacenamiento de Azure. Puede usar uno que ya esté disponible allí, si no está conectado a otra máquina virtual, o cargar su propio archivo .vhd en la cuenta de almacenamiento.
 
 También puede [conectar un disco de datos mediante Powershell](virtual-machines-windows-attach-disk-ps.md).
+
 
 
 ## <a name="find-the-virtual-machine"></a>Búsqueda de la máquina virtual
@@ -54,7 +56,7 @@ Continúe siguiendo las instrucciones para conectar un [nuevo disco](#option-1-a
 1. Conexión a una máquina virtual. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Después de iniciar sesión en la máquina virtual, abra el **Administrador del servidor**. En el panel izquierdo, seleccione **Servicios de archivos y almacenamiento**.
    
-    ![Abrir Administrador de servidores](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
+    ![Abrir Administrador de servidores](./windows/classic/media/attach-disk/fileandstorageservices.png)
 3. Expanda el menú y seleccione **Discos**.
 4. En la sección **Discos** aparecen todos los discos. En la mayoría de los casos, habrá un disco 0, un disco 1 y un disco 2. El disco 0 es el disco del sistema operativo, el disco 1 es el disco temporal y el disco 2 es el disco de datos que acaba de conectar a la VM. El nuevo disco de datos mostrará la partición como **Desconocida**. Haga clic con el botón derecho en el disco y seleccione **Inicializar**.
 5. Se le notificará que se borrarán todos los datos cuando se inicializa el disco. Haga clic en **Sí** para confirmar la advertencia e inicializar el disco. Una vez que se complete el proceso, la partición aparecerá como **GPT**. Vuelva a hacer clic con el botón derecho en el disco y seleccione **Nuevo volumen**.
@@ -91,13 +93,14 @@ Si el comando devuelve 0, significa que TRIM está habilitada correctamente. Si 
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
+                
+Después de eliminar los datos del disco, puede garantizar que las operaciones de TRIM se vacían correctamente mediante la ejecución de desfragmentación con TRIM:
+
+```
+defrag.exe <volume:> -l
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 

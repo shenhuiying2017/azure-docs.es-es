@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c239c12dd9fcc849a6b90ec379ebb8690bd049fc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -47,7 +47,7 @@ Cuando un cliente adquiere un token de acceso para acceder a un recurso protegid
 Es importante diferenciar entre clientes públicos y confidenciales. Para más información sobre los diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Vigencia de los tokens de actualización de cliente confidencial
-Los clientes confidenciales son aplicaciones que pueden almacenar de forma segura una contraseña (secreto) de un cliente. Pueden comprobar que las solicitudes proceden de la aplicación cliente y no de un individuo malintencionado. Por ejemplo, una aplicación web es un cliente confidencial ya que puede almacenar un secreto de cliente en el servidor web. Y, por tanto, este secreto no se expone. Como estos flujos son más seguros, las vigencias predeterminadas de los tokens de actualización emitidos a estos flujos son más altas y no se pueden cambiar mediante directivas.
+Los clientes confidenciales son aplicaciones que pueden almacenar de forma segura una contraseña (secreto) de un cliente. Pueden comprobar que las solicitudes proceden de la aplicación cliente y no de un individuo malintencionado. Por ejemplo, una aplicación web es un cliente confidencial ya que puede almacenar un secreto de cliente en el servidor web. Y, por tanto, este secreto no se expone. Dado que estos flujos resultan más seguros, las duraciones predeterminadas de tokens de actualización emitidos para estos flujos será `until-revoked`, no se podrán cambiar mediante la directiva y no se revocarán en los restablecimientos de contraseña voluntarios.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Vigencia de los tokens de actualización de cliente público
 
@@ -203,7 +203,7 @@ Para comenzar, realice uno de los pasos siguientes:
     Connect-AzureAD -Confirm
     ```
 
-3. Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización. Este comando debe ejecutarse después de la mayoría de las operaciones en los escenarios siguientes. La ejecución de este comando también le ayudará a obtener el valor de **ObjectId** de sus directivas.
+3. Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización. Este comando debe ejecutarse después de la mayoría de las operaciones en los escenarios siguientes. La ejecución del comando también lo ayudará a obtener el valor de ** ** de sus directivas.
 
     ```PowerShell
     Get-AzureADPolicy
@@ -243,9 +243,8 @@ En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesi
     Puede decidir que la primera directiva que se establece en este ejemplo no sea tan estricta como exige el servicio. Para establecer que el token de actualización de un solo factor expire en dos días, ejecute el siguiente comando:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
-
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Ejemplo: Creación de una directiva para inicio de sesión web
 
@@ -274,7 +273,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
     2.  Cuando tenga el valor de **ObjectId** de la entidad de servicio, ejecute el siguiente comando:
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -300,7 +299,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
    Cuando tenga el valor de **ObjectId** de la aplicación, ejecute el siguiente comando:
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -330,13 +329,13 @@ En este ejemplo, va a crear algunas directivas para obtener información sobre c
     2.  Cuando tenga el valor de **ObjectId** de la entidad de servicio, ejecute el siguiente comando:
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Establezca la marca `IsOrganizationDefault` en false:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Cree una nueva directiva predeterminada de organización:
@@ -380,7 +379,7 @@ Get-AzureADPolicy
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> [Opcional] |El valor de **ObjectId** de la directiva que desea. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -388,12 +387,12 @@ Get-AzureADPolicy
 Obtiene todas las aplicaciones y entidades de servicio vinculadas a una directiva.
 
 ```PowerShell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
+Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la directiva que desea. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -401,12 +400,12 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 Actualiza una directiva existente.
 
 ```PowerShell
-Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
+Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la directiva que desea. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Cadena del nombre de la directiva. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Opcional] |La matriz de cadenas JSON que contiene todas las reglas de la directiva. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Opcional] |Si es true establece la directiva como directiva predeterminada de la organización. Si es false, no hace nada. |`-IsOrganizationDefault $true` |
@@ -419,12 +418,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 Elimina la directiva especificada.
 
 ```PowerShell
- Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+ Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la directiva que desea. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la directiva que desea. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,12 +434,12 @@ Los cmdlets siguientes se pueden usar para directivas de aplicación.</br></br>
 Vincula la directiva especificada a una aplicación.
 
 ```PowerShell
-Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -449,12 +448,12 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 Obtiene la directiva asignada a una aplicación.
 
 ```PowerShell
-Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -462,12 +461,12 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 Quita una directiva de una aplicación.
 
 ```PowerShell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -479,12 +478,12 @@ Los cmdlets siguientes se pueden usar para las directivas de entidad de servicio
 Vincula la directiva especificada a una entidad de servicio.
 
 ```PowerShell
-Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |El valor de **ObjectId** de la directiva. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,12 +492,12 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 Obtiene cualquier directiva vinculada a la entidad de servicio especificada.
 
 ```PowerShell
-Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -506,11 +505,11 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 Quita la directiva de la entidad de servicio especificada.
 
 ```PowerShell
-Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
 | Parámetros | Descripción | Ejemplo |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |El valor de **ObjectId** de la aplicación. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |El valor de **ObjectId (Id)** de la aplicación. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |El valor de **ObjectId** de la directiva. | `-PolicyId <ObjectId of Policy>` |
 

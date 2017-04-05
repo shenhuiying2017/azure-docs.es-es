@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e2a0b62ff9eb5e1f8941b4e1f9def7ab9454ce67
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -140,10 +140,10 @@ Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recurso
                         <h3>Idiomas</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (servicio)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispostivos)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (servicio)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (servicio)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivos)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Nodo (servicio)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Nodo (dispositivos)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.8/index.html">Nodo (servicio)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.8/index.html">Nodo (dispositivos)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">SDK de IoT de Azure</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">SDK de puerta de enlace</a></p>
                     </div>

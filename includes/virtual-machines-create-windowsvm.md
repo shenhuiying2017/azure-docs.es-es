@@ -16,13 +16,13 @@ La hoja Básico solicita información administrativa para la máquina virtual.
 
 2. Escriba un **nombre de usuario** y una **contraseña** segura que se usarán para crear una cuenta local en la máquina virtual. La cuenta local sirve para iniciar sesión en la máquina virtual y administrarla. En el ejemplo, _azureuser_ es el nombre de usuario.
 
- La contraseña debe tener entre 8 y 123 caracteres y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Obtenga más información acerca de los [requisitos de usuario y la contraseña](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ La contraseña debe tener entre 8 y 123 caracteres y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Obtenga más información acerca de los [requisitos de usuario y la contraseña](../articles/virtual-machines/windows/faq.md).
 
 3. La **suscripción** es opcional. Una configuración común es "Pago por uso".
 
 4. Seleccione un valor de **Grupo de recursos** existente o escriba el nombre para crear uno. En el ejemplo, _HeroVMRG_ es el nombre del grupo de recursos.
 
-5. Seleccione una **ubicación** del centro de datos de Azure donde desea que se ejecute la máquina virtual. En el ejemplo, la ubicación es **Este de EE. UU.**.
+5. Seleccione una **ubicación** del centro de datos de Azure donde desea que se ejecute la máquina virtual. En el ejemplo, la ubicación es **Este de EE. UU**.
 
 6. Cuando termine, haga clic en **Siguiente** para continuar a la hoja siguiente.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/23/2017
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
-ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9a0ba106b4c2aded8aaac673dfba3610bd4ca0fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -79,7 +79,7 @@ Juegos como [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/
 ![Arquitectura de referencia de juegos de Azure DocumentDB](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## <a name="web-and-mobile-applications"></a>Aplicaciones web y móviles
-DocumentDB se usa normalmente en aplicaciones web y móviles y sirve, sobre todo, para modelar interacciones sociales, para la integración con servicios de terceros y para la creación de experiencias personalizadas enriquecidas. 
+DocumentDB se usa normalmente en aplicaciones web y móviles y sirve, sobre todo, para modelar interacciones sociales, para la integración con servicios de terceros y para la creación de experiencias personalizadas enriquecidas. Los SDK de DocumentDB pueden utilizarse para generar completas aplicaciones de iOS y Android mediante el conocido [marco Xamarin](documentdb-mobile-apps-with-xamarin.md).  
 
 ### <a name="social-applications"></a>Aplicaciones sociales
 Un caso de uso común para DocumentDB es almacenar y consultar el contenido generado por usuarios para aplicaciones web y móviles, especialmente aplicaciones de medios sociales. Algunos ejemplos de contenido generado por usuarios son las sesiones de chat, los tweets, las entradas de blog, las valoraciones y los comentarios. A menudo, el contenido generado por usuarios en las aplicaciones de medios sociales es una mezcla de texto sin formato, propiedades, etiquetas y relaciones que no están limitadas por una estructura rígida. Los contenidos como chats, comentarios y publicaciones pueden almacenarse en DocumentDB sin requerir transformaciones u objetos complejos en las capas de asignación relacional.  Se pueden agregar o modificar fácilmente las propiedades de datos para satisfacer los requisitos a medida que los desarrolladores recorran en iteración el código de la aplicación, permitiendo así un rápido desarrollo.  

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff24360696c54091ab93e7e1c8f28d95c226bc0a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/18/2017
 En este artículo se analiza cómo exportar la base de datos Azure SQL Database o SQL Server a un archivo BACPAC. 
 
 > [!IMPORTANT]
-> La exportación automática de Azure SQL Database Automated Export se encuentra ahora en versión preliminar y se retirará el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, ya no podrá configurar la exportación automatizada en cualquier base de datos SQL. Los trabajos de exportación automatizada existentes continuarán funcionando hasta que el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, podrá usar la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) o [Azure Automation](../automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un script de ejemplo, puede descargar [este que está disponible en Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> La exportación automática de Azure SQL Database Automated Export se encuentra ahora en versión preliminar y se retirará el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, ya no podrá configurar la exportación automatizada en cualquier base de datos SQL. Los trabajos de exportación automatizada existentes continuarán funcionando hasta que el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, podrá usar la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) o [Azure Automation](../automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un script de ejemplo, puede descargar [este que está disponible en GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
 >
 
 ## <a name="overview"></a>Información general
@@ -60,5 +60,5 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 
 * Para información sobre el proceso de migración de bases de datos SQL Server completo, consulte [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).
 * Para información general sobre cómo copiar una base de datos dentro de Azure, consulte también [Copia de una base de datos Azure SQL Database](sql-database-copy.md).
-* Puede copiar una base de datos Azure SQL Database dentro de Azure mediante [Azure Portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) o [Transact-SQL](sql-database-copy-transact-sql.md). 
+* Puede copiar una base de datos Azure SQL Database dentro de Azure mediante [Azure Portal](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) o [Transact-SQL](sql-database-copy-transact-sql.md). 
 

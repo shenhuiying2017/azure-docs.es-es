@@ -15,156 +15,152 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f0a27b909c4f41300e877a70760db71ca0d36270
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 47bd039ce61351b18e19408679b1d847cc70eef3
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="how-to-update-your-own-password"></a>Actualización de la propia contraseña
-Si no está seguro de cómo administrar la contraseña de su cuenta profesional o educativa, ha llegado al lugar adecuado. Lea la siguiente información para aprender a realizar pasos comunes, como el cambio de una contraseña, el restablecimiento de una contraseña o el registro del restablecimiento de contraseña.
-
-* [**Actualización de la propia contraseña**](#dont-lose-access-to-your-account)
-* [**Cambio de la contraseña en Office 365**](#how-to-change-your-password-from-o365)
-* [**Cambio de la contraseña en el panel de acceso**](#how-to-change-your-password-from-the-access-panel)
-* [**Restablecimiento de la contraseña**](#how-to-reset-your-password)
-* [**Desbloqueo de la cuenta**](#how-to-unlock-your-account)
-* [**Common problems and their solutions**](#common-problems-and-their-solutions)
+# <a name="update-your-own-password"></a>Actualización de la propia contraseña
+Si no está seguro de cómo administrar la contraseña de su cuenta profesional o educativa, ha llegado al lugar adecuado. Sepa cómo registrarse para restablecer la contraseña, cambiar la contraseña, restablecer la contraseña y desbloquear la cuenta.
 
 ## <a name="dont-lose-access-to-your-account"></a>Actualización de la propia contraseña
+
 > [!IMPORTANT]
-> **¿Por qué veo esto?** Si ha seguido un vínculo para llegar aquí, probablemente verá esto porque el administrador requiere que se registre para el restablecimiento de contraseña y acceder a la aplicación. Es posible que se le solicite información de teléfono o correo electrónico, o que tenga que configurar preguntas de seguridad.  No se preocupe: solo usaremos esta información para mantener su cuenta aún más protegida. Los pasos que aparecen a continuación deben ayudarle a alcanzar su objetivo.
->
+> **¿Por qué veo este mensaje?** Si ha seguido un vínculo para llegar aquí, probablemente verá este mensaje porque el administrador requiere que se registre para el restablecimiento de contraseña y acceder a la aplicación. Es posible que se le solicite información de teléfono o correo electrónico, o que tenga que configurar preguntas de seguridad. ¡No se preocupe! Solo usaremos esta información para mantener su cuenta aún más protegida. Los pasos que aparecen a continuación deben ayudarle a alcanzar su objetivo.
 >
 
-La forma más rápida de registrarse para el restablecimiento de contraseña es ir a [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
+La forma más rápida de registrarse para el restablecimiento de contraseña es ir a la [página de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup).  
 
-1. Vaya a [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
+1. Vaya a la página de [registro de restablecimiento de contraseña](http://aka.ms/ssprsetup).
 2. Escriba su nombre de usuario y contraseña.
-3. Elija una opción para registrarse haciendo clic en **Configurar ahora**. En este caso, demuestro el registro de mi **teléfono de autenticación**. El administrador puede pedirle que registre más de una opción. 
+3. Haga clic en **Configurar ahora** para elegir una opción de registro. En este ejemplo se muestra cómo registrarse con el **teléfono de autenticación**. El administrador puede pedirle que registre más de una opción. 
 
-   ![][101]
-4. Seleccione el código de su país en el menú desplegable y escriba su **número de teléfono completo, incluido el código de área**, y elija que **le envíen un mensaje de texto** o que **le llamen**; cualquiera de estas opciones le brinda un código. En este ejemplo, elegí que me enviaran un mensaje de texto.
+   ![Opciones de configuración][101]
+4. Seleccione el código de su país en el menú desplegable y escriba su número de teléfono completo, incluido el código de área, y elija que **le envíen un mensaje de texto** o **que le llamen**. Cualquiera de las opciones proporciona un código. 
 
-   ![][102]
-5. Una vez que llega el código, escríbalo en el cuadro de entrada y haga clic en Comprobar. 
+   ![Comprobación de teléfono][102]
+5. Escriba el código que ha recibido y, después, haga clic en **Comprobar**. 
 
-   ![][103]
-6. Cuando vea un mensaje que indica que **terminó**, ya está. Ahora puede usar el registro para restablecer la contraseña en cualquier momento yendo a [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+   ![Ejemplo de código de comprobación][103]
+6. Haga clic en **Finalizar** para completar el restablecimiento de la contraseña. Ahora puede usar su registro para el restablecimiento de contraseña en cualquier momento en la [página ¿Quién eres?](https://passwordreset.microsoftonline.com).
 
-   ![][104]
+   ![Información de recuperación][104]
 
-   > [!IMPORTANT]
-   > Si el administrador le permite registrarse para más de una opción, es muy recomendable que también se registre para una opción de copia de seguridad por si acaso pierde su teléfono o el acceso a su correo electrónico.
+> [!IMPORTANT]
+> Si el administrador le permite registrarse para más de una opción, es muy recomendable que también se registre para una opción de copia de seguridad por si acaso pierde su teléfono o el acceso a su correo electrónico.
    >
    >
 
-## <a name="how-to-change-your-password-from-o365"></a>Cambio de la contraseña en Office&365;
-Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o educativa en Office 365. Si ha olvidado su contraseña y desea restablecerla, siga los pasos que se describen [aquí](#how-to-reset-your-password).
+## <a name="change-your-password-in-office-365"></a>Cambio de la contraseña en Office 365
+Siga estos pasos para cambiar la contraseña de la cuenta profesional o educativa en Office 365. Si ha olvidado su contraseña y desea restablecerla, siga los pasos que se describen en [Restablecimiento de la contraseña](#how-to-reset-your-password).
 
 1. Inicie sesión en Office 365 con su cuenta profesional o educativa.
 2. Vaya a **Configuración** > **Configuración de Office 365** > **Cambiar contraseña** > **Cambiar contraseña**.
 3. Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
 4. Haga clic en **Guardar**.
 
-Puede obtener más información al respecto en el [Centro de documentación de Office 365](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
+Puede leer más acerca de cómo cambiar la contraseña en Office 365 en el [centro de documentación de Office 365](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
 
-## <a name="how-to-change-your-password-from-the-access-panel"></a>Cambio de la contraseña en el panel de acceso
-Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o educativa en el [panel de acceso](https://myapps.microsoft.com). Si ha olvidado su contraseña y desea restablecerla, siga los pasos que se describen [aquí](#how-to-reset-your-password).
+## <a name="change-your-password-from-the-access-panel"></a>Cambio de la contraseña en el panel de acceso
+Siga estos pasos para cambiar la contraseña de la cuenta profesional o educativa en el [panel de acceso](https://myapps.microsoft.com). Si ha olvidado su contraseña y desea restablecerla, siga los pasos que se describen en [Restablecimiento de la contraseña](#how-to-reset-your-password).
 
 1. Inicie sesión en https://myapps.microsoft.com con su cuenta profesional o educativa.
-2. Haga clic en la pestaña **Perfil**.
-3. Haga clic en el icono **Cambiar mi contraseña** en el lado derecho de la pantalla.
+2. Haga clic en la pestaña **Perfil**. 
+3. Haga clic en **Cambiar contraseña**.
 4. Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
-5. Haga clic en **Enviar**.
+5. Haga clic en **Submit**(Enviar).
 
-   ¿Surge un problema al cambiar la contraseña?  Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
+¿Le ha surgido un problema al cambiar la contraseña? Lea sobre los [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
-## <a name="how-to-reset-your-password"></a>Restablecimiento de la contraseña
-Para restablecer la contraseña de su cuenta profesional o educativa desde cualquier pantalla de inicio de sesión con una de estas cuentas, siga estos pasos.
+## <a name="reset-your-password"></a>Restablecimiento de la contraseña
+Para restablecer la contraseña de su cuenta profesional o educativa desde cualquier página de inicio de sesión con una de estas cuentas, siga estos pasos.
 
 > [!IMPORTANT]
-> Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica.  Puede hacer clic en el vínculo Póngase en contacto con el administrador en este caso para ponerse en contacto con el administrador y desbloquear la cuenta.
+> Esta característica solo está disponible si el administrador la ha activado. Si no está activada, aparece un mensaje que indica que la cuenta no está habilitada para esta característica. Use el vínculo **Póngase en contacto con el administrador** para ponerse en contacto con el administrador y desbloquear la cuenta.
 >
-> Si el administrador le habilitó esta característica, primero debe registrarse antes de usarla. Puede hacerlo aquí: http://aka.ms/ssprsetup.
+> Si el administrador ha habilitado la cuenta para esta característica, primero debe registrarse antes de utilizarla. Para ello, vaya a la página de [registro de restablecimiento de contraseña](http://aka.ms/ssprsetup).
 >
 >
 
-1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en el vínculo "¿No se puede tener acceso a su cuenta?", o bien vaya a https://passwordreset.microsoftonline.com directamente.
+1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en el vínculo **¿No puede acceder a su cuenta?** o vaya a la [página ¿Quién eres?](https://passwordreset.microsoftonline.com).
 
-   ![][110]
-2. En la página ¿Quién es usted?, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot.
+   ![Inicio de sesión de la cuenta][110]
 
-   ![][111]
-3. Haga clic en el botón "Siguiente".
+2. Escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot. 
+
+   ![Confirmación de identidad][111]
+
+3. Haga clic en **Siguiente**.
 4. Elija una opción para restablecer su contraseña. Según cómo su administrador haya configurado el sistema, puede que vea una o varias de las siguientes opciones:
 
    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**: envía un correo electrónico con un código de 6 dígitos a su **correo electrónico alternativo** o **correo electrónico de autenticación** (según elija).
    * **Enviar mensaje de texto a mi teléfono móvil**: envía un mensaje de texto con un código de 6 dígitos a su **teléfono móvil** o al **correo electrónico de autenticación** (según elija).
-   * **Llamar a mi teléfono móvil**: llama a su **teléfono móvil** o **teléfono de autenticación** (según elija); presione la tecla *#* para verificar la llamada.
-   * **Llamar a mi teléfono del trabajo**: llama a su **teléfono del trabajo**; presione la tecla *#* para verificar la llamada.
-   * **Responder a mis preguntas de seguridad** : muestra las preguntas de seguridad registradas previamente para que responda.
+   * **Llamar a mi teléfono móvil**: llama a su **teléfono móvil** o **teléfono de autenticación** (según elija). Presione la tecla *#* para verificar la llamada.
+   * **Llamar a mi teléfono del trabajo**: llama a su **teléfono del trabajo**. Presione la tecla *#* para verificar la llamada.
+   * **Responder a mis preguntas de seguridad**: muestra las preguntas de seguridad registradas previamente para que responda.
 
-   ![][109]
-5. Como ejemplo usaremos la opción "Enviar mensajes de texto a mi teléfono móvil". Si va a usar una opción basada en el teléfono, antes de que le podamos enviar un mensaje de texto debe confirmar el número de teléfono. Escriba su número de teléfono completo y luego haga clic en **Texto** para confirmar que es correcto y enviar un mensaje de texto.
+   ![Opciones de restablecimiento de contraseña][109]
 
-6. Cuando reciba el texto, asegúrese de usar el código de verificación que aparece en el cuerpo del mensaje, no el número desde el que se le envió el código. Puede demorar varios minutos en recibir el texto.
+5. En este ejemplo se muestra la opción **Enviar mensaje de texto a mi teléfono móvil** seleccionada. Para las opciones basadas en teléfono, escriba su número de teléfono completo y luego haga clic en **Texto** para confirmar que es correcto. A continuación se envía un texto con un código de 6 dígitos a su teléfono.
 
-7. Ahora, escriba el código que acaba de recibir en el teléfono en el cuadro de entrada de la página y elija **Siguiente**.
+6. Después de recibir el texto, asegúrese de usar el código de verificación que aparece en el cuerpo del mensaje, no el número desde el que se le envió el código. Puede demorar varios minutos en recibir el texto.
 
-8. Es posible que el administrador solicite un paso de comprobación; si es así, repita el paso 4 con una opción diferente seleccionada.
-9. En la pantalla "Elegir una nueva contraseña", seleccione una nueva contraseña y confirme su elección, y luego haga clic **Finalizar**.
+7. Escriba el código de seis dígitos que ha recibido y haga clic en **Siguiente**.
 
-   ![][107]
+8. El administrador puede requerir un paso de comprobación adicional. Si es así, repita el paso 4 con una opción distinta seleccionada.
+
+9. En la página **Elegir una nueva contraseña**, escriba la nueva contraseña y confirme su elección, y luego haga clic **Finalizar**.
+
+   ![Confirmación de nueva contraseña][107]
 
 10. Una vez que se acepte la contraseña, puede iniciar sesión con la contraseña nueva.
 
-    ![][108]
+    ![Confirmación de restablecimiento de contraseña][108]
 
-¿Surge un problema al restablecer la contraseña? Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
+¿Ha surgido un problema al restablecer la contraseña? Lea sobre los [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
-## <a name="how-to-unlock-your-account"></a>Desbloqueo de la cuenta
-Para desbloquear la cuenta local, siga estos pasos desde la pantalla de inicio de sesión de cualquier cuenta educativa o profesional. 
+## <a name="unlock-your-account"></a>Desbloqueo de la cuenta
+Para desbloquear la cuenta local, siga estos pasos desde la página de inicio de sesión de cualquier cuenta educativa o profesional. 
 
 > [!NOTE]
 > Solo podrá desbloquear la cuenta si se bloqueó de forma local.
 
 > [!IMPORTANT]
-> Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede hacer clic en el vínculo Póngase en contacto con el administrador en este caso para ponerse en contacto con el administrador y desbloquear la cuenta.
+> Esta característica solo está disponible si el administrador la ha activado. Si no está activada, aparece un mensaje que indica que la cuenta no está habilitada para esta característica. Use el vínculo **Póngase en contacto con el administrador** para ponerse en contacto con el administrador y desbloquear la cuenta.
 >
-> Si el administrador ha habilitado para usted esta característica, primero debe registrarse antes de utilizarla. Puede hacerlo aquí: http://aka.ms/ssprsetup.
+> Si el administrador ha habilitado la cuenta para esta característica, primero debe registrarse antes de utilizarla. Para ello, vaya a la página de [registro de restablecimiento de contraseña](http://aka.ms/ssprsetup).
 >
 >
 
-1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en el vínculo "¿No se puede tener acceso a su cuenta?", o bien vaya a https://passwordreset.microsoftonline.com directamente.
+1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en el vínculo **¿No puede acceder a su cuenta?** o vaya a la [página ¿Quién eres?](https://passwordreset.microsoftonline.com).
 
-   ![][110]
-2. En la página ¿Quién es usted?, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot.
+   ![Inicio de sesión de la cuenta][110]
+2. En la página **¿Quién eres?**, escriba su identificador de la cuenta profesional o educativa y pase la prueba del CAPTCHA para demostrar que no es un robot. 
+3. Haga clic en **Siguiente**.
 
-   ![][111]
-3. Haga clic en el botón "Siguiente".
+   ![Confirmación de identidad][111]
 4. Elija una opción para desbloquear la cuenta. Según cómo su administrador haya configurado el sistema, puede que vea una o varias de las siguientes opciones:
 
    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**: envía un correo electrónico con un código de 6 dígitos a su **correo electrónico alternativo** o **correo electrónico de autenticación** (según elija).
    * **Enviar mensaje de texto a mi teléfono móvil**: envía un mensaje de texto con un código de 6 dígitos a su **teléfono móvil** o al **correo electrónico de autenticación** (según elija).
-   * **Llamar a mi teléfono móvil**: llama a su **teléfono móvil** o **teléfono de autenticación** (según elija); presione la tecla *#* para verificar la llamada.
-   * **Llamar a mi teléfono del trabajo**: llama a su **teléfono del trabajo**; presione la tecla *#* para verificar la llamada.
-   * **Responder a mis preguntas de seguridad** : muestra las preguntas de seguridad registradas previamente para que responda.
+   * **Llamar a mi teléfono móvil**: llama a su **teléfono móvil** o **teléfono de autenticación** (según elija). Presione la tecla *#* para verificar la llamada.
+   * **Llamar a mi teléfono del trabajo**: llama a su **teléfono del trabajo**. Presione la tecla *#* para verificar la llamada.
+   * **Responder a mis preguntas de seguridad**: muestra las preguntas de seguridad registradas previamente para que responda.
 
-   ![][112]
-5. Usaremos la opción "Responder a mis preguntas de seguridad" como ejemplo. Rellene las respuesta de sus preguntas de seguridad y seleccione **Siguiente** para comprobar la identidad.
+   ![Opciones de verificación de identidad][112]
+5. En este ejemplo se muestra la opción **Responder a mis preguntas de seguridad** seleccionada. Rellene las respuesta de sus preguntas de seguridad y haga clic en **Siguiente** para comprobar la identidad.
 
-6. Es posible que el administrador solicite un paso de comprobación; si es así, deberá repetir el paso 4 con una opción diferente seleccionada.
-7. Cuando vea la página de que todo ha ido bien, está preparado para comenzar. La cuenta local se ha desbloqueado y ahora puede iniciar sesión una vez más.
+6. El administrador puede requerir un paso de comprobación adicional. Si es así, repita el paso 4 con una opción distinta seleccionada.
+7. Cuando se muestre la página correctamente, significa que la cuenta local se ha desbloqueado y ahora puede iniciar sesión una vez más.
 
-   ![][113]
+   ![Inicio de sesión de la cuenta desbloqueada][113]
 
-   > [!IMPORTANT]
-   > Asegúrese de actualizar todos los dispositivos con la contraseña más reciente, dado que en ocasiones una aplicación no autorizada con una contraseña antigua (por ejemplo, su cliente de correo electrónico del teléfono) puede ser la principal causa de que su cuenta se haya bloqueado.
+> [!IMPORTANT]
+> Asegúrese de actualizar todos los dispositivos con la contraseña más reciente. En ocasiones una aplicación no autorizada con una contraseña antigua (por ejemplo, su cliente de correo electrónico del teléfono) puede ser la principal causa de que su cuenta se haya bloqueado.
    >
    >
 
-¿Surge un problema al desbloquear la cuenta? Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
 ## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
 A continuación se presentan algunos casos terror comunes y sus soluciones:
@@ -189,41 +185,41 @@ A continuación se presentan algunos casos terror comunes y sus soluciones:
           </tr>
           <tr>
             <td>
-              <p>Al escribir mi identificador de usuario, aparece una página "Póngase en contacto con su administrador".</p>
+              <p>Al escribir mi identificador de usuario, aparece una página **Póngase en contacto con su administrador**.</p>
             </td>
             <td>
-              <p>Póngase en contacto con su administrador. <br><br>Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña. <br><br>Para recibir ayuda adicional, deberá ponerse en contacto con su administrador o por el departamento de soporte técnico. </p>
+              <p>Póngase en contacto con su administrador. <br><br>Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña. <br><br>Póngase en contacto con su administrador o por el departamento de soporte técnico. </p>
             </td>
             <td>
-              <p>Esta viendo este mensaje porque su administrador administra su contraseña en el entorno local y no le permite restablecerla desde el vínculo <b>No se puede acceder a su cuenta</b>. <br><br> Para restablecer la contraseña, póngase en contacto con su administrador directamente para solicitar ayuda, o hágale saber que quiere restablecer la contraseña desde Office 365 para que pueda habilitar esta característica para usted.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña".</p>
-            </td>
-            <td>
-              <p>La cuenta no está habilitada para restablecer la contraseña<br><br>El administrador no ha configurado la cuenta para utilizarla con este servicio.<br><br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
-            </td>
-            <td>
-              <p>Esta viendo este mensaje porque su administrador no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo <b>No se puede tener acceso a su cuenta</b>, o bien no le ha autorizado para usar la característica. <br><br> Para restablecer la contraseña, haga clic en el vínculo <b>Póngase en contacto con un administrador</b> para enviar un mensaje de correo electrónico al administrador de su empresa de forma que sepa que quiere restablecer su contraseña desde Office 365 y pueda habilitar esta característica para usted.</p>
+              <p>Está viendo este mensaje porque su administrador administra su contraseña en el entorno local y no le permite restablecerla desde el vínculo <b>No se puede acceder a su cuenta</b>. <br><br> Para restablecer la contraseña, póngase en contacto directamente con el administrador para obtener ayuda. El administrador debe saber que desea restablecer su contraseña de Office 365, para que pueda habilitar esta característica para usted.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta".</p>
+              <p>Después de escribir mi identificador de usuario, recibo el error Su cuenta no está habilitada para el restablecimiento de contraseña.</p>
+            </td>
+            <td>
+              <p>La cuenta no está habilitada para restablecer la contraseña.<br><br>El administrador no ha configurado la cuenta para utilizarla con este servicio.<br><br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
+            </td>
+            <td>
+              <p>Está viendo este mensaje porque su administrador no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo <b>No se puede tener acceso a su cuenta</b>, o bien no le ha autorizado para usar la característica. <br><br> Para restablecer la contraseña, haga clic en el vínculo <b>Póngase en contacto con un administrador</b> para enviar un correo electrónico al administrador de su organización. El administrador debe saber que desea restablecer la contraseña en Office 365, por lo que puede habilitar esta característica para usted.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Después de escribir mi identificador de usuario, recibo el error No se ha podido comprobar su cuenta.</p>
             </td>
             <td>
               <p>No se ha podido comprobar su cuenta.<br><br>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. </p>
             </td>
             <td>
-              <p>Esta viendo este mensaje porque está habilitado para el restablecimiento de contraseña, pero no se ha registrado para usar el servicio.  Para registrarse para el restablecimiento de contraseña, vaya a http://aka.ms/ssprsetup después de haber recuperado el acceso a su cuenta. <br><br> Para restablecer la contraseña, haga clic en el vínculo <b>Póngase en contacto con un administrador</b> para enviar un correo electrónico al administrador de su empresa.</p>
+              <p>Está viendo este mensaje porque está habilitado para el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a la [página de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup) después de haber recuperado el acceso a su cuenta. <br><br> Para restablecer la contraseña, haga clic en el vínculo <b>Póngase en contacto con un administrador</b> para enviar un correo electrónico al administrador de su organización.</p>
             </td>
           </tr>
         </tbody></table>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si tiene más preguntas sobre el restablecimiento de contraseña de autoservicio (SSPR), póngase en contacto con el administrador o siga los vínculos que aparecen a continuación.
+Si tiene más preguntas sobre el restablecimiento de contraseña de autoservicio (SSPR), póngase en contacto con el administrador o siga estos vínculos:
 
 * [¿Necesita registrar la información de SSPR?](http://aka.ms/ssprsetup)
 * [¿No puede tener acceso a su cuenta?](https://passwordreset.microsoftonline.com)

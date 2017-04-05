@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,7 +42,7 @@ Son los límites de una única solicitud HTTP o llamada a un conector.
 |Nombre|Límite|Notas|
 |----|----|----|
 |Tamaño del mensaje|100 MB|Puede que algunos conectores y API no admitan 100 MB. |
-|Límite de evaluación de expresiones|131&072; caracteres.|`@concat()`, `@base64()` y `string` no pueden tener un valor más largo.|
+|Límite de evaluación de expresiones|131 072 caracteres.|`@concat()`, `@base64()` y `string` no pueden tener un valor más largo.|
 
 #### <a name="retry-policy"></a>Directiva de reintentos
 
@@ -70,9 +70,9 @@ Son los límites de ejecución de una única aplicación lógica.
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Elementos ForEach|5.000|Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario.|
+|Elementos ForEach|100 000|Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario.|
 |Iteraciones Until|5.000||
-|Elementos SplitOn|5.000||
+|Elementos SplitOn|100 000||
 |Paralelismo de ForEach|20 ||Puede establecerlo en un elemento foreach secuencial si agrega `"operationOptions": "Sequential"` a la acción `foreach`.|
 
 
@@ -82,8 +82,9 @@ Son los límites de una instancia de aplicación lógica.
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Ejecuciones de acciones por segundo (ráfagas)|1000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
-|Ejecuciones de acciones por hora (sostenidas)|1&000;&000;|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+|Ejecuciones de acciones cada 5 minutos |100 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+
+Si espera superar este límite en el procesamiento normal o desea ejecutar una prueba de carga que puede exceder este límite durante un tiempo, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarlo con sus requisitos.
 
 ### <a name="definition-limits"></a>Límites de definición
 
@@ -96,7 +97,7 @@ Son los límites de una definición de aplicación lógica.
 |Flujos de trabajo por región y suscripción|1000||
 |Desencadenadores por flujo de trabajo|10||
 |Número máximo de caracteres por expresión|8192||
-|Tamaño máximo de `trackedProperties` expresado en caracteres|16&000;|
+|Tamaño máximo de `trackedProperties` expresado en caracteres|16 000|
 |`action`/`trigger` |80||
 |`description` |256||
 |`parameters` limit|50||

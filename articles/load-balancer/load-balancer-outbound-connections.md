@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
-ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -66,4 +66,8 @@ Hay muchas maneras de determinar la dirección IP de origen público de una cone
 En ocasiones no es deseable que se le permita a una máquina virtual crear un flujo de salida o puede que haya algún requisito para administrar los destinos a los que pueden llegar los flujos de salida. En este caso, utilice los [grupos de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md) para administrar los destinos a los que puede llegar la máquina virtual. Cuando se aplica un grupo de seguridad de red a una máquina virtual de carga equilibrada, debe prestar atención a las [etiquetas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-tags) y a las [reglas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Debe asegurarse de que la máquina virtual puede recibir solicitudes de sondeo de mantenimiento desde Azure Load Balancer. Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimiento de la etiqueta predeterminada AZURE_LOADBALANCER, se producirá un error en el sondeo de mantenimiento de la máquina virtual y esta se marca como inactiva. Load Balancer dejará de enviar nuevos flujos a esa máquina virtual.
+
+## <a name="limitations"></a>Limitaciones
+
+Aunque no existe ninguna garantía al respecto, el número máximo de puertos SNAT disponible hoy es de 64 511 (65 535 - 1024 puertos con privilegios).  Esto no equivale directamente al número de conexiones. Consulte la información anterior para conocer cuándo y cómo se asignan los puertos SNAT, y el modo de administrar este recurso agotable.
 

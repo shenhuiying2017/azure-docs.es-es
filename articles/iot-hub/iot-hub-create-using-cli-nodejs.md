@@ -12,19 +12,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 1be7dc038f1bc864e7c6461b616449d75ecda439
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introducción
+
 Puede usar la CLI de Azure (azure.js) para crear y administrar los centros de IoT Hub de Azure mediante programación. En este artículo se muestra cómo utilizar la CLI de Azure (azure.js) para crear un centro de IoT Hub.
 
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
@@ -36,84 +38,84 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * [CLI de Azure 0.10.4][lnk-CLI-install] o una versión posterior. Si ya tiene la CLI de Azure instalada, puede validar la versión actual en el símbolo del sistema con el comando siguiente:
-  ```
-    azure --version
-  ```
+
+```azurecli
+azure --version
+```
 
 > [!NOTE]
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [Azure Resource Manager y clásico](../azure-resource-manager/resource-manager-deployment-model.md). La CLI de Azure debe estar en el modo Azure Resource Manager:
-> 
-> ```
+>
+> ```azurecli
 > azure config mode arm
 > ```
-> 
-> 
 
 ## <a name="set-your-azure-account-and-subscription"></a>Definición de su cuenta y suscripción de Azure
+
 1. En el símbolo del sistema, escriba el siguiente comando para iniciar sesión:
-   
-   ```
+
+   ```azurecli
     azure login
    ```
+
    Utilice el explorador web sugerido y el código de autenticación.
-2. Si tiene varias suscripciones de Azure, la conexión a Azure le concede acceso a todas las suscripciones asociadas a sus credenciales. Puede ver las suscripciones de Azure, y determinar cuál es la predeterminada, mediante el comando:
-   
-   ```
-    azure account list 
+1. Si tiene varias suscripciones de Azure, la conexión a Azure le concede acceso a todas las suscripciones asociadas a sus credenciales. Puede ver las suscripciones de Azure, y determinar cuál es la predeterminada, mediante el comando:
+
+   ```azurecli
+    azure account list
    ```
 
    Para establecer el contexto de la suscripción en el que desea ejecutar el resto de los comandos, use:
 
-   ```
+   ```azurecli
     azure account set <subscription name>
    ```
 
-3. Si no tiene un grupo de recursos, puede crear uno denominado **exampleResourceGroup**:
-   ```
+1. Si no tiene un grupo de recursos, puede crear uno denominado **exampleResourceGroup**:
+
+   ```azurecli
     azure group create -n exampleResourceGroup -l westus
    ```
 
 > [!TIP]
-> El artículo [Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure][lnk-CLI-arm] ofrece más información sobre cómo usar la CLI de Azure para administrar recursos de Azure. 
-> 
-> 
+> El artículo [Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure][lnk-CLI-arm] ofrece más información sobre cómo usar la CLI de Azure para administrar recursos de Azure.
 
 ## <a name="create-an-iot-hub"></a>Creación de un IoT Hub
+
 Parámetros obligatorios:
 
+```azurecli
+azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>
 ```
- azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u <units>  
-    - <resourceGroup> The resource group name (case insensitive alphanumeric, underscore and hyphen, 1-64 length)
-    - <name> (The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore and hyphen, 3-50 length )
-    - <location> (The location (azure region/datacenter) where the IoT hub will be provisioned.
-    - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
-    - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
-```
+
+* **resource-group**. El nombre del grupo de recursos. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos, guiones bajos y guiones, y debe tener una longitud de entre 1 y 64 caracteres.
+* **nombre**. El nombre del centro de IoT Hub que se va a crear. El formato no distingue mayúsculas de minúsculas, admite caracteres alfanuméricos, guiones bajos y guiones, y debe tener una longitud de entre 3 y 50 caracteres.
+* **location**. La ubicación (centro de datos/región de Azure) para aprovisionar el centro de IoT Hub.
+* **sku-name**. El nombre de la SKU; uno de los siguientes: [F1, S1, S2 o S3]. Para consultar la lista completa más reciente, diríjase a la página de precios de IoT Hub.
+* **units**. El número de unidades aprovisionadas. Intervalo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Las unidades de IoT Hub se basan en el recuento total de mensajes y en el número de dispositivos que desea conectar.
+
 Para ver todos los parámetros de creación disponibles, puede usar el comando de ayuda en el símbolo del sistema:
 
+```azurecli
+azure iothub create -h
 ```
-    azure iothub create -h 
-```
-Ejemplo rápido:
 
- Para crear un IoT Hub denominado **exampleIoTHubName** en el grupo de recursos **exampleResourceGroup**, ejecute el siguiente comando:
+Ejemplo rápido: para crear un centro de IoT Hub denominado **exampleIoTHubName** en el grupo de recursos **exampleResourceGroup**, ejecute el siguiente comando:
 
-```
-    azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
+```azurecli
+azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
 > Este comando de la CLI de Azure crea un IoT Hub Estándar S1 por el que se le cobrará. Puede eliminar el IoT Hub denominado **exampleIoTHubName** con el siguiente comando:
-> 
-> ```
+>
+> ```azurecli
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
 > ```
-> 
-> 
-> 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
+
+Para obtener más información sobre cómo desarrollar para IoT Hub, consulte el siguiente artículo:
 
 * [SDK de IoT][lnk-sdks]
 

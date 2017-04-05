@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4d9471fcdff26ac76312fcecdb427dca842f7ee3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -90,7 +90,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 del equip
 
 Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
-1. Abra PuTTY y escriba la información de conexión. Si no está familiarizado con PuTTY, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obtener información sobre cómo usarlo con HDInsight.
+1. Abra PuTTY y escriba la información de conexión. Si no está familiarizado con PuTTY, consulte la [documentación de PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
 
 2. En la sección **Category** (Categoría) a la izquierda del cuadro de diálogo, expanda **Connection** (Conexión), **SSH** y, a continuación, seleccione **Tunnels** (Túneles).
 
@@ -159,9 +159,6 @@ Ahora que ha aprendido a crear y usar un túnel SSH, consulte lo siguiente para 
 
 * [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
 
-Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguiente:
-
-* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+Para obtener más información sobre cómo utilizar SSH con HDInsight, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 

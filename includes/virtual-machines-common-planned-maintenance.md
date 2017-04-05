@@ -14,7 +14,7 @@ Hay dos tipos de configuraciones de máquinas virtuales: instancias múltiples y
 
 La configuración de instancias múltiples proporciona redundancia entre equipos físicos, potencia y red, y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben prestar el mismo servicio a la aplicación.
 
-Para más información acerca de cómo configurar máquinas virtuales para conseguir alta disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales Windows ](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Administración de la disponibilidad de las máquinas virtuales Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información acerca de cómo configurar máquinas virtuales para conseguir alta disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales Windows ](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Administración de la disponibilidad de las máquinas virtuales Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Por el contrario, se usa una configuración de una sola instancia se usa para máquinas virtuales independientes no colocadas en un conjunto de disponibilidad. Estas máquinas virtuales no cumplen los requisitos para el Acuerdo de Nivel de Servicio (SLA), que requiere que se implementen dos o más máquinas virtuales en el mismo conjunto de disponibilidad.
 
@@ -28,7 +28,7 @@ En las actualizaciones de la configuración de varias instancias se asume que ca
 La plataforma Azure subyacente asigna a cada máquina virtual de un conjunto de disponibilidad un dominio de actualización y un dominio de error. Cada dominio de actualización es un grupo de máquinas virtuales que se reiniciará en la misma ventana de tiempo. Cada dominio de error es un grupo de máquinas virtuales que comparten una fuente de alimentación común y un conmutador de red.
 
 
-Para obtener más información sobre dominios de actualización y dominios de error, vea [Configuración de varias máquinas virtuales en un conjunto de disponibilidad para redundancia](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Para obtener más información sobre dominios de actualización y dominios de error, vea [Configuración de varias máquinas virtuales en un conjunto de disponibilidad para redundancia](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Para mantener la disponibilidad a través de una actualización, Azure realiza el mantenimiento por dominio de actualización y actualiza los dominios de uno en uno. El mantenimiento de un dominio de actualización consta de las siguientes operaciones: apagar todas las máquinas virtuales del dominio, aplicar la actualización a las máquinas host y, después, reiniciar las máquinas virtuales. Cuando se completa el mantenimiento del dominio, Azure repite el proceso con el siguiente dominio de actualización y continúa hasta que todos los dominios estén actualizados.
 
@@ -101,4 +101,4 @@ Consulte en la tabla siguiente los pares de regiones actuales:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

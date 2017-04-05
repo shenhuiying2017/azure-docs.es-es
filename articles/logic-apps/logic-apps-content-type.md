@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3206c076350c2105e92d320ce30ce73448ccd3bd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,9 +48,9 @@ No se requieren procesos de conversión adicionales. Si trabaja con datos JSON, 
 
 ### <a name="schema-and-schema-generator"></a>Esquema y generador de esquemas
 
-El desencadenador de solicitud le permite incorporar un esquema JSON para la carga útil que espera recibir. Este esquema permite al diseñador generar tokens para ayudar al usuario a consumir el contenido de la solicitud. Si no tiene un esquema preparado, seleccione `Use sample payload to generate schema` para generar un esquema JSON a partir de una carga útil de ejemplo.
+El desencadenador de solicitud le permite incorporar un esquema JSON para la carga útil que espera recibir. Este esquema permite al diseñador generar tokens para ayudar al usuario a consumir el contenido de la solicitud. Si no tiene listo un esquema, seleccione **Usar una carga de ejemplo para generar el esquema** para generar un esquema de JSON a partir de una carga de ejemplo.
 
-![Esquema](./media/logic-apps-http-endpoint/manualtrigger.png)
+![SCHEMA (ESQUEMA)](./media/logic-apps-http-endpoint/manualtrigger.png)
 
 ### <a name="parse-json-action"></a>Acción "Parse JSON"
 

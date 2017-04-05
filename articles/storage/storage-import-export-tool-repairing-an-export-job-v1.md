@@ -1,5 +1,5 @@
 ---
-title: "Reparación de un trabajo de exportación de Azure | Microsoft Docs"
+title: "Reparación de un trabajo de exportación de Azure Import/Export (versión 1) | Microsoft Docs"
 description: "Obtenga información sobre cómo reparar un trabajo de exportación que se creó y ejecutó con el servicio Azure Import/Export."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +30,11 @@ Cuando haya finalizado un trabajo de exportación, puede ejecutar la herramienta
   
 Debe tener conectividad con Azure Storage para utilizar esta funcionalidad.  
   
-El comando para reparar un trabajo de importación es **RepairExport**. Se pueden modificar los parámetros siguientes:  
+El comando para reparar un trabajo de importación es **RepairExport**.
+
+## <a name="repairexport-parameters"></a>Parámetros RepairExport
+
+Se pueden modificar los parámetros siguientes con **RepairExport**:  
   
 |Parámetro|Descripción|  
 |---------------|-----------------|  
@@ -83,7 +87,7 @@ El archivo de registro de copia indica que se produjo un error mientras el servi
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Uso de RepairExport para validar el contenido de la unidad  
 También puede usar Azure Import/Export con la opción **RepairExport** para validar que el contenido de la unidad es correcto. El archivo de manifiesto de cada unidad de exportación contiene MD5 para el contenido de la unidad.  
   
-El servicio Azure Import/Export también puede guardar los archivos de manifiesto en una cuenta de almacenamiento durante el proceso de exportación. La ubicación de los archivos de manifiesto estará disponible a través de la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) cuando se haya completado el trabajo. Vea [Import-Export Service Manifest File Format](storage-import-export-file-format-metadata-and-properties.md) (Formato del archivo de manifiesto del servicio Import/Export) para más información sobre el formato de un archivo de manifiesto de unidad.  
+El servicio Azure Import/Export también puede guardar los archivos de manifiesto en una cuenta de almacenamiento durante el proceso de exportación. La ubicación de los archivos de manifiesto estará disponible a través de la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) cuando se haya completado el trabajo. Vea [Import-Export Service Manifest File Format](storage-import-export-file-format-metadata-and-properties.md) (Formato del archivo de manifiesto del servicio Import/Export) para obtener más información sobre el formato de un archivo de manifiesto de unidad.  
   
 En el ejemplo siguiente se muestra cómo ejecutar la herramienta Azure Import/Export con los parámetros **/MANIFESTFILE** y **/CopyLogFile**:  
   
@@ -129,31 +133,34 @@ A continuación se muestra un ejemplo de un archivo de manifiesto:
 ``` 
   
 Después de finalizar el proceso de reparación, la herramienta leerá por completo los archivos a los que hace se referencia en el archivo de manifiesto y comprobará la integridad de dichos archivos con los hash MD5. Para el manifiesto anterior, recorrerá los siguientes componentes.  
+
+```  
+G:\pictures\city\redmond.jpg, offset 0, length 3584  
   
-G:\pictures\city\redmond.jpg, desplazamiento 0, longitud 3584  
+G:\pictures\city\redmond.jpg, offset 3584, length 3584  
   
-G:\pictures\city\redmond.jpg, desplazamiento 3584, longitud 3584  
-  
-G:\pictures\city\redmond.jpg, desplazamiento 7168, longitud 3584  
+G:\pictures\city\redmond.jpg, offset 7168, length 3584  
   
 G:\pictures\city\redmond.jpg.properties  
   
-G:\pictures\wild\canyon.jpg, desplazamiento 0, longitud 2721  
+G:\pictures\wild\canyon.jpg, offset 0, length 2721  
   
-G:\pictures\wild\canyon.jpg, desplazamiento 2721, longitud 2721  
+G:\pictures\wild\canyon.jpg, offset 2721, length 2721  
   
-G:\pictures\wild\canyon.jpg, desplazamiento 5442, longitud 2721  
+G:\pictures\wild\canyon.jpg, offset 5442, length 2721  
   
-G:\pictures\wild\canyon.jpg, desplazamiento 8163, longitud 2721  
+G:\pictures\wild\canyon.jpg, offset 8163, length 2721  
   
 G:\pictures\wild\canyon.jpg.properties  
-  
+```
+
 Cualquier componente que no supere la comprobación lo descargará la herramienta y se reescribirá en el mismo archivo en la unidad.  
   
-## <a name="see-also"></a>Otras referencias  
-[Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)  (Configuración de la herramienta Azure Import/Export)  
-[Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
-[Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)   
-[Solución de problemas de la herramienta Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Pasos siguientes
+ 
+* [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Solución de problemas de la herramienta Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
 

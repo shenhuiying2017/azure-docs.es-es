@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: ce7534b9ff675e1ae0902ba936e1ea897d80d936
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -118,7 +118,7 @@ Un desencadenador HTTP con la propiedad _webHookType_ se configurará para respo
 
 El desencadenador se puede adaptar adicionalmente a un proveedor de webhook específico (p. ej., [GitHub](https://developer.github.com/webhooks/) y [Slack](https://api.slack.com/outgoing-webhooks)). Si se especifica un proveedor, el tiempo de ejecución de Functions puede encargarse de la lógica de validación del proveedor.  
 
-### <a name="configuring-github-as-a-webhook-provider"></a>Configuración de Github como un proveedor de webhooks
+### <a name="configuring-github-as-a-webhook-provider"></a>Configuración de GitHub como proveedor de webhook
 Para responder a un webhook de GitHub, primero cree una función con un desencadenador HTTP y establezca la propiedad _webHookType_ en "github". A continuación, copie su [dirección URL](#url) y [la clave de API](#keys) en la página **Agregar Webhook** del repositorio de GitHub. Consulte la documentación [Creación de Webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) de GitHub para más información.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)

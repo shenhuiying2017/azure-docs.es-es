@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6101c58e41202091ac89320177b0ca5bc36483a8
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 228737056b813c76bf26ee07023db27be710f6d7
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ En este artículo se describe cómo crear una máquina virtual con el modelo de 
 
 ## <a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
-Si desea crear una VM con varias direcciones IP, debe crearla mediante PowerShell o la CLI de Azure. Para aprender cómo, haga clic en las opciones PowerShell o CLI en la parte superior de este artículo. Puede crear una VM con una sola dirección IP privada estática y (opcionalmente) una única dirección IP pública mediante el portal siguiendo los pasos descritos en los artículos [Creación de la primera máquina virtual de Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creación de una máquina virtual de Linux en Azure mediante el portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Después de crear la VM, puede cambiar los tipos de direcciones IP y agregar más direcciones IP mediante el portal siguiendo los pasos de la sección [Incorporación de direcciones IP a una VM](#add) de este artículo.
+Si desea crear una máquina virtual con varias direcciones IP, o una privada estática, debe crearla mediante PowerShell o la CLI de Azure. Para aprender cómo, haga clic en las opciones PowerShell o CLI en la parte superior de este artículo. Puede crear una máquina virtual con una sola dirección IP privada dinámica y (opcionalmente) una única dirección IP pública mediante el portal siguiendo los pasos descritos en los artículos [Creación de la primera máquina virtual de Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creación de una máquina virtual de Linux en Azure mediante el portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Después de crear la máquina virtual, puede cambiar los tipos de direcciones IP de dinámicas a estáticas y agregar más mediante el portal siguiendo los pasos de la sección [Incorporación de direcciones IP a una VM](#add) de este artículo.
 
 ## <a name="add"></a>Incorporación de direcciones IP a una VM
 
@@ -46,9 +46,7 @@ Puede agregar direcciones IP públicas y privadas a una NIC completando los paso
 
     ![Interfaz de red](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-4. En la hoja que aparece para la NIC que se ha seleccionado, haga clic en **Configuraciones IP**, tal y como se muestra en la siguiente imagen:
-
-    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure2.png)
+4. En la hoja que aparece para la NIC que ha seleccionado, haga clic en **Configuraciones de IP**.
 
 Complete los pasos de una de las secciones siguientes según el tipo de dirección IP que desea agregar.
 
@@ -57,19 +55,12 @@ Complete los pasos de una de las secciones siguientes según el tipo de direcci�
 Complete los pasos siguientes para agregar una nueva dirección IP privada:
 
 1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
-2. Haga clic en **Agregar**. En la hoja **Agregar configuración de IP** que aparece, cree una configuración de IP denominada *IPConfig&4;* con *10.0.0.7* como una dirección IP privada de tipo *Estática* y luego haga clic en **Aceptar**, tal y como se muestra en la siguiente imagen:
-
-    ![Agregar dirección IP privada](./media/virtual-network-multiple-ip-addresses-portal/figure3.png)
+2. Haga clic en **Agregar**. En la hoja **Agregar configuración de IP** que aparece, cree una configuración de IP denominada *IPConfig 4* con *10.0.0.7* como una dirección IP privada de tipo *Estática* y luego haga clic en **Aceptar**.
 
     > [!NOTE]
     > Al agregar una dirección IP estática, debe especificar una dirección válida no utilizada en la subred a la que la está conectada la NIC. Si la dirección que seleccionó no está disponible, el portal mostrará una X para la dirección IP y deberá seleccionar otra.
 
-    Si prefiere que la dirección IP privada **Método de asignación** sea *Dinámico*, selecciónelo y no tendrá que especificar una dirección IP.
-3. Una vez que haga clic en Aceptar, se cerrará la hoja y verá la nueva configuración de IP en la lista, tal y como se muestra en la siguiente imagen:
-
-    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure4.png)
-
-    Haga clic en **Aceptar** para cerrar la hoja **Agregar configuración de IP**.
+3. Una vez que haga clic en Aceptar, se cerrará la hoja y verá la nueva configuración de IP en la lista. Haga clic en **Aceptar** para cerrar la hoja **Agregar configuración de IP**.
 4. Puede hacer clic en **Agregar** agregue más configuraciones IP o cerrar todas las hojas abiertas para terminar de agregar direcciones IP.
 5. Agregue al sistema operativo de la VM las direcciones IP privadas completando los pasos correspondientes al sistema operativo de la sección [Incorporación de direcciones IP a un sistema operativo de la VM](#os-config) de este artículo.
 
@@ -96,36 +87,22 @@ Una dirección IP pública es una configuración para un recurso de dirección I
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Asociación del recurso de dirección IP pública a una nueva configuración de IP
 
 1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
-2. Haga clic en **Agregar**. En la hoja **Agregar configuración de IP** hoja que aparece, cree una configuración de IP denominada *IPConfig&4;*. Habilite la opción **Dirección IP pública** y seleccione un recurso de dirección IP pública existente que esté disponible en la hoja **Elegir dirección IP pública** que aparece, tal como se muestra en la siguiente imagen:
-
-    ![Nueva configuración de IP](./media/virtual-network-multiple-ip-addresses-portal/figure6.png)
+2. Haga clic en **Agregar**. En la hoja **Agregar configuración de IP** hoja que aparece, cree una configuración de IP denominada *IPConfig 4*. Habilite la opción **Dirección IP pública** y seleccione un recurso de dirección IP pública existente que esté disponible en la hoja **Elegir dirección IP pública** que aparece.
 
     Una vez que haya seleccionado la dirección IP pública, haga clic en **Aceptar** y la hoja se cerrará. Si no tiene una dirección IP pública existente, puede crear una completando los pasos descritos en la sección [Creación de un recurso de dirección IP pública](#create-public-ip) de este artículo. 
 
-3. Revise la nueva configuración de IP, tal y como se muestra en la siguiente imagen:
-
-    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure7.png)
-
-    > [!NOTE]
-    > Aunque no se asignara explícitamente una dirección IP privada, se asigna una automáticamente a la configuración de IP, dado que todas las configuraciones IP deben tener una dirección IP privada.
-    >
-
+3. Revise la nueva configuración de IP. Aunque no se asignara explícitamente una dirección IP privada, se asigna una automáticamente a la configuración de IP, dado que todas las configuraciones IP deben tener una dirección IP privada.
 4. Puede hacer clic en **Agregar** agregue más configuraciones IP o cerrar todas las hojas abiertas para terminar de agregar direcciones IP.
 5. Agregue al sistema operativo de la VM la dirección IP privada completando los pasos de la sección [Incorporación de direcciones IP a un sistema operativo de la VM](#os-config) de este artículo. No agregue la dirección IP pública al sistema operativo.
 
 #### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>Asociación del recurso de dirección IP pública a una configuración de IP existente
 
 1. Complete los pasos de la sección [Pasos principales](#coreadd) de este artículo.
-2. Seleccione la configuración de IP a la que desea agregar el recurso de dirección IP pública, habilite la dirección IP pública y seleccione un recurso de dirección IP pública existente que esté disponible. En el ejemplo que se muestra en la siguiente imagen, el recurso de dirección IP pública *myPublicIp3* está asociado a *IPConfig-3*.
-
-    ![Configuración de IP existente](./media/virtual-network-multiple-ip-addresses-portal/figure8.png)
-
-    Una vez que haya seleccionado el recurso de dirección IP pública, haga clic en **Guardar** y las hojas se cerrarán. Si no tiene una dirección IP pública existente, puede crear una completando los pasos descritos en la sección [Creación de un recurso de dirección IP pública](#create-public-ip) de este artículo.
-
-3. Revise la nueva configuración de IP, tal y como se muestra en la siguiente imagen:
-
-    ![Configuraciones IP](./media/virtual-network-multiple-ip-addresses-portal/figure9.png)
-
+2. Haga clic en la configuración de IP a la que desee asociar el recurso de dirección IP pública.
+3. En la hoja de configuración de IP que aparece, haga clic en **Dirección IP**.
+4. Haga clic en la hoja**Elegir dirección IP pública** que aparece y seleccione una dirección IP pública.
+5. Haga clic en **Guardar** y las hojas se cerrarán. Si no tiene una dirección IP pública existente, puede crear una completando los pasos descritos en la sección [Creación de un recurso de dirección IP pública](#create-public-ip) de este artículo.
+3. Revise la nueva configuración de IP.
 4. Puede hacer clic en **Agregar** agregue más configuraciones IP o cerrar todas las hojas abiertas para terminar de agregar direcciones IP. No agregue la dirección IP pública al sistema operativo.
 
 

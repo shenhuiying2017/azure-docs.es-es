@@ -23,6 +23,7 @@
 ## Configurar una conexión de red virtual a red virtual
 ### [Portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ### [Portal clásico (clásico)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Configuración de una conexión de red virtual a red virtual entre distintos modelos de implementación
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -42,6 +43,7 @@
 ## [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Restablecimiento de una instancia de VPN Gateway](vpn-gateway-resetgw-classic.md)
 ## Eliminación de una instancia de VPN Gateway
+### [Portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (clásico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Creación de certificados raíz autofirmados para las conexiones P2S](vpn-gateway-certificates-point-to-site.md)

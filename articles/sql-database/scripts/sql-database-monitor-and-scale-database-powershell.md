@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Este script de PowerShell de ejemplo supervisa las métricas de rendimiento de una base de datos, la escala a un nivel de rendimiento superior y crea una regla de alerta en una de las métricas de rendimiento. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

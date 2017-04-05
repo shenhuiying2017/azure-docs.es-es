@@ -1,6 +1,6 @@
 ---
 title: Formato del archivo de propiedades y metadatos de Azure Import/Export | Microsoft Docs
-description: "Obtenga información sobre cómo especificar metadatos y propiedades para uno o más blobs que forman parte de un trabajo de importación o exportación"
+description: "Obtenga información sobre cómo especificar metadatos y propiedades para uno o más blobs que forman parte de un trabajo de importación o exportación."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 0cac5419d4b481a5b783b4b9fbd4ad2d4d637042
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9aa7815eae9ae3c1771cd0efdc8b9db4ad2e0b65
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -69,6 +69,8 @@ El formato de un archivo de propiedades es el siguiente:
 |`Content-Encoding`|String|Opcional. Codificación del contenido del blob.|  
 |`Content-Language`|string|Opcional. Idioma del contenido del blob.|  
 |`Cache-Control`|String|Opcional. Cadena de control de caché para el blob.|  
-  
- Vea [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties) (Establecer propiedades del blob), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata) (Establecer metadatos del blob) y [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Configuración y recuperación de propiedades y metadatos para los recursos del blob) para reglas detalladas sobre cómo establecer propiedades y metadatos del blob.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Vea [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties) (Establecer propiedades del blob), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata) (Establecer metadatos del blob) y [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Configuración y recuperación de propiedades y metadatos para los recursos del blob) para consultar reglas detalladas sobre cómo establecer propiedades y metadatos del blob.
 

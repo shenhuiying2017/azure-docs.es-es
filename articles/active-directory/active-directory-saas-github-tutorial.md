@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 74b354778e775146ed6384b50b4e21cfd5c75858
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,7 +27,7 @@ En este tutorial, obtendrá información sobre cómo integrar GitHub con Azure A
 Integrar GitHub con Azure AD le proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a GitHub.
-- Puede permitir que los usuarios inicien sesión automáticamente en GitHub (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede permitir que los usuarios inicien sesión automáticamente en GitHub mediante inicio de sesión único (SSO) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -53,11 +53,11 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de GitHub desde la galería
+1. Adición de GitHub desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
-## <a name="adding-github-from-the-gallery"></a>Incorporación de GitHub desde la galería
+## <a name="adding-github-from-the-gallery"></a>Adición de GitHub desde la galería
 Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar GitHub desde la galería, realice los pasos siguientes:**
@@ -74,7 +74,7 @@ Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde
 
     ![Aplicaciones][3]
 
-4. En el cuadro de búsqueda, escriba **GitHub.com**.
+4. En el cuadro de búsqueda, escriba **Github.com**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
@@ -84,17 +84,17 @@ Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con GitHub con un usuario de prueba llamado "Britta Simon".
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con GitHub mediante un usuario de prueba llamado "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de GitHub para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GitHub.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo en GitHub de un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GitHub.
 
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en GitHub.
 
-Para configurar y probar el inicio de sesión único de Azure AD con GitHub, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el SSO de Azure AD con GitHub, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de GitHub](#creating-a-Github-test-user)**: para tener un homólogo de Britta Simon en GitHub que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba de GitHub](#creating-a-GitHub-test-user)**: para tener un homólogo de Britta Simon en GitHub que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -104,7 +104,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 **Para configurar el inicio de sesión único de Azure AD con GitHub, realice los pasos siguientes:**
 
-1. En el Portal de administración de Azure, en la página de integración de aplicaciones de **GitHub**, haga clic en **Inicio de sesión único**.
+1. En el Portal de administración de Azure, en la página de integración de la aplicación **GitHub**, haga clic en **Inicio de sesión único**.
 
     ![Configurar inicio de sesión único][4]
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
  
     ![Configurar inicio de sesión único](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
 
-3. En la sección **Dominio y direcciones URL de GitHub**, lleve a cabo los pasos siguientes:
+3. En la sección de **dominio y direcciones URL de GitHub**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
-    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección Administración de GitHub para recuperar estos valores. 
+    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección de administración de GitHub para recuperar estos valores. 
 
 4. En la sección **Atributos de usuario**, seleccione user.mail como **Identificador de usuario**.
 
@@ -153,7 +153,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-github-tutorial/tutorial_github_07.png)
 
-11. En otra ventana del explorador web, inicie sesión en el sitio de la organización de GitHub como administrador.
+11. En otra ventana del navegador web, inicie sesión en el sitio de la organización de GitHub como administrador.
 
 12. Vaya a **Configuración** y haga clic en **Seguridad**
 
@@ -278,7 +278,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de GitHub en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación GitHub. Iniciará sesión como una cuenta de organización, pero deberá iniciar sesión con su cuenta personal.
+Al hacer clic en el icono de GitHub del panel de acceso, debería iniciar sesión automáticamente en su aplicación GitHub. Iniciará sesión como una cuenta de organización, pero deberá iniciar sesión con su cuenta personal.
 
 
 ## <a name="additional-resources"></a>Recursos adicionales
@@ -301,3 +301,4 @@ Al hacer clic en el icono de GitHub en el Panel de acceso, debería iniciar sesi
 [201]: ./media/active-directory-saas-github-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-github-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-github-tutorial/tutorial_general_203.png
+

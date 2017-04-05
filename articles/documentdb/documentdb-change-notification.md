@@ -2,8 +2,9 @@
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
-ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -733,7 +734,7 @@ El último paso consiste en enviar una notificación de correo electrónico
 
 En esta acción, envía una notificación de correo electrónico.  Use [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-El código se generó con una plantilla para la Aplicación lógica y SendGrid que se encuentra en el repositorio [101-logic-app-sendgrid Github](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+El código se generó con una plantilla para la aplicación lógica y SendGrid que se encuentra en el [repositorio 101-logic-app-sendgrid de GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 La operación HTTP es una POST. 
 
@@ -815,7 +816,7 @@ Por último, desea poder ver los resultados de la Aplicación lógica en el Port
 
 ```
 
-Esto devuelve el mismo valor que se envía en el cuerpo del correo electrónico. En la siguiente figura se muestra un ejemplo donde "Se encontraron&29; registros".
+Esto devuelve el mismo valor que se envía en el cuerpo del correo electrónico. En la siguiente figura se muestra un ejemplo donde "Se encontraron 29 registros".
 
 ![Results](./media/documentdb-change-notification/logic-app-run.png)
 
@@ -1111,13 +1112,8 @@ En este tutorial, ha aprendido lo siguiente:
 La clave es planificar con antelación y modelar el flujo de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Descargue y use el código de la Aplicación lógica proporcionado en [Github](https://github.com/HEDIDIN/DocDbNotifications). Le invito a crear la aplicación y enviar los cambios al repositorio. 
+Descargue y use el código de la aplicación lógica proporcionado en [GitHub](https://github.com/HEDIDIN/DocDbNotifications). Le invito a crear la aplicación y enviar los cambios al repositorio. 
 
 Para obtener más información sobre DocumentDB, visite la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

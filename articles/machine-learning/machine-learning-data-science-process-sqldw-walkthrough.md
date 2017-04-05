@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
-ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -55,7 +55,7 @@ La **clave única** para unir trip\_data y trip\_fare se compone de los tres cam
 ## <a name="mltasks"></a>Realicemos tres tipos de tareas de predicción
 Se formulan tres problemas de predicción basados en el valor *tip\_amount* para mostrar tres tipos de tareas de modelado:
 
-1. **Clasificación binaria**: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que&0; $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de&0; $ es un ejemplo negativo.
+1. **Clasificación binaria**: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
 2. **Clasificación con múltiples clases**: para predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
    
         Class 0 : tip_amount = $0
@@ -105,7 +105,7 @@ Siga la documentación de [Creación de Almacenamiento de datos SQL](../sql-data
 **Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para ver instrucciones, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Carga de datos en Almacenamiento de datos SQL
-Abra una consola de comandos de Windows PowerShell. Ejecute los comandos PowerShell siguientes para descargar los archivos de script SQL de ejemplo que compartimos en Github a un directorio local especificado con el parámetro *-DestDir*. Puede cambiar el valor del parámetro *-DestDir* en cualquier directorio local. Si *-DestDir* no existe, lo creará el script de PowerShell.
+Abra una consola de comandos de Windows PowerShell. Ejecute los comandos de PowerShell siguientes para descargar los archivos de script SQL de ejemplo que compartimos en GitHub en un directorio local especificado con el parámetro *-DestDir*. Puede cambiar el valor del parámetro *-DestDir* en cualquier directorio local. Si *-DestDir* no existe, lo creará el script de PowerShell.
 
 > [!NOTE]
 > Es posible que necesite **ejecutar como administrador** el siguiente script de PowerShell si su directorio *DestDir* necesita privilegios de administrador para crearlo o escribir en él.
@@ -340,7 +340,7 @@ Después de una ejecución correcta, verá una pantalla similar a la siguiente:
 ![][20]
 
 ## <a name="dbexplore"></a>Exploración de datos y diseño de características en Almacenamiento de datos SQL de Azure
-En esta sección, realizamos la generación de características y la exploración de datos mediante la ejecución de consultas SQL en Almacenamiento de datos SQL de Azure directamente mediante **Visual Studio Data Tools**. Todas las consultas SQL que se usan en esta sección se pueden encontrar en el script de ejemplo llamado *SQLDW_Explorations.sql*. Este archivo ya lo ha descargado en el directorio local el script de PowerShell. También puede recuperarlo en [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Pero el archivo de Github no tiene la información de Almacenamiento de datos SQL de Azure conectada.
+En esta sección, realizamos la generación de características y la exploración de datos mediante la ejecución de consultas SQL en Almacenamiento de datos SQL de Azure directamente mediante **Visual Studio Data Tools**. Todas las consultas SQL que se usan en esta sección se pueden encontrar en el script de ejemplo llamado *SQLDW_Explorations.sql*. Este archivo ya lo ha descargado en el directorio local el script de PowerShell. También puede recuperarlo desde [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Pero el archivo de GitHub no tiene la información de Azure SQL DW conectada.
 
 Conéctese con Almacenamiento de datos SQL de Azure utilizando Visual Studio con el nombre de inicio de sesión de Almacenamiento de datos SQL y la contraseña y abra el **Explorador de objetos SQL** para confirmar que la base de datos y las tablas se han importado. Recupere el archivo *SQLDW_Explorations.sql*.
 

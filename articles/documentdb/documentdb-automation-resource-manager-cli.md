@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/20/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 67d06372d186a0b51eac7a94ad67b9cd7f516319
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -65,6 +65,7 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
+                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -198,7 +199,7 @@ Ejemplo:
 
 ## <a id="modify-failover-priority-cli"></a> Modificación de la prioridad de conmutación por error de una cuenta de base de datos de DocumentDB
 
-Para las cuentas de bases de datos de varias regiones, puede cambiar la prioridad de conmutación por error de las distintas regiones en las que existe la cuenta de base de datos de DocumentDB. Para más información sobre la conmutación por error en la cuenta de base de datos de DocumentDB, consulte [Distribución de datos global con DocumentDB][distribute-data-globally].
+Para las cuentas de bases de datos de varias regiones, puede cambiar la prioridad de conmutación por error de las distintas regiones en las que existe la cuenta de base de datos de DocumentDB. Para obtener más información sobre la conmutación por error en la cuenta de base de datos de DocumentDB, consulte [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments

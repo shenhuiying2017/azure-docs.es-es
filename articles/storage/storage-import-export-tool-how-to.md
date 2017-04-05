@@ -1,5 +1,5 @@
 ---
-title: "Uso de la herramienta de Azure Import/Export (versión 1) | Microsoft Docs"
+title: Uso de la herramienta de Azure Import/Export | Microsoft Docs
 description: "Descubra cómo usar la herramienta Import/Export a fin de preparar los discos duros para un trabajo de importación, así como reparar un trabajo de importación o de exportación."
 author: muralikk
 manager: syadav
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: ca2d4bf2b1e1cb56910fa3ee7af6e45b6b77b450
-ms.openlocfilehash: 7c628022a6de01de50f50256bd2ea0cdba2c2555
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,8 +37,6 @@ En estos artículos, verá cómo usar la herramienta para realizar lo siguiente:
 - Reparar un trabajo de exportación. 
 - Solucionar problemas de la herramienta de Azure Import/Export, en el caso de que le haya surgido algún problema durante el proceso. 
 
+## <a name="next-steps"></a>Pasos siguientes
 
-
-<!--HONumber=Dec16_HO3-->
-
-
+* [Configuración de la herramienta WAImportExport](storage-import-export-tool-setup.md)

@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 5c30f459d9fed71fede2da71306a9b48892566f3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0553c29e12d7cb09c8edd291d3bfb36c4fd2ffcc
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
-Nota: Este contenido solo se aplica a los grupos unificados, también conocidos como grupos de Office365.
+Nota: Este contenido solo se aplica a los grupos unificados, también conocidos como grupos de Office365. Estos cmdlets se encuentran en la fase de versión preliminar pública en este momento.
 
 La configuración de Office365 se configuran mediante objetos de configuración y un objeto SettingsTemplate. Inicialmente, no verá ningún objeto Settings en el directorio. Esto significa que el directorio está configurado con los valores predeterminados. Para cambiar la configuración predeterminada, tiene que crear un nuevo objeto de configuración mediante una plantilla de configuración. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo para su directorio, utilizará la plantilla denominada "Group.Unified". Para configurar los valores del grupo para un único grupo, utilizará la plantilla denominada "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo. 
 
-Los cmdlets forman parte del módulo Azure Active Directory PowerShell V2. Para más información acerca de este módulo y para obtener instrucciones cómo descargar e instalar el módulo en el equipo, consulte [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azuread/) (Azure Active Directory PowerShell versión 2).
+Los cmdlets forman parte del módulo Azure Active Directory PowerShell V2. Para más información acerca de este módulo y para obtener instrucciones cómo descargar e instalar el módulo en el equipo, consulte [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azuread/) (Azure Active Directory PowerShell versión 2). Tenga en cuenta que, puesto que estos cmdlets se encuentran actualmente en su fase de versión preliminar pública, tendrá que instalar la versión preliminar del módulo, que se puede encontrar [aquí](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
 
 ## <a name="create-settings-at-the-directory-level"></a>Creación de una configuración en el nivel de directorio
 Con estos pasos se crean configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos unificados del directorio.

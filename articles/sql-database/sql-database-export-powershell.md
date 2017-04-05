@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3d04be3d2427bc59d24bfaad227730991b61265b
-ms.openlocfilehash: 162147607baa36de0487cebc06e7ada20f3dd0c0
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 41774c7f1c038ee017d719e59ed79fb68999dac8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,10 +41,10 @@ Para completar este artículo, necesitará lo siguiente:
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## <a name="export-your-database"></a>Exportación de la base de datos
-El cmdlet [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx) envía una solicitud de base de datos de exportación al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
+El cmdlet [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) envía una solicitud de base de datos de exportación al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
 
 > [!IMPORTANT]
-> Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy-powershell.md)y después exportar dicha copia.
+> Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](scripts/sql-database-copy-database-to-new-server-powershell.md)y después exportar dicha copia.
 > 
 > 
 
@@ -54,7 +54,7 @@ El cmdlet [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azur
 
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>Supervisar el progreso de la operación de exportación
-Después de ejecutar [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx), puede comprobar el estado de la solicitud ejecutando [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). Si se ejecuta esto de inmediato después de la solicitud, se devuelve normalmente **Estado: en curso**. Cuando vea **Estado: Correcto**, la exportación se habrá completado.
+Después de ejecutar [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com//powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport), puede comprobar el estado de la solicitud ejecutando [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus). Si se ejecuta esto de inmediato después de la solicitud, se devuelve normalmente **Estado: en curso**. Cuando vea **Estado: Correcto**, la exportación se habrá completado.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -104,7 +104,7 @@ La exportación automática de Azure SQL Database Automated Export se encuentra 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre cómo importar una base de datos SQL de Azure con PowerShell, consulte [Importar un archivo BACPAC mediante PowerShell](sql-database-import-powershell.md).
+* Para más información sobre cómo importar una base de datos SQL de Azure con PowerShell, consulte [Importar un archivo BACPAC mediante PowerShell](scripts/sql-database-import-from-bacpac-powershell.md).
 * Para obtener información sobre cómo importar un archivo BACPAC mediante SQL Package, consulte [Export an Azure SQL database or a SQL Server database to a BACPAC file using SqlPackage](sql-database-import-sqlpackage.md) (Exportación de una base de datos de Azure SQL Database a un archivo BACPCAC mediante SqlPackage).
 * Para obtener información sobre cómo importar un BACPAC mediante Azure Portal, consulte [Import a BACPAC to Azure SQL Database using the Azure portal](sql-database-import-portal.md) (Importación de un BACPCAC en Azure SQL Database mediante Azure Portal).
 * Para obtener información sobre el proceso de migración de bases de datos de SQL Server completo, incluidas las recomendaciones de rendimiento, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).
@@ -114,7 +114,7 @@ La exportación automática de Azure SQL Database Automated Export se encuentra 
 
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx)
-* [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)
+* [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport)
+* [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus)
 
 

@@ -1,5 +1,5 @@
 ---
-title: El protocolo AMQP 1.0 de las operaciones de respuesta/solicitud de Service Bus | Microsoft Docs
+title: El protocolo AMQP 1.0 de las operaciones de respuesta o solicitud de Azure Service Bus | Microsoft Docs
 description: Lista de operaciones de respuesta/solicitud de Microsoft Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 05c5c8e8c12357fd150be10def6cd9a272d613e2
-ms.openlocfilehash: 4df8ce114600abfa7abe8e70959a2cd51e2cd8a6
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -46,10 +47,10 @@ Todas las operaciones descritas en este documento siguen un patrón de solicitud
 Crea un vínculo al nodo de administración para enviar solicitudes.  
   
 ```  
-requestLink = session.attach(     
+requestLink = session.attach(       
 role: SENDER,   
-    target: { address: "<entity address>/$management" },   
-    source: { address: ""<my request link unique address>" }   
+       target: { address: "<entity address>/$management" },   
+       source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -59,10 +60,10 @@ role: SENDER,
 Crea un vínculo para recibir respuestas del nodo de administración.  
   
 ```  
-responseLink = session.attach(    
+responseLink = session.attach(      
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-    target: { address: "<my response link unique address>" }   
+       target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -96,13 +97,13 @@ El mensaje de respuesta tendrá el formato siguiente.
   
 ```  
 Message(  
-properties: {     
+properties: {      
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },         
+           },          
 )  
   
 ```  
@@ -367,7 +368,7 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |session-id|string|Sí|Identificador de sesión.|  
-|session-state|matriz de bytes|Sí|Datos binarios opacos.|  
+|session-state|Matriz de bytes|Sí|Datos binarios opacos.|  
   
 #### <a name="response"></a>Response  
 
@@ -495,7 +496,7 @@ La asignación **correlation-filter** debe incluir, al menos, una de las siguien
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|propiedades|map|No|Se asigna [BrokeredMessage.Properties](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) a Service Bus.|  
+|propiedades|map|No|Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) a Service Bus.|  
   
 La asignación**sql-rule-action** debe incluir las siguientes entradas.  
   
@@ -624,8 +625,3 @@ Para obtener más información sobre AMQP y Service Bus, visite los siguientes v
 [Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
-
-
-<!--HONumber=Nov16_HO4-->
-
-

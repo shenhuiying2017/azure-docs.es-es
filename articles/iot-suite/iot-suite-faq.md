@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/15/2017
 ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: ce37bb41babb7bf894c23add994bf2c144ee6549
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 8fa08ca6cefc10c1e1b47a7a498f69aca7de882e
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -47,7 +47,7 @@ La lista de dispositivos en el panel de la solución usa una consulta para devol
 * Si elimina el grupo de recursos en [Azure Portal][lnk-azure-portal], solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada a la solución preconfigurada en el [Portal de Azure clásico][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias del Centro de IoT se pueden aprovisionar en una suscripción?
-Puede aprovisionar 10 centros de IoT Hub por suscripción. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket], pero de forma predeterminada solo se pueden aprovisionar 10 instancias de IoT Hub por suscripción, como se describe en [Límites de suscripciones de Azure][link-azuresublimits]. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan una nueva instancia de IoT Hub, solo se pueden aprovisionar hasta 10 soluciones preconfiguradas en una suscripción determinada. 
+De forma predeterminada, puede aprovisionar [10 centros de IoT Hub por suscripción][link-azuresublimits]. Puede crear un [vale de soporte de Azure][link-azuresupportticket] para aumentar este límite. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan una nueva instancia de IoT Hub, solo se pueden aprovisionar hasta 10 soluciones preconfiguradas en una suscripción determinada. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias de DocumentDB se pueden aprovisionar en una suscripción?
 Cincuenta. Para aumentar este límite se puede crear una [incidencia de soporte técnico de Azure][link-azuresupportticket], pero de forma predeterminada solo se pueden aprovisionar 50 instancias de DocumentDB por suscripción. 

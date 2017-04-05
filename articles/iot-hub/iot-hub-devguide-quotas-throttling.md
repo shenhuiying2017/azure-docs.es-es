@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7ad5eb2e53e846e7f19e9f136249e4ae280bf996
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e9171844e2fbac7a4e734be9144b30d1bbd0397f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -37,16 +37,16 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 
 | Limitación | Gratuitos y centros S1 | Centros S2 | Centros S3 | 
 | -------- | ------- | ------- | ------- |
-| Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 100/min/unidad | 100/min/unidad | 5000/min/unidad |
+| Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
 | Conexiones de dispositivos | Máximo de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9\*12) en las unidades. | 120/s/unidad | 6000/s/unidad |
 | Envíos de dispositivo a nube | Máximo de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9\*12) en las unidades. | 120/s/unidad | 6000/s/unidad |
-| Envíos de nube a dispositivo | 100/min/unidad | 100/min/unidad | 5000/min/unidad |
-| Recepciones de nube a dispositivo <br/> (solo cuando el dispositivo usa HTTP)| 1000/min/unidad | 1000/min/unidad| 50000/min/unidad |
-| Carga de archivos | 100 notificaciones de carga de archivos/min/unidad | 100 notificaciones de carga de archivos/min/unidad | 5000 notificaciones de carga de archivos/min/unidad |
+| Envíos de nube a dispositivo | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
+| Recepciones de nube a dispositivo <br/> (solo cuando el dispositivo usa HTTP)| 16,67/s/unidad (1000/min/unidad) | 16,67/s/unidad (1000/min/unidad) | 833,33/s/unidad (50000/min/unidad) |
+| Carga de archivos | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 83,33 notificaciones de cargas de archivos/s/unidad (5000/min/unidad) |
 | Métodos directos | 10/s/unidad | 30/s/unidad | 1500/s/unidad | 
 | Lecturas de dispositivos gemelos | 10/s | Máximo de 10/s o 1/s/unidad | 50/s/unidad |
 | Actualizaciones de dispositivos gemelos | 10/s | Máximo de 10/s o 1/s/unidad | 50/s/unidad |
-| Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 100/min/unidad | 100/min/unidad | 5000/min/unidad |
+| Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
 | Resultado de operaciones por dispositivo de trabajos | 10/s | Máximo de 10/s o 1/s/unidad | 50/s/unidad |
 
 Es importante aclarar que la limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con un Centro de IoT, no el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
@@ -69,7 +69,7 @@ IoT Hub exige otros límites en sus distintas funcionalidades.
 
 | Operación | Límite |
 | --------- | ----- |
-| URI de carga de archivos | 10000 URI de SAS pueden estar fuera para una cuenta de almacenamiento al mismo tiempo. <br/> &10; URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
+| URI de carga de archivos | 10000 URI de SAS pueden estar fuera para una cuenta de almacenamiento al mismo tiempo. <br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
 | Trabajos | El historial de trabajos se conserva durante 30 días como máximo. <br/> El número máximo de trabajos simultáneos es: 1 para gratuitos y S1, 5 para S2 y 10 para S3. |
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
 | Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |

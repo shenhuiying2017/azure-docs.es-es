@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -43,21 +43,13 @@ El Asistente para migración crea un informe de preparación para identificar la
 * Modo de compatibilidad con IIS5: no admitido en Aplicaciones web. 
 * Grupos de aplicaciones: en Aplicaciones web, cada sitio y sus aplicaciones secundarias se ejecutan en el mismo grupo de aplicaciones. Si el sitio tiene varias aplicaciones secundarias con varios grupos de aplicaciones, se deben consolidar en un único grupo de aplicaciones con la misma configuración, o bien migrar cada aplicación a una aplicación web independiente.
 * Componentes COM: Aplicaciones web no permite el registro de componentes COM en la plataforma. Si los sitios web o las aplicaciones utilizan algún componente COM, debe volver a escribirlos en código administrado e implementarlos con el sitio web o la aplicación.
-* Filtros ISAPI: Aplicaciones web admite el uso de los filtros ISAPI. Debe hacer lo siguiente:
+* Filtros ISAPI: aplicaciones web compatibles con el uso de las extensiones ISAPI. Debe hacer lo siguiente:
   
   * implementar los archivos DLL con su aplicación web 
   * registrar los archivos DLL mediante [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
-  * colocar un archivo applicationHost.xdt en la raíz del sitio con el siguiente contenido:
+  * colocar un archivo applicationHost.xdt en la raíz del sitio con el contenido que se describe en la sección "Allowing arbitrary ISAPI extensions to be loaded" (Permitir la carga de extensiones ISAPI) [de este artículo](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples) 
     
-      <?xml version="1.0"?>
-    
-      <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-      <configSections>
-          <sectionGroup name="system.webServer">
-            <section name="isapiFilters" xdt:Transform="SetAttributes(overrideModeDefault)" overrideModeDefault="Allow" />
-          </sectionGroup>
-        </configSections>
-      </configuration>
+  
     
     Para obtener más ejemplos de cómo utilizar las transformaciones de documentos XML con su sitio web, consulte [Transformación de su sitio web de Microsoft Azure](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx).
 * Otros componentes, como SharePoint, extensiones de servidor de FrontPage (FPSE), FTP o certificados SSL, no se migrarán.

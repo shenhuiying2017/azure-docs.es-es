@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -127,24 +127,16 @@ Consulte el [cmd Start-ServiceFabricClusterConfigurationUpgrade de PS ](https://
 
 #### <a name="cluster-upgrade-workflow"></a>Flujo de trabajo de actualización de clúster
 
-1. Descargue la versión más reciente del paquete del documento [Create Service Fabric cluster for Windows Server](service-fabric-cluster-creation-for-windows-server.md) (Crear un clúster de Service Fabric para Windows Server).
-2. Conéctese al clúster desde cualquier máquina con acceso de administrador a todas las máquinas que se muestran como nodos en el clúster. El equipo donde se ejecuta este script no tiene que formar parte del clúster.
+1. Ejecute Get-ServiceFabricClusterUpgrade desde uno de los nodos del clúster y apunte el valor de TargetCodeVersion.
+2. Ejecute lo siguiente en un equipo conectado a Internet para enumerar todas las versiones de actualización compatibles con la versión actual y descargar el paquete correspondiente de los vínculos de descarga asociados.
 
     ```powershell
 
-    ###### Connect to the cluster
-    $ClusterName= "mysecurecluster.something.com:19000"
-    $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
-    Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
-        -X509Credential `
-        -ServerCertThumbprint $CertThumbprint  `
-        -FindType FindByThumbprint `
-        -FindValue $CertThumbprint `
-        -StoreLocation CurrentUser `
-        -StoreName My
+    ###### Get list of all upgrade compatible packages  
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. Copie el paquete descargado en el almacén de imágenes del clúster.
+3. Conéctese al clúster desde cualquier máquina con acceso de administrador a todas las máquinas que se muestran como nodos en el clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster
 
     ```powershell
 
@@ -155,8 +147,9 @@ Consulte el [cmd Start-ServiceFabricClusterConfigurationUpgrade de PS ](https://
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
+4. Copie el paquete descargado en el almacén de imágenes del clúster.
 
-4. Registre el paquete copiado.
+5. Registre el paquete copiado.
 
     ```powershell
 
@@ -167,7 +160,7 @@ Consulte el [cmd Start-ServiceFabricClusterConfigurationUpgrade de PS ](https://
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. Inicie una actualización del clúster a una versión disponible.
+6. Inicie una actualización del clúster a una versión disponible.
 
     ```Powershell
 
@@ -197,6 +190,13 @@ Para actualizar la configuración del clúster, ejecute **Start-ServiceFabricClu
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
+
+### <a name="cluster-certificate-config-upgrade"></a>Actualización de la configuración de un certificado de clúster  
+El certificado del clúster se usa para realizar la autenticación entre los nodos del clúster, de modo que la sustitución de dicho certificado se debe llevar a cabo con la máxima cautela, ya que cualquier error bloqueará la comunicación entre dichos nodos.  
+Desde el punto de vista técnico, se admiten dos opciones:  
+
+1. Actualización de un solo certificado: la ruta de actualización es "Certificado A (principal) -> Certificado B (principal) -> Certificado C (principal) ->...".   
+2. Actualización de dos certificados: la ruta de actualización es "Certificado A (principal) -> Certificado A (principal) y B (secundario) -> Certificado B (principal) -> Certificado B (principal) y C (secundario) -> Certificado C (principal) -> ...".
 
 
 ## <a name="next-steps"></a>Pasos siguientes

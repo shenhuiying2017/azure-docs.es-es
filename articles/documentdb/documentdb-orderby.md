@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -90,7 +91,7 @@ A continuación se indica cómo puede crear una colección con indexación para 
 
 
 ## <a name="samples"></a>Muestras
-Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) en los que se muestra cómo se usa Order By, incluida la creación de directivas de indexación y la paginación con Order By. Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.  
+Eche un vistazo al [proyecto de ejemplos de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) en el que se muestra cómo se usa Order By (Ordenar por), incluida la creación de directivas de indexación y la paginación con Order By (Ordenar por). Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.  
 
 ## <a name="faq"></a>Preguntas más frecuentes
 **¿Cuál es el consumo de unidades de solicitud (RU) esperado de las consultas de Order By?**
@@ -123,17 +124,12 @@ Order By no se admite actualmente para consultas entre particiones al usar el Ex
 Si recibe un error que indica que Order By no es compatible, asegúrese de que usa una versión del [SDK](documentdb-sdk-dotnet.md) que sea compatible con Order By. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) y comience a ordenar sus datos. 
+Bifurque el [proyecto de ejemplos de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) y comience a ordenar sus datos. 
 
 ## <a name="references"></a>Referencias
 * [Referencia de las consultas de DocumentDB](documentdb-sql-query.md)
 * [Referencia de la directiva de indexación de DocumentDB](documentdb-indexing-policies.md)
 * [Referencia SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

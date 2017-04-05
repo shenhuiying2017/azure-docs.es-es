@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 1d3336e7e2e3ec84ab85a8f494717a75f77982b3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 379b32f4e533f48f1593a97e73737a0c5bfb9135
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -143,7 +143,7 @@ Hemos tomado una muestra del 0,1 % de estos archivos y los hemos combinado en ar
 | tip_amount |Importe de la propina |
 | tolls_amount |Importe de los peajes |
 | total_amount |Importe total |
-| tipped |Con propina (0 o&1; para No o Sí) |
+| tipped |Con propina (0 o 1 para No o Sí) |
 | tip_class |Clase de propina (0: 0 $, 1: 0-5 $, 2: 6-10 $, 3: 11-20 $, 4: > 20 $) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Ejecución del código desde un Notebook de Jupyter en el clúster de Spark
@@ -155,9 +155,9 @@ También puede ir a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para ac
 
 ![Examinar cuadernos de Jupyter Notebook](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Seleccione PySpark para ver un directorio que contiene algunos ejemplos de cuadernos previamente empaquetados que utilizan la API de PySpark. Los cuadernos que contienen los ejemplos de código para este conjunto de aplicaciones de tema de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Seleccione PySpark para ver un directorio que contenga algunos ejemplos de cuadernos previamente empaquetados que utilicen la API de PySpark. Los cuadernos que incluyen los ejemplos de código para este conjunto de aplicaciones de tema de Spark están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-Puede cargar los cuadernos directamente desde [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) en el servidor de Jupyter Notebooks, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón **Cargar** de la parte derecha de la pantalla. Se abre un explorador de archivos. Pegue aquí la dirección URL de GitHub (contenido sin procesar) del cuaderno y haga clic en **Abrir**. 
+Puede cargar los cuadernos directamente desde [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) en el servidor de Jupyter Notebook, en su clúster de Spark. En la página principal de su instancia de Jupyter, haga clic en el botón **Cargar** de la parte derecha de la pantalla. Se abre un explorador de archivos. Pegue aquí la dirección URL de GitHub (contenido sin procesar) del cuaderno y haga clic en **Abrir**. 
 
 Verá el nombre de archivo en la lista de archivos de Jupyter de nuevo con un botón **Cargar** . Haga clic en este botón **Cargar** . Ahora ya ha importado el cuaderno. Repita estos pasos para cargar los otros cuadernos de este tutorial.
 

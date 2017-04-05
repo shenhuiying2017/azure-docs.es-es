@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
-ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: eccc181e2203a97de58005f9597613775338ebcc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -41,7 +41,7 @@ Al crear un servidor de Analysis Services en Azure, especifique un nombre único
 
 ## <a name="get-the-server-name"></a>Obtención del nombre del servidor
 
-Antes de establecer la conexión, es necesario obtener el nombre del servidor. En **Azure Portal** > servidor > **Información general** > **Nombre de servidor**, copie el nombre del servidor completo. Si otros usuarios de su organización también se conectan a este servidor, deseará compartir dicho nombre con ellos. Al especificar un nombre de servidor, se debe usar la ruta de acceso completa.
+Antes de establecer la conexión, es necesario obtener el nombre del servidor. En **Azure Portal** > servidor > **Información general** > **Nombre de servidor**, copie el nombre del servidor completo. Si otros usuarios de su organización también se conectan a este servidor, podrá compartir dicho nombre con ellos. Al especificar un nombre de servidor, se debe usar la ruta de acceso completa.
 
 ![Obtención del nombre del servidor en Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
@@ -52,11 +52,11 @@ Antes de establecer la conexión, es necesario obtener el nombre del servidor. E
 > 
 > 
 
-1. En [Power BI Desktop](https://powerbi.microsoft.com/desktop/), haga clic en **Obtener datos** > **Bases de datos** > **Azure Analysis Services**.
+1. En [Power BI Desktop](https://powerbi.microsoft.com/desktop/), haga clic en **Obtener datos** > **Azure** > **Base de datos de Microsoft Azure Analysis Services**.
 2. En **Servidor**, pegue el nombre del servidor desde el Portapapeles.
 3. En **Base de datos**, si conoce el nombre de la base de datos de modelo tabular o la perspectiva a la que desea conectarse, péguelo aquí. De lo contrario, puede dejar este campo en blanco. Puede seleccionar una base de datos o una perspectiva en la pantalla siguiente.
 4. Deje seleccionada la opción **Conectar en directo** predeterminada y presione **Conectar**. Si se le pide que especifique una cuenta, escriba la cuenta de su organización.
-5. En **Navegador**, expanda el servidor, seleccione el modelo o la perspectiva a la que desea conectarse y haga clic en **Conectar**. Un solo clic en un modelo o perspectiva muestra todos los objetos de esa vista.
+5. En **Navegador**, expanda el servidor, seleccione el modelo o la perspectiva a la que desea conectarse y haga clic en **Conectar**. Un clic en un modelo o perspectiva muestra todos los objetos de esa vista.
 
 ## <a name="connect-in-power-bi"></a>Conexión en Power BI
 
@@ -68,14 +68,14 @@ Antes de establecer la conexión, es necesario obtener el nombre del servidor. E
 Se admite la conexión al servidor de Azure Analysis Services en Excel mediante Obtener datos en Excel 2016 o Power Query en versiones anteriores. Es obligatorio un [proveedor MSOLAP.7](analysis-services-data-providers.md). No se admite la conexión mediante el Asistente para importar tablas en Power Pivot.
 
 > [!NOTE]
-> Algunas organizaciones implementan actualizaciones de Office 365 con el canal diferido; es decir, que las actualizaciones de versión se retrasan hasta cuatro meses de la versión actual. Para la compilación de la versión 1609.7369.2115 de Excel 2016 y anteriores, o Excel 2013, puede crear un archivo de conexión de datos de Office (.odc) y actualizar manualmente el proveedor MSOLAP.7 para conectarse a un servidor de Azure Analysis Services. Para obtener más información, consulte [el artículo en el que se explica cómo crear un archivo .odc](analysis-services-odc.md).
+> Algunas organizaciones implementan actualizaciones de Office 365 con el canal diferido; es decir, que las actualizaciones de versión se retrasan hasta cuatro meses de la versión actual. En el caso de Excel 2016, versión 1609.7369.2115 y las anteriores, o en el de Excel 2013, puede crear un archivo .odc y actualizar manualmente el proveedor MSOLAP.7 para conectarse a un servidor. Para obtener más información, consulte el [artículo en el que se explica cómo crear un archivo .odc](analysis-services-odc.md).
 > 
 > 
 
 **Para conectarse desde Excel 2016**
 
 1. En Excel 2016, en la cinta de opciones **Datos**, haga clic en **Obtener datos externos** > **De otros orígenes** > **Desde Analysis Services**.
-2. En el Asistente para la conexión de datos, en **Nombre del servidor**, pegue el nombre del servidor desde el Portapapeles. A continuación, en **Credenciales de inicio de sesión**, seleccione **Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización, por ejemplo nancy@adventureworks.com, y la contraseña.
+2. En el Asistente para la conexión de datos, en **Nombre del servidor**, pegue el nombre del servidor desde el Portapapeles. Luego, en **Credenciales de inicio de sesión**, seleccione **Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización (por ejemplo, nancy@adventureworks.com) y la contraseña.
 
     ![Conexión en el inicio de sesión de Excel](./media/analysis-services-connect/aas-connect-excel-logon.png)
 3. En **Seleccionar base de datos y tabla**, seleccione la base de datos y el modelo o la perspectiva y haga clic en **Finalizar**.

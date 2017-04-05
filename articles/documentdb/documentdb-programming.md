@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d337114c123151f06a24e80b0208c6eafb1df487
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -293,7 +294,7 @@ A continuación se muestra un ejemplo de un procedimiento almacenado que se escr
         }
     }
 
-## <a name="a-idtriggera-database-triggers"></a><a id="trigger"></a> Desencadenadores de base de datos
+## <a id="trigger"></a> Desencadenadores de base de datos
 ### <a name="database-pre-triggers"></a>Desencadenadores previos de base de datos
 La Base de datos de documentos proporciona desencadenadores que se ejecutan o desencadenan por una operación en un documento. Por ejemplo, puede especificar un desencadenador previo al crear un documento; este desencadenador previo se ejecutará antes de crear el documento. A continuación se muestra un ejemplo de cómo se pueden utilizar desencadenadores previos para validar las propiedades de un documento que se está creando:
 
@@ -436,10 +437,10 @@ Este desencadenador consulta el documento de metadatos y lo actualiza con detall
 
 Es importante tener en cuenta la ejecución **transaccional** de los desencadenadores en DocumentDB. Este desencadenador posterior se ejecuta como parte de la misma transacción cuando se crea el documento original. Por lo tanto, si lanzamos una excepción desde el desencadenador posterior (en caso de que no podamos actualizar el documento de metadatos), fallará y se revertirá toda la transacción. No se creará ningún documento y se devolverá una excepción.  
 
-## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Funciones definidas por el usuario
+## <a id="udf"></a>Funciones definidas por el usuario
 Las funciones definidas por el usuario (UDF) se utilizan para ampliar la gramática del lenguaje de consultas SQL de DocumentDB e implementar la lógica empresarial personalizada. Solo se las puede llamar desde consultas internas. No tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, las UDF se pueden ejecutar en réplicas secundarias del servicio de DocumentDB.  
 
-En el siguiente ejemplo, se crea una UDF para calcular la base imponible basada en tipos para varios niveles de renta y, a continuación, se usa dentro de una consulta para buscar a todas las personas que pagan más de&20;.000 $ en impuestos.
+En el siguiente ejemplo, se crea una UDF para calcular la base imponible basada en tipos para varios niveles de renta y, a continuación, se usa dentro de una consulta para buscar a todas las personas que pagan más de 20.000 $ en impuestos.
 
     var taxUdf = {
         id: "tax",
@@ -810,10 +811,5 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 * [Extensibilidad de la base de datos segura y portátil](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

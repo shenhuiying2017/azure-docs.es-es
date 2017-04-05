@@ -12,23 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configuración del firewall de aplicaciones web en una puerta de enlace de aplicaciones nueva o existente
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-web-application-firewall-portal.md)
+> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-web-application-firewall-powershell.md)
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7;. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. La aplicación proporciona numerosas características de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (capa de sockets seguros), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples. Para obtener una lista completa de las características admitidas, consulte la información general sobre Application Gateway.
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. La aplicación proporciona numerosas características de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (capa de sockets seguros), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples. Para obtener una lista completa de las características admitidas, consulte la información general sobre Application Gateway.
 
 En el artículo siguiente se muestra cómo [agregar el firewall de aplicaciones web a una puerta de enlace de aplicaciones existente](#add-web-application-firewall-to-an-existing-application-gateway) y [crear una puerta de enlace de aplicaciones que usa el firewall de aplicaciones web](#create-an-application-gateway-with-web-application-firewall).
 
@@ -40,7 +41,7 @@ Si ha leído [Creación de una puerta de enlace de aplicaciones con PowerShell](
 
 **SKU**: una puerta de enlace de aplicaciones normal sin WAF admite los tamaños **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**. Con la introducción de WAF, hay dos SKU adicionales, **WAF\_Medium** y **WAF\_Large**. No se admite WAF en puertas de enlace de aplicaciones de pequeño tamaño.
 
-**Nivel**: los valores disponibles son **Estándar** o **WAF**. Cuando se usa el firewall de aplicaciones web, se debe seleccionar **WAF** .
+**Nivel**: los valores disponibles son **Estándar** o **WAF**. Cuando se usa el firewall de aplicaciones web, se debe seleccionar **WAF**.
 
 **Modo** : este valor es el modo de WAF. Los valores permitidos son **Detección** y **Prevención**. Cuando WAF está configurado en modo de detección, todas las amenazas se almacenan en un archivo de registro. En modo de prevención, los eventos se siguen registrando pero el atacante recibe una respuesta 403 no autorizado de la puerta de enlace de aplicaciones.
 
@@ -298,6 +299,9 @@ Cree una puerta de enlace de aplicaciones con todos los elementos de configuraci
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
 
+> [!NOTE]
+> Las puertas de enlace de la aplicación creadas con la configuración de firewall de aplicación web básica se configuran con CRS 3.0 para protección.
+
 ## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
 Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
@@ -330,12 +334,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md)
+Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

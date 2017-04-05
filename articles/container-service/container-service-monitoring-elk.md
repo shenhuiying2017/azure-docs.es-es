@@ -4,7 +4,7 @@ description: "Supervisión de un clúster de DC/OS en un clúster de Azure Conta
 services: container-service
 documentationcenter: 
 author: sauryadas
-manager: dan.lepow
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: "Contenedores, DC/OS, supervisión, elk"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 9433eb9f734dbe1b815074f86b9a691b4d16b5c8
-ms.openlocfilehash: c372c4a04de61f1eace81418ec6dea054007ec1f
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fa17900f8a752d692a62e47d301651cc4f435f06
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +34,7 @@ En este artículo se muestra cómo implementar la pila ELK (Elasticsearch, Logst
 La pila ELK es una combinación de Elasticsearch, Logstash y Kibana que proporciona una pila de un extremo a otro que se puede usar para supervisar y analizar los registros de un clúster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configuración de la pila ELK en un clúster de DC/OS
-Acceda a su interfaz de usuario de DC/OS a través de [http://localhost:&80; /](http://localhost:80/). Una vez que esté en ella, navegue a **Universe**. Busque e instale Elasticsearch, Logstash y Kibana desde DC/OS, y en ese orden específico. Para más información acerca de la configuración, siga el vínculo **Advanced Installation** (Instalación avanzada).
+Acceda a su interfaz de usuario de DC/OS a través de [http://localhost: 80 /](http://localhost:80/). Una vez que esté en ella, navegue a **Universe**. Busque e instale Elasticsearch, Logstash y Kibana desde DC/OS, y en ese orden específico. Para más información acerca de la configuración, siga el vínculo **Advanced Installation** (Instalación avanzada).
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
@@ -63,12 +64,10 @@ Para acceder al panel de Kibana, que se implementa en el puerto 5601, es preciso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de Elasticsearch, Logstash y Kibarna, consulte la [documentación de Elastic Stack](https://www.elastic.co/guide/index.html).
+* Con respecto al reenvío y configuración de registros de aplicaciones y sistemas, consulte [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Administración de registros en DC/OS con ELK).
+
+* En cuanto al filtrado de registros, vea [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Filtrado de registros con ELK). 
+
  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

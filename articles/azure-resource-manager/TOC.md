@@ -46,11 +46,12 @@
 ### [Consideraciones sobre la seguridad](best-practices-resource-manager-security.md)
 ## Establecimiento de directivas de recursos
 ### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
-### [Asignación y administración de directivas](resource-manager-policy-create-assign.md)
+### [Asignación de directivas de portal](resource-manager-policy-portal.md)
+### [Asignación de directivas de script](resource-manager-policy-create-assign.md)
 ### [Directivas de etiquetas de recursos](resource-manager-policy-tags.md)
 ### [Directivas de almacenamiento](resource-manager-policy-storage.md)
-### [Directivas de máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Directivas de máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Directivas de máquinas virtuales Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Directivas de máquinas virtuales Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditoría y solución de problemas
 ### [Solución de errores de implementación comunes](resource-manager-common-deployment-errors.md)
 ### [Visualización de registros de actividad](resource-group-audit.md)

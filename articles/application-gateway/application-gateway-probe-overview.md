@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
-ms.openlocfilehash: 3286a6e98b52f2ce6f173f79ae69f0b86ab2179a
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -29,6 +30,9 @@ La puerta de enlace de aplicaciones de Azure supervisa de forma predeterminada e
 ![ejemplo de sondeo de Application Gateway][1]
 
 Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. En este artículo trataremos ambos sondeos de estado: el personalizado y el predeterminado.
+
+> [!NOTE]
+> Si hay un grupo de seguridad de red en la subred de Application Gateway, se deberían abrir los intervalos de puertos 65503-65534 en la subred de Application Gateway destinada al tráfico de entrada. Estos puertos son necesarios para que funcione correctamente la API de estado de back-end.
 
 ## <a name="default-health-probe"></a>Sondeo de estado predeterminado
 
@@ -78,9 +82,4 @@ La siguiente tabla proporciona definiciones de las propiedades de un sondeo de m
 Tras conocer todo lo referente a la supervisión del mantenimiento de Application Gateway, puede configurar un [sondeo de mantenimiento personalizado](application-gateway-create-probe-portal.md) en Azure Portal o un [sondeo de mantenimiento personalizado](application-gateway-create-probe-ps.md) mediante PowerShell y el modelo de implementación con Azure Resource Manager.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

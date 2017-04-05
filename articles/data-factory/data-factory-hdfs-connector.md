@@ -15,47 +15,169 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8a6050fc52407ab6b974a9698d970248062665c1
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 6ad9eaf381b93547a3d5f54698f8f6023a5644f2
+ms.lasthandoff: 03/27/2017
 
 
 ---
-# <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Movimiento de datos desde HDFS local mediante Factoría de datos de Azure
-En este artículo se describe cómo se puede usar la actividad de copia en Factoría de datos de Azure para mover datos de HDFS local a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) , que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+# <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Movimiento de datos desde HDFS local mediante Azure Data Factory
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de HDFS local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
-En la actualidad, Factoría de datos solo admite el movimiento de datos desde HDFS local a otros almacenes de datos, pero no el movimiento inverso.
+Puede copiar datos de HDFS en cualquier almacén de datos de receptor admitido. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla [Almacenes de datos y formatos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats). En la actualidad, Factoría de datos solo admite el movimiento de datos desde HDFS local a otros almacenes de datos, pero no el movimiento inverso.
 
 ## <a name="enabling-connectivity"></a>Habilitación de la conectividad
 El servicio Factoría de datos admite la conexión a HDFS local mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace. Use la puerta de enlace para conectar con HDFS, aunque esté hospedado en una máquina virtual de IaaS de Azure.
 
 > [!NOTE]
 > Asegúrese de que Data Management Gateway puede obtener acceso a **TODOS** los [servidor de nodo de nombres]:[puerto de nodo de nombres] y [servidores de nodos de datos]:[puerto de nodo de datos] del clúster de Hadoop. El [puerto de nodo de nombres] predeterminado es 50070 y el [puerto de nodo de datos] es 50075.
->
 
 Aunque puede instalar la puerta de enlace en el mismo equipo local o en la máquina virtual de Azure como HDFS, se recomienda que instale la puerta de enlace en un equipo independiente o una máquina virtual de IaaS de Azure. Al tener la puerta de enlace en un equipo independiente, se reduce la contención de recursos y se mejora el rendimiento. Al instalar la puerta de enlace en una máquina independiente, la máquina debería poder acceder a la máquina con HDFS.
 
-## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más sencilla de crear una canalización que copie datos hacia o desde el sistema HDFS local es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+## <a name="getting-started"></a>Introducción
+Puede crear una canalización con actividad de copia que mueva los datos desde un origen de HDFS mediante el uso de diferentes herramientas o API.
 
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos de un sistema HDFS local a Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
+La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-## <a name="sample-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Ejemplo: copiar datos de HDFS local a un blob de Azure
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia. 
+
+Si usa las herramientas o las API, realice los pasos siguientes para crear una canalización que mueva los datos de un almacén de datos de origen a un almacén de datos del receptor: 
+
+1. Cree **servicios vinculados** para vincular los almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** que representen los datos de entrada y salida para la operación de copia. 
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
+
+Cuando se utiliza el asistente, se crean automáticamente las definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan para copiar los datos de un almacén de datos de HDFS, consulte la sección [Ejemplo de JSON: Copiar datos de HDFS local a un blob de Azure](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) de este artículo. 
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de HDFS:
+
+## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
+Un servicio vinculado vincula un almacén de datos a una factoría de datos. Se crea un servicio vinculado de tipo **Hdfs** para vincular HDFS local a la factoría de datos. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de HDFS.
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| type |La propiedad type debe establecerse en: **Hdfs** |Sí |
+| URL |Dirección URL a HDFS |Sí |
+| authenticationType |Anónima o Windows. <br><br> Para usar la **autenticación Kerberos** para el conector HDFS, consulte [esta sección](#use-kerberos-authentication-for-hdfs-connector) a fin de configurar el entorno local en consecuencia. |Sí |
+| userName |Nombre de usuario para la autenticación de Windows |Sí (para la autenticación de Windows) |
+| contraseña |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
+| gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. |Sí |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de la credencial de acceso. |No |
+
+### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
+
+```JSON
+{
+    "name": "hdfs",
+    "properties":
+    {
+        "type": "Hdfs",
+        "typeProperties":
+        {
+            "authenticationType": "Anonymous",
+            "userName": "hadoop",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+
+### <a name="using-windows-authentication"></a>Uso de autenticación de Windows
+
+```JSON
+{
+    "name": "hdfs",
+    "properties":
+    {
+        "type": "Hdfs",
+        "typeProperties":
+        {
+            "authenticationType": "Windows",
+            "userName": "Administrator",
+            "password": "password",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
+        }
+    }
+}
+```
+## <a name="dataset-properties"></a>Propiedades del conjunto de datos
+Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **FileShare** (que incluye el conjunto de datos de HDFS) tiene las propiedades siguientes:
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| folderPath |Ruta de acceso a la carpeta. Ejemplo: `myfolder`<br/><br/>Use el carácter de escape "\" para los caracteres especiales de la cadena. Por ejemplo: para folder\subfolder, especifique la carpeta\\\\subcarpeta y para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
+| fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado estaría en el siguiente formato: <br/><br/>Data<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| partitionedBy |partitionedBy se puede usar para especificar un valor de folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza para cada hora de datos. |No |
+| formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Los niveles admitidos son **Optimal** y **Fastest**. Para más información, consulte [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de archivo y compresión en Azure Data Factory). |No |
+
+> [!NOTE]
+> filename y fileFilter no pueden usarse simultáneamente.
+
+### <a name="using-partionedby-property"></a>Uso de la propiedad partitionedBy
+Como ya se ha indicado en la sección anterior, se puede especificar un valor dinámico de folderPath y filename para datos de series temporales con la propiedad **partitionedBy**, [funciones de Data Factory y las variables del sistema](data-factory-functions-variables.md).
+
+Para aprender más sobre los conjuntos de datos de series temporales [Creación de conjuntos de datos](data-factory-create-datasets.md), [Programación y ejecución](data-factory-scheduling-and-execution.md) y [Creación de canalizaciones](data-factory-create-pipelines.md) para conocer más detalles sobre los conjuntos de datos de series temporales, la programación y los segmentos.
+
+#### <a name="sample-1"></a>Muestra 1:
+
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
+En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema SliceStart de Data Factory en el formato (YYYYMMDDHH) especificado. SliceStart hace referencia a la hora de inicio del segmento. folderPath es diferente para cada segmento. Por ejemplo: wikidatagateway/wikisampledataout/2014100103 o wikidatagateway/wikisampledataout/2014100104.
+
+#### <a name="sample-2"></a>Ejemplo 2:
+
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
+En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades folderPath y fileName.
+
+## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
+Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
+
+Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
+
+En caso de actividad de copia, si el origen es del tipo **FileSystemSource** , estarán disponibles las propiedades siguientes en la sección typeProperties:
+
+**FileSystemSource** admite las siguientes propiedades:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| --- | --- | --- | --- |
+| recursive |Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. |True, False (predeterminada) |No | 
+
+## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Ejemplo de JSON: Copiar datos de HDFS local a un blob de Azure
 En este ejemplo, se muestra cómo copiar datos de un sistema HDFS local al Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.  
 
-El ejemplo consta de las siguientes entidades de factoría de datos:
+El ejemplo proporciona definiciones de JSON para las siguientes entidades de Data Factory. Puede utilizar estas definiciones para crear una canalización para copiar datos desde HDFS a Azure Blob Storage mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). 
 
-1. Un servicio vinculado del tipo [OnPremisesHdfs](#hdfs-linked-service-properties).
-2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
-3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [FileShare](#hdfs-dataset-type-properties).
-4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [FileSystemSource](#hdfs-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. Un servicio vinculado del tipo [OnPremisesHdfs](#linked-service-properties).
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [FileShare](#dataset-properties).
+4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [FileSystemSource](#copy-activity-properties) y [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 El ejemplo copia los datos de un HDFS local a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 En primer lugar, configure la puerta de enlace de administración de datos. Las instrucciones se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Servicio vinculado de HDFS** En este ejemplo se usa la autenticación de Windows. Consulte la sección [Propiedades del servicio vinculado de HDFS](#hdfs-linked-service-properties) para conocer los diferentes tipos de autenticación que se pueden usar.
+**Servicio vinculado de HDFS:** En este ejemplo se usa la autenticación de Windows. Consulte la sección [Propiedades del servicio vinculado de HDFS](#linked-service) para conocer los diferentes tipos de autenticación que se pueden usar.
 
 ```JSON
 {
@@ -75,7 +197,7 @@ En primer lugar, configure la puerta de enlace de administración de datos. Las 
 }
 ```
 
-**Servicio vinculado de Almacenamiento de Azure**
+**Servicio vinculado de Almacenamiento de Azure:**
 
 ```JSON
 {
@@ -89,7 +211,7 @@ En primer lugar, configure la puerta de enlace de administración de datos. Las 
 }
 ```
 
-**Conjunto de datos de entrada de HDFS** Este conjunto de datos hace referencia a la carpeta DataTransfer/UnitTest/ de HDFS. La canalización copia todos los archivos de su carpeta en el destino.
+**Conjunto de datos de entrada de HDFS:** Este conjunto de datos hace referencia a la carpeta DataTransfer/UnitTest/ de HDFS. La canalización copia todos los archivos de su carpeta en el destino.
 
 Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
 
@@ -111,7 +233,7 @@ Si se establece "external": "true", se informa al servicio Data Factory que el c
 }
 ```
 
-**Conjunto de datos de salida de blob de Azure**
+**Conjunto de datos de salida de blob de Azure:**
 
 Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
 
@@ -171,7 +293,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 }
 ```
 
-**Canalización con actividad de copia**
+**Actividad de copia en una canalización con el origen del sistema de archivos y el receptor de blob:** 
 
 La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 
@@ -213,70 +335,16 @@ La canalización contiene una actividad de copia que está configurada para usar
 }
 ```
 
-## <a name="hdfs-linked-service-properties"></a>Propiedades del servicio vinculado de HDFS
-En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de HDFS.
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| type |La propiedad type debe establecerse en: **Hdfs** |Sí |
-| URL |Dirección URL a HDFS |Sí |
-| authenticationType |Anónima o Windows. <br><br> Para usar la **autenticación Kerberos** para el conector HDFS, consulte [esta sección](#use-kerberos-authentication-for-hdfs-connector) a fin de configurar el entorno local en consecuencia. |Sí |
-| userName |Nombre de usuario para la autenticación de Windows |Sí (para la autenticación de Windows) |
-| contraseña |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
-| gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. |Sí |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de la credencial de acceso. |No |
-
-Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información sobre cómo establecer las credenciales para HDFS local.
-
-### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
-
-```JSON
-{
-    "name": "hdfs",
-    "properties":
-    {
-        "type": "Hdfs",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
-            "userName": "hadoop",
-            "url" : "http://<machine>:50070/webhdfs/v1/",
-            "gatewayName": "mygateway"
-        }
-    }
-}
-```
-
-### <a name="using-windows-authentication"></a>Uso de autenticación de Windows
-
-```JSON
-{
-    "name": "hdfs",
-    "properties":
-    {
-        "type": "Hdfs",
-        "typeProperties":
-        {
-            "authenticationType": "Windows",
-            "userName": "Administrator",
-            "password": "password",
-            "url" : "http://<machine>:50070/webhdfs/v1/",
-            "gatewayName": "mygateway"
-        }
-    }
-}
-```
-
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Uso de autenticación Kerberos para el conector HDFS
 Existen dos opciones para configurar el entorno local para usar la autenticación Kerberos en el conector HDFS. Puede elegir la que mejor se adapte en su caso.
-* Opción 1: [Hacer que la máquina de puerta de enlace se una al dominio Kerberos](#kerberos-join-realm)
+* Opción 1: [Unirse a la máquina de puerta de enlace en el dominio Kerberos](#kerberos-join-realm)
 * Opción 2: [Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Opción 1: Hacer que la máquina de puerta de enlace se una al dominio Kerberos
+### <a name="kerberos-join-realm"></a>Opción 1: Unirse a la máquina de puerta de enlace en el dominio Kerberos
 
 #### <a name="requirement"></a>Requisito:
 
-* La máquina de puerta de enlace debe unirse el dominio Kerberos y no puede unirse a ningún dominio de Windows.
+* La máquina de puerta de enlace debe unirse al dominio Kerberos y no puede unirse a ningún dominio de Windows.
 
 #### <a name="how-to-configure"></a>Configuración:
 
@@ -291,7 +359,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
     **Reinicie** la máquina después de ejecutar estos 2 comandos.
 
-2.    Compruebe la configuración con el comando **Ksetup**. La salida debe ser parecida a esta:
+2.    Compruebe la configuración con el comando **Ksetup**. La salida debe ser como la siguiente:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -300,7 +368,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En Azure Data Factory:**
 
-* Configure el conector HDFS mediante la **autenticación de Windows** junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#hdfs-linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
+* Configure el conector HDFS mediante la **autenticación de Windows** junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
 
 ### <a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
 
@@ -315,7 +383,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En el servidor KDC:**
 
-1.    Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows al que se hace referencia debajo de la plantilla de configuración. De forma predeterminada, la configuración está ubicada en **/etc/krb5.conf**.
+1.    Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows que hace referencia a la siguiente plantilla de configuración. De forma predeterminada, la configuración está ubicada en **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -361,7 +429,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En el controlador de dominio:**
 
-1.    Ejecute a continuación los comandos **Ksetup** para agregar una entrada de dominio:
+1.    Ejecute los siguientes comandos **Ksetup** para agregar una entrada de dominio:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
@@ -398,85 +466,18 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En la máquina de puerta de enlace:**
 
-* Ejecute a continuación los comandos **Ksetup** para agregar una entrada de dominio.
+* Ejecute los siguientes comandos **Ksetup** para agregar una entrada de dominio.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
 **En Azure Data Factory:**
 
-* Configure el conector de HDFS mediante la **autenticación de Windows** en combinación con la cuenta de dominio o la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#hdfs-linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
-
-
-## <a name="hdfs-dataset-type-properties"></a>Propiedades del tipo de conjunto de datos de HDFS
-Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
-
-La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **FileShare** (que incluye el conjunto de datos de HDFS) tiene las propiedades siguientes:
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| folderPath |Ruta de acceso a la carpeta. Ejemplo: `myfolder`<br/><br/>Use el carácter de escape "\" para los caracteres especiales de la cadena. Por ejemplo: para folder\subfolder, especifique la carpeta\\\\subcarpeta y para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
-| fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado estaría en el siguiente formato: <br/><br/>Data<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
-| partitionedBy |partitionedBy se puede usar para especificar un valor de folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza para cada hora de datos. |No |
-| formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat) y [Formato Parquet](#specifying-parquetformat). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**, y los niveles que se admiten son: **Optimal** (Óptimo) y **Fastest** (Más rápido). Para más información, consulte la sección [Especificación de la compresión](#specifying-compression). |No |
+* Configure el conector de HDFS mediante la **autenticación de Windows** en combinación con la cuenta de dominio o la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#linked-service) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
 
 > [!NOTE]
-> filename y fileFilter no pueden usarse simultáneamente.
->
->
+> Para asignar columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).
 
-### <a name="using-partionedby-property"></a>Uso de la propiedad partitionedBy
-Como ya se ha indicado en la sección anterior, con partitionedBy se puede especificar un valor de folderPath dinámico, un nombre de archivo para datos de series temporales. Esto se puede hacer con las macros de Factoría de datos y las variables de sistema SliceStart y SliceEnd, que indican el periodo de tiempo lógico de un segmento de datos especificado.
-
-Para aprender más sobre los conjuntos de datos de series temporales [Creación de conjuntos de datos](data-factory-create-datasets.md), [Programación y ejecución](data-factory-scheduling-and-execution.md) y [Creación de canalizaciones](data-factory-create-pipelines.md) para conocer más detalles sobre los conjuntos de datos de series temporales, la programación y los segmentos.
-
-#### <a name="sample-1"></a>Muestra 1:
-
-```JSON
-"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-"partitionedBy":
-[
-    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-],
-```
-En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema SliceStart de Data Factory en el formato (YYYYMMDDHH) especificado. SliceStart hace referencia a la hora de inicio del segmento. folderPath es diferente para cada segmento. Por ejemplo: wikidatagateway/wikisampledataout/2014100103 o wikidatagateway/wikisampledataout/2014100104.
-
-#### <a name="sample-2"></a>Ejemplo 2:
-
-```JSON
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy":
- [
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-],
-```
-En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades folderPath y fileName.
-
-[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
-
-[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
-
-## <a name="hdfs-copy-activity-type-properties"></a>Propiedades de tipo de actividad de copia de HDFS
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
-
-Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
-
-En caso de actividad de copia, si el origen es del tipo **FileSystemSource** , estarán disponibles las propiedades siguientes en la sección typeProperties:
-
-**FileSystemSource** admite las siguientes propiedades:
-
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
-| --- | --- | --- | --- |
-| recursive |Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. |True, False (predeterminada) |No |
-
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

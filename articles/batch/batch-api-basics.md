@@ -16,9 +16,9 @@ ms.date: 03/08/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,7 +107,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 
     **configuración de Servicios en la nube** aparecen en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md). Batch admite todos los tamaños de Cloud Services excepto `ExtraSmall`, `STANDARD_A1_V2` y `STANDARD_A2_V2`.
 
-    Los tamaños de los nodos de proceso de la **configuración de máquina virtual** se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md). Lote admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con almacenamiento premium (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).
+    Los tamaños de los nodos de proceso de la **configuración de máquina virtual** se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md). Lote admite todos los tamaños de máquina virtual de Azure excepto `STANDARD_A0` y aquellos con almacenamiento premium (series `STANDARD_GS`, `STANDARD_DS` y `STANDARD_DSV2`).
 
     Al seleccionar un tamaño de nodo de proceso, tenga en cuenta las características y los requisitos de las aplicaciones que se van a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Normalmente, se selecciona un tamaño de nodo bajo el supuesto de que se ejecutará una sola tarea en un nodo cada vez. No obstante, es posible [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo más grande para acomodar el aumento de la demanda por la ejecución de tareas en paralelo. Para más información, consulte [Directiva de programación de tareas](#task-scheduling-policy).
 

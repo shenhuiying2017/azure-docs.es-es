@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 697278cf-0032-4f7c-b9b2-a84c4347659e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 7bec6b07d8e15845f06b20f24414a0e25a955f38
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,10 +71,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
     * Escriba un **Nombre de usuario de SSH** y, si desea que la contraseña SSH sea igual que la contraseña de administrador que especificó anteriormente, seleccione la casilla **Utilizar la misma contraseña que en el inicio de sesión del clúster**. De no ser así, especifique una **CONTRASEÑA** o **CLAVE PÚBLICA**, que se usarán para autenticar al usuario de SSH. Es recomendable usar una clave pública. Haga clic en **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.
    
-        Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
-   
-        * [Uso de SSH con Hadoop en HDInsight desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Uso de SSH con Hadoop en HDInsight desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+        Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * Para **Grupo de recursos**, especifique si desea crear un grupo de recursos o utilizar uno existente.
 

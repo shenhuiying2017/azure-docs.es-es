@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: babanisa
+ms.date: 03/27/2017
+ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 87c0f3eab8c09c79de06c2e806830b2f67ea5732
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Registros de diagnósticos de Event Hubs
 
 Puede ver dos tipos de registros para Event Hubs de Azure:
-* **[Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre activados.
-* **[Registros de diagnósticos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnósticos para obtener información más completa sobre todo lo que ocurre con un trabajo. Los registros de diagnósticos incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
+* **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener una vista más completa sobre todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
-## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnósticos
-Los registros de diagnósticos están **desactivados** de forma predeterminada. Para activar los registros de diagnósticos:
+## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnóstico
+Los registros de diagnóstico están **desactivados** de forma predeterminada. Para habilitar registros de diagnóstico:
 
 1.    En Azure Portal, vaya a la hoja de trabajo de streaming.
 
@@ -45,21 +45,21 @@ Los registros de diagnósticos están **desactivados** de forma predeterminada. 
 
     ![Cambio del estado de registros de diagnósticos](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Establezca el destino de archivo que desee, por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
+5.    Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
 
-6.    Seleccione las categorías de registros que quiere recopilar, por ejemplo, **Ejecución** o **Creación**.
+6.    Seleccione las categorías de registros que desee recopilar; por ejemplo, **Ejecución** o **Creación**.
 
 7.    Guarde la nueva configuración de diagnóstico.
 
-La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnósticos**.
+La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnóstico**.
 
-Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnósticos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorías de registros de diagnósticos
 Event Hubs captura registros de diagnósticos de dos categorías:
 
-* **ArchivalLogs:** captura los registros relacionados con archivos de Event Hubs, registros específicamente relacionados con errores de archivo.
-* **OperationalLogs:** captura lo que sucede durante el funcionamiento de Event Hubs y, en concreto, tipos de operaciones como la creación de un centro de eventos, los recursos usados y el estado de la operación.
+* **ArchivalLogs**: registros relacionados con archivos de Event Hubs, específicamente, registros relacionados con errores de archivo.
+* **OperationalLogs**: información sobre lo que sucede durante el funcionamiento de Event Hubs, en concreto, el tipo de operación, como la creación de centro de eventos, los recursos usados y el estado de la operación.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registros de diagnósticos
 Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que utilizan el formato descrito en los ejemplos siguientes.
@@ -70,20 +70,20 @@ Las cadenas JSON de registros de archivo incluyen elementos enumerados en la tab
 
 Nombre | Descripción
 ------- | -------
-TaskName | La descripción de la tarea que produjo error
-ActivityId | El identificador interno, usado con fines de seguimiento
-trackingId | El identificador interno, usado con fines de seguimiento
-resourceId | El identificador de recursos de Azure Resource Manager
-eventHub | Nombre completo del centro de eventos (incluye el nombre del espacio de nombres)
-partitionId | La partición del centro de eventos en la que se escribe
+TaskName | La descripción de la tarea que generó el error.
+ActivityId | El identificador interno, usado con fines de seguimiento.
+trackingId | El identificador interno, usado con fines de seguimiento.
+resourceId | Identificador de recursos de Azure Resource Manager.
+eventHub | Nombre completo del centro de eventos (incluye el nombre del espacio de nombres).
+partitionId | La partición del centro de eventos en la que se escribe.
 archiveStep | ArchiveFlushWriter
-startTime | Hora de inicio del error
-errores | Número de veces que se ha producido el error
-durationInSeconds | La duración del error
-Mensaje | Mensaje de error
+startTime | Hora de inicio del error.
+errores | Número de veces que se ha producido el error.
+durationInSeconds | La duración del error.
+Mensaje | Mensaje de error.
 categoría | ArchiveLogs
 
-Este es un ejemplo de un cadena JSON de registro de archivo:
+Este es un ejemplo de una cadena de JSON de registro de archivo:
 
 ```json
 {
@@ -108,17 +108,17 @@ Las cadenas JSON de registros de operaciones incluyen elementos enumerados en la
 
 Nombre | Descripción
 ------- | -------
-ActivityId | Identificador interno, usado con fines de seguimiento
-EventName | Nombre de la operación             
-resourceId | El identificador de recursos de Azure Resource Manager
-SubscriptionId | Id. de suscripción
-EventTimeString | Hora de la operación
-EventProperties | Propiedades de la operación
-Estado | Estado de la operación
-Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client)
+ActivityId | Identificador interno, usado con fines de seguimiento.
+EventName | Nombre de la operación.     
+resourceId | Identificador de recursos de Azure Resource Manager.
+SubscriptionId | Id. de suscripción.
+EventTimeString | Hora de la operación.
+EventProperties | Propiedades de la operación.
+Estado | Estado de la operación.
+Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client).
 categoría | OperationalLogs
 
-Este es un ejemplo de un cadena JSON de registro de operaciones:
+Este es un ejemplo de una cadena de JSON de registro de operaciones:
 
 ```json
 Example:

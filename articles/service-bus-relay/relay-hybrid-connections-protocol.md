@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: f5fd4c6c0b8db3fe91d8b57a68fe33dcff353a59
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: a433b918f48b42d3bf7ee8ee16bd912e278a381d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -138,9 +138,6 @@ La URL de dirección especificada en el mensaje JSON la usa el agente de escucha
 #### <a name="accepting-the-socket"></a>Aceptación del socket
 Para aceptarlo, el agente de escucha establece una conexión de socket web a la dirección especificada.
 
-Tenga en cuenta que, durante el período de versión preliminar, el URI de dirección puede usar una dirección IP básica y se producirá un error cuando el certificado TLS que ha proporcionado el servidor valide esa dirección.
-Esto se corregirá durante el periodo de versión preliminar.
-
 Si el mensaje "accept" contiene un encabezado "Sec-WebSocket-Protocol", se prevé que el agente de escucha solo acepte el socket web si admite dicho protocolo y que defina el encabezado como el socket web establecido.
 
 Lo mismo ocurre con el encabezado "Sec-WebSocket-Extensions". Si el marco admite una extensión, es necesario establecer el encabezado en la respuesta del lado *servidor* del protocolo de enlace "Sec-WebSocket-Extensions" que se necesita para la extensión.
@@ -187,7 +184,7 @@ Para rechazar el socket, el cliente toma el URI de dirección del mensaje "accep
 | statusCode |yes |Código de estado HTTP numérico. |
 | statusDescription |Sí |Motivo del rechazo en lenguaje natural. |
 
-El URI que se obtiene se usa para establecer una conexión WebSocket; una vez más, tenga en cuenta que el certificado TLS puede no corresponderse con la dirección durante la versión preliminar, por lo que puede que se deshabilite la validación.
+El URI resultante se utiliza luego para establecer una conexión WebSocket.
 
 Cuando se complete correctamente, este protocolo de enlace producirá un error intencionadamente con un código de error HTTP 410, ya que no se ha establecido ningún socket web. Si se produce un error, estas son las opciones:
 

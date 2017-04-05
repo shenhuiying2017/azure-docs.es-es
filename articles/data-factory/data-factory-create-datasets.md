@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/30/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2ed6b838608f0f2249ef16b62ff2fb0159fc6e7f
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 34148a8fe2fe5b9ebd2ff4a01ff523f7f5a74c67
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -104,7 +105,7 @@ Tenga en cuenta los siguientes puntos:
 
 * type está establecido en AzureSqlTable.
 * La propiedad de tipo tableName (específico del tipo AzureSqlTable) se establece en MyTable.
-* linkedServiceName hace referencia a un servicio vinculado de tipo AzureSqlDatabase. Consulte la definición del siguiente servicio vinculado.
+* linkedServiceName hace referencia a un servicio vinculado de tipo AzureSqlDatabase, que se define en el siguiente fragmento JSON.
 * La frecuencia de availability se establece en Day y el intervalo en 1, lo cual significa que el segmento se produce diariamente.  
 
 AzureSqlLinkedService se define como sigue:
@@ -134,11 +135,11 @@ Como puede ver, el servicio vinculado define cómo conectarse a una base de dato
 >
 >
 
-## <a name="a-nametypea-dataset-type"></a><a name="Type"></a> Tipo de conjunto de datos
+## <a name="Type"></a> Tipo de conjunto de datos
 Los orígenes de datos admitidos y los tipos de conjuntos de datos están alineados. Consulte los temas a los que se hace referencia en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para más información sobre los tipos y la configuración de los conjuntos de datos. Por ejemplo, si está usando datos de una base de datos SQL de Azure, haga clic en la base de datos SQL de Azure en la lista de almacenes de datos admitidos para ver información detallada.  
 
-## <a name="a-namestructureadataset-structure"></a><a name="Structure"></a>Estructura del conjunto de datos
-La sección **structure** define el esquema del conjunto de datos. Contiene una colección de nombres y tipos de datos de columnas.  En el ejemplo siguiente, el conjunto de datos tiene tres columnas slicetimestamp, projectname y pageviews del tipo: String, String y Decimal respectivamente.
+## <a name="Structure"></a>Estructura del conjunto de datos
+La sección **structure** es una sección **opcional** que define el esquema del conjunto de datos. Contiene una colección de nombres y tipos de datos de columnas. Use la sección structure para proporcionar información de tipos para realizar **conversiones de tipos** o **asignaciones de columnas**. En el ejemplo siguiente, el conjunto de datos tiene tres columnas (`slicetimestamp`, `projectname` y `pageviews`) cuyos tipos son String, String y Decimal respectivamente.
 
 ```json
 structure:  
@@ -149,7 +150,28 @@ structure:
 ]
 ```
 
-## <a name="a-nameavailabilitya-dataset-availability"></a><a name="Availability"></a> Disponibilidad del conjunto de datos
+Cada columna contiene las siguientes propiedades:
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| name |Nombre de la columna. |Sí |
+| type |Tipo de datos de la columna.  |No |
+| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET `Datetime` o `Datetimeoffset`. El valor predeterminado es «en-us». |No |
+| formato |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET `Datetime` o `Datetimeoffset`. |No |
+
+Utilice las siguientes directrices sobre cuándo incluir la información de la sección **structure** y qué incluir en ella.
+
+* **Para los orígenes de datos estructurados** que almacenan el esquema de datos y la información de tipos junto con los propios datos (orígenes como SQL Server, Oracle, tablas de Azure, etc.), solo debe especificar la sección “structure” si desea asignar columnas de orígenes específicas a columnas de receptor y sus nombres no son iguales. 
+  
+    Dado que la información de tipo ya está disponible para orígenes de datos estructurados, no debe incluir información de tipo cuando se incluye la sección "structure".
+* **En cuanto al esquema de los orígenes de datos de lectura (en concreto, el blob de Azure)**, puede optar por guardar los datos sin almacenar el esquema o la información de tipos con ellos. Para estos tipos de orígenes de datos, incluya la sección “structure” si desea asignar columnas de origen a columnas de receptor (o) cuando el conjunto de datos sea un conjunto de datos de entrada para una actividad de copia y los tipos de datos del conjunto de datos de origen deban convertirse a tipos nativos para el receptor. 
+    
+    Data factory admite los siguientes valores de tipo basados en .NET compatibles con CLS con el fin de proporcionar información de tipos en la sección “structure” del esquema de los orígenes de datos de lectura como el blob de Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset y Timespan.
+
+Data Factory realiza automáticamente las conversiones de tipo al mover datos desde un almacén de datos de origen a un almacén de datos de receptor. 
+  
+
+## <a name="Availability"></a> Disponibilidad del conjunto de datos
 En la sección **availability** de un conjunto de datos, se define el intervalo de procesamiento (cada hora, diariamente, semanalmente, etc.) o el modelo de segmentación del conjunto de datos. Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para más información sobre el modelo de segmentación y dependencia del conjunto de datos.
 
 La sección de disponibilidad siguiente especifica que el conjunto de datos de salida se produce cada hora (o) que el conjunto de datos de entrada está disponible cada hora:
@@ -166,11 +188,11 @@ La tabla siguiente describe las propiedades que puede utilizar en la sección de
 
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/>**Frecuencia admitida**: Minute, Hour, Day, Week, Month. |Sí |N/D |
-| interval |Especifica un multiplicador para frecuencia<br/><br/>”Frequency x interval” determina la frecuencia con la que se produce el segmento.<br/><br/>Si necesita segmentar el conjunto de datos cada hora, establezca **frequency** en **hour** e **interval** en **1**.<br/><br/>**Nota:** Si especifica Frequency en Minute, se recomienda establecer interval en más de 15. |Sí |N/D |
+| frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month. |Sí |N/D |
+| interval |Especifica un multiplicador para frecuencia<br/><br/>”Frequency x interval” determina la frecuencia con la que se produce el segmento.<br/><br/>Si necesita dividir el conjunto de datos por hora, establezca <b>Frequency</b> en <b>Hour</b> e <b>interval</b> en <b>1</b>.<br/><br/><b>Nota:</b> Si especifica Frequency como Minute, se recomienda establecer interval en no menos de 15. |Sí |N/D |
 | style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si frequency se establece en Month y style se establece en EndOfInterval, el segmento se produce el último día del mes. Si style se establece en StartOfInterval, el segmento se produce el primer día del mes.<br/><br/>Si frequency se establece en Day y style se establece en EndOfInterval, el segmento se produce la última hora del día.<br/><br/>Si frequency se establece en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se producirá a las 2 p.m. |No |EndOfInterval |
-| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>**Nota:** Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de **interval** es **hourly** (frequency: hour e interval: 1) y **AnchorDateTime** contiene **minutes and seconds**, las partes **minutes and seconds** de AnchorDateTime no se tienen en cuenta. |No |01/01/0001 |
-| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/>**Nota:** Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |No |N/D |
+| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/><b>Nota:</b> Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de <b>interval</b> es <b>hourly</b> (frequency: hour e interval: 1) y <b>AnchorDateTime</b> contiene <b>minutos y segundos</b>, las partes <b>minutos y segundos</b> de AnchorDateTime no se tienen en cuenta. |No |01/01/0001 |
+| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/><b>Nota:</b> Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |No |N/D |
 
 ### <a name="offset-example"></a>Ejemplo de offset
 Segmentos diarios que comienzan a las 6 a.m., en lugar de a medianoche, que es el valor predeterminado.
@@ -220,7 +242,7 @@ Si necesita un conjunto de datos mensualmente en una fecha y hora específicas (
 }
 ```
 
-## <a name="a-namepolicyadataset-policy"></a><a name="Policy"></a>Directiva del conjunto de datos
+## <a name="Policy"></a>Directiva del conjunto de datos
 En la sección **policy** de la definición del conjunto de datos se definen los criterios o condiciones que deben cumplir los segmentos del conjunto de datos.
 
 ### <a name="validation-policies"></a>Directivas de validación
@@ -365,9 +387,4 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante la pr
     }
 }
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 03/29/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5bded9c15ef6ec5464952d533c6681801f137749
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: c953615ef370dc89ed09bb8a32dc2caf7a7bcc3b
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -51,6 +51,12 @@ ms.lasthandoff: 03/21/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11311131httpswwwnugetorgpackagesmicrosoftazuredocumentdb1131"></a><a name="1.13.1"/>[1.13.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.1)
+* Se ha corregido un problema que provocaba interbloqueos en algunas de las API asincrónicas cuando se empleaban en el contexto de ASP.NET.
+
+### <a name="a-name11301130httpswwwnugetorgpackagesmicrosoftazuredocumentdb1130"></a><a name="1.13.0"/>[1.13.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.0)
+* Correcciones para aumentar la resistencia de los SDK frente a la conmutación automática por error en determinadas condiciones.
 
 ### <a name="a-name11221122httpswwwnugetorgpackagesmicrosoftazuredocumentdb1122"></a><a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
 * Corrección de un problema que, en ocasiones, provoca una excepción WebException: No se puede resolver el nombre remoto.
@@ -216,6 +222,8 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.13.1](#1.13.1) |29 de marzo de 2017 |--- |
+| [1.13.0](#1.13.0) |24 de marzo de 2017 |--- |
 | [1.12.2](#1.12.2) |20 de marzo de 2017 |--- |
 | [1.12.1](#1.12.1) |14 de marzo de 2017 |--- |
 | [1.12.0](#1.12.0) |15 de febrero de 2017 |--- |

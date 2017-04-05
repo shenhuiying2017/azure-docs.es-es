@@ -15,57 +15,63 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
-ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 3540e9c151890468be028af7224a6d11045aec6b
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Movimiento de datos de MongoDB mediante Data Factory de Azure
-En este artículo se describe cómo se puede usar la actividad de copia en Data Factory de Azure para mover datos de una base de datos local de MongoDB a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta información general del movimiento de datos con la actividad de copia y las combinaciones de almacén de datos de origen o de receptor que admite la actividad de copia.
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de una base de datos MongoDB local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
-El servicio Data Factory admite la conexión a orígenes de MongoDB locales mediante Data Management Gateway. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más información acerca de la puerta de enlace de administración de datos y el artículo [Movimiento de datos entre orígenes locales y la nube con la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md) para obtener instrucciones detalladas sobre cómo configurar la puerta de enlace de una canalización de datos para mover los datos.
-
-> [!NOTE]
-> Tiene que usar la puerta de enlace para conectar con MongoDB, incluso si está hospedado en máquinas virtuales de IaaS de Azure. Si está intentando conectarse a una instancia de MongoDB hospedada en la nube, también puede instalar la instancia de puerta de enlace en la máquina virtual de IaaS.
->
->
-
-Data Factory solo admite actualmente el movimiento de datos desde MongoDB a otros almacenes de datos, pero no de otros almacenes de datos a MongoDB.
-
-## <a name="supported-versions"></a>Versiones compatibles
-Este conector de MongoDB admite la versión 2.4, 2.6, 3.0 y 3.2 de MongoDB.
+Puede copiar datos desde un almacén de datos de MongoDB local a cualquier almacén de datos del receptor admitido. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla [Almacenes de datos y formatos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory solo admite actualmente el movimiento de datos de un almacén de datos de MongoDB a otros almacenes de datos, pero no el movimiento de datos de otros almacenes de datos a una base de datos de MongoDB. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para que el servicio Data Factory de Azure pueda conectarse a la base de datos de MongoDB local, debe instalar los siguientes componentes:
 
-* Data Management Gateway 2.0 o una versión posterior en la misma máquina que hospeda la base de datos o en una máquina distinta, para evitar que se dispute los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más detalles sobre Data Management Gateway.
+- Versiones admitidas de MongoDB: 2.4, 2.6, 3.0 y 3.2.
+- Data Management Gateway en el mismo equipo que hospede la base de datos o en un equipo independiente para evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más detalles sobre Data Management Gateway. Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para instrucciones paso a paso sobre cómo configurar la puerta de enlace como canalización de datos para mover datos.
 
     Cuando instale la puerta de enlace, se instalará automáticamente el controlador ODBC de Microsoft MongoDB que se utiliza para establecer la conexión con MongoDB.
 
-## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más fácil de crear una canalización que copie datos de una base de datos de MongoDB en cualquiera de los almacenes de datos receptores admitidos es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+    > [!NOTE]
+    > Tiene que usar la puerta de enlace para conectar con MongoDB, incluso si está hospedado en máquinas virtuales de IaaS de Azure. Si está intentando conectarse a una instancia de MongoDB hospedada en la nube, también puede instalar la instancia de puerta de enlace en la máquina virtual de IaaS.
 
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos MongoDB al almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
+## <a name="getting-started"></a>Introducción
+Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos MongoDB local mediante el uso de diferentes herramientas o API.
 
-## <a name="sample-copy-data-from-mongodb-to-azure-blob"></a>Ejemplo: Copiar datos de MongoDB a un blob de Azure
-En este ejemplo, se muestra cómo copiar datos de una base de datos de MongoDB local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.  
+La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia. 
+
+Si usa las herramientas o las API, realice los pasos siguientes para crear una canalización que mueva los datos de un almacén de datos de origen a un almacén de datos del receptor: 
+
+1. Cree **servicios vinculados** para vincular los almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** que representen los datos de entrada y salida para la operación de copia. 
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
+
+Cuando se utiliza el asistente, se crean automáticamente las definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan para copiar los datos de un almacén de datos de MongoDB local, consulte la sección [Ejemplo de JSON: Copiar datos de MongoDB a un blob de Azure](#json-example-copy-data-from-mongodb-to-azure-blob) de este artículo. 
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de MongoDB:
+
+## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Ejemplo de JSON: Copiar datos de MongoDB a un blob de Azure
+En este ejemplo se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestra cómo copiar datos de una base de datos MongoDB local a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
 
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1. Un servicio vinculado de tipo [OnPremisesMongoDB](#linked-service-properties).
-2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
-3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [MongoDbCollection](#dataset-type-properties).
-4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [MongoDBSource](#copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [MongoDbCollection](#dataset-properties).
+4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [MongoDBSource](#copy-activity-properties) y [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos de MongoDB en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md) .
 
-**Servicio vinculado de MongoDB**
+**Servicio vinculado de MongoDB:**
 
-```JSON
+```json
 {
     "name": "OnPremisesMongoDbLinkedService",
     "properties":
@@ -86,9 +92,9 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 }
 ```
 
-**Servicio vinculado de Almacenamiento de Azure**
+**Servicio vinculado de Almacenamiento de Azure:**
 
-```JSON
+```json
 {
   "name": "AzureStorageLinkedService",
   "properties": {
@@ -100,9 +106,9 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 }
 ```
 
-**Conjunto de datos de entrada de MongoDB** : si se establece "external" en "true", se informa al servicio Data Factory que la tabla es externa a la factoría de datos y que no la genera ninguna actividad de la factoría de datos.
+**Conjunto de datos de entrada de MongoDB**: si “external” se establece en “true”, se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y que no la genera ninguna actividad de dicha factoría.
 
-```JSON
+```json
 {
      "name":  "MongoDbInputDataset",
     "properties": {
@@ -120,11 +126,11 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 }
 ```
 
-**Conjunto de datos de salida de blob de Azure**
+**Conjunto de datos de salida de blob de Azure:**
 
 Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
 
-```JSON
+```json
 {
     "name": "AzureBlobOutputDataSet",
     "properties": {
@@ -180,11 +186,11 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 }
 ```
 
-**Canalización con actividad de copia**
+**Actividad de copia en una canalización con el origen MongoDB y el receptor de blob:**
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **MongoDbSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 
-```JSON
+```json
 {
     "name": "CopyMongoDBToBlob",
     "properties": {
@@ -246,9 +252,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | gatewayName |Nombre de la puerta de enlace que accede al almacén de datos. |Sí |
 | encryptedCredential |Credencial cifrada por la puerta de enlace. |Opcional |
 
-Para más información sobre cómo establecer las credenciales para un origen de datos de MongoDB local, vea [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
-
-## <a name="dataset-type-properties"></a>Propiedades de tipo de conjunto de datos
+## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **MongoDbCollection** tiene las propiedades siguientes:
@@ -257,7 +261,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | --- | --- | --- |
 | collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
-## <a name="copy-activity-type-properties"></a>Propiedades de tipo de actividad de copia
+## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
 Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
@@ -294,8 +298,6 @@ Al mover datos a MongoDB, se usarán las asignaciones siguientes de tipos MongoD
 
 > [!NOTE]
 > Para más información sobre la compatibilidad para matrices con tablas virtuales, consulte la sección [Compatibilidad para tipos complejos que usan tablas virtuales](#support-for-complex-types-using-virtual-tables) que aparece más adelante.
->
->
 
 Actualmente, no se admiten los siguientes tipos de datos de MongoDB: DBPointer, JavaScript, Clave Max y Min, Expresión regular, Símbolo, Marca de tiempo, Sin definir
 
@@ -347,9 +349,11 @@ Tabla “ExampleTable_Ratings”:
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+## <a name="map-source-to-sink-columns"></a>Asignación de origen a columnas de receptor
+Para más información sobre la asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+## <a name="repeatable-read-from-relational-sources"></a>Lectura repetible de orígenes relacionales
+Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se leen sin importar cuántas veces se ejecuta un segmento. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

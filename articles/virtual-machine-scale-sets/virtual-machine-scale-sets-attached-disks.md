@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Puede agregar un disco de datos a un conjunto de escalado de máquina virtual co
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Los distintos tamaños de las máquinas virtuales tienen distintos límites en la cantidad de unidades conectadas que admiten. Compruebe las [características de tamaño de la máquina virtual](../virtual-machines/virtual-machines-windows-sizes.md) antes de agregar un nuevo disco.
+> Los distintos tamaños de las máquinas virtuales tienen distintos límites en la cantidad de unidades conectadas que admiten. Compruebe las [características de tamaño de la máquina virtual](../virtual-machines/windows/sizes.md) antes de agregar un nuevo disco.
 
 También puede agregar un disco mediante la adición de una nueva entrada a la propiedad _dataDisks_ en la clase _storageProfile_ de una definición del conjunto de escalado y aplicar el cambio. Para probarlo, busque la definición del conjunto de escalado existente en el [Explorador de recursos de Azure](https://resources.azure.com/). Seleccione _Editar_ y agregue un nuevo disco a la lista de discos de datos. Por ejemplo, mediante el ejemplo anterior:
 ```json
@@ -106,10 +107,5 @@ En la implementación inicial de la compatibilidad con los discos conectados par
 
 La compatibilidad con Azure Portal para discos de datos conectados en los conjuntos de escalado está limitada inicialmente. Dependiendo de los requisitos, puede usar plantillas de Azure, CLI, PowerShell, SDK y API de REST para administrar los discos conectados.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

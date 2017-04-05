@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d94e633273ef298079673c100c6edbf95dc3c96d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,10 +36,7 @@ Los clústeres de HDInsight proporcionan un conjunto de ejemplos de MapReduce qu
   > [!IMPORTANT]
   > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* **Un cliente SSH**: para obtener información sobre el uso de SSH con HDInsight, consulte los siguientes artículos:
-  
-  * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* **Un cliente SSH**: para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-samples"></a>Las muestras
 **Ubicación**: los ejemplos se encuentran en el clúster de HDInsight en **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**.
@@ -77,10 +74,8 @@ Los clústeres de HDInsight proporcionan un conjunto de ejemplos de MapReduce qu
 > 
 
 ## <a name="how-to-run-the-samples"></a>Ejecución de las muestras
-1. Conéctese a HDInsight con SSH, tal y como se describe en los siguientes artículos:
-   
-   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. Conéctese a HDInsight mediante SSH. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. En el símbolo `username@#######:~$` , use el siguiente comando para mostrar los ejemplos:
    
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -177,7 +172,7 @@ Use el siguiente comando para ejecutar este ejemplo. Se usan 16 asignaciones con
 
 El valor devuelto debería asemejarse a **3,14159155000000000000**. Como referencia, las primeras 10 posiciones decimales de pi son 3,1415926535.
 
-## <a name="10gb-greysort"></a>Greysort de&10; GB
+## <a name="10gb-greysort"></a>Greysort de 10 GB
 GraySort es un tipo de banco de pruebas cuya métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB como mínimo.
 
 Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .

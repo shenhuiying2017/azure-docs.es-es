@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 01ef15db6e62443a2d34bae8bc133f21f4d874f0
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 06702281ab2a44641231783aa1ddad87c22095e8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -35,7 +35,7 @@ Incorporación de características:
   * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
   * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
 * Se han agregado los siguientes tipos de origen de copia:
-  * [MongoDbSource](https://msdn.microsoft.com/en-US/library/mt765123.aspx)
+  * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
 
 ## <a name="version-4100"></a>Versión 4.10.0
 * Se han agregado las siguientes propiedades opcionales a TextFormat:
@@ -180,6 +180,6 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 * **List** devuelve solamente el resumen de una canalización, en lugar de todos los detalles. Por ejemplo, en un resumen de canalización, las actividades solo contienen el nombre y el tipo.
 
 ### <a name="feature-additions"></a>Incorporación de características
-* La clase [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) admite dos nuevas propiedades, **SliceIdentifierColumnName** y **SqlWriterCleanupScript**, para permitir la copia idempotente en Azure SQL Data Warehouse. Consulte el artículo acerca de [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md), en concreto las secciones [Mecanismo 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) y [Mecanismo 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2), para obtener más información sobre dichas propiedades.
+* La clase [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) admite dos nuevas propiedades, **SliceIdentifierColumnName** y **SqlWriterCleanupScript**, para permitir la copia idempotente en Azure SQL Data Warehouse. Consulte el artículo sobre [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) para obtener más información acerca de estas propiedades.
 * Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Para más información acerca de estas propiedades, consulte los artículos acerca de [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) y [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com.  
 

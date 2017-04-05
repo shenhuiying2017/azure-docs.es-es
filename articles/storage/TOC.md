@@ -45,11 +45,11 @@
 
 ## Almacenamiento en disco 
 ### [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Creación de una máquina virtual con Linux desde cero con la CLI de Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Conexión de un disco administrado a una máquina virtual Windows con PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [Adición de un disco administrado a una máquina virtual Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [Creación de una máquina virtual con Linux desde cero con la CLI de Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+### [Conexión de un disco administrado a una máquina virtual Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md)
+### [Adición de un disco administrado a una máquina virtual Linux](../virtual-machines/linux/add-disk.md)
+### [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # Procedimientos
 ## [crear una cuenta de almacenamiento](storage-create-storage-account.md)
@@ -74,8 +74,8 @@
 ### [Discos y discos duros virtuales para máquinas virtuales Windows](storage-about-disks-and-vhds-windows.md)
 ### [Discos y discos duros virtuales para máquinas virtuales Linux](storage-about-disks-and-vhds-linux.md)
 ### [Introducción a Azure Managed Disks](storage-managed-disks-overview.md)
-### [Migración de máquinas virtuales de Azure a Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Migración desde AWS y otras plataformas a Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Migración de máquinas virtuales de Azure a Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [Migración desde AWS y otras plataformas a Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Preguntas más frecuentes acerca de los discos de máquinas virtuales de IaaS de Azure](storage-faq-for-disks.md)
 ### Premium Storage
 #### [Premium Storage de alto rendimiento para discos de máquina virtual](storage-premium-storage.md)
@@ -127,11 +127,11 @@
 ## Transferencia de datos
 ### [Movimiento de datos hacia Storage y desde este](storage-moving-data.md)
 ### [Utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
-### [Uso del servicio Import-Export](storage-import-export-service.md)
-### [Uso de las herramientas del servicio Import-Export](storage-import-export-tool-how-to.md)
-#### [Configuración de las herramientas del servicio Import-Export](storage-import-export-tool-setup.md)
+### [Uso del servicio Import/Export](storage-import-export-service.md)
+### [Uso de la herramienta Import/Export](storage-import-export-tool-how-to.md)
+#### [Configuración de la herramienta Import/Export](storage-import-export-tool-setup.md)
 #### [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import.md)
-##### [Establecimiento de las propiedades y metadatos durante el proceso de importación](storage-import-export-tool-setting-properties-metadata-import.md)
+##### [Establecimiento de propiedades y metadatos durante el proceso de importación](storage-import-export-tool-setting-properties-metadata-import.md)
 ##### [Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 ##### [Referencia rápida de comandos usados con frecuencia para trabajos de importación](storage-import-export-tool-quick-reference.md)
 #### [Vista previa de uso de disco para un trabajo de exportación](storage-import-export-tool-previewing-drive-usage-export-v1.md)
@@ -139,13 +139,13 @@
 #### [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)
 #### [Solución de problemas de la herramienta Import/Export](storage-import-export-tool-troubleshooting-v1.md)
-#### [Formato del archivo de manifiesto de servicio Import-Export](storage-import-export-file-format-manifest.md)
-#### [Formato de archivo de propiedades y metadatos del servicio Import-Export](storage-import-export-file-format-metadata-and-properties.md)
-#### [Formato del archivo de registro del servicio Import-Export](storage-import-export-file-format-log.md)
-### [Uso de las herramientas del servicio Import-Export (v1)](storage-import-export-tool-how-to-v1.md)
-#### [Configuración de las herramientas del servicio Import-Export](storage-import-export-tool-setup-v1.md)
+#### [Formato del archivo de manifiesto de servicio de Import/Export](storage-import-export-file-format-manifest.md)
+#### [Formato del archivo de propiedades y metadatos del servicio Import/Export](storage-import-export-file-format-metadata-and-properties.md)
+#### [Formato del archivo de registro del servicio Import/Export](storage-import-export-file-format-log.md)
+### [Uso de la herramienta Import/Export (v1)](storage-import-export-tool-how-to-v1.md)
+#### [Configuración de la herramienta Import/Export](storage-import-export-tool-setup-v1.md)
 #### [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import-v1.md)
-##### [Establecimiento de las propiedades y metadatos durante el proceso de importación](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+##### [Establecimiento de propiedades y metadatos durante el proceso de importación](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 ##### [Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
 ##### [Referencia rápida de comandos usados con frecuencia para trabajos de importación](storage-import-export-tool-quick-reference-v1.md)
 #### [Vista previa de uso de disco para un trabajo de exportación](storage-import-export-tool-previewing-drive-usage-export-v1.md)
@@ -153,17 +153,17 @@
 #### [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)
 #### [Solución de problemas de la herramienta Import/Export](storage-import-export-tool-troubleshooting-v1.md)
-#### [Formato del archivo de manifiesto de servicio Import-Export](storage-import-export-file-format-manifest.md)
-#### [Formato de archivo de propiedades y metadatos del servicio Import-Export](storage-import-export-file-format-metadata-and-properties.md)
-#### [Formato del archivo de registro del servicio Import-Export](storage-import-export-file-format-log.md)
-### [Uso de la API de REST del servicio Azure Import-Export](storage-import-export-using-the-rest-api.md)
+#### [Formato del archivo de manifiesto de servicio de Import/Export](storage-import-export-file-format-manifest.md)
+#### [Formato del archivo de propiedades y metadatos del servicio Import/Export](storage-import-export-file-format-metadata-and-properties.md)
+#### [Formato del archivo de registro del servicio Import/Export](storage-import-export-file-format-log.md)
+### [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
 #### [Creación de un trabajo de importación](storage-import-export-creating-an-import-job.md)
 #### [Creación de un trabajo de exportación](storage-import-export-creating-an-export-job.md)
 #### [Recuperación de la información de estado de un trabajo](storage-import-export-retrieving-state-info-for-a-job.md)
 #### [Enumeración de trabajos](storage-import-export-enumerating-jobs.md)
 #### [Cancelación y eliminación de trabajos](storage-import-export-cancelling-and-deleting-jobs.md)
 #### [Realización de una copia de seguridad de los manifiestos de la unidad](storage-import-export-backing-up-drive-manifests.md)
-#### [Diagnóstico y recuperación de errores para los trabajos de Import-Export](storage-import-export-diagnostics-and-error-recovery.md)
+#### [Diagnóstico y recuperación de errores en los trabajos de Import/Export](storage-import-export-diagnostics-and-error-recovery.md)
 # Referencia
 ## [PowerShell](/powershell/storage)
 ## [CLI de Azure](/cli/azure/storage)
@@ -181,7 +181,7 @@
 ## REST
 ### [Blobs, colas, tablas y archivos](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Proveedor de recursos](/rest/api/storagerp)
-### [Import/Export](/rest/api/storageimportexport)
+### [Importación/Exportación](/rest/api/storageimportexport)
 
 # Temas relacionados
 ## Portal clásico
@@ -201,6 +201,7 @@
 ## Explorador de Azure Storage
 ### [Explorador de Storage (versión preliminar)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Administración de blobs con el Explorador de Storage (versión preliminar)](../vs-azure-tools-storage-explorer-blobs.md)
+### [Uso del Explorador de Storage (versión preliminar) con Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
 
 ## Paquetes NuGet
 ### [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -4,6 +4,7 @@
 # Introducción
 ## [Implementación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
 ## [Implementación de un conjunto de escalado con PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
+## [Implementación de una aplicación de escalado automático con una plantilla](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Procedimientos
 ## Planeamiento y diseño

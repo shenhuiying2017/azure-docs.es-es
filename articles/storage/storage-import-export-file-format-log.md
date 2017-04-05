@@ -1,7 +1,7 @@
 ---
 
 title: Formato del archivo de registro de Azure Import/Export | Microsoft Docs
-description: "Obtenga información acerca del formato de los archivos de registro creados cuando se ejecutan los pasos de un trabajo del servicio Import-Export"
+description: "Obtenga información acerca del formato de los archivos de registro creados cuando se ejecutan los pasos de un trabajo del servicio Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -149,7 +149,7 @@ En la siguiente tabla se describen los elementos del archivo de registro.
 |`Properties/Path/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de propiedades.|  
 |`Blob/Status`|String|Estado del procesamiento del blob.|  
   
-### <a name="drive-status-codes"></a>Códigos de estado de unidad  
+# <a name="drive-status-codes"></a>Códigos de estado de unidad  
 En la tabla siguiente se enumera los códigos de estado para procesar una unidad.  
   
 |Código de estado|Descripción|  
@@ -178,7 +178,7 @@ En la tabla siguiente se enumera los códigos de estado para procesar una unidad
 |`BlobRequestForbidden`|Se prohíbe el acceso a los blobs en la cuenta de almacenamiento. Esto puede deberse a que la clave de la cuenta de almacenamiento o el SAS del contenedor no son válidos.|  
 |`InternalError`|Se produjo un error interno al procesar la unidad.|  
   
-### <a name="blob-status-codes"></a>Códigos de estado de blob  
+## <a name="blob-status-codes"></a>Códigos de estado de blob  
 En la tabla siguiente se enumera los códigos de estado para procesar un blob.  
   
 |Código de estado|Descripción|  
@@ -197,7 +197,7 @@ En la tabla siguiente se enumera los códigos de estado para procesar un blob.
 |`IOFailed`|Se produjo un error de E/S de disco o de red durante el procesamiento del blob.|  
 |`Failed`|Se produjo un error desconocido durante el procesamiento del blob.|  
   
-### <a name="import-disposition-status-codes"></a>Códigos de estado de disposición de importación  
+## <a name="import-disposition-status-codes"></a>Códigos de estado de disposición de importación  
 En la tabla siguiente se enumeran los códigos de estado para resolver una disposición de importación.  
   
 |Código de estado|Descripción|  
@@ -208,7 +208,7 @@ En la tabla siguiente se enumeran los códigos de estado para resolver una dispo
 |`Overwritten`|El blob ha sobrescrito un blob existente según la disposición de importación `overwrite`.|  
 |`Cancelled`|Un error anterior ha detenido el procesamiento posterior de la disposición de importación.|  
   
-### <a name="page-rangeblock-status-codes"></a>Códigos de estado de intervalo de páginas o bloque  
+## <a name="page-rangeblock-status-codes"></a>Códigos de estado de intervalo de páginas o bloque  
 En la tabla siguiente se enumeran los códigos de estado para procesar un intervalo de páginas o bloque.  
   
 |Código de estado|Descripción|  
@@ -224,7 +224,7 @@ En la tabla siguiente se enumeran los códigos de estado para procesar un interv
 |`Failed`|Se produjo un error desconocido durante el procesamiento del intervalo de páginas o bloque.|  
 |`Cancelled`|Un error anterior ha detenido el procesamiento posterior del intervalo de páginas o bloque.|  
   
-### <a name="metadata-status-codes"></a>Códigos de estado de metadatos  
+## <a name="metadata-status-codes"></a>Códigos de estado de metadatos  
 En la tabla siguiente se enumera los códigos de estado para procesar los metadatos de un blob.  
   
 |Código de estado|Descripción|  
@@ -242,7 +242,7 @@ En la tabla siguiente se enumera los códigos de estado para procesar los metada
 |`Failed`|Se produjo un error desconocido durante el procesamiento de los metadatos.|  
 |`Cancelled`|Un error anterior ha detenido el procesamiento posterior de los metadatos.|  
   
-### <a name="properties-status-codes"></a>Códigos de estado de las propiedades  
+## <a name="properties-status-codes"></a>Códigos de estado de las propiedades  
 En la tabla siguiente se enumera los códigos de estado para procesar las propiedades de un blob.  
   
 |Código de estado|Descripción|  
@@ -358,6 +358,7 @@ El siguiente registro de errores de un trabajo de exportación indica que el con
 </DriveLog>  
 ```
   
-## <a name="see-also"></a>Otras referencias  
-[Azure Storage Import-Export REST API Reference](/rest/api/storageimportexport/) (Referencia de la API de REST de Azure Storage Import-Export)
+## <a name="next-steps"></a>Pasos siguientes
+ 
+* [API de REST de Storage Import/Export](/rest/api/storageimportexport/)
 

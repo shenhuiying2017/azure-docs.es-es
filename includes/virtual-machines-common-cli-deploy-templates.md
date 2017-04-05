@@ -36,7 +36,7 @@ Si aún no tiene una suscripción de Azure pero tiene una suscripción a MSDN, p
 Ahora [inicie sesión de manera interactiva en su cuenta de Azure](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). Para ello, escriba `azure login` y siga las indicaciones para obtener una experiencia de inicio de sesión interactiva en su cuenta de Azure. 
 
 > [!NOTE]
-> Si tiene un identificador profesional o educativo, y sabe que la autenticación en dos fases no está habilitada, **también** puede usar `azure login -u` junto con dicho identificador para iniciar una sesión *sin* una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crearlo desde su cuenta personal de Microsoft](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para iniciar sesión de la misma manera.
+> Si tiene un identificador profesional o educativo, y sabe que la autenticación en dos fases no está habilitada, **también** puede usar `azure login -u` junto con dicho identificador para iniciar una sesión *sin* una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crearlo desde su cuenta personal de Microsoft](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para iniciar sesión de la misma manera.
 >
 >
 
@@ -100,7 +100,7 @@ data:
 info:    group create command OK
 ```
 
-En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de Azure, consulte [Selección de imágenes de máquinas virtuales con la CLI de Azure](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para este artículo, le presentamos una breve lista de imágenes populares. Vamos a usar la imagen Stable de CoreOS para esta creación rápida.
+En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de Azure, consulte [Selección de imágenes de máquinas virtuales con la CLI de Azure](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para este artículo, le presentamos una breve lista de imágenes populares. Vamos a usar la imagen Stable de CoreOS para esta creación rápida.
 
 > [!NOTE]
 > Para ComputeImageVersion, puede proporcionar simplemente 'latest' como parámetro en el lenguaje de la plantilla y la CLI de Azure. Esto le permitirá usar siempre la versión más reciente y con revisiones de la imagen sin tener que modificar los scripts o las plantillas. Esto se muestra a continuación.
@@ -232,7 +232,7 @@ En este caso, la plantilla siguiente solicitará:
 * Un nombre de dominio para que lo usen los usuarios externos
 * Un número de versión de Ubuntu Server, pero solo uno, de una lista
 
-Obtenga más información acerca de los [requisitos de usuario y la contraseña](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+Obtenga más información acerca de los [requisitos de usuario y la contraseña](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 Una vez que haya decidido estos valores, estará preparado para crear un grupo e implementar esta plantilla en la suscripción de Azure.
 
@@ -1264,7 +1264,7 @@ info:    vm show command OK
 >
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarea: Inicio de sesión en una máquina virtual Linux
-Normalmente los equipos Linux están conectados a través de SSH. Para más información, consulte [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Normalmente los equipos Linux están conectados a través de SSH. Para más información, consulte [Creación de claves SSH en Linux y Mac para máquinas virtuales de Linux en Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Tarea: Detención de una máquina virtual
 Ejecute este comando:
@@ -1305,4 +1305,4 @@ Después, deberá montar el disco, como haría normalmente en Linux.
 ## <a name="next-steps"></a>Pasos siguientes
 Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm** , consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../articles/xplat-cli-azure-resource-manager.md). Para más información acerca de los recursos de Azure y sus conceptos, consulte [Información general de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
-Para ver más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) e [Implementación de marcos de aplicaciones conocidos mediante plantillas de Azure Resource Manager](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para ver más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) e [Implementación de marcos de aplicaciones conocidos mediante plantillas de Azure Resource Manager](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

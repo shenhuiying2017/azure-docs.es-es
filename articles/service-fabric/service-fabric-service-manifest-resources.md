@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 193bbedca440302ead00eaac0df62fb7fe767515
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -93,7 +93,7 @@ Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
 El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar HTTPS en el servicio Service Fabric, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
 
 > [!NOTE]
-> No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación, porque esto supondría un cambio importante.
+> No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación. Si se modifica en el transcurso, se tratará de un cambio brusco.
 > 
 > 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 93577703dd2bc1409250c3df12c2d6265f3f4634
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -111,7 +112,7 @@ El equilibrador de carga puede administrarse mediante las herramientas , las API
 
     Tenga en cuenta que, para cada nueva conexión saliente que inicie una máquina virtual, el equilibrador de carga también asigna un puerto saliente. El host externo verá el tráfico como un puerto IP virtual (VIP) asignado. Para los escenarios que requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen [direcciones IP públicas a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) para que tengan una dirección IP saliente específica para SNAT. Esto reduce el riesgo de agotamiento de puertos.
 
-    El número máximo de puertos que pueden usar las direcciones VIP o PIP (direcciones IP públicas) a nivel de instancia es 64 000. Se trata de una limitación estándar de TCP.
+    Consulte el artículo sobre [conexiones salientes](load-balancer-outbound-connections.md) para obtener más información acerca de este tema.
 
 ### <a name="support-for-multiple-load-balanced-ip-addresses-for-virtual-machines"></a>Compatibilidad con varias direcciones IP con equilibrio de carga para máquinas virtuales
 Puede asignar más de una dirección IP pública de carga equilibrada a un conjunto de máquinas virtuales. Gracias a esta posibilidad, puede hospedar varios sitios web SSL o varios agentes de escucha de Grupo de disponibilidad AlwaysOn de SQL Server en el mismo conjunto de máquinas virtuales. Para obtener más información, consulte [Varias direcciones VIP por servicio en la nube](load-balancer-multivip.md).
@@ -125,10 +126,5 @@ Puede asignar más de una dirección IP pública de carga equilibrada a un conju
 [Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
 
 [Introducción a la creación de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

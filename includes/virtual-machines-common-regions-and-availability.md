@@ -81,14 +81,14 @@ En Azure, las máquinas virtuales se crean a partir de una imagen. Normalmente, 
 
 Al crear una máquina virtual desde una imagen en Azure Marketplace, en realidad está trabajando con plantillas. Las plantillas de Azure Resource Manager son archivos de notación de objetos JavaScript (JSON) declarativos que pueden usarse para crear entornos de la aplicación complejos compuestos por máquinas virtuales, almacenamiento, redes virtuales, etc. Puede obtener más información sobre el uso de [plantillas de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), incluido cómo [crear sus propias plantillas](../articles/resource-group-authoring-templates.md).
 
-También puede crear sus propias imágenes personalizadas y cargarlas mediante la [CLI de Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para crear rápidamente máquinas virtuales personalizadas para sus requisitos de creación específicos.
+También puede crear sus propias imágenes personalizadas y cargarlas mediante la [CLI de Azure](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para crear rápidamente máquinas virtuales personalizadas para sus requisitos de creación específicos.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
 Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Cuando una sola máquina virtual usa [Azure Premium Storage](../articles/storage/storage-premium-storage.md), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. El conjunto de disponibilidad consta de dos agrupaciones adicionales que protegen contra errores de hardware y permiten la aplicación segura de las actualizaciones: dominios de error (FD) y dominios de actualización (UD).
 
 ![Dibujo conceptual de la configuración del dominio de actualización y de error](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Puede obtener más información acerca de cómo administrar la disponibilidad de [máquinas virtuales con Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [máquinas virtuales con Windows](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Puede obtener más información acerca de cómo administrar la disponibilidad de [máquinas virtuales con Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [máquinas virtuales con Windows](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="fault-domains"></a>Dominios de error
 Un dominio de error es un grupo lógico de hardware subyacente que comparte la fuente de alimentación y el conmutador de red, similar a un bastidor dentro de un centro de datos local. Cuando se crean máquinas virtuales en un conjunto de disponibilidad, la plataforma de Azure las distribuye automáticamente entre estos dominios de error. Este enfoque limita el impacto de potenciales errores de hardware físico, interrupciones de red o cortes de alimentación eléctrica.
@@ -101,9 +101,4 @@ Un dominio de actualización es un grupo lógico de hardware subyacente que pued
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya puede empezar a usar estas características de disponibilidad y redundancia para crear un entorno de Azure. Para información sobre los procedimientos recomendados, consulte [Lista de comprobación de disponibilidad](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

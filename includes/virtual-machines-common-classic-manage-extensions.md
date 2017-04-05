@@ -5,7 +5,7 @@
 Las extensiones de máquina virtual de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la máquina virtual de Azure) o bien ofrecen la posibilidad de interactuar con la máquina virtual para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de máquina virtual desde PowerShell, la CLI de Azure y clientes REST para restablecer o modificar valores de acceso remoto en la máquina virtual de Azure).
 
 > [!IMPORTANT]
-> Para obtener una lista completa de las extensiones por las características que admiten, consulte [Acerca de las características y extensiones de las máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dado que cada extensión de máquina virtual admite una característica específica, lo que se puede y no se puede hacer exactamente con una extensión depende de la extensión. Por lo tanto, antes de modificar la máquina virtual, asegúrese de leer la documentación de la extensión de máquina virtual que quiera usar. Algunas extensiones de máquina virtual no admiten que se quiten; otras tienen propiedades que se pueden establecer y cambian radicalmente el comportamiento de la máquina virtual.
+> Para obtener una lista completa de las extensiones por las características que admiten, consulte [Acerca de las características y extensiones de las máquinas virtuales](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dado que cada extensión de máquina virtual admite una característica específica, lo que se puede y no se puede hacer exactamente con una extensión depende de la extensión. Por lo tanto, antes de modificar la máquina virtual, asegúrese de leer la documentación de la extensión de máquina virtual que quiera usar. Algunas extensiones de máquina virtual no admiten que se quiten; otras tienen propiedades que se pueden establecer y cambian radicalmente el comportamiento de la máquina virtual.
 > 
 > 
 
@@ -105,9 +105,4 @@ Puede usar las API de REST siguientes para saber si una extensión requiere una 
 > Las extensiones también pueden usar configuraciones que se definen con JSON. Cuando se utilizan estos tipos de extensiones, solo se usa el elemento **SampleConfig** .
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

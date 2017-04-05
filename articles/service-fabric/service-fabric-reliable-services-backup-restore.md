@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
-ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: babda2a4ad7dade942a0c7ece84a6f1d65bd3453
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -240,7 +240,7 @@ Cuando se realiza la restauración a partir de una cadena de copias de seguridad
 Es importante asegurarse de que se hace una copia de seguridad de los datos y que se pueden restaurar desde dicha copia. Esto se puede hacer mediante la invocación del cmdlet **ServiceFabricPartitionDataLoss Invoke** de PowerShell que puede provocar la pérdida de datos en una partición determinada para comprobar si la funcionalidad de copia de seguridad y restauración de los datos para el servicio funciona según lo esperado.  También es posible invocar la pérdida de datos mediante programación y restaurar a partir de ese evento también.
 
 > [!NOTE]
-> Puede encontrar una implementación de ejemplo de la funcionalidad de copia de seguridad y restauración en la aplicación de referencia web en Github. Consulte el servicio Inventory.Service para más detalles.
+> Puede encontrar una implementación de ejemplo de la funcionalidad de copia de seguridad y restauración en la aplicación de referencia web en GitHub. Consulte el servicio Inventory.Service para más detalles.
 > 
 > 
 
