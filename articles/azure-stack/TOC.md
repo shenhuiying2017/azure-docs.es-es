@@ -65,10 +65,11 @@
 #### [Creación y publicación de un producto en Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 #### [Adición de una imagen de máquina virtual personalizada](azure-stack-add-vm-image.md)
 #### [Implementación de máquinas virtuales Linux](azure-stack-linux.md)
-### Facturación y contracargo
-#### [Introducción a la facturación y contracargo](azure-stack-billing-and-chargeback.md)
-#### [API de uso de recursos de proveedor](azure-stack-provider-resource-api.md)
-#### [API de uso de recursos de inquilino](azure-stack-tenant-resource-usage-api.md)
+### Uso y facturación
+#### [Información general](azure-stack-billing-and-chargeback.md)
+#### [Creación de informes de datos de uso](azure-stack-usage-reporting.md)
+#### [API de uso de proveedor](azure-stack-provider-resource-api.md)
+#### [API de uso de inquilino](azure-stack-tenant-resource-usage-api.md)
 #### [Preguntas más frecuentes sobre uso](azure-stack-usage-related-faq.md)
 
 # Uso de servicios

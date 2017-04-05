@@ -48,6 +48,7 @@
 ### [Uso con Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Uso con Power BI](data-lake-store-power-bi.md)
 ### [Uso con Data Catalog](data-lake-store-with-data-catalog.md)
+### [Uso con PolyBase en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [Más opciones para la integración de Azure](data-lake-store-integrate-with-other-services.md)
 
 ## Administrar

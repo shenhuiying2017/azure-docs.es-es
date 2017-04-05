@@ -33,6 +33,8 @@
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Introducción a la integración de registro de Azure](security-azure-log-integration-overview.md)
 #### [Introducción a la integración de registro de Azure](security-azure-log-integration-get-started.md)
+#### [Integración de los registros de auditoría de Azure Active Directory](security-azure-log-integration-ad.md)
+#### [Integración de alertas de Security Center](security-azure-log-integration-security-center.md)
 #### [Preguntas más frecuentes](security-azure-log-integration-faq.md)
 
 ## Administración de identidades
@@ -44,7 +46,7 @@
 #### [Protección de aplicaciones web y móviles PaaS con App Services](security-paas-applications-using-app-services.md)
 
 ## Internet de las cosas
-### [Protección de la implementación de IoT](../iot-suite/iot-suite-security-deployment.md)
+### [Protección de su implementación de IoT](../iot-suite/iot-suite-security-deployment.md)
 ### [Procedimientos recomendados para la seguridad de IoT](../iot-suite/iot-security-best-practices.md)
 
 ## Arquitectura de seguridad

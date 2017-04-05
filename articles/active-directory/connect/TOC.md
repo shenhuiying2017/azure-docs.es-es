@@ -46,6 +46,9 @@
 ### [Programador](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Cambio de la contraseña de la cuenta del servicio Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Habilitación de la papelera de reciclaje de AD](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md)

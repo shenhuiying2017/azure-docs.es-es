@@ -23,18 +23,12 @@
 ## Creación y modificación de la configuración de emparejamiento
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
-### [PowerShell (clásico)](expressroute-howto-routing-classic.md)
 ## Vinculación de una red virtual a un circuito ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-### [PowerShell (clásico)](expressroute-howto-linkvnet-classic.md)
-## Configuración de una puerta de enlace de red virtual para ExpressRoute
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell (clásico)](expressroute-howto-add-gateway-classic.md)
-## Creación de conexiones de VPN Gateway de sitio a sitio y de ExpressRoute coexistentes
-### [PowerShell](expressroute-howto-coexist-resource-manager.md)
-### [PowerShell (clásico)](expressroute-howto-coexist-classic.md)
-## [Migración de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
+## [Configuración de una puerta de enlace de red virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-resource-manager.md)
+## [Movimiento de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
 ## Configuración de un enrutador para ExpressRoute
 ### [Configuración de un enrutador](expressroute-config-samples-routing.md)
 ### [Ejemplos de configuración de enrutador para NAT](expressroute-config-samples-nat.md)
