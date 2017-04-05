@@ -1,10 +1,10 @@
 ---
-title: "Cómo configurar el enrutamiento para un circuito ExpressRoute para el modelo de implementación clásica mediante PowerShell | Microsoft Docs"
+title: "Configuración del enrutamiento (emparejamiento) de un circuito ExpressRoute: Azure (clásica) | Microsoft Docs"
 description: "Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
-ms.author: ganesr
+ms.date: 03/21/2017
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
-ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 6315e0fda231f2bfd3a92cf03cea7cd558bfda37
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager: Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
@@ -35,12 +35,14 @@ ms.lasthandoff: 12/14/2016
 
 Este artículo le guiará por los pasos necesarios para crear y administrar la configuración de enrutamiento para un circuito ExpressRoute con PowerShell y el modelo de implementación clásica. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar las configuraciones entre pares para un circuito ExpressRoute.
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 **Información acerca de los modelos de implementación de Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
-* Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener una orientación paso a paso sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
+* Tendrá que instalar la versión más reciente de los cmdlets de Azure PowerShell para Service Management (SM). Para obtener más información, consulte [Introducción a los cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 * Antes de comenzar la configuración, asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la página de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md).
 * Tiene que tener un circuito ExpressRoute activo. Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite el circuito mediante el proveedor de conectividad antes de continuar. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 
@@ -49,7 +51,26 @@ Este artículo le guiará por los pasos necesarios para crear y administrar la c
 > 
 > 
 
-Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una. 
+Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una.
+
+
+### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Inicie sesión en la cuenta de Azure y seleccione la suscripción.
+1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
+
+        Login-AzureRmAccount
+
+2. Compruebe las suscripciones para la cuenta.
+
+        Get-AzureRmSubscription
+
+3. Si tiene varias suscripciones, seleccione la que quiera usar.
+
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.
+
+        Add-AzureAccount
+
 
 ## <a name="azure-private-peering"></a>Configuración entre pares privados de Azure
 Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar la configuración entre pares privados de Azure para un circuito ExpressRoute. 
@@ -93,13 +114,13 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Asegúrese de que no usa 65515.
    * Un hash MD5, en caso de que haya decidido usarlo. **Esto es opcional**.
      
-     Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares privados de Azure para el circuito.
+    Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares privados de Azure para el circuito.
      
-       New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
      
-     Puede usar el cmdlet siguiente si decide usar un hash MD5.
+    Puede usar el cmdlet siguiente si decide usar un hash MD5.
      
-       New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Asegúrese de especificar su número AS como ASN de configuración entre pares, no como cliente ASN.
@@ -183,13 +204,13 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
    * Un hash MD5, en caso de que haya decidido usarlo. **Esto es opcional**.
      
-     Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares públicos de Azure para el circuito.
+    Puede ejecutar el siguiente cmdlet para realizar la configuración entre pares públicos de Azure para el circuito.
      
-       New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
      
-     Puede usar el cmdlet siguiente si decide usar un hash MD5
+    Puede usar el cmdlet siguiente si decide usar un hash MD5
      
-       New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Asegúrese de especificar su número AS como ASN de configuración entre pares y no como cliente ASN.
@@ -272,11 +293,11 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    * Nombre del enrutamiento del Registro: puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
    * Un hash MD5, en caso de que haya decidido usarlo. **Esto es opcional.**
      
-     Puede ejecutar el siguiente cmdlet para establecer la configuración entre pares de Microsoft para el circuito.
+    Puede ejecutar el siguiente cmdlet para establecer la configuración entre pares de Microsoft para el circuito.
      
-       New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### <a name="to-view-microsoft-peering-details"></a>Visualización de detalles del emparejamiento de Microsoft
+### <a name="to-view-microsoft-peering-details"></a>Para ver los detalles del emparejamiento de Microsoft
 Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
@@ -298,7 +319,7 @@ Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
 ### <a name="to-update-microsoft-peering-configuration"></a>Actualización de la configuración de emparejamiento de Microsoft
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet.
 
-        Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+    Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-delete-microsoft-peering"></a>Eliminación del emparejamiento de Microsoft
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet.

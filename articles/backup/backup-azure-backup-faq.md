@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -187,7 +187,7 @@ Sí. Sí, en estaciones de trabajo de Windows o Windows Server los trabajos de c
  Todos los datos de los que se realiza una copia de seguridad desde el agente de Copia de seguridad de Azure o SCDPM o del servidor de Copia de seguridad de Azure se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
 
  ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>¿Hay alguna forma de ajustar la cantidad de ancho de banda que utiliza el servicio Copia de seguridad?<br/>
-  Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Puede ajustar la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para obtener instrucciones detalladas, consulte ** [Habilitación de la limitación de la red](backup-configure-vault.md#enable-network-throttling)**.
+  Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Puede ajustar la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para obtener instrucciones detalladas, consulte **[Habilitación de la limitación de la red](backup-configure-vault.md#enable-network-throttling)**.
 
 
 
@@ -213,7 +213,7 @@ Azure Backup admite la siguiente lista de sistemas operativos para la copia de s
 
 **Para la copia de seguridad de máquinas virtuales de Azure:**
 
-* **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) , con la excepción de CoreOS Linux.  Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
+* **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md) , con la excepción de CoreOS Linux.  Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
 * **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 
 
@@ -222,8 +222,8 @@ No hay ningún límite en la cantidad de datos de los que se puede hacer una cop
 
 | S.No | Sistema operativo | Tamaño máximo del origen de datos |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 o superior |54&400; GB |
-| 2 |Windows 8 o posterior |54&400; GB |
+| 1 |Windows Server 2012 o superior |54 400 GB |
+| 2 |Windows 8 o posterior |54 400 GB |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
 | 4 |Windows 7 |1700 GB |
 

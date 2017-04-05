@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
-ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 48531d69fcefed27785e0e1ae667274fa48ea1d2
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -57,19 +58,15 @@ Si no es lo esperado, investigue y tome las medidas correctivas oportunas. Para 
 
 Si se desean todas las eliminaciones, haga lo siguiente:
 
-1. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD.
+1. Para recuperar el umbral de eliminación actual, ejecute el cmdlet de PowerShell `Get-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD. El valor predeterminado es 500.
+2. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD.
    ![Credenciales](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-2. Con el Conector de Azure Active Directory aún seleccionado, seleccione la acción **Ejecutar** y **Exportar**.
-3. Para volver a habilitar la protección, ejecute el cmdlet de PowerShell: `Enable-ADSyncExportDeletionThreshold`.
+3. Con el Conector de Azure Active Directory aún seleccionado, seleccione la acción **Ejecutar** y **Exportar**.
+4. Para volver a habilitar la protección, ejecute el cmdlet de PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Reemplace 500 con el valor observado al recuperar el umbral de eliminación actual. Proporcione una cuenta y una contraseña de administrador global de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

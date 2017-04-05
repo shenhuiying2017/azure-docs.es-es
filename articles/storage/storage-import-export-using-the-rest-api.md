@@ -1,6 +1,6 @@
 ---
 title: Uso de la API de REST del servicio Azure Import/Export | Microsoft Docs
-description: "Descubra cómo usar la API de REST del servicio Azure Import/Export."
+description: "Obtenga información sobre dónde encontrar recursos para usar la API de REST del servicio Azure Import/Export, incluido el material de instrucciones y de referencia."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 675aef8ec0f9344d2b3073021e83856c2fb34b7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e4f5ca289f4bd87574e448d37a1154b222f221f5
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,7 +39,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 Las solicitudes al servicio Import/Export deben incluir el parámetro `api-version` y establecer su valor en `2016-11-01`.
 
-## <a name="in-this-section"></a>En esta sección
+## <a name="importexport-service-operations"></a>Operaciones del servicio Import/Export
 
 [Creación de un trabajo de importación](storage-import-export-creating-an-import-job.md)
 
@@ -54,11 +55,7 @@ Las solicitudes al servicio Import/Export deben incluir el parámetro `api-versi
 
 [Diagnóstico y recuperación de errores para los trabajos de Import/Export](storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="see-also"></a>Otras referencias
- [API de REST de Import/Export de Azure Storage](/rest/api/storageimportexport)
+## <a name="next-steps"></a>Pasos siguientes
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Azure Storage Import-Export REST API Reference](/rest/api/storageimportexport) (Referencia de la API de REST de Azure Storage Import-Export)
 

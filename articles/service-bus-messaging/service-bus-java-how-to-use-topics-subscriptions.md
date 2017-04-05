@@ -1,5 +1,5 @@
 ---
-title: Uso de temas de Service Bus con Java | Microsoft Docs
+title: Uso de temas de Azure Service Bus con Java | Microsoft Docs
 description: "Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Java."
 services: service-bus-messaging
 documentationcenter: java
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 38692f530a84f89f3b4573dbdc86712ffcb08322
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -37,7 +38,7 @@ Una suscripción a un tema se asemeja a una cola virtual que recibe copias de lo
 Las suscripciones y temas del Bus de servicio le permiten escalar para realizar el procesamiento de un número bastante elevado de mensajes en una serie muy amplia de usuarios y aplicaciones.
 
 ## <a name="create-a-service-namespace"></a>Creación de un espacio de nombres de servicio
-Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+Para empezar a usar temas y suscripciones de Service Bus en Azure, primero debe crear un espacio de nombres, que proporcione un contenedor con un ámbito para tener acceso a recursos de Service Bus dentro de la aplicación.
 
 Para crear un espacio de nombres:
 
@@ -48,7 +49,7 @@ Asegúrese de que ha instalado [Azure SDK para Java][Azure SDK for Java] antes d
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
-Agregue las siguientes instrucciones import a la parte superior del archivo Java:
+Agregue las siguientes instrucciones `import` al principio del archivo Java:
 
 ```java
 import com.microsoft.windowsazure.services.servicebus.*;
@@ -150,7 +151,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Los mensajes enviados a los temas de Service Bus son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage]* tienen un conjunto de métodos estándar (como **setLabel **y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][BrokeredMessage] y, a continuación, se usará el objeto **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un elemento **java.io.InputStream**.
+Los mensajes enviados a los temas de Service Bus son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage]*tienen un conjunto de métodos estándar (como**setLabel**y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][BrokeredMessage] y, a continuación, se usará el objeto **DataContractSerializer**adecuado para serializar el objeto. También se puede proporcionar un elemento **java.io.InputStream**.
 
 En el ejemplo que aparece a continuación se indica cómo enviar cinco mensajes de prueba al `TestTopic` **MessageSender** obtenido en el fragmento de código anterior.
 Fíjese en cómo el valor de la propiedad **MessageNumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones la reciben):
@@ -263,9 +264,4 @@ Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
 [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
 [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

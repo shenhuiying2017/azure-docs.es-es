@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c427ddbe408fc42403eb6738d1983c220e899a7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -65,7 +65,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 * [Mi artefacto produjo errores durante la creación de la máquina virtual. ¿Cómo se soluciona este problema?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [¿Por qué mi máquina virtual existente no se guarda correctamente?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [¿Por qué obtengo un error "No se encuentra el recurso primario" al aprovisionar desde PowerShell?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
-* [¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
+* [¿Dónde puedo encontrar más información sobre errores relativos a la implementación de máquinas virtuales?](#where-can-i-find-more-error-information-if-a-vm-deployment-fails)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
@@ -100,7 +100,7 @@ La seguridad del acceso viene determinada por el [Control de acceso basado en ro
 
 * **Permiso** : un permiso es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
 * **Rol** : un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un "propietario de la suscripción" tiene acceso a todos los recursos dentro de una suscripción.
-* **Ámbito** : un ámbito es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un laboratorio único o toda la suscripción.
+* **Ámbito** : un ámbito es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
 
 Dentro del ámbito de Azure DevTest Labs, hay dos tipos de roles para definir los permisos de usuario: usuario de laboratorio y propietario de laboratorio.
 
@@ -160,7 +160,7 @@ Se admite la conexión de varios discos a las máquinas virtuales.
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si quiero usar una imagen de sistema operativo Windows para mi prueba, ¿tengo que comprar una suscripción a MSDN?
 Si necesita utilizar imágenes de sistema operativo cliente de Windows (Windows 7 o posterior) para el desarrollo o las pruebas en Azure, entonces sí que tendrá que hacer una de estas cosas:
 
-- [Adquirir una suscripción a MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- [Adquirir una suscripción a MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
 - Si tiene un contrato Enterprise, crear una suscripción a Azure con la [oferta Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
 
 Para obtener más información acerca de los créditos de Azure para cada oferta de MSDN, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
@@ -216,10 +216,10 @@ Además de eliminar las máquinas virtuales del laboratorio en Azure Portal, pue
 
 
 ### <a name="what-are-artifacts"></a>¿Qué son los artefactos?
-Los artefactos son elementos personalizables que se pueden usar para implementar los bits más recientes o las herramientas de desarrollo en una máquina virtual. Se asocian a la máquina virtual durante su creación con unos pocos clics y una vez que se ha aprovisionado la máquina virtual, los artefactos implementan y configurar la máquina virtual. Hay diversos artefactos ya existentes en el [repositorio público de Github](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) pero también puede [crear fácilmente sus propios artefactos](devtest-lab-artifact-author.md).
+Los artefactos son elementos personalizables que se pueden usar para implementar los bits más recientes o las herramientas de desarrollo en una máquina virtual. Se asocian a la máquina virtual durante su creación con unos pocos clics y una vez que se ha aprovisionado la máquina virtual, los artefactos implementan y configurar la máquina virtual. Hay diversos artefactos ya existentes en el [repositorio público de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), pero también puede [crear sus propios artefactos](devtest-lab-artifact-author.md) fácilmente.
 
 ### <a name="how-do-i-create-a-lab-from-an-azure-resource-manager-template"></a>¿Cómo se crea un laboratorio a partir de una plantilla de Azure Resource Manager?
-Hemos proporcionado una [repositorio de Github de plantillas de Azure Resource Manager de laboratorio](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que se puede implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio tal cual bajo su propia suscripción de Azure, o puede personalizar la plantilla e [implementar con PowerShell o la CLI de Azure](../azure-resource-manager/resource-group-template-deploy.md).
+Hemos proporcionado un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio tal cual bajo su propia suscripción de Azure, o puede personalizar la plantilla e [implementar con PowerShell o la CLI de Azure](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>¿Por qué mis máquinas virtuales se crean en distintos grupos de recursos con nombres arbitrarios? ¿Se pueden modificar estos grupos de recursos o cambiar su nombre?
 Los grupos de recursos se crean de esta manera para que Azure DevTest Labs administre los permisos de usuario y el acceso a las máquinas virtuales. Aunque puede mover la máquina virtual a otro grupo de recursos con el nombre que desee, no se recomienda hacerlo. Estamos trabajando en mejorar esta experiencia para permitir más flexibilidad.   
@@ -237,7 +237,7 @@ Para compartir un vínculo directo a los usuarios de laboratorio, puede realizar
 2. Copie la dirección URL del laboratorio desde el explorador y compártala con los usuarios del laboratorio.
 
 > [!NOTE]
-> Si los usuarios de laboratorio son usuarios externos con una [cuenta Microsoft](#what-is-a-microsoft-account) y no pertenecen al directorio Active Directory de su empresa, es posible que reciban un error al navegar al vínculo proporcionado. De ser así, indíqueles que hagan clic en su nombre en la esquina superior derecha de Azure Portal y seleccionen el directorio donde existe el laboratorio en la sección **Directorio** del menú.
+> Si los usuarios del laboratorio son usuarios externos con una [cuenta Microsoft](#what-is-a-microsoft-account) y no pertenecen al directorio Active Directory de su empresa, es posible que les aparezca un error al navegar al vínculo proporcionado. De ser así, indíqueles que hagan clic en su nombre en la esquina superior derecha de Azure Portal y seleccionen el directorio donde existe el laboratorio en la sección **Directorio** del menú.
 >
 >
 
@@ -261,7 +261,7 @@ Cuando un recurso es un elemento primario de otro recurso, el primario debe exis
 Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de ARM para implementar a través de PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el nombre del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
-Los errores de implementación de máquina virtual se capturan en los registros de actividad. Puede encontrar registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que seleccione la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]). 
+Los errores de implementación de máquina virtual se capturan en los registros de actividad. Puede encontrar registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que seleccione la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]).
 
 En ocasiones, se produce el error de implementación antes de iniciar la implementación de VM; por ejemplo, cuando se supera el límite de suscripción para un recurso creado con la máquina virtual. En este caso, se capturan los detalles del error en los **Registros de actividad** a nivel de laboratorio que puede encontrar en la parte inferior de los parámetros de **Configuration and policies** (Configuración y directivas). Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 

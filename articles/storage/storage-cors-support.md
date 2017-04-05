@@ -3,7 +3,7 @@ title: "Compatibilidad con Uso compartido de recursos entre orígenes (CORS) | M
 description: Aprenda a habilitar la compatibilidad con CORS para los servicios de almacenamiento de Microsoft Azure.
 services: storage
 documentationcenter: .net
-author: cbrooks
+author: cbrooksmsft
 manager: carmonm
 editor: tysonn
 ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 2/22/2017
 ms.author: cbrooks
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c61be739ce592d75b04bee15d14850cdf94c09da
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e50e55fb6471add71b3d2ebd477a91ec424a4fab
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -136,7 +137,7 @@ A continuación, considere las solicitudes de CORS siguientes:
 | **Método** |**Origen** |**Encabezados de solicitud** |**Coincidencia de regla** |**Resultado** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Primera regla |Correcto |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Segunda regla |Correcto |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Segunda regla |Error |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Segunda regla |Error |
 
 La primera solicitud coincide con la primera regla: el dominio de origen coincide con los orígenes permitidos, el método coincide con los métodos permitidos y el encabezado coincide con los encabezados permitidos. Por tanto, es correcta.
 
@@ -189,10 +190,5 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 [Definición de las propiedades del servicio Tabla](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

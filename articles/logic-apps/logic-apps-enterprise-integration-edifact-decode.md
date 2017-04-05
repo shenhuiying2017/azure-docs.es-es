@@ -41,7 +41,7 @@ Esto es lo que necesita:
 
 2. El conector de descodificación de mensajes EDIFACT no tiene desencadenadores, por lo que debe agregar uno para iniciar la aplicación lógica, por ejemplo, un desencadenador de solicitud. En el Diseñador de aplicaciones lógicas, agregue un desencadenador y una acción a la aplicación lógica.
 
-3.    En el cuadro de búsqueda, escriba "EDIFACT" para el filtro. Seleccione **Descodificar mensaje EDIFACT**.
+3. En el cuadro de búsqueda, escriba "EDIFACT" para el filtro. Seleccione **Descodificar mensaje EDIFACT**.
    
     ![buscar EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -56,7 +56,7 @@ Esto es lo que necesita:
     | Nombre de la conexión * |Escriba cualquier nombre para la conexión. |
     | Cuenta de integración* |Escriba un nombre para la cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentren en la misma ubicación de Azure. |
 
-4.    Cuando haya acabado, para terminar de crear la conexión, elija **Crear**. Los detalles de la conexión deberían ser similares a los de este ejemplo:
+4. Cuando haya acabado, para terminar de crear la conexión, elija **Crear**. Los detalles de la conexión deberían ser similares a los de este ejemplo:
 
     ![detalles de la cuenta de integración](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f0292efd50721ef58028df778052eb0ed6fcda84
-ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0dac2cc79de884def8d4cf0ee89dc2f645d35b34
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -26,26 +27,29 @@ ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
 ## <a name="introduction"></a>Introducción
 Stream Analytics expone dos tipos de registros: 
 * [Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), que están siempre habilitados y proporcionan información sobre operaciones realizadas en trabajos;
-* [Registros de diagnósticos](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), que los puede configurar el usuario y proporcionan una visión más completa de todo lo que ocurre con el trabajo, desde el momento en el que se crea, actualiza, mientras se ejecuta y hasta que se elimina;
+* [Registros de diagnósticos](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), que se pueden configurar y proporcionan una visión más completa de todo lo que ocurre con el trabajo, desde el momento en el que se crea, actualiza, mientras se ejecuta y hasta que se elimina.
+
+> [!NOTE]
+> Debe tenerse en cuenta que el uso de servicios como Azure Storage, Event Hub y Log Analytics para analizar los datos que no cumplen las especificaciones se cobrará según el modelo de precios para esos servicios.
 
 ## <a name="how-to-enable-diagnostic-logs"></a>Habilitación de registros de diagnósticos
 Los registros de diagnósticos están **desactivados** de forma predeterminada. Para habilitarlos, siga estos pasos:
 
-Inicie sesión en Azure Portal, navegue a la hoja de trabajos de streaming y use la hoja "Registros de diagnósticos" bajo "Supervisión".
+Inicie sesión en Azure Portal y vaya a la hoja de trabajos de streaming. A continuación, vaya a la hoja Registros de diagnóstico en Supervisión.
 
 ![navegación por la hoja a los registros de diagnósticos](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
-A continuación, haga clic en el vínculo “Activar diagnósticos”.
+Después haga clic en el vínculo Activar diagnósticos.
 
 ![activar los registros de diagnósticos](./media/stream-analytics-job-diagnostic-logs/image2.png)
 
-En los diagnósticos abiertos, cambie el estado a "Activado".
+En los diagnósticos abiertos, cambie el estado a Activado.
 
 ![cambiar el estado de los registros de diagnósticos](./media/stream-analytics-job-diagnostic-logs/image3.png)
 
 Configure el destino de archivo deseado (cuenta de almacenamiento, centro de eventos, Log Analytics) y seleccione las categorías de registros que desea recopilar (Ejecución o Creación). A continuación, guarde la nueva configuración de diagnósticos.
 
-Una vez guardada, la configuración tardará unos 10 minutos en aplicarse y, después, los registros comenzarán a aparecer en el destino de archivo configurado que puede ver en la hoja “Registros de diagnóstico”:
+Una vez guardada, la configuración tarda unos 10 minutos en surtir efecto. Después de eso, los registros empezarán a aparecer en el destino de archivo configurado (que puede ver en la hoja Registros de diagnóstico):
 
 ![navegación por la hoja a los registros de diagnósticos](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
@@ -68,12 +72,12 @@ Todos los registros se almacenan en formato JSON y cada entrada tiene los siguie
 Nombre | Descripción
 ------- | -------
 Twitter en tiempo | Marca de tiempo (en UTC) del registro.
-resourceId | Identificador del recurso en el que tuvo lugar la operación, en mayúsculas. Incluye el identificador de suscripción, el grupo de recursos y el nombre de trabajo. Por ejemplo: `/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB`
-categoría | Categoría del registro. Puede ser `Execution` o `Authoring`
-operationName | Nombre de la operación que se registra. Por ejemplo: `Send Events: SQL Output write failure to mysqloutput`
-status | Estado de la operación. Por ejemplo: `Failed, Succeeded`.
-level | Nivel de registro. Por ejemplo: `Error, Warning, Informational`
-propiedades | Detalles específicos de la entrada de registro; se serializa como cadena JSON; vea la información siguiente para más detalles.
+resourceId | Identificador del recurso en el que tuvo lugar la operación, en mayúsculas. Incluye el identificador de suscripción, el grupo de recursos y el nombre de trabajo. Por ejemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+categoría | La categoría de registro, ya sea **Ejecución** o **Creación**.
+operationName | Nombre de la operación que se registra. Por ejemplo, **Envío de eventos: error de escritura de SQL Output en mysqloutput**
+status | Estado de la operación. Por ejemplo, **Erróneo, Correcto**.
+level | Nivel de registro. Por ejemplo, **Error, Advertencia, Información**.
+propiedades | Detalles específicos de la entrada de registro; se serializa como cadena JSON; vea la información siguiente para obtener más detalles.
 
 ### <a name="execution-logs-properties-schema"></a>Esquema de propiedades de registros de ejecución
 Los registros de ejecución contienen información sobre eventos que se produjeron durante la ejecución del trabajo de Stream Analytics.
@@ -86,7 +90,7 @@ Nombre | Descripción
 ------- | -------
 Origen | Nombre de la entrada o salida del trabajo donde se produjo el error.
 Message | Mensaje asociado al error.
-Escriba | Tipo de error. Por ejemplo, `DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError`, etc.
+Escriba | Tipo de error. Por ejemplo, **DataConversionError, CsvParserError y ServiceBusPropertyColumnMissingError**.
 Datos | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
 En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
@@ -102,7 +106,7 @@ Nombre | Descripción
 -------- | --------
 Error | (opcional) Información de error, normalmente información de excepción si está disponible.
 Message| Mensaje de registro.
-Escriba | Tipo de mensaje, se asigna a la categorización interna de errores; por ejemplo, JobValidationError, BlobOutputAdapterInitializationFailure etc.
+Tipo | Tipo de mensaje, se asigna a la categorización interna de errores; por ejemplo, **JobValidationError, BlobOutputAdapterInitializationFailure**, etc.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registro de ejecución generadas desde que se inició el trabajo hasta que se detiene tendrán el mismo “identificador de correlación”.
 
 
@@ -113,10 +117,5 @@ Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_id
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

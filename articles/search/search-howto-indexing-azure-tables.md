@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -60,8 +61,8 @@ Para más información sobre la API de creación de origen de datos, consulte [C
 Puede proporcionar las credenciales para la tabla de una de estas maneras: 
 
 - **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Para obtener la cadena de conexión del portal de Azure, vaya a la hoja de la cuenta de almacenamiento > Configuración > Claves (para las cuentas de almacenamiento del modelo clásico) o Configuración > Claves de acceso (para las cuentas de almacenamiento de Azure Resource Manager).
-- Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores (en este caso, tablas) y objetos (filas de tabla).
--  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre la tabla.
+- Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores (en este caso, tablas) y objetos (filas de tabla).
+-  **Firma de acceso compartido de tabla**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. La SAS debería tener permisos de consulta (lectura) en la tabla.
 
 Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -134,9 +135,4 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
 
 ## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Búsqueda de Azure
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

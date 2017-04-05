@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 03/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f1b0fde1e6e31a8179ed61508348d850c5dd784f
-ms.openlocfilehash: 9e2c0cff442f7c66a4b1c76ab612175410f49497
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5f712c7fa9b6ee06f7c89de40ba4227a925a35ce
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,15 +36,22 @@ Aquí es donde entra en juego el controlador ODBC. Mediante el controlador ODBC,
 
 Ahora empecemos con el controlador ODBC.
 
-## <a name="a-idinstallastep-1-install-the-documentdb-odbc-driver"></a><a id="install"></a>Paso 1: Instalación del controlador ODBC de DocumentDB
-1. Descargue [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para el SO Windows de 64 bits o [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para el SO Windows de 32 bits. Ejecute el archivo msi localmente, lo que iniciará el **Asistente para instalación del controlador ODBC de Microsoft Azure DocumentDB**. 
+## <a id="install"></a>Paso 1: Instalación del controlador ODBC de DocumentDB
+
+1. Descargue los controladores para su entorno:
+
+    * [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits
+    * [Microsoft Azure DocumentDB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) para Windows de 32 y 64 bits
+    * [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits
+
+    Ejecute el archivo msi localmente, lo que iniciará el **Asistente para instalación del controlador ODBC de Microsoft Azure DocumentDB**. 
 2. Complete el asistente para instalación con la entrada predeterminada para instalar el controlador ODBC.
 3. Abra la aplicación **Administrador de orígenes de datos ODBC** en el equipo. Puede hacerlo escribiendo **orígenes de datos ODBC** en el cuadro de búsqueda de Windows. 
     Puede confirmar que el controlador se ha instalado haciendo clic en la pestaña **Controladores** y asegurándose de que **Microsoft DocumentDB ODBC Driver** (Controlador ODBC de Microsoft DocumentDB) aparece en la lista.
 
     ![Administrador de orígenes de datos ODBC de DocumentDB](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver.png)
 
-## <a name="a-idconnectastep-2-connect-to-your-documentdb-database"></a><a id="connect"></a>Paso 2: Conexión a la base de datos de DocumentDB
+## <a id="connect"></a>Paso 2: Conexión a la base de datos de DocumentDB
 
 1. Después de [instalar el controlador ODBC de DocumentDB](#install), en la ventana **Administrador de orígenes de datos ODBC**, haga clic en **Agregar**. Puede crear un DSN de usuario o de sistema. En este ejemplo, vamos a crear un DSN de usuario.
 2. En la ventana **Crear un nuevo origen de datos**, seleccione **Microsoft DocumentDB ODBC Driver** (Controlador ODBC de Microsoft DocumentDB) y haga clic en **Finalizar**.
@@ -69,7 +77,7 @@ Ahora empecemos con el controlador ODBC.
 
     ![Nuevo DSN de ODBC de DocumentDB en la pestaña DSN de usuario](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
-## <a name="a-idcollection-mappingastep-3-create-a-schema-definition-using-the-collection-mapping-method"></a><a id="#collection-mapping"></a>Paso 3: Creación de una definición de esquema mediante el método de asignación de colección
+## <a id="#collection-mapping"></a>Paso 3: Creación de una definición de esquema mediante el método de asignación de colección
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de colección** o **delimitadores de tabla**. Una sesión de muestreo puede utilizar ambos métodos de muestreo, pero cada colección solo puede usar un método de muestreo específico. Los pasos siguientes crean un esquema para los datos de una o varias colecciones mediante el método de asignación de colección. Este método de muestreo recupera los datos de la página de una colección para determinar la estructura de dichos datos. Transpone una colección a una tabla en el lado ODBC. Este método de muestreo es rápido y eficaz cuando los datos de una colección son homogéneos. Si una colección contiene un tipo heterogénea de datos, es recomendable usar el [método de asignación de delimitadores de tabla ](#table-mapping), ya que proporciona un método de muestreo más robusto para determinar las estructuras de datos de la colección. 
 
@@ -87,7 +95,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
 
     Si en el futuro desea utilizar este esquema con un DSN, abra la ventana DocumentDB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de DocumentDB) a través del Administrador de orígenes de datos ODBC, haga clic en Opciones avanzadas y, luego, en el cuadro Archivo de esquema, desplácese al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
 
-## <a name="a-idtable-mappingastep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
+## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de colección** o **delimitadores de tabla**. Una sesión de muestreo puede utilizar ambos métodos de muestreo, pero cada colección solo puede usar un método de muestreo específico. 
 
@@ -143,8 +151,4 @@ Si recibe el siguiente error, asegúrese de que los valores de **Host** y **Clav
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre DocumentDB, consulte [¿Qué es DocumentDB?](documentdb-introduction.md).
-
-
-<!--HONumber=Jan17_HO4-->
-
 

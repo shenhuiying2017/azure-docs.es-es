@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,10 @@ ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 > * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7;. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
+Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc.
+
+Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
 ## <a name="scenario"></a>Escenario
 
@@ -47,8 +51,6 @@ En este escenario:
 
 > [!IMPORTANT]
 > La configuración adicional de la puerta de enlace de aplicaciones, incluidos los sondeos personalizados sobre el estado, las direcciones del grupo de back-end y las reglas se realiza después de que se configura la puerta de enlace de aplicaciones, no durante la implementación inicial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -70,7 +72,7 @@ La información necesaria para la configuración básica es:
 
 * **Nombre** : nombre de la puerta de enlace de aplicaciones.
 * **Nivel**: esta configuración es el nivel de la puerta de enlace de aplicaciones. Existen dos niveles **WAF** y **Estándar**. WAF habilita la característica de firewall de aplicaciones web.
-* **Tamaño de SKU**: es el tamaño de la puerta de enlace de aplicaciones, las opciones disponibles son (**Pequeño**, **Mediano** y **Grande**). En el nivel WAF, la opción Pequeño no está disponible.
+* **Tamaño de SKU**: es el tamaño de la puerta de enlace de aplicaciones. Las opciones disponibles son **Pequeño**, **Mediano** y **Grande**. En el nivel WAF, la opción Pequeño no está disponible.
 * **Número de instancias** : el número de instancias, este valor debe ser un número comprendido entre 2 y 10.
 * **Grupo de recursos** : el grupo de recursos que mantiene la puerta de enlace de aplicaciones, puede ser un grupo de recursos existente o uno nuevo.
 * **Ubicación** : la región de la puerta de enlace de aplicaciones, es la misma ubicación en el grupo de recursos. La ubicación es importante, ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace.
@@ -149,21 +151,51 @@ Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la c
 
 ## <a name="add-servers-to-backend-pools"></a>Adición de servidores a grupos de back-end
 
-Cuando se crea la puerta de enlace de aplicaciones, los sistemas que hospeda la aplicación para el equilibrio de carga todavía deben agregarse a la puerta de enlace de aplicaciones. Las direcciones IP o los valores de nombre completo de estos servidores se agregan a los grupos de direcciones de back-end.
+Cuando se crea la puerta de enlace de aplicaciones, los sistemas que hospedan la aplicación para el equilibrio de carga aún tienen que agregarse a dicha puerta de enlace. Las direcciones IP o los valores de nombre completo de estos servidores se agregan a los grupos de direcciones de back-end.
 
-### <a name="step-1"></a>Paso 1
+### <a name="ip-address-or-fqdn"></a>Dirección IP o FQDN
+
+#### <a name="step-1"></a>Paso 1
 
 Haga clic en la puerta de enlace de aplicaciones que ha creado, haga clic en **Grupos de back-end** y seleccione el grupo de back-end actual.
 
 ![Grupos de back-end de Application Gateway][11]
 
-### <a name="step-2"></a>Paso 2
+#### <a name="step-2"></a>Paso 2
 
-Agregue las direcciones IP o los valores del nombre completo de los cuadros de texto y haga clic en **Guardar**.
+Haga clic en **Agregar destino** para agregar direcciones IP de los valores de FQDN.
+
+![Grupos de back-end de Application Gateway][11-1]
+
+#### <a name="step-3"></a>Paso 3
+
+Una vez escritos todos los valores de back-end, haga clic en **Guardar**.
 
 ![adición de valores a los grupos de back-end de Application Gateway][12]
 
 Esto guarda los valores en el grupo de back-end. Cuando se ha actualizado la puerta de enlace de aplicaciones, se enruta el tráfico que entra en la puerta de enlace de aplicaciones a las direcciones de back-end que se han agregado en este paso.
+
+### <a name="virtual-machine-and-nic"></a>Máquina virtual y NIC
+
+También puede agregar NIC de máquinas virtuales como miembros del grupo de back-end. Solo las máquinas virtuales de la misma red virtual que la puerta de enlace de aplicaciones están disponibles en la lista desplegable.
+
+#### <a name="step-1"></a>Paso 1
+
+Haga clic en la puerta de enlace de aplicaciones que ha creado, haga clic en **Grupos de back-end** y seleccione el grupo de back-end actual.
+
+![Grupos de back-end de Application Gateway][11]
+
+#### <a name="step-2"></a>Paso 2
+
+Haga clic en **Agregar destino** para agregar un nuevo miembro del grupo de back-end. Seleccione una máquina virtual y una NIC en los cuadros de lista desplegable.
+
+![adición de NIC a grupos de back-end de la puerta de enlace de aplicaciones][13]
+
+#### <a name="step-3"></a>Paso 3
+
+Cuando haya terminado, haga clic en **Guardar** para guardar las NIC como miembros de back-end.
+
+![almacenamiento de grupos de back-end de la puerta de enlace de aplicaciones][14]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -187,11 +219,9 @@ Aprenda a proteger aplicaciones con [Firewall de aplicaciones web de Application
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
 [12]: ./media/application-gateway-create-gateway-portal/figure12.png
+[13]: ./media/application-gateway-create-gateway-portal/figure13.png
+[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

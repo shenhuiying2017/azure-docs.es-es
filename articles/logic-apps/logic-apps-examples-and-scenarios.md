@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 03/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cbe7011f827418c1094c4e262e016cb93d6d224c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: dcf089d680249d0a2f9d748b315076d91c8c78e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -70,6 +70,7 @@ Puede obtener acceso a distintos tipos de contenido, convertirlos y transformarl
 
 Las aplicaciones lógicas también ofrecen integración con muchos servicios, como Azure Functions, Azure API Management, Azure App Services y puntos de conexión HTTP personalizados, por ejemplo, REST y SOAP.
 
+* [Creación de un panel de redes sociales en tiempo real y sin servidor con Azure](logic-apps-scenario-social-serverless.md)
 * [Llamada a Azure Functions desde aplicaciones lógicas](../logic-apps/logic-apps-azure-functions.md)
 * [Escenario: Desencadenamiento de aplicaciones lógicas con Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Blog: Llamada a puntos de conexión SAP desde aplicaciones lógicas)

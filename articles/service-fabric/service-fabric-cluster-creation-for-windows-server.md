@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/24/2017
 ms.author: chackdan;maburlik
 translationtype: Human Translation
-ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
-ms.openlocfilehash: d833fb81a903ed9577bcfa64ee27d94cf428729d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 3389684dca62a1b3c8297600c7c09ffef642c854
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -38,6 +38,7 @@ Este artículo le guía por los pasos para crear un clúster independiente de Se
 * Abra una incidencia para obtener [soporte técnico profesional para Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Más información sobre el soporte técnico profesional de Microsoft[aquí](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * También puede obtener soporte técnico para este paquete como parte del [soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
 * Para más información, consulte [Opciones de soporte técnico de Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Para recopilar registros con fines de soporte técnico, ejecute el [recopilador de registros independiente de Service Fabric](https://go.microsoft.com/fwlink/?linkid=842487).
 
 <a id="downloadpackage"></a>
 

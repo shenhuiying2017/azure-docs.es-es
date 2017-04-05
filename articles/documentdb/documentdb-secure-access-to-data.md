@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -80,7 +80,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Tokens de recursos
 
 Los tokens de recursos proporcionan acceso a los recursos de la aplicación en una base de datos. Los tokens de recursos:
-- Proporcionan acceso a colecciones, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF concretos.
+- Proporcionan acceso a colecciones, claves de partición, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF concretos.
 - Se crean cuando a un [usuario](#users) se le conceden [permisos](#permissions) para un recurso concreto.
 - Se vuelven a crear cuando una llamada POST, GET o PUT aplica una acción a un recurso de permiso.
 - Usan un token de recurso de hash construido específicamente para el usuario, el recurso y el permiso.
@@ -105,9 +105,9 @@ Este es un patrón de diseño típico para solicitar, generar y entregar tokens 
 
     ![Flujo de trabajo de tokens de recursos de DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- La generación y administración de los tokens de recursos las controlan las bibliotecas de cliente de DocumentDB nativas; sin embargo, si se utiliza REST, debe construir los encabezados de solicitud o autenticación. Para más información acerca de cómo crear encabezados de autenticación para REST, consulte [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Control de acceso en recursos de DocumentDB) o [el código fuente de nuestros SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
- 
- Para ver un ejemplo de un servicio de nivel intermedio que se usa para generarlo o los tokens de recursos del agente, consulte la [aplicación ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+La generación y administración de los tokens de recursos las controlan las bibliotecas de cliente de DocumentDB nativas; sin embargo, si se utiliza REST, debe construir los encabezados de solicitud o autenticación. Para más información acerca de cómo crear encabezados de autenticación para REST, consulte [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Control de acceso en recursos de DocumentDB) o [el código fuente de nuestros SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+
+Para ver un ejemplo de un servicio de nivel intermedio que se usa para generarlo o los tokens de recursos del agente, consulte la [aplicación ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
@@ -184,5 +184,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * Para más información acerca de la seguridad de las bases de datos de DocumentDB, consulte [DocumentDB: NoSQL database security](documentdb-nosql-database-security.md) (DocumentDB: seguridad de bases de datos NoSQL).
 * Para obtener información acerca de cómo administrar las claves maestra y de solo lectura, consulte [Administración de una cuenta de DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Para aprender a construir tokens de autorización de DocumentDB, consulte [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Control de acceso en recursos de DocumentDB).
-
 

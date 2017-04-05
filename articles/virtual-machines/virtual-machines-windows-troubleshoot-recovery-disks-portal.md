@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/12/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0997b2c2eec9070cf8043b09e69d0a4d1ae6e56a
-ms.openlocfilehash: 668ab8121a40aa2300d5cb13e561745fc51b545f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bc3013541fdb32f252339140fe61ff7c515a264e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -135,7 +136,7 @@ Una vez resueltos los errores, desconecte el disco duro virtual existente de la 
 ## <a name="create-vm-from-original-hard-disk"></a>Creación de máquina virtual a partir del disco duro original
 Para crear una máquina virtual a partir del disco duro virtual original, utilice [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). La plantilla implementa una máquina virtual en una red virtual existente mediante la dirección URL del disco duro virtual del comando anterior. Haga clic en el botón **Implementar en Azure** como se muestra a continuación:
 
-![Implementación de máquina virtual desde una plantilla de Github](./media/virtual-machines-windows-troubleshoot-recovery-disks/deploy-template-from-github.png)
+![Implementación de máquina virtual desde una plantilla de GitHub](./media/virtual-machines-windows-troubleshoot-recovery-disks/deploy-template-from-github.png)
 
 La plantilla se carga en Azure Portal para su implementación. Escriba los nombres de la nueva máquina virtual y los recursos de Azure existentes y pegue la dirección URL en el disco duro virtual existente. Para comenzar la implementación, haga clic en **Comprar**:
 
@@ -151,8 +152,4 @@ Cuando se crea la máquina virtual desde el disco duro virtual existente, puede 
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones RDP a una máquina virtual de Azure](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual Windows](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Dec16_HO3-->
-
 

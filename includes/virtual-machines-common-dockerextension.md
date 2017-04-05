@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usa [contenedores de Linux](http://en.wikipedia.org/wiki/LXC), en lugar de máquinas virtuales, como forma de aislar los datos de la aplicación y calcular los recursos compartidos. Puede usar la [extensión de VM de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) del [Agente de Linux de Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para crear una máquina virtual de Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
+[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usa [contenedores de Linux](http://en.wikipedia.org/wiki/LXC), en lugar de máquinas virtuales, como forma de aislar los datos de la aplicación y calcular los recursos compartidos. Puede usar la [extensión de VM de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) del [Agente de Linux de Azure](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para crear una máquina virtual de Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
 
 En este tema se describe:
 
@@ -50,9 +50,9 @@ Para crear máquinas virtuales con funcionalidad Docker ahora, consulte:
 * [Uso de la extensión de máquina virtual de Docker con el Portal de Azure clásico]
 
 ## <a name="virtual-machine-extensions-for-linux-and-windows"></a>Extensiones de máquina virtual para Linux y Windows
-La [extensión de máquina virtual Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) es solo una de las muchas extensiones de máquina virtual que ofrecen un comportamiento especial, y hay aún más en desarrollo. Por ejemplo, varias de las características de la [extensión del agente de máquina virtual de Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) permiten modificar y administrar la máquina virtual, incluidas las características de seguridad, las de kernel y de red, etc. Por ejemplo la extensión VMAccess permite restablecer la contraseña del administrador o la clave SSH.
+La [extensión de máquina virtual Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) es solo una de las muchas extensiones de máquina virtual que ofrecen un comportamiento especial, y hay aún más en desarrollo. Por ejemplo, varias de las características de la [extensión del agente de máquina virtual de Linux](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) permiten modificar y administrar la máquina virtual, incluidas las características de seguridad, las de kernel y de red, etc. Por ejemplo la extensión VMAccess permite restablecer la contraseña del administrador o la clave SSH.
 
-Para obtener una lista completa, consulte [Acerca de las características y extensiones de las máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obtener una lista completa, consulte [Acerca de las características y extensiones de las máquinas virtuales](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 <!--Anchors-->
 [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
@@ -61,8 +61,3 @@ Para obtener una lista completa, consulte [Acerca de las características y exte
 [Contenedores Docker y Linux]: #Docker-and-Linux-Containers
 [Uso de la extensión de VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensiones de máquina virtual para Linux y Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-
-
-<!--HONumber=Jan17_HO3-->
-
-

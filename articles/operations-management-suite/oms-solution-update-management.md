@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -106,7 +106,7 @@ Una vez que se han evaluado las actualizaciones para todos los equipos Windows d
 
 Los Runbooks instalan las actualizaciones en Azure Automation.  No puede ver estos runbooks, que no requieren ninguna configuración.  Cuando se crea una implementación de actualizaciones, crea una programación que inicia un Runbook de actualización maestra a la hora especificada para los equipos incluidos.  Este Runbook maestro inicia un Runbook secundario en cada agente de Windows que realiza la instalación de las actualizaciones necesarias.  
 
-En el caso de las máquinas virtuales creadas a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) en Azure Marketplace se registran para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implementada en Azure.  Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de distribuciones según los métodos admitidos de cada una de ellas.  
+En el caso de las máquinas virtuales creadas a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) en Azure Marketplace se registran para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) implementada en Azure.  Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de distribuciones según los métodos admitidos de cada una de ellas.  
 
 ### <a name="viewing-update-deployments"></a>Visualización de implementaciones de actualizaciones
 Haga clic en el icono **Implementación de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes.  Se agrupan por estado: **Programado**, **En ejecución** y **Completado**.<br><br> ![Página de programación de las implementaciones de actualizaciones](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

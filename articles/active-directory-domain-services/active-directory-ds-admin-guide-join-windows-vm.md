@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9f8d21f6964d26a2e17e31d1f2947e7eb07c177d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/28/2016
 Este artículo muestra cómo unir una máquina virtual en la que se ejecuta Windows Server 2012 R2 a un dominio administrado con Servicios de dominio de Azure AD, mediante el Portal de Azure clásico.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Paso 1: Crear la máquina virtual de Windows
-Siga las instrucciones del tutorial [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure clásico](../virtual-machines/virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) . Es importante asegurarse de que la máquina virtual recién creada está unida a la misma red virtual en la que ha habilitado Servicios de dominio de Azure AD. Tenga en cuenta que la opción Creación rápida no permite unir la máquina virtual a una red virtual. Por lo tanto, debe utilizar la opción De la galería para crear la máquina virtual.
+Siga las instrucciones del tutorial [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure clásico](../virtual-machines/windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) . Es importante asegurarse de que la máquina virtual recién creada está unida a la misma red virtual en la que ha habilitado Servicios de dominio de Azure AD. Tenga en cuenta que la opción Creación rápida no permite unir la máquina virtual a una red virtual. Por lo tanto, debe utilizar la opción De la galería para crear la máquina virtual.
 
 Realice los siguientes pasos de configuración para crear una máquina virtual Windows unida a la red virtual en la que ha habilitado Servicios de dominio de Azure AD.
 
@@ -119,7 +119,7 @@ Consulte los siguientes pasos si tiene problemas con las credenciales y no puede
 * Pruebe a usar el formato UPN para especificar las credenciales. El atributo SAMAccountName de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. Por lo tanto, el formato del atributo SAMAccountName de su cuenta puede que no sea el mismo que espera o que usa en su dominio local.
 * Pruebe a utilizar las credenciales de una cuenta de usuario que pertenezca al grupo 'Administradores de controlador de dominio de AAD' para conectar equipos al dominio administrado.
 * Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la Guía de introducción.
-* Asegúrese de que utiliza el UPN del usuario como está configurado en Azure AD (por ejemplo, 'bob@domainservicespreview.onmicrosoft.com')) para iniciar sesión.
+* Asegúrese de que utiliza el UPN del usuario como está configurado en Azure AD (por ejemplo, "bob@domainservicespreview.onmicrosoft.com") para iniciar sesión.
 * Asegúrese de haber esperado suficiente tiempo para que la sincronización de contraseñas se complete, como se especifica en la Guía de introducción.
 
 ## <a name="related-content"></a>Contenido relacionado

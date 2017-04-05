@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -75,7 +75,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
 
 ### <a name="activity-log"></a>Registro de actividades
 
-Haga clic en **Registro de auditoría** para ver las acciones realizadas en la memoria caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos. Para más información sobre el uso de registros de auditoría, consulte [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Consulta de eventos y registros de auditoría) y [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operaciones de auditoría con Resource Manager). Para obtener más información sobre la supervisión de eventos de Caché en Redis de Azure, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
+Haga clic en **Registro de auditoría** para ver las acciones realizadas en la memoria caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos. Para obtener más información sobre cómo trabajar con los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md). Para obtener más información sobre la supervisión de eventos de Caché en Redis de Azure, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Control de acceso (IAM)
 

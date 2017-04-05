@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 25a35912b72f7f44b83ccd49f298b44665318418
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +35,7 @@ En el caso de DC/OS y Docker Swarm, es preciso crear un túnel SSH (Secure Shell
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Kubernetes, DC/OS o Swarm [implementado en Azure Container Service](container-service-deployment.md).
-* Archivo de clave privada RSA de SSH, correspondiente a la clave pública agregada al clúster durante la implementación. Estos comandos asumen que la clave privada SSH está en `$HOME/.ssh/id_rsa` en el equipo. Para más información, consulte estas instrucciones para [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). Si la conexión SSH no funciona, es posible que tenga que [restablecer las claves SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* Archivo de clave privada RSA de SSH, correspondiente a la clave pública agregada al clúster durante la implementación. Estos comandos asumen que la clave privada SSH está en `$HOME/.ssh/id_rsa` en el equipo. Para más información, consulte estas instrucciones para [OS X y Linux](../virtual-machines/linux/mac-create-ssh-keys.md) o [Windows](../virtual-machines/linux/ssh-from-windows.md). Si la conexión SSH no funciona, es posible que tenga que [restablecer las claves SSH](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Conexión a un clúster de Kubernetes
 

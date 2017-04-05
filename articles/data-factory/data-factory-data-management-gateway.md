@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
-ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -130,20 +130,25 @@ Si mueve el cursor sobre el mensaje de notificación o el icono en la bandeja de
 ### <a name="ports-and-firewall"></a>Puertos y firewall
 Existen dos firewalls que tiene que tener en cuenta: el **firewall corporativo**, que se ejecuta en el enrutador central de la organización, y **Firewall de Windows**, configurado como demonio en la máquina local en la que está instalada la puerta de enlace.  
 
-![Firewalls](./media/data-factory-data-management-gateway/firewalls.png)
+![Firewalls](./media/data-factory-data-management-gateway/firewalls2.png)
 
 En el firewall corporativo, debe configurar los siguientes dominios y puertos de salida:
 
 | Nombres de dominio | Puertos | Descripción |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Agentes de escucha de retransmisión de Bus de servicio sobre TCP (requiere 443 para la adquisición del token de Control de acceso) |
-| *.servicebus.windows.net |9350-9354, 5671 |Retransmisión de bus de servicio opcional sobre TCP |
-| *.core.windows.net |443 |HTTPS |
-| *. clouddatahub.net |443 |HTTPS |
-| graph.windows.net |443 |HTTPS |
-| login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |443, 80 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
+| *.core.windows.net |443 |Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)|
+| *frontend.clouddatahub.net |443 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
+
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
+
+> [!NOTE]
+> 1. En función del origen/receptores, quizá deba agregar a la lista blanca del firewall corporativo o de Windows más dominios y puertos de salida.
+> 2. En el caso de algunas bases de datos en la nube (p. ej., [SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), puede que necesite agregar a la lista blanca de la configuración del firewall la dirección IP de la máquina de Gateway.
+>
+>
+
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Copia de datos de un almacén de datos de origen a uno de tipo receptor
 Asegúrese de que las reglas del firewall estén habilitadas correctamente en el firewall corporativo, en el Firewall de Windows de la máquina de la puerta de enlace y en el propio almacén de datos. De este modo, la puerta de enlace podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
@@ -152,6 +157,12 @@ Por ejemplo, para copiar información desde **un almacén de datos local a un re
 
 * Permita la comunicación **TCP** saliente en el puerto **1433** para el Firewall de Windows y el corporativo.
 * Establezca la configuración de firewall del servidor SQL de Azure para agregar la dirección IP de la máquina de la puerta de enlace a la lista de IP permitidas.
+
+> [!NOTE]
+> Si el firewall no permite el puerto de salida 1433, Gateway no podrá tener acceso directamente a Azure SQL. En este caso, puede usar la [copia de almacenamiento provisional](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) a SQL Azure Database/SQL Azure DW. En este escenario, requeriría solo HTTPS (puerto 443) para el movimiento de datos.
+>
+>
+
 
 ### <a name="proxy-server-considerations"></a>Consideraciones acerca del servidor proxy
 Si en su entorno de red corporativo se usa un servidor proxy para acceder a Internet, configure Data Management Gateway para utilizar la configuración de proxy adecuada. Puede establecer el proxy durante la fase de registro inicial.
@@ -186,7 +197,7 @@ Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de co
 >
 >
 
-### <a name="configure-proxy-server-settings"></a>Configuración de un servidor proxy 
+### <a name="configure-proxy-server-settings"></a>Configuración de un servidor proxy
 Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puerta de enlace utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config.  Si no hay ningún proxy especificado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config.  
 
 1. En el Explorador de archivos, cree una copia segura de C:\Archivos de programa\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config para conservar una copia de seguridad del archivo original.
@@ -211,7 +222,7 @@ Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puert
 
 > [!IMPORTANT]
 > No olvide actualizar **ambos**, diahost.exe.config y diawp.exe.config.  
-     
+
 
 Además de estos puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su compañía. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -260,12 +271,12 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
 2. Cambie a la carpeta C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -off
     ```
 4. Para volver a activarla:
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
@@ -367,8 +378,8 @@ Para cifrar las credenciales en el Editor de Data Factory, realice los siguiente
                 "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
                 "gatewayName": "adftutorialgateway"
             }
-        }
-    }
+         }
+     }
     ```
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con la máquina de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión a él.  
 
@@ -387,7 +398,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 
 1. Inicie **Azure PowerShell** en modo de administrador.
 2. Inicie sesión en su cuenta de Azure ejecutando el siguiente comando y escribiendo sus credenciales de Azure.
-    
+
     ```PowerShell
     Login-AzureRmAccount
     ```
@@ -414,7 +425,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. En Azure PowerShell, cambie a la carpeta **C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
+1. En Azure PowerShell, cambie a la carpeta **C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Ejecute el script**RegisterGateway.ps1**asociado a la variable local**$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -435,13 +446,13 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGateway** y actualizar la descripción de una puerta de enlace con los cmdlets **Set-AzureRmDataFactoryGateway**. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.  
 
 ### <a name="list-gateways-using-powershell"></a>Enumeración de puertas de enlace con PowerShell
-    
+
 ```PowerShell
 Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>Eliminación de puerta de enlace con PowerShell
-    
+
 ```PowerShell
 Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```

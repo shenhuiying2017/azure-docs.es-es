@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1072ab3d7c8cc472258925baaa2ef82cdfb17eed
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 3b608f341278ceaef9dd112cea38f138be69ee44
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -30,7 +31,7 @@ En este artículo le mostraremos cómo utilizar DSVM para realizar diferentes ta
 3. Poner en operación los modelos creados con R y Python en Aprendizaje automático de Azure para que aplicaciones cliente puedan tener acceso a los modelos mediante una sencilla interfaz de servicios web
 4. Administrar los recursos de Azure mediante Azure Portal o PowerShell
 5. Ampliar el espacio de almacenamiento y compartir código o conjuntos de datos de gran escala entre todo el equipo mediante la creación de Almacenamiento de archivos de Azure como una unidad que se puede montar en DSVM
-6. Compartir código con su equipo mediante GitHub y tener acceso a su repositorio utilizando los clientes de Git preinstalados: Git Bash, Git GUI
+6. Compartir código con su equipo mediante GitHub y tener acceso a su repositorio utilizando los clientes de Git preinstalados: Git Bash o Git GUI
 7. Obtener acceso a diversos servicios de análisis y datos de Azure, como Almacenamiento de blobs de Azure, Azure Data Lake, Azure HDInsight (Hadoop), Azure DocumentDB, Almacenamiento de datos SQL de Azure y bases de datos
 8. Crear informes y paneles con la aplicación Power BI Desktop preinstalada en DSVM e implementarlos en la nube
 9. Escalar dinámicamente DSVM para satisfacer las necesidades del proyecto
@@ -237,19 +238,19 @@ Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo e
 Ya puede acceder a esta unidad del mismo modo que a cualquier otra unidad normal de la máquina virtual.
 
 ## <a name="6-share-code-with-your-team-using-github"></a>6. Compartir código con su equipo mediante GitHub
-GitHub es un repositorio de código donde puede encontrar una gran cantidad de código de ejemplo y orígenes para diferentes herramientas usando las diversas tecnologías que comparte la comunidad de desarrolladores. Utiliza Git como tecnología para realizar un seguimiento de las versiones de los archivos de código y almacenarlas. GitHub es también una plataforma donde podrá crear su propio repositorio para almacenar el código compartido y la documentación de su equipo, implementar el control de versiones y también controlar quién tiene acceso para ver el código y contribuir al mismo. Para obtener más información sobre el uso de Git, visite las [páginas de ayuda de Github](https://help.github.com/) . Puede usar Github como uno de los métodos para colaborar con su equipo, usar el código desarrollado por la comunidad y aportar código de vuelta a la comunidad.
+GitHub es un repositorio de código donde puede encontrar una gran cantidad de ejemplos de código y orígenes para diferentes herramientas usando las diversas tecnologías que comparte la comunidad de desarrolladores. Utiliza Git como tecnología para realizar un seguimiento de las versiones de los archivos de código y almacenarlas. Asimismo, GitHub es una plataforma donde podrá crear su propio repositorio para almacenar el código compartido y la documentación de su equipo, implementar el control de versiones y también controlar quién tiene acceso para ver el código y contribuir en él. Para obtener más información sobre el uso de Git, visite las [páginas de ayuda de GitHub](https://help.github.com/). Puede usar GitHub como uno de los métodos para colaborar con su equipo, usar el código desarrollado por la comunidad y aportar código de vuelta a ella.
 
-DSVM ya incluye herramientas de cliente tanto en la línea de comandos como en la GUI para tener acceso al repositorio de GitHub. La herramienta de línea de comandos que se usa para trabajar con Git y GitHub se denomina Git Bash. La versión de Visual Studio instalada en DSVM cuenta con las extensiones de Git. Puede encontrar iconos de inicio para estas herramientas en el menú de inicio y en el escritorio.
+DSVM ya incluye herramientas de cliente tanto en la línea de comandos como en la GUI para poder acceder al repositorio de GitHub. La herramienta de línea de comandos que se usa para trabajar con Git y GitHub se denomina "Git Bash". La versión de Visual Studio instalada en DSVM cuenta con las extensiones de Git. Puede encontrar iconos de inicio para estas herramientas en el menú de inicio y en el escritorio.
 
-Para descargar código de un repositorio de GitHub, debe usar el comando ```git clone``` . Por ejemplo, para descargar en el directorio actual el repositorio de ciencia de datos que publica Microsoft, puede ejecutar el comando siguiente una vez que se encuentre en ```git-bash```.
+Para descargar código de un repositorio de GitHub, debe usar el comando ```git clone```. Por ejemplo, para descargar en el directorio actual el repositorio de ciencia de datos que publica Microsoft, puede ejecutar el comando siguiente una vez que se encuentre en ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-En Visual Studio, puede realizar la misma operación de clonación. La captura de pantalla siguiente muestra cómo acceder a las herramientas de Git y Github en Visual Studio.
+En Visual Studio, puede realizar la misma operación de clonación. En la captura de pantalla siguiente, se muestra cómo acceder a las herramientas de Git y GitHub en Visual Studio.
 
 ![GIT en Visual Studio](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-En los distintos recursos disponibles en github.com puede encontrar más información sobre el uso de Git para trabajar con un repositorio de GitHub. La [hoja de referencia rápida](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) puede resultar un recurso útil.
+En los distintos recursos disponibles en github.com, puede encontrar más información sobre el uso de Git para trabajar con el repositorio de GitHub. La [hoja de referencia rápida](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) puede resultar un recurso útil.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Obtener acceso a diversos servicios de análisis y datos de Azure
 ### <a name="azure-blob"></a>Blob de Azure
@@ -865,10 +866,5 @@ Para mejorar su entorno de análisis, puede sacar provecho de otros servicios ta
 
 ## <a name="summary"></a>Resumen
 Estas son solo algunas de las cosas que puede hacer en Microsoft Data Science Virtual Machine. Hay muchas más cosas que puede hacer para que sea un entorno de análisis efectivo.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

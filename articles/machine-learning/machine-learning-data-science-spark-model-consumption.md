@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 00fec675bed0137473f7e3c5ddfe9c3c0e8344c6
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -531,7 +531,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información, vea [Envío de trabajos de Spark de forma remota mediante Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
 
 Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde   
-[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]
 > Las claves de acceso que necesita se encuentran en el portal de la cuenta de almacenamiento asociada con el clúster de Spark. 

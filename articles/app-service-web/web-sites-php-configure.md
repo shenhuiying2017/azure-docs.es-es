@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 3adbef0d22673d6cd872f583903d0c73469d4fa1
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b62ee732f1730e8934443fb4320327e64d110833
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,9 +28,9 @@ En esta guía se explica cómo configurar el tiempo de ejecución de PHP integra
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Cómo: Cambiar la versión de PHP integrada
-PHP 5.4 está instalado de forma predeterminada y está disponible para utilizarse inmediatamente después de crear una aplicación web de Azure. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
+PHP 5.5 está instalado de forma predeterminada y está disponible para utilizarse inmediatamente después de crear una aplicación web de App Service. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
 
-Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están habilitadas de forma predeterminada. Para actualizar la versión de PHP, siga uno de estos métodos:
+Las versiones de PHP 5.6 y PHP 7.0 también están disponibles, pero no están habilitadas de forma predeterminada. Para actualizar la versión de PHP, siga uno de estos métodos:
 
 ### <a name="azure-portal"></a>Portal de Azure
 1. Vaya a la aplicación web en el [Portal de Azure](https://portal.azure.com) y haga clic en el botón **Configuración** .
@@ -49,7 +49,7 @@ Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están h
         PS C:\> Login-AzureRmAccount
 2. Establezca la versión PHP para la aplicación web.
    
-        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
 3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
    
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
@@ -62,7 +62,7 @@ Para usar la interfaz de línea de comandos de Azure, debe tener **Node.js** ins
         azure login
 2. Establezca la versión PHP para la aplicación web.
    
-        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+        azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
 
 3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
    
@@ -110,7 +110,7 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 
 ### <a name="configure-via-ini-settings"></a>Configurar mediante configuración de ini
 1. Agregue un directorio `ext` al directorio `d:\home\site`.
-2. Coloque los archivos con extensión `.dll` en el directorio `ext` (por ejemplo, `php_mongo.dll` y `php_xdebug.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP (que es, para lo que aquí se expone, PHP 5.4) y que sean compatibles con VC9 y no seguras para subprocesos (nts).
+2. Coloque los archivos con extensión `.dll` en el directorio `ext` (por ejemplo, `php_xdebug.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP y que sean compatibles con VC9 y no seguras para subprocesos (nts).
 3. Agregar una configuración de aplicación a la aplicación web con la clave `PHP_INI_SCAN_DIR` y el valor `d:\home\site\ini`
 4. Cree un archivo `ini` en `d:\home\site\ini` denominado `extensions.ini`.
 5. Agregue la configuración al archivo `extensions.ini` , para ello, use la misma sintaxis que usaría en un archivo php.ini. Por ejemplo, si desea habilitar las extensiones de MongoDB y XDebug su archivo `extensions.ini` debería contener este texto:
@@ -122,7 +122,7 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 
 ### <a name="configure-via-app-setting"></a>Configurar a través de la configuración de la aplicación
 1. Agregue un directorio `bin` al directorio raíz.
-2. Coloque los archivos con extensión `.dll` en el directorio `bin` (por ejemplo, `php_mongo.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP (que es, para lo que aquí se expone, PHP 5.4) y que sean compatibles con VC9 y no seguras para subprocesos (nts).
+2. Coloque los archivos con extensión `.dll` en el directorio `bin` (por ejemplo, `php_xdebug.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP y que sean compatibles con VC9 y no seguras para subprocesos (nts).
 3. Implemente la aplicación web.
 4. Vaya a la aplicación web en el Portal de Azure y haga clic en el botón **Configuración** .
    

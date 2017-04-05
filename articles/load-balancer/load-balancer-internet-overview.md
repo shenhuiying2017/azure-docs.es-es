@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: fb3f7c08c5f3a76e4bd28f3519ab72e8b636b93c
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -28,13 +29,13 @@ Para los servicios en la nube que contienen instancias de roles web o de roles d
 
 El archivo *servicedefinition.csdef* contiene la configuración del punto de conexión y, cuando tenga varias instancias de rol para una implementación de rol web o de trabajo, el equilibrador de carga se configurará para ello. La forma de agregar instancias a su implementación en la nube está cambiando el recuento de instancias en el archivo de configuración de servicio (.csfg).
 
-En la siguiente ilustración se muestra un extremo con equilibrio de carga para el tráfico web cifrado que se comparte entre tres máquinas virtuales en el puerto TCP público y privado de 443. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
+En la siguiente figura, se muestra un punto de conexión de carga equilibrada para el tráfico web cifrado que se comparte entre tres máquinas virtuales en el puerto TCP público y privado de 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
 
 ![ejemplo de equilibrador de carga público](./media/load-balancer-internet-overview/IC727496.png))
 
-Figura 1 - Punto de conexión de equilibrio de carga para tráfico web cifrado
+Figura 1: punto de conexión de carga equilibrada para tráfico web
 
-Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, Azure Load Balancer distribuye las solicitudes entre las tres máquinas virtuales del conjunto de carga equilibrada. Para más información sobre algoritmos del equilibrador de carga, consulte la [página de información general del equilibrador de carga](load-balancer-overview.md#load-balancer-features).
+Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube en el puerto TCP 80, Azure Load Balancer distribuye las solicitudes entre las tres máquinas virtuales del conjunto de carga equilibrada. Para más información sobre algoritmos del equilibrador de carga, consulte la [página de información general del equilibrador de carga](load-balancer-overview.md#load-balancer-features).
 
 De forma predeterminada, Azure Load Balancer distribuye el tráfico de red equitativamente entre varias instancias de máquina virtual. También puede configurar la afinidad de la sesión. Para más información, consulte el [modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md).
 
@@ -45,9 +46,4 @@ Obtenga más información sobre el [equilibrador de carga interno](load-balancer
 También puede [empezar a crear un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento especifico del tráfico de red del equilibrador de carga.
 
 Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

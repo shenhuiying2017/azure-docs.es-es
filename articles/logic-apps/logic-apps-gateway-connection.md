@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -58,6 +58,10 @@ Si aún no lo ha hecho, siga estos pasos para [instalar la puerta de enlace de d
 
 Después de instalar la puerta de enlace, debe asociar su suscripción de Azure con ella.
 
+> [!IMPORTANT] 
+> Asegúrese de que el recurso de puerta de enlace se haya creado en la misma región de Azure que la aplicación lógica. Si no lo implementa en la misma región, no podrá acceder a él en la aplicación lógica. 
+> 
+
 1. Inicie sesión en Azure con la misma dirección de correo electrónico profesional o académica utilizada durante la instalación de la puerta de enlace.
 2. Elija **Nuevo**.
 3. Busque y seleccione **Puerta de enlace de datos local**.
@@ -80,6 +84,11 @@ Ahora que su suscripción de Azure está asociada a una instancia de la puerta d
 4. Para crear la conexión, haga clic en **Crear**.
 
 La conexión está ahora configurada para que la aplicación lógica la use.
+
+## <a name="data-gateway-connection-modifications"></a>Modificaciones en la conexión de la puerta de enlace de datos
+Una vez agregada la conexión de la puerta de enlace de datos en su aplicación lógica, es posible que tenga que modificarla a fin de ajustar los valores de configuración específicos para dicha conexión. Puede encontrar la conexión en cualquiera de estos dos lugares:
+* En la hoja principal de la aplicación lógica, debería ver un panel para las conexiones de API en la sección Herramientas de desarrollo. Seleccione que se muestren todas las conexiones de API asociadas a la aplicación lógica. Una de ellas será la conexión de la puerta de enlace de datos. Si la selecciona, podrá ver y modificar la configuración vinculada a la conexión.
+* Al seleccionar la hoja principal de Conexiones de API, aparecerán todas las conexiones de API de la suscripción. En esta lista, figurará la conexión de la puerta de enlace de datos. Si la selecciona, podrá ver y modificar la configuración vinculada a la conexión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

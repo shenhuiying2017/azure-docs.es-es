@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 625618d200d1049b419128879a49f9e58f3a7627
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 49939946f887c51fbc2a135c28236407f5569f48
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,15 +31,15 @@ ms.lasthandoff: 02/23/2017
 > - [API de REST de Azure](network-watcher-check-next-hop-rest.md)
 
 
-Next Hop es una característica de Network Watcher que permite obtener el tipo del próximo salto y la dirección IP para una máquina virtual especificada. Esta característica es útil para determinar si el tráfico que sale de una máquina virtual atraviesa una puerta de enlace, Internet o redes virtuales para llegar a su destino.
+Próximo salto es una característica de Network Watcher que permite obtener el tipo del próximo salto y la dirección IP para una máquina virtual especificada. Esta característica es útil para determinar si el tráfico que sale de una máquina virtual atraviesa una puerta de enlace, Internet o redes virtuales para llegar a su destino.
+
+En este artículo, se utiliza la multiplataforma Azure CLI 1.0, que está disponible para Windows, Mac y Linux. Network Watcher usa actualmente Azure CLI 1.0 para la compatibilidad con CLI.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este escenario, se usa la CLI de Azure para averiguar el tipo de próximo salto y la dirección IP.
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Escenario
 
@@ -80,5 +80,5 @@ La lista siguiente muestra los valores de NextHopType disponibles actualmente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda cómo revisar la configuración del grupo de seguridad de red mediante programación en [Auditoría de NSG con Network Watcher](network-watcher-nsg-auditing-powershell.md).
+Aprenda cómo revisar la configuración del grupo de seguridad de red mediante programación en [NSG Auditing with Network Watcher](network-watcher-nsg-auditing-powershell.md) (Auditoría de NSG con Network Watcher).
 

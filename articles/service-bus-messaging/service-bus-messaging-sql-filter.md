@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c5127a457e99772a52b76e28e7fd3a3e4dd861b0
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -221,7 +222,7 @@ Tenga en cuenta la siguiente semántica de [SqlFilter](/dotnet/api/microsoft.ser
   
     -   `property IS NULL` se evalúa como `true` si no existe la propiedad o valor de la propiedad es `null`.  
   
-Semántica de evaluación de propiedades:  
+### <a name="property-evaluation-semantics"></a>Semántica de evaluación de propiedades  
   
 -   Un intento para evaluar una propiedad de sistema que no existe producirá una excepción [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
   
@@ -273,7 +274,7 @@ Semántica de evaluación de propiedades:
 +---+---+---+---+  
 ```  
   
-Semántica de enlace de operadores:  
+### <a name="operator-binding-semantics"></a>Semántica de enlace de operadores
   
 -   Los operadores de comparación, como `>`, `>=`, `<`, `<=`, `!=` y `=`, siguen la misma semántica que el enlace de operadores de C# en promociones de tipo de datos y conversiones implícitas.  
   
@@ -283,8 +284,3 @@ Semántica de enlace de operadores:
 
 - [Clase SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Clase SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

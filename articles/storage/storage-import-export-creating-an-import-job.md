@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
-ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -51,7 +51,7 @@ La preparación de la unidad conlleva:
 
 -   Usar la herramienta Azure Import/Export para copiar los datos en una o varias unidades de disco duro.
 
- La herramienta Azure Import/Export también generará un archivo de manifiesto para cada una de las unidades de disco mientras se prepara. Un archivo de manifiesto contiene:
+ La herramienta Azure Import/Export también genera un archivo de manifiesto para cada una de las unidades de disco mientras se prepara. Un archivo de manifiesto contiene:
 
 -   Una enumeración de todos los archivos pensados para la carga y las asignaciones de estos archivos en los blobs.
 
@@ -105,6 +105,7 @@ Debe enviar las unidades de disco a la dirección que ha obtenido en el paso ant
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Actualización del trabajo de importación con la información de envío
 Cuando tenga el número de seguimiento, llame a la operación [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) para actualizar el nombre del transportista, el número de seguimiento del trabajo y el número de cuenta del transportista para el envío de devolución. También puede especificar el número de unidades y la fecha de envío.
 
-## <a name="see-also"></a>Otras referencias
-[Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
 

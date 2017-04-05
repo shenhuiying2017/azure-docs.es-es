@@ -44,6 +44,6 @@ Una máquina virtual *personalizada* es una máquina virtual que se crea con el 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el portal se muestre el estado como en ejecución, podrá iniciar sesión en la máquina virtual. Si desea instrucciones, consulte uno de los artículos siguientes:
 
-* [Creación de un par de claves SSH pública y privada para máquinas virtuales Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Creación de un par de claves SSH pública y privada para máquinas virtuales Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure clásico](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

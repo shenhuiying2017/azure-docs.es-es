@@ -182,7 +182,7 @@ En el ejemplo siguiente, se crea una suscripción denominada **HighMessages** co
 ```csharp
 // Create a "HighMessages" filtered subscription.
 SqlFilter highMessagesFilter =
-   new SqlFilter("MessageNumber > 3");
+   new SqlFilter("MessageId > 3");
 
 namespaceManager.CreateSubscription("TestTopic",
    "HighMessages",
@@ -194,7 +194,7 @@ Del mismo modo, el ejemplo siguiente crea una suscripción llamada **LowMessages
 ```csharp
 // Create a "LowMessages" filtered subscription.
 SqlFilter lowMessagesFilter =
-   new SqlFilter("MessageNumber <= 3");
+   new SqlFilter("MessageId <= 3");
 
 namespaceManager.CreateSubscription("TestTopic",
    "LowMessages",

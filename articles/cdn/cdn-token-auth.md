@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
 translationtype: Human Translation
-ms.sourcegitcommit: 69c33986f05181460c9eea73295de5721c9ea3cf
-ms.openlocfilehash: 16e87412fd1cbe34ed8a37d6cebcb9395d1c7e36
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -117,7 +118,7 @@ Este gráfico describe cómo Azure CDN valida la solicitud del cliente cuando se
 
     4. También puede personalizar el tipo de respuesta que se devolverá al usuario cuando se deniega la solicitud. De forma predeterminada se usa 403.
 
-3. Ahora haga clic en la ficha **Motor de reglas ** en **HTTP Large** (HTTP grandes). Utilizará esta ficha para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación de tokens y habilitar la autenticación de tokens adicional relacionada con las funcionalidades.
+3. Ahora haga clic en la ficha **Motor de reglas** en **HTTP Large** (HTTP grandes). Utilizará esta ficha para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación de tokens y habilitar la autenticación de tokens adicional relacionada con las funcionalidades.
 
     - Utilice la columna "IF" para definir la ruta de acceso o los activos que desea aplicar la autenticación por tokens. 
     - Haga clic para agregar "Token Auth" (Autenticación por tokens) en la lista desplegable de característica para habilitar la autenticación por tokens.
@@ -132,7 +133,7 @@ Este gráfico describe cómo Azure CDN valida la solicitud del cliente cuando se
         
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. Puede personalizar el token, que es una aplicación que genera el token para las características de autenticación basadas en tokens. Se puede acceder al código fuente aquí en [Github](https://github.com/VerizonDigital/ectoken).
+5. Puede personalizar el token, que es una aplicación que genera el token para las características de autenticación basadas en tokens. Se puede acceder al código fuente aquí en [GitHub](https://github.com/VerizonDigital/ectoken).
 Idiomas disponibles:
     
     - C
@@ -146,9 +147,4 @@ Idiomas disponibles:
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Precios de las características y los proveedores de Azure CDN
 
 Consulte el tema de [introducción a la red CDN](cdn-overview.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

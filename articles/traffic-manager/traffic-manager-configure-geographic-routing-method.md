@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d6756dcc5b47898575002cd7336b8d4d5200e08
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: eab8b66bc4a9cf3090ee81f9bb47430aaf26eeee
+ms.lasthandoff: 03/24/2017
 
 ---
 
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager
 
-El método de enrutamiento de tráfico geográfico le permite dirigir el tráfico a puntos de conexión específicos según la ubicación geográfica en que se originan las solicitudes. En este tutorial se muestra cómo crear un perfil de Traffic Manager con este método de enrutamiento y configurar los puntos de conexión para recibir el tráfico proveniente de geografías específicas 
+El método de enrutamiento de tráfico geográfico le permite dirigir el tráfico a puntos de conexión específicos según la ubicación geográfica en que se originan las solicitudes. En este tutorial se muestra cómo crear un perfil de Traffic Manager con este método de enrutamiento y configurar los puntos de conexión para recibir el tráfico proveniente de geografías específicas.
 
 ## <a name="create-a-traffic-manager-profile"></a>Creación de un perfil del Administrador de tráfico 
 
@@ -62,8 +62,6 @@ El método de enrutamiento de tráfico geográfico le permite dirigir el tráfic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-
-- Información sobre el [método de enrutamiento de tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
-- Información sobre el [método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md).
+- Obtenga más información sobre el [método de enrutamiento del tráfico geográfico](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
 - Información sobre cómo [probar la configuración de Traffic Manager](traffic-manager-testing-settings.md).
 

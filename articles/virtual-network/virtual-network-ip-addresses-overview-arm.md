@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
-ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -71,7 +72,7 @@ Puede especificar una etiqueta de nombre de dominio DNS para un recurso de IP p�
 >
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-Puede asociar una dirección IP pública con una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md) mediante la asignación a la **interfaz de red**. En el caso de una máquina virtual con varias interfaces de red, puede asignarla solo a la interfaz de red *principal*. Puede asignar una dirección IP pública estática o dinámica a una máquina virtual.
+Puede asociar una dirección IP pública con una máquina virtual [Windows](../virtual-machines/windows/about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md) mediante la asignación a la **interfaz de red**. En el caso de una máquina virtual con varias interfaces de red, puede asignarla solo a la interfaz de red *principal*. Puede asignar una dirección IP pública estática o dinámica a una máquina virtual.
 
 ### <a name="internet-facing-load-balancers"></a>Equilibradores de carga accesibles desde Internet
 Puede asociar una dirección IP pública con un [Azure Load Balancer](../load-balancer/load-balancer-overview.md)asignándola a la configuración del **front-end** del equilibrador de carga. Esta dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip.md) , como un entorno de varios inquilinos con sitios web basados en SSL.
@@ -115,7 +116,7 @@ Las direcciones IP privadas estáticas se suelen usar para:
 * Recursos a los que se accede desde otras aplicaciones o recursos a través de una dirección IP.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-Se asigna una dirección IP privada a la **interfaz de red** de una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md). En una máquina virtual de interfaz de varias redes, se asigna una dirección IP privada a cada una. Puede especificar el método de asignación como estático o dinámico para una interfaz de red.
+Se asigna una dirección IP privada a la **interfaz de red** de una máquina virtual [Windows](../virtual-machines/windows/about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md). En una máquina virtual de interfaz de varias redes, se asigna una dirección IP privada a cada una. Puede especificar el método de asignación como estático o dinámico para una interfaz de red.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Resolución de nombres de host DNS internos (para máquinas virtuales)
 Todas las máquinas virtuales de Azure se configuran con [servidores DNS administrados por Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) de forma predeterminada, a menos que se configuren explícitamente servidores DNS personalizados. Estos servidores DNS proporcionan la resolución de nombres internos para las máquinas virtuales que residen en la misma red virtual.
@@ -146,9 +147,4 @@ Las direcciones IP públicas pueden tener un precio simbólico. Para más inform
 * [Implementar una máquina virtual con una dirección IP pública estática mediante el portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Implementar una máquina virtual con una dirección IP pública estática mediante una plantilla](virtual-network-deploy-static-pip-arm-template.md)
 * [Implemente una VM con una dirección IP privada estática](virtual-networks-static-private-ip-arm-pportal.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

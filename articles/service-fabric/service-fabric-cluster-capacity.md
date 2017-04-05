@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
-ms.openlocfilehash: 875b344d6ed1f467c8d7a51f46e1c39ec42cfacd
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -42,7 +42,7 @@ Establezca el número de tipos de nodos con los que el clúster tiene que empeza
 * Puesto que no puede predecir el futuro, parta de hechos que conozca y decida el número de tipos de nodo que con el que deben empezar las aplicaciones. Siempre puede agregar o quitar tipos de nodos más adelante. Un clúster de Service Fabric debe tener como mínimo un tipo de nodo.
 
 ## <a name="the-properties-of-each-node-type"></a>Las propiedades de cada tipo de nodo.
-El **tipo de nodo** puede considerarse similar a los roles de Servicios en la nube. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuals independiente (VMSS). Los conjuntos de escalado de máquina virtual son un recurso de proceso de Azure que se pueden usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Al definirse como diferentes conjuntos de escalado de máquina virtual, cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
+El **tipo de nodo** puede considerarse similar a los roles de Servicios en la nube. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuals independiente (VMSS). VMSS es un recurso de proceso de Azure que se puede utilizar para implementar y administrar una serie de máquinas virtuales de forma conjunta. Al definirse como VMSS diferentes, cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, además de tener distintos conjuntos de puertos abiertos y diversas métricas de capacidad.
 
 Lea [este documento](service-fabric-cluster-nodetypes.md) para más información sobre la relación entre Nodetypes y VMSS, cómo usar el protocolo RDP en una de las instancias, abrir nuevos puertos, etc.
 
@@ -71,7 +71,7 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 
 Este privilegio se expresa con los siguientes valores:
 
-* Gold: los trabajos de infraestructura se pueden pausar durante 2 horas por cada UD.
+* Gold: los trabajos de infraestructura se pueden pausar durante 2 horas por cada UD. La durabilidad de Gold solo puede habilitarse en las SKU de la máquina virtual del nodo completo, como D15_V2, G5, etc.
 * Silver: los trabajos de infraestructura se puede pausar durante 30 minutos por UD (este valor no se puede usar actualmente. Una vez habilitado, estará disponible en todas las máquinas virtuales estándar de un solo núcleo y superiores).
 * Bronze: sin privilegios. Este es el valor predeterminado.
 
@@ -133,7 +133,7 @@ Para cargas de trabajo de producción
 
 Lea la información siguiente para cargas de trabajo sin estado.
 
-**Número de instancias de máquina virtual**: para cargas de trabajo de producción sin estado, el tamaño mínimo admitido de tipo de nodo no principal es 2. Esto le permite ejecutar dos instancias sin estado de la aplicación y permite que el servicio para sobreviva a la pérdida de una instancia de máquina virtual. 
+**Número de instancias de máquina virtual:** en el caso de las cargas de trabajo de producción sin estado, el tamaño mínimo admitido del tipo de nodo no principal es 2. Esto le permite ejecutar dos instancias sin estado de la aplicación y permite que el servicio para sobreviva a la pérdida de una instancia de máquina virtual. 
 
 > [!NOTE]
 > Si el clúster se ejecuta en una versión de Service Fabric inferior a la 5.6 debido a un defecto en el entorno de tiempo de ejecución (que se prevé fijar en 5.6), al reducir verticalmente un tipo de nodo no principal a menos de 5, el mantenimiento del clúster pasará a un estado incorrecto hasta que llame a [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) con el nombre de nodo adecuado. Para más información, lea [Escalado o reducción horizontal de un clúster de Service Fabric ](service-fabric-cluster-scale-up-down.md).

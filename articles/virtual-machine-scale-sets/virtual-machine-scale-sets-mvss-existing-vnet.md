@@ -1,6 +1,6 @@
 ---
-title: "Conjuntos de escalado de máquinas virtuales de Azure: plantilla existente de Virtual Network | Microsoft Docs"
-description: Aprenda a crear una plantilla de conjunto de escalado con una red virtual existente.
+title: Referencia a una red virtual en una plantilla de conjunto de escalado de Azure | Microsoft Docs
+description: "Obtenga información sobre cómo agregar una red virtual a una plantilla de un conjunto de escalado de máquinas virtuales de Microsoft Azure existente"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -16,18 +16,17 @@ ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ddb3e1789e49d138e744c2238679236134b69324
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
+ms.lasthandoff: 03/24/2017
 
 ---
 
-# <a name="about-this-article"></a>Información acerca de este artículo
+# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Incorporación de una referencia a una red virtual en una plantilla de conjunto de escalado de Azure
 
 En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado mínimo viable](./virtual-machine-scale-sets-mvss-start.md) para realizar la implementación en una red virtual existente en lugar de crear una nueva.
 
-## <a name="modifying-the-minimum-viable-scale-set-to-deploy-into-an-existing-virtual-network"></a>Modificación del conjunto de escalado mínimo viable para implementarlo en una red virtual existente
+## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
 
 Nuestra plantilla de conjunto de escalado mínimo viable se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), y nuestra plantilla para implementar el conjunto de escalado en una red virtual se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Vamos a examinar la diferencia usada para crear esta plantilla (`git diff master minimum-viable-scale-set`) paso a paso:
 

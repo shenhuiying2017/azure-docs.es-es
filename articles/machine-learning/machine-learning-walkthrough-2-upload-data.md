@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 2c44b51d9c832116bf77758144725d2ed3f6e422
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c2ab5f5252e1ea1ec51f6c3bd489826c70ff011c
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,13 +37,19 @@ Para desarrollar un modelo de predicción de riesgo de crédito, se necesitan da
 
 Usaremos el archivo llamado **german.data**. Descargue este archivo en la unidad de disco duro local.  
 
-Este conjunto de datos contiene filas de 20 variables para 1000 solicitantes de crédito. Estas 20 variables representan el conjunto de características (el vector de características) del conjunto de datos que proporciona características de identificación de cada solicitante de crédito. Una columna adicional en cada fila representa el riesgo de crédito del solicitante, donde 700 solicitantes se identificaron como de bajo riesgo y 300 como de alto riesgo.
+El conjunto de datos **german.data** contiene filas de 20 variables para 1000 solicitantes de crédito. Estas 20 variables representan el conjunto de características (el *vector de características*) del conjunto de datos que proporciona características de identificación de cada solicitante de crédito. Una columna adicional en cada fila representa el riesgo de crédito del solicitante, donde 700 solicitantes se identificaron como de bajo riesgo y 300 como de alto riesgo.
 
 El sitio web de UCI proporciona una descripción de los atributos del vector de características de estos datos. Entre estos figuran la información financiera, el historial crediticio, el estado de empleo e información personal. A cada solicitante se le ha dado una calificación binaria para indicar si son de riesgo de crédito alto o bajo. 
 
 Estos datos los usaremos para entrenar un modelo de análisis predictivo. Cuando hayamos terminado, nuestro modelo debe poder aceptar un nuevo vector de características para una nueva persona y predecir si esta presenta un alto o bajo riesgo de crédito.  
 
-Aquí hay un giro interesante. La descripción del conjunto de datos explica que clasificar erróneamente una persona como de riesgo de crédito bajo cuando en realidad es de riesgo de crédito alto es cinco veces más costoso para la entidad financiera que clasificar erróneamente un riesgo de crédito bajo como alto. Una forma sencilla de tener esto en cuenta en nuestro experimento es duplicar (5 veces) esas entradas que representan a alguien con un riesgo de crédito alto. Luego, si el modelo clasifica erróneamente ese riesgo de crédito alto como bajo, lo hará 5 veces, una por cada duplicado. Esto aumentará el coste de este error en los resultados del entrenamiento.  
+Aquí hay un giro interesante. La descripción del conjunto de datos en el sitio web de UCI menciona lo que cuesta si clasificamos erróneamente el riesgo de crédito de una persona.
+Si el modelo predice un riesgo de crédito alto para un usuario que realmente tiene un riesgo de crédito bajo, el modelo ha realizado una clasificación incorrecta.
+Pero las clasificaciones inversas incorrectas son cinco veces más costosas para la institución financiera: si el modelo predice un riesgo de crédito bajo para un usuario que realmente tiene un riesgo de crédito alto.
+
+Por lo tanto, es deseable entrenar el modelo para que el costo de este último tipo de clasificación incorrecta sea cinco veces mayor que clasificar erróneamente de la otra forma.
+Una forma sencilla de hacerlo al formar el modelo en nuestro experimento es duplicar (cinco veces) esas entradas que representan a alguien con un riesgo de crédito alto. A continuación, si el modelo clasifica erróneamente a una persona como de riesgo de crédito bajo cuando realmente tiene un riesgo alto, el modelo realiza esa misma clasificación incorrecta cinco veces, una vez para cada duplicado. Esto aumentará el coste de este error en los resultados del entrenamiento.
+
 
 ## <a name="convert-the-dataset-format"></a>Conversión del formato del conjunto de datos
 El conjunto de datos original utiliza un formato separado por espacios en blanco. Estudio de aprendizaje automático funciona mejor con un archivo de valores delimitados por comas (CSV), así que vamos a convertir el conjunto de datos y reemplazar los espacios por comas.  
@@ -98,9 +105,4 @@ Para obtener más información sobre la importación de diversos tipos de datos 
 [2]: media/machine-learning-walkthrough-2-upload-data/add-dataset.png
 [3]: media/machine-learning-walkthrough-2-upload-data/upload-dataset.png
 [4]: media/machine-learning-walkthrough-2-upload-data/dataset-list.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

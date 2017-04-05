@@ -3,8 +3,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -112,7 +113,7 @@ En la creación de particiones por rangos, las particiones se asignan en funció
 Un caso especial de la creación de particiones por rangos es cuando el rango es simplemente un único valor discreto, a veces denominado "creación de particiones por búsquedas". Esto se utiliza normalmente para crear particiones por región (por ejemplo, la partición de Escandinavia contiene Noruega, Dinamarca y Suecia) o para crear particiones de los inquilinos en una aplicación de varios inquilinos.
 
 ## <a name="samples"></a>Muestras
-Eche un vistazo al [proyecto de Github de ejemplos de creación de particiones de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning), que contiene fragmentos de código sobre cómo utilizar estos PartitionResolvers y ampliarlos para implementar sus propias resoluciones a fin de ajustarse a casos de uso específicos, como los siguientes: 
+Eche un vistazo al [proyecto de ejemplos de GitHub para la creación de particiones de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning), que contiene fragmentos de código sobre cómo utilizar estos PartitionResolvers y ampliarlos para implementar sus propias resoluciones a fin de ajustarse a casos de uso específicos, como los siguientes: 
 
 * Cómo especificar una expresión lambda arbitraria para GetPartitionKey y usarla para implementar las claves de creación de particiones compuestas o para crear particiones de diferentes tipos de objetos de forma distinta.
 * Cómo crear un valor [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) simple que usa una tabla de búsqueda manual para la creación de particiones. Este patrón se utiliza normalmente para la creación de particiones basadas en valores discretos como región, identificador de inquilino o nombre de aplicación.
@@ -151,14 +152,9 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 ## <a name="references"></a>Referencias
 * [Creación de particiones en el lado servidor en DocumentDB](documentdb-partition-data.md)
 * [Colecciones y niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
-* [Creación de particiones en ejemplos de código en Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
+* [Ejemplos de código de creación de particiones en GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Documentación del SDK de .NET de DocumentDB en MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

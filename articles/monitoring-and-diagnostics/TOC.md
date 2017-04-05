@@ -4,6 +4,7 @@
 ## [Alertas](monitoring-overview-alerts.md)
 ## [Autoscale](monitoring-overview-autoscale.md)
 ## [Registro de actividad](monitoring-overview-activity-logs.md)
+## [Grupos de acciones](monitoring-action-groups.md)
 ## [Registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md)
 ## [Integraciones de asociados](monitoring-partners.md)
 ## [Diagnóstico de Azure](azure-diagnostics.md)
@@ -28,10 +29,19 @@
 ### [Configuración de webhooks y notificaciones por correo electrónico en escalado automático](insights-autoscale-to-webhook-email.md)
 ## Uso del registro de actividad
 ### [Visualización de eventos en el registro de actividad](insights-debugging-with-events.md)
-### [Configuración de webhook en una alerta del registro de actividad](insights-auditlog-to-webhook-email.md)
+### [Configuración de alertas en un evento del registro de actividad](monitoring-activity-log-alerts.md)
 ### [Archivo del registro de actividad](monitoring-archive-activity-log.md)
 ### [Transmisión de registros de actividad a Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md)
+### [Creación de alertas del registro de actividad con Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+## Notificaciones de servicio
+### [Visualización de notificaciones de servicio](monitoring-service-notifications.md)
+### [Configuración de alertas en notificaciones de servicio](monitoring-activity-log-alerts-on-service-notifications.md)
+## Grupos de acciones
+### [Información acerca del esquema de webhook](monitoring-activity-log-alerts-webhook.md)
+### [Comportamiento de alertas por SMS](monitoring-sms-alert-behavior.md)
+### [Limitación de índice de alertas](monitoring-alerts-rate-limiting.md)
+### [Creación de grupos de acciones con Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
 ## Administración de registros de diagnósticos
 ### [Archivar](monitoring-archive-diagnostic-logs.md)
 ### [Transmisión a Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)

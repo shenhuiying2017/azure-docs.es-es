@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Uso de Apache Spark con Kafka (versión preliminar) en HDInsight
@@ -32,11 +34,7 @@ Apache Spark puede utilizarse para trasmitir datos dentro y fuera de Apache Kafk
 
 * Una suscripción de Azure
 
-* Un cliente SSH (se necesitan los comandos `ssh` y `scp`). Para más información sobre el uso de SSH con HDInsight, consulte los siguientes documentos:
-
-    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Uso de SSH con HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Un cliente de SSH (precisa de los comandos `ssh` y `scp`). Para obtener información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [cURL](https://curl.haxx.se/): utilidad multiplataforma para crear solicitudes HTTP.
 
@@ -116,7 +114,7 @@ El código del cuaderno ejecuta las siguientes tareas:
 
 Cada celda del proyecto contiene comentarios o una sección de texto donde se explica qué hace el código.
 
-##<a name="a-idkafkahostsakafka-host-information"></a><a id="kafkahosts"></a>Información sobre los hosts de Kafka
+##<a id="kafkahosts"></a>Información sobre los hosts de Kafka
 
 Lo primero que debe hacer cuando cree una aplicación que funcione con Kafka en HDInsight es obtener información del agente de Kafka y los hosts de Zookeeper del clúster Kafka. Esta información la utilizarán las aplicaciones cliente para comunicarse con Kafka.
 
@@ -183,10 +181,5 @@ En este documento, ha aprendido a usar Spark para leer y escribir en Kafka. Util
 * [Introducción a Apache Kafka en HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Uso de MirrorMaker para crear una réplica de Kafka en HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Uso de Apache Kafka con Storm en HDInsight](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

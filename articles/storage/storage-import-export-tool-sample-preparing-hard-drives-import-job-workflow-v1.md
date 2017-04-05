@@ -1,5 +1,5 @@
 ---
-title: "Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación de Azure| Microsoft Docs"
+title: "Flujo de trabajo de ejemplo para preparar unidades de disco duro para un trabajo de importación de Azure Import/Export (versión 1) | Microsoft Docs"
 description: "Vea un tutorial para conocer el proceso completo de preparación de las unidades para un trabajo de importación en el servicio Azure Import/Export."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: ee7a8c9ae4cda5b67184100dd37ee4e0384aff26
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 313f8c1f3962a943b4c98c530c324ff28aa84c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -49,7 +49,7 @@ A continuación, para determinar cuántas unidades de disco duro se necesitan, c
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-En este ejemplo, dos unidades de disco duro de 3TB deberían ser suficientes. Sin embargo, dado que el directorio de origen `H:\Video` tiene 5 TB de datos y la capacidad de la unidad de disco duro es de solo 3TB, es necesario dividir `H:\Video` en dos directorios más pequeños antes de ejecutar la herramienta Microsoft Azure Import/Export: `H:\Video1` y `H:\Video2`. Este paso genera los siguientes directorios de origen:  
+En este ejemplo, dos unidades de disco duro de 3TB deberían ser suficientes. Sin embargo, dado que el directorio de origen `H:\Video` tiene 5 TB de datos y la capacidad de la unidad de disco duro es de solo 3 TB, es necesario dividir `H:\Video` en dos directorios más pequeños antes de ejecutar la herramienta Microsoft Azure Import/Export: `H:\Video1` y `H:\Video2`. Este paso genera los siguientes directorios de origen:  
   
 |Ubicación|Tamaño|Directorio virtual o blob de destino|  
 |--------------|----------|-------------------------------------------|  
@@ -74,7 +74,7 @@ En este ejemplo, dos unidades de disco duro de 3TB deberían ser suficientes. Si
   
 Además, puede establecer los metadatos siguientes para todos los archivos:  
   
--   **UploadMethod:** Windows Azure Import/Export Service  
+-   **UploadMethod:** servicio Microsoft Azure Import/Export  
   
 -   **DataSetName:** SampleData  
   
@@ -85,7 +85,7 @@ Para establecer los metadatos de los archivos importados, cree un archivo de tex
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -131,38 +131,50 @@ Ahora está listo para ejecutar la herramienta Azure Import/Export para preparar
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
+## <a name="copy-sessions---first-drive"></a>Copia de sesiones: primera unidad
+
 Para la primera unidad, ejecute la herramienta Azure Import/Export dos veces para copiar los dos directorios de origen:  
+
+**Primera sesión de copia**
   
 ```
-## First copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
 
+**Segunda sesión de copia**
+
 ```  
-## Second copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
-  
+
+## <a name="copy-sessions---second-drive"></a>Copia de sesiones: segunda unidad
+ 
 Para la segunda unidad, ejecute la herramienta Azure Import/Export tres veces, una para cada uno de los directorios de origen y otra para el archivo de imagen independiente Blu-Ray™:  
   
+**Primera sesión de copia** 
+
 ```
-## First copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Video2 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:y /format /encrypt /srcdir:H:\Video2 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
   
+**Segunda sesión de copia**
+
 ```
-## Second copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\john\music /dstdir:music/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```  
   
+**Tercera sesión de copia**  
+
 ```
-## Third copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
-  
+
+## <a name="copy-session-completion"></a>Finalización de la sesión de copia
+
 Cuando se hayan completado las sesiones de copia, podrá desconectar las dos unidades del equipo de copia y enviarlas al centro de datos de Microsoft Azure adecuado. Cargará los dos archivos de diario, `FirstDrive.jrn` y `SecondDrive.jrn`, cuando cree el trabajo de importación en el [Portal de administración de Microsoft Azure](https://manage.windowsazure.com/).  
   
-## <a name="see-also"></a>Otras referencias  
-[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparación de unidades de disco duro para un trabajo de importación)  
-[Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference-v1.md) (Referencia rápida para comandos usados con frecuencia) 
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference-v1.md) (Referencia rápida para comandos usados con frecuencia) 
 

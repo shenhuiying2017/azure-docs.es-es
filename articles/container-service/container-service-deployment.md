@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 003d975f57d63bcb95d6b0de9dcfaf8816fcdd6f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Implementación de una solución de hospedaje de contenedor de Docker mediante Azure Portal
@@ -38,7 +38,7 @@ Para más información, consulte [Presentación de Azure Container Service](cont
 
 * **Suscripción a Azure:** si no tiene una, suscríbase para una obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-* **Clave pública RSA de SSH**: si la implementación se realiza a través del portal o de una de las plantillas de inicio rápido de Azure, es preciso especificar la clave pública para la autenticación con máquinas virtuales de Azure Container Service. Para crear claves RSA de SSH (Secure Shell), consulte las instrucciones de [OS X y Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o de [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Clave pública RSA de SSH**: si la implementación se realiza a través del portal o de una de las plantillas de inicio rápido de Azure, es preciso especificar la clave pública para la autenticación con máquinas virtuales de Azure Container Service. Para crear claves RSA de SSH (Secure Shell), consulte las instrucciones de [OS X y Linux](../virtual-machines/linux/mac-create-ssh-keys.md) o de [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **Identificador y secreto de cliente de entidad de servicio** (solo Kubernetes): para más información e instrucciones sobre cómo crear una entidad de servicio de Azure Active Directory, consulte [Acerca de la entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service](container-service-kubernetes-service-principal.md).
 

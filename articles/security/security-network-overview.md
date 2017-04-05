@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 03/28/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,6 +29,7 @@ El objetivo de este artículo es que pueda comprender de forma más fácil lo qu
 Este artículo de información general sobre la seguridad de red en Azure se centra en los siguientes temas:
 
 * Redes de Azure
+* Azure Network Watcher
 * Control de acceso de red
 * Protección del acceso remoto y la conectividad local
 * Disponibilidad
@@ -43,6 +44,18 @@ Las máquinas virtuales necesita conectividad de red. Para satisfacer este requi
 Más información:
 
 * [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
+
+## <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher incluye un gran número de funcionalidades de supervisión de red que le ayudarán a solucionar problemas, así como proporcionar un nuevo conjunto completo de herramientas que le ayudarán a identificar los problemas de seguridad.
+
+[La vista de grupo de seguridad ](/network-watcher/network-watcher-security-group-view-overview.md) ayuda con el cumplimiento de seguridad y auditoría de las máquinas virtuales y puede usarse para realizar auditorías mediante programación al comparar las directivas de las líneas de base definidas por su organización con las reglas vigentes para cada una de las máquinas virtuales. Esto puede ayudarle a identificar cualquier cambio en la configuración.
+
+La [captura de paquetes](/network-watcher/network-watcher-packet-capture-overview.md) le permite capturar el tráfico de red hacia y desde la máquina virtual. Además de permitirle recopilar las estadísticas de la red y con la solución de problemas de captura de paquetes de problemas de la aplicación puede ser muy útil en la investigación de las intrusiones de red. También puede usar esta funcionalidad junto con Azure Functions para iniciar las capturas de red en respuesta a alertas específicas de Azure.
+
+Para más información sobre Azure Network Watcher y cómo comenzar a probar algunas de las funciones en los laboratorios, eche un vistazo a la [introducción sobre supervisión de Azure Network Watcher](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+Azure Network Watcher sigue en versión preliminar pública y puede no tener el mismo nivel de disponibilidad y confiabilidad que los servicios que están en versión de disponibilidad general. Puede que algunas características no se admitan, que tengan funcionalidades limitadas y que no estén disponibles en todas las ubicaciones de Azure. Para obtener las notificaciones más recientes sobre la disponibilidad y el estado de este servicio, consulte la página de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ## <a name="network-access-control"></a>Control de acceso de red
 El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una red virtual de Azure. El objetivo es garantizar que las máquinas virtuales y los servicios sean accesibles solo para los usuarios y dispositivos pertinentes. Los controles de acceso se basan en decisiones de permiso o denegación a y desde la máquina virtual o el servicio.
@@ -213,6 +226,7 @@ También puede usar [Microsoft Power BI](https://powerbi.microsoft.com/what-is-p
 Más información:
 
 * [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+
 
 ## <a name="name-resolution"></a>Resolución de nombres
 La resolución de nombres es una función crítica para todos los servicios hospedados en Azure. Desde una perspectiva de la seguridad, poner en peligro esta función puede dar lugar a que un atacante redirija las solicitudes de sus sitios al sitio de dicho individuo. Proteger la resolución de nombres es un requisito de todos los servicios hospedados en la nube.

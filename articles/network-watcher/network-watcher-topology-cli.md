@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 404e621bc1d16d15aeb705a1055ed4c2b9e251a2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 02add070405f3f00d3631362a2b139239d44c34d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -28,31 +28,31 @@ ms.lasthandoff: 02/23/2017
 > - [CLI](network-watcher-topology-cli.md)
 > - [API de REST](network-watcher-topology-rest.md)
 
-La característica Topology de Network Watcher proporciona una representación visual de los recursos de red de una suscripción. En el portal, esta visualización se muestra automáticamente. La información subyacente a la vista de topología en el portal se puede obtener mediante PowerShell.
+La característica Topología de Network Watcher proporciona una representación visual de los recursos de red de una suscripción. En el portal, esta visualización se muestra automáticamente. La información subyacente a la vista de topología en el portal se puede obtener mediante PowerShell.
 Esta funcionalidad hace que la información de la topología sea más versátil porque otras herramientas pueden usar los datos para crear la visualización.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+En este artículo, se utiliza la multiplataforma Azure CLI 1.0, que está disponible para Windows, Mac y Linux. Network Watcher usa actualmente Azure CLI 1.0 para la compatibilidad con CLI.
 
 La interconexión se modela en dos relaciones.
 
-- **Contención**: por ejemplo, una red virtual contiene una subred que contiene una NIC.
+- **Contención**: por ejemplo, una red virtual contiene una subred que incluye una NIC.
 - **Asociación**: por ejemplo, la NIC está asociada a una máquina virtual.
 
-La lista siguiente muestra las propiedades que se devuelven cuando se consulta la API de REST Topology.
+La lista siguiente muestra las propiedades que se devuelven cuando se consulta la API de REST de Topología.
 
-* **name**: nombre del grupo de recursos.
-* **id**: URI del recurso.
+* **name**: nombre del recurso.
+* **id**: identificador URI del recurso.
 * **location**: ubicación donde existe el recurso.
 * **associations**: lista de asociaciones para el objeto al que se hace referencia.
     * **name**: nombre del recurso al que se hace referencia.
-    * **resourceId**: uri del recurso al que se hace referencia en la asociación.
+    * **resourceId**: identificador URI del recurso al que se hace referencia en la asociación.
     * **associationType**: este valor hace referencia a la relación entre los objetos secundario y primario. Los valores válidos son **Contains** o **Associated**.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este escenario, se usa el cmdlet `network watcher topology` para recuperar la información de la topología. También hay un artículo sobre cómo [recuperar la topología de red con la API de REST](network-watcher-topology-rest.md).
 
-En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red.
+En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher.
 
 ## <a name="scenario"></a>Escenario
 

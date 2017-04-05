@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
-ms.openlocfilehash: 95fbe26a9bb886c6edbb862c9e15885ffc5eeed6
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 5600adfbc20fb499bdd206e966a9730f49a03e40
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: integración de Azure Active Directory con SprinkCM
-El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único entre Azure Active Directory y SpringCM.
+El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único (SSO) entre Azure Active Directory y SpringCM.
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en SpringCM
+* Una suscripción habilitada para el inicio de sesión único (SSO) en SpringCM
 
-Después de completar este tutorial, los usuarios de Azure Active Directory que haya asignado a SpringCM podrán realizar inicios de sesión únicos mediante el panel de acceso de AAD.
+Después de completar este tutorial, los usuarios de Azure Active Directory que haya asignado a SpringCM podrán realizar SSO mediante el panel de acceso de AAD.
 
 1. Habilitación de la integración de aplicaciones para SpringCM
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
@@ -40,7 +40,8 @@ Después de completar este tutorial, los usuarios de Azure Active Directory que 
 ## <a name="enabling-the-application-integration-for-springcm"></a>Habilitación de la integración de aplicaciones para SpringCM
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones en SpringCM.
 
-### <a name="to-enable-the-application-integration-for-springcm-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para SpringCM:
+**Siga estos pasos con el fin de habilitar la integración de aplicaciones para SpringCM:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-spring-cm-tutorial/IC700993.png "Active Directory")
@@ -67,10 +68,11 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
    
     ![SpringCM](./media/active-directory-saas-spring-cm-tutorial/IC797046.png "SpringCM")
 
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en SpringCM con su cuenta de Azure AD a través de la federación basada en el protocolo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **SpringCM**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Configurar inicio de sesión único")
@@ -97,32 +99,28 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 7. En la sección de configuración del proveedor de identidades, realice los pasos siguientes:
    
-    ![Configuración del proveedor de identidades](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "Configuración del proveedor de identidades")
-   
-    a. Para cargar el certificado descargado de Azure Active Directory, haga clic en **Seleccionar certificado de emisor** o **Cambiar el certificado del emisor**.
-   
-    b. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
-   
-    c. En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Punto de conexión iniciado por el proveedor de servicios (SP)**.
-   
-    d. Como **SAML habilitado**, seleccione **Habilitar**.
-   
-    e. Haga clic en **Save**.
+    ![Configuración del proveedor de identidades](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "Configuración del proveedor de identidades")   
+  1. Para cargar el certificado descargado de Azure Active Directory, haga clic en **Seleccionar certificado de emisor** o **Cambiar el certificado del emisor**.
+  2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
+  3. En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Punto de conexión iniciado por el proveedor de servicios (SP)**.
+  4. Como **SAML habilitado**, seleccione **Habilitar**.
+  5. Haga clic en **Guardar**.
 
 8. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configurar inicio de sesión único")
 
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 Para permitir que los usuarios de Azure Active Directory inicien sesión en SpringCM, deben aprovisionarse en SpringCM.  
+
 En el caso de SpringCM, el aprovisionamiento es una tarea manual.
 
-> [!NOTE]
-> Para obtener más información, vea [Crear y editar un usuario de SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user)
-> 
+>[!NOTE]
+>Para obtener más información, vea [Create and Edit a SpringCM User](http://knowledge.springcm.com/create-and-edit-a-springcm-user) (Creación y edición de un usuario de SpringCM). 
 > 
 
-### <a name="to-provision-a-user-account-to-springcm-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario a SpringCM, realice los siguientes pasos:
+**Para aprovisionar cuentas de usuario en SpringCM, realice los siguientes pasos:**
+
 1. Inicie sesión en su sitio de compañía de **SpringCM** como administrador.
 
 2. Haga clic en **GOTO** y, luego, en **Libreta de direcciones**.
@@ -141,15 +139,15 @@ En el caso de SpringCM, el aprovisionamiento es una tarea manual.
 
 8. Haga clic en **Save**.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.
-> 
-> 
+  >[!NOTE]
+  >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.  
+  > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-springcm-perform-the-following-steps"></a>Para asignar usuarios a SpringCM, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a SpringCM, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2. En la página de integración de la aplicación **SpringCM**, haga clic en **Asignar usuarios**.

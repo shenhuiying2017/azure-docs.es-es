@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/09/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2924309737f2bc631e4e4f764bc7e8473353e865
-ms.openlocfilehash: 053f6c292f942da6565b24ef5eecdabf85f15525
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 3d1f24cb23a58b4478a30c5e4a0858b474d5d90e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -32,16 +32,17 @@ Después de completar este tutorial, los usuarios de Azure AD que ha asignado a 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para ITRP
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-itrp-tutorial/IC775551.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-itrp"></a>Habilitación de la integración de aplicaciones para ITRP
+## <a name="enable-the-application-integration-for-itrp"></a>Habilitación de la integración de aplicaciones para ITRP
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para ITRP.
 
-### <a name="to-enable-the-application-integration-for-itrp-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para ITRP:
+**Siga estos pasos con el fin de habilitar la integración de aplicaciones para ITRP:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
@@ -68,13 +69,16 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
    
     ![ITRP](./media/active-directory-saas-itrp-tutorial/IC775566.png "ITRP")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en ITRP con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.  
+
 La configuración de un inicio de sesión único para ITRP requiere la recuperación de un valor de huella digital de un certificado.  
+
 Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **ITRP**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC771709.png "Configurar inicio de sesión único")
@@ -105,33 +109,30 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
    
     ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775572.png "Inicio de sesión único")
     
-    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Inicio de sesión único")
-   
-    a. Hacer clic en **Habilitar**.
-   
-    b. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Remote Logout URL** (Dirección URL de cierre de sesión remoto).
-   
-    c. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML).
-   
-    d. Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Certificate Fingerprint** (Huella digital del certificado).
+    ![Inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775573.png "Inicio de sesión único")   
+  1. Hacer clic en **Habilitar**.
+  2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Remote Logout URL** (Dirección URL de cierre de sesión remoto).
+  3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ITRP**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML).
+  4. Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Certificate Fingerprint** (Huella digital del certificado).
       
-    > [!TIP]
-    > Para más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
-   
-    e. Haga clic en **Save**.
+     >[!TIP]
+     >Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+     >
+    
+  5. Haga clic en **Guardar**.
 
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-itrp-tutorial/IC775574.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para permitir que los usuarios de Azure AD inicien sesión en ITRP, tienen que aprovisionarse en ITRP.  
+
 En el caso de ITRP, el aprovisionamiento es una tarea manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice estos pasos:
+**Para aprovisionar cuentas de usuario, realice estos pasos:**
+
 1. Inicie sesión en su inquilino de **ITRP** .
 
 2. En la barra de herramientas de la parte superior, haga clic en el icono de **Registros**.
@@ -148,21 +149,19 @@ En el caso de ITRP, el aprovisionamiento es una tarea manual.
 
 5. En el cuadro de diálogo Add New Person (Agregar nueva persona), realice los pasos siguientes:
    
-    ![Usuario](./media/active-directory-saas-itrp-tutorial/IC775577.png "Usuario")
-   
-    a. Escriba el **nombre** y el **correo electrónico** de la cuenta válida de AAD que desee aprovisionar.
-   
-    b. Haga clic en **Save**.
+    ![Usuario](./media/active-directory-saas-itrp-tutorial/IC775577.png "Usuario")   
+  1. Escriba el **nombre** y el **correo electrónico** de la cuenta válida de AAD que desee aprovisionar.
+  2. Haga clic en **Save**.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ITRP que proporcione ITRP para aprovisionar cuentas de usuario de AAD.
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ITRP que proporcione ITRP para aprovisionar cuentas de usuario de AAD. 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-itrp-perform-the-following-steps"></a>Para asignar usuarios a ITRP, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a ITRP, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure AD, cree una cuenta de prueba.
 
 2. En la página de integración de la aplicación **ITRP**, haga clic en **Asignar usuarios**.
