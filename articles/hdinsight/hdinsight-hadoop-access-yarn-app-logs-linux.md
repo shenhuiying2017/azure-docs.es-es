@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dd5471da4d1e69b51d355784dfa2551bc61e9ad9
-ms.openlocfilehash: 508ea94278dc2410e5b9ea1ba760a8a923f12bbd
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1d568bc6ab8f2801d575d726352f4c68e1f9277a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +33,7 @@ En este documento se explica cómo acceder a los registros de aplicaciones de YA
 * Un clúster de HDInsight basado en Linux
 * Debe [crear un túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) para poder acceder a la interfaz de usuario web de registros de ResourceManager.
 
-## <a name="a-nameyarntimelineserverayarn-timeline-server"></a><a name="YARNTimelineServer"></a>Servidor de escala de tiempo de YARN
+## <a name="YARNTimelineServer"></a>Servidor de escala de tiempo de YARN
 El [Servidor de escala de tiempo de YARN](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) ofrece información genérica sobre las aplicaciones completadas e información de aplicaciones específicas del marco a través de dos interfaces diferentes. Concretamente:
 
 * Se ha habilitado el almacenamiento y la recuperación de información de aplicaciones genéricas en clústeres de HDInsight con la versión 3.1.1.374 o superiores.
@@ -44,7 +46,7 @@ La información genérica sobre aplicaciones incluye los siguientes tipos de dat
 * La información acerca de los intentos realizados para completar la aplicación.
 * Los contenedores usados por cualquier intento de aplicación concreto.
 
-## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Registros y aplicaciones de YARN
+## <a name="YARNAppsAndLogs"></a>Registros y aplicaciones de YARN
 
 YARN admite varios modelos de programación (MapReduce es uno de ellos) al desacoplar la administración de recursos de la programación/supervisión de aplicaciones. Esto se realiza mediante un *Resource Manager* (RM) global, por nodo de trabajo *Administradores de nodos* (NM) y por aplicación *Maestros de aplicación* (AM). El AM por aplicación negocia recursos (CPU, memoria, disco, red) para ejecutar la aplicación con el RM. El RM funciona con NM para conceder estos recursos como *contenedores*. El AM es responsable del seguimiento del progreso de los contenedores asignados a él por el RM. Una aplicación puede requerir muchos contenedores según la naturaleza de la aplicación.
 
@@ -60,17 +62,14 @@ Los registros agregados no son legibles directamente tal como se escriben en un 
 
 ## <a name="yarn-cli-tools"></a>Herramientas de la CLI de YARN
 
-Para poder usar las herramientas de la CLI de YARN, tiene que conectarse primero al clúster de HDInsight mediante SSH. Para obtener más información sobre el uso de SSH con HDInsight, consulte uno de los siguientes documentos:
-
-* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+Para poder usar las herramientas de la CLI de YARN, tiene que conectarse primero al clúster de HDInsight mediante SSH. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Puede ver estos registros como texto sin formato ejecutando uno de los siguientes comandos:
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-Al ejecutar estos comandos debe usar la siguiente información: &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> y &ltworker-node-address>.
+Al ejecutar estos comandos, debe especificar la siguiente información: &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> y &lt;worker-node-address>.
 
 ## <a name="yarn-resourcemanager-ui"></a>Interfaz de usuario de ResourceManager de YARN
 La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principal del clúster y se puede acceder a ella a través de la interfaz de usuario web de Ambari; pero, para ello, primero tiene que [crear un túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) .
@@ -92,9 +91,4 @@ Una vez creado un túnel SSH, siga estos pasos para ver los registros de YYARN:
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

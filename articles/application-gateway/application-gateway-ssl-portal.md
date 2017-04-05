@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: b1852b82875c63fa0e252c14b69b281bd501095f
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -69,7 +70,7 @@ Rellene la información necesaria para el agente de escucha y cargue el certific
 
 ## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Creación de una regla y asociación de la misma al agente de escucha
 
-Ahora se ha creado el agente de escucha. Es hora de crear una regla para controlar el tráfico desde el agente de escucha.
+Ahora se ha creado el agente de escucha. Es hora de crear una regla para controlar el tráfico desde el agente de escucha. Las reglas definen cómo se enruta el tráfico a los grupos de back-end basándose en varias opciones de configuración, incluido el uso o no de afinidad de sesión basada en cookies, protocolos y sondeos de puertos y estados.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -93,9 +94,4 @@ Para aprender a configurar un sondeo de estado personalizado con Puerta de enlac
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

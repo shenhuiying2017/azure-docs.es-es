@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 374b2601857b3983bcd7b2f2e11d22b187fe7105
-ms.openlocfilehash: 732ebaaf5bf16c02cfc2185d9e7138daf74c71dd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 15a1605938941b056eda1a151ea018d05bffc246
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -74,28 +74,28 @@ az disk create --resource-group myResourceGroup --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-Obtenga el identificador URI del disco administrado que ha creado con [az disk list](/cli/azure/disk/list):
+Obtenga los detalles del disco administrado que ha creado con [az disk list](/cli/azure/disk/list):
 
 ```azurecli
 az disk list --resource-group myResourceGroup \
-  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
+  --query [].{Name:name,ID:id} --output table
 ```
 
 La salida es similar a la del ejemplo siguiente:
 
 ```azurecli
-Name               URI
+Name               ID
 -----------------  ----------------------------------------------------------------------------------------------------
-myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
 ```
 
-A continuación, cree la máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el identificador URI del disco administrado (`--image`). En el ejemplo siguiente se crea una máquina virtual denominada `myVM` mediante el disco administrado creado a partir del disco duro virtual cargado:
+A continuación, cree la máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el nombre del disco administrado (`--attach-os-disk`). En el ejemplo siguiente se crea una máquina virtual denominada `myVM` mediante el disco administrado creado a partir del disco duro virtual cargado:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myUMDiskFromVHD
+    --attach-os-disk myManagedDisk
 ```
 
 ### <a name="unmanaged-disks"></a>Discos no administrados

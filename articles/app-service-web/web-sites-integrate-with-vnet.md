@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -95,7 +95,7 @@ Si la red virtual carece de puerta de enlace o de conectividad de punto a sitio,
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Habilitación de punto a sitio en una red virtual de Resource Manager
-Para configurar una red virtual de Resource Manager con una puerta de enlace y una conexión de punto a sitio, es preciso usar PowerShell tal como se describe aquí, [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S].  La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible. 
+Para configurar una red virtual de Resource Manager con una puerta de enlace y la conexión de punto a sitio, puede usar PowerShell tal y como se describe aquí ([Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]) o utilizar Azure Portal tal como se explica aquí ([Configuración de una conexión de punto a sitio a una red virtual mediante Azure Portal][V2VNETPortal]).  La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creación de una red virtual preconfigurada
 Si desea crear una nueva red virtual que esté configurada con una puerta de enlace y una conexión de punto a sitio, la interfaz de usuario de redes del Servicio de aplicaciones dispone de la funcionalidad para hacerlo, pero solo para una red virtual de Resource Manager.  Si desea crear una red virtual clásica con una puerta de enlace y conexión de punto a sitio, deberá hacerlo manualmente a través de la interfaz de usuario de redes. 
@@ -300,4 +300,5 @@ Además de las diferencias funcionales, existen también diferencias de precio. 
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 

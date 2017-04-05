@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3440d7e80e6a806c4119dff687fb9c590b8f0d14
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -81,7 +81,7 @@ Siga los pasos siguientes para obtener la ubicación de envío:
 -   La lista de blobs (o prefijos de blob) que se exportarán.
 
 ## <a name="shipping-your-drives"></a>Envío de las unidades de disco
- A continuación, use la herramienta Azure Import/Export para determinar el número de unidades que necesita enviar, en función de los blobs seleccionados para la exportación y del tamaño de la unidad de disco. Vea [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) (Referencia de la herramienta Azure Import/Export) para obtener información detallada.
+ A continuación, use la herramienta Azure Import/Export para determinar el número de unidades que necesita enviar, en función de los blobs seleccionados para la exportación y del tamaño de la unidad de disco. Vea [Referencia de la herramienta Azure Import-Export](storage-import-export-tool-how-to-v1.md) para obtener información detallada.
 
  Introduzca todas las unidades de disco en un único paquete y envíelo a la dirección obtenida en el paso anterior. Anote el número de seguimiento del paquete para el paso siguiente.
 
@@ -94,6 +94,7 @@ Siga los pasos siguientes para obtener la ubicación de envío:
 ## <a name="receiving-the-package"></a>Recepción del paquete
  Una vez procesado el trabajo de exportación, las unidades de disco se le devolverán con los datos cifrados. Puede recuperar la clave de BitLocker de cada una de las unidades de disco mediante una llamada a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). A continuación, puede desbloquear la unidad con la clave. El archivo de manifiesto de cada unidad contiene la lista de archivos de la unidad, así como la dirección del blob original de cada archivo.
 
-## <a name="see-also"></a>Otras referencias
- [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 09747f06d06f2f0e105b3eef9d46e1505b9e1a7b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
+ms.lasthandoff: 03/23/2017
 
 ---
 
@@ -28,9 +28,9 @@ El proxy de la aplicación Azure Active Directory y PingAccess se han asociado p
 
 Para conceder a los usuarios acceso a aplicaciones que utilizan encabezados para la autenticación, la aplicación se publica para el acceso remoto tanto en el proxy de la aplicación como en PingAccess. El proxy de la aplicación trata estas aplicaciones como a las demás, usa Azure AD para autenticar el acceso y, después, pasa el tráfico a través del servicio de conector. PingAccess se coloca delante de las aplicaciones y convierte el token de acceso de Azure AD en un encabezado, con el fin de que la aplicación reciba la autenticación en un formato que pueda leer. 
 
-Los usuarios no notarán ninguna diferencia al iniciar sesión para usar las aplicaciones corporativas. Podrán seguir trabajando desde cualquier lugar y en cualquier dispositivo. Cuando los usuarios están en la oficina, el proxy de la aplicación no enruta sus solicitudes de autenticación, pero PingAccess actúa como intermediario para traducir sus tokens en encabezados. 
+Los usuarios no notarán ninguna diferencia al iniciar sesión para usar las aplicaciones corporativas. Podrán seguir trabajando desde cualquier lugar y en cualquier dispositivo. Cuando los usuarios están en la oficina, ni el proxy de la aplicación ni PingAccess interceptan el tráfico, por lo que los usuarios obtienen la misma experiencia de siempre.
 
-Dado que los conectores del proxy de la aplicación dirigen el tráfico a todas las aplicaciones, independientemente de su tipo de autenticación, seguirán equilibrando la carga de forma automática. 
+Dado que los conectores del proxy de la aplicación dirigen el tráfico remoto a todas las aplicaciones, independientemente de su tipo de autenticación, seguirán equilibrando la carga de forma automática. 
 
 ## <a name="how-do-i-get-access"></a>¿Cómo puedo obtener acceso?
 
@@ -69,20 +69,25 @@ Esta sección tiene dos partes. En primer lugar, es preciso publicar la aplicaci
 3. Seleccione **Agregar** en la parte superior de la hoja. 
 4. Seleccione **Aplicación local**.
 5. Rellene los campos requeridos con la información de la aplicación nueva. Utilice las siguientes instrucciones para realizar la configuración:
-  - **Dirección URL interna**: especifique la dirección URL que lleva a la página de inicio de sesión la aplicación cuando esté en la red corporativa.
+  - **Dirección URL interna**: normalmente, especifica la dirección URL que lleva a la página de inicio de sesión la aplicación cuando esté en la red corporativa. Para esta asociación, el conector tiene que tratar el proxy PingAccess como la página principal de la aplicación. Use este formato: `https://<host name of your PA server>:<port>/<App path name>`. El puerto predeterminado es 3000, pero puedo configurar uno distinto en PingAccess.
   - **Método de autenticación previa**: Azure Active Directory.
   - **Traducir URL en encabezados**: No.
 6. Seleccione **Agregar** en la parte inferior de la hoja. Se agrega la aplicación y se abre el menú de inicio rápido. 
 7. En dicho menú, seleccione **Asignar un usuario para las pruebas** y agregue al menos un usuario a la aplicación. Asegúrese de que esta cuenta de prueba tiene acceso a la aplicación local. 
 8. Seleccione **Asignar** para guardar la asignación del usuario de prueba. 
 9. En la hoja de administración de la aplicación, seleccione **Inicio de sesión único**. 
-10. Elija **Header-based sign-on** (Inicio de sesión basado en encabezado) en el menú desplegable. Seleccione **Guardar**. 
+10. Elija **Header-based sign-on** (Inicio de sesión basado en encabezado) en el menú desplegable. Seleccione **Guardar**.
+
+  ![Selección del inicio de sesión basado en encabezados](./media/application-proxy-ping-access/sso-header.PNG)
+
 11. Cierre la hoja Aplicaciones empresariales o desplácese completamente hacia la izquierda para volver al menú de Azure Active Directory. 
 12. Seleccione **App registrations** (Registros de aplicaciones).
 13. Seleccione la aplicación que se acaba de agregar y seleccione **Direcciones URL de respuesta**. 
 14. Compruebe si la dirección URL externa que asignó a la aplicación en el paso 5 se encuentra en la lista de direcciones URL de respuesta. Si no está, agréguela ahora. 
 15. En la hoja de configuración de la aplicación, seleccione **Permisos necesarios**. 
-16. Seleccione **Agregar**. Para la API, elija **Microsoft Azure Active Directory** y, después, **Seleccionar**. Para los permisos, elija **Read and write all applications** (Leer y escribir en todas las aplicaciones), luego **Seleccionar** y, finalmente, **Listo**.   
+16. Seleccione **Agregar**. Para la API, elija **Microsoft Azure Active Directory** y, después, **Seleccionar**. Para los permisos, elija **Read and write all applications** (Leer y escribir en todas las aplicaciones) y **Sign in and read user profile** (Iniciar sesión y leer perfil de usuario), luego **Seleccionar** y, finalmente, **Listo**.  
+
+  ![Selección de permisos](./media/application-proxy-ping-access/select-permissions.png) 
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Recopilación de información para los pasos de PingAccess
 

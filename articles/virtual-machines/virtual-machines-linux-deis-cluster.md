@@ -17,9 +17,9 @@ ms.date: 06/24/2015
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c0fc55d24506f669a74d67a803304ebf0b53bf21
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -178,7 +178,7 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 4. Agregue id_rsa.pub o la clave pública que desee a GitHub. Puede hacerlo mediante el botón Agregar clave SSH en la pantalla de configuración de claves SSH:
    
-   ![Clave de Github](media/virtual-machines-linux-deis-cluster/github-key.png)
+   ![Clave de GitHub](media/virtual-machines-linux-deis-cluster/github-key.png)
    
    <p />
 5. Registre un nuevo usuario:

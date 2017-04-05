@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
-ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -60,17 +61,39 @@ Siga las instrucciones del [tutorial de creación de un tutorial](cloud-services
 ### <a name="disable-ssl-30"></a>Deshabilitar SSL 3.0
 Para deshabilitar SSL 3.0 y usar la seguridad TLS, cree una tarea de inicio que se documente en esta entrada de blog: https://azure.microsoft.com/en-us/blog/how-to-disable-ssl-3-0-in-azure-websites-roles-and-virtual-machines/
 
-## <a name="scale-a-cloud-service"></a>Escalar un servicio en la nube
+### <a name="add-nosniff-to-your-website"></a>Agregue **nosniff** a su sitio web
+Para evitar que los clientes curioseen en los tipos MIME, agregue un ajuste a su archivo *web.config*.
+
+```xml
+<configuration>
+   <system.webServer>
+      <httpProtocol>
+         <customHeaders>
+            <add name="X-Content-Type-Options" value="nosniff" />
+         </customHeaders>
+      </httpProtocol>
+   </system.webServer>
+</configuration>
+```
+
+También puede agregarlo como un ajuste en IIS. Use el comando siguiente con el artículo [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) (tareas comunes de inicio).
+
+```cmd
+%windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
+```
+
+### <a name="customize-iis-for-a-web-role"></a>Personalización de IIS para un rol web
+Use el script de inicio de IIS del artículo [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) (tareas comunes de inicio).
+
+## <a name="scaling"></a>Escalado
 ### <a name="i-cannot-scale-beyond-x-instances"></a>No puedo escalar más allá de X instancias
 La suscripción de Azure tiene un límite en el número de núcleos que se pueden usar. El escalado no funcionará si ha usado todos los núcleos disponibles. Por ejemplo, si tiene un límite de 100 núcleos, esto significa que podría tener 100 instancias de máquina virtual de tamaño A1 para su servicio en la nube o 50 instancias de máquina virtual de tamaño A2.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="networking"></a>Redes
 ### <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>No se puede reservar una dirección IP en un servicio en la nube con varias direcciones IP virtuales
 En primer lugar, asegúrese de que la instancia de máquina virtual para la que está intentando reservar la dirección IP está activada. En segundo lugar, asegúrese de que utiliza direcciones IP reservadas para las implementaciones de ensayo y de producción. **No** cambie la configuración mientras se está actualizando la implementación.
 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+## <a name="remote-desktop"></a>Escritorio remoto
+### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>¿Cómo se usa el escritorio remoto con un NSG?
+Agregue una regla al NSG que reenvía al puerto **20000**.
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b832916f5b6fe413f9fc7b3fcefcea40d3ce7ef
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 03/09/2017
 Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si no es así, puede provocar una pérdida de conectividad y además, hasta hoy en día, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
 
 Con la característica de solución de problemas de Azure Network Watcher, es posible diagnosticar cualquier problema de la puerta de enlace y las conexiones y, en cuestión de minutos, disponer de información suficiente para tomar una decisión informada para rectificar el problema.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Escenario
 
@@ -53,7 +51,7 @@ Uno de los pasos de configuración más importantes es la configuración de los 
 | Algoritmo hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28.800 segundos |10.800 segundos |
  
-Como usuario, se le pedirá que configure Cisco ASA. Puede encontrar un ejemplo de configuración en [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre otras configuraciones, también deberá especificar el algoritmo hash. Cisco ASA admite más [algoritmos hash y de cifrado](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) que Azure VPN Gateway. Sin saberlo, ya configuró Cisco ASA para que use SHA-512 como algoritmo hash. Como este algoritmo no es un algoritmo compatible con las conexiones basadas en directivas, la conexión VPN funciona.
+Como usuario, se le pedirá que configure Cisco ASA. Puede encontrar un ejemplo de configuración en [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre otras configuraciones, también deberá especificar el algoritmo hash. Cisco ASA admite más [algoritmos hash y de cifrado](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) que Azure VPN Gateway. Sin saberlo, ya configuró Cisco ASA para que use SHA-512 como algoritmo hash. Como este algoritmo no es un algoritmo compatible con las conexiones basadas en directivas, la conexión VPN funciona.
 
 Estos problemas son difíciles de solucionar y las causas principales suelen ser poco intuitivas. En este caso puede abrir una incidencia de soporte técnico para obtener ayuda acerca de cómo resolver el problema. Pero con la API de solución de problemas de Azure Network Watcher puede identificar estos problemas por su cuenta. 
 

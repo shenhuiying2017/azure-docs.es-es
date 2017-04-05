@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 20e2c9edc4729015f65fbe72649e32effe7f8a3a
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web del aprendizaje automático de Azure que usan módulos de importación y exportación de datos
+
 Cuando se crea un experimento predictivo, normalmente se agregan una entrada y una salida de servicio web. Al implementar el experimento, los consumidores pueden enviar y recibir datos desde el servicio web a través de las entradas y salidas. En algunas aplicaciones, los datos del consumidor pueden estar disponibles desde una fuente de datos o ya residir en un origen de datos externo, como el Almacenamiento de blobs de Azure. En estos casos, no se requiere que lean y escriban datos mediante entradas y salidas del servicio web. En su lugar, pueden utilizar el servicio de ejecución por lotes (BES) para leer los datos del origen de datos mediante un módulo de importación de datos y escribir los resultados de puntuación en una ubicación de datos diferente mediante un módulo de exportación de datos.
 
-Los módulos de importación y exportación de datos pueden leer y escribir en una serie de datos que proporcionan ubicaciones como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos de SQL de Azure, Almacenamiento de tablas de Azure, Almacenamiento de blobs de Azure, una fuente de datos o una base de datos SQL local.
+Los módulos de importación y exportación de datos pueden realizar operaciones de lectura y escritura en diversas ubicaciones de datos, como una dirección URL web a través de HTTP, una consulta de Hive, una base de datos de Azure SQL, almacenamiento de tablas de Azure, Azure Blob Storage, un proveedor de fuentes de distribución de datos o una base de datos SQL local.
 
 En este tema se usa la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) y presupone que el conjunto de datos ya se ha cargado en una tabla de SQL de Azure denominada censusdata.
 
 ## <a name="create-the-training-experiment"></a>Creación del experimento de entrenamiento
-Al abrir la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos), se usa el conjunto de datos de clasificación binaria de ingresos en el censo adultos de ejemplo. El experimento en el lienzo tendrá una apariencia similar a la siguiente imagen.
+Al abrir la muestra "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Muestra 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos), se usa el conjunto de datos de clasificación binaria de ingresos en el censo adultos de ejemplo. Asimismo, el experimento en el lienzo tendrá una apariencia similar a la siguiente imagen:
 
 ![Configuración inicial del experimento.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -63,7 +64,7 @@ Para leer los datos de la tabla de SQL de Azure:
 8. En la parte inferior del lienzo del experimento, haga clic en **Ejecutar**.
 
 ## <a name="create-the-predictive-experiment"></a>Creación del experimento predictivo
-Ahora, configure el experimento predictivo desde el que se implementa el servicio web.
+A continuación, configure el experimento predictivo desde el que se implementa el servicio web.
 
 1. En la parte inferior del lienzo del experimento, haga clic en **Set Up Web Service** (Configurar servicio web) y seleccione **Predictive Web Service [Recommended]** (Servicio web predictivo [recomendado]).
 2. Quite los módulos *Web Service Input* (Entrada del servicio web) y *Web Service Output* (Salida del servicio web) del experimento predictivo. 
@@ -76,7 +77,7 @@ Ahora, configure el experimento predictivo desde el que se implementa el servici
 9. En el campo **Data table name**(Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
 10. En el campo **Comma separated list of datatable columns** (Lista de elementos separados por comas de las columnas de tablas de datos) escriba ScoredLabels.
 
-Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, puede utilizar la característica de parámetros del servicio web para establecer la propiedad *Data source* (Origen de datos) del módulo *Import Data* (Importar datos) y la propiedad de destino de datos del módulo *Export Data* (Exportar datos).  Para obtener más información sobre los parámetros del servicio Web, consulte la entrada [AzureML Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Parámetros del servicio web AzureML) en Cortana Intelligence and Machine Learning Blog (blog de aprendizaje automático e inteligencia de Cortana).
+Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio Web, consulte la entrada [AzureML Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Parámetros del servicio web AzureML) en Cortana Intelligence and Machine Learning Blog (blog de aprendizaje automático e inteligencia de Cortana).
 
 Para configurar los parámetros del servicio web para la consulta de importación y la tabla de destino:
 
@@ -85,7 +86,7 @@ Para configurar los parámetros del servicio web para la consulta de importació
 3. En la parte inferior del panel de propiedades del módulo *Exportar datos* , en la sección **Parámetros del servicio web** , haga clic en Consulta de base de datos y cambie el nombre por Query.
 4. Haga clic en **Nombre de la tabla de datos** y cambie el nombre por **Table**.
 
-Cuando haya terminado, el experimento debería tener un aspecto similar a la siguiente imagen.
+Cuando haya terminado, el experimento debería tener un aspecto similar a la siguiente imagen:
 
 ![Aspecto final del experimento.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 

@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2ba5f280b38622b6a0c966d76617cd5698420b92
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,13 +28,14 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 En este documento se hace un seguimiento de todos los problemas conocidos de la versión preliminar pública de HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Sesión interactiva con pérdidas de Livy
-Cuando se reinicia Livy con una sesión interactiva (desde Ambari o debido al reinicio de la máquina virtual del nodo principal 0) activa, se perderá una sesión de trabajo interactiva. Por este motivo, los nuevos trabajos pueden bloquearse en el estado Aceptado y no se pueden iniciar.
+Cuando se reinicia Livy (desde Ambari o debido al reinicio de la máquina virtual del nodo principal 0) con una sesión interactiva activa, se perderá una sesión de trabajo interactiva. Por este motivo, los nuevos trabajos pueden bloquearse en el estado Aceptado y no se pueden iniciar.
 
 **Mitigación:**
 
 Utilice el procedimiento siguiente para encontrar una solución alternativa para el problema:
 
-1. SSH en el nodo principal. Para clientes Windows, consulte [Uso de SSH con Hadoop en HDInsight desde Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); para Linux, Unix u OS X, consulte [Uso de SSH con Hadoop en HDInsight desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+1. SSH en el nodo principal. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Ejecute el siguiente comando para buscar los identificadores de aplicación de los trabajos interactivos iniciados mediante Livy. 
    
         yarn application –list
@@ -61,6 +64,14 @@ Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotF
 3. Actualice la ubicación del registro spark con Ambari para que sea un directorio con 777 permisos.  
 4. Ejecute spark-submit como sudo.  
 
+## <a name="spark-phoenix-connector-is-not-supported"></a>No se admite el conector Spark-Phoenix
+
+En este momento, el conector Spark-Phoenix no es compatible con un clúster de Spark de HDInsight.
+
+**Mitigación:**
+
+Debe usar el conector Spark-HBase en su lugar. Para obtener instrucciones al respecto, consulte [Utilización del conector Spark-HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemas relacionados con los cuadernos de Jupyter Notebook
 A continuación, se muestran algunos problemas conocidos relacionados con los cuadernos de Jupyter Notebook.
 
@@ -72,7 +83,7 @@ Es posible que aparezca un error **`Error loading notebook`** al cargar cuaderno
 
 **Mitigación:**
 
-El hecho de recibir este error no implica que los datos estén dañados o perdidos.  Los cuadernos siguen aún en el disco en `/var/lib/jupyter`y se puede conectar mediante SSH al clúster para acceder ellos. Para clientes Windows, consulte [Uso de SSH con Hadoop en HDInsight desde Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); para Linux, Unix u OS X, consulte [Uso de SSH con Hadoop en HDInsight desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+El hecho de recibir este error no implica que los datos estén dañados o perdidos.  Los cuadernos siguen aún en el disco en `/var/lib/jupyter`y se puede conectar mediante SSH al clúster para acceder ellos. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Cuando se haya conectado al clúster mediante SSH, puede copiar sus cuadernos desde el clúster en la máquina local (mediante SCP o WinSCP) como copia de seguridad para impedir la pérdida de datos importantes en el cuaderno. A continuación, puede aplicar túneles SSH al nodo principal del puerto 8001 para tener acceso a Jupyter sin pasar por la puerta de enlace.  Desde ahí, puede borrar la salida del bloc de notas y volver a guardarla para minimizar el tamaño del bloc de notas.
 
@@ -124,10 +135,5 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

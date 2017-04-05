@@ -18,9 +18,9 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: c6310e7d30321ef8d66956d650db4cee9249cbb8
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ecdc6575a06609d6b45521b7b31c88088be7787f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -268,8 +268,8 @@ En el documento se utilizarán los términos siguientes:
 
 > [!NOTE]
 > En sistemas de producción SAP, se admiten implementaciones entre locales de sistemas SAP donde las máquinas virtuales de Azure que ejecuten sistemas SAP pertenezcan a un dominio local. Las configuraciones entre locales se admiten para la implementación completa o parcial de infraestructuras de SAP en Azure. Incluso la ejecución de una infraestructura completa de SAP en Azure requiere que esas máquinas virtuales formen parte del dominio local y ADS. En versiones anteriores de la documentación se describen escenarios de TI híbridos, donde "híbrido" implica una conectividad entre locales de la infraestructura local y Azure. En este caso, "híbrido" también significa que las máquinas virtuales de Azure forman parte de Active Directory local.
-> 
-> 
+>
+>
 
 Algunos documentos de Microsoft describen escenarios entre locales de un modo ligeramente distinto, en especial en configuraciones de DBMS de alta disponibilidad. En el caso de documentos relacionados con SAP, el escenario entre locales se reduce a una conectividad de sitio a sitio o privada (ExpressRoute) y a que la infraestructura de SAP se distribuye entre medios locales y Azure.
 
@@ -302,8 +302,8 @@ Debe tener conocimientos prácticos sobre la arquitectura de Microsoft Azure y c
 
 > [!NOTE]
 > En este documento **no** hablaremos sobre las ofertas de la plataforma como servicio (PaaS) de Microsoft Azure. En su lugar, explicaremos cómo ejecutar un sistema de administración de bases de datos (DBMS) en máquinas virtuales de Microsoft Azure (IaaS) de la misma forma que ejecutaría este tipo de sistema en un entorno local. Las funcionalidades de bases de datos de estas dos ofertas son muy diferentes y no deben combinarse. Consulte también: <https://azure.microsoft.com/services/sql-database/>.
-> 
-> 
+>
+>
 
 Como estamos analizando el modelo IaaS, en general, el proceso de instalación y configuración de DBMS, Windows y Linux es prácticamente el mismo en cualquier máquina virtual o máquina sin sistema operativo que instalaría en un entorno local. Sin embargo, hay algunas decisiones de implementación de administración de sistemas y arquitecturas que diferirán cuando se utilice el modelo IaaS. El objetivo de este documento consiste en explicar las diferencias de administración de sistemas y arquitecturas específicas que debe tener en cuenta a la hora de utilizar IaaS.
 
@@ -319,7 +319,7 @@ En general, las principales diferencias que se describen en este artículo son l
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estructura de una implementación de RDBMS
 Para poder ir entendiendo lo que se explica en este capítulo, hay que comprender la información de [este] capítulo [deployment-guide-3] de la [Guía de implementación][deployment-guide]. Antes de leer este capítulo, debe comprender lo que explicamos sobre la serie de máquinas virtuales y sus diferencias, así como las disimilitudes entre el almacenamiento estándar y premium de Azure.
 
-Los VHD de Azure que contienen un sistema operativo tenían una limitación de tamaño de 127 GB, Esta limitación se eliminó en marzo de 2015 (para más información, consulte <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). A partir de esa fecha, los VHD con el sistema operativo puede tener el mismo tamaño que cualquier otro disco duro virtual. No obstante, se prefiere una estructura de implementación en la que el sistema operativo, el DBMS y los archivos binarios finales de SAP sean independientes de los archivos de base de datos. Por lo tanto, se espera que los sistemas SAP que se ejecutan en máquinas virtuales de Azure tengan instalada la máquina virtual base (o VHD) con el sistema operativo, y los archivos ejecutables del sistema de administración de bases de datos administración y de SAP. Los archivos de datos y de registro de DBMS se almacenarán en archivos VHD independientes de Almacenamiento de Azure (estándar o premium) y se asociarán como discos lógicos a la máquina virtual de imagen del sistema operativo de Azure original. 
+Los VHD de Azure que contienen un sistema operativo tenían una limitación de tamaño de 127 GB, Esta limitación se eliminó en marzo de 2015 (para más información, consulte <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). A partir de esa fecha, los VHD con el sistema operativo puede tener el mismo tamaño que cualquier otro disco duro virtual. No obstante, se prefiere una estructura de implementación en la que el sistema operativo, el DBMS y los archivos binarios finales de SAP sean independientes de los archivos de base de datos. Por lo tanto, se espera que los sistemas SAP que se ejecutan en máquinas virtuales de Azure tengan instalada la máquina virtual base (o VHD) con el sistema operativo, y los archivos ejecutables del sistema de administración de bases de datos administración y de SAP. Los archivos de datos y de registro de DBMS se almacenarán en archivos VHD independientes de Almacenamiento de Azure (estándar o premium) y se asociarán como discos lógicos a la máquina virtual de imagen del sistema operativo de Azure original.
 
 En función de cómo se utilice el almacenamiento de Azure estándar o premium (por ejemplo, con máquinas virtuales de serie DS o GS), habrá otras cuotas de Azure que se explican [aquí][virtual-machines-sizes]. Al planear los VHD de Azure, tendrá que encontrar el mejor equilibrio de las cuotas en los siguientes recursos:
 
@@ -338,24 +338,24 @@ La colocación de los archivos de base de datos y de registro y el tipo de almac
 
 - - -
 > ![Windows][Logo_Windows] Windows
-> 
+>
 > La unidad D:\ de una máquina virtual de Azure es una unidad no persistente respaldada por algunos discos locales del nodo de proceso de Azure. Como no es persistente, significa que los cambios realizados en el contenido de la unidad D:\ se perderán cuando se reinicie la máquina virtual. Por "cambios", nos referimos a los archivos guardados, los directorios creados, las aplicaciones instaladas, etc.
-> 
+>
 > ![Linux][Logo_Linux] Linux
-> 
+>
 > Las máquinas virtuales de Linux de Azure montan automáticamente una unidad en /mnt/Resource, que se trata de una unidad no persistente respaldada por discos locales del nodo de proceso de Azure. Como no es persistente, significa que los cambios realizados en el contenido de la unidad /mnt/resource se perderán cuando se reinicie la máquina virtual. Por "cambios", nos referimos a los archivos guardados, los directorios creados, las aplicaciones instaladas, etc.
-> 
-> 
+>
+>
 
 - - -
 En función de la serie de máquinas virtuales de Azure, los discos locales del nodo de proceso tendrán un rendimiento diferente. Esto se puede clasificar de la siguiente forma:
 
 * A0-A7: rendimiento muy limitado. No se puede usar para un recurso que no sea un archivo de paginación de Windows.
-* A8-A11: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie D: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie DS: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie G: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie GS: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
+* A8-A11: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie D: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie DS: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie G: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie GS: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
 
 Las afirmaciones anteriores se aplican a los tipos de máquinas virtuales que estén certificados para utilizarse con SAP. La serie de máquina virtual con un rendimiento y una cantidad de IOPS excelentes puede aprovechar algunas características de DBMS, como tempdb o el espacio de tabla temporal.
 
@@ -378,29 +378,29 @@ Para el Almacenamiento premium de Azure se encuentran disponibles las siguientes
 Para Azure Premium Storage, se recomienda aprovechar el **almacenamiento en caché de lectura para archivos de datos** de la base de datos de SAP y no elegir **almacenamiento en caché para los VHD de archivos de registro**.
 
 ### <a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>RAID de software
-Como ya se ha indicado anteriormente, tendrá que equilibrar el número de operaciones IOPS necesarias para los archivos de base de datos entre el número de VDH que se pueden configurar y la cantidad máxima de IOPS que proporcionará una máquina virtual de Azure por tipo de disco de Almacenamiento premium o VHD. La forma más sencilla de gestionar la carga de IOPS en los VHD consiste en compilar software RAID en los diferentes discos duros virtuales. Después, coloque una serie de archivos de datos del DBMS de SAP en los LUN extraídas del software RAID. En función de los requisitos, se recomienda también plantearse el uso de Almacenamiento premium, ya que dos de los tres discos de Almacenamiento premium diferentes proporcionan mayor cuota de IOPS que los VHD basados en el almacenamiento estándar. Además, Almacenamiento premium de Azure ofrece mucha mejor latencia de E/S. 
+Como ya se ha indicado anteriormente, tendrá que equilibrar el número de operaciones IOPS necesarias para los archivos de base de datos entre el número de VDH que se pueden configurar y la cantidad máxima de IOPS que proporcionará una máquina virtual de Azure por tipo de disco de Almacenamiento premium o VHD. La forma más sencilla de gestionar la carga de IOPS en los VHD consiste en compilar software RAID en los diferentes discos duros virtuales. Después, coloque una serie de archivos de datos del DBMS de SAP en los LUN extraídas del software RAID. En función de los requisitos, se recomienda también plantearse el uso de Almacenamiento premium, ya que dos de los tres discos de Almacenamiento premium diferentes proporcionan mayor cuota de IOPS que los VHD basados en el almacenamiento estándar. Además, Almacenamiento premium de Azure ofrece mucha mejor latencia de E/S.
 
 Lo mismo se aplica al registro de transacciones de los diferentes sistemas DBMS. Muchos de ellos simplemente agregan más archivos de registro de transacciones, lo que no resulta de ayuda, ya que los sistemas DBMS solo realizan operaciones de escritura en uno de los archivos a la vez. Si se necesitan tasas de IOPS más elevadas que las que ofrece un único almacenamiento estándar basado en VHD, puede realizar secciones en varios VHD de almacenamiento estándar o usar un tipo de disco de almacenamiento Premium mayor que ofrezca, aparte de mayores tasas de IOPS, una menor latencia de E/S en la operación de E/S de escritura en el registro de transacciones.
 
 Estas son las situaciones experimentadas en las implementaciones de Azure que se favorecerían si se emplea software RAID:
 
 * El registro de transacciones y el de rehacer necesitan más IOPS que lo que ofrece Azure para un solo VHD. Tal y como se mencionó anteriormente, esto puede solucionarse creando un LUN en varios VHD que utilicen software RAID.
-* La distribución de cargas de trabajo de E/S desigual por los diferentes archivos de datos de la base de datos de SAP. En tales casos, se puede experimentar que un archivo de datos alcance la cuota con bastante frecuencia; mientras que otros archivos de datos ni siquiera se acercan a la cuota de IOPS de un solo VHD. En estos casos, la solución más sencilla consiste en crear un LUN en varios VHD que utilicen software RAID. 
+* La distribución de cargas de trabajo de E/S desigual por los diferentes archivos de datos de la base de datos de SAP. En tales casos, se puede experimentar que un archivo de datos alcance la cuota con bastante frecuencia; mientras que otros archivos de datos ni siquiera se acercan a la cuota de IOPS de un solo VHD. En estos casos, la solución más sencilla consiste en crear un LUN en varios VHD que utilicen software RAID.
 * No sabe cuál es la carga de trabajo de E/S exacta por archivo de datos y solo conoce, más o menos, la carga de trabajo general de IOPS en el DBMS. La forma más sencilla es crear un LUN con la ayuda de un software RAID. La suma de las cuotas de varios VHD subyacentes a este LUN debe alcanzar la tasa de IOPS conocida.
 
 - - -
 > ![Windows][Logo_Windows] Windows
-> 
+>
 > Se recomienda usar Windows Server 2012 o espacios de almacenamiento superior, ya que es más eficaz que la funcionalidad de creación de secciones de versiones anteriores de Windows. Tenga en cuenta que es posible que tenga que crear los espacios y los grupos de almacenamiento de Windows mediante comandos de PowerShell al utilizar Windows Server 2012 como sistema operativo. Los comandos de PowerShell se pueden encontrar aquí <https://technet.microsoft.com/library/jj851254.aspx>.
-> 
+>
 > ![Linux][Logo_Linux] Linux
-> 
+>
 > Para crear un software RAID en Linux, solo se admiten MDADM y LVM (Logical Volume Manager). Para más información, consulte los siguientes artículos:
-> 
+>
 > * [Configuración de RAID de software en Linux][virtual-machines-linux-configure-raid] (para MDADM)
 > * [Configuración del LVM en una máquina virtual Linux en Azure][virtual-machines-linux-configure-lvm]
-> 
-> 
+>
+>
 
 - - -
 Estas suelen ser las consideraciones que hay que tener en cuenta para utilizar la serie de máquinas virtuales que pueden funcionar con el Almacenamiento premium de Azure normalmente son:
@@ -419,7 +419,7 @@ Almacenamiento de Microsoft Azure almacenará la máquina virtual (con SO) y los
 La replicación local de Almacenamiento de Azure (con redundancia local) proporciona niveles de protección contra la pérdida de datos debido a un error de infraestructura que pocos clientes pueden permitirse implementar. Tal y como se mostró anteriormente, hay 4 opciones diferentes con una quinta que es una variación de una de las tres primeras. Si las analizamos más detenidamente, podemos distinguir:
 
 * **Almacenamiento con redundancia local (LRS) premium**: el Almacenamiento premium de Azure ofrece compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Existen 3 réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este] [planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica.
-* **Almacenamiento con redundancia local (LRS)**: en este caso, existen tres réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este] [planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica. 
+* **Almacenamiento con redundancia local (LRS)**: en este caso, existen tres réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este] [planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica.
 * **Almacenamiento con redundancia geográfica (GRS)**: en este caso, hay una replicación asincrónica que alimentará tres réplicas adicionales de los datos en otra región de Azure que se encuentra, en la mayoría de los casos, en la misma región geográfica (como Europa del Norte y Europa Occidental). Esta opción generará 3 réplicas adicionales, por lo que habrá 6 réplicas en total. Una variación de esta opción es una adición en la que pueden utilizarse los datos de la región de Azure replicada geográficamente para operaciones de lectura (redundancia geográfica con acceso de lectura).
 * **Almacenamiento con redundancia de zona (ZRS)**: en este caso, las tres réplicas de los datos permanecen en la misma región de Azure. Tal y como se explica en [este][planning-guide-3.1] capítulo de la [Guía de planeamiento][planning-guide], una región de Azure puede incluir varios centros de datos que se encuentren muy cerca. En el caso de LRS, las réplicas se distribuyen por los distintos centros de datos que conforman una región de Azure.
 
@@ -427,16 +427,16 @@ Puede encontrar más información [aquí][storage-redundancy].
 
 > [!NOTE]
 > En lo que respecta a las implementaciones de DBMS, no se recomienda usar el almacenamiento con redundancia geográfica.
-> 
-> La replicación geográfica del almacenamiento de Azure es asincrónica. La replicación de VHD individuales montados en una sola máquina virtual no se sincroniza en el paso de bloqueo. Por lo tanto, no es adecuada para replicar los archivos DBMS que se distribuyen por diferentes VHD o que se implementan con un software RAID basado en varios discos duros virtuales. El software de DBMS requiere que el almacenamiento en disco persistente se sincronice con precisión en los distintos LUN y en los VHD, discos o ejes subyacentes. El software de DBMS utiliza diversos mecanismos para secuenciar las actividades de escritura de E/S y un DBMS informará de que el almacenamiento en disco que tiene como destino la replicación está dañado si dichas actividades varían en unos pocos milisegundos. Por consiguiente, si se quiere disponer de una configuración de base de datos con una base de datos que se extienda en varios VHD replicados geográficamente, dicha replicación debe realizarse con la funcionalidad y los medios de la base de datos. No se debe depender de la replicación geográfica del almacenamiento de Azure para llevar a cabo este trabajo. 
-> 
+>
+> La replicación geográfica del almacenamiento de Azure es asincrónica. La replicación de VHD individuales montados en una sola máquina virtual no se sincroniza en el paso de bloqueo. Por lo tanto, no es adecuada para replicar los archivos DBMS que se distribuyen por diferentes VHD o que se implementan con un software RAID basado en varios discos duros virtuales. El software de DBMS requiere que el almacenamiento en disco persistente se sincronice con precisión en los distintos LUN y en los VHD, discos o ejes subyacentes. El software de DBMS utiliza diversos mecanismos para secuenciar las actividades de escritura de E/S y un DBMS informará de que el almacenamiento en disco que tiene como destino la replicación está dañado si dichas actividades varían en unos pocos milisegundos. Por consiguiente, si se quiere disponer de una configuración de base de datos con una base de datos que se extienda en varios VHD replicados geográficamente, dicha replicación debe realizarse con la funcionalidad y los medios de la base de datos. No se debe depender de la replicación geográfica del almacenamiento de Azure para llevar a cabo este trabajo.
+>
 > El problema se explica mejor con un sistema de ejemplo. Supongamos que tiene un sistema SAP cargado en Azure con 8 discos VHD que contienen archivos de datos del DBMS más otro disco duro virtual con el archivo de registro de transacciones. En cada uno de estos 9 VHD se escriben datos con un método coherente con el DBMS, con independencia de que esta operación se realice en los archivos de registro de transacciones o de datos.
-> 
-> Para replicar geográficamente y de manera eficaz los datos y mantener una imagen coherente de la base de datos, el contenido de los&9; VHD tendría que replicarse geográficamente en el orden exacto en que se ejecutaron las operaciones de E/S en estos&9; VHD. Sin embargo, la replicación geográfica del almacenamiento de Azure no permite declarar las dependencias entre los VHD. Es decir, la replicación geográfica del almacenamiento de Microsoft Azure no conoce el hecho de que el contenido de estos 9 VHD diferentes está relacionado entre sí, ni tampoco que los cambios de datos solo son coherentes cuando la replicación se realiza en el orden en que se llevan a cabo las operaciones de E/S en esos 9 discos duros virtuales.
-> 
+>
+> Para replicar geográficamente y de manera eficaz los datos y mantener una imagen coherente de la base de datos, el contenido de los 9 VHD tendría que replicarse geográficamente en el orden exacto en que se ejecutaron las operaciones de E/S en estos 9 VHD. Sin embargo, la replicación geográfica del almacenamiento de Azure no permite declarar las dependencias entre los VHD. Es decir, la replicación geográfica del almacenamiento de Microsoft Azure no conoce el hecho de que el contenido de estos 9 VHD diferentes está relacionado entre sí, ni tampoco que los cambios de datos solo son coherentes cuando la replicación se realiza en el orden en que se llevan a cabo las operaciones de E/S en esos 9 discos duros virtuales.
+>
 > Además de que existen bastantes probabilidades de que las imágenes replicadas geográficamente del escenario no proporcionen una imagen coherente de la base de datos, el almacenamiento con redundancia geográfica puede afectar considerablemente al rendimiento. En resumen, no utilice este tipo de redundancia de almacenamiento para las cargas de trabajo de tipo DBMS.
-> 
-> 
+>
+>
 
 #### <a name="mapping-vhds-into-azure-virtual-machine-service-storage-accounts"></a>Asignación de VHD en cuentas de almacenamiento del servicio de máquina virtual de Azure
 Las cuentas de almacenamiento de Azure se usan con fines administrativos y presentan algunas limitaciones. Sin embargo, las limitaciones serán diferentes en función de si se trata de una cuenta de almacenamiento de Azure estándar o una premium. En [este artículo][storage-scalability-targets] se muestran las funcionalidades y limitaciones exactas.
@@ -445,7 +445,7 @@ Es importante señalar que en el almacenamiento estándar de Azure hay un límit
 
 Para el almacenamiento estándar de Azure no se recomienda, si es posible, proporcionar el almacenamiento de diferentes cuentas de almacenamiento en una sola máquina virtual.
 
-Al utilizar la serie DS o GS de máquinas virtuales de Azure es posible montar los VHD de cuentas de almacenamiento estándar y Premium Storage de Azure. A la mente vienen casos de uso en los que puede aprovecharse el almacenamiento heterogéneo. Por ejemplo, escribir copias de seguridad en VHD respaldadas por el almacenamiento estándar mientras que los archivos de registro y datos de DBMS se mantienen en el Almacenamiento premium. 
+Al utilizar la serie DS o GS de máquinas virtuales de Azure es posible montar los VHD de cuentas de almacenamiento estándar y Premium Storage de Azure. A la mente vienen casos de uso en los que puede aprovecharse el almacenamiento heterogéneo. Por ejemplo, escribir copias de seguridad en VHD respaldadas por el almacenamiento estándar mientras que los archivos de registro y datos de DBMS se mantienen en el Almacenamiento premium.
 
 En función de las pruebas e implementaciones de entre 30 y 40 VHD que contienen archivos de registro y de datos de base de datos, el aprovisionamiento puede realizarse en una única cuenta de almacenamiento estándar de Azure con un rendimiento aceptable. Tal y como se mencionó anteriormente, es probable que la limitación de una cuenta de Almacenamiento premium de Azure sea la capacidad de los datos que puede albergar y no los IOPS.
 
@@ -492,25 +492,25 @@ Debe configurarse expresamente durante la implementación de máquinas virtuales
 Si deseamos crear configuraciones de alta disponibilidad de implementaciones de DBMS (independientemente de la funcionalidad de DBMS de alta disponibilidad que se emplee), las máquinas virtuales de DBMS tendrían que cumplir los siguientes requisitos:
 
 * Agregar las máquinas virtuales a la misma red virtual de Azure (<https://azure.microsoft.com/documentation/services/virtual-network/>)
-* Las máquinas virtuales de la configuración de alta disponibilidad también deben estar en la misma subred. El proceso de resolución de nombres entre las diferentes subredes no se puede realizar en las implementaciones exclusivas en la nube, solo funcionará la resolución de direcciones IP. Al utilizar la conectividad ExpressRoute de sitio a sitio para las implementaciones entre locales, ya deberá haber establecida una red con al menos una subred. El proceso de resolución de nombres se realizará según la infraestructura de red y las directivas AD locales. 
+* Las máquinas virtuales de la configuración de alta disponibilidad también deben estar en la misma subred. El proceso de resolución de nombres entre las diferentes subredes no se puede realizar en las implementaciones exclusivas en la nube, solo funcionará la resolución de direcciones IP. Al utilizar la conectividad ExpressRoute de sitio a sitio para las implementaciones entre locales, ya deberá haber establecida una red con al menos una subred. El proceso de resolución de nombres se realizará según la infraestructura de red y las directivas AD locales.
 
-[comentario]: <> (La tarea PENDIENTE MSSedusch sigue siendo true en ARM)
+[comment]: <> (MSSedusch TODO Test if still true in ARM)
 
 #### <a name="ip-addresses"></a>Direcciones IP
 Se recomienda encarecidamente configurar las máquinas virtuales para configuraciones de alta disponibilidad de una manera flexible. En Azure no se recomienda depender de las direcciones IP para abordar los asociados de alta disponibilidad dentro de la configuración de alta disponibilidad, a menos que se utilizan direcciones IP estáticas. Hay dos conceptos de apagado en Azure:
 
-* Apagado a través del Portal de Azure o el cmdlet de Azure PowerShell Stop-AzureRmVM: en este caso, la máquina virtual se apaga y se anula la asignación. No se realizará ningún cargo en su cuenta de Azure por esta máquina virtual; los únicos gastos que se le cobrarán serán por el almacenamiento usado. Sin embargo, si la dirección IP privada de la interfaz de red no era estática, se liberará la dirección IP y no se garantizará que la interfaz de red vuelva a tener asignada la dirección IP antigua después de reiniciar la máquina virtual. Al realizar el apagado a través del Portal de Azure o mediante una llamada a Stop-AzureRmVM, se anulará automáticamente la asignación. Si no desea anular la asignación de la máquina, use Stop-AzureRmVM -StayProvisioned. 
+* Apagado a través del Portal de Azure o el cmdlet de Azure PowerShell Stop-AzureRmVM: en este caso, la máquina virtual se apaga y se anula la asignación. No se realizará ningún cargo en su cuenta de Azure por esta máquina virtual; los únicos gastos que se le cobrarán serán por el almacenamiento usado. Sin embargo, si la dirección IP privada de la interfaz de red no era estática, se liberará la dirección IP y no se garantizará que la interfaz de red vuelva a tener asignada la dirección IP antigua después de reiniciar la máquina virtual. Al realizar el apagado a través del Portal de Azure o mediante una llamada a Stop-AzureRmVM, se anulará automáticamente la asignación. Si no desea anular la asignación de la máquina, use Stop-AzureRmVM -StayProvisioned.
 * Si apaga la máquina virtual desde un sistema operativo, esta se apagará y NO se anulará la asignación. Sin embargo, en este caso, se siguen realizando cargos en la cuenta de Azure por la máquina virtual, a pesar de que está apagada. En tal caso, la asignación de la dirección IP a una máquina virtual detenida permanecerá intacta. Al apagar la máquina virtual desde esta no se forzará automáticamente la anulación de la asignación.
 
-Incluso en los escenarios entre locales, de forma predeterminada, tras realizarse un apagado y una anulación de la asignación, se desasignarán las direcciones IP de la máquina virtual, aunque las directivas locales de la configuración de DHCP sean diferentes. 
+Incluso en los escenarios entre locales, de forma predeterminada, tras realizarse un apagado y una anulación de la asignación, se desasignarán las direcciones IP de la máquina virtual, aunque las directivas locales de la configuración de DHCP sean diferentes.
 
 * Existe una excepción si se asigna una dirección IP estática a una interfaz de red tal y como se describe [aquí][virtual-networks-reserved-private-ip].
 * En tal caso, la dirección IP permanecerá fija mientras no se elimine la interfaz de red.
 
 > [!IMPORTANT]
 > Para conseguir que todo el proceso de implementación sea sencillo y fácil de administrar, sin duda, se recomienda configurar las máquinas virtuales asociadas a un DBMS de alta disponibilidad o a una configuración de recuperación ante desastres en Azure de manera que se realice correctamente un proceso de resolución de nombres entre las diferentes máquinas virtuales.
-> 
-> 
+>
+>
 
 ## <a name="deployment-of-host-monitoring"></a>Implementación de funcionalidades de supervisión de hosts
 Para usar de manera productiva las aplicaciones de las máquinas virtuales de Azure, SAP requiere que se obtengan datos de supervisión de los hosts físicos que se ejecutan en las máquinas virtuales de Azure. Se requiere un nivel de revisión específico del agente de host de SAP que permita esta funcionalidad en SAPOSCOL y el agente de host de SAP. El nivel de revisión exacto se menciona en la nota de SAP [1409604].
@@ -519,12 +519,12 @@ Para más información sobre la implementación de componentes que proporcionen 
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Consideraciones concretas sobre Microsoft SQL Server
 ### <a name="sql-server-iaas"></a>IaaS de SQL Server
-A partir de Microsoft Azure, puede migrar fácilmente sus aplicaciones de SQL Server integradas en la plataforma Windows Server a máquinas virtuales de Azure. SQL Server en una máquina virtual permite reducir el coste total de propiedad de implementación, administración y mantenimiento de aplicaciones empresariales al migrar fácilmente estas aplicaciones a Microsoft Azure. Con SQL Server en una máquina virtual de Azure, los administradores y los desarrolladores pueden seguir usando las mismas herramientas de desarrollo y administración que se encuentran disponibles de forma local. 
+A partir de Microsoft Azure, puede migrar fácilmente sus aplicaciones de SQL Server integradas en la plataforma Windows Server a máquinas virtuales de Azure. SQL Server en una máquina virtual permite reducir el coste total de propiedad de implementación, administración y mantenimiento de aplicaciones empresariales al migrar fácilmente estas aplicaciones a Microsoft Azure. Con SQL Server en una máquina virtual de Azure, los administradores y los desarrolladores pueden seguir usando las mismas herramientas de desarrollo y administración que se encuentran disponibles de forma local.
 
 > [!IMPORTANT]
 > Tenga en cuenta que no hablaremos sobre Base de datos SQL de Microsoft Azure, que es la oferta de plataforma como servicio de Microsoft Azure. En este documento se aborda la ejecución del producto SQL Server tal cual para implementaciones locales en máquinas virtuales de Azure, con lo que se aprovecha la funcionalidad de infraestructura como servicio. Las funcionalidades de bases de datos de estas dos ofertas son diferentes y no deben combinarse. Consulte también: <https://azure.microsoft.com/services/sql-database/>.
-> 
-> 
+>
+>
 
 Se recomienda encarecidamente revisar [esta][virtual-machines-sql-server-infrastructure-services] documentación antes de continuar.
 
@@ -534,9 +534,9 @@ Debe conocer información específica sobre SQL Server en IaaS antes de continua
 
 * **Acuerdo de Nivel de Servicio de máquina virtual**: hay un Acuerdo de Nivel de Servicio para Virtual Machines que se ejecuta en Azure que puede encontrarse aquí: <https://azure.microsoft.com/support/legal/sla/>.  
 * **Soporte para versiones de SQL**: para los clientes de SAP, prestamos soporte para SQL Server 2008 R2 y posteriores en las máquinas virtuales de Microsoft Azure. No se prestará soporte para versiones anteriores. Revise esta [declaración de soporte](https://support.microsoft.com/kb/956893) general para más información. Tenga en cuenta que, a rasgos generales, Microsoft también presta soporte para SQL Server 2008. Sin embargo, debido a la importante funcionalidad de SAP que se introdujo con SQL Server 2008 R2, SQL Server 2008 R2 es la versión mínima que se requiere para SAP. Tenga en cuenta que SQL Server 2012 y 2014 se ampliaron agregando mayor integración con el escenario de IaaS (como la realización de copias de seguridad directamente en el almacenamiento de Azure). Por lo tanto, el ámbito de este documento se limita a SQL Server 2012 y 2014 con el nivel de revisión más reciente para Azure.
-* **Soporte para características de SQL**: se presta soporte para la mayoría de las características de SQL Server en las máquinas virtuales de Microsoft Azure, aunque con algunas excepciones. **No se presta soporte para los clústeres de conmutación por error de SQL Server que usan discos compartidos**.  Las tecnologías distribuidas, como la creación de reflejo de base de datos, los grupos de disponibilidad AlwaysOn, la replicación, el trasvase de registros y Service Broker, se admiten en una única región de Azure. SQL Server AlwaysOn también se admite entre diferentes regiones, como se documenta aquí:  <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Revise la [declaración de soporte](https://support.microsoft.com/kb/956893) para más información. Se muestra un ejemplo de cómo implementar una configuración AlwaysOn en [este][virtual-machines-workload-template-sql-alwayson] artículo. Además, revise los procedimientos recomendados [aquí][virtual-machines-sql-server-infrastructure-services]. 
+* **Soporte para características de SQL**: se presta soporte para la mayoría de las características de SQL Server en las máquinas virtuales de Microsoft Azure, aunque con algunas excepciones. **No se presta soporte para los clústeres de conmutación por error de SQL Server que usan discos compartidos**.  Las tecnologías distribuidas, como la creación de reflejo de base de datos, los grupos de disponibilidad AlwaysOn, la replicación, el trasvase de registros y Service Broker, se admiten en una única región de Azure. SQL Server AlwaysOn también se admite entre diferentes regiones, como se documenta aquí:  <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Revise la [declaración de soporte](https://support.microsoft.com/kb/956893) para más información. Se muestra un ejemplo de cómo implementar una configuración AlwaysOn en [este][virtual-machines-workload-template-sql-alwayson] artículo. Además, revise los procedimientos recomendados [aquí][virtual-machines-sql-server-infrastructure-services].
 * **Rendimiento de SQL**: estamos seguros de que las máquinas virtuales de Microsoft Azure hospedadas funcionarán muy bien en comparación con otras ofertas de virtualización de nube pública, aunque los resultados individuales pueden variar. Consulte [este][virtual-machines-sql-server-performance-best-practices] artículo.
-* **Uso de imágenes de Azure Marketplace**: la forma más rápida de implementar una nueva máquina virtual de Microsoft Azure es utilizando una imagen de Azure Marketplace. Hay imágenes en Azure Marketplace que contienen SQL Server. Las imágenes donde ya se ha instalado SQL Server no se pueden utilizar inmediatamente para aplicaciones de SAP NetWeaver. El motivo es que la intercalación de SQL Server predeterminada está instalada en esas imágenes y no la que requieren los sistemas SAP NetWeaver. Para poder usar dichas imágenes, consulte los pasos que se explican en el capítulo [Uso de imágenes de SQL Server fuera de Microsoft Azure Marketplace][dbms-guide-5.6]. 
+* **Uso de imágenes de Azure Marketplace**: la forma más rápida de implementar una nueva máquina virtual de Microsoft Azure es utilizando una imagen de Azure Marketplace. Hay imágenes en Azure Marketplace que contienen SQL Server. Las imágenes donde ya se ha instalado SQL Server no se pueden utilizar inmediatamente para aplicaciones de SAP NetWeaver. El motivo es que la intercalación de SQL Server predeterminada está instalada en esas imágenes y no la que requieren los sistemas SAP NetWeaver. Para poder usar dichas imágenes, consulte los pasos que se explican en el capítulo [Uso de imágenes de SQL Server fuera de Microsoft Azure Marketplace][dbms-guide-5.6].
 * Para más información, consulte [Precios de Azure](https://azure.microsoft.com/pricing/) . La [Guía de licencias de SQL Server 2012](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) y la de [SQL Server 2014](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) también constituyen un recurso importante.
 
 ### <a name="sql-server-configuration-guidelines-for-sap-related-sql-server-installations-in-azure-vms"></a>Directrices de configuración de SQL Server para SAP relacionadas con las instalaciones de SQL Server en máquinas virtuales de Azure
@@ -586,7 +586,7 @@ Para almacenar archivos de datos de SQL Server directamente en Azure Premium Sto
 
 ### <a name="sql-server-2014-buffer-pool-extension"></a>Extensión de grupo de búferes de SQL Server 2014
 SQL Server 2014 introdujo una nueva característica denominada "extensión de grupo de búferes". Esta funcionalidad amplía el grupo de búferes de SQL Server que se mantiene en memoria con una memoria caché de segundo nivel respaldada por SSD locales de un servidor o una máquina virtual. De este modo, se puede mantener en memoria un conjunto de datos de mayor volumen. En comparación con el acceso al almacenamiento estándar de Azure, el acceso a la extensión de grupo de búferes que se almacena en SSD locales de una máquina virtual de Azure es mucho más rápido.  Por lo tanto, utilizar la unidad D:\ local de los tipos de máquina virtual que tienen un rendimiento y un número de IOPS excelentes podría ser una forma muy razonable de reducir la carga de IOPS en Almacenamiento de Azure y de mejorar considerablemente los tiempos de respuesta de las consultas. Esto sucede sobre todo cuando no se utiliza el Almacenamiento premium. En el caso del Almacenamiento premium y el uso de la memoria caché de lectura de Azure premium en el nodo de proceso, tal y como se recomienda para los archivos de datos, no se producen resultados muy diferentes. El motivo es que las memorias caché (extensión de grupo de búferes de SQL Server y memoria caché de lectura de almacenamiento premium) utilizan los discos locales de los nodos de proceso.
-Para más información sobre esta funcionalidad, consulte esta documentación: <https://msdn.microsoft.com/library/dn133176.aspx>. 
+Para más información sobre esta funcionalidad, consulte esta documentación: <https://msdn.microsoft.com/library/dn133176.aspx>.
 
 ### <a name="backuprecovery-considerations-for-sql-server"></a>Consideraciones de copia de seguridad y recuperación en SQL Server
 Al implementar SQL Server en Azure, se debe revisar la metodología de copia de seguridad. Aunque no se trate de un sistema productivo, debe realizarse de manera periódica una copia de seguridad de la base de datos de SAP hospedada por SQL Server. Como el almacenamiento de Azure mantiene tres imágenes, una copia de seguridad es menos importante para compensar un bloqueo de almacenamiento. El principal motivo para mantener un plan de copia de seguridad y recuperación adecuado es más que poder compensar los errores lógicos o manuales proporcionando funcionalidades de recuperación a un momento dado. El objetivo es usar las copias de seguridad para restaurar la base de datos a un momento dado o utilizar las copias de seguridad de Azure para propagar otro sistema mediante la copia de la base de datos existente. Por ejemplo, podría transferir archivos desde una configuración de SAP de 2 niveles a una configuración de sistema de 3 niveles del mismo sistema mediante la restauración de una copia de seguridad.
@@ -604,7 +604,7 @@ Esta funcionalidad permite realizar directamente copias de seguridad en el almac
 
 En este caso, la ventaja es que no se necesita utilizar VHD para almacenar las copias de seguridad de SQL Server. Por tanto, tendrá menos VHD asignados y el ancho de banda total de IOPS de los VHD se podrá usar para los archivos de datos y de registro. Tenga en cuenta que el tamaño máximo de una copia de seguridad se limita a un máximo de 1 TB, tal como se describe en la sección "Limitaciones" de este artículo: <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. Si el tamaño de la copia de seguridad, a pesar de usar la compresión de copia de seguridad de SQL Server, es superior a 1 TB, debe usarse la funcionalidad que se describe en el capítulo [SQL Server 2012 SP1 CU3 y versiones anteriores][dbms-guide-5.5.2].
 
-[En la documentación relacionada](https://msdn.microsoft.com/library/dn449492.aspx) donde se describe el proceso de restauración de las bases de datos a partir de copias de seguridad en el almacén de blobs de Azure, se recomienda no llevar a cabo la restauración directamente desde el almacén de blobs de Azure si el tamaño de las copias de seguridad es superior a&25; GB. La recomendación de este artículo se basa simplemente en las consideraciones de rendimiento y no en las restricciones funcionales. Por lo tanto, pueden aplicarse distintas condiciones en cada caso.
+[En la documentación relacionada](https://msdn.microsoft.com/library/dn449492.aspx) donde se describe el proceso de restauración de las bases de datos a partir de copias de seguridad en el almacén de blobs de Azure, se recomienda no llevar a cabo la restauración directamente desde el almacén de blobs de Azure si el tamaño de las copias de seguridad es superior a 25 GB. La recomendación de este artículo se basa simplemente en las consideraciones de rendimiento y no en las restricciones funcionales. Por lo tanto, pueden aplicarse distintas condiciones en cada caso.
 
 Puede encontrar documentación sobre cómo configurar y utilizar este tipo de copia de seguridad en [este](https://msdn.microsoft.com/library/dn466438.aspx) tutorial.
 
@@ -618,7 +618,7 @@ Para no mezclar elementos entre los 3 tipos de copias de seguridad diferentes, s
 
 En el ejemplo anterior, las copias de seguridad no se realizarían en la misma cuenta de almacenamiento donde se implementan las máquinas virtuales. Sería en una nueva cuenta de almacenamiento creada específicamente para las copias de seguridad. En las cuentas de almacenamiento, habría diferentes contenedores creados con una matriz del tipo de copia de seguridad y el nombre de la máquina virtual. Gracias a esta segmentación, se podrán administrar las copias de seguridad de las diferentes máquinas virtuales de manera más sencilla.
 
-Los blobs en el que se escriben directamente las copias de seguridad no cuentan para el número de VHD de una máquina virtual. Por lo tanto, se podría maximizar la cantidad máxima de VHD montados de la SKU de máquina virtual específico del archivo de datos y de registro de transacciones, así como seguir ejecutando una copia de seguridad en un contenedor de almacenamiento. 
+Los blobs en el que se escriben directamente las copias de seguridad no cuentan para el número de VHD de una máquina virtual. Por lo tanto, se podría maximizar la cantidad máxima de VHD montados de la SKU de máquina virtual específico del archivo de datos y de registro de transacciones, así como seguir ejecutando una copia de seguridad en un contenedor de almacenamiento.
 
 #### <a name="f9071eff-9d72-4f47-9da4-1852d782087b"></a>SQL Server 2012 SP1 CU3 y versiones anteriores
 El primer paso que se debe realizar para conseguir que una copia de seguridad se realice directamente en Almacenamiento de Azure es descargar el archivo .msi en [este](https://www.microsoft.com/download/details.aspx?id=40740) artículo de Microsoft Knowledge Base.
@@ -629,7 +629,7 @@ Descargue la documentación y el archivo de instalación para arquitecturas x64.
 * La herramienta permitirá definir reglas que se pueden usar para dirigir diferentes tipos de copias de seguridad a distintos contenedores de almacenamiento de Azure.
 * Una vez que se hayan definido las reglas, la herramienta redirigirá la secuencia de escritura de la copia de seguridad a uno de los VHD y discos de la ubicación de almacenamiento de Azure que se definió anteriormente.
 * La herramienta dejará un archivo de código auxiliar de un tamaño reducido (muy pocos kB) en el VHD o disco definido para la copia de seguridad de SQL Server. **Este archivo debe mantenerse en la ubicación de almacenamiento, ya que es necesario para volver a realizar la restauración desde el almacenamiento de Azure.**
-  * Si ha perdido el archivo de código auxiliar (por ejemplo, tras la pérdida de los medios de almacenamiento que contienen dicho archivo) y ha elegido la opción de realizar las copias de seguridad en una cuenta de almacenamiento de Microsoft Azure, puede recuperar el archivo de código auxiliar mediante el almacenamiento de Microsoft Azure descargándolo desde el contenedor de almacenamiento donde se colocó. Después, debe colocar el archivo de código auxiliar en una carpeta de la máquina local donde se haya configurado la herramienta para detectar el mismo contenedor y cargarse en él con la misma contraseña de cifrado si se empleó cifrado con la regla original. 
+  * Si ha perdido el archivo de código auxiliar (por ejemplo, tras la pérdida de los medios de almacenamiento que contienen dicho archivo) y ha elegido la opción de realizar las copias de seguridad en una cuenta de almacenamiento de Microsoft Azure, puede recuperar el archivo de código auxiliar mediante el almacenamiento de Microsoft Azure descargándolo desde el contenedor de almacenamiento donde se colocó. Después, debe colocar el archivo de código auxiliar en una carpeta de la máquina local donde se haya configurado la herramienta para detectar el mismo contenedor y cargarse en él con la misma contraseña de cifrado si se empleó cifrado con la regla original.
 
 Es decir, el esquema tal y como se describió anteriormente para las versiones más recientes de SQL Server puede colocarse también para las versiones de SQL Server que no pueden redirigirse directamente a una ubicación de almacenamiento de Azure.
 
@@ -640,7 +640,7 @@ Otras posibilidades realizar copias de seguridad de bases de datos consisten en 
 
 Una segunda posibilidad consiste en usar una máquina virtual de gran tamaño que puede tener muchos VHD asociados. Por ejemplo, D14 con 32 VHD. Utilice espacios de almacenamiento para crear un entorno flexible donde puede crear recursos compartidos que se utilicen como destinos de copia de seguridad de los diferentes servidores de DBMS.
 
-También puede consultar algunos procedimientos recomendados [aquí](https://blogs.msdn.com/b/sqlcat/archive/2015/02/26/large-sql-server-database-backup-on-an-azure-vm-and-archiving.aspx) . 
+También puede consultar algunos procedimientos recomendados [aquí](https://blogs.msdn.com/b/sqlcat/archive/2015/02/26/large-sql-server-database-backup-on-an-azure-vm-and-archiving.aspx) .
 
 #### <a name="performance-considerations-for-backupsrestores"></a>Consideraciones de rendimiento sobre copias de seguridad y restauraciones
 Como en las implementaciones sin sistema operativo, el rendimiento de las copias de seguridad y las restauraciones depende de cuántos volúmenes puedan leerse en paralelo y el rendimiento que estos volúmenes puedan tener. Además, el consumo de CPU que se emplea en la compresión de copias de seguridad puede desempeñar un papel importante en las máquinas virtuales con solo 8 subprocesos de CPU como máximo. Por lo tanto, se pueden asumir los siguientes puntos:
@@ -663,15 +663,16 @@ Para administrar las copias de seguridad por su cuenta, tendrá que cumplir un r
 * Explorador de Microsoft Azure Storage (<https://azure.microsoft.com/downloads/>)
 * Herramientas de terceros
 
-[comentario]: <> (Todavía no se admite en ARM)
-[comentario]: <> (#### Copia de seguridad de máquina virtual de Azure)
-[comentario]: <> (Se puede efectuar una copa de seguridad de las máquinas virtuales dentro del sistema SAP mediante la funcionalidad de copia de seguridad de máquinas virtuales de Azure. La funcionalidad de copia de seguridad de máquina virtual de Azure se introdujo a principios de 2015; se trata de un método estándar para realizar copias de seguridad de una máquina virtual completa en Azure. Azure Backup almacena las copias de seguridad en Azure y permite volver a restaurar una máquina virtual.) 
-[comentario]: <>Teóricamente, también se puede realizar una copia de seguridad de las VM que ejecutan bases de datos de forma coherente si los sistemas de DBMS admiten Windows VSS (Servicio de instantáneas de volumen <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>) como, por ejemplo, hace SQL Server. Por tanto, usar la funcionalidad de copia de seguridad de máquina virtual de Azure podría ser una forma de obtener una copia de seguridad de una base de datos de SAP que puede restaurarse. Sin embargo, tenga en cuenta que no se pueden realizar restauraciones de bases de datos a un momento dado con esta funcionalidad. Por lo tanto, se recomienda realizar copias de seguridad de bases de datos con la funcionalidad de DBMS en lugar de confiar en la de copia de seguridad de máquina virtual de Azure.) [comentario]: <> (Para familiarizarse con la función de copia de seguridad de máquinas virtuales de Azure, inicie aquí <https://azure.microsoft.com/documentation/services/backup/>)
+<!--[comment]: <> (Not yet supported on ARM-->
+<!--[comment]: <> (#### Azure VM backup)-->
+<!--[comment]: <> (VMs within the SAP system can be backed up using Azure Virtual Machine Backup functionality. Azure Virtual Machine Backup got introduced early in the year 2015 and meanwhile is a standard method to backup a complete VM in Azure. Azure Backup stores the backups in Azure and allows a restore of a VM again.)--> 
+<!--[comment]: <> (VMs that run databases can be backed up in a consistent manner as well if the DBMS systems supports the Windows VSS (Volume Shadow Copy Service - <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>) as e.g. SQL Server does. So using Azure VM backup could be a way to get to a restorable backup of a SAP database. However, be aware that based on Azure VM backups point-in-time restores of databases is not possible. Therefore, the recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.)-->
+<!--[comment]: <> (To get familiar with Azure Virtual Machine Backup please start here <https://azure.microsoft.com/documentation/services/backup/>)-->
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Uso de imágenes de SQL Server fuera de Microsoft Azure Marketplace
 Microsoft ofrece en Azure Marketplace máquinas virtuales que ya contienen versiones de SQL Server. Para los clientes de SAP que requieran licencias de SQL Server y Windows, podría tratarse de una oportunidad para cubrir la necesidad de licencias activando las máquinas virtuales con SQL Server ya está instalado. Para poder utilizar dichas imágenes para SAP, deben tenerse en cuenta las siguientes consideraciones:
 
-* Las versiones de SQL Server que no son evaluación incurren en costes más elevados que simplemente una máquina virtual exclusivamente con Windows implementada desde Azure Marketplace. Consulte los siguientes artículos para comparar los precios: <https://azure.microsoft.com/pricing/details/virtual-machines/> y <https://azure.microsoft.com/pricing/details/virtual-machines/#Sql>. 
+* Las versiones de SQL Server que no son evaluación incurren en costes más elevados que simplemente una máquina virtual exclusivamente con Windows implementada desde Azure Marketplace. Consulte los siguientes artículos para comparar los precios: <https://azure.microsoft.com/pricing/details/virtual-machines/> y <https://azure.microsoft.com/pricing/details/virtual-machines/#Sql>.
 * Solo se pueden usar las versiones de SQL Server compatibles con SAP, como SQL Server 2012.
 * La intercalación de la instancia de SQL Server que está instalada en las máquinas virtuales que se ofrecen en Azure Marketplace no es la que requiere SAP NetWeaver para ejecutar la instancia de SQL Server. Puede cambiar la intercalación, aunque debe seguir las instrucciones de la sección que encontrará a continuación.
 
@@ -696,10 +697,10 @@ El resultado deberá ser similar al que se muestra a continuación:
 Si no obtiene lo mismo, DETENGA la implementación de SAP e investigue por qué el comando de instalación no funcionó como se esperaba. **NO** se admite la implementación de aplicaciones de SAP NetWeaver en la instancia de SQL Server con páginas de códigos de SQL Server distintas de la mencionada antes.
 
 ### <a name="sql-server-high-availability-for-sap-in-azure"></a>Alta disponibilidad de SQL Server para SAP en Azure
-Tal y como se mencionó anteriormente en este documento, no hay ninguna posibilidad de crear un almacenamiento compartido que sea necesario para utilizar la funcionalidad de alta disponibilidad de SQL Server más antigua. Esta funcionalidad instala&2; o más instancias de SQL Server en un clúster de conmutación por error de Windows Server (WSFC) utilizando un disco compartido para las bases de datos de usuario (y, al final, tempdb). Se trata del método estándar de alta disponibilidad que también es compatible con SAP. Dado que Azure no admite el almacenamiento compartido, no se pueden realizar configuraciones de alta disponibilidad de SQL Server con una configuración de clúster de disco compartido. Sin embargo, podemos seguir utilizando muchos otros métodos de alta disponibilidad, que se describen en las secciones siguientes.
+Tal y como se mencionó anteriormente en este documento, no hay ninguna posibilidad de crear un almacenamiento compartido que sea necesario para utilizar la funcionalidad de alta disponibilidad de SQL Server más antigua. Esta funcionalidad instala 2 o más instancias de SQL Server en un clúster de conmutación por error de Windows Server (WSFC) utilizando un disco compartido para las bases de datos de usuario (y, al final, tempdb). Se trata del método estándar de alta disponibilidad que también es compatible con SAP. Dado que Azure no admite el almacenamiento compartido, no se pueden realizar configuraciones de alta disponibilidad de SQL Server con una configuración de clúster de disco compartido. Sin embargo, podemos seguir utilizando muchos otros métodos de alta disponibilidad, que se describen en las secciones siguientes.
 
-[comentario]: <> (El artículo sigue refiriéndose a ASM)
-[comentario]: <> (Antes de leer las distintas tecnologías específicas de alta disponibilidad que se puedne usar con SQL Server en Azure, hay un documento muy bueno que proporiciona más información y punteros [aquí][virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions])
+<!--[comment]: <> (Article is still refering to ASM)-->
+<!--[comment]: <> (Before reading the different specific high availability technologies usable for SQL Server in Azure, there is a very good document which gives more details and pointers [here][virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions])-->
 
 #### <a name="sql-server-log-shipping"></a>Trasvase de registros de SQL Server
 Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los registros de SQL Server. Si las máquinas virtuales que participan en la configuración de alta disponibilidad tienen una resolución de nombres correcta, no habrá ningún problema y la configuración de Azure no será diferente a cualquier otra realizada de forma local. No se recomienda depender exclusivamente de la resolución de direcciones IP. En lo que respecta a la configuración de trasvase de registros y sus principios, consulte esta documentación:
@@ -709,43 +710,43 @@ Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los regist
 Para poder lograr realmente la alta disponibilidad, hay que implementar las máquinas virtuales que estén en una configuración de trasvase de registros que, a su vez, se encuentre en el mismo conjunto de disponibilidad de Azure.
 
 #### <a name="database-mirroring"></a>Creación de reflejo de la base de datos
-La funcionalidad de creación de reflejo de la base de datos, que es compatible con SAP (consulte la nota de SAP [965908]), se basa en la definición de un asociado de conmutación por error en la cadena de conexión de SAP. Para los casos entre locales, asumimos que las&2; máquinas virtuales están en el mismo dominio y que las&2; instancias de SQL Server que se están ejecutando en el contexto de usuario son también los usuarios de dominio, así como que tendrán los privilegios suficientes en las&2; instancias de SQL Server. Por lo tanto, el proceso configuración de la creación de reflejo de la base de datos de Azure es el mismo en una configuración o instalación local típica.
+La funcionalidad de creación de reflejo de la base de datos, que es compatible con SAP (consulte la nota de SAP [965908]), se basa en la definición de un asociado de conmutación por error en la cadena de conexión de SAP. Para los casos entre locales, asumimos que las 2 máquinas virtuales están en el mismo dominio y que las 2 instancias de SQL Server que se están ejecutando en el contexto de usuario son también los usuarios de dominio, así como que tendrán los privilegios suficientes en las 2 instancias de SQL Server. Por lo tanto, el proceso configuración de la creación de reflejo de la base de datos de Azure es el mismo en una configuración o instalación local típica.
 
 Al igual que con las implementaciones exclusivas en la nube, el método más fácil es tener otra configuración de dominio en Azure con el fin de albergar esas máquinas virtuales de DBMS (e, idealmente, las máquinas virtuales de SAP específicas) dentro de un dominio.
 
 Si un dominio no es posible, también se pueden usar certificados para los puntos de conexión de reflejo de la base de datos, como se describe aquí: <https://technet.microsoft.com/library/ms191477.aspx>.
 
-Se puede encontrar un tutorial para la configuración del reflejo de base de datos en Azure aquí: <https://technet.microsoft.com/library/ms189852.aspx>. 
+Se puede encontrar un tutorial para la configuración del reflejo de base de datos en Azure aquí: <https://technet.microsoft.com/library/ms189852.aspx>.
 
 #### <a name="alwayson"></a>AlwaysOn
 Como AlwaysOn es compatible con un entorno de SAP local (consulte la nota de SAP [1772688]), se puede usar en combinación con SAP en Azure. El hecho de que no pueda crear discos compartidos en Azure no significa que no se pueda crear una configuración AlwaysOn de clúster de conmutación por error de Windows Server (WSFC) entre diferentes máquinas virtuales. Tan solo significa que no tiene la posibilidad de usar un disco compartido como un cuórum en la configuración del clúster. Por lo tanto, puede crear una configuración AlwaysOn de WSFC en Azure y simplemente no seleccionar el tipo de cuórum que utiliza el disco compartido. El entorno de Azure en el que se han implementado esas máquinas virtuales debe resolver las máquinas virtuales por nombre y estas deben encontrarse en el mismo dominio. Lo mismo ocurre con las implementaciones entre locales y exclusivas de Azure. Hay algunas consideraciones especiales respecto a implementar el agente de escucha de grupo de disponibilidad de SQL Server (no debe confundirse con el conjunto de disponibilidad de Azure), ya que Azure en este momento no puede crear un objeto AD y DNS como en las implementaciones locales. Por lo tanto, hay que realizar otros pasos de instalación para solucionar el comportamiento específico de Azure.
 
 Estas son algunas de las consideraciones que hay que tener en cuenta al usar un agente de escucha de grupo de disponibilidad:
 
-* Solo se puede usar un agente de escucha del grupo de disponibilidad con Windows Server 2012 o Windows Server 2012 R2 como SO invitado de la máquina virtual. Para Windows Server 2012 debe asegurarse de que se aplica esta revisión: <https://support.microsoft.com/kb/2854082>. 
+* Solo se puede usar un agente de escucha del grupo de disponibilidad con Windows Server 2012 o Windows Server 2012 R2 como SO invitado de la máquina virtual. Para Windows Server 2012 debe asegurarse de que se aplica esta revisión: <https://support.microsoft.com/kb/2854082>.
 * Esta revisión no está disponible para Windows Server 2008 R2 y AlwaysOn tendría que usarse de la misma manera que la funcionalidad de creación de reflejo de base de datos especificando un asociado de conmutación por error en la cadena de conexiones (se realiza mediante el parámetro de SAP default.pfl dbs/mss/server; consulte la nota de SAP [965908]).
 * Cuando se utiliza un agente de escucha de grupo de disponibilidad, las máquinas virtuales de la base de datos tienen que estar conectadas a un equilibrador de carga específico. La funcionalidad de resolución de nombres de las implementaciones exclusivas en la nube precisaría que todas las máquinas virtuales de un sistema SAP (servidores de aplicaciones, el servidor de DBMS y el servidor ASCS) se encuentren en la misma red virtual, o bien que se realizara un mantenimiento del archivo etc\host en una capa de aplicación de SAP para obtener resueltos los nombres de las máquinas virtuales de SQL Server. Para evitar que Azure asigne nuevas direcciones IP en casos donde ambas máquinas virtuales se apaguen accidentalmente, se deben asignar direcciones IP estáticas a las interfaces de red de esas máquinas virtuales en la configuración AlwaysOn (el proceso definición de una dirección IP estática se describe en [este][virtual-networks-reserved-private-ip] artículo).
 
-[comentario]: <> (Blogs antiguos)
-[comentario]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
+[comment]: <> (Blogs anteriores)
+[comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>)
 * Hay que realizar algunos pasos especiales al crear la configuración del clúster WSFC: el clúster necesita una dirección IP especial, ya la funcionalidad actual de Azure asignaría el nombre del clúster a la misma dirección IP que el nodo donde se ha creado dicho clúster. Es decir, se debe realizar un paso manual para asignar una dirección IP diferente a la del clúster.
 * El agente de escucha de grupo de disponibilidad se va a crear en Azure con los puntos de conexión TCP/IP asignados a las máquinas virtuales que ejecutan las réplicas principales y secundarias del grupo de disponibilidad.
 * Puede que haya que proteger estos puntos de conexión con ACL.
 
-[comentario]: <> (Blog antiguo PENDIENTE)
-[comentario]: <> (Los pasos detallados y las necesidades de instalar una configuración AlwaysOn en Azure se realizan de mejor manera cuando se sigue el tutorial disponible [aquí][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
-[comentario]: <> (La configuración AlwaysOn preconfigurada a través de la galería de Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
-[comentario]: <> (La creación de un agente de escucha del grupo de disponibilidad se describe mejor en [este][virtual-machines-windows-classic-ps-sql-int-listener] tutorial)
-[comentario]: <> (Los puntos de conexión de red de protección con ACL se explican mejor aquí:)
-[comentario]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comentario]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
-[comentario]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
-[comentario]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
+[comment]: <> (Blog antiguo PENDIENTE)
+[comment]: <> (Los pasos detallados y las necesidades de instalar una configuración AlwaysOn en Azure se realizan de mejor manera cuando se sigue el tutorial disponible [aquí][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
+[comment]: <> (La configuración AlwaysOn preconfigurada a través de la galería de Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (La creación de un agente de escucha del grupo de disponibilidad se describe mejor en [este][virtual-machines-windows-classic-ps-sql-int-listener] tutorial)
+[comment]: <> (Los puntos de conexión de red de protección con ACL se explican mejor aquí:)
+[comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
 Es posible implementar un grupo de disponibilidad AlwaysOn de SQL Server en distintas regiones de Azure también. Esta funcionalidad aprovechará la conectividad de red virtual a red virtual de Azure ([más información][virtual-networks-configure-vnet-to-vnet-connection]).
 
-[comentario]: <> (Blog antiguo PENDIENTE)
-[comentario]: <> (La configuración de los grupos de disponibilidad AlwaysOn de SQL Server en tal escenario se describe aquí: < https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (Blog antiguo PENDIENTE)
+[comment]: <> (La configuración de los grupos de disponibilidad AlwaysOn de SQL Server en tal escenario se describe aquí: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.)
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Resumen de alta disponibilidad de SQL Server en Azure
 Como el almacenamiento de Azure está protegiendo el contenido, hay una razón menos para insistir en el uso de una imagen de espera activa. Es decir, el escenario de alta disponibilidad solo tiene que protegerse contra los siguientes casos:
@@ -764,13 +765,13 @@ Tendrá que equilibrar la configuración más compleja de AlwaysOn, en comparaci
 * Más de una réplica secundaria legible
 
 ### <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Resumen general de SQL Server para SAP en Azure
-En esta guía se ofrecen muchas recomendaciones: le sugerimos que la lea más de una vez antes de planear la implementación de Azure. En general, asegúrese de seguir las&10; principales pautas específicas de DBMS en Azure:
+En esta guía se ofrecen muchas recomendaciones: le sugerimos que la lea más de una vez antes de planear la implementación de Azure. En general, asegúrese de seguir las 10 principales pautas específicas de DBMS en Azure:
 
-[comentario]: <> (2.3 ¿mayor rendimiento que qué? ¿Que un disco duro virtual?)
+[comment]: <> (2.3 higher throughput than what? ¿Que un disco duro virtual?)
 1. Utilice la versión de DBMS más reciente, como SQL Server 2014, que presenta la mayoría de las ventajas de Azure. Para SQL Server, se trata de SQL Server 2012 SP1 CU4, que incluiría la característica de copia de seguridad en el almacenamiento de Azure. Sin embargo, para usarse con SAP recomendamos, como mínimo, SQL Server 2014 SP1 CU1 o SQL Server 2012 SP2 y la CU más reciente.
 2. Planee cuidadosamente su infraestructura de sistema SAP en Azure para equilibrar el diseño del archivo de datos y las restricciones de Azure:
    * No disponga de un número de VHD demasiado elevado, solo el suficiente para asegurarse de que puede alcanzar los IOPS necesarios.
-   * Recuerde que los valores de E/S también están limitados por cuenta de Azure Storage y que las cuentas de Storage están limitadas en cada suscripción de Azure ([más información][azure-subscription-service-limits]). 
+   * Recuerde que los valores de E/S también están limitados por cuenta de Azure Storage y que las cuentas de Storage están limitadas en cada suscripción de Azure ([más información][azure-subscription-service-limits]).
    * Si necesita obtener un mayor rendimiento, solo cree secciones en los VHD.
 3. Nunca instale software o coloque los archivos que requieren persistencia en la unidad D:\, ya que no es permanente y todos los datos que albergue se perderán tras reiniciar Windows.
 4. No utilice el almacenamiento en caché de VHD de Azure para el almacenamiento estándar de Azure.
@@ -802,7 +803,7 @@ Encontrará información general sobre la ejecución de SAP Business Suite en SA
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Instrucciones de configuración de SAP ASE para SAP relacionadas con las instalaciones de SAP ASE en máquinas virtuales de Azure
 #### <a name="structure-of-the-sap-ase-deployment"></a>Estructura de la implementación de SAP ASE
-Según la descripción general, los archivos ejecutables de SAP ASE se deben ubicar o instalar en la unidad del sistema del VHD base de la máquina virtual (unidad C:\)). Normalmente, la mayoría de las bases de datos de herramientas y sistemas SAP ASE no se aprovechan realmente bien mediante las cargas de trabajo de SAP NetWeaver. Por lo tanto, las bases de datos de herramientas y sistemas (master, model, saptools, sybmgmtdb, sybsystemdb) pueden permanecer en la unidad C:\. 
+Según la descripción general, los archivos ejecutables de SAP ASE se deben ubicar o instalar en la unidad del sistema del VHD base de la máquina virtual (unidad C:\)). Normalmente, la mayoría de las bases de datos de herramientas y sistemas SAP ASE no se aprovechan realmente bien mediante las cargas de trabajo de SAP NetWeaver. Por lo tanto, las bases de datos de herramientas y sistemas (master, model, saptools, sybmgmtdb, sybsystemdb) pueden permanecer en la unidad C:\.
 
 Una excepción puede ser la base de datos temporal que contiene todas las tablas de trabajo y temporales que SAP ASE creó, que, en el caso de algunos SAP ERP y todas las cargas de trabajo de BW, podría requerir un mayor volumen de datos o de operaciones de E/S que no quepan en el VHD base de la máquina virtual original (unidad c:\).
 
@@ -840,36 +841,36 @@ En el caso de sistemas SAP que usan SAP ASE como plataforma de bases de datos, s
 Al igual que en el caso de los sistemas locales, es preciso seguir varios pasos para habilitar toda la funcionalidad de SAP NetWeaver que usa la implementación de Webdynpro de DBACockpit. Siga las indicaciones de la nota de SAP [1245200] para habilitar el uso de los recursos de Webdynpro y generar los necesarios. Las instrucciones de las notas anteriores también lo ayudarán a configurar el administrador de comunicación de Internet (ICM) y los puertos que se utilizarán para las conexiones http y https. La configuración de http predeterminada tiene el siguiente aspecto:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
-> 
+>
 > icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
-> 
-> 
+>
+>
 
 y los vínculos generados en la transacción de DBACockpit tendrán un aspecto similar al siguiente:
 
 > https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
-> 
+>
 > http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
+>
+>
 
 Dependiendo de si la máquina virtual de Azure que hospeda el sistema SAP se conecta de sitio a sitio, con varios sitios o mediante ExpressRoute (implementación entre locales) y en función de cómo lo haga, debe asegurarse de que ese ICM está usando un nombre de host completo que se puede resolver en el equipo desde el que está intentando abrir DBACockpit. Consulte la nota de SAP [773830] para conocer el modo en que ICM determina el nombre de host completo según los parámetros de perfil y, si es necesario, defina específicamente el parámetro icm/host_name_full.
 
 Si implementó la máquina virtual en un escenario solo de nube sin conectividad en varios entornos entre locales y Azure, debe definir una dirección IP pública y un valor de domainlabel. El formato del nombre DNS público de la máquina virtual tendrá un aspecto similar al siguiente:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
-> 
-> 
+>
+>
 
 Encontrará más detalles relacionados con el nombre DNS [aquí][virtual-machines-azurerm-versus-azuresm].
 
 El ajuste del parámetro de perfil de SAP icm/host_name_full con el nombre DNS del vínculo de la máquina virtual de Azure puede tener este aspecto:
 
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
-> 
+>
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
+>
+>
 
 En ese caso, debe asegurarse de lo siguiente:
 
@@ -923,7 +924,7 @@ Anteriormente ya se trató en esta guía la sección de un volumen en varios VHD
 
 ### <a name="disaster-recovery-with-azure-vms"></a>Recuperación ante desastres con máquinas virtuales de Azure
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>Replicación de datos con el servidor de replicación SAP Sybase
-Con el servidor de replicación SAP Sybase (SRS), SAP ASE proporciona una solución de espera semiactiva para transferir las transacciones de la base de datos a una ubicación distante de manera asincrónica. 
+Con el servidor de replicación SAP Sybase (SRS), SAP ASE proporciona una solución de espera semiactiva para transferir las transacciones de la base de datos a una ubicación distante de manera asincrónica.
 
 La instalación y la actividad de SRS se desarrollan funcionalmente igual de bien en una máquina virtual hospedada en servicios de máquina virtual de Azure que en el entorno local.
 
@@ -955,7 +956,7 @@ Encontrará información general sobre la ejecución de SAP Business Suite en SA
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Instrucciones de configuración de SAP ASE para SAP relacionadas con las instalaciones de SAP ASE en máquinas virtuales de Azure
 #### <a name="structure-of-the-sap-ase-deployment"></a>Estructura de la implementación de SAP ASE
-Según la descripción general, los archivos ejecutables de SAP ASE se deben ubicar o instalar en el sistema de archivos raíz de la máquina virtual (/sybase). Normalmente, la mayoría de las bases de datos de herramientas y sistemas SAP ASE no se aprovechan realmente bien mediante las cargas de trabajo de SAP NetWeaver. Por lo tanto, las bases de datos de herramientas y sistemas (master, model, saptools, sybmgmtdb, sybsystemdb) pueden permanecer en el sistema de archivos raíz. 
+Según la descripción general, los archivos ejecutables de SAP ASE se deben ubicar o instalar en el sistema de archivos raíz de la máquina virtual (/sybase). Normalmente, la mayoría de las bases de datos de herramientas y sistemas SAP ASE no se aprovechan realmente bien mediante las cargas de trabajo de SAP NetWeaver. Por lo tanto, las bases de datos de herramientas y sistemas (master, model, saptools, sybmgmtdb, sybsystemdb) pueden permanecer en el sistema de archivos raíz.
 
 Una excepción puede ser la base de datos temporal que contiene todas las tablas de trabajo y temporales que SAP ASE creó, que, en el caso de algunos SAP ERP y todas las cargas de trabajo de BW, podría requerir un mayor volumen de datos o de operaciones de E/S que no quepan en el disco del sistema operativo de la máquina virtual original.
 
@@ -993,36 +994,36 @@ En el caso de sistemas SAP que usan SAP ASE como plataforma de bases de datos, s
 Al igual que en el caso de los sistemas locales, es preciso seguir varios pasos para habilitar toda la funcionalidad de SAP NetWeaver que usa la implementación de Webdynpro de DBACockpit. Siga las indicaciones de la nota de SAP [1245200] para habilitar el uso de los recursos de Webdynpro y generar los necesarios. Las instrucciones de las notas anteriores también lo ayudarán a configurar el administrador de comunicación de Internet (ICM) y los puertos que se utilizarán para las conexiones http y https. La configuración de http predeterminada tiene el siguiente aspecto:
 
 > icm/server_port_0 = PROT=HTTP,PORT=8000,PROCTIMEOUT=600,TIMEOUT=600
-> 
+>
 > icm/server_port_1 = PROT=HTTPS,PORT=443$$,PROCTIMEOUT=600,TIMEOUT=600
-> 
-> 
+>
+>
 
 y los vínculos generados en la transacción de DBACockpit tendrán un aspecto similar al siguiente:
 
 > https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
-> 
+>
 > http://`<fullyqualifiedhostname`>:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
+>
+>
 
 Dependiendo de si la máquina virtual de Azure que hospeda el sistema SAP se conecta de sitio a sitio, con varios sitios o mediante ExpressRoute (implementación entre locales) y en función de cómo lo haga, debe asegurarse de que ese ICM está usando un nombre de host completo que se puede resolver en el equipo desde el que está intentando abrir DBACockpit. Consulte la nota de SAP [773830] para conocer el modo en que ICM determina el nombre de host completo según los parámetros de perfil y, si es necesario, defina específicamente el parámetro icm/host_name_full.
 
 Si implementó la máquina virtual en un escenario solo de nube sin conectividad en varios entornos entre locales y Azure, debe definir una dirección IP pública y un valor de domainlabel. El formato del nombre DNS público de la máquina virtual tendrá un aspecto similar al siguiente:
 
 > `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
-> 
-> 
+>
+>
 
 Encontrará más detalles relacionados con el nombre DNS [aquí][virtual-machines-azurerm-versus-azuresm].
 
 El ajuste del parámetro de perfil de SAP icm/host_name_full con el nombre DNS del vínculo de la máquina virtual de Azure puede tener este aspecto:
 
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
-> 
+>
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
+>
+>
 
 En ese caso, debe asegurarse de lo siguiente:
 
@@ -1076,14 +1077,14 @@ Anteriormente ya se trató en esta guía la sección de un volumen en varios VHD
 
 ### <a name="disaster-recovery-with-azure-vms"></a>Recuperación ante desastres con máquinas virtuales de Azure
 #### <a name="data-replication-with-sap-sybase-replication-server"></a>Replicación de datos con el servidor de replicación SAP Sybase
-Con el servidor de replicación SAP Sybase (SRS), SAP ASE proporciona una solución de espera semiactiva para transferir las transacciones de la base de datos a una ubicación distante de manera asincrónica. 
+Con el servidor de replicación SAP Sybase (SRS), SAP ASE proporciona una solución de espera semiactiva para transferir las transacciones de la base de datos a una ubicación distante de manera asincrónica.
 
 La instalación y la actividad de SRS se desarrollan funcionalmente igual de bien en una máquina virtual hospedada en servicios de máquina virtual de Azure que en el entorno local.
 
 En este momento no se admite ASE HADR a través de SAP Replication Server. Es posible que más adelante se realicen pruebas con las plataformas de Microsoft Azure y se publiquen para ellas.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Detalles de la base de datos de Oracle en Windows
-Desde mediados de 2013, el software de Oracle es compatible con Oracle para ejecutarse en Microsoft Windows Hyper-V y Azure. Lea este artículo para más información sobre la compatibilidad general de Windows Hyper-V y Azure Oracle: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>. 
+Desde mediados de 2013, el software de Oracle es compatible con Oracle para ejecutarse en Microsoft Windows Hyper-V y Azure. Lea este artículo para más información sobre la compatibilidad general de Windows Hyper-V y Azure Oracle: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>.
 
 A partir de esta compatibilidad general, también se admite el escenario concreto en el que las aplicaciones de SAP aprovechen las bases de datos de Oracle. Los detalles se mencionan en esta parte del documento.
 
@@ -1094,9 +1095,10 @@ Se puede encontrar información general sobre la ejecución de SAP Business Suit
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de Oracle para instalaciones de SAP en máquinas virtuales de Azure
 #### <a name="storage-configuration"></a>Configuración de almacenamiento
-Solo se admiten versiones de Oracle de solo una versión que usen discos con formato NTFS. Todos los archivos de las bases de datos se deben almacenar en el sistema de archivos NTFS basado en discos VHD. Estos discos duros virtuales están montados en la máquina virtual de Azure y se basan en el almacenamiento de blob en páginas de Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). Las unidades de red o los recursos compartidos remotos como los servicios de archivos de Azure:
+Solo se admiten versiones de Oracle de solo una versión que usen discos con formato NTFS. Todos los archivos de las bases de datos se deben almacenar en el sistema de archivos NTFS basado en discos VHD. Estos discos duros virtuales están montados en la máquina virtual de Azure y se basan en el almacenamiento de blob en páginas de Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>).
+Las unidades de red o los recursos compartidos remotos como los servicios de archivos de Azure:
 
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
+* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
 **NO** son compatibles con los archivos de bases de datos de Oracle.
@@ -1107,7 +1109,7 @@ Como se explicó anteriormente en la parte general del documento, existen cuotas
 
 Para identificar los tipos de máquina virtual de Azure admitidos, consulte la nota de SAP [1928533]
 
-Mientras la cuota actual de IOPS por disco cumpla los requisitos, se pueden almacenar todos los archivos de base de datos en un solo VHD de Azure montado. 
+Mientras la cuota actual de IOPS por disco cumpla los requisitos, se pueden almacenar todos los archivos de base de datos en un solo VHD de Azure montado.
 
 Si necesita más IOPS, se recomienda encarecidamente utilizar bloques de almacenamiento de Windows (solo disponibles en Windows Server 2012 y versiones posteriores) o crear secciones de Windows para Windows 2008 R2 a fin de crear un dispositivo lógico de gran tamaño en varios discos VHD montados. Consulte también el capítulo [RAID de software][dbms-guide-2.2] de este documento. Este enfoque simplifica la sobrecarga de administración para administrar el espacio en disco y evita el esfuerzo de distribuir archivos manualmente en varios VHD montados.
 
@@ -1115,7 +1117,7 @@ Si necesita más IOPS, se recomienda encarecidamente utilizar bloques de almacen
 Para utilizar la funcionalidad de copia de seguridad y restauración, las SAP BR*Tools para Oracle se admiten del mismo modo que en los sistemas operativos Windows Server y Hyper-V estándares. También se admite Oracle Recovery Manager (RMAN) para las copias de seguridad en discos y las restauraciones desde discos.
 
 #### <a name="high-availability"></a>Alta disponibilidad
-[comentario]: <> (el vínculo hace referencia a ASM)
+[comment]: <> (el vínculo hace referencia a ASM)
 Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Encontrará los detalles en [esta][virtual-machines-windows-classic-configure-oracle-data-guard] documentación.
 
 #### <a name="other"></a>Otros
@@ -1142,9 +1144,9 @@ Encontrará la lista de la documentación de SAP MaxDB actualizada en la nota de
 Los procedimientos recomendados de almacenamiento de Azure para SAP MaxDB siguen las recomendaciones generales mencionadas en el capítulo [Estructura de una implementación de RDBMS][dbms-guide-2].
 
 > [!IMPORTANT]
-> Al igual que otras bases de datos, SAP MaxDB también dispone de archivos de datos y de registro. Sin embargo, en la terminología de SAP MaxDB el término correcto es "volumen" (no "archivo"). Por ejemplo, existen volúmenes de datos y de registro de SAP MaxDB. No los confunda con los volúmenes de disco del sistema operativo. 
-> 
-> 
+> Al igual que otras bases de datos, SAP MaxDB también dispone de archivos de datos y de registro. Sin embargo, en la terminología de SAP MaxDB el término correcto es "volumen" (no "archivo"). Por ejemplo, existen volúmenes de datos y de registro de SAP MaxDB. No los confunda con los volúmenes de disco del sistema operativo.
+>
+>
 
 En resumen, deberá hacer lo siguiente:
 
@@ -1160,7 +1162,7 @@ En resumen, deberá hacer lo siguiente:
 #### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Copia de seguridad y restauración
 Al implementar SAP MaxDB en Azure, debe revisar la metodología de copias de seguridad. Incluso si el sistema no es productivo, se debe realizar periódicamente la copia de seguridad de la base de datos de SAP que hospeda SAP MaxDB. Puesto que el almacenamiento de Azure guarda tres imágenes, ahora una copia de seguridad tiene menos relevancia en cuanto a la protección del sistema contra errores de almacenamiento y más relevancia en cuanto a errores operativos o administrativos. La razón principal para el mantenimiento de un plan de copia de seguridad y restauración correcto es que puede compensar errores lógicos o manuales gracias a la capacidad de recuperación a un momento dado. Por tanto, el propósito es usar copias de seguridad para restaurar la base de datos a un momento dado o utilizar las copias de seguridad de Azure para propagar otro sistema mediante la copia de la base de datos existente. Por ejemplo, podría transferir archivos desde una configuración de SAP de 2 niveles a una configuración de sistema de 3 niveles del mismo sistema mediante la restauración de una copia de seguridad.
 
-La realización de copias de seguridad y restauraciones de una base de datos de Azure funciona del mismo modo que para sistemas locales, por lo que puede usar herramientas estándar de copia de seguridad y restauración de SAP MaxDB, que se describen en uno de los documentos de SAP MaxDB enumerados en la nota de SAP [767598]. 
+La realización de copias de seguridad y restauraciones de una base de datos de Azure funciona del mismo modo que para sistemas locales, por lo que puede usar herramientas estándar de copia de seguridad y restauración de SAP MaxDB, que se describen en uno de los documentos de SAP MaxDB enumerados en la nota de SAP [767598].
 
 #### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Consideraciones de rendimiento para copias de seguridad y restauraciones
 Como en las implementaciones sin sistema operativo, el rendimiento de las copias de seguridad y las restauraciones depende de cuántos volúmenes puedan leerse en paralelo y del rendimiento de estos volúmenes. Además, el consumo de CPU que se emplea en la compresión de copias de seguridad puede desempeñar un papel importante en las máquinas virtuales con 8 subprocesos de CPU como máximo. Por lo tanto, se pueden asumir los siguientes puntos:
@@ -1178,13 +1180,13 @@ Para aumentar la cantidad de destinos en los que escribir, existen dos opciones 
   * Volúmenes de datos de SAP MaxDB
   * Volúmenes de registros de SAP MaxDB
 
-Ya se trató en el capítulo [RAID de software][dbms-guide-2.2] de este documento la sección de un volumen en varios discos duros virtuales montados. 
+Ya se trató en el capítulo [RAID de software][dbms-guide-2.2] de este documento la sección de un volumen en varios discos duros virtuales montados.
 
 #### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Otros
 Todos los demás temas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales con la base de datos de SAP MaxDB.
 Otras configuraciones específicas de SAP MaxDB son transparentes para las máquinas virtuales de Azure y se describen en distintos documentos de la nota de SAP [767598] y en estas otras notas:
 
-* [826037] 
+* [826037]
 * [1139904]
 * [1173395]
 
@@ -1198,11 +1200,11 @@ Para obtener la versión compatible de Microsoft Windows para SAP liveCache en A
 * [Matriz de disponibilidad de productos (PAM) SAP][sap-pam]
 * Nota de SAP [1928533]
 
-Se recomienda encarecidamente utilizar la versión más reciente del sistema operativo Microsoft Windows (Microsoft Windows 2012 R2 en el momento en el que se escribe este artículo). 
+Se recomienda encarecidamente utilizar la versión más reciente del sistema operativo Microsoft Windows (Microsoft Windows 2012 R2 en el momento en el que se escribe este artículo).
 
 ### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de SAP liveCache para instalaciones de SAP en máquinas virtuales de Azure
 #### <a name="recommended-azure-vm-types"></a>Tipos de máquina virtual de Azure recomendadas
-Puesto que SAP liveCache es una aplicación que realiza cálculos de grandes proporciones, la cantidad y la velocidad de CPU y RAM influyen en gran medida en el rendimiento de SAP liveCache. 
+Puesto que SAP liveCache es una aplicación que realiza cálculos de grandes proporciones, la cantidad y la velocidad de CPU y RAM influyen en gran medida en el rendimiento de SAP liveCache.
 
 En el caso de los tipos de máquina virtual de Azure compatibles con SAP (nota de SAP [1928533]), todos los recursos de CPU virtuales asignados a la máquina virtual cuentan con el respaldo de los recursos de CPU físicos dedicados del hipervisor. No existe aprovisionamiento en exceso (y, por tanto, tampoco existe competencia por los recursos de CPU).
 
@@ -1211,21 +1213,21 @@ Asimismo, para todos los tipos de versión de máquina virtual de Azure compatib
 Desde esta perspectiva, se recomienda encarecidamente utilizar las nuevas series D o DS de máquina virtual de Azure (junto con el almacenamiento Premium de Azure), que disponen de procesadores un 60 % más rápidos que la serie A. En el caso de las cargas de RAM y CPU más exigentes, puede utilizar las series G y GS de máquinas virtuales (junto con el almacenamiento Premium de Azure) con la familia de procesadores E5 v3 más recientes de Intel® Xeon®, que ofrecen el doble de memoria y cuatro veces más almacenamiento en unidad de estado sólido (SSD) que las series D y DS.
 
 #### <a name="storage-configuration"></a>Configuración de almacenamiento
-Puesto que SAP liveCache se basa en la tecnología SAP MaxDB, todos los procedimientos recomendados de Almacenamiento de Azure que se mencionan con relación a SAP MaxDB en el capítulo [Configuración de almacenamiento][dbms-guide-8.4.1] también se pueden aplicar a SAP liveCache. 
+Puesto que SAP liveCache se basa en la tecnología SAP MaxDB, todos los procedimientos recomendados de Almacenamiento de Azure que se mencionan con relación a SAP MaxDB en el capítulo [Configuración de almacenamiento][dbms-guide-8.4.1] también se pueden aplicar a SAP liveCache.
 
 #### <a name="dedicated-azure-vm-for-livecache"></a>Máquina virtual de Azure dedicada para liveCache
-Dado que SAP liveCache emplea una potencia de cálculo sumamente intensiva, se recomienda encarecidamente implementarla en una máquina virtual de Azure dedicada para obtener resultados productivos. 
+Dado que SAP liveCache emplea una potencia de cálculo sumamente intensiva, se recomienda encarecidamente implementarla en una máquina virtual de Azure dedicada para obtener resultados productivos.
 
 ![Máquina virtual de Azure dedicada para liveCache para un caso de uso productivo][dbms-guide-figure-700]
 
 #### <a name="backup-and-restore"></a>Copia de seguridad y restauración
-Las copias de seguridad y las restauraciones, incluidas las consideraciones de rendimiento, ya se describen en los capítulos pertinentes de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3]. 
+Las copias de seguridad y las restauraciones, incluidas las consideraciones de rendimiento, ya se describen en los capítulos pertinentes de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3].
 
 #### <a name="other"></a>Otros
-Todos los demás temas generales ya se describen en [este] capítulo correspondiente de SAP MaxDB [dbms-guide-8.4.4]. 
+Todos los demás temas generales ya se describen en [este] capítulo correspondiente de SAP MaxDB [dbms-guide-8.4.4].
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Detalles de SAP Content Server en Windows
-El servidor SAP Content Server es un componente independiente basado en servidor para almacenar contenido como documentos electrónicos en formatos diferentes. SAP Content Server se ofrece para el desarrollo de tecnología y se concibe para su uso en varias aplicaciones con cualquier aplicación de SAP. Se instala en un sistema independiente. Su contenido más habitual es material de aprendizaje y documentación de dibujos técnicos de Knowledge Warehouse que se crean en el sistema de administración de documentos de mySAP PLM. 
+El servidor SAP Content Server es un componente independiente basado en servidor para almacenar contenido como documentos electrónicos en formatos diferentes. SAP Content Server se ofrece para el desarrollo de tecnología y se concibe para su uso en varias aplicaciones con cualquier aplicación de SAP. Se instala en un sistema independiente. Su contenido más habitual es material de aprendizaje y documentación de dibujos técnicos de Knowledge Warehouse que se crean en el sistema de administración de documentos de mySAP PLM.
 
 ### <a name="sap-content-server-version-support"></a>Compatibilidad de versiones de SAP Content Server
 SAP actualmente admite:
@@ -1234,7 +1236,7 @@ SAP actualmente admite:
 * **SAP MaxDB versión 7.9**
 * **Microsoft IIS (Internet Information Server) versión 8.0 (y versiones posterior)**
 
-Se recomienda encarecidamente utilizar la versión más reciente de SAP Content Server, que en el momento de la creación de este documento es la **6.50 SP4**, y la versión más reciente de **Microsoft IIS 8.5**. 
+Se recomienda encarecidamente utilizar la versión más reciente de SAP Content Server, que en el momento de la creación de este documento es la **6.50 SP4**, y la versión más reciente de **Microsoft IIS 8.5**.
 
 Compruebe las últimas versiones compatibles de SAP Content Server y Microsoft IIS en [Matriz de disponibilidad de productos (PAM) SAP][sap-pam].
 
@@ -1248,17 +1250,17 @@ Se recomienda encarecidamente utilizar la versión más reciente de Microsoft Wi
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de SAP Content Server para las instalaciones de SAP en máquinas virtuales de Azure
 #### <a name="storage-configuration"></a>Configuración de almacenamiento
-Si configura SAP Content Server para almacenar archivos en la base de datos de SAP MaxDB, todos los procedimientos recomendados de Azure Storage que se mencionan con relación a SAP MaxDB en el capítulo [Configuración de almacenamiento][dbms-guide-8.4.1] también se pueden aplicar en el caso de SAP Content Server. 
+Si configura SAP Content Server para almacenar archivos en la base de datos de SAP MaxDB, todos los procedimientos recomendados de Azure Storage que se mencionan con relación a SAP MaxDB en el capítulo [Configuración de almacenamiento][dbms-guide-8.4.1] también se pueden aplicar en el caso de SAP Content Server.
 
-Si configura SAP Content Server para almacenar archivos en el sistema de archivos, se recomienda usar una unidad lógica exclusiva. El uso de espacios de almacenamiento también permite aumentar el tamaño del disco lógico y el rendimiento de E/S, como se describe en el capítulo [RAID de software][dbms-guide-2.2]. 
+Si configura SAP Content Server para almacenar archivos en el sistema de archivos, se recomienda usar una unidad lógica exclusiva. El uso de espacios de almacenamiento también permite aumentar el tamaño del disco lógico y el rendimiento de E/S, como se describe en el capítulo [RAID de software][dbms-guide-2.2].
 
 #### <a name="sap-content-server-location"></a>Ubicación de SAP Content Server
-SAP Content Server se debe implementar en la misma región de Azure y de red virtual de Azure en la que se implementó el sistema SAP. Puede elegir si desea implementar los componentes de SAP Content Server en una máquina virtual de Azure dedicada o en la misma máquina virtual en la que se ejecuta el sistema SAP. 
+SAP Content Server se debe implementar en la misma región de Azure y de red virtual de Azure en la que se implementó el sistema SAP. Puede elegir si desea implementar los componentes de SAP Content Server en una máquina virtual de Azure dedicada o en la misma máquina virtual en la que se ejecuta el sistema SAP.
 
 ![Máquina virtual de Azure dedicada para SAP Content Server][dbms-guide-figure-800]
 
 #### <a name="sap-cache-server-location"></a>Ubicación del SAP Cache Server
-El servidor SAP Cache Server es un componente adicional basado en servidores que proporciona acceso a documentos (en la memoria caché) en entornos locales. SAP Cache Server almacena en la caché los documentos de SAP Content Server. De este modo se optimiza el tráfico de red cuando los documentos se tienen que recuperar más de una vez desde distintas ubicaciones. Por lo general, SAP Cache Server debe encontrarse físicamente cerca del cliente que accede a este servidor. 
+El servidor SAP Cache Server es un componente adicional basado en servidores que proporciona acceso a documentos (en la memoria caché) en entornos locales. SAP Cache Server almacena en la caché los documentos de SAP Content Server. De este modo se optimiza el tráfico de red cuando los documentos se tienen que recuperar más de una vez desde distintas ubicaciones. Por lo general, SAP Cache Server debe encontrarse físicamente cerca del cliente que accede a este servidor.
 
 Dispone de dos opciones:
 
@@ -1271,21 +1273,21 @@ Dispone de dos opciones:
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Copia de seguridad y restauración
-Si configura SAP Content Server para almacenar archivos en la base de datos de SAP MaxDB, las consideraciones de rendimiento y de procedimiento de copia de seguridad y restauración ya se describieron en los capítulos de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3]. 
+Si configura SAP Content Server para almacenar archivos en la base de datos de SAP MaxDB, las consideraciones de rendimiento y de procedimiento de copia de seguridad y restauración ya se describieron en los capítulos de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3].
 
-Si configura SAP Content Server para almacenar archivos en el sistema de archivos, una opción es ejecutar de forma manual la copia de seguridad o la restauración de toda la estructura de archivos donde se encuentran los documentos. Al igual que las copias de seguridad y las restauraciones de SAP MaxDB, se recomienda disponer de un volumen de disco dedicado para realizar copias de seguridad. 
+Si configura SAP Content Server para almacenar archivos en el sistema de archivos, una opción es ejecutar de forma manual la copia de seguridad o la restauración de toda la estructura de archivos donde se encuentran los documentos. Al igual que las copias de seguridad y las restauraciones de SAP MaxDB, se recomienda disponer de un volumen de disco dedicado para realizar copias de seguridad.
 
 #### <a name="other"></a>Otros
 Otras configuraciones específicas de SAP Content Server son transparentes para máquinas virtuales de Azure y se describen en diversos documentos y notas de SAP:
 
-* <https://service.sap.com/contentserver> 
+* <https://service.sap.com/contentserver>
 * Nota de SAP [1619726]  
 
 ## <a name="specifics-to-ibm-db2-for-luw-on-windows"></a>Detalles de IBM DB2 para LUW en Windows
 Con Microsoft Azure, puede migrar fácilmente la aplicación SAP existente que se ejecuta en IBM DB2 para Linux, UNIX y Windows (LUW) a máquinas virtuales de Azure. Con SAP en IBM DB2 para LUW, los administradores y los desarrolladores pueden seguir usando las mismas herramientas de desarrollo y administración, disponibles de forma local.
 Se puede encontrar información general sobre la ejecución de SAP Business Suite en IBM DB2 para LUW en SAP Community Network: <https://scn.sap.com/community/db2-for-linux-unix-windows>.
 
-Para más información y actualizaciones de SAP en DB2 para LUW en Azure, consulte la nota de SAP [2233094]. 
+Para más información y actualizaciones de SAP en DB2 para LUW en Azure, consulte la nota de SAP [2233094].
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM DB2 para Linux, UNIX y compatibilidad de versiones de Windows
 SAP en IBM DB2 para LUW en los servicios de máquina virtual de Microsoft Azure es compatible a partir de la versión 10.5 de DB2.
@@ -1294,16 +1296,17 @@ Para más información de los tipos de máquina virtual de Azure y los productos
 
 ### <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de IBM DB2 para Linux, UNIX y Windows para instalaciones de SAP en máquinas virtuales de Azure
 #### <a name="storage-configuration"></a>Configuración de almacenamiento
-Todos los archivos de las bases de datos se deben almacenar en el sistema de archivos NTFS basado en discos VHD. Estos discos duros virtuales están montados en la máquina virtual de Azure y se basan en el almacenamiento de blob en páginas de Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>). **NINGÚN** tipo de unidad de red o recurso compartido remoto, como los siguientes servicios de archivos de Azure, es compatible con archivos de bases de datos: 
+Todos los archivos de las bases de datos se deben almacenar en el sistema de archivos NTFS basado en discos VHD. Estos discos duros virtuales están montados en la máquina virtual de Azure y se basan en el almacenamiento de blob en páginas de Azure (<https://msdn.microsoft.com/library/azure/ee691964.aspx>).
+**NINGÚN** tipo de unidad de red o recurso compartido remoto, como los siguientes servicios de archivos de Azure, es compatible con archivos de bases de datos:
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Si usa discos duros virtuales de Azure basados en el almacenamiento de blobs en páginas de Azure, las declaraciones realizadas en este documento en el capítulo [Estructura de una implementación de RDBMS][dbms-guide-2] también se aplican a las implementaciones de IBM DB2 para bases de datos LUW. 
+Si usa discos duros virtuales de Azure basados en el almacenamiento de blobs en páginas de Azure, las declaraciones realizadas en este documento en el capítulo [Estructura de una implementación de RDBMS][dbms-guide-2] también se aplican a las implementaciones de IBM DB2 para bases de datos LUW.
 
 Como se explicó anteriormente en la parte general del documento, existen cuotas en el rendimiento IOPS para VHD de Azure. Las cuotas exactas varían según el tipo de máquina virtual que se utilice. Dispone de una lista con los tipos de máquina virtual y sus cuotas [aquí][virtual-machines-sizes].
 
-Mientras la cuota actual de IOPS por disco sea suficiente, se pueden almacenar todos los archivos de base de datos en un solo VHD de Azure montado. 
+Mientras la cuota actual de IOPS por disco sea suficiente, se pueden almacenar todos los archivos de base de datos en un solo VHD de Azure montado.
 
 Para conocer las consideraciones de rendimiento, consulte también el capítulo "Data Safety and Performance Considerations for Database Directories" (Consideraciones de seguridad y rendimiento de directorios de bases de datos) en las guías de instalación de SAP.
 
@@ -1313,7 +1316,7 @@ Para los discos que contienen rutas de acceso de almacenamiento de DB2 para dire
 #### <a name="backuprestore"></a>Copia de seguridad y restauración
 La funcionalidad de copia de seguridad y restauración para IBM DB2 para LUW es compatible del mismo modo que en los sistemas operativos Windows Server y Hyper-V estándares.
 
-Debe asegurarse de seguir una estrategia establecida de copias de seguridad de bases de datos válida. 
+Debe asegurarse de seguir una estrategia establecida de copias de seguridad de bases de datos válida.
 
 Como en las implementaciones sin sistema operativo, el rendimiento de las copias de seguridad y las restauraciones depende de cuántos volúmenes puedan leerse en paralelo y el rendimiento que estos volúmenes puedan tener. Además, el consumo de CPU que se emplea en la compresión de copias de seguridad puede desempeñar un papel importante en las máquinas virtuales con solo 8 subprocesos de CPU como máximo. Por lo tanto, se pueden asumir los siguientes puntos:
 
@@ -1334,12 +1337,13 @@ La alta disponibilidad y la recuperación ante desastres (HADR) de DB2 sí son c
 No utilice la replicación geográfica de Tienda de Azure. Para más información, consulte los capítulos [Microsoft Azure Storage][dbms-guide-2.3] y [Alta disponibilidad y recuperación ante desastres con máquinas virtuales de Azure][dbms-guide-3].
 
 #### <a name="other"></a>Otros
-Todos los demás temas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con IBM DB2 para LUW. 
+Todos los demás temas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con IBM DB2 para LUW.
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
 
 ## <a name="specifics-to-ibm-db2-for-luw-on-linux"></a>Detalles de IBM DB2 para LUW en Linux
-Con Microsoft Azure, puede migrar fácilmente la aplicación SAP existente que se ejecuta en IBM DB2 para Linux, UNIX y Windows (LUW) a máquinas virtuales de Azure. Con SAP en IBM DB2 para LUW, los administradores y los desarrolladores pueden seguir usando las mismas herramientas de desarrollo y administración, disponibles de forma local. Se puede encontrar información general sobre la ejecución de SAP Business Suite en IBM DB2 para LUW en SAP Community Network: <https://scn.sap.com/community/db2-for-linux-unix-windows>.
+Con Microsoft Azure, puede migrar fácilmente la aplicación SAP existente que se ejecuta en IBM DB2 para Linux, UNIX y Windows (LUW) a máquinas virtuales de Azure. Con SAP en IBM DB2 para LUW, los administradores y los desarrolladores pueden seguir usando las mismas herramientas de desarrollo y administración, disponibles de forma local.
+Se puede encontrar información general sobre la ejecución de SAP Business Suite en IBM DB2 para LUW en SAP Community Network: <https://scn.sap.com/community/db2-for-linux-unix-windows>.
 
 Para más información y actualizaciones de SAP en DB2 para LUW en Azure, consulte la nota de SAP [2233094].
 
@@ -1392,5 +1396,4 @@ No utilice la replicación geográfica de Tienda de Azure. Para más informació
 Todos los demás temas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con IBM DB2 para LUW.
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
-
 

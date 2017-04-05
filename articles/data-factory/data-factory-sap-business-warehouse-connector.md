@@ -14,15 +14,16 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6a14e5e0cab25b26782ebd45b52aa7542b7e24d5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: cf62f0676740c82d58d5ac5644ceffb8daf1a4f2
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
-En este artículo se describe cómo puede usar la actividad de copia en una canalización de Azure Data Factory para mover datos de SAP Business Warehouse a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas. Data Factory solo admite actualmente el movimiento de datos desde SAP Business Warehouse a otros almacenes de datos, pero no de otros almacenes de datos a SAP Business Warehouse.
+En este artículo, se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde un almacén de datos de SAP Business Warehouse (BW) local. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
+Puede copiar datos de un almacén de datos de SAP Business Warehouse local a cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Por el momento, Data Factory solo admite el movimiento de datos de un almacén de datos de SAP Business Warehouse a otros almacenes de datos, pero no viceversa. 
 
 ## <a name="supported-versions-and-installation"></a>Versiones compatibles e instalación
 Este conector es compatible con la versión 7.x de SAP Business Warehouse. Admite la copia de datos de InfoCubes y QueryCubes (incluidas las consultas BEx) mediante consultas MDX.
@@ -31,25 +32,66 @@ Para habilitar la conectividad en la instancia de SAP BW, instale los componente
 - **Data Management Gateway**: el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP Business Warehouse) mediante un componente denominado Data Management Gateway. Para obtener información acerca de Data Management Gateway e instrucciones detalladas acerca de cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria aunque SAP Business Warehouse esté hospedado en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 - **Biblioteca SAP NetWeaver** en el equipo de la puerta de enlace. Puede obtener la biblioteca SAP Netweaver desde el administrador de SAP o directamente desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque la **nota 1025361 de SAP** para obtener la ubicación de descarga de la versión más reciente. Asegúrese de que la arquitectura de la biblioteca de SAP NetWeaver (32 bits o 64 bits) coincide con la instalación de la puerta de enlace. A continuación, instale todos los archivos incluidos en SAP NetWeaver RFC SDK según la nota de SAP. La biblioteca SAP NetWeaver también se incluye en la instalación de las herramientas de cliente de SAP.
 
-## <a name="supported-sinks"></a>Receptores admitidos
-En la tabla [Almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) se muestra la lista de almacenes de datos que la actividad de copia admite como orígenes o receptores. Puede mover los datos desde SAP Business Warehouse hasta cualquier almacén de datos de receptores que se admita. 
+## <a name="getting-started"></a>Introducción
+Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
 
-## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más fácil de crear una canalización que copie datos de SAP Business Warehouse a cualquiera de los almacenes de datos receptores admitidos es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+- La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
+- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, la **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
 
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
+
+1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
+3. Cree una **canalización** con una actividad de copia que tome un conjunto de datos como entrada y un conjunto de datos como salida. 
+
+Cuando se usa el asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de un almacén de datos de SAP Business Warehouse local, consulte la sección [Ejemplo con definiciones de JSON: copia de datos de SAP Business Warehouse a un blob de Azure](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) de este artículo. 
+
+En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de SAP BW:
+
+## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
+En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SAP Business Warehouse (BW).
+
+Propiedad | Descripción | Valores permitidos | Obligatorio
+-------- | ----------- | -------------- | --------
+server | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
+systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
+clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
+nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | cadena | Sí
+contraseña | Contraseña del usuario. | string | Sí
+gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | cadena | Sí
+encryptedCredential | La cadena de credenciales cifrada. | string | No
+
+## <a name="dataset-properties"></a>Propiedades del conjunto de datos
+Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. No hay ninguna propiedad específica del tipo compatible con el conjunto de datos de SAP BW de tipo **RelationalTable**. 
+
+
+## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
+Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
+
+Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
+
+Si el origen es del tipo **RelationalSource** (que incluye SAP BW), están disponibles las propiedades siguientes en la sección typeProperties:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| --- | --- | --- | --- |
+| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Consulta MDX. | Sí |
+
+
+## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Ejemplo con definiciones de JSON: copia de datos de SAP Business Warehouse a un blob de Azure
 En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP Business Warehouse local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.  
 
 > [!IMPORTANT]
 > Este ejemplo proporciona fragmentos JSON. No incluye instrucciones paso a paso para crear la factoría de datos. Las instrucciones paso a paso se encuentran en el artículo sobre cómo [mover datos entre ubicaciones locales y en la nube](data-factory-move-data-between-onprem-and-cloud.md) .
 
-## <a name="sample-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Ejemplo: copia de datos de SAP Business Warehouse a un blob de Azure
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
-1. Un servicio vinculado del tipo [SapBw](#sap-bw-linked-service).
-2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
-3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [RelationalTable](#sap-bw-dataset).
-4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](#sap-bw-source-in-copy-activity) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. Un servicio vinculado del tipo [SapBw](#linked-service-properties).
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [RelationalTable](#dataset-properties).
+4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](#copy-activity-properties) y [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 En el ejemplo se copian los datos de una instancia de SAP Business Warehouse a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -227,35 +269,6 @@ La canalización contiene una actividad de copia que está configurada para usar
 ```
 
 
-## <a name="sap-bw-linked-service"></a>Servicio vinculado de SAP BW
-En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SAP Business Warehouse (BW).
-
-Propiedad | Descripción | Valores permitidos | Obligatorio
--------- | ----------- | -------------- | --------
-server | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
-systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
-clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
-nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-contraseña | Contraseña del usuario. | cadena | Sí
-gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | cadena | Sí
-encryptedCredential | La cadena de credenciales cifrada. | string | No
-
-## <a name="sap-bw-dataset"></a>Conjunto de datos de SAP BW
-Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
-
-La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. No hay ninguna propiedad específica del tipo compatible con el conjunto de datos de SAP BW de tipo **RelationalTable**. 
-
-
-## <a name="sap-bw-source-in-copy-activity"></a>Origen de SAP BW en la actividad de copia
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
-
-Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
-
-Si el origen es del tipo **RelationalSource** (que incluye SAP BW), están disponibles las propiedades siguientes en la sección typeProperties:
-
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
-| --- | --- | --- | --- |
-| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Consulta MDX. | Sí |
 
 ### <a name="type-mapping-for-sap-bw"></a>Asignación de tipos para SAP BW
 Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md) , la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
@@ -288,11 +301,17 @@ STRING | string
 UNIDAD | string
 DATS | String
 NUMC | String
-TIMS | String
+TIMS | string
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-[!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+> [!NOTE]
+> Para asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte el artículo [Asignación de columnas de conjuntos de datos en Azure Data Factory](data-factory-map-columns.md).
+
+
+## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
+Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
+
+## <a name="repeatable-read-from-relational-sources"></a>Lectura repetible de orígenes relacionales
+Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produzca un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se lean sin importar el número de ejecuciones. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: jotaub
+ms.date: 03/27/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 98de5528d8c74630153bf6908c590b3e0a89d870
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 420a79a3f98500fa5e9054c3a59d9ac20ecb6cbf
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ En este tutorial se muestra cómo escribir una aplicación de consola de .NET Co
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2015, pero también se admite Visual Studio 2017.
+* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017, pero también se admite Visual Studio 2015.
 * [Herramientas de .NET Core Visual Studio 2015 o 2017](http://www.microsoft.com/net/core).
 * Una suscripción de Azure.
 * Un espacio de nombres de Event Hubs.
@@ -58,6 +58,7 @@ Agregue el paquete NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/pac
     ```csharp
     using Microsoft.Azure.EventHubs;
     using System.Text;
+    using System.Threading.Tasks;
     ```
 
 2. Agregue constantes a la clase `Program` para la cadena de conexión de Event Hubs y la ruta de la entidad (nombre de centro de eventos individual). Reemplace los marcadores de posición entre corchetes por los valores adecuados obtenidos al crear el centro de eventos.
@@ -92,7 +93,7 @@ Agregue el paquete NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/pac
     }
     ```
 
-4. Agregue un nuevo método denominado `SendMessagesToEventHub` a la clase `Program` de manera similar a la siguiente:
+4. Agregue un nuevo método denominado `SendMessagesToEventHub` a la clase `Program`, de esta manera:
 
     ```csharp
     // Creates an Event Hub client and sends 100 messages to the event hub.

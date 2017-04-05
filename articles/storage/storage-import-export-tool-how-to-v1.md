@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: ca2d4bf2b1e1cb56910fa3ee7af6e45b6b77b450
-ms.openlocfilehash: 3a6882e52b8ad966f81de45395bf5f56d751f050
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 67bdfa8c2cd0f8314c82e2b334a3fa3a5c520c66
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,8 +37,6 @@ En estos artículos, verá cómo usar la herramienta para realizar lo siguiente:
 - Reparar un trabajo de exportación. 
 - Solucionar problemas de la herramienta de Azure Import/Export, en el caso de que le haya surgido algún problema durante el proceso. 
 
+## <a name="next-steps"></a>Pasos siguientes
 
-
-<!--HONumber=Dec16_HO3-->
-
-
+* [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)

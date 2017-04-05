@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -34,19 +36,13 @@ La API web de Service Fabric es la misma API web de ASP.NET que conoce y ama. La
 Una aplicación de la API web no cambia. No difiere de las aplicaciones API web que haya realizado en el pasado y deberá poder mover simplemente la mayor parte del código de la aplicación. Pero si ha utilizado IIS para hospedarla, donde hospeda la aplicación puede diferir ligeramente del hospedaje que suele utilizar. Antes de profundizar en el hospedaje, vamos a hablar sobre algo más familiar, que es la aplicación de la API web.
 
 ## <a name="create-the-application"></a>Creación de la aplicación
-Empiece por crear una nueva aplicación Service Fabric, con un servicio único sin estado en Visual Studio 2015:
-
-![Crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Empiece por crear una nueva aplicación Service Fabric, con un servicio único sin estado en Visual Studio 2015.
 
 Si usa API web, encontrará una plantilla de Visual Studio para un servicio sin estado. En este tutorial, crearemos desde cero un proyecto de API web que tenga como resultado lo que se obtendría si seleccionara esta plantilla.
 
 Seleccione un proyecto de servicio sin estado en blanco para aprender a crear un proyecto de API web desde cero; también puede empezar con la plantilla de API web de servicio sin estado y seguir los pasos.  
 
-![Crear un servicio sin estado único](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 El primer paso es extraer algunos paquetes de NuGet para la API web. El paquete que queremos utilizar es Microsoft.AspNet.WebApi.OwinSelfHost. Este paquete incluye todos los paquetes de la API web necesarios y los paquetes *host* . Esto será importante más adelante.
-
-![Creación de la API web con el Administrador de paquetes NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 Después de haber instalado los paquetes, podremos empezar a crear la estructura de proyecto de API web básica. Si ha utilizado la API Web, la estructura del proyecto le resultará muy familiar. Empiece agregando un directorio `Controllers` y un controlador de valores sencillos:
 
@@ -626,16 +622,12 @@ namespace WebService
 }
 ```
 
-Ahora que ha colocado todas las piezas en su lugar, el proyecto debe presentar el aspecto de una aplicación típica de API web con los puntos de entrada de la API de Reliable Services y un host OWIN:
-
-![API web con los puntos de entrada de la API de Reliable Services y el host OWIN](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+Ahora que ya lo tiene todo listo, el proyecto debe presentar el aspecto de una aplicación típica de API web con los puntos de entrada de la API de Reliable Services y un host OWIN.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>Ejecutar y conectarse a través de un explorador web
 Si no lo ha hecho, [configure el entorno de desarrollo](service-fabric-get-started.md).
 
 Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana Eventos de diagnóstico, debe aparecer un mensaje que indica que el servidor web se ha abierto en http://localhost:8281/.
-
-![Ventana Eventos de diagnóstico de Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > Si el puerto ya lo ha abierto otro proceso en el equipo, puede aparecer un error aquí. Esto indica que no se ha podido abrir el agente de escucha. Si ese es el caso, intente utilizar un puerto diferente para configurar el punto de conexión en ServiceManifest.xml.
@@ -671,10 +663,5 @@ Para más información sobre cómo crear aplicaciones e instancias de servicio, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Depurar la aplicación de Service Fabric con Visual Studio](service-fabric-debugging-your-application.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

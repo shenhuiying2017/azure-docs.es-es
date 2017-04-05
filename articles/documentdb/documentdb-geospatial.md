@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,13 +29,13 @@ Este artículo es una introducción a la funcionalidad geoespacial en [Azure Doc
 * ¿Cómo puedo consultar los datos geoespaciales en Azure DocumentDB en SQL y LINQ?
 * ¿Qué tengo que hacer para habilitar y deshabilitar la indexación en DocumentDB?
 
-Consulte el [proyecto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obtener ejemplos de código.
+Consulte este [proyecto de GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obtener ejemplos de código.
 
 ## <a name="introduction-to-spatial-data"></a>Introducción a los datos espaciales
 Los datos espaciales describen la posición y la forma de los objetos en el espacio. En la mayoría de las aplicaciones, estos se refieren a objetos situados la tierra, y son por ello datos geoespaciales. Los datos espaciales pueden usarse para representar la ubicación de una persona, un lugar de interés o el límite de una ciudad o un lago. Casos de uso más comunes suelen implicar las consultas de búsqueda por proximidad, por ejemplo, "encontrar todas las cafeterías cerca de la ubicación actual". 
 
 ### <a name="geojson"></a>GeoJSON
-DocumentDB admite la indexación y consulta de datos de puntos geoespaciales que se representan mediante la [especificación GeoJSON](http://geojson.org/geojson-spec.html). Las estructuras de datos de GeoJSON son siempre objetos JSON válidos, por lo que se pueden almacenar y consultar mediante DocumentDB sin tener que usar herramientas o bibliotecas especializadas El SDK de DocumentDB proporcionan clases y métodos auxiliares que facilitan el trabajo con datos espaciales. 
+DocumentDB admite la indexación y consulta de datos de puntos geoespaciales que se representan mediante la [especificación GeoJSON](https://tools.ietf.org/html/rfc7946). Las estructuras de datos de GeoJSON son siempre objetos JSON válidos, por lo que se pueden almacenar y consultar mediante DocumentDB sin tener que usar herramientas o bibliotecas especializadas El SDK de DocumentDB proporcionan clases y métodos auxiliares que facilitan el trabajo con datos espaciales. 
 
 ### <a name="points-linestrings-and-polygons"></a>Elementos Point, LineString y Polygon
 Un **punto** denota una posición única en el espacio. En los datos geoespaciales, un elemento Point (punto) representa la ubicación exacta, que puede ser una dirección de una tienda de ultramarinos, un quiosco, un automóvil o una ciudad.  Un punto se representa en GeoJSON (y DocumentDB) mediante su par de coordenadas o su longitud y latitud. Este es un ejemplo JSON para un punto.
@@ -96,7 +96,7 @@ Además de puntos, LineStrings y polígonos, GeoJSON también especifica la repr
 ### <a name="coordinate-reference-systems"></a>Sistemas de coordenadas de referencia
 Dado que la forma de la tierra es irregular, las coordenadas de los datos geoespaciales se representa en muchos sistemas de coordenadas de referencia (CRS), cada uno con sus propios marcos de referencia y unidades de medida. Por ejemplo, la "National Grid of Britain" es un sistema de referencia muy preciso para el Reino Unido, pero no fuera de él. 
 
-El sistema de coordenadas de referencia más popular en uso hoy en día es el Sistema Geodésico Mundial [WGS&84;](http://earth-info.nga.mil/GandG/wgs84/). Los dispositivos GPS y muchos servicios de mapeado como Google Maps y API de Bing Maps, usan WGS&84;. DocumentDB admite indexación y consulta de datos geoespaciales usando solo el sistema WGS&84;. 
+El sistema de coordenadas de referencia más popular en uso hoy en día es el Sistema Geodésico Mundial [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Los dispositivos GPS y muchos servicios de mapeado como Google Maps y API de Bing Maps, usan WGS 84. DocumentDB admite indexación y consulta de datos geoespaciales usando solo el sistema WGS 84. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Creación de documentos con datos espaciales
 Al crear documentos que contengan valores GeoJSON, se indizan automáticamente con un índice espacial de acuerdo con la directiva de indexación de la colección. Si está trabajando con un SDK DocumentDB en un lenguaje dinámico como Python o Node.js, debe crear especificaciones GeoJSON válidas.
@@ -385,7 +385,7 @@ Y aquí vemos cómo puede modificar una colección existente para aprovechar las
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en DocumentDB, puede:
 
-* Comenzar a codificar con los [ejemplos de código geoespacial .NET en Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
+* Comenzar a codificar con los [ejemplos de código geoespacial .NET en GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Empezar a realizar consultas geoespaciales en el [Área de consultas de DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 * Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md)
 * Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)

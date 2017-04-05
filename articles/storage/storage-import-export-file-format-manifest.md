@@ -1,6 +1,6 @@
 ---
 title: Formato del archivo de manifiesto de Azure Import/Export | Microsoft Docs
-description: "Obtenga información acerca del formato del archivo de manifiesto de la unidad que describe la asignación entre los blobs de Azure Blob Storage y un archivo de la unidad en un trabajo de importación o exportación del servicio Import-Export"
+description: "Obtenga información acerca del formato del archivo de manifiesto de la unidad que describe la asignación entre los blobs de Azure Blob Storage y un archivo de la unidad en un trabajo de importación o exportación del servicio Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -90,7 +90,10 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
+
 ```
+
+## <a name="manifest-xml-elements-and-attributes"></a>Elementos y atributos XML del manifiesto
 
 Los elementos de datos y atributos del formato XML del manifiesto de la unidad se especifican en la tabla siguiente.  
   
@@ -131,6 +134,7 @@ Los elementos de datos y atributos del formato XML del manifiesto de la unidad s
 |`Blob/PropertiesPath`|String|Opcional. Especifica la ruta de acceso relativa de un archivo de propiedades. Durante una importación, las propiedades se establecen en el blob de destino. Durante una operación de exportación, las propiedades del blob se almacenan en el archivo de propiedades de la unidad.|  
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Especifica el hash MD5 con codificación Base16 del archivo de propiedades del blob.|  
   
-## <a name="see-also"></a>Otras referencias  
-[Azure Storage Import-Export REST API Reference](/rest/api/storageimportexport/) (Referencia de la API de REST de Azure Storage Import-Export)
+## <a name="next-steps"></a>Pasos siguientes
+ 
+* [API de REST de Storage Import/Export](/rest/api/storageimportexport/)
 

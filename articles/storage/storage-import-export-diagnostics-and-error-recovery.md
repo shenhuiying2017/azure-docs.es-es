@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 88c42ff541aac2e43724fe62f99e3ddea56afc3c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -29,9 +29,11 @@ Para cada unidad de disco procesada, el servicio Azure Import/Export crea un reg
 
  Puede recuperar el identificador URI de los registros de un trabajo llamando a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). El identificador URI para el registro detallado se devuelve en la propiedad `VerboseLogUri` para cada unidad, mientras que el identificador URI para el registro de errores se devuelve en la propiedad `ErrorLogUri`.
 
-Puede usar los datos de registro para identificar los problemas siguientes:
+Puede usar los datos de registro para identificar los problemas siguientes.
 
-**Errores en la unidad**
+## <a name="drive-errors"></a>Errores en la unidad
+
+Los siguientes elementos se clasifican como errores en la unidad:
 
 -   Errores de acceso o lectura en el archivo de manifiesto
 
@@ -39,7 +41,9 @@ Puede usar los datos de registro para identificar los problemas siguientes:
 
 -   Errores de escritura/lectura en la unidad
 
-**Errores de blobs**
+## <a name="blob-errors"></a>Errores de blobs
+
+Los siguientes elementos se clasifican como errores de blob:
 
 -   Nombres o blobs incorrectos o conflictivos
 
@@ -55,8 +59,9 @@ Puede usar los datos de registro para identificar los problemas siguientes:
 
 -   Esquema incorrecto para las propiedades de blob o los archivos de metadatos
 
-Puede haber casos donde algunas partes de un trabajo de importación o exportación no finalizan correctamente, mientras que el trabajo completo sí finaliza. En este caso, puede cargar o descargar los elementos que faltan de los datos a través de la red, o puede crear un nuevo trabajo para transferir los datos. Vea [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) (Referencia de la herramienta Azure Import/Export) para obtener información sobre cómo reparar los datos a través de la red.
+Puede haber casos donde algunas partes de un trabajo de importación o exportación no finalizan correctamente, mientras que el trabajo completo sí finaliza. En este caso, puede cargar o descargar los elementos que faltan de los datos a través de la red, o puede crear un nuevo trabajo para transferir los datos. Vea [Referencia de la herramienta Azure Import/Export](storage-import-export-tool-how-to-v1.md) para obtener información sobre cómo reparar los datos a través de la red.
 
-## <a name="see-also"></a>Otras referencias
-[Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
 

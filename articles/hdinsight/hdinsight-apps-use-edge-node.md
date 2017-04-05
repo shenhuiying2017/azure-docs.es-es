@@ -9,6 +9,7 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: fd30c5befb378a031e818c29e9bde72c1105bf78
-ms.openlocfilehash: ac7e47835b0ae4fee724c18df949cedfc3a16957
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff1013840c220c54a9120572d16946ab6c5c5b07
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -120,7 +121,8 @@ El nodo perimetral aparece como una aplicación en Azure Portal.  El portal le p
 
 **Para usar Hive en el nodo perimetral**
 
-1. Use SSH para conectarse al nodo perimetral.  Consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+1. Use SSH para conectarse al nodo perimetral. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Después de haberse conectado al nodo perimetral mediante SSH, use el comando siguiente para abrir la consola de Hive:
    
         hive

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/24/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 08871f5984697370cefe47efa597f7e067f32ae3
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: ff771abc26c08f0adb977c29739d2f5c91924b21
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparación de imágenes personalizadas y fórmulas en DevTest Labs
-## <a name="overview"></a>Información general
-Se pueden usar [imágenes personalizadas](devtest-lab-create-template.md) y [fórmulas](devtest-lab-manage-formulas.md) como base para las [nuevas máquinas virtuales creadas](devtest-lab-add-vm-with-artifacts.md). Pero, la diferencia clave entre imágenes personalizadas y fórmulas es que una imagen personalizada es simplemente una imagen basada en un disco duro virtual, mientras que una fórmula es una imagen basada en un disco duro virtual *además* de opciones preconfiguradas; por ejemplo, tamaño de máquina virtual, red virtual y subred, artefactos, etc. Estas opciones preconfiguradas se configuran con valores predeterminados que se pueden reemplazar en el momento de creación de máquinas virtuales. En este artículo se explican algunas de las ventajas y desventajas del uso de imágenes personalizadas en comparación con el uso de fórmulas.
+Se pueden usar [imágenes personalizadas](devtest-lab-create-template.md) y [fórmulas](devtest-lab-manage-formulas.md) como base para las [nuevas máquinas virtuales creadas](devtest-lab-add-vm-with-artifacts.md). No obstante, la diferencia clave entre las fórmulas y las imágenes personalizadas estriba en que estas últimas son simplemente una imagen basada en un disco duro virtual, mientras que una fórmula es una imagen basada en un disco duro virtual *además de* opciones preconfiguradas, como el tamaño de la máquina virtual, la red virtual, la subred y los artefactos. Estas opciones preconfiguradas se configuran con valores predeterminados que se pueden reemplazar en el momento de creación de máquinas virtuales. En este artículo se explican algunas de las ventajas y desventajas del uso de imágenes personalizadas en comparación con el uso de fórmulas.
 
 ## <a name="custom-image-pros-and-cons"></a>Ventajas y desventajas de las imágenes personalizadas
 Las imágenes personalizadas ofrecen una manera estática e inmutable de crear máquinas virtuales a partir de un entorno deseado. 
@@ -54,9 +54,5 @@ Las fórmulas ofrecen una manera dinámica de crear máquinas virtuales a partir
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 * [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+## <a name="next-steps"></a>Pasos siguientes
+- [Preguntas frecuentes sobre DevTest Labs](devtest-lab-faq.md)

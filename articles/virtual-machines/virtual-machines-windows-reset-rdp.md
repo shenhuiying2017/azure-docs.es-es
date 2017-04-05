@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e1331276cda20d235341171852dffeb4a9cb8bb2
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2673c95d2e312d427454585d46ac790cb126fea6
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una VM con Windows
-Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de servicio de Escritorio remoto. Puede usar el Portal de Azure o la extensión de acceso de máquina virtual en Azure PowerShell para restablecer la contraseña. Si usa Azure PowerShell, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azureps-cmdlets-docs) y haber iniciado sesión en su suscripción de Azure. También puede [realizar estos pasos para máquinas virtuales creadas con el modelo de implementación clásica](virtual-machines-windows-classic-reset-rdp.md).
+Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de servicio de Escritorio remoto. Puede usar el Portal de Azure o la extensión de acceso de máquina virtual en Azure PowerShell para restablecer la contraseña. Si usa Azure PowerShell, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azureps-cmdlets-docs) y haber iniciado sesión en su suscripción de Azure. También puede [realizar estos pasos para máquinas virtuales creadas con el modelo de implementación clásica](windows/classic/reset-rdp.md).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Métodos para restablecer la configuración o las credenciales
 Puede restablecer los servicios y las credenciales de Escritorio remoto de varias maneras diferentes, dependiendo de sus necesidades:
@@ -44,9 +44,15 @@ Seleccione la máquina virtual Windows, haga clic en **Soporte y solución de pr
 
 Escriba el nombre de usuario y una nueva contraseña nueva; después, haga clic en **Actualizar**. Trate de conectarse de nuevo a la máquina virtual.
 
+> [!NOTE] 
+> - Después de cambiar la contraseña y de que la operación es completa en el portal, podría tardar entre 3 y 5 minutos para que este cambio surta efecto en la máquina virtual. Sin embargo, si el cambio no se produce, pruebe a reiniciar la máquina virtual.
+> - La extensión VMAccess solo funciona en la cuenta del administrador local integrada de y no realizará ninguna tarea en cualquier otro identificador local o de dominio.
+> - Si el equipo de destino es un controlador de dominio, la extensión restablece o cambia el nombre de la cuenta de administrador de dominio.
+
+
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Restablecer la configuración de servicio de Escritorio remoto**
 
-Seleccione la máquina virtual Windows, haga clic en **Soporte y solución de problemas** > **Restablecer contraseña**. Se mostrará la hoja de restablecimiento de contraseña. 
+Seleccione la máquina virtual Windows, haga clic en **Soporte y solución de problemas** > **Restablecer contraseña**. La hoja de restablecimiento de contraseña se muestra de la siguiente forma:
 
 ![Restablecer configuración de RDP](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 

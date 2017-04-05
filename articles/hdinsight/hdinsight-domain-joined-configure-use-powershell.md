@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: a13b2f7a-612d-4800-bc92-7fc0524f3e89
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
-ms.openlocfilehash: 3217399ee868707309e96234d4954548b063534a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 916722d64f191bc482b50ad4338f6a1da1045b77
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -185,11 +187,6 @@ Después de completar el tutorial, quizá desee eliminar el clúster. Con HDInsi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
-* Para utilizar SSH para conectarse a clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+* Para establecer conexiones mediante SSH a clústeres de HDInsight unidos a un dominio, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 

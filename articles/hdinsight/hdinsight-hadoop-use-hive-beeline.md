@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: c4fb98946a41ee37d8676eca52ff26f81d0ff56a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b015e3d99c72c1840a31bacee5d9655fa9f48da7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -52,12 +52,7 @@ Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight 
 
 **Si proporcionó una contraseña para la autenticación de SSH** , al crear el clúster de HDInsight, tendrá que proporcionar la contraseña cuando se le solicite.
 
-Para obtener más información sobre el uso de SSH con HDInsight, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Linux, OS X y Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-### <a name="putty-windows-based-clients"></a>PuTTY (clientes basados en Windows)
-Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obtener más información sobre cómo utilizar SSH con HDInsight, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="beeline"></a>Uso del comando de Beeline
 1. Una vez conectado, use lo siguiente para iniciar Beeline:

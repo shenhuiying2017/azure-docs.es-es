@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 65ed5164b8d010453ed34e8b8cdf68915e136007
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ En este tutorial se muestra cómo escribir una aplicación de consola de .NET Co
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2015, pero también se admite Visual Studio 2017.
+* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017, pero también se admite Visual Studio 2015.
 * [Herramientas de .NET Core Visual Studio 2015 o 2017](http://www.microsoft.com/net/core).
 * Una suscripción de Azure.
 * Un espacio de nombres de Azure Event Hubs.
@@ -53,32 +53,9 @@ El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para cr
 
 ## <a name="create-a-console-application"></a>Creación de una aplicación de consola
 
-1. Inicie Visual Studio. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**. Cree una aplicación de consola de .NET Core.
+Inicie Visual Studio. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**. Cree una aplicación de consola de .NET Core.
 
-    ![Nuevo proyecto][2]
-
-2. En el Explorador de soluciones, haga doble clic en el archivo **project.json** para abrirlo en el editor de Visual Studio.
-3. Agregue la cadena `"portable-net45+win8"` a la declaración de `"imports"`, en la sección `"frameworks"`. Esa sección debería aparecer ahora de esta forma. Esta cadena es necesaria debido a la dependencia de Azure Storage de OData:
-
-    ```json
-    "frameworks": {
-      "netcoreapp1.0": {
-        "imports": [
-          "dnxcore50",
-          "portable-net45+win8"
-        ]
-      }
-    }
-    ```
-
-4. En el menú **Archivo**, haga clic en **Guardar todo**.
-
-Tenga en cuenta que este tutorial muestra cómo escribir una aplicación de .NET Core. Si quiere seleccionar como destino .NET Framework al completo, agregue la siguiente línea de código al archivo project.json, en la sección `"frameworks"`:
-
-```json
-"net451": {
-},
-```
+![Nuevo proyecto][2]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Agregue el paquete NuGet de Event Hubs.
 
@@ -93,9 +70,9 @@ Agregue los siguientes paquetes de NuGet al proyecto:
 2. Abra el archivo SimpleEventProcessor.cs y agregue las siguientes instrucciones `using` en la parte superior del archivo.
 
     ```csharp
-    using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 3. Implemente la interfaz `IEventProcessor`. Reemplace todo el contenido de la clase `SimpleEventProcessor` con el código siguiente:
@@ -141,6 +118,7 @@ Agregue los siguientes paquetes de NuGet al proyecto:
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 2. Agregue constantes a la clase `Program` para la cadena de conexión de Event Hubs, el nombre del contenedor de la cuenta de almacenamiento y el nombre y la clave de la cuenta de almacenamiento. Agregue el código siguiente, reemplazando los marcadores de posición con sus valores correspondientes.

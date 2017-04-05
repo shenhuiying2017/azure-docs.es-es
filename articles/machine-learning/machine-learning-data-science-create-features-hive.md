@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5a4ca11079ac2a3962d92c7688e8d7337c31389d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -25,7 +26,7 @@ Este documento muestra cómo crear características para los datos almacenados e
 
 Las operaciones necesarias para crear características pueden consumir mucha memoria. El rendimiento de las consultas de Hive resulta más importante en estos casos y se puede mejorar ajustando ciertos parámetros. El ajuste de estos parámetros se describe en la sección final.
 
-También se ofrecen ejemplos de las consultas presentadas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución. En la última sección, también se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de Hive.
+También se ofrecen ejemplos de las consultas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución. En la última sección, también se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de Hive.
 
 [!INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
@@ -39,7 +40,7 @@ En este artículo se supone que ha:
 * Se han cargado los datos en tablas de subárbol en clústeres de Hadoop de HDInsight de Azure. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-move-hive-tables.md) para cargar los datos en tablas de Hive primero.
 * Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Generación de características
+## <a name="hive-featureengineering"></a>Generación de características
 En esta sección se describen varios ejemplos de las maneras en que se pueden generar características mediante consultas de Hive. Una vez que haya generado características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar a continuación con la tabla original. Estos son los ejemplos presentados:
 
 1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
@@ -48,7 +49,7 @@ En esta sección se describen varios ejemplos de las maneras en que se pueden ge
 4. [Extraer características del campo de texto](#hive-textfeatures)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
-### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
+### <a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
 A menudo resulta útil calcular las frecuencias de los niveles de una variable de categoría o las frecuencias de determinadas combinaciones de niveles desde varias variables de categorías. Los usuarios pueden usar el siguiente script para calcular estas frecuencias:
 
         select
@@ -62,7 +63,7 @@ A menudo resulta útil calcular las frecuencias de los niveles de una variable d
         order by frequency desc;
 
 
-### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
+### <a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
 En la clasificación binaria, necesitamos convertir las variables de categorías no numéricas en características numéricas cuando los modelos que se utilizan solo toman características numéricas. Para ello, reemplace cada nivel no numérico por un riesgo numérico. En esta sección mostramos algunas consultas de subárbol genéricas que calculan los valores de riesgo (probabilidades de registro) de una variable de categoría.
 
         set smooth_param1=1;
@@ -87,7 +88,7 @@ En este ejemplo, las variables `smooth_param1` y `smooth_param2` se establecen p
 
 Después de calcularse la tabla de riesgos, los usuarios pueden asignar valores de riesgo a una tabla uniéndola a la tabla de riesgo. La consulta de combinación de subárbol se ha proporcionado en la sección anterior.
 
-### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
+### <a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
 El subárbol se incluye con un conjunto de UDF para el procesamiento de campos de fecha y hora. En el subárbol, el formato de fecha y hora predeterminado es 'aaaa-MM-dd 00:00:00 ' ('1970-01-01 12:21:32' por ejemplo). En esta sección mostramos ejemplos que extraen el día de un mes, el mes de un campo de fecha y hora, y otros ejemplos que convierten una cadena de fecha y hora en un formato distinto del predeterminado en una cadena de fecha y hora en el formato predeterminado.
 
         select day(<datetime field>), month(<datetime field>)
@@ -107,13 +108,13 @@ En esta consulta, si *&#60;datetime field>* sigue un patrón de tipo *03/26/2015
 
 La tabla *hivesampletable* de esta consulta viene preinstalada en todos los clústeres de Hadoop de HDInsight de Azure de forma predeterminada cuando se aprovisionan los clústeres.
 
-### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extracción de características de campos de texto
+### <a name="hive-textfeatures"></a>Extracción de características de campos de texto
 Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de palabras delimitadas por espacios, la consulta siguiente extrae la longitud de la cadena y el número de palabras de la cadena.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
+### <a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar una función matemática incrustada en el subárbol para generar características.
 
 Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
@@ -134,13 +135,13 @@ Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones d
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En su Javascript, la función `toRad()` es simplemente *lat_or_lon*pi/180*, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En su JavaScript, la función `toRad()` es simplemente *lat_or_lon*pi/180*, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
 Se puede encontrar una lista completa de las UDF incrustadas de Hive en la sección **Funciones integradas** de la wiki de <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive</a>.  
 
-## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
+## <a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 La configuración de parámetros predeterminados del clúster de subárbol podría no ser adecuada para las consultas de subárbol y los datos que estas consultas procesan. En esta sección se describen algunos parámetros que los usuarios pueden ajustar y que mejoran el rendimiento de las consultas de subárbol. Los usuarios necesitan agregar el parámetro que optimiza las consultas antes de las consultas de procesamiento de datos.
 
 1. **Espacio de montón de Java**: para las consultas que implican la combinación de grandes conjuntos de datos, o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Esto se puede ajustar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Aquí tiene un ejemplo:
@@ -168,10 +169,5 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
         set mapreduce.reduce.java.opts=-Xmx8192m;
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

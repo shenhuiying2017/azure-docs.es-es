@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 3/1/2017
+ms.date: 3/27/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
-ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 6ac47fe040793f2ac4ff596880675df0b331143e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -146,6 +146,7 @@ De este modo, cuando la réplica debe reiniciarse, las colecciones fiables recup
 * No cree una transacción dentro de la instrucción `using` de otra transacción, ya que puede provocar interbloqueos.
 * Asegúrese de que la implementación de `IComparable<TKey>` es correcta. El sistema asume la dependencia de este elemento para combinar los puntos de control.
 * Utilice el bloqueo de actualización al leer un elemento con la intención de actualizarlo para evitar que se produzca una clase determinada de interbloqueos.
+* Plantéese la posibilidad de mantener sus elementos (por ejemplo, TKey y TValue para el diccionario confiable) por debajo de los 80 kB: cuanto más pequeños, mejor. De este modo, reducirá el grado de uso del montón de objetos grandes, así como los requisitos de E/S de red y de disco. En muchos casos, también se disminuirá la replicación de datos duplicados cuando solo se actualice una pequeña parte del valor. La forma habitual de conseguir esto en el diccionario confiable pasa por dividir las filas en varias de ellas. 
 * Considere la posibilidad de utilizar la funcionalidad de copia de seguridad y restauración para la recuperación ante desastres.
 * Evite mezclar operaciones de entidad única y de varias entidades (por ejemplo, `GetCountAsync` y `CreateEnumerableAsync`) en la misma transacción debido a los diferentes niveles de aislamiento.
 * Controle la excepción InvalidOperationException. El sistema puede anular las transacciones de usuario pueden por diversos motivos. Por ejemplo, cuando Reliable State Manager cambia su rol de Principal o cuando una transacción de larga ejecución está bloqueando el truncamiento del registro transaccional. En tales casos, el usuario puede recibir la excepción InvalidOperationException, que indica que ya ha finalizado su transacción. Suponiendo que la finalización de la transacción no la ha solicitado el usuario, la mejor manera de controlar esta excepción es eliminando la transacción, comprobar si se ha señalado el token de cancelación (o si se ha cambiado el rol de la réplica) y, si no, crear una nueva transacción y volver a intentarlo.  
@@ -154,7 +155,7 @@ Algunos aspectos que debe tener en cuenta:
 
 * El tiempo de espera predeterminado es de 4 segundos para todas las API de Reliable Collection. La mayoría de los usuarios no deben reemplazar esto.
 * El token de cancelación predeterminado es `CancellationToken.None` en todas las API de colecciones confiables.
-* El parámetro de tipo de clave (*TKey`Equals()`) de un diccionario confiable debe implementar correctamente * y `GetHashCode()`. Las claves deben ser inmutables.
+* El parámetro de tipo de clave (*TKey`Equals()`) de un diccionario confiable debe implementar correctamente* y `GetHashCode()`. Las claves deben ser inmutables.
 * Para lograr una alta disponibilidad para las colecciones confiables, cada servicio debe tener al menos un destino y un tamaño de conjunto de réplicas mínimo de 3.
 * Las operaciones de lectura de la base de datos secundaria pueden leer versiones que no están confirmadas en el cuórum.
   Esto significa que una versión de datos leída desde una única base de datos secundaria podría progresar como false.

@@ -1,5 +1,5 @@
 ---
-title: "Creación de una instancia de Azure Application Gateway con el firewall de aplicaciones web | Microsoft Docs"
+title: "Creación o actualización de una instancia de Azure Application Gateway con el firewall de aplicaciones web | Microsoft Docs"
 description: Aprenda a crear una puerta de enlace de aplicaciones con el firewall de aplicaciones web mediante el portal.
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9f16384a3944c3943dbfc094aaba37a24969e949
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones. La aplicación web protege de muchas de las vulnerabilidades web de OWASP Top 10.
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7;. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
 La aplicación proporciona numerosas características de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (capa de sockets seguros), los sondeos personalizados sobre el estado y la compatibilidad con sitios múltiples.
 Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
@@ -51,7 +52,7 @@ En el segundo escenario, aprenderá a [crear una puerta de enlace de aplicacione
 
 Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>agregar el firewall de aplicaciones web a una puerta de enlace de aplicaciones
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Adición del firewall de aplicaciones web a una puerta de enlace de aplicaciones existente
 
 En este escenario se actualiza una puerta de enlace de aplicaciones existente para admitir el firewall de aplicaciones web en modo de prevención.
 
@@ -63,14 +64,18 @@ Vaya a Azure Portal y seleccione una puerta de enlace de aplicaciones existente.
 
 ### <a name="step-2"></a>Paso 2
 
-Haga clic en **Configuración** y actualice la configuración de la puerta de enlace de aplicaciones. Cuando haya terminado, haga clic en **Guardar**
+Haga clic en **Firewall de aplicaciones web** y actualice la configuración de la puerta de enlace de aplicaciones. Cuando haya terminado, haga clic en **Guardar**
 
 La configuración para actualizar una puerta de enlace de aplicaciones existente para admitir el firewall de aplicaciones web es:
 
-* **Nivel**: el nivel seleccionado debe ser **WAF** para admitir el firewall de aplicaciones web.
-* **Tamaño de SKU**: es el tamaño de la puerta de enlace de aplicaciones con el firewall de aplicaciones web. Las opciones disponibles son **Mediano** y **Grande**.
+* **Actualizar al nivel WAF**: este ajuste es necesario para configurar WAF.
 * **Estado del firewall** : esta configuración habilita o deshabilita el firewall de aplicaciones web.
 * **Modo de firewall** : esta configuración se refiere a cómo el firewall de aplicaciones web se ocupa del tráfico malintencionado. El modo **Detección** solo registra los eventos, mientras que el modo **Prevención** registra los eventos y detiene el tráfico malintencionado.
+* **Conjunto de reglas**: este ajuste determina el [conjunto de reglas básico](application-gateway-web-application-firewall-overview.md#core-rule-sets) que se usa para proteger a los miembros del grupo de back-end.
+* **Configurar reglas deshabilitadas**: para evitar posibles falsos positivos, este ajuste le permite deshabilitar ciertas [reglas y grupos de reglas](application-gateway-crs-rulegroups-rules.md).
+
+>[!NOTE]
+> Al actualizar una puerta de enlace de aplicaciones existente para la SKU de WAF, cambia el tamaño de la SKU a **medio**. Este cambio se puede reconfigurar una vez finalizada la configuración.
 
 ![hoja que muestra configuración básica][2]
 
@@ -164,7 +169,7 @@ Cuando termine, haga clic en **Aceptar** para revisar la configuración de Puert
 Configure los valores específicos de **WAF** .
 
 * **Estado del firewall** : esta opción activar o desactiva WAF.
-* **Modo de firewall** : esta opción determina las acciones que realiza WAF sobre el tráfico malintencionado. Si se elige **Detección** , solo se registra el tráfico.  Si se elige **Prevención** , el tráfico se registra y se detiene con un error 403 no autorizado.
+* **Modo de firewall** : esta opción determina las acciones que realiza WAF sobre el tráfico malintencionado. Si se elige **Detección** , solo se registra el tráfico.  Si se elige **Prevención** , el tráfico se registra y se detiene con una respuesta de error 403 no autorizado.
 
 ![configuración del firewall de aplicaciones web][9]
 
@@ -180,9 +185,12 @@ Una vez creada la puerta de enlace de aplicaciones, navegue hasta ella en el por
 
 Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto
 
+> [!NOTE]
+> Las puertas de enlace de la aplicación creadas con la configuración de firewall de aplicación web básica se configuran con CRS 3.0 para protección.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md)
+Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 Para aprender a crear sondeos de estado personalizado, visite [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md)
 
@@ -202,9 +210,4 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 [9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
