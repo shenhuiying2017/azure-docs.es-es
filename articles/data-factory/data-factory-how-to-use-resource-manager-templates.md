@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2faab833724bf4bb3f3262517e1d724868f7524d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -40,7 +41,7 @@ Consulte los siguientes tutoriales para obtener instrucciones detalladas para cr
 * [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Tutorial: Creación de una canalización para procesar datos mediante el uso de plantillas de Azure Resource Manager)
 
 ## <a name="data-factory-templates-on-github"></a>Plantillas de Data Factory en GitHub
-Consulte las siguientes plantillas de inicio rápido de Azure en Github:
+Consulte las siguientes plantillas de inicio rápido de Azure en GitHub:
 
 * [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) (Creación de una instancia de Data Factory para copiar datos desde Azure Blob Storage en Azure SQL Database)
 * [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) (Creación de una instancia de Data Factory con actividad de Hive en un clúster de Azure HDInsight)
@@ -252,9 +253,4 @@ Si necesita extraer los secretos de [Azure Key Vault](../key-vault/key-vault-get
 > Aunque todavía no se admite la exportación de plantillas para factorías de datos ya existentes, esto está en proyecto.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -11,28 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
-ms.openlocfilehash: a4478283ef6ab949cc73322db908347a626c12d8
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: da3b1e506e603b1f5e3660f31c6d939d77cd2938
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Integración de Azure Active Directory con SimpleNexus
 El objetivo de este tutorial es mostrar la integración de Azure y SimpleNexus.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en SimpleNexus
+* Una suscripción habilitada para el inicio de sesión único (SSO) en SimpleNexus
 
 Después de completar este tutorial, los usuarios de Azure AD que ha asignado a SimpleNexus podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de SimpleNexus (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para SimpleNexus
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO) 
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
@@ -41,7 +42,8 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-simplenexus"></a>Habilitación de la integración de aplicaciones para SimpleNexus
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para SimpleNexus.
 
-### <a name="to-enable-the-application-integration-for-simplenexus-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para SimpleNexus:
+**Siga estos pasos con el fin de habilitar la integración de aplicaciones para SimpleNexus:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
@@ -68,11 +70,12 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
     ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en SimpleNexus con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **SimpleNexus**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configurar inicio de sesión único")
@@ -89,29 +92,29 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configurar inicio de sesión único")
    
-    > [!NOTE]
-    > El inicio de sesión único debe habilitarlo el equipo de soporte técnico de SimpleNexus.
-    > 
+    >[!NOTE]
+    >El inicio de sesión único debe habilitarlo el equipo de soporte técnico de SimpleNexus. 
     > 
 
 5. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
-Para permitir que los usuarios de Azure AD inicien sesión en SimpleNexus, deben aprovisionarse en SimpleNexus.  
+Para permitir que los usuarios de Azure AD inicien sesión en SimpleNexus, deben aprovisionarse en SimpleNexus.
+
 En el caso de SimpleNexus, el aprovisionamiento es una tarea manual que realiza el Administrador de inquilinos.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SimpleNexus ofrecida por SimpleNexus para aprovisionar cuentas de usuario de AAD.
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SimpleNexus ofrecida por SimpleNexus para aprovisionar cuentas de usuario de AAD. 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-simplenexus-perform-the-following-steps"></a>Para asignar usuarios a SimpleNexus, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a SimpleNexus, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de la aplicación **SimpleNexus**, haga clic en **Asignar usuarios**.
    

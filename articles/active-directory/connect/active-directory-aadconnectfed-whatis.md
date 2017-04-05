@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect y federación | Microsoft Docs"
-description: "Esta página es la ubicación central para toda la documentación relacionada con las operaciones de AD FS mediante Azure AD Connect"
+description: "Esta página es la ubicación central para toda la documentación relacionada con las operaciones de AD FS que usan Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
@@ -15,35 +15,35 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 39b0b15dba098c0ddc59e39a81bfb6809f8cb2eb
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 28df9bfec4db8e3f57db61eecc631545e389085a
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect y la federación
-Azure AD Connect le permite configurar la federación con AD FS y Azure AD en un entorno local. Con el inicio de sesión federado, puede habilitar a los usuarios para que inicien sesión en los servicios basados en Azure AD con sus contraseñas locales y, mientras se encuentren en la red corporativa, sin necesidad de volver a escribir sus contraseñas. La opción de federación con AD FS le permite implementar servicios AD FS nuevos o especificar servicios AD FS existentes en la granja de Windows Server 2012 R2.
+Connect de Azure Active Directory (Azure AD) le permite configurar la federación con Servicios de federación de Active Directory (AD FS) locales y Azure AD. Con el inicio de sesión federado, puede habilitar a los usuarios para que inicien sesión en los servicios basados en Azure AD con sus contraseñas locales y, mientras se encuentren en la red corporativa, sin necesidad de volver a escribir sus contraseñas. Mediante la opción de federación con AD FS, puede implementar una nueva instalación de AD FS o puede especificar una instalación existente en una granja de servidores de Windows Server 2012 R2.
 
-Este tema constituye la principal referencia de las funcionalidades relacionadas con la federación correspondientes a Azure AD Connect y ofrece vínculos a todos los demás temas asociados a él. Para obtener vínculos a Azure AD Connect, consulte Integración de las identidades locales con Azure Active Directory.
+Este tema constituye la principal referencia de las funcionalidades relacionadas con la federación correspondientes a Azure AD Connect. Ofrece vínculos a todos los demás temas relacionados. Para obtener vínculos para Azure AD Connect, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-## <a name="azure-ad-connect---federation-topics"></a>Azure AD Connect: temas de federación
-| Tema. | ¿Qué aspectos cubre y cuándo debe leerlo? |
+## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: temas de federación
+| Tema. | ¿Qué aspectos cubre y cuándo debe leerlos? |
 |:--- |:--- |
 | **Opciones para el inicio de sesión de los usuarios en Azure AD Connect** | |
-| [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](active-directory-aadconnect-user-signin.md) |Descripción de varias opciones de inicio de sesión de usuario y cómo afectan a la experiencia de inicio de sesión del usuario en Azure |
+| [Descripción de las opciones de inicio de sesión de los usuarios](active-directory-aadconnect-user-signin.md) |Obtenga información sobre diferentes opciones de inicio de sesión de usuario y cómo afectan a la experiencia de inicio de sesión del usuario en Azure. |
 | **Instalación de AD FS mediante Azure AD Connect** | |
-| [Requisitos previos](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Requisitos previos para una correcta instalación de AD FS a través de Azure AD Connect |
-| [Configuración de la granja de servidores de AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Cómo instalar una nueva granja de servidores de AD FS mediante Azure AD Connect |
+| [Requisitos previos](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Consulte los requisitos previos para una correcta instalación de AD FS a través de Azure AD Connect. |
+| [Configuración de una granja de servidores de AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Instale una nueva granja de servidores de AD FS mediante Azure AD Connect. |
 | **Modificación de la configuración de AD FS** | |
-| [Reparación de la confianza](active-directory-aadconnect-federation-management.md#repairthetrust) |Reparación de confianza actual entre locales de AD FS y Office 365 o Azure |
-| [Incorporación de un nuevo servidor de AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Expansión de la granja de servidores de AD FS con servidores de AD FS adicionales posteriores a la instalación inicial |
-| [Incorporación de un nuevo servidor WAP de AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Expansión de la granja de servidores de AD FS con servidores de WAP adicionales posteriores a la instalación inicial |
-| [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#addfeddomain) |Incorporación de otro dominio para la federación con Azure AD |
-| [Actualizar el certificado SSL](active-directory-aadconnectfed-ssl-update.md)| Actualizar el certificado SSL para una granja de Servicios de federación de Active Directory (AD FS)|
+| [Reparación de la confianza](active-directory-aadconnect-federation-management.md#repairthetrust) |Repare la confianza actual entre AD FS local y Office 365 o Azure. |
+| [Adición de un nuevo servidor de AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Expansión de la granja de servidores de AD FS con un servidor de AD FS adicional después de la instalación inicial. |
+| [Incorporación de un nuevo servidor WAP de AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Expanda una granja de servidores de AD FS con un servidor proxy de aplicación web (WAP) adicional después de la instalación inicial. |
+| [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#addfeddomain) |Agregue otro dominio para que se federe con Azure AD. |
+| [Actualizar el certificado SSL](active-directory-aadconnectfed-ssl-update.md)| Actualice el certificado SSL para una granja de servidores de AD FS. |
 | **Tareas posteriores a la instalación** | |
-| [Incorporación de un logotipo de la compañía personalizado o una ilustración](active-directory-aadconnect-federation-management.md#customlogo) |Modificación de la experiencia de inicio de sesión especificando el logotipo personalizado que se mostrará en la página de inicio de sesión de AD FS |
-| [Incorporación de la descripción de inicio de sesión](active-directory-aadconnect-federation-management.md#addsignindescription) |Cambio de la descripción de inicio de sesión en la página de inicio de sesión de AD FS |
-| [Modificación de las reglas de notificaciones de AD FS](active-directory-aadconnect-federation-management.md#modclaims) |Modificación o incorporación de reglas de notificaciones de AD FS que se correspondan con la configuración de sincronización de Azure AD Connect |
+| [Incorporación de una ilustración o un logotipo personalizado de la compañía](active-directory-aadconnect-federation-management.md#customlogo) |Modifique la experiencia de inicio de sesión especificando el logotipo personalizado que se muestra en la página de inicio de sesión de AD FS. |
+| [Adición de la descripción de inicio de sesión](active-directory-aadconnect-federation-management.md#addsignindescription) |Cambie la descripción de inicio de sesión en la página de inicio de sesión de AD FS. |
+| [Modificación de las reglas de notificaciones de AD FS](active-directory-aadconnect-federation-management.md#modclaims) |Modifique o agregue reglas de notificaciones de AD FS que se corresponden con la configuración de sincronización de Azure AD Connect. |
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)

@@ -1,4 +1,4 @@
-Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico. 
+Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico.
 
 | **Recurso** | **Límite predeterminado** | **Límite máximo** |
 | --- | --- | --- |
@@ -9,7 +9,7 @@ Data Factory es un servicio multiinquilino que tiene los siguientes límites pre
 | bytes por objeto para objetos de canalización <sup>1</sup> |200 KB |200 KB |
 | bytes por objeto para objetos de conjunto de datos y de servicio vinculados <sup>1</sup> |100 KB |2000 KB |
 | Núcleos de clúster a petición de HDInsight con una suscripción <sup>2</sup> |60 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unidades de movimiento de datos de nube<sup>3</sup> |8 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de movimiento de datos de nube<sup>3</sup> |32 |[Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Número de reintentos de ejecuciones de la actividad Canalización |1000 |MaxInt (32 bits) |
 
 <sup>1</sup> Los objetos de canalización, de conjunto de datos y de servicio vinculado representan una agrupación lógica de la carga de trabajo. Los límites de estos objetos no se corresponden relacionados con la cantidad de datos que se pueden mover y procesar con el servicio Factoría de datos de Azure. Factoría de datos está diseñado para poder escalarse para manejar petabytes de datos.
@@ -25,10 +25,4 @@ Data Factory es un servicio multiinquilino que tiene los siguientes límites pre
 | Valor de tiempo de espera de reintento |1 segundo |1 segundo |
 
 ### <a name="web-service-call-limits"></a>Límites de llamadas de servicio web
-Azure Resource Manager tiene límites para las llamadas de API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../articles/azure-subscription-service-limits.md#resource-group-limits). 
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+Azure Resource Manager tiene límites para las llamadas de API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](../articles/azure-subscription-service-limits.md#resource-group-limits).

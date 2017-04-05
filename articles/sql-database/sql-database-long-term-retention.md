@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -112,7 +112,7 @@ Para quitar las copias de seguridad de retención a largo plazo del almacén, co
     R: no, el almacén y el servidor deben estar en la misma región para minimizar el tiempo de copia y evitar los cargos de tráfico.
 5. P.: ¿cuántas bases de datos puedo guardar en un almacén?
 
-    R: actualmente solo se admiten hasta 1000 bases de datos por almacén. 
+    R.: Actualmente solo se admiten hasta 1000 bases de datos por almacén. 
 6. P: ¿Cuántos almacenes puedo crear por suscripción?
 
     A. Se pueden crear hasta 25 almacenes por suscripción.
@@ -130,7 +130,7 @@ Para quitar las copias de seguridad de retención a largo plazo del almacén, co
     A. Sí, es compatible con TDE. Puede restaurar la base de datos desde el almacén incluso si la base de datos original ya no existe.
 11. P: ¿Qué ocurre con las copias de seguridad en el almacén si se suspende mi suscripción? 
 
-    A. Si la suscripción se suspende, se conservan las bases de datos y las copias de seguridad existentes, pero las copias de seguridad nuevas no se copian en el almacén. Después haber reactivado la suscripción, el servicio retoma el copiado de copias de seguridad en el almacén. El almacén estará accesible para las operaciones de restauración mediante el uso de copias de seguridad que se copiaron allí antes de que se suspendiera la suscripción. 
+    A. Si la suscripción se suspende, se conservan las bases de datos y las copias de seguridad existentes. Las copias de seguridad nuevas no se copian en el almacén. Después haber reactivado la suscripción, el servicio retoma el copiado de copias de seguridad en el almacén. El almacén estará accesible para las operaciones de restauración mediante el uso de copias de seguridad que se copiaron allí antes de que se suspendiera la suscripción. 
 12. P.: ¿puedo obtener acceso a los archivos de copias de seguridad de la base de datos SQL Database para descargar o restaurar a SQL Server?
 
     R.: actualmente, no.

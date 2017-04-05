@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: bd4a38e74ecab47071631f7e67e99c7806abd935
-ms.openlocfilehash: e8f1d55dd374608b49d4189fb47603a6ddaee3dd
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -55,10 +56,10 @@ El siguiente paso de este tutorial es crear un experimento en Machine Learning S
 ## <a name="prepare-the-data"></a>Preparación de los datos
 Para ver las primeras 100 filas de datos y alguna información estadística de todo el conjunto de datos: haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.  
 
-Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.*). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, si finalmente se publicara este modelo en un servicio web, los encabezados ayudarían al usuario del servicio a identificar las columnas.  
+Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.*). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
 
 Se pueden agregar encabezados de columna mediante el módulo [Edit Metadata][edit-metadata] (Editar metadatos).
-Use el módulo [Edit Metadata][edit-metadata] (Editar metadatos) para cambiar los metadatos asociados a un conjunto de datos. En este caso, se usa para proporcionar nombres más descriptivos para los encabezados de columna. 
+Use el módulo [Edit Metadata][edit-metadata] (Editar metadatos) para cambiar los metadatos asociados a un conjunto de datos. En este caso, se usa para proporcionar nombres más descriptivos para los encabezados de las columnas. 
 
 Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero las columnas que desea modificar (en este caso, todas). A continuación, especifique la acción que desea realizar en esas columnas (en este caso, cambiar los encabezados de las columnas).
 
@@ -102,7 +103,8 @@ Para usar [Edit Metadata][edit-metadata] (Editar metadatos), especifique primero
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Creación de conjuntos de datos de entrenamiento y prueba
-El siguiente paso del experimento consiste en dividir el conjunto de datos en dos conjuntos de datos independientes. Se usará uno para entrenar el modelo y el otro para probarlo.
+Se necesitan algunos datos para entrenar el modelo y otros tantos para probarlo.
+De este modo, en el siguiente paso del experimento, se divide el conjunto de datos en dos conjuntos de datos independientes: uno para el entrenamiento de nuestro modelo y el otro para probarlo.
 
 Para ello, se usa el módulo [Split Data][split] (Dividir datos).  
 
@@ -111,7 +113,7 @@ Para ello, se usa el módulo [Split Data][split] (Dividir datos).
 2. De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria** . Esto significa que una mitad aleatoria de los datos sale a través de un puerto del módulo [Split Data][split] (Dividir datos) y la otra mitad, por el otro. Puede cambiar estos parámetros, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. En este ejemplo, se deja tal cual.
    
    > [!TIP]
-   > La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
+   > La propiedad **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) determina la cantidad de datos que salen a través del puerto de salida de la *izquierda*. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
    > 
    > 
 
@@ -119,7 +121,7 @@ Para ello, se usa el módulo [Split Data][split] (Dividir datos).
 
 Se pueden utilizar las salidas del módulo [Split Data][split] (Dividir datos) como deseemos, pero se va a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de pruebas.  
 
-Como se ha mencionado anteriormente, el costo de clasificar erróneamente un riesgo de crédito alto como bajo es cinco veces más alto que el costo de clasificar erróneamente un riesgo de crédito bajo como alto. Para tener esto en cuenta, se debe generar un nuevo conjunto de datos que refleje esta función de costo. En el nuevo conjunto de datos, cada ejemplo de alto riesgo se replica cinco veces, mientras que el ejemplo de bajo riesgo no se replica.   
+Como se menciona en el [paso anterior](machine-learning-walkthrough-2-upload-data.md), el costo de clasificar erróneamente un riesgo de crédito alto como bajo es cinco veces más alto que el costo de clasificar erróneamente un riesgo de crédito bajo como alto. Para tener esto en cuenta, se debe generar un nuevo conjunto de datos que refleje esta función de costo. En el nuevo conjunto de datos, cada ejemplo de alto riesgo se replica cinco veces, mientras que el ejemplo de bajo riesgo no se replica.   
 
 Podemos conseguir esta replicación mediante el código R:  
 
@@ -139,7 +141,7 @@ Podemos conseguir esta replicación mediante el código R:
 
     ![Script R en el módulo Execute R Script (Ejecutar script R)][9]
 
-Hay que hacer esta misma operación de replicación para cada salida del módulo [Split Data][split] (Dividir datos) para que los datos de entrenamiento y prueba tengan el mismo ajuste con relación al costo. Para ello, se duplica el módulo [Execute R Script][execute-r-script] (Ejecutar script R) que se acaba de crear y se conecta al otro puerto de salida del módulo [Split Data][split] (Dividir datos).
+Hay que hacer esta misma operación de replicación para cada salida del módulo [Split Data][split] (Dividir datos) para que los datos de entrenamiento y prueba tengan el mismo ajuste con relación al costo. La forma más sencilla de hacerlo consiste en duplicar el módulo [Execute R Script][execute-r-script] (Ejecutar script R) que se acaba de crear y conectarlo al otro puerto de salida del módulo [Split Data][split] (Dividir datos).
 
 1. Haga clic con el botón derecho en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y seleccione **Copiar**.
 
@@ -178,9 +180,4 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

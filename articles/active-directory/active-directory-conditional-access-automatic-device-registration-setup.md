@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -87,7 +87,8 @@ Utilice la tabla siguiente para obtener una visión general de los pasos necesar
 | Paso 1: Configuración del punto de conexión de servicio | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
 | Paso 2: Configuración de la emisión de notificaciones           |                                        | ![Comprobar][1]                    | ![Comprobar][1]        |
 | Paso 3: Habilitación de dispositivos que no tengan Windows 10      |                                        |                                | ![Comprobar][1]        |
-
+| Paso 4: Control de implementación y lanzamiento     | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
+| Paso 5: Comprobación de los dispositivos registrados          | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
 
 
 
@@ -292,8 +293,13 @@ La definición le ayuda a comprobar si los valores están presentes o si debe cr
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> La notificación de issuerID para el equipo en la regla anterior debe contener uno de los nombres de dominio comprobados en Azure AD. Esta no es una dirección URL de un servicio de AD FS.
+
+En la notificación anterior,
+
+- `$<domain>` corresponde a la dirección URL del servicio AD FS.
+- `<verified-domain-name>` corresponde a un marcador de posición que se debe reemplazar con uno de los nombres de dominio comprobados en Azure AD.
+
+
 
 Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-add-domain.md) para más información sobre nombres de dominios comprobados.  
 Para obtener una lista de los dominios comprobados de la compañía, puede usar el cmdlet [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 

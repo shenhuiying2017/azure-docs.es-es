@@ -1,5 +1,5 @@
 ---
-title: "Recuperación de información del estado de un trabajo de Azure Import/Export | Microsoft Docs"
+title: "Recuperación de información de estado de un trabajo del servicio Azure Import/Export | Microsoft Docs"
 description: "Descubra cómo obtener información de estado de trabajos del servicio Microsoft Azure Import/Export."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -91,6 +91,7 @@ En la tabla siguiente se describen los estados de error de la unidad y las medid
 ## <a name="faulted-states"></a>Estados de error
 Cuando un trabajo o una unidad no pueda progresar normalmente a través de su ciclo de vida esperado, el trabajo o la unidad pasarán al estado `Faulted`. En ese momento, el equipo de operaciones se pondrá en contacto con el cliente por correo electrónico o por teléfono. Una vez resuelto el problema, la unidad o el trabajo con errores cambiarán del estado `Faulted` al estado adecuado.
 
-## <a name="see-also"></a>Otras referencias
-[Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
 

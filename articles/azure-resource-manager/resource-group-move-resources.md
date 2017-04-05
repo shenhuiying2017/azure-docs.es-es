@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/29/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -114,13 +114,9 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 * Traffic Manager
 * Virtual Machines: no permite trasladarse a una nueva suscripción cuando sus certificados se almacenan en una instancia de Key Vault
 * Máquinas virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
-* Redes virtuales
+* Virtual Networks: por el momento, no se puede mover una red virtual emparejada hasta que el emparejamiento de la red virtual se haya inhabilitado. Una vez deshabilitada, se podrá mover correctamente la red virtual y habilitar el emparejamiento de VNET.
+* Puerta de enlace de VPN 
 
-> [!NOTE] 
-> Actualmente no se puede mover una instancia de Virtual Network que contenga VPN Gateway hasta que la puerta de enlace de VPN Gateway se haya quitado temporalmente. Una vez quitada, se podrá mover correctamente la instancia de Virtual Network y crear esa puerta de enlace.
->
-> Actualmente no se puede mover una red virtual emparejada hasta que el emparejamiento de VNET se haya deshabilitado. Una vez deshabilitada, se podrá mover correctamente la red virtual y habilitar el emparejamiento de VNET.
->
  
 ## <a name="services-that-do-not-enable-move"></a>Servicios que no permiten el traslado
 Los servicios que actualmente no permiten trasladar un recurso son:
@@ -137,9 +133,14 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Seguridad
 * Virtual Machines con certificados almacenados en Key Vault
 * Máquinas virtuales con discos administrados
+* Conjuntos de disponibilidad con máquinas virtuales con discos administrados
+* Conjuntos de escalado de máquinas virtuales con discos administrados
+* Managed Disks
+* Imágenes creadas a partir de discos administrados
+* Instantáneas creadas a partir de discos administrados
 * Conjuntos de escalado de máquinas virtuales
 * Redes virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
-* Puerta de enlace de VPN
+* Máquinas virtuales creadas a partir de recursos de Marketplace (no se pueden mover entre suscripciones). Es necesario desaprovisionar el recurso en la suscripción activa y volver a implementarlo en la nueva suscripción
 
 ## <a name="app-service-limitations"></a>limitaciones del Servicio de aplicaciones
 Si se trabaja con aplicaciones del Servicio de aplicaciones, no se puede mover solo un plan del Servicio de aplicaciones. Para mover las aplicaciones del Servicio de aplicaciones, las opciones son:

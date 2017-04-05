@@ -2,10 +2,10 @@
 title: "Registros de diagnóstico de Azure Service Bus | Microsoft Docs"
 description: "Aprenda cómo configurar registros de diagnóstico para Service Bus en Azure."
 keywords: 
-documentationcenter: 
+documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
-manager: 
+manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/17/2017
-ms.author: babanisa
+ms.date: 03/23/2017
+ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: b8ed786fe0c049d9be7ba1ca1cb6adef1950b8e9
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registros de diagnóstico de Service Bus
 
 Puede ver dos tipos de registros para Azure Service Bus:
-* **[Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre activados.
-* **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener información más completa sobre todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estos registros contienen información relativa a las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
+* **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener información más completa sobre todo lo que ocurre en un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnóstico
-Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico:
+Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitarlos, siga estos pasos:
 
-1.    En Azure Portal, vaya a la hoja de trabajo de streaming.
+1.    En [Azure Portal](https://portal.azure.com), vaya a la hoja de trabajo de streaming.
 
 2.    En **Supervisión**, vaya a la hoja **Registros de diagnóstico**.
 
     ![navegación por la hoja a los registros de diagnósticos](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.    Seleccione **Activar diagnósticos**.
+3.    Haga clic en **Activar diagnóstico**.
 
     ![activar los registros de diagnósticos](./media/service-bus-diagnostic-logs/image2.png)
 
-4.    En **Estado**, seleccione **Activo**.
+4.    En **Estado**, haga clic en **Activado**.
 
     ![cambiar el estado de los registros de diagnósticos](./media/service-bus-diagnostic-logs/image3.png)
 
-5.    Establezca el destino de archivo que quiera, por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
+5.    Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
 
-6.    Seleccione las categorías de registros que quiere recopilar, por ejemplo, **Ejecución** o **Creación**.
+6.    Seleccione las categorías de registros que desee recopilar; por ejemplo, **Ejecución** o **Creación**.
 
 7.    Guarde la nueva configuración de diagnóstico.
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnóstico**.
 
-Para más información sobre el diagnóstico de configuraciones, vea la [información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para obtener más información sobre el diagnóstico de configuraciones, consulte la [información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registros de diagnósticos
 
@@ -61,7 +61,7 @@ Todos los registros se almacenan en el formato de notación de objetos JavaScrip
 
 ## <a name="operation-logs-example"></a>Ejemplo de registros de operaciones
 
-Los registros de la categoría **OperationalLogs** capturan lo que sucede durante la operación de Service Bus. En concreto, estos registros capturan el tipo de operación, incluida la creación de colas, los recursos usados y el estado de la operación.
+Los registros de la categoría **OperationalLogs** capturan lo que sucede durante las operaciones de Service Bus. En concreto, estos registros capturan el tipo de operación, incluida la creación de colas, los recursos usados y el estado de la operación.
 
 Las cadenas JSON de registros de operaciones incluyen elementos enumerados en la tabla siguiente:
 
@@ -96,5 +96,5 @@ Example:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Service Bus](service-bus-messaging-overview.md)
-* [Introducción a Service Bus](service-bus-create-namespace-portal.md)
+* [Introducción a Service Bus](service-bus-dotnet-get-started-with-queues.md)
 

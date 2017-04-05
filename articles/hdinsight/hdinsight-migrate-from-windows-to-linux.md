@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9a2e9b7809b00ae2b60e152bc240ab2ef775c7bf
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -67,10 +67,7 @@ Siga estos pasos para copiar datos desde el clúster de producción al clúster 
 2. Para crear un entorno de prueba, siga los pasos indicados en el documento Creación de clústeres basados en Linux en HDInsight. Deténgase antes de crear el clúster y, en su lugar, seleccione **Configuración opcional**.
 3. En la hoja Configuración opcional, seleccione **Cuentas de almacenamiento vinculadas**.
 4. Seleccione **Agregar una clave de almacenamiento**y, cuando se le pida, la cuenta de almacenamiento que devolvió el script de PowerShell en el paso 1. Haga clic en la opción **Seleccionar** de cada hoja. Por último, cree el clúster.
-5. Una vez creado el clúster, conéctese a él utilizando **SSH**. Si no está familiarizado con el uso de SSH con HDInsight, consulte uno de los siguientes documentos:
-
-   * [Uso de SSH con clústeres de HDInsight desde PuTTY en Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-   * [Uso de SSH con HDInsight (Hadoop) desde Bash en Windows 10, Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+5. Una vez creado el clúster, conéctese a él utilizando **SSH**. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 6. En la sesión de SSH, use el siguiente comando para copiar los archivos de la cuenta de almacenamiento vinculada a la nueva cuenta de almacenamiento predeterminada. Reemplace el CONTENEDOR con la información del contenedor devuelta por PowerShell. Reemplace __CUENTA__ con el nombre de cuenta. Reemplace la ruta de acceso a datos por la ruta de acceso a un archivo de datos.
 
@@ -109,10 +106,7 @@ Durante la creación del clúster, debe especificar un usuario SSH y una **contr
 
 Se recomienda usar el certificado de clave pública, ya que es más seguro que usar una contraseña. La autenticación de certificado funciona generando un par de claves pública y privada con signo y especificando la clave pública al crear el clúster. Al conectarse al servidor mediante SSH, la clave privada en el cliente proporciona autenticación para la conexión.
 
-Para más información sobre cómo usar SSH con HDInsight, consulte:
-
-* [Uso de SSH con HDInsight desde clientes de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Uso de SSH con HDInsight desde clientes de Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="cluster-customization"></a>Personalización del clúster
 **acciones de script** se utilizan con clústeres basados en Linux y deben escribirse en script de Bash. Aunque las acciones de script se pueden utilizar durante la creación del clúster, en el caso de clústeres basados en Linux también pueden usarse para realizar la personalización cuando un clúster está activo y en ejecución. Para más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md) y [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -220,8 +214,8 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Más información sobre cómo crear clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)
-* [Conexión a un clúster basado en Linux mediante SSH desde un cliente de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Conexión a un clúster basado en Linux mediante SSH desde un cliente de Linux, Unix o Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Uso de SSH para conectarse a HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Administración de un clúster basado en Linux mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 

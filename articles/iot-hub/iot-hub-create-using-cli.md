@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 03/23/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6fe5ed03611d68a1201e4fe48580a3499811abeb
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 159aed19b4c5e381ef15c40c15cf6bd7694d2fa3
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -41,7 +41,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
 
-Inicie sesión en su cuenta de Azure y configure la CLI de Azure para trabajar con recursos de IoT Hub.
+Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
 1. En el símbolo del sistema, ejecute el [comando de inicio de sesión][lnk-login-command]:
     
@@ -96,7 +96,7 @@ Puede usar la CLI de Azure para [eliminar un recurso individual][lnk-az-resource
 Ejecute el comando siguiente para eliminar una instancia de IoT Hub:
 
 ```azurecli
-az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
 Ejecute el comando siguiente para eliminar un grupo de recursos y todos sus recursos:

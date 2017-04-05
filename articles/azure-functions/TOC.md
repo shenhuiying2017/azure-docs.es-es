@@ -21,13 +21,12 @@
 #### [Enlaces HTTP y de webhook](functions-bindings-http-webhook.md)
 #### [Enlaces de Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Enlace de salida del centro de notificaciones](functions-bindings-notification-hubs.md)
-#### [Desencadenadores y enlaces de Service Bus para colas y temas](functions-bindings-service-bus.md)
+#### [Enlaces de Service Bus](functions-bindings-service-bus.md)
 #### [Enlaces de SendGrid](functions-bindings-sendgrid.md)
 #### Enlaces de Storage
 ##### [Enlaces de blob](functions-bindings-storage-blob.md)
 ##### [Enlaces de cola](functions-bindings-storage-queue.md)
 ##### [Enlaces de tabla](functions-bindings-storage-table.md)
-##### [Enlaces de SendGrid](functions-bindings-sendgrid.md)
 #### [Desencadenador de temporizador](functions-bindings-timer.md)
 #### [Enlace de salida de Twilio](functions-bindings-twilio.md)
 ### [Creación de una Function App en Azure Portal](functions-create-function-app-portal.md) 
@@ -35,8 +34,10 @@
 ### [Desarrollo y depuración locales](functions-run-local.md)
 ### [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 ### [Uso de Azure Functions para realizar una tarea de limpieza programada](functions-scenario-database-table-cleanup.md)
+### [Creación de una definición de OpenAPI (versión preliminar)](functions-api-definition-getting-started.md)
+#### [Referencia de OpenAPI 2.0 en Functions](functions-api-definition.md)
 
-## Administrar
+## Manage
 ### [Configuración de opciones para Function App](functions-how-to-use-azure-function-app-settings.md)
 
 ## Implementación

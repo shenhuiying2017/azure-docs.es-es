@@ -1,6 +1,6 @@
 ---
 title: Enlaces de tablas de Storage en Azure Functions | Microsoft Docs
-description: "Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure en funciones de Azure."
+description: "Descubra cómo utilizar los enlaces de Azure Storage en Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 0d37eb09a6c8a0bb39a331e51a8993c114202b91
-ms.openlocfilehash: 88858cffa5ddc6ba83152d3430f5400a1c66a26a
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 67c308f8216ebd291ae483c9b18d43528687e9a9
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Enlaces de tablas de Storage en Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artículo explica cómo configurar y codificar desencadenadores y enlaces de tablas de Azure Storage en Azure Functions. Azure Functions admite enlaces de entrada y salida para tablas de Azure Storage.
+En este artículo, se explica cómo configurar y codificar enlaces de tablas de Azure Storage en Azure Functions. Azure Functions admite enlaces de entrada y salida para tablas de Azure Storage.
 
 El enlace de tablas de Azure Storage admite los siguientes escenarios:
 

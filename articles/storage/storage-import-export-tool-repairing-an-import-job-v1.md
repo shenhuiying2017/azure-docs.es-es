@@ -1,6 +1,6 @@
 ---
-title: "Reparación de un trabajo de importación de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo reparar un trabajo de importación que se creó y ejecutó con el servicio Import/Export."
+title: "Reparación de un trabajo de importación de Azure Import/Export (versión 1) | Microsoft Docs"
+description: "Obtenga información sobre cómo reparar un trabajo de importación que se creó y ejecutó con el servicio Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9403fb0bb16227871388f063e9d0004c7186866e
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -33,7 +33,9 @@ El servicio Microsoft Azure Import/Export puede dar error al copiar algunos de l
   
 Puede ejecutar la herramienta Microsoft Azure Import/Export con archivos de registro de copia del trabajo de importación y dicha herramienta cargará los archivos que faltan (o partes de un archivo) a la cuenta de almacenamiento de Microsoft Azure para completar el trabajo de importación.  
   
-El comando para reparar un trabajo de importación es **RepairImport**. Se pueden modificar los parámetros siguientes:  
+## <a name="repairimport-parameters"></a>Parámetros de RepairImport
+
+Se pueden modificar los parámetros siguientes con **RepairImport**: 
   
 |||  
 |-|-|  
@@ -102,10 +104,11 @@ La herramienta escribirá después las rutas de acceso de archivo problemáticas
   
 Después de poner los archivos necesarios a disposición de la herramienta o actualizar el archivo de asignación de rutas de acceso, puede volver a ejecutar la herramienta para completar el proceso de importación.  
   
-## <a name="see-also"></a>Otras referencias  
-[Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)  (Configuración de la herramienta Azure Import/Export)  
-[Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
-[Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)   
-[Solución de problemas de la herramienta Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Pasos siguientes
+ 
+* [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Solución de problemas de la herramienta Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
 

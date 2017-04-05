@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Este ejemplo de script de PowerShell configura la replicación geográfica activa para una base de datos de un grupo elástico y la conmuta por error a la réplica secundaria.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Scripts de ejemplo
 

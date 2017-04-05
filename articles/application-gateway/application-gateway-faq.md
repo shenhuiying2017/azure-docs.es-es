@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,7 +36,7 @@ Application Gateway admite la descarga de SSL y SSL de un extremo a otro, Firewa
 
 **P. ¿Cuál es la diferencia entre Application Gateway y Azure Load Balancer?**
 
-Application Gateway es un equilibrador de carga de nivel 7. Esto significa que Application Gateway trata únicamente con tráfico web (HTTP/HTTPS/WebSocket). Admite funcionalidades de equilibrio de carga de aplicaciones como la terminación SSL, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP/UDP).
+Application Gateway es un equilibrador de carga de nivel 7. Esto significa que Application Gateway trata únicamente con tráfico web (HTTP/HTTPS/WebSocket). Admite funcionalidades de equilibrio de carga de aplicaciones, como la terminación SSL, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP/UDP).
 
 **P. ¿Qué protocolos admite Application Gateway?**
 
@@ -44,7 +44,7 @@ Application Gateway admite HTTP, HTTPS y WebSocket.
 
 **P. ¿Qué recursos son compatibles actualmente como parte del grupo de back-end?**
 
-Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales (VMSS), direcciones IP públicas y direcciones IP internas, y nombres de dominio completos (FQDN). La compatibilidad con Azure Web Apps no está disponible actualmente. Los miembros del grupo de back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Los miembros de grupos de back-end pueden estar repartidos entre clústeres, centros de datos o fuera de Azure siempre y cuando dispongan de conectividad IP.
+Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, así como de nombres de dominio completos (FQDN). La compatibilidad con Azure Web Apps no está disponible actualmente. Los miembros del grupo de back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Los miembros de grupos de back-end pueden estar repartidos entre clústeres, centros de datos o fuera de Azure siempre y cuando dispongan de conectividad IP.
 
 **P. ¿En qué regiones está disponible el servicio?**
 
@@ -65,7 +65,6 @@ Cuando se usa una dirección IP pública como punto de conexión, esta informaci
 **P. ¿Cambia la dirección IP o el DNS durante la vigencia de Application Gateway?**
 
 La dirección IP virtual puede cambiar si la puerta de enlace se detiene y la inicia otro cliente. El DNS asociado con Application Gateway no cambia durante el ciclo de vida de la puerta de enlace. Por este motivo, se recomienda utilizar un alias CNAME y hacer que señale a la dirección DNS de Application Gateway.
-
 
 **P. ¿Admite Application Gateway direcciones IP estáticas?**
 
@@ -124,10 +123,6 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 
 El campo Host especifica el nombre al que enviar el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es diferente del nombre de host de máquina virtual y está en formato \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>. 
-
-**P. ¿Application Gateway también admite varios inquilinos back-end?**
-
-No, actualmente Application Gateway conserva el encabezado de host entrante y envía el mismo encabezado al back-end. Si el back-end requiere un encabezado distinto, este procedimiento no funcionará. De forma similar si el back-end es de varios inquilinos y se ha habilitado SSL de extremo a extremo, el back-end esperaría nombre del servidor en la extensión SNI. Application Gateway no envía actualmente el encabezado SNI en las solicitudes de back-end en escenarios de SSL de extremo a extremo, que causaría problemas de rutas de acceso a los datos y de sondeo. 
 
 ## <a name="performance"></a>Rendimiento
 
@@ -219,7 +214,7 @@ Sí, WAF admite todas las características de la SKU estándar.
 
 **P. ¿Qué versión de CRS admite Application Gateway?**
 
-Application Gateway admite CRS 2.2.9
+Application Gateway admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
 **P. ¿Cómo se supervisa el WAF?**
 
@@ -231,11 +226,11 @@ No, el modo de detección solo registra el tráfico, que desencadenó una regla 
 
 **P. ¿Cómo se personalizan las reglas de WAF?**
 
-Actualmente, las reglas de WAF no son personalizables.
+Sí, las reglas de WAF son personalizables. Para obtener más información sobre cómo personalizarlas, visite [Personalización de reglas y grupos de reglas de WAF](application-gateway-customize-waf-rules-portal.md).
 
 **P. ¿Qué reglas están disponibles actualmente?**
 
-WAF actualmente admite CRS 2.2.9, que proporciona una seguridad de línea de base frente a la mayoría de las 10 mayores vulnerabilidades identificadas por Open Web Application Security Project (OWASP) que se describen en [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013) (Las 10 mayores vulnerabilidades de OWASP)
+WAF actualmente admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), que proporcionan una seguridad de línea de base frente a la mayoría de las 10 principales vulnerabilidades identificadas por Open Web Application Security Project (OWASP) y que se describen en [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013) (Las 10 principales vulnerabilidades de OWASP).
 
 * Protección contra la inyección de código SQL
 
@@ -251,9 +246,9 @@ WAF actualmente admite CRS 2.2.9, que proporciona una seguridad de línea de bas
 
 * Detección de errores de configuración comunes (es decir, Apache, IIS, etc.)
 
-**P. ¿Admite WAF la prevención DDos?**
+**P. ¿Admite también WAF la prevención DDoS?**
 
-No, WAF no ofrece prevención DDos.
+No, WAF no ofrece prevención DDoS.
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 
@@ -288,4 +283,3 @@ La razón más común es que el acceso al servidor está bloqueado por un NSG o 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Application Gateway, visite [Introducción a Application Gateway](application-gateway-introduction.md).
-

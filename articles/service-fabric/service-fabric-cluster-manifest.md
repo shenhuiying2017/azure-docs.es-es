@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
-ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -154,7 +154,7 @@ La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. S
 * *serviceConnectionEndpointPort* es el puerto que utilizan las aplicaciones y los servicios implementados en un nodo, para comunicarse con el cliente de Service Fabric en ese nodo concreto.
 * *httpGatewayEndpointPort* es el puerto que utiliza Service Fabric Explorer para conectarse con el clúster.
 * *ephemeralPorts* invalida los [puertos dinámicos que utiliza el sistema operativo](https://support.microsoft.com/kb/929851). Service Fabric usará una parte de ellos como puertos de aplicación y el resto estará disponible para el sistema operativo. También asigna este intervalo al intervalo existente en el sistema operativo, por lo que para todos los propósitos, puede utilizar los intervalos dados en los archivos JSON de ejemplo. Debe asegurarse de que la diferencia entre los puertos de inicio y finalización es al menos de 255. Puede encontrarse con conflictos si esta diferencia es demasiado baja, ya que este intervalo se comparte con el sistema operativo. Vea el intervalo de puertos dinámicos configurado ejecutando `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* son los puertos que utilizarán las aplicaciones de Service Fabric. Deben ser un subconjunto de *ephemeralPorts*, suficiente para cubrir el requisito de punto de conexión de las aplicaciones. Service Fabric los usará siembre que se requieran nuevos puertos, así que tenga en cuenta que debe abrir el firewall para estos puertos. 
+* *applicationPorts* son los puertos que utilizarán las aplicaciones de Service Fabric. El intervalo de puertos de las aplicaciones debería ser lo suficientemente amplio como para contemplar el requisito de punto de conexión de estas. Este intervalo debería quedar excluido del intervalo de puertos dinámicos de la máquina, es decir, el intervalo *ephemeralPorts* tal y como se establece en la configuración.  Service Fabric los usará siembre que se requieran nuevos puertos, así que tenga en cuenta que debe abrir el firewall para estos puertos. 
 * *reverseProxyEndpointPort* es un punto de conexión de proxy inverso opcional. Consulte [Proxy inverso de Service Fabric](service-fabric-reverseproxy.md) para más detalles. 
 
 ### <a name="log-settings"></a>Configuración del registro

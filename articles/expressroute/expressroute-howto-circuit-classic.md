@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2017
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>Creación y modificación de un circuito ExpressRoute mediante PowerShell (clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/14/2017
 > 
 >
 
-Este artículo le guiará por los pasos necesarios para crear un circuito ExpressRoute de Azure con los cmdlets de PowerShell y el modelo clásico de implementación. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito ExpressRoute.
+Este artículo le guiará por los pasos necesarios para crear un circuito ExpressRoute de Azure con los cmdlets de PowerShell y el modelo clásico de implementación. En este artículo, también se muestra cómo comprobar el estado de un circuito ExpressRoute, así como el modo de actualizarlo o eliminarlo y desaprovisionarlo.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -44,20 +44,25 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 ### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>Paso 1. Revise los requisitos previos y los artículos de flujo de trabajo.
 Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.  
 
-### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>Paso 2: Instale las versiones más recientes de los módulos de Azure PowerShell.
-Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>Paso 2: Instale las versiones más recientes de los módulos de Azure PowerShell para Service Management (SM).
+Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las indicaciones que aparecen en [Introducción a los cmdlets de PowerShell para Azure](/powershell/azureps-cmdlets-docs).
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Paso 3: Inicie sesión en la cuenta de Azure y seleccione la suscripción.
-1. En una ventana de Windows PowerShell con privilegios elevados, ejecute los siguientes cmdlets:
-   
+1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
+
+        Login-AzureRmAccount
+
+2. Compruebe las suscripciones para la cuenta.
+
+        Get-AzureRmSubscription
+
+3. Si tiene varias suscripciones, seleccione la que quiera usar.
+
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.
+
         Add-AzureAccount
-2. En la pantalla de inicio de sesión que aparece, inicie sesión en su cuenta.
-3. Obtenga una lista de las suscripciones.
-   
-        Get-AzureSubscription
-4. Seleccione la suscripción que quiere usar.
-   
-        Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creación y aprovisionamiento de un circuito ExpressRoute
 ### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>Paso 1. Importación del módulo de PowerShell para ExpressRoute
@@ -183,7 +188,7 @@ Consulte el artículo [Configuración de enrutamiento de circuitos ExpressRoute 
 > 
 
 ### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>Paso 8. Vinculación de una red virtual a un circuito ExpressRoute
-A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) para obtener instrucciones paso a paso. Si necesita crear una red virtual con el modelo de implementación clásica de ExpressRoute, consulte [Configuración de una red virtual para ExpressRoute en el Portal clásico](expressroute-howto-vnet-portal-classic.md) para obtener instrucciones.
+A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) para obtener instrucciones paso a paso. Si necesita crear una red virtual con el modelo de implementación clásica de ExpressRoute, consulte [Creación de una red virtual para ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtención del estado de un circuito ExpressRoute
 Esta información se puede recuperar en cualquier momento con el cmdlet `Get-AzureCircuit` . Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos.

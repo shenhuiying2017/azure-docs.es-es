@@ -9,6 +9,7 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: e9b31ebc4c63cb779c8573511101aef991cbbe4a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a8623991dda4192d700d35ef3970d416e315c5c6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/21/2017
 
 Aprenda cómo usar Apache Maven para crear una aplicación de MapReduce basada en Java e implementarla y ejecutarla en el marco de trabajo basado en Linux Hadoop, en el clúster de HDInsight.
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
     
@@ -244,7 +245,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
    > [!NOTE]
    > El archivo `wordcountjava-1.0-SNAPSHOT.jar` es un uberjar que contiene no solo el trabajo WordCount, sino también las dependencias que el trabajo necesita en tiempo de ejecución.
 
-## <a name="a-iduploadaupload-the-jar"></a><a id="upload"></a>Carga del archivo .jar
+## <a id="upload"></a>Carga del archivo .jar
 
 Use el siguiente comando para cargar el archivo .jar al nodo principal de HDInsight:
 
@@ -260,12 +261,9 @@ Este comando copia los archivos del sistema local al nodo principal.
 > Si usó una contraseña para proteger su cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 
-## <a name="a-namerunarun-the-mapreduce-job"></a><a name="run"></a>Ejecute el trabajo MapReduce
+## <a name="run"></a>Ejecute el trabajo MapReduce
 
-1. Conéctese a HDInsight con SSH, tal y como se describe en los siguientes artículos:
-   
-   * [Uso de SSH con Hadoop basado en Linux en HDInsight desde Linux, Unix, OS X y Bash en Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Uso de SSH con Hadoop en HDInsight basado en Linux desde Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. Conéctese a HDInsight mediante SSH. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. En la sesión SSH, use el siguiente comando para ejecutar la aplicación MapReduce:
    
@@ -287,7 +285,7 @@ Este comando copia los archivos del sistema local al nodo principal.
         zelus   1
         zenith  2
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a id="nextsteps"></a>Pasos siguientes
 
 Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Java. Consulte los siguientes documentos para obtener información acerca de otras formas de trabajar con HDInsight.
 

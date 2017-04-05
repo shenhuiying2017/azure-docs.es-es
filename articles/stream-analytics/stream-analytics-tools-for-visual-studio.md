@@ -4,20 +4,21 @@ description: "Tutorial de introducción de las herramientas de Azure Stream Anal
 keywords: visual studio
 documentationcenter: 
 services: stream-analytics
-author: 
-manager: 
-editor: 
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: 
+ms.date: 03/28/2017
+ms.author: sujie
 translationtype: Human Translation
-ms.sourcegitcommit: 81a5678051b026a16bdae2f2eab7ead2c17f9563
-ms.openlocfilehash: 4874c52b24d9c69fa1d1648035102aaef276f944
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d0125dda4df69279e49a9fad4dc28dcbf6368322
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -56,28 +57,28 @@ Verá un proyecto **Toll** generado en el **Explorador de soluciones**.
 2. Inicie sesión con su cuenta de Azure. 
 
 ## <a name="define-input-sources"></a>Definición de orígenes de entrada
-1.  En el **Explorador de soluciones**, expanda el nodo **Inputs** y cambie el nombre de **Input.json** a **EntryStream.json**. Haga doble clic en **EntryStream.json**.
-2.  Su **ALIAS DE ENTRADA** ahora debe ser **EntryStream**. Tenga en cuenta que el alias de entrada es el que se usará en el script de consulta. 
-3.  El tipo de origen es **Flujo de datos**.
-4.  El origen es **Centro de eventos**.
-5.  El espacio de nombre de Service Bus debe ser **tollData** en la lista desplegable.
-6.  El nombre del centro de eventos se debe establecer en **entrada**.
-7.  El nombre de la directiva del centro de eventos es **RootManageSharedAccessKey** (el valor predeterminado).
-8.  Seleccione **JSON** para **FORMATO DE SERIALIZACIÓN DE EVENTOS** y **UTF8** para **CODIFICACIÓN**.
+1.    En el **Explorador de soluciones**, expanda el nodo **Inputs** y cambie el nombre de **Input.json** a **EntryStream.json**. Haga doble clic en **EntryStream.json**.
+2.    Su **ALIAS DE ENTRADA** ahora debe ser **EntryStream**. Tenga en cuenta que el alias de entrada es el que se usará en el script de consulta. 
+3.    El tipo de origen es **Flujo de datos**.
+4.    El origen es **Centro de eventos**.
+5.    El espacio de nombre de Service Bus debe ser **tollData** en la lista desplegable.
+6.    El nombre del centro de eventos se debe establecer en **entrada**.
+7.    El nombre de la directiva del centro de eventos es **RootManageSharedAccessKey** (el valor predeterminado).
+8.    Seleccione **JSON** para **FORMATO DE SERIALIZACIÓN DE EVENTOS** y **UTF8** para **CODIFICACIÓN**.
    
    La configuración se verá así:
    
    ![Definición de orígenes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
    
-9.  Haga clic en **Guardar** en la parte inferior de la página para finalizar al asistente. Ahora puede agregar otra fuente de entrada para crear la secuencia de salida. Haga clic con el botón derecho en el nodo Inputs y haga clic en **Nuevo elemento**.
+9.    Haga clic en **Guardar** en la parte inferior de la página para finalizar al asistente. Ahora puede agregar otra fuente de entrada para crear la secuencia de salida. Haga clic con el botón derecho en el nodo Inputs y haga clic en **Nuevo elemento**.
    
    ![Definición de orígenes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
    
-10. En la ventana emergente, elija **Azure Stream Analytics Input** (Entrada de Azure Stream Analytics) y cambie el nombre a **ExitStream.json**. Haga clic en **Agregar**.
+10.    En la ventana emergente, elija **Azure Stream Analytics Input** (Entrada de Azure Stream Analytics) y cambie el nombre a **ExitStream.json**. Haga clic en **Agregar**.
    
    ![Definición de orígenes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
-11. Haga doble clic en **ExitStream.json** en el proyecto y siga los mismos pasos que para el flujo de entrada para rellenar la información. Asegúrese de especificar los valores para Nombre del centro de eventos tal y como se indica en la siguiente captura de pantalla.
+11.    Haga doble clic en **ExitStream.json** en el proyecto y siga los mismos pasos que para el flujo de entrada para rellenar la información. Asegúrese de especificar los valores para Nombre del centro de eventos tal y como se indica en la siguiente captura de pantalla.
    
    ![Definición de orígenes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
@@ -87,21 +88,21 @@ Verá un proyecto **Toll** generado en el **Explorador de soluciones**.
    
    A continuación, agregaremos la entrada de datos de referencia para el archivo de blob que contiene los datos de registro de los vehículos.
    
-12. Haga clic con el botón derecho en el nodo **Inputs** en el proyecto y luego siga el mismo procedimiento para las entradas del flujo, pero seleccione **DATOS DE REFERENCIA** en lugar de Flujo de datos y, para Alias de entrada, elija **Registro**.
+12.    Haga clic con el botón derecho en el nodo **Inputs** en el proyecto y luego siga el mismo procedimiento para las entradas del flujo, pero seleccione **DATOS DE REFERENCIA** en lugar de Flujo de datos y, para Alias de entrada, elija **Registro**.
    
    ![Definición de orígenes de entrada](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
-13. Seleccione la cuenta de almacenamiento que contiene **tolldata**. El nombre del contenedor debe ser **tolldata** y el **PATRÓN DE RUTA DE ACCESO** debe ser **registration.json**. Este nombre de archivo distingue mayúsculas de minúsculas, por lo que debe asegurarse de escribirlo en minúsculas.
-14. Haga clic en **Guardar** para finalizar el asistente.
+13.    Seleccione la cuenta de almacenamiento que contiene **tolldata**. El nombre del contenedor debe ser **tolldata** y el **PATRÓN DE RUTA DE ACCESO** debe ser **registration.json**. Este nombre de archivo distingue mayúsculas de minúsculas, por lo que debe asegurarse de escribirlo en minúsculas.
+14.    Haga clic en **Guardar** para finalizar el asistente.
 
 Ahora todas las entradas están definidas.
 
 ## <a name="define-output"></a>Defininición de salida
-1.  En **Explorador de soluciones**, expanda el nodo **Inputs** y haga doble clic en **Output.json**.
-2.  Establezca Alias de salida en **salida** y luego Receptor en SQL Database.
-2.  Escriba el nombre de base de datos **TollDataDB**.
-3.  Escriba **tolladmin** en el campo **NOMBRE DE USUARIO**, **123toll!** en el campo **CONTRASEÑA** y **TollDataRefJoin** en el campo **TABLA**.
-4.  Haga clic en **Guardar**.
+1.    En **Explorador de soluciones**, expanda el nodo **Inputs** y haga doble clic en **Output.json**.
+2.    Establezca Alias de salida en **salida** y luego Receptor en SQL Database.
+2.    Escriba el nombre de base de datos **TollDataDB**.
+3.    Escriba **tolladmin** en el campo **NOMBRE DE USUARIO**, **123toll!** en el campo **CONTRASEÑA** y **TollDataRefJoin** en el campo **TABLA**.
+4.    Haga clic en **Guardar**.
 
 ![Defininición de salida](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
@@ -124,7 +125,8 @@ Para más información, puede leer sobre las construcciones de [Administración 
 
 Ahora que hemos escrito nuestra primera consulta de Azure Stream Analytics, es momento de probarla usando los archivos de datos de ejemplo ubicados en la carpeta TollApp en la siguiente ruta:
 
-**..\TollApp\TollApp\Data**
+<seg>
+  **..\TollApp\TollApp\Data**</seg>
 
 Esta carpeta contiene los archivos siguientes: •   Entry.json •   Exit.json •   Registration.json
 
@@ -252,10 +254,5 @@ Hay dos maneras de exportar un trabajo existente a un proyecto.
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

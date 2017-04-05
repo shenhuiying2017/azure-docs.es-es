@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: edcb6d37eb4d82ff5928ee33cf456c3795eb8131
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f9ff33f33a196e65f6cb7ee7f5332aacb9231f6d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/10/2017
 > 
 > 
 
-De forma predeterminada, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** ya habilita HTTPS para la aplicación web con un certificado comodín para el dominio *.azurewebsites.net. Si no tiene pensado configurar un dominio personalizado, puede aprovechar el certificado HTTPS predeterminado. Sin embargo, al igual que*[todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), no es tan seguro como usar un dominio personalizado con su propio certificado. Servicio de aplicaciones de Azure ahora proporciona una manera realmente simplificada de adquirir y administrar un certificado SSL desde el Portal de Azure sin tener que salir de dicho portal.  
+De forma predeterminada, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** ya habilita HTTPS para la aplicación web con un certificado comodín para el dominio *.azurewebsites.net. Si no tiene pensado configurar un dominio personalizado, puede aprovechar el certificado HTTPS predeterminado. Sin embargo, al igual que *[todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), no es tan seguro como usar un dominio personalizado con su propio certificado. Servicio de aplicaciones de Azure ahora proporciona una manera realmente simplificada de adquirir y administrar un certificado SSL desde el Portal de Azure sin tener que salir de dicho portal.  
 Este artículo explica cómo comprar y configurar un certificado SSL para su **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** en 3 pasos sencillos. 
 
 > [!NOTE]
@@ -85,15 +85,15 @@ En este paso, aprenderá a realizar un pedido de un certificado SSL de su elecci
 > 
 
 ## <a name="bkmk_StoreKeyVault"></a>Paso 1: Almacenar el certificado en el Almacén de claves de Azure
-En este paso, aprenderá a almacenar un certificado SSL que adquirió en el Almacén de claves de Azure de su elección.
+En este paso, aprenderá a almacenar un certificado SSL que adquirió en su Azure Key Vault de su elección.
 
-1. Una vez completada la compra del certificado SSL debe abrir manualmente la hoja de recursos **Certificados del Servicio de aplicaciones** examinándola de nuevo (consulte el paso 1 anterior).   
+1. Una vez completada la compra del certificado SSL, debe abrir manualmente la hoja de recursos **App Service Certificate** examinándola de nuevo (consulte el paso 1 anterior).   
    
    ![insertar imagen de listo para almacenar en KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
-   Observará que el estado del certificado es **Emisión pendiente** , ya que hay algunos pasos más que debe completar antes de poder empezar a usar este certificado.
-2. Haga clic en **"Configuración del certificado"** dentro de la hoja Propiedades del certificado y haga clic en **"Paso 1: Almacenar"** para almacenar este certificado en Azure Key Vault.
-3. En la hoja **"Estado de Key Vault"**, haga clic en **"Repositorio de Key Vault"** para elegir un almacén de claves existente para almacenar este certificado. **También puede hacer clic en "Crear nuevo almacén de claves"** para generar el nuevo almacén de claves dentro de la misma suscripción y del mismo grupo de recursos.
+   Observará que el estado del certificado es **“Emisión pendiente”**, ya que hay algunos pasos más que debe completar antes de poder empezar a usar este certificado.
+2. Haga clic en **“Configuración del certificado”** dentro de la hoja Propiedades del certificado y haga clic en **"Paso 1: Almacenar"** para almacenar este certificado en Azure Key Vault.
+3. En la hoja **“Estado de Key Vault”**, haga clic en **“Repositorio de Key Vault”** para elegir un almacén de claves existente para almacenar este certificado. **También puede hacer clic en “Crear nuevo almacén de claves”** para generar el nuevo almacén de claves dentro de la misma suscripción y del mismo grupo de recursos.
    
    ![insertar imagen de creación de nuevo KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
    
@@ -173,8 +173,16 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 * Mediante las herramientas proporcionadas por su registrador de nombres de dominio, modifique el registro D de su nombre de dominio personalizado para que apunte a la dirección IP del paso anterior.
    Llegados a este punto, debería ser capaz de visitar su aplicación con HTTPS://, en lugar de HTTP://, para comprobar que el certificado se ha configurado correctamente.
 
-## <a name="bkmk_Rekey"></a>Exportación del certificado App Service Certificate
+## <a name="bkmk_Export"></a>Exportación del certificado App Service Certificate
 Puede crear una copia local PFX de un certificado App Service Certificate para que pueda usarlo con otros servicios de Azure. Para obtener más información, **[lea esta publicación del blog](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**.
+
+## <a name="bkmk_Renew"></a>Renovación automática de App Service Certificate
+Para alternar la configuración Renovación automática para el certificado o renovar manualmente este, simplemente seleccione la opción **"Configuración de renovación automática"** en la hoja **"Propiedades del certificado"**. 
+
+
+  ![insertar imagen de creación mediante examinar](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+
+Active **"Renovación automática"** si desea renovar automáticamente el certificado antes de que expire. Esta es la opción predeterminada. Si se activó, intentaremos renovar el certificado a partir de que queden 90 días para la expiración. Si ha creado enlaces SSL en aplicaciones de App Service mediante la experiencia de Azure Portal, estos enlaces se actualizarían también con el nuevo certificado una vez preparado (justo como el escenario de regeneración de claves y sincronización). Por otro lado, si desea hacerse cargo de las renovaciones de forma manual, debe desactivar esta configuración. Puede renovar manualmente App Service Certificate solo si quedan menos de 90 días para que expire.
 
 ## <a name="bkmk_Rekey"></a>Regeneración de la clave del certificado y sincronización de este
 1. Por motivos de seguridad, si necesita regenerar la clave del certificado, simplemente seleccione la opción **"Regenerar clave y sincronizar"** en la hoja **"Propiedades del certificado"**. 

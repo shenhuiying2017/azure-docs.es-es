@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Carga de archivos de gran tamaño con Aspera](media-services-upload-files-with-aspera.md)
+### [Carga de archivos con StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Copia de blobs existentes](media-services-copying-existing-blob.md)
 
 ## [Codificación de contenido](media-services-encode-asset.md)
@@ -120,7 +121,7 @@
 
 ## [Protección](media-services-content-protection-overview.md)
 ### [Configuración de Content Protection en el portal](media-services-portal-protect-content.md)
-### [Configuración de la clave sin cifrado AES&128; bits para transmisiones](media-services-protect-with-aes128.md)
+### [Configuración de la clave sin cifrado AES 128 bits para transmisiones](media-services-protect-with-aes128.md)
 ### [Uso de REST para cifrar el contenido con cifrado de almacenamiento](media-services-rest-storage-encryption.md)
 ### [Introducción a las plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md)
 ### [Introducción a las plantillas de licencias de Widevine](media-services-widevine-license-template-overview.md)

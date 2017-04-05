@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -95,6 +95,8 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | Brasil | Sur de Brasil | Sur de Brasil |
 | Europa | Europa del Norte | Europa del Norte |
 | &nbsp; | Europa occidental | Europa occidental |
+| Reino Unido | Oeste de Reino Unido | Sur del Reino Unido 2 |
+| &nbsp; | Sur del Reino Unido | Sur del Reino Unido |
 | Asia Pacífico | Sudeste asiático | Sudeste asiático |
 | &nbsp; | Asia oriental | Sudeste asiático |
 | Australia | Australia Oriental | Australia Oriental |
@@ -105,7 +107,7 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | &nbsp; | Oeste de la India | India Central |
 | &nbsp; | Sur de la India | India Central |
 
-También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para copiar entre almacenes de Azure del Reino Unido, puede especificar `"executionLocation": "North Europe"` como "Europa del Norte" para transmitir los datos a través de la región Europa del Norte (consulte el [JSON de ejemplo](#by-using-json-scripts) como referencia).
+También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para realizar copias entre almacenes de Azure de Corea, puede especificar `"executionLocation": "Japan East"` para redirigir los datos a través de la región de Japón (consulte el [ejemplo de JSON](#by-using-json-scripts) como referencia).
 
 > [!NOTE]
 > Si la región del almacén de datos de destino no está en la lista anterior o no se detecta, se producirá un error de forma predeterminada en la actividad de copia, en lugar de pasar a una región alternativa, a menos que se haya especificado `executionLocation`. En el futuro se irá ampliando la lista de regiones admitidas.
@@ -155,7 +157,7 @@ Este es un ejemplo de definición de JSON:
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,

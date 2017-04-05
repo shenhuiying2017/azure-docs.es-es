@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a1271acd3d9132048de39173e43c805a372c909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -53,7 +54,7 @@ El atributo **clusterSettings** se puede incluir en una plantilla de Resource Ma
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Uso del Explorador de recursos de Azure para actualizar un entorno del Servicio de aplicaciones
 Como alternativa, puede actualizar el entorno del Servicio de aplicaciones mediante el [Explorador de recursos de Azure](https://resources.azure.com).  
 
-1. En el Explorador de recursos, vaya al nodo de App Service Environment (**suscripciones** > **resourceGroups** > **proveedores** > **Microsoft.Web** > **hostingEnvironments**). A continuación, haga clic en el entorno del Servicio de aplicaciones específico que quiere actualizar.
+1. En el Explorador de recursos, vaya al nodo de App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). A continuación, haga clic en el entorno del Servicio de aplicaciones específico que quiere actualizar.
 2. En el panel derecho, haga clic en **Lectura/escritura** en la barra de herramientas superior para permitir la edición interactiva en el Explorador de recursos.  
 3. Haga clic en el botón azul **Editar** para que la plantilla de Resource Manager se pueda editar.
 4. Desplácese hasta la parte inferior del panel derecho. El atributo **clusterSettings** se encuentra abajo del todo, donde puede especificar o actualizar su valor.
@@ -96,9 +97,4 @@ El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una p
 <!-- LINKS -->
 
 <!-- IMAGES -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ En las tablas siguientes se muestra qué servicios de Microsoft admiten la imple
 | Container Service |Sí |[REST de Servicio de contenedor](/rest/api/compute/containerservices) |[Recursos de Container Service](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |Sí | | |
 | Conjuntos de escala |Sí |[REST de Conjunto de escala](/rest/api/compute/virtualmachinescalesets) |[Recursos de conjunto de escalado](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |Sí |[Rest de Service Fabric](/rest/api/servicefabric) | [Esquema de Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |Sí |[Rest de Service Fabric](/rest/api/servicefabric) | [Recursos de Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Máquinas virtuales |Sí |[VM REST](/rest/api/compute/virtualmachines) |[Recursos de máquina virtual](/azure/templates/microsoft.compute/virtualmachines) |
 | Máquinas virtuales (clásicas) |Limitado |- |- |
 | RemoteApp |No |- |- |
@@ -117,12 +117,12 @@ Cloud Services (clásico) se puede usar con otros recursos clásicos. Sin embarg
 | CDN |Sí |[REST de CDN](/rest/api/cdn) |[Recursos de CDN](/azure/templates/microsoft.cdn/profiles) |
 | Servicio multimedia |Sí |[REST de Servicios multimedia](/rest/api/media) |[Recursos multimedia](/azure/templates/microsoft.media/mediaservices) |
 
-## <a name="hybrid-integration"></a>Integración híbrida
+## <a name="enterprise-integration"></a>Integración empresarial
 | Servicio | Administrador de recursos habilitado | API de REST | Formato de plantilla |
 | --- | --- | --- | --- |
 | Servicios de BizTalk |Sí | |[Esquema de BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Servicio de recuperación |Sí |[REST de Recovery Services](/rest/api/recoveryservices) |[Recursos de Recovery Services](/azure/templates/microsoft.recoveryservices/vaults) |
-| Bus de servicio |yes |[REST para Service Bus](/rest/api/servicebus) |[Recursos de Service Bus](/azure/templates/microsoft.servicebus/namespaces) |
+| Retransmisión | Sí |  | [Recursos de Relay](/azure/templates/microsoft.relay/namespaces) |
+| Service Bus |yes |[REST para Service Bus](/rest/api/servicebus) |[Recursos de Service Bus](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Administración de identidad y acceso
 Azure Active Directory funciona con el administrador de recursos para habilitar el control de acceso basado en roles de la suscripción. Para más información acerca del uso del control de acceso basado en rol y Active Directory, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
@@ -139,10 +139,11 @@ Azure Active Directory funciona con el administrador de recursos para habilitar 
 | Servicio | Administrador de recursos habilitado | API de REST | Formato de plantilla |
 | --- | --- | --- | --- |
 | Advisor | Sí | [REST de Advisor](/rest/api/advisor/) | - |
-| Automation |Sí |[Operaciones de REST de automatización](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Esquema de Automation](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Automation |Sí |[Operaciones de REST de automatización](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Recursos de Automation](/azure/templates/microsoft.automation/automationaccounts) |
 | Facturación | Sí | [REST de facturación](/rest/api/billing/) | - |
 | Key Vault |Sí |[REST de Almacén de claves](/rest/api/keyvault) |[Recursos de Key Vault](/azure/templates/microsoft.keyvault/vaults) |
 | Visión operativa |Sí | | |
+| Servicio de recuperación |Sí |[REST de Recovery Services](/rest/api/recoveryservices) |[Recursos de Recovery Services](/azure/templates/microsoft.recoveryservices/vaults) |
 | Programador |Sí |[REST de Programador](/rest/api/scheduler) |[Recursos de Scheduler](/azure/templates/microsoft.scheduler/jobcollections) |
 | Seguridad |Sí |[REST de Seguridad](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | Servidor de administración | Sí | [REST de Server Management](/rest/api/servermanagement/) | [Recursos de Server Management](/azure/templates/microsoft.servermanagement/gateways) |

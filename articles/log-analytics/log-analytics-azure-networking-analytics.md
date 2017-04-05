@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 1095267ce0c2a922d4bd9cb95a607ce8993df310
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9b0936299d506e951e45d54f630657c187ec6820
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluciones de supervisión de redes de Azure en Log Analytics
 
 Log Analytics ofrece las siguientes soluciones para supervisar las redes:
-* Network Performance Monitor (NPM) (monitor de rendimiento de red)
+* Monitor de rendimiento de red (NPM)
  * Supervisión del mantenimiento de la red
 * Azure Application Gateway Analytics para revisar
  * Registros de Azure Application Gateway
@@ -37,8 +37,6 @@ La Solución de administración [Network Performance Monitor](log-analytics-netw
 * nube pública y entorno local 
 * centros de datos y ubicaciones de usuario (sucursales)
 * subredes que hospedan distintos niveles de una aplicación de varios niveles.
-
- ![imagen de Network Performance Monitor](./media/log-analytics-network-performance-monitor/npm-topology.png)
 
 Para más información consulte [Network Performance Monitor](log-analytics-network-performance-monitor.md).
 
@@ -76,7 +74,7 @@ Para Application Gateway se admiten los siguientes registros:
 
 Las métricas siguientes son compatibles con Application Gateway:
 
-* Rendimiento de&5; minutos
+* Rendimiento de 5 minutos
 
 ### <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Para instalar y configurar la solución Azure Application Gateway, siga estas instrucciones:

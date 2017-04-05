@@ -15,7 +15,7 @@
 ### [Claves protegidas con HSM](key-vault-hsm-protected-keys.md)
 ### [Migración a .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
-## Administrar
+## Manage
 ### [Registro de Azure Key Vault](key-vault-logging.md)
 ### [Acceso detrás de firewalls](key-vault-access-behind-firewall.md)
 ### [Cambio del identificador de inquilino](key-vault-subscription-move-fix.md)
@@ -24,7 +24,8 @@
 
 ## Automatizar
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Creación y administración con CLI](key-vault-manage-with-cli.md)
+### [Creación y administración mediante CLI](key-vault-manage-with-cli.md)
+### [Creación y administración mediante CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

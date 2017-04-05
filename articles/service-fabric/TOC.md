@@ -57,16 +57,19 @@
 #### Introducción
 ##### [C# en Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java en Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Ciclo de vida de Reliable Services](service-fabric-reliable-services-lifecycle.md)
+#### [Ciclo de vida de Reliable Services: C#](service-fabric-reliable-services-lifecycle.md)
+#### [Ciclo de vida de Reliable Services: Java](service-fabric-reliable-services-lifecycle-java.md)
 #### [Colecciones confiables](service-fabric-reliable-services-reliable-collections.md)
 #### [Uso de colecciones confiables](service-fabric-work-with-reliable-collections.md)
 #### [Configuración](service-fabric-reliable-services-configuration.md)
 #### [Notificaciones](service-fabric-reliable-services-notifications.md)
 #### [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
 #### [Comunicación con Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Comunicaciones seguras con Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Comunicaciones seguras con Reliable Services: C#](service-fabric-reliable-services-secure-communication.md)
+#### [Comunicaciones seguras con Reliable Services: Java](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Comunicación remota de servicio](service-fabric-reliable-services-communication-remoting.md)
+##### [Comunicación remota del servicio: C#](service-fabric-reliable-services-communication-remoting.md)
+##### [Comunicación remota del servicio: Java](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Proxy inverso](service-fabric-reverseproxy.md)
 #### [Uso avanzado](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Administración de un clúster mediante la CLI de Azure](service-fabric-azure-cli.md) 
 #### [Protección de un clúster](service-fabric-cluster-security.md)
 #### [Recuperación ante desastres](service-fabric-disaster-recovery.md)
+#### [Diferencias de características entre Linux y Windows](service-fabric-linux-windows-differences.md)
 
 ### Clústeres en Azure
 #### Creación de un clúster en Azure

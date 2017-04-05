@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/16/2017
+ms.date: 3/24/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
-ms.openlocfilehash: 056968900d8078dfe53948a2da1daa26cb04a713
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -44,10 +44,19 @@ Entre estas funcionalidades, cabe destacar:
 ## <a name="packaging-a-docker-container-with-yeoman"></a>Empaquetado de un contenedor de Docker con Yeoman
 Al empaquetar un contenedor en Linux, puede usar una plantilla de Yeoman o [crear el paquete de aplicación manualmente](#manually).
 
-Una aplicación de Service Fabric puede contener uno o varios contenedores, cada uno de ellos con un rol específico en la prestación de la funcionalidad de la aplicación. El SDK de Service Fabric para Linux incluye un generador [Yeoman](http://yeoman.io/) que permite crear fácilmente la aplicación y agregar una imagen de contenedor. Vamos a usar Yeoman para crear una nueva aplicación con un único contenedor de Docker denominado "*SimpleContainerApp*". Puede agregar más servicios más adelante editando los archivos de manifiesto generados.
+Una aplicación de Service Fabric puede contener uno o varios contenedores, cada uno de ellos con un rol específico en la prestación de la funcionalidad de la aplicación. El SDK de Service Fabric para Linux incluye un generador [Yeoman](http://yeoman.io/) que permite crear fácilmente la aplicación y agregar una imagen de contenedor. Vamos a usar Yeoman para crear una aplicación con un único contenedor de Docker denominado "*SimpleContainerApp*". Puede agregar más servicios más adelante editando los archivos de manifiesto generados.
+
+## <a name="install-docker-on-your-development-box"></a>Instalación de un contenedor de Docker en el cuadro de desarrollo
+
+Ejecute los comandos siguientes para instalar el contenedor de Docker en el cuadro de desarrollo de Linux (si utiliza la imagen de Vagrant en OSX, el contenedor de Docker ya estará instalado):
+
+```bash
+    sudo apt-get install wget
+    wget -qO- https://get.docker.io/ | sh
+```
 
 ## <a name="create-the-application"></a>Creación de la aplicación
-1. En un terminal, escriba **yo azuresfjava**.
+1. En un terminal, escriba `yo azuresfguest`.
 2. El marco de trabajo, elija **Contenedor**.
 3. El nombre de la aplicación; por ejemplo, SimpleContainerApp
 4. Proporcione la dirección URL de la imagen de contenedor desde un repositorio de DockerHub. El parámetro de imagen toma la forma [repositorio]/[nombre de la imagen]
@@ -59,26 +68,30 @@ Una vez compilada la aplicación, puede implementarla en el clúster local media
 
 1. Conéctese al clúster de Service Fabric local.
 
-    ```bash
+```bash
     azure servicefabric cluster connect
-    ```
+```
+
 2. Use el script de instalación proporcionado en la plantilla para copiar el paquete de aplicación en el almacén de imágenes del clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.
 
-    ```bash
+```bash
     ./install.sh
-    ```
+```
+
 3. Abra un explorador y vaya a Service Fabric Explorer en http://localhost:19080/Explorer (reemplace localhost por la dirección IP privada de la VM si usa Vagrant en Mac OS X).
 4. Expanda el nodo Applications y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
 5. Para eliminar la instancia de aplicación y anular el registro del tipo de aplicación, utilice el script de desinstalación proporcionado en la plantilla.
 
-    ```bash
+```bash
     ./uninstall.sh
-    ```
-Para una aplicación de ejemplo [consulte los ejemplos de código de contenedor de Service Fabric en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
+```
+
+Para ver una aplicación de ejemplo, [eche un vistazo a los ejemplos de código de contenedor de Service Fabric en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Incorporación de más servicios a una aplicación existente
 
 Para agregar otro servicio de contenedor a una aplicación ya creada mediante `yo`, realice los pasos siguientes: 
+
 1. Cambie el directorio al directorio raíz de la aplicación existente.  Por ejemplo, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` es la aplicación creada por Yeoman.
 2. Ejecute `yo azuresfguest:AddService`
 
@@ -180,7 +193,7 @@ Puede configurar un puerto de host utilizado para comunicarse con el contenedor 
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Configuración de detección y comunicación entre contenedores
-Mediante la directiva `PortBinding` se puede asignar un puerto de contenedor a un `Endpoint` en el manifiesto de servicio como se muestra en el ejemplo siguiente. El punto de conexión `Endpoint1` puede especificar un puerto fijo (por ejemplo, el puerto 80). También puede no especificar ningún puerto, en cuyo caso se elegirá un puerto aleatorio del intervalo de puertos de la aplicación del clúster.
+Mediante el uso de la directiva `PortBinding`, puede asignar un puerto de contenedor a un `Endpoint` en el manifiesto de servicio. El punto de conexión `Endpoint1` puede especificar un puerto fijo (por ejemplo, el puerto 80). También puede no especificar ningún puerto, en cuyo caso se elegirá un puerto aleatorio del intervalo de puertos de la aplicación del clúster.
 
 Si especifica un punto de conexión, al usar la etiqueta `Endpoint` en el manifiesto de servicio de un contenedor invitado, Service Fabric puede publicar automáticamente este punto de conexión en el servicio de nombres. De este modo, otros servicios que se ejecutan en el clúster podrán detectar que este contenedor usa las consultas REST para la resolución.
 
@@ -302,5 +315,5 @@ Ahora que ha implementado un servicio en contenedor, consulte [Ciclo de vida de 
 * [Interactuación con los clústeres de Service Fabric mediante la CLI de Azure](service-fabric-azure-cli.md)
 
 <!-- Images -->
-[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman.png
+[sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
 

@@ -12,31 +12,33 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 64a7bfeefd8282f854aa5b143a1708dfbe02ff42
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="understand-identity-registry-in-your-iot-hub"></a>Registro de identidad de IoT Hub
+
 ## <a name="overview"></a>Información general
+
 Cada centro de IoT tiene un registro de identidad que almacena información acerca de los dispositivos que pueden conectarse al centro de IoT. Antes de que un dispositivo pueda conectarse a un centro de IoT, debe haber una entrada para ese dispositivo en el registro de identidad del centro de IoT. También se debe autenticar un dispositivo en el centro de IoT basándose en las credenciales almacenadas en el registro de identidad.
 
 En un nivel superior, el registro de identidad es un conjunto de recursos de identidad de dispositivos compatible con REST. Cuando agrega una entrada al registro de identidad, IoT Hub crea un conjunto de recursos por dispositivo en el servicio, como una cola que contiene mensajes de nube a dispositivo en curso.
 
 ### <a name="when-to-use"></a>Cuándo se deben usar
+
 Utilice el registro de identidad cuando necesite aprovisionar dispositivos que se conecten al centro IoT hub y necesite controlar el acceso por dispositivo a los puntos de conexión accesibles desde el dispositivo del centro.
 
 > [!NOTE]
 > El registro de identidad no contiene metadatos específicos de la aplicación.
-> 
-> 
 
 ## <a name="identity-registry-operations"></a>Operaciones de registro de identidad
+
 El registro de identidad de IoT Hub muestra las operaciones siguientes:
 
 * Crear la identidad del dispositivo
@@ -51,8 +53,6 @@ Todas estas operaciones pueden usar la simultaneidad optimista, tal como se espe
 
 > [!IMPORTANT]
 > La única manera de recuperar todas las identidades en un registro de identidad de un centro de IoT es usar la funcionalidad [Exportar][lnk-export].
-> 
-> 
 
 Un registro de identidad de un centro de IoT:
 
@@ -64,16 +64,16 @@ Una solución de IoT normalmente tiene un almacén independiente específico de 
 
 > [!IMPORTANT]
 > Solo se debe utilizar el registro de identidad para las operaciones de aprovisionamiento y administración de dispositivos. Las operaciones de alto rendimiento en tiempo de ejecución no deben depender de la realización de operaciones en el registro de identidad. Por ejemplo, comprobar el estado de conexión de un dispositivo antes de enviar un comando no es un modelo compatible. Asegúrese de comprobar las [tasas de limitación][lnk-quotas] para el registro de identidad y el patrón de [latido de dispositivo][lnk-guidance-heartbeat].
-> 
-> 
 
 ## <a name="disable-devices"></a>Deshabilitar dispositivos
+
 Puede deshabilitar los dispositivos actualizando la propiedad **status** de una identidad en el registro de identidad. Normalmente, esta propiedad se usa en dos escenarios:
 
 * Durante el proceso de orquestación de aprovisionamiento. Para más información, consulte [Aprovisionamiento de dispositivos][lnk-guidance-provisioning].
 * Si por cualquier motivo considera que un dispositivo está en peligro o no está autorizado.
 
 ## <a name="import-and-export-device-identities"></a>Importar y exportar identidades de dispositivo
+
 Puede exportar identidades de dispositivo de forma masiva desde el registro de identidad de un centro de IoT mediante operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints]. Las exportaciones son trabajos de ejecución prolongada que usan un contenedor de blobs proporcionado por el cliente para guardar los datos de identidad del dispositivo que se leen en el registro de identidad.
 
 Puede importar identidades de dispositivo de forma masiva a un registro de identidad de un centro de IoT mediante operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints]. Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad.
@@ -82,12 +82,14 @@ Puede importar identidades de dispositivo de forma masiva a un registro de ident
 * Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
+
 Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El IoT Hub incluye un registro de identidades que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como Azure Table Storage, Azure Blob Storage o Azure DocumentDB para almacenar datos de dispositivos adicionales.
 
 *Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al registro de identidad de IoT Hub. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
 
 ## <a name="device-heartbeat"></a>Latido de dispositivo
-El registro de identidades de IoT Hub contiene un campo llamado **connectionState**. Utilice únicamente el campo **connectionState** durante el desarrollo y la depuración. Las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje desde la nube al dispositivo o un SMS).
+
+El registro de identidades de IoT Hub contiene un campo llamado **connectionState**. Utilice únicamente el campo **connectionState** durante el desarrollo y la depuración. Las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje desde la nube hasta el dispositivo o un SMS).
 
 Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución o con una precisión superior a la que ofrece la propiedad **connectionState**), debe implementar el *patrón de latido*.
 
@@ -96,14 +98,14 @@ En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube
 Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latido, asegúrese de echar un vistazo a las [cuotas y limitaciones de IoT Hub][lnk-quotas].
 
 > [!NOTE]
-> Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Con este patrón se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores.
-> 
-> 
+> Si una solución de IoT requiere el estado de conexión de los dispositivos únicamente para determinar si enviar mensajes de la nube a los dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón más sencillo pasa por usar un breve tiempo de expiración. Con este patrón se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores.
 
 ## <a name="reference-topics"></a>Temas de referencia:
+
 Los siguientes temas de referencia proporcionan más información sobre el registro de identidad.
 
 ## <a name="device-identity-properties"></a>Propiedades de identidad del dispositivo
+
 Las identidades de dispositivos se representan como documentos JSON con las propiedades siguientes:
 
 | Propiedad | Opciones | Description |
@@ -122,10 +124,9 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 
 > [!NOTE]
 > El estado de la conexión solo puede representar la vista del Centro de IoT del estado de la conexión. Las actualizaciones de este estado se pueden retrasar, dependiendo de las configuraciones y las condiciones de red.
-> 
-> 
 
 ## <a name="additional-reference-material"></a>Material de referencia adicional
+
 Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:
 
 * En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
@@ -135,6 +136,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden interesarle los siguientes temas de la Guía del desarrollador de IoT Hub:
 
 * [Control del acceso a IoT Hub][lnk-devguide-security]

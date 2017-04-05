@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c5daac3b8374927c094e79299ce52031181ea24d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 18a3a47cac6036923f3a72db70c9250252dcd361
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -34,33 +34,105 @@ Este conector es compatible con las siguientes ediciones de Salesforce: Develope
 * Para copiar datos de Salesforce en almacenes de datos locales, tiene que tener Data Management Gateway versión 2.0 o posterior instalado en su entorno local.
 
 ## <a name="salesforce-request-limits"></a>Límites de solicitudes de Salesforce
-Salesforce tiene límites para el número total de solicitudes de API y el de solicitudes de API simultáneas. Tenga en cuenta lo siguiente:
-* Si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios.
-* Si el número total de solicitudes supera el límite, la cuenta de Salesforce se bloqueará durante 24 horas.
+Salesforce tiene límites para el número total de solicitudes de API y el de solicitudes de API simultáneas. Tenga en cuenta los siguientes puntos:
+
+- Si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios.
+- Si el número total de solicitudes supera el límite, la cuenta de Salesforce se bloqueará durante 24 horas.
 
 También podría recibir el error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección API Request Limits (Límites de solicitudes de API) del artículo [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de desarrollador de Salesforce) para más información.
 
-## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más fácil de crear una canalización que copie datos de Salesforce a cualquiera de los almacenes de datos receptores admitidos es usar el Asistente para copia. Consulte [Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+## <a name="getting-started"></a>Introducción
+Puede crear una canalización con actividad de copia que mueva datos desde Salesforce mediante el uso de diferentes herramientas o API.
 
+La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, la **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
+
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
+
+1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
+3. Cree una **canalización** con una actividad de copia que tome un conjunto de datos como entrada y un conjunto de datos como salida. 
+
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar los datos de Salesforce, consulte la sección [Ejemplo de JSON: Copia de datos de Salesforce a un blob de Azure](#json-example-copy-data-from-salesforce-to-azure-blob) de este artículo. 
+
+Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Salesforce: 
+
+## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
+En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Salesforce.
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
+| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https://login.salesforce.com". <br> - Para copiar los datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |No |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
+| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
+
+## <a name="dataset-properties"></a>Propiedades del conjunto de datos
+Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo sobre [creación de conjuntos de datos](data-factory-create-datasets.md) . Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **RelationalTable** tiene las propiedades siguientes:
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| tableName |Nombre de la tabla de Salesforce. |No (si se especifica una **consulta** de **RelationalSource**) |
+
+> [!IMPORTANT]
+> La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
+
+![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+
+## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md) . Propiedades como name, description, tablas input y output y varias directivas están disponibles para todos los tipos de actividades.
+
+Las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
+
+En la actividad de copia cuando el origen es del tipo **RelationalSource** (lo que incluye Salesforce), en la sección typeProperties, están disponibles las propiedades siguientes:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| --- | --- | --- | --- |
+| query |Utilice la consulta personalizada para leer los datos. |Consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por ejemplo: `select * from MyTable__c`. |No (si se especifica **tableName** de **dataset**) |
+
+> [!IMPORTANT]
+> La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
+
+![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## <a name="query-tips"></a>Sugerencias de consulta
+### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperación de datos mediante la cláusula WHERE en la columna DateTime
+Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo:
+
+* **Ejemplo SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Ejemplo de SQL**:
+    * **Uso del Asistente para copia para especificar la consulta:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Uso de la edición JSON para especificar la consulta (carácter de escape adecuado):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+
+### <a name="retrieving-data-from-salesforce-report"></a>Recuperación de datos de informes de Salesforce
+Puede recuperar datos de informes de Salesforce especificando las consultas como `{call "<report name>"}`; por ejemplo,. `"query": "{call \"TestReport\"}"`.
+
+### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperación de los registros eliminados desde la papelera de reciclaje de Salesforce
+Para consultar los registros eliminados temporalmente de papelera de reciclaje de Salesforce, puede especificar **"IsDeleted = 1"** en la consulta. Por ejemplo,
+
+* Para consultar solo los registros eliminados, especifique "select * from MyTable__c **where IsDeleted= 1**"
+* Para consultar todos los registros, tanto existentes como eliminados, especifique "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
+
+## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de Salesforce a un blob de Azure
 En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización usando [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Salesforce al almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.   
-
-## <a name="sample-copy-data-from-salesforce-to-an-azure-blob"></a>Ejemplo: Copia de datos de Salesforce a un blob de Azure
-El ejemplo copia los datos de Salesforce a un blob de Azure cada hora. Las propiedades JSON que se usan en estos ejemplos se describen en las secciones después de los ejemplos. Puede copiar directamente los datos en cualquiera de los receptores que se indican en el artículo sobre [movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) con la actividad de copia de Data Factory de Azure.
 
 Aquí tiene los artefactos de Data Factory que necesita crear para implementar el escenario. Las secciones que siguen a la lista proporcionan detalles acerca de estos pasos.
 
-* Un servicio vinculado del tipo [Salesforce](#salesforce-linked-service-properties)
-* Un servicio vinculado del tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
-* Un [conjunto de datos](data-factory-create-datasets.md) de entrada del tipo [RelationalTable](#salesforce-dataset-properties)
-* Un [conjunto de datos](data-factory-create-datasets.md) de salida del tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties)
-* Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](#relationalsource-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)
+* Un servicio vinculado del tipo [Salesforce](#linked-service-properties)
+* Un servicio vinculado del tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+* Un [conjunto de datos](data-factory-create-datasets.md) de entrada del tipo [RelationalTable](#dataset-properties)
+* Un [conjunto de datos](data-factory-create-datasets.md) de salida del tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
+* Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](#copy-activity-properties) y [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 **Servicio vinculado de Salesforce**
 
-Este ejemplo usa el servicio vinculado de **Salesforce** . Consulte la sección sobre el [servicio vinculado de Salesforce](#salesforce-linked-service-properties) para ver las propiedades que admite este servicio vinculado.  Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad.
+Este ejemplo usa el servicio vinculado de **Salesforce** . Consulte la sección sobre el [servicio vinculado de Salesforce](#linked-service-properties) para ver las propiedades que admite este servicio vinculado.  Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad.
 
-```JSON
+```json
 {
     "name": "SalesforceLinkedService",
     "properties":
@@ -77,7 +149,7 @@ Este ejemplo usa el servicio vinculado de **Salesforce** . Consulte la sección 
 ```
 **Servicio vinculado de Almacenamiento de Azure**
 
-```JSON
+```json
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -90,7 +162,7 @@ Este ejemplo usa el servicio vinculado de **Salesforce** . Consulte la sección 
 ```
 **Conjunto de datos de entrada de Salesforce**
 
-```JSON
+```json
 {
     "name": "SalesforceInput",
     "properties": {
@@ -119,8 +191,6 @@ Si se establece **external** en **true**, se informa al servicio Data Factory qu
 
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
->
->
 
 ![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
@@ -128,7 +198,7 @@ Si se establece **external** en **true**, se informa al servicio Data Factory qu
 
 Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1).
 
-```JSON
+```json
 {
     "name": "AzureBlobOutput",
     "properties":
@@ -150,11 +220,11 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia:**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida anteriores y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**.
 
-Consulte [Propiedades del tipo RelationalSource](#relationalsource-type-properties) para obtener la lista de propiedades admitidas por RelationalSource.
+Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para obtener la lista de propiedades admitidas por RelationalSource.
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
@@ -202,74 +272,9 @@ Consulte [Propiedades del tipo RelationalSource](#relationalsource-type-properti
 ```
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
->
 
 ![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
-## <a name="salesforce-linked-service-properties"></a>Propiedades del servicio vinculado de Salesforce
-En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Salesforce.
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
-| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https://login.salesforce.com". <br> - Para copiar los datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, ""https://[dominio].my.salesforce.com". |No |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
-| contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
-| securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
-
-## <a name="salesforce-dataset-properties"></a>Propiedades del conjunto de datos de Salesforce
-Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo sobre [creación de conjuntos de datos](data-factory-create-datasets.md) . Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
-
-La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **RelationalTable** tiene las propiedades siguientes:
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| tableName |Nombre de la tabla de Salesforce. |No (si se especifica una **consulta** de **RelationalSource**) |
-
-> [!IMPORTANT]
-> La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
->
->
-
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
-
-## <a name="relationalsource-type-properties"></a>Propiedades del tipo RelationalSource
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md) . Propiedades como name, description, tablas input y output y varias directivas están disponibles para todos los tipos de actividades.
-
-Las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
-
-En la actividad de copia cuando el origen es del tipo **RelationalSource** (lo que incluye Salesforce), en la sección typeProperties, están disponibles las propiedades siguientes:
-
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
-| --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |Consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por ejemplo: `select * from MyTable__c`. |No (si se especifica **tableName** de **dataset**) |
-
-> [!IMPORTANT]
-> La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
->
->
-
-![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
-
-## <a name="query-tips"></a>Sugerencias de consulta
-### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperación de datos mediante la cláusula WHERE en la columna DateTime
-Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo:
-
-* **Ejemplo SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
-* **Ejemplo de SQL**:
-    * **Uso del Asistente para copia para especificar la consulta:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Uso de la edición JSON para especificar la consulta (carácter de escape adecuado):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
-
-### <a name="retrieving-data-from-salesforce-report"></a>Recuperación de datos de informes de Salesforce
-Puede recuperar datos de informes de Salesforce especificando las consultas como `{call "<report name>"}`, por ejemplo `"query": "{call \"TestReport\"}"`.
-
-### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperación de los registros eliminados desde la papelera de reciclaje de Salesforce
-Para consultar los registros eliminados temporalmente de papelera de reciclaje de Salesforce, puede especificar **"IsDeleted = 1"** en la consulta. Por ejemplo,
-
-* Para consultar solo los registros eliminados, especifique select *from MyTable__c**where IsDeleted= 1**.
-* Para consultar todos los registros, los existentes y los eliminados, especifique select *from MyTable__c**where IsDeleted = 0 o IsDeleted = 1**.
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### <a name="type-mapping-for-salesforce"></a>Asignación de tipos para Salesforce
 | Tipo de Salesforce | Tipo basado en .NET |
@@ -292,9 +297,10 @@ Para consultar los registros eliminados temporalmente de papelera de reciclaje d
 | Área de texto (largo) |String |
 | Área de texto (enriquecido) |String |
 | Texto (cifrado) |String |
-| URL |String |
+| URL |string |
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+> [!NOTE]
+> Para asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte el artículo [Asignación de columnas de conjuntos de datos en Azure Data Factory](data-factory-map-columns.md).
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

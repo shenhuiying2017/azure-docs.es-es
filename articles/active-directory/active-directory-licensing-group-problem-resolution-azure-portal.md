@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 40042fd5ca2671cc26a67736b1c7a1e907c004d8
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -43,6 +43,8 @@ Para ver cuántas licencias hay disponibles, vaya a **Azure Active Directory** >
 
 Para ver qué usuarios y grupos consumen las licencias, haga clic en un producto. En **Usuarios con licencias**, verá todos los usuarios a los que se han asignado licencias directamente o a través de uno o varios grupos. En **Grupos con licencias**, verá todos los grupos que tienen ese producto asignado.
 
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _CountViolation_.
+
 ## <a name="conflicting-service-plans"></a>Planes de servicio en conflicto
 
 **Problema:** uno de los productos especificados en el grupo contiene un plan de servicio que entra en conflicto con otro plan de servicio que ya está asignado al usuario a través de un producto diferente. Algunos planes de servicio se configuran de tal forma que no puedan asignarse al mismo usuario como otro plan de servicio relacionado.
@@ -56,11 +58,15 @@ Para resolver este conflicto, debe deshabilitar los dos planes en la licencia de
 
 El administrador es la única persona competente para decidir cómo resolver el conflicto entre las licencias de productos. Azure AD no resuelve automáticamente los conflictos de licencias.
 
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _MutuallyExclusiveViolation_.
+
 ## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia
 
 **Problema:** uno de los productos especificados en el grupo contiene un plan de servicio que debe habilitarse para que otro plan de servicio, de otro producto, funcione. Este error se produce cuando Azure AD intenta quitar el plan del servicio subyacente. Por ejemplo, esto puede ocurrir porque el usuario se ha quitado del grupo.
 
 Para solucionar este problema, debe asegurarse de que el plan necesario todavía está asignado a los usuarios a través de algún otro método o que los servicios dependientes están deshabilitados para los usuarios. Después, puede quitar correctamente la licencia de grupo a esos usuarios.
+
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>No se permite la ubicación de uso
 
@@ -69,6 +75,8 @@ Para solucionar este problema, debe asegurarse de que el plan necesario todavía
 Cuando Azure AD intenta asignar una licencia de grupo a un usuario cuya ubicación de uso no se admite, se produce un error y este se registra en el usuario.
 
 Para solucionar este problema, quite los usuarios de las ubicaciones no admitidas en el grupo con licencia. O bien, si los valores de ubicación de uso actual no representan la ubicación de los usuarios reales, puede modificarlos para que la próxima vez las licencias se asignen correctamente (si se admite la nueva ubicación).
+
+**PowerShell:** Los cmdlets de PowerShell informan de este error como _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > Cuando Azure AD asigna licencias de grupo, los usuarios sin ubicación de uso especificada heredan la ubicación del directorio. Se recomienda que los administradores establezcan valores de ubicación de uso correctos en los usuarios antes de utilizar licencias basadas en grupo para cumplir con la normativa y la legislación local.

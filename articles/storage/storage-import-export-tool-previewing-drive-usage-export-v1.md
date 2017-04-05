@@ -1,6 +1,6 @@
 ---
-title: "Vista previa de uso de unidad para un trabajo de exportación | Microsoft Docs"
-description: "Obtenga información sobre cómo conseguir una vista previa de la lista de blobs que ha seleccionado para un trabajo de exportación en el servicio Azure Import/Export"
+title: "Vista previa de uso de disco para un trabajo de exportación de Azure Import/Export (versión 1) | Microsoft Docs"
+description: "Obtenga información sobre cómo conseguir una vista previa de la lista de blobs que ha seleccionado para un trabajo de exportación en el servicio Azure Import/Export."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,27 +15,33 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 358e3f2574cab0150c59f96b9bc4d32d959e94a8
-ms.openlocfilehash: 9ba9a3970925466285ae1df4676501fbdd24bd66
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 7bf74247090f91e17f81a9bc98ebfa78334c8c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
-# <a name="previewing-drive-usage-for-an-export-job"></a>Vista previa de uso de unidad para un trabajo de exportación
+# <a name="previewing-drive-usage-for-an-export-job"></a>Vista previa de uso de disco para un trabajo de exportación
 Antes de crear un trabajo de exportación, debe elegir un conjunto de blobs que se van a exportar. El servicio Microsoft Azure Import/Export permite usar una lista de rutas de acceso de blob o prefijos de blob para representar los blobs que ha seleccionado.  
   
- A continuación debe determinar cuántas unidades necesita enviar. La herramienta Microsoft Azure Import/Export proporciona el comando `PreviewExport` para obtener una vista previa del uso de la unidad para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar. Puede especificar los siguientes parámetros:  
-  
-|Opción de línea de comandos|Descripción|  
+A continuación, debe determinar cuántas unidades necesita enviar. La herramienta Import/Export proporciona el comando `PreviewExport` para obtener una vista previa del uso de la unidad para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar.
+
+## <a name="command-line-parameters"></a>Parámetros de línea de comandos
+
+Puede usar los parámetros siguientes al usar el comando `PreviewExport` de la herramienta Import/Export.
+
+|Parámetro de línea de comandos|Descripción|  
 |--------------------------|-----------------|  
 |**/logdir:**<DirectorioRegistro\>|Opcional. El directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
 |**/sn:**<NombreCuentaAlmacenamiento\>|Obligatorio. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
 |**/sk:**<ClaveCuentaAlmacenamiento\>|Necesario únicamente si no se especifica un contenedor SAS. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|  
 |**/csas:**<SasContenedor\>|Requerido únicamente si no se especifica una clave de cuenta de almacenamiento. El contenedor SAS para enumerar los blobs que se van a exportar en el trabajo de exportación.|  
-|**/ExportBlobListFile:**<ArchivoListaBlobExportación\>|Obligatorio. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso de blob para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de la API de REST del servicio Import/Export.|  
+|**/ExportBlobListFile:**<ArchivoListaBlobExportación\>|Obligatorio. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de la API de REST del servicio Import/Export.|  
 |**/DriveSize:**<TamañoUnidad\>|Obligatorio. El tamaño de las unidades que se van a usar para un trabajo de exportación, *por ejemplo*, 500 GB o 1,5 TB.|  
-  
+
+## <a name="command-line-example"></a>Ejemplo de línea de comandos
+
 En el siguiente ejemplo se muestra el comando `PreviewExport`:  
   
 ```  
@@ -71,6 +77,7 @@ Number of drives needed:        3
         Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
-## <a name="see-also"></a>Otras referencias  
-[Referencia de la herramienta Azure Import/Export](storage-import-export-tool-how-to-v1.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Referencia de la herramienta Azure Import/Export](storage-import-export-tool-how-to-v1.md)
 

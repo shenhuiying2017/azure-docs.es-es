@@ -1,5 +1,5 @@
 ---
-title: "Configuración de una puerta de enlace de red virtual en ExpressRoute con PowerShell | Microsoft Docs"
+title: "Configuración de una puerta de enlace de red virtual para ExpressRoute mediante PowerShell: clásica (Azure) | Microsoft Docs"
 description: "Configure una puerta de enlace de red virtual para un modelo de implementación clásica con PowerShell para una configuración de ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2016
+ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
-ms.openlocfilehash: 1679bc2f2344ce3dd78599a1e6a8e2cc974ee905
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: badec4e0b542db52f34db3c50f7d906ed6a5a377
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Configure a virtual network gateway for ExpressRoute using the classic deployment model and PowerShell (Configuración de una puerta de enlace de red virtual en ExpressRoute con el modelo de implementación clásica y PowerShell)
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configuración de una puerta de enlace de red virtual para ExpressRoute mediante PowerShell (clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Clásico: PowerShell](expressroute-howto-add-gateway-classic.md)
@@ -31,6 +31,8 @@ ms.lasthandoff: 12/14/2016
 > 
 
 Este artículo le guiará por los pasos para agregar, cambiar el tamaño y quitar una puerta de enlace de red virtual (VNet) para una red virtual existente. Los pasos de esta configuración son específicos para las redes virtuales que se crearon con el **modelo de implementación clásica** y que se utilizarán en una configuración ExpressRoute. 
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Información acerca de los modelos de implementación de Azure**
 

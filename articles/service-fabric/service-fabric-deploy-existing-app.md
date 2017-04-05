@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/17/2016
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -266,6 +266,11 @@ En el elemento `ServiceManifestImport` , puede especificar uno o varios servicio
 Para los ejecutables invitados, resulta útil poder ver los registros de la consola para averiguar si los scripts de la configuración y la aplicación muestran algún error.
 Se puede configurar el redireccionamiento de la consola en el archivo `ServiceManifest.xml` usando el elemento `ConsoleRedirection`.
 
+> [!WARNING]
+> No use nunca la directiva de redirección de la consola en una aplicación implementada en producción, ya que esto puede afectar a la capacidad de conmutación por error de la aplicación. *Solo* debe usarla con fines de depuración y desarrollo local.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -286,7 +291,7 @@ Se puede configurar el redireccionamiento de la consola en el archivo `ServiceMa
 Los archivos de registro se guardan en uno de los directorios de trabajo del servicio. Para saber dónde se encuentran los archivos, utilice Service Fabric Explorer para determinar cuál es el nodo en el que se está ejecutando el servicio y cuál es el directorio de trabajo que se está usando. Este proceso se trata más adelante en este artículo.
 
 ## <a name="deployment"></a>Implementación
-El último paso es implementar la aplicación. El siguiente script de PowerShell muestra cómo implementar la aplicación en el clúster de desarrollo local e iniciar un nuevo servicio de Service Fabric.
+El último paso consiste en [implementar la aplicación](service-fabric-deploy-remove-applications.md). El siguiente script de PowerShell muestra cómo implementar la aplicación en el clúster de desarrollo local e iniciar un nuevo servicio de Service Fabric.
 
 ```PowerShell
 
@@ -303,6 +308,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de copiarlo en el almacén de imágenes en caso de que el primero sea grande o tenga muchos archivos. Obtenga más información [aquí](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+>
+
 Se puede implementar un servicio Service Fabric en diversas "configuraciones". Por ejemplo, puede implementarse como una o varias instancias o puede implementarse de manera que haya una instancia del servicio en cada nodo del clúster de Service Fabric.
 
 El parámetro `InstanceCount` del cmdlet `New-ServiceFabricService` se usa para especificar cuántas instancias del servicio deben iniciarse en el clúster de Service Fabric. Puede establecer el valor `InstanceCount` según el tipo de aplicación que se vaya a implementar. Los dos escenarios más comunes son:
@@ -313,7 +323,7 @@ El parámetro `InstanceCount` del cmdlet `New-ServiceFabricService` se usa para 
 Se trata de una configuración útil para las aplicaciones front-end (por ejemplo, un punto de conexión REST) porque las aplicaciones cliente necesitan "conectarse" a cualquiera de los nodos del clúster para usar el punto de conexión. También se puede usar esta configuración cuando, por ejemplo, todos los nodos del clúster de Service Fabric están conectados a un equilibrador de carga. A continuación, se puede distribuir el tráfico del cliente en el servicio que se ejecuta en todos los nodos del clúster.
 
 ## <a name="check-your-running-application"></a>Comprobación de la aplicación en ejecución
-En el explorador de Service Fabric, identifique el nodo en el que se está ejecutando el servicio. En este ejemplo, se ejecuta en el nodo&1;:
+En el explorador de Service Fabric, identifique el nodo en el que se está ejecutando el servicio. En este ejemplo, se ejecuta en el nodo 1:
 
 ![Nodo donde se ejecuta el servicio](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 

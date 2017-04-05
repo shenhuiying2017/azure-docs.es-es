@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: a2dec2daa4be60a4a53a98164265171bf898cafb
-ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,12 +66,11 @@ Una vez que Escritorio remoto está habilitado en los roles, puede iniciar una c
 
 4. Haga clic en **Abrir** y, a continuación, en **Conectar** para iniciar la conexión del Escritorio remoto.
 
-## <a name="next-steps"></a>Pasos siguientes
+>[!NOTE]
+> Si su servicio en la nube se encuentra detrás de un NSG, quizás deba crear una regla para abrir el puerto **20000**.
 
-[Configuración de servicios en la nube](cloud-services-how-to-configure.md)
+## <a name="additional-resources"></a>Recursos adicionales
 
-
-
-<!--HONumber=Nov16_HO5-->
-
+[How to Configure Cloud Services](cloud-services-how-to-configure.md) (Configuración de Cloud Services)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop) (Preguntas frecuentes sobre Cloud Services > Escritorio remoto)
 
