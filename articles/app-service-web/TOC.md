@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Tutoriales
-## [Adición de funcionalidad a una aplicación web](app-service-web-get-started-2.md)
-## [Aplicación ASP.NET con SQL Database](web-sites-dotnet-get-started.md)
-## [Aplicación Laravel con MySQL](app-service-web-php-get-started.md)
-## [Aplicación Sails.js con NOSQL DB](app-service-web-nodejs-sails.md)
-## [Aplicación Java con Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [Aplicación Java con IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [Aplicación Django con MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Conceptos
 ## [Funcionamiento de App Service](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Guías de procedimientos
 ## Desarrollo de su aplicación    
 ### ASP.NET
-
+#### [Aplicación ASP.NET con SQL Database](web-sites-dotnet-get-started.md)
 #### [Desarrollo de una aplicación ASP.NET Core con VS Code](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [Aplicación Laravel con MySQL](app-service-web-php-get-started.md)
 #### [Configuración del proyecto PHP](web-sites-php-configure.md)
 #### [Configuración de una instancia de WordPress Multisite](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [Aplicación Sails.js con NOSQL DB](app-service-web-nodejs-sails.md)
 #### [Uso de io.js](web-sites-nodejs-iojs.md)
 #### [Depuración de aplicaciones Node.js](web-sites-nodejs-debug.md)
 ### Java
-
+#### [Aplicación Java con Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [Aplicación Java con IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Uso del SDK de Azure para Java](java-create-azure-website-using-java-sdk.md)
 #### [Carga de la aplicación existente](web-sites-java-add-app.md)
 #### [Depuración remota de Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Depuración remota de IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [Aplicación Django con MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Envío de correos electrónicos con SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Migración desde IIS](web-sites-migration-from-iis-server.md)
 ### [Pruebas de producción](app-service-web-test-in-production-get-start.md)
+### [Adición de funcionalidad a una aplicación web](app-service-web-get-started-2.md)
 
 ## Conexión a recursos y a base de datos        
 

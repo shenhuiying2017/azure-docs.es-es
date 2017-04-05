@@ -60,7 +60,7 @@ Aprenda a usar Batch para ejecutar aplicaciones de informática de alto rendimie
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
