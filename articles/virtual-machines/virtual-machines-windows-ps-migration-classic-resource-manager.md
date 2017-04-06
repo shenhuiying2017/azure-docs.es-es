@@ -34,7 +34,7 @@ Si lo desea, también puede migrar recursos mediante la [interfaz de línea de c
 <br>
 Este es un diagrama de flujo para identificar el orden en que tienen que ejecutarse durante un proceso de migración.
 
-![Captura de pantalla que muestra los pasos de migración](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-plan-for-migration"></a>Paso 1: Planear la migración
 Estos son algunos de los procedimientos recomendados a la hora de evaluar la migración de recursos de IaaS desde el modelo clásico a Resource Manager:

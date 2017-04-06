@@ -43,7 +43,7 @@ Los errores que se producen durante la exportación a Azure AD indican que la op
 #### <a name="description"></a>Descripción
 * Cuando Azure AD Connect \(motor de sincronización\) indica a Azure Active Directory que agregue o actualice objetos, Azure AD hace coincidir el objeto entrante que utiliza el atributo **sourceAnchor** con el atributo **immutableId** de los objetos de Azure AD. Esta se denomina una **coincidencia exacta**.
 * Cuando Azure AD **no encuentra** ningún objeto que hace coincidir con el atributo **immutableId** con el atributo **sourceAnchor** del objeto entrante, antes de aprovisionar un nuevo objeto, recurre al uso de los atributos ProxyAddresses y UserPrincipalName para encontrar una coincidencia. Esta se denomina **coincidencia parcial**. La coincidencia parcial está diseñada para hacer coincidir objetos que ya están presentes en Azure AD (cuyo origen en Azure AD) con los nuevos que se van a agregar o actualizar durante la sincronización de objetos que representan la misma entidad (usuarios, grupos) de forma local.
-* El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la ** coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
+* El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la** coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
 
 En otras palabras, para que la coincidencia parcial funcione, el objeto con el que se va a realizar no debe tener ningún valor en el atributo *immutableId*. Si algún objeto cuyo atributo *immutableId* tenga un valor genera errores de coincidencia exacta, pero satisface los criterios de coincidencia parcial, la operación provocará un error de sincronización InvalidSoftMatch.
 
@@ -215,7 +215,7 @@ Cuando un atributo supera los límites de tamaño, longitud o recuento estableci
 1. El atributo userCertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados.
 2. El atributo userSMIMECertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados.
 3. El atributo thumbnailPhoto de Bob establecido en Active Directory es demasiado grande para sincronizarse en Azure AD.
-4. Durante el rellenado automático del atributo ProxyAddresses de Active Directory, un objeto tiene asignados más de&500; atributos ProxyAddresses.
+4. Durante el rellenado automático del atributo ProxyAddresses de Active Directory, un objeto tiene asignados > 500 atributos ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Solución
 1. Asegúrese de que el atributo que produce el error está dentro de los límites permitidos.

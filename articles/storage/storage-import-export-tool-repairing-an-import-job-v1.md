@@ -62,13 +62,13 @@ A continuación se muestra un ejemplo de un archivo de registro de copia. En est
 <?xml version="1.0" encoding="utf-8"?>  
 <DriveLog>  
  <DriveId>9WM35C2V</DriveId>  
- <Blob Status=”CompletedWithErrors”>  
+ <Blob Status="CompletedWithErrors">  
  <BlobPath>pictures/animals/koala.jpg</BlobPath>  
  <FilePath>\animals\koala.jpg</FilePath>  
  <Length>163840</Length>  
- <ImportDisposition Status=”Overwritten”>overwrite</ImportDisposition>  
+ <ImportDisposition Status="Overwritten">overwrite</ImportDisposition>  
  <PageRangeList>  
-  <PageRange Offset=”65536” Length=”65536” Hash=”AA2585F6F6FD01C4AD4256E018240CD4” Status=”Corrupted” />  
+  <PageRange Offset="65536" Length="65536" Hash="AA2585F6F6FD01C4AD4256E018240CD4" Status="Corrupted" />  
  </PageRangeList>  
  </Blob>  
  <Status>CompletedWithErrors</Status>  
