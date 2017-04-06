@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ Este documento ofrece un tutorial para que usar el comando Pig para ejecutar ins
 >
 > Para HDInsight 3.4 o superior, consulte [Uso de Pig con HDInsight y SSH](hdinsight-hadoop-use-pig-ssh.md) para más información sobre cómo ejecutar trabajos de Pig directamente en el clúster desde una línea de comandos.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
+## <a id="prereq"></a>Requisitos previos
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight basado en Windows (Hadoop en HDInsight)
 * Un equipo cliente con Windows 10, Windows 8 o Windows 7
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Conexión con el Escritorio remoto
+## <a id="connect"></a>Conexión con el Escritorio remoto
 Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Uso del comando Pig
+## <a id="pig"></a>Uso del comando Pig
 1. Desde la sesión de Escritorio remoto, use el icono de **línea de comandos de Hadoop** del escritorio para iniciar la línea de comandos de Hadoop.
 2. Use lo siguiente para iniciar el comando Pig:
 
@@ -116,10 +118,10 @@ También puede usar el comando de Pig para ejecutar Pig Latin contenido en un ar
         (ERROR,6)
         (FATAL,2)
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumen
+## <a id="summary"></a>Resumen
 Como puede ver, el comando de Pig permite ejecutar interactivamente operaciones de MapReduce mediante Pig Latin, así como ejecutar trabajos de Pig Latin almacenados en un archivo por lotes.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a id="nextsteps"></a>Pasos siguientes
 Para obtener información general sobre Pig en HDInsight, siga estos pasos:
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
@@ -128,9 +130,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
