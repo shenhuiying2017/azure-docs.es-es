@@ -35,7 +35,7 @@ Para obtener más información acerca de la característica de sincronización s
 Este tutorial requiere los siguientes requisitos previos:
 
 * Visual Studio 2013 funcionando en Windows 8.1 o versiones posteriores.
-* Finalización del tutorial [Creación de una aplicación de Windows][create a windows app].
+* Finalización del tutorial [Creación de una aplicación para Windows][Creación de una aplicación para Windows].
 * [Almacén de SQLite de Azure Mobile Services][sqlite store nuget]
 * [SQLite for Universal Windows Platform development](http://www.sqlite.org/downloads)
 
@@ -43,7 +43,7 @@ Este tutorial requiere los siguientes requisitos previos:
 Las características sin conexión de Aplicaciones móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión. Para usar estas características en una aplicación, inicialice [SyncContext][synccontext] en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz [IMobileServiceSyncTable][IMobileServiceSyncTable] . SQLite se utiliza como almacén local en el dispositivo.
 
 1. Instale el [entorno en tiempo de ejecución de SQLite para la plataforma universal de Windows](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
-2. En Visual Studio, abra el Administrador de paquetes NuGet en el proyecto de aplicación de UWP que completó en el tutorial [Creación de una aplicación Windows].
+2. En Visual Studio, abra el Administrador de paquetes NuGet en el proyecto de aplicación de UWP que completó en el tutorial [Creación de una aplicación para Windows].
     Busque e instale el paquete NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 3. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** > **Agregar referencia** > **Universal Windows** > **Extensiones** y habilite **SQLite for Universal Windows Platform** y **Visual C++ 2015 Runtime for Universal Windows Platform apps**.
    
@@ -108,7 +108,7 @@ En los temas siguientes se ofrece información de fondo adicional sobre la carac
 
 <!-- URLs. -->
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
-[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Creación de una aplicación para Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921

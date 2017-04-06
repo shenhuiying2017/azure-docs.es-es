@@ -3,7 +3,7 @@ title: "Información general sobre supervisión y diagnóstico de Azure Service 
 description: Aprenda a supervisar y diagnosticar las aplicaciones de Microsoft Azure Service Fabric hospedadas en Azure, en desarrollo o de manera local.
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: mfussell
 editor: 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/9/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: ebbb29ee031fb477ce284f7a0d27c1522317f4f0
 ms.openlocfilehash: 46a35fa4ec341561ab234f7ec19fb20658fcb2c4
