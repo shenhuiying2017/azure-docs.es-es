@@ -3,7 +3,7 @@ title: "Notificación y comprobación del estado con Azure Service Fabric | Micr
 description: "Conozca cómo se pueden enviar informes de estado desde el código de servicio y comprobar el estado del servicio mediante las herramientas de supervisión de estado que proporciona Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
-author: toddabel
+author: dkkapur
 manager: mfussell
 editor: 
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
 ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -151,10 +152,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [Profundización en el estado de Service Fabric](service-fabric-health-introduction.md)
 * [API de REST para informar el estado del servicio](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [API de REST para informar el estado de la aplicación](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

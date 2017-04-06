@@ -3,7 +3,7 @@ title: "Depuración de microservicios de Azure en Windows | Microsoft Docs"
 description: "Aprenda a supervisar y diagnosticar sus servicios creados con Service Fabric de Microsoft Azure en una máquina de desarrollo local."
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -66,10 +67,5 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 
 * [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Recopilación de registros directamente desde el proceso del servicio](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
