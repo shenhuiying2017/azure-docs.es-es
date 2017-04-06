@@ -41,7 +41,6 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 ![captura de pantalla de sitio web][intro001]
 
-<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### <a name="create-the-project"></a>Creación del proyecto
