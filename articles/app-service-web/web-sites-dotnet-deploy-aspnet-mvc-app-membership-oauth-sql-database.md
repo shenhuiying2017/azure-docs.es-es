@@ -72,7 +72,7 @@ Para configurar el entorno de desarrollo, tiene que instalar [Visual Studio 2013
 7. En la lista desplegable **Grupo de recursos**, seleccione un grupo existente o **Crear nuevo grupo de recursos** (consulte la imagen siguiente). 
    
     Si lo prefiere, puede seleccionar un grupo de recursos que ya tenga. No obstante, si crea un nuevo grupo de recursos y solo lo usa para este tutorial, será fácil eliminar todos los recursos de Azure que creó para el tutorial cuando haya terminado con ellos. Para más información sobre los grupos de recursos, consulte [Información general sobre Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
-8. En la lista desplegable **Plan de App Service**, seleccione un plan existente** o **Crear nuevo plan de App Service (consulte la imagen siguiente).
+8. En la lista desplegable **Plan de App Service**, seleccione un plan existente**o**Crear nuevo plan de App Service (consulte la imagen siguiente).
    
     Si lo prefiere, puede seleccionar un plan de Servicio de aplicaciones que ya tenga. Para obtener más información sobre los planes de Servicio de aplicaciones, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 9. Pulse **Explorar servicios adicionales de Azure** para agregar una base de datos SQL.
@@ -512,7 +512,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 6. Inicie sesión como *user1@contoso.com* (con la contraseña "P_assw0rd1") y compruebe que puede editar los datos.
 7. Cierre sesión.
 8. Vaya a la [consola de desarrolladores de Google](https://console.developers.google.com/) y, en la pestaña **Credenciales** , actualice los URI de redirección y los orígenes de JavaScript para usar la dirección URL de Azure.
-9. Inicie sesión utilizando Google o Facebook. De este modo, se agregará la cuenta de Google o Facebook al rol **canEdit** . Si recibe un error HTTP 400 con el mensaje *El URI de redirección de la solicitud: https://contactmanager {mi versión}.azurewebsites.net/signin-google no coincide con una redirección URI registrada.*, tendrá que esperar hasta que se propaguen los cambios realizados. Si recibe este error después de transcurridos unos minutos, compruebe que los URI son correctos.
+9. Inicie sesión utilizando Google o Facebook. De este modo, se agregará la cuenta de Google o Facebook al rol **canEdit** . Si recibe un error HTTP 400 con el mensaje *El URI de redirección de la solicitud: https://contactmanager{mi versión}.azurewebsites.net/signin-google no coincide con una redirección URI registrada.*, tendrá que esperar hasta que se propaguen los cambios realizados. Si recibe este error después de transcurridos unos minutos, compruebe que los URI son correctos.
 
 ### <a name="stop-the-web-app-to-prevent-other-people-from-registering"></a>Detención de la aplicación web para evitar que se registren otros usuarios
 1. En el **Explorador de servidores**, vaya a **Azure > App Service > {su grupo de recursos} > {su aplicación web}**.
