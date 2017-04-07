@@ -52,7 +52,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 ## <a name="continuous-integrationdeployment"></a>Integración e implementación continuas
 
-**P.: ** ¿Mi aplicación web sigue usando una imagen de contenedor de Docker antigua después de actualizar la imagen en DockerHub? ¿Se admite la integración e implementación continuas de contenedores personalizados?
+**P:** ¿Mi aplicación web sigue usando una imagen de contenedor de Docker antigua después de actualizar la imagen en DockerHub? ¿Se admite la integración e implementación continuas de contenedores personalizados?
 
 **R.:** Puede actualizar el contenedor deteniendo y, luego, iniciando la aplicación web. También puede cambiar o agregar una configuración de aplicación ficticia para forzar una actualización del contenedor. Tenemos intención de lanzar una característica de integración e implementación continuas para contenedores personalizados en una versión futura.
 
@@ -62,7 +62,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 **R**: No. Debe implementar aplicaciones de .NET Core compiladas con todas las dependencias. Planeamos realizar una implementación completa y una experiencia de compilación en una futura versión.
 
-**P.: ¿**Admite un compositor como un administrador de dependencias para aplicaciones PHP?
+**P.:** ¿Admite un compositor como un administrador de dependencias para aplicaciones PHP?
 
 **R**: No. Debe implementar las aplicaciones PHP con todas las dependencias. Planeamos una experiencia de implementación completa en una futura versión.
 
@@ -72,7 +72,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 **R.:** Montamos un recurso compartido SMB en el directorio \home\. Esto invalida cualquier contenido de dicho directorio.
 
-**P: ** Quiero exponer más de un puerto en mi imagen de contenedor personalizado. ¿Es posible?
+**P:** Quiero exponer más de un puerto en mi imagen de contenedor personalizado. ¿Es posible?
 
 **R.:** Actualmente no se admite.
 
@@ -80,7 +80,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 **R.:** Actualmente no se admite.
 
-**P: ** No puedo examinar el sistema de archivos de mi contenedor personalizado o ejecutar procesos desde el sitio SCM. ¿Por qué ocurre esto?
+**P:** No puedo examinar el sistema de archivos de mi contenedor personalizado o ejecutar procesos desde el sitio SCM. ¿Por qué ocurre esto?
 
 **R.:** El sitio SCM se ejecuta en un contenedor independiente; no puede comprobar el sistema de archivos o los procesos en ejecución del contenedor de la aplicación.
 
@@ -90,17 +90,17 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 
-**P.: ¿** ¿Qué precios tiene usar la versión preliminar pública?
+**P.:** ¿Qué precios tiene usar la versión preliminar pública?
 
 **R.:** Se le cobrará la mitad del número de horas que se ejecute la aplicación, con los precios normales de Azure App Service. Esto significa que hay un descuento del 50 por ciento en los precios normales de Azure App Service.
 
 ## <a name="other"></a>Otros
 
-**P: ** ¿Cuáles son los caracteres admitidos en los nombres de configuración de aplicación?
+**P:** ¿Cuáles son los caracteres admitidos en los nombres de configuración de aplicación?
 
 **R.:** Solo puede utilizar A-z, a-z, 0-9 y caracteres de subrayado para la configuración de la aplicación.
 
-**P: ** ¿Dónde puedo solicitar nuevas características?
+**P:** ¿Dónde puedo solicitar nuevas características?
 
 **R.:** Puede enviar su idea en el [foro de comentarios de Web Apps](https://aka.ms/webapps-uservoice). Agregue [Linux] en el título de la idea.
 

@@ -505,11 +505,11 @@ El almacenamiento no persistente está conectado directamente a las máquinas vi
 La unidad en sí es volátil porque se almacena en el servidor host. Si mueve la máquina virtual en una reimplementación (por ejemplo, debido a mantenimiento en el host o el apagado y reinicio), el contenido de la unidad se pierde. Por tanto, no deben almacenarse datos importantes en esta unidad. El tipo de medios usados para este tipo de almacenamiento es diferente en cada serie de máquinas virtuales. Las características de rendimiento eran las siguientes en junio de 2015:
 
 * A5-A7: rendimiento muy limitado. Solo se recomienda para el archivo de paginación.
-* A8-A11: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie D: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie DS: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie G: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
-* Serie GS: características de rendimiento muy buenas con&10;&000; IOPS y una tasa de más de&1; GB/seg.
+* A8-A11: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie D: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie DS: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie G: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
+* Serie GS: características de rendimiento muy buenas con 10 000 IOPS y una tasa de más de 1 GB/seg.
 
 Las afirmaciones anteriores se aplican a los tipos de máquinas virtuales que estén certificados para utilizarse con SAP. Algunas características de DBMS sacan partido a las series de máquinas virtuales con rendimiento y cantidad de IOPS excelentes. Consulte la [Guía de implementación de DBMS][dbms-guide] para más información.
 
@@ -1675,11 +1675,11 @@ Actualmente, no hay ningún acuerdo de nivel de servicio de VM única disponible
 
 La base para el cálculo es de30 días por mes o 43 200 minutos. Por lo tanto, un tiempo de inactividad del 0,05 % corresponde a 21,6 minutos. Como de costumbre, la disponibilidad de los distintos servicios se multiplicará de la siguiente manera:
 
-(Servicio de disponibilidad n.º 1/100) * (servicio de disponibilidad n.º 2/100) * (servicio de disponibilidad n.º 3/100) *…
+(Servicio de disponibilidad n.º 1/100) *(servicio de disponibilidad n.º 2/100)* (servicio de disponibilidad n.º 3/100) *…
 
 Como, por ejemplo:
 
-(99,95/100) * (99,9/100) * (99,9/100) = 0,9975 o una disponibilidad general del 99,75 %.
+(99,95/100) *(99,9/100)* (99,9/100) = 0,9975 o una disponibilidad general del 99,75 %.
 
 #### <a name="virtual-machine-vm-high-availability"></a>Alta disponibilidad de la máquina virtual (VM)
 Existen dos tipos de eventos de plataforma Azure que pueden afectar a la disponibilidad de sus máquinas virtuales: mantenimiento planeado y mantenimiento no planeado.

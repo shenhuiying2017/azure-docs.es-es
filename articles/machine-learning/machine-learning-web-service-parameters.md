@@ -40,7 +40,7 @@ Puede decidir si se debe proporcionar un valor predeterminado para el parámetro
 La documentación de API del servicio web incluye información para el usuario del servicio web sobre cómo especificar el parámetro del servicio web mediante programación al obtener acceso al servicio web.
 
 > [!NOTE]
-> La documentación de API de un servicio web clásico se proporciona a través del vínculo de la **página de ayuda de API** del servicio web **PANEL** de Machine Learning Studio. La documentación de API de un servicio web nuevo se proporciona a través del portal de [servicios web Machine Learning](https://services.azureml.net/Quickstart) en las páginas **Consume **(Consumo) y **Swagger API** (API de Swagger) del servicio web.
+> La documentación de API de un servicio web clásico se proporciona a través del vínculo de la **página de ayuda de API** del servicio web **PANEL** de Machine Learning Studio. La documentación de API de un servicio web nuevo se proporciona a través del portal de [servicios web Machine Learning](https://services.azureml.net/Quickstart) en las páginas **Consume** (Consumo) y **Swagger API** (API de Swagger) del servicio web.
 > 
 > 
 

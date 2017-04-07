@@ -347,7 +347,7 @@ Si cambia la mayoría de las opciones de configuración de la aplicación habrá
 El uso de Base de datos SQL de Azure como almacén de datos es idéntico en todos los tipos de aplicaciones del Servicio de aplicaciones de Azure. Si todavía no lo ha hecho, siga estos pasos para crear un back-end de aplicación móvil.
 
 1. Inicie sesión en el [Azure Portal].
-2. En la parte superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web y móvil** > ** Aplicación móvil** y especifique el nombre del back-end de la aplicación móvil.
+2. En la parte superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web y móvil** > **Aplicación móvil** y especifique el nombre del back-end de la aplicación móvil.
 3. En el cuadro **Grupo de recursos** , escriba el mismo nombre de la aplicación.
 4. Se seleccionará el Plan de App Service predeterminado.  Si desea cambiar un Plan de App Service, haga clic en el Plan de App Service >**+ Crear nuevo**.  Proporcione un nombre al Plan del Servicio de aplicaciones nuevo y seleccione una ubicación adecuada.  Haga clic en el nivel de precios y seleccione un nivel de precios adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**.  Una vez haya seleccionado el nivel de precios, haga clic en el botón **Seleccionar** botón.  De nuevo en la hoja **Plan de App Service**, haga clic en **Aceptar**.
 5. Haga clic en **Crear**. El aprovisionamiento de un back-end de la aplicación móvil puede tardar unos minutos.  Cuando se aprovisiona el back-end de la aplicación móvil, el portal abre la hoja **Configuración** del back-end de la aplicación móvil.
@@ -749,7 +749,7 @@ El SDK de Aplicaciones móviles de Azure usa el [middleware de analizador de cue
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-El archivo está codificado en Base&64; antes de la transmisión,  por lo que aumenta el tamaño de la carga real y, por tanto, el que debe tener en cuenta.
+El archivo está codificado en Base 64 antes de la transmisión,  por lo que aumenta el tamaño de la carga real y, por tanto, el que debe tener en cuenta.
 
 ### <a name="howto-customapi-sql"></a>Ejecución de instrucciones SQL personalizadas
 El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a través del objeto de solicitud, lo que le permite ejecutar fácilmente instrucciones SQL parametrizadas para el proveedor de datos definido:
