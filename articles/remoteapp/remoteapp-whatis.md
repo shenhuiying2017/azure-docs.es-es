@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: bf8f7763db5844a0706264d24ad7a035758ebbda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: bc5de9daeb09339c9488de8699174cd280197525
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-azure-remoteapp"></a>¿Qué es Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -36,7 +37,7 @@ Siga leyendo para obtener más información sobre Azure RemoteApp o, si ya está
 
 RemoteApp de Azure es parte de la [Infraestructura de Escritorio virtual de Microsoft](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**¡Nuevo!**  ¿Desea obtener más información acerca de RemoteApp de Azure? O bien, ¿está listo para validar Azure RemoteApp a escala? Únase a nuestro [seminario web Pregunte a los expertos](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)semanal.
+**¡Nuevo!** ¿Desea obtener más información acerca de RemoteApp de Azure? O bien, ¿está listo para validar Azure RemoteApp a escala? Únase a nuestro [seminario web Pregunte a los expertos](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)semanal.
 
 ## <a name="azure-remoteapp-collections"></a>Colecciones de Azure RemoteApp
 Hay dos tipos de [colecciones de Azure RemoteApp](remoteapp-collections.md):
@@ -83,10 +84,5 @@ Venga, pruébelo. Estos artículos le ayudarán a comenzar a usar Azure RemoteAp
 
 ### <a name="help-us-help-you"></a>Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** o en **Editar** para realizar cambios que nos llegarán para su revisión; una vez que los aprobemos, verá los cambios y mejoras aquí.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -83,9 +83,10 @@ Abra el recurso de Application Insights. Inicie sesión en [Azure Portal](https:
 ![Captura de pantalla de Visual Studio, en la que se muestra cómo abrir el portal de Application Insights](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> Si recibe un error de acceso, es posible que tenga más de un conjunto de credenciales de Microsoft y que haya iniciar sesión con el erróneo. En el portal, cierre la sesión y vuelva a iniciarla.
+> Si recibe un error de acceso, es posible que tenga más de un conjunto de credenciales de Microsoft y que haya iniciado sesión con el erróneo. En el portal, cierre la sesión y vuelva a iniciarla.
 
 El portal se abrirá en una vista de los datos de telemetría de su aplicación.
+
 ![Captura de pantalla de la página de información general de Application Insights](./media/app-insights-asp-net/66.png)
 
 Haga clic en un icono para ver su contenido con mayor detalle.

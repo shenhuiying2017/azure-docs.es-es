@@ -47,14 +47,14 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 
 | Limitación | Valor por centro |
 | --- | --- |
-| Operaciones de registro de identidad <br/> (crear, recuperar, enumerar, actualizar, eliminar) <br/> importación y exportación masiva o individual |5000/min/unidad (para S3)  <br/> &100;/min/unidad (para S1 y S2). |
+| Operaciones de registro de identidad <br/> (crear, recuperar, enumerar, actualizar, eliminar) <br/> importación y exportación masiva o individual |83,33/s/unidad (5000/min/unidad) (para S3) <br/> 1,67/s/unidad (100/min/unidad) (para S1 y S2). |
 | Conexiones de dispositivos |6000/s/unidad (para S3), 120/s/unidad (para S2), 12/s/unidad (para S1). <br/>Mínimo de 100/s. |
 | Envíos de dispositivo a nube |6000/s/unidad (para S3), 120/s/unidad (para S2), 12/s/unidad (para S1). <br/>Mínimo de 100/s. |
-| Envíos de nube a dispositivo |5000/min/unidad (para S3), 100/min/unidad (para S1 y S2). |
-| Recepciones de nube a dispositivo |50000/min/unidad (para S3), 1000/min/unidad (para S1 y S2). |
-| Operaciones de carga de archivos |Notificaciones de carga de 5000 archivos/min/unidad (para S3), notificaciones de carga de 100 archivos/min/unidad (para S1 y S2). <br/> Puede haber&10000; URI de SAS fuera para una cuenta de Azure Storage al mismo tiempo.<br/> &10; URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
+| Envíos de nube a dispositivo | 83,33/s/unidad (5000/min/unidad) (para S3), 1,67/s/unidad (100/min/unidad) (para S1 y S2). |
+| Recepciones de nube a dispositivo |833,33/s/unidad (50000/min/unidad) (para S3), 16,67/s/unidad (1000/min/unidad) (para S1 y S2). |
+| Operaciones de carga de archivos |Notificaciones de carga de 83,33 archivos/s/unidad (5000/min/unidad) (para S3), notificaciones de carga de 1,67 archivos/s/unidad (100/min/unidad) (para S1 y S2). <br/> Puede haber 10000 URI de SAS fuera para una cuenta de Azure Storage al mismo tiempo.<br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
 | Métodos directos | 1500/s/unidad (para S3), 30/s/unidad (para S2), 10/s/unidad (para S1). |
 | Lecturas de dispositivos gemelos | 50/s/unidad (para S3), 10/s o 1/s/unidad como máximo (para S2), 10/s (para S1) |
 | Actualizaciones de dispositivos gemelos | 50/s/unidad (para S3), 10/s o 1/s/unidad como máximo (para S2), 10/s (para S1) |
-| Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 5000/min./unidad (para¡ S3), 100/min./unidad (para S2), 100/min./unidad (para S1) |
+| Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 83,33/s/unidad (5000/min/unidad) (para S3), 1,67/s/unidad (100/min/unidad) (para S2), 1,67/s/unidad (100/min/unidad) (para S1) |
 | Resultado de operaciones por dispositivo de trabajos | 50/s/unidad (para S3), 10/s o 1/s/unidad como máximo (para S2), 10/s (para S1) |

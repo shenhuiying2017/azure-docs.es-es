@@ -5,7 +5,6 @@ services: app-service
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,195 +12,82 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 71c2d5cff0a2deb1f44127a3483b696d1a695898
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: f6d1595d7ad4f60299308eda505abbcbd7498d64
+ms.lasthandoff: 04/08/2017
 
 ---
-# <a name="azure-web-apps-documentation"></a>Documentación de Azure Web Apps
-
-<div class="introHolder">
-    <div class="intro">
-Aprenda a usar App Service Web Apps para crear y hospedar aplicaciones web y sitios web host. Los tutoriales, los vídeos, las referencias de API y otra documentación muestran cómo desarrollar en esta plataforma de proceso completamente administrada.
+<div class="content">
+    <h1>Documentación de Web Apps</h1>
+    <p style="padding-bottom: 0px; max-width: 1050px;">Azure Web Apps le permite compilar y hospedar sitios web en el lenguaje de programación que prefiera sin tener que administrar la infraestructura. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux (versión preliminar) y permite implementaciones automatizadas desde GitHub, Team Services o cualquier repositorio Git. Aprenda a usar Azure Web Apps con nuestros inicios rápidos, tutoriales y ejemplos.</p>
+<h2 style="margin-top: 36px">Inicios rápidos</h2>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
+            <img src="media/index/logo_NET.svg" alt="">
+            <span>.NET</span>
+        </a>
     </div>
-    <div class="calloutHolder">
-        <div class="callout">
-            <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg" />Vídeo gratuito de aprendizaje de PluralSight: Desarrollo con .NET en Microsoft Azure</a>
-        </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
+            <img src="media/index/logo_nodejs.svg" alt="">
+            <span>Node.js</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
+            <img src="media/index/logo_php.svg" alt="">
+            <span>PHP</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
+            <img src="media/index/logo_java.svg" alt="">
+            <span>Java</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
+            <img src="media/index/logo_python.svg" alt="">
+            <span>Python</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/app-service-web/app-service-web-get-started-html">
+            <img src="media/index/logo_html5.svg" alt="">
+            <span>HTML</span>
+        </a>
     </div>
 </div>
-
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/app-service-web/app-service-web-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/app-service-web.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Información sobre Web Apps</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/get-started/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Web Apps (vídeo)</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=web-sites">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Biblioteca de vídeos de Web Apps</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Web Apps con ASP.NET y Visual Studio</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li> 
-     <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-java">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Web Apps con Java</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Web Apps con Node.js </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-python">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/python.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Web Apps con Python Tools 2.2</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   
-     <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-php">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Web Apps con PHP</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-web/web-sites-php-web-site-gallery">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a WordPress en Azure App Service</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   
-</ul>
-
----
-
-<h2>Referencia</h2>
+<div class="columnHolder">
+    <div class="column50">
+        <h2 style="margin-top: 36px">Tutoriales</h2>
+        <p>Cree aplicaciones web sencillas en la nube.</p>
+        <ul class="spaced">
+            <li><a href="/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">Creación de una aplicación .NET con Azure SQL DB</a></li>
+            <li><a href="/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Creación de una aplicación de Node.js con MongoDB</a></li>
+        </ul>
+        <h2>Muestras</h2>
+        <p>Busque scripts para administrar las tareas más habituales.</p>
+        <ul class="spaced">
+            <li><a href="/azure/app-service-web/app-service-cli-samples">CLI de Azure</a></li>
+            <li><a href="/azure/app-service-web/app-service-powershell-samples">Azure PowerShell</a></li>
+        </ul>
+    </div>
+    <div class="column50" style="max-width: 400px">
+        <h2 style="margin-top: 36px">Aprendizaje mediante vídeos gratuitos</h2>
+        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-dotnet.png" width="400" alt="" />
+            <p style="margin-top: 0px">Vídeo gratuito de aprendizaje de PluralSight: Desarrollo con .NET</a></p>
+            <p></p>
+        <p style="margin-top: 36px"></p>
+        <a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-nodejs.png" width="400" alt="" />
+            <p style="margin-top: 0px">Vídeo gratuito de aprendizaje de PluralSight: Desarrollo con Node.js</a></p>
+    </div>
+</div>
+<hr />
+<h2 style="margin-top: 36px">Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -209,6 +95,7 @@ Aprenda a usar App Service Web Apps para crear y hospedar aplicaciones web y sit
                 <div class="card">
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
                         <p><a href="/cli/azure/appservice">CLI de Azure 2.0</a></p>
                     </div>
                 </div>
@@ -241,6 +128,4 @@ Aprenda a usar App Service Web Apps para crear y hospedar aplicaciones web y sit
         </div>
     </li>
 </ul>
-
-
-
+</div>

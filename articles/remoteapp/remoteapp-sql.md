@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -56,10 +57,5 @@ Si el uso de una aplicación cliente hospedada en Azure RemoteApp que se conecta
 * La latencia de red del dispositivo a Azure es alta. Cambie a la conexión de red mejor y más rápida que pueda para mejorar el rendimiento. Use [azurespeed.com](http://azurespeed.com/) como una herramienta general para probar la latencia de los dispositivos al centro de datos de Azure.  
 * La aplicación cliente hospedada en Azure RemoteApp está bajo presión. Seleccionar un plan de facturación diferente, como la facturación Premium, mejorará el rendimiento. Otro truco es supervisar los recursos que consume la aplicación: durante una sesión activa, pulse la secuencia de teclas ctrl-alt-fin, que iniciará la pantalla SAS, seleccione Administrador de tareas y observe el uso de recursos para la aplicación.
 * SQL Server está bajo presión o no está optimizado. Siga las instrucciones de SQL para la solucionar el problema. 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

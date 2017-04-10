@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,9 +34,9 @@ Las funcionalidades de control de eventos y telemetría de Event Hubs lo hacen e
 Event Hubs también permite el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en juegos de consola o la recopilación de telemetría de máquinas industriales o vehículos conectados.
 
 ## <a name="azure-event-hubs-overview"></a>Información general de los Centros de eventos de Azure
-La función habitual que Event Hubs desempeña en las arquitecturas de soluciones es la de actuar como la "puerta principal" de una canalización de eventos, conocida a menudo como un *consumidor de eventos*. Un consumidor de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos.
+La función habitual que Event Hubs desempeña en las arquitecturas de soluciones es la de actuar como la "puerta principal" de una canalización de eventos, conocida a menudo como un *consumidor de eventos*. Un consumidor de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos. En la siguiente ilustración se muestra esta arquitectura:
 
-![Centros de eventos](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
+![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
 Azure Event Hubs es un servicio de procesamiento de eventos que proporciona eventos de escala de nube e ingestión de telemetría, con una latencia baja y una alta confiabilidad. Event Hubs proporciona una funcionalidad de control del flujo de mensajes que tiene características que son diferentes de la mensajería empresarial tradicional. Las funcionalidades de Event Hubs se basan en un alto rendimiento y en escenarios de procesamiento de eventos. En este sentido, Event Hubs no implementa algunas de las funcionalidades de mensajería que están disponibles para las entidades de mensajería como, por ejemplo, los temas.
 
@@ -105,7 +105,9 @@ A continuación se muestran ejemplos de la convención URI del grupo de consumid
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
 
-![Centros de eventos](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
+La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
+
+![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Desplazamientos de los flujos
 Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio de los Centros de eventos. Dentro de una partición, cada evento incluye un desplazamiento.

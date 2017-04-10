@@ -5,7 +5,7 @@
 > 
 
 ## <a name="introduction"></a>Introducción
-Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a IoT Hub.
+Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él.
 
 Use los dispositivos gemelos para:
 
@@ -28,7 +28,7 @@ Los dispositivos gemelos se almacenan en un IoT Hub y contienen:
 ![][img-twin]
 
 Además, el back-end de la solución puede consultar los dispositivos gemelos en función de todos los datos descritos anteriormente.
-Consulte [Introducción a los dispositivos gemelos][lnk-twins] para más información acerca de los dispositivos gemelos, y la referencia sobre [el lenguaje de IoT Hub][lnk-query] para consultas.
+Consulte [Introducción a los dispositivos gemelos][lnk-twins] para más información acerca de los dispositivos gemelos, y la referencia sobre [el lenguaje de consultas de IoT Hub][lnk-query] para realizar consultas.
 
 > [!NOTE]
 > En la actualidad, solo se puede acceder a los dispositivos gemelos desde dispositivos conectados a IoT Hub mediante el protocolo MQTT. Para instrucciones acerca de cómo convertir la aplicación de dispositivo existente para usar MQTT, consulte el artículo sobre [compatibilidad con MQTT][lnk-devguide-mqtt].
@@ -49,7 +49,3 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 [lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
-
-<!--HONumber=Feb17_HO3-->
-
-

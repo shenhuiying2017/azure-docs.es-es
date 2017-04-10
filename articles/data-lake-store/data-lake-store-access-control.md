@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 756d51e41c43be2e80f8fce1c3965e1723f7cec8
-ms.openlocfilehash: 7cd0c60b3eaaf6c2fd702d4e4b580299cb71c5fc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7533fe3758860111ae6c26630effedd673734b63
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -129,7 +129,7 @@ En la hoja **Data Explorer** (Explorador de datos) de la cuenta de Data Lake Sto
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-En esta hoja, en la sección superior se muestra una descripción general de los permisos que tiene. (En la captura de pantalla, el usuario es Bob). Después, se muestran los permisos de acceso. Después, en la hoja **Acceso**, haga clic en **Vista simple ** para usar la vista más simple.
+En esta hoja, en la sección superior se muestra una descripción general de los permisos que tiene. (En la captura de pantalla, el usuario es Bob). Después, se muestran los permisos de acceso. Después, en la hoja **Acceso**, haga clic en **Vista simple** para usar la vista más simple.
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
@@ -330,9 +330,11 @@ No.
 
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
 
-* [POSIX 1003.1e 1997](http://users.suse.com/~agruen/acl/posix/Posix_1003.1e-990310.pdf)
+* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 
-* [ACL de POSIX en Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
+* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+
+* [ACL de POSIX en Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 
 * [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 

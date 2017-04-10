@@ -10,7 +10,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: manage
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 86471fe29bbc9076624d96b83f7001d8755363bc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: fd5cb0d45d0955b7e4c471dc5ccecac65ad7400a
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: uso de Visual Studio Code para conectar y consultar datos
 
-[Visual Studio Code](https://code.visualstudio.com/docs) es un editor de código gráfico para Linux, macOS y Windows que admite extensiones. Use Visual Studio Code con la [extensión mssql](https://aka.ms/mssql-marketplace) para conectarse a Azure SQL Database y consultar la base de datos. En esta guía se explica cómo utilizar Visual Studio Code para conectarse a una instancia de Azure SQL Database y, a continuación, ejecutar la consulta, insertar instrucciones, actualizarlas y eliminarlas.
+[Visual Studio Code](https://code.visualstudio.com/docs) es un editor de código gráfico para Linux, macOS y Windows que admite extensiones. Use Visual Studio Code con la [extensión mssql](https://aka.ms/mssql-marketplace) para conectarse a Azure SQL Database y consultar la base de datos. En esta guía de inicio rápido se explica cómo utilizar Visual Studio Code para conectarse a una instancia de Azure SQL Database y, después, ejecutar instrucciones de consulta, inserción, actualización y eliminación.
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 

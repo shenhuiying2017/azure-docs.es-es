@@ -1,6 +1,6 @@
 ---
-title: Servidor MFA con Windows Server 2012 R2 AD FS | Microsoft Docs
-description: "En este artículo se describe cómo empezar a trabajar con Azure Multi-Factor Authentication y AD FS en Windows Server 2012 R2."
+title: Servidor MFA con AD FS en Windows Server | Microsoft Docs
+description: "En este artículo se describe cómo empezar a trabajar con Azure Multi-Factor Authentication y AD FS en Windows Server 2012 R2 y 2016."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/19/2017
+ms.date: 03/29/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: 7fd5c4edadc6d9cc070dff937a963f9a83ec66c2
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f2481c18f12d74a90938ffb0353dd000fe73f440
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="configure-azure-multi-factor-authentication-server-to-work-with-with-ad-fs-in-windows-server-2012-r2"></a>Configure Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server 2012 R2
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuración del Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server
 Si usa los Servicios de federación de Active Directory (AD FS) y desea proteger los recursos en la nube y los locales, puede configurar Servidor Azure Multi-Factor Authentication con AD FS. Esta configuración desencadena la verificación en dos pasos para los puntos de conexión de alto valor.
 
-En este artículo se describe el uso del Servidor Azure Multi-Factor Authentication con AD FS en Windows Server 2012 R2. Para más información, lea sobre la [protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
+En este artículo se describe el uso del Servidor Azure Multi-Factor Authentication con AD FS en Windows Server 2012 R2 y Windows Server 2016. Para más información, lea sobre la [protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
-## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multi-factor-authentication-server"></a>Protección de Windows Server 2012 R2 AD FS con Servidor Azure Multi-Factor Authentication
+## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Protección de Windows Server AD FS con Servidor Azure Multi-Factor Authentication
 Al instalar Servidor Azure Multi-Factor Authentication tiene las siguientes opciones:
 
 * Instalar Servidor Azure Multi-Factor Authentication localmente en el mismo servidor que AD FS
@@ -34,20 +34,22 @@ Al instalar Servidor Azure Multi-Factor Authentication tiene las siguientes opci
 
 Antes de comenzar, tenga en cuenta lo siguiente:
 
-* No es necesario que instale Servidor Azure Multi-Factor Authentication en el servidor AD FS. Sin embargo, debe instalar el adaptador de Multi-Factor Authentication para AD FS en un equipo con Windows Server 2012 R2 en el que se ejecuta AD FS. Puede instalar el servidor en un equipo diferente si es una versión compatible e instala el adaptador de AD FS por separado en el servidor de federación de AD FS. Consulte los procedimientos siguientes para aprender a instalar el adaptador por separado.
-* Cuando se diseñó el adaptador de AD FS del Servidor Multi-Factor Authentication, se estimó que AD FS podría pasar el nombre del usuario de confianza al adaptador. Y, a continuación, ese nombre podría utilizarse como nombre de una aplicación. Sin embargo, no fue así. Si la organización usa métodos de verificación de aplicación móvil o mensaje de texto, las cadenas definidas en la configuración de la compañía contienen un marcador de posición "<$*application_name*$>". Este marcador de posición no se reemplaza automáticamente cuando se usa el adaptador de AD FS. Se recomienda quitar el marcador de posición de las cadenas adecuadas cuando proteja AD FS.
+* No es necesario que instale Servidor Azure Multi-Factor Authentication en el servidor AD FS. Sin embargo, debe instalar el adaptador de Multi-Factor Authentication para AD FS en un equipo con Windows Server 2012 R2 o Windows Server 2016 en el que se ejecuta AD FS. Puede instalar el servidor en un equipo diferente si es una versión compatible e instala el adaptador de AD FS por separado en el servidor de federación de AD FS. Consulte los procedimientos siguientes para aprender a instalar el adaptador por separado.
+* Si la organización usa métodos de verificación de aplicación móvil o mensaje de texto, las cadenas definidas en la configuración de la compañía contienen un marcador de posición "<$*application_name*$>". En la versión 7.1 del Servidor MFA, puede especificar el nombre de aplicación que reemplazará este marcador de posición. En la versión 7.0 o anteriores, este marcador de posición no se reemplaza automáticamente cuando se usa el adaptador de AD FS. En esas versiones anteriores, quite el marcador de posición de las cadenas correspondientes cuando proteja AD FS.
 * La cuenta que use para iniciar sesión debe tener derechos de usuario para crear grupos de seguridad en el servicio de Active Directory.
-* El asistente para la instalación del adaptador de AD FS de Multi-Factor Authentication crea un grupo de seguridad denominado PhoneFactor Admins en la instancia de Active Directory. A continuación, se agrega la cuenta de servicio de AD FS del servicio de federación a este grupo. Se recomienda que compruebe en el controlador de dominio que se ha creado realmente el grupo PhoneFactor Admins y que la cuenta de servicio de AD FS es miembro de este grupo. Si es necesario, agregue la cuenta de servicio de AD FS manualmente al grupo PhoneFactor Admins en el controlador de dominio.
+* El asistente para la instalación del adaptador de AD FS de Multi-Factor Authentication crea un grupo de seguridad denominado PhoneFactor Admins en la instancia de Active Directory. A continuación, se agrega la cuenta de servicio de AD FS del servicio de federación a este grupo. Compruebe en el controlador de dominio que el grupo PhoneFactor Admins se ha creado realmente y que la cuenta de servicio de AD FS es miembro de este grupo. Si es necesario, agregue la cuenta de servicio de AD FS manualmente al grupo PhoneFactor Admins en el controlador de dominio.
 * Para obtener información sobre cómo instalar el SDK del servicio web con el portal de usuarios, consulte [Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-portal.md)
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalación de Servidor Azure Multi-Factor Authentication localmente en el servidor AD FS
 1. Descargue e instale Servidor Azure Multi-Factor Authentication en el servidor de AD FS. Para obtener información sobre la instalación, consulte la [introducción a Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md).
-2. En la consola de administración de Servidor Azure Multi-Factor Authentication, haga clic en el icono de **AD FS** y elija las opciones **Permitir inscripción de usuario** y **Permitir a los usuarios seleccionar el método**.
+2. En la consola de administración del Servidor Azure Multi-Factor Authentication, haga clic en el icono de **AD FS**. Seleccione las opciones **Permitir inscripción de usuario** y **Permitir a los usuarios seleccionar el método**.
 3. Seleccione las opciones adicionales que desee especificar para su organización.
 4. Haga clic en **Instalar adaptador de AD FS**.
+   
    <center>![Nube](./media/multi-factor-authentication-get-started-adfs-w2k12/server.png)</center>
-5. Si se muestra la ventana de Active Directory, eso significa dos cosas. El equipo está unido a un dominio y la configuración de Active Directory para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de Active Directory y configurar los parámetros manualmente** y, después, haga clic en **Siguiente**.
-6. Si se muestran las ventanas de grupo local, eso significa dos cosas. El equipo no está unido a un dominio y la configuración del grupo local para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de grupo local y configurar los parámetros manualmente** y, después, haga clic en **Siguiente**.
+
+5. Si se muestra la ventana de Active Directory, eso significa dos cosas. El equipo está unido a un dominio y la configuración de Active Directory para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de Active Directory y configurar los parámetros manualmente**. Haga clic en **Siguiente**.
+6. Si se muestran las ventanas de grupo local, eso significa dos cosas. El equipo no está unido a un dominio y la configuración del grupo local para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de grupo local y configurar los parámetros manualmente**. Haga clic en **Siguiente**.
 7. En el asistente para la instalación, haga clic en **Siguiente**. Servidor Azure Multi-Factor Authentication crea el grupo PhoneFactor Admins y agrega la cuenta de servicio de AD FS al grupo PhoneFactor Admins.
    <center>![Nube](./media/multi-factor-authentication-get-started-adfs-w2k12/adapter.png)</center>
 8. En la página **Iniciar instalador**, haga clic en **Siguiente**.
@@ -77,7 +79,7 @@ En este punto, Servidor Multi-Factor Authentication está configurado para ser u
 Siga estos pasos para editar el archivo MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Establezca el nodo **UseWebServiceSdk** en **true**.  
-2. Establezca el valor de **WebServiceSdkUrl** en la dirección URL del SDK del Servicio web Multi-Factor Authentication. Por ejemplo:  *https://contoso.com/&lt;NombreDelCertificado&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx*, donde NombreDelCertificado es el nombre de su certificado.  
+2. Establezca el valor de **WebServiceSdkUrl** en la dirección URL del SDK del Servicio web Multi-Factor Authentication. Por ejemplo:  *https://contoso.com/&lt;NombreDelCertificado&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx*, donde *NombreDelCertificado* es el nombre de su certificado.  
 3. Edite el script Register-MultiFactorAuthenticationAdfsAdapter.ps1 agregando *-ConfigurationFilePath &lt;path&gt;* al final del comando `Register-AdfsAuthenticationProvider`, donde *&lt;path&gt;* es la ruta de acceso completa al archivo MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configuración del SDK del servicio web con nombre de usuario y contraseña
@@ -134,7 +136,7 @@ Para proteger los recursos de la nube, configure una regla de notificaciones par
 
    ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 
-6. Asigne un nombre a la regla. 
+6. Asigne un nombre a la regla.
 7. Seleccione **Referencias de métodos de autenticación** como tipo de notificación entrante.
 8. Seleccione **Pasar a través todos los valores de notificaciones**.
     ![Asistente para agregar regla de notificación de transformación](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)

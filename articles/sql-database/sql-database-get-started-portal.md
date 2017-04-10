@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Database en Azure Portal
 
 Este tutorial de inicio rápido le guía por el proceso de creación de una instancia de SQL Database en Azure.  Azure SQL Database es una oferta de "base de datos como servicio" que permite ejecutar y escalar bases de datos de SQL Server altamente disponibles en la nube.  En esta guía de inicio rápido se muestra cómo comenzar mediante la creación de una instancia nueva de SQL Database a través de Azure Portal.
+
+Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
 
@@ -43,10 +45,10 @@ Siga estos pasos para crear una instancia de SQL Database que contenga los datos
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. Rellene el formulario de SQL Database con la siguiente información, como se muestra en la imagen anterior: 
-   - Nombre de base de datos: use **mySampleDatabase**
-   - Grupo de recursos: use **myResourceGroup**
-   - Origen: seleccione **Sample (AdventureWorksLT)** [Ejemplo (AdventureWorksLT)]
+3. Rellene el formulario de SQL Database con la siguiente información, como se muestra en la imagen anterior:     
+   - Nombre de la base de datos: **mySampleDatabase**
+   - Grupo de recursos: **myResourceGroup**
+   - Origen: **Sample (AdventureWorksLT)** [Ejemplo (AdventureWorksLT)]
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo**, en el que debe especificar un nombre de servidor único global, indique un nombre para el inicio de sesión de administrador del servidor y especifique la contraseña que desee. 
 
@@ -82,7 +84,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
 
 4. Haga clic en **Aceptar** y, después, en la **X** para cerrar la página **Configuración de firewall**.
 
-Ahora puede conectarse a la base de datos y a su servidor mediante SQL Server Management Studio u otra herramienta que elija.
+Ahora puede conectarse a la base de datos y a su servidor mediante SQL Server Management Studio o cualquier otra herramienta que elija desde esta dirección IP y usando la cuenta de administrador del servidor creada con anterioridad.
 
 ## <a name="query-the-sql-database"></a>Consulta a SQL Database
 
@@ -103,7 +105,7 @@ Al crear la instancia de SQL Database, se rellenó con la base de datos de ejemp
 5. Una vez autenticado, escriba la siguiente consulta en el panel del editor de consultas.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

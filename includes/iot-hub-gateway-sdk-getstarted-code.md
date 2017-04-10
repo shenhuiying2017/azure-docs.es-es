@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Salida típica
-A continuación se muestra un ejemplo de la salida escrita en el archivo de registro mediante el ejemplo Hello World. Se han agregado los caracteres Newline y Tab para facilitar su lectura:
 
-```
+A continuación se muestra un ejemplo de la salida escrita en el archivo de registro mediante el ejemplo Hola mundo. Se le otorga un formato a la salida para facilitar la lectura:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ A continuación se muestra un ejemplo de la salida escrita en el archivo de regi
 ```
 
 ## <a name="code-snippets"></a>Fragmentos de código
-En esta sección se describen algunas partes principales del código del ejemplo Hello World.
+
+En esta sección se describen algunas secciones principales del código del ejemplo Hola\_mundo.
 
 ### <a name="gateway-creation"></a>Creación de puerta de enlace
-El desarrollador debe escribir el *proceso de puerta de enlace*. Este programa crea la infraestructura interna (el agente), carga los módulos y prepara todo para que funcione correctamente. El SDK proporciona la función **Gateway_Create_From_JSON** que le permite arrancar una puerta de enlace desde un archivo JSON. Para usar la función **Gateway_Create_From_JSON**, debe pasar la ruta de acceso a un archivo JSON que especifique los módulos que se van a cargar. 
 
-Puede encontrar el código para el proceso de puerta de enlace en el ejemplo Hello World del archivo [main.c][lnk-main-c]. Para facilitar la lectura, el siguiente fragmento muestra una versión abreviada del código de proceso de puerta de enlace. Este programa crea una puerta de enlace y luego espera a que el usuario presione la tecla **ENTRAR** antes de anularla. 
+El desarrollador debe escribir el *proceso de puerta de enlace*. Este programa crea la infraestructura interna (el agente), carga los módulos y prepara todo para que funcione correctamente. El SDK proporciona la función **Gateway\_Create\_From\_JSON** que le permite arrancar una puerta de enlace desde un archivo JSON. Para usar la función **Gateway\_Create\_From\_JSON**, debe pasar la ruta de acceso a un archivo JSON que especifique los módulos que se van a cargar.
 
-```
+Puede encontrar el código para el proceso de puerta de enlace en el ejemplo Hello World del archivo [main.c][lnk-main-c]. Para facilitar la lectura, el siguiente fragmento muestra una versión abreviada del código de proceso de puerta de enlace. Este programa de ejemplo crea una puerta de enlace y luego espera a que el usuario presione la tecla **ENTRAR** antes de anularla.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-El archivo de configuración JSON contiene una lista de los módulos que se van a cargar y los vínculos entre los módulos.
-Cada módulo debe especificar:
+El archivo de configuración JSON contiene una lista de los módulos que se van a cargar y los vínculos entre los módulos. Cada módulo debe especificar:
 
 * **name**: un nombre único para el módulo.
-* **loader**: un cargador que sabe cómo cargar el módulo deseado.  Los cargadores son un punto de extensión para cargar diferentes tipos de módulos. Se proporcionan cargadores para usarlos con módulos escritos en C nativo, Node.js, Java y .Net. El ejemplo Hello World solo usa el cargador "nativo" porque todos los módulos de este ejemplo son bibliotecas dinámicas escritas en C. Consulte los ejemplos para [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) o [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) para más información sobre cómo usar módulos escritos en lenguajes diferentes.
-    * **name**: nombre del cargador usado para cargar el módulo.  
-    * **entrypoint**: la ruta de acceso a la biblioteca que contiene el módulo. En Linux es un archivo .so y en Windows un archivo .dll. Tenga en cuenta que este punto de entrada es específico del tipo de cargador que se esté usando. Por ejemplo, el punto de entrada del cargador de Node.js es un archivo .js, el del cargador de Java es una ruta de acceso de clase + un nombre de clase y el del cargador de .Net es un nombre de ensamblado + un nombre de clase.
+* **loader**: un cargador que sabe cómo cargar el módulo deseado. Los cargadores son un punto de extensión para cargar diferentes tipos de módulos. Se proporcionan cargadores para usarlos con módulos escritos en C nativo, Node.js, Java y .Net. El ejemplo Hola mundo solo usa el cargador nativo porque todos los módulos de este ejemplo son bibliotecas dinámicas escritas en C. Consulte los ejemplos para [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) o [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample) para más información sobre cómo usar módulos escritos en lenguajes diferentes.
+    * **name**: nombre del cargador usado para cargar el módulo.
+    * **entrypoint**: la ruta de acceso a la biblioteca que contiene el módulo. En Linux esta biblioteca es un archivo .so y en Windows un archivo .dll. El punto de entrada es específico del tipo de cargador que se esté usando. El punto de entrada del cargador de Node.js es un archivo .js. El punto de entrada del cargador de Java es una ruta de clase junto con un nombre de clase. El punto de entrada del cargador de .NET es un nombre de ensamblado junto con un nombre de clase.
 
 * **args**: cualquier información de configuración que necesita el módulo.
 
-El código siguiente muestra el JSON que se usa para declarar todos los módulos para el ejemplo Hello World en Linux. El que un módulo necesite argumentos depende del diseño del módulo. En este ejemplo, el módulo logger toma un argumento que es la ruta de acceso al archivo de salida y el módulo Hello World no toma ningún argumento.
+El código siguiente muestra el JSON que se usa para declarar todos los módulos para el ejemplo Hola mundo en Linux. El que un módulo necesite argumentos depende del diseño del módulo. En este ejemplo, el módulo logger toma un argumento que es la ruta de acceso al archivo de salida y el módulo hola\_mundo no tiene ningún argumento.
 
-```
+```json
 "modules" :
 [
     {
@@ -99,12 +101,12 @@ El archivo JSON también contiene los vínculos entre los módulos que se pasar�
 * **source**: un nombre de módulo de la sección `modules`, o "\*".
 * **sink**: un nombre de módulo de la sección `modules`.
 
-Cada vínculo define la ruta y dirección de un mensaje. Los mensajes del módulo `source` se deben entregar al módulo `sink`. `sink` se puede establecer en "`source`", lo que indica que \* recibirá mensajes de cualquier módulo.
+Cada vínculo define la ruta y dirección de un mensaje. Los mensajes del módulo `source` se deben entregar al módulo `sink`. `source` se puede establecer en "\*", lo que indica que `sink` recibirá mensajes de cualquier módulo.
 
-El código siguiente muestra el JSON que se usa para configurar vínculos entre los módulos usados en el ejemplo Hello World en Linux. Todos los mensajes que genere el módulo `hello_world` los consumirá el módulo `logger`.
+El código siguiente muestra el JSON que se usa para configurar vínculos entre los módulos usados en el ejemplo hola\_mundo en Linux. Todos los mensajes que genere el módulo `hello_world` los consumirá el módulo `logger`.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ El código siguiente muestra el JSON que se usa para configurar vínculos entre 
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Publicación de mensajes del módulo Hello World
-Puede buscar el código que utiliza el módulo "hello world" para publicar mensajes en el archivo ['hello_world.c'][lnk-helloworld-c]. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
+### <a name="helloworld-module-message-publishing"></a>Publicación de mensajes del módulo hola\_mundo
 
-```
+Puede buscar el código que utiliza el módulo "hola\_mundo" para publicar mensajes en el archivo ['hello_world.c'][lnk-helloworld-c]. El siguiente fragmento muestra una versión modificada del código con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Procesamiento de mensajes del módulo Hello World
-El módulo Hello World nunca necesita procesar mensajes que otros módulos publican en el agente. Esto hace que la implementación de la devolución de llamada de mensajes en el módulo Hello World sea una función no operativa.
+### <a name="helloworld-module-message-processing"></a>Procesamiento de mensajes del módulo Hola\_mundo
 
-```
+El módulo hola\_mundo no necesita nunca procesar los mensajes que otros módulos publican en el agente. Por ello, la implementación de la devolución de llamada de mensajes en el módulo hola\_mundo es una función no operativa.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Publicación y procesamiento de mensajes del módulo logger
+
 El módulo logger recibe mensajes del agente y los escribe en un archivo. Nunca publica ningún mensaje. Por consiguiente, el código del módulo logger nunca llama a la función **Broker_Publish**.
 
 La función **Logger_Recieve** del archivo [logger.c][lnk-logger-c] es la devolución de llamada que invoca el agente para entregar mensajes al módulo logger. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
 
-```
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo usar el SDK de puerta de enlace de IoT, consulte lo siguiente:
+
+Para más información sobre cómo usar el SDK de puerta de enlace de IoT, consulte los siguientes artículos:
 
 * [SDK de puerta de enlace de IoT: envío de mensajes del dispositivo a la nube con un dispositivo simulado mediante Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] (SDK de puerta de enlace de Azure IoT) en GitHub.
@@ -228,7 +234,3 @@ Para más información sobre cómo usar el SDK de puerta de enlace de IoT, consu
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Feb17_HO3-->
-
-

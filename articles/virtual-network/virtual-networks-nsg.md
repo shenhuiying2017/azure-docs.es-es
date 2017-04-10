@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ La ilustración anterior muestra cómo se procesan las reglas de NSG.
 ### <a name="default-tags"></a>Etiquetas predeterminadas
 Las etiquetas predeterminadas son identificadores proporcionados por el sistema para tratar una categoría de direcciones IP. Puede usar etiquetas predeterminadas en las propiedades de **prefijo de dirección de origen** y **prefijo de dirección de destino** de cualquier regla. Hay tres etiquetas predeterminadas que puede utilizar.
 
-* **VIRTUAL_NETWORK:** esta etiqueta predeterminada denota todo el espacio de dirección de red. Incluye el espacio de direcciones de red virtual (intervalos CIDR definidos en Azure), así como todos los espacios de direcciones locales conectados y las redes virtuales de Azure conectadas (redes locales).
-* **AZURE_LOADBALANCER:** esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. Esto se traducirá en una IP de centro de datos de Azure donde se originarán los sondeos de mantenimiento de Azure.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** si utiliza Azure Resource Manager): esta etiqueta predeterminada denota todo el espacio de direcciones de red. Incluye el espacio de direcciones de red virtual (intervalos CIDR definidos en Azure), así como todos los espacios de direcciones locales conectados y las redes virtuales de Azure conectadas (redes locales).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** si utiliza el Azure Resource Manager): esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. Esto se traducirá en una IP de centro de datos de Azure donde se originarán los sondeos de mantenimiento de Azure.
 * **INTERNET:** esta etiqueta predeterminada denota el espacio de dirección IP que se encuentra fuera de la red virtual y es accesible mediante Internet pública. Este intervalo incluye además un [espacio de IP pública propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653) .
 
 ### <a name="default-rules"></a>Reglas predeterminadas
@@ -258,9 +259,4 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 * [Implemente grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-ps.md).
 * [Implemente grupos de seguridad de red en el Administrador de recursos](virtual-networks-create-nsg-arm-pportal.md).
 * [Administración de registros de grupo de seguridad de red](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

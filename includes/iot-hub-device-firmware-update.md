@@ -5,19 +5,21 @@ En esta sección:
 * Desencadenará una actualización de firmware simulada.
 * Usará las propiedades notificadas para habilitar consultas de dispositivos gemelos a fin de identificar los dispositivos y cuándo se actualizó su firmware por última vez.
 
-1. Cree una nueva carpeta vacía denominada **manageddevice**.  En la carpeta **manageddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
+Paso 1: Cree una nueva carpeta vacía denominada **manageddevice**.  En la carpeta **manageddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
    
     ```
     npm init
     ```
-2. En el símbolo del sistema, en la carpeta **manageddevice**, ejecute el siguiente comando para instalar los paquetes del SDK de dispositivo **azure-iot-device** y **azure-iot-device-mqtt**:
+
+Paso 2: En el símbolo del sistema, en la carpeta **manageddevice**, ejecute el siguiente comando para instalar los paquetes del SDK de dispositivo **azure-iot-device** y **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Con un editor de texto, cree un archivo **dmpatterns_fwupdate_device.js** en la carpeta **manageddevice**.
 
-4. Agregue las siguientes instrucciones "require" al principio del archivo **dmpatterns_fwupdate_device.js**:
+Paso 3: Con un editor de texto, cree un archivo **dmpatterns_fwupdate_device.js** en la carpeta **manageddevice**.
+
+Paso 4: Agregue las siguientes instrucciones "require" al principio del archivo **dmpatterns_fwupdate_device.js**:
    
     ```
     'use strict';
@@ -25,13 +27,14 @@ En esta sección:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Agregue una variable **connectionString** y utilícela para crear una instancia de **cliente**. Reemplace el marcador de posición `{yourdeviceconnectionstring}` por la cadena de conexión que anteriormente anotó en la sección sobre la creación de una identidad de dispositivo:
+Paso 5: Agregue una variable **connectionString** y utilícela para crear una instancia de **cliente**. Reemplace el marcador de posición `{yourdeviceconnectionstring}` por la cadena de conexión que anteriormente anotó en la sección sobre la creación de una identidad de dispositivo:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Agregue la siguiente función que se usa para actualizar las propiedades notificadas:
+
+Paso 6: Agregue la siguiente función que se usa para actualizar las propiedades notificadas:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -47,7 +50,8 @@ En esta sección:
       });
     };
     ```
-7. Agregue las siguientes funciones que simulan descargar y aplicar la imagen de firmware:
+
+Paso 7: Agregue las siguientes funciones que simulan descargar y aplicar la imagen de firmware:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -69,7 +73,8 @@ En esta sección:
       callback(error);
     }
     ```
-8. Agregue la siguiente función que actualiza el estado de actualización del firmware mediante las propiedades notificadas a **waiting**. Normalmente, los dispositivos reciben una notificación sobre una actualización disponible y una directiva definida por un administrador provoca que el dispositivo empiece a descargar y aplicar la actualización. Esta función es donde se debe ejecutar la lógica para habilitar esa directiva. Para simplificar, el ejemplo se muestra cuatro segundos antes de proceder a la descarga de la imagen de firmware:
+
+Paso 8: Agregue la siguiente función que actualiza el estado de actualización del firmware mediante las propiedades notificadas a **waiting**. Normalmente, los dispositivos reciben una notificación sobre una actualización disponible y una directiva definida por un administrador provoca que el dispositivo empiece a descargar y aplicar la actualización. Esta función es donde se debe ejecutar la lógica para habilitar esa directiva. Para simplificar, el ejemplo espera cuatro segundos antes de proceder a la descarga de la imagen de firmware:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -84,7 +89,8 @@ En esta sección:
       setTimeout(callback, 4000);
     };
     ```
-9. Agregue la siguiente función que actualiza el estado de actualización de firmware mediante las propiedades notificadas a **downloading**. La función simula entonces una descarga de firmware y actualiza finalmente el estado de actualización del firmware a **downloadFailed** o **downloadComplete**:
+
+Paso 9: Agregue la siguiente función que actualiza el estado de actualización de firmware mediante las propiedades notificadas a **downloading**. La función simula entonces una descarga de firmware y actualiza finalmente el estado de actualización del firmware a **downloadFailed** o **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -121,7 +127,8 @@ En esta sección:
       }, 4000);
     }
     ```
-10. Agregue la siguiente función que actualiza el estado de actualización del firmware mediante las propiedades notificadas a **applying**. La función simula entonces la aplicación de la imagen de firmware y actualiza finalmente el estado de actualización del firmware a **applyFailed** o **applyComplete**:
+
+Paso 10: Agregue la siguiente función que actualiza el estado de actualización del firmware mediante las propiedades notificadas a **applying**. La función simula entonces la aplicación de la imagen de firmware y actualiza finalmente el estado de actualización del firmware a **applyFailed** o **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -158,7 +165,8 @@ En esta sección:
       }, 4000);
     }
     ```
-11. Agregue la siguiente función que controla el método directo **firmwareUpdate** e inicia el proceso de actualización del firmware de varias fases:
+
+Paso 11: Agregue la siguiente función que controla el método directo **firmwareUpdate** e inicia el proceso de actualización del firmware de varias fases:
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -193,7 +201,8 @@ En esta sección:
       });
     }
     ```
-12. Por último, agregue el código siguiente que conecta con el centro de IoT:
+
+Paso 12: Por último, agregue el código siguiente que conecta con IoT Hub:
     
     ```
     client.open(function(err) {
@@ -208,6 +217,6 @@ En esta sección:
     ```
 
 > [!NOTE]
-> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, debe implementar directivas de reintentos (por ejemplo, retroceso exponencial), como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
+> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx) (Tratamiento de errores temporales).
 > 
 > 

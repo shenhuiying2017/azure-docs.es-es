@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: use SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos
 
-Use [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para crear y administrar recursos de SQL Server desde la interfaz de usuario o en scripts. En esta guía se explica cómo utilizar SSMS para conectarse a una instancia de Azure SQL Database y, después, ejecutar la consulta, insertar instrucciones, actualizarlas y eliminarlas.
+Use [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para crear y administrar recursos de SQL Server desde la interfaz de usuario o en scripts. Este inicio rápido detalla cómo utilizar SSMS para conectarse a una instancia de Azure SQL Database y, después, ejecutar instrucciones de consulta, inserción, actualización y eliminación.
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
@@ -45,11 +45,11 @@ Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. U
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Conexión al servidor
+## <a name="connect-to-the-server-and-your-new-database"></a>Conexión al servidor y a la base de datos nueva
 
 Use SQL Server Management Studio para establecer una conexión con un servidor de Azure SQL Database.
 
-1. Escriba **SSMS** en el cuadro de búsqueda de Windows y, después, haga clic en **Entrar** para abrir SSMS.
+1. Abra SQL Server Management Studio.
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
    - **Tipo de servidor**: especifique el motor de base de datos

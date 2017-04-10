@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conexión a través de SSH con HDInsight (Hadoop)
@@ -30,16 +30,19 @@ La tabla siguiente contiene la información de dirección y puerto que es necesa
 
 | Dirección | Port | Se conecta a... |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetral (si hay alguno) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetral (R Server en HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetral (cualquier otro tipo de clúster, si existe un nodo perimetral) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nodo principal primario |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nodo principal secundario |
 
 > [!NOTE]
-> Reemplace `<edgenodename>` con el nombre del nodo perimetral. Para más información, consulte [Uso de nodos perimetrales en HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+> Reemplace `<edgenodename>` con el nombre del nodo perimetral.
 >
 > Reemplace `<clustername>` por el nombre del clúster de HDInsight.
 >
 > Se recomienda __conectarse siempre al nodo perimetral__ si dispone de uno. Los servicios de hospedaje de nodos principales que son críticos para el buen funcionamiento del clúster. El nodo perimetral ejecuta solo lo que incluya en él.
+>
+> Para más información, consulte [Uso de nodos perimetrales en HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>Clientes SSH
 
