@@ -90,7 +90,7 @@ Para interactuar con el Azure Resource Manager, asegúrese de que tiene acceso a
     
     - *{client-id}* con el identificador de la aplicación de Azure Active Directory. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD. Para encontrar la aplicación de AD en Azure Portal, haga clic en **Azure Active Directory** en el menú de recursos y, luego, haga clic en **Registros de aplicación**.
     - *{client-secret}* con la clave de acceso de la aplicación de AD. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD.
-    - *{Id. de inquilino} * con el identificador del inquilino de su suscripción. Puede encontrar el identificador del inquilino en la hoja Propiedades de Azure Active Directory en Azure Portal. Se etiqueta como *identificación de directorio*.
+    - *{Id. de inquilino}* con el identificador del inquilino de su suscripción. Puede encontrar el identificador del inquilino en la hoja Propiedades de Azure Active Directory en Azure Portal. Se etiqueta como *identificación de directorio*.
 
 4. Para llamar al método que agregó anteriormente, agregue este código al método Main en el archivo Program.cs:
    

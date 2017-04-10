@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -57,7 +57,7 @@ Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento
 | --- | --- | --- | --- |
 | Prefijo de dirección |El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16. |Debe ser un intervalo de CIDR válidos que representan direcciones en la red Internet pública, la red virtual o el centro de datos local. |Asegúrese de que **Prefijo de dirección** no contiene la dirección de **Siguiente dirección de salto**; de lo contrario, los paquetes entrarán en un bucle que va desde el origen al próximo salto sin llegar nunca al destino. |
 | Tipo de próximo salto |El tipo de salto de Azure al que debe enviarse el paquete. |Debe ser uno de los siguientes valores:  <br/> **Red virtual**. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16, en la misma red virtual, la ruta de cada una de ellas en la tabla de rutas tendrá un valor de próximo salto de *Red virtual*. <br/> **Puerta de enlace de red virtual**. Representa una puerta de enlace de VPN S2S de Azure. <br/> **Internet**. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. <br/> **Dispositivo virtual**. Representa un dispositivo virtual agregado a la red virtual de Azure. <br/> **No**. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera. |Considere la posibilidad de usar **Aplicación virtual** para dirigir el tráfico a una máquina virtual o a una dirección IP interna de Azure Load Balancer.  Este tipo permite la especificación de una dirección IP, tal y como se describe a continuación. Considere la posibilidad de usar el tipo **No** para evitar que los paquetes vayan a un destino dado. |
-| Siguiente dirección de salto |La siguiente dirección de salto contiene la dirección IP a la que se deben reenviar los paquetes. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. |Debe ser una dirección IP accesible dentro de la red virtual donde se aplica la ruta definida por el usuario. |Si la dirección IP representa una máquina virtual, asegúrese de habilitar el [reenvío de IP](#IP-forwarding) en Azure para la máquina virtual. Si la dirección IP representa la dirección IP interna de Azure Load Balancer, asegúrese de que tenga una regla de equilibrio de carga coincidente para cada puerto en el que quiera equilibrar la carga.|
+| Siguiente dirección de salto |La siguiente dirección de salto contiene la dirección IP a la que se deben reenviar los paquetes. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. |Debe ser una dirección IP accesible dentro de la red virtual donde se aplica la ruta definida por el usuario, sin atravesar una **puerta de enlace de red virtual**. La dirección IP debe estar en la misma red virtual en la que se aplica, o en una red virtual emparejada. |Si la dirección IP representa una máquina virtual, asegúrese de habilitar el [reenvío de IP](#IP-forwarding) en Azure para la máquina virtual. Si la dirección IP representa la dirección IP interna de Azure Load Balancer, asegúrese de que tenga una regla de equilibrio de carga coincidente para cada puerto en el que quiera equilibrar la carga.|
 
 En Azure PowerShell, algunos de los valores de "NextHopType" tienen otros nombres:
 

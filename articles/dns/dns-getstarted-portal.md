@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 0fee02286f6d5dd4614a933590cdab43cc69237f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -79,7 +79,7 @@ En el ejemplo siguiente, se le guiará a través del proceso de creación de un 
 
 ## <a name="view-records"></a>Visualización de los registros
 
-En la parte inferior de la hoja Zona DNS, puede consultar los registros correspondientes a la zona DNS. Debería ver los registros SOA y NS predeterminados, que se crean en cada zona, además de todos los nuevos que haya creado.
+En la parte inferior de la hoja Zona DNS, puede consultar los registros correspondientes a la zona DNS. Debería ver los registros SOA y DNS predeterminados, que se crean en cada zona, además de todos los nuevos que haya creado.
 
 ![zona](./media/dns-getstarted-portal/viewzone500.png)
 

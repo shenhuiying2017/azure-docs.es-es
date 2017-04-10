@@ -44,7 +44,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
     > [AZURE.IMPORTANT] La contraseña es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
 
 ## <a name="secrets"> </a>Incorporación de información de la cuenta de Microsoft a la aplicación de Servicio de aplicaciones
-1. En [Azure Portal], navegue hasta la aplicación y haga clic en **Configuración** > ** Autenticación/autorización**.
+1. En [Azure Portal], navegue hasta la aplicación y haga clic en **Configuración** > **Autenticación/autorización**.
 2. Si esta característica no está habilitada, **actívela**.
 3. Haga clic en **Cuenta Microsoft**. Pegue los valores de identificador de la aplicación y de contraseña que obtuvo previamente y habilite opcionalmente los ámbitos que requiere la aplicación. y, a continuación, haga clic en **Aceptar**.
    

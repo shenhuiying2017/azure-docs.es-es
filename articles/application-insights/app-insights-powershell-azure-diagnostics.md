@@ -10,12 +10,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/17/2015
 ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
 ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -137,10 +138,5 @@ Para quitar la extensión de diagnóstico de cada rol individual:
 * [Supervisión de aplicaciones de Servicios en la nube de Azure con Application Insights](app-insights-cloudservices.md)
 * [Envío de Azure Diagnostics a Application Insights](app-insights-azure-diagnostics.md)
 * [Automatización de la configuración de alertas](app-insights-powershell-alerts.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

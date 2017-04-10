@@ -97,7 +97,7 @@ En esta sección, escribirá una aplicación de consola de Java que envía mensa
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.2.18</version>
     </dependency>
     ```
 

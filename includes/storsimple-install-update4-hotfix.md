@@ -22,7 +22,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 > [!NOTE]
 > Las revisiones deben ser accesibles desde ambos controladores para detectar los posibles mensajes de error desde el controlador del mismo nivel.
 >
-> Las revisiones deben copiarse en tres carpetas separadas. La actualización de software del dispositivo debe copiarse en la carpeta _FirstOrderUpdate_, todas las demás actualizaciones que no interrumpen el trabajo deben copiarse en la carpeta _SecondOrderUpdate_ y las actualizaciones de modo de mantenimiento deben copiarse en la carpeta _ThirdOrderUpdate_.
+> Las revisiones deben copiarse en tres carpetas separadas. Por ejemplo, la actualización de software del dispositivo se puede copiar en la carpeta _FirstOrderUpdate_, todas las demás actualizaciones sin interrupciones se pueden copiar en la carpeta _SecondOrderUpdate_ y las actualizaciones del modo de mantenimiento en la carpeta _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Instalar y comprobar las revisiones de modo normal
 
@@ -40,11 +40,11 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
    
     Indique la contraseña cuando se le solicite.
    
-    A continuación se muestra una salida de ejemplo para instalar las actualizaciones de primer orden.
+    A continuación se muestra una salida de ejemplo para instalar las actualizaciones de primer orden. Para la actualización de primer orden, es preciso que apunte al archivo concreto.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -96,7 +96,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     > [!IMPORTANT]
     > Antes de aplicar el resto de actualizaciones, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
      
-7. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. Se pueden instalar varias actualizaciones mediante la ejecución de `Start-HcsHotfix cmdlet` y señalando a la carpeta donde se encuentran las actualizaciones de segundo orden. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta. Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. Después de instalar las revisiones, use el cmdlet `Get-HcsSystem`. Las versiones deben ser:
+7. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. **Para las actualizaciones de segundo orden. se pueden instalar varias actualizaciones mediante la ejecución de `Start-HcsHotfix cmdlet` y señalando a la carpeta en que se encuentran las actualizaciones de segundo orden. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta.** Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. Después de instalar las revisiones, use el cmdlet `Get-HcsSystem`. Las versiones deben ser:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -247,9 +247,4 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
    `Exit-HcsMaintenanceMode`
 
 5. Los controladores se reiniciarán al salir del modo de mantenimiento. Cuando las actualizaciones de firmware de disco se apliquen correctamente y el dispositivo haya salido del modo de mantenimiento, regrese al Portal de Azure clásico. Tenga en cuenta que, durante 24 horas, es posible que no aparezca en el portal la instalación de las actualizaciones en modo de mantenimiento.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

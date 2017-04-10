@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -31,32 +32,33 @@ Después de habilitar las [directivas de seguridad](security-center-policies.md)
 
 Para más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
-El icono **Estado de seguridad del recurso** permite supervisar el estado de seguridad de los recursos. En el ejemplo siguiente puede ver varios problemas con una gravedad alta y media que requieren atención. Las directivas de seguridad habilitadas afectarán a los tipos de controles que se supervisan.
+Si hace clic en el icono **Resource security health** (Estado de seguridad de recurso), podrá supervisar el estado de seguridad de los recursos. En el ejemplo siguiente puede ver varios problemas con una gravedad alta y media que requieren atención. Las directivas de seguridad habilitadas afectarán a los tipos de controles que se supervisan.
 
-![Icono de estado de seguridad de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Icono de estado de seguridad de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Si Security Center identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](/virtual-network/virtual-networks-nsg.md), se enumerará aquí.
 
-### <a name="monitor-virtual-machines"></a>Supervisión de máquinas virtuales
-Al hacer clic en **Máquinas virtuales** en el icono **Estado de seguridad del recurso**, se abrirá la hoja **Máquinas virtuales**, donde encontrará más detalles sobre los pasos de incorporación y prevención, así como una lista de las máquinas virtuales que supervisa Security Center, tal como se muestra en la siguiente captura de pantalla.
+### <a name="monitor-compute"></a>Supervisión de proceso
+Al hacer clic en **Compute** (Proceso) en el icono **Resource security health** (Estado de seguridad de recurso), la hoja **Compute** (Proceso) que se abre muestra tres pestañas:
 
-![Actualizaciones de sistema que faltan por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Overview** (Información general): recomendaciones de supervisión y de la máquina virtual.
+- **Virtual Machines** (Máquinas virtuales): lista de todas las máquinas virtuales y su estado de seguridad actual.
+- **Cloud Services** (Servicios en la nube): lista de todos los roles web y de trabajo que supervisa Security Center.
 
-* Pasos para la incorporación
-* Recomendaciones sobre máquinas virtuales
-* Máquinas virtuales
+![Actualizaciones de sistema que faltan por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-En cada sección puede seleccionar una opción individual para ver más detalles sobre los pasos recomendados para abordar el problema. Las siguientes secciones explican estas áreas con más detalle.
+Todas las pestañas pueden tener varias secciones y en cada una de ella se puede seleccionar cualquiera de las opciones para ver más detalles acerca de los pasos recomendados para abordar un problema concreto. 
 
 #### <a name="monitoring-recommendations"></a>Supervisión de las recomendaciones
-En esta sección se muestra el número total de máquinas virtuales que se inicializaron para la recopilación de datos y su estado actual. Una vez que se haya inicializado la recopilación de datos en todas las máquinas virtuales, estarán listas para recibir las directivas de seguridad de Security Center. Al hacer clic en esta entrada, se abre la hoja **Estado de la instalación de recopilación de datos**, donde podrá ver los nombres de las máquinas virtuales y el estado actual de la recopilación de datos en la columna **ESTADO DE LA INSTALACIÓN**, como se muestra en la siguiente captura de pantalla.
+En esta sección se muestra el número total de máquinas virtuales que se inicializaron para la recopilación de datos y su estado actual. Una vez que se haya inicializado la recopilación de datos en todas las máquinas virtuales, estarán listas para recibir las directivas de seguridad de Security Center. Al hacer clic en esta entrada, se abre la hoja **VM Agent is missing or not responding** (El agente de máquina virtual falta o no responde). 
 
-![Estado de inicialización de las máquinas virtuales](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Actualizaciones de sistema que faltan por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Recomendaciones sobre máquinas virtuales
 Esta sección contiene un conjunto de [recomendaciones para cada máquina virtual](security-center-virtual-machine-recommendations.md) supervisadas por Azure Security Center. La primera columna muestra la recomendación. La segunda columna muestra el número total de máquinas virtuales a las que afecta esa recomendación. La tercera columna muestra la gravedad del problema como se muestra en la captura de pantalla siguiente.
 
-![Recomendaciones sobre máquinas virtuales](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Recomendaciones sobre máquinas virtuales](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > Solo las máquinas virtuales con al menos un punto de conexión público se muestran en la hoja de **estado de red** en la lista de **topología de red**.
@@ -93,7 +95,7 @@ Para ver los detalles de las recomendaciones, haga clic en el nombre de la máqu
 #### <a name="virtual-machines-section"></a>Sección Máquinas virtuales
 La sección de máquinas virtuales ofrece una visión general de todas las máquinas virtuales y recomendaciones. Cada columna representa un conjunto de recomendaciones tal como se muestra en la siguiente captura de pantalla:
 
-![Información general de todas las máquinas virtuales y recomendaciones](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Información general de todas las máquinas virtuales y recomendaciones](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 El icono que aparece en cada recomendación le ayuda a identificar rápidamente tanto las máquinas virtuales que necesitan atención como el tipo de recomendación que necesitan.
 
@@ -103,12 +105,12 @@ En el ejemplo anterior, una máquina virtual tiene una recomendación crítica s
 
 Esta hoja tiene los detalles de seguridad de la máquina virtual. En la parte inferior de la hoja puede ver la acción recomendada y la gravedad de cada problema.
 
-#### <a name="cloud-services-preview-section"></a>Sección Servicios en la nube (versión preliminar)
-El estado de mantenimiento de los servicios en la nube se incluye en el icono de **estado de seguridad** de las máquinas virtuales. Se crea una recomendación cuando la versión del sistema operativo es antigua como se muestra en la siguiente captura de pantalla:
+#### <a name="cloud-services-section"></a>Sección de servicios en la nube
+En el caso de los servicios en la nube, se crea una recomendación cuando la versión del sistema operativo está obsoleta, como se muestra en la siguiente captura de pantalla:
 
-![Estado de mantenimiento de los servicios en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Estado de mantenimiento de los servicios en la nube](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Es necesario que siga los pasos de la recomendación para actualizar la versión del sistema operativo. Por ejemplo, si hace clic en la alerta roja en las filas de WebRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS) o en WorkerRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS), se abrirá una nueva hoja con más detalles sobre esta recomendación, como se muestra en la siguiente captura de pantalla:
+En un escenario en el que haya alguna recomendación (lo que no ocurre en el ejemplo anterior), es preciso seguir los pasos descritos en la recomendación para actualizar la versión del sistema operativo. Cuando haya alguna actualización disponible, aparecerá una alerta (su color, rojo o naranja, depende de la gravedad del problema). Al hacer clic en esta alerta en las filas WebRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS) o WorkerRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS), se abre una nueva hoja con más datos acerca de esta recomendación, como se muestra en la siguiente captura de pantalla:
 
 ![Detalles del servicio en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,9 +216,4 @@ En este artículo, aprendió a usar las funcionalidades de supervisión en Azure
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ También puede mezclar recomendaciones de Security Center y alertas de seguridad
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Utilización del panel de Azure Security Center para acceder a Power BI
 También puede utilizar el panel de Azure Security Center para tener acceso a informes de Power BI. Siga estos pasos para realizar esta tarea:
 
-1. En el panel de **Azure Security Center**, haga clic en el botón **Explorar en Power BI**.
+1. En el panel de **Azure Security Center**, haga clic en el botón **Power BI**.
 
-    ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. La hoja **Explorar en Power BI** se abre a la derecha como se muestra en la pantalla siguiente:
+    ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. La hoja **Power BI** se abre a la derecha, como se muestra en la pantalla siguiente:
 
-    ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Al crear el panel de Power BI por primera vez, puede elegir una de las siguientes opciones de la hoja **Explorar en Power BI** :
 
    * **Security insights dashboard**(Panel de información de seguridad): elija esta opción si desea crear un panel que incluya el estado de seguridad, los subprocesos y las detecciones. Se trata de una opción más habitual para el rol de DevOps, cuya responsabilidad es analizar su estado de protección y las alertas detectadas en las suscripciones.
@@ -119,9 +120,4 @@ En este documento, ha aprendido a usar Power BI en Azure Security Center. Para o
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

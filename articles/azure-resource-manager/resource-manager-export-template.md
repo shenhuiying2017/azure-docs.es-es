@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/03/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: cee4748a0b24e11cd8a8ee46471418680fcf7b33
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -53,7 +53,7 @@ La implementación puede tardar un momento. Una vez finalizada la implementació
 3. La hoja muestra un resumen de la implementación. El resumen incluye el estado de la implementación y sus operaciones, además de los valores que proporcionó para los parámetros. Para ver la plantilla que se usó para la implementación, seleccione **Ver plantilla**.
    
      ![Ver el resumen de la implementación](./media/resource-manager-export-template/deployment-summary.png)
-4. Resource Manager recupera los seis archivos siguientes:
+4. Resource Manager recupera los siete archivos siguientes:
    
    1. **Plantilla** : la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
    2. **Parámetros** : un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó durante la primera implementación, pero puede cambiar cualquiera de ellos al volver a implementar la plantilla.
@@ -148,28 +148,28 @@ Para obtener el estado actual de su grupo de recursos, exporte una plantilla que
      No todos los tipos de recursos admiten la función de exportación de plantilla. Si el grupo de recursos solo contiene la cuenta de almacenamiento y la red virtual mostradas en este artículo, no verá ningún error. Sin embargo, si ha creado otros tipos de recursos, verá un error que indica que hay un problema con la exportación. Puede aprender más sobre cómo resolver estos problemas en la sección [Solución de problemas de exportación](#fix-export-issues) .
 2. Se vuelven a ver los seis archivos que puede usar para volver a implementar la solución, pero esta vez la plantilla es algo diferente. Esta plantilla solo contiene dos parámetros (uno para el nombre de la cuenta de almacenamiento y otro para el nombre de la red virtual).
 
-  ```json
-  "parameters": {
-    "virtualNetworks_VNET_name": {
-      "defaultValue": "VNET",
-      "type": "String"
-    },
-    "storageAccounts_storagetf05092016_name": {
-      "defaultValue": "storagetf05092016",
-      "type": "String"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "virtualNetworks_VNET_name": {
+       "defaultValue": "VNET",
+       "type": "String"
+     },
+     "storageAccounts_storagetf05092016_name": {
+       "defaultValue": "storagetf05092016",
+       "type": "String"
+     }
+   },
+   ```
    
-     Resource Manager no recuperó las plantillas usadas durante la implementación. En su lugar, generó una nueva plantilla basada en la configuración actual de los recursos. Por ejemplo, la plantilla establece los valores de ubicación de la cuenta de almacenamiento y replicación en:
+   Resource Manager no recuperó las plantillas usadas durante la implementación. En su lugar, generó una nueva plantilla basada en la configuración actual de los recursos. Por ejemplo, la plantilla establece los valores de ubicación de la cuenta de almacenamiento y replicación en:
 
-  ```json 
-  "location": "northeurope",
-  "tags": {},
-  "properties": {
-    "accountType": "Standard_RAGRS"
-  },
-  ```
+   ```json 
+   "location": "northeurope",
+   "tags": {},
+   "properties": {
+     "accountType": "Standard_RAGRS"
+   },
+   ```
 3. Tiene dos opciones para continuar trabajando con esta plantilla. Puede descargar la plantilla y trabajar en ella localmente con un editor de JSON. O bien, puede guardar la plantilla en la biblioteca y trabajar en ella a través del portal.
    
      Si está familiarizado con el uso de un editor de JSON como [VS Code](resource-manager-vs-code.md) o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), es posible que prefiera descargar la plantilla localmente y usar ese editor. Si no lo está, es preferible editar la plantilla a través del portal. En el resto de este tema se supone que ha guardado la plantilla en la biblioteca en el portal. No obstante, tendrá que realizar los mismos cambios de sintaxis en la plantilla tanto si trabaja localmente con un editor de JSON o a través del portal.
@@ -205,88 +205,88 @@ En esta sección, agregará parámetros a la plantilla exportada para poder reut
      ![editar plantilla](./media/resource-manager-export-template/edit-template.png)
 3. Para poder pasar los valores que desee especificar durante la implementación, reemplace la sección **parámetros** por las nuevas definiciones de parámetro. Observe los valores de **allowedValues** para **storageAccount_accountType**. Si proporciona accidentalmente un valor no válido, se reconoce ese error antes de que se inicie la implementación. Además, observe que solo va a proporcionar un prefijo para el nombre de la cuenta de almacenamiento y que está limitado a 11 caracteres. Al limitarlo a 11 caracteres, se asegura de que el nombre completo no supere el número máximo de caracteres para una cuenta de almacenamiento. El prefijo permite aplicar una convención de nomenclatura a las cuentas de almacenamiento. Verá cómo crear un nombre único en el paso siguiente.
 
-  ```json
-  "parameters": {
-    "storageAccount_prefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "storageAccount_accountType": {
-      "defaultValue": "Standard_RAGRS",
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    },
-    "virtualNetwork_name": {
-      "type": "string"
-    },
-    "addressPrefix": {
-      "defaultValue": "10.0.0.0/16",
-      "type": "string"
-    },
-    "subnetName": {
-      "defaultValue": "subnet-1",
-      "type": "string"
-    },
-    "subnetAddressPrefix": {
-      "defaultValue": "10.0.0.0/24",
-      "type": "string"
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageAccount_prefix": {
+       "type": "string",
+       "maxLength": 11
+     },
+     "storageAccount_accountType": {
+       "defaultValue": "Standard_RAGRS",
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ]
+     },
+     "virtualNetwork_name": {
+       "type": "string"
+     },
+     "addressPrefix": {
+       "defaultValue": "10.0.0.0/16",
+       "type": "string"
+     },
+     "subnetName": {
+       "defaultValue": "subnet-1",
+       "type": "string"
+     },
+     "subnetAddressPrefix": {
+       "defaultValue": "10.0.0.0/24",
+       "type": "string"
+     }
+   },
+   ```
 
 4. La sección **variables** de la plantilla está vacía actualmente. En la sección **variables** puede crear valores que simplifican la sintaxis para el resto de la plantilla. Reemplace esta sección con una nueva definición de variable. La variable **storageAccount_name** concatena el prefijo del parámetro con una cadena única que se genera basándose en el identificador del grupo de recursos. Ya no tiene que adivinar un nombre único al proporcionar un valor de parámetro.
 
-  ```json
-  "variables": {
-    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 5. Para usar los parámetros y la variable en las definiciones de recursos, reemplace la sección **recursos** por las nuevas definiciones de recursos. Observe que se ha cambiado muy poco en las definiciones de recursos, aparte del valor que se asigna a la propiedad de recurso. Las propiedades son iguales que las de la plantilla exportada. Simplemente va a asignar propiedades a los valores de parámetro, en lugar de valores codificados de forma rígida. La ubicación de los recursos se establece en la misma que la del grupo de recursos por medio de la expresión **resourceGroup().location** . Se hace referencia a la variable que creó para el nombre de la cuenta de almacenamiento mediante la expresión **variables** .
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetwork_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('subnetAddressPrefix')]"
-            }
-          }
-        ]
-      },
-      "dependsOn": []
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccount_name')]",
-      "apiVersion": "2015-06-15",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "accountType": "[parameters('storageAccount_accountType')]"
-      },
-      "dependsOn": []
-    }
-  ]
-  ```
+   ```json
+   "resources": [
+     {
+       "type": "Microsoft.Network/virtualNetworks",
+       "name": "[parameters('virtualNetwork_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "properties": {
+         "addressSpace": {
+           "addressPrefixes": [
+             "[parameters('addressPrefix')]"
+           ]
+         },
+         "subnets": [
+           {
+             "name": "[parameters('subnetName')]",
+             "properties": {
+               "addressPrefix": "[parameters('subnetAddressPrefix')]"
+             }
+           }
+         ]
+       },
+       "dependsOn": []
+     },
+     {
+       "type": "Microsoft.Storage/storageAccounts",
+       "name": "[variables('storageAccount_name')]",
+       "apiVersion": "2015-06-15",
+       "location": "[resourceGroup().location]",
+       "tags": {},
+       "properties": {
+         "accountType": "[parameters('storageAccount_accountType')]"
+       },
+       "dependsOn": []
+     }
+   ]
+   ```
 
 6. Seleccione **Aceptar** cuando haya terminado la edición de la plantilla.
 7. Seleccione **Guardar** para guardar los cambios en la plantilla.
@@ -393,7 +393,7 @@ En el recurso de sitio web, agregue una definición para el código que se insta
 ```
 
 ### <a name="virtual-machine-extension"></a>Extensión de máquina virtual
-Para ver ejemplos de extensiones de máquina virtual, consulte [Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para ver ejemplos de extensiones de máquina virtual, consulte [Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure](../virtual-machines/windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="virtual-network-gateway"></a>Puerta de enlace de red virtual
 Agregue un tipo de recurso de puerta de enlace de red virtual.
