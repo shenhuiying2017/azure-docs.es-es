@@ -25,6 +25,8 @@ ms.lasthandoff: 11/17/2016
 ## <a id="overview"></a>Información general
 Este artículo explica qué es el SDK de Trabajos web, revisa algunos escenarios habituales en los que resulta de utilidad y ofrece información general acerca de cómo utilizarlo en su código.
 
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
+
 [WebJobs](websites-webjobs-resources.md) es una característica del Servicio de aplicaciones de Azure que le permite ejecutar un programa o script en el mismo contexto que una aplicación web, una aplicación de API o una aplicación móvil. El propósito del [SDK de WebJobs](websites-webjobs-resources.md) es simplificar el código que escriba para las tareas comunes que puede realizar un trabajo web, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y envío de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible. El [SDK de WebJobs SDK es de código abierto](https://github.com/Azure/azure-webjobs-sdk/) y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 El SDK de WebJobs incluye los siguientes componentes:
