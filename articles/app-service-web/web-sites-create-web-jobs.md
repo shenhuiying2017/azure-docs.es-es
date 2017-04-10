@@ -25,6 +25,8 @@ ms.lasthandoff: 03/01/2017
 ## <a name="overview"></a>Información general
 Puede ejecutar programas o scripts en trabajos web en su aplicación web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) de tres maneras: a petición, de forma continua o según una programación. No hay ningún coste adicional en el uso de trabajos web.
 
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
+
 En este artículo se muestra cómo implementar Webjobs con el [Portal de Azure](https://portal.azure.com). Para obtener información sobre cómo implementar con Visual Studio o con un proceso de entrega continua, consulte [Implementación de Webjobs de Azure en aplicaciones web](websites-dotnet-deploy-webjobs.md).
 
 El SDK de trabajos web de Azure simplifica muchas de las tareas de programación de trabajos web. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](websites-dotnet-webjobs-sdk.md)

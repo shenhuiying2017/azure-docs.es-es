@@ -46,7 +46,6 @@ En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Cre
 
 La solución de problemas de Network Watcher permite solucionar los problemas que surgen con las puertas de enlace de Virtual Network y las conexiones. Cuando se envía una solicitud para solucionar problemas de recursos, se consultan y se inspeccionan los registros. Una vez finalizada la inspección, se devuelven los resultados. Las solicitudes de la API para solucionar problemas son de larga ejecución, y podrían tardar varios minutos en devolver un resultado. Los registros se almacenan en un contenedor en una cuenta de almacenamiento.
 
-
 ## <a name="log-in-with-armclient"></a>Inicio de sesión con ARMClient
 
 ```PowerShell
