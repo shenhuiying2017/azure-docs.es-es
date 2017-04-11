@@ -3,7 +3,7 @@ title: Uso del Bus de servicio de Azure con el SDK de WebJobs
 description: Aprenda a usar los temas y las colas del Bus de servicio de Azure con el SDK de WebJobs.
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76

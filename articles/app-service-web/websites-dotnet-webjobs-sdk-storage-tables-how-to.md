@@ -3,7 +3,7 @@ title: "Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs"
 description: "Obtenga información sobre cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs. Cree tablas, agregue entidades a las tablas y lea tablas existentes."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
