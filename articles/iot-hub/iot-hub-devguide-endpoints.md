@@ -50,7 +50,7 @@ Esta es una descripción de los puntos de conexión:
   * *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables [de nube a dispositivo][lnk-c2d] y recibir las confirmaciones de entrega o expiración correspondientes.
   * *Recepción de notificaciones de archivos*. Este punto de conexión de mensajería le permite recibir notificaciones del momento en que los dispositivos cargan correctamente un archivo. 
   * *Invocación del método director*. Este punto de conexión permite que un servicio back-end invoque un [método directo][lnk-methods] en un dispositivo.
-  * *Recepción de eventos de supervisión de operaciones*. Este punto de conexión le permite recibir eventos de supervisión de operaciones si su centro de IoT se ha configurado para emitirlos. Consulte [Supervisión de operaciones de IoT Hub][ lnk-operations-mon] para más información.
+  * *Recepción de eventos de supervisión de operaciones*. Este punto de conexión le permite recibir eventos de supervisión de operaciones si su centro de IoT se ha configurado para emitirlos. Consulte [Supervisión de operaciones de IoT Hub][lnk-operations-mon] para más información.
 
 En el artículo [SDK IoT de Azure][lnk-sdks] se describen las distintas formas con las que se puede acceder a estos puntos de conexión.
 
