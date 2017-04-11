@@ -17,6 +17,7 @@ ms.author: thmullan
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ba1bb3d84b462dfebbb2564569517d7336bf54fd
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -203,7 +204,7 @@ Si ya ha creado unos cuantos usuarios en la aplicación (por ejemplo, mediante c
 
 ![Tabla AspNetUsers de SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-Copie el identificador de user1@contoso.com, y péguelo en la siguiente instrucción T-SQL. Ejecute esta instrucción para asociar tres de los contactos con este UserId.
+Copie el identificador de user1@contoso.com y péguelo en la siguiente instrucción T-SQL. Ejecute esta instrucción para asociar tres de los contactos con este UserId.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
@@ -248,10 +249,5 @@ Eso es todo. La aplicación web sencilla de Contact Manager se ha convertido en 
 En este tutorial solo se ha mostrado una mínima parte de lo que se puede hacer con RLS. Por ejemplo, se puede tener una lógica de acceso más sofisticada o granular, y es posible almacenar más valores que únicamente el UserId de SESSION_CONTEXT. También es posible [integrar RLS con las bibliotecas de cliente de herramientas de base de datos elástica](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) para permitir particiones multiempresa en una capa de datos de escalado horizontal.
 
 Al margen de estas posibilidades, también estamos trabajando para mejorar RLS más incluso. Si tiene alguna pregunta, idea o cosas que le gustaría ver, háganos llegar sus comentarios. Agradecemos su participación.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

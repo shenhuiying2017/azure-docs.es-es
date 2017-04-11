@@ -15,9 +15,9 @@ ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29b7146837f8a88baebd67fc448954f01388d67b
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -87,14 +87,17 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 4. En App_Start\Startup.Auth.cs, cambie las siguientes definiciones de cadena estática:  
    
    <pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"]; <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+   private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+   <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
    
    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
    </pre>
-5. Ahora haga los cambios correspondientes en Web.config. Abra Web.config y modifique la siguiente configuración de la aplicación:  <pre class="prettyprint">
+5. Ahora haga los cambios correspondientes en Web.config. Abra Web.config y modifique la siguiente configuración de la aplicación:  
+   
+   <pre class="prettyprint">
    &lt;appSettings&gt;
    &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
    &lt;add key="webpages:Enabled" value="false" /&gt;
@@ -208,7 +211,16 @@ Ahora debe configurar una relación de confianza para usuario autenticado en Adm
     
     <pre class="prettyprint">
     c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"] => add( store = "_OpaqueIdStore", types = ("<mark>http://contoso.com/internal/sessionid</mark>"), query = "{0};{1};{2};{3};{4}", param = "useEntropy", param = c1.Value, param = c1.OriginalIssuer, param = "", param = c2.Value);
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+     => add(
+         store = "_OpaqueIdStore",
+         types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+         query = "{0};{1};{2};{3};{4}",
+         param = "useEntropy",
+         param = c1.Value,
+         param = c1.OriginalIssuer,
+         param = "",
+         param = c2.Value);
     </pre>
     
     Su regla personalizada debe tener un aspecto similar a esta captura de pantalla:
@@ -243,7 +255,7 @@ Cuando se cargue la aplicación web, haga clic en **Iniciar sesión**. Ahora deb
 
 ![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-Cuando inicie sesión con un usuario en el dominio de AD de la implementación de AD FS, debería ver la página principal de nuevo con **Hello, <User Name>!**  en la esquina. Esto es lo que vemos.
+Cuando inicie sesión con un usuario en el dominio de AD de la implementación de AD FS, debería ver la página principal de nuevo con **Hello, <User Name>!** en la esquina. Esto es lo que vemos.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
@@ -267,7 +279,9 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
    
     <pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About() { ViewBag.Message = "Su página de descripción de la aplicación.";
+    public ActionResult About()
+    {
+        ViewBag.Message = "Your application description page.";
    
         return View();
     }
@@ -287,8 +301,12 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
     Si investiga este error en el Visor de eventos del servidor de AD FS, verá este mensaje de excepción:  
    
     <pre class="prettyprint">
-    Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.  (La misma sesión del explorador cliente realizó "6" solicitudes en los últimos "11" segundos. Póngase en contacto con el administrador para obtener información detallada).
-   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)  </pre>
+    Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+       at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+       at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+    </pre>
    
     El motivo de este error es que, de forma predeterminada, MVC devuelve un mensaje 401 No autorizado cuando los roles de un usuario no están autorizados. Esto desencadena una solicitud de reautenticación para su proveedor de identidades (AD FS). Puesto que el usuario ya está autenticado, AD FS vuelve a la misma página, que a continuación emite otro mensaje 401, creando un bucle de redirección. Ahora reemplazará el método `HandleUnauthorizedRequest` de AuthorizeAttribute con una lógica sencilla para mostrar algo que tenga sentido, en lugar de continuar el bucle de redirección.
 5. Cree un archivo en el proyecto llamado AuthorizeAttribute.cs y pegue el código siguiente en él.
