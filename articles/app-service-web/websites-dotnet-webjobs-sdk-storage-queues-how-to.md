@@ -3,7 +3,7 @@ title: Uso del almacenamiento de colas de Azure con el SDK de WebJobs
 description: "Obtenga información sobre cómo usar el almacenamiento de colas de Azure con el SDK de WebJobs. Cree y elimine colas; inserte, inspeccione, obtenga y elimine mensajes de la cola y mucho más."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463

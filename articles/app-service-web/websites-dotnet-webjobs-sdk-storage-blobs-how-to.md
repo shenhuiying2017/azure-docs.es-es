@@ -3,7 +3,7 @@ title: Uso del almacenamiento de blobs de Azure con el SDK de WebJobs
 description: "Obtenga información sobre cómo usar el almacenamiento de blobs de Azure con el SDK de WebJobs. Desencadene un proceso cuando un blob nuevo aparezca en un contenedor y controle los &quot;blobs dudosos&quot;."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c
