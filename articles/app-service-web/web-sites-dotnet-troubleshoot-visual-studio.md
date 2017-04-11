@@ -227,8 +227,7 @@ Una aplicación de ASP.NET que se ejecuta en una aplicación web de Azure puede 
 * **Registros de seguimiento de aplicación**<br/>
   La aplicación crea estos registros mediante la llamada a métodos de la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) .
 * **Registros de servidor web**<br/>
-  
-El servidor web crea una entrada de registro para cada solicitud HTTP a la aplicación web.
+  El servidor web crea una entrada de registro para cada solicitud HTTP a la aplicación web.
 * **Registros de mensaje de error detallados**<br/>
   El servidor web crea una página HTML con algo de información adicional para solicitudes HTTP con error (las que generan el código de error 400 o superior).
 * **Registros de seguimiento de solicitudes con error**<br/>
@@ -603,8 +602,7 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
 * [Agentes de escucha de seguimiento](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Brinda información acerca de los agentes de escucha de seguimiento, pero no menciona [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
 * [Tutorial: Integración del seguimiento de ASP.NET con el seguimiento de System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-  
-También antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
+  También antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
 * [Seguimiento en vistas Razor de ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](http://msdn.microsoft.com/library/bb397417.aspx) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
@@ -632,8 +630,7 @@ Para obtener más información acerca del análisis de registros de servidor web
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Una herramienta para visualizar datos en registros de servidor web (archivos*.log* ).
 * [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-  
-Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
+  Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
 * [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](http://support.microsoft.com/kb/943891)
 
