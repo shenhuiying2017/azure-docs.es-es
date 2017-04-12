@@ -38,4 +38,3 @@ Azure Active Directory expone puntos de conexión de inicio y cierre de sesión 
 
 Para obtener información sobre los documentos de metadatos de federación que publica Azure AD, consulte [Metadatos de federación](active-directory-federation-metadata.md).
 
-

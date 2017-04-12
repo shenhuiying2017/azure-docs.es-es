@@ -59,7 +59,7 @@ Los pasos de este procedimiento muestran cómo conectarse a Azure Portal con la 
 2. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 3. En la página **Iniciar sesión** , proporcione las credenciales de la suscripción.
    
-   ![Iniciar sesión](./media/sql-database-get-started/login.png)
+   ![Iniciar sesión](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -84,11 +84,11 @@ Los pasos de este procedimiento muestran cómo consultar información de la cuen
 
 1. Abra SQL Server Management Studio y conéctese al servidor como administrador del servidor mediante la autenticación de SQL Server y la cuenta de administrador del servidor.
 
-   ![conectar con el servidor](./media/sql-database-get-started/connect-to-server.png)
+   ![conectar con el servidor](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Haga clic en **Conectar**.
 
-   ![conectado al servidor](./media/sql-database-get-started/connected-to-server.png)
+   ![conectado al servidor](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. En el Explorador de objetos, expanda **Seguridad** e **Inicios de sesión** para ver los inicios de sesión existentes para el servidor: el único inicio de sesión en un servidor nuevo es el de la cuenta de administrador del servidor.
 

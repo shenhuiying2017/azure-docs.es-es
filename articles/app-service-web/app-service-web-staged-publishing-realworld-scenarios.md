@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
 ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -164,7 +165,7 @@ En esta sección, obtendrá información sobre cómo configurar un flujo de trab
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>Uso de rutas de acceso relativas
 Lo último que hay que configurar en la aplicación de WordPress son las rutas de acceso relativas. WordPress almacena la información de dirección URL en la base de datos. Este almacenamiento dificulta el traslado de contenido de un entorno a otro. Debe actualizar la base de datos cada vez que se mueva del entorno local al de ensayo, o del de ensayo al de producción. Para reducir el riesgo de que surjan problemas que pueden deberse a la implementación de la base de datos cada vez que se pasa de un entorno a otro, use el [complemento de vínculos relativos a la raíz](https://wordpress.org/plugins/root-relative-urls/), que se puede instalar mediante el panel de administrador de WordPress.
@@ -442,9 +443,4 @@ Este ejemplo demuestra la flexibilidad de la plataforma, donde puede compilar m�
 [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-staged-publishing.md)
 
 [How to block web access to non-production deployment slots (Bloqueo del acceso web a ranuras de implementación que no son de producción)](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

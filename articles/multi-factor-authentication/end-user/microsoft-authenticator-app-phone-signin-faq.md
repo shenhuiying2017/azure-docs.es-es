@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 04/02/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: ec52f719f33db0d893d707b59293fa75a8ff4314
 ms.openlocfilehash: 033392783fd98cbdb23fd0254c93687754808286
-
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sesión con el teléfono, no la contraseña
@@ -90,9 +91,4 @@ En este momento, no estamos desarrollando esta funcionalidad para Microsoft Auth
 Si no se ha descargado la aplicación Microsoft Authenticator, échela un vistazo. La aplicación está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071) y el inicio de sesión con el teléfono está disponible en la aplicación Microsoft Authenticator para [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 Si tiene alguna pregunta sobre la aplicación en general, eche un vistazo a [Preguntas más frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
