@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
@@ -26,7 +26,7 @@ En este artículo, se describe el uso de la actividad de copia en Azure Data Fac
 
 Factoría de datos solo admite actualmente el movimiento de datos desde una tabla web a otros almacenes de datos, pero no de otros almacenes de datos a un destino de tabla web.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Actualmente, este conector web solo permite extraer contenido de tablas de una página HTML. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](data-factory-http-connector.md) en su lugar.
 
 ## <a name="getting-started"></a>Introducción
