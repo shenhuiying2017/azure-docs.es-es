@@ -17,9 +17,9 @@ ms.date: 02/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: db0f94bdeefac577765586f6b07ba13f9cfd2867
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 75368be1bb5da28df8bc29ca2d8811a822c0816e
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="analyze-twitter-data-using-hive-on-linux-based-hdinsight"></a>Análisis de datos de Twitter mediante Hive en HDInsight basado en Linux
@@ -29,13 +29,13 @@ Aprenda a usar Apache Hive en un clúster de HDInsight para procesar los datos d
 > [!IMPORTANT]
 > Los pasos de este documento se probaron en un clúster de HDInsight basado en Linux.
 >
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un **Clúster de HDInsight de Azure basado en Linux**. Para obtener información sobre la creación de un clúster, vea [Introducción a HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md) para conocer los pasos sobre la creación de un clúster.
 * Un **cliente SSH**. Para obtener más información sobre el uso de SSH con HDInsight basado en Linux, vea los siguientes artículos:
-  
+
   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
   * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 * **Python** y [pip](https://pypi.python.org/pypi/pip)
@@ -51,7 +51,7 @@ Twitter permite recuperar los [datos de cada tweet](https://dev.twitter.com/docs
 2. Haga clic en **Crear nueva aplicación**.
 
 3. Especifique los campos **Name** (Nombre), **Description** (Descripción), **Website** (Sitio web). Puede conformar una dirección URL para el campo **Website** (Sitio web). La siguiente tabla muestra algunos valores de ejemplo para utilizar:
-   
+
    | Campo | Valor |
    |:--- |:--- |
    | Nombre |MyHDInsightApp |
@@ -80,29 +80,29 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
 
 > [!NOTE]
 > Los siguientes pasos se realizan en el clúster de HDInsight, puesto que Python ya está instalada.
-> 
-> 
+>
+>
 
 1. Conéctese al clúster de HDInsight con SSH:
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá que la escriba. Si usa una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la ruta de acceso a la correspondiente clave privada. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
-   
+
     Para obtener más información sobre el uso de SSH con HDInsight basado en Linux, vea los siguientes artículos:
-   
+
    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. De forma predeterminada, la utilidad **pip** no está instalada en el nodo principal de HDInsight. Use lo siguiente para instalar y luego actualizar esta utilidad:
-   
+
    ```bash
    sudo apt-get install python-pip
    sudo pip install --upgrade pip
    ```
 
 3. Utilice los comandos siguientes para instalar l [Tweepy](http://www.tweepy.org/) y [Progressbar](https://pypi.python.org/pypi/progressbar/2.2):
-   
+
    ```bash
    sudo apt-get install python-dev libffi-dev libssl-dev
    sudo apt-get remove python-openssl
@@ -111,17 +111,17 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
 
    > [!NOTE]
    > La finalidad de quitar python-openssl, instalar python-dev, libffi-dev, libssl-dev, pyOpenSSL y requests[security] es evitar una advertencia InsecurePlatform al conectarse a Twitter a través de SSL desde Python.
-   > 
+   >
    > Tweepy v3.2.0 se usa para evitar [un error](https://github.com/tweepy/tweepy/issues/576) que pueda producirse al procesar tweets.
 
 4. Use el comando siguiente para crear un archivo denominado **gettweets.py**:
-   
+
    ```bash
    nano gettweets.py
    ```
 
 5. Use el texto siguiente como contenido del archivo **gettweets.py**. Reemplace la información de marcador de posición para **consumer\_secret**, **consumer\_key**, **access/\_token** y **access\_token\_secret** por la información de la aplicación de Twitter.
-   
+
    ```python
    #!/usr/bin/python
 
@@ -179,13 +179,13 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
 6. Use **Ctrl+X** y luego **Y** para guardar el archivo.
 
 7. Use el siguiente comando para ejecutar el archivo y descargar tweets:
-   
+
     ```bash
     python gettweets.py
     ```
-   
+
     Debe aparecer un indicador de progreso y aumentar hasta 100% mientras los tweets se descargan y se guardan en el archivo.
-   
+
    > [!NOTE]
    > Si la barra de progreso tarda mucho en avanzar, debería cambiar el filtro de seguimiento de las tendencias. Cuando hay muchos tweets sobre un tema en el filtro, puede obtener rápidamente los 10 000 tweets necesarios.
 
@@ -203,13 +203,13 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
 ## <a name="run-the-hiveql-job"></a>Ejecución del trabajo de HiveQL
 
 1. Use el siguiente comando para crear un archivo que contenga instrucciones de HiveQL:
-   
+
    ```bash
    nano twitter.hql
    ```
 
     Use el texto siguiente como contenido del archivo:
-   
+
    ```hiveql
    set hive.exec.dynamic.partition = true;
    set hive.exec.dynamic.partition.mode = nonstrict;
@@ -318,7 +318,7 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
 
 2. Presione **Ctrl+X** y luego **Y** para guardar el archivo.
 3. Use el siguiente comando para ejecutar el HiveQL incluido en el archivo:
-   
+
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
    ```
@@ -326,7 +326,7 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
     Este comando ejecuta el archivo **twitter.hql**. Una vez que se completa la consulta, verá el aviso `jdbc:hive2//localhost:10001/>`.
 
 4. En el símbolo del sistema Beeline, use lo siguiente para comprobar que puede seleccionar datos de la tabla **tweets** creada por el HiveQL en el archivo **twitter.hql**:
-   
+
    ```hiveql
    SELECT name, screen_name, count(1) as cc
        FROM tweets

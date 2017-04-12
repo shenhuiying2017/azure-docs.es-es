@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c6de21da824a6e81c38f36c41c05ddd704fadcb6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -130,7 +131,7 @@ Es posible que inicialmente piense que una plantilla debe ofrecer a los clientes
 ### <a name="free-form-configurations"></a>Configuraciones de forma libre
 A primera vista, las configuraciones de forma libre parecen idóneas. Permiten seleccionar un tipo de máquina virtual y proporcionan un número arbitrario de nodos y discos conectados para esos nodos, y lo hacen como parámetros para una plantilla. Sin embargo, este enfoque no es el ideal para algunos escenarios.
 
-En [Sizes for Windows virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Tamaños de máquinas virtuales Windows en Azure), se identifican los distintos tipos y tamaños de máquina virtual disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
+En [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Tamaños de máquinas virtuales Windows en Azure), se identifican los distintos tipos y tamaños de máquina virtual disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
 
 Una configuración de forma libre permite la selección de varias instancias de máquina virtual, diferentes tipos y tamaños de VM para esas instancias, varios discos para el tipo de máquina virtual y uno o más scripts para configurar el contenido de la máquina virtual.
 
@@ -347,10 +348,5 @@ Si desea publicar la plantilla en Marketplace, establezca distintas copias de la
 * Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md)
 * Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

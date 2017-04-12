@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c530f08842efde1ab87cfd111f1957ae685748f3
-ms.openlocfilehash: 77d3cb18c52a10236eb40e6ffde1ed9e2753af3f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -92,7 +93,7 @@ Hay muchas páginas en Internet que explican cómo hacer esto con IIS. [Aquí](h
 Puede usar Java para [crear un certificado](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### <a name="linux"></a>Linux
-[Este](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artículo se describe cómo crear certificados con SSH.
+[Este](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artículo se describe cómo crear certificados con SSH.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Cargue el certificado de servicio en el Portal de Azure clásico](cloud-services-configure-ssl-certificate.md) (o en [Azure Portal](cloud-services-configure-ssl-certificate-portal.md)).
@@ -103,10 +104,5 @@ Cargue un [certificado de API de administración](../azure-api-management-certs.
 > El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

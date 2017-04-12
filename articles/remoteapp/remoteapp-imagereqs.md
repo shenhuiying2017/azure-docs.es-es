@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a37804025cbd298ef2b98c84b5cc59c0cba07dd9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75b0f8d6b25a80f11002b683152cfb294cbb68bd
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="requirements-for-azure-remoteapp-images"></a>Requisitos para las imágenes Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -50,10 +51,5 @@ Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de 
 * No se admite la carga de su VHD desde una cadena de instantáneas.
 
 Consulte [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información sobre la creación de imágenes para Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

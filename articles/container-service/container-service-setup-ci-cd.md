@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,8 +50,8 @@ Vamos a ver algunos aspectos claves de la aplicación y el flujo de implementaci
 >[!IMPORTANT]
 > Para crear un clúster seguro, se pasa el archivo de claves públicas de SSH al llamar a `az acs create`. Puede hacer que la versión 2.0 de la CLI de Azure genere las claves automáticamente y las pase al mismo tiempo mediante la opción `--generate-ssh-keys`, o bien, puede pasar la ruta de acceso a las claves mediante la opción `--ssh-key-value` (la ubicación predeterminada en Linux es `~/.ssh/id_rsa.pub` y en Windows `%HOMEPATH%\.ssh\id_rsa.pub`, pero se puede cambiar).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> Para crear archivos de claves públicas y privadas de SSH en Linux, consulte el artículo sobre la [creación de claves SSH en Linux y Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> Para crear archivos de claves públicas y privadas de SSH en Windows, consulte el artículo sobre la [creación de claves SSH en Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para crear archivos de claves públicas y privadas de SSH en Linux, consulte el artículo sobre la [creación de claves SSH en Linux y Mac](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para crear archivos de claves públicas y privadas de SSH en Windows, consulte el artículo sobre la [creación de claves SSH en Windows](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. En primer lugar, escriba el comando [az login](/cli/azure/#login) en una ventana de terminal para iniciar sesión en su suscripción de Azure con la CLI de Azure: 
 

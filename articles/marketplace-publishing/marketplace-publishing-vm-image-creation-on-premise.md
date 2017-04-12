@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -124,7 +125,7 @@ A continuación, puede crear un contenedor dentro de esa cuenta de almacenamient
 > Esos comandos asumen que ya se ha establecido el contexto de la cuenta de almacenamiento actual en PowerShell.   Consulte [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md) para obtener más detalles sobre la configuración de PowerShell.  
 > 
 > ### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Creación de una cuenta de almacenamiento con la herramienta de línea de comandos para Mac y Linux
-> En la [Herramienta de línea de comandos de Linux](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), cree una cuenta de almacenamiento de la manera siguiente.
+> En la [Herramienta de línea de comandos de Linux](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), cree una cuenta de almacenamiento de la manera siguiente.
 > 
 > 
 
@@ -148,10 +149,5 @@ Con la [Herramienta de línea de comandos de Linux](https://docs.microsoft.com/c
 ## <a name="see-also"></a>Consulte también
 * [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

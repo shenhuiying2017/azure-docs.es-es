@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 700dffe72af853d0daa9af06c0b316e0363ab30b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -122,7 +123,7 @@ Consulte la [documentación de Azure Site Recovery](../site-recovery/site-recove
    > Esto provocará que los recursos compartidos de archivos no estén disponibles temporalmente.
    >
    >
-2. Seleccione [Habilitar protección de máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication) de la máquina virtual de servidor de archivos desde el portal de Azure Site Recovery.
+2. Seleccione [Habilitar protección de máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) de la máquina virtual de servidor de archivos desde el portal de Azure Site Recovery.
 3. Cuando comience la sincronización inicial, podrá volver a conectar el destino. Vaya al iniciador iSCSI, seleccione el dispositivo StorSimple y haga clic en **Conectar**.
 4. Cuando la sincronización se haya completado y el estado de la máquina virtual sea **Protegido**, seleccione la máquina virtual, seleccione la pestaña **Configurar** y actualice la red de la máquina virtual del mismo modo (esta es la red de la que formarán parte las máquinas virtuales conmutadas por error). Si la red no aparece, significa que la sincronización todavía está en curso.
 
@@ -301,9 +302,4 @@ El planeamiento de capacidad se compone de al menos dos procesos importantes:
 
 ## <a name="summary"></a>Resumen
 Con Azure Site Recovery, puede crear un plan de recuperación ante desastres automatizado completo para una máquina virtual de servidor de archivos con recursos compartidos de archivos hospedados en el almacenamiento de StorSimple. Puede iniciar la conmutación por error en cuestión de segundos desde cualquier lugar si se produce una interrupción y poner en funcionamiento la aplicación en unos minutos.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4debed5ceed2c94b2e5b666d6fcebec5667bfda7
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 806634bb66ebb538020f1ffa693704433fc43352
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +30,7 @@ Refernce article:
 
 En este artículo se muestra cómo conectar discos nuevos y existentes creados con el modelo de implementación clásica a una máquina virtual Windows mediante Azure Portal.
 
-También puede [adjuntar un disco de datos a una máquina virtual Linux en el Portal de Azure](../../virtual-machines-linux-attach-disk-portal.md).
+También puede [adjuntar un disco de datos a una máquina virtual Linux en el Portal de Azure](../../linux/attach-disk-portal.md).
 
 Antes de conectar un disco, revise estas sugerencias:
 
