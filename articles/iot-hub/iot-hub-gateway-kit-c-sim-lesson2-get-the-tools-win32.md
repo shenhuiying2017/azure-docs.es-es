@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "desarrollo de iot, software de iot, servicio en la nube de iot, software de internet de las cosas, cli de azure, instalar git en windows, ejecución de gulp, instalar node js windows, instalar npm en windows, instalar python en windows"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: c16eee4c-8756-454b-82bf-3eb0dd51aa5f
 ms.service: iot-hub
 ms.devlang: c

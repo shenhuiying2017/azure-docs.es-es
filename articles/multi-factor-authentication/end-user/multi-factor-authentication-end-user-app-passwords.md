@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 3fd5b85f718313d8267157157e45965b2b21f2db
 ms.openlocfilehash: 60c84a5f5c675b012f2504f6fe222f35ce4d0646
-
+ms.lasthandoff: 02/03/2017
 
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?
@@ -116,9 +117,4 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 - [Administrar la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 
 - Pruebe la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar los inicios de sesión con las notificaciones de aplicación, en lugar de recibir llamadas o textos. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

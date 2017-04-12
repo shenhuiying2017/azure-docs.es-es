@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "datos en la nube, recopilación de datos en la nube, servicio en la nube de iot, datos de iot"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 5a6ec9c1-d83c-41c1-beaf-7c0d3395d77f
 ms.service: iot-hub
 ms.devlang: c

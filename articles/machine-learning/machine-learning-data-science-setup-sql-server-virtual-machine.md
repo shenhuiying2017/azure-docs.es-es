@@ -96,23 +96,23 @@ Una vez se haya conectado a la máquina virtual con el Escritorio remoto de Wind
 ## <a name="InstallIPython"></a>Instalación de Bloc de notas de IPython y otras herramientas de compatibilidad
 Para configurar la nueva máquina virtual de SQL Server para que actúe como un servidor de Bloc de notas de IPython e instalar las herramientas de compatibilidad adicionales como AzCopy, Explorador de almacenamiento de Azure, paquetes de Python de ciencia de datos útiles y otros, le ofrecemos un script de personalización especial. Para instalarlo:
 
-* Haga clic con el botón derecho en el icono **Inicio de Windows** y haga clic en **Símbolo del sistema (administrador)**.
-* Copie los comandos siguientes y péguelos en el símbolo del sistema.
+1. Haga clic con el botón derecho en el icono **Inicio de Windows** y haga clic en **Símbolo del sistema (administrador)**.
+2. Copie los comandos siguientes y péguelos en el símbolo del sistema.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* Cuando se le solicite, escriba la contraseña que prefiera para el servidor de Bloc de notas de IPython.
-* El script de personalización automatiza varios procedimientos posteriores a la instalación, entre los que se incluyen:
-  * La instalación y configuración del servidor Bloc de notas de IPython.
-  * La apertura de los puertos TCP en Firewall de Windows para los extremos que creó anteriormente:
-  * Para la conectividad remota de SQL Server
-  * Para la conectividad remota del servidor de Bloc de notas de IPython
-  * La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
-  * La descarga e instalación de paquetes de Python de ciencia de datos útiles
-  * La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure   
+3. Cuando se le solicite, escriba la contraseña que prefiera para el servidor de Bloc de notas de IPython.
+4. El script de personalización automatiza varios procedimientos posteriores a la instalación, entre los que se incluyen:
+    * La instalación y configuración del servidor Bloc de notas de IPython.
+    * La apertura de los puertos TCP en Firewall de Windows para los extremos que creó anteriormente:
+    * Para la conectividad remota de SQL Server
+    * Para la conectividad remota del servidor de Bloc de notas de IPython
+    * La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
+    * La descarga e instalación de paquetes de Python de ciencia de datos útiles
+    * La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure   
     <br>
-* Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
-* El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
+5. Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
+6. El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
 
 ## <a name="Optional"></a>Conectar discos de datos según sea necesario
 Si la imagen de la máquina virtual no incluye discos de datos, es decir, discos que no sean la unidad C (disco del sistema operativo) y la unidad D (disco temporal), deberá agregar uno o más discos de datos para almacenar los datos. La imagen de máquina virtual de SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads viene configurada previamente con discos adicionales para los archivos de registro y de datos de SQL Server.

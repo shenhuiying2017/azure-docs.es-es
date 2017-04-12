@@ -1,8 +1,10 @@
 Puede usar `Get-AzureVNetConnection` para comprobar la conexión de una puerta de enlace de red virtual clásica. 
 
 1. Puede usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Si el nombre de la red virtual contiene espacios, debe estar entre comillas.
-   
-        Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
+
+  ```powershell
+  Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
+  ```
 2. Cuando el cmdlet haya finalizado, consulte los valores. En el ejemplo siguiente, en ConnectivityState aparece "Connected" y se pueden ver los bytes de entrada y salida.
 
         ConnectivityState         : Connected
@@ -14,8 +16,3 @@ Puede usar `Get-AzureVNetConnection` para comprobar la conexión de una puerta d
                                     Connected.
         LastEventTimeStamp        : 1/7/2016 12:40:54 AM
         LocalNetworkSiteName      : RMVNetLocal
-
-
-<!--HONumber=Jan17_HO3-->
-
-
