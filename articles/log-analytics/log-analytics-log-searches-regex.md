@@ -14,39 +14,39 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 73739f4f154bebe271ce29bd285122ea7f56d769
-ms.openlocfilehash: bcf36cdec6c1dda7aa0213c42adf8d0281dc28d2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Uso de expresiones regulares para filtrar búsquedas de registros en Log Analytics
 
-Las [búsquedas de registros](log-analytics-log-searches.md) permiten extraer información del repositorio de Log Analytics.  Las [expresiones de filtro](log-analytics-search-reference.md#filter-expression) permiten filtrar los resultados de la búsqueda según criterios específicos.  La palabra clave **RegEx** permite especificar una expresión regular para este filtro.  
+Las [búsquedas de registros](log-analytics-log-searches.md) permiten extraer información del repositorio de Log Analytics.  Las [expresiones de filtro](log-analytics-search-reference.md#filter-expressions) permiten filtrar los resultados de la búsqueda según criterios específicos.  La palabra clave **RegEx** permite especificar una expresión regular para este filtro.  
 
 En este artículo se proporcionan detalles sobre la sintaxis de expresión regular utilizada por Log Analytics.
 
 
 ## <a name="regex-keyword"></a>Palabra clave RegEx
 
-Use la siguiente sintaxis para usar la palabra clave **RegEx** en una búsqueda de registros.  Puede usar las otras secciones de este artículo para determinar la sintaxis de la expresión regular. 
+Use la siguiente sintaxis para usar la palabra clave **RegEx** en una búsqueda de registros.  Puede usar las otras secciones de este artículo para determinar la sintaxis de la expresión regular.
 
     field:Regex("Regular Expression")
     field=Regex("Regular Expression")
 
-Por ejemplo, para usar una expresión regular para devolver registros de alerta con un tipo de *Advertencia* o *Error*, usaría la siguiente búsqueda de registros. 
+Por ejemplo, para usar una expresión regular para devolver registros de alerta con un tipo de *Advertencia* o *Error*, usaría la siguiente búsqueda de registros.
 
     Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## <a name="partial-matches"></a>Coincidencias parciales
 Tenga en cuenta que la expresión regular debe coincidir con todo el texto de la propiedad.  Las coincidencias parciales no devolverán ningún registro.  Por ejemplo, si intentaba devolver registros de un equipo denominado srv01.contoso.com, la siguiente búsqueda de registros **no** devolvería ningún registro.
 
-    Computer=RegEx("srv..") 
+    Computer=RegEx("srv..")
 
-Esto es porque solo la primera parte del nombre coincide con la expresión regular.  Las dos búsquedas de registros siguientes devolverían registros de este equipo porque coinciden con el nombre completo. 
+Esto es porque solo la primera parte del nombre coincide con la expresión regular.  Las dos búsquedas de registros siguientes devolverían registros de este equipo porque coinciden con el nombre completo.
 
     Computer=RegEx("srv..@")
-    Computer=RegEx("srv...contoso.com") 
+    Computer=RegEx("srv...contoso.com")
 
 ## <a name="characters"></a>Caracteres
 Especifique diferentes caracteres.

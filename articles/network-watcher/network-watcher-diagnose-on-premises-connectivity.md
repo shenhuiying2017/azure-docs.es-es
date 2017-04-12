@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b832916f5b6fe413f9fc7b3fcefcea40d3ce7ef
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 02f1e14d771c4f2af5f01f79a9a322a5eada4385
+ms.lasthandoff: 04/11/2017
 
 ---
 
 # <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de VPN Gateway
 
-Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si no es así, puede provocar una pérdida de conectividad y además, hasta hoy en día, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
+Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si no es así, puede provocar una pérdida de conectividad y además, hasta hoy en día, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
 
 Con la característica de solución de problemas de Azure Network Watcher, es posible diagnosticar cualquier problema de la puerta de enlace y las conexiones y, en cuestión de minutos, disponer de información suficiente para tomar una decisión informada para rectificar el problema.
 
@@ -36,7 +36,7 @@ Desea configurar una conexión de sitio a sitio entre Azure y la red local con C
 1. Conexión de sitio a sitio (basada en directivas): [conexión entre VPN Gateway y CISCO ASA local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#a-namecreateconnectiona8-create-a-site-to-site-vpn-connection)
 1. [Configuración de CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
 
-Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). 
+Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 Uno de los pasos de configuración más importantes es la configuración de los parámetros de comunicación de IPsec, ya que una configuración incorrecta conlleva una pérdida de conectividad entre la red local y Azure. Actualmente, las instancias de Azure VPN Gateway están configuradas para admitir los siguientes parámetros de IPsec durante la fase 1. Tenga en cuenta que, como ya se mencionó anteriormente, esta configuración no se puede modificar.  Como puede ver en la tabla siguiente, los algoritmos de cifrado admitidos por Azure VPN Gateway son AES256 y AES128 y 3DES.
 
@@ -50,23 +50,23 @@ Uno de los pasos de configuración más importantes es la configuración de los 
 | Algoritmos de cifrado |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28.800 segundos |10.800 segundos |
- 
+
 Como usuario, se le pedirá que configure Cisco ASA. Puede encontrar un ejemplo de configuración en [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Entre otras configuraciones, también deberá especificar el algoritmo hash. Cisco ASA admite más [algoritmos hash y de cifrado](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) que Azure VPN Gateway. Sin saberlo, ya configuró Cisco ASA para que use SHA-512 como algoritmo hash. Como este algoritmo no es un algoritmo compatible con las conexiones basadas en directivas, la conexión VPN funciona.
 
-Estos problemas son difíciles de solucionar y las causas principales suelen ser poco intuitivas. En este caso puede abrir una incidencia de soporte técnico para obtener ayuda acerca de cómo resolver el problema. Pero con la API de solución de problemas de Azure Network Watcher puede identificar estos problemas por su cuenta. 
+Estos problemas son difíciles de solucionar y las causas principales suelen ser poco intuitivas. En este caso puede abrir una incidencia de soporte técnico para obtener ayuda acerca de cómo resolver el problema. Pero con la API de solución de problemas de Azure Network Watcher puede identificar estos problemas por su cuenta.
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Solución de problemas mediante Azure Network Watcher
 
-Para diagnosticar la conexión, conéctese a Azure PowerShell e inicie el cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Puede encontrar los detalles sobre el uso de este cmdlet en [Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet puede tardar varios minutos en completarse. 
+Para diagnosticar la conexión, conéctese a Azure PowerShell e inicie el cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Puede encontrar los detalles sobre el uso de este cmdlet en [Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet puede tardar varios minutos en completarse.
 
 Una vez completado el cmdlet, puede navegar a la ubicación de almacenamiento especificada en el cmdlet para obtener información detallada sobre el problema y los registros. Azure Network Watcher crea una carpeta zip que contiene los archivos de registro siguientes:
 
 ![1][1]
 
-Abra el archivo denominado IKEErrors.txt que muestra el siguiente error que indica un problema con una configuración incorrecta de IKE local. 
+Abra el archivo denominado IKEErrors.txt que muestra el siguiente error que indica un problema con una configuración incorrecta de IKE local.
 
 ```
-Error: On-premises device rejected Quick Mode settings. Check values. 
+Error: On-premises device rejected Quick Mode settings. Check values.
      based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
@@ -74,7 +74,7 @@ Puede obtener información detallada sobre el error a partir del archivo Scrubbe
 
 Otro error de configuración común es la especificación de claves compartidas incorrectas. Si ha especificado diferentes claves compartidas en el ejemplo anterior, el archivo IKEErrors.txt mostrará el siguiente error: `Error: Authentication failed. Check shared key`.
 
-La característica de solución de problemas de Azure Network Watcher le permite diagnosticar y solucionar problemas de VPN Gateway y problemas de conexión con la facilidad de un simple cmdlet de PowerShell. En la actualidad se admite el diagnóstico de las siguientes condiciones y en el futuro se agregarán más. 
+La característica de solución de problemas de Azure Network Watcher le permite diagnosticar y solucionar problemas de VPN Gateway y problemas de conexión con la facilidad de un simple cmdlet de PowerShell. En la actualidad se admite el diagnóstico de las siguientes condiciones y en el futuro se agregarán más.
 
 ### <a name="gateway"></a>Puerta de enlace
 

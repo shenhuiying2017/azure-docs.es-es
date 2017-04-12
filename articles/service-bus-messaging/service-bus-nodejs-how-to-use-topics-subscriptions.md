@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 56094202673416320e5a8801ee2275881ccfc8fb
-ms.openlocfilehash: 4e28b47a1ce1a3bf69a57382a5ec6c2a8a161efe
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 24375a7c56cdad59363803ef3aae724977961b44
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -325,12 +326,7 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creaci처n e implementaci처n de una aplicaci처n Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Creaci처n e implementaci처n de una aplicaci처n Node.js en un sitio web de Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

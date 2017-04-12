@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b9041713f3d084fde77a34ef7956a2c59312245e
-ms.openlocfilehash: d48f82d8fea89b45af14dd2154d69889c95a5e2f
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b5ed7853c696d9e8477a31aba8a9cc9ab8558fa8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -405,7 +406,7 @@ blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
 });
 ```
 
-Después de establecer una ACL, puede crear luego firmad de acceso compartido basadas en el id. de una directiva. En el ejemplo de código siguiente se crean nuevas firmas de acceso compartido para 'user&2;':
+Después de establecer una ACL, puede crear luego firmad de acceso compartido basadas en el id. de una directiva. En el ejemplo de código siguiente se crean nuevas firmas de acceso compartido para 'user 2':
 
 ```nodejs
 blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
@@ -422,8 +423,7 @@ Para obtener más información, consulte los siguientes recursos:
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[Creación de una aplicación web Node.js en Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Creación de una aplicación web Node.js en Azure App Service]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Aplicación web de Node.js con Azure Table service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
@@ -431,9 +431,4 @@ Para obtener más información, consulte los siguientes recursos:
 [Creación e implementación de una aplicación Node.js en un servicio en la nube de Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

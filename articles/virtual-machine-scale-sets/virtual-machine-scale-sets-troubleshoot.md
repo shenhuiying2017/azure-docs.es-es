@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
-ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 Entre los aspectos que debe considerar se incluyen:
 
 * ¿Cuántos núcleos tiene cada máquina virtual? ¿Está cargando cada núcleo?
-  La plantilla de inicio rápido de Azure del ejemplo anterior incluye un script do_work.php, que carga un único núcleo. Si está usando una máquina virtual con un tamaño superior a un único núcleo, como Standard_A1 o D1, debe ejecutar entonces esta carga varias veces. Compruebe el número de núcleos de las máquinas virtuales después de consultar [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  La plantilla de inicio rápido de Azure del ejemplo anterior incluye un script do_work.php, que carga un único núcleo. Si está usando una máquina virtual con un tamaño superior a un único núcleo, como Standard_A1 o D1, debe ejecutar entonces esta carga varias veces. Compruebe el número de núcleos de las máquinas virtuales después de consultar [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * ¿Cuántas máquinas virtuales hay en el conjunto de escalado? ¿está realizando trabajos en cada una de ellas?
   
     Solo se producirá un evento de escalado horizontal si el promedio de uso de CPU en **todas** las máquinas virtuales de un conjunto de escalado supera el valor de umbral durante el tiempo interno definido en las reglas de escalado automático.
@@ -82,9 +83,4 @@ Entre los aspectos que debe considerar se incluyen:
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

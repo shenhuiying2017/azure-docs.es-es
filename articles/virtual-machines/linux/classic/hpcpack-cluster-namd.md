@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -61,7 +61,7 @@ Es fácil generar un par de claves RSA, con clave pública y clave privada, medi
    ![Claves públicas y privadas][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Adición del par de claves al clúster de HPC Pack
-1. [Conéctese mediante el Escritorio remoto](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a la máquina virtual de nodo principal con las credenciales de dominio proporcionadas cuando implementó el clúster (por ejemplo, hpc\clusteradmin). Usted administra el clúster desde el nodo principal.
+1. [Conéctese mediante el Escritorio remoto](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a la máquina virtual de nodo principal con las credenciales de dominio proporcionadas cuando implementó el clúster (por ejemplo, hpc\clusteradmin). Usted administra el clúster desde el nodo principal.
 2. Use los procedimientos estándar de Windows Server para crear una cuenta de usuario de dominio en el dominio de Active Directory del clúster. Por ejemplo, use la herramienta Usuario y equipos de Active Directory en el nodo principal. En los ejemplos de este artículo se asume que crea un usuario de dominio denominado hpcuser en el dominio hpclab (hpclab\hpcuser).
 3. Agregue el usuario de dominio al clúster de HPC Pack como un usuario de clúster. Para obtener instrucciones, consulte [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx)(Adición o eliminación de usuarios de clúster).
 4. Cree un archivo denominado C:\cred.xml y copie los datos de la clave RSA en él. Puede encontrar un ejemplo en los archivos de ejemplo, al final de este artículo.

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -191,7 +191,7 @@ Este error puede tener distintos orígenes.
   for type {resource-type} has incorrect segment lengths.
   ```
 
-   Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene&2; segmentos y el nombre,&1;, por lo que es un **nombre válido**.
+   Un recurso de nivel de raíz debe tener un segmento menos en el nombre que en el tipo de recurso. Cada segmento se distingue por una barra diagonal. En el ejemplo siguiente, el tipo tiene 2 segmentos y el nombre, 1, por lo que es un **nombre válido**.
 
   ```json
   {
@@ -230,7 +230,7 @@ Este error puede tener distintos orígenes.
   ]
   ```
 
-   Obtener los segmentos correctos puede resultar complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, para aplicar un bloqueo de recurso a un sitio web, el tipo debe tener&4; segmentos. Por lo tanto, el nombre tiene&3; segmentos:
+   Obtener los segmentos correctos puede resultar complicado con los tipos de Resource Manager que se aplican en los proveedores de recursos. Por ejemplo, para aplicar un bloqueo de recurso a un sitio web, el tipo debe tener 4 segmentos. Por lo tanto, el nombre tiene 3 segmentos:
 
   ```json
   {
@@ -465,7 +465,7 @@ Que devuelve:
 ]
 ```
 
-Si implementa una plantilla que crea más de&4; núcleos en la región oeste de EE. UU., obtendrá un error de implementación similar al siguiente:
+Si implementa una plantilla que crea más de 4 núcleos en la región oeste de EE. UU., obtendrá un error de implementación similar al siguiente:
 
 ```
 Code=OperationNotAllowed
@@ -679,13 +679,13 @@ En la tabla siguiente se enumeran los temas de solución de problemas para máqu
 
 | Error | Artículos |
 | --- | --- |
-| Errores de extensión de script personalizado |[Errores de extensión de máquina virtual Linux](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Errores de extensión de máquina virtual Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errores de aprovisionamiento de imágenes de sistema operativo |[Nuevos errores de máquina virtual Windows](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Nuevos errores de máquina virtual Linux](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errores de asignación |[Errores de asignación de máquina virtual Linux](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Errores de asignación de máquina virtual Linux](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errores de Secure Shell (SSH) al intentar conectarse |[Conexiones de Secure Shell a máquina virtual Linux](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errores de conexión a una aplicación que se ejecuta en una máquina virtual |[Aplicación que se ejecuta en una máquina virtual Linux](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Aplicación que se ejecuta en una máquina virtual Linux](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errores de conexión del Escritorio remoto |[Conexiones del Escritorio remoto a máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Errores de conexión resueltos con una nueva implementación |[Nueva implementación de la máquina virtual en un nuevo nodo de Azure](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Errores de extensión de script personalizado |[Errores de extensión de máquina virtual Linux](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Errores de extensión de máquina virtual Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errores de aprovisionamiento de imágenes de sistema operativo |[Nuevos errores de máquina virtual Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Nuevos errores de máquina virtual Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errores de asignación |[Errores de asignación de máquina virtual Linux](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Errores de asignación de máquina virtual Linux](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errores de Secure Shell (SSH) al intentar conectarse |[Conexiones de Secure Shell a máquina virtual Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errores de conexión a una aplicación que se ejecuta en una máquina virtual |[Aplicación que se ejecuta en una máquina virtual Linux](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />o<br />[Aplicación que se ejecuta en una máquina virtual Linux](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errores de conexión del Escritorio remoto |[Conexiones del Escritorio remoto a máquinas virtuales Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Errores de conexión resueltos con una nueva implementación |[Nueva implementación de la máquina virtual en un nuevo nodo de Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Errores de servicio en la nube |[Problemas de implementación de servicio en la nube](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 En la tabla siguiente se enumeran los temas de solución de problemas para otros servicios de Azure. Se centra en los problemas relacionados con la implementación o la configuración de recursos. Si necesita ayuda para solucionar problemas de tiempo de ejecución con un recurso, consulte la documentación de ese servicio de Azure.

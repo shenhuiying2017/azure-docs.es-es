@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 08390472c6480200751f37028fef594fb055f118
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -165,7 +165,7 @@ Además de la telemetría inmediata enviada por el SDK de Application Insights, 
 * Capturar seguimientos de registros de su plataforma de registro de favoritos en [.NET](app-insights-asp-net-trace-logs.md) o [Java](app-insights-java-trace-logs.md). Esto significa que puede buscar en los seguimientos de registros y correlacionarlos con vistas de página, excepciones y otros eventos. 
 * [Escribir código](app-insights-api-custom-events-metrics.md) para enviar eventos personalizados, vistas de página y excepciones. 
 
-[Aprender a enviar registros y telemetría personalizada a Application Insights](app-insights-search-diagnostic-logs.md).
+[Aprender a enviar registros y telemetría personalizada a Application Insights](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Preguntas y respuestas
 ### <a name="limits"></a>¿Qué cantidad de datos se conserva?
@@ -173,7 +173,7 @@ Además de la telemetría inmediata enviada por el SDK de Application Insights, 
 Consulte [Resumen de límites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>¿Cómo puedo ver datos POST en mis solicitudes de servidor?
-Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](app-insights-search-diagnostic-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
+Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](app-insights-asp-net-trace-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
 
 ## <a name="video"></a>Vídeo
 
@@ -181,7 +181,7 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
 ## <a name="add"></a>Pasos siguientes
 * [Escribir consultas complejas en Analytics](app-insights-analytics-tour.md)
-* [Envío de registros y telemetría personalizada a Application Insights](app-insights-search-diagnostic-logs.md).
+* [Envío de registros y telemetría personalizada a Application Insights](app-insights-asp-net-trace-logs.md).
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta](app-insights-monitor-web-app-availability.md)
 * [Solución de problemas](app-insights-troubleshoot-faq.md)
 

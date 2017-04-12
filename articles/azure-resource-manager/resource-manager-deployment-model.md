@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c56a1dc92c27d55b90554e23dd9763ff98ce6cc7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -189,9 +189,9 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 ## <a name="migrate-from-classic-to-resource-manager"></a>Migración de implementaciones clásicas a Resource Manager
 Si está listo para migrar los recursos de la implementación clásica a la implementación de Resource Manager, consulte:
 
-1. [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [Migración compatible con la plataforma de recursos de IaaS del modelo clásico a Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Migración de recursos de IaaS de la implementación clásica a la de Resource Manager con Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Migración compatible con la plataforma de recursos de IaaS del modelo clásico a Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migración de recursos de IaaS de la implementación clásica a la de Resource Manager con Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Preguntas frecuentes

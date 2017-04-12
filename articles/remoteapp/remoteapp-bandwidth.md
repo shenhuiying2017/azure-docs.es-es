@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8b5f4568fa4e505b28011134cc8669ea50e17cf6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Calcular el uso del ancho de banda de red de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,10 +44,5 @@ Cuando revise las pruebas propuestas y nuestras recomendaciones generales (y hay
 Aunque trataremos el redireccionamiento de dispositivos, no tendremos en cuenta el impacto del ancho de banda en el tráfico de red provocado por los dispositivos adjuntos, como los de almacenamiento, impresoras, escáneres, cámaras web y otros dispositivos USB. Normalmente, el efecto de dichos dispositivos aumenta las necesidades del ancho de banda de manera temporal, y desaparece cuando se completa la tarea. Pero si se realiza con frecuencia, la demanda de ancho de banda puede ser bastante notable.
 
 Tampoco analizamos cómo un usuario puede afectar a otros usuarios dentro de la misma red. Por ejemplo, un usuario que consume un vídeo de 4K en una red de 100 MB/s puede afectar significativamente a otros usuarios de esa misma red que intenten realizar la misma tarea. Lamentablemente, cada vez es más difícil determinar el impacto del uso simultáneo para proporcionar una recomendación común o integral acerca de cómo funciona el sistema a nivel global. Todo lo que podemos decir es que la tecnología de protocolo subyacente hará el mejor uso del ancho de banda de red disponible, pero tiene sus limitaciones.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

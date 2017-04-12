@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Además de Aplicaciones web en el Servicio de aplicaciones, Azure ofrece otros s
 Para comenzar mediante la implementación de código de ejemplo en una nueva aplicación web en el App Service, siga uno de los tutoriales del siguiente cuadro desplegable. Necesitará una cuenta gratis de Azure.
 
 > [!div class="op_single_selector"]
-> * [Implementación del primer sitio HTML en Azure en 5 minutos](app-service-web-get-started-html-cli-nodejs.md)
-> * [Implementación de la primer aplicación web ASP.NET en 5 minutos](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Implementación de la primer aplicación web PHP en Azure en 5 minutos](app-service-web-get-started-php-cli-nodejs.md)
-> * [Implementación de la primer aplicación web Node.js en Azure en 5 minutos](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Implementación de la primer aplicación web Python en Azure en 5 minutos](app-service-web-get-started-python-cli-nodejs.md)
+> * [Implementación de la primer aplicación web ASP.NET en 5 minutos](app-service-web-get-started-dotnet.md)
+> * [Implementación de la primer aplicación web PHP en Azure en 5 minutos](app-service-web-get-started-php.md)
+> * [Implementación de la primer aplicación web Node.js en Azure en 5 minutos](app-service-web-get-started-nodejs.md)
 > * [Implementación de la primer aplicación web Java en Azure en 5 minutos](app-service-web-get-started-java.md)
+> * [Implementación de la primer aplicación web Python en Azure en 5 minutos](app-service-web-get-started-python.md)
+> * [Implementación del primer sitio HTML en Azure en 5 minutos](app-service-web-get-started-html.md)
 > 
 > 
 

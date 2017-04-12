@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,6 +114,7 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 * Traffic Manager
 * Virtual Machines: no permite trasladarse a una nueva suscripción cuando sus certificados se almacenan en una instancia de Key Vault
 * Máquinas virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* Conjuntos de escalado de máquina virtual
 * Virtual Networks: por el momento, no se puede mover una red virtual emparejada hasta que el emparejamiento de la red virtual se haya inhabilitado. Una vez deshabilitada, se podrá mover correctamente la red virtual y habilitar el emparejamiento de VNET.
 * Puerta de enlace de VPN 
 
@@ -134,11 +135,9 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Virtual Machines con certificados almacenados en Key Vault
 * Máquinas virtuales con discos administrados
 * Conjuntos de disponibilidad con máquinas virtuales con discos administrados
-* Conjuntos de escalado de máquinas virtuales con discos administrados
 * Managed Disks
 * Imágenes creadas a partir de discos administrados
 * Instantáneas creadas a partir de discos administrados
-* Conjuntos de escalado de máquinas virtuales
 * Redes virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Máquinas virtuales creadas a partir de recursos de Marketplace (no se pueden mover entre suscripciones). Es necesario desaprovisionar el recurso en la suscripción activa y volver a implementarlo en la nueva suscripción
 

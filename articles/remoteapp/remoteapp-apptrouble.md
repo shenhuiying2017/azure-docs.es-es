@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 4e6c6571be85cd5fe374c7df644741ae017ccd19
-ms.openlocfilehash: 6db4cf048147cb9559ca1a2e6921c679fe6ec9e5
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6bc1325809f39a45d387914e1fdc4d10f46df539
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-azure-remoteapp---application-launch-and-connection-failures"></a>Solución de problemas de Azure RemoteApp: errores de inicio y conexión de la aplicación
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -51,10 +52,5 @@ Este mensaje de error significa que el cliente de Azure RemoteApp está teniendo
 Se trata de un mensaje de error genérico: póngase en contacto con el soporte técnico de Azure para que podamos investigarlo. 
 
 ![Mensaje genérico de Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble4.png) 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

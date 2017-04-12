@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: bd9133fde0c3ebfd915c8ae33daa6d0113b37889
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 059fd9c1578cb987aec09a2f72099a0472c9b119
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/07/2017
 En este tema se explica cómo acceder a los registros de aplicaciones de YARN (del inglés Yet Another Resource Negotiator) que finalicen en un clúster Hadoop basado en Windows en Azure HDInsight.
 
 > [!IMPORTANT]
-> La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obtener información sobre cómo acceder a registros de YARN en clústeres de HDInsight basados en Linux, vea [Acceso a registros de aplicación de YARN en Hadoop basado en Linux en HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-> 
+> La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para obtener información sobre cómo acceder a registros de YARN en clústeres de HDInsight basados en Linux, vea [Acceso a registros de aplicación de YARN en Hadoop basado en Linux en HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+>
 
 
 ### <a name="prerequisites"></a>Requisitos previos
@@ -70,9 +70,9 @@ Los registros agregados no son legibles directamente tal como se escriben en un 
 
 
 ## <a name="yarn-resourcemanager-ui"></a>Interfaz de usuario de ResourceManager de YARN
-La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principal del clúster, y puede tener acceso a ella mediante el panel del Portal de Azure: 
+La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principal del clúster, y puede tener acceso a ella mediante el panel del Portal de Azure:
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com/). 
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Examinar**, haga clic en **Clústeres de HDInsight** y haga clic en un clúster basado en Windows que desea que tenga acceso a los registros de aplicación de YARN.
 3. En el menú superior, haga clic en **Panel**. Verá una página abierta en una nueva pestaña del explorador denominada **Consola de consultas de HDInsight**.
 4. Desde **Consola de consultas de HDInsight**, haga clic en **IU de YARN**.

@@ -50,7 +50,7 @@
 ## Administrar
 ### [Bibliotecas de administración de Service Bus](service-bus-management-libraries.md)
 ### [Uso de plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md)
-### [Uso de PowerShell para aprovisionar entidades](service-bus-powershell-how-to-provision.md)
+### [Uso de PowerShell para aprovisionar entidades](service-bus-manage-with-ps.md)
 
 # Referencia
 ## .NET

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f39840ab2fb31775c9703799393d8c386a8451ee
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,7 +32,7 @@ Una aplicación que se ejecuta en un conjunto de escalado de máquina virtual no
 ## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>Instalación de software nuevo en una imagen de plataforma en el momento de la implementación
 Una imagen de plataforma en este contexto es una imagen del sistema operativo de Azure Marketplace, como Ubuntu 16.04, Windows Server 2012 R2, etc.
 
-Puede instalar un nuevo software en una imagen de plataforma utilizando una [extensión de máquina virtual](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Una extensión de máquina virtual es software que se ejecuta cuando se implementa una máquina virtual. Puede ejecutar cualquier código que desee en el momento de la implementación usando una extensión de script personalizada. [Esto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) es una plantilla de Azure Resource Manager de ejemplo que usa una [extensión de configuración de estado deseado (DSC) de Azure](virtual-machine-scale-sets-dsc.md) para instalar IIS y una aplicación integrada de .NET MVC con el escalado automático de Azure.
+Puede instalar un nuevo software en una imagen de plataforma utilizando una [extensión de máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Una extensión de máquina virtual es software que se ejecuta cuando se implementa una máquina virtual. Puede ejecutar cualquier código que desee en el momento de la implementación usando una extensión de script personalizada. [Esto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) es una plantilla de Azure Resource Manager de ejemplo que usa una [extensión de configuración de estado deseado (DSC) de Azure](virtual-machine-scale-sets-dsc.md) para instalar IIS y una aplicación integrada de .NET MVC con el escalado automático de Azure.
 
 Una ventaja de este enfoque es que ofrece un nivel de separación entre el código de aplicación y el sistema operativo, y permite mantener la aplicación por separado. Por supuesto esto significa que también hay más piezas móviles, y el tiempo de implementación de la máquina virtual puede ser mayor si el script tiene mucho que descargar y configurar.
 

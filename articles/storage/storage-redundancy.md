@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
-ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -108,12 +109,13 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 | Sudeste de Australia |Australia Oriental |
 | Sur de India |India central |
 | India central |Sur de India |
+| India occidental |Sur de India |
 | Gobierno de EE. UU. - Iowa |Gobierno de EE. UU. - Virginia |
 | Gobierno de EE. UU. - Virginia |Gobierno de EE. UU. - Iowa |
 | Centro de Canadá |Este de Canadá |
 | Este de Canadá |Centro de Canadá |
-| Oeste de Reino Unido |Sur del Reino Unido&2; |
-| Sur del Reino Unido&2; |Oeste de Reino Unido |
+| Oeste de Reino Unido |Sur del Reino Unido 2 |
+| Sur del Reino Unido 2 |Oeste de Reino Unido |
 | Centro de Alemania |Noreste de Alemania |
 | Noreste de Alemania |Centro de Alemania |
 | Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
@@ -140,10 +142,5 @@ Consideraciones:
 * [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md)
 * [Opciones de redundancia de Almacenamiento de Microsoft Azure y Almacenamiento con redundancia geográfica con acceso de lectura ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [Documento de SOSP: Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

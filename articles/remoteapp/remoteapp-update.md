@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 593718b0d0d99f813321cb9ad6a7241e2315f6d0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 41c8a13ebd008ed4f9d8a5399bf8e272bf0fd7b2
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="update-a-collection-in-azure-remoteapp"></a>Actualización de una colección en Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -41,10 +42,5 @@ Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es basta
    * **Darle a los usuarios un margen de 60 minutos tras la actualización**. Tan pronto como finalice la actualización, Azure RemoteApp mostrará un mensaje a los usuarios activos en el que se les indica que guarden el trabajo, cierren la sesión y vuelvan a iniciarla. Transcurridos los 60 minutos, se cerrará automáticamente la sesión de todos los usuarios activos que no la cerraron. Los usuarios pueden volver a iniciar sesión inmediatamente.
    * **Cerrar inmediatamente la sesión de los usuarios**. En cuanto finalice la actualización, cierre automáticamente la sesión de todos los usuarios sin avisarles. Si elige esta opción, los usuarios pueden perder datos. Sin embargo, pueden volver a conectarse a la aplicación inmediatamente.
 6. Haga clic en la marca de verificación para iniciar la actualización.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

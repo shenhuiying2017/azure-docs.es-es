@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: fa9b09833f61e372738ff74022ac9fd6a288847f
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6fc9394cbc60a1ea9bc9989d271f1008acf0379b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -261,7 +262,6 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Exportación a SQL con un rol de trabajo](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportación a PowerBI mediante Análisis de transmisiones](app-insights-export-power-bi.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Exportación continua en Application Insights](app-insights-export-telemetry.md)
@@ -274,10 +274,5 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

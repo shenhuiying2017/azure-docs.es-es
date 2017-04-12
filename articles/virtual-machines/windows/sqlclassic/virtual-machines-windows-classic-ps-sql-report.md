@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,7 +37,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 * **Suscripción de Azure**: compruebe el número de núcleos disponibles en su suscripción de Azure. Si crea el tamaño recomendado de máquina virtual de **A3**, necesita **4** núcleos disponibles. Si usa un tamaño de máquina virtual de **A2**, necesita **2** núcleos disponibles.
   
   * Para comprobar el límite de núcleos de su suscripción, en el Portal de Azure clásico, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
-  * Para aumentar la cuota de núcleos, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). Para obtener más información sobre el tamaño de la máquina virtual, consulte [Tamaños de máquinas virtuales para Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Para aumentar la cuota de núcleos, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). Para obtener más información sobre el tamaño de la máquina virtual, consulte [Tamaños de máquinas virtuales para Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Scripting de Windows PowerShell**: en el tema se supone que cuenta con conocimientos prácticos básicos de Windows PowerShell. Para obtener más información sobre el uso de Windows PowerShell, vea lo siguiente:
   
   * [Inicio de Windows PowerShell en Windows Server](https://technet.microsoft.com/library/hh847814.aspx)

@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f4013225e3ea7afb34628bab47ec3b1432bb2b2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Captura de una máquina virtual clásica con Linux para usarla como imagen
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](../../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 En este artículo se muestra cómo puede capturar una máquina virtual (VM) clásica de Azure con Linux para usarla como imagen en la creación de otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y cualquier otro disco de datos conectado a la VM. No incluye la configuración de redes, por lo que debe configurarla usted mismo al crear la otra VM a partir de la imagen.
 
@@ -34,7 +34,7 @@ Azure almacena la imagen en **Images**(Imágenes), junto con las demás que haya
 En estos pasos se supone que ya ha creado un VM de Azure con el modelo de implementación clásica y que ha configurado el sistema operativo, lo que incluye adjuntar cualquier disco de datos. Si tiene que crear una VM, lea [Creación de una máquina virtual con Linux personalizada][How to Create a Linux Virtual Machine].
 
 ## <a name="capture-the-virtual-machine"></a>Captura de la máquina virtual
-1. [Conéctese a la VM](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mediante un cliente SSH que elija.
+1. [Conéctese a la VM](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mediante un cliente SSH que elija.
 2. En la ventana SSH, escriba el siguiente comando. El resultado de `waagent` puede variar ligeramente según la versión de esta utilidad:
 
     ```bash
@@ -98,7 +98,7 @@ La imagen está lista para usarse para crear VM. Puede usar el comando de la CLI
 
 También puede usar el [Portal de Azure clásico][Azure classic portal] para crear una VM personalizada mediante el método **De la galería** y seleccionar la imagen que ha creado. Para más información, consulte [Creación de una máquina virtual con Linux personalizada][How to Create a Custom Virtual Machine].
 
-**Consulte también:** [Guía de usuario del Agente de Linux de Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**Consulte también:** [Guía de usuario del Agente de Linux de Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md

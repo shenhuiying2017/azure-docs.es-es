@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 6cc74e3d3bd704dab1a43b66374b51c1f3e2a0a2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75d5415d33324d957617426e75909a6c6c58b1f9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="never-store-sensitive-data-on-custom-images"></a>Nunca almacene información confidencial en imágenes personalizadas
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -47,10 +48,5 @@ Puntos clave:
 * Nunca almacene datos confidenciales que se pueden perder en la imagen cuando cree una imagen personalizada.
 * Los datos confidenciales siempre deben residir en un servidor de archivos independiente, una máquina virtual de Azure independiente, en la nube y siempre deben ser externos a las instancias de máquina virtual que hospedan las aplicaciones en Azure RemoteApp. 
 * Los datos de usuario se guardan y se conserva en el disco de perfil de usuario (UDP)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

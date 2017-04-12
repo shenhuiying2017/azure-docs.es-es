@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 456175d718898287496d9e19cae8da259fba2e8e
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Procedimiento para migrar datos en Azure RemoteApp como origen y destino
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -60,10 +61,5 @@ Aunque no se puede habilitar el agente de sincronización de OneDrive para la Em
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copia de archivos mediante la redirección de unidades
 Si ha habilitado la [redirección de unidades](remoteapp-redirection.md), ya ha creado una unidad asignada para los usuarios. En este caso, puede comprimir los archivos en la unidad redirigida y, después, guardarlos en su equipo local.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

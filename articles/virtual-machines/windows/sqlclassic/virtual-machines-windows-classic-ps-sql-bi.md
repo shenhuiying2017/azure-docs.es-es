@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -92,7 +92,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 ## <a name="general-recommendations-and-best-practices"></a>Recomendaciones generales y prácticas recomendadas
 * El tamaño mínimo recomendado para una máquina virtual es **A3** cuando se usa SQL Server Enterprise Edition. Se recomienda el tamaño de máquina virtual **A4** para las implementaciones de SQL Server BI de Analysis Services y Reporting Services.
   
-    Para obtener información sobre los tamaños actuales de máquinas virtuales, consulte [Tamaños de máquina virtual de Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    Para obtener información sobre los tamaños actuales de máquinas virtuales, consulte [Tamaños de máquina virtual de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Un procedimiento recomendado para la administración de discos es almacenar datos, registrar y realizar copias de seguridad de archivos en unidades distintas de **C**: y **D**:. Por ejemplo, cree los discos de datos **E**: y **F**:.
   
   * La política de almacenamiento en caché de unidad para la unidad predeterminada **C**: no es óptima para trabajar con datos.

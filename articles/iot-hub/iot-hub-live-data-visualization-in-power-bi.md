@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: bf685e4c59117497e27ff7e2ef7b3b39caac6d4a
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6a99749a96a6239428e5b018a26a6e8fd440c9d2
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 
-> [!NOTE]
-> Antes de empezar este tutorial, asegúrese de que ha completado los pasos para [conectar ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). En dicho artículo para [conectar ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), se configura el dispositivo de IoT y el centro de IoT y se implementa una aplicación de ejemplo para que se ejecute en el dispositivo. La aplicación envía los datos del sensor recopilados al centro de IoT.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
@@ -51,7 +50,7 @@ Las aplicaciones usan grupos de consumidores para extraer datos desde Azure IoT 
 
 Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
 
-1. En [Azure Portal](https://ms.portal.azure.com/), abra su centro de IoT.
+1. En el [portal de Azure](https://ms.portal.azure.com/), abra su centro de IoT.
 1. Haga clic en **Puntos de conexión** en el panel izquierdo, seleccione **Eventos** en el panel central, escriba un nombre en **Grupos de consumidores** en el panel derecho y, a continuación, haga clic en **Guardar**.
 
    ![Creación de un grupo de consumidores en Azure IoT Hub](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
@@ -170,8 +169,4 @@ Microsoft también ofrece las [aplicaciones móviles de Power BI](https://powerb
 Ha utilizado correctamente Power BI para visualizar datos de sensor en tiempo real desde su centro de Azure IoT.
 Hay otra manera de visualizar datos desde Azure IoT Hub. Consulte [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md) (Uso de Azure Web Apps para visualizar datos del sensor en tiempo real desde Azure IoT Hub).
 
-Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
-
-- [Administración de la mensajería de dispositivos en la nube con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Guardado de los mensajes de IoT Hub en el almacenamiento de datos de Azure](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

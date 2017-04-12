@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ El desencadenador de blob de Azure Storage para una función utiliza los siguien
 Tenga en cuenta lo siguiente:
 
 * Para `path`, consulte [Patrones de nombre](#pattern) para averiguar cómo dar formato a los patrones de nombre de los blobs.
-* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](functions-how-to-use-azure-function-app-settings.md). 
 
 Cuando se ejecuta en un plan de consumo, si una aplicación de función se ha vuelto inactiva, los nuevos blobs podrían tardar en procesarse hasta 10 minutos al día. Una vez que se ejecuta la aplicación de función, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
 
@@ -227,7 +227,7 @@ La entrada de blob de Azure Storage a una función utiliza los siguientes objeto
 Tenga en cuenta lo siguiente:
 
 * `path` debe contener el nombre del contenedor y el nombre del blob. Por ejemplo, si tiene un [desencadenador de cola](functions-bindings-storage-queue.md) en la función, puede usar `"path": "samples-workitems/{queueTrigger}"` para apuntar a un blob del contenedor `samples-workitems` con un nombre que coincida con el nombre de blob especificado en el mensaje desencadenador.   
-* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="inputusage"></a>
 
@@ -340,7 +340,7 @@ La salida de blob de Azure Storage para una función utiliza los siguientes obje
 Tenga en cuenta lo siguiente:
 
 * `path` debe contener el nombre del contenedor y el nombre del blob en que se va a escribir. Por ejemplo, si tiene un [desencadenador de cola](functions-bindings-storage-queue.md) en la función, puede usar `"path": "samples-workitems/{queueTrigger}"` para apuntar a un blob del contenedor `samples-workitems` con un nombre que coincida con el nombre de blob especificado en el mensaje desencadenador.   
-* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](). 
+* `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="outputusage"></a>
 

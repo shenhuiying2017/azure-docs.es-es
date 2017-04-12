@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/25/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 5818efb315a0452beea03cde1adc657a9520dcac
-ms.openlocfilehash: 1fe3f3a697618bec5d314c6ebf161da37efc1346
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 28f100276511c1ae978466870ff48f885dd53c28
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,13 +27,11 @@ En este artículo se describe cómo puede configurar las aplicaciones para que d
 
 >[!NOTE]
 >La característica Proxy de aplicación solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
->
 
 Con el módulo de PowerShell de Azure AD, puede definir direcciones URL de página principal personalizada para instancias cuando desee que los usuarios lleguen a una página específica dentro de la aplicación; por ejemplo *https://expenseApp-contoso.msappproxy.net/login/login.aspx*.
 
 >[!NOTE]
 >Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en el [panel de acceso de Azure AD](active-directory-saas-access-panel-introduction.md) y el [iniciador de aplicaciones de Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
->
 
 Cuando los usuarios inician sus aplicaciones, se les dirige de manera predeterminada a la dirección URL raíz del dominio raíz de la aplicación publicada. La página de aterrizaje normalmente se establece como la dirección URL de la página principal. Por ejemplo, para la aplicación de back-end http://ExpenseApp, la dirección URL se publica como *https://expenseApp-contoso.msappproxy.net*. De forma predeterminada, la dirección URL de la página principal se establece en *https://expenseApp-contoso.msappproxy.net*.
 
@@ -139,6 +137,6 @@ En el mismo módulo de PowerShell que usó en el "Paso 1: busque el ObjectID de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md)<br>
-[Habilitación del proxy de aplicación en Azure Portal](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md)
+- [Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md)
+- [Habilitación del proxy de aplicación en Azure Portal](active-directory-application-proxy-enable.md)
 
