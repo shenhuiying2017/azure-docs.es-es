@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 758a7e3792869d532d1667277d230f5f5b9d38ca
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,17 +30,17 @@ Las firmas de acceso compartido (SAS) son una característica de las cuentas de 
 ## <a name="requirements"></a>Requisitos
 * Una suscripción de Azure
 * C# o Python. El código de ejemplo de C# se proporciona como una solución de Visual Studio.
-  
+
   * Se debe usar la versión de Visual Studio 2013, 2015 o 2017
   * Se debe usar la versión de Python 2.7 o superior.
-  
+
 * Un clúster de HDInsight basado en Linux o [Azure PowerShell][powershell]: si ya tiene un clúster basado en Linux, puede usar Ambari para agregar una firma de acceso compartido al clúster. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 
     > [!IMPORTANT]
-    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Los archivos de ejemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositorio contiene los siguientes elementos:
-  
+
   * Un proyecto de Visual Studio que puede crear un contenedor de almacenamiento, una directiva almacenada y una SAS para su uso con HDInsight.
   * Un script de Python que puede crear un contenedor de almacenamiento, una directiva almacenada y una SAS para su uso con HDInsight.
   * Un script de PowerShell que puede crear un clúster de HDInsight y configurarlo para que use la SAS.
@@ -59,9 +59,9 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todos los componentes de la aplicación que usan la clave anterior no se puedan autenticar hasta que actualicen la nueva clave.
 
 > [!IMPORTANT]
-> Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta. 
-> 
-> 
+> Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
+>
+>
 
 Se recomienda usar siempre las directivas de acceso almacenadas, para que pueda revocar las firmas o ampliar la fecha de caducidad según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
 
@@ -74,29 +74,29 @@ Ahora, debe crear una directiva almacenada mediante programación. Puede encontr
 1. Abra la solución en Visual Studio.
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASToke**n y seleccione **Propiedades**.
 3. Seleccione **Configuración** y agregue valores para las siguientes entradas:
-   
+
    * StorageConnectionString: la cadena de conexión de la cuenta de almacenamiento para la que desea crear una directiva almacenada y una SAS. El formato debe ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` donde `myaccount` es el nombre de la cuenta de almacenamiento y `mykey` es la clave para la cuenta de almacenamiento.
    * ContainerName: el contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.
    * SASPolicyName: el nombre que se usará para la directiva almacenada que se va a crear.
    * FileToUpload: la ruta de acceso a un archivo que se carga en el contenedor.
 4. Ejecute el proyecto. Aparece una ventana de consola y, una vez generada la SAS, se mostrará información similar al texto siguiente:
-   
+
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-   
+
     Guarde el token de directiva de SAS, el nombre de la cuenta de almacenamiento y el nombre del contenedor. Estos valores se usan al asociar la cuenta de almacenamiento con el clúster de HDInsight.
 
 ### <a name="create-a-stored-policy-and-sas-using-python"></a>Creación de una directiva almacenada y una SAS mediante Python
 1. Abra el archivo SASToken.py y cambie los valores siguientes:
-   
+
    * policy\_name: el nombre que se usará para la directiva almacenada que se va a crear.
    * storage\_account\_name: el nombre de su cuenta de almacenamiento.
    * storage\_account\_key: la clave de su cuenta de almacenamiento.
    * storage\_container\_name: el contenedor de la cuenta de almacenamiento al que desea restringir el acceso.
    * example\_file\_path: la ruta de acceso a un archivo que se carga en el contenedor
 2. Ejecute el script. Cuando finalice el script, muestra un token de SAS similar al texto siguiente:
-   
+
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
-   
+
     Guarde el token de directiva de SAS, el nombre de la cuenta de almacenamiento y el nombre del contenedor. Estos valores se usan al asociar la cuenta de almacenamiento con el clúster de HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Uso de las SAS con HDInsight
@@ -111,7 +111,7 @@ Para usar una firma de acceso compartido a fin de limitar el acceso a un contene
 Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en el directorio `CreateCluster` del repositorio. Para ello, siga estos pasos:
 
 1. Abra el archivo `CreateCluster\HDInsightSAS.ps1` en un editor de texto y modifique los valores siguientes al principio del documento.
-   
+
         # Replace 'mycluster' with the name of the cluster to be created
         $clusterName = 'mycluster'
         # Valid values are 'Linux' and 'Windows'
@@ -130,35 +130,35 @@ Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en
         $SASToken = 'sastoken'
         # Set the number of worker nodes in the cluster
         $clusterSizeInNodes = 2
-   
+
     Por ejemplo, cambie `'mycluster'` por el nombre del clúster que desea crear. Los valores de SAS deben coincidir con los valores de los pasos anteriores al crear una cuenta de almacenamiento y el token de SAS.
-   
+
     Una vez que haya cambiado los valores, guarde el archivo.
 2. Abra un nuevo símbolo del sistema de Azure PowerShell. Si no está familiarizado con Azure PowerShell, o si no lo ha instalado, consulte [Cómo instalar y configurar Azure PowerShell][powershell].
 3. En el símbolo del sistema, use el siguiente comando para autenticarse en la suscripción de Azure:
-   
+
         Login-AzureRmAccount
-   
+
     Cuando se le solicite, inicie sesión con la cuenta de la suscripción de Azure.
-   
+
     Si la cuenta está asociada a varias suscripciones de Azure, puede que tenga que usar `Select-AzureRmSubscription` para seleccionar la suscripción que quiere usar.
 4. En el símbolo del sistema, cambie los directorios al directorio `CreateCluster` que contiene el archivo HDInsightSAS.ps1. Después, use el siguiente comando para ejecutar el script
-   
+
         .\HDInsightSAS.ps1
-   
+
     Mientras se ejecuta el script, registra la salida en el símbolo del sistema de PowerShell mientras crea las cuentas de grupo de recursos y de almacenamiento. Se le pedirá que escriba el usuario HTTP para el clúster de HDInsight. Esta cuenta se usa para proteger el acceso HTTP/s al clúster.
-   
+
     Si está creando un clúster basado en Linux, se le solicitará un nombre de cuenta de usuario SSH y una contraseña. Esta cuenta se usa para el inicio de sesión remoto al clúster.
-   
+
    > [!IMPORTANT]
    > Cuando se le pida el nombre de usuario SSH o HTTP/s y la contraseña, debe proporcionar una contraseña que cumpla los criterios siguientes:
-   > 
+   >
    > * Debe tener como mínimo 10 caracteres.
    > * Debe contener al menos un dígito.
    > * Debe incluir al menos un carácter no alfanumérico.
    > * Debe contener al menos una mayúscula o una minúscula.
-   > 
-   > 
+   >
+   >
 
 Este script tarda un tiempo en completarse, normalmente unos 15 minutos. Una vez finalizado el script sin errores, se creará el clúster.
 
@@ -170,21 +170,21 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
 2. En el lado izquierdo de la interfaz de usuario web Ambari, seleccione **HDFS** y, a continuación, seleccione la pestaña **Configs** (Configuraciones) en el centro de la página.
 3. Seleccione la pestaña **Advanced** (Avanzadas) y, a continuación, desplácese hasta encontrar la sección **Custom core-site** (Sitio principal personalizado).
 4. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione el vínculo **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
-   
+
    * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Value**: la SAS devuelta por la aplicación de C# o Python ejecutada anteriormente.
-     
+
      Reemplace **CONTAINERNAME** por el nombre del contenedor utilizado con la aplicación de C# o de SAS. Reemplace **STORAGEACCOUNTNAME** por el nombre de la cuenta de almacenamiento utilizada.
 5. Haga clic en el botón **Add** (Agregar) para guardar esta clave y este valor y, a continuación, haga clic en el botón **Save** (Guardar) para guardar los cambios de configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y haga clic en **Save** (Guardar).
-   
+
     Haga clic en **OK** (Aceptar) cuando se hayan completado los cambios.
-   
+
    > [!IMPORTANT]
    > Debe reiniciar varios servicios para que el cambio surta efecto.
-   > 
-   > 
+   >
+   >
 6. En la interfaz de usuario web Ambari, seleccione **HDFS** en la lista de la izquierda y, a continuación, seleccione **Restart All** (Reiniciar todos) en la lista desplegable **Service Actions** (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione **Turn on maintenance mode** (Activar modo de mantenimiento) y, a continuación, "Confirm Restart All" ("Confirmar reiniciar todo").
-   
+
     Repita este proceso para MapReduce2 y YARN.
 
 7. Una vez reiniciados los servicios, seleccione cada uno de ellos y deshabilite el modo de mantenimiento en la lista desplegable **Service Actions** (Acciones del servicio).
@@ -193,39 +193,39 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
 Para comprobar que tiene el acceso restringido, utilice los métodos siguientes:
 
 * Para clústeres de HDInsight **basados en Windows** , use el Escritorio remoto para conectarse al clúster. Para más información, vea [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp) (Conectarse a HDInsight mediante RDP).
-  
+
     Una vez conectado, use el icono de **línea de comandos de Hadoop** en el escritorio para abrir un símbolo del sistema.
 * Para clústeres de HDInsight **basados en Linux** , use SSH para conectarse al clúster. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Una vez conectado al clúster, siga estos pasos para comprobar que solo puede leer y listar elementos en la cuenta de almacenamiento de SAS:
 
 1. En el símbolo del sistema, escriba lo siguiente. Reemplace **SASCONTAINER** por el nombre del contenedor creado para la cuenta de almacenamiento de SAS. Reemplace **SASACCOUNTNAME** por el nombre de la cuenta de almacenamiento utilizada para la SAS:
-   
+
         hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
-   
+
     Este comando muestra el contenido del contenedor, que debe incluir el archivo que se cargó al crear el contenedor y la SAS.
 2. Use el siguiente comando para comprobar que puede leer el contenido del archivo. Reemplace **SASCONTAINER** y **SASACCOUNTNAME** tal como lo ha hecho en el paso anterior. Reemplace **FILENAME** por el nombre de archivo que aparece en el comando anterior:
-   
+
         hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
-   
+
     Este comando muestra el contenido del archivo.
 3. Use el siguiente comando para descargar el archivo en el sistema de archivos local:
-   
+
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
-   
+
     Este comando descarga el archivo en un archivo local denominado **testfile.txt**.
 4. Use el siguiente comando para cargar el archivo local en un nuevo archivo denominado **testupload.txt** en el almacenamiento de SAS:
-   
+
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
-   
+
     Recibirá un mensaje similar al texto siguiente:
-   
+
         put: java.io.IOException
-   
+
     Este error se produce porque la ubicación de almacenamiento es solo de lectura y lista. Use el siguiente comando para colocar los datos en el almacenamiento predeterminado para el clúster, que tiene permiso de escritura:
-   
+
         hdfs dfs -put testfile.txt wasbs:///testupload.txt
-   
+
     Esta vez, la operación debe completarse correctamente.
 
 ## <a name="troubleshooting"></a>Solución de problemas

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 19afc13a1715890316b34ed1128b594105c53c69
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 09e3828172d06a8c7ef39c89e69653c48a7e729e
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -27,7 +28,7 @@ Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-s
 En este artículo se muestra cómo usar estas tecnologías conjuntamente para crear una aplicación con un nivel de datos altamente escalable que admite particiones de múltiples inquilinos, con **ADO.NET SqlClient** o **Entity Framework**.  
 
 * **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos de una aplicación a través de las prácticas de particionamiento estándar del sector, mediante un conjunto de bibliotecas de .NET y plantillas de servicio de Azure. La administración de particiones con el uso de la biblioteca cliente de la base de datos elástica le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento. 
-* **seguridad de nivel de fila** permite a los desarrolladores almacenar datos para varios inquilinos en la misma base de datos con las directivas de seguridad para filtrar las filas que no pertenecen al inquilino mediante la ejecución de una consulta. La centralización de la lógica de acceso con RLS dentro de la base de datos, en lugar de en la aplicación, simplifica el mantenimiento y reduce el riesgo de error a medida que crece el código base de la aplicación. RLS requiere [Azure SQL Database (V12)](sql-database-technical-overview.md). 
+* **seguridad de nivel de fila** permite a los desarrolladores almacenar datos para varios inquilinos en la misma base de datos con las directivas de seguridad para filtrar las filas que no pertenecen al inquilino mediante la ejecución de una consulta. La centralización de la lógica de acceso con RLS dentro de la base de datos, en lugar de en la aplicación, simplifica el mantenimiento y reduce el riesgo de error a medida que crece el código base de la aplicación. 
 
 Con todas estas características, una aplicación puede beneficiarse de mejoras de ahorro y la eficacia de costos al almacenar los datos para varios inquilinos en la misma base de datos de la partición. Al mismo tiempo, una aplicación todavía tiene la flexibilidad para ofrecer particiones aisladas de un único inquilino para los inquilinos "premium" que requieren garantías de rendimiento más estrictas ya que las particiones de varios inquilinos no garantizan la distribución equitativa de los recursos entre los inquilinos.  
 
@@ -317,10 +318,5 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de SQL D
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4015aede386913607df8a9499c0f08c414ee6959
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 17fbef55920c4f06f895739b89a0acc6ff08bd9d
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-do-you-deploy-quickbooks-in-azure-remoteapp"></a>¿Cómo se implementa QuickBooks en Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -41,17 +42,12 @@ Puede compartir QuickBooks 2015 Enterprise con Azure RemoteApp en una colección
 4. Inicie el cliente QuickBooks hospedado en Azure RemoteApp, vaya mediante redes estándar Windows a la máquina virtual que hospeda el servidor de base de datos de QuickBooks y abra el archivo de empresa. 
 
 ## <a name="documentation-references"></a>Referencias de documentación
-*  [Configuraciones admitidas](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
-*  [Opciones de implementación](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
+* [Configuraciones admitidas](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
+* [Opciones de implementación](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
 
 También puede consultar la presentación de Ignite [Fundamentals of Microsoft Azure RemoteApp Management and Administration](https://channel9.msdn.com/Events/Ignite/2015/BRK3868) (Fundamentos de administración y gestión de Microsoft Azure RemoteApp), con un avance rápido hasta 1:02:45 para llegar a la parte de QuickBooks.
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 ![Implementación de QuickBooks y RemoteApp de Azure](./media/remoteapp-quickbooks/ra-quickbooks.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

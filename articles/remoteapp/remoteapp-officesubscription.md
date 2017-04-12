@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 4ad7970b94949bf105ddf549279d4d1bcbad5f40
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c92eec471cf080a651d6f12e9db9fa391beabd2a
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-use-your-office-365-subscription-with-azure-remoteapp"></a>Uso de la suscripción de Office 365 con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -117,10 +118,5 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 * [Implementar Hacer clic y ejecutar para productos de Office 365 usando la Herramienta de implementación de Office](https://technet.microsoft.com/library/JJ219423.aspx)
 * [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 * [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

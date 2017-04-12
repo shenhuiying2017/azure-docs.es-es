@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
-ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: ceb2d7a28cc416186f3faf1dc5228fce161c34c5
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -143,7 +143,6 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 
 * Se admiten únicamente transacciones entre bases de datos en Base de datos SQL. Otros proveedores de recursos y bases de datos de [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) externos a Base de datos SQL no podrán participar en transacciones de base de datos elástica. Esto significa que dichas transacciones no pueden extenderse entre bases de datos locales de SQL Server y SQL de Azure. Para las transacciones distribuidas en el entorno local, siga usando MSDTC. 
 * Solo se admiten transacciones coordinadas por el cliente desde una aplicación .NET. Está prevista la compatibilidad en el lado servidor con T-SQL, por ejemplo, INICIAR TRANSACCIÓN DISTRIBUIDA, pero aún no se encuentra disponible. 
-* Solo se admiten las bases de datos V12 de Base de datos SQL de Azure.
 * No se admiten las transacciones por los servicios de WCF. Por ejemplo, tiene un método de servicio de WCF que se ejecuta una transacción. Si se encierra la llamada dentro de un ámbito de transacción, se producirá un error como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 114ed651f914060818f10efac849e7f85a3da981
-ms.openlocfilehash: f41396e4aa0c7b6cc2f1768e0c2ba3b95ee31cd3
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9390af174262e0dd2bb5beb30ae08b3063c1a5e6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="list-of-ports-and-urls-to-permit-access-for-azure-remoteapp-deployed-in-customer-virtual-network"></a>Lista de puertos y direcciones URL para permitir el acceso a Azure RemoteApp implementada en el cliente de red virtual
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
