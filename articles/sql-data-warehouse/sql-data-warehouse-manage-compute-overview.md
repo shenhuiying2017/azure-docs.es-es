@@ -171,7 +171,7 @@ Para escalar la base de datos, se requieren los permisos descritos en [ALTER DAT
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes para comprender mejor algunos conceptos fundamentales adicionales sobre rendimiento:
 
-* [Administración de carga de trabajo y simultaneidad][Administración de cargas de trabajo y simultaneidad]
+* [Administración de carga de trabajo y simultaneidad][Workload and concurrency management]
 * [Introducción al diseño de tablas][Table design overview]
 * [Distribución de tablas][Table distribution]
 * [Indexación de tablas][Table indexing]
