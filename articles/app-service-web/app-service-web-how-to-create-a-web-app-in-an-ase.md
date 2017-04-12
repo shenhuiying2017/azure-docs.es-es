@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
 Este tutorial muestra cómo crear aplicaciones web y planes del Servicio de aplicaciones en un [entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno del Servicio de aplicaciones, consulte [Creación de una aplicación web de .NET](web-sites-dotnet-get-started.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.
+> Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno del Servicio de aplicaciones, consulte [Creación de una aplicación web de .NET](app-service-web-get-started-dotnet.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.
 > 
 > 
 
@@ -41,7 +42,7 @@ En este tutorial se supone que ha creado un entorno del Servicio de aplicaciones
     Si tiene varias suscripciones, tenga en cuenta que para crear una aplicación en el entorno del Servicio de aplicaciones, debe usar la misma suscripción que usó para crear el entorno. 
 3. Seleccione o cree un grupo de recursos.
    
-    *Los grupos de recursos* le permiten administrar los recursos de Azure relacionados como una unidad y resultan útiles al establecer las *reglas del control de acceso basado en rol* (RBAC) para las aplicaciones. Para más información, consulte [Azure Resource Manager overview][Grupos de recursos] (Información general de Azure Resource Manager). 
+    *Los grupos de recursos* le permiten administrar los recursos de Azure relacionados como una unidad y resultan útiles al establecer las *reglas del control de acceso basado en rol* (RBAC) para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ResourceGroups]. 
 4. Seleccione o cree un plan del Servicio de aplicaciones.
    
     Los *planes de App Service* son conjuntos administrados de aplicaciones web.  Normalmente, cuando se selecciona el precio, el precio que se cobra se aplica al plan del Servicio de aplicaciones y no a las aplicaciones individuales. En un ASE, paga por las instancias de proceso que se han asignado al ASE en lugar de lo que ha enumerado con su ASP.  Para escalar verticalmente el número de instancias de una aplicación web, escale verticalmente las instancias de su plan del Servicio de aplicaciones. Esto afecta a todas las aplicaciones web de ese plan.  Algunas características como las ranuras de sitio o la integración de la red virtual también tienen restricciones de cantidad dentro del plan.  Para obtener más información, consulte [Información general sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -58,7 +59,7 @@ En este tutorial se supone que ha creado un entorno del Servicio de aplicaciones
     Si su ASE utiliza una VIP interna, en la dirección URL de una aplicación en ASE está: [*sitename*]. [*subdominio especificado durante la creación de ASE*]   
     Después de seleccionar ASP durante la creación de ASE, verá la actualización del subdominio debajo de **Nombre**
 
-## <a name="a-namecreateplana-create-an-app-service-plan"></a><a name="createplan"></a> Creación de un plan del Servicio de aplicaciones
+## <a name="createplan"></a> Creación de un plan del Servicio de aplicaciones
 Cuando crea un plan del Servicio de aplicaciones en un entorno del Servicio de aplicaciones, sus opciones de trabajo son diferentes dado que no hay trabajos compartidos en un ASE.  Los trabajos que tiene que usar son los que el administrador ha asignado al ASE.  Esto significa que para crear un nuevo plan, el número de trabajos asignados al grupo de trabajo del ASE debe ser superior al número total de instancias en todos los planes que ya existen en ese grupo de trabajo.  Si no tiene suficientes trabajos en su grupo de trabajo del ASE para crear su plan, deberá trabajar con el administrador del ASE para agregarlos.
 
 Otra diferencia con los planes del Servicio de aplicaciones hospedados en un entorno del Servicio de aplicaciones es la ausencia de selección de precios.  Cuando tiene un entorno del Servicio de aplicaciones, paga por los recursos de proceso que usa el sistema y no se le cobra adicionalmente por los planes de ese entorno.  Normalmente, cuando crea un plan del Servicio de aplicaciones, selecciona el plan de precios que determina su facturación.  Un entorno del Servicio de aplicaciones es esencialmente una ubicación privada donde puede crear contenido.  Se paga por el entorno y no pro hospedar el contenido.
@@ -105,11 +106,6 @@ Después de crear la aplicación web y el plan del Servicio de aplicaciones, es 
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
-[Grupos de recursos]: ../azure-resource-manager/resource-group-overview.md
+[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

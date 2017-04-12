@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c5b87c3a814b816e8bdc28d3e22b64c2197579af
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-custom-template-image-for-azure-remoteapp"></a>Creación de una imagen de plantilla personalizada para Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -130,7 +131,7 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
    
      HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 3. Si crea la imagen dentro de una máquina virtual de Azure, cambie el nombre del archivo **\%windir%\Panther\Unattend.xml**, ya que bloqueará el script de carga usado posteriormente desde el trabajo. Cambie el nombre de este archivo por Unattend.old; de este modo, seguirá teniendo el archivo en caso de que necesite revertir la implementación.
-4.  vaya a Windows Update e instale todas las actualizaciones importantes. Puede que tenga que ejecutar varias veces Windows Update para obtener todas las actualizaciones. (A veces se instala una actualización, y esa misma actualización requiere una actualización).
+4. vaya a Windows Update e instale todas las actualizaciones importantes. Puede que tenga que ejecutar varias veces Windows Update para obtener todas las actualizaciones. (A veces se instala una actualización, y esa misma actualización requiere una actualización).
 5. Aplique la herramienta SYSPREP a la imagen. En un símbolo del sistema con privilegios elevados, ejecute el siguiente comando:
    
    **C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
@@ -142,10 +143,5 @@ Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la car
 
 * [Creación de una colección híbrida de RemoteApp](remoteapp-create-hybrid-deployment.md)
 * [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

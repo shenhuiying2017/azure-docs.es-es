@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -153,7 +153,7 @@ El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de func
 Tenga en cuenta lo siguiente:
 
 * Establezca `createIfNotExists` en `true` para crear la base de datos y la colección si no existe. El valor predeterminado es `false`. Las nuevas colecciones se crean con rendimiento reservado, lo cual afecta al precio. Para obtener más información, consulte [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
-* `connection` debe ser el nombre de una configuración de aplicación que señala al punto de conexión para la cuenta de DocumentDB (con el valor `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si crea una cuenta de DocumentDB a través de la IU del portal de Functions, el proceso de creación de cuenta crea una nueva configuración de aplicación. Para usar una cuenta de DocumentDB existente, necesita [definir esta configuración de aplicación manualmente](). 
+* `connection` debe ser el nombre de una configuración de aplicación que señala al punto de conexión para la cuenta de DocumentDB (con el valor `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). Si crea una cuenta de DocumentDB a través de la IU del portal de Functions, el proceso de creación de cuenta crea una nueva configuración de aplicación. Para usar una cuenta de DocumentDB existente, necesita [definir esta configuración de aplicación manualmente](functions-how-to-use-azure-function-app-settings.md). 
 
 ## <a name="output-usage"></a>Uso de salidas
 En esta sección se muestra cómo utilizar el enlace de salida de DocumentDB en el código de función.

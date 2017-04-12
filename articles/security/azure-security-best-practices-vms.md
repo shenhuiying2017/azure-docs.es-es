@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/02/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1d010dd85ccf2dd708a7740eb8399fc06a603574
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -65,7 +65,7 @@ Es posible que las organizaciones que no apliquen el control de acceso a los dat
 
 ## <a name="vm-availability-and-network-access"></a>Acceso de red y disponibilidad de máquinas virtuales
 
-Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, recomendamos encarecidamente usar varias máquinas virtuales. Para mejorar la disponibilidad, cree al menos dos máquinas virtuales en el [conjunto de disponibilidad](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md).
+Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, recomendamos encarecidamente usar varias máquinas virtuales. Para mejorar la disponibilidad, cree al menos dos máquinas virtuales en el [conjunto de disponibilidad](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) también requiere que las máquinas virtuales de carga equilibrada pertenezcan al mismo conjunto de disponibilidad. Si se debe acceder a estas máquinas virtuales desde Internet, debe configurar un [equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-internet-overview.md).
 
@@ -123,7 +123,7 @@ Las organizaciones que no aplican una posición de seguridad segura para sus má
 
 El abuso de los recursos puede ser un problema cuando los procesos de las máquinas virtuales consumen más recursos de los que deberían. Los problemas de rendimiento con una máquina virtual pueden provocar la interrupción del servicio, lo que infringe el principio de seguridad de disponibilidad. Por esta razón, resulta imprescindible supervisar el acceso a las máquinas virtuales no solo de forma reactiva (aunque haya un problema), sino también de forma preventiva, usando como base de referencia un rendimiento medido durante el funcionamiento normal.
 
-Al analizar los [archivos de registro de diagnóstico de Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), puede supervisar los recursos de la máquina virtual e identificar posibles problemas que podrían poner en peligro la disponibilidad y rendimiento. La extensión Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales basadas en Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+Al analizar los [archivos de registro de diagnóstico de Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), puede supervisar los recursos de la máquina virtual e identificar posibles problemas que podrían poner en peligro la disponibilidad y rendimiento. La extensión Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales basadas en Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 También puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obtener una mayor visibilidad del estado de los recursos.
 

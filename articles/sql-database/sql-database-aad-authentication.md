@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 154cd7eec65559ec2263a12b8977ec0af0a78743
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -39,12 +39,11 @@ La autenticación de Azure Active Directory es un mecanismo de conexión a la Ba
 En los pasos de configuración se incluyen los siguientes procedimientos para configurar y usar la autenticación de Azure Active Directory.
 
 1. Cree y rellene una instancia de Azure AD.
-2. Asegúrese de que la base de datos está en Base de datos SQL de Azure V12. (No es necesario para Almacenamiento de datos SQL).
-3. Opcional: asocie o cambie la instancia de Active Directory que está asociada a la suscripción de Azure.
-4. Cree un administrador de Azure Active Directory para Azure SQL Server o para [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-5. Configure los equipos cliente.
-6. Cree usuarios de bases de datos independientes en la base de datos y asignados a identidades de Azure AD.
-7. Conéctese a la base de datos mediante identidades de Azure AD.
+2. Opcional: asocie o cambie la instancia de Active Directory que está asociada a la suscripción de Azure.
+3. Cree un administrador de Azure Active Directory para Azure SQL Server o para [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Configure los equipos cliente.
+5. Cree usuarios de bases de datos independientes en la base de datos y asignados a identidades de Azure AD.
+6. Conéctese a la base de datos mediante identidades de Azure AD.
 
 > [!NOTE]
 > Para aprender a crear y rellenar Azure AD y, posteriormente, configurarlo con Azure SQL Database y SQL Data Warehouse, consulte [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md) (Configuración de Azure AD con Azure SQL Database).

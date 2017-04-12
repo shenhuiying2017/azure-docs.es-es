@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: e1101c92118e56768c668d19f6556517d5a79c51
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: fe8a84d7e6d88f11498c288e0424ba204d7f06fd
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -49,7 +49,7 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
 * **Entidad de servicio de Azure Active Directory**: Este tutorial describe cómo crear una entidad de servicio en Azure Active Directory (Azure AD). Sin embargo, para crear una entidad de servicio, debe ser administrador de Azure AD. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
     >[!NOTE]
-    >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. La entidad de servicio se debe crear con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. La entidad de servicio se debe crear con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Crear una cuenta de Almacén de Data Lake
@@ -71,7 +71,7 @@ Para crear una cuenta de Data Lake Store, realice el siguiente procedimiento:
 
     > [!NOTE]
     > Si registra el proveedor de recursos de Data Lake Store y recibe un error similar a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, su suscripción podría no estar en la lista de permitidas para Data Lake Store. Para habilitar la suscripción de Azure para la versión preliminar pública de Data Lake Store, siga las instrucciones que se encuentran en [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md).
-    > 
+    >
 
 2. Cuando se le pida que inicie sesión, hágalo como uno de los propietarios o administradores de la suscripción.
 3. Una cuenta de Data Lake Store se asocia con un grupo de recursos de Azure. Comience a crear un grupo de recursos.
@@ -203,7 +203,7 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 En esta sección, realiza una conexión de Secure Shell (SSH) en el clúster de HDInsight en Linux que creó y luego ejecute una consulta de Hive de ejemplo.
 
 * Si usa un cliente Windows para realizar una conexión SSH en el clúster, consulte [Uso de SSH con clústeres de HDInsight desde PuTTY en Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
-* Si usa un cliente Linux para realizar una conexión SSH en el clúster, consulte [Uso de SSH con HDInsight (Hadoop) desde Bash en Windows&10;, Linux, Unix u OS X](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* Si usa un cliente Linux para realizar una conexión SSH en el clúster, consulte [Uso de SSH con HDInsight (Hadoop) desde Bash en Windows 10, Linux, Unix u OS X](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Después de haber realizado la conexión, inicie la interfaz de la línea de comandos (CLI) de Hive con el siguiente comando:
 
@@ -228,7 +228,7 @@ Después de configurar el clúster de HDInsight para que use Data Lake Store, pu
 En esta sección, realiza una conexión SSH en el clúster de HDInsight en Linux que creó y luego ejecuta los comandos de HDFS.
 
 * Si usa un cliente Windows para realizar una conexión SSH en el clúster, consulte [Uso de SSH con clústeres de HDInsight desde PuTTY en Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
-* Si usa un cliente Linux para realizar una conexión SSH en el clúster, consulte [Uso de SSH con HDInsight (Hadoop) desde Bash en Windows&10;, Linux, Unix u OS X](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* Si usa un cliente Linux para realizar una conexión SSH en el clúster, consulte [Uso de SSH con HDInsight (Hadoop) desde Bash en Windows 10, Linux, Unix u OS X](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Después de realizar la conexión, pasa a enumerar los archivos de Data Lake Store mediante el siguiente comando de sistema de archivos de HDFS.
 

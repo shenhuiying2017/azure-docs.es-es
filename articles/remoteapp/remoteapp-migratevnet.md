@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbc8a612d05f8456e55eb26c58cd4461ced4a521
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 10b5f4844a38fe97852dee8634e8cf54f1a23a1e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-migrate-a-hybrid-collection-from-a-remoteapp-vnet-to-an-azure-vnet"></a>Migración de una colección híbrida de una red virtual de RemoteApp a una red virtual de Azure
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -53,10 +54,5 @@ Como alternativa, en caso de que SÍ tenga que migrar información de usuario de
 Y ahora, ¡ya ha terminado!
 
 Si tiene alguna pregunta o necesita ayuda especial, envíe un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

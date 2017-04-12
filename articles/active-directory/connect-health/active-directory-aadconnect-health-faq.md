@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6ad2194a71e0d36ba4a0b9a46ca6dbcd58b619ff
-ms.openlocfilehash: 06a8b79f0740e902bb7f9412b449a98b2f0167ea
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
@@ -138,22 +138,6 @@ No, la auditoría no debe habilitarse en los servidores proxy de aplicación web
 **P: ¿Cómo se resuelven las alertas de Azure AD Connect Health?**
 
 Las alertas de Azure AD Connect Health se resuelven en una condición satisfactoria. Los Agentes de Azure AD Connect Health detectan e informan de las condiciones de éxito al servicio de manera periódica. En el caso de algunas alertas, la supresión depende del tiempo. En otras palabras, si la misma condición de error no se observa dentro de un plazo de 72 horas desde la generación de la alerta, esta se resuelve de forma automática.
-
-## <a name="migration-questions"></a>Preguntas sobre migración
-
-Esta sección solo se aplica a los clientes a los que se notificó la migración futura de sus datos de Azure AD Connect Health.
-
-**P: ¿Tengo que volver a registrar mis agentes o volver a configurar las notificaciones después de la migración?**
-
-No, la información de registro del agente y la configuración de las notificaciones se trasladarán como parte de la migración.
-
-**P: Después de la migración, ¿cuándo empezaré a ver datos en el portal?**
-
-Los datos empezarán a aparecer en el portal en un plazo de una hora después de la migración.
-
-**P: ¿Qué ocurre con mis alertas activas existentes?**
-
-Las alertas aplicables se volverán a activar en un plazo de una hora después de la migración.
 
 ## <a name="related-links"></a>Vínculos relacionados
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

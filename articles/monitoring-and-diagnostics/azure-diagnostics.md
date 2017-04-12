@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f31a8347bf6bb36fa166d35f52915813394d85e9
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -59,7 +59,7 @@ Para temas más avanzados, consulte
 
 * [Uso de Diagnósticos de Azure con Application Insights para Cloud Services](../application-insights/app-insights-cloudservices.md)
 * [Seguimiento del flujo en una aplicación de Cloud Services con Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Uso de PowerShell para configurar los diagnósticos en Cloud Services](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Uso de PowerShell para configurar los diagnósticos en Cloud Services](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines-using-azure-diagnostics"></a>Máquinas virtuales que usan Diagnósticos de Azure
 * Si utiliza Visual Studio, consulte el artículo sobre el [uso de Visual Studio para rastrear Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para comenzar. De lo contrario, consulte
@@ -67,8 +67,8 @@ Para temas más avanzados, consulte
 
 Para temas más avanzados, consulte
 
-* [Uso de PowerShell para configurar los diagnósticos en Azure Virtual Machines](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Uso de PowerShell para configurar los diagnósticos en Azure Virtual Machines](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-using-azure-diagnostics"></a>Service Fabric con Diagnósticos de Azure
 Empiece por el artículo sobre la [supervisión de una aplicación de Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Cuando acceda a este artículo, verá muchos otros artículos de diagnósticos de Service Fabric disponibles en el árbol de navegación de la izquierda.

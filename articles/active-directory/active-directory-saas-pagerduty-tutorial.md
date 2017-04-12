@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d78e5a50f5c0416aa5f7caa92d51f688abb1efcc
-ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a7fae61f9b2dc400cbbd7054c11ec622f8683ccb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ Después de completar este tutorial, los usuarios de Azure AD asignados a Pagerd
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para Pagerduty
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
@@ -62,11 +63,11 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Pagerduty con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
 
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base&64;.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
 
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -95,13 +96,13 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
    
    ![Habilitar inicio de sesión único](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Habilitar inicio de sesión único")
    
-   1. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+   1. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
       
       >[!TIP]
       >Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
       >
 
-  2. Abra el certificado codificado en base&64; en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
+  2. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
   3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Pagerduty**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Login URL** (URL de inicio de sesión).
   4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Pagerduty**, copie el valor de **Dirección URL del cierre de sesión remoto** y péguelo en el cuadro de texto **Logout URL** (URL de cierre de sesión).
   5. Seleccione **Activar inicio de sesión único**.
@@ -112,10 +113,11 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
    ![Configurar inicio de sesión único](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configurar inicio de sesión único")
    
 
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para permitir que los usuarios de Azure AD inicien sesión en Pagerduty, deben aprovisionarse en Pagerduty.  
-En el caso de Pagerduty, el aprovisionamiento es una tarea manual.
+
+* En el caso de Pagerduty, el aprovisionamiento es una tarea manual.
 
 **Para aprovisionar cuentas de usuario, realice estos pasos:**
 
@@ -128,17 +130,17 @@ En el caso de Pagerduty, el aprovisionamiento es una tarea manual.
    
    ![Invite your team (Invitar a su equipo)](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Invite your team (Invitar a su equipo)")
    
-   > [!NOTE]
-   > Todos los usuarios agregados recibirán una invitación para crear una cuenta de PagerDuty.
+   >[!NOTE]
+   >Todos los usuarios agregados recibirán una invitación para crear una cuenta de PagerDuty.
    > 
    > 
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Pagerduty ofrecida por Pagerduty para aprovisionar cuentas de usuario de AAD.
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Pagerduty ofrecida por Pagerduty para aprovisionar cuentas de usuario de AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a Pagerduty, lleve a cabo los siguientes pasos:**
@@ -151,11 +153,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Recursos adicionales
 
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

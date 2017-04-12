@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
+ms.date: 04/07/2017
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: 8ff5933239521f8ed986da5a12aced3110085376
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d967d70c7fad45f7a10a5288623440491dcfffa3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,7 +29,7 @@ Aunque este tutorial muestra cómo implementar una aplicación con un front-end 
 Puede utilizar Visual Studio para generar el paquete de aplicación que contiene varios ejecutables invitados. Consulte [Uso de Visual Studio para empaquetar un ejecutable existente](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). Después de haber agregado el primer ejecutable invitado, haga clic con el botón derecho en el proyecto de aplicación y seleccione el **Agregar->Nuevo servicio de Service Fabric** para agregar el segundo proyecto ejecutable invitado a la solución. Nota: Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen. 
 
 ## <a name="samples"></a>Muestras
-* [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaquetar manualmente la aplicación del ejecutable invitado múltiple
@@ -217,6 +217,6 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener información acerca de la implementación de contenedores con [información general de Service Fabric y contenedores](service-fabric-containers-overview.md)
-* [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
