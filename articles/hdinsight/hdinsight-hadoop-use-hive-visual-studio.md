@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,12 +36,12 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 * Un clúster de Azure HDInsight (Hadoop en HDInsight).
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio (una de las siguientes versiones):
-  
+
     * Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
-  
+
     * Visual Studio 2015 (cualquier edición)
 
     * Visual Studio 2017 (cualquier edición)
@@ -62,16 +62,16 @@ Necesitará lo siguiente para completar los pasos de este artículo.
    STORED AS TEXTFILE LOCATION '/example/data/';
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
-   
+
     Estas instrucciones realizan las acciones siguientes:
-   
+
    * `DROP TABLE`: Si la tabla existe, esta instrucción la elimina.
 
    * `CREATE EXTERNAL TABLE`: Crea una tabla 'externa' en Hive. Las tablas externas solo almacenan la definición de tabla en Hive; los datos quedan en la ubicación original.
-     
+
      > [!NOTE]
      > Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
-     > 
+     >
      > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
 
    * `ROW FORMAT`: Indica cómo se da formato a los datos de Hive. En este caso, los campos de cada registro se separan mediante un espacio.
@@ -95,7 +95,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 6. También puede ejecutar consultas de Hive sin crear un proyecto. Con el **Explorador de servidores**, expanda **Azure** > **HDInsight**, haga clic con el botón derecho en el servidor de HDInsight y luego seleccione **Escribir una consulta de Hive**.
 
 7. En el documento **temp.hql** que aparece, agregue las siguientes instrucciones de HiveQL.
-   
+
    ```hiveql
    set hive.execution.engine=tez;
    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -103,9 +103,9 @@ Necesitará lo siguiente para completar los pasos de este artículo.
    ```
 
     Estas instrucciones realizan las acciones siguientes:
-   
+
    * `CREATE TABLE IF NOT EXISTS`: Crea una tabla, si todavía no existe. Dado que no se utiliza la palabra clave `EXTERNAL`, esta instrucción crea una tabla interna. Las tablas internas se guardan en el almacenamiento de datos de Hive y Hive las administra.
-     
+
      > [!NOTE]
      > A diferencia de las tablas `EXTERNAL`, la eliminación de una tabla interna también eliminará los datos subyacentes.
 

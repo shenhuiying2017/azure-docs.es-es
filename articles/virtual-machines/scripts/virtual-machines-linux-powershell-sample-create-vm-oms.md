@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 399f69255c729b9d004d617ed195a172ffe481b9
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 25e0fe62aee03a47b8cda0c362662312551d7fd1
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,7 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 Este script crea una máquina virtual de Azure, instala el agente de Operations Management Suite (OMS) e inscribe el sistema en un área de trabajo de OMS. Después de ejecutar el script, la máquina virtual será visible en la consola de OMS.
 
-Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) y, luego, ejecute `Login-AzureRmAccount` para crear una conexión con Azure. Además, debe haber una clave pública SSH llamada "`id_rsa.pub`" en el directorio .ssh del perfil de usuario. Finalmente, la clave de área de trabajo y el identificador de área de trabajo de OMS deben actualizarse en el script.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -63,5 +65,5 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Encontrará más ejemplos de scripts de PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Linux de Azure](../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Encontrará más ejemplos de scripts de PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Linux de Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 680b2bec3af18273d0ac43d7102a99392fd8ebe0
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -85,7 +85,7 @@ A continuación, se presentan consideraciones y pasos para enviar ráfagas a ins
    Cuando termine de ejecutar los trabajos, desconecte los nodos y use la acción **Detener** del Administrador de clústeres de HPC.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>Escenario 2: Implementación de nodos de ejecución en máquinas virtuales de proceso intensivo (IaaS)
-En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecución de clúster en máquinas virtuales en una red virtual de Azure. HPC Pack ofrece varias [opciones de implementación de máquinas virtuales de Azure](../../virtual-machines-linux-hpcpack-cluster-options.md), incluidos los scripts de implementación automatizados y las plantillas de inicio rápido de Azure. Como ejemplo, las siguientes consideraciones y pasos lo guían en el uso del [script de implementación de HPC Pack IaaS](hpcpack-cluster-powershell-script.md) para automatizar la implementación de un clúster de HPC Pack 2012 R2 en Azure.
+En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecución de clúster en máquinas virtuales en una red virtual de Azure. HPC Pack ofrece varias [opciones de implementación de máquinas virtuales de Azure](../../linux/hpcpack-cluster-options.md), incluidos los scripts de implementación automatizados y las plantillas de inicio rápido de Azure. Como ejemplo, las siguientes consideraciones y pasos lo guían en el uso del [script de implementación de HPC Pack IaaS](hpcpack-cluster-powershell-script.md) para automatizar la implementación de un clúster de HPC Pack 2012 R2 en Azure.
 
 ![Clúster en máquinas virtuales de Azure][iaas]
 
@@ -102,7 +102,7 @@ En este escenario, se implementa el nodo principal de HPC Pack y nodos de ejecuc
    * **Sistema operativo Windows Server**: para admitir la conectividad RDMA, especifique un sistema operativo Windows Server 2012 R2 o Windows Server 2012 para las máquinas virtuales de nodo de ejecución.
    * **Servicios en la nube**: se recomienda implementar el nodo principal en un servicio en la nube y los nodos de ejecución en otro diferente.
    * **Tamaño de nodo principal**: en este caso, considere un tamaño de al menos A4 (extragrande) para el nodo principal.
-   * **Extensión HpcVmDrivers**: el script de implementación instala el agente de VM de Azure y la extensión HpcVmDrivers automáticamente al implementar nodos de ejecución de tamaño A8 o A9 con un sistema operativo Windows Server. HpcVmDrivers instala a controladores en las máquinas virtuales de nodos de proceso para que se puedan conectar a la red RDMA. En las máquinas virtuales de la serie H compatibles con RDMA, debe instalar manualmente la extensión HpcVmDrivers. Consulte [Acerca de las máquinas virtuales de la serie H y A de procesos intensivos](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **Extensión HpcVmDrivers**: el script de implementación instala el agente de VM de Azure y la extensión HpcVmDrivers automáticamente al implementar nodos de ejecución de tamaño A8 o A9 con un sistema operativo Windows Server. HpcVmDrivers instala a controladores en las máquinas virtuales de nodos de proceso para que se puedan conectar a la red RDMA. En las máquinas virtuales de la serie H compatibles con RDMA, debe instalar manualmente la extensión HpcVmDrivers. Consulte [Acerca de las máquinas virtuales de la serie H y A de procesos intensivos](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
    * **Configuración de red de clúster**: el script de implementación configura automáticamente el clúster de HPC Pack en la topología 5 (todos los nodos de la red empresarial). Esta topología es obligatoria para todas las implementaciones de clúster de HPC Pack en máquinas virtuales. No cambie la topología de red de clúster más adelante.
 2. **Poner en línea los nodos de proceso para ejecutar trabajos**
    

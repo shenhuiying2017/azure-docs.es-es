@@ -10,14 +10,15 @@ tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 24ba1e8c862f1f451653cd0b1c283cae7bf910ba
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 184b099e0b723016180adaef95dc092da4d4224c
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -25,9 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 Este script de ejemplo crea una aplicación web en App Service con una ranura de implementación adicional que se denomina "ensayo" y, a continuación, implementa una aplicación de ejemplo en la ranura "ensayo".
 
-Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
-
-Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b44fcb6cca30acbd5771a0301f72faa7d9105849
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: df3586781ca7ebaaf574a877b96887187add0222
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-remoteapp-network-bandwidth---general-guidelines-if-you-cant-test-your-own"></a>Ancho de banda de red de Azure RemoteApp: directrices generales (si no puede probarlo usted mismo)
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -45,10 +46,5 @@ Se trata de un escenario de uso de ancho de banda bajo. A 256 KB/s, proporcionam
 * [Cálculo aproximado del uso del ancho de banda de red de Azure RemoteApp](remoteapp-bandwidth.md)
 * [Azure RemoteApp: ¿cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente?](remoteapp-bandwidthexperience.md)
 * [Azure RemoteApp - tseting your network bandwidth usage with some common scenarios (Azure RemoteApp: probar su uso de ancho de banda de red con algunos escenarios comunes)](remoteapp-bandwidthtests.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
-ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bc9d9aa1cbe704de5f7fb960f1467aa522acd0b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +39,7 @@ Si está utilizando conjuntos de escalado de máquinas virtuales y no ve una mé
 
 Si una métrica concreta no se muestrea o se transfiere a la frecuencia que desea, puede actualizar la configuración de diagnóstico.
 
-Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) sobre PowerShell para configurar y actualizar la extensión Diagnostics de máquina virtual de Azure a fin de habilitar la métrica. Ese artículo también incluye un archivo de configuración de diagnósticos de ejemplo.
+Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre PowerShell para configurar y actualizar la extensión Diagnostics de máquina virtual de Azure a fin de habilitar la métrica. Ese artículo también incluye un archivo de configuración de diagnósticos de ejemplo.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager
 Las siguientes métricas de nivel de host se emiten de forma predeterminada para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure en instancias de Windows y Linux. Estas métricas describen la máquina virtual de Azure, pero se recopilan desde el host de dicha máquina en lugar de hacerlo a través de agente instalado en la máquina virtual invitada. Puede usar estas métricas en reglas de escalado automático. 
@@ -196,10 +197,5 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 > Para Bus de servicio, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,9 +15,9 @@ ms.workload: tbd
 ms.date: 01/12/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
-ms.openlocfilehash: 88032b3855c2f89b935064abe496a8455dcff88b
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: aee9d9b735358c3800f8f97f78dd2d3ad1e5e8a8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -42,7 +42,7 @@ El tamaño de la máquina virtual afecta a los precios. El tamaño también afec
 
 Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
-* Los tamaños A8-A11 los de la serie H también se conocen como *instancias de proceso intensivo*. El hardware que ejecuta estos tamaños está diseñado y optimizado para aplicaciones de proceso intensivo que consumen muchos recursos de red, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HPC), el modelado y las simulaciones. La serie A8-A11 utiliza Intel Xeon E5-2670 @ 2,6 GHz y la serie H, Intel Xeon E5-2667 v3 @ 3,2 GHz. Para más información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Los tamaños A8-A11 los de la serie H también se conocen como *instancias de proceso intensivo*. El hardware que ejecuta estos tamaños está diseñado y optimizado para aplicaciones de proceso intensivo que consumen muchos recursos de red, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HPC), el modelado y las simulaciones. La serie A8-A11 utiliza Intel Xeon E5-2670 a 2,6 GHz y la serie H, Intel Xeon E5-2667 v3 a 3,2 GHz. Para más información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Las series Dv2, D y G son ideales para las aplicaciones que requieren CPU más rápidas, mejor rendimiento de disco local, o tienen mayor demanda de memoria. Ofrecen una combinación eficaz para muchas aplicaciones de clase empresarial.
 * Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual {nombre de la máquina}** o **No se pudo crear la máquina virtual {nombre de la máquina}** al cambiar el tamaño de una máquina virtual existente por un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes del 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.
 * La suscripción también podría limitar el número de núcleos que se pueden implementar en ciertas familias de tamaños. Para aumentar una cuota, póngase en contacto con el soporte técnico de Azure.
@@ -66,8 +66,8 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [D1-14](#d-series) |160 |
-| [D1&15;v2](#dv2-series) |210 - 250* |
-| [G1&5;](#g-series) |180 - 240* |
+| [D1 15v2](#dv2-series) |210 - 250* |
+| [G1 5](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento. El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
@@ -93,7 +93,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 | A7              | 8         | 56           | 2040                 | 4 / alto |
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A: instancias de proceso intensivo
-Para información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para información y consideraciones sobre el uso de estos tamaños, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Tamaño            | Núcleos de CPU | Memoria: GiB  | HDD local: GiB       | Ancho de banda de red/NIC máx. |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -197,5 +197,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
-* Más información [cerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo, como la informática de alto rendimiento (HPC).
+* Más información [cerca de las máquinas virtuales de la serie H y A de proceso intensivo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo, como la informática de alto rendimiento (HPC).
 

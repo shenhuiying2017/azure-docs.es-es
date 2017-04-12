@@ -16,9 +16,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 05e8c264376b976bcdc8f3e1f03ed79cb712991e
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 0875b40045387a9695c8b86a01a708433016c1ee
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/17/2017
 Hive ofrece un modo de ejecutar trabajos de MapReduce de Hadoop mediante un lenguaje de scripting de tipo SQL, denominado *[HiveQL][hadoop-hiveql]*, que se puede usar para resumir, consultar y analizar grandes volúmenes de datos.
 
 > [!IMPORTANT]
-> Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para conocer el procedimiento que funciona con un clúster basado en Linux, vea [Análisis de datos de retraso de vuelos con Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para conocer el procedimiento que funciona con un clúster basado en Linux, vea [Análisis de datos de retraso de vuelos con Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 Una de las principales ventajas de HDInsight de Azure es la separación del almacenamiento de datos y el proceso. HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. Un trabajo típico implica tres partes:
 

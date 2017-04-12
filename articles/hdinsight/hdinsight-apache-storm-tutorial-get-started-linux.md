@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5d74f2c130eeddb1022acf9673c6a2006af2db58
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 4787928ed066b9aed51a8512deeda6cd49897d82
+ms.lasthandoff: 04/11/2017
 
 ---
 #<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Introducción a los ejemplos de Storm Starter para análisis de macrodatos en HDInsight basado en Linux
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a errores y en tiempo real para el procesamiento de secuencias de datos. Con Storm en HDInsight de Azure, puede crear un clúster de Storm basado en la nube que realice análisis en tiempo real de grandes cantidades de datos en tiempo real.
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -46,7 +46,7 @@ Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a 
 Siga estos pasos para crear un clúster de Storm en HDInsight:
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **+ NUEVOE**, **Inteligencia y análisis** y luego seleccione **HDInsight**.
-   
+
     ![Creación de un clúster de HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. Introduzca la siguiente información de la hoja **Básico**:
@@ -57,11 +57,11 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
     * **Nombre de usuario de Secure Shell (SSH)**: inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
     * **Grupo de recursos**: en el que se va a crear el clúster.
     * **Ubicación**: región de Azure donde se va crear el clúster.
-   
+
     ![Seleccione la suscripción.](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Seleccione **Tipo de clúster** y establezca los siguientes valores en la hoja **Configuración de clúster**:
-   
+
     * **Tipo de clúster**: Storm
 
     * **Sistema operativo**: Linux
@@ -69,9 +69,9 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
     * **Versión**: Storm 1.0.1 (HDI 3.5)
 
     * **Nivel de clúster**: estándar
-     
+
     Por último, use el botón **Seleccionar** para guardar la configuración.
-     
+
     ![Seleccionar el tipo de clúster](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
 4. Después de seleccionar el tipo de clúster, use el botón __Seleccionar__ para establecer el tipo de clúster. A continuación, use el botón __Siguiente__ para finalizar la configuración básica.
@@ -81,34 +81,34 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
     ![Configuración de la cuenta de almacenamiento de HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
 6. En la hoja **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, use el botón __Crear__ para crear el clúster.
-   
+
     ![Resumen de configuración del clúster](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
-   
+
     > [!NOTE]
     > Un clúster puede tardar hasta 20 minutos en crearse.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Ejecución de una muestra de inicio de Storm en HDInsight
 
 1. Conéctese al clúster de HDInsight con SSH:
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá que la escriba. Si usó una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la clave privada coincidente. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
-   
+
     Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use el comando siguiente para iniciar una topología de ejemplo:
-   
+
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
-   
+
     > [!NOTE]
     > En versiones anteriores de HDInsight, el nombre de clase de la topología es `storm.starter.WordCountTopology`, en lugar de `org.apache.storm.starter.WordCountTopology`.
-   
+
     Este comando inicia la topología de ejemplo de WordCount en el clúster, con el nombre descriptivo de "wordcount". Genera frases aleatoriamente y cuenta la aparición de cada palabra en ellas.
-   
+
     > [!NOTE]
     > Al enviar sus propias topologías al clúster, primero debe copiar el archivo jar que contiene el clúster antes de usar el comando `storm`. Use el comando `scp` para copiar el archivo. Por ejemplo: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-    > 
+    >
     > El ejemplo de WordCount, y otros ejemplos de inicio de Storm, ya están incluidos en el clúster en `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 Si está interesado en ver el origen de los ejemplos de storm starter, puede encontrar el código en [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Este vínculo es para Storm 1.0. x, que se proporciona con HDInsight 3.5. Para otras versiones de Storm, use el botón __Branch__ de la parte superior de la página para seleccionar otra versión de Storm.
@@ -120,58 +120,58 @@ La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topolo
 Siga estos pasos para supervisar la topología mediante la interfaz de usuario de Storm:
 
 1. Para mostrar la interfaz de usuario de Storm, abra un explorador web con https://CLUSTERNAME.azurehdinsight.net/stormui. Reemplace **CLUSTERNAME** por el nombre del clúster.
-    
+
     > [!NOTE]
     > Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
 
 2. En el **resumen de la topología**, seleccione la entrada **wordcount** de la columna **Nombre**. Se muestra información sobre la topología.
-    
+
     ![Panel de Storm con la información de topología de WordCount de inicio de Starter.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
-    
+
     Esta página ofrece la siguiente información:
-    
+
     * **Estadísticas de topología** : información básica sobre el rendimiento de la topología, organizada en ventanas de tiempo.
-     
+
         > [!NOTE]
         > Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
     * **Spouts** : información básica sobre spouts, entre la que se incluye el último error que ha devuelto cada spout.
-    
+
     * **Bolts** : información básica sobre bolts.
-    
+
     * **Configuración de la topología** : información detallada sobre la configuración de la topología.
-     
+
     Esta página también ofrece acciones que se pueden realizar en la topología:
-   
+
     * **Activar** : reanuda el procesamiento de una topología desactivada.
-    
+
     * **Desactivar** : pausa una topología en ejecución.
-    
+
     * **Reequilibrar** : ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. De esta forma, la topología ajusta el paralelismo para compensar el mayor o menor número de nodos del clúster. Para más información, consulte la entrada de blog [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
-    
+
     * **Eliminar** : finaliza una topología de Storm tras el tiempo de espera especificado.
 
 3. En esta página, seleccione una entrada en la sección **Spouts** o **Bolts**. Se muestra información sobre el componente seleccionado.
-   
+
     ![Panel de Storm con información acerca de los componentes seleccionados.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
-   
+
     En esta página se muestra la siguiente información:
-   
+
     * **Estadísticas de spouts y bolts** : información básica sobre el rendimiento de los componentes, organizada en ventanas de tiempo.
-     
+
         > [!NOTE]
         > Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
-     
+
     * **Estadísticas de entrada** (solo bolt): información sobre los componentes que generan los datos que consume el bolt.
-    
+
     * **Estadísticas de salida** : información sobre los datos que emite este bolt.
-    
+
     * **Ejecutores** : información sobre las instancias de este componente.
-    
+
     * **Errores** : errores que ha generado este componente.
 
 4. Al ver los detalles de un spout o bolt, seleccione una entrada de la columna **Puerto** en la sección **Ejecutores** para ver los detalles de una instancia específica del componente.
-   
+
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
         2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
@@ -180,7 +180,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
         2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
-   
+
     En este ejemplo, la palabra **seven** se ha producido 1493957 veces. Este es el número de veces que se ha encontrado la palabra desde que se iniciara esta topología.
 
 ## <a name="stop-the-topology"></a>Detención de la topología

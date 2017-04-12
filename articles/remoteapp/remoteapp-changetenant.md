@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1199ca2378cfe4adba2d591bfab204113b4a0468
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Cambio del inquilino de Azure Active Directory en Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -48,10 +49,5 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
 8. Inicie sesión de nuevo y vuelva a **Configuración -> Suscripciones**. Seleccione la suscripción y haga clic en **Editar directorio**. Seleccione el inquilino de Azure AD que desea usar.
 
 Ahora puede usar el nuevo inquilino de Azure AD para controlar el acceso a la suscripción de Azure y para configurar el acceso de usuario en Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

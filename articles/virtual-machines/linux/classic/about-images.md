@@ -16,22 +16,22 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bc052dd441661b18c3ada71e5c79c88ab0ecbc10
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Acerca de las imágenes para las máquinas virtuales Linux
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre las imágenes mediante el modelo de Resource Manager, consulte [aquí](../../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre las imágenes mediante el modelo de Resource Manager, consulte [aquí](../cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
 ## <a name="working-with-images"></a>Trabajo con imágenes
 Puede usar la Interfaz de la línea de comandos de Azure (CLI) para Mac, Linux y Windows para administrar las imágenes disponibles para su suscripción de Azure. También puede usar el Portal de Azure para algunas tareas de imagen, pero la línea de comandos le ofrece más opciones.
 
-Para ver ejemplos del uso de las herramientas, consulte [Comandos de la CLI de Azure comunes en Linux y Mac](../../virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para ver ejemplos del uso de las herramientas, consulte [Comandos de la CLI de Azure comunes en Linux y Mac](../cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 También puede [cargar su propia imagen](create-upload-vhd.md).

@@ -26,7 +26,7 @@
 ###[Distribuir la memoria caché mediante agrupación en clústeres](cache-how-to-premium-clustering.md)
 ## Automatizar
 ###[Implementar y administrar con PowerShell](cache-howto-manage-redis-cache-powershell.md)
-###[Implementar y administrar con la CLI de Azure](cache-manage-cli.md)
+###[Implementar y administrar con la CLI de Azure](cli-samples.md)
 ###[Aprovisionar una instancia de Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Aprovisionar una aplicación web con Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integración con ASP.NET
@@ -57,9 +57,4 @@
 # Recursos
 ## [Ejemplos de Redis Cache](cache-redis-samples.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/cache/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

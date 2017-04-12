@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 31fa57771aaa2d4d6e4e0d387e045fb28e378887
+ms.lasthandoff: 04/10/2017
 
 
 ---
 # <a name="create-a-net-webjob-in-azure-app-service"></a>Creación de un WebJob .NET en el Servicio de aplicaciones de Azure
 Este tutorial muestra cómo escribir código para una aplicación de ASP.NET MVC 5 sencilla de niveles múltiples que usa el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md).
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 El propósito del [SDK de WebJobs](websites-webjobs-resources.md) es simplificar el código que escriba para las tareas comunes que puede realizar un WebJob, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y enviar de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
@@ -120,7 +122,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
     <pre class="prettyprint">&lt;connectionStrings&gt;
       &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-      &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombreDeCuenta]</mark>;AccountKey=<mark>[claveDeAcceso]</mark>"/&gt;
+      &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
     &lt;/connectionStrings&gt;</pre>
 
     La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
@@ -140,8 +142,8 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
       <pre class="prettyprint">&lt;configuration&gt;
     &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombreDeCuenta]</mark>;AccountKey=<mark>[claveDeAcceso]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombreDeCuenta]</mark>;AccountKey=<mark>[claveDeAcceso]</mark>"/&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
         &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
     &lt;/connectionStrings&gt;
         &lt;startup&gt;

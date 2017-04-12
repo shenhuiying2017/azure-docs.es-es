@@ -16,15 +16,15 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: e1e915e07591ed104a30e9194ec6228b04519b8c
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Diseño y compilación de una solución de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
-> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   j
+> La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.
 
 Las [soluciones de administración](operations-management-suite-solutions.md) amplían la funcionalidad de Operations Management Suite (OMS) proporcionando escenarios de administración empaquetados que los clientes pueden agregar a su área de trabajo de OMS.  Este artículo presenta un proceso básico para diseñar y compilar una solución de administración que es adecuada para los requisitos más comunes.  Si no está familiarizado con la creación de soluciones de administración puede utilizar este proceso como punto de partida, y luego aprovechar los conceptos para soluciones más complejas a medida que sus requisitos evolucionan.
 

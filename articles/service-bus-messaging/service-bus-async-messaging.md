@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 798b4310eb5ea7a4877d7842371b5dd7cf88d632
-ms.openlocfilehash: 8a5c1a381cc5cf30f211da948951dc577a124951
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3142bea414e54e321e3dc9ae13aca110049ee105
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -81,10 +82,9 @@ Los espacios de nombres emparejados admiten la *disponibilidad de envío*. La di
 
 1. Solo se reciben mensajes del espacio de nombres principal.
 2. Los mensajes enviados a una cola o tema determinados pueden llegar desordenados.
-3. Si la aplicación usa sesiones, los mensajes de cualquiera de ellas pueden llegar desordenados. Esto no es algo habitual en el funcionamiento normal de las sesiones, ya que la aplicación usa las sesiones para agrupar los mensajes de forma lógica. El estado de sesión solo se mantiene en el espacio de nombres principal.
-4. Los mensajes de una sesión pueden llegar desordenados. Esto no es algo habitual en el funcionamiento normal de las sesiones, ya que la aplicación usa las sesiones para agrupar los mensajes de forma lógica.
-5. El estado de sesión solo se mantiene en el espacio de nombres principal.
-6. La cola principal puede conectarse y empezar a aceptar mensajes antes de que la cola secundaria le entregue todos los mensajes.
+3. Los mensajes de una sesión pueden llegar desordenados. Esto no es algo habitual en el funcionamiento normal de las sesiones, ya que la aplicación usa las sesiones para agrupar los mensajes de forma lógica.
+4. El estado de sesión solo se mantiene en el espacio de nombres principal.
+5. La cola principal puede conectarse y empezar a aceptar mensajes antes de que la cola secundaria le entregue todos los mensajes.
 
 En las secciones siguientes se describen las API y cómo se implementan las API, y se muestra código de ejemplo que usa la característica. Tenga en cuenta que esta característica tiene asociadas unos costos.
 
@@ -152,9 +152,4 @@ Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica en 
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

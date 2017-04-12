@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 593f2d35730bcc03fb9d925be36c4c1423a31a49
-ms.openlocfilehash: 23b634a6acde9837308815d9973e5da80fcde767
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: d2d9cff50d6ba5dc990140059536786fb7281827
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -93,10 +93,10 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
-* Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
+* Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
 * Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
 * Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-* Para obtener una serie de cuatro partes acerca de cómo automatizar la implementación, vea [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta serie cubre la arquitectura de la aplicación, el acceso y la seguridad, la disponibilidad y la escala, y la implementación de aplicaciones.
+* Para obtener una serie de cuatro partes acerca de cómo automatizar la implementación, vea [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta serie cubre la arquitectura de la aplicación, el acceso y la seguridad, la disponibilidad y la escala, y la implementación de aplicaciones.
 
 

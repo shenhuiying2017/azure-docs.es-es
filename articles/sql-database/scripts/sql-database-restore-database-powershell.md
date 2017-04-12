@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 81e7d2390f9872b7b3e01f763d29275e3ec32667
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: c9aad737b76666921ca60cd1e6b3bd86adb1904c
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Este script de ejemplo de PowerShell restaura una instancia de Azure SQL Database desde una copia de seguridad con redundancia geográfica y restaura una base de datos eliminada a la copia de seguridad más reciente.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -53,7 +53,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/restore-azurermsqldatabase) | Restaura una Base de datos SQL. |
 |[Remove-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/remove-azurermsqldatabase) | Eliminación de una instancia de Azure SQL Database. |
 | [Get-AzureRmSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/get-azurermsqldeleteddatabasebackup) | Obtiene una base de datos eliminada que se puede restaurar. |
-| [Remove-AzureRmResourceGroup]() | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/remove-azurermresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

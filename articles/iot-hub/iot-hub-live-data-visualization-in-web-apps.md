@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 788b3a6ce98c6668a8efc41f66c7e39b8aeda2db
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 03/30/2017
 
 ![Conexión entre el sensor, el dispositivo de IoT, IoT Hub y la aplicación web de Azure](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
 
-> [!NOTE]
-> Antes de empezar este tutorial, asegúrese de que ha seguido los pasos que se indican en [Conexión de ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). En [Conexión de ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), configuró el dispositivo de IoT y el centro de IoT, e implementó una aplicación de ejemplo para ejecutarse en su dispositivo. La aplicación envía los datos recopilados del sensor a su centro de IoT.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
@@ -43,7 +42,7 @@ En esta lección, aprenderá a visualizar datos del sensor en tiempo real que re
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Haber realizado el tutorial [Conexión de ESP8266 a Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) que cubre los siguientes requisitos:
+- Tiene que haber completado el tutorial para [conectar ESP8266 a Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), que engloba los siguientes requisitos:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
@@ -126,8 +125,4 @@ Ha usado correctamente una aplicación web de Azure para visualizar datos del se
 
 Hay otra manera de visualizar datos desde Azure IoT Hub. Consulte [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md) (Uso de Power BI para visualizar datos de sensor en tiempo real desde Azure IoT Hub).
 
-Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
-
-- [Administración de la mensajería de dispositivos en la nube con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Guardado de los mensajes de IoT Hub en el almacenamiento de datos de Azure](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

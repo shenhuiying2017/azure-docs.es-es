@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +44,7 @@ En la lista siguiente se describe el flujo de trabajo general para una migració
 2. Prepare todas las correcciones necesarias como scripts de Transact-SQL.
 3. Realice una copia coherente desde un punto de vista transaccional de la base de datos de origen que se está migrando y asegúrese de que no se vayan a realizar más cambios en la base de datos de origen (los cambios pueden aplicarse manualmente una vez completada la migración). Existen diferentes modos de poner una base de datos en modo inactivo, desde la deshabilitación de la conectividad de cliente hasta la creación de una [instantánea de base de datos](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implemente los scripts de Transact-SQL para aplicar las correcciones a la copia de la base de datos.
-5. [Exporte](sql-database-export-sqlpackage.md) la copia de la base de datos a un archivo .BACPAC en una unidad local.
+5. [Exporte](sql-database-export.md) la copia de la base de datos a un archivo .BACPAC en una unidad local.
 6. [Importe](sql-database-import-sqlpackage.md) el archivo .BACPAC como una nueva instancia de Azure SQL Database mediante alguna de las herramientas de importación de BACPAC, de entre las que se recomienda SQLPackage.exe para obtener los mejores resultados.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimización del rendimiento de transferencia de datos durante la migración 

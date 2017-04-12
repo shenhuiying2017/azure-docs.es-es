@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3d9bdd4f07d22a7bc6c80150ae27453813d39f07
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -78,7 +78,7 @@ En el modo de procesamiento remoto, el control ReportViewer usa los siguientes e
 El control ReportViewer debe usar las credenciales adecuadas para autenticarse con el servidor de informes y las credenciales deben estar autorizadas por el servidor de informes para obtener acceso a los informes que quiere. Para obtener información sobre la autenticación, vea las notas del producto [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publicar la aplicación web ASP.NET en Azure
-Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en Azure, consulte [Cómo migrar y publicar una aplicación web en Azure desde Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introducción a aplicaciones web y ASP.NET](../../../app-service-web/web-sites-dotnet-get-started.md).
+Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en Azure, consulte [Cómo migrar y publicar una aplicación web en Azure desde Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introducción a aplicaciones web y ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Si el comando Agregar proyecto de implementación de Azure o Agregar  proyecto de servicio de nube de Azure no aparece en el menú contextual del Explorador de soluciones, puede que necesite cambiar el marco de trabajo de destino del proyecto a .NET Framework 4.

@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
-ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 230cbb12830793ca4e6b9679c5c37c4733c00f02
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -57,7 +57,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Windows SDK**. Puede instalarlo desde [aquí](https://dev.windows.com/en-us/downloads). Úselo para crear un certificado de seguridad.
 * **Entidad de servicio de Azure Active Directory** En los pasos de este tutorial se proporcionan instrucciones sobre cómo crear entidades de servicio de Azure AD. Sin embargo, debe ser administrador de Azure AD para poder crearlas. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
-    **Si no lo es**, no podrá realizar los pasos necesarios para crear una entidad de servicio. En este caso, su administrador de Azure AD debe generar primero una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de una entidad de servicio](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    **Si no lo es**, no podrá realizar los pasos necesarios para crear una entidad de servicio. En este caso, su administrador de Azure AD debe generar primero una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de una entidad de servicio](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-an-azure-data-lake-store"></a>Creación de un Almacén de Azure Data Lake
 Siga estos pasos para crear un Almacén de Data Lake.
@@ -118,7 +118,7 @@ Asegúrese de que tiene [Windows SDK](https://dev.windows.com/en-us/downloads) i
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
-        
+
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Se le pedirá que escriba la contraseña de la clave privada. Después de que el comando se ejecute correctamente, debería ver los archivos **CertFile.cer** y **mykey.pvk** en el directorio de certificado especificado.
@@ -194,7 +194,7 @@ En esta sección, se creará un clúster de Hadoop en HDInsight basado en Linux 
 
     Una vez que el cmdlet se complete correctamente, debería ver un resultado con la información del clúster.
 
-        
+
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Ejecución de trabajos de prueba en el clúster de HDInsight para usar el Almacén de Data Lake
 Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prueba en el clúster para probar que el clúster de HDInsight pueda acceder al Almacén de Data Lake. Para hacerlo, ejecutaremos un trabajo de Hive de ejemplo que crea una tabla con los datos de ejemplo que cargó antes en el Almacén de Data Lake.
 
@@ -228,7 +228,7 @@ En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight que
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Acceso al Almacén de Data Lake mediante comandos de HDFS
 Una vez que configure el clúster de HDInsight para que use el Almacén de Data Lake, puede usar los comandos de shell de HDFS para acceder al almacén.
 
-En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight que creó y ejecutará los comandos de HDFS. 
+En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight que creó y ejecutará los comandos de HDFS.
 
 * Si usa un cliente Windows para usar SSH en el clúster, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 * Si usa un cliente Linux para usar SSH en el clúster, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).

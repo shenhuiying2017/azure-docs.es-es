@@ -15,9 +15,9 @@ ms.workload: storage
 ms.date: 03/07/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab1a58aab138cc81b25731a9454b083d54ded81
-ms.openlocfilehash: eff408bc70288ada1039df7432f43b02420f2c37
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bffc77ba9e0413356ac366e85f2accb3c2087192
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ Si las necesidades de su aplicación superan los objetivos de escalabilidad de u
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Objetivos de escalabilidad para discos de máquinas virtuales
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte el artículo sobre [tamaños de VM de Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [tamaños de las VM Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información.
+Consulte el artículo sobre [tamaños de VM de Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [tamaños de las VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información.
 
 ## <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuales administrados
 

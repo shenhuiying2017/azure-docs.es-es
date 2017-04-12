@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ccec356c653cf5d3c767fd273c37ea5685607135
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6e03b6072b5244aca2810f704c485384de5aedf8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,7 +32,7 @@ Es posible que también le interesen los siguientes temas relacionados:
 ## <a name="scenario-diagram"></a>Diagrama del escenario
 En este escenario, los usuarios externos necesitan tener acceso a las aplicaciones que se ejecutan en servidores unidos a un dominio. Las máquinas virtuales que ejecutan los servidores de aplicaciones y los controladores de dominio de réplica se instalan en una red virtual de Azure. La red virtual puede estar conectada a la red local mediante una conexión [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md), tal y como se muestra en el diagrama siguiente, o bien puede usar [ExpressRoute](../expressroute/expressroute-locations-providers.md) para conseguir una conexión más rápida.
 
-Los servidores de aplicaciones y los controladores de dominio se implementan en servicios en la nube independientes para distribuir el procesamiento informático y en [conjuntos de disponibilidad](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para una mejor tolerancia a errores.
+Los servidores de aplicaciones y los controladores de dominio se implementan en servicios en la nube independientes para distribuir el procesamiento informático y en [conjuntos de disponibilidad](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para una mejor tolerancia a errores.
 Los controladores de dominio se replican entre sí y con controladores de dominio locales mediante la replicación de Active Directory. No se necesitan herramientas de sincronización.
 
 ![Diagrama de un controlador de dominio de Active Directory de réplica en una red virtual de Azure][1]

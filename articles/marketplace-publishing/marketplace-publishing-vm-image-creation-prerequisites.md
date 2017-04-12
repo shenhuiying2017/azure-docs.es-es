@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -51,17 +52,5 @@ Puede desarrollar discos duros virtuales de Azure en la nube o de forma local:
 * El desarrollo basado en la nube significa que todos los pasos de desarrollo se realizan de forma remota en un disco duro virtual residente en Azure.
 * Para el desarrollo local se requiere la descarga de un disco duro virtual y su desarrollo mediante infraestructura local. Aunque esto es posible, no lo recomendamos. Tenga en cuenta que para el desarrollo para Windows o SQL de forma local se requiere que tenga las claves de licencia local pertinentes. No puede incluir ni instalar SQL Server tras crear una máquina virtual. También debe basar su oferta en una imagen SQL aprobada del portal de Azure. Si decide desarrollar de forma local, debe realizar algunos pasos de forma diferente a si desarrollara en la nube. Encontrará información pertinente en [Creación de una imagen de máquina virtual local](marketplace-publishing-vm-image-creation-on-premise.md).
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha revisado los requisitos previos y completado la tarea necesaria, puede continuar con la creación de su oferta de imagen de máquina virtual como se detalla en [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md)(Guía de publicación de imágenes de máquina virtual).
-
-## <a name="see-also"></a>Otras referencias
-* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: Stream Analytics puede transformar, filtrar y enrutar continuamente
 services: application-insights
 documentationcenter: 
 author: noamben
-manager: douge
+manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
 ms.workload: tbd
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c1a76f521cbee673eb473d40bb15badd40cead5f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -239,6 +239,5 @@ Noam Ben Zeev muestra cómo procesar los datos exportados mediante Stream Analyt
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
-* [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
 

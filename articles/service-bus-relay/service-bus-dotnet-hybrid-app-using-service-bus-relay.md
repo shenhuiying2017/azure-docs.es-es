@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
 
    ![][19]
 8. Haga clic en **Aceptar**.
-9. Ahora debe configurar recursos de Azure para una aplicación web nueva. Siga todos los pasos que se indican en [Creación de una aplicación web](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) y [Creación de los recursos de Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). A continuación, vuelva a este tutorial y continúe con el paso siguiente.
+9. Ahora debe configurar recursos de Azure para una aplicación web nueva. Siga todos los pasos que se indican en [Creación de una aplicación web](../app-service-web/app-service-web-get-started-dotnet.md) y [Creación de los recursos de Azure](../app-service-web/app-service-web-get-started-dotnet.md). A continuación, vuelva a este tutorial y continúe con el paso siguiente.
 10. En el Explorador de soluciones, haga clic con el botón derecho en **Modelos** y, luego, en **Agregar** y, por último, en **Clase**. En el cuadro **Name**, escriba el nombre **Product.cs**. A continuación, haga clic en **Agregar**.
 
     ![][17]
@@ -395,7 +395,7 @@ Presione **Actualizar** en la página **ProductsPortal**. Cada vez que actualice
 Cierre ambas aplicaciones antes de continuar con el paso siguiente.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Implementación del proyecto ProductsPortal en una aplicación web de Azure
-El paso siguiente consiste en convertir el front-end de **ProductsPortal** en una aplicación web de Azure. Primero, implemente el proyecto **ProductsPortal** siguiendo todos los pasos de la sección [Implementación del proyecto web en la aplicación web de Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). Cuando finalice la implementación, vuelva a este tutorial y continúe con el paso siguiente.
+El paso siguiente consiste en convertir el front-end de **ProductsPortal** en una aplicación web de Azure. Primero, implemente el proyecto **ProductsPortal** siguiendo todos los pasos de la sección [Implementación del proyecto web en la aplicación web de Azure](../app-service-web/app-service-web-get-started-dotnet.md). Cuando finalice la implementación, vuelva a este tutorial y continúe con el paso siguiente.
 
 > [!NOTE]
 > Puede que vea un mensaje de error en la ventana del explorador cuando el proyecto web **ProductsPortal** se inicie automáticamente después de la implementación. Esto es normal y se produce porque la aplicación **ProductsServer** no se está ejecutando todavía.

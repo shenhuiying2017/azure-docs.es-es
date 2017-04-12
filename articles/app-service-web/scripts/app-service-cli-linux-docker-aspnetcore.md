@@ -9,16 +9,16 @@ editor:
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.service: app-service
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1996d1cf407bc2aa72faafbf0053273ee79906e2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 4e74b414103fb39fca001ee3629bf004653cb7a3
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 En este escenario aprenderá cómo crear un grupo de recursos, el plan de servicio de aplicaciones de Linux y la aplicación web, y cómo implementar una aplicación de ASP.NET Core utilizando un contenedor de Docker.
 
-Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure.
-
-Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

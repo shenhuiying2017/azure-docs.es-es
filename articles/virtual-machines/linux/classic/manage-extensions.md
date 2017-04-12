@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8b8e5199de190e0e9f8343114190ad95645e247a
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2d16b4c2c3bfa8db6dc1455915bd3f8a80222163
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 Describe cómo encontrar, agregar, modificar o quitar extensiones de VM con máquinas virtuales de Windows o Linux en Azure.
 
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre el uso de extensiones de máquina virtual con el modelo de Resource Manager, consulte [aquí](../../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre el uso de extensiones de máquina virtual con el modelo de Resource Manager, consulte [aquí](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../../../includes/virtual-machines-common-classic-manage-extensions.md)]
 

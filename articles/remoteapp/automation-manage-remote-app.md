@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e21af65ecb6f0ce70048846a9786271dd4cc985
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 59ac11f153c0bd74a1106400dbbf5790968b657c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="managing-azure-remoteapp-using-azure-automation"></a>Administración de RemoteApp de Azure mediante Automatización de Azure
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -42,10 +43,5 @@ RemoteApp se puede administrar en Automatización de Azure mediante los cmdlets 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar RemoteApp de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
 * Consulte el [Tutorial de introducción](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

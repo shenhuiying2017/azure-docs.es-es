@@ -17,9 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 8073a2ed0b565b1fdd2685f9c0f69abf2a3fc10a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -136,7 +136,7 @@ En la tabla siguiente se resumen las opciones de configuración de red:
 
 ## <a name="create-availability-sets"></a>Creación de conjuntos de disponibilidad
 
-Antes de crear máquinas virtuales, debe crear conjuntos de disponibilidad. Los conjuntos de disponibilidad reducen el tiempo de inactividad para el mantenimiento, tanto programado como imprevisto. Un conjunto de disponibilidad de Azure es un grupo lógico de recursos que Azure coloca en dominios de error y de actualización físicos. Un dominio de error garantiza que los miembros del conjunto de disponibilidad tengan recursos de energía y red independientes. Un dominio de actualización garantiza que los miembros del conjunto de disponibilidad no pasen a inactividad por mantenimiento al mismo tiempo. [Administración de la disponibilidad de las máquinas virtuales](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de crear máquinas virtuales, debe crear conjuntos de disponibilidad. Los conjuntos de disponibilidad reducen el tiempo de inactividad para el mantenimiento, tanto programado como imprevisto. Un conjunto de disponibilidad de Azure es un grupo lógico de recursos que Azure coloca en dominios de error y de actualización físicos. Un dominio de error garantiza que los miembros del conjunto de disponibilidad tengan recursos de energía y red independientes. Un dominio de actualización garantiza que los miembros del conjunto de disponibilidad no pasen a inactividad por mantenimiento al mismo tiempo. [Administración de la disponibilidad de las máquinas virtuales](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Necesita dos conjuntos de disponibilidad. El primero es para los controladores de dominio y el segundo, para los servidores SQL Server.
 
@@ -195,7 +195,7 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 
 
    >[!IMPORTANT]
-   >Solo puede colocar una máquina virtual en un conjunto de disponibilidad al crearlo. Una vez creada una máquina virtual, no se puede cambiar el conjunto de disponibilidad. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../virtual-machines-windows-manage-availability.md).
+   >Solo puede colocar una máquina virtual en un conjunto de disponibilidad al crearlo. Una vez creada una máquina virtual, no se puede cambiar el conjunto de disponibilidad. Consulte [Administración de la disponibilidad de las máquinas virtuales](../manage-availability.md).
 
 Azure crea las máquinas virtuales.
 

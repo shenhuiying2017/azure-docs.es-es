@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/17/2016
+ms.date: 04/07/2016
 ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 16000dcb751bd96fba247c6209e85c581833681d
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -36,7 +36,7 @@ Hay diversas ventajas inherentes a la ejecución de un ejecutable invitado en un
 * Densidad. Se pueden ejecutar varias aplicaciones en el clúster, lo que elimina la necesidad de que cada aplicación se ejecute en su propio hardware.
 
 ## <a name="samples"></a>Muestras
-* [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Información general de los archivos de manifiesto de servicio y aplicación
@@ -348,7 +348,7 @@ Yeoman habría creado un paquete de aplicación con la aplicación correspondien
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a empaquetar un ejecutable invitado y a implementarlo en Service Fabric. Consulte los artículos siguientes para obtener información relacionada y tareas.
 
-* [Ejemplo para empaquetar e implementar un ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), que incluye un vínculo a la versión preliminar de la herramienta de empaquetado
+* [Ejemplo para empaquetar e implementar un ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), que incluye un vínculo a la versión preliminar de la herramienta de empaquetado
 * [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Implementación de varios ejecutables invitados](service-fabric-deploy-multiple-apps.md)
 * [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

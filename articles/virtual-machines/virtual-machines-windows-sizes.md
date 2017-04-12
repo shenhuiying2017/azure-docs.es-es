@@ -17,21 +17,21 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 365d6ad9ec0e0a7ad8d9742d863540646257e298
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 193cb2570e4c71c5205cc029543a3a7602a6574e
+ms.lasthandoff: 04/03/2017
 
 ---
 
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Windows en Azure
 
-En este artículo se describen los tamaños y las opciones disponibles para las máquinas virtuales de Azure que puede usar para ejecutar las aplicaciones y cargas de trabajo de Windows. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos.  Este artículo también está disponible para [máquinas virtuales Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+En este artículo se describen los tamaños y las opciones disponibles para las máquinas virtuales de Azure que puede usar para ejecutar las aplicaciones y cargas de trabajo de Windows. También ofrece consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos.  Este artículo también está disponible para [máquinas virtuales Linux](linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!IMPORTANT]
 >* Para obtener información sobre los precios de los diferentes tamaños, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
 >* Para ver los límites generales de las máquinas virtuales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 >* Los costes de almacenamiento se calculan por separado según las páginas utilizadas en la cuenta de almacenamiento. Para obtener más información, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
-> * Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](virtual-machines-windows-acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
+> * Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](windows/acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
 >
 >
 <br>    
@@ -50,7 +50,7 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 <br>
 
-Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](virtual-machines-windows-acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
+Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](windows/acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
 
 Obtenga más información sobre los diferentes tamaños de máquina virtual que están disponibles:
 - [Uso general](virtual-machines-windows-sizes-general.md)

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
-ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -125,7 +125,7 @@ Actualmente, Azure Managed Disks solo admite almacenamiento con redundancia loca
 
 **¿Por qué los clientes tienen que desbloquear el tráfico saliente en el puerto 8443 para VM con Azure Managed Disks?**
 
-El agente de VM de Azure usa el puerto 8443 para informar del estado de cada extensión de VM a la plataforma de Azure. Si este puerto no se desbloquea, el agente de VM no podrá informar del estado de ninguna extensión de VM. Para más información sobre el agente de VM, consulte [Información general del agente de máquina virtual de Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+El agente de VM de Azure usa el puerto 8443 para informar del estado de cada extensión de VM a la plataforma de Azure. Si este puerto no se desbloquea, el agente de VM no podrá informar del estado de ninguna extensión de VM. Para más información sobre el agente de VM, consulte [Información general del agente de máquina virtual de Azure](../virtual-machines/windows/agent-user-guide.md).
 
 **¿Qué ocurre si una VM se implementa con extensiones y el puerto no se desbloquea?**
 

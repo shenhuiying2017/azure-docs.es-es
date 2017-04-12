@@ -18,9 +18,9 @@ ms.date: 09/15/2016
 ms.author: negat
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 06e7418111762a0388ce1704ba5abaa9c3a10349
-ms.openlocfilehash: e0853070b5a3f9d44baebecac625a5ad6b9ef755
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 308355e7d66c977f5cbfc8de3b939b76c2f8f83c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +38,7 @@ En el explorador, vaya a [Azure Portal](https://portal.azure.com) . Haga clic en
 Ahora puede usar los valores predeterminados para crear rápidamente el conjunto de escalado.
 
 * En la hoja `Basics` , escriba un nombre para el conjunto de escalado. Este nombre se convierte en la base del FQDN del equilibrador de carga frente al conjunto de escalado, así que asegúrese de que el nombre sea único en todo Azure.
-* Seleccione su tipo preferido de sistema operativo, escriba el nombre de usuario que quiera y seleccione el tipo de autenticación que desee. Si elige una contraseña, debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: una minúscula, una mayúscula, un número y un carácter especial. Obtenga más información acerca de los [requisitos de usuario y la contraseña](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Si elige `SSH public key`, asegúrese de que solo pega la clave pública, no la privada:
+* Seleccione su tipo preferido de sistema operativo, escriba el nombre de usuario que quiera y seleccione el tipo de autenticación que desee. Si elige una contraseña, debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: una minúscula, una mayúscula, un número y un carácter especial. Obtenga más información acerca de los [requisitos de usuario y la contraseña](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Si elige `SSH public key`, asegúrese de que solo pega la clave pública, no la privada:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 

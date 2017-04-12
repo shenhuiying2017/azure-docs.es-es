@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 171c3f05b0eacfd8b1ede0b807f284ce6c0555b4
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: d80ce63eb7ddfd7c45726be887a772f9a7594b28
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -39,7 +40,7 @@ Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?
 1. En Visual Studio, abra la solución que desee implementar o cree una nueva.
    Puede implementar una aplicación web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial.
    Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**.
-   Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Crear una aplicación web de ASP.NET en Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
+   Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Crear una aplicación web de ASP.NET en Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md).
    
    > [!NOTE]
    > Actualmente, Visual Studio Team Services solo admite las implementaciones de integración continua de las aplicaciones web de Visual Studio. Los proyectos de sitio web están fuera del alcance.
@@ -289,9 +290,4 @@ Para obtener más información sobre las pruebas unitarias en Visual Studio Team
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

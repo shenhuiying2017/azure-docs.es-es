@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7dc79fad1a87f015475cd2643c8bec55192b2a15
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9782358e59e54070c26e05c641c02c4010af5f68
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,19 +114,23 @@ Al aplicar las tres reglas siguientes a la relación de confianza para usuario a
 
 ## <a name="supported-browsers"></a>Exploradores compatibles
 
-
-| SO                     | Exploradores                 | Soporte técnico |
-| :--                    | :--                      | :-:     |
+| SO                     | Exploradores                 | Soporte técnico     |
+| :--                    | :--                      | :-:         |
 | Windows 10                 | IE, Edge                 | ![Comprobar][1] |
 | Windows 10                 | Chrome                   | Próximamente |
 | Windows 8/8.1            | IE                       | ![Comprobar][1] |
+| Windows 8/8.1            | Chrome                   | ![Comprobar][1] |
 | Windows 7                  | IE                       | ![Comprobar][1] |
-| iOS                     | Safari                   | ![Comprobar][1] |
+| Windows 7                  | Chrome                   | ![Comprobar][1] |
+| iOS                    | Safari                   | ![Comprobar][1] |
 | Android                | Chrome                   | ![Comprobar][1] |
-| Windows Phone               | IE, Edge                 | ![Comprobar][1] |
+| Windows Phone          | IE, Edge                 | ![Comprobar][1] |
 | Windows Server 2016    | IE, Edge                 | ![Comprobar][1] |
+| Windows Server 2016    | Chrome                   | Próximamente |
 | Windows Server 2012 R2 | IE                       | ![Comprobar][1] |
-| Windows Server 2008 R2     | IE                       | ![Comprobar][1] |
+| Windows Server 2012 R2 | Chrome                   | ![Comprobar][1] |
+| Windows Server 2008 R2 | IE                       | ![Comprobar][1] |
+| Windows Server 2008 R2 | Chrome                   | ![Comprobar][1] |
 | Mac OS                 | Safari                   | ![Comprobar][1] |
 | Mac OS                 | Chrome                   | Próximamente |
 

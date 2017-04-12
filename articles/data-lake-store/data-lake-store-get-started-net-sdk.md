@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1fd8fe3847299d98a55a16ab400b43be074a5f33
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 0dbf6a121c07d7d1340898f51a38c3572e57b3a2
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,10 +29,11 @@ ms.lasthandoff: 03/22/2017
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
+> * [CLI de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
-> 
+>
 
 Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) para realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, etc. Para más información sobre Data Lake, consulte [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -49,7 +50,7 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
 1. Abra Visual Studio y cree una aplicación de consola.
 2. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**.
 3. En **Nuevo proyecto**, escriba o seleccione los siguientes valores:
-   
+
    | Propiedad | Valor |
    | --- | --- |
    | Categoría |Plantillas/Visual C#/Windows |
@@ -57,35 +58,35 @@ Aprenda a usar el [SDK de .NET de Azure Data Lake Store](https://msdn.microsoft.
    | Nombre |CreateADLApplication |
 4. Haga clic en **Aceptar** para crear el proyecto.
 5. Agregue los paquetes de Nuget al proyecto.
-   
+
    1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
    2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** esté establecida en **nuget.org** y que esté activada la casilla **Incluir versión previa**.
    3. Busque e instale los siguientes paquetes NuGet:
-      
+
       * `Microsoft.Azure.Management.DataLake.Store` - En este tutorial se usa v1.0.4.
       * `Microsoft.Azure.Management.DataLake.StoreUploader` - En este tutorial se usa v1.0.1 (versión preliminar).
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - En este tutorial se usa v2.2.11.
-        
+
         ![Incorporación de un origen de Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creación de una cuenta de Azure Data Lake")
    4. Cierre el **Administrador de paquetes Nuget**.
 6. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.
-   
+
         using System;
         using System.IO;
     using System.Security.Cryptography.X509Certificates; // Solo se necesita si está usando una aplicación de Azure AD creada con certificados      using System.Threading;
-   
+
         using Microsoft.Azure.Management.DataLake.Store;
     using Microsoft.Azure.Management.DataLake.Store.Models;  using Microsoft.Azure.Management.DataLake.StoreUploader;  using Microsoft.IdentityModel.Clients.ActiveDirectory;  using Microsoft.Rest.Azure.Authentication;
 
 7. Declare las variables como se muestra a continuación y especifique los valores del nombre de Data Lake Store y del nombre del grupo de recursos que ya existen. Además, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione aquí deben existir en el equipo. Agregue el siguiente fragmento de código después de las declaraciones de espacios de nombres.
-   
+
         namespace SdkSample
         {
             class Program
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
                 private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-   
+
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
@@ -112,7 +113,7 @@ En las restantes secciones de este artículo, se puede ver cómo se utilizan los
 
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Si utiliza la autenticación de usuario final (recomendada para este tutorial)
 
-Úsela con una aplicación nativa existente de Azure AD para autenticar la aplicación **interactivamente**, lo que significa que se le pedirá que escriba sus credenciales de Azure. 
+Úsela con una aplicación nativa existente de Azure AD para autenticar la aplicación **interactivamente**, lo que significa que se le pedirá que escriba sus credenciales de Azure.
 
 Para facilitar su uso, el siguiente fragmento de código usa valores predeterminados para un identificador de cliente y un URI de redirección que funcionan con cualquier suscripción de Azure. Para ayudarle a completar este tutorial más rápido, se recomienda que utilice este enfoque. En el siguiente fragmento de código, bastará con que proporcione el valor del identificador del inquilino. Puede recuperarlo mediante las instrucciones proporcionadas en [Creación de una aplicación de Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -135,7 +136,7 @@ El siguiente fragmento de código se puede utilizar para autenticar la aplicaci�
     // Service principal / appplication authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
@@ -143,12 +144,13 @@ El siguiente fragmento de código se puede utilizar para autenticar la aplicaci�
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Si utilice autenticación de servicio a servicio con certificado
-Como alternativa, el siguiente fragmento de código puede utilizarse para autenticar la aplicación de forma **no interactiva**, para lo que se usará el certificado para una entidad de servicio o aplicación de Azure Active Directory. Utilícelo con una [aplicación de Azure AD con certificados](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) ya existente.
+
+Como alternativa, el siguiente fragmento de código puede utilizarse para autenticar la aplicación de forma **no interactiva**, para lo que se usará el certificado para una entidad de servicio o aplicación de Azure Active Directory. Utilícelo con una [aplicación de Azure AD con certificados](../azure-resource-manager/resource-group-authenticate-service-principal.md) ya existente.
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientCert = <AAD-application-client-certificate>
@@ -204,7 +206,7 @@ El siguiente fragmento muestra un método `UploadFile` que puede utilizar para c
 `DataLakeStoreUploader` admite la carga y descarga recursiva entre una ruta de acceso de un archivo local y la ruta de acceso de un archivo de Data Lake Store.    
 
 ## <a name="get-file-or-directory-info"></a>Obtención de información de un archivo o directorio
-El siguiente fragmento muestra un método `GetItemInfo` que puede utilizar para recuperar la información sobre un archivo o directorio disponible en Data Lake Store. 
+El siguiente fragmento muestra un método `GetItemInfo` que puede utilizar para recuperar la información sobre un archivo o directorio disponible en Data Lake Store.
 
     // Get file or directory info
     public static async Task<FileStatusProperties> GetItemInfo(string path)
@@ -222,7 +224,7 @@ El siguiente fragmento muestra un método `ListItem` que puede utilizar para enu
     }
 
 ## <a name="concatenate-files"></a>Concatenación de archivos
-El siguiente fragmento muestra un método `ConcatenateFiles` que se utiliza para concatenar archivos. 
+El siguiente fragmento muestra un método `ConcatenateFiles` que se utiliza para concatenar archivos.
 
     // Concatenate files
     public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -261,5 +263,4 @@ El siguiente fragmento muestra un método `DownloadFile` que se utiliza para des
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Referencia de SDK de .NET de Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Referencia de REST de Data Lake Store](https://msdn.microsoft.com/library/mt693424.aspx)
-
 

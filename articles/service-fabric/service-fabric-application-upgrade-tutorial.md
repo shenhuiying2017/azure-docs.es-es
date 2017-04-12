@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9fc53417c40225c87d3849cbe51712849e5cc93a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/03/2017
 Azure Service Fabric simplifica el proceso de actualización de aplicaciones en la nube asegurándose de que solo se actualicen los servicios modificados y que el estado de las aplicaciones se supervise durante todo el proceso de actualización. También revierte automáticamente la aplicación a la versión anterior si se detecta algún problema. Las actualizaciones de aplicaciones de Service Fabric presentan un *tiempo de inactividad cero*, ya que la aplicación puede actualizarse sin que se ocasione tiempo de inactividad. Este tutorial explica cómo llevar a cabo una actualización acumulativa desde Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Paso 1: Crear y publicar el ejemplo de Visual Objects
-En primer lugar, descargue la aplicación [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) desde GitHub. A continuación, compile y publique la aplicación, para ello, haga clic con el botón derecho en el proyecto de aplicación, **VisualObjects** y seleccione el comando **Publicar** en el elemento de menú de Service Fabric.
+En primer lugar, descargue la aplicación [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) desde GitHub. A continuación, compile y publique la aplicación, para ello, haga clic con el botón derecho en el proyecto de aplicación, **VisualObjects** y seleccione el comando **Publicar** en el elemento de menú de Service Fabric.
 
 ![Menú contextual para una aplicación de Service Fabric][image1]
 

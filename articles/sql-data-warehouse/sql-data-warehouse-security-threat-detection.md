@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa2425a3341d27b8f68fbcfd849018106d737319
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -51,7 +53,7 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Exploración de las actividades anómalas en el almacenamiento cuando se detecta un evento sospechoso
 1. Recibirá una notificación por correo electrónico tras la detección de actividades anómalas en la base de datos. <br/>
-    El correo electrónico proporciona información sobre el evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor y la hora del evento. Además, se proporcionará información sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la base de datos.<br/>
+   El correo electrónico proporciona información sobre el evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor y la hora del evento. Además, se proporcionará información sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la base de datos.<br/>
    
     ![Panel de navegación][4]
 2. En el correo electrónico, haga clic en el vínculo **Registro de auditoría SQL de Azure** , lo que iniciará el Portal de Azure clásico y mostrará los registros de auditoría pertinentes en torno a la hora del evento sospechoso.
@@ -61,7 +63,7 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
    
     ![Panel de navegación][6]
 4. En la hoja Registros de auditoría, haga clic en **Abrir en Excel** para abrir una plantilla de Excel ya configurada para importar y ejecutar un análisis más profundo del registro de auditoría en torno a la hora del evento sospechoso.<br/>
-   **Nota:** en Excel 2010 o posterior, se necesitan Power Query y la configuración **Combinación rápida**
+   **Nota**: en Excel 2010 o posterior, se necesitan Power Query y la configuración **Combinación rápida**.
    
     ![Panel de navegación][7]
 5. Para definir la configuración **Combinación rápida**: en la pestaña **POWER QUERY** de la cinta, seleccione **Opciones** para mostrar el cuadro de diálogo Opciones. Seleccione la sección Privacidad y elija la segunda opción, "Omitir los niveles de privacidad para mejorar el rendimiento":
@@ -82,9 +84,4 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 [7]: ./media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

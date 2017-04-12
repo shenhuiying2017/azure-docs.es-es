@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2d6999c6c6e8d9168e2417309207dd14bf4f6f2
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: be8fed81757d3a7467707e4e0fdf1fd5734e0f07
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -109,11 +109,11 @@ Para Linux o Mac OS, los escenarios principales de Azure que se admiten:
 2. Ejecución de la aplicación en la VM de Linux
 3. Desarrollar y publicar en sitios web de Azure mediante Git
 
-El primer escenario le permite crear aplicaciones web enriquecidas que aprovechan las funcionalidades de PaaS de Azure como [Blob Storage](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Queue Storage](storage/storage-python-how-to-use-queue-storage.md), [Table Storage](storage/storage-python-how-to-use-table-storage.md), etc., a través de contenedores de Python para la API de REST de Azure. Estos funcionan de forma idéntica en Windows, Mac y Linux.  También puede usar estas bibliotecas de cliente desde su equipo de desarrollo local o en una máquina virtual de Linux que se ejecute en Azure.
+El primer escenario le permite crear aplicaciones web enriquecidas que aprovechan las funcionalidades de PaaS de Azure como [Blob Storage](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Queue Storage](storage/storage-python-how-to-use-queue-storage.md), [Table Storage](storage/storage-python-how-to-use-table-storage.md), etc., a través de contenedores de Python para la API de REST de Azure. Estos funcionan de forma idéntica en Windows, Mac y Linux.  También puede usar estas bibliotecas de cliente desde su equipo de desarrollo local o en una máquina virtual de Linux que se ejecute en Azure.
 
-En el escenario de VM, simplemente inicie la VM de Linux que elija (Ubuntu, CentOS y Suse) y ejecute o administre lo que desee.  Por ejemplo, puede ejecutar el bloc de notas o REPL de [IPython][IPython] en la máquina de Windows/Mac/Linux y configurar el explorador para que apunte a una máquina virtual multiproceso de Linux o Windows que ejecute el motor de IPython en Azure. Consulte el tutorial [Bloc de notas de IPython en Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información.
+En el escenario de VM, simplemente inicie la VM de Linux que elija (Ubuntu, CentOS y Suse) y ejecute o administre lo que desee.  Por ejemplo, puede ejecutar el bloc de notas o REPL de [IPython][IPython] en la máquina de Windows/Mac/Linux y configurar el explorador para que apunte a una máquina virtual multiproceso de Linux o Windows que ejecute el motor de IPython en Azure. Consulte el tutorial [Bloc de notas de IPython en Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información.
 
-Para obtener información sobre cómo configurar una máquina virtual de Linux, consulte el tutorial [Creación de una máquina virtual que ejecuta Linux](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obtener información sobre cómo configurar una máquina virtual de Linux, consulte el tutorial [Creación de una máquina virtual que ejecuta Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Con la implementación de Git puede desarrollar una aplicación web de Python y publicarla en un sitio web de Azure desde cualquier sistema operativo.  Cuando inserte el repositorio en Azure, creará automáticamente un entorno virtual y pip instala los paquetes necesarios.
 
@@ -130,7 +130,7 @@ Para obtener más información acerca del desarrollo y la publicación de Azure 
 * [NumPy: biblioteca de tipos numéricos para Python][NumPy - A numerics library for Python]
 * [Django Project: un CMS o marco de trabajo para web maduro][Django Project - A mature web framework/CMS]
 * [IPython: un bloc de notas o REPL avanzado para Python][IPython - an advanced REPL/Notebook for Python]
-* [Bloc de notas de IPython en Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Bloc de notas de IPython en Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Herramientas de Python para Visual Studio en GitHub][Python Tools for Visual Studio on GitHub]
 * [Centro para desarrolladores de Python](/develop/python/)
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: genli;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
-ms.openlocfilehash: 707d666eb6c23fb926c31711daddfb22979513bc
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -54,7 +55,7 @@ Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de l
 ### <a name="solution"></a>Solución
 La mayoría de los errores relacionados con el agente o la extensión de máquinas virtuales de Linux están provocados por problemas que afectan a un agente VM obsoleto. Para solucionar este problema, siga estas directrices generales:
 
-1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/virtual-machines-linux-update-agent.md).
+1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
  >Se *recomienda encarecidamente* actualizar el agente solo a través de un repositorio de distribución. No recomendamos descargar el código de agente desde GitHub directamente y actualizarlo. Si el último agente no está disponible para su distribución, póngase en contacto con el soporte técnico de distribución para obtener instrucciones sobre cómo instalarlo. Para buscar el agente más reciente, vaya a la página del [agente Linux de Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) en el repositorio de GitHub.
@@ -118,9 +119,4 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | Muchas máquinas virtuales del mismo servicio en la nube están configuradas para efectuar la copia de seguridad al mismo tiempo. | Se recomienda propagar las programaciones de copia de seguridad para las máquinas virtuales del mismo servicio en la nube. |
 | La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90 %) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
 | La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione.  Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Para más información, consulte el artículo sobre el [establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md). |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

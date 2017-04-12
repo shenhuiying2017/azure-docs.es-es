@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06639080dec485395d6821c371a4f792c7c02845
-ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b986fc881a39ca3a28d6f5f968cefe19c05b5dc5
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -40,7 +41,7 @@ Cada base de datos de Azure SQL Database está asociada a un servidor lógico. L
 - **Firewall de SQL Database**: para mantener sus datos protegidos, el firewall de SQL Database impide todo acceso al servidor de bases de datos o a estas últimas mientras no se especifiquen qué equipos cuentan con permiso. Consulte el artículo sobre [firewalls](sql-database-firewall-configure.md).
 
 ## <a name="what-collations-are-supported"></a>¿Qué intercalaciones son compatibles?
-La intercalación de bases de datos predeterminada que utiliza Microsoft Azure SQL Database es **SQL_LATIN1_GENERAL_CP1_CI_AS**, donde **LATIN1_GENERAL** corresponde a inglés (Estados Unidos); **CP1** es la página de códigos 1252; **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se tienen en cuenta los acentos. No se puede modificar la intercalación de bases de datos de V12. Para obtener más información acerca de cómo establecer la intercalación, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La intercalación de bases de datos predeterminada que utiliza Microsoft Azure SQL Database es **SQL_LATIN1_GENERAL_CP1_CI_AS**, donde **LATIN1_GENERAL** corresponde a inglés (Estados Unidos); **CP1** es la página de códigos 1252; **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se tienen en cuenta los acentos. Para obtener más información acerca de cómo establecer la intercalación, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>¿Cuáles son los requisitos de nomenclaturas de los objetos de base de datos?
 
@@ -67,10 +68,5 @@ Puede administrar servidores lógicos de Azure SQL Database mediante varios mét
 - En el siguiente vínculo, encontrará información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
 - Para obtener información general sobre la seguridad, consulte [Introducción a la seguridad de Azure SQL Database](sql-database-security-overview.md).
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

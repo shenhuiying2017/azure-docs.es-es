@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: de47a15dd4009b9a33a53fd981bc178eaa50c035
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Procedimiento para guardar mensajes de IoT Hub que contienen información, como datos del sensor, en Azure Table Storage
 
-> [!Note]
-> Antes de empezar este tutorial, asegúrese de que ha seguido los pasos que se indican en [Conexión de ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md). En [Conexión de ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md), configuró el dispositivo de IoT y el centro de IoT, e implementó una aplicación de ejemplo para ejecutarse en su dispositivo. La aplicación envía los datos recopilados del sensor a su centro de IoT.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-will-learn"></a>Lo qué aprenderá
 
@@ -39,7 +38,7 @@ Aprenderá a crear una cuenta de almacenamiento de Azure y una aplicación de fu
 
 ## <a name="what-you-will-need"></a>Qué necesita
 
-- Haber realizado el tutorial [Conexión de ESP8266 a Azure IoT Hub](/iot-hub-arduino-huzzah-esp8266-get-started.md) que cubre los siguientes requisitos:
+- Haber realizado el tutorial [Conexión de ESP8266 a Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) que cubre los siguientes requisitos:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación en ejecución que envía mensajes a su centro de Azure IoT.
@@ -205,6 +204,4 @@ Por ahora, ha creado la aplicación de función. Dicha aplicación almacena mens
 
 Ha creado correctamente la cuenta de almacenamiento de Azure y la aplicación de función de Azure para almacenar los mensajes que recibe su centro de IoT en su instancia de Azure Table Storage.
 
-Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
-
-- [Administración de la mensajería de dispositivos en la nube con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

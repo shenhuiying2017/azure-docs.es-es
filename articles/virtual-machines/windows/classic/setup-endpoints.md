@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dcafe045203d77b6169f2e7a5d7a0c42de37f685
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: d2caf4a741dfaec43b1c2fb6042f5b69601bb16a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +28,7 @@ Todas las máquinas virtuales de Windows que se crean en Azure con el modelo de 
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
-En el modelo de implementación de **Resource Manager**, los puntos de conexión se configuran mediante **grupos de seguridad de red (NSG)**. Para más información, consulte [Permitir el acceso a la máquina virtual mediante Azure Portal](../../virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+En el modelo de implementación de **Resource Manager**, los puntos de conexión se configuran mediante **grupos de seguridad de red (NSG)**. Para más información, consulte [Permitir el acceso a la máquina virtual mediante Azure Portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Al crear una máquina virtual Windows en el Portal de Azure clásico, los puntos de conexión comunes, como los de Escritorio remoto y Windows PowerShell Remoting se suelen crear automáticamente. Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
 

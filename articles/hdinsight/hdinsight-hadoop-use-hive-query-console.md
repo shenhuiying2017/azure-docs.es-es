@@ -17,9 +17,9 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7de810dc712e7fdcd66ddedae5ccaa2a9753102f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/18/2017
 En este artículo, aprenderá a utilizar la consola de la consulta de HDInsight para ejecutar consultas de Hive en un clúster de Hadoop de HDInsight desde el explorador.
 
 > [!IMPORTANT]
-> La consola de consulta de HDInsight solo está disponible en los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> La consola de consulta de HDInsight solo está disponible en los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 >
 > Para HDInsight 3.4 o superior, consulte [Ejecución de consultas de Hive en la vista Hive de Ambari](hdinsight-hadoop-use-hive-ambari-view.md) para más información sobre cómo ejecutar consultas de Hive desde un explorador web.
 
@@ -42,29 +42,29 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 ## <a id="run"></a> Ejecución de consultas de Hive mediante la consola de consulta
 1. Abra un explorador web y vaya a **https://CLUSTERNAME.azurehdinsight.net**, donde **CLUSTERNAME** es el nombre de su clúster de HDInsight. Si se le solicita, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
 2. En los vínculos de la parte superior de la página, seleccione **Editor Hive**. Se muestra un formulario que puede utilizarse para introducir instrucciones de HiveQL que desea ejecutar en el clúster de HDInsight.
-   
+
     ![el editor de Hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
-   
+
     Reemplace el texto `Select * from hivesampletable` por las siguientes instrucciones de HiveQL.
-   
+
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-   
+
     Estas instrucciones realizan las acciones siguientes:
-   
+
    * **DROP TABLE**: elimina la tabla y el archivo de datos si la tabla ya existe.
    * **CREATE EXTERNAL TABLE**: crea una tabla "externa" nueva en Hive. Las tablas externas solo almacenan la definición de tabla en Hive; los datos quedan en la ubicación original.
-     
+
      > [!NOTE]
      > Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
-     > 
+     >
      > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
-     > 
-     > 
+     >
+     >
    * **ROW FORMAT**: indica cómo se da formato a los datos de Hive. En este caso, los campos de cada registro se separan mediante un espacio.
    * **STORED AS TEXTFILE LOCATION**: indica a Hive dónde se almacenan los datos (el directorio de ejemplos/datos) y que se almacenen como texto.
    * **SELECT**: permite seleccionar un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** porque hay tres filas que contienen este valor.

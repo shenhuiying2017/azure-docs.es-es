@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4933d4ea33fd7299b220f90f8f904ae71c446e0c
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b0f97779c2cf8bf3e7535afa8a2ab1ee45958ad1
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,13 +29,13 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 ## <a name="overview"></a>Información general
-[Acerca de las máquinas virtuales](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Acerca de las máquinas virtuales](windows/about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Preguntas más frecuentes sobre Máquinas virtuales de Azure con el modelo de implementación clásica](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Comparación entre máquinas virtuales, sitios web y servicios en la nube](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Máquinas virtuales y contenedores de Azure](virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Máquinas virtuales y contenedores de Azure](windows/containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="environment-setup"></a>Configuración del entorno
 [Cuenta gratuita](https://azure.microsoft.com/free/)
@@ -54,13 +54,13 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 ## <a name="plan"></a>Plan
 [Acerca de las imágenes para máquinas virtuales clásicas](windows/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Tamaños de máquinas virtuales](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Planeación del mantenimiento de máquinas virtuales de Azure](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Planeación del mantenimiento de máquinas virtuales de Azure](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Instrucciones de implementación de los servicios de infraestructura de Azure](windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Creación de un conjunto de disponibilidad para máquinas virtuales](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -71,7 +71,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Crear y cargar un VHD de Windows Server a Azure](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Automatización de la implementación de la máquina virtual de Azure con Chef](virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Automatización de la implementación de la máquina virtual de Azure con Chef](windows/chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Creación y configuración de una máquina virtual de Windows clásica en Azure PowerShell](windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -88,12 +88,12 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Extensión de script personalizada para máquinas virtuales de Windows clásicas](windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+[Migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
 
 ## <a name="configure"></a>Configuración
-[Restablecimiento de una contraseña o del servicio de Escritorio remoto para máquinas virtuales de Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Restablecimiento de una contraseña o del servicio de Escritorio remoto para máquinas virtuales de Windows](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Acerca de las características y extensiones de las máquinas virtuales](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Acerca de las características y extensiones de las máquinas virtuales](windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -110,7 +110,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Desconexión de un disco de datos de una máquina virtual de Windows clásica](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Uso de la unidad de disco D como unidad de datos en una máquina virtual de Windows](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Uso de la unidad de disco D como unidad de datos en una máquina virtual de Windows](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="networking"></a>Redes
 [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
@@ -131,7 +131,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Aplicación web Django Hello World en una máquina virtual de Windows Server](windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="workloads"></a>Cargas de trabajo
-[HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[HPC Pack](windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [MongoDB](windows/classic/install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -155,11 +155,11 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 [Documentación de referencia de los cmdlets de PowerShell para Azure Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 ## <a name="troubleshooting"></a>Solución de problemas
-[Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure](virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure](windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Solución de problemas de la implementación clásica con la creación de una máquina virtual de Windows en Azure](windows/classic/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

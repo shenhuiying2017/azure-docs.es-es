@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f7c977dc2e385819dada976afa9497e9a20fd90c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 >
 >
 
-En este artículo se analiza el uso de Azure Portal para crear clústeres de HDInsight con acceso a Azure Data Lake Store. Para los tipos de clúster compatibles, puede usar Data Lake Store como almacenamiento predeterminado o como una cuenta de almacenamiento adicional. 
+En este artículo se analiza el uso de Azure Portal para crear clústeres de HDInsight con acceso a Azure Data Lake Store. Para los tipos de clúster compatibles, puede usar Data Lake Store como almacenamiento predeterminado o como una cuenta de almacenamiento adicional.
 
 Cuando se usa Data Lake Store como almacenamiento adicional, la cuenta de almacenamiento predeterminada para los clústeres sigue siendo Azure Blob Storage y los archivos relacionados con el clúster (como los registros) todavía se escriben en el almacenamiento predeterminado. Sin embargo, los datos que desea procesar se pueden almacenar en una cuenta de Data Lake Store. El uso de Data Lake Store como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura o escritura en el almacenamiento del clúster.
 
@@ -57,7 +57,7 @@ Antes de comenzar este tutorial, asegúrese de que ha cumplido los requisitos si
 * **Una entidad de servicio de Azure Active Directory**. En este tutorial se proporcionan instrucciones sobre cómo crear entidades de servicio en Azure Active Directory (Azure AD). Sin embargo, para crear una entidad de servicio, debe ser administrador de Azure AD. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
     >[!NOTE]
-    >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >Solamente puede crear una entidad de servicio si es administrador de Azure AD. Su administrador de Azure AD debe generar una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de entidad de servicio con certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-an-hdinsight-cluster-with-access-to-a-data-lake-store"></a>Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal
@@ -78,20 +78,20 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa Data Lake S
 
     ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-    
+
     En la captura de pantalla anterior, la ruta de acceso de la carpeta raíz es /clusters/myhdiadlcluster, donde *myhdiadlcluster* es el nombre del clúster que se está creando. En tal caso, asegúrese de que la carpeta */clústeres* ya existe en la cuenta de Data Lake Store. La carpeta *myhdiadlcluster* se crea durante la creación del clúster. De forma similar, si la ruta de acceso raíz se estableció en */hdinsight/clusters/data/myhdiadlcluster*, asegúrese de que */hdinsight/clústeres/datos/* existe en la cuenta de Data Lake Store.
 
-5. Haga clic en **Acceso a Data Lake Store** para configurar el acceso entre la cuenta de Data Lake Store y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso entre el clúster de HDInsight y Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
+5. Haga clic en **Acceso a Data Lake Store** para configurar el acceso entre la cuenta de Data Lake Store y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso entre el clúster de HDInsight y Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
 
-### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Creación de un clúster con Data Lake Store como almacenamiento adicional 
+### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Creación de un clúster con Data Lake Store como almacenamiento adicional
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Para iniciar el aprovisionamiento de un clúster de HDInsight, siga las instrucciones descritas en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Storage**.
- 
+
 4. En **Método de selección**, realice una de las siguientes acciones:
 
     * Para especificar una cuenta de almacenamiento que forma parte de su suscripción de Azure, seleccione **Mis suscripciones** y después seleccione la cuenta de almacenamiento.
@@ -132,7 +132,7 @@ En esta sección, se configura el acceso entre clústeres de HDInsight y Data La
 
 7. En la hoja **Acceso a Data Lake Store**, haga clic en **Acceso**. La hoja **Seleccionar permisos de archivo** se abre de forma predeterminada. En ella se muestran todas las cuentas de Data Lake Store de su suscripción.
 
-8. Seleccione la cuenta de Data Lake Store que desea asociar con el clúster. 
+8. Seleccione la cuenta de Data Lake Store que desea asociar con el clúster.
 
     **Si está utilizando Data Lake Store como almacenamiento predeterminado**, debe asignar permisos en dos niveles.
 

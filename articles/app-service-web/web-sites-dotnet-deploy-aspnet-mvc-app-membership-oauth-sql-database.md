@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1d9c1c75d29e39bbd9433197ad06a56da5dc799
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ Aprenderá a realizar los siguientes procedimientos:
 * Cómo implementar un proyecto web que usa una base de datos en una [aplicación web](http://go.microsoft.com/fwlink/?LinkId=529714) en el Servicio de aplicaciones de Azure.
 
 > [!NOTE]
-> Este es un tutorial largo. Si desea una rápida introducción a los proyectos web del Servicio de aplicaciones de Azure y Visual Studio, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](web-sites-dotnet-get-started.md). Para obtener información sobre la solución de problemas, consulte la sección [Solución de problemas](#troubleshooting) .
+> Este es un tutorial largo. Si desea una rápida introducción a los proyectos web del Servicio de aplicaciones de Azure y Visual Studio, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](app-service-web-get-started-dotnet.md). Para obtener información sobre la solución de problemas, consulte la sección [Solución de problemas](#troubleshooting) .
 > 
 > O bien, si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Pruebe el Servicio de aplicaciones de Azure](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
@@ -581,7 +581,7 @@ Si se encuentra con problemas, estas son algunas sugerencias de lo que puede pro
 
 * Errores en el aprovisionamiento de la Base de datos SQL: asegúrese de que tiene instalado el SDK actual. Las versiones anteriores a 2.8.1 presentan un error en algunos escenarios que provocan errores cuando VS intenta crear el servidor de base de datos o la base de datos.
 * Mensaje de error: "la operación no se admite para el tipo de oferta de suscripción" al crear recursos de Azure (igual que el anterior).
-* Errores al realizar la implementación: considere leer el artículo [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](web-sites-dotnet-get-started.md) artículo. Ese escenario de implementación es más sencillo y si tienen el mismo problema, puede ser más fácil de aislar. Por ejemplo, en algunos entornos empresariales un firewall corporativo puede impedir que Web Deploy realice los tipos de conexiones a Azure que necesita.
+* Errores al realizar la implementación: considere leer el artículo [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](app-service-web-get-started-dotnet.md) artículo. Ese escenario de implementación es más sencillo y si tienen el mismo problema, puede ser más fácil de aislar. Por ejemplo, en algunos entornos empresariales un firewall corporativo puede impedir que Web Deploy realice los tipos de conexiones a Azure que necesita.
 * Ninguna opción para seleccionar la cadena de conexión en el Asistente de publicación web durante la implementación: si usa un método diferente para crear los recursos de Azure (por ejemplo, está tratando de realizar la implementación en una aplicación web y una instancia de SQL Database creada en el portal), SQL Database no se puede asociar con la aplicación web. La solución más sencilla es crear una nueva aplicación web y base de datos mediante el uso de VS como se muestra en el tutorial. No tiene que volver al principio del tutorial: en el Asistente de publicación web puede optar por crear una nueva aplicación web y obtendrá el mismo cuadro de diálogo de creación de recursos de Azure que aparece al crear el proyecto.
 * Las instrucciones para el portal para desarrolladores de Google o Facebook no están actualizadas, consulte los comentarios al final de este tutorial.
 

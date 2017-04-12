@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: efb9e68256765873eb2776637d1a9469af6e46d6
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,6 +29,7 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
+> * [CLI de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -86,7 +88,7 @@ Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta
    * En la primera opción, haga clic en **Conceder permiso** para configurar el acceso. La primera opción solo está habilitada si el usuario que creó la cuenta de Data Lake Store es también administrador de Azure Key Vault.
    * La otra opción consiste en ejecutar el cmdlet de PowerShell que se muestra en la hoja. Es preciso ser propietario de Azure Key Vault o tener capacidad para conceder permisos en Azure Key Vault. Después de ejecutar el cmdlet, vuelva a la hoja y haga clic en **Habilitar** para configurar el acceso.
 
-## <a name="a-namecreatefolderacreate-folders-in-azure-data-lake-store-account"></a><a name="createfolder"></a>Creación de carpetas en una cuenta de Almacén de Azure Data Lake
+## <a name="createfolder"></a>Creación de carpetas en una cuenta de Almacén de Azure Data Lake
 Puede crear carpetas en su cuenta de Almacén de Data Lake para administrar y almacenar datos.
 
 1. Abra la cuenta de Almacén de Data Lake que acaba de crear. En el panel izquierdo, haga clic en **Examinar** y en **Data Lake Store**; después, en la hoja Data Lake Store, haga clic en el nombre de la cuenta en la que desee crear carpetas. Si ancló la cuenta al Panel de inicio, haga clic en ese icono de cuenta.
@@ -101,14 +103,14 @@ Puede crear carpetas en su cuenta de Almacén de Data Lake para administrar y al
    
     ![Creación de carpetas en una cuenta de Data Lake Store](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creación de carpetas en una cuenta de Data Lake Store")
 
-## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Carga de datos en la cuenta de Almacén de Azure Data Lake
+## <a name="uploaddata"></a>Carga de datos en la cuenta de Almacén de Azure Data Lake
 Puede cargar los datos en una cuenta de Almacén de Azure Data Lake directamente en el nivel raíz o en una carpeta que creó en la cuenta. En la siguiente captura de pantalla, siga los pasos para cargar un archivo en una subcarpeta desde la hoja **Explorador de datos** . En esta captura de pantalla, el archivo se carga en una subcarpeta que se muestra en las rutas de navegación (marcada en un cuadro rojo).
 
 Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Cargar datos](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Cargar datos")
 
-## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Propiedades y acciones disponibles en los datos almacenados
+## <a name="properties"></a>Propiedades y acciones disponibles en los datos almacenados
 Haga clic en el archivo recién agregado para abrir la hoja **Propiedades** . Las propiedades asociadas con el archivo y las acciones que puede realizar en él están disponibles en esta hoja. También puede copiar la ruta de acceso completa del archivo en su cuenta de Almacén de Azure Data Lake, resaltada en el cuadro rojo en la captura de pantalla siguiente.
 
 ![Propiedades de los datos](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Propiedades de los datos")
@@ -133,10 +135,5 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

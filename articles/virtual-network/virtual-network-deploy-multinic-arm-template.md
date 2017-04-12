@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -95,7 +95,7 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
     },
     ```
 
-6. Observe que **vmSize** contiene el valor *Standard_DS3*. Permiten solo ciertos tamaños de máquina virtual para el uso de varias tarjetas NIC. Para comprobar los tamaños de máquina virtual que admiten varias NIC, vea los artículos [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+6. Observe que **vmSize** contiene el valor *Standard_DS3*. Permiten solo ciertos tamaños de máquina virtual para el uso de varias tarjetas NIC. Para comprobar los tamaños de máquina virtual que admiten varias NIC, vea los artículos [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 7. Desplácese hacia abajo hasta **recursos** y observe el primer elemento. Describe una cuenta de almacenamiento. Esta cuenta de almacenamiento se usará para mantener los discos de datos usados por cada máquina virtual de la base de datos. En este escenario, cada máquina virtual de base de datos tiene un disco de sistema operativo almacenado en almacenamiento normal y dos discos de datos almacenados en el almacenamiento SSD (Premium).
 

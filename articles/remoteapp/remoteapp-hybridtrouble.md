@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 537fbe37b0ee21cb5d2c9f1ba437ac178850fee2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a486dcb3f994cd78311ee86521a6792a4d57438e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-creating-azure-remoteapp-hybrid-collections"></a>Solución de problemas de creación de colecciones híbridas de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -71,10 +72,5 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 ## <a name="what-domain-name-did-you-specify-when-you-created-your-collection"></a>¿Qué nombre de dominio especificó al crear la colección?
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

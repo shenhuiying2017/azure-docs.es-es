@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: fc509ef8b30fadb6e026f346d4adbd6ef759624a
-ms.openlocfilehash: 74aae9f757f56e94b583069a1fdee7efaafe467c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 9d169bcc0b1e89866d04cced474ee9c0e6ba6952
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +28,7 @@ Aprenda a [compilar API como un desencadenador o una acción en las aplicaciones
 
 ## <a name="deploy-your-web-app"></a>Implementación de la aplicación web
 
-En primer lugar, debe implementar la API como una aplicación web en Azure App Service. Obtenga información acerca de la [implementación básica cuando se crea una aplicación web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Aunque puede llamar a cualquier API desde una aplicación lógica, le recomendamos que agregue metadatos de Swagger para que la integración con las acciones de aplicación lógica sea sencilla. Obtenga información acerca de cómo [agregar metadatos de Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
+En primer lugar, debe implementar la API como una aplicación web en Azure App Service. Obtenga información acerca de la [implementación básica cuando se crea una aplicación web ASP.NET](../app-service-web/app-service-web-get-started-dotnet.md). Aunque puede llamar a cualquier API desde una aplicación lógica, le recomendamos que agregue metadatos de Swagger para que la integración con las acciones de aplicación lógica sea sencilla. Obtenga información acerca de cómo [agregar metadatos de Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### <a name="api-settings"></a>API settings
 
@@ -156,7 +156,7 @@ En la sección **Autorización**, debe proporcionar:
 | Elemento | Descripción |
 | ------- | ----------- |
 | type |Obligatorio. Tipo de autenticación. Para los certificados de cliente SSL, el valor debe ser `ClientCertificate`. |
-| pfx |Obligatorio. Contenido codificado en base&64; del archivo PFX. |
+| pfx |Obligatorio. Contenido codificado en base 64 del archivo PFX. |
 | contraseña |Obligatorio. Contraseña de acceso al archivo PFX. |
 
 ### <a name="basic-authentication"></a>Autenticación básica

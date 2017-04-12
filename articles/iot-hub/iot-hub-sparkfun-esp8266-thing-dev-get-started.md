@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: a1d6dba724b93d1ea05474b8680bf2226c23bddc
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -287,9 +287,5 @@ Si ve la siguiente salida de la ventana del monitor serie y el LED parpadeando e
 
 Ha conectado correctamente un dispositivo Sparkfun ESP8266 Thing Dev a su centro de IoT y ha enviado los datos de sensor capturados a su centro de IoT. 
 
-Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
-- [Administración de la mensajería de dispositivos en la nube con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Guardado de los mensajes de IoT Hub en el almacenamiento de datos de Azure](iot-hub-store-data-in-azure-table-storage.md)
-- [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md) (Uso de Power BI para visualizar datos de sensor en tiempo real desde Azure IoT Hub)
-- [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md) (Uso de Azure Web Apps para visualizar datos del sensor en tiempo real desde Azure IoT Hub).

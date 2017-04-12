@@ -3,7 +3,7 @@ title: "Windows Server Active Directory en máquinas virtuales de Azure | Micros
 description: "Puede ejecutar Servicios de dominio de Windows Server Active Directory o Servicios de federación de Active Directory en máquinas virtuales de Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: femila
 tags: azure-classic-portal
 ms.assetid: 683f6bbb-61d0-423e-9aeb-66f0b0001d67
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-ms.author: markvi
+ms.date: 04/06/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 0baf2d396ee84a56b938a16e46b3752d59e4509d
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5748bb0d0fe1913cd24e5624cfefcafbafa2e53c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -32,15 +33,10 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 ## <a name="how-to-articles"></a>Artículos de procedimientos
 * [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md)
 * [Instalación de una réplica del Controlador de dominio de Active Directory en Redes virtuales de Azure](active-directory-install-replica-active-directory-domain-controller.md)
-* [Configuración de un entorno de nube híbrida para pruebas](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Configuración de un entorno de nube híbrida para pruebas](../virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

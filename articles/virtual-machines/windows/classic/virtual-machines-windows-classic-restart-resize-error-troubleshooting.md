@@ -16,15 +16,16 @@ ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 6bae5c227fb45b1a6ed25c4eb7aac2048fc856c1
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 95b12674f3e7d3d63421be6098c72d87cab562b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure
 > [!div class="op_single_selector"]
 > * [Clásico](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-> * [Resource Manager](../../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Resource Manager](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > 
 > 
 
@@ -82,11 +83,6 @@ Puede consolidar todas las máquinas virtuales en el mismo servicio en la nube. 
 Si el servicio en la nube existente no está asociado a una red virtual basada en regiones, tendrá que eliminar sus máquinas virtuales y volver a crearlas en el nuevo servicio en la nube desde los discos. No obstante, es importante recordar que el nuevo servicio en la nube tendrá un nuevo nombre y dirección VIP, por lo que deberá actualizar esta información en todas las dependencias que utilicen esta información para el servicio en la nube existente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si surgen problemas al crear una nueva máquina virtual Windows en Azure, consulte [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure](../../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
+Si surgen problemas al crear una nueva máquina virtual Windows en Azure, consulte [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

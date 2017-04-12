@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
-ms.openlocfilehash: e74845bfa06bb9a53420260dfb45e72d711f4373
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c0bf0f6ce533e13c9dde0f0b89325a404047a9d8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -107,11 +108,6 @@ El portal permite guardar una plantilla en su cuenta de Azure y volver a impleme
 * Para solucionar errores de implementación, vea [View deployment operations](resource-manager-deployment-operations.md) (Ver operaciones de implementación).
 * Para recuperar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-* Para obtener una serie de cuatro partes acerca de cómo automatizar la implementación, vea [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta serie cubre la arquitectura de la aplicación, el acceso y la seguridad, la disponibilidad y la escala, y la implementación de aplicaciones.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+* Para obtener una serie de cuatro partes acerca de cómo automatizar la implementación, vea [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta serie cubre la arquitectura de la aplicación, el acceso y la seguridad, la disponibilidad y la escala, y la implementación de aplicaciones.
 
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 851d806a7e92dafaa5325c032fd3e0a71ce726c2
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5274ffe641768e0725623c2acf38d432a97eea9f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -85,7 +85,7 @@ Para cambiar o eliminar una dirección IP pública, complete los pasos siguiente
 ## <a name="next-steps"></a>Pasos siguientes
 Asignar direcciones IP públicas al crear los siguientes recursos de Azure:
 
-- Máquinas virtuales [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Máquinas virtuales [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Load Balancer accesible desde Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conexión de sitio a sitio con Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

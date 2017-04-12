@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 79beda244007649253fb7130f0403f587fcf76bf
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6437190ac58a021ce84993f667bbb5fad6031bb3
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -33,7 +33,7 @@ Azure Site Recovery Mobility Service captura escrituras de datos en un equipo y,
 
 
 >[!IMPORTANT]
-> A partir de la versión 9.7.0.0, en las máquinas virtuales (VM) Windows, el instalador de Mobility Service también instalará la versión más reciente del [Agente de máquina virtual de Azure](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). Cuando un equipo conmuta por error a Azure, el equipo cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
+> A partir de la versión 9.7.0.0, en las máquinas virtuales (VM) Windows, el instalador de Mobility Service también instalará la versión más reciente del [Agente de máquina virtual de Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Cuando un equipo conmuta por error a Azure, el equipo cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Complete estos pasos de requisitos previos antes de instalar manualmente Mobility Service en el servidor:

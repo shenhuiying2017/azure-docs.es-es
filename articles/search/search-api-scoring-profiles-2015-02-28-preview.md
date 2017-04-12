@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -85,8 +85,6 @@ El orden basado en relevancia también se implementa a través de perfiles de pu
 Tal y como se ha indicado, la puntuación personalizada se implementa mediante los perfiles de puntuación definidos en un esquema de índice.
 
 En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuación (`boostGenre`, `newAndHighlyRated`). Las consultas sobre este índice que incluyen cualquiera de los perfiles como parámetro de consulta usará el perfil para puntuar el conjunto de resultados.
-
-[Pruebe este ejemplo](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",

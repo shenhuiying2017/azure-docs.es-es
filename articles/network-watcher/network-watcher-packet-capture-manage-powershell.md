@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
-ms.openlocfilehash: 1ecd1cd12a5c8b62ee3c8623bd38431879546760
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ec82b8cc381bc5a30763b9f5d1766ac15d5f1734
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -29,11 +29,9 @@ ms.lasthandoff: 02/23/2017
 > - [CLI](network-watcher-packet-capture-manage-cli.md)
 > - [API de REST](network-watcher-packet-capture-manage-rest.md)
 
-La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico hacia y desde una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma proactiva como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
+La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico de entrada y salida de una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
-Este artículo lo guiará por las diferentes tareas de administración que están actualmente disponibles para la captura de paquetes.
+Este artículo le guiará por las diferentes tareas de administración que están actualmente disponibles para la captura de paquetes.
 
 - [**Inicio de una captura de paquetes**](#start-a-packet-capture)
 - [**Detención de una captura de paquetes**](#stop-a-packet-capture)
@@ -49,7 +47,7 @@ En este artículo se da por hecho que tiene los siguientes recursos:
 * Una máquina virtual con la extensión de captura de paquetes habilitada.
 
 > [!IMPORTANT]
-> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, visite [Extensión de máquina virtual del agente de Network Watcher para Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md), y en una máquina virtual Linux, visite [Extensión de máquina virtual del agente de Network Watcher para Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, visite [Extensión de máquina virtual del agente de Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual Linux, visite [Extensión de máquina virtual del agente de Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="install-vm-extension"></a>Instalación de la extensión de máquina virtual
 
@@ -207,7 +205,7 @@ Al ejecutar el cmdlet `Get-AzureRmNetworkWatcherPacketCapture` se recupera el es
 Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-El ejemplo siguiente es la salida del cmdlet `Get-AzureRmNetworkWatcherPacketCapture`. En el ejemplo siguiente se muestra el resultado una vez completada la captura. El valor de PacketCaptureStatus es Stopped, con un valor de StopReason de TimeExceeded. Este valor muestra que la captura de paquetes fue correcta y agotó su tiempo.
+El ejemplo siguiente es la salida del cmdlet `Get-AzureRmNetworkWatcherPacketCapture`. El ejemplo siguiente es una vez completada la captura. El valor de PacketCaptureStatus es Stopped, con un valor de StopReason de TimeExceeded. Este valor muestra que la captura de paquetes fue correcta y agotó su tiempo.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -248,7 +246,7 @@ PacketCaptureError      : []
 
 ## <a name="stop-a-packet-capture"></a>Detención de una captura de paquetes
 
-Al ejecutar el cmdlet `Stop-AzureRmNetworkWatcherPacketCapture` se detiene una sesión de captura si está en curso.
+Al ejecutar el cmdlet `Stop-AzureRmNetworkWatcherPacketCapture` se detiene una sesión si está en curso.
 
 ```powershell
 Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
@@ -264,7 +262,7 @@ Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -Packe
 ```
 
 > [!NOTE]
-> Eliminar una captura de paquetes no elimina el archivo de la cuenta de almacenamiento.
+> Eliminar una captura de paquetes no elimina el archivo en la cuenta de almacenamiento.
 
 ## <a name="download-a-packet-capture"></a>Descarga de una captura de paquetes
 
@@ -278,9 +276,9 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
+Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
 
-Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md).
+Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar IP Flow Verify](network-watcher-check-ip-flow-verify-portal.md).
 
 <!-- Image references -->
 

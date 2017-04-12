@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 937ebbbb7daf573d072697ee09ab7f6557d0184f
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1be1e6f63c4a4786d23af57d454e7a2e3bb17ad0
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-do-you-redirect-usb-devices-in-azure-remoteapp"></a>Redireccionamiento de los dispositivos USB en Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -84,10 +85,5 @@ Ahora puede usar el identificador de instancia en el siguiente cmdlet:
 
 ### <a name="help-us-help-you"></a>Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

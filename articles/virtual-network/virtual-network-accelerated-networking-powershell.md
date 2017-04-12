@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 2dd6e9ba1d08d3528cdf8194e1e338422361d1d5
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 * **Creación de máquina virtual:** una interfaz de red con Accelerated Networking habilitada solo se puede asociar a una máquina virtual cuando esta se crea. La interfaz de red no puede asociarse a una máquina virtual existente.
 * **Regiones:** solo se ofrece en las regiones Centro occidental de EE. UU. y Europa Occidental de Azure. El conjunto de regiones se expandirá en el futuro.
 * **Sistema operativo compatible:** Microsoft Windows Server 2012 R2 y Windows Server 2016 Technical Preview 5. Próximamente se agregará compatibilidad con Linux y Windows Server 2012.
-* **Tamaño de máquina virtual:** Standard_D15_v2 y Standard_DS15_v2 son los únicos tamaños de instancia de máquina virtual admitidos. Para más información, consulte el artículo sobre los [tamaños de máquina virtual Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
+* **Tamaño de máquina virtual:** Standard_D15_v2 y Standard_DS15_v2 son los únicos tamaños de instancia de máquina virtual admitidos. Para más información, consulte el artículo sobre los [tamaños de máquina virtual Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
 
 Los cambios en estas limitaciones se anunciarán a través de la página con [actualizaciones para redes virtuales de Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview) .
 

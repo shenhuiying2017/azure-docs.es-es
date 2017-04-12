@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +45,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
    
     ![][4]
 2. Puede implementar una aplicación web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial. Cree un proyecto nuevo de Servicio en la nube de Azure o un proyecto nuevo de MVC de ASP.NET. Asegúrese de que el proyecto tiene como destino .NET Framework 4, o cualquier versión posterior. Si va a crear un proyecto de servicio en la nube, agregue un rol web y un rol de trabajo de ASP.NET MVC.
-   Si desea crear una aplicación web, seleccione la plantilla de proyecto de **aplicación web ASP.NET** y, a continuación, **MVC**. Para obtener más información, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-get-started.md) .
+   Si desea crear una aplicación web, seleccione la plantilla de proyecto de **aplicación web ASP.NET** y, a continuación, **MVC**. Para obtener más información, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-get-started-dotnet.md) .
 3. Abra el menú contextual de la solución y elija **Confirmar**.
    
     ![][7]
@@ -232,9 +233,4 @@ Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, c
 [45]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges2.PNG
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

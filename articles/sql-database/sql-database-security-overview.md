@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: b7c6a2bcdf975233d7afe6c20bd886cfcc02de2a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ Este artículo describe los fundamentos de la protección de la capa de datos de
 Para obtener una descripción completa de las características de seguridad disponibles en todas las versiones de SQL, consulte [Seguridad y protección (motor de base de datos)](https://msdn.microsoft.com/library/bb510589). Asimismo, tiene información adicional disponible en las [Notas del producto técnicas acerca de la seguridad y la base de datos SQL de Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (en PDF).
 
 ## <a name="protect-data"></a>Protección de datos
-SQL Database protege los datos mediante el cifrado de los datos en movimiento a través de [Seguridad de la capa de transporte](https://support.microsoft.com/en-us/kb/3135244), de los datos en reposo a través de [Cifrado de datos transparente](http://go.microsoft.com/fwlink/?LinkId=526242) y de los datos de uso a través de [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL Database protege los datos mediante el cifrado de los datos en movimiento a través de [Seguridad de la capa de transporte](https://support.microsoft.com/kb/3135244), de los datos en reposo a través de [Cifrado de datos transparente](http://go.microsoft.com/fwlink/?LinkId=526242) y de los datos de uso a través de [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Todas las conexiones a Base de datos SQL de Azure requieren cifrado (SSL/TLS) siempre que haya datos "en tránsito" hacia y desde la base de datos. En la cadena de conexión de su aplicación, debe especificar los parámetros para cifrar la conexión y *no* confiar en el certificado de servidor (esto se hace automáticamente si copia la cadena de conexión en el Portal de Azure clásico). De lo contrario, la conexión no comprobará la identidad del servidor y será vulnerable a los ataques de tipo "Man in the middle". Por ejemplo, en el caso del controlador de ADO.NET, los parámetros de la cadena de conexión son **Encrypt=True** y **TrustServerCertificate=False**. 

@@ -16,17 +16,19 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a05059a51113ccaf71b735b1b32a0f3fb7411282
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: e02754627c4247e41e7a88c07ac58d2f93c3d927
+ms.lasthandoff: 04/06/2017
 
 ---
 
 # <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>Creación de una máquina virtual supervisada de Operations Management Suite con PowerShell
 
-Este script crea una máquina virtual de Azure, instala el agente de Operations Management Suite (OMS) e inscribe el sistema en un área de trabajo de OMS. Después de ejecutar el script, la máquina virtual será visible en la consola de OMS.
+Este script crea una máquina virtual de Azure, instala el agente de Operations Management Suite (OMS) e inscribe el sistema en un área de trabajo de OMS. Después de ejecutar el script, la máquina virtual será visible en la consola de OMS. Además, debe actualizar la clave del área de trabajo y el identificador del área de trabajo de OMS.
 
-Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) y, luego, ejecute `Login-AzureRmAccount` para crear una conexión con Azure. Además, debe actualizar la clave del área de trabajo y el identificador del área de trabajo de OMS.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -63,5 +65,5 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Encontrará más ejemplos de scripts de Azure PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Windows de Azure](../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Encontrará más ejemplos de scripts de Azure PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Windows de Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 4e0194f98ebcaffba2c5a89833a969112294e83a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a3858428439e4671489bfc17b043daacc4d3f157
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +36,7 @@ Cuando crea un grupo de nodos de proceso en el servicio Lote, tiene dos opciones
 
 **configuración de Servicios en la nube**  *solo*. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md) y los sistemas operativos disponibles se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando se crea un grupo que contiene los nodos de servicios en la nube de Azure, debe especificar únicamente el tamaño del nodo y la "familia del SO" que se encuentran en estos artículos. Para los grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan los servicios en la nube.
 
-**Configuración de la máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cuando se crea un grupo que contiene los nodos de configuración de la máquina virtual, debe especificar su tamaño, la referencia de la imagen de máquina virtual y el SKU del agente de nodo del servicio Lote que desea instalar en los nodos.
+**Configuración de la máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cuando se crea un grupo que contiene los nodos de configuración de la máquina virtual, debe especificar su tamaño, la referencia de la imagen de máquina virtual y el SKU del agente de nodo del servicio Lote que desea instalar en los nodos.
 
 ### <a name="virtual-machine-image-reference"></a>Referencia de imagen de máquina virtual
 El servicio Lote utiliza [conjuntos de escala de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para proporcionar nodos de proceso de Linux. Las imágenes del sistema operativo para estas máquinas virtuales se proporcionan mediante [Azure Marketplace][vm_marketplace]. Al configurar una referencia de la imagen de máquina virtual, especifique las propiedades de una imagen de máquina virtual de Marketplace. Las propiedades siguientes son necesarias cuando se crea una referencia de la imagen de máquina virtual:
@@ -49,7 +49,7 @@ El servicio Lote utiliza [conjuntos de escala de máquinas virtuales](../virtual
 | Versión |más reciente |
 
 > [!TIP]
-> Puede obtener más información sobre estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Lote. Para más información, consulte [SKU del agente de nodo](#node-agent-sku).
+> Puede obtener más información sobre estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Lote. Para más información, consulte [SKU del agente de nodo](#node-agent-sku).
 >
 >
 
@@ -232,8 +232,8 @@ En la tabla siguiente se enumeran las imágenes de máquinas virtuales de Market
 | microsoft-ads | linux-data-science-vm | linuxdsvm | más reciente | batch.node.centos 7 |
 | microsoft-ads | standard-data-science-vm | standard-data-science-vm | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | 2008-R2-SP1 | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | Centro de datos de&2012; | más reciente | batch.node.windows amd64 |
-| Microsoft Windows Server | Windows Server | Centro de datos de&2012;-R2 | más reciente | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | más reciente | batch.node.windows amd64 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | 2016-Datacenter | más reciente | batch.node.windows amd64 |
 | Microsoft Windows Server | Windows Server | 2016-Datacenter-with-Containers | más reciente | batch.node.windows amd64 |
 

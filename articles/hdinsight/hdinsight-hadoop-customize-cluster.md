@@ -17,9 +17,9 @@ ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b5fafb9603957a93a0ca8fbc6dd53798070641a4
-ms.openlocfilehash: da013207a2c804898d1a93dfd7875ed2a2deed22
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 96a7410ec90d31e565ea8338d908564c209c6a4f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 La información de este artículo es específica de los clústeres de HDInsight basados en Windows. Para obtener más información sobre clústeres basados en Linux, vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 Los clústeres de HDInsight se pueden personalizar de muchas maneras distintas, por ejemplo, con la inclusión de cuentas de almacenamiento de Azure adicionales, mediante el cambio de archivos de configuración de Hadoop (core-site.xml, hive-site.xml, etc.) o mediante la adición de bibliotecas compartidas (por ejemplo, Oozie o Hive) en ubicaciones comunes en el clúster. Estas personalizaciones pueden realizarse a través de Azure PowerShell, el SDK para .NET de HDInsight de Azure o el portal de Azure. Para obtener más información, consulte [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster].
 
@@ -76,7 +76,7 @@ HDInsight proporciona varios scripts para instalar los siguientes componentes en
         <tr><td>Identificador URI de script</td>
             <td>Especifique el identificador URI al script que se ha invocado para personalizar el clúster. s</td></tr>
         <tr><td>Head/Worker</td>
-            <td>Especifique los nodos (**Head** o **Worker**) en los que se ejecuta el script de personalización.</b>.
+            <td>Especifique los nodos (**Head** o **Worker**) en los que se ejecuta el script de personalización</b>.
         <tr><td>Parámetros</td>
             <td>Especifique los parámetros, si lo requiere el script.</td></tr>
     </table>

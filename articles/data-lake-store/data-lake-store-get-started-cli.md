@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,19 +29,21 @@ ms.lasthandoff: 03/21/2017
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [CLI de Azure](data-lake-store-get-started-cli.md)
+> * [CLI de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> Para cargar y descargar gran cantidad de datos (archivos grandes, un gran número de archivos o ambos), se recomienda usar el [SDK de Python](data-lake-store-get-started-python.md), el [SDK de .NET](data-lake-store-get-started-net-sdk.md) o [Azure PowerShell](data-lake-store-get-started-powershell.md). Estas opciones tienen mejor rendimiento, ya que utilizan varios subprocesos para realizar el movimiento de datos en paralelo.
-> 
->  
-
 Aprenda a usar la interfaz de la línea de comandos de Azure para crear una cuenta del Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información acerca de Data Lake Store, consulte [Información general de Data Lake Store](data-lake-store-overview.md).
 
 La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. La CLI de Azure es código abierto. El código fuente se administra en GitHub en <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Este artículo solo trata del uso de la CLI de Azure con Almacén de Data Lake. Para una guía general de cómo usar la CLI de Azure, consulte [Uso de la CLI de Azure][azure-command-line-tools].
+
+
+> [!NOTE]
+> Para cargar y descargar gran cantidad de datos (archivos grandes, un gran número de archivos o ambos), se recomienda usar el [SDK de Python](data-lake-store-get-started-python.md), el [SDK de .NET](data-lake-store-get-started-net-sdk.md) o [Azure PowerShell](data-lake-store-get-started-powershell.md). Estas opciones tienen mejor rendimiento, ya que utilizan varios subprocesos para realizar el movimiento de datos en paralelo.
+> 
+>
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
@@ -50,10 +52,13 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../cli-install-nodejs.md) para obtener información de instalación y configuración. Asegúrese de reiniciar el equipo después de instalar la CLI.
 
 ## <a name="authentication"></a>Autenticación
+
 En este artículo se utiliza un enfoque de autenticación más sencillo con Data Lake Store, donde inicia sesión como usuario final. El nivel de acceso a la cuenta de Data Lake Store y al sistema de archivos está determinado por el nivel de acceso del usuario que ha iniciado sesión. No obstante, existen otros enfoques para realizar la autenticación con Data Lake Store, que son **autenticación de usuario final** o **autenticación de servicio a servicio**. Para instrucciones y más información acerca de cómo realizar la autenticación, consulte [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Autenticación con Data Lake Store mediante Azure Active Directory).
 
 ## <a name="login-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
+
 1. Siga los pasos documentados en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)`azure login` y conéctese a su suscripción mediante el método ](../xplat-cli-connect.md).
+
 2. Enumere las suscripciones que están asociadas a su cuenta mediante el comando `azure account list`.
    
         info:    Executing command account list

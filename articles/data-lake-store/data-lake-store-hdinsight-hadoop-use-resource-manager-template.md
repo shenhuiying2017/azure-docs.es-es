@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40a1d76cc4167858a9bebac9845230473cc71e3e
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: bc870d2ec2f81c439beb96878a68466ed94988f3
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/07/2017
 >
 >
 
-Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight con Azure Data Lake Store **como almacenamiento adicional**. 
+Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight con Azure Data Lake Store **como almacenamiento adicional**.
 
 Para los tipos de clúster compatibles, Data Lake Store se puede usar como un almacenamiento predeterminado o una cuenta de almacenamiento adicional. Cuando Data Lake Store se usa como almacenamiento adicional, la cuenta de almacenamiento predeterminada para los clústeres seguirá siendo Azure Storage Blobs (WASB) y los archivos relacionados con clústeres (como registros, etc.) seguirán escribiéndose en el almacenamiento predeterminado, mientras que los datos que quiere procesar pueden almacenarse en una cuenta de Data Lake Store. Utilizar el Almacén de Data Lake como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura y escritura en el almacenamiento del clúster.
 
@@ -54,7 +54,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Azure PowerShell 1.0 o versiones posteriores**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * **Entidad de servicio de Azure Active Directory** En los pasos de este tutorial se proporcionan instrucciones sobre cómo crear entidades de servicio de Azure AD. Sin embargo, debe ser administrador de Azure AD para poder crearlas. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
-    **Si no lo es**, no podrá realizar los pasos necesarios para crear una entidad de servicio. En este caso, su administrador de Azure AD debe generar primero una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de una entidad de servicio](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    **Si no lo es**, no podrá realizar los pasos necesarios para crear una entidad de servicio. En este caso, su administrador de Azure AD debe generar primero una entidad de servicio antes de crear un clúster de HDInsight con Data Lake Store. Además, la entidad de servicio debe crearse con un certificado, tal y como se describe en [Creación de una entidad de servicio](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-an-hdinsight-cluster-with-azure-data-lake-store"></a>Creación de un clúster de HDInsight con Azure Data Lake Store
 Las plantillas de Resource Manager y los requisitos previos para usarla están disponibles en GitHub: [Deploy a HDInsight Linux cluster with new Data Lake Store](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) (Implementación de un clúster Linux de HDInsight con la nueva versión de Data Lake Store). Siga las instrucciones de este vínculo para crear un clúster de HDInsight con Azure Data Lake Store como almacenamiento adicional.

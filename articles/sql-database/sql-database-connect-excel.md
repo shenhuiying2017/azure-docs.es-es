@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0bab2cde451687311936ee74f304580a2a3b4b5e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 26be621cb3190a69ca4a9bb26c2e4643e50474dd
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ Conecte Excel a una instancia de SQL Database en la nube e importe datos y cree 
 
 Antes de comenzar, necesitará una Base de datos SQL en Azure. Si no tiene una, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md) para tener una base de datos con datos de ejemplo en funcionamiento en unos minutos. En este artículo se importarán los datos de ejemplo en Excel de dicho artículo, pero puede seguir los pasos con sus propios datos.
 
-También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 2016](https://products.office.com/en-US/).
+También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 2016](https://products.office.com/).
 
 ## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Conexión de Excel a una Base de datos SQL y creación de un archivo odc
 1. Para conectar Excel a Base de datos SQL, abra Excel y cree un libro nuevo o abra uno existente.

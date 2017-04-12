@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: ericor
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: dcf897cfb03316312613a641f1758cd4636d06b7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="upload-a-custom-image-for-azure-remoteapp"></a>Carga de una imagen personalizada para RemoteApp de Azure
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -53,10 +54,5 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 * Asegúrese de que usa Windows PowerShell y no Azure PowerShell. Debe instalar el módulo Azure PowerShell porque se necesitan ciertos módulos durante el proceso de carga.
 * Nunca modifique el script: las validaciones existen para su comodidad.
 * Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

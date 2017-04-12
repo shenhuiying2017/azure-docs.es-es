@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: fefd6f08d3150a28f73d7733fb397f7db38aef95
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ En la interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema), 
     ```
    
     > [!NOTE]
-    > Si tiene un identificador profesional o educativo y no tiene habilitada la autenticación en dos fases, use `azure login -u` junto con el identificador para iniciar sesión que no sea interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Si tiene un identificador profesional o educativo y no tiene habilitada la autenticación en dos fases, use `azure login -u` junto con el identificador para iniciar sesión que no sea interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     
 2. **Cree un grupo de recursos**  
 Todos los recursos se deben implementar en un grupo de recursos. Para este tutorial, asigne el nombre **vmsstest1**al grupo de recursos.
@@ -132,7 +132,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
    * Los nombres de direcciones IP y los prefijos para la red virtual y las subredes.
    * Los nombres y los identificadores de la red virtual, el equilibrador de carga y las interfaces de red.
    * Los nombres de cuentas de almacenamiento para las cuentas asociadas a las máquinas en el conjunto de escala.
-   * Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Agregue el recurso de la cuenta de almacenamiento en el elemento primario de recursos que agregó a la plantilla. Esta plantilla utiliza un bucle para crear las cinco cuentas de almacenamiento recomendadas donde se guardan los discos del sistema operativo y los datos de diagnóstico. Este conjunto de cuentas puede admitir hasta 100 máquinas virtuales en un conjunto de escala, lo cual es el máximo actual. Cada cuenta de almacenamiento se denomina con un indicador de letra, que se definió en las variables, y se combina con el sufijo que proporcionó en los parámetros de la plantilla.
    

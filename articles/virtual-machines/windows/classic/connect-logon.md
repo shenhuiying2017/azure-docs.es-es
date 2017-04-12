@@ -16,24 +16,24 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 22bc0b6c047737a291e79d9794e113b0821340ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 08a75e9ccf952097416e82ed42fb26a43d0f39f0
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Inicie sesión en una máquina virtual de Windows mediante el Portal de Azure.
 En el Portal de Azure, usará el botón **Conectar** para iniciar una sesión de Escritorio remoto e iniciar sesión en una VM de Windows.
 
-¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual Linux](../../virtual-machines-linux-mac-create-ssh-keys.md).
+¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual Linux](../../linux/mac-create-ssh-keys.md).
 
 <!--
 Deleting, but not 100% sure
-Learn how to [perform these steps using new Azure portal](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Learn how to [perform these steps using new Azure portal](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre cómo iniciar sesión en una máquina virtual mediante el modelo de Resource Manager, consulte [aquí](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre cómo iniciar sesión en una máquina virtual mediante el modelo de Resource Manager, consulte [aquí](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="connect-to-the-virtual-machine"></a>Conexión a la máquina virtual
 1. Inicie sesión en el Portal de Azure.
@@ -65,5 +65,5 @@ Learn how to [perform these steps using new Azure portal](../../virtual-machines
 
     ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
-Si esas sugerencias no funcionan o no son lo que necesita, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
+Si esas sugerencias no funcionan o no son lo que necesita, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
