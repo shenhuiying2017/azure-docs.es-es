@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4bfc5ac853833b8e51e7e3a556ed6208f22884d3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9e9f865470f25ec6d8e43ffa042315db79959789
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-coming-in-azure-remoteapp"></a>Novedades de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -52,10 +53,5 @@ Otras mejoras agregadas anteriormente este año:
 * Panel de métricas de uso
 * Aprovisionamiento de un gran número de usuarios mediante un archivo CSV
 * Disponibilidad en centros de datos australianos
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

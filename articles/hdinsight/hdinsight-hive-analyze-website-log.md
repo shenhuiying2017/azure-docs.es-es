@@ -17,9 +17,9 @@ ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
-ms.openlocfilehash: 503c8a98ea5437d24ff69f3b8f44c4bfb13e391e
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6febbde0322deba3b3128c2bca4abe8127e40b45
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/19/2017
 Vea cómo usar HiveQL con HDInsight para analizar registros de un sitio web. El análisis de registros de sitios web se puede usar para segmentar su público en función de actividades parecidas, clasificar los visitantes a los sitios por datos demográficos, descubrir el contenido que ven, los sitios web de los que proceden, etc.
 
 > [!IMPORTANT]
-> Los pasos de este tutorial solo se aplican a los clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Los pasos de este tutorial solo se aplican a los clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 En este ejemplo, usará un clúster de HDInsight para analizar archivos de registro de sitios web a fin de conocer la frecuencia de las visitas al sitio web en un día desde sitios web externos en un día. También generará un resumen de errores de sitios web que experimentan los usuarios. Aprenderá a:
 
@@ -39,16 +39,16 @@ En este ejemplo, usará un clúster de HDInsight para analizar archivos de regis
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Debe aprovisionar un clúster de Hadoop en HDInsight de Azure. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. 
+* Debe aprovisionar un clúster de Hadoop en HDInsight de Azure. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision].
 * Debe tener instalado Microsoft Excel 2013 o Excel 2010.
 * Debe tener [Microsoft Hive ODBC Driver para](http://www.microsoft.com/download/details.aspx?id=40886) importar datos de Hive en Excel.
 
 ## <a name="to-run-the-sample"></a>Para ejecutar el ejemplo
 1. En el [Portal de Azure](https://portal.azure.com/), en el panel de inicio (si ancló el clúster allí), haga clic en el icono de clúster en el que quiera ejecutar el ejemplo.
 2. En la hoja del clúster, en **Vínculos rápidos**, haga clic en el **panel del clúster** y luego, en la hoja **Panel de clúster**, haga clic en el **panel del clúster de HDInsight**. También puede abrir directamente el panel con la siguiente dirección URL:
-   
+
          https://<clustername>.azurehdinsight.net
-   
+
     Cuando se le pida, autentíquese con el nombre de usuario y la contraseña de administrador que usó cuando aprovisionó el clúster.
 3. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, a continuación, en la categoría **Soluciones con datos de ejemplo**, haga clic en el ejemplo **Análisis de registro del sitio web**.
 4. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
@@ -60,5 +60,4 @@ Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDIns
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-
 

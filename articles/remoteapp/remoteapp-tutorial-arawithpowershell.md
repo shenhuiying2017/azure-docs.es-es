@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 4f2b61e7c97beb7556bffca89c3608aaee831ddc
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9134b5893413abbc49e2332651fb4a8b549ce559
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Uso de cmdlets de Windows PowerShell con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -114,10 +115,5 @@ Otros cmdlets de RemoteApp:
 * Get-AzureRemoteAppWorkspace
 * Set-AzureRemoteAppWorkspace
 * Get-AzureRemoteAppOperationResult
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

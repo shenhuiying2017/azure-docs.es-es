@@ -17,9 +17,9 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/18/2017
 Este documento ofrece un tutorial para que usar el comando Pig para ejecutar instrucciones de Pig Latin desde una conexión de Escritorio remoto a un clúster de HDInsight basados en Windows. Pig Latin le permite crear aplicaciones de MapReduce que describen las transformaciones de datos, en lugar de asignar y reducir las funciones.
 
 > [!IMPORTANT]
-> Remote Desktop solo está disponible para clústeres de HDInsight que usan Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Remote Desktop solo está disponible para clústeres de HDInsight que usan Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 >
 > Para HDInsight 3.4 o superior, consulte [Uso de Pig con HDInsight y SSH](hdinsight-hadoop-use-pig-ssh.md) para más información sobre cómo ejecutar trabajos de Pig directamente en el clúster desde una línea de comandos.
 

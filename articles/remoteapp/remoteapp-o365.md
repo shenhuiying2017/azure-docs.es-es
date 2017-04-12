@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c04dc5a91b7859b5d75f919da55846599038f61
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5a8af257eb964be4677d5da6a57aadaad1eb2cc3
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-office-with-azure-remoteapp"></a>Uso de Office con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -53,10 +54,5 @@ Al activar su cuenta, esto afectará a todas las colecciones de RemoteApp en su 
 * La imagen de plantilla de Office 2013 Professional Plus (prueba) está pensada para evaluación únicamente. Las colecciones que se ejecutan con esta imagen de plantilla no se pueden pasar a producción. Se pondrán en estado "deshabilitado".
 
 Si no pasa al modo de producción en el momento de expiración de la prueba, las colecciones de RemoteApp se deshabilitarán. No se preocupe, la configuración y datos de los usuarios se guardan durante otros 90 días, por lo que puede activar el servicio y cambiar al modo de producción sin perder datos.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

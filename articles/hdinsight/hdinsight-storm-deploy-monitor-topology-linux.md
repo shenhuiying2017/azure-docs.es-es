@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 53092b0cfcf2bf9a09b36f6425724669f770e7fb
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 03/25/2017
 En este documento, aprenderá los aspectos básicos de administración y supervisión de las topologías de Storm que se ejecutan en clústeres de Storm en HDInsight.
 
 > [!IMPORTANT]
-> Para realizar los pasos que se describen en este artículo se requiere un clúster de Storm basado en Linux en HDInsight. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
-> 
+> Para realizar los pasos que se describen en este artículo se requiere un clúster de Storm basado en Linux en HDInsight. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+>
 > Para obtener información sobre la implementación y la supervisar de topologías en HDInsight basado en Windows, vea [Implementar y administrar topologías de Apache Storm en HDInsight basado en Windows](hdinsight-storm-deploy-monitor-topology.md)
 
 
@@ -78,20 +78,20 @@ Las herramientas de HDInsight puede utilizarse para enviar las topologías de C#
 ## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Envío de una topología: SSH y el comando Storm
 
 1. Use SSH para conectarse al clúster de HDInsight. Reemplace **USERNAME** por el nombre de su inicio de sesión de SSH. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Para obtener más información sobre cómo establecer una conexión mediante SSH a su clúster de HDInsight, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use el comando siguiente para iniciar una topología de ejemplo:
-   
+
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
-   
+
     Este comando inicia la topología WordCount de ejemplo en el clúster. Esta topología generará frases de forma aleatoria y contará la aparición de cada palabra en las oraciones.
-   
+
    > [!NOTE]
    > Al enviar la topología al clúster, primero debe copiar el archivo jar que contiene el clúster antes de usar el comando `storm`. Para copiar el archivo en el clúster, puede usar el comando `scp`. Por ejemplo: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-   > 
+   >
    > El ejemplo de WordCount, y otros ejemplos de inicio de Storm, ya están incluidos en el clúster en `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 ## <a name="submit-a-topology-programmatically"></a>Envío de una topología: de manera programática
@@ -187,11 +187,11 @@ Si selecciona un vínculo desde la sección **Resumen de la topología** , se mo
 
 * **Resumen de la topología**: información básica sobre la topología.
 * **Acciones de topología**: acciones de administración que puede realizar para la topología.
-  
+
   * **Activar**: reanuda el procesamiento de una topología desactivada.
   * **Desactivar**: pausa una topología en ejecución.
   * **Reequilibrar**: ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esta operación permite que la topología ajuste el paralelismo para compensar el mayor o menor número de nodos del clúster.
-    
+
     Para más información, consulte la entrada de blog <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
   * **Eliminar**: finaliza una topología de Storm tras el tiempo de espera especificado.
 * **Estadísticas de topología**: estadísticas sobre la topología. Para establecer el período de las entradas restantes en la página, use los vínculos que se encuentran en la columna **Ventana**.
@@ -245,5 +245,4 @@ La información que se devuelve de la API de REST solo se puede utilizar desde d
 Ahora que aprendió a implementar y supervisar topologías mediante el panel de Storm, aprenda a [Desarrollar topologías basadas en Java mediante Maven](hdinsight-storm-develop-java-topology.md).
 
 Para obtener una lista con más topologías de ejemplo, consulte [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
-
 

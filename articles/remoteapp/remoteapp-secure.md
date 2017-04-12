@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: fb524efc41b1eaa36319726b3b8b534857e2afc7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 13085f51529dadb739b4c629bb50d8aff0c9d8c2
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="secure-apps-and-resources-in-azure-remoteapp"></a>Protección de aplicaciones y recursos en Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -48,10 +49,5 @@ Otro ejemplo es si desea bloquear el acceso a Internet para una aplicación dete
 * Tenga en cuenta que la configuración de las redirecciones a través del módulo de RemoteApp PowerShell (tal como se ve [aquí](remoteapp-redirection.md)) se basa en el equipo cliente para aplicar la directiva, por lo que si la seguridad es el objetivo principal, deberá aplicar la directiva mediante la directiva local de imagen de plantilla o mediante la directiva de grupo.
 * [Directivas de Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
 * [Directivas de Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (incluido [cómo personalizar la barra de herramientas de Office](https://technet.microsoft.com/library/cc179143.aspx)).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
