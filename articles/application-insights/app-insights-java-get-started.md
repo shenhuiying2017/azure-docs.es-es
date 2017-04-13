@@ -397,5 +397,5 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

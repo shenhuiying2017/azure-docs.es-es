@@ -182,7 +182,7 @@ El fragmento de código siguiente procesa una iteración de todas las tareas de 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
 {
-    foreach (TaskOutputStorage output in
+    foreach (OutputFileReference output in
         task.OutputStorage(storageAccount).ListOutputs(
             TaskOutputKind.TaskOutput))
     {

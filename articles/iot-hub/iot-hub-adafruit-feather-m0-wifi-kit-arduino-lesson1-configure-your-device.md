@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "configuración de Arduino, conexión de Arduino al equipo, configuración de Arduino, placa Arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: f5b334f0-a148-41aa-b374-ce7b9f5b305a
 ms.service: iot-hub
 ms.devlang: arduino
