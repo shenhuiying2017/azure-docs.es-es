@@ -119,10 +119,10 @@ Los grupos elásticos de Base de datos SQL combinan el aislamiento de inquilinos
 | --- | --- |
 | Aislamiento de inquilinos y uso compartido de recursos |[Grupos elásticos](sql-database-elastic-pool.md): asigna un grupo de recursos de Base de datos SQL y los comparte entre varias bases de datos. Además, las bases de datos individuales pueden sacar todos los recursos necesarios del grupo para acomodar los picos de demanda de capacidad debido a cambios en las cargas de trabajo de los inquilinos. El grupo elástico sí se puede escalar hacia arriba o hacia abajo según sea necesario. Los grupos elásticos también facilitan la administración, la supervisión y la solución de problemas a nivel de grupo. |
 | Facilidad de DevOps entre bases de datos |[Grupos elásticos](sql-database-elastic-pool.md): como se indica anteriormente. |
-| [Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md): consulta entre bases de datos para informes o análisis entre inquilinos. | |
-| [Trabajos elásticos](sql-database-elastic-jobs-overview.md): empaqueta e implementa de forma fiable las operaciones de mantenimiento de bases de datos o los cambios de esquema de base de datos en varias bases de datos. | |
-| [Transacciones elásticas](sql-database-elastic-transactions-overview.md): procesa los cambios en varias bases de datos de forma atómica y aislada. Las transacciones elásticas son necesarias cuando las aplicaciones necesitan garantías de "todo o nada" para varias operaciones de base de datos. | |
-| [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md): administra distribuciones de datos y asigna inquilinos a bases de datos. | |
+| | [Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md): consulta entre bases de datos para informes o análisis entre inquilinos. |
+| | [Trabajos elásticos](sql-database-elastic-jobs-overview.md): empaqueta e implementa de forma fiable las operaciones de mantenimiento de bases de datos o los cambios de esquema de base de datos en varias bases de datos. |
+| | [Transacciones elásticas](sql-database-elastic-transactions-overview.md): procesa los cambios en varias bases de datos de forma atómica y aislada. Las transacciones elásticas son necesarias cuando las aplicaciones necesitan garantías de "todo o nada" para varias operaciones de base de datos. |
+| | [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md): administra distribuciones de datos y asigna inquilinos a bases de datos. |
 
 ## <a name="shared-models"></a>Modelos compartidos
 Como se describió anteriormente, para la mayoría proveedores de SaaS, el enfoque de modelo compartido puede plantear problemas con el aislamiento de los inquilinos, así como complejidades con el desarrollo y mantenimiento de la aplicación. Sin embargo, para las aplicaciones multiinquilino que proporcionan un servicio directamente a los consumidores, los requisitos de aislamiento de inquilinos pueden no tener tanta prioridad como la reducción de los costos. Pueden empaquetar los inquilinos de una o más bases de datos a alta densidad para reducir los costos. Los modelos de base de datos compartida con una o varias bases de datos particionadas pueden agregar eficacia al uso compartido de recursos y reducir el costo general. La Base de datos SQL de Azure proporciona algunas características que ayudan a los clientes a crear aislamiento para la seguridad y la administración mejoradas a escala en la capa de datos.
@@ -132,10 +132,10 @@ Como se describió anteriormente, para la mayoría proveedores de SaaS, el enfoq
 | Características de aislamiento de seguridad |[Seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131.aspx) |
 | [Crear un esquema de la base de datos](https://msdn.microsoft.com/library/dd207005.aspx) | |
 | Facilidad de DevOps entre bases de datos |[Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) |
-| [Trabajos elásticos](sql-database-elastic-jobs-overview.md) | |
-| [Transacciones elásticas](sql-database-elastic-transactions-overview.md) | |
-| [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md) | |
-| [Dividir y combinar bases de datos elásticas](sql-database-elastic-scale-overview-split-and-merge.md) | |
+| | [Trabajos elásticos](sql-database-elastic-jobs-overview.md) |
+| | [Transacciones elásticas](sql-database-elastic-transactions-overview.md) |
+| | [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md) |
+| | [Dividir y combinar bases de datos elásticas](sql-database-elastic-scale-overview-split-and-merge.md) |
 
 ## <a name="summary"></a>Resumen
 Los requisitos de aislamiento de inquilinos son importantes para la mayoría de las aplicaciones SaaS multiinquilino. La mejor opción para proporcionar aislamiento se basa principalmente en el enfoque de base de datos por inquilino. Los otros dos enfoques requieren inversiones en capas de aplicación complejas que requieren personal de desarrollo especializado para proporcionar aislamiento, lo cual aumenta significativamente el costo y el riesgo. Si los requisitos de aislamiento no se tienen en cuenta temprano en el desarrollo de los servicios, puede ser incluso más costoso en los dos primeros modelos ajustarlos con carácter retroactivo. Los principales inconvenientes asociados con el modelo de base de datos por inquilino están relacionados con los mayores costos de los recursos en la nube debidos al reducido uso compartido y el mantenimiento y la administración de gran cantidad de bases de datos. Los desarrolladores de aplicaciones SaaS tienen a menudo problemas con estos aspectos.
