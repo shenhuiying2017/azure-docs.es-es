@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: d0f4323c22858300d95af7407cdb14995507ee60
 ms.openlocfilehash: 952697dff7dca2779a6eb5375afa41c0b130aad4
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -162,9 +163,4 @@ Mediante el portal de OMS, puede exportar datos a un archivo CSV y acceder a la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Log Analytics](log-analytics-get-started.md) , encontrará más información sobre esta solución y cómo empezar a utilizarla en cuestión de minutos.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 
