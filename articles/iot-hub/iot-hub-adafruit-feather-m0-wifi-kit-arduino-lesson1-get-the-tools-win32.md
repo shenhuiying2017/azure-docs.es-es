@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: herramientas de desarrollo de Arduino, desarrollo de iot, software de iot, software de internet de las cosas, instalar git en Windows, instalar node js Windows
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 9cfb8cd2-eafb-4ba2-b23e-d94e114ff3a6
 ms.service: iot-hub
 ms.devlang: arduino

@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "proyectos de LED de Arduino, intermitencia del LED de Arduino, código de intermitencia del LED de Arduino, programa de intermitencia del LED de Arduino, ejemplo de intermitencia en Arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: b0a7d076-d580-4686-9f7d-c0712750b615
 ms.service: iot-hub
 ms.devlang: arduino
