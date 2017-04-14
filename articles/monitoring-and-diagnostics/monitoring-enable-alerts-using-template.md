@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 4/13/2017
 ms.author: johnkem
 translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -377,7 +378,7 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
                         "resourceUri": "[variables('vmID')]",
                         "metricName": "[variables('metricName')]"
                     },
-                    "operator": "[parameters('operator')]",
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -403,10 +404,5 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre alertas](insights-receive-alert-notifications.md)
 * [Agregue la Configuración de diagnóstico](monitoring-enable-diagnostic-logs-using-template.md) a la plantilla de Resource Manager
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
