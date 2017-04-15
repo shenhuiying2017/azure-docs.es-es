@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: "Conjuntos de escalas de máquina virtual"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: "Servicio de metadatos de instancia" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Contenedores"
     href: containers.md
   - name: "Resource Manager"

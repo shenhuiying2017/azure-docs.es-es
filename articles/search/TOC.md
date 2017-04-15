@@ -48,16 +48,19 @@
 ### [Indexación de blobs JSON](search-howto-index-json-blobs.md)
 ### [Configuración de conexiones de indexador a SQL Server en la máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Asignaciones de campos en indexadores](search-indexer-field-mappings.md)
-##  Experiencia de búsqueda
-### [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Sintaxis de consulta de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Ejemplos de consulta de sintaxis de Lucene](search-query-lucene-examples.md)
-### [Sintaxis de expresión de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Search 
+### [Cómo funciona la búsqueda de texto completo](search-lucene-query-architecture.md)
+### Construcción de consultas
+#### [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Sintaxis de consulta de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Ejemplos de consulta de sintaxis de Lucene](search-query-lucene-examples.md)
+#### [Sintaxis de expresión de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### Búsqueda personalizada
+#### [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [Analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navegación por facetas](search-faceted-navigation.md)
-### [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [Analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Referencia
 ## [.NET](/dotnet/api/microsoft.azure.search)

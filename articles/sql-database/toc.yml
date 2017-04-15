@@ -185,6 +185,8 @@
     items:
     - name: "Copia de una base de datos"
       href: sql-database-copy.md
+    - name: "Importación de una base de datos"
+      href: sql-database-import.md
     - name: "Exportación de una base de datos"
       href: sql-database-export.md
   - name: "Supervisión y ajuste"
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "Guías de procedimientos"
   items:
-  - name: "Administración del firewall"
-    items:
-    - name: "Portal"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "API de REST"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "Administración de grupos elásticos"
     items:
     - name: "Portal"
@@ -249,20 +241,10 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "Configuración del enmascaramiento"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "Recuperación"
-    items:
-    - name: "Portal"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "Tabla única"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "Retención"
-    items:
-    - name: "Retención: Portal"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "Retención: PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "Recuperación de una sola tabla"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "Configuración del almacén de copias de seguridad"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "Datos de replicación geográfica"
     items:
     - name: "Portal"
@@ -277,10 +259,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "Mover datos"
     items:
-    - name: "Importación: Portal"
-      href: sql-database-import-portal.md
-    - name: "Importación: SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "Carga de datos con BCP"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "Carga de datos con ADF"

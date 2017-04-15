@@ -47,6 +47,7 @@
 ### [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Cambio de la contraseña de la cuenta del servicio Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Cambio de la contraseña de la cuenta de AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Habilitación de la papelera de reciclaje de AD](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Administración de servicios de federación
 ### [Administración y personalización](active-directory-aadconnect-federation-management.md)
+### [Federación de varias instancias de Azure AD con una instancia única de AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Solución de problemas

@@ -19,6 +19,7 @@
 ## Servidor de Copia de seguridad de Azure
 ### [Preparación de cargas de trabajo del servidor de copia de seguridad de Azure en Azure Portal](backup-azure-microsoft-azure-backup.md)
 ### [Preparación de cargas de trabajo del servidor de copia de seguridad de Azure en el portal clásico](backup-azure-microsoft-azure-backup-classic.md)
+### [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
 ### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de Exchange](backup-azure-exchange-mabs.md)
 ### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint-mabs.md)
 ### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de SQL](backup-azure-sql-mabs.md)

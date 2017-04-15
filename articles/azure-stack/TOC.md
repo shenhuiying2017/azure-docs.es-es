@@ -8,6 +8,7 @@
 ## Primeros pasos
 ### [Requisitos previos de implementación](azure-stack-deploy.md)
 ### [Implementación](azure-stack-run-powershell-script.md)
+### [Activación de portales](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Registro](azure-stack-register.md)
 ## Procedimientos
 ### [Conexión a Azure Stack POC](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Introducción a App Service on Azure Stack](azure-stack-app-service-overview.md)
 #### [Antes de comenzar](azure-stack-app-service-before-you-get-started.md)
 #### [Implementación del proveedor de recursos de App Service](azure-stack-app-service-deploy.md)
+#### [Implementación de App Service sin conexión](azure-stack-app-service-deploy-offline.md)
 #### [Incorporación de más roles de trabajo web](azure-stack-app-service-add-worker-roles.md)
 #### [Configuración de orígenes de implementación](azure-stack-app-service-configure-deployment-sources.md)
 #### [Habilitación del FTP en App Service en Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Información general](azure-stack-storage-overview.md)
 ### [Diferencias y consideraciones](azure-stack-acs-differences-tp2.md)
 ## Red
-### [iDNS para Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS para Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS en Azure Stack](azure-stack-dns.md)
 ### [Descripción de las conexiones VPN de sitio a sitio](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault
