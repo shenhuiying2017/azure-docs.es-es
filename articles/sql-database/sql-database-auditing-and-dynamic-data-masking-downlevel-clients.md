@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/17/2017
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría
 [Auditoría de base de datos](sql-database-auditing.md) funciona automáticamente con los clientes SQL que admiten el redireccionamiento de TDS. Tenga en cuenta que el redireccionamiento no se aplica cuando se usa el método de auditoría de blobs.
 
-## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Compatibilidad con clientes de nivel inferior
+## <a id="subheading-1"></a>Compatibilidad con clientes de nivel inferior
 Cualquier cliente que implementa TDS 7.4 también debe admitir el redireccionamiento. Entre las excepciones a esto se incluyen JDBC 4.0, en el que la función de redireccionamiento no es totalmente compatible y Tedious para Node.JS, en cuya redireccionamiento no se ha implementado.
 
 Para "clientes de nivel inferior", es decir, los que admiten TDS versión 7.3 e inferiores, debe modificarse el FQDN del servidor en la cadena de conexión:
@@ -43,7 +43,7 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
-## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Cambios de punto de conexión IP al habilitar la auditoría
+## <a id="subheading-2"></a>Cambios de punto de conexión IP al habilitar la auditoría
 Tenga en cuenta que cuando se habilita la auditoría de tablas, cambiará el punto de conexión de IP de la base de datos. Si tiene una configuración de firewall estricta, actualice esas opciones de firewall en consecuencia.
 
 El nuevo punto de conexión de IP de la base de datos dependerá de la región de base de datos:

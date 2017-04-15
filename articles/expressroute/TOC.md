@@ -29,6 +29,7 @@
 ## [Configuración de una puerta de enlace de red virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-resource-manager.md)
 ## [Movimiento de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
+## [Migración de redes virtuales asociadas del portal clásico a Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configuración de un enrutador para ExpressRoute
 ### [Configuración de un enrutador](expressroute-config-samples-routing.md)
 ### [Ejemplos de configuración de enrutador para NAT](expressroute-config-samples-nat.md)

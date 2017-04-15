@@ -11,6 +11,7 @@
 ## [Uso de SDK de Java](data-lake-store-get-started-java-sdk.md)
 ## [Uso de la API de REST](data-lake-store-get-started-rest-api.md)
 ## [Uso de la CLI de Azure](data-lake-store-get-started-cli.md)
+## [Uso de la CLI de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Uso de Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Uso de Python](data-lake-store-get-started-python.md)
 
@@ -49,6 +50,7 @@
 ### [Uso con Power BI](data-lake-store-power-bi.md)
 ### [Uso con Data Catalog](data-lake-store-with-data-catalog.md)
 ### [Uso con PolyBase en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [Uso de SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Más opciones para la integración de Azure](data-lake-store-integrate-with-other-services.md)
 
 ## Administrar
@@ -63,6 +65,7 @@
 ## [Python (administración de cuentas)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (administración de sistemas de archivos)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Recursos
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=data-lake-store)

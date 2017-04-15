@@ -1,6 +1,7 @@
 # Primeros pasos
 ## [Prevención de costes inesperados](billing-getting-started.md)
 ## [Registro con la cuenta de Office 365](billing-use-existing-office-365-account-azure-subscription.md)
+## [Suscripción a Office 365 con la cuenta de Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Límites y cuotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Procedimientos
 ## Supervisión de uso y costos
@@ -33,8 +34,3 @@
 
 # Recursos
 ## [Ponerse en contacto con soporte técnico](../azure-supportability/how-to-create-azure-support-request.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

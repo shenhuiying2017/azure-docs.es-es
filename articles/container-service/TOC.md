@@ -30,6 +30,7 @@
 ### [Administración de contenedores: IU de Kubernetes](container-service-kubernetes-ui.md)
 ### [Contenedores de Kubernetes de equilibrio de carga](container-service-kubernetes-load-balancing.md)
 ### [Integración de Jenkins con ACS Kubernetes](container-service-kubernetes-jenkins.md)
+### [Implementación de gráficos de Helm](container-service-kubernetes-helm.md)
 ### Supervisión de Kubernetes
 #### [Supervisión con OMS](container-service-kubernetes-oms.md)
 #### [Supervisión con Datadog](container-service-kubernetes-datadog.md)
