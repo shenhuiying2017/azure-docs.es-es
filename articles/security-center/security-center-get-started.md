@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/11/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +50,7 @@ En el portal, siga estos pasos para acceder al Centro de seguridad:
 1. En el menú de **Microsoft Azure**, seleccione **Security Center**.
 
    ![Menú de Azure][1]
-2. Si es la primera vez que accede a Security Center, se abre la hoja de **bienvenida**. Seleccione **Sí. Quiero iniciar Azure Security Center** para abrir la hoja **Security Center** y para habilitar la recopilación de datos.
+2. Si es la primera vez que accede a Security Center, se abre la hoja de **bienvenida**. Seleccione **Launch Security Center** (Iniciar Security Center) para abrir la hoja **Security Center** y habilitar la colección de datos.
    ![Pantalla principal][10]
 3. Después de iniciar Security Center desde la hoja de bienvenida o seleccionarlo desde el menú de Microsoft Azure, se abre la hoja **Security Center**. Para facilitar el acceso a la hoja **Security Center** en el futuro, seleccione la opción **Anclar hoja al panel** (parte superior derecha).
    ![Opción Anclar hoja al panel][2]
@@ -81,11 +81,17 @@ Puede configurar directivas de seguridad para los grupos de recursos y las suscr
 2. Seleccione una recomendación en la hoja **Recomendaciones** para ver más información o realizar una acción para resolver el problema.
 
 ### <a name="view-the-health-and-security-state-of-your-resources"></a>Ver el estado de seguridad de los recursos
-1. Vuelva a la hoja **Centro de seguridad** . El icono **Estado de seguridad de los recursos** contiene indicadores del estado de seguridad de las máquinas virtuales, las redes, los datos y las aplicaciones.
-2. Seleccione **Máquinas virtuales** para consultar más información. La hoja **Máquinas virtuales** se abre y muestra un resumen del estado de programas antimalware, actualizaciones del sistema, reinicios y vulnerabilidades del sistema operativo de las máquinas virtuales.
-   ![El icono Estado de los recursos de Azure Security Center][6]
-3. Seleccione una recomendación en **RECOMENDACIONES SOBRE MÁQUINAS VIRTUALES** para ver más información o tomar medidas para configurar los controles necesarios.
-4. Seleccione la máquina virtual en **Máquinas virtuales** para ver más detalles.
+1. Vuelva a la hoja **Centro de seguridad** . El icono de **estado de seguridad de los recursos** contiene indicadores del estado de seguridad de las máquinas virtuales, las redes, los datos y las aplicaciones.
+2. Seleccione **Proceso** para más información. La hoja **Proceso** se abre y muestra tres pestañas:
+
+  - **Overview** (Información general): contiene recomendaciones de supervisión y de la máquina virtual.
+  - **Virtual Machines** (Máquinas virtuales): lista de todas las máquinas virtuales y su estado de seguridad actual.
+  - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
+
+    ![El icono Estado de los recursos en el Centro de seguridad de Azure][6]
+
+3. En la pestaña **Overview** (Información general), seleccione una recomendación en **VIRTUAL MACHINES RECOMMENDATIONS** (RECOMENDACIONES DE MÁQUINAS VIRTUALES) para ver más información o seguir los pasos para configurar los controles necesarios.
+4. En la pestaña **Máquinas virtuales**, seleccione una máquina virtual para ver detalles adicionales.
 
 ### <a name="view-security-alerts"></a>Ver alertas de seguridad
 1. Vuelva a la hoja **Security Center** y haga clic en el icono **Alertas de seguridad**. Se abre la hoja **Alertas de seguridad** con una lista de alertas. Las alertas se generan mediante el análisis que Security Center hace de los registros de seguridad y la actividad de la red. También se incluyen alertas de soluciones de asociados integradas.
@@ -102,7 +108,7 @@ Puede configurar directivas de seguridad para los grupos de recursos y las suscr
 1. Vuelva a la hoja **Centro de seguridad** . El icono **Soluciones de asociados** permite supervisar de un solo vistazo el estado de mantenimiento de las soluciones de asociados integradas en su suscripción de Azure.
 2. Seleccione el icono **Soluciones de asociados** . Se abre una hoja con una lista de todas las soluciones de asociados conectadas a Security Center.
    ![Soluciones de asociados][9]
-3. Seleccione una solución de asociado. En este ejemplo, seleccionaremos la solución **F5-WAF**.  Se abre una hoja que muestra el estado de la solución de asociados y de los recursos asociados de la solución. Seleccione **Consola de soluciones** para abrir la experiencia de administración de asociados de esta solución.
+3. Seleccione una solución de asociado. En este ejemplo, seleccionamos la solución **QualysVa1**.  Se abre una hoja que muestra el estado de la solución de asociados y de los recursos asociados de la solución. Seleccione **Consola de soluciones** para abrir la experiencia de administración de asociados de esta solución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se han presentado los componentes de supervisión de la seguridad y administración de directivas de Security Center. Ahora que está familiarizado con Security Center, pruebe los siguientes pasos:
