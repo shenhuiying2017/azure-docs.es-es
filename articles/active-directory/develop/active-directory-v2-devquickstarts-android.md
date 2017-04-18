@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -188,10 +189,5 @@ Cuando se haya autenticado correctamente, haga clic en el botón **Request Prote
 
 ## <a name="get-security-updates-for-our-product"></a>Obtención de actualizaciones de seguridad para nuestro producto
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
