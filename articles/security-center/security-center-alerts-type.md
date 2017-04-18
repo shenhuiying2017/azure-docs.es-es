@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 ![Alerta de proceso sospechoso](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Múltiples cuentas de dominio consultadas
-Security Center puede detectar múltiples intentos de consultar cuentas de dominio, que es algo que suelen realizar los atacantes durante el reconocimiento de redes. Los atacantes pueden aprovechar esta técnica para consultar el dominio con el fin de identificar los usuarios, las cuentas de los administradores de dominio, los equipos que son controladores de dominio y, también, una posible relación de confianza de dominio con otros dominios.
+Security Center puede detectar múltiples intentos de consultar cuentas de dominio de Active Directory, que es algo que suelen hacer los atacantes durante el reconocimiento de la red. Los atacantes pueden aprovechar esta técnica para consultar el dominio con el fin de identificar los usuarios, las cuentas de los administradores de dominio, los equipos que son controladores de dominio y, también, una posible relación de confianza de dominio con otros dominios.
 
 A continuación se muestra un ejemplo de este tipo de alerta:
 
 ![Alerta de cuenta con múltiples dominios](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Se enumeraron los miembros del grupo Administradores locales
+
+Security Center va a desencadenar una alerta cuando se active el evento de seguridad 4798, en Windows Server 2016 y Windows 10. Esto sucede cuando se enumeran los grupos de administradores locales, que es algo que los atacantes suelen hacer durante el reconocimiento de la red. Los atacantes pueden aprovechar esta técnica para consultar la identidad de los usuarios con privilegios administrativos.
+
+A continuación se muestra un ejemplo de este tipo de alerta:
+
+![Administrador local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Mezcla anómala de mayúsculas y minúsculas
+
+Security Center desencadenará una alerta cuando detecte el uso de una mezcla de mayúsculas y minúsculas en la línea de comandos. Algunos atacantes pueden utilizar esta técnica para eludir una regla de la máquina basada en hash o que distinga mayúsculas de minúsculas.
+
+A continuación se muestra un ejemplo de este tipo de alerta:
+
+![Mezcla anómala](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Sospecha de ataque de golden ticket de Kerberos
+
+Un atacante puede usar una clave [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) en peligro para crear "golden tickets" de Kerberos, lo que le permitiría suplantar a cualquier usuario que desee. Security Center va a desencadenar una alerta cuando detecte este tipo de actividad.
+
+> [!NOTE] 
+> Para más información sobre el golden ticket de Kerberos, consulte [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Guía de mitigación del robo de credenciales de Windows 10).
+
+A continuación se muestra un ejemplo de este tipo de alerta:
+
+![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Cuenta sospechosa creada
+
+Security Center desencadenará una alerta cuando se cree una cuenta que se parezca mucho a una cuenta integrada existente con privilegios administrativos. Los atacantes pueden usar esta técnica para crear una cuenta no autorizada para evitar que se les detecte con una comprobación realizada por un usuario.
+ 
+A continuación se muestra un ejemplo de este tipo de alerta:
+
+![Cuenta sospechosa](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Regla de firewall sospechosa creada
+
+Los atacantes podrían intentar eludir la seguridad del host mediante la creación de reglas de firewall personalizadas que permitan que aplicaciones malintencionadas se comuniquen con el comando y control o lancen ataques a la red a través del host en peligro. Security Center desencadenará una alerta cuando detecte que se ha creado una regla de firewall a partir de un archivo ejecutable en una ubicación sospechosa.
+ 
+A continuación se muestra un ejemplo de este tipo de alerta:
+
+![Regla de firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Combinación sospechosa de HTA y PowerShell
+
+Security Center desencadenará una alerta cuando detecte que un host de aplicación HTML (HTA) de Microsoft esté iniciando comandos de PowerShell. Se trata de una técnica utilizada por los atacantes para iniciar scripts malintencionados de PowerShell.
+ 
+A continuación se muestra un ejemplo de este tipo de alerta:
+
+![HTA y PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Análisis de red
 La detección de amenazas de Security Center recopila automáticamente información de seguridad de su tráfico (exportación de la información de flujo del protocolo de Internet) de IPFIX de Azure. Después, analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas.

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ El siguiente flujo de trabajo de alto nivel es típico de casi todas las aplicac
 Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
 
 > [!NOTE]
-> Necesitará una [cuenta de Batch](batch-account-create-portal.md) para utilizar este servicio. Además, casi todas las soluciones usan una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Batch solo admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. Además, casi todas las soluciones usan una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Batch solo admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -69,7 +69,16 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
 * [Paquetes de aplicación](#application-packages)
 
 ## <a name="account"></a>Cuenta
-Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote. Al realizar operaciones con el servicio Lote, necesita el nombre de la cuenta y una de sus claves. Puede [crear una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md).
+Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote.
+
+Puede crear una cuenta de Azure Batch mediante el [portal de Azure](batch-account-create-portal.md) o por medio de programación, como con la [biblioteca .NET de administración de lotes](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de almacenamiento de Azure.
+
+Batch admite dos configuraciones de cuenta, en función de la propiedad de *modo de asignación de grupo*. Las dos configuraciones le proporcionan distintas opciones para la autenticación con el servicio Batch y para el aprovisionamiento y la administración de [grupos](#pool) de Batch (consulte más adelante en este artículo). 
+
+
+* **Servicio Batch** (valor predeterminado): puede acceder a las API de Batch mediante la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md). Los recursos de proceso de Batch se asignan en segundo plano en una cuenta administrada por Azure.   
+* **Suscripción de usuario**: solo puede acceder a las API de Batch mediante la [autenticación de Azure Active Directory](batch-aad-auth.md). Los recursos de proceso de Batch se asignan directamente en su suscripción de Azure. Este modo proporciona una mayor flexibilidad para configurar los nodos de proceso y realizar la integración con otros servicios. Este modo requiere configurar un almacén de claves de Azure adicional para su cuenta de Batch.
+ 
 
 ## <a name="compute-node"></a>Nodo de ejecución
 Un nodo de proceso es una máquina virtual de Azure dedicada a procesar una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Servicios en la nube o imágenes de Máquinas virtuales de Marketplace. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
@@ -89,13 +98,16 @@ Los grupos de Lote de Azure se basan en la plataforma de proceso principal de Az
 
 A cada nodo que se agrega a un grupo se le asigna un nombre y una dirección IP únicos. Cuando se quita un nodo de un grupo, los cambios realizados en el sistema operativo o los archivos se pierden, y su nombre y dirección IP se liberan para usarlos en un futuro. Cuando un nodo abandona un grupo, su vigencia finaliza.
 
-Cuando se crea un grupo, puede especificar los siguientes atributos:
+Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opciones de configuración difieren, según el modo de asignación de grupo de la [cuenta](#account) de Batch.
 
 * **Sistema operativo** y **versión** de nodo de proceso
 
-    Dispone de dos opciones al seleccionar un sistema operativo para los nodos en el grupo: **configuración de máquina virtual** y **configuración de Cloud Services**.
+    > [!NOTE]
+    > En el modo de asignación de grupo del servicio Batch, dispone de dos opciones al seleccionar un sistema operativo para los nodos del grupo: **configuración de la máquina virtual** y **configuración de Cloud Services**. En el modo de suscripción de usuario, solo se puede utilizar la configuración de máquina virtual.
+    >
 
-    La **configuración de máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso desde el [Marketplace de Azure Virtual Machines][vm_marketplace].
+    La **configuración de máquina virtual** proporciona imágenes de Windows y Linux para nodos de proceso del [Marketplace de Azure Virtual Machines][ vm_marketplace] y, en el modo de asignación de suscripción de usuario, la opción para usar imágenes de máquina virtual personalizadas.
+
     Cuando se crea un grupo que contiene los nodos de configuración de máquina virtual, debe especificar no solo el tamaño de estos, sino también la **referencia de la imagen de máquina virtual** y el **SKU del agente de nodo** de Batch que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md).
 
     **configuración de Servicios en la nube**  *solo*. La lista de los sistemas operativos disponibles para los grupos de configuración de Servicios en la nube aparece en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando se crea un grupo que contiene nodos de Servicios en la nube, debe especificar únicamente el tamaño del nodo y su *familia de sistema operativo*. Cuando se crean grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan los Servicios en la nube.
@@ -313,17 +325,27 @@ Normalmente, se utiliza un enfoque combinado para controlar una carga variable, 
 
 ## <a name="pool-network-configuration"></a>Configuración de la red del grupo
 
-Al crear un grupo de nodos de proceso en Azure Batch, puede especificar el identificador de la [red virtual](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) de Azure en que se deben crear los nodos de proceso del grupo.
-
-* Solo se pueden asignar los grupos de **configuración de Cloud Services** a una red virtual.
+Al crear un grupo de nodos de proceso en Azure Batch, puede usar las API para especificar el identificador de la [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en la que se deben crear los nodos de proceso del grupo.
 
 * La red virtual debe:
 
    * Estar en la misma **región** de Azure que la cuenta de Azure Batch.
    * Estar en la misma **suscripción** que la cuenta de Azure Batch.
-   * Ser una red virtual **clásica**. No se admiten redes virtuales creadas con el modelo de implementación de Azure Resource Manager.
 
 * La red virtual debe tener suficientes **direcciones IP** libres para dar cabida a la propiedad `targetDedicated` del grupo. Si la subred no tiene suficientes direcciones IP libres, el servicio Batch asigna parcialmente los nodos de proceso en el grupo y devuelve un error de cambio de tamaño.
+
+* La subred especificada debe permitir la comunicación del servicio Batch para poder programar tareas en los nodos de proceso. Si un **grupo de seguridad de red (NSG)** asociado a la red virtual deniega la comunicación con los nodos de proceso, el servicio Batch establece el estado de dichos nodos en **No utilizable**. 
+
+* Si la red virtual especificada tiene NSG asociados, debe habilitarse la comunicación entrante. Para un grupo de Linux, deben habilitarse los puertos 29876, 29877 y 22. Para un grupo de Windows, debe habilitarse el puerto 3389.
+
+La necesidad de configuración adicional de la red virtual depende del modo de asignación de grupo de la cuenta de Batch.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Redes virtuales para grupos aprovisionados en el servicio Batch
+
+En modo de asignación del servicio Batch, solo se pueden asignar grupos de **configuración de Cloud Services** a una red virtual. Además, la red virtual especificada debe ser una red virtual **clásica**. No se admiten redes virtuales creadas con el modelo de implementación de Azure Resource Manager.
+   
+
+
 * La entidad de servicio *MicrosoftAzureBatch* debe tener al rol de Control de acceso basado en roles (RBAC) [Colaborador de la máquina virtual clásica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) para la red virtual especificada. En Azure Portal:
 
   * Seleccione la **red virtual** y, a continuación, **Control de acceso (IAM)** > **Roles** > **Colaborador de la máquina virtual clásica** > **Agregar**.
@@ -331,7 +353,13 @@ Al crear un grupo de nodos de proceso en Azure Batch, puede especificar el ident
   * Seleccione la casilla **MicrosoftAzureBatch**.
   * Seleccione el botón **Seleccionar**.
 
-* Si un **grupo de seguridad de red (NSG)** asociado a la red virtual deniega la comunicación con los nodos de proceso, el servicio Batch establece el estado de dichos nodos en **No utilizable**. La subred debe permitir la comunicación desde el servicio Azure Batch para poder programar tareas en los nodos de proceso.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Redes virtuales para grupos aprovisionados en una suscripción de usuario
+
+En el modo de suscripción de asignación de usuario, solo los grupos de **configuración de máquina virtual** se admiten y se pueden asignar a una red virtual. Además, la red virtual especificada debe ser una red virtual basada en **Resource Manager**. No se admiten redes virtuales creadas con el modelo de implementación clásica.
+
+
 
 ## <a name="scaling-compute-resources"></a>Escalado de recursos de procesos
 Con el [escalado automático](batch-automatic-scaling.md), el servicio Lote puede ajustar dinámicamente el número de nodos de proceso de un grupo según la carga de trabajo actual y el uso de los recursos en el escenario de proceso. Esto le permite reducir el costo general de la ejecución de la aplicación usando solo los recursos que necesita, y liberando los que no.
