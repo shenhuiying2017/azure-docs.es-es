@@ -1,5 +1,5 @@
 ---
-title: "Servicios de dominio de Azure AD: actualización de la configuración DNS para la red virtual de Azure | Microsoft Docs"
+title: "Azure Active Directory Domain Services: actualización de la configuración DNS para Azure Virtual Network | Microsoft Docs"
 description: "Introducción a los Servicios de dominio de Azure Active Directory"
 services: active-directory-ds
 documentationcenter: 
@@ -15,42 +15,42 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 16a0019990d4839a15acb4dcac747147a6d55e1d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="azure-ad-domain-services---update-dns-settings-for-the-azure-virtual-network"></a>Azure AD Domain Services: actualización de la configuración DNS para la red virtual de Azure
+# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Actualización de la configuración DNS para Azure Virtual Network
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Tarea 4: Actualización de la configuración DNS para la red virtual de Azure
-En las tareas de configuración anteriores, ha habilitado correctamente Azure AD Domain Services para su directorio. La tarea siguiente consiste en asegurarse de que los equipos dentro de la red virtual pueden conectarse y consumir estos servicios. Actualice la configuración del servidor DNS de la red virtual para que apunte a las direcciones IP en las que Azure AD Domain Services estará disponible en la red virtual.
+En las tareas de configuración anteriores, ha habilitado correctamente Azure Active Directory Domain Services para el directorio. La tarea siguiente consiste en asegurarse de que los equipos dentro de la red virtual pueden conectarse y consumir estos servicios. En este artículo, se actualiza la configuración del servidor DNS de la red virtual para que apunte a las direcciones IP en las que Azure Active Directory Domain Services está disponible en la red virtual.
 
 > [!NOTE]
-> Después de habilitar los Servicios de dominio de Azure AD para el directorio, anote las direcciones IP de los Servicios de dominio de Azure AD mostrados en la pestaña **Configurar** del directorio.
+> Después de habilitar Azure Active Directory Domain Services para el directorio, anote las direcciones IP de Azure Active Directory Domain Services mostrados en la pestaña **Configurar** del directorio.
 >
 >
 
-Realice los siguientes pasos de configuración para actualizar la configuración del servidor DNS en la red virtual en la que ha habilitado Azure AD Domain Services.
+Para actualizar la configuración del servidor DNS en la red virtual en la que ha habilitado Azure Active Directory Domain Services, realice lo siguiente:
 
-1. Navegue hasta el **Portal de Azure clásico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Seleccione el nodo **Redes** en el panel izquierdo.
+1. Vaya al [Portal de Azure clásico](https://manage.windowsazure.com).
+2. En el panel izquierdo, seleccione **Redes**.  
+    Se abre la ventana **Redes**.
 
-    ![Nodo Redes virtuales](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. En la pestaña **Redes virtuales** , seleccione la red virtual en la que habilitó los Servicios de dominio de Azure AD para ver sus propiedades.
+    ![Ventana Redes virtuales](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
+3. En la pestaña **Redes virtuales** , seleccione la red virtual en la que habilitó Azure Active Directory Domain Services para ver sus propiedades.
 4. Haga clic en la pestaña **Configure** .
 
-    ![Nodo Redes virtuales](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
-5. En la sección **Servidores DNS** , escriba las direcciones IP de los Servicios de dominio de Azure AD.
-6. Asegúrese de especificar las dos direcciones IP que se mostraron en la sección **Servicios de dominio** en la pestaña **Configurar** del directorio.
-7. Para guardar la configuración del servidor DNS para esta red virtual, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página.
+    ![Ventana Redes virtuales](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
+5. En la sección **Servidores DNS**, escriba las dos direcciones IP que se mostraron en la sección **Servicios de dominio** en la pestaña **Configurar** del directorio.
+6. Para guardar la configuración del servidor DNS para esta red virtual, haga clic en **Guardar** en el panel de tareas de la parte inferior de la ventana.
 
-   ![Actualización de la configuración del servidor DNS para la red virtual.](./media/active-directory-domain-services-getting-started/update-dns.png)
+   ![Actualización de la configuración del servidor DNS para la red virtual](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
-> Después de actualizar la configuración del servidor DNS para la red virtual, las máquinas virtuales de la red pueden tardar un rato en recibir la configuración DNS actualizada. Si una máquina virtual no puede conectarse al dominio, puede vaciar la caché DNS (p. ej. 'ipconfig /flushdns') en la máquina virtual. Este comando fuerza una actualización de la configuración DNS en la máquina virtual.
+> Después de actualizar la configuración del servidor DNS para la red virtual, las máquinas virtuales de la red pueden tardar un rato en recibir la configuración DNS actualizada. Si una máquina virtual no puede conectarse al dominio, puede vaciar la caché DNS ("ipconfig /flushdns") en la máquina virtual. Este comando fuerza una actualización de la configuración DNS en la máquina virtual.
 >
 >
 
-## <a name="task-5---enable-password-synchronization-to-azure-ad-domain-services"></a>Tarea 5: Habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD
-La tarea de configuración siguiente consiste en [habilitar la sincronización de contraseñas con Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+## <a name="next-steps"></a>Pasos siguientes
+Tarea 5: [Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

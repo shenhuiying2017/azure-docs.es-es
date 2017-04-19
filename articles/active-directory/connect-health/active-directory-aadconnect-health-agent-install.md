@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 04/11/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
-ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +35,7 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 | Conectividad saliente a los extremos del servicio de Azure | Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los puntos de conexión del servicio de Azure AD Connect Health. Si la conectividad saliente está bloqueada mediante firewalls, asegúrese de agregar los siguientes puntos de conexión a la lista de elementos permitidos: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Puerto: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Conectividad saliente basada en direcciones IP | Para el filtrado basado en direcciones IP en los firewalls, consulte los [intervalos de IP de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | La inspección de SSL para el tráfico saliente se filtra o se deshabilita. | Las operaciones de carga de datos o de paso de registro de agente pueden producir un error si se produce la inspección de SSL o la finalización del tráfico saliente en el nivel de red. |
-| Puertos de Firewall en el servidor que ejecuta al agente. |El agente requiere que los siguientes puertos de firewall estén abiertos para poder comunicarse con los puntos de conexión de Azure AD Health.</br></br><li>Puerto TCP o UDP 443</li><li>Puerto TCP o UDP 5671</li> |
+| Puertos de Firewall en el servidor que ejecuta al agente. |El agente requiere que los siguientes puertos de firewall estén abiertos para poder comunicarse con los puntos de conexión de Azure AD Health.</br></br><li>Puerto TCP 443</li><li>Puerto TCP 5671</li> |
 | Permitir los siguientes sitios web si la seguridad mejorada de IE está habilitada |Si está habilitada la seguridad mejorada de Internet Explorer, los siguientes sitios web se deben permitir en el servidor en el que estará instalado el agente.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>El servidor de federación de su organización en el que confía Azure Active Directory. Por ejemplo: https://sts.contoso.com</li> |
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalación del agente de Azure AD Connect Health para AD FS
@@ -301,8 +302,4 @@ Puede utilizar la marca - ShowResults en el comando para ver los registros detal
 * [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

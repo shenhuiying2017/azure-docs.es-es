@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f45c21e682f93de4dbe34b4ce07745225d548cb0
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -356,7 +356,7 @@ También puede supervisar y administrar la aplicación para supervisar las canal
 
 ## <a name="data-factory-entities-in-the-template"></a>Entidades de Data Factory en la plantilla
 ### <a name="define-data-factory"></a>Definición de factoría de datos
-Puede definir una factoría de datos en la plantilla de Resource Manager, tal como se muestra en el ejemplo siguiente:  
+Puede definir una factoría de datos en la plantilla de Resource Manager como se muestra en el ejemplo siguiente:  
 
 ```json
 "resources": [
@@ -374,7 +374,7 @@ El valor de dataFactoryName se define como:
 "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
 ```
 
-Es una cadena única que toma como base el identificador del grupo de recursos.  
+Es una cadena única basada en el identificador del grupo de recursos.  
 
 ### <a name="defining-data-factory-entities"></a>Definición de las entidades de Data Factory
 Las siguientes entidades de Data Factory se definen en la plantilla JSON: 
@@ -584,7 +584,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Tenga en cuenta que el primer comando usa el archivo de parámetros para el entorno de desarrollo, el segundo para el entorno de prueba y el tercero para el entorno de producción.  
 
-También puede volver a usar la plantilla para llevar a cabo tareas repetidas. Por ejemplo, necesita crear muchas factorías de datos con una o varias canalizaciones que implementen la misma lógica, pero cada factoría de datos usa cuentas de Azure Storage y Azure SQL Database. En este escenario, usa la misma plantilla en el mismo entorno (desarrollo, prueba o producción) con distintos archivos de parámetros para crear factorías de datos.   
+También puede volver a usar la plantilla para llevar a cabo tareas repetidas. Por ejemplo, necesita crear muchas instancias de Data Factory con una o varias canalizaciones que implementen la misma lógica, pero cada instancia de Data Factory usa cuentas de Storage y SQL Database distintas. En este escenario, usa la misma plantilla en el mismo entorno (desarrollo, prueba o producción) con distintos archivos de parámetros para crear factorías de datos.   
 
 ## <a name="see-also"></a>Otras referencias
 | Tema. | Descripción |

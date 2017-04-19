@@ -13,24 +13,24 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/04/2017
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
-ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
+ms.lasthandoff: 04/05/2017
 
 
 ---
 # <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Introducción a la directiva SSL y SSL de un extremo a otro en Application Gateway
 
-Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, para algunos clientes, la comunicación sin cifrar en los servidores back-end no es una opción aceptable. Esta comunicación sin cifrar podría deberse a los requisitos de seguridad o al cumplimiento normativo, o bien a la posibilidad de que la aplicación solo acepte la conexión segura. Para tales aplicaciones, Application Gateway ahora admite el cifrado SSL de extremo a extremo.
+Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, para algunos clientes, la comunicación sin cifrar en los servidores back-end no es una opción aceptable. Esta comunicación sin cifrar podría deberse a los requisitos de seguridad, a los requisitos de cumplimiento o a la posibilidad de que la aplicación solo acepte una conexión segura. Para tales aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
 
 ## <a name="overview"></a>Información general
 
-El protocolo SSL de un extremo a otro permite transmitir de forma segura información confidencial cifrada al back-end, al mismo tiempo que se siguen aprovechando las ventajas del equilibrio de carga de capa 7 que proporciona Application Gateway. Algunas de estas características son la afinidad con las cookies, el enrutamiento basado en direcciones URL, la compatibilidad para el enrutamiento basado en sitios o la capacidad para insertar encabezados X-Forwarded*.
+El protocolo SSL de un extremo a otro permite transmitir de forma segura información confidencial cifrada al back-end, al mismo tiempo que se siguen aprovechando las ventajas del equilibrio de carga de capa 7 que proporciona Application Gateway. Algunas de estas características son la afinidad de la sesión basada en las cookies, el enrutamiento basado en direcciones URL, la compatibilidad para el enrutamiento basado en sitios o la capacidad para insertar encabezados X-Forwarded-*.
 
-Cuando se configura con el modo de comunicación de SSL de extremo a extremo, Application Gateway finaliza las sesiones SSL del usuario en la puerta de enlace y descifra el tráfico de usuario. Después, aplica las reglas configuradas para seleccionar una instancia de grupo de back-end adecuada en la que enrutar el tráfico. Posteriormente, Application Gateway inicia una nueva conexión SSL al servidor back-end y vuelve a cifrar los datos mediante el certificado de clave pública del servidor back-end antes de transmitir la solicitud al back-end. El protocolo SSL de extremo a extremo se habilita estableciendo la configuración del protocolo de BackendHTTPSetting en Https, que, luego, se aplica a un grupo de back-end. Cada servidor back-end del grupo de back-end con SSL de extremo a extremo habilitado debe configurarse con un certificado para permitir la comunicación segura.
+Cuando se configura con el modo de comunicación de SSL de un extremo a otro, Application Gateway finaliza las sesiones SSL en la puerta de enlace y descifra el tráfico de usuario. Después, aplica las reglas configuradas para seleccionar una instancia de grupo de back-end adecuada en la que enrutar el tráfico. Posteriormente, Application Gateway inicia una nueva conexión SSL al servidor back-end y vuelve a cifrar los datos mediante el certificado de clave pública del servidor back-end antes de transmitir la solicitud al back-end. El protocolo SSL de un extremo a otro se habilita estableciendo la configuración de protocolo de BackendHTTPSetting en Https, que, luego, se aplica a un grupo de back-end. Cada servidor back-end del grupo de back-end con SSL de extremo a extremo habilitado debe configurarse con un certificado para permitir la comunicación segura.
 
 ![Escenario de SSL de un extremo a otro][1]
 
@@ -44,7 +44,7 @@ Application Gateway solo se comunica con instancias de back-end conocidas, que t
 
 Application Gateway admite directivas de negociación SSL configurables, que permiten a los clientes mayor control de las conexiones SSL en Application Gateway.
 
-1. SSL 2.0 y 3.0 están deshabilitados de forma predeterminada en todas las instancias de Application Gateway. No pueden configurarse.
+1. SSL 2.0 y 3.0 están deshabilitados de forma predeterminada en todas las instancias de Application Gateway. Estas directivas no se pueden configurar bajo ningún concepto.
 2. La definición de directivas SSL permite deshabilitar cualquiera de los siguientes tres protocolos: **TLSv1\_0**, **TLSv1\_1** y **TLSv1\_2**.
 3. Si no se define ninguna directiva SSL, se habilitan los tres (TLSv1\_0, TLSv1\_1 y TLSv1_2).
 

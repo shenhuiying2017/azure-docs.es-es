@@ -13,40 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Creación de una red virtual con una conexión de sitio a sitio mediante el portal clásico
-> [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Clásico: Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Clásico - Portal clásico](vpn-gateway-site-to-site-create.md)
->
->
 
-Este artículo lo guía por la creación de una red virtual y una conexión VPN Gateway de sitio a sitio a la red local mediante el modelo de implementación de clásica y el portal clásico. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
+Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de NAT. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
 
 ![Diagrama de la conexión entre locales de VPN Gateway de sitio a sitio](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modelos y métodos de implementación para las conexiones de sitio a sitio
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+Este artículo lo guía por la creación de una red virtual y una conexión VPN Gateway de sitio a sitio a la red local mediante el modelo de implementación de clásica y el portal clásico. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales. También puede crear esta configuración para el modelo de implementación de Resource Manager, mediante la selección de una opción diferente en la lista siguiente:
 
-La siguiente tabla muestra los modelos y métodos de implementación disponibles actualmente para las configuraciones de sitio a sitio. Cuando aparezca algún artículo con pasos de configuración, creamos un vínculo directo a él desde esta tabla.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
+> [!div class="op_single_selector"]
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Clásico - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Clásico - Portal clásico](vpn-gateway-site-to-site-create.md)
+>
+>
 
 #### <a name="additional-configurations"></a>Configuraciones adicionales
 Si desea conectar las redes virtuales, consulte [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásica](virtual-networks-configure-vnet-to-vnet-connection.md). Si desea añadir una conexión de sitio a sitio a una red virtual que ya tiene una conexión, consulte [Adición de una conexión S2S a VNet con una conexión de puerta de enlace existente](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Antes de comenzar con la configuración, verifique que dispone de los elementos siguientes:
 
 * Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no conoce la configuración de su dispositivo VPN o los intervalos de direcciones IP ubicados en la configuración de la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles.
 * Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.

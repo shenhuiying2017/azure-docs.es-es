@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visua
 
     Asegúrese de especificar **Sin autenticación** en la opción **Autenticación**. Dependiendo de la versión de Visual Studio, puede establecerse otro valor predeterminado. Para cambiarlo, haga clic en **Cambiar autenticación** y seleccione **Sin autenticación**.
 
-    Si está trabajando con Visual Studio 2015, desactive la casilla **Host en la nube**. En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+    Si está trabajando con Visual Studio 2015, desactive la casilla **Host en la nube**. En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
    
     ![Seleccionar plantilla de proyecto][cache-select-template]
 4. Haga clic en **Aceptar** para crear el proyecto.
@@ -86,7 +86,7 @@ En esta sección del tutorial, creará la aplicación básica que lee y muestra 
 ### <a name="add-the-entity-framework-nuget-package"></a>Incorporación del paquete NuGet Entity Framework
 
 1. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y en **Consola del Administrador de paquetes**.
-2. Ejecute el siguiente comando desde la ventana `Package Manager Console`.
+2. Ejecute el comando siguiente en la ventana **Consola del Administrador de paquetes**.
     
     ```
     Install-Package EntityFramework

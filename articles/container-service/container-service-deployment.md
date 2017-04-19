@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Implementación de una solución de hospedaje de contenedor de Docker mediante Azure Portal
@@ -36,7 +36,11 @@ Para más información, consulte [Presentación de Azure Container Service](cont
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción a Azure:** si no tiene una, suscríbase para una obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Suscripción a Azure:** si no tiene una, suscríbase para una obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). En un clúster más grande, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
+
+    > [!NOTE]
+    > El uso de la suscripción de Azure y las [cuotas de recursos](../azure-subscription-service-limits.md), como las cuotas de núcleos, pueden limitar el tamaño del clúster que se implementa. Para solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
+    >
 
 * **Clave pública RSA de SSH**: si la implementación se realiza a través del portal o de una de las plantillas de inicio rápido de Azure, es preciso especificar la clave pública para la autenticación con máquinas virtuales de Azure Container Service. Para crear claves RSA de SSH (Secure Shell), consulte las instrucciones de [OS X y Linux](../virtual-machines/linux/mac-create-ssh-keys.md) o de [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ La implementación tarda varios minutos en completarse. Después, el clúster de
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Creación de un clúster mediante una plantilla de inicio rápido
 Las plantillas de inicio rápido de Azure permiten implementar un clúster en Azure Container Service. Las plantillas de inicio rápido que se proporcionan se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para crear un clúster de Azure Container Service mediante una plantilla de inicio rápido de Azure, se necesita una suscripción a Azure. Si no dispone de ninguna, suscríbase para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Siga estos pasos para implementar un clúster mediante una plantilla y la CLI de Azure 2.0 (consulte las [instrucciones de instalación y configuración ](/cli/azure/install-az-cli2.md)).
+Siga estos pasos para implementar un clúster mediante una plantilla y la CLI de Azure 2.0 (consulte las [instrucciones de instalación y configuración ](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > En un sistema Windows, puede utilizar pasos similares para implementar una plantilla mediante Azure PowerShell. En esta misma sección encontrará los pasos necesarios para hacerlo. Las plantillas también se pueden implementar a través del [portal](../azure-resource-manager/resource-group-template-deploy-portal.md) o mediante otros métodos.

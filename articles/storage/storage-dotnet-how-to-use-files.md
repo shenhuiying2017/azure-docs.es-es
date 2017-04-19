@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Para montar el recurso compartido de archivos desde un cliente local, es preciso
 > Algunos proveedores de servicios de Internet pueden bloquear el puerto 445, por lo que es posible que deba ponerse en contacto con su proveedor de servicios.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Desmontaje del recurso compartido de archivos
+Para desmontar el recurso compartido de archivos, puede usar el comando `net use` con la opción `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Desarrollo con almacenamiento de archivos
 Para escribir código que llame a Almacenamiento de archivos, puede usar las bibliotecas de cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. En el ejemplo de esta sección se muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) desde una aplicación de consola simple que se ejecuta en el escritorio.
@@ -633,7 +643,7 @@ Además, puede hacer referencia al [artículo de solución de problemas de archi
     Sí. Es gratis si el tráfico se produce en la misma región.
 7. **¿Depende la conexión entre máquinas virtuales locales y el almacenamiento de archivos de Azure de Azure ExpressRoute?**
    
-    No. Aunque no se disponga ExpressRoute, es posible acceder al recurso compartido de archivos de forma local, siempre que el puerto 445 (salida TCP) esté abierto para el acceso a Internet. Sin embargo, si se desea, es posible usar ExpressRoute con el almacenamiento de archivos.
+    No. Aunque no se disponga de ExpressRoute, es posible acceder al recurso compartido de archivos de forma local, siempre que el puerto 445 (salida TCP) esté abierto para el acceso a Internet. Sin embargo, si se desea, es posible usar ExpressRoute con el almacenamiento de archivos.
 8. **¿Es un "testigo del recurso compartido de archivos" para un clúster de conmutación por error uno de los casos de uso del almacenamiento de archivos de Azure?**
    
     En la actualidad no se admite.
@@ -666,11 +676,13 @@ Además, puede hacer referencia al [artículo de solución de problemas de archi
     Puede hacer referencia al [artículo de solución de problemas de archivos de Azure](storage-troubleshoot-file-connection-problems.md) para ver una guía completa de solución de problemas.               
 
 18. **¿Cómo se puede habilitar el cifrado del lado del servidor en Azure Files?**
+> [!NOTE]
+> El [cifrado del lado del servidor](storage-service-encryption.md) para Azure Files está actualmente en versión preliminar. Puede ponerse en contacto con [SSEDiscussion](mailto:ssediscussions@microsoft.com) si tiene alguna pregunta durante la versión preliminar.
 
-    El [cifrado del lado del servidor](storage-service-encryption.md) para Azure Files está actualmente en versión preliminar. Mientras esté en versión preliminar, esta característica solo se puede habilitar en las nuevas cuentas de almacenamiento de Azure Resource Manager creadas a través de [Azure Portal](https://portal.azure.com). No se aplica ningún cargo adicional por habilitar esta característica. Si se habilita el cifrado del servicio Storage en Azure File Storage, los datos se cifran automáticamente. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    En el futuro, planeamos habilitar el cifrado en File Storage con [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), la [CLI de Azure](storage-azure-cli.md) y la [API de REST de proveedor de recursos de Azure Storage](/rest/api/storagerp/storageaccounts). 
-    Consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](storage-service-encryption.md) para más información acerca del cifrado en reposo en Azure Storage, y puede ponerse en contacto con ssediscussions@microsoft.com si le surge alguna duda durante la versión preliminar.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.

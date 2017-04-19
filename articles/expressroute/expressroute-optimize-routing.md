@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ Con ExpressRoute, puede habilitar la comunicación de una instancia de Virtual N
 ![ExpressRoute caso 3: enrutamiento no óptimo entre redes virtuales](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Solución: asignar un peso alto a la conexión local
-La solución es sencilla. Dado que usted sabe dónde están las redes virtuales y los circuitos, puede decirnos cuál debería ser la ruta de acceso preferida de cada red virtual. Específicamente para este ejemplo, se asigna a la conexión local un peso mayor que a la conexión remota. Cuando una red virtual recibe el prefijo de la otra red virtual en varias conexiones preferirá la conexión con el mayor peso para enviar el tráfico destinado a ese prefijo.
+La solución es sencilla. Dado que usted sabe dónde están las redes virtuales y los circuitos, puede decirnos cuál debería ser la ruta de acceso preferida de cada red virtual. Específicamente para este ejemplo, se asigna a la conexión local un peso mayor que a la conexión remota (vea el ejemplo de configuración [aquí](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)). Cuando una red virtual recibe el prefijo de la otra red virtual en varias conexiones preferirá la conexión con el mayor peso para enviar el tráfico destinado a ese prefijo.
 
 ![Solución de ExpressRoute caso 3: asignar un peso alto a la conexión local](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ La solución es sencilla. Dado que usted sabe dónde están las redes virtuales 
 > También puede influir en el enrutamiento de la red virtual a la red local, si tiene varios circuitos ExpressRoute, configurando el peso de una conexión en lugar de aplicar la anteposición de la ruta de acceso AS, una técnica que se describe en el segundo escenario anterior. Para cada prefijo siempre atenderemos primero al peso de la conexión antes que a la longitud de ruta de acceso AS a la hora de decidir cómo enviar tráfico.
 >
 >
+

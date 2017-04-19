@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9716d18773fca8dd4612d681d1f9588106aacb14
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -148,10 +148,10 @@ En este paso, se crea un conjunto de datos denominado **InputDataset** que apunt
    * **linkedServiceName** está establecido en **AzureStorageLinkedService**. Este servicio vinculado lo creó en el paso 2.
    * **folderPath** está establecido en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta mediante la propiedad **fileName** . Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
    * **type** de formato está establecido en **TextFormat**.
-   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**).    
-   * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**). Por consiguiente, Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. 
+   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (columnDelimiter).    
+   * **availability** está establecido en **hourly** (frequency está establecido en hour e interval en 1). Por consiguiente, Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (adftutorial) que se ha especificado. 
    
-   Si no especifica un valor de **fileName** para un conjunto de datos de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
+   Si no especifica un valor de **fileName** para un conjunto de datos de **entrada**, todos los archivos o blobs de la carpeta de entrada (folderPath) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
    
    Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.&lt;Guid&gt;.txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
@@ -180,7 +180,7 @@ En este paso se crea un conjunto de datos de salida denominado **OutputDataset**
 2. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **SQL de Azure** y haga clic en **Agregar**. 
 3. Reemplace el texto JSON con el JSON siguiente y guarde el archivo **AzureSqlTableLocation1.json** .
 
-    ```json
+  ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -213,7 +213,7 @@ En este paso se crea un conjunto de datos de salida denominado **OutputDataset**
    * **linkedServiceName** está establecido en **AzureSqlLinkedService** (este servicio vinculado lo creó en el paso 2).
    * **tablename** está establecido en **emp**.
    * En la tabla emp de la base de datos hay tres columnas: **ID**, **FirstName** y **LastName**. ID es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
-   * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
+   * **availability** está establecido en **hourly** (frequency está establecido en hour e interval está establecido en 1).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
 > [!NOTE]
 > Para más información acerca de las propiedades de JSON, consulte [Movimiento de datos hacia y desde Azure SQL Database mediante Azure Data Factory](data-factory-azure-sql-connector.md#linked-service-properties) .
@@ -227,7 +227,7 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 2. Seleccione **Copiar canalización de datos** en el cuadro de diálogo **Agregar nuevo elemento** y haga clic en **Agregar**. 
 3. Reemplace el JSON por el siguiente JSON y guarde el archivo **CopyActivity1.json** .
 
-    ```json   
+  ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -281,7 +281,7 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
    
    Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
    
-   Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
+   Si no especifica ningún valor para la propiedad **end**, se calcula como **start + 48 horas**. Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
    
    En el ejemplo anterior hay 24 segmentos de datos, ya que cada segmento de datos se produce cada hora.
 
@@ -325,7 +325,7 @@ En este paso, se publican las entidades de Data Factory (servicios vinculados, c
 
 Tenga en cuenta los siguientes puntos: 
 
-* Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo: 
+* Si recibe el error: "La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory", realice una de las acciones siguientes e intente publicarla de nuevo: 
   
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
 

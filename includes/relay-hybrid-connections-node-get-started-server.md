@@ -12,7 +12,7 @@
     ```
 2. Agregue la siguiente instancia de Relay `constants` a `listener.js` para los detalles de conexión de la conexión híbrida. Reemplace los marcadores de posición entre corchetes por los valores adecuados obtenidos al crear la conexión híbrida.
    
-   1. `const ns`: el espacio de nombres de Relay
+   1. `const ns`: el espacio de nombres de Relay (usar FQDN; p. ej., `{namespace}.servicebus.windows.net`)
    2. `const path`: el nombre de la conexión híbrida
    3. `const keyrule`: el nombre de la clave SAS
    4. `const key`: el valor de la clave SAS
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

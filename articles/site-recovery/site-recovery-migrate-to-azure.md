@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Puede:
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migración de máquinas virtuales locales y servidores físicos
 
-Para migrar máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, se siguen casi los mismos pasos que los de una replicación normal. Configure un almacén de Recovery Services, configure los servidores de administración necesarios (según lo que desee migrar), agréguelos en el almacén y especifique la configuración de replicación. Habilite la replicación para las máquinas que desea migrar y ejecute una conmutación por error de prueba rápida para asegurarse de que todo funciona como debería.
+Para migrar máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, se siguen casi los mismos pasos que los de una replicación normal.
 
-Después de comprobar que funciona el entorno de replicación, use una conmutación por error planeada o no planeada en función de lo que su escenario [admita](site-recovery-failover.md). Para la migración, no es necesario ejecutar una conmutación por error. En su lugar, seleccione la opción **Completar migración** de cada máquina que desea migrar. La acción **Completar migración** termina el proceso de migración, quita la replicación de la máquina y se detiene la facturación de la máquina en Site Recovery.
+1. Configuración del almacén de Recovery Services
+2. Configure los servidores de administración necesarios (VMware, VMM o Hyper-V, según lo que desee migrar), agréguelos al almacén y especifique la configuración de replicación.
+3. Habilite la replicación de las máquinas que desea migrar.
+4. Después de la migración inicial, ejecute una conmutación por error de prueba rápida para asegurarse de que todo funciona como debería.
+5. Después de comprobar que funciona el entorno de replicación, use una conmutación por error planeada o no planeada en función de lo que su escenario [admita](site-recovery-failover.md). Se recomienda usar una conmutación por error planificada cuando sea posible.
+6. Para la migración, no es necesario ejecutar una conmutación por error ni eliminarla. En su lugar, seleccione la opción **Completar migración** de cada máquina que desea migrar.
+     - En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual y después haga clic en **Completar migración**. Haga clic en **Aceptar** para finalizar. Puede realizar un seguimiento del progreso de las propiedades de máquina virtual mediante la supervisión del trabajo Completar migración en **Trabajos de Site Recovery**.
+     - La acción **Completar migración** termina el proceso de migración, quita la replicación de la máquina y se detiene la facturación de la máquina en Site Recovery.
 
 ![Completar migración](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 04/06/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
-ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: fb8f43f5bb5725da30e67cdf5d7b066fe40ed003
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -47,7 +48,7 @@ Cuando se combinan, estos desafíos presentan una barrera importante para las em
 ## <a name="azure-data-catalog-can-help"></a>El Catálogo de datos de Azure puede ser de gran ayuda
 Catálogo de datos está diseñado para abordar estos problemas y permitir a las empresas sacar el máximo partido a los recursos de información existentes. El Catálogo de datos le ayuda haciendo que los orígenes de datos sean fácilmente reconocibles y comprensibles para los usuarios que necesitan los datos que administran.
 
-El Catálogo de datos proporciona un servicio basado en la nube en el que es posible registrar el origen de los datos. Los datos permanecen en la ubicación existente, pero se agrega una copia de los metadatos al Catálogo de datos, junto con una referencia a la ubicación del origen de datos. Estos metadatos también se indexan para conseguir que cada origen de datos se pueda detectar fácilmente a través de la búsqueda y puedan ser comprensibles para los usuarios que lo detecten.
+Data Catalog proporciona un servicio basado en la nube en el que es posible registrar un origen de datos. Los datos permanecen en la ubicación existente, pero se agrega una copia de los metadatos al Catálogo de datos, junto con una referencia a la ubicación del origen de datos. Estos metadatos también se indexan para conseguir que cada origen de datos se pueda detectar fácilmente a través de la búsqueda y puedan ser comprensibles para los usuarios que lo detecten.
 
 Una vez que se ha registrado un origen de datos, a continuación sus metadatos se pueden enriquecer, por parte del usuario que realizó el registro o por parte de otros usuarios de la empresa. Cualquier usuario puede anotar un origen de datos proporcionando descripciones, etiquetas u otros metadatos, como la documentación y procesos para solicitar acceso al origen de datos. Estos metadatos descriptivos complementan a los metadatos estructurales (como los nombres de columna y tipos de datos) registrados desde el origen de datos.
 
@@ -72,9 +73,4 @@ Para más información acerca de las funcionalidades del Catálogo de datos, con
 * [Cómo administrar recursos de datos](data-catalog-how-to-manage.md)
 * [Configuración del glosario empresarial](data-catalog-how-to-business-glossary.md)
 * [Preguntas más frecuentes](data-catalog-frequently-asked-questions.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

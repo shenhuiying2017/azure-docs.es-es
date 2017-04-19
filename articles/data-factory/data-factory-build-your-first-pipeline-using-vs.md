@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -502,6 +502,9 @@ Para publicar entidades en un proyecto de Factoría de datos de Azure mediante e
 6. Cuando finalice la operación de implementación, haga clic en **Finalizar** .
 
 Cuando realiza la implementación, se usan los valores del archivo de configuración para establecer los valores de las propiedades de los archivos JSON para entidades de Data Factory antes de que las entidades se implementen en el servicio Azure Data Factory.   
+
+## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
+No es aconsejable y, en ocasiones, contraviene la directiva de seguridad, confirmar información confidencial, como las cadenas de conexión, en el repositorio de código. Vea el ejemplo [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) en GitHub para obtener información sobre cómo almacenar información confidencial en Azure Key Vault y usarla al publicar entidades de Data Factory. La extensión Secure Publish de Visual Studio permite almacenar los secretos en Key Vault, y solo las referencias a ellos se especifican en las configuraciones de implementación o en los servicios vinculados. Estas referencias se resuelven al publicar las entidades de Data Factory en Azure. Estos archivos se pueden confirmar en el repositorio de origen sin exponer los secretos.
 
 ## <a name="summary"></a>Resumen
 En este tutorial, ha creado una instancia de Data Factory de Azure para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop en HDInsight. Ha usado el Editor de Data Factory en el Portal de Azure para realizar los siguientes pasos:  

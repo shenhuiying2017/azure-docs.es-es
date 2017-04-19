@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: d616ca49da7a909a1a104409c5845f39c4a5377a
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Conexión de una aplicación web a una instancia de Content Delivery Network
@@ -19,7 +19,7 @@ ms.lasthandoff: 04/04/2017
 En este tutorial va a crear un perfil y un punto de conexión de la red CDN de Azure para ofrecer los archivos estáticos desde la aplicación web a través de las ubicaciones POP de Azure CDN.
 
 > [!TIP]
-> Revise la actualización a la lista de fechas de [Ubicaciones POP de la red CDN de Azure](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
+> Revise la lista actualizada de [Ubicaciones POP de la red CDN de Azure](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations).
 >
 
 ## <a name="step-1---login-to-azure-portal"></a>Paso 1: Inicie sesión en Azure Portal

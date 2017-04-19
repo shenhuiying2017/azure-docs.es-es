@@ -13,42 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 80939bb48c29ba39e2d347cb80d6169d79329cfc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d6f4caebeeced1286f24dd5fcb4f5fc7d8591785
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
+
+Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de NAT. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
+
+![Diagrama de la conexión entre locales de VPN Gateway de sitio a sitio](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+
+Este artículo lo guía por la creación de una red virtual y una conexión VPN Gateway de sitio a sitio a una red local mediante el modelo de implementación de Azure Resource Manager y el Azure Portal. También puede crear esta configuración con distintas herramientas de implementación, o si se trata de un modelo de implementación clásica, mediante la selección de una opción diferente en la lista siguiente:
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Clásico: Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Clásico - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Clásico - Portal clásico](vpn-gateway-site-to-site-create.md)
 >
 >
 
 
-Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de NAT. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales.
-
-Este artículo lo guía por la creación de una red virtual y una conexión VPN Gateway de sitio a sitio a una red local mediante el modelo de implementación de Azure Resource Manager y el Azure Portal. 
-
-![Diagrama de la conexión entre locales de VPN Gateway de sitio a sitio](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modelos y métodos de implementación para las conexiones de sitio a sitio
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-La siguiente tabla muestra los modelos y métodos de implementación disponibles actualmente para las configuraciones de sitio a sitio. Cuando aparezca algún artículo con pasos de configuración, creamos un vínculo directo a él desde esta tabla.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
 #### <a name="additional-configurations"></a>Configuraciones adicionales
 Si desea conectar las redes virtuales entre sí pero no está creando una conexión a una ubicación local, consulte [Configurar una conexión de red virtual a red virtual en el Portal de Azure clásico](vpn-gateway-vnet-vnet-rm-ps.md). Si desea añadir una conexión de sitio a sitio a una red virtual que ya tiene una conexión, consulte [Adición de una conexión S2S a VNet con una conexión de puerta de enlace existente](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Antes de comenzar con la configuración, compruebe que dispone de los elementos siguientes:
 
 * Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md).
@@ -88,7 +85,7 @@ No se requiere la DNS para las conexiones de sitio a sitio. Sin embargo, si dese
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Creación de una subred de puerta de enlace
-Debe crear una subred de puerta de enlace para la puerta de enlace VPN. La subred de puerta de enlace contiene las direcciones IP que usarán los servicios de puerta de enlace de la red virtual. Si es posible, cree una subred de puerta de enlace con un bloque CIDR de /28 o /27. Esto garantizará que tiene suficientes direcciones IP para adaptarse a futuros requisitos de configuración de puerta de enlace.
+Debe crear una subred de puerta de enlace para la puerta de enlace VPN. La subred de puerta de enlace contiene las direcciones IP que usan los servicios de VPN Gateway. Si es posible, cree una subred de puerta de enlace con un bloque CIDR de /28 o /27. Esto garantizará que tiene suficientes direcciones IP para adaptarse a futuras características posibles de puerta de enlace.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
@@ -106,7 +103,7 @@ La puerta de enlace de red local hace referencia a la ubicación local. La confi
 
 ## <a name="CreateConnection"></a>7. Creación de una conexión VPN de sitio a sitio.
 
-En este paso, creará la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN local. Antes de comenzar esta sección, compruebe que la puerta de enlace de red virtual y las puertas de enlace de red local se han terminado de crear.
+En este paso, se va a crear la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN local. Antes de comenzar esta sección, compruebe que la puerta de enlace de red virtual y las puertas de enlace de red local se han terminado de crear.
 
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 

@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 | **Capacidad máxima** |30 TB |64 TB |
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria) |Standard_DS3 (4 núcleos, 14 GB de memoria) |
 | **Compatibilidad de versión** |Ejecuta las versiones previas a la actualización 2 o posterior |Ejecuta las versiones de la actualización 2 o posterior |
-| **Disponibilidad en regiones** |Todas las regiones de Azure |Todas las regiones de Azure que admiten Premium Storage<br></br> Las regiones Premium Storage son las que corresponden a la fila de *Almacenamiento en disco* de la lista de [servicios de Azure por región](https://azure.microsoft.com/en-us/regions/services). |
+| **Disponibilidad en regiones** |Todas las regiones de Azure |Todas las regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br> Use [esta lista](https://azure.microsoft.com/en-us/regions/services) para ver si las dos opciones *Virtual Machines > Serie DS* y *Storage > Almacenamiento en disco* están disponibles en su región. |
 | **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/storage-premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento  <br></br>Dispositivo secundario para recuperación ante desastres |
 

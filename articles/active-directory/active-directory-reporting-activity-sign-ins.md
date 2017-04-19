@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 78617dc7e3a4b6eb4fc32d32b6850b8c0832d6d8
-ms.openlocfilehash: 9819c5f6a3aea53664d86e3a23b25946c0f2b731
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,17 +44,99 @@ Con la información proporcionada por el informe de inicio de sesión del usuari
 * ¿Cuántos usuarios tienen usuarios que han iniciado sesión durante una semana?
 * ¿Cuál es el estado de estos inicios de sesión?
 
+El primer punto de entrada a todos los datos de actividades de inicio de sesión es **Inicios de sesión** en la sección Actividad de **Azure Active**. Directorio.
+
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/61.png "Actividad de inicio de sesión")
+
+
+Un registro de auditoría tiene una vista de lista predeterminada que muestra:
+
+- el usuario relacionado,
+- la aplicación en que el usuario ha iniciado sesión,
+- el estado de inicio de sesión,
+- la hora de inicio de sesión.
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/41.png "Actividad de inicio de sesión")
+
+Puede personalizar la vista de lista; para ello, haga clic en **Columnas** en la barra de herramientas.
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/19.png "Actividad de inicio de sesión")
+
+Esto le permite mostrar los campos adicionales o quitar los campos que ya se están mostrando.
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/42.png "Actividad de inicio de sesión")
+
+Si hace clic en un elemento de la vista de lista, puede obtener todos los detalles disponibles sobre él.
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/43.png "Actividad de inicio de sesión")
+
+
+## <a name="filtering-sign-in-activities"></a>Filtrado de actividades de inicio de sesión
+
+Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de inicio de sesión con los siguientes campos:
+
+- Intervalo de tiempo
+- Usuario
+- Application
+- Cliente
+- Estado de inicio de sesión
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/44.png "Actividad de inicio de sesión")
+
+
+El filtro **Intervalo de tiempo** permite definir un período de tiempo para los datos devueltos.  
+Los valores posibles son:
+
+- 1 mes
+- 7 días
+- 24 horas
+- Personalizado
+
+Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una hora de inicio y una hora de finalización.
+
+El filtro **usuario** permite especificar el nombre o el nombre principal de usuario (UPN) del usuario que le interesa.
+
+El filtro **aplicación** permite especificar el nombre de la aplicación que le interesa.
+
+El filtro **cliente** permite especificar información sobre el dispositivo que le interesa.
+
+El filtro **estado de inicio de sesión** permite seleccionar uno de los filtros siguientes:
+
+- Todo
+- Correcto
+- Error
+
+
+## <a name="sign-in-activities-shortcuts"></a>Métodos abreviados de las actividades de inicio de sesión
+
+Además de Azure Active Directory, Azure Portal proporciona dos puntos de entrada adicionales para datos de actividades de inicio de sesión:
+
+- Usuarios y grupos
+- Aplicaciones empresariales
+
+
+### <a name="users-and-groups-sign-ins-activities"></a>Actividades de inicios de sesión de usuarios y grupos
+
+Con la información proporcionada por el informe de inicio de sesión del usuario, puede encontrar respuestas a preguntas tales como:
+
+- ¿Cuál es el patrón de inicio de sesión de un usuario?
+- ¿Cuántos usuarios tienen usuarios que han iniciado sesión durante una semana?
+- ¿Cuál es el estado de estos inicios de sesión?
+
+
+
 El punto de entrada a los datos es el gráfico de inicio de sesión del usuario en la sección **Introducción** de **Usuarios y grupos**.
 
- ![Informes](./media/active-directory-reporting-activity-sign-ins/05.png "Informes")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/45.png "Actividad de inicio de sesión")
 
 El gráfico de inicio de sesión de usuario muestra agregaciones semanales de inicios de sesión para todos los usuarios en un período determinado. El valor predeterminado para el período es 30 días.
 
-![Informes](./media/active-directory-reporting-activity-sign-ins/02.png "Informes")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/46.png "Actividad de inicio de sesión")
 
-Al hacer clic en un día en el gráfico de inicio de sesión, obtendrá una lista detallada de las actividades de inicio de sesión.
+Al hacer clic en un día en el gráfico de inicio de sesión, obtiene una lista detallada de las actividades de inicio de sesión de ese día.
 
-![Informes](./media/active-directory-reporting-activity-sign-ins/03.png "Informes")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/41.png "Actividad de inicio de sesión")
 
 Cada fila de la lista de actividades de inicio de sesión le ofrece la información detallada acerca del inicio de sesión seleccionado como:
 
@@ -63,6 +145,12 @@ Cada fila de la lista de actividades de inicio de sesión le ofrece la informaci
 * ¿Qué aplicación era el destino del inicio de sesión?
 * ¿Cuál es la dirección IP del inicio de sesión?
 * ¿Cuál es el estado del inicio de sesión?
+
+La opción **Inicios de sesión** ofrece información general completa sobre todos los inicios de sesión de usuarios.
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/51.png "Actividad de inicio de sesión")
+
+
 
 ## <a name="usage-of-managed-applications"></a>Uso de las aplicaciones administradas
 
@@ -74,43 +162,27 @@ Con una vista centrada en la aplicación de los datos de inicio de sesión, pued
 
 El punto de entrada a los datos son las tres aplicaciones principales de su organización en el informe de los últimos 30 días en la sección **Introducción** en **Aplicaciones empresariales**.
 
- ![Informes](./media/active-directory-reporting-activity-sign-ins/06.png "Informes")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/64.png "Actividad de inicio de sesión")
 
 Agregaciones semanales del gráfico de uso de la aplicación de inicios de sesión para las tres aplicaciones principales en un período determinado. El valor predeterminado para el período es 30 días.
 
-![Informes](./media/active-directory-reporting-activity-sign-ins/78.png "Informes")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/47.png "Actividad de inicio de sesión")
 
 Si lo desea, puede establecer el foco en una aplicación específica.
+
 
 ![Informes](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Informes")
 
 Al hacer clic en un día del gráfico de uso de la aplicación, obtendrá una lista detallada de las actividades de inicio de sesión.
 
-![Informes](./media/active-directory-reporting-activity-sign-ins/top_app_sign_ins.png "Informes")
+
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/48.png "Actividad de inicio de sesión")
+
 
 La opción **Inicios de sesión** ofrece una descripción completa de todos los eventos de inicio de sesión para sus aplicaciones.
 
-![Informes](./media/active-directory-reporting-activity-sign-ins/85.png "Informes")
+![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/49.png "Actividad de inicio de sesión")
 
-Con el selector de columnas, puede seleccionar los campos de datos que quiere mostrar.
-
-![Informes](./media/active-directory-reporting-activity-sign-ins/column_chooser.png "Informes")
-
-## <a name="filtering-sign-ins"></a>Filtrado de inicios de sesión
-Puede filtrar inicios de sesión para limitar la cantidad de datos que se muestran con los siguientes campos:
-
-* Fecha y hora 
-* Nombre principal de usuario (UPN)
-* Nombre de la aplicación
-* Nombre del cliente
-* Estado de inicio de sesión
-
-![Informes](./media/active-directory-reporting-activity-sign-ins/293.png "Informes")
-
-Otro método para filtrar las entradas de las actividades de inicio de sesión consiste en buscar entradas específicas.
-El método de búsqueda le permite definir el ámbito de los inicios de sesión en torno a **usuarios**, **grupos** o **aplicaciones** específicos.
-
-![Informes](./media/active-directory-reporting-activity-sign-ins/84.png "Informes")
 
 
 ## <a name="next-steps"></a>Pasos siguientes

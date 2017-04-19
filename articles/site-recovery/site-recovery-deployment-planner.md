@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -91,9 +91,9 @@ La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRD
 
     Ejemplo:  
     Copie el archivo .zip en la unidad E:\ y extráigalo.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Capacidades
 La herramienta de línea de comandos (ASRDeploymentPlanner.exe) se puede ejecutar en cualquiera de los tres modos siguientes:
@@ -146,6 +146,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Opcional) La contraseña que se usa para conectarse al servidor vCenter/host de vSphere ESXi. Si no se especifica ahora, se le pedirá que lo haga cuando se ejecute el comando.|
 | -StorageAccountName | (Opcional) El nombre de la cuenta de almacenamiento que se usa para ver el rendimiento que se puede obtener en la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el rendimiento.|
 | -StorageAccountKey | (Opcional) La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > Cuentas de almacenamiento > *nombre de la cuenta de almacenamiento*> > Configuración > Claves de acceso > Key1 (o clave de acceso principal para la cuenta de almacenamiento clásico). |
+| -Environment | (Opcional) Se trata del entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de Azure de destino se corresponde con las nubes de Azure Gobierno de EE.UU. o Azure China. |
+
 
 Se recomienda generar perfiles de las máquinas virtuales durante un mínimo de entre 15 y 30 días. Durante el período de generación de perfiles ASRDeploymentPlanner.exe sigue ejecutándose. La herramienta admite la entrada de tiempo de generación de perfiles en días. Si desea generar perfiles solo durante unas pocas horas o minutos para realizar una prueba rápida de la herramienta, en la versión preliminar pública tendrá que convertir el tiempo en la medida equivalente en días. Por ejemplo, para generar perfiles durante 30 minutos, la entrada debe ser 30/(60*24) = 0,021 días. El tiempo mínimo de generación de perfiles permitido es de 30 minutos.
 
@@ -282,11 +284,12 @@ Abra una consola de línea de comandos y vaya a la carpeta de la herramienta de 
 
 |Nombre de parámetro | Descripción |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Opcional) El UNC o la ruta de acceso del directorio local en que se almacenan los datos de la generación de perfiles (los archivos que se crean en la generación de perfiles). Estos datos son necesarios para generar el informe. Si no se especifica un nombre de directorio, se utiliza el directorio 'ProfiledData'. |
 | -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. |
 | -StorageAccountKey | La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > Cuentas de almacenamiento > <*Nombre de cuenta de almacenamiento*> > Configuración > Claves de acceso > Key1 (o una clave de acceso principal para una cuenta de almacenamiento clásico). |
 | -VMListFile | El archivo que contiene la lista de máquinas virtuales de las que se va a generar el perfil para calcular el ancho de banda consumido. La ruta de acceso del archivo puede ser absoluta o relativa. El archivo debe contener un nombre de máquina virtual o una dirección IP en cada línea. Los nombres de máquina virtual especificados en el archivo debe ser los mismo que los nombres de máquina virtual del servidor vCenter/host de vSphere ESXi.<br>Por ejemplo, el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Opcional) Se trata del entorno de la cuenta de Azure Storage de destino. Puede ser uno de estos tres valores: AzureCloud, AzureUSGovernment y AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de Azure de destino se corresponde con las nubes de Azure Gobierno de EE.UU. o Azure China. |
 
 La herramienta crea varios archivos llamados asrvhdfile<#>.vhd de 64 MB (donde "#" es el número de archivos) en el directorio especificado. La herramienta carga los archivos en la cuenta de almacenamiento para hallar el rendimiento. Después de medir el rendimiento, la herramienta elimina todos estos archivos de la cuenta de almacenamiento y del servidor local. Si la herramienta se termina por cualquier motivo mientras calcula el rendimiento, no elimina los archivos del almacenamiento ni del servidor local. Será preciso eliminarlos manualmente.
 
@@ -478,6 +481,10 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **NIC**: el número de NIC de la máquina virtual.
 
+**Tipo de arranque**: se trata del tipo de arranque de la máquina virtual. Puede ser BIOS o EFI. Actualmente, Azure Site Recovery admite solo el tipo de arranque BIOS. Todas las máquinas virtuales del tipo de arranque EFI se muestran en la hoja de cálculo de máquinas virtuales incompatibles. 
+
+**Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows, Linux u otro.
+
 ## <a name="incompatible-vms"></a>Máquinas virtuales no compatibles
 
 ![Hoja de cálculo de Excel de máquinas virtuales no compatibles](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -487,6 +494,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 **Compatibilidad de la máquina virtual**: indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
 
 * El tamaño del disco es superior a 1023 GB. Azure Storage no admite actualmente discos cuyo tamaño supere 1 TB.
+* El tipo de arranque es EFI. Azure Site Recovery actualmente solo admite máquinas virtuales con tipo de arranque BIOS.
 
 * El tamaño total de la máquina virtual (replicación + TFO) supera el límite de tamaño de la cuenta de almacenamiento que se admite (35 TB). Esta incompatibilidad se produce normalmente cuando uno de los discos de la máquina virtual tiene una característica de rendimiento que supera los límites de almacenamiento estándar de Azure o de Site Recovery. Una instancia de este tipo coloca la máquina virtual en la zona de almacenamiento premium. Sin embargo, el tamaño máximo que se admite de una cuenta de almacenamiento Premium es de 35 TB y una sola máquina virtual protegida no se puede proteger en varias cuentas de almacenamiento. Tenga también en cuenta que si se realiza una conmutación por error de prueba en una máquina virtual protegida, esta se ejecuta en la misma cuenta de almacenamiento en la que se lleva a cabo la replicación. En este caso, configure el doble del tamaño del disco para que la replicación y la conmutación por error de prueba puedan realizarse en paralelo.
 * El valor de IOPS de origen supera el límite que admite el almacenamiento, 5000 por disco.
@@ -509,6 +517,10 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 **Memoria (en MB)**: la cantidad de memoria RAM de la máquina virtual.
 
 **NIC**: el número de NIC de la máquina virtual.
+
+**Tipo de arranque**: se trata del tipo de arranque de la máquina virtual. Puede ser BIOS o EFI. Actualmente, Azure Site Recovery admite solo el tipo de arranque BIOS. Todas las máquinas virtuales del tipo de arranque EFI se muestran en la hoja de cálculo de máquinas virtuales incompatibles. 
+
+**Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows, Linux u otro.
 
 
 ## <a name="site-recovery-limits"></a>Límites de Site Recovery
@@ -547,6 +559,18 @@ Para actualizar Deployment Planner, siga estos pasos:
 
 
 ## <a name="version-history"></a>Historial de versiones
+### <a name="12"></a>1.2
+Actualización: 7 de abril de 2017
+
+Se han agregado las revisiones siguientes:
+
+* Se ha agregado la comprobación del tipo de arranque (BIOS o EFI) para cada máquina virtual, a fin de determinar si la máquina virtual es compatible o incompatible a efectos de protección.
+* Se ha agregado la información del tipo de sistema operativo para cada máquina virtual en las hojas de cálculo de máquinas virtuales compatibles y máquina virtuales incompatibles.
+* La operación GetThroughput ahora se admite en las regiones de Microsoft Azure US Government y China.
+* Se han agregado algunas comprobaciones más de requisitos previos para el servidor vCenter y ESXi.
+* Se genera un informe incorrecto cuando la configuración local no está establecida en inglés.
+
+
 ### <a name="11"></a>1.1
 Actualización: 9 de marzo de 2017
 

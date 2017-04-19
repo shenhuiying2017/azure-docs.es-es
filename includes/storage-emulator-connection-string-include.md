@@ -5,16 +5,14 @@ Account name: devstoreaccount1
 Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-
 > [!NOTE]
-> La clave de autenticación admitida por el emulador de almacenamiento está pensada para comprobar únicamente la funcionalidad de su código de autenticación de cliente. No responde a ningún propósito de seguridad. A parte, no puede utilizar la cuenta de almacenamiento y la clave de producción con el emulador. Asimismo, se debe tener en cuenta que no se puede utilizar la cuenta de desarrollo con datos de producción.
+> La clave de autenticación admitida por el emulador de almacenamiento está pensada para comprobar únicamente la funcionalidad de su código de autenticación de cliente. No responde a ningún propósito de seguridad. A parte, no puede utilizar la cuenta de almacenamiento y la clave de producción con el emulador. Se debe tener en cuenta que no se puede utilizar la cuenta de desarrollo con datos de producción.
 > 
-> Tenga en cuenta que el emulador de almacenamiento admite solo la conexión a través de HTTP. Sin embargo, HTTPS es el protocolo recomendado para obtener acceso a recursos en una cuenta de almacenamiento de producción de Azure.
-> 
+> El emulador de almacenamiento admite solo la conexión a través de HTTP. Sin embargo, HTTPS es el protocolo recomendado para obtener acceso a recursos en una cuenta de producción de Azure Storage.
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Conexión a la cuenta del emulador mediante un acceso directo
-La manera más fácil de conectarse al emulador de almacenamiento desde su aplicación consiste en configurar, dentro del archivo de configuración de la aplicación, una cadena de conexión que haga referencia al acceso directo `UseDevelopmentStorage=true`. Este es un ejemplo de una cadena de conexión al emulador de almacenamiento en un archivo app.config: 
+La manera más fácil de conectarse al emulador de almacenamiento desde su aplicación consiste en configurar, dentro del archivo de configuración de la aplicación, una cadena de conexión que haga referencia al método abreviado `UseDevelopmentStorage=true`. Este es un ejemplo de una cadena de conexión al emulador de almacenamiento en un archivo *app.config*: 
 
 ```xml
 <appSettings>
@@ -23,14 +21,14 @@ La manera más fácil de conectarse al emulador de almacenamiento desde su aplic
 ```
 
 #### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Conexión a la cuenta del emulador con el nombre de cuenta y la clave conocidos
-Para crear una cadena de conexión que hace referencia el nombre de la cuenta del emulador y la clave, tenga en cuenta que debe especificar los extremos para cada uno de los servicios que desea usar desde el emulador en la cadena de conexión. Esto es necesario para que la cadena de conexión haga referencia a los extremos del emulador, que son diferentes de los de una cuenta de almacenamiento de producción. Por ejemplo, el valor de la cadena de conexión será similar al siguiente:
+Para crear una cadena de conexión que hace referencia al nombre de la cuenta del emulador y la clave, debe especificar los puntos de conexión para cada uno de los servicios que desea usar desde el emulador en la cadena de conexión. Esto es necesario para que la cadena de conexión haga referencia a los extremos del emulador, que son diferentes de los de una cuenta de almacenamiento de producción. Por ejemplo, el valor de la cadena de conexión será similar al siguiente:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
-QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1; 
+QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
 Este valor es idéntico al acceso directo mostrado anteriormente, `UseDevelopmentStorage=true`.
@@ -41,9 +39,4 @@ También puede especificar que se use un proxy HTTP cuando se está probando el 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
