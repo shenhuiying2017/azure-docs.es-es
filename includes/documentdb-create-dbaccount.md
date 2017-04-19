@@ -6,7 +6,7 @@
    
     ![Captura de pantalla de la hoja Nueva cuenta de DocumentDB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
    
-   * En el cuadro **Id.**, escriba un nombre para identificar la cuenta de DocumentDB.  Cuando se valida el **Id.**, aparece una marca de verificación verde en el cuadro **Id.**. El valor de **Id.** se convierte en el nombre de host dentro del URI. El **Id.** solo puede contener minúsculas, números y el carácter "-"; debe tener entre 3 y 50 caracteres. Tenga en cuenta que *documents.azure.com* se anexa al nombre del punto de conexión que elija, y su resultado se convierte en el punto de conexión de la cuenta de DocumentDB.
+   * En el cuadro **Id.**, escriba un nombre para identificar la cuenta de DocumentDB.  Cuando se valida el **Id.**, aparece una marca de verificación verde en el cuadro **Id**. El valor de **Id.** se convierte en el nombre de host dentro del URI. El **Id.** solo puede contener minúsculas, números y el carácter "-"; debe tener entre 3 y 50 caracteres. Tenga en cuenta que *documents.azure.com* se anexa al nombre del punto de conexión que elija, y su resultado se convierte en el punto de conexión de la cuenta de DocumentDB.
    * En el cuadro **NoSQL API**, seleccione **DocumentDB**.  
    * En **Suscripción**, seleccione la suscripción a Azure que desea usar para la cuenta de DocumentDB. Si la cuenta tiene una sola suscripción, se selecciona esa cuenta de manera predeterminada.
    * En **Grupo de recursos**, seleccione o cree un grupo de recursos para la cuenta de DocumentDB.  De forma predeterminada, se crea un grupo de recursos. Para más información, consulte el artículo sobre el [uso de Azure Portal para administrar los recursos de Azure](../articles/azure-portal/resource-group-portal.md).
@@ -25,8 +25,3 @@
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
-
-
-<!--HONumber=Feb17_HO2-->
-
-

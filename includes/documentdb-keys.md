@@ -2,8 +2,3 @@
 
 ![Captura de pantalla de Azure Portal, que muestra una cuenta de DocumentDB, con el botón Claves resaltado en la hoja de cuenta de DocumentDB, y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves](./media/documentdb-keys/keys.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

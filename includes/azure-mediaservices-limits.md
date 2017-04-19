@@ -7,7 +7,7 @@
 | Unidades reservadas de multimedia (RU) por cuenta de AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
 | Trabajos por cuenta de AMS | 50,000<sup>(2)</sup> |
 | Tareas encadenadas por trabajo | 30 (fijo) |
-| Recursos por cuenta de AMS | 1&000;&000;|
+| Recursos por cuenta de AMS | 1 000 000|
 | Recursos por tarea. | 50 |
 | Recursos por trabajo | 100 |
 | Localizadores únicos asociados a un recurso al mismo tiempo | 5<sup>(4)</sup> |

@@ -17,6 +17,7 @@ ms.author: jotaub;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
 ms.openlocfilehash: 0e59d117bd9a1355b5b58c76cf9b39ec3005b122
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -30,7 +31,7 @@ Para realizar las siguientes operaciones de administración debe tener permisos 
 
 ### <a name="create"></a>Crear
 ```csharp
-// Create the Event Hub
+// Create the event hub
 var ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
@@ -178,9 +179,4 @@ A continuación se incluyen referencias de API de .NET:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

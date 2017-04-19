@@ -18,14 +18,14 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6971e123b388eab689e02a5c67809509c2ad29c6
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 72206e299c245187731e4397610bbcfb01f5311c
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>Uso de Interactive Hive en HDInsight (versión preliminar)
-Interactive Hive (también conocido como "[Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP))" es un nuevo [tipo de clúster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) de HDInsight.  Interactive Hive permite el almacenamiento en la caché de memoria, con lo que las consultas de Hive serán mucho más interactivas y rápidas. Esta nueva característica convierte HDInsight en una de las soluciones de macrodatos en la nube más abiertas, flexibles y eficaces del mercado con almacenamiento caché en memoria (con Hive y Spark) y análisis avanzados gracias a la integración con R Services. 
+Interactive Hive (también conocido como "[Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP))" es un nuevo [tipo de clúster](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) de HDInsight.  Interactive Hive permite el almacenamiento en caché en memoria, con lo que las consultas de Hive serán mucho más interactivas y rápidas. Esta nueva característica convierte HDInsight en una de las soluciones de macrodatos en la nube más abiertas, flexibles y eficaces del mercado con almacenamiento caché en memoria (con Hive y Spark) y análisis avanzados gracias a la integración con R Services. 
 
 El clúster de Interactive Hive es diferente al de Hadoop. Solo contiene el servicio de Hive. 
 
