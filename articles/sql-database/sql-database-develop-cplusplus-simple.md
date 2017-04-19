@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ Actualmente, Azure tiene dos opciones para hospedar cargas de trabajo de SQL Ser
 La conexión a Azure SQL DB es similar. Actualmente hay dos formas de conectarse a las bases de datos: ODBC (Open Database Connectivity) y OLE DB (Object Linking and Embedding database). En los últimos años, Microsoft se ha alineado con [ODBC para el acceso a datos relacionales nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC es relativamente sencillo y también mucho más rápido que OLE DB. El único inconveniente aquí es que ODBC utiliza una API de estilo C anterior. 
 
 ## <a id="Create"></a>Paso 1: Creación de una base de datos de Azure SQL
-Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo.  Como alternativa, puede seguir este [breve vídeo de dos minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para crear una base de datos de Azure SQL mediante Azure Portal.
+Vea la [página de introducción](sql-database-get-started-portal.md) para aprender a crear una base de datos de ejemplo.  Como alternativa, puede seguir este [breve vídeo de dos minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para crear una base de datos de Azure SQL mediante Azure Portal.
 
 ## <a id="ConnectionString"></a>Paso 2: Obtención de la cadena de conexión
 Después de aprovisionar la base de datos de Azure SQL, debe llevar a cabo los pasos siguientes para determinar la información de conexión y agregar la dirección IP de cliente para el acceso de firewall. 

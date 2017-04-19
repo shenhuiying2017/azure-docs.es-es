@@ -4,7 +4,7 @@ description: "Obtenga un inquilino de Azure Active Directory para el registro y 
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Para hacerlo, siga estos pasos:  También es posible que quiera crear a un nuevo
 3. Debería iniciar sesión automáticamente en el "directorio predeterminado". Si no, puede cambiar de directorio haciendo clic en el nombre de cuenta en la esquina superior derecha.
 4. En la sección **Tareas rápidas**, elija **Agregar un usuario**.
 5. En el formulario para agregar usuario, proporcione la siguiente información:
-   
+
    * Nombre: (elija un valor apropiado)
    * Nombre de usuario: (elija un nombre de usuario para este administrador)
    * Perfil: (rellene los valores apropiados en Nombre, Apellidos, Puesto y Departamento)
@@ -57,16 +58,10 @@ Para hacerlo, siga estos pasos:  También es posible que quiera crear a un nuevo
 8. Para cambiar la contraseña temporal, inicie sesión en [https://login.microsoftonline.com](https://login.microsoftonline.com) con esta nueva cuenta de usuario y cambie la contraseña cuando se le solicite.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Uso de una suscripción de Azure organizativa
-Si se ha registrado anteriormente en una suscripción de Azure con la cuenta organizativa, ya dispone de un inquilino.  En [Azure Portal](https://portal.azure.com) debe buscar un inquilino cuando navegue a "Más servicios" y "Azure Active Directory".  Pueden usar a este inquilino como considere oportuno. 
+Si se ha registrado anteriormente en una suscripción de Azure con la cuenta organizativa, ya dispone de un inquilino.  En [Azure Portal](https://portal.azure.com) debe buscar un inquilino cuando navegue a "Más servicios" y "Azure Active Directory".  Pueden usar a este inquilino como considere oportuno.
 
 ## <a name="start-from-scratch"></a>Comienzo desde cero
 Si todo lo anterior es un galimatías para usted, no se preocupe.  Simplemente visite [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para registrarse en Azure con una nueva organización.  Cuando haya completado el proceso, tendrá su propio inquilino de Azure AD con el nombre de dominio que elija durante el registro.  En [Azure Portal](https://portal.azure.com) puede buscar el inquilino navegando a "Azure Active Directory" en panel de la izquierda.
 
 Como parte del proceso de registro en Azure, se le solicitará que proporcione la información de tarjeta de crédito.  Puede continuar con confianza: no se le cobrará por publicar aplicaciones en Azure AD o crear nuevos inquilinos.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

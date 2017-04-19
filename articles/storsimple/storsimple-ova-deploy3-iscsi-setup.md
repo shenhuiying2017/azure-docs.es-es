@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: cc5136c209483b6b72e8d456084338688792c0d0
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
     Use la dirección URL de conexión que anotó en el paso anterior. Verá un error que le indica que hay un problema con el certificado de seguridad del sitio web. Haga clic en **Continue to this web page**(Continuar a esta página web).
    
     ![error de certificado de seguridad](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
-2. Inicie sesión en la interfaz de usuario web del dispositivo virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en Paso 3: Iniciar el dispositivo virtual en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o en [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Inicie sesión en la interfaz de usuario web del dispositivo virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en Paso 3: Iniciar el dispositivo virtual en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o en [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware](storsimple-ova-deploy2-provision-vmware.md). El usuario predeterminado es *StorSimpleAdmin* y la contraseña predeterminada es *Password1*. 
    
     ![Página de inicio de sesión](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 3. Lo llevará a la página de **inicio** . En esta página se describen los distintos parámetros necesarios para configurar y registrar el dispositivo virtual en el servicio StorSimple Manager. Tenga en cuenta que las opciones **Configuración de red**, **Configuración de proxy web** y **Configuración horaria** son opcionales. Los únicos parámetros obligatorios son **Configuración del dispositivo** y **Configuración de la nube**.
@@ -242,10 +243,5 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

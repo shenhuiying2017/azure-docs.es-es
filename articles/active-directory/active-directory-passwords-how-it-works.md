@@ -16,15 +16,15 @@ ms.date: 02/28/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 24c94f80afdb3d3330a835fae2f77ecb213a9ae5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b9f7c86415a2606cb969427a362b4d2feef183fb
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="how-password-management-works-in-azure-active-directory"></a>Funcionamiento de la administración de contraseñas en Azure Active Directory
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 La administración de contraseñas en Azure Active Directory (Azure AD) consta de los siguientes componentes lógicos:
 
@@ -116,7 +116,7 @@ Para más información sobre Azure AD Connect, consulte [Introducción a Azure A
 
 Para más información, consulte las siguientes páginas sobre restablecimiento de contraseña en Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, sepa cómo [cambiar y restablecer su propia contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, sepa cómo [cambiar y restablecer su propia contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir que los usuarios restablezcan y cambien sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
 * [**Procedimientos recomendados**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.

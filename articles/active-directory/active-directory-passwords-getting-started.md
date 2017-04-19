@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Introducción a la administración de contraseñas
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ A continuación encontrará varias sugerencias útiles para los clientes que imp
 * [**Sugerencia 9: SOLUCIÓN DE PROBLEMAS**: si aún necesita ayuda, incluya la información necesaria para que podamos brindársela](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>SUGERENCIA PRINCIPAL: NAVEGACIÓN POR LA DOCUMENTACIÓN: use nuestra tabla de contenido y la característica de búsqueda de su explorador para encontrar las respuestas
-Al crear nuestra documentación, hemos hecho todo lo posible por proporcionar vínculos rápidos a todos los lugares interesantes en los que los administradores puedan encontrar información sobre la tabla de contenido. 
+Al crear nuestra documentación, hemos hecho todo lo posible por proporcionar vínculos rápidos a todos los lugares interesantes en los que los administradores puedan encontrar información sobre la tabla de contenido.
 
-Consulte la siguiente tabla de contenido: 
+Consulte la siguiente tabla de contenido:
 * [Restablecimiento de contraseña de Azure Active Directory para administradores de TI](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>Sugerencia 1: CONCESIÓN DE LICENCIAS: asegúrese de que conoce los requisitos para la concesión de licencias
@@ -93,9 +93,9 @@ Las directivas configuradas en el UX administrativo SOLO se aplican a los usuari
  * ... los primeros 30 días después de una versión de evaluación haya empezado a crearse **O**
  * ... cuando un dominio personal no está presente **Y** Azure AD Connect no sincroniza identidades
  * **_Requisito_**: **uno** de los campos Dirección de correo electrónico de autenticación, Correo electrónico alternativo, Teléfono de autenticación, Teléfono móvil o Teléfono de la oficina debe tener un valor
-* **Se aplica una directiva de dos puertas...** 
+* **Se aplica una directiva de dos puertas...**
  * ...cuando hayan pasado los 30 primeros días de una evaluación **O**
- * ... cuando un dominio personal esté presente **O** 
+ * ... cuando un dominio personal esté presente **O**
  * … cuando ha habilitado Azure AD Connect para sincronizar las identidades desde su entorno local
  * _**Requisito**_: **dos** de los campos Dirección de correo electrónico de autenticación, Correo electrónico alternativo, Teléfono de autenticación, Teléfono móvil o Teléfono de la oficina debe tener un valor
 
@@ -145,7 +145,7 @@ Para obtener una lista completa de instrucciones para la solución de problemas,
 * [Implementación de escritura diferida: Paso 3: configurar el firewall](#step-3-configure-your-firewall)
 * [Implementación de escritura diferida: Paso 4: configurar los permisos adecuados](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Sugerencia 7: CREACIÓN DE INFORMES: vea quién registra o restablece las contraseñas con los registros de auditoría del autoservicio de restablecimiento de contraseñas de Azure AD 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>Sugerencia 7: CREACIÓN DE INFORMES: vea quién registra o restablece las contraseñas con los registros de auditoría del autoservicio de restablecimiento de contraseñas de Azure AD
 Una vez que el restablecimiento de contraseña se implementa y empieza a funcionar, el siguiente paso lógico es ver su funcionamiento y analizar quiénes deben registrarse aún, los problemas comunes a los que se enfrentan los usuarios cuando se produce el restablecimiento y la rentabilidad de la inversión en dicha característica.
 
 Mediante los registros de auditoría del restablecimiento de contraseñas de Azure AD es posible hacer esto, y mucho más, desde Azure Portal, PowerBI, la API de eventos de informe de AD Azure o PowerShell.  Para más información acerca de cómo usar estas características de informes, consulte:
@@ -495,7 +495,7 @@ Ahora que la escritura diferida de contraseñas está habilitada, para saber si 
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización
 * [**Procedimientos recomendados**](active-directory-passwords-best-practices.md): obtenga información acerca de cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización

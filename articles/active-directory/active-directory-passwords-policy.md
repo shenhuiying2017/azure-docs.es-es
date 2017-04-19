@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 9f6c36011941510d2da7f6a043128e493c13d47b
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: ae3a2236b163e6a6ffdd7f1aeabf93406981ff0b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2017
 Este artículo describe las directivas de contraseña y los requisitos de complejidad asociados a las cuentas de usuario almacenadas en el directorio de Azure AD.
 
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -54,7 +54,7 @@ En la tabla siguiente se describe la configuración de políticas de contraseña
 | Bloqueo de cuenta |Después de 10 intentos de inicio de sesión incorrectos (contraseña incorrecta), el usuario se bloqueará durante un minuto. Más intentos de inicio de sesión incorrectos bloquearán el usuario para mayores duraciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [Administración de contraseñas desde cualquier lugar](active-directory-passwords.md)
 * [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
 * [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)

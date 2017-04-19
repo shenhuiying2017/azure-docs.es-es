@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: aa3f2bc04fe33466ca44abd7331a4b3aa7be26fc
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bc60fde6c299bc98aa4ee3a207cd57b6b050765f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -94,7 +94,7 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
 ## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Vaya a **Nuevo** > **Datos y almacenamiento** > **SQL Database**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera instancia de Azure SQL Database](sql-database-get-started.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera instancia de Azure SQL Database](sql-database-get-started-portal.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

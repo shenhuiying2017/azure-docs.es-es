@@ -26,7 +26,9 @@
 ## Vinculación de una red virtual a un circuito ExpressRoute
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [Configuración de una puerta de enlace de red virtual para ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## Configuración de una puerta de enlace de red virtual para ExpressRoute
+### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-resource-manager.md)
 ## [Movimiento de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
 ## [Migración de redes virtuales asociadas del portal clásico a Resource Manager](expressroute-migration-classic-resource-manager.md)
