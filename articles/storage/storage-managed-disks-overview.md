@@ -115,7 +115,7 @@ A menudo se ve la palabra "imagen" utilizada con máquinas virtuales, pero ahora
 
 Una instantánea es una copia de un disco en un momento dado. Solo se aplica a un disco. Si tiene una máquina virtual con un solo disco (el del sistema operativo), puede tomar una instantánea o una imagen del mismo y crear una máquina virtual a partir de cualquiera de ellas.
 
-¿Qué sucede si una máquina virtual tiene cinco discos y se seccionan? Puede tomar una instantánea de cada uno de los discos, pero en la máquina virtual no se conoce el estado de los discos (las instantáneas solo "conocen" un disco). En este caso, las instantáneas tendrían que coordinarse entre sí, algo que actualmente no se no se admite.
+¿Qué sucede si una máquina virtual tiene cinco discos y se seccionan? Puede tomar una instantánea de cada uno de los discos, pero en la máquina virtual no se conoce el estado de los discos (las instantáneas solo "conocen" un disco). En este caso, las instantáneas tendrían que coordinarse entre sí, algo que actualmente no se admite.
 
 ## <a name="managed-disks-and-encryption"></a>Managed Disks y cifrado
 
