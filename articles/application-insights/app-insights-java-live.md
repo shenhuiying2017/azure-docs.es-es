@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
-ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 878badf2753b4ceb471abc789e388fd784c4c42a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -132,14 +133,9 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 [Más información acerca de las métricas.](app-insights-metrics-explorer.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Agregue telemetría a las páginas web](app-insights-web-track-usage.md) para supervisar las vistas de páginas y las métricas de usuario.
+* [Agregue telemetría a las páginas web](app-insights-javascript.md) para supervisar las vistas de páginas y las métricas de usuario.
 * [Configure las pruebas web](app-insights-monitor-web-app-availability.md) para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 * [Captura de seguimiento de registros](app-insights-java-trace-logs.md)
 * [Busque eventos y registros](app-insights-diagnostic-search.md) para ayudar a diagnosticar problemas.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

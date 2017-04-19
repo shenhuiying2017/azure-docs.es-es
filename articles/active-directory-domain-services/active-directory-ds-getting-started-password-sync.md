@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6ed35ca1b83f5f7221824d99817800c1e42e68c1
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -55,7 +55,7 @@ Estas son las instrucciones que tiene que proporcionar a los usuarios finales pa
    > Si no aparece la opción **Cambiar contraseña** en la ventana Panel de acceso, asegúrese de que su organización ha configurado la [administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
-4. En la página **cambiar contraseña**, escriba la contraseña existente (anterior) y luego escriba una nueva contraseña y confírmela. 
+4. En la página **cambiar contraseña**, escriba la contraseña existente (anterior) y luego escriba una nueva contraseña y confírmela.
 
     ![Creación de una red virtual para los Servicios de dominio de Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
@@ -64,7 +64,7 @@ Estas son las instrucciones que tiene que proporcionar a los usuarios finales pa
 Unos minutos después de haber cambiado su contraseña, la nueva contraseña se podrá usar en Azure Active Directory Domain Services. Después de unos minutos (por lo general, unos 20 minutos), los usuarios pueden iniciar sesión en equipos unidos al dominio administrado con su contraseña recién cambiada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
+* [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
 * [Introducción a la administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administración de un dominio administrado con Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)

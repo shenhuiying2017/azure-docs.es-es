@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 6f646b3776f0aa0bbfba227c81ac5fc4fde9265f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 78dbbaa272d9889add5bc833c7557618f41056db
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/10/2017
 
 En este artículo se muestra cómo configurar la replicación geográfica activa para SQL Database en [Azure Portal](http://portal.azure.com) y cómo iniciar la conmutación por error.
 
-Para iniciar una conmutación por error planeada con el Portal de Azure, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-failover-portal.md).
+Para iniciar una conmutación por error planeada con el Portal de Azure, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md).
 
 > [!NOTE]
 > La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.

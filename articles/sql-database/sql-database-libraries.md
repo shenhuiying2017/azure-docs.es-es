@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: b42d2bd64dbaf44f1be85d687b27ffe47eb0db53
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="connection-libraries-for-sql-database-and-sql-server"></a>Bibliotecas de conexiones para Base de datos SQL y SQL Server
 
-En este tema se muestra cada biblioteca o *controlador* que los programas cliente pueden usar para conectarse a Azure SQL Database o a Microsoft SQL Server.
+En este tema se muestra cada biblioteca o *controlador* que los programas cliente pueden usar para conectarse a Azure SQL Database o a Microsoft SQL Server. 
 
 | Idioma | Plataforma | Recursos adicionales | Descargar |
 |:--- |:--- |:--- |:--- |
@@ -38,13 +39,10 @@ En este tema se muestra cada biblioteca o *controlador* que los programas client
 ## <a name="related-links"></a>Vínculos relacionados
 
 - [Controladores de SQL Server](https://docs.microsoft.com/sql/connect/sql-server-drivers/), para conectarse desde un cliente
-- [Conexión a SQL Database mediante .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
-- [Conexión a Base de datos SQL mediante Node.js](sql-database-develop-nodejs-simple.md)
-- [Conexión a SQL Database mediante Python](sql-database-develop-python-simple.md)
-- [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+- [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-connect-query-dotnet.md)
+- [Conexión a la base de datos SQL mediante PHP en Windows](sql-database-connect-query-php.md)
+- [Conexión a Base de datos SQL mediante Node.js](sql-database-connect-query-nodejs.md)
+- [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-connect-query-java.md)
+- [Conexión a Base de datos SQL mediante Python](sql-database-connect-query-python.md)
+- [Conexión a Base de datos SQL mediante Ruby](sql-database-connect-query-ruby.md)
 

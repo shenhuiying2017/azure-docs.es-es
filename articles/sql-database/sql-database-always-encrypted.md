@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 02ea369d76c1fe7266e9dc0cad2c75e4b5eada6a
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e2474b2f69ee0301ba00bd2a49afa90f83935cb6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -50,7 +50,7 @@ Para este tutorial, necesitará:
 ## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **Nuevo** > **Datos y almacenamiento** > **SQL Database**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Si desea obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL Database](sql-database-get-started.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Si desea obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL Database](sql-database-get-started-portal.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted/create-database.png)
 

@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8d8743529f4f0b9e8c036d328d63bea247279fe3
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,11 +29,11 @@ La replicación geográfica activa le permite configurar hasta cuatro bases de d
 > La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
 >  
 
- Puede configurar la replicación geográfica activa mediante [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) o la [API de REST: creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+ Puede configurar la replicación geográfica activa mediante [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) o la [API de REST: creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 Si, por cualquier motivo, se produce un error en la base de datos principal o, simplemente, debe desconectarse, puede *conmutar por error* a cualquiera de las secundarias. Cuando se activa la conmutación por error a una de las bases de datos secundarias, las demás bases de datos secundarias se vinculan automáticamente a la nueva base de datos principal.
 
-Puede conmutar por error a una base de datos secundaria mediante [Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), la [API de REST: conmutación por error planeada](https://msdn.microsoft.com/library/mt575007.aspx) o la [API de REST: conmutación por error no planeada](https://msdn.microsoft.com/library/mt582027.aspx).
+Puede conmutar por error a una base de datos secundaria mediante [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), la [API de REST: conmutación por error planeada](https://msdn.microsoft.com/library/mt575007.aspx) o la [API de REST: conmutación por error no planeada](https://msdn.microsoft.com/library/mt582027.aspx).
 
 Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
@@ -85,7 +85,7 @@ Debido a la elevada latencia de las redes de área extensa, la copia continua us
 ## <a name="programmatically-managing-active-geo-replication"></a>Administración mediante programación de la replicación geográfica activa
 Como se dijo antes, la replicación geográfica activa también puede administrarse mediante programación con Azure PowerShell y la API de REST. En las tablas siguientes se describe el conjunto de comandos disponibles.
 
-* **API de Azure Resource Manager y seguridad basada en roles**: la replicación geográfica activa incluye un conjunto de [API de Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) para la administración, en el que se incluyen [cmdlets de PowerShell basados en Azure Resource Manager](sql-database-geo-replication-powershell.md). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
+* **API de Azure Resource Manager y seguridad basada en roles**: la replicación geográfica activa incluye un conjunto de [API de Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) para la administración, en el que se incluyen [cmdlets de PowerShell basados en Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
 > Muchas de las nuevas características de la replicación geográfica activa solo se admiten con [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), que se basa en la [API de REST de Azure SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) y los [cmdlets de PowerShell de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx). La [API de REST (clásica)](https://msdn.microsoft.com/library/azure/dn505719.aspx) y los [cmdlets de Azure SQL Database (clásicos)](https://msdn.microsoft.com/library/azure/dn546723.aspx) se admiten por compatibilidad con versiones anteriores, por lo que se recomienda usar las API basadas en Azure Resource Manager. 

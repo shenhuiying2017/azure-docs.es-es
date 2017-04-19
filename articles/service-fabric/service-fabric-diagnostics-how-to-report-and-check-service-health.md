@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
-ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: e2b969151876fac34b2a5c05ce050ee6b51004d0
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ Cuando los servicios se encuentran con problemas, su capacidad para responder y 
 
 Hay tres maneras de informar sobre el estado del servicio:
 
-* Mediante los objetos [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) o [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx).  
+* Mediante los objetos [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) o [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
   Puede usar los objetos `Partition` y `CodePackageActivationContext` para informar sobre el estado de elementos que forman parte del contexto actual. Por ejemplo, el código que se ejecuta como parte de una réplica solo puede informar sobre el estado de esa réplica, la partición a la que pertenece y la aplicación de la que forma parte.
 * Mediante `FabricClient`.   
   Puede usar `FabricClient` para informar sobre el estado del código de servicio si el clúster no es [seguro](service-fabric-cluster-security.md) o si el servicio se ejecuta con privilegios de administrador. Esto no se cumplirá en la mayoría de los escenarios reales. Con `FabricClient`, puede notificar sobre el estado de cualquier entidad que forme parte del clúster. Sin embargo, lo ideal es que el código de servicio solo envíe informes relacionados con su propio estado.

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 0e8152e2c26cdb8f1dd96eca781f8e22ca15d9b2
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -47,7 +47,7 @@ Tal y como se ha mencionado, la creación de informes puede realizarse desde:
 > 
 > 
 
-Una vez que el diseño de informes de mantenimiento está vacío, los informes de mantenimiento se pueden enviar de forma fácil. Puede usar [FabricClient](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.aspx) para informar del mantenimiento si el clúster no es [seguro](service-fabric-cluster-security.md) o si el cliente de Fabric tiene privilegios de administrador. Para ello se puede usar la API mediante [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), PowerShell o REST. Los botones de configuración procesan los informes por lotes para un mejor rendimiento.
+Una vez que el diseño de informes de mantenimiento está vacío, los informes de mantenimiento se pueden enviar de forma fácil. Puede usar [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) para informar del mantenimiento si el clúster no es [seguro](service-fabric-cluster-security.md) o si el cliente de Fabric tiene privilegios de administrador. Para ello se puede usar la API mediante [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), PowerShell o REST. Los botones de configuración procesan los informes por lotes para un mejor rendimiento.
 
 > [!NOTE]
 > El informe de mantenimiento es sincrónico y solo representa el trabajo de validación en el cliente. El hecho de que el cliente de mantenimiento o los objetos `Partition` o `CodePackageActivationContext` acepten el informe no significa que se aplique en el almacén. Se envía de forma asincrónica y posiblemente por lotes con otros informes. El procesamiento en el servidor todavía puede seguir dando error: el número de secuencia puede estar obsoleto, la entidad en la que se debe aplicar el informe ha sido eliminada, etc.
@@ -67,7 +67,7 @@ Los informes de mantenimiento se envían al almacén de estado por medio de un c
 > 
 
 El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazan por la versión más reciente. A lo sumo existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envían al almacén de estado es simplemente uno por intervalo de envío. Este informe es el último informe agregado, que refleja el estado más reciente de la entidad.
-Todos los parámetros de configuración pueden especificarse al crear `FabricClient` , pasando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) con los valores deseados para las entradas relacionadas con el mantenimiento.
+Todos los parámetros de configuración pueden especificarse al crear `FabricClient` , pasando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con los valores deseados para las entradas relacionadas con el mantenimiento.
 
 Lo siguiente crea un cliente de Fabric y especifica que se deben enviar los informes cuanto se agregan. En tiempos de espera y errores que se pueden reintentar, los reintentos se producen cada 40 segundos.
 
@@ -117,12 +117,12 @@ GatewayInformation   : {
 ## <a name="report-from-within-low-privilege-services"></a>Informes desde servicios con pocos privilegios
 Desde los servicios de Service Fabric que no tienen acceso de administrador al clúster, puede informar sobre el mantenimiento de las entidades desde el contexto actual mediante `Partition` o `CodePackageActivationContext`.
 
-* Para los servicios sin estado, use [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) para informar sobre la instancia de servicio actual.
-* Para los servicios con estado, use [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) para informar sobre la réplica actual.
-* Use [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) para informar sobre la entidad de partición actual.
-* Use [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) para informar sobre la aplicación actual.
-* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx) para informar sobre la aplicación actual implementada en el nodo actual.
-* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) para informar sobre un paquete de servicio para la aplicación actual implementada en el nodo actual.
+* Para los servicios sin estado, use [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para informar sobre la instancia de servicio actual.
+* Para los servicios con estado, use [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para informar sobre la réplica actual.
+* Use [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para informar sobre la entidad de partición actual.
+* Use [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para informar sobre la aplicación actual.
+* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para informar sobre la aplicación actual implementada en el nodo actual.
+* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para informar sobre un paquete de servicio para la aplicación actual implementada en el nodo actual.
 
 > [!NOTE]
 > Internamente, `Partition` y `CodePackageActivationContext` contienen un cliente de mantenimiento que está configurado con los valores predeterminados. Se aplican las mismas consideraciones que se explicaron para el [cliente de mantenimiento](service-fabric-report-health.md#health-client) : los informes se incluyen en lotes y se envían en un temporizador, por lo que los objetos deben mantenerse activos para que puedan enviar el informe.
@@ -291,7 +291,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Envíe informes de mantenimiento mediante REST con solicitudes POST que vayan a la entidad deseada y tengan en el cuerpo la descripción del informe de mantenimiento. Por ejemplo, consulte cómo enviar [informes de mantenimiento de clúster](https://msdn.microsoft.com/library/azure/dn707640.aspx) o [informes de mantenimiento de servicio](https://msdn.microsoft.com/library/azure/dn707640.aspx) de REST. Se admiten todas las entidades.
+Envíe informes de mantenimiento mediante REST con solicitudes POST que vayan a la entidad deseada y tengan en el cuerpo la descripción del informe de mantenimiento. Por ejemplo, consulte cómo enviar [informes de mantenimiento de clúster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) o [informes de mantenimiento de servicio](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) de REST. Se admiten todas las entidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Según los datos del estado, los escritores del servicio y los administradores de clúster/aplicación pueden pensar en maneras de utilizar la información. Por ejemplo, pueden configurar alertas basadas en el estado de mantenimiento para detectar problemas graves antes de provocar interrupciones. Los administradores también pueden configurar sistemas de reparación para solucionar problemas de forma automática.

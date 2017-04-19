@@ -10,7 +10,7 @@ editor:
 tags: 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,8 +18,9 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
-ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -56,10 +57,8 @@ Las cuentas de **administrador del servidor** y de **administrador de Azure AD**
 - Pueden agregar y quitar miembros en los roles `dbmanager` y `loginmanager`.
 - Pueden ver la tabla del sistema `sys.sql_logins`.
 
-
-
 ### <a name="configuring-the-firewall"></a>Configuración del firewall
-Cuando el firewall de nivel de servidor se configura para una dirección IP individual o un intervalo de ellas, tanto el **administrador del servidor SQL** como el **administrador de Azure Active Directory** pueden conectarse a la base de datos maestra y a todas las bases de datos de usuario. El firewall de nivel de servidor inicial se puede configurar a través de [Azure Portal](sql-database-configure-firewall-settings.md) mediante [PowerShell](sql-database-configure-firewall-settings-powershell.md) o mediante la [API de REST](sql-database-configure-firewall-settings-rest.md). Una vez que se establece una conexión, también se pueden configurar otras reglas de firewall de nivel de servidor mediante [Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+Cuando el firewall de nivel de servidor se configura para una dirección IP individual o un intervalo de ellas, tanto el **administrador del servidor SQL** como el **administrador de Azure Active Directory** pueden conectarse a la base de datos maestra y a todas las bases de datos de usuario. El firewall de nivel de servidor inicial se puede configurar a través de [Azure Portal](sql-database-get-started-portal.md) mediante [PowerShell](sql-database-get-started-powershell.md) o mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Una vez que se establece una conexión, también se pueden configurar otras reglas de firewall de nivel de servidor mediante [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Ruta de acceso de administrador
 Cuando el firewall de nivel de servidor está configurado correctamente, el **administrador de SQL Server** y el **administrador de Azure Active Directory** pueden conectarse mediante herramientas de cliente como SQL Server Management Studio o SQL Server Data Tools. Solo las herramientas más recientes proporcionan todas las características y funcionalidades. El diagrama siguiente muestra una configuración típica para las dos cuentas de administrador.
@@ -69,7 +68,7 @@ Cuando el firewall de nivel de servidor está configurado correctamente, el **ad
 Si se usa un puerto abierto en el firewall de nivel de servidor, los administradores pueden conectarse a cualquier Base de datos SQL.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conexión a una base de datos mediante SQL Server Management Studio
-Para ver un tutorial en el que se explica cómo crear un servidor, una base de datos, reglas de firewall de nivel de servidor y cómo usar SQL Server Management Studio para realizar consultas en una base de datos, consulte [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started.md).
+Para ver un tutorial en el que se explica cómo crear un servidor, una base de datos, reglas de firewall de nivel de servidor y cómo usar SQL Server Management Studio para realizar consultas en una base de datos, consulte [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
 > Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -196,9 +195,4 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 - Para obtener información acerca de cómo otorgar acceso a un objeto de base de datos, consulte [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
 - Para ver un tutorial sobre la autenticación de SQL Server, consulte [Tutorial: autenticación de SQL Server](sql-database-control-access-sql-authentication-get-started.md).
 - Para ver un tutorial sobre la autenticación de Azure Active Directory, consulte [Tutorial: autenticación de AAD](sql-database-control-access-aad-authentication-get-started.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

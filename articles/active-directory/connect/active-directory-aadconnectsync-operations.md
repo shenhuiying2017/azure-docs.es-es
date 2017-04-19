@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9faa28a86c9427a83e8ca4485ebcdc8e8dacd93d
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -69,7 +69,7 @@ Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y A
 #### <a name="verify"></a>Verify
 1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x` El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
-3. Copie el script de PowerShell de la sección [CSAnalyzer](#Appendix-CSAnalyzer) en un archivo denominado "`csanalyzer.ps1`".
+3. Copie el script de PowerShell de la sección [CSAnalyzer](#appendix-csanalyzer) en un archivo denominado "`csanalyzer.ps1`".
 4. Abra una ventana de PowerShell y vaya a la carpeta donde se creó el script de PowerShell.
 5. Ejecute `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 6. Ahora tiene un archivo denominado "**processedusers1.csv**" que se puede examinar en Microsoft Excel. Todos los cambios almacenados provisionalmente para ser exportada en Azure AD se encuentran en este archivo.

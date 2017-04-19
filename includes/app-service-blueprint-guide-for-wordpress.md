@@ -6,7 +6,7 @@
 * [Implementar una aplicación web de WordPress respaldada por el clúster de replicación de MySQL](/documentation/templates/wordpress-mysql-replication/)
 * [Compilación de su propio clúster de MySQL de maestro/maestro mediante el clúster de Percona](/documentation/templates/mysql-ha-pxc/) y [obtención de información sobre cómo administrar el clúster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Implementar WordPress respaldado por el clúster de replicación de MySQL con la configuración de maestro/esclavo](/documentation/templates/mysql-replication/)
-* [Implementar una aplicación de WordPress respaldada por Base de datos SQL de Azure y administrada por ProjectNami](/marketplace/partners/projectnami/projectnami/)
+* [Implementar una aplicación de WordPress respaldada por Base de datos SQL de Azure y administrada por ProjectNami](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
 
 ## <a name="troubleshooting-wordpress-application"></a>Solución de problemas de la aplicación WordPress
 * [Cómo solucionar problemas en la aplicación de WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
@@ -24,9 +24,4 @@
 * [Cómo usar el complemento supercache para acelerar la aplicación de WordPress](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
 * [Cómo realizar el almacenamiento en caché del servidor con el almacenamiento en caché de resultados de IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Cómo habilitar el almacenamiento en caché del explorador para contenido estático](http://www.iis.net/configreference/system.webserver/staticcontent)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

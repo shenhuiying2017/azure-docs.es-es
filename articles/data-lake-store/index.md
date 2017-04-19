@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
-ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 68174d2f86a355a9966a7fb91b22e3eb96102d02
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentación de Data Lake Store
@@ -179,6 +180,7 @@ Aprenda cómo usar Data Lake Store para crear un repositorio de gran escala comp
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+                        <p><a href="/cli/azure/dls">CLI de Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -213,10 +215,5 @@ Aprenda cómo usar Data Lake Store para crear un repositorio de gran escala comp
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

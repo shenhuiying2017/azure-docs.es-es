@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0a4dba58445cf0fd9fd8f51d443576bacd92251b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -61,7 +61,7 @@ Se trata de un conjunto de datos con formato JSON que contiene el esquema siguie
 | Windshield_wiper_status |Indica si el limpiaparabrisas está activado o no |Verdadero o falso |
 | ABS |Indica si el ABS está activado o no |Verdadero o falso |
 | Timestamp |La marca de tiempo del momento en el que se crea el punto de datos |Date |
-| City |La ubicación del vehículo |En esta solución tiene la opción de&4; ciudades: Bellevue, Redmond, Sammamish, Seattle |
+| City |La ubicación del vehículo |En esta solución tiene la opción de 4 ciudades: Bellevue, Redmond, Sammamish, Seattle |
 
 El conjunto de datos de referencia de modelo del vehículo contiene una asignación de VIN al modelo. 
 
@@ -97,11 +97,6 @@ El conjunto de datos de referencia de modelo del vehículo contiene una asignaci
 | XUF99EW9OIQOMV7Q7 |Berlina familiar |
 | 8OMCL3LGI7XNCC21U |Descapotable |
 | ……. | |
-
-### <a name="to-generate-simulated-data"></a>Para generar datos simulados
-1. Haga clic en la flecha situada en la esquina superior derecha del nodo Simulador telemático del vehículo para descargar el paquete del simulador de datos. Guarde y extraiga los archivos localmente en su máquina. ![Proyecto de solución de análisis de telemetría de vehículo](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Ilustración 2: Proyecto de solución de análisis de telemetría de vehículo*
-2. En el equipo local, vaya a la carpeta en la que extrajo el paquete del simulador telemático de vehículo. ![Carpeta del simulador telemático de vehículo](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Ilustración 3: Carpeta de simulador telemático de vehículo*
-3. Ejecute la aplicación **CarEventGenerator.exe**.
 
 ### <a name="references"></a>Referencias
 [Solución de simulador telemático de vehículo de Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
@@ -393,11 +388,9 @@ Este patrón también es aplicable a aquellos escenarios en los que desea integr
 Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones. 
 
 **Para ejecutar la aplicación de panel en tiempo real**
-
-1. Haga clic en el nodo de Power BI en la vista de diagrama y luego en el vínculo "Descargar aplicación del panel en tiempo real", en el panel de propiedades. ![Instrucciones de configuración del panel de Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Ilustración 15: Instrucciones de configuración del panel de Power BI*
-2. Extraer y guardar localmente la carpeta ![RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Ilustración 16: Carpeta RealtimeDashboardApp*  
-3. Ejecute la aplicación RealtimeDashboardApp.exe.
-4. Proporcione credenciales válidas de Power BI, inicie sesión y haga clic en Aceptar ![Inicio de sesión de la aplicación del panel en tiempo real en Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Inicio de sesión de finalización de la aplicación del panel en tiempo real en Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+1. Extraer y guardar localmente la carpeta ![RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Ilustración 16: Carpeta RealtimeDashboardApp*  
+2. Ejecute la aplicación RealtimeDashboardApp.exe.
+3. Proporcione credenciales válidas de Power BI, inicie sesión y haga clic en Aceptar ![Inicio de sesión de la aplicación del panel en tiempo real en Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Inicio de sesión de finalización de la aplicación del panel en tiempo real en Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Ilustración 17: RealtimeDashboardApp: Inicio de sesión en Power BI*
 

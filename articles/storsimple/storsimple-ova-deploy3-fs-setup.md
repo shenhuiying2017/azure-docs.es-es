@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 37d25c8c7b47bf8ef3b4d5c6d3978b13c52329c3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -47,7 +48,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
    Use la dirección URL de conexión que anotó en el paso anterior. Verá un error que indica que hay un problema con el certificado de seguridad del sitio web. Haga clic en **Continue to this webpage**(Continuar a esta página web).
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
-2. Inicie sesión en la interfaz de usuario web del dispositivo virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en el paso 3: Iniciar el dispositivo virtual en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o en [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Inicie sesión en la interfaz de usuario web del dispositivo virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en el paso 3: Iniciar el dispositivo virtual en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o en [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware](storsimple-ova-deploy2-provision-vmware.md). El usuario predeterminado es *StorSimpleAdmin* y la contraseña predeterminada es *Password1*.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 3. Lo llevará a la página de **inicio** . En esta página se describen los distintos parámetros necesarios para configurar y registrar el dispositivo virtual en el servicio StorSimple Manager. Tenga en cuenta que las opciones **Configuración de red**, **Configuración de proxy web** y **Configuración horaria** son opcionales. Los únicos parámetros obligatorios son **Configuración del dispositivo** y **Configuración de la nube**.
@@ -183,10 +184,5 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
