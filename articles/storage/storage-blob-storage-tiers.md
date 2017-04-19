@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
-ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 618d31e991d9405ece6533727d700e316ae85bec
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -209,7 +209,7 @@ Para más información, consulte [Acerca de las métricas del análisis de almac
 > 
 
 Para supervisar el consumo de almacenamiento de información del servicio de Almacenamiento de blobs, será preciso que habilite las métricas de capacidad.
-Con esta opción habilitada, se registran diariamente los datos de capacidad del servicio BLOB de una cuenta de almacenamiento y se registran como una entrada de tabla que se escribe en la tabla *$MetricsCapacityBlob* dentro de la misma cuenta de almacenamiento.
+Con esta opción habilitada, se registran diariamente los datos de capacidad de Blob service de una cuenta de almacenamiento y se registran como una entrada de tabla que se escribe en la tabla *$MetricsCapacityBlob* dentro de la misma cuenta de almacenamiento.
 
 Para supervisar el patrón de acceso de datos del servicio Almacenamiento de blobs, será preciso que habilite las métricas de transacción horarias a nivel de API.
 Con esta opción habilitada, las transacciones por API se agregan cada hora y se registran como una entrada de tabla que se escribe en la tabla *$MetricsHourPrimaryTransactionsBlob* dentro de la misma cuenta de almacenamiento. La tabla *$MetricsHourSecondaryTransactionsBlob* registra las transacciones en el punto de conexión secundario en el caso de las cuentas de almacenamiento de RA-GRS.
@@ -239,7 +239,7 @@ Posteriormente, esta capacidad total consumida por los datos del usuario y los r
 Este mismo método también se puede utilizar para calcular los costos de almacenamiento de los blobs de bloques y anexos en las cuentas de uso general.
 
 ##### <a name="transaction-costs"></a>Costos de transacciones
-La suma de *'TotalBillableRequests'*, en todas las entradas de una API en la tabla de métricas de transacciones indica el número total de transacciones de dicha API determinada. *Por ejemplo, *, el número total de transacciones *'GetBlob'* en un período dado se puede calcular mediante la suma del número total de solicitudes facturables para todas las entradas con la clave de fila *'user;GetBlob'*.
+La suma de *'TotalBillableRequests'*, en todas las entradas de una API en la tabla de métricas de transacciones indica el número total de transacciones de dicha API determinada. *Por ejemplo,*, el número total de transacciones *'GetBlob'* en un período dado se puede calcular mediante la suma del número total de solicitudes facturables para todas las entradas con la clave de fila *'user;GetBlob'*.
 
 Para calcular los costos de transacción de las cuentas de Almacenamiento de blobs, será preciso que desglose las transacciones en tres grupos, ya que tienen precios diferentes.
 
@@ -268,7 +268,8 @@ El costo de transferencia de datos de replicación geográfica para cuentas de A
 
 ### <a name="migrating-existing-data"></a>Migración de datos existentes
 Las cuentas de Almacenamiento de blobs son especiales para almacenar solo blobs y anexar blobs. Las cuentas de almacenamiento de uso general existentes, que permiten almacenar tablas, colas, archivos y discos, así como blobs, no se pueden convertir en cuentas de Almacenamiento de blobs. Para utilizar las capas de almacenamiento, debe crear nuevas cuentas de Almacenamiento de blobs y migrar los datos existentes a las cuentas recién creadas.
-Puede utilizar los métodos siguientes para migrar los datos existentes a cuentas de Almacenamiento de blobs desde un dispositivos de almacenamiento local, desde proveedores de almacenamiento en la nube de terceros o desde sus cuentas existentes de almacenamiento de uso general en Azure:
+
+Puede utilizar los métodos siguientes para migrar los datos existentes a cuentas de Blob Storage desde un dispositivos de almacenamiento local, desde proveedores de almacenamiento en la nube de terceros o desde sus cuentas existentes de almacenamiento de uso general en Azure:
 
 #### <a name="azcopy"></a>AzCopy
 AzCopy es una utilidad de línea de comandos de Windows diseñada para la copia de datos de alto rendimiento a y desde Almacenamiento de Azure. AzCopy se puede usar para copiar datos en una cuenta de Almacenamiento de blobs desde cuentas de almacenamiento de uso general existentes o para cargar datos desde un sistema de dispositivos de almacenamiento local en una cuenta de Almacenamiento de blobs.

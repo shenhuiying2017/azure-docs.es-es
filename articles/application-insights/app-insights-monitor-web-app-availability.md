@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -165,7 +165,7 @@ Los complementos de prueba web proporcionan la manera de parametrizar los tiempo
 
     ![Elija Agregar complemento de prueba web y seleccione un tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    En este ejemplo, usamos dos instancias del complemento Date Time Plug-in. Una instancia es para "hace&15; minutos" y otra para "ahora".
+    En este ejemplo, usamos dos instancias del complemento Date Time Plug-in. Una instancia es para "hace 15 minutos" y otra para "ahora".
 2. Abra las propiedades de cada complemento. Asígnele un nombre y configúrelo para utilizar la hora actual. En cada uno de ellos, establezca Añadir minutos = -15.
 
     ![Establezca el nombre, Usar hora actual y Agregar minutos.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
@@ -241,7 +241,10 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
     Usamos ambos términos de manera intercambiable.
 * *Me gustaría usar pruebas de disponibilidad en nuestro servidor interno que se ejecuta detrás de un firewall.*
 
-    Configure el firewall para que permita las solicitudes de las [direcciones IP de los agentes de prueba web](app-insights-ip-addresses.md).
+    Hay dos soluciones posibles:
+    
+    * Configure el firewall para que permita las solicitudes entrantes de las [direcciones IP de los agentes de prueba web](app-insights-ip-addresses.md).
+    * Escriba su propio código para comprobar periódicamente el servidor interno. Ejecute el código como un proceso en segundo plano en un servidor de prueba detrás del firewall. El proceso de prueba puede enviar sus resultados a Application Insights mediante la API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en el paquete de SDK principal. Para ello, es necesario que el servidor de prueba tenga acceso saliente al punto de conexión de ingesta de Application Insights, pero plantea un riesgo de seguridad mucho menor que la alternativa de permitir las solicitudes entrantes. Los resultados no se mostrarán en las hojas de las pruebas web de disponibilidad, pero sí aparecerán como resultados de disponibilidad en Analytics, Search y en el Explorador de métricas.
 * *Al cargar una prueba web de varios pasos, se produce un error*
 
     Hay un límite de tamaño de 300 000.
@@ -260,10 +263,6 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
     Lo sentimos, pero eso no está admitido.
 
-## <a name="video"></a>Vídeo
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Pasos siguientes
 [Búsqueda de registros de diagnóstico][diagnostic]

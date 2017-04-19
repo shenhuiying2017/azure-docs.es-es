@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -33,7 +33,7 @@ Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Elementos que hay que tener en cuenta para consultar las tablas:
 
-* Ha habido un cambio terminológico en las puertas de enlace de VPN de Azure. Es probable que realice la ejecución en ambos términos. No hay ningún cambio de funcionalidad; solo cambian los nombres.
+* Ha habido un cambio terminológico en las puertas de enlace de VPN de Azure. No hay ningún cambio de funcionalidad; solo cambian los nombres.
   * Enrutamiento estático = PolicyBased
   * Enrutamiento dinámico = RouteBased
 * Las especificaciones de puerta de enlace de VPN de alto rendimiento y de puerta de enlace de VPN RouteBased son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN RouteBased también son compatibles con la puerta de enlace de VPN de alto rendimiento de Azure.
@@ -45,7 +45,7 @@ Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante 
 ## <a name="devicetable"></a>Dispositivos VPN validados
 Hemos validado un conjunto de dispositivos VPN estándar en colaboración con proveedores de dispositivos. Todos los dispositivos de las familias de dispositivos incluidos en la lista siguiente deben funcionar con las puertas de enlace de VPN de Azure. Consulte el artículo [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) para comprobar el tipo de puerta de enlace que debe crear para la solución que desea configurar.
 
-Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada. Para obtener soporte para los dispositivos VPN, póngase en contacto con el fabricante.
+Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada.  Los vínculos a las instrucciones de configuración se proporcionan dentro de lo posible. Para obtener soporte para los dispositivos VPN, póngase en contacto con el fabricante.
 
 |**Proveedor**          |**Familia de dispositivos**     |**Versión mínima de sistema operativo** |**PolicyBased** |**RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -59,7 +59,6 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Ejemplos de configuración](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Ejemplos de configuración*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 y superior |[Guía de configuración](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |No compatible |
-| Dell SonicWALL |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |Serie BIG-IP |12.0 |[Guía de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guía de configuración](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |[Guía de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Guía de configuración](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |Serie SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guía de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |No compatible |
@@ -71,6 +70,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Open Systems AG |Mission Control Security Gateway |N/D |[Guía de configuración](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Guía de configuración](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Próximamente) |No compatible |
 | Palo Alto Networks |Todos los dispositivos que ejecutan PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o posterior<br>RouteBased: 7.1.4 |[Guía de configuración](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Guía de configuración](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| SonicWall |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Guía de configuración para SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Guía de configuración para SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | WatchGuard |Todo |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guía de configuración](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) Los enrutadores de la serie ISR 7200 solo admiten VPN PolicyBased.
@@ -100,11 +100,11 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | &lt;SP_AzureGatewayIpAddress&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración como **Dirección IP de puerta de enlace**. |
 | &lt;SP_PresharedKey&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración, en Administrar clave. |
 
-## <a name="IPSec"></a>Parámetros de IPsec/IKE
+## <a name="ipsec"></a>Parámetros de IPsec/IKE
 > [!NOTE]
-> Aunque los valores que se enumeran en la siguiente tabla son compatibles con Azure VPN Gateway, actualmente no hay ningún mecanismo que le permita especificar o seleccionar una combinación de algoritmos o parámetros de Azure VPN Gateway. Debe especificar las restricciones en el dispositivo VPN local.
+> Aunque los valores que se enumeran en la siguiente tabla son compatibles con Azure VPN Gateway, actualmente no hay ningún mecanismo que le permita especificar o seleccionar una combinación de algoritmos o parámetros de Azure VPN Gateway. Debe especificar las restricciones en el dispositivo VPN local. Además, tiene que fijar el **tamaño de segmento máximo** en **1350**.
 > 
-> Además, tiene que fijar el **tamaño de segmento máximo** en **1350**.
+>
 
 En las tablas siguientes:
 
@@ -182,6 +182,8 @@ En la tabla siguiente se enumeran las ofertas de SA de IPsec (modo rápido de IK
 
 > [!IMPORTANT]
 > Estos son los problemas conocidos de compatibilidad entre dispositivos VPN de terceros y puertas de enlace de VPN de Azure. El equipo de Azure está trabajando activamente con los proveedores para solucionar los problemas enumerados aquí. Una vez que se resuelvan, esta página se actualizará con la información más reciente. Consúltela periódicamente.
+>
+>
 
 ###<a name="feb-16-2017"></a>16 de febrero de 2017
 

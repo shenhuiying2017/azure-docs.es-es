@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6703df0f64534ed638e570342eef7fbda2a74d2e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d559151e49b4c74cef8cb0bf6452436152d2b7fe
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -103,11 +103,11 @@ Todos los equipos cliente que se conecten a una red virtual mediante una conexi�
 
 ### <a name="getcer"></a>Paso 1: Obtención del archivo .cer para el certificado raíz
 
-####<a name="enterprise-certificate"></a>Certificado de empresa
+#### <a name="enterprise-certificate"></a>Certificado de empresa
  
 Si usa una solución empresarial, puede utilizar la cadena de certificados existente. Obtenga el archivo .cer para el certificado raíz que desee usar.
 
-####<a name="self-signed-root-certificate"></a>Certificado raíz autofirmado
+#### <a name="self-signed-root-certificate"></a>Certificado raíz autofirmado
 
 Si no usa una solución de certificación de empresa, será preciso que cree un certificado raíz autofirmado. Para crear un certificado raíz autofirmado que contenga los campos necesarios para la autenticación P2S, puede usar PowerShell. En [Funcionamiento de los certificados raíz autofirmados para conexiones de punto a sitio](vpn-gateway-certificates-point-to-site.md) puede obtener ayuda con los pasos necesarios para crear un certificado raíz autofirmado.
 
@@ -121,29 +121,30 @@ Si no usa una solución de certificación de empresa, será preciso que cree un 
 
 Para cargarse en Azure, las conexiones de punto a sitio requieren la clave pública (.cer). Los pasos siguientes ayudan a exportar el archivo .cer para el certificado raíz autofirmado.
 
-1. Para obtener un archivo .cer del certificado, abra **certmgr.msc**. Busque el certificado raíz autofirmado; normalmente se encuentra en Certificados - Usuario actual\Personal\Certificados y haga clic en el botón derecho. Haga clic en **Todas las tareas** y, luego, en **Exportar**. Se abre el **Asistente para exportar certificados**.
-2. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base 64 (.CER)** y, luego, haga clic en **Siguiente**. 
-4. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
-5. Haga clic en **Finalizar** para exportar el certificado. Verá **La exportación se realizó correctamente**. Haga clic en **Aceptar** para cerrar el asistente.
+1. Para obtener un archivo .cer del certificado, abra **Administrar certificados de usuario**.
+2. Busque el certificado raíz autofirmado "P2SRootCert" en "Certificados - Usuario actual\Personal\Certificados" y haga clic con el botón derecho. Haga clic en **Todas las tareas** y en **Exportar** para abrir el **Asistente para exportar certificados**.
+3. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
+4. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base 64 (.CER)** y haga clic en **Siguiente**. 
+5. En la página **Archivo que se va a exportar**, vaya a "C:", cree un subdirectorio llamado "cert" y selecciónelo. Asigne al archivo de certificado el nombre "P2SRootCert.cer" y haga clic en **Guardar**. 
+6. Haga clic en **Siguiente** y en **Finalizar** para exportar el certificado. Aparece **La exportación se realizó correctamente**. Haga clic en **Aceptar** para cerrar el asistente.
 
 ### <a name="generateclientcert"></a>Paso 2: Generación de un certificado de cliente
-Puede generar un certificado único para cada cliente que se vaya a conectar a la red virtual o puede usar el mismo en varios clientes. La ventaja de generar certificados de cliente únicos es la capacidad de revocar un solo certificado si es necesario. Sin embargo, si todos usan el mismo certificado de cliente y necesita revocar el de un solo cliente, tendrá que generar e instalar certificados nuevos para todos los clientes que usen el certificado para autenticarse.
+Puede generar un certificado único para cada cliente o puede usar el mismo en varios clientes. La ventaja de generar certificados de cliente únicos es la capacidad de revocar un solo certificado. Sin embargo, si todos usan el mismo certificado de cliente y necesita revocarlo, debe generar e instalar certificados nuevos para todos los clientes que usen ese certificado para autenticarse.
 
-####<a name="enterprise-certificate"></a>Certificado de empresa
+#### <a name="enterprise-certificate"></a>Certificado de empresa
 - Si usa una solución de certificación de empresa, genere un certificado de cliente con el formato de valor de nombre común "name@yourdomain.com", en lugar del formato "nombreDeDominio\nombreDeUsuario".
-- Asegúrese de que el certificado de cliente que emita se base en la plantilla de certificado "Usuario" que tenga "Autenticación de usuario" como primer elemento de la lista de uso, y no Inicio de sesión de tarjeta inteligente, etc. Para comprobar el certificado, haga doble clic en el certificado de cliente y vea **Detalles > Uso mejorado de claves**.
+- Asegúrese de que el certificado de cliente se base en la plantilla de certificado "Usuario" que tenga "Autenticación de cliente" como primer elemento de la lista de uso, y no Inicio de sesión de tarjeta inteligente, etc. Para comprobar el certificado, haga doble clic en el certificado de cliente y vea **Detalles > Uso mejorado de claves**.
 
-####<a name="self-signed-root-certificate"></a>Certificado raíz autofirmado 
+#### <a name="self-signed-root-certificate"></a>Certificado raíz autofirmado 
 Si utiliza un certificado raíz autofirmado, consulte [Generate a client certificate using PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) (Generación de un certificado de cliente mediante PowerShell) para ver los pasos necesarios para generar un certificado de cliente que sea compatible con conexiones de punto a sitio.
 
 
 ### <a name="exportclientcert"></a>Paso 3: Exportación del certificado de cliente
 Si genera un certificado de cliente desde un certificado raíz autofirmado mediante las instrucciones de [PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert), este se instala automáticamente en el equipo que utilizó para generarlo. Si desea instalar un certificado de cliente en otro equipo cliente, es preciso que lo exporte.
-
-1. Para exportar un certificado de cliente, abra **certmgr.msc**. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**. Se abre el **Asistente para exportar certificados**.
+ 
+1. Para exportar un certificado de cliente, abra **Administrar certificados de usuario**. Haga clic con el botón derecho en el certificado de cliente que desee exportar y haga clic en **Todas las tareas** y en **Exportar** para abrir el **Asistente para exportar certificados**.
 2. En el asistente, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y, luego, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación**, deje seleccionados los valores predeterminados. Asegúrese de que **Incluir todos los certificados en la ruta de certificación si es posible** esté seleccionada. A continuación, haga clic en **Siguiente**. 
+3. En la página **Formato de archivo de exportación**, deje seleccionados los valores predeterminados. Asegúrese de que **Incluir todos los certificados en la ruta de certificación (si es posible)** esté seleccionado para exportar también la información necesaria del certificado raíz. A continuación, haga clic en **Siguiente**.
 4. En la página **Seguridad** , debe proteger la clave privada. Si decide usar una contraseña, asegúrese de anotarla o de recordar la contraseña que estableció para este certificado. A continuación, haga clic en **Siguiente**.
 5. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
 6. Haga clic en **Finalizar** para exportar el certificado.   
@@ -152,7 +153,7 @@ Si genera un certificado de cliente desde un certificado raíz autofirmado media
 1. Una vez creada la puerta de enlace de red virtual, navegue hasta la sección **Configuración** de la hoja de la puerta de enlace de red virtual. En la sección **Configuración**, haga clic en **Configuración de punto a sitio** para abrir la hoja **Configuración**.
    
     ![Hoja de punto a sitio](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Grupo de direcciones** es el grupo de direcciones IP desde la que los clientes que se conecten recibirán una dirección IP. Agregue el grupo de direcciones y haga clic en **Guardar**.
+2. **Grupo de direcciones** es el grupo de direcciones IP desde la que los clientes que se conecten reciben una dirección IP. Agregue el grupo de direcciones y haga clic en **Guardar**.
    
     ![Grupo de direcciones de clientes](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
@@ -160,7 +161,7 @@ Si genera un certificado de cliente desde un certificado raíz autofirmado media
 Una vez creada la puerta de enlace, puede cargar el archivo .cer para un certificado raíz de confianza en Azure. Se pueden cargar archivos para un máximo de 20 certificados raíz. No cargue la clave privada para el certificado raíz en Azure. Una vez que se carga el archivo .cer, Azure lo utiliza para autenticar a los clientes que se conectan a la red virtual.
 
 1. Los certificados se agregan en la hoja **Point-to-site configuration** (Configuración de punto a sitio) de la sección **Certificado raíz**.  
-2. Asegúrese de exportar el certificado raíz como archivo X.509 codificado base 64 (.cer). La exportación se debe realizar en este formato para poder abrir el certificado con un editor de texto.
+2. Asegúrese de exportar el certificado raíz como archivo X.509 codificado base 64 (.cer). Debe exportar el certificado en este formato para poder abrir el certificado con un editor de texto.
 3. Abra el certificado con un editor de texto como Bloc de notas. Copie solo la siguiente sección como una línea continua:
    
     ![Datos del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
@@ -187,51 +188,49 @@ Puede utilizar el mismo paquete de configuración de cliente VPN en todos los eq
 **Configuración de punto a sitio**, haga clic en **Download VPN client** (Descargar cliente de VPN) para abrir la hoja **Download VPN client** (Descargar cliente de VPN). Se tarda uno o dos minutos en generar el paquete.
    
     ![Descarga del cliente de VPN 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
-2. Seleccione el paquete correcto para el cliente y haga clic en **Descargar**. Guarde el archivo del paquete de configuración. Este se instalará en todos los equipos cliente que se conecten a la red virtual.
+2. Seleccione el paquete correcto para el cliente y después haga clic en **Descargar**. Guarde el archivo del paquete de configuración. Instale el paquete de configuración de cliente VPN en cada equipo cliente que se conecta a la red virtual.
 
     ![Descarga del cliente de VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
 ### <a name="step-2---install-the-client-configuration-package"></a>Parte 2: Instalación del paquete de configuración del cliente
 
 1. Copie el archivo de configuración localmente en el equipo que desee conectar a la red virtual. 
-2. Haga doble clic en el archivo .exe para instalar el paquete en el equipo cliente. Como usted creó el paquete de configuración, no está firmado. Esto significa que podría ver una advertencia. Si aparece un elemento emergente de Windows SmartScreen, haga clic en **Más información** (a la izquierda) y en **Ejecutar de todas formas** para instalar el paquete.
-3. En el equipo cliente, vaya a **Configuración de red** y haga clic en **VPN**. Podrá ver la conexión en la lista. Muestra el nombre de la red virtual a la que se conectará y será como el siguiente:
+2. Haga doble clic en el archivo .exe para instalar el paquete en el equipo cliente. Como usted creó el paquete de configuración, no está firmado y puede ver una advertencia. Si aparece un elemento emergente de Windows SmartScreen, haga clic en **Más información** (a la izquierda) y en **Ejecutar de todas formas** para instalar el paquete.
 3. Instale el paquete en el equipo cliente. Si aparece un elemento emergente de Windows SmartScreen, haga clic en **Más información** (a la izquierda) y en **Ejecutar de todas formas** para instalar el paquete.
-4. En el equipo cliente, vaya a **Configuración de red** y haga clic en **VPN**. Podrá ver la conexión en la lista. Mostrará el nombre de la red virtual a la que se conectará y tendrá un aspecto similar al de este ejemplo: 
-   
-    ![Cliente de VPN](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png)
+4. En el equipo cliente, vaya a **Configuración de red** y haga clic en **VPN**. La conexión VPN muestra el nombre de la red virtual a la que se conecta.
 
 
 ## <a name="installclientcert"></a>Parte 10: Instalación de un certificado de cliente exportado
 
-Si desea crear una conexión P2S desde un equipo cliente distinto del que usó para generar los certificados de cliente, debe instalar un certificado de cliente. Al instalar el certificado de cliente, necesitará la contraseña que se creó cuando se exportó el certificado de cliente. 
+Si desea crear una conexión P2S desde un equipo cliente distinto del que usó para generar los certificados de cliente, debe instalar un certificado de cliente. Al instalar un certificado de cliente, necesita la contraseña que se creó cuando se exportó el certificado de cliente.
 
-1. Busque el archivo *.pfx* y cópielo en el equipo cliente. En el equipo cliente, haga doble clic en el archivo *.pfx* para instalarlo. Deje **Ubicación de almacén** como **Usuario actual** y, luego, haga clic en **Siguiente**.
-2. En la página **File to import** (Archivo para importar), no haga ningún cambio. Haga clic en **Next**.
-3. En la página **Protección de clave privada**, escriba la contraseña del certificado, si ha usado una, o compruebe que la entidad de seguridad que instala el certificado sea correcta y, luego, haga clic en **Siguiente**.
+1. Busque el archivo *.pfx* y cópielo en el equipo cliente. En el equipo cliente, haga doble clic en el archivo *.pfx* para instalarlo. Deje **Ubicación del almacén** como **Usuario actual** y haga clic en **Siguiente**.
+2. En la página **File to import** (Archivo para importar), no haga ningún cambio. Haga clic en **Siguiente**.
+3. En la página **Protección de clave privada**, escriba la contraseña del certificado o compruebe que la entidad de seguridad sea correcta y haga clic en **Siguiente**.
 4. En la página **Almacén de certificados**, deje la ubicación predeterminada y, luego, haga clic en **Siguiente**.
 5. Haga clic en **Finalizar** En la **Advertencia de seguridad** para la instalación de certificados, haga clic en **Sí**. Al haberse generado el certificado, puede hacer clic en "Sí" de forma segura. El certificado se importó correctamente.
 
 ## <a name="connect"></a>Parte 11: Conexión a Azure
-1. Para conectarse a su red virtual, en el equipo cliente, vaya a las conexiones VPN y ubique la que creó. Tiene el mismo nombre que su red virtual. Haga clic en **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Si esto ocurre, haga clic en **Continuar** para usar privilegios elevados. 
+ 
+ 1. Para conectarse a su red virtual, en el equipo cliente, vaya a las conexiones VPN y ubique la que creó. Tiene el mismo nombre que su red virtual. Haga clic en **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Haga clic en **Continuar** para usar privilegios elevados.
+
 2. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión. Si ve una pantalla para **Seleccionar certificado** , compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
    
-    ![Cliente VPN que se conecta a Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
-
-    
-3. La conexión debería establecerse.
+    ![El cliente VPN se conecta a Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+3. Se ha establecido la conexión.
    
-    ![Cliente de VPN conectado a Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
-                                                                                                                                                                           
+    ![Conexión establecida](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-> [!NOTE]
-> Si va a usar un certificado que se emitió con una solución de CA empresarial y está teniendo problemas de autenticación, compruebe el orden de autenticación en el certificado de cliente. Para comprobar el orden de la lista de autenticación, haga doble clic en el certificado de cliente y vaya a **Detalles > Uso mejorado de claves**. Asegúrese de que la lista muestre "Autenticación de cliente" como primer elemento. Si no es así, debe emitir un certificado de cliente basado en la plantilla Usuario que tenga Autenticación de cliente como primer elemento de la lista. 
->
->
+Si tiene problemas para conectarse, compruebe los siguientes elementos:
+
+- Abra **Administrar certificados de usuario** y vaya a **Entidades de certificación raíz de confianza\Certificados**. Verifique que aparece el certificado raíz. El certificado raíz debe estar presente para que funcione la autenticación. Al exportar un archivo .pfx de certificado de cliente con el valor predeterminado "Incluir todos los certificados en la ruta de certificación (si es posible)", también se exporta la información del certificado raíz. Cuando se instala el certificado de cliente, el certificado raíz también se instala en el equipo cliente. 
+
+- Si va a usar un certificado que se emitió con una solución de CA empresarial y está teniendo problemas de autenticación, compruebe el orden de autenticación en el certificado de cliente. Para comprobar el orden de la lista de autenticación, haga doble clic en el certificado de cliente y vaya a **Detalles > Uso mejorado de claves**. Asegúrese de que la lista muestre "Autenticación de cliente" como primer elemento. Si no es así, debe emitir un certificado de cliente basado en la plantilla Usuario que tenga Autenticación de cliente como primer elemento de la lista.
+
 
 ## <a name="verify"></a>Parte 12: Comprobación de la conexión
 1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
-2. Vea los resultados. Observe que la dirección IP que recibió es una de las direcciones dentro del grupo de direcciones de cliente de VPN punto a sitio que especificó en la configuración. Los resultados deben ser algo parecido a esto:
+2. Vea los resultados. Observe que la dirección IP que recibió es una de las direcciones dentro del grupo de direcciones de cliente de VPN punto a sitio que especificó en la configuración. Los resultados son similares a los del ejemplo siguiente:
    
         PPP adapter VNet1:
             Connection-specific DNS Suffix .:
@@ -244,8 +243,11 @@ Si desea crear una conexión P2S desde un equipo cliente distinto del que usó p
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
+
+Si tiene problemas para conectarse a una máquina virtual a través de P2S, use "ipconfig" para comprobar la dirección IPv4 asignada al adaptador de Ethernet en el equipo desde el que intenta conectarse. Si la dirección IP está dentro del intervalo de direcciones de la red virtual a la que se va a conectar o dentro del intervalo de direcciones de su VPNClientAddressPool, esto se conoce como un espacio de direcciones superpuesto. Cuando el espacio de direcciones se superpone de esta manera, el tráfico de red no llega a Azure, sino que se mantiene en la red local. Si los espacios de direcciones de red no se superponen y sigue sin poder conectarse a la máquina virtual, vea [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual](../virtual-machines/windows/troubleshoot-rdp-connection.md).
+
 ## <a name="add"></a>Incorporación o eliminación de certificados raíz de confianza
-Puede agregar y quitar certificados raíz de confianza de Azure. Cuando se quita un certificado de confianza, los certificados de cliente que se generaron a partir del certificado raíz ya no podrán conectarse a Azure mediante la conexión de punto a sitio. Si desea que los clientes se conecten, deben instalar un nuevo certificado de cliente que se genere a partir de un certificado de confianza en Azure.
+Puede agregar y quitar certificados raíz de confianza de Azure. Cuando se quita un certificado de confianza, los certificados de cliente que se generaron a partir del certificado raíz no se pueden conectar a Azure mediante la conexión de punto a sitio. Si desea que los clientes se conecten, debe instalar un nuevo certificado de cliente que se genere a partir de un certificado de confianza en Azure.
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Para agregar un certificado raíz de confianza
 
@@ -258,7 +260,7 @@ Puede agregar hasta 20 archivos .cer de certificado raíz de confianza a Azure. 
 3. Haga clic en los puntos suspensivos junto al certificado y en "Quitar".
 
 ## <a name="revokeclient"></a>Revocación de un certificado de cliente
-Puede revocar certificados de cliente. La lista de revocación de certificados permite denegar de forma selectiva la conectividad de punto a sitio basada en certificados de cliente individuales. Esto difiere de la forma en que se quita un certificado raíz de confianza. Si quita de Azure un archivo .cer de certificado raíz de confianza, se revoca el acceso para todos los certificados de cliente generados y firmados con el certificado raíz revocado. Al revocarse un certificado de cliente, en lugar del certificado raíz, se permite que el resto de los certificados que se generaron con el certificado raíz sigan usándose para la autenticación de la conexión de punto a sitio.
+Puede revocar certificados de cliente. La lista de revocación de certificados permite denegar de forma selectiva la conectividad de punto a sitio basada en certificados de cliente individuales. Esto difiere de la forma en que se quita un certificado raíz de confianza. Si quita de Azure un archivo .cer de certificado raíz de confianza, se revoca el acceso para todos los certificados de cliente generados y firmados con el certificado raíz revocado. Al revocarse un certificado de cliente, en lugar del certificado raíz, se permite que el resto de los certificados que se generaron a partir del certificado raíz sigan usándose para la autenticación.
 
 Lo más habitual es usar el certificado raíz para administrar el acceso a nivel de equipo u organización, mientras que los certificados de cliente revocados se usan para un control de acceso específico para usuarios individuales.
 
@@ -268,11 +270,11 @@ Puede revocar un certificado de cliente si agrega la huella digital a la lista d
 
 1. Recupere la huella digital del certificado de cliente. Para más información, consulte [Cómo recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copie la información en un editor de texto y quite todos los espacios de forma que sea una sola cadena continua.
-3. Vaya a la hoja **Configuración de punto a sitio** de la puerta de enlace de red virtual. Se trata de la hoja que utilizó para [cargar un certificado raíz de confianza](#uploadfile).
+3. Vaya a la hoja **Configuración de punto a sitio** de la puerta de enlace de red virtual. Se trata de la misma hoja que utilizó para [cargar un certificado raíz de confianza](#uploadfile).
 4. En la sección **Certificados revocados**, especifique un nombre descriptivo para el certificado (no es necesario que sea el CN del certificado).
 5. Copie y pegue la cadena de huella digital en el campo **Huella digital**.
-6. Se validará la huella digital y se agregará automáticamente a la lista de revocación. Verá un mensaje en la pantalla que indica que se está actualizando la lista. 
-7. Una vez finalizada la actualización, el certificado no se puede usar para conectarse. Los clientes que intenten conectarse con este certificado recibirán un mensaje que indica que el certificado ya no es válido.
+6. Se validará la huella digital y se agregará automáticamente a la lista de revocación. Aparece un mensaje en la pantalla que indica que se está actualizando la lista. 
+7. Una vez finalizada la actualización, el certificado no se puede usar para conectarse. Los clientes que intenten conectarse con este certificado reciben un mensaje que indica que el certificado ya no es válido.
 
 ## <a name="faq"></a>Preguntas más frecuentes sobre la conexión de punto a sitio
 

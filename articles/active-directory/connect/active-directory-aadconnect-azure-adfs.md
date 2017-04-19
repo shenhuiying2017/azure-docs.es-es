@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
-AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office&365; permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
+AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
 La implementación de AD FS en Azure tiene varias ventajas; a continuación se enumeran algunas:
 
 * **Alta disponibilidad** : con la potencia de Conjuntos de disponibilidad de Azure, se asegura una infraestructura de alta disponibilidad.
@@ -119,8 +119,8 @@ Creación de los siguientes conjuntos de disponibilidad
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Implementación de máquinas virtuales
-El siguiente paso es implementar las máquinas virtuales que hospedarán los distintos roles en su infraestructura. Se recomienda un mínimo de dos máquinas en cada conjunto de disponibilidad. Cree seis máquinas virtuales para la implementación básica.
+### <a name="4-deploy-virtual-machines"></a>4. Implementación de máquinas virtuales
+El siguiente paso es implementar las máquinas virtuales que hospedarán los distintos roles en su infraestructura. Se recomienda un mínimo de dos máquinas en cada conjunto de disponibilidad. Cree cuatro máquinas virtuales para la implementación básica.
 
 | Máquina | Rol | Subred | Conjunto de disponibilidad | Cuenta de almacenamiento | Dirección IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Una vez completada la implementación, el panel Máquinas virtuales debe ser sim
 * Promueva los dos servidores a controladores de dominio de réplica con DNS.
 * Instale el rol AD FS mediante el administrador del servidor para configurar los servidores AD FS.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Implementación del Equilibrador de carga interno (ILB)
-**6.1.    Creación del ILB**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Implementación del Equilibrador de carga interno (ILB)
+**6.1. Creación del ILB**
 
 Para implementar un ILB, seleccione Equilibradores de carga en el Portal de Azure y haga clic en Agregar (+).
 
@@ -172,7 +172,7 @@ Tras hacer clic en crear y cuando el ILB se implementa, debería verlo en la lis
 
 El siguiente paso es configurar el grupo back-end y el sondeo de back-end.
 
-**6.2.    Configuración del grupo back-end del ILB**
+**6.2. Configuración del grupo back-end del ILB**
 
 Seleccione el ILB recién creado en el panel Equilibradores de carga. Se abrirá el panel de configuración. 
 
@@ -183,7 +183,7 @@ Seleccione el ILB recién creado en el panel Equilibradores de carga. Se abrirá
 
 ![Configuración del grupo back-end del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Configuración del sondeo**
+**6.3. Configuración del sondeo**
 
 En el panel de configuración del ILB, seleccione Sondeos.
 
@@ -192,7 +192,7 @@ En el panel de configuración del ILB, seleccione Sondeos.
 
 ![Configuración del sondeo del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Creación de reglas de equilibrio de carga**
+**6.4. Creación de reglas de equilibrio de carga**
 
 Con el fin de equilibrar el tráfico de forma eficaz, el ILB debe configurarse con reglas de equilibrio de carga. Para crear una regla de equilibrio de carga: 
 
@@ -202,23 +202,23 @@ Con el fin de equilibrar el tráfico de forma eficaz, el ILB debe configurarse c
 
 ![Configuración de las reglas de equilibrio de carga](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Actualización de DNS con el ILB**
+**6.5. Actualización de DNS con el ILB**
 
 Vaya a su servidor DNS y cree un registro CNAME para el ILB. El registro CNAME debe ser para el servicio de federación con la dirección IP apuntando a la dirección IP del ILB. Por ejemplo, si la dirección DIP de ILB es 10.3.0.8 y el servicio de federación instalado es fs.contoso.com, cree un registro CNAME para fs.contoso.com apuntando a 10.3.0.8.
 Esto garantizará que todas las comunicaciones relativas a fs.contoso.com terminen en el ILB y se enruten correctamente.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Configuración del servidor proxy de aplicación web
-**7.1.    Configuración de los servidores proxy de aplicación web para acceder a servidores AD FS**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Configuración del servidor proxy de aplicación web
+**7.1. Configuración de los servidores proxy de aplicación web para acceder a servidores AD FS**
 
-Con el fin de garantizar que los servidores proxy de aplicación web puedan llegar a los servidores AD FS detrás del ILB, cree un registro en %systemroot%\system32\drivers\etc\hosts para el ILB. Tenga en cuenta que el nombre distintivo (DN) debe ser el nombre del servicio de federación; por ejemplo, fs.contoso.com. Y la entrada IP debe ser la de la dirección IP del ILB (en el ejemplo,&10;.3.0.8).
+Con el fin de garantizar que los servidores proxy de aplicación web puedan llegar a los servidores AD FS detrás del ILB, cree un registro en %systemroot%\system32\drivers\etc\hosts para el ILB. Tenga en cuenta que el nombre distintivo (DN) debe ser el nombre del servicio de federación; por ejemplo, fs.contoso.com. Y la entrada IP debe ser la de la dirección IP del ILB (en el ejemplo, 10.3.0.8).
 
-**7.2.    Instalación del rol de proxy de aplicación web**
+**7.2. Instalación del rol de proxy de aplicación web**
 
 Después de asegurarse de que los servidores proxy de aplicación web pueden acceder a los servidores AD FS detrás del ILB puede instalar los servidores proxy de aplicación web. Los servidores proxy de aplicación web no deben unirse al dominio. Instale los roles de proxy de aplicación web en los dos servidores proxy de aplicación web seleccionando el rol de acceso remoto. El administrador del servidor le guiará para completar la instalación de WAP.
 Para más información sobre cómo implementar WAP, lea [Instalar y configurar el servidor de Proxy de aplicación web](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    Implementación del equilibrador de carga accesible desde Internet (público)
-**8.1.    Creación del equilibrador de carga accesible desde Internet (público)**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Implementación del equilibrador de carga accesible desde Internet (público)
+**8.1.  Creación del equilibrador de carga accesible desde Internet (público)**
 
 En el Portal de Azure, seleccione Equilibradores de carga y haga clic en Agregar. En el panel Crear equilibrador de carga, escriba la siguiente información:
 
@@ -232,7 +232,7 @@ Después de la implementación, el equilibrador de carga aparecerá en la lista 
 
 ![Lista de equilibradores de carga](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Asignación de una etiqueta DNS a la dirección IP pública**
+**8.2. Asignación de una etiqueta DNS a la dirección IP pública**
 
 Haga clic en la entrada del equilibrador de carga recién creada en el panel Equilibradores de carga para que aparezca el panel de configuración. Siga estos pasos para configurar la etiqueta DNS para la dirección IP pública:
 
@@ -244,26 +244,26 @@ Haga clic en la entrada del equilibrador de carga recién creada en el panel Equ
 
 ![Configuración del equilibrador de carga accesible desde Internet (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Configuración de un grupo back-end para el equilibrador de carga accesible desde Internet (público)** 
+**8.3. Configuración de un grupo back-end para el equilibrador de carga accesible desde Internet (público)** 
 
 Siga los mismos pasos que al crear el equilibrador de carga interno para configurar el grupo back-end para el equilibrador de carga accesible desde Internet (público) como el conjunto de disponibilidad para los servidores WAP. Por ejemplo, contosowapset.
 
 ![Configuración del grupo back-end del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Configuración del sondeo**
+**8.4. Configuración del sondeo**
 
 Siga los mismos pasos que al configurar el equilibrador de carga interno para configurar el sondeo para el grupo back-end de los servidores WAP.
 
 ![Configuración del sondeo del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Creación de reglas de equilibrio de carga**
+**8.5. Creación de reglas de equilibrio de carga**
 
 Siga los mismos pasos que en el ILB para configurar la regla de equilibrio de carga para TCP 443.
 
 ![Configuración de reglas de equilibrio del equilibrador de carga accesible desde Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Protección de la red
-**9.1.    Protección de la subred interna**
+### <a name="9-securing-the-network"></a>9. Protección de la red
+**9.1. Protección de la subred interna**
 
 En general, necesita las siguientes reglas para proteger eficazmente la subred interna (en el orden en el que aparecen a continuación).
 
@@ -276,7 +276,7 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 
 [comentario]: <> (![reglas de acceso INT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comentario]: <> (![reglas de acceso INT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Protección de la subred DMZ**
+**9.2. Protección de la subred DMZ**
 
 | Regla | Descripción | Flujo |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    Prueba del inicio de sesión de AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Prueba del inicio de sesión de AD FS
 La forma más sencilla es probar AD FS mediante la página IdpInitiatedSignon.aspx. Para poder hacerlo, es necesario habilitar IdpInitiatedSignOn en las propiedades de AD FS. Siga estos pasos para comprobar la configuración de AD FS.
 
 1. Ejecute el siguiente cmdlet en el servidor AD FS, con PowerShell, para habilitarlo.

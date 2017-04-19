@@ -1,4 +1,4 @@
-Si posee una dirección URL de firma de acceso compartido (SAS) que le concede acceso a los recursos de una cuenta de almacenamiento, puede utilizar la SAS en una cadena de conexión. Dado que SAS incluye en el identificador URI la información necesaria para autenticar la solicitud, el identificador URI de SAS proporciona el protocolo, el punto de conexión de servicio y las credenciales necesarias para disponer de acceso al recurso.
+Si posee una dirección URL de firma de acceso compartido (SAS) que le concede acceso a los recursos de una cuenta de almacenamiento, puede utilizar la SAS en una cadena de conexión. Dado que SAS incluye la información necesaria para autenticar la solicitud, una cadena de conexión con un SAS proporciona el protocolo, el punto de conexión de servicio y las credenciales necesarias para acceder al recurso.
 
 Para crear una cadena de conexión que incluya una firma de acceso compartido, especifique la cadena con el siguiente formato:
 
@@ -23,13 +23,15 @@ Cada punto de conexión de servicio es opcional, aunque la cadena de conexión d
 Este es un ejemplo de una cadena de conexión que incluye un SAS de servicio para el almacenamiento de blobs:
 
 ```
-BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
 Aquí se muestra un ejemplo de la misma cadena de conexión con codificación de caracteres especiales:
 
 ```
-BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
 ### <a name="account-sas-example"></a>Ejemplo de SAS de cuenta
@@ -48,9 +50,4 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;
 FileEndpoint=https://storagesample.file.core.windows.net;
 SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

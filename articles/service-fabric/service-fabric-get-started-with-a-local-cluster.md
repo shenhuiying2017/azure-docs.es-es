@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,7 +90,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (llamada WordCo
    
     ![Interfaz de usuario de aplicación implementada][deployed-app-ui]
    
-    La aplicación WordCount es sencilla. Incluye código JavaScript del lado cliente para generar "palabras" aleatorias de cinco caracteres, que, posteriormente, se retransmiten a la aplicación mediante ASP.NET Web API. Un servicio con estado realiza el seguimiento del recuento de palabras. Se crean particiones basadas en el primer carácter de la palabra. El código fuente de la aplicación WordCount se puede encontrar en los [ejemplos de introducción](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    La aplicación WordCount es sencilla. Incluye código JavaScript del lado cliente para generar "palabras" aleatorias de cinco caracteres, que, posteriormente, se retransmiten a la aplicación mediante ASP.NET Web API. Un servicio con estado realiza el seguimiento del recuento de palabras. Se crean particiones basadas en el primer carácter de la palabra. El código fuente de la aplicación WordCount se puede encontrar en los [ejemplos de introducción clásicos](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     La aplicación que hemos implementado contiene cuatro particiones. Por tanto las palabras que empiezan de la A a la G se almacenan en la primera partición, las que comienzan de la H a la N en la segunda partición, y así sucesivamente.
 
