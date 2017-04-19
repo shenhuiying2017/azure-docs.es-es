@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 969e6bd55ca69e293f13b66f1a51f1d5fd1996b7
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: ac67a1a67c3a11fde98242519266fcd3ab4f60cb
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -107,7 +107,7 @@ En esta sección, creará una aplicación de consola de .NET que lee los mensaje
    
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][10a]
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ReadDeviceToCloudMessages** y luego haga clic en **Administrar paquetes NuGet**.
-3. En la ventana** Administrador de paquetes NuGet**, busque **WindowsAzure.ServiceBus**, seleccione **Instalar** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia a [Azure Service Bus][lnk-servicebus-nuget], con todas sus dependencias. Este paquete permite que la aplicación para se conecte al punto de conexión compatible con el Centro de eventos en el Centro de IoT.
+3. En la ventana**Administrador de paquetes NuGet**, busque **WindowsAzure.ServiceBus**, seleccione **Instalar** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia a [Azure Service Bus][lnk-servicebus-nuget], con todas sus dependencias. Este paquete permite que la aplicación para se conecte al punto de conexión compatible con el Centro de eventos en el Centro de IoT.
 4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
         using Microsoft.ServiceBus.Messaging;

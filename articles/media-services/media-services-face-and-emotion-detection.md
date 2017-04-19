@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
 ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -48,7 +49,7 @@ La API de detección y seguimiento de caras proporciona detección y seguimiento
 
 Las caras detectadas y seguidas se devuelven con coordenadas (izquierda, superior, ancho y alto) que indican la ubicación de caras en la imagen en píxeles, así como un número de identificación de cara que indica el seguimiento de esa persona. Los números de identificación de cara son propensos a restablecerse en circunstancias en las que la cara de frente se pierde o se superpone en el fotograma, lo que provoca que a algunas personas se les asigne varios identificadores.
 
-### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
+### <a id="output_elements"></a>Elementos del archivo JSON de salida
 Para la operación de detección y seguimiento de caras, el resultado de salida contiene los metadatos de las caras dentro del archivo especificado en formato JSON.
 
 El archivo JSON de detección y seguimiento de caras incluye los siguientes atributos:
@@ -82,7 +83,7 @@ Face Detector (Detector de caras) usa técnicas de fragmentación (donde los met
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
 
     {
-      "version":"1.0"
+      "version":"1.0",
       "options":{
           "TrackingMode": "Faster"
       }
@@ -521,10 +522,5 @@ El programa siguiente muestra cómo:
 [Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -17,7 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
 ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
-ms.lasthandoff: 03/03/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -85,7 +85,7 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office&365; dentro de Microsoft pueden anunciarse en ExpressRoute. 
+> Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office 365 dentro de Microsoft pueden anunciarse en ExpressRoute. 
 > 
 > 
 
@@ -147,7 +147,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Europa** | |
 | Europa del Norte |12076:51003 |
 | Europa occidental |12076:51002 |
-| Sur del Reino Unido&2; | 12076:51024 |
+| Sur del Reino Unido 2 | 12076:51024 |
 | Oeste de Reino Unido | 12076:51025 |
 | **Asia Pacífico** | |
 | Asia oriental |12076:51010 |
