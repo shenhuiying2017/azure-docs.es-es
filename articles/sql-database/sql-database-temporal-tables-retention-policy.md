@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: dd09cf5f9ad4bc82d9685b656eb40d31ac13fbd2
-ms.openlocfilehash: a0f5ef966bf4de86d337a561a4b9e2ded8b55488
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8687603e7dbb91d60520be8952a78128595d9f46
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -159,7 +159,7 @@ La siguiente imagen muestra el plan de consulta para una consulta simple:
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-El plan de consulta incluye un filtro adicional que se aplica a la columna de fin de período (ValidTo) en el operador Examen de índice clúster de la tabla de historial (resaltada). En este ejemplo se supone que se ha establecido el período de retención de&1; MES en la tabla WebsiteUserInfo.
+El plan de consulta incluye un filtro adicional que se aplica a la columna de fin de período (ValidTo) en el operador Examen de índice clúster de la tabla de historial (resaltada). En este ejemplo se supone que se ha establecido el período de retención de 1 MES en la tabla WebsiteUserInfo.
 
 ![Filtro de consulta de retención](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
@@ -170,7 +170,7 @@ Sin embargo, si consulta la tabla de historial directamente, puede ver filas con
 No se fíe de la lógica empresarial al leer la tabla de historial más allá del período de retención, ya que puede obtener resultados inesperados o incoherentes. Se recomienda usar consultas temporales con la cláusula FOR SYSTEM_TIME para analizar los datos de tablas temporales.
 
 ## <a name="point-in-time-restore-considerations"></a>Consideraciones sobre la restauración a un momento dado
-Cuando crea una nueva base de datos mediante la [restauración de una base de datos existente a un momento específico en el tiempo](sql-database-point-in-time-restore-portal.md), tiene una retención temporal deshabilitada en el nivel de base de datos. (la marca **is_temporal_history_retention_enabled** establecida en OFF). Esta funcionalidad permite examinar todas las filas históricas tras la restauración, sin preocuparse de que las filas antiguas se quiten antes de conseguir consultarlas. Puede usarla para *inspeccionar los datos históricos más allá del período de retención configurado*.
+Cuando crea una nueva base de datos mediante la [restauración de una base de datos existente a un momento específico en el tiempo](sql-database-recovery-using-backups.md), tiene una retención temporal deshabilitada en el nivel de base de datos. (la marca **is_temporal_history_retention_enabled** establecida en OFF). Esta funcionalidad permite examinar todas las filas históricas tras la restauración, sin preocuparse de que las filas antiguas se quiten antes de conseguir consultarlas. Puede usarla para *inspeccionar los datos históricos más allá del período de retención configurado*.
 
 Supongamos que una tabla temporal tiene especificado un período de retención de un MES. Si la base de datos se creó en el nivel de servicio Premium, podrá crear una copia de ella con el estado de hasta 35 días hacia atrás en el pasado. Eso permitiría analizar de forma eficaz las filas históricas que tienen hasta 65 días de antigüedad consultando la tabla de historial directamente.
 
