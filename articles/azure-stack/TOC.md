@@ -14,8 +14,7 @@
 ### [Conexión a Azure Stack POC](azure-stack-connect-azure-stack.md)
 ### [Adición de imagen predeterminada](azure-stack-add-default-image.md)
 ### [Aprovisionamiento de una máquina virtual](azure-stack-provision-vm.md)
-### [Cree una cuenta de almacenamiento](azure-stack-provision-storage-account.md)
-### [Add a new Azure Stack tenant account in Azure Active Directory](azure-stack-add-new-user-aad.md)
+### [crear una cuenta de almacenamiento](azure-stack-provision-storage-account.md)
 ### [Nueva implementación de la POC de Azure Stack](azure-stack-redeploy.md)
 
 # Administrar
@@ -31,15 +30,17 @@
 ## Procedimientos
 ### [Administración de actualizaciones](azure-stack-updates.md)
 ### [Supervisión de estado y alertas](azure-stack-monitor-health.md)
-### [Administración de recursos de red](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Administración de recursos de red](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Administración de recursos de almacenamiento](azure-stack-manage-storage-accounts.md)
 ### [Administración de máquinas virtuales de Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Seguridad y cumplimiento
 ## Procedimientos
 ### [Administración de RBAC](azure-stack-manage-permissions.md)
+### [Adición de usuarios a Azure AD](azure-stack-add-new-user-aad.md)
 ### [Adición de usuarios a AD FS](azure-stack-add-users-adfs.md)
 ### [Creación de entidades de servicio](Azure-stack-create-service-principals.md)
+### [Habilitación de servicios multiinquilino](azure-stack-enable-multitenancy.md)
 
 # Oferta de servicios
 ## Primeros pasos

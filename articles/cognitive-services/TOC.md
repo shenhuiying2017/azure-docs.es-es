@@ -287,10 +287,10 @@
 ### [Idiomas](Translator/languages.md)
 ### [Hub](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Introducción a Speech translation API](Translator/speech-overview.md)
-### [Referencias de Speech translation API](http://docs.microsofttranslator.com/speech-translate.html)
-### [Introducción a Text translation API](Translator/text-overview.md)
-### [Referencias de Text translation API](http://docs.microsofttranslator.com/text-translate.html)
+### [Introducción a Translator Speech API](Translator/speech-overview.md)
+### [Referencia de Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html)
+### [Introducción a Translator Text API](Translator/text-overview.md)
+### [Referencia de Translator Text API](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Vídeo
 ### [Información general](Video/Home.md)

@@ -3,7 +3,7 @@
 ## [Preguntas más frecuentes](event-hubs-faq.md)
 
 # Introducción
-## [Creación de un Centro de eventos](event-hubs-create.md)
+## [Creación de un centro de eventos](event-hubs-create.md)
 ## Envío de eventos
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
@@ -39,18 +39,18 @@
 #### [Uso de Python para habilitar Event Hubs Archive](event-hubs-archive-python.md)
 ### [Uso de PowerShell para aprovisionar entidades](event-hubs-manage-with-ps.md) 
 ### [Transmisión de datos de Diagnósticos de Azure mediante Event Hubs](event-hubs-streaming-azure-diags-data.md)
-### [Creación e implementación un Centro de eventos usando una plantilla de Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
+### [Creación e implementación de un centro de eventos usando una plantilla de Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Referencia
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
 ### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
-## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
 ## [Excepciones](event-hubs-messaging-exceptions.md)
 ## [Cuotas](event-hubs-quotas.md)

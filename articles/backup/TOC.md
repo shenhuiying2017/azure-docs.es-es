@@ -76,6 +76,7 @@
 ## [Eliminación de un almacén de Azure Backup](backup-azure-delete-vault.md)
 ## [Configuración de copias de seguridad sin conexión](backup-azure-backup-import-export.md)
 ## [Reemplazo de la biblioteca de cintas](backup-azure-backup-cloud-as-tape.md)
+## [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)
 
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)

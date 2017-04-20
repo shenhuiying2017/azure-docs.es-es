@@ -25,6 +25,16 @@
 ### [Cmdlets de PowerShell de Batch](batch-powershell-cmdlets-get-started.md)
 ### [CLI de Azure](batch-cli-get-started.md)
 ### [Registros de diagnósticos de Batch](batch-diagnostics.md)
+### [Análisis por lotes](batch-analytics.md)
+#### [Evento de creación de grupo](batch-pool-create-event.md)
+#### [Evento de inicio de eliminación de grupo](batch-pool-delete-start-event.md)
+#### [Evento de finalización de eliminaciones de grupo](batch-pool-delete-complete-event.md)
+#### [Evento de inicio de cambio de tamaño de grupo](batch-pool-resize-start-event.md)
+#### [Evento de finalización de cambio de tamaño de grupo](batch-pool-resize-complete-event.md)
+#### [Evento de inicio de tarea](batch-task-start-event.md)
+#### [Evento de tarea completada](batch-task-complete-event.md)
+#### [Evento de error en tareas](batch-task-fail-event.md)
+### [Variables de entorno de nodo de proceso de Azure Batch](batch-compute-node-environment-variables.md)
 
 # Referencia
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

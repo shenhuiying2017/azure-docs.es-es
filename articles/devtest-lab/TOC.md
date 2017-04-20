@@ -19,6 +19,7 @@
 ### [Configuración de la administración de costos](devtest-lab-configure-cost-management.md)
 ### [Configuración de redes virtuales](devtest-lab-configure-vnet.md)
 ### [Descripción de las direcciones IP compartidas](devtest-lab-shared-ip.md)
+### [Automatización de la modificación de laboratorio mediante plantillas y PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Administración de artefactos
 ### [Adición de un repositorio de artefactos](devtest-lab-add-artifact-repo.md)

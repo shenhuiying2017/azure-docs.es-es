@@ -1,17 +1,20 @@
 # Información general
 ## [¿Qué es Azure Automation?](automation-intro.md)
-# Primeros pasos
+# Introducción
+## [Introducción a Azure Automation](automation-offering-get-started.md)
 ## Tutorial de runbook
 ### [Creación de un runbook gráfico](automation-first-runbook-graphical.md)
 ### [Creación de runbook de PowerShell](automation-first-runbook-textual-powershell.md)
 ### [Creación de runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 # Procedimientos
 ## Autenticación y seguridad
-### [Autenticación en Azure Automation](automation-security-overview.md)
-### [Configuración de una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md)
-### [Configuración de una cuenta de usuario de Azure AD](automation-sec-configure-aduser-account.md)
-### [Configuración de la autenticación con AWS](automation-sec-configure-aws-account.md)
+### [Creación de una cuenta independiente de Automation](automation-create-standalone-account.md)
+### [ Creación de una cuenta de usuario de Azure AD](automation-create-aduser-account.md)
+### [Configuración de la autenticación con AWS](automation-config-aws-account.md)
+### [Creación de una cuenta de ejecución de Azure con PowerShell](automation-update-account-powershell.md)
+### [Validación de la configuración de la cuenta de Automation](automation-verify-runas-authentication.md)
 ### [Administración de control de acceso basado en roles](automation-role-based-access-control.md)
+### [Administración de la cuenta de Automation](automation-manage-account.md)
 ## Crear runbooks
 ### [Tipos de runbook](automation-runbook-types.md)
 ### [Crear e importar runbooks](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (clásico)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (clásico)](https://msdn.microsoft.com/library/azure/mt163781)
 # Recursos
 ## [Notas de la versión](https://azure.microsoft.com/updates/?product=automation)
