@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "servicio en la nube de IoT, envío de datos de Arduino a la nube"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: 1b3b1074-f4d4-42ac-b32c-55f18b304b44
 ms.service: iot-hub
 ms.devlang: nodejs

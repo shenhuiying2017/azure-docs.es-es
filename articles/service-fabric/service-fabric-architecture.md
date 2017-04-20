@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/09/2016
+ms.date: 04/19/2016
 ms.author: rsinha
 translationtype: Human Translation
 ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
 ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -62,10 +63,5 @@ Este subsistema ofrece mensajería confiable en la detección de clústeres y se
 
 ## <a name="testability-subsystem"></a>Subsistema de capacidad de prueba
 La capacidad de prueba es un conjunto de herramientas diseñadas de manera específica para probar los servicios de pruebas basados en Service Fabric. Las herramientas permiten al desarrollador provocar fácilmente errores significativos y ejecutar escenarios de prueba para ejercer y validar los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura y controlada. La comprobación también ofrece un mecanismo para ejecutar pruebas más largas que pueden iterar a través de varios errores posibles sin perder la disponibilidad. Esto le ofrece un entorno de producción en pruebas.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

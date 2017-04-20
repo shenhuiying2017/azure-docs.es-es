@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "instalación de raspbian, descarga de raspbian, cómo instalar raspbian, configuración de raspbian, instalar raspbian para raspberry pi, instalar so para raspberry pi, instalar tarjeta sd para raspberry pi, conexión de raspberry pi, conectar a raspberry pi, conectividad de raspberry pi"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 8ee9b23c-93f7-43ff-8ea1-e7761eb87a6f
 ms.service: iot-hub
 ms.devlang: c

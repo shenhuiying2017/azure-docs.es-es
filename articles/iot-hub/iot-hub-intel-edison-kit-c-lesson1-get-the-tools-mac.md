@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: herramientas de desarrollo de Arduino, desarrollo de iot, software de iot, software de internet de las cosas, instalar git en mac, instalar node js mac
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: 3f764f2e-25fa-4dde-9e8d-d278453fccfd
 ms.service: iot-hub
 ms.devlang: c
