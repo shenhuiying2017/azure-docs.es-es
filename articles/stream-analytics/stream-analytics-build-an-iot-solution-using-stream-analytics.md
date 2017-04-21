@@ -62,7 +62,7 @@ El flujo de datos de entrada contiene información sobre los vehículos que entr
 | 3 |10-09-2014 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
 | 2 |10-09-2014 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |10-09-2014 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |10-09-2014 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x&4; |1 |0 |6 |321987654 |
+| 2 |10-09-2014 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
 
 Breve descripción de las columnas:
 
@@ -129,7 +129,7 @@ Si no tiene una cuenta de Azure, puede [solicitar una versión de evaluación gr
 > 
 > 
 
-Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito gratuito de&200; $ de Azure.
+Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito gratuito de 200 $ de Azure.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Aprovisionamiento de los recursos de Azure necesarios para el tutorial
 Este tutorial requiere dos Centros de eventos para recibir los flujos de datos *entry* y *exit*. Azure SQL Database genera los resultados de los trabajos de Stream Analytics. Azure Storage almacena los datos de referencia sobre los registros de vehículos.
@@ -255,7 +255,7 @@ Sin embargo, si está interesado en los detalles de implementación, puede encon
 6. El origen es **Centro de eventos**.
 7. **Service bus namespace** debe ser el primer TollData que aparece en la lista desplegable.
 8. El **nombre del centro de eventos** se debe establecer en **entrada**.
-9. El **nombre de la directiva del centro de eventos*es **RootManageSharedAccessKey** (el valor predeterminado).
+9. El **nombre de la directiva del centro de eventos*es**RootManageSharedAccessKey** (el valor predeterminado).
 10. Seleccione **JSON** para **FORMATO DE SERIALIZACIÓN DE EVENTOS** y **UTF8** para **CODIFICACIÓN**.
    
     La configuración se verá así:
