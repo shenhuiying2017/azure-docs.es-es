@@ -130,7 +130,7 @@ La API de MongoDB de Microsoft Azure DocumentDB es una capa de compatibilidad qu
 ### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>¿Cómo puedo conectarme a la base de datos de mi API de MongoDB?
 La forma más rápida de conectarse la API de MongoDB de DocumentDB es a través de [Azure Portal](https://portal.azure.com). Acceda a su cuenta. En el panel de *navegación izquierda* de la cuenta, haga clic en *Inicio rápido*. *Inicio rápido* es la mejor manera de obtener fragmentos de código para conectarse a su base de datos. 
 
-DocumentDB aplica estrictos estándares y requisitos de seguridad. Las cuentas de DocumentDB requieren autenticación y comunicación segura a través de *SSL* para garantizar el uso de la versión&1;.2 del protocolo TLS.
+DocumentDB aplica estrictos estándares y requisitos de seguridad. Las cuentas de DocumentDB requieren autenticación y comunicación segura a través de *SSL* para garantizar el uso de la versión 1.2 del protocolo TLS.
 
 Para obtener más información, consulte el artículo sobre [conectarse a la base de datos de la API de MongoDB](documentdb-connect-mongodb-account.md).
 

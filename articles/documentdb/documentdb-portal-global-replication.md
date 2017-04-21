@@ -43,7 +43,7 @@ Cuando agrega una segunda región, se habilita la opción **Conmutación por err
 ### <a name="selecting-global-database-regions"></a>Selección de regiones de la base de datos global
 Al configurar dos o más regiones, se recomienda que las regiones se seleccionen en función de los pares de regiones descritos en el artículo [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure][bcdr].
 
-En concreto, cuando se configuran varias regiones, asegúrese de seleccionar el mismo número de regiones (+/-1 para par o impar) de cada una de las columnas de regiones emparejadas. Por ejemplo, si quiere implementar en&4; regiones de Estados Unidos, seleccione&2; regiones de Estados Unidos en la columna izquierda y&2; en la derecha. Este sería un conjunto adecuado: oeste de EE. UU., este de EE. UU., centro-norte de EE. UU. y centro-sur de EE. UU.
+En concreto, cuando se configuran varias regiones, asegúrese de seleccionar el mismo número de regiones (+/-1 para par o impar) de cada una de las columnas de regiones emparejadas. Por ejemplo, si quiere implementar en 4 regiones de Estados Unidos, seleccione 2 regiones de Estados Unidos en la columna izquierda y 2 en la derecha. Este sería un conjunto adecuado: oeste de EE. UU., este de EE. UU., centro-norte de EE. UU. y centro-sur de EE. UU.
 
 Cuando solo hay dos regiones configuradas para escenarios de recuperación ante desastres, es importante seguir estas instrucciones. Cuando hay más de dos regiones, se recomienda seguir estas instrucciones, aunque no es obligatorio siempre y cuando algunas de las regiones seleccionadas respeten este emparejamiento.
 

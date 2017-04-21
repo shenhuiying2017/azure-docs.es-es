@@ -29,7 +29,7 @@ ms.lasthandoff: 01/24/2017
 > * [CLI de Azure](load-balancer-ipv6-internet-cli.md)
 > * [Plantilla](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer es un equilibrador de carga de nivel&4; (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
+Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 
 ## <a name="example-deployment-scenario"></a>Escenario de implementación de ejemplo
 

@@ -171,7 +171,7 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 | Propiedad | Descripción |
 | --- | --- |
-| Convertir formato decimal implícito Nn en valor numérico de base 10 |Convierte un número EDI especificado con el formato "Nn" en un valor numérico de base&10;. |
+| Convertir formato decimal implícito Nn en valor numérico de base 10 |Convierte un número EDI especificado con el formato "Nn" en un valor numérico de base 10. |
 | Create empty XML tags if trailing separators are allowed (Crear etiquetas XML vacías si se permiten separadores finales) |Seleccione esta casilla para que el remitente del intercambio incluya etiquetas XML vacías para los separadores finales. |
 | Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error|Analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente aplicando el sobre adecuado al conjunto de transacciones. Solo suspende aquellas transacciones en las que se produce un error en la validación. |
 | Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error|Analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente aplicando el sobre adecuado. Suspende todo el intercambio cuando uno o varios conjuntos de transacciones del intercambio no superan la validación. | 
