@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
 ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -96,9 +97,4 @@ Puede descargar una plantilla de Excel para consumir el servicio web:
 
 ### <a name="from-a-rest-based-client"></a>Desde un cliente basado en REST
 Los servicios web Azure Machine Learning son API de RESTful. Puede consumir estas API desde varias plataformas como. NET, Python, R, Java, etc. La página **Consumo** del servicio web en el [portal de Servicios web Microsoft Azure Machine Learning](https://services.azureml.net) incluye código de ejemplo que le ayudará a empezar. Para más información, consulte [Cómo consumir un servicio web Machine Learning implementado en un experimento de Machine Learning](machine-learning-consume-web-services.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
