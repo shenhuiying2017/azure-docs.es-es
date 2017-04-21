@@ -161,7 +161,7 @@ o
 Para obtener una lista de otros comandos de Hadoop que funcionan con archivos, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> En los clústeres de HBase, el tamaño de bloque predeterminado al escribir datos es de 256 KB. Aunque esto funciona bien cuando se usa la API de REST o las API de HBase, el uso de los comandos `hadoop` o `hdfs dfs` para escribir más de ~&12; GB de datos genera un error. Consulte la sección [Excepción de almacenamiento para escritura en blob](#storageexception) a continuación para más información.
+> En los clústeres de HBase, el tamaño de bloque predeterminado al escribir datos es de 256 KB. Aunque esto funciona bien cuando se usa la API de REST o las API de HBase, el uso de los comandos `hadoop` o `hdfs dfs` para escribir más de ~ 12 GB de datos genera un error. Consulte la sección [Excepción de almacenamiento para escritura en blob](#storageexception) a continuación para más información.
 >
 >
 
@@ -230,7 +230,7 @@ Para obtener más información acerca de cómo instalar los SDK de Azure, consul
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a id="storageexception"></a>Excepción de almacenamiento para escritura en blob
-**Síntomas**: al usar los comandos `hadoop` o `hdfs dfs` para escribir archivos de ~&12; GB o mayores en un clúster de HBase, puede encontrar el siguiente error:
+**Síntomas**: al usar los comandos `hadoop` o `hdfs dfs` para escribir archivos de ~ 12 GB o mayores en un clúster de HBase, puede encontrar el siguiente error:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
