@@ -39,7 +39,7 @@ Las métricas son una valiosa fuente de telemetría y le permiten realizar las s
 ## <a name="what-are-the-characteristics-of-metrics"></a>¿Cuáles son las características de las métricas?
 Las métricas presentan las características siguientes:
 
-* Todas las métricas tienen una **frecuencia de&1; minuto**. Recibe un valor de métrica del recurso cada minuto, lo que proporciona visibilidad en tiempo real del estado y la integridad del recurso.
+* Todas las métricas tienen una **frecuencia de 1 minuto**. Recibe un valor de métrica del recurso cada minuto, lo que proporciona visibilidad en tiempo real del estado y la integridad del recurso.
 * Las métricas están **disponibles de forma inmediata**. No tiene que habilitarlas ni configurar diagnósticos adicionales.
 * Puede acceder a **30 días del historial** de cada métrica. Puede buscar rápidamente las tendencias recientes y mensuales en el rendimiento o el estado del recurso.
 

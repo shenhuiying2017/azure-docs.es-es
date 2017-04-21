@@ -50,7 +50,7 @@ Mientras tanto, [suministramos un script](https://blogs.msdn.microsoft.com/azure
 
 **Respuesta larga**: aunque los grandes conjuntos de escalado virtual (VMSS) le permiten escalar un VMSS hasta en 1000 instancias de máquina virtual, lo hace mediante el uso de grupos de selección de ubicación (PG). Los dominios de error (FD) y los dominios de actualización (UD) solo son coherentes dentro de un grupo de selección de ubicación. Service Fabric usa los FD y los UD para tomar decisiones de selección de ubicación de las réplicas o instancias del servicio. Puesto que los FD y los UD solo son comparables dentro de un grupo de selección de ubicación SF no puede usarlo. Por ejemplo, si VM1 en PG1 tiene una topología de FD=0 y VM9 en PG2 tiene una topología de FD=4, esto no significa que VM1 y VM2 se encuentren en dos bastidores de hardware diferentes. Por tanto, SF no podrá usar los valores de FD en este caso para tomar decisiones de selección de ubicación.
 
-Actualmente, hay otros problemas con VMSS grandes como la falta de soporte para el equilibrio de carga del nivel&4;. Consulte para obtener [detalles sobre VMSS grandes](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+Actualmente, hay otros problemas con VMSS grandes como la falta de soporte para el equilibrio de carga del nivel 4. Consulte para obtener [detalles sobre VMSS grandes](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -58,7 +58,7 @@ Actualmente, hay otros problemas con VMSS grandes como la falta de soporte para 
 
 El tamaño mínimo admitido para un clúster de Service Fabric que ejecute cargas de trabajo de producción es cinco nodos. Para escenarios de desarrollo y prueba, se admiten los nodos de tres clústeres.
 
-Estos mínimos existen porque el clúster de Service Fabric ejecuta un conjunto de servicios de sistema con estado, incluidos el servicio de nomenclatura y el administrador de conmutación por error. Estos servicios, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 +&1;) para un servicio dado.
+Estos mínimos existen porque el clúster de Service Fabric ejecuta un conjunto de servicios de sistema con estado, incluidos el servicio de nomenclatura y el administrador de conmutación por error. Estos servicios, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 + 1) para un servicio dado.
 
 Con esta información, examinemos algunas posibles configuraciones de clúster:
 

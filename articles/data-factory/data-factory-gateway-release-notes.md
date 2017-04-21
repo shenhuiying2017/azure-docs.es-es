@@ -88,7 +88,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 ## <a name="216040"></a>2.1.6040.
 
 *  El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado. 
-*  El controlador DB2 ahora admite z/OS y DB2 para i (AS /&400;) junto con las plataformas ya admitidas (Linux, Unix y Windows). 
+*  El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows). 
 *  Admite el uso de DocumentDB como origen o destino para almacenes de datos locales
 *  Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida. 
 *  Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.  
@@ -97,7 +97,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  Puede seleccionar el idioma o la referencia cultural que utilizará una puerta de enlace durante la instalación manual.
 
-*  Cuando la puerta de enlace no funciona del modo previsto, puede optar por enviar los registros de la puerta de enlace de los últimos&7; días a Microsoft para que pueda solucionar el problema. Si la puerta de enlace no está conectada al servicio en la nube, puede guardar y archivar los registros de la puerta de enlace.  
+*  Cuando la puerta de enlace no funciona del modo previsto, puede optar por enviar los registros de la puerta de enlace de los últimos 7 días a Microsoft para que pueda solucionar el problema. Si la puerta de enlace no está conectada al servicio en la nube, puede guardar y archivar los registros de la puerta de enlace.  
 
 *  Mejoras de la interfaz de usuario del Administrador de configuración de puertas de enlace:
 
@@ -122,7 +122,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante. 
 
-*  En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación&3; veces al máximo.
+*  En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación 3 veces al máximo.
 
 *  Mejoras en el rendimiento
 

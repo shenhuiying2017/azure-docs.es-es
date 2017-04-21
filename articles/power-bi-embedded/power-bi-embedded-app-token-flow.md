@@ -42,7 +42,7 @@ El token de la aplicación puede contener las siguientes notificaciones:
 
 | Notificación | Description |
 | --- | --- |
-| **ver** |La versión del token de aplicación. La versión actual es&0;.2.0. |
+| **ver** |La versión del token de aplicación. La versión actual es 0.2.0. |
 | **aud** |El destinatario previsto del token. Para usar Power BI Embedded: "https://analysis.windows.net/powerbi/api". |
 | **iss** |Una cadena que indica la aplicación que emitió el token. |
 | **type** |El tipo de token de aplicación que se está creando. El único tipo admitido actualmente es **insertar**. |

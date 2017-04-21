@@ -108,7 +108,7 @@ Si ha protegido las máquinas virtuales como recursos clásicos (es decir, la m�
  ![Ventana "Agregar servidores de procesos"](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 
  Dado que está creando el servidor de procesos, preste atención a lo siguiente:
- * El nombre de la imagen es *Microsoft Azure Site Recovery Process Server V2*(Servidor de procesos de Microsoft Azure Site Recovery, versión&2;). Seleccione **Clásico** como el modelo de implementación.
+ * El nombre de la imagen es *Microsoft Azure Site Recovery Process Server V2*(Servidor de procesos de Microsoft Azure Site Recovery, versión 2). Seleccione **Clásico** como el modelo de implementación.
 
        ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
  * Instale el servidor de procesos siguiendo las instrucciones de [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).

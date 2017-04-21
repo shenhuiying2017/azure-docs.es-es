@@ -107,7 +107,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >Los latidos se envían para garantizar que no se pierdan sesiones. Tenga en cuenta que cuando un equipo entra en modo de suspensión o se apaga, no se enviará el latido, con lo que se la sesión se limpia. Para los clústeres&3;.4, si desea deshabilitar este comportamiento, puede establecer la configuración de Livio `livy.server.interactive.heartbeat.timeout` a `0` en la interfaz de usuario de Ambari. Para los clústeres 3.5, si no establece la configuración de 3.5 anterior, no se eliminará la sesión.
+    >Los latidos se envían para garantizar que no se pierdan sesiones. Tenga en cuenta que cuando un equipo entra en modo de suspensión o se apaga, no se enviará el latido, con lo que se la sesión se limpia. Para los clústeres 3.4, si desea deshabilitar este comportamiento, puede establecer la configuración de Livio `livy.server.interactive.heartbeat.timeout` a `0` en la interfaz de usuario de Ambari. Para los clústeres 3.5, si no establece la configuración de 3.5 anterior, no se eliminará la sesión.
 
 6. Reinicie Jupyter. En la ventana del símbolo del sistema, ejecute el comando siguiente.
 

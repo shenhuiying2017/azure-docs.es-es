@@ -410,7 +410,7 @@ Para realizar la importación en una sola colección, escriba el nombre de la co
 2. Puede usar una sintaxis abreviada: colección[3] generará el mismo conjunto de colecciones que el paso 1.
 3. Se pueden proporcionar varias sustituciones. Por ejemplo, colección[0-1] [0-9] 20 nombres de colección con ceros delante (colección01,... 02... 03).
 
-Una vez especificados los nombres de las colecciones, elija la capacidad de proceso deseada de la colección (de 400 RU a 250 000 RU). Para conseguir el mejor rendimiento en la importación, elija una mayor capacidad de proceso. Para obtener más información sobre los niveles de rendimiento, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md). Cualquier importación a colecciones con una capacidad de proceso de >10&000; RU requerirá una clave de partición. Si elige tener más de 250 000 RU, debe registrar una solicitud en el portal para que le aumenten su cuenta.
+Una vez especificados los nombres de las colecciones, elija la capacidad de proceso deseada de la colección (de 400 RU a 250 000 RU). Para conseguir el mejor rendimiento en la importación, elija una mayor capacidad de proceso. Para obtener más información sobre los niveles de rendimiento, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md). Cualquier importación a colecciones con una capacidad de proceso de >10 000 RU requerirá una clave de partición. Si elige tener más de 250 000 RU, debe registrar una solicitud en el portal para que le aumenten su cuenta.
 
 > [!NOTE]
 > La configuración de la capacidad de proceso solo se aplica a la creación de colecciones. Si la colección especificada ya existe, no se modificará su capacidad de proceso.

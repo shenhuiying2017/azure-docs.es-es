@@ -38,16 +38,16 @@ En la tabla siguiente se han considerado estas hipótesis:
 
 | [DWU][DWU] | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | # Filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
-| DW100 |1 |60 |60 |4&000;&000; |240&000;&000; |
-| DW200 |1.5 |60 |90 |6.000.000 |360&000;&000; |
-| DW300 |2.25 |60 |135 |9&000;&000; |540&000;&000; |
-| DW400 |3 |60 |180 |12&000;&000; |720&000;&000; |
-| DW500 |3,75 |60 |225 |15&000;&000; |900&000;&000; |
-| DW600 |4.5. |60 |270 |18&000;&000; |1&080;&000;&000; |
-| DW1000 |7.5 |60 |450 |30&000;&000; |1&800;&000;&000; |
-| DW1200 |9 |60 |540 |36&000;&000; |2&160;&000;&000; |
-| DW1500 |11,25 |60 |675 |45&000;&000; |2&700;&000;&000; |
-| DW2000 |15 |60 |900 |60&000;&000; |3&600;&000;&000; |
+| DW100 |1 |60 |60 |4 000 000 |240 000 000 |
+| DW200 |1.5 |60 |90 |6.000.000 |360 000 000 |
+| DW300 |2.25 |60 |135 |9 000 000 |540 000 000 |
+| DW400 |3 |60 |180 |12 000 000 |720 000 000 |
+| DW500 |3,75 |60 |225 |15 000 000 |900 000 000 |
+| DW600 |4.5. |60 |270 |18 000 000 |1 080 000 000 |
+| DW1000 |7.5 |60 |450 |30 000 000 |1 800 000 000 |
+| DW1200 |9 |60 |540 |36 000 000 |2 160 000 000 |
+| DW1500 |11,25 |60 |675 |45 000 000 |2 700 000 000 |
+| DW2000 |15 |60 |900 |60 000 000 |3 600 000 000 |
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
@@ -65,7 +65,7 @@ Para optimizar y minimizar la cantidad de datos que se escriben en el registro, 
 El Almacenamiento de datos SQL usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Esto significa que se ha producido un error en la transacción y que está marcada para reversión únicamente.
 
 > [!NOTE]
-> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, Almacenamiento de datos SQL no permite hacerlo. Si se produce un error dentro de una transacción de Almacenamiento de datos SQL, especificará automáticamente el estado&2; y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
+> El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, `SELECT 1/0` producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, Almacenamiento de datos SQL no permite hacerlo. Si se produce un error dentro de una transacción de Almacenamiento de datos SQL, especificará automáticamente el estado 2 y no podrá realizar más instrucciones select hasta que la instrucción se haya revertido. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE() cuando necesite realizar modificaciones de código.
 > 
 > 
 
