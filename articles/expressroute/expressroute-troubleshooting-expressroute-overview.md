@@ -243,7 +243,7 @@ Si no se configura un emparejamiento, aparecerá un mensaje de error. Esta es un
 >
 
 <p/>
->[!NOTE] >Si un emparejamiento no está habilitado, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración de los MSEE-PR. Compruebe también si se usan los t * VlandId * , * AzureASN* y d * PeerASN * correctos en los MSEE, y si estos valores se asignan a los que se utilizan en el MSEE-PR vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y MSEE-PR. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][Creación de un emparejamiento].  
+>[!NOTE] >Si un emparejamiento no está habilitado, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración de los MSEE-PR. Compruebe también si se usan los t * VlandId * , * AzureASN* y d * PeerASN * correctos en los MSEE, y si estos valores se asignan a los que se utilizan en el MSEE-PR vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y MSEE-PR. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
 >
 
@@ -283,7 +283,7 @@ Para obtener los detalles de configuración del emparejamiento de Microsoft, use
 >
 
 <p/>
->[!NOTE] >Si un emparejamiento no está habilitado, compruebe si las subredes de pares principales y secundarias asignadas coinciden con la configuración de los MSEE-PR vinculados. Compruebe también si se usan los t* VlandId*, * AzureAsn* y d * PeerAsn * correctos en los MSEE, y si estos valores se asignan a los que se utilizan en el MSEE-PR vinculado. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][Creación de un emparejamiento].
+>[!NOTE] >Si un emparejamiento no está habilitado, compruebe si las subredes de pares principales y secundarias asignadas coinciden con la configuración de los MSEE-PR vinculados. Compruebe también si se usan los t* VlandId*, * AzureAsn* y d * PeerAsn * correctos en los MSEE, y si estos valores se asignan a los que se utilizan en el MSEE-PR vinculado. Para cambiar la configuración en los enrutadores MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 >
 >
 
