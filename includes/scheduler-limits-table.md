@@ -17,8 +17,3 @@ En la tabla siguiente se describe cada uno de los principales aceleradores, valo
 | **Retención de trabajos completados y con errores** |Los trabajos completados y con errores se conservan durante 60 días. |
 | **Tiempo de espera** |Hay un tiempo de espera de solicitud estático (no configurable) de 60 segundos para las acciones de HTTP. Para operaciones de ejecución más larga, siga los protocolos HTTP asincrónicos; por ejemplo, devolver inmediatamente un 202 pero continuar trabajando en segundo plano. |
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
