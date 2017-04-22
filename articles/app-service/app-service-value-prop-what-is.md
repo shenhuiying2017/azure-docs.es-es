@@ -87,7 +87,7 @@ Para más información sobre el costo de Servicio de aplicaciones, consulte [Pre
 
 También puede abrir una [cuenta de Azure gratis](https://azure.microsoft.com/pricing/free-trial/)y seguir uno de nuestros tutoriales de introducción:
 
-* [Implementación de su primera aplicación web en Azure en&5; minutos](../app-service-web/app-service-web-get-started.md)
+* [Implementación de su primera aplicación web en Azure en 5 minutos](../app-service-web/app-service-web-get-started.md)
 * [Creación de una aplicación de Android](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Introducción a Aplicaciones de API, ASP.NET y Swagger en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md)
