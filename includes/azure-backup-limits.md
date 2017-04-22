@@ -10,8 +10,3 @@ Los límites siguientes corresponden a Copia de seguridad de Azure.
 
 * <sup>1</sup>El límite de 54 400 GB no se aplica a la copia de seguridad de máquinas virtuales IaaS.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
