@@ -38,8 +38,3 @@
 <sup>9</sup>Ejecuta scripts o ejecutables personalizados a petición, según una programación o de manera continua como tarea en segundo plano dentro de tu instancia de Servicio de aplicaciones. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere el Programador de Azure de nivel Gratis o Estándar para Trabajos web programados. No hay ningún límite predefinido en el número de WebJobs que puede ejecutar en una instancia de App Service, pero sí hay límites prácticos que dependen de lo que el código de la aplicación esté intentando hacer.   
 <sup>10</sup>El acuerdo de nivel de servicio (SLA) del 99,95 % proporcionado para implementaciones que usen varias instancias con el Administrador de tráfico de Azure configurado para conmutación por error.  
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
