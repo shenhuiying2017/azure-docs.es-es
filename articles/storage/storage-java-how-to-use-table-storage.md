@@ -541,7 +541,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-delete-a-table"></a>Cómo eliminar una tabla
-Finalmente, el código siguiente elimina una tabla de una cuenta de almacenamiento. Las tablas eliminadas no podrán volver a crearse durante un tiempo tras la eliminación, que normalmente suele ser de menos de&40; segundos.
+Finalmente, el código siguiente elimina una tabla de una cuenta de almacenamiento. Las tablas eliminadas no podrán volver a crearse durante un tiempo tras la eliminación, que normalmente suele ser de menos de 40 segundos.
 
 ```java
 try
