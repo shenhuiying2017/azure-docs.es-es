@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 9f664b07566fe78d93b1e35a2e0f7e5513960fad
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -31,14 +32,23 @@ Lo siguiente muestra el cuadro de diálogo **Extremos de servicio** .
 En el cuadro de diálogo **Extremos de servicio** , realice una de las siguientes acciones:
 
 * Si quiere usar la plataforma de Azure global, en la lista desplegable **Conjunto activo**, seleccione **windowsazure.com** y haga clic en **Aceptar**.
+
 * Si quiere usar Azure operado por 21Vianet en China, en la lista desplegable **Conjunto activo**, seleccione **windowsazure.cn (China)** y haga clic en **Aceptar**.
+
 * Si quiere usar una plataforma de Azure privada:
+
   1. Haga clic en **Editar**.
+
   2. Se abre un cuadro de diálogo en el que se le informa de que se cerrará el cuadro de diálogo **Extremos de servicio** y de que se abrirá el archivo de conjuntos de preferencias. Haga clic en **Aceptar**.
+
   3. En el archivo preferencesets.xml, cree un nuevo elemento `preferenceset` . Para este elemento nuevo, cree los atributos `name`, `blob`, `management`, `portalURL` y `publishsettings` y agregue valores para ellos que se correspondan a su plataforma de Azure privada. Puede usar los valores ofrecidos para los elementos `preferenceset` existentes como plantillas. **Nota**: el valor usado para el atributo `blob` debe contener el texto "blob" en la dirección URL.
+
   4. Guarde y cierre preferencesets.xml.
+
   5. Vuelva a abrir el cuadro de diálogo **Extremos de servicio** .
+
   6. En la lista desplegable **Conjunto activo**, seleccione el conjunto activo que ha creado y haga clic en **Aceptar**.
+
   7. Cuando haya creado su elemento `preferenceset` de la plataforma de Azure privada, para cambiar sus valores asignados, haga clic en el botón **Editar** del cuadro de diálogo **Punto de conexión de servicios**. También puede crear varios elementos `preferenceset` de la plataforma de Azure privada, si así lo desea.
 
 ## <a name="see-also"></a>Otras referencias
@@ -62,9 +72,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
