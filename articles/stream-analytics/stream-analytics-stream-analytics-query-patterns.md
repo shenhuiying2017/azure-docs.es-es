@@ -500,7 +500,7 @@ Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos v
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Explicación**: esta consulta generará eventos cada 5 segundos y generará como resultado el último evento que se recibió antes. [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo,&300; segundos).
+**Explicación**: esta consulta generará eventos cada 5 segundos y generará como resultado el último evento que se recibió antes. [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo, 300 segundos).
 
 ## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
