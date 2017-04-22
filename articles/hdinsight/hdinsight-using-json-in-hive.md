@@ -144,7 +144,7 @@ SerDe es la mejor opción para analizar documentos JSON anidados ya que le permi
 
 **Para usar el SerDe personalizado:**
 
-1. Instale el [Kit de desarrollo de Java SE 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Si va a usar la implementación de Windows de HDInsight, elija la versión Windows x&64; del JDK.
+1. Instale el [Kit de desarrollo de Java SE 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Si va a usar la implementación de Windows de HDInsight, elija la versión Windows x 64 del JDK.
    
    > [!WARNING]
    > JDK 1.8 no funciona con este SerDe.
