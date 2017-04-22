@@ -53,7 +53,7 @@ En este escenario, nos vamos a centrar en los roles de las siguientes personas q
 
 Judy se encarga de las operaciones de seguridad. Entre sus responsabilidades están:
 
-* Supervisar y responder a amenazas de seguridad durante las&24; horas.
+* Supervisar y responder a amenazas de seguridad durante las 24 horas.
 * Remitirlas al propietario de la carga de trabajo en la nube o al analista de seguridad, según sea necesario.
 
 Sam es un analista de seguridad y sus responsabilidades incluyen:

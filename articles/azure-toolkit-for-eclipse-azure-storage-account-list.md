@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -36,37 +37,53 @@ También se puede abrir este cuadro de diálogo desde un vínculo **Cuentas** en
 
 ## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>Para importar sus cuentas de almacenamiento mediante un archivo de configuración de publicación
 1. Dentro del cuadro de diálogo **Cuentas de almacenamiento**, haga clic en **Importar desde el archivo PUBLISH-SETTINGS**.
+
 2. (Omita este paso si ya ha guardado un archivo de configuración de publicación en su máquina local). En el cuadro de diálogo **Importar desde el archivo de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que lo haga. Después, se le solicitará que guarde un archivo de configuración de publicación de Azure. (Puede ignorar las instrucciones resultantes que se muestran en las páginas de inicio de sesión: se ofrecen por el portal de Azure y están pensadas para los usuarios de Visual Studio.) Guárdelo en su equipo local.
+
 3. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente anteriormente y luego haga clic en **Abrir**.
+
 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Importar información de la suscripción**.
 
 ## <a name="to-create-a-new-storage-account"></a>Para crear una cuenta de almacenamiento
 1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en **Agregar**.
+
 2. En el cuadro de diálogo **Agregar cuenta de almacenamiento**, haga clic en **Nueva**.
+
 3. En el cuadro de diálogo **Nueva cuenta de almacenamiento** , especifique los siguientes valores:
+
    * Nombre de la cuenta de almacenamiento.
+
    * Ubicación de la cuenta de almacenamiento.
+
    * Descripción de la cuenta de almacenamiento.
+
    * La suscripción a la que pertenece la cuenta de almacenamiento.
+
 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Nueva cuenta de almacenamiento**.
 
 Se puede tardar unos minutos en crearse su cuenta de almacenamiento. Una vez creada, haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar cuenta de almacenamiento** y se agregará la nueva cuenta de almacenamiento a la lista de cuentas de almacenamiento disponibles.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>Para agregar una cuenta de almacenamiento existente a la lista
 1. Si no dispone ya de una cuenta de almacenamiento de Azure, cree una siguiendo los pasosde la sección **Creación de una cuenta de almacenamiento nueva** que aparece anteriormente. (También puede crear una cuenta de almacenamiento nueva en el [Portal de administración de Azure][Azure Management Portal]).
+
 2. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en **Agregar**.
+
 3. En el cuadro de diálogo **Agregar cuenta de almacenamiento**, especifique valores para **Nombre** y **Clave de acceso**. El nombre de la cuenta y la clave de acceso deben ser para una cuenta de almacenamiento de Azure existente. Use la sección **Almacenamiento** del [Portal de administración de Azure][Azure Management Portal] para ver sus claves y nombres de cuenta de almacenamiento. Su cuadro de diálogo **Agregar cuenta de almacenamiento** tendrá un aspecto similar al siguiente.
    
-    ![][ic719497]
+   ![][ic719497]
+
 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar cuenta de almacenamiento**.
 
 ## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>Para modificar una cuenta de almacenamiento para que use una nueva clave de acceso
 1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en la cuenta de almacenamiento que quiera editar y luego haga clic en **Editar**.
+
 2. En el cuadro de diálogo **Editar la clave de acceso de la cuenta de almacenamiento**, modifique el valor de la **Clave de acceso**.
+
 3. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Editar la clave de acceso de la cuenta de almacenamiento**.
 
 ## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>Para quitar una cuenta de almacenamiento de la lista mantenida en Eclipse
 1. En el cuadro de diálogo **Cuentas de almacenamiento**, haga clic en la cuenta de almacenamiento que quiera editar y luego haga clic en **Quitar**.
+
 2. Haga clic en **Aceptar** cuando se pregunte si quiere quitar la cuenta de almacenamiento.
 
 > [!NOTE]
@@ -98,9 +115,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
