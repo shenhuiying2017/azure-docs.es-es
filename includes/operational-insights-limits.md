@@ -26,10 +26,5 @@ Los límites siguientes se aplican a cada área de trabajo de Log Analytics:
 | Categoría | Límites | Comentarios
 | --- | --- | --- |
 | API de recopilador de datos | El tamaño máximo de una sola publicación es 30 MB<br>El tamaño máximo de los valores de campo es 32 KB | Dividir volúmenes más grandes en varias publicaciones<br>Los campos de más de 32 KB se truncan. |
-| API de búsqueda | 5000 registros devueltos para los datos no agregados<br>500&000; registros para los datos agregados | Datos agregados es una búsqueda que incluye el comando `measure`
+| API de búsqueda | 5000 registros devueltos para los datos no agregados<br>500 000 registros para los datos agregados | Datos agregados es una búsqueda que incluye el comando `measure`
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-

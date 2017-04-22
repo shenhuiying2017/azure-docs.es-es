@@ -11,7 +11,7 @@ El almacenamiento está limitado por el espacio en disco o e *número máximo* d
 | Indexadores máximos |3 |5 |50 |200 |200 |Indexador incompatible |
 | Orígenes de datos máximos |3 |5 |50 |200 |200 |Indexador incompatible |
 | Número máximo de documentos |10.000 |1 millón |15 millones por partición, 180 millones por servicio |60 millones por partición, 720 millones por servicio |120 millones por partición, 1400 millones por servicio |1 millón por índice, 200 millones por partición |
-| Consultas por segundo (QPS) estimadas |N/D |~&3; por réplica |~&15; por réplica |~&60; por réplica |~&60; por réplica |>60 por réplica |
+| Consultas por segundo (QPS) estimadas |N/D |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |~ 60 por réplica |>60 por réplica |
 
 <sup>1</sup> Las versiones gratuitas y preliminares de los SKU no incluyen contratos de nivel de servicio (SLA). Los Acuerdo de Nivel de Servicio se aplican cuando una SKU pasa a estar disponible de manera general.
 

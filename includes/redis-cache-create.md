@@ -34,8 +34,3 @@ Una vez que las nuevas opciones de caché estén configuradas, haga clic en **Cr
 
 ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
