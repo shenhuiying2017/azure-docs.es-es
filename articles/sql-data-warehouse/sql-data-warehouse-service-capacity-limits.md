@@ -52,7 +52,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Índice |Columnas de clave por índice |16<br/><br/>Solo se aplica a los índices de almacén de filas. Los índices de almacén de columnas agrupados incluyen todas las columnas. |
 | Estadísticas |Tamaño de los valores de columna combinados |900 bytes |
 | Estadísticas |Columnas por objeto de estadísticas |32 |
-| Estadísticas |Estadísticas creadas en columnas por tabla |30&000; |
+| Estadísticas |Estadísticas creadas en columnas por tabla |30 000 |
 | Procedimientos almacenados |Niveles máximos de anidamiento |8 |
 | Ver |Columnas por vista |1024 |
 
@@ -68,7 +68,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Consultar |Consultas simultáneas en vistas de sistema |100 |
 | Consultar |Consultas en cola en vistas de sistema |1000 |
 | Consultar |Parámetros máximos |2098 |
-| Lote |Tamaño máximo |65&536;*4096 |
+| Lote |Tamaño máximo |65 536*4096 |
 | Resultados de SELECT |Columnas por fila |4096<br/><br/>Nunca se pueden tener más de 4096 columnas por fila en el resultado de SELECT. No hay ninguna garantía de que pueda tener siempre 4096. Si el plan de consulta requiere una tabla temporal, se podría aplicar el máximo de 1024 columnas por tabla. |
 | SELECT |Subconsultas anidadas |32<br/><br/>Nunca se pueden tener más de 32 subconsultas anidadas en una instrucción SELECT. No hay ninguna garantía de que siempre pueda tener 32. Por ejemplo, una instrucción JOIN puede introducir una subconsulta en el plan de consulta. El número de subconsultas también puede estar limitado por la memoria disponible. |
 | SELECT |Columnas por JOIN |1024 columnas<br/><br/>Nunca se pueden tener más de 1024 columnas en la instrucción JOIN. No hay ninguna garantía de que siempre pueda tener 1024. Si el plan JOIN requiere una tabla temporal con más columnas que el resultado de JOIN, se aplica el límite de 1024 a la tabla temporal. |
