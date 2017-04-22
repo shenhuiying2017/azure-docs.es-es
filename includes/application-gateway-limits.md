@@ -6,7 +6,7 @@
 | Grupo de direcciones de back-end |20 | | |
 | Servidores back-end por grupo |100 | |
 | Agentes de escucha HTTP |20 | | |
-| Reglas de equilibrio de carga HTTP |200 |# de agentes de escucha HTTP * n, n =&10; predeterminado |
+| Reglas de equilibrio de carga HTTP |200 |# de agentes de escucha HTTP * n, n = 10 predeterminado |
 | Configuración de HTTP de back-end |20 | |1 por grupo de direcciones de back-end |
 | Instancias por puerta de enlace |10 | |
 | Certificados SSL |20 | |1 por agentes de escucha HTTP |
@@ -15,9 +15,4 @@
 | Tiempo de espera de solicitud máx. |24 horas | |
 | Número de sitios |20 | |1 por agentes de escucha HTTP |
 | Asignaciones de URL por agente de escucha |1 | |
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
