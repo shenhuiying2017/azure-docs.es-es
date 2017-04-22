@@ -35,7 +35,3 @@ Sí, es posible. Pero las redes virtuales no pueden tener prefijos IP superpuest
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>¿Qué rendimiento puedo esperar en las conexiones de sitio a sitio o de punto a sitio?
 Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP son protocolos VPN con mucho cifrado. El rendimiento también está limitado por la latencia y el ancho de banda entre sus instalaciones locales e Internet.
-
-<!--HONumber=Feb17_HO3-->
-
-

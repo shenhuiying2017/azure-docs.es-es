@@ -1,8 +1,3 @@
 ## <a name="pricing"></a>Precios
 
 Azure Batch es un servicio gratis; la misma cuenta de Batch no tiene ningún costo. Solo se cobran los recursos de proceso de Azure subyacentes que consumen sus soluciones de Lote y los recursos que consumen otros servicios cuando se ejecutan sus cargas de trabajo. Por ejemplo, se le cobrará por los nodos de proceso de los grupos y por los datos que almacene en Almacenamiento de Azure como entrada o salida de sus tareas. De igual forma, si se usa la característica [paquetes de aplicación](../articles/batch/batch-application-packages.md) , se cobran los recursos de Almacenamiento de Azure que se utilizan para almacenar los paquetes de aplicación. Para más información, consulte [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
-
-
-<!--HONumber=Dec16_HO3-->
-
-
