@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Las máquinas virtuales de Azure pueden crearse a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar máquinas virtuales y todos los recursos asociados. Este inicio rápido le ayuda a crear una máquina virtual mediante Azure Portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-ssh-key-pair"></a>Creación del par de claves SSH
 
@@ -52,9 +52,9 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
     ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. Elija un tamaño de máquina virtual y haga clic en **Seleccionar**. 
+4. Elija un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). 
 
-    ![Selección de un tamaño para la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. En la hoja Configuración, seleccione **Sí** en **Usar discos administrados**, conserve los valores predeterminados en el resto de la configuración y haga clic en **Aceptar**.
 
@@ -67,11 +67,11 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 De forma predeterminada, solo se permiten conexiones mediante SSH con las máquinas virtuales Linux implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 al tráfico web. En este paso se explica cómo crear una regla de grupo de seguridad de red (NSG) para permitir conexiones entrantes en el puerto 80.
 
-1. En la hoja de la máquina virtual, en la sección **Essentials**, haga clic en el nombre del **Grupo de recursos**.
-2. En la hoja del grupo de recursos, en la lista de recursos, haga clic en el **Grupo de seguridad de red**. El nombre del NSG debe ser el nombre de la máquina virtual con - nsg anexado al final.
-3. Haga clic en el encabezado **Reglas de seguridad de entrada** para abrir la lista de reglas de entrada. Debería ver una regla para RDP ya en la lista.
+1. En la hoja de la máquina virtual, en la sección **Essentials**, haga clic en el nombre del **grupo de recursos**.
+2. En la hoja del grupo de recursos, en la lista de recursos, haga clic en el **grupo de seguridad de red**. El nombre del NSG debe ser el nombre de la máquina virtual con - nsg anexado al final.
+3. Haga clic en el encabezado **Regla de seguridad de entrada** para abrir la lista de reglas de entrada. Debería ver una regla para RDP ya en la lista.
 4. Haga clic en **+Agregar** para abrir la hoja **Agregar regla de seguridad de entrada**.
-5. En **Nombre**, escriba **nginx** y asegúrese de que el valor de **Intervalo de puertos** es 80 y el valor de **Acción** es **Permitir**; a continuación, haga clic en **Aceptar**.
+5. En **Nombre**, escriba **nginx**. Asegúrese de que **Intervalo de puertos** esté establecido en 80 y **Acción** esté establecido en **Permitir**. Haga clic en **Aceptar**.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>Página principal de NGIX
 
-Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de NGINX. Asegúrese de utilizar el valor de `publicIpAddress` anotado anteriormente para visitar la página predeterminada. 
+Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de NGINX. Asegúrese de utilizar `publicIpAddress` anotado para visitar la página predeterminada. 
 
 ![Sitio predeterminado de NGINX](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Eliminación de máquinas virtuales

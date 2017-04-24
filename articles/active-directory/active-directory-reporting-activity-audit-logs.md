@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Si hace clic en un elemento de la vista de lista, puede obtener todos los detall
 Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de auditoría con los siguientes campos:
 
 - Intervalo de fechas
-- Iniciado por
-- Categoría
+- Iniciado por (actor)
 - Categoría
 - Tipo de recurso de actividad
 - Actividad
@@ -311,7 +310,7 @@ Con los informes de auditoría basadas en aplicaciones, puede obtener respuestas
 * ¿Se han cambiado los nombres de las aplicaciones?
 * ¿Quién dio el consentimiento a una aplicación?
 
-Si desea revisar los datos de auditoría relacionados con las aplicaciones, puede buscar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene **Aplicación** como **Tipo de recurso de actividad** preseleccionado.
+Si desea revisar los datos de auditoría relacionados con las aplicaciones, puede buscar una vista filtrada en **Registros de auditoría** en la sección **Actividad** de la hoja **Aplicaciones empresariales**. Este punto de entrada tiene **Aplicaciones empresariales** como **Tipo de recurso de actividad** preseleccionado.
 
 ![Registros de auditoría](./media/active-directory-reporting-activity-audit-logs/134.png "Registros de auditoría")
 

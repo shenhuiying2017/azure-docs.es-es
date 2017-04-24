@@ -16,9 +16,9 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9b7735bbe8d3b2ffc78eba8f1489d70a02fe7342
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,7 +31,7 @@ Si se encuentra en alguno de los siguientes escenarios, podemos ayudarle.
 * No está seguro de cómo acceder a su cuenta y no recuerda su contraseña.
 * No se le ha asignado una contraseña y su administrador le envió aquí.
 
-## <a name="unlock-your-account"></a>Desbloqueo de la cuenta
+## <a name="unlock-my-account"></a>Desbloqueo de la cuenta
 
 Si está aquí para desbloquear la cuenta, siga los pasos que aparecen a continuación. Cuando vea **Chose a new password** (Elegir una nueva contraseña) en el paso 6, puede desbloquear o cambiar la contraseña, con lo que se desbloqueará.
 
@@ -43,6 +43,11 @@ Para volver a entrar en tu cuenta, siga estos pasos.
     ![¿No puede tener acceso a su cuenta?][Login]
 
 2. Escriba su **Id. de usuario** profesional o educativo y demuestre que no es un robot; para ello, especifique el texto que aparece en el desafío CAPTCHA y haga clic en **Siguiente**.
+
+   > [!NOTE]
+   > Si el administrador no ha habilitado esta funcionalidad, aparece un vínculo "Póngase en contacto con el administrador" en este punto para que el administrador pueda proporcionar asistencia mediante correo electrónico o mediante su propio portal web.
+   >
+
 3. Según cómo su administrador haya configurado las cosas, verá una o varias de las siguientes opciones:
     * **Enviar un mensaje de correo electrónico a mi dirección alternativa**: envía un correo electrónico con un código de 6 dígitos a su correo electrónico alternativo o correo electrónico de autenticación (según elija).
     * **Enviar mensaje de texto a mi teléfono móvil**: envía un mensaje de texto con un código de 6 dígitos a su teléfono móvil o su teléfono de autenticación (según elija).
@@ -61,10 +66,6 @@ Para volver a entrar en tu cuenta, siga estos pasos.
 7. Cuando vea el mensaje **Se ha restablecido la contraseña**, puede iniciar sesión con la nueva contraseña.
 
     ![Se ha restablecido la contraseña][Complete]
-
-> [!NOTE]
-> Si el administrador no ha habilitado esta funcionalidad, aparece un vínculo "Póngase en contacto con el administrador" para que el administrador puede proporcionar asistencia mediante correo electrónico o mediante su propio portal web.
->
 
 Después de usar este método para desbloquear o restablecer la contraseña, recibirá un correo electrónico, en el que se confirma que se ha completado el proceso, procedente de una cuenta similar a "Microsoft en nombre de su organización aquí". Si recibe un correo electrónico como ese y no había restablecido la contraseña para recuperar el acceso a su cuenta, póngase en contacto con su administrador.
 

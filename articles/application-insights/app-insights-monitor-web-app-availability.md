@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Existen dos tipos de prueba web:
 
 Puede crear hasta 10 pruebas web por recurso de aplicación.
 
-## <a name="create"></a>1. Creación de un recurso para los informes de prueba
-Omita este paso si ya ha [configurado un recurso de Application Insights][start] para esta aplicación y desea ver los informes de disponibilidad en el mismo lugar.
+## <a name="create"></a>1. Apertura de un recurso para los informes de pruebas web
 
-Suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
+**Si ya ha configurado Application Insights** para la aplicación web, abra el recurso de Application Insights en [Azure Portal](https://portal.azure.com).
+
+**O, si desea ver los informes en un nuevo recurso,** suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Haga clic en **Todos los recursos** para abrir la hoja Información general del nuevo recurso.
 
 ## <a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
-En el recurso de Application Insights, busque el icono de disponibilidad. Haga clic para abrir la hoja de pruebas web para la aplicación y agregue una prueba web.
+Abra la hoja de disponibilidad y agregue una prueba web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **La dirección URL** debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
-* **Analizar solicitudes dependientes**: las imágenes, scripts, archivos de estilo y otros recursos de la página se solicitan como parte de la prueba; el tiempo de respuesta registrado incluye estos tiempos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera.
-* **Habilitar reintentos**: cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. (Se recomienda esta configuración. Como media, cerca del 80 % de los errores desaparecen al reintentar).
+* **La dirección URL** puede ser cualquier página web que desee probar, pero debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
+* **Analizar solicitudes dependientes**: si se activa esta opción, la prueba solicitará imágenes, scripts, archivos de estilo y otros archivos que forman parte de la página web en pruebas. El tiempo de respuesta registrado incluye el tiempo dedicado a obtener estos archivos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera. 
+
+    Si la opción no está activada, la prueba solo solicita el archivo en la dirección URL que especificó.
+* **Habilitar reintentos**: si esta opción está activa, cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. Se recomienda esta opción. Como media, cerca del 80 % de los errores desaparecen al reintentar.
 * **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.
 * **ubicaciones de prueba** son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. Elija más de una de tal forma que pueda distinguir los problemas del sitio web a partir de los problemas de red. Puede seleccionar hasta 16 ubicaciones.
 * **Criterios de éxito**:
@@ -67,14 +70,23 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 ### <a name="test-more-urls"></a>Prueba de más URL
 Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
 
+
 ## <a name="monitor"></a>3. Visualización de los resultados de las prueba web
-Después de 1 o 2 minutos, los resultados aparecen en la hoja Prueba web.
+
+Después de 5 minutos, haga clic en **Actualizar** para ver los resultados de las pruebas. 
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Haga clic en cualquier barra del gráfico de resumen para obtener una vista más detallada de ese período de tiempo.
 
-Estos gráficos combinan los resultados de todas las pruebas web de esta aplicación.
+## <a name="edit"></a> Inspección y edición de pruebas
+
+En la página de resumen, seleccione una prueba concreta. Allí, puede ver sus resultados específicos y editarla o deshabilitarla temporalmente.
+
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Es posible que desee deshabilitar las pruebas web mientras está realizando un mantenimiento en el servicio.
+
 
 ## <a name="failures"></a>Si ve errores
 Haga clic en un punto rojo.
@@ -103,7 +115,9 @@ Puede supervisar un escenario que implique una secuencia de direcciones URL. Por
 
 Para crear una prueba de varios pasos, grabe el escenario con Visual Studio Enterprise y, a continuación, cargue la grabación en Application Insights. Application Insights reproduce el escenario a intervalos y comprueba las respuestas.
 
-Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
+> [!NOTE]
+> No puede usar funciones codificadas ni bucles en las pruebas. La prueba debe estar contenida completamente en el script .webtest. Sin embargo, puede usar complementos estándar.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Grabar un escenario
 Utilice Visual Studio Enterprise para grabar una sesión web.
@@ -144,13 +158,19 @@ Utilice Visual Studio Enterprise para grabar una sesión web.
 
     Establezca las ubicaciones de prueba, la frecuencia y los parámetros de alerta de la misma manera que para las pruebas de ping.
 
+#### <a name="3-see-the-results"></a>3. Consultar los resultados
+
 Vea los resultados y los errores de la prueba igual que hace con las pruebas de una sola dirección URL.
 
-Un motivo habitual de error es que la prueba se ejecuta durante demasiado tiempo. No deben ejecutar durante más de dos minutos.
+Además, puede descargar los resultados de la prueba para verlos en Visual Studio.
 
-No olvide que todos los recursos de una página se deben cargar correctamente para que la prueba sea correcta, incluidos los scripts, las hojas de estilo, las imágenes, etc.
+#### <a name="too-many-failures"></a>¿Hay demasiados errores?
 
-Tenga en cuenta que la prueba web debe estar contenida totalmente en el archivo .webtest: no puede usar las funciones codificadas en la prueba.
+* Un motivo habitual de error es que la prueba se ejecuta durante demasiado tiempo. No deben ejecutar durante más de dos minutos.
+
+* No olvide que todos los recursos de una página se deben cargar correctamente para que la prueba sea correcta, incluidos los scripts, las hojas de estilo, las imágenes, etc.
+
+* La prueba web debe estar contenida totalmente en el script .webtest: no puede usar las funciones codificadas en la prueba.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Conexión de tiempo y números aleatorios a su prueba de varios pasos
 Suponga que está probando una herramienta que obtiene datos que dependen del tiempo, como acciones de una fuente externa. Cuando se graba la prueba web, debe utilizar horas específicas, pero las establece como parámetros de la prueba, StartTime y EndTime.
@@ -211,12 +231,6 @@ Si la prueba debe iniciar sesión con OAuth, el enfoque general es el siguiente:
 * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio.
   (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
 
-## <a name="edit"></a> Modificación o deshabilitación de una prueba
-Abra una prueba individual para editarla o deshabilitarla.
-
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Es posible que desee deshabilitar las pruebas web mientras está realizando un mantenimiento en el servicio.
 
 ## <a name="performance-tests"></a>Pruebas de rendimiento
 Puede ejecutar una prueba de carga en el sitio web. Al igual que la prueba de disponibilidad, puede enviar solicitudes sencillas o solicitudes de varios pasos desde nuestros puntos de todo el mundo. A diferencia de una prueba de disponibilidad, se envían muchas solicitudes, que simulan a varios usuarios simultáneos.
@@ -229,7 +243,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 * [Use scripts de PowerShell para configurar una prueba web](app-insights-powershell.md#add-an-availability-test) automáticamente.
 * Configure un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
 
-## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
+## <a name="qna"></a>¿Tiene preguntas? ¿Tiene problemas?
 * *¿Puedo llamar el código desde mi prueba web?*
 
     No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.

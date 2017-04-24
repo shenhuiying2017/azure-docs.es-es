@@ -6,3 +6,4 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 - [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md) (Uso de Azure Web Apps para visualizar datos del sensor en tiempo real desde Azure IoT Hub).
 - [Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 - [Administración de dispositivos con iothub-explorer](../articles/iot-hub/iot-hub-device-management-iothub-explorer.md)
+- [Supervisión remota y notificaciones con Logic Apps](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
