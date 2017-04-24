@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Abra la hoja del Explorador para mostrar los datos de rendimiento agregados de l
 
 ![En portal.azure.com, abra el recurso de la aplicación y haga clic en Configuración, Explorador](./media/app-insights-javascript/03.png)
 
-*¿Aún no hay datos? Haga clic en**Actualizar**en la parte superior de la página. ¿Todavía nada? Consulte [Solución de problemas](app-insights-troubleshoot-faq.md).*
+*¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página. ¿Todavía nada? Consulte [Solución de problemas](app-insights-troubleshoot-faq.md).*
 
 La hoja Explorador es una [hoja del Explorador de métricas](app-insights-metrics-explorer.md) con filtros y selecciones de gráfico preestablecidos. Si lo desea, puede editar el intervalo de tiempo, los filtros y la configuración de los gráficos y guardar el resultado como favorito. Haga clic en **Restaurar valores predeterminados** para volver a la configuración original de la hoja.
 
@@ -230,6 +230,6 @@ El nombre de la página puede contener los mismos caracteres que una dirección 
 ## <a name="next"></a> Pasos siguientes
 * [Seguir el uso](app-insights-web-track-usage.md)
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
-* [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
+* [Compilación - Métrica - Aprendizaje](app-insights-web-track-usage.md)
 
 

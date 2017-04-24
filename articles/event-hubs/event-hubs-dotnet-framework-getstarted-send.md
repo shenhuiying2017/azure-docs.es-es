@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 306c9c5cb06caa186bc0b7f431a5412dfe810722
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Para completar este tutorial, necesitará lo siguiente:
 El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento de [este artículo](event-hubs-create.md) y después continúe con los pasos siguientes.
 
 ## <a name="create-a-console-application"></a>Creación de una aplicación de consola
-En esta sección se escribirá una aplicación de consola Windows que envía eventos al Centro de eventos.
+En esta sección se escribirá una aplicación de consola Windows que envía eventos al centro de eventos.
 
 1. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **Remitente**.
    
@@ -55,7 +55,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-5. Agregue los siguientes campos a la clase **Program** ; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión de nivel del espacio de nombres que ha guardado anteriormente.
+5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores del marcador de posición por el nombre del centro de eventos creado en la sección anterior y la cadena de conexión de nivel del espacio de nombres que ha guardado anteriormente.
    
     ```csharp
     static string eventHubName = "{Event Hub name}";
@@ -87,7 +87,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
     }
     ```
    
-    Este método envía continuamente los eventos al Centro de eventos con un retraso de 200 ms.
+    Este método envía continuamente los eventos al centro de eventos con un retraso de 200 ms.
 7. Por último, agregue las líneas siguientes al método **Main** :
    
     ```csharp

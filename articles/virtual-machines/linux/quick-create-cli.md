@@ -9,16 +9,16 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 67b4af9f3ef7fb078d6d125e0d3257ea85e288b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: d051382954db989ce4152602d249383e7b9dfa46
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 04/04/2017
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla cómo usar la CLI de Azure para implementar máquinas virtuales con Ubuntu 16.04 LTS. Una vez implementado el servidor, conectamos mediante SSH con la máquina virtual para poder instalar NGINX. 
 
-Antes de empezar, asegúrese de que se ha instalado la CLI de Azure. Para obtener más información, consulte la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de empezar.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+También, asegúrese de que se ha instalado la CLI de Azure. Para obtener más información, consulte la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
 

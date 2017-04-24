@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/12/2017
 Puede crear un clúster independiente de Service Fabric en cualquier máquina virtual o equipo que ejecute Windows Server 2012 R2 o Windows Server 2016, en el entorno local o en la nube. Esta guía de inicio rápido lo ayuda a crear un clúster independiente de desarrollo en tan solo unos minutos.  Cuando haya terminado, tendrá un clúster de tres nodos que se ejecuta en un único equipo y donde puede implementar aplicaciones.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Service Fabric proporciona un paquete de instalación para crear clústeres independientes de Service Fabric.  [Descargue el paquete de instalación](http://go.microsoft.com/fwlink/?LinkId=730690).  Descomprímalo en una carpeta, por ejemplo, *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*, en el equipo o la máquina virtual donde vaya a configurar el clúster de desarrollo.  El contenido del paquete de instalación se describe detalladamente [aquí](service-fabric-cluster-standalone-package-contents.md).
+Service Fabric proporciona un paquete de instalación para crear clústeres independientes de Service Fabric.  [Descargue el paquete de instalación](http://go.microsoft.com/fwlink/?LinkId=730690).  Descomprima el paquete de instalación en una carpeta en el equipo o máquina virtual que está configurando el clúster de desarrollo.  El contenido del paquete de instalación se describe detalladamente [aquí](service-fabric-cluster-standalone-package-contents.md).
 
 El administrador de clúster que implemente y configure el clúster debe tener privilegios de administrador en el equipo. No se puede instalar Service Fabric en un controlador de dominio.
 
@@ -37,7 +37,9 @@ El script *TestConfiguration.ps1* del paquete independiente se usa como analizad
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Creación de clústeres
-Se instalan varios archivos de configuración de clúster de ejemplo con el paquete de instalación. *ClusterConfig.Unsecure.DevCluster.json* es la configuración de clúster más sencilla: un clúster no seguro de tres nodos que se ejecuta en un único equipo. No es necesario modificar ninguno de los valores de configuración predeterminados para este tutorial.  Otros archivos de configuración describen clústeres de una o varias máquinas con certificados X.509 o seguridad de Windows.  Lea [Protección de un clúster](service-fabric-cluster-security.md) para más información sobre la seguridad en los clústeres de Service Fabric. 
+Se instalan varios archivos de configuración de clúster de ejemplo con el paquete de instalación. *ClusterConfig.Unsecure.DevCluster.json* es la configuración de clúster más sencilla: un clúster no seguro de tres nodos que se ejecuta en un único equipo.  Otros archivos de configuración describen clústeres de una o varias máquinas con certificados X.509 o seguridad de Windows.  No es necesario modificar los valores de configuración predeterminados para este tutorial, pero eche un vistazo al archivo de configuración y familiarícese con la configuración.  En la sección **nodos** se describen los tres nodos del clúster: nombre, dirección IP, [tipo de nodo, dominio de error y dominio de actualización](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  En la sección **propiedades** se define la [seguridad, el nivel de confiabilidad, la recopilación de diagnósticos y los tipos de nodos](service-fabric-cluster-manifest.md#cluster-properties) para el clúster.
+
+Este clúster no es seguro.  Cualquiera puede conectarse de forma anónima y realizar operaciones de administración, por lo que los clústeres de producción siempre deben protegerse mediante certificados X.509 o la seguridad de Windows.  La configuración solo se configura en el momento de creación del clúster y no es posible habilitar la seguridad una vez creado.  Lea [Protección de un clúster](service-fabric-cluster-security.md) para más información sobre la seguridad en los clústeres de Service Fabric.  
 
 Para crear el clúster de desarrollo de tres nodos, ejecute el script *CreateServiceFabricCluster.ps1* desde una sesión de PowerShell de administrador:
 
@@ -88,7 +90,7 @@ Para quitar el paquete en tiempo de ejecución de Service Fabric del equipo, eje
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha configurado un clúster independiente de desarrollo, pruebe lo siguiente:
+Ahora que ha configurado un clúster independiente de desarrollo, consulte los artículos siguientes:
 * [Configure un clúster independiente con varias máquinas](service-fabric-cluster-creation-for-windows-server.md) y habilite la seguridad.
 * [Implemente aplicaciones mediante PowerShell](service-fabric-deploy-remove-applications.md).
 

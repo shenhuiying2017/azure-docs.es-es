@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 8f8ed2396ba0fcff5c6334daa2a095a960e924c5
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: bffbeb5238ec69d763e1cc7ad3c8a6e4fad34306
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,11 @@ ms.lasthandoff: 04/04/2017
 
 El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. Esta guía se detalla cómo usar PowerShell para crear y ejecutar máquinas virtuales de Azure con Ubuntu 14.04 LTS.
 
-Antes de empezar, una clave SSH pública con el nombre `id_rsa.pub` debe almacenarse en el directorio `.ssh` de su perfil de usuario de Windows. Si quiere obtener información detallada sobre cómo crear claves SSH para Azure, consulte [este artículo](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de empezar.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Asegúrese de tener instalada la versión más reciente del módulo de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+
+Por último, se tiene que almacenar una clave SSH pública con el nombre `id_rsa.pub` en el directorio `.ssh` de su perfil de usuario de Windows. Si quiere obtener información detallada sobre cómo crear claves SSH para Azure, consulte [este artículo](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 

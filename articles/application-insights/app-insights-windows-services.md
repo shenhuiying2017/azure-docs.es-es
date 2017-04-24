@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -115,10 +115,7 @@ Implemente ahora la aplicación en su servidor o en Azure y observe cómo se acu
 Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Al implementar la aplicación en la configuración de lanzamiento, los datos se acumulan más lentamente.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>¿No hay datos después de publicar en el servidor?
-Abra estos puertos para el tráfico de salida en el firewall del servidor:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Abra los puertos para el tráfico de salida en el firewall del servidor. Consulte [esta página](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) para obtener la lista de direcciones necesarias 
 
 #### <a name="trouble-on-your-build-server"></a>¿Tiene problemas el servidor de compilación?
 Consulte [este apartado de la solución de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

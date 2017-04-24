@@ -7,9 +7,5 @@
 | Número de etiquetas (por recurso o grupo de recursos) |15 |15 |
 | Longitud de la clave de etiqueta |512 |512 |
 | Longitud del valor de la etiqueta |256 |256 |
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+| Recursos de plantillas exportadas |200 |200 |
 

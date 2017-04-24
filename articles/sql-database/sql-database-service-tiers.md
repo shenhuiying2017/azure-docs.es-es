@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,15 +17,15 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 827394be9485685388879c1eb4cee4d79ef9fe51
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 85b7336958c90b477eea8ea185a69bab2bd87a79
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
 
-[Azure SQL Database](sql-database-technical-overview.md) ofrece cuatro niveles de servicio: **Básico**, **Estándar**, **Premium** y **Premium RS**. Cada nivel de servicio tiene varios niveles de rendimiento para controlar las diferentes cargas de trabajo. Unos niveles de rendimiento más altos ofrecen recursos adicionales diseñados para proporcionar un mayor rendimiento. Puede cambiar los niveles de servicio y de rendimiento dinámicamente sin tiempo de inactividad. Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. El nivel Premium RS proporciona los mismos niveles de rendimiento, características de seguridad y de continuidad empresarial que el nivel Premium aunque con un Acuerdo de Nivel de Servicio reducido.
+[Azure SQL Database](sql-database-technical-overview.md) ofrece cuatro niveles de servicio: **Básico**, **Estándar**, **Premium** y **Premium RS**. Cada nivel de servicio tiene varios niveles de rendimiento para controlar las diferentes cargas de trabajo. Unos niveles de rendimiento más altos ofrecen recursos adicionales diseñados para proporcionar un mayor rendimiento. Puede cambiar los niveles de servicio y de rendimiento dinámicamente sin tiempo de inactividad. Los niveles de servicio Básico, Estándar, Premium y Premium RS tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. El nivel Premium RS proporciona los mismos niveles de rendimiento, características de seguridad y de continuidad empresarial que el nivel Premium aunque con un Acuerdo de Nivel de Servicio reducido.
 
 > [!IMPORTANT]
 > Las bases de datos del nivel Premium RS se ejecutan con un número menor de copias redundantes en comparación con las bases de datos Premium o Estándar. Por ello, si se produce un error del servicio, deberá recuperar la base de datos a partir de una copia de seguridad con un retardo de hasta 5 minutos.
@@ -61,7 +61,7 @@ En primer lugar, decida si desea ejecutar una base de datos única con una canti
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Niveles de servicio de la Base de datos única y niveles de rendimiento
-Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel que mejor satisfaga las demandas de cargas de trabajo mediante [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
+Para las bases de datos únicas, hay varios niveles de rendimiento dentro de cada nivel de servicio. Tiene la flexibilidad de elegir el nivel que mejor satisfaga las demandas de cargas de trabajo mediante Azure Portal, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C# y la API de REST.  
 
 Independientemente de la cantidad de bases de datos hospedadas, la base de datos seguirá recibiendo un conjunto de recursos garantizado, y las características de rendimiento previstas de la base de datos no se verán afectadas.
 
@@ -73,7 +73,7 @@ Independientemente de la cantidad de bases de datos hospedadas, la base de datos
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Escalado y reducción vertical de una base de datos única
 
-Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente una base de datos única de forma dinámica, en función de la experiencia real. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos con la utilización de [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# y la API de REST. 
+Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente una base de datos única de forma dinámica, en función de la experiencia real. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos con la utilización de Azure Portal, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C# y la API de REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -87,10 +87,6 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 * Al realizar una degradación desde un nivel de servicio Premium, primero es preciso finalizar todas las relaciones de Replicación geográfica. Puede seguir los pasos que se describen en el tema [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md) para detener el proceso de replicación entre la base de datos principal y las bases de datos secundarias activas.
 * Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si cambia a un nivel inferior, puede perder la capacidad de restaurar a un momento dado o tener un período de retención de copias de seguridad más breve. Para obtener más información, consulte [Copia de seguridad y restauración de Base de datos SQL de Azure](sql-database-business-continuity.md).
 * Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
-
-> [!IMPORTANT]
-> Para obtener instrucciones detalladas, consulte [Administración de bases de datos únicas con Azure Portal](sql-database-manage-single-databases-portal.md), [Administración de bases de datos únicas con Powershell](scripts/sql-database-monitor-and-scale-database-powershell.md) o [Administración de bases de datos únicas con Transact-SQL](sql-database-manage-single-databases-tsql.md).
->
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Niveles de servicio de grupos elásticos y rendimiento en las eDTU
 
@@ -127,7 +123,7 @@ Al crear una base de datos con un nivel de rendimiento P11 o P15, puede establec
 
 Para las bases de datos con niveles de rendimiento P11 y P15 ubicadas en alguna de las regiones admitidas, puede aumentar la capacidad de almacenamiento máxima hasta 4 TB. Esto se puede hacer en Azure Portal, en PowerShell o con Transact-SQL. En el ejemplo siguiente se muestra cómo se cambia el tamaño máximo mediante el comando ALTER DATABASE:
 
- ```t-sql
+ ```sql
 ALTER DATABASE <myDatabaseName> 
    MODIFY (MAXSIZE = 4096 GB);
 ```
@@ -144,13 +140,13 @@ Al crear o actualizar una base de datos P11/P15 en una región no compatible, la
 - En escenarios de replicación geográfica activa:
    - Configuración de una relación de replicación geográfica: si la base de datos principal es P11 o P15, la secundaria (una o varias) también debe P11 o P15; aquellas con un nivel de rendimiento inferior se rechazarán como secundarias, puesto que no tienen capacidad para admitir 4 TB.
    - Actualización de la base de datos principal en una relación de replicación geográfica: al cambiar el tamaño máximo a 4 TB en una base de datos principal, se desencadenará el mismo cambio en la base de datos secundaria. Ambas actualizaciones deben realizarse correctamente para que el cambio en la principal surta efecto. Se aplican limitaciones por región para la opción de 4TB (consulte anteriormente). Si la base de datos secundaria está en una región que no admite 4 TB, no se actualizará la principal.
-- No se admite el uso del servicio Import/Export para cargar bases de datos P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import-sqlpackage.md) y [exportar](sql-database-export.md) datos.
+- No se admite el uso del servicio Import/Export para cargar bases de datos P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import.md) y [exportar](sql-database-export.md) datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda los detalles sobre los [grupos elásticos](sql-database-elastic-pool-guidance.md) y las [consideraciones de precio y rendimiento para estos](sql-database-elastic-pool-guidance.md).
 * Aprenda cómo [supervisar, administrar y cambiar el tamaño de los grupos de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md) y [supervisar el rendimiento de bases de datos únicas](sql-database-single-database-monitor.md).
-* Ahora que conoce los niveles de SQL Database, pruébelos con una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera instancia de SQL Database](sql-database-get-started.md).
+* Ahora que conoce los niveles de SQL Database, pruébelos con una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera instancia de SQL Database](sql-database-get-started-portal.md).
 * Para escenarios de migración, utilice la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para calcular el número aproximado de DTU necesarias. 
 
 

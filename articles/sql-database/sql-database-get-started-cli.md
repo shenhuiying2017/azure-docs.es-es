@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 04/04/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 24a99c20dc015b15de980e8323f2d88a39d318dd
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 06b6830b28745b0f6574d7bca5cca7907db8ecb1
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -39,21 +39,40 @@ Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/
 az login
 ```
 
+## <a name="define-variables"></a>Definición de variables
+
+Defina variables para su uso en los scripts con esta guía de inicio rápido.
+
+```azurecli
+# The data center and resource name for your resources
+resourcegroupname = myResourceGroup
+location = westeurope
+# The logical server name: Use a random value or replace with your own value (do not capitalize)
+servername = server-$RANDOM
+# Set an admin login and password for your database
+adminlogin = ServerAdmin
+password = ChangeYourAdminPassword1
+# The ip address range that you want to allow to access your DB
+startip = "0.0.0.0"
+endip = "0.0.0.1"
+# The database name
+databasename = mySampleDatabase
+```
+
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>un servidor lógico
 
 Cree un [servidor lógico de Azure SQL Database](sql-database-features.md) con el comando [az sql server create](/cli/azure/sql/server#create). Un servidor lógico contiene un conjunto de bases de datos administradas como un grupo. En el ejemplo siguiente se crea un servidor con nombre aleatorio en el grupo de recursos con un inicio de sesión de administrador denominado `ServerAdmin` y una contraseña `ChangeYourAdminPassword1`. Cambie estos valores predefinidos por los que prefiera.
 
 ```azurecli
-servername=server-$RANDOM
-az sql server create --name $servername --resource-group myResourceGroup --location westeurope \
-    --admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
+az sql server create --name $servername --resource-group $resourcegroupname --location $location \
+    --admin-user $adminlogin --admin-password $password
 ```
 
 ## <a name="configure-a-server-firewall-rule"></a>Configuración de una regla de firewall del servidor
@@ -61,8 +80,8 @@ az sql server create --name $servername --resource-group myResourceGroup --locat
 Cree una [regla de firewall de nivel de servidor de Azure SQL Database](sql-database-firewall-configure.md) con el comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Una regla de firewall de nivel de servidor permite a una aplicación externa, como SQL Server Management Studio o la utilidad SQLCMD conectarse a una instancia de SQL Database a través del firewall del servicio de SQL Database. En el ejemplo siguiente, el firewall está abierto solo para otros recursos de Azure. Para habilitar la conectividad externa, cambie la dirección IP a una dirección apropiada para su entorno. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.  
 
 ```azurecli
-az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
+    -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
 
 > [!NOTE]
@@ -74,8 +93,8 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 Cree una base de datos con un [nivel de rendimiento S0](sql-database-service-tiers.md) en el servidor con el comando [az sql db create](/cli/azure/sql/db#create). En el ejemplo siguiente se crea una base de datos llamada `mySampleDatabase` y se cargan en ella los datos del ejemplo AdventureWorksLT. Estos valores predefinidos se pueden reemplazar si se desea (otras guías de inicio rápido de esta colección se basan en los valores de esta).
 
 ```azurecli
-az sql db create --resource-group myResourceGroup --server $servername \
-    --name mySampleDatabase --sample-name AdventureWorksLT --service-objective S0
+az sql db create --resource-group $resourcegroupname --server $servername \
+    --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -83,7 +102,7 @@ az sql db create --resource-group myResourceGroup --server $servername \
 Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no va a continuar, use este comando para eliminar todos los recursos creados mediante esta guía de inicio rápido.
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

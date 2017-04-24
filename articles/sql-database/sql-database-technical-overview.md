@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
+ms.lasthandoff: 04/15/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>¿Qué es SQL Database? Introducción a SQL Database
@@ -35,7 +35,7 @@ Para obtener ejemplos de la CLI de Azure y de PowerShell, consulte:
  - [Ejemplos de Azure PowerShell para Azure SQL Database](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste del rendimiento y escalabilidad sin tiempo de inactividad
-El servicio SQL Database ofrece tres niveles de servicio: Básico, Estándar y Premium. Cada nivel de servicio ofrece [diferentes niveles de rendimiento y capacidades](sql-database-service-tiers.md) para admitir todos los tipos de cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, [cambiar el nivel de servicio](sql-database-service-tiers.md) manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. Y todo esto se puede hacer que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+El servicio SQL Database ofrece tres niveles de servicio: Básico, Estándar, Premium y Premium RS. Cada nivel de servicio ofrece [diferentes niveles de rendimiento y capacidades](sql-database-service-tiers.md) para admitir todos los tipos de cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, [cambiar el nivel de servicio](sql-database-service-tiers.md) manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. Y todo esto se puede hacer que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Grupos elásticos para maximizar la utilización de los recursos
 Para muchas empresas y aplicaciones, poder crear bases de datos únicas y aumentar o reducir el rendimiento a petición es suficiente, especialmente si los patrones de uso son relativamente predecibles. Pero si dichos patrones son impredecibles, pueden dificultar la administración de los costos y del modelo de negocio. Los [grupos elásticos](sql-database-elastic-pool.md) están diseñadas para solucionar este problema. El concepto es sencillo. Se asignan los recursos de rendimiento a un grupo, en lugar a una base de datos individual y se paga por los recursos de rendimiento colectivos del grupo, no por el rendimiento de la base de datos única. Con los grupos elásticos no es preciso centrarse en marcar el ascenso y la bajada de rendimiento de la base de datos a medida que varía la demanda de recursos. Las bases de datos en grupos consumen los recursos de rendimiento del grupo elástico a medida que se necesiten. Las bases de datos en grupos consumen los recursos, pero nunca superan los límites del grupo, por lo que el costo es en todo momento predecible, aunque el uso de las bases de datos individuales no lo sea. Es más, puede [agregar bases de datos al grupo y quitarlas del mismo](sql-database-elastic-pool-manage-portal.md), lo que escala la aplicación de un puñado de bases de datos a miles, y todo sin perder el control del presupuesto. Por último, también puede controlar el número mínimo y máximo de recursos disponibles para las bases de datos del grupo, con el fin de asegurarse de que ninguna de las bases de datos del grupo utiliza todos los recursos del grupo y que todas las bases de datos del grupo tienen un número mínimo garantizado de recursos. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
@@ -61,6 +61,6 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 
 * Consulte la [página de precios](https://azure.microsoft.com/pricing/details/sql-database/), para ver comparativas y calculadoras de los costos tanto de las bases de datos únicas como de los grupos elásticos.
 * Para más información, consulte [¿Qué es un grupo de bases de datos elásticas de Azure?](sql-database-elastic-pool.md).
-* Comience por [crear su primera base de datos](sql-database-get-started.md).
+* Comience por [crear su primera base de datos](sql-database-get-started-portal.md).
 * Para crear su primera aplicación en C#, Java, Node.js, PHP, Python o Ruby, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 

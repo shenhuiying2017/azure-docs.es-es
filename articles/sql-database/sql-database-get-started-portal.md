@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -50,18 +50,26 @@ Siga estos pasos para crear una instancia de SQL Database que contenga los datos
    - Grupo de recursos: **myResourceGroup**
    - Origen: **Sample (AdventureWorksLT)** [Ejemplo (AdventureWorksLT)]
 
-4. Haga clic en **Servidor** para crear y configurar el servidor para la nueva base de datos. Rellene el **formulario de servidor nuevo**, en el que debe especificar un nombre de servidor único global, indique un nombre para el inicio de sesión de administrador del servidor y especifique la contraseña que desee. 
+   > [!IMPORTANT]
+   > Debe seleccionar la base de datos de ejemplo de este formulario porque se utiliza en el resto de esta guía de inicio rápido.
+   > 
+
+4. Haga clic en **Servidor** y rellene el **formulario de servidor nuevo**, en el que debe especificar un nombre de servidor único global, indique un nombre para el inicio de sesión de administrador del servidor y especifique la contraseña que desee. 
+
+   > [!IMPORTANT]
+   > Se requiere el inicio de sesión y la contraseña de administrador de servidor que especifique aquí para iniciar sesión en el servidor y a sus bases de datos más adelante en esta guía de inicio rápido. Recuerde o grabe esta información para su uso posterior. 
+   >  
 
     ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. Haga clic en **Seleccionar**.
+5. Cuando haya completado el formulario, haga clic en **Seleccionar**.
 
-6. Haga clic en **Plan de tarifa** para especificar el tanto el nivel de rendimiento como el nivel de servicio de la nueva base de datos. Para este ejemplo, seleccione **20 DTU** y **250** GB de almacenamiento
+6. Haga clic en **Plan de tarifa** para especificar el tanto el nivel de rendimiento como el nivel de servicio de la nueva base de datos. Utilice el control deslizante para seleccionar **20 DTU** y **250** GB de almacenamiento. Para más información acerca de las DTU, consulte [¿Qué es una DTU?](sql-database-what-is-a-dtu.md).
 
     ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Haga clic en **Apply**.  
+7. Después de seleccionar la cantidad de DTU, haga clic en **Aplicar**.  
 
-8. Haga clic en **Create** (Crear) para realizar el aprovisionamiento de la base de datos. El aprovisionamiento tarda unos minutos. 
+8. Una vez completado el formulario de SQL Database, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
 
 9. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
 
@@ -72,13 +80,26 @@ Siga estos pasos para crear una instancia de SQL Database que contenga los datos
 
 El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor, a menos que se cree una regla de firewall para abrir el firewall para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](sql-database-firewall-configure.md) para la dirección IP de su cliente y habilite la conectividad externa a través de dicho firewall solo para su dirección IP. 
 
-1. Una vez finalizada la implementación, haga clic en **SQL Database** en el menú izquierdo y haga clic en la base de datos en la página **SQL Database**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver20170327.database.windows.net**) y proporciona opciones para otras configuraciones.
+> [!NOTE]
+> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. Si es así, no podrá conectarse al servidor de Azure SQL Database, a menos que el departamento de TI abra el puerto 1433.
+>
 
-      ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. Cuando se haya finalizado la implementación, haga clic en **SQL Database** en el menú izquierdo y después haga clic **mySampleDatabase** en la página de base de datos de SQL Database. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver20170411.database.windows.net**) y proporciona opciones para otras configuraciones.
+
+   > [!IMPORTANT]
+   > Necesitará este nombre completo del servidor para conectarse a su servidor y a sus bases de datos en las siguientes guías de inicio rápido.
+   > 
+
+      ![nombre del servidor](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la imagen anterior. Se abrirá la página **Configuración del firewall** del servidor de SQL Database. 
 
-3. Haga clic en **Agregar IP de cliente** en la barra de herramientas y haga clic en **Guardar**. Se creará una regla de firewall de nivel de servidor para la dirección IP actual.
+      ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
+
+4. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
       ![establecer regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
@@ -86,13 +107,12 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
 
 Ahora puede conectarse al servidor de SQL Database y a sus bases de datos mediante SQL Server Management Studio o cualquier otra herramienta que elija desde esta dirección IP usando la cuenta de administrador del servidor creada con anterioridad.
 
-> [!NOTE]
-> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. Si es así, no podrá conectarse al servidor de Azure SQL Database, a menos que el departamento de TI abra el puerto 1433.
->
+> [!IMPORTANT]
+> De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
 
 ## <a name="query-the-sql-database"></a>Consulta a SQL Database
 
-Al crear la instancia de SQL Database, se rellenó con la base de datos de ejemplo **AdventureWorksLT** (esta es una de las opciones que se ha seleccionado en la interfaz de usuario anteriormente en esta misma guía de inicio rápido). Ahora vamos a usar ahora la herramienta de consulta integrada en Azure Portal para consultar los datos. 
+Ahora que ha creado una base de datos de ejemplo en Azure, vamos a usar la herramienta de consulta integrada en Azure Portal para confirmar que puede conectarse a la base de datos y consultar los datos. 
 
 1. En la barra de herramientas de la página SQL Database de la base de datos, haga clic en **Herramientas**. Se abre la página **Herramientas**.
 

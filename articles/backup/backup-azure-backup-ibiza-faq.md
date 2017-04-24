@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -40,6 +40,7 @@ Los almacenes de Servicios de recuperación admiten ambos modelos.  Puede hacer 
 Las copias de seguridad de las máquinas virtuales clásicas del almacén de Copia de seguridad no se migrarán automáticamente al almacén de Servicios de recuperación al migrar las máquinas virtuales desde el modo clásico al de Resource Manager. Para realizar la migración de las copias de seguridad de máquinas virtuales, siga estos pasos:
 
 1. En el almacén de Copia de seguridad, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. Haga clic en [Detener la protección](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deje la opción *Eliminar los datos de copia de seguridad asociados***desactivada**.
-2. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que tanto el almacenamiento como la red correspondientes a la máquina virtual también se migran al modo de Resource Manager.
-3. Cree un almacén de Servicios de recuperación y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Más información acerca de cómo [habilitar la copia de seguridad en el almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md)
+2. En [Azure Portal](https://portal.azure.com), vaya al menú **Extensiones** de la máquina virtual y desinstale la extensión **VMSnapshot/VMSnapshotLinux**.
+3. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que tanto el almacenamiento como la red correspondientes a la máquina virtual también se migran al modo de Resource Manager.
+4. Cree un almacén de Servicios de recuperación y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Más información acerca de cómo [habilitar la copia de seguridad en el almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md)
 

@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Conexión de una aplicación web a una instancia de Content Delivery Network
@@ -28,7 +28,7 @@ En primer lugar, abra su explorador preferido y vaya a Azure [Portal](https://po
 
 ## <a name="step-2---create-a-cdn-profile"></a>Paso 2: Cree un nuevo perfil de CDN
 
-Haga clic en el botón `+ New` situado en el panel de navegación izquierdo y haga clic en **Web y móvil**. En la categoría Web y móvil, seleccione **CDN**.
+Haga clic en el botón **+ Nuevo** situado en el panel de navegación izquierdo y haga clic en **Web y móvil**. En la categoría Web y móvil, seleccione **CDN**.
 
 Especifique el **Nombre**, la **Ubicación**, el **Grupo de recursos** y el **Plan de tarifa** y luego haga clic en **Crear**.
 
@@ -38,7 +38,7 @@ Abra el centro de grupos de recursos de la barra de navegación izquierda y sele
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Paso 3: Cree un punto de conexión de CDN
 
-Haga clic en `+ Endpoint` en los comandos situados junto al cuadro de búsqueda y se iniciará la hoja de creación del punto de conexión.
+Haga clic en **+ Punto de conexión** en los comandos situados junto al cuadro de búsqueda y se iniciará la hoja de creación del punto de conexión.
 
 Especifique el **Nombre**, **Tipo de origen**, **Nombre de host de origen** y, a continuación, haga clic en **Agregar**.
 

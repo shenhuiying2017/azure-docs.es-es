@@ -28,6 +28,8 @@ La puerta de enlace de VPN de Azure anunciará las siguientes rutas a sus dispos
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>¿Puedo anunciar la ruta predeterminada (0.0.0.0/0) para puertas de enlace de VPN de Azure?
 Sí.
 
+Tenga en cuenta que esto conducirá todo el tráfico de salida de la red virtual hacia su sitio local e impedirá que las máquinas virtuales de la red virtual acepten comunicaciones públicas desde Internet directamente como, por ejemplo, RDP o SSH desde Internet a las máquinas virtuales.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>¿Puedo anunciar los mismos prefijos que los de mis prefijos de red virtual?
 
 No, la plataforma de Azure bloqueará o filtrará el anuncio de los mismos prefijos que los de cualquiera de sus otros prefijos de dirección de red virtual. Sin embargo, puede anunciar un prefijo que sea un superconjunto de lo que contenga su red virtual. 
@@ -65,9 +67,4 @@ La puerta de enlace de red local de Azure especifica los prefijos de dirección 
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>¿Qué debo agregar a mi dispositivo VPN local para la sesión de emparejamiento BGP?
 Debe agregar una ruta de host de la dirección IP del par BGP de Azure en el dispositivo VPN que apunta al túnel VPN S2S de IPsec. Por ejemplo, si la dirección IP del par VPN de Azure es "10.12.255.30", debe agregar una ruta de host para "10.12.255.30" con una interfaz de próximo salto de la interfaz de túnel IPsec coincidente en el dispositivo VPN.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

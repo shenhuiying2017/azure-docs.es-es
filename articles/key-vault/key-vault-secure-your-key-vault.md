@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -31,7 +31,7 @@ Para la autenticación tanto del plano de administración como del plano de dato
 
 Esta es una breve descripción general de los temas tratados:
 
-[Autenticación mediante Azure Active Directory](#authentication-using-azure-active-direcrory): esta sección explica la forma en que el autor de una llamada se autentica con Azure Active Directory para acceder a un almacén de claves a través del plano de administración y del plano de datos. 
+[Autenticación mediante Azure Active Directory](#authentication-using-azure-active-directory): esta sección explica la forma en que el autor de una llamada se autentica con Azure Active Directory para acceder a un almacén de claves a través del plano de administración y del plano de datos. 
 
 [Plano de administración y plano de datos](#management-plane-and-data-plane): el plano de administración y el plano de datos son dos planos de acceso que se usan para acceder a un almacén de claves. Cada plano de acceso admite operaciones concretas. En esta sección se describen los puntos de conexión de acceso, las operaciones compatibles y el método de control de acceso que utiliza cada plano. 
 
@@ -90,7 +90,7 @@ El plano de datos de un almacén de claves consta de operaciones que afectan a l
 El acceso al plano de datos se concede mediante el establecimiento de directivas de acceso para un almacén de claves. Un usuario, grupo o aplicación deben tener permisos de colaborador (RBAC) para el plano de administración de una instancia de un almacén de claves para poder establecer directivas de acceso para dicho almacén. Se puede conceder a un usuario, grupo o aplicación acceso para realizar operaciones concretas en las claves o secretos de un almacén de claves. Un almacén de claves admite hasta 16 entradas de directiva de acceso para un almacén de claves. Cree un grupo de seguridad de Azure Active Directory y agregue usuarios a dicho grupo para conceder acceso al plano de datos a varios usuarios a un almacén de claves.
 
 ### <a name="key-vault-access-policies"></a>Directivas de acceso de almacén de claves
-Las directivas de acceso de un almacén de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la directiva de acceso de un almacén de claves no admite permisos de nivel de objeto. Para establecer las directivas de acceso de un almacén de claves, puede usar [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de administración de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Las directivas de acceso de almacén de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la directiva de acceso de un almacén de claves no admite permisos de nivel de objeto. Para establecer las directivas de acceso de un almacén de claves, puede usar [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de administración de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > Tenga en cuenta que las directivas de acceso de un almacén de claves se aplican en el nivel de almacén. Por ejemplo, cuando se concede a un usuario permiso para crear y eliminar claves, puede realizar dichas operaciones en todas las claves de dicho almacén de claves.
