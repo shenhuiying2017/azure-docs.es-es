@@ -142,7 +142,7 @@ El siguiente script usa el método DateTime.Parse() y una conjunción.
         WHERE Start >= DateTime.Parse("2012/02/16") AND Start <= DateTime.Parse("2012/02/17");
 
     OUTPUT @rs1   
-        TO "/output/SearchLog-transform-datatime.csv"
+        TO "/output/SearchLog-transform-datetime.csv"
         USING Outputters.Csv();
 
  >[!NOTE]
