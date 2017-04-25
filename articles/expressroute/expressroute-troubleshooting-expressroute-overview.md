@@ -178,7 +178,7 @@ Cuando el proveedor de servicios haya completado el aprovisionamiento del circui
 >
 
 <p/>
->[!NOTE]> Si el proveedor de servicios proporciona la capa 3 y los emparejamientos están en blanco en el portal, puede usarse PowerShell para ver los ajustes de configuración del proveedor de servicios..
+>[!NOTE]> Si el proveedor de servicios proporciona la capa 3 y los emparejamientos están en blanco en el portal, puede usarse PowerShell para ver los ajustes de configuración del proveedor de servicios.
 >
 >
 
@@ -347,7 +347,7 @@ Como se muestra en el ejemplo anterior, el comando es útil para determinar dura
 >
 
 <p/>
->[!NOTE]> Si determinados destinos no son accesibles a través de un emparejamiento determinado, compruebe la tabla de rutas de los MSEE que pertenecen a ese contexto de emparejamiento concreto. Si se encuentra un prefijo coincidente (podría ser IP en NAT) en la tabla de enrutamiento, compruebe si hay firewall/NSG/ACL en la ruta de acceso y si permiten el tráfico..
+>[!NOTE]> Si determinados destinos no son accesibles a través de un emparejamiento determinado, compruebe la tabla de rutas de los MSEE que pertenecen a ese contexto de emparejamiento concreto. Si se encuentra un prefijo coincidente (podría ser IP en NAT) en la tabla de enrutamiento, compruebe si hay firewall/NSG/ACL en la ruta de acceso y si permiten el tráfico.
 >
 >
 
