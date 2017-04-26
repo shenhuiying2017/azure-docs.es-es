@@ -106,7 +106,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opc
     > En el modo de asignación de grupo del servicio Batch, dispone de dos opciones al seleccionar un sistema operativo para los nodos del grupo: **configuración de la máquina virtual** y **configuración de Cloud Services**. En el modo de suscripción de usuario, solo se puede utilizar la configuración de máquina virtual.
     >
 
-    La **configuración de máquina virtual** proporciona imágenes de Windows y Linux para nodos de proceso del [Marketplace de Azure Virtual Machines][ vm_marketplace] y, en el modo de asignación de suscripción de usuario, la opción para usar imágenes de máquina virtual personalizadas.
+    La **configuración de máquina virtual** proporciona imágenes de Windows y Linux para nodos de proceso del [Marketplace de Azure Virtual Machines][vm_marketplace] y, en el modo de asignación de suscripción de usuario, la opción para usar imágenes de máquina virtual personalizadas.
 
     Cuando se crea un grupo que contiene los nodos de configuración de máquina virtual, debe especificar no solo el tamaño de estos, sino también la **referencia de la imagen de máquina virtual** y el **SKU del agente de nodo** de Batch que desea instalar en los nodos. Para más información sobre cómo especificar estas propiedades del grupo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md).
 
