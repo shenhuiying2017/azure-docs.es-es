@@ -68,7 +68,7 @@ Para aprender a crear tablas en el back-end de Mobile Apps, consulte el [tema de
 Utilice uno de los métodos siguientes para instalar el paquete del SDK de cliente administrado para Mobile Apps desde [NuGet][9]:
 
 * **Visual Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Administrar paquetes NuGet**, busque el paquete `Microsoft.Azure.Mobile.Client` y haga clic en **Instalar**.
-* **Xamarin Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Add** (Agregar)  > ** Add NuGet Packages** (Agregar paquetes NuGet), busque el paquete`Microsoft.Azure.Mobile.Client ` y haga clic en **Add Package** (Agregar paquete).
+* **Xamarin Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Add** (Agregar)  > **Add NuGet Packages** (Agregar paquetes NuGet), busque el paquete`Microsoft.Azure.Mobile.Client ` y haga clic en **Add Package** (Agregar paquete).
 
 En el archivo de la actividad principal, no olvide agregar la siguiente instrucción **using** :
 
