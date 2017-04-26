@@ -20,7 +20,7 @@ ms.openlocfilehash: 8f4947ba2641bc8a39a71945ff2a6818d1ff7830
 ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="what-is-azure-search"></a>¿Qué es Búsqueda de Azure?
+# <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 
 Azure Search ofrece un motor de búsqueda dedicado y programable con comportamientos de búsqueda inteligente que permite a la barra de búsquedas realizar búsquedas en el contenido del sitio web, en las aplicaciones y en los almacenes de datos o de archivos corporativos. 
 
