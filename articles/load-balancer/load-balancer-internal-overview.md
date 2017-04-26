@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
-ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -72,6 +72,10 @@ Otro escenario para LOB es tener una VPN de sitio a sitio a la red virtual donde
 ![Equilibrio de carga interno mediante una VPN de sitio a sitio](./media/load-balancer-internal-overview/IC744150.png)
 
 Figura 4 - Tráfico de red local enrutado al punto de conexión ILB
+
+## <a name="limitations"></a>Limitaciones
+
+Las configuraciones del equilibrador de carga interno no son compatibles con SNAT. En el contexto de este documento, SNAT se refiere a la traducción de direcciones de red de origen de enmascaramiento de puertos.  Se aplica a escenarios donde una máquina virtual de un grupo de equilibradores de carga tiene que llegar a la dirección IP del servidor front-end del equilibrador de carga interno respectivo. Este escenario no es compatible con el equilibrador de carga interno. Se producirán errores de conexión cuando el flujo sea de carga equilibrada en la máquina virtual que ha originado ese flujo. Debe usar un equilibrador de carga de estilo proxy para estos escenarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

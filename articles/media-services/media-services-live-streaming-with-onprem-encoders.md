@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 7d980e14776cade574fc9ef4e63aea5c91fb8fdf
-ms.openlocfilehash: a5867566afc80fe7ae57b5027b5578e3144f7f07
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -35,11 +35,11 @@ En Azure Media Services, un *canal* representa una canalización para procesar c
 
 A partir de la versión 2.10 de Media Services, al crear un canal puede especificar cómo desea que este reciba la transmisión entrante. También puede especificar si desea que el canal realice la codificación en vivo de la transmisión. Tiene dos opciones:
 
-* **Ninguna**: especifique este valor si piensa usar un codificador en vivo local que genere una transmisión de velocidad de bits múltiple (transmisión de paso a través) de salida. En este caso, la transmisión entrante pasa hasta la salida sin codificación. Este es el comportamiento de los canales antes de la versión 2.10. En este tema se proporciona información sobre cómo trabajar con canales de este tipo.
-* **Estándar**: elija este valor si piensa usar Media Services para codificar transmisiones en vivo con una sola velocidad de bits como transmisión de velocidad de bits múltiple. Tenga en cuenta que dejar una codificación en vivo del canal en estado **En ejecución** supone cargos de facturación. Se recomienda detener inmediatamente los canales en ejecución después que termine evento de streaming en vivo para evitar cargos por hora adicionales. Media Services entrega la transmisión a los clientes que lo soliciten.
+* **Paso a través**: especifique este valor si piensa usar un codificador en vivo local que genere una transmisión de velocidad de bits múltiple (transmisión de paso a través) de salida. En este caso, la transmisión entrante pasa hasta la salida sin codificación. Este es el comportamiento de los canales antes de la versión 2.10. En este tema se proporciona información sobre cómo trabajar con canales de este tipo.
+* **Live Encoding**: elija este valor si piensa usar Media Services para codificar transmisiones en vivo con una sola velocidad de bits como transmisión de velocidad de bits múltiple. Tenga en cuenta que dejar una codificación en vivo del canal en estado **En ejecución** supone cargos de facturación. Se recomienda detener inmediatamente los canales en ejecución después que termine evento de streaming en vivo para evitar cargos por hora adicionales. Media Services entrega la transmisión a los clientes que lo soliciten.
 
 > [!NOTE]
-> En este tema se describen los atributos de los canales no habilitados para realizar la codificación en directo (tipo de codificación**Ninguna** ). Para más información sobre cómo trabajar con los canales habilitados para realizar la codificación en directo, consulte [Codificación en directo con Servicios multimedia de Azure para crear velocidades de bits múltiple](media-services-manage-live-encoder-enabled-channels.md).
+> En este tema se describen los atributos de los canales no habilitados para realizar la codificación en directo. Para más información sobre cómo trabajar con los canales habilitados para realizar la codificación en directo, consulte [Codificación en directo con Servicios multimedia de Azure para crear velocidades de bits múltiple](media-services-manage-live-encoder-enabled-channels.md).
 >
 >
 
@@ -47,7 +47,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo que us
 
 ![Flujo de trabajo activo][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Escenario típico de streaming en vivo
+## <a id="scenario"></a>Escenario típico de streaming en vivo
 En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones típicas de streaming en vivo.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador en vivo local que genera una transmisión de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) de salida. Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -79,9 +79,9 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 
 10. Elimine el programa (y, opcionalmente, también el recurso).     
 
-## <a name="a-idchanneladescription-of-a-channel-and-its-related-components"></a><a id="channel"></a>Descripción de un canal y sus componentes relacionados
-### <a name="a-idchannelinputachannel-input-ingest-configurations"></a><a id="channel_input"></a>Configuraciones de entrada de canal (introducción)
-#### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocolo de streaming de ingesta
+## <a id="channel"></a>Descripción de un canal y sus componentes relacionados
+### <a id="channel_input"></a>Configuraciones de entrada de canal (introducción)
+#### <a id="ingest_protocols"></a>Protocolo de streaming de ingesta
 Media Services admite la ingesta de fuentes en vivo mediante MP4 fragmentado y RTMP de velocidad de bits múltiple como protocolos de streaming. Al seleccionar el protocolo de streaming de ingesta RTMP, se crean dos puntos de conexión de ingesta (entrada) para el canal:
 
 * **URL principal**: especifica la dirección URL completa del extremo de introducción RTMP principal del canal.
@@ -110,7 +110,7 @@ Puede obtener las direcciones URL de ingesta al crear el canal. Para obtener est
 
 Tiene la opción de ingerir una transmisión en vivo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, no se puede consumir RTMP a través de SSL.
 
-#### <a name="a-idkeyframeintervalakeyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de fotogramas clave
+#### <a id="keyframe_interval"></a>Intervalo de fotogramas clave
 Cuando se usa un codificador en vivo local para generar una transmisión de velocidad de bits múltiple, el intervalo de fotogramas clave especifica la duración de grupo de imágenes (GOP) tal como la usa el codificador externo. Cuando el canal haya recibido esta transmisión entrante, puede entregar la transmisión en vivo a las aplicaciones cliente de reproducción en cualquiera de los siguientes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) y HTTP Live Streaming (HLS). Cuando se realiza el streaming en vivo, HLS siempre se empaqueta dinámicamente. De forma predeterminada, Media Services calcula automáticamente la proporción de empaquetado por segmento HLS (fragmentos por segmento) según el intervalo de fotogramas clave que se recibe del codificador en vivo.
 
 En la tabla siguiente se muestra cómo se calcula la duración de los segmentos:
@@ -169,7 +169,7 @@ Para eliminar contenido archivado, detenga y elimine el programa y, a continuaci
 
 Incluso después de detener y eliminar el programa, los usuarios podrán transmitir el contenido archivado como un vídeo a petición, hasta que elimine el recurso. Si desea conservar el contenido archivado, pero no hacerlo disponible para streaming, elimine el localizador de streaming.
 
-## <a name="a-idstatesachannel-states-and-billing"></a><a id="states"></a>Estados de los canales y facturación
+## <a id="states"></a>Estados de los canales y facturación
 Los valores posibles para el estado actual de un canal incluyen:
 
 * **Stopped** (Detenido): estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
@@ -187,7 +187,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
 | **Stopped** |**Stopped** |No |
 
-## <a name="a-idccandadsaclosed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Subtítulos e inserción de anuncios
+## <a id="cc_and_ads"></a>Subtítulos e inserción de anuncios
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios compatibles.
 
 | Estándar | Notas |
@@ -196,7 +196,7 @@ En la siguiente tabla se muestran los estándares de subtítulos e inserción de
 | TTML dentro de .ismt (pistas de texto Smooth Streaming) |El empaquetado dinámico de Media Services permite a los clientes transmitir contenido de cualquiera de los siguientes formatos: DASH, HLS o Smooth Streaming. Sin embargo, si ingiere MP4 fragmentado (Smooth Streaming) con subtítulos dentro de .ismt (pistas de texto Smooth Streaming), solo podrá entregar la transmisión a clientes de Smooth Streaming. |
 | SCTE-35 |Sistema de señalización digital utilizado para poner en cola la inserción de publicidad. Los receptores descendentes usan la señal para unir la publicidad a la secuencia por el tiempo asignado. SCTE-35 se debe enviar como una pista dispersa en la secuencia de entrada.<p><p>En la actualidad, el único formato de transmisión de entrada admitido con señales de publicidad es el formato MP4 fragmentado (Smooth Streaming). El único formato de salida admitido también es Smooth Streaming. |
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Consideraciones
+## <a id="considerations"></a>Consideraciones
 Cuando se usa un codificador en vivo local para enviar una transmisión de velocidad de bits múltiple en un canal, se aplican las siguientes restricciones:
 
 * Asegúrese de que tiene suficiente conectividad a Internet disponible para enviar datos a los puntos de ingesta.

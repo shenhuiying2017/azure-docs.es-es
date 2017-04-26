@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 389c01234acff068dc90f3cdfdc4916a9d76d244
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ La integración entre SCOM y Service Map se habilita al importar el paquete de m
 
     ![Asistente para configuración de SCOM](media/oms-service-map/scom-configuration.png)
 
-3. El primer paso del asistente es la configuración de la conexión, donde escribe la información de la entidad de servicio de Azure. Escriba el id. o el nombre del inquilino, el id. de la aplicación (o nombre de usuario o ClientID) y la contraseña de la entidad de servicio.  [Más información sobre cómo crear una entidad de servicio](#creating-a-service-principal).
+3. El primer paso del asistente es la configuración de la conexión, donde escribe la información de la entidad de servicio de Azure. Escriba el id. o el nombre del inquilino, el id. de la aplicación (también conocido como nombre de usuario o ClientID) y la contraseña de la entidad de servicio.  [Más información sobre cómo crear una entidad de servicio](#creating-a-service-principal).
 
     ![Configuración del SPN de SCOM](media/oms-service-map/scom-config-spn.png)
 
@@ -77,8 +77,8 @@ Una vez conectado el área de trabajo de OMS, aparecerá una nueva carpeta de Se
 ![Supervisión de SCOM](media/oms-service-map/scom-monitoring.png)
 
 La carpeta de Service Map tiene tres nodos:
-### <a name="all-alerts"></a>All Alerts (Todas las alertas):
-Muestra todas las alertas acerca de la comunicación entre SCOM y la solución Service Map en OMS.
+### <a name="active-alerts"></a>Alertas activas:
+Muestra todas las alertas activas referidas a la comunicación entre SCOM y la solución Service Map en OMS.
 
 **Nota:** No son las alertas de OMS que aparecen en SCOM.
 ### <a name="servers"></a>Servers (Servidores):
@@ -108,7 +108,7 @@ Panel de creación --> Rules (Reglas) --> Microsoft.SystemCenter.ServiceMapImpor
 
 ## <a name="known-issueslimitations"></a>Problemas conocidos y limitaciones:
 Del diseño actual:
-1. Aunque los usuarios pueden agregar servidores manualmente al grupo de servidores de Service Map desde el panel de creación, las asignaciones para esos servidores se sincronizarán desde Service Map únicamente durante el siguiente ciclo de sincronización (a los&60; minutos de forma predeterminada. Los usuarios pueden invalidar el tiempo de sincronización). 
+1. Aunque los usuarios pueden agregar servidores manualmente al grupo de servidores de Service Map desde el panel de creación, las asignaciones para esos servidores se sincronizarán desde Service Map únicamente durante el siguiente ciclo de sincronización (a los 60 minutos de forma predeterminada. Los usuarios pueden invalidar el tiempo de sincronización). 
 2. Los usuarios pueden conectarse a una única área de trabajo de OMS.
 
 ## <a name="creating-a-service-principal"></a>Creación de una entidad de servicio

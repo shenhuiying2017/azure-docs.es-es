@@ -15,72 +15,67 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 6ab17943e3ce21fc309a2b8986e99823b316384f
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 9ed2aadb67b5b911ef35a28879f349586baa5462
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="discover-and-share-tutorials-in-the-cortana-intelligence-gallery"></a>Detección y uso compartido de tutoriales en la Galería de Cortana Intelligence
+# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Detección y uso compartido de tutoriales en la Galería de Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Tutoriales
-**[Tutoriales](https://gallery.cortanaintelligence.com/tutorials)**: hay disponibles tutoriales que le guiarán a través de los conceptos y las tecnologías de Machine Learning, o que describen métodos avanzados para solucionar diversos problemas de Machine Learning.
+La Galería de Cortana Intelligence ofrece varios [tutoriales](https://gallery.cortanaintelligence.com/tutorials) sobre las tecnologías y los conceptos de aprendizaje automático. Los tutoriales también pueden explicar métodos avanzados para resolver problemas de aprendizaje automático.
 
 ## <a name="discover"></a>Descubra
-Para examinar los tutoriales en la galería, abra la [galería](http://gallery.cortanaintelligence.com), señale con el mouse en **Más** en la parte superior de la página de inicio de la galería y seleccione **Tutoriales**.
+Para examinar los tutoriales [de la Galería](http://gallery.cortanaintelligence.com), en **Más**, seleccione **Tutoriales**.
 
-![Seleccione los tutoriales en la página principal de la galería](media/machine-learning-gallery-tutorials/select-tutorials-in-gallery.png)
+![Seleccionar Tutoriales en la página principal de la Galería](media/machine-learning-gallery-tutorials/select-tutorials-in-gallery.png)
 
- La página **[Tutoriales](https://gallery.cortanaintelligence.com/tutorials)**
- muestra una lista de los tutoriales agregados recientemente y más populares.
-Haga clic en **Ver todos** para ver todos los tutoriales.
-Desde esta página, puede examinar todos los tutoriales de la Galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
+La página **[Tutoriales](https://gallery.cortanaintelligence.com/tutorials)** muestra una lista de los tutoriales populares y los agregados recientemente. Para ver todos los tutoriales, seleccione el botón **Ver todos**. Para buscar un tutorial concreto, seleccione **Ver todos** y luego seleccione criterios de filtro. También puede escribir términos de búsqueda en el cuadro **Buscar** de la parte superior de la página Galería.
 
- Haga clic en cualquier tutorial para abrir la página de detalles del tutorial y leer más información sobre ella.
-En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al tutorial para invitar a otros usuarios a ver la página.
+Puede obtener más información sobre un tutorial en la página de detalles de ese tutorial. Para abrir una página de detalles de un tutorial, seleccione el tutorial. En la sección **Comentarios** de la página de detalles de un tutorial puede comentar, dar opiniones o formular preguntas sobre ese tutorial. Incluso puede compartir el tutorial con amigos o compañeros en Twitter o LinkedIn. También puede enviar por correo electrónico un vínculo a la página de detalles de un tutorial para invitar a otros usuarios a ver la página.
 
 ![Compartir este elemento con amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Agregar sus comentarios](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Contribuciones
-Puede aportar un tutorial a la galería para ayudar a otros usuarios a solucionar un problema u obtener un concepto.
+Puede agregar un tutorial a la Galería para ayudar a otros usuarios a solucionar un problema o aprender un concepto.
 
 ### <a name="create-a-tutorial"></a>Crear un tutorial
-Siga estos pasos para crear un tutorial y contribuir con él a la Galería de Cortana Intelligence:
 
-1. Inicie sesión en la galería con su cuenta Microsoft.
+1. Inicie sesión en la Galería con la cuenta Microsoft.
 
-2. Haga clic en la imagen en la parte superior de la ventana y después haga clic en su nombre
+2. Seleccione la imagen en la parte superior de la página y después seleccione el nombre.
   
-    ![Haga clic en el nombre de cuenta](media/machine-learning-gallery-tutorials/click-account-name.png)
+    ![Seleccionar el nombre de cuenta](media/machine-learning-gallery-tutorials/click-account-name.png)
 
-3. Haga clic en **Nuevo elemento**
+3. Seleccione **Nuevo elemento**.
   
-    ![Haga clic en "Nuevo elemento"](media/machine-learning-gallery-collections/click-new-item.png)
+    ![Seleccionar "Nuevo elemento"](media/machine-learning-gallery-collections/click-new-item.png)
 
-4. Seleccione **Colección** para **Tipo de elemento** y luego asigne un nombre a la colección, un breve resumen, una descripción y algunas etiquetas que ayuden a los usuarios a encontrarla
+4. En la página **Descripción**, en **TIPO DE ELEMENTO**, seleccione **Tutorial**. Escriba un nombre para el tutorial, un breve resumen, una descripción detallada y las etiquetas que puedan ayudar a otros usuarios a encontrar el tutorial.
   
-    ![Especifique información para la nueva colección](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
-5. Haga clic en **Siguiente**: puede cargar un archivo de imagen o seleccionar una imagen de archivo que se encuentre con la colección; elija algo que ayude a los usuarios identificar el contenido y el propósito de la colección
+    ![Especificar la información del nuevo tutorial](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
+5. En la página **Selección de imagen**, seleccione una imagen que se muestre con la colección. Puede cargar su propio archivo de imagen o seleccionar una imagen de archivo. Elija una imagen que pueda ayudar a los usuarios a identificar el contenido y la finalidad del tutorial.
   
-    ![Especifique información para la nueva colección](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
+    ![Especificar la información del nuevo tutorial](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
 
-6. Haga clic en **Siguiente**: puede decidir si el tutorial es **Público** (lo puede ver cualquier persona) o **No enumerado** (solo las personas con un vínculo directo pueden ver el tutorial)
+6. En la página **Configuración**, en **Visibilidad**, seleccione si la colección es **Público** (cualquiera puede ver el tutorial) o **No enumerado** (solo los usuarios con un vínculo directo al tutorial pueden verlo).
   
     > [!IMPORTANT]
-    > Una vez establecido un tutorial en **Público**, no se puede establecer en **No enumerado**.
+    > Después de establecer un tutorial en **Público** y de seleccionar **Crear**, no se puede cambiar el tutorial a **No enumerado**.
     > 
     > 
   
-    ![Seleccione Público o No enumerado](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
+    ![Seleccionar "Público" o "No enumerado"](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
 
-7. Haga clic en **Crear**
+7. Seleccione **Crear**.
 
-Con ello, el tutorial pasa a formar parte de la Galería de Cortana Intelligence. Se mostrará en la página de la cuenta en la pestaña **Elementos**.
+Así el tutorial está en la Galería de Cortana Intelligence. El tutorial aparece en la página de cuenta, en la pestaña **Elementos**.
 
-**[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
+**[Ir a la Galería](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

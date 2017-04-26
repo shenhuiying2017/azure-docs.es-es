@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 3a240ff317e1b3ea450703965629c08053668856
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -199,7 +199,7 @@ El desencadenador de conexión de API es similar al desencadenador HTTP en su fu
 |Nombre del elemento|Obligatorio|Tipo|Descripción|  
 |----------------|------------|--------|---------------|  
 |host|Sí||La puerta de enlace y el id. de la ApiApp hospedada.|  
-|estático|Sí|String|Puede ser uno de los siguientes métodos HTTP: **GET**, **POST**, **PUT**, **DELETE**, **PATCH** o **HEAD**.|  
+|estático|Sí|string|Puede ser uno de los siguientes métodos HTTP: **GET**, **POST**, **PUT**, **DELETE**, **PATCH** o **HEAD**.|  
 |Consultas|No|Objeto|Representa los parámetros de consulta que se agregarán a la dirección URL. Por ejemplo, `"queries" : { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL.|  
 |encabezados|No|Objeto|Representa cada uno de los encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`.|  
 |body|No|Objeto|Representa la carga útil que se envía al punto de conexión.|  
@@ -453,7 +453,7 @@ Por ejemplo, la siguiente acción reintenta la obtención de las últimas notici
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -658,6 +658,28 @@ La salida de la acción `query` es una matriz que contiene elementos de la matri
 |De|Sí|Matriz|La matriz de origen.|
 |donde|Sí|String|La condición que se va a aplicar a cada elemento de la matriz de origen.|
 
+## <a name="select-action"></a>Acción Select
+
+La acción `select` permite proyectar cada elemento de una matriz en un nuevo valor.
+Por ejemplo, para convertir una matriz de números en una matriz de objetos, puede usar:
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+El resultado de la acción `select` es una matriz que tiene la misma cardinalidad que la matriz de entrada, con cada elemento transformado según la definición de la propiedad `select`. Si la entrada es una matriz vacía, el resultado también es una matriz vacía.
+
+|Nombre|Obligatorio|Tipo|Descripción|
+|--------|------------|--------|---------------|
+|De|Sí|Matriz|La matriz de origen.|
+|select|Sí|Cualquiera|Proyección que se va a aplicar a cada elemento de la matriz de origen.|
+
 ## <a name="terminate-action"></a>Acción Terminate
 
 La acción Terminate detiene la ejecución del flujo de trabajo, de forma que anula cualquier acción en curso y omite el resto de acciones. Por ejemplo, para terminar una ejecución con el estado **Failed**, puede usar el siguiente fragmento de código:
@@ -703,6 +725,71 @@ La acción Compose permite construir un objeto arbitrario. El resultado de la ac
 
 > [!NOTE]
 > La acción **Compose** puede usarse para construir cualquier salida, como objetos, matrices y cualquier otro tipo compatible de forma nativa con aplicaciones lógicas, como XML y binario.
+
+## <a name="table-action"></a>Acción Table
+
+`table` permite convertir una matriz de elementos en una tabla **CVS** o **HTML**.
+
+Si @triggerBody() es
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+Y permite que la acción se defina como
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+Lo anterior generaría
+
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>apples</td></tr><tr><td>1</td><td>oranges</td></tr></tbody></table>"
+
+Para personalizar la tabla, puede especificar las columnas de forma explícita. Por ejemplo:
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+Lo anterior generaría
+
+<table><thead><tr><th>produce id</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>fresh apples</td></tr><tr><td>1</td><td>fresh oranges</td></tr></tbody></table>"
+
+Si el valor de la propiedad `from` es una matriz vacía, el resultado es una tabla vacía.
+
+|Nombre|Obligatorio|Tipo|Descripción|
+|--------|------------|--------|---------------|
+|De|Sí|Matriz|La matriz de origen.|
+|formato|Sí|String|El formato, ya sea **CVS** o **HTML**.|
+|columnas|No|Matriz|Las columnas. Permite reemplazar la forma predeterminada de la tabla.|
+|column header|No|String|Encabezado de la columna.|
+|column value|Sí|String|Valor de la columna.|
 
 ## <a name="workflow-action"></a>Acción Workflow   
 
@@ -897,3 +984,4 @@ Si una condición se evalúa correctamente, la condición se marca como `Succeed
 ## <a name="next-steps"></a>Pasos siguientes
 
 [API de REST de Servicio de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows)
+

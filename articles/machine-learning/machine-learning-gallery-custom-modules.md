@@ -1,6 +1,6 @@
 ---
 title: "Módulos personalizados de la Galería de Cortana Intelligence | Microsoft Docs"
-description: "Descubra los módulos de Machine Learning personalizados en la Galería de Cortana Intelligence."
+description: "Descubra los módulos de aprendizaje automático personalizados de la Galería de Cortana Intelligence."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,82 +12,88 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/14/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 6e0efe18c1170ef3b5a9b894888e926b31432e07
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 56c308643ad6d20170174725f76f6ddbc76b3e22
+ms.lasthandoff: 04/15/2017
 
 
 ---
-# <a name="discover-custom-machine-learning-modules-in-the-cortana-intelligence-gallery"></a>Descubra los módulos de Machine Learning personalizados en la Galería de Cortana Intelligence
+# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Módulos de aprendizaje automático personalizados de la Galería de Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Módulos personalizados de Machine Learning Studio
-Un número de **[módulos personalizados](https://gallery.cortanaintelligence.com/customModules)** está disponible en la Galería de Cortana Intelligence que amplía las capacidades de Azure Machine Learning Studio. Puede descargar estos módulos para su uso en sus experimentos para desarrollar incluso soluciones de análisis predictivo más avanzadas.
+La Galería de Cortana Intelligence ofrece varios [módulos personalizados](https://gallery.cortanaintelligence.com/customModules) que amplían las capacidades de Azure Machine Learning Studio. Puede importar los módulos para su uso en los experimentos, para poder desarrollar soluciones de análisis predictivo aún más avanzadas.
+
+Actualmente, la Galería ofrece módulos sobre *análisis de series temporales*, *reglas de asociación*, *algoritmos de clústeres* (más allá de k-means) y *visualizaciones*, además de otros módulos de batalla.
+
 
 ## <a name="discover"></a>Descubra
-Para examinar módulos personalizados en la galería, abra la [galería](http://gallery.cortanaintelligence.com), señale con el mouse en **Más** en la parte superior de la página de inicio de la galería y seleccione **Módulos personalizados**.
+Para examinar los módulos personalizados [de la Galería](http://gallery.cortanaintelligence.com), en **Más**, seleccione **Módulos personalizados**.
 
-![Seleccione los módulos personalizados desde la página principal de la galería](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
+![Seleccionar Módulos personalizados en la página principal de la Galería](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
 
- La página **[Módulos personalizados](https://gallery.cortanaintelligence.com/customModules)**
- muestra una lista de los módulos más conocidos.
-Haga clic en **Ver todos** para ver todos los módulos personalizados.
-Desde esta página, puede examinar todos los módulos personalizados de la Galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
+La página **[Módulos personalizados](https://gallery.cortanaintelligence.com/customModules)** muestra una lista de los módulos populares y los agregados recientemente. Para ver todos los módulos personalizados, seleccione el botón **Ver todos**. Para buscar un módulo personalizado concreto, seleccione **Ver todos** y luego seleccione criterios de filtro. También puede escribir términos de búsqueda en el cuadro **Buscar** de la parte superior de la página Galería.
+
+![Seleccione "Ver todos" para examinar todos los módulos personalizados.](media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
+
+### <a name="understand"></a>Entender
+
+Para entender cómo funciona un módulo personalizado publicado, seleccione el módulo personalizado para abrir su página de detalles. La página de detalles ofrece una experiencia de aprendizaje coherente e informativa. Por ejemplo, la página de detalles resalta la finalidad del módulo y enumera parámetros, salidas y entradas esperados. La página de detalles también incluye un vínculo al código fuente subyacente, que se puede examinar y personalizar.
 
 ### <a name="comment-and-share"></a>Comentario y recurso compartido
- Haga clic en cualquier módulo personalizado para abrir la página de detalles del módulo y leer información sobre lo que hace el módulo y cómo utilizarlo. En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al módulo personalizado para invitar a otros usuarios a ver la página.
+En la sección **Comentarios** de la página de detalles de un módulo personalizado puede comentar, dar opiniones o formular preguntas sobre ese módulo. Incluso puede compartir el módulo con amigos o compañeros en Twitter o LinkedIn. También puede enviar por correo electrónico un vínculo a la página de detalles de un módulo para invitar a otros usuarios a ver la página.
 
 ![Compartir este elemento con amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Agregar sus comentarios](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Descargar
-Puede utilizar cualquier módulo personalizado en la galería en sus propios experimentos.
-Hay dos maneras de obtener una copia del módulo:
+## <a name="import"></a>Importar
+Puede importar cualquier módulo personalizado desde la Galería a sus propios experimentos.
 
-* **Desde la galería**: al descargar un módulo de la galería, este se agrega a la paleta de módulos en el área de trabajo. También obtendrá un experimento de ejemplo que le proporciona un ejemplo sobre cómo usar el módulo.
-* **Desde dentro de Machine Learning Studio**: puede importar cualquier módulo personalizado mientras trabaja en Studio, y el módulo se agrega a la paleta de módulos en el área de trabajo.
+La Galería de Cortana Intelligence ofrece dos formas de importar una copia del módulo:
 
-Una vez que el módulo personalizado está en la paleta de módulos, está disponible para su uso en todos los experimentos en el área de trabajo como cualquier otro módulo:
-
-1. Crear un experimento nuevo o abrir uno existente
-2. En la paleta de módulos a la izquierda del lienzo del experimento, haga clic en **Personalizado** para expandir la lista de módulos personalizados en el área de trabajo
-   
-    ![Lista de módulos personalizados en la paleta de Studio](media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
-3. Seleccione el módulo importado y arrástrelo al experimento
+* **Desde la Galería**. Al importar un módulo personalizado desde la Galería, también obtendrá un experimento de ejemplo que le proporciona un ejemplo sobre cómo usar el módulo.
+* **Desde Machine Learning Studio**. Puede importar cualquier módulo personalizado mientras está trabajando en Machine Learning Studio (en este caso no se obtiene el experimento de ejemplo).
 
 ### <a name="from-the-gallery"></a>Desde la galería
-Para descargar una copia de un módulo personalizado desde la galería:
 
-1. Abra la página de detalles del módulo en la galería
-2. Haga clic en **Abrir en Studio**
+1. En la Galería, abra la página de detalles del módulo. 
+2. Seleccione **Abrir en Studio**.
    
     ![Abrir módulo personalizado desde la galería](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
    
-    Cada módulo personalizado incluye un experimento de ejemplo que muestra cómo utilizar el módulo. Al hacer clic en **Abrir en Studio**, el experimento de ejemplo se carga en el área de trabajo de Machine Learning Studio y se abre (si es todavía no ha iniciado sesión en Studio, se le pedirá que inicie sesión con su cuenta de Microsoft antes de que el experimento se copie en el área de trabajo).
+Cada módulo personalizado incluye un experimento de ejemplo que muestra cómo utilizar el módulo. Cuando se selecciona **Abrir en Studio**, el experimento de ejemplo se abre en el área de trabajo de Machine Learning Studio. (Si aún no ha iniciado sesión en Studio, se le pide que primero lo haga con la cuenta de Microsoft).
 
-El módulo personalizado se copia en el área de trabajo y se coloca en la paleta de módulos junto con todos los demás módulos de Studio personalizados o incorporados. Ahora puede usarlo como cualquier otro módulo en el área de trabajo.
+Además del experimento de ejemplo, el módulo personalizado se copia en el área de trabajo. También se coloca en la paleta de módulos, con todos los módulos integrados o personalizados de Machine Learning Studio. Ahora puede usarlo en sus propios experimentos como cualquier otro módulo del área de trabajo.
 
 ### <a name="from-within-machine-learning-studio"></a>Desde Machine Learning Studio
-También puede importar los mismos módulos personalizados desde la galería mientras trabaja en Machine Learning Studio:
 
-1. En Machine Learning Studio, haga clic en **+NUEVO**
-2. Seleccione **Módulo**: se muestra una lista de módulos de la galería desde la que puede elegir o encontrar un módulo específico con el cuadro de búsqueda
-3. Señale con el mouse en un módulo y seleccione **Módulo de importación** (para obtener información acerca del módulo, seleccione **Vista en galería**, que le lleva a la página de detalles para el módulo en la galería)
+1. En Machine Learning Studio, seleccione **NUEVO**.
+2. Seleccione **Módulo**. Puede elegir entre una lista de módulos de la Galería o buscar un módulo determinado mediante el cuadro **Buscar**.
+3. Coloque el mouse sobre un módulo y luego seleccione **Importar módulo**. (Para ver información sobre el módulo, seleccione **Ver en la Galería**. Esto lleva a la página de detalles del módulo en la Galería).
    
     ![Importar el módulo personalizado en Machine Learning Studio](media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
 
-El módulo personalizado se copia en el área de trabajo y se coloca en la paleta de módulos junto con todos los demás módulos de Studio personalizados o incorporados. Ahora puede usarlo como cualquier otro módulo en el área de trabajo.
+El módulo personalizado se copia en el área de trabajo y se coloca en la paleta de módulos con los módulos personalizados o integrados de Machine Learning Studio. Ahora puede usarlo en sus propios experimentos como cualquier otro módulo del área de trabajo.
 
-**[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
+## <a name="use"></a>Uso
+
+Independientemente del método que elija para importar un módulo personalizado, al importarlo, el módulo se coloca en la paleta de módulos de Machine Learning Studio. Desde la paleta de módulos, puede usar el módulo personalizado en cualquier experimento en el área de trabajo, como cualquier otro módulo.
+
+Para usar un módulo importado:
+
+1. Cree un experimento o abra uno existente.
+2. Para expandir la lista de módulos personalizados en el área de trabajo, en la paleta de módulos, seleccione **Personalizados**. La paleta de módulos se encuentra a la izquierda del lienzo de experimentos.
+   
+    ![Lista de módulos personalizados en la paleta de Studio](media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
+3. Seleccione el módulo importado y arrástrelo al experimento.
+
+
+**[Ir a la Galería](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
