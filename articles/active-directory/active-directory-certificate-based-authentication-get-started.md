@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
 ms.openlocfilehash: d818cd3a243fb78228706b21a002f295782189be
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -218,10 +219,5 @@ Puede configurar un perfil de EAS y colocarlo en el dispositivo utilizando el se
 
 1. Configure un perfil de EAS en la aplicación que cumpla los requisitos anteriores.  
 2. Abra la aplicación y verifique que el correo electrónico se esté sincronizando. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
