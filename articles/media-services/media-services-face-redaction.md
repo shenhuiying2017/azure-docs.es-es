@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 04/16/2017
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
-ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 2600c5cec36a8a44a85a62d6672d6ae57343f20c
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -92,7 +92,7 @@ El paso **analizar** del flujo de trabajo de dos pasos toma una entrada de víde
           ]
         },
 
-... truncado
+    … truncated
 
 ### <a name="redact-mode"></a>Modo Redact (Censurar)
 El segundo paso del flujo de trabajo tiene un mayor número de entradas que tienen que combinarse en un solo recurso.
@@ -114,6 +114,12 @@ Este es el resultado de una lista de identificadores con un identificador selecc
 
 [Vea este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
+foo_IDList.txt de ejemplo
+ 
+     1
+     2
+     3
+ 
 ## <a name="attribute-descriptions"></a>Descripciones de atributos
 El procesador multimedia de censura proporciona detección de ubicación y seguimiento de rostros de alta precisión que puede detectar hasta 64 caras humanas en un fotograma de vídeo. Las caras de frente ofrecen los mejores resultados, mientras que las que se encuentran de lado y las caras pequeñas (inferiores o iguales a 24x24 píxeles) podrían no ser tan precisas.
 

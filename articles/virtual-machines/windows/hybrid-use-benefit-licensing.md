@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 3/10/2017
+ms.date: 4/10/2017
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 76459acd75cc09a315b0dad219990a830a6ad111
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 04f5fab5a27a28a0881d59b93451f4c3615692b4
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -32,30 +32,31 @@ Para los clientes con Software Assurance, la ventaja de uso híbrida de Azure le
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Formas de usar la ventaja de uso híbrido de Azure
 Existen diversas formas de implementar máquinas virtuales Windows con la ventaja de uso híbrido de Azure:
 
-1. Si tiene una suscripción a un Contrato Enterprise, puede [implementar máquinas virtuales desde imágenes de Marketplace específicas](#deploy-a-vm-using-the-azure-marketplace) que estén preconfiguradas con la ventaja de uso híbrido de Azure.
-2. Sin un Contrato Enterprise, puede [cargar una máquina virtual personalizada](#upload-a-windows-vhd) e [implementar mediante una plantilla de Resource Manager](#deploy-a-vm-via-resource-manager) o [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
+1. Puede implementar máquinas virtuales a partir de [imágenes concretas de Marketplace](#deploy-a-vm-using-the-azure-marketplace) preconfiguradas con la ventaja de uso híbrido de Azure: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 SP1.
+2. Puede [cargar una máquina virtual personalizada](#upload-a-windows-vhd) e [implementar mediante una plantilla de Resource Manager](#deploy-a-vm-via-resource-manager) o [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Implementación de una máquina virtual mediante Azure Marketplace
-Para los clientes con [suscripciones a Contrato Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), las imágenes están disponibles en Marketplace preconfiguradas con la ventaja de uso híbrido de Azure. Estas imágenes pueden implementarse directamente desde Azure Portal, plantillas de Resource Manager o Azure PowerShell, por ejemplo. Las imágenes de Marketplace se indican mediante el nombre `[HUB]` de la siguiente manera:
-
-![Imágenes de la ventaja de uso híbrido de Azure en Azure Marketplace](./media/hybrid-use-benefit-licensing/ahub-images-portal.png)
+Las siguientes imágenes están disponibles en Marketplace preconfiguradas con la ventaja de uso híbrido de Azure: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 y Windows Server 2008 SP1. Estas imágenes pueden implementarse directamente desde Azure Portal, plantillas de Resource Manager o Azure PowerShell.
 
 Puede implementar estas imágenes directamente desde Azure Portal. Para su uso en plantillas de Resource Manager y con Azure PowerShell, consulte la lista de imágenes de la siguiente manera:
 
 Para Windows Server:
 ```powershell
-Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
-    -Offer "WindowsServer-HUB"
+Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
+2016-Datacenter versión 2016.127.20170406 o superior
+
+2012-R2-Datacenter versión 4.127.20170406 o superior
+
+2012-Datacenter versión 3.127.20170406 o superior
+
+2008-R2-SP1 versión 2.127.20170406 o superior
 
 Para cliente de Windows:
 ```powershell
 Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "Windows-HUB"
 ```
-
-Si no tiene una suscripción a un Contrato Enterprise, siga leyendo para obtener instrucciones sobre cómo cargar una máquina virtual personalizada e implementarla con la ventaja de uso híbrido de Azure.
-
 
 ## <a name="upload-a-windows-vhd"></a>Carga de un VHD de Windows
 Para implementar una máquina virtual de Windows en Azure, primero debe crear un VHD que contenga la compilación de Windows base. Este VHD debe haberse preparado adecuadamente mediante Sysprep antes de cargarlo en Azure. También puede obtener más información tanto [sobre los requisitos de los discos duros virtuales y el proceso Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como sobre la [compatibilidad de Sysprep con los roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Cree una copia de seguridad de la VM antes de ejecutar Sysprep. 
@@ -220,4 +221,6 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 Más información sobre las [ventajas del uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Más información sobre el [uso de plantillas de Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+Más información sobre [Azure Hybrid Use Benefit and Azure Site Recovery make migrating applications to Azure even more cost-effective (La ventaja de uso híbrido de Azure y Azure Site Recovery rentabilizan aún más la migración de aplicaciones a Azure)](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
 

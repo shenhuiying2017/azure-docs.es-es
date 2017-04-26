@@ -15,25 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 23b806556667539156ee399e90c7bd4af808804f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
-La puerta de enlace de datos local admite estas conexiones de origen de datos:
+La puerta de enlace de datos locales admite estas conexiones:
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   Sistema de archivos
 *   Informix
 *   MQ
-*    Base de datos de Oracle 
+*   MySQL
+*   Base de datos de Oracle 
 *   Servidor de aplicaciones de SAP 
 *   Servidor de mensajes de SAP
-*    SQL Server
+*   SharePoint para HTTP solo, no HTTPS
+*   SQL Server
+*   Teradata
 
 Para más información acerca de estas conexiones, consulte [Conectores para Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -48,7 +51,7 @@ Mínimos:
 
 Se recomienda:
 
-* CPU de&8; núcleos
+* CPU de 8 núcleos
 * 8 GB de memoria
 * versión de 64 bits de Windows 2012 R2 (o posterior)
 
@@ -61,7 +64,7 @@ No puede instalarla en un controlador de dominio.
 
 * Solo puede usar una dirección de correo electrónico profesional o educativa en Azure para poder asociar la puerta de enlace de datos local a su cuenta basada en Azure Active Directory.
 
-    Si usa una cuenta de Microsoft (por ejemplo, @outlook.com), puede usar su cuenta de Azure para   [crear una dirección de correo electrónico profesional o educativa](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+    Si usa una cuenta de Microsoft (por ejemplo, @outlook.com), puede usar su cuenta de Azure para   [crear una dirección de correo electrónico profesional o educativa](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 ### <a name="install-the-gateway"></a>Instalación de la puerta de enlace
 
