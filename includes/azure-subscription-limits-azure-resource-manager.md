@@ -1,8 +1,8 @@
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Máquinas virtuales por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región |10 000 por región |
-| Total de núcleos de máquina virtual por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región |10 000 por región |
-| Máquina virtual por núcleos de serie (Dv2, F, etc.) por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región |10 000 por región |
+| Total de núcleos de máquina virtual por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región | Ponerse en contacto con soporte técnico |
+| Máquina virtual por núcleos de serie (Dv2, F, etc.) por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región | Ponerse en contacto con soporte técnico |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por suscripción |Sin límite |Sin límite |
 | [Cuentas de almacenamiento](../articles/storage/storage-create-storage-account.md) por suscripción |200 |200<sup>2</sup> |
 | [Grupos de recursos](../articles/azure-resource-manager/resource-group-overview.md) por suscripción |800 |800 |

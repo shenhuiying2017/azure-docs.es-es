@@ -1,0 +1,5 @@
+Los registros de marco de directivas de remitente (SPF) se utilizan para especificar los servidores de correo electrónico que tienen permiso para enviar correo en nombre de un nombre de dominio determinado.  Es importante configurar correctamente los registros SPF para evitar que los destinatarios marquen el correo como 'correo no deseado'.
+
+Las RFC de DNS originalmente introdujeron un nuevo tipo de registro "SPF" que admite este escenario. Para admitir servidores de nombres anteriores, permiten además el uso del tipo de registro TXT para especificar registros SPF.  Esta ambigüedad llevó a confusión, que se resolvió mediante [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Esta indica que solo deben crearse registros SPF con el tipo de registro TXT, y que el tipo de registro SPF ha quedado en desuso.
+
+**Los registros SPF son compatibles con DNS de Azure y deben crearse con el tipo de registro TXT.** No se admite el tipo de registro SPF obsoleto. Al [importar un archivo de zona DNS](../articles/dns/dns-import-export.md), los registros SPF con el tipo de registro SPF se convierten al tipo de registro TXT.

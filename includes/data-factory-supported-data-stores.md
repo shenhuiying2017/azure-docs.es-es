@@ -1,8 +1,3 @@
-Copiar actividad en Data Factory realiza una copia de los datos de un almacén de datos de origen a uno receptor. Data Factory admite los siguientes almacenes de datos. Se pueden escribir datos desde cualquier origen en todos los tipos de receptores. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos a un almacén como origen o destino.
-
-> [!NOTE] 
-> Si tiene que realizar operaciones de introducción o extracción de datos en relación con un almacén de datos que no sea compatible con la actividad de copia, puede usar la **actividad personalizada** de Data Factory con su propia lógica para copiar o mover los datos. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](../articles/data-factory/data-factory-use-custom-activities.md)para obtener más información sobre la creación y el uso de una actividad personalizada.
-
 | Categoría | Almacén de datos | Se admite como origen | Se admite como receptor |
 |:--- |:--- |:--- |:--- |
 | **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
@@ -34,9 +29,6 @@ Copiar actividad en Data Factory realiza una copia de los datos de un almacén d
 | &nbsp; |[ODBC genérico](../articles/data-factory/data-factory-odbc-connector.md)* |✓  | |
 | &nbsp; |[Salesforce](../articles/data-factory/data-factory-salesforce-connector.md) |✓  | |
 | &nbsp; |[Tabla web (tabla de HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓  | |
-| &nbsp; |[Analista de GE](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓  | | |
+| &nbsp; |[Analista de GE](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Los almacenes de datos con * pueden ser locales o estar en la IaaS de Azure; además, requieren que instale [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) en una máquina local o de la IaaS de Azure.
->
->
+

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 67c308f8216ebd291ae483c9b18d43528687e9a9
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -61,7 +61,7 @@ La entrada de tabla de Azure Storage a una función utiliza los siguientes objet
 Tenga en cuenta lo siguiente: 
 
 * Use `partitionKey` y `rowKey` de forma conjunta para leer una entidad única. Estas propiedades son opcionales. 
-* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. También puede [configurar esta aplicación manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings).  
+* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. También puede [configurar esta aplicación manualmente](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
@@ -179,7 +179,7 @@ La salida de tabla de Azure Storage para una función utiliza los siguientes obj
 Tenga en cuenta lo siguiente: 
 
 * Use `partitionKey` y `rowKey` de forma conjunta para escribir una entidad única. Estas propiedades son opcionales. También puede especificar `PartitionKey` y `RowKey` al crear los objetos de la entidad en el código de la función.
-* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. También puede [configurar esta aplicación manualmente](functions-how-to-use-azure-function-app-settings.md#application-settings). 
+* `connection`: debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. También puede [configurar esta aplicación manualmente](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 

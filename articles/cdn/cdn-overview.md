@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -62,7 +63,7 @@ Hay tres productos del servicio CDN de Azure: **Azure CDN Standard de Akamai**, 
 | [Purga rápida](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Carga previa de activos](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Análisis esencial](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [Compatibilidad con HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [Compatibilidad con HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Estadísticas en tiempo real](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Alertas en tiempo real](cdn-real-time-alerts.md) | | |**&#x2713;** |
@@ -88,10 +89,5 @@ Para ver la red CDN en acción, consulte el [vídeo sobre nuestra sesión de Bui
 Aprenda a automatizar Azure CDN con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 
 Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

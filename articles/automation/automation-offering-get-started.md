@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -211,7 +211,7 @@ Una vez que se crea la cuenta de Automatización, se también varios recursos au
 | Runbook AzureClassicAutomationTutorial | Un runbook gráfico de ejemplo que obtiene todas las máquinas virtuales que se crean con el modelo de implementación clásica en una suscripción mediante la cuenta de ejecución clásica (certificado) y luego escribe el nombre y el estado de la máquina virtual. |
 | Runbook AzureClassicAutomationTutorial Script | Un runbook de PowerShell de ejemplo que obtiene todas las máquinas virtuales clásicas de una suscripción mediante la cuenta de ejecución clásica (certificado) y luego escribe el nombre y el estado de la máquina virtual. |
 | AzureClassicRunAsCertificate | Un recurso de certificado creado automáticamente que se usa para realizar la autenticación en Azure, de modo que pueda administrar los recursos del modelo clásico de Azure mediante runbooks. Este certificado tiene una duración de un año. |
-| AzureClassicRunAsConnection | El recurso de conexión creado automáticamente que se usa para realizar la autenticación en Azure, de modo que pueda administrar los recursos del modelo clásico de Azure mediante runbooks. |para realizar la autenticación en Azure, de modo que pueda administrar los recursos del modelo clásico de Azure mediante runbooks. |
+| AzureClassicRunAsConnection | El recurso de conexión creado automáticamente que se usa para realizar la autenticación en Azure, de modo que pueda administrar los recursos del modelo clásico de Azure mediante runbooks.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Puede confirmar la nueva cuenta de Automation para autenticarse con recursos de Azure mediante la revisión del artículo [Comprobación de la autenticación con la cuenta de ejecución de Azure Automation](automation-verify-runas-authentication.md).

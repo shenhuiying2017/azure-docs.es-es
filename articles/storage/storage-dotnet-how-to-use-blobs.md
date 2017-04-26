@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Introducción al Almacenamiento de blobs de Azure mediante .NET
@@ -365,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Consulte [Descripción Blobs en bloques, en anexos y en páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
+Consulte [Descripción Blobs en bloques, en anexos y en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
 
 ## <a name="managing-security-for-blobs"></a>Administración de la seguridad para blobs
 De forma predeterminada, Almacenamiento de Azure protege sus datos al limitar el acceso al propietario de la cuenta, quien está en posesión de las claves de acceso a ella. Cuando necesite compartir datos Blob en su cuenta de almacenamiento, es importante hacerlo sin poner en peligro la seguridad de las claves de acceso de la cuenta. Además, puede cifrar los datos Blob para cerciorarse de que es seguro pasar por la red y el Almacenamiento de Azure.
@@ -395,7 +395,7 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 
 ### <a name="blob-storage-reference"></a>Referencia de Almacenamiento de blobs
 * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-* [Referencia de API de REST](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+* [Referencia de API de REST](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Guías conceptuales
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)

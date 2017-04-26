@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8dc33077a955052a99b415b1299004cf8a4f217e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: b49e06da0019a50cc8e50c4da47e42c03b44bcc6
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 [Análisis de Azure Storage](storage-analytics.md) proporciona métricas para todos los servicios de almacenamiento y registros para blobs, colas y tablas. Puede usar [Azure Portal](https://portal.azure.com) para configurar qué registros y métricas se registran para su cuenta y configurar gráficos que proporcionen representaciones visuales de los datos de las métricas.
 
 > [!NOTE]
-> Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para obtener más información, consulte [Facturación y análisis de almacenamiento](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+> Existen costos asociados con el análisis de los datos de supervisión en Azure Portal. Para obtener más información, consulte [Facturación y análisis de almacenamiento](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Almacenamiento de archivos de Azure admite actualmente las métricas del Análisis de almacenamiento, pero aún no admite el registro.
 >
@@ -153,7 +153,7 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Puede ver los datos de registro mediante un explorador de almacenamiento como el [Explorador de Microsoft Storage](http://storageexplorer.com), o mediante programación con la biblioteca de cliente de almacenamiento o PowerShell.
 
-Para más información acerca del acceso al contenedor $logs, consulte [Habilitar el registro de almacenamiento y acceso a los datos del registro](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data).
+Para más información acerca del acceso al contenedor $logs, consulte [Habilitar el registro de almacenamiento y acceso a los datos del registro](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
-ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -370,6 +370,6 @@ Recupere las propiedades del grupo existentes. Modifique los valores y ejecute e
 ## <a name="additional-resources"></a>Recursos adicionales
 *  Para ver los códigos de error de SQL para las aplicaciones cliente de SQL Database y otros problemas, consulte [Mensajes de error](sql-database-develop-error-messages.md).
 * [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* Para una guía de los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md).
+* Para una guía de los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool.md).
 
 

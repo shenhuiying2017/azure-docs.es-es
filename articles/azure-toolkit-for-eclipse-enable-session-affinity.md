@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
-ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ab8623d6f9751ed6d71d9a5b1c0d5e939c442862
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -27,10 +28,14 @@ En el Kit de herramientas de Azure para Eclipse, puede habilitar la afinidad de 
 
 ## <a name="to-enable-session-affinity-for-your-role"></a>Para habilitar la afinidad de sesión para su rol
 1. Haga clic con el botón secundario en el rol en el Explorador de proyectos de Eclipse, haga clic en **Azure** y, luego, en **Load Balancing** (Equilibrio de carga).
+
 2. En el cuadro de diálogo **Propiedades del equilibrio de carga de WorkerRole1** :
-   1. Active **Habilitar afinidad de sesión HTTP (sesiones permanentes) para este rol**
-   2. Para **Input endpoint to use** (Punto de conexión de entrada que se va a usar), seleccione un punto de conexión de entrada que se usará, por ejemplo, **http (public:80, private:8080)**. Su aplicación debe usar este punto de conexión como su punto de conexión HTTP. Puede habilitar varios puntos de conexión para su rol, pero solo puede seleccionar uno de ellos para admitir sesiones permanentes.
-   3. Vuelva a compilar la aplicación.
+
+   a. Active **Habilitar afinidad de sesión HTTP (sesiones permanentes) para este rol**
+
+   b. Para **Input endpoint to use** (Punto de conexión de entrada que se va a usar), seleccione un punto de conexión de entrada que se usará, por ejemplo, **http (public:80, private:8080)**. Su aplicación debe usar este punto de conexión como su punto de conexión HTTP. Puede habilitar varios puntos de conexión para su rol, pero solo puede seleccionar uno de ellos para admitir sesiones permanentes.
+
+   c. Vuelva a compilar la aplicación.
 
 Una vez habilitada, si tiene más de una instancia de rol, las solicitudes HTTP procedentes de un cliente concreto seguirán controlándose por la misma instancia de rol.
 
@@ -38,8 +43,11 @@ El Kit de herramientas de Eclipse permite esto al instalar un módulo IIS especi
 
 ## <a name="notes-about-session-affinity"></a>Notas sobre la afinidad de sesión
 * La afinidad de sesión no funciona en el emulador de proceso. La configuración se puede aplicar en el emulador de proceso sin interferir con su proceso de compilación o ejecución del emulador de proceso, pero la propia característica no funciona en el emulador de proceso.
+
 * Al habilitar la afinidad de sesión aumentará la cantidad del espacio de disco usado por la implementación en Azure, puesto que se descargará software adicional y se instalará en sus instancias de rol cuando se inicie su servicio en la nube de Azure.
+
 * El tiempo para inicializar cada rol será superior.
+
 * Se agregará un punto de conexión interno para que funcione como enrutador de tráfico, como se ha mencionado anteriormente.
 
 
@@ -65,9 +73,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

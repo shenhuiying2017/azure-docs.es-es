@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -123,7 +123,7 @@ Los elementos de datos y atributos del formato XML del manifiesto de la unidad s
 |`PageRange/@Offset`|Attribute, Integer|Especifica el desplazamiento en el archivo de transferencia y el blob en el que comienza el intervalo de páginas especificado. Este valor debe ser múltiplo de 512.|  
 |`PageRange/@Length`|Attribute, Integer|Especifica la longitud del intervalo de páginas. Este valor debe ser múltiplo de 512 y no puede supera los 4 MB.|  
 |`PageRange/@Hash`|Attribute, String|Especifica el valor de hash MD5 con codificación Base16 del intervalo de páginas.|  
-|`BlockList`|Elemento XML anidado|Se requiere para un blob en bloques con bloques con nombre.<br /><br /> En el caso de una operación de importación, la lista de bloques especifica un conjunto de bloques que se importarán en Azure Storage. En el caso de una operación de exportación, la lista de bloques especifica en qué lugar del archivo del disco de exportación se ha almacenado cada bloque. Cada bloque se describe mediante un desplazamiento en el archivo y una longitud de bloque; a cada bloque se le asigna un nombre en función de un atributo de identificador de bloque y contiene un hash MD5 para el bloque. Para describir un blob se pueden usar hasta 50 000 bloques.  Todos los bloques se deben solicitar por desplazamiento y, en conjunto, deben cubrir el intervalo completo del archivo, *, es decir,*, no debe haber espacio entre los bloques. Si el blob no tiene más de 64 MB, los identificadores de cada bloque deben estar todos ausentes o todos presentes. Los identificadores de bloque deben ser cadenas con codificación Base64. Para ver otros requisitos de los identificadores de bloque, consulte [Put Block](/rest/api/storageservices/fileservices/put-block).|  
+|`BlockList`|Elemento XML anidado|Se requiere para un blob en bloques con bloques con nombre.<br /><br /> En el caso de una operación de importación, la lista de bloques especifica un conjunto de bloques que se importarán en Azure Storage. En el caso de una operación de exportación, la lista de bloques especifica en qué lugar del archivo del disco de exportación se ha almacenado cada bloque. Cada bloque se describe mediante un desplazamiento en el archivo y una longitud de bloque; a cada bloque se le asigna un nombre en función de un atributo de identificador de bloque y contiene un hash MD5 para el bloque. Para describir un blob se pueden usar hasta 50 000 bloques.  Todos los bloques se deben solicitar por desplazamiento y, en conjunto, deben cubrir el intervalo completo del archivo, *, es decir,*, no debe haber espacio entre los bloques. Si el blob no tiene más de 64 MB, los identificadores de cada bloque deben estar todos ausentes o todos presentes. Los identificadores de bloque deben ser cadenas con codificación Base64. Para ver otros requisitos de los identificadores de bloque, consulte [Put Block](/rest/api/storageservices/put-block).|  
 |`Block`|Elemento XML|Representa un bloque.|  
 |`Block/@Offset`|Attribute, Integer|Especifica el desplazamiento en que comienza el bloque especificado.|  
 |`Block/@Length`|Attribute, Integer|Especifica el número de bytes del bloque; este valor no debe tener más de 4 MB.|  
