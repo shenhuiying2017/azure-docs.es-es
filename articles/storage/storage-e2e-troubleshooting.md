@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: acf807538c8c9efdadb95c4b66db9a9d5d1f7a6d
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -32,10 +32,10 @@ Aquí encontrará un análisis práctico de un escenario de solución integral d
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Herramientas para solucionar problemas de aplicaciones de Almacenamiento de Azure
 Para solucionar problemas en aplicaciones cliente que usan Almacenamiento de Microsoft Azure, puede usar una combinación de herramientas que permita saber cuándo se produjo un problema y cuál puede ser la causa. Estas herramientas son:
 
-* **Análisis de almacenamiento de Azure**. [Análisis de almacenamiento de Azure](/rest/api/storageservices/fileservices/Storage-Analytics) proporciona las métricas y registros del servicio Almacenamiento de Azure.
+* **Análisis de almacenamiento de Azure**. [Análisis de almacenamiento de Azure](/rest/api/storageservices/Storage-Analytics) proporciona las métricas y registros del servicio Almacenamiento de Azure.
   
-  * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas del análisis de almacenamiento](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento el análisis de almacenamiento.
-  * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Almacenamiento de Azure. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro del análisis de almacenamiento](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros del análisis de almacenamiento.
+  * **métricas de almacenamiento** realizan un seguimiento de las métricas de transacciones y de capacidad relativas a la cuenta de almacenamiento. Con las métricas, puede conocer el rendimiento de su aplicación basándose en diversas medidas. Vea [Esquema de las tablas de métricas del análisis de almacenamiento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para más información sobre los tipos de métricas de las que hace un seguimiento el análisis de almacenamiento.
+  * **registro de almacenamiento** deja constancia en un registro del servidor de cada solicitud realizada al servicio Almacenamiento de Azure. Este registro hace un seguimiento de los datos detallados de cada solicitud, como la operación realizada, el estado de la operación y la información de latencia. Vea [Formato del registro del análisis de almacenamiento](/rest/api/storageservices/Storage-Analytics-Log-Format) para más información sobre los datos de solicitud y de respuesta que se escriben en los registros del análisis de almacenamiento.
 
 > [!NOTE]
 > En este momento, las cuentas de almacenamiento con un tipo de replicación de almacenamiento con redundancia de zona (ZRS) no tienen habilitadas las métricas o la funcionalidad de registro. 
@@ -174,7 +174,7 @@ Vea el tema sobre el [uso de las características de seguimiento de red](http://
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Revisar los datos de las métricas en Azure Portal
 Una vez que la aplicación haya estado en ejecución durante un rato, puede revisar los gráficos de las métricas que aparezcan en [Azure Portal](https://portal.azure.com) para ver el rendimiento de su servicio.
 
-Primero, vaya a la cuenta de almacenamiento en Azure Portal. De forma predeterminada, se muestra un diagrama de supervisión con la métrica **Porcentaje de operaciones correctas** en la hoja de la cuenta. Si ha modificado el gráfico para mostrar diferentes métricas, agregue la métrica **Porcentaje de operaciones correctas**.
+Primero, vaya a la cuenta de almacenamiento en Azure Portal. De forma predeterminada, se muestra un diagrama de supervisión con la métrica  **Porcentaje de operaciones correctas**  en la hoja de la cuenta. Si ha modificado el gráfico para mostrar diferentes métricas, agregue la métrica **Porcentaje de operaciones correctas**.
 
 Ahora verá el **Porcentaje de operaciones correctas** en el diagrama de supervisión, junto con otras métricas que pueda haber agregado. En el escenario que pasaremos a examinar mediante el análisis de los registros del analizador de mensajes, podrá ver que la tasa de porcentaje de éxito es ligeramente inferior al 100 %.
 

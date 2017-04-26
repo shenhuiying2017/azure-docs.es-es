@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2d9cff50d6ba5dc990140059536786fb7281827
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f0e94699291b4ef54c4125dc9d9345598a54c02a
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -81,7 +81,7 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
           "detailLevel": "requestContent, responseContent"
         }
    
-      Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para obtener más información, consulte [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/fileservices/delegating-access-with-a-shared-access-signature)(Delegación del acceso con una firma de acceso compartido).
+      Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para obtener más información, consulte [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)(Delegación del acceso con una firma de acceso compartido).
 5. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
    
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01

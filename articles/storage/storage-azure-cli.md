@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: be44ca9d14d6dbb7a50d5c42c163bc66531bb90f
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 5b77598e76de3508d90b35ce5a1f2ee338aca0c8
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -163,8 +163,8 @@ echo "Done"
 
    * **\<storage_account_name\>** El nombre de la cuenta de almacenamiento.
    * **\<storage_account_key\>** La clave de acceso principal o secundaria para su cuenta de almacenamiento.
-   * **\<container_name\>** Un nombre para el nuevo contenedor creado, por ejemplo, "contenedor-ejemplo-cli-azure".
-   * **\<blob_name\>** Un nombre para el blob de destino en el contenedor.
+   * **\<container_name\>**  Un nombre para el nuevo contenedor creado, por ejemplo, "contenedor-ejemplo-cli-azure".
+   * **\<blob_name\>**  Un nombre para el blob de destino en el contenedor.
    * **\<file_to_upload\>** La ruta a un archivo pequeño en su PC local, como "~/imágenes/HolaMundo.png".
    * **\<destination_file\>** La ruta de acceso del archivo de destino, como "~/imagenDescargada.png".
 
@@ -241,7 +241,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 >
 
 ## <a name="create-and-manage-blobs"></a>Creación y administración de blobs
-El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. En esta sección se supone que ya está familiarizado con los conceptos del almacenamiento de Azure Blob Storage. Para más información, consulte [Introducción a Azure Blob Storage mediante .NET](storage-dotnet-how-to-use-blobs.md) y [Conceptos de Blob service](/rest/api/storageservices/fileservices/blob-service-concepts).
+El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. En esta sección se supone que ya está familiarizado con los conceptos del almacenamiento de Azure Blob Storage. Para más información, consulte [Introducción a Azure Blob Storage mediante .NET](storage-dotnet-how-to-use-blobs.md) y [Conceptos de Blob service](/rest/api/storageservices/blob-service-concepts).
 
 ### <a name="create-a-container"></a>Crear un contenedor
 Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede crear un contenedor con el comando `az storage container create`:
@@ -267,7 +267,7 @@ az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
 
  De manera predeterminada, el comando `blob upload` carga archivos *.vhd blobs en páginas o blobs en bloques en caso contrario. Para especificar otro tipo al cargar un blob, puede usar el argumento `--type`; los valores permitidos son `append`, `block` y `page`.
 
- Para obtener más información sobre los distintos tipos de blobs, consulte [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) (Descripción de los blobs en bloques, en anexos y en páginas).
+ Para obtener más información sobre los distintos tipos de blobs, consulte [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) (Descripción de los blobs en bloques, en anexos y en páginas).
 
 ### <a name="download-blobs-from-a-container"></a>Descarga  de blobs de un contenedor
 En el siguiente ejemplo se muestra cómo descargar blobs de un contenedor:

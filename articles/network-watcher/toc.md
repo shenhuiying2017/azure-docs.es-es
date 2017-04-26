@@ -7,6 +7,7 @@
 ## [Vista de grupo de seguridad](network-watcher-security-group-view-overview.md)
 ## [Próximo salto](network-watcher-next-hop-overview.md)
 ## [Solución de problemas de conectividad VPN](network-watcher-troubleshoot-overview.md)
+## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Introducción
 ## [Configuración de Network Watcher](network-watcher-create.md)
 ## Administración de capturas de paquete

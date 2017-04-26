@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93481fe9c3920ea4c578f3da326de9f9e8531a71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -226,7 +226,7 @@ Uno de los valores que se deben proporcionar al crear un recurso son las opcione
 
 * **None** = **0**: no se utiliza cifrado. Cuando se utiliza esta opción, el contenido no está protegido en tránsito o en reposo en el almacenamiento.
     Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
-* **StorageEncrypted** = **1**: cifra el contenido no cifrado localmente mediante el cifrado AES de&256; bits y, a continuación, lo carga en Azure Storage, donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+* **StorageEncrypted** = **1**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en Azure Storage, donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 * **CommonEncryptionProtected** = **2**: use esta opción si va a cargar contenido que ya se cifró y protegió con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 * **EnvelopeEncryptionProtected** = **4**: use esta opción si va a cargar HLS cifrado con AES. Los archivos deben haberse codificado y cifrado con Transform Manager.
 
@@ -473,7 +473,7 @@ Una vez establecidas las propiedades AccessPolicy y Locator, el archivo real se 
 >
 >
 
-Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Actualización de AssetFile
 Ahora que ha cargado el archivo, actualice la información de tamaño de FileAsset (y otro tipo de información). Por ejemplo:
@@ -962,7 +962,7 @@ Una vez establecidos AccessPolicy y Locator, puede descargar archivos mediante l
 >
 >
 
-Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 Como resultado del trabajo de codificación que realizó anteriormente (codificación en un conjunto de archivos MP4 adaptables), hay varios archivos MP4 que se pueden descargar progresivamente. Por ejemplo:    
 

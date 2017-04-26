@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 353677bc7eb7fe791d23bcfdb79f3a0df6366c6f
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 532afb45c73d68d6dc259fa504d9520eecdb23b7
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -35,7 +35,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 | --- | --- |
 | Varios encabezados comunes HTTP no se proporcionan en la API de REST. |Si desarrolla aplicaciones de Servicios multimedia mediante la API de REST, encontrará que algunos campos de encabezado comunes HTTP (como CLIENT-REQUEST-ID, REQUEST-ID y RETURN-CLIENT-REQUEST-ID) no se admiten. Los encabezados se agregarán en una futura actualización. |
 | No se permite la codificación porcentual. |Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo. |
-| El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente. |Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](https://docs.microsoft.com/rest/api/storageservices/fileservices/Version-2012-02-12) . Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente. |
+| El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente. |Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente. |
 | El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503). |Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Azure Media Services Error Codes](media-services-encoding-error-codes.md) (Códigos de error de Servicios multimedia de Azure). |
 | Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. |Debe usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Algunos clientes pueden experimentar un problema de etiqueta de repetición en el manifiesto de streaming con velocidad de transmisión adaptable. |Para obtener más información, consulte [esta](media-services-deliver-content-overview.md#known-issues) sección. |

@@ -22,5 +22,5 @@ El servicio BLOB contiene los componentes siguientes:
   
     *blobs en páginas* pueden tener un tamaño de hasta 1 TB y son más eficaces para operaciones frecuentes de lectura y escritura. Máquinas virtuales de Azure usa blobs en páginas como discos de sistema operativo y de datos.
   
-    Para más información sobre la nomenclatura de contenedores y blobs, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+    Para más información sobre la nomenclatura de contenedores y blobs, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 

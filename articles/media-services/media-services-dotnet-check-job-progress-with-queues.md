@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a9bb00c6f0a691ac3a67d19ada4341d8d94876c1
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ Tenga en cuenta lo siguiente al desarrollar aplicaciones de Media Services que u
 
 * Queue Storage no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Queue Storage no es un servicio de inserción. Tiene que sondear la cola.
-* Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Queue Storage tiene algunas limitaciones y particularidades que deben tenerse en cuenta. Estas se describen en [Colas de Azure y de Azure Service Bus: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Ejemplo de código

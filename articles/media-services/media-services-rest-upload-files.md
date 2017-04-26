@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: c0ea95ed12a704116e8cdff257dacd7768b45708
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 256f8323d199db98a1267a5139a1ab3f14a3441c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -64,7 +64,7 @@ Una de las propiedades que se pueden especificar al crear un recurso es **Option
 
 * **None** = **0**: no se usará cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
     Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
-* **StorageEncrypted** = **1**: especifique si desea que los archivos se cifren con cifrado AES de&256; bits para la carga y el almacenamiento.
+* **StorageEncrypted** = **1**: especifique si desea que los archivos se cifren con cifrado AES de 256 bits para la carga y el almacenamiento.
   
     Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2**: especifique si va a cargar archivos protegidos con un método de cifrado común (por ejemplo, PlayReady). 
@@ -310,7 +310,7 @@ Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un cont
 > 
 > 
 
-Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Actualización de AssetFile
 Ahora que ha cargado el archivo, actualice la información de tamaño de FileAsset (y otro tipo de información). Por ejemplo:

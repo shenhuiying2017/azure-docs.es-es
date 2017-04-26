@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
-ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube:
 En este artículo se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, a continuación, cómo usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando Creación personalizada.
 
 > [!NOTE]
-> Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde Creación rápida de Azure o el panel. Para más información, consulte [Entrega continua a Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde Creación rápida de Azure o el panel. Para más información, consulte [Entrega continua en Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 >
 >
 
@@ -108,9 +109,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 
