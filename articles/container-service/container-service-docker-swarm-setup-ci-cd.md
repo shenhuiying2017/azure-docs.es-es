@@ -17,6 +17,7 @@ ms.author: jucoriol
 translationtype: Human Translation
 ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
 ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -53,6 +54,8 @@ Antes de comenzar este tutorial, debe realizar las siguientes tareas:
 - [Crear una instancia de Azure Container Registry](../container-registry/container-registry-get-started-portal.md)
 - [Crear una cuenta y un proyecto de equipo de Visual Studio Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Bifurcar el repositorio de GitHub a su cuenta de GitHub](https://github.com/jcorioland/MyShop/)
+
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
 
 También se necesita una máquina Ubuntu (14.04 o 16.04) que tenga instalado Docker. Visual Studio Team Services usa esta máquina durante los procesos de compilación y versión. Una manera de crear esta máquina es usar la imagen disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
@@ -227,8 +230,3 @@ Ahora que ha terminado con la configuración, es hora de probar esta nueva canal
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre CI/CD con Visual Studio Team Services, consulte la [introducción a la compilación de VSTS](https://www.visualstudio.com/docs/build/overview).
-
-
-<!--HONumber=Dec16_HO2-->
-
-

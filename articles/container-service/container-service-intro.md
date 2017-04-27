@@ -74,6 +74,8 @@ Docker Swarm proporciona agrupación en clústeres nativa para Docker. Como Dock
 
 ![Azure Container Service configurado para usar Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Entre las herramientas compatibles para administrar contenedores en un clúster Swarm se incluyen las siguientes:
 
 * Dokku
