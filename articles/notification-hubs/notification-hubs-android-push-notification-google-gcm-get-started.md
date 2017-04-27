@@ -18,6 +18,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
 ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -59,7 +60,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 El Centro de notificaciones está configurado para funcionar con GCM y el usuario dispone de las cadenas de conexión necesarias para registrar su aplicación para que reciba y envíe notificaciones push.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
+## <a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 ### <a name="create-a-new-android-project"></a>Creación de un nuevo proyecto de Android
 1. En Android Studio, inicie un nuevo proyecto de Android Studio.
    
@@ -669,9 +670,4 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
