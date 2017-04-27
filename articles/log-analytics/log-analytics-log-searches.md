@@ -260,7 +260,7 @@ Los resultados de cualquier consulta de búsqueda como `Type=Event`, muestran fi
 
 ![search measure count](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
-Por ejemplo, en la imagen anterior verá el campo **Computer**, y muestra que dentro de los casi 739 000 eventos de los resultados, hay 68 valores únicos y distintos para ese** **campo en esos registros. El icono solo muestra los cinco principales, que son los cinco valores más comunes que están escritos en el campo **Computer** , ordenados por el número de documentos que contienen ese valor específico en ese campo. En la imagen se ve que, entre esos eventos casi 369 000 eventos, 90 000 proceden del equipo OpsInsights04.contoso.com, 83 000 del equipo DB03.contoso.com y así sucesivamente.
+Por ejemplo, en la imagen anterior verá el campo **Computer**, y muestra que dentro de los casi 739 000 eventos de los resultados, hay 68 valores únicos y distintos para ese**** campo en esos registros. El icono solo muestra los cinco principales, que son los cinco valores más comunes que están escritos en el campo **Computer** , ordenados por el número de documentos que contienen ese valor específico en ese campo. En la imagen se ve que, entre esos eventos casi 369 000 eventos, 90 000 proceden del equipo OpsInsights04.contoso.com, 83 000 del equipo DB03.contoso.com y así sucesivamente.
 
 ¿Y si quisiera ver todos los valores, ya que el icono solo muestra los cinco primeros?
 
@@ -563,7 +563,7 @@ Puede especificar varias cláusulas de agregado en un comando measure.  A cada u
  ```
 Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval 1hour
 ```
-![Varios agregados en OMS&1;](./media/log-analytics-log-searches/oms-multiaggregates1.png)
+![Varios agregados en OMS 1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Este es otro ejemplo:
 
