@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 427a1e8c6bfb11ace38fcf84b7cda89d2d01d091
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 12743b3594a0a62b0b974fb6dd1c39972c1bd3fa
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Uso de Factoría de datos de Azure con Almacenamiento de datos SQL
-Factoría de datos de Azure ofrece un método completamente administrado para organizar la transferencia de datos y la ejecución de los procedimientos almacenados en Almacenamiento de datos SQL.  Esto le permitirá configurar y programar con mayor facilidad los complejos procedimientos de extracción, transformación y carga (ETL) con Almacenamiento de datos SQL. Para una introducción más completa de Azure Data Factory, consulte la [Documentación de Azure Data Factory][Documentación de Azure Data Factory].
+Factoría de datos de Azure ofrece un método completamente administrado para organizar la transferencia de datos y la ejecución de los procedimientos almacenados en Almacenamiento de datos SQL.  Esto le permitirá configurar y programar con mayor facilidad los complejos procedimientos de extracción, transformación y carga (ETL) con Almacenamiento de datos SQL. Para obtener una introducción más completa de Azure Data Factory, consulte [Documentación de Azure Data Factory][Azure Data Factory documentation].
 
 ## <a name="data-movement"></a>Movimiento de datos
 Factoría de datos de Azure permite el movimiento entre orígenes locales y los distintos servicios de Azure.  En general, la integración actual con Factoría de datos de Azure es compatible con el movimiento de datos desde y hacia las ubicaciones siguientes:
@@ -31,31 +33,26 @@ Factoría de datos de Azure permite el movimiento entre orígenes locales y los 
 * SQL Server local
 * SQL Server en IaaS
 
-Para información sobre cómo configurar una actividad de copia de datos, consulte [Copia de datos con Data Factory de Azure][Copia de datos con Data Factory de Azure]
+Para obtener información sobre cómo configurar una actividad de copia de datos, consulte [Copia de datos con Azure Data Factory][Copy data with Azure Data Factory].
 
 ## <a name="stored-procedures"></a>Procedimientos almacenados
  De la misma manera en que se puede programar la transferencia de datos, Factoría de datos de Azure también se puede usar para organizar la ejecución de procedimientos almacenados.  Esto permite que se creen canalizaciones más complejas y extiende la capacidad de Factoría de datos de Azure para aprovechar la potencia de cálculo de Almacenamiento de datos SQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información general sobre la integración, consulte la [Información general de la integración de Almacenamiento de datos SQL][Información general de la integración de Almacenamiento de datos SQL].
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
+Para obtener información general sobre la integración, consulte la [información general de la integración de SQL Data Warehouse][SQL Data Warehouse integration overview].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Copia de datos con Data Factory de Azure]: ../data-factory/data-factory-data-movement-activities.md
-[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
-[Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integrate.md
+[Copy data with Azure Data Factory]: ../data-factory/data-factory-data-movement-activities.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Documentación de Azure Data Factory]:https://azure.microsoft.com/documentation/services/data-factory/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Azure Data Factory documentation]:https://azure.microsoft.com/documentation/services/data-factory/
 
 

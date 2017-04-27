@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: c046220304075242f655bced2f0f16a6fb692ad3
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0683be564a88ef54882e8d882d196851ecac243d
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +34,8 @@ El **menú** siguiente vincula a temas que describen cómo se realiza el muestre
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="why-sample-data"></a>¿Por qué realizar un muestreo de datos?
+**Razones para el uso de datos de ejemplo**
+
 Si el conjunto de datos que pretende analizar es grande, es recomendable reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
 

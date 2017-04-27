@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 04/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 7b5df25f46a2824acb361401ab90c960b8e5978f
-ms.openlocfilehash: 8ce47dd649d1d945df506ed65c871cf3afe2f004
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 0c3a11e9a86767641533b16de1b96b4c59bfdf51
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,12 +27,11 @@ El Centro de seguridad de Azure analiza el estado de seguridad de los recursos d
 Este artículo aborda las recomendaciones sobre los datos y el servicio SQL de Azure. Las recomendaciones se centran en la habilitación de la auditoría de servidores y bases de datos de SQL de Azure, el cifrado de bases de datos SQL Database y la habilitación del cifrado de su cuenta de Azure Storage.  Use la tabla siguiente para entender mejor las recomendaciones disponibles sobre los datos y el servicio SQL y lo que harán cada una de ellas si se aplican.
 
 ## <a name="available-sql-service-and-data-recommendations"></a>Recomendaciones de datos y servicio SQL disponibles
-| Recomendación | Description |
+| Recomendación | Descripción |
 | --- | --- |
-| [Habilitar Auditoría SQL de servidor](security-center-enable-auditing-on-sql-servers.md) |Recomienda activar la auditoría de servidores SQL Server de Azure (solo el servicio SQL de Azure; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales). |
-| [Habilitar Auditoría SQL de base de datos](security-center-enable-auditing-on-sql-databases.md) |Recomienda activar la auditoría de bases de datos SQL de Azure (solo el servicio SQL de Azure; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales). |
+| [Habilitar la auditoría y la detección de amenazas en los servidores SQL Server](security-center-enable-auditing-on-sql-servers.md) |Recomienda activar la auditoría y la detección de amenazas para los servidores de Azure SQL (solo en el servicio Azure SQL; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales). |
+| [Habilitación de la auditoría y la detección de amenazas en bases de datos SQL](security-center-enable-auditing-on-sql-databases.md) |Recomienda activar la auditoría y la detección de amenazas para las bases de datos de Azure SQL (solo en el servicio Azure SQL; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales). |
 | [Habilitar Cifrado de datos transparente en bases de datos SQL](security-center-enable-transparent-data-encryption.md) |Recomienda habilitar el cifrado de bases de datos SQL (solo el servicio SQL de Azure). |
-| [Habilitar el cifrado para la cuenta de Azure Storage](security-center-enable-encryption-for-storage-account.md) | Es recomendable que habilite el cifrado del servicio de Azure Storage para datos en reposo. El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado antes de la recuperación. SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos. Para obtener más información, consulte [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](../storage/storage-service-encryption.md).</br>SSE solo es compatible con las cuentas de almacenamiento de Resource Manager. Las cuentas de almacenamiento clásico no se admiten en este momento. Para entender los modelos de implementación clásico y de Resource Manager, consulte [Modelos de implementación de Azure](../azure-classic-rm.md). |
 
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
@@ -45,9 +45,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7519ff07efd5bb450362fca8d54e4d9e3be8f0df
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: b5b8346c6a645ae18fd0c23a8956274f764710e0
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ Además de seleccionar una estrategia de simultaneidad apropiada, los desarrolla
 Puede optar por usar modelos de simultaneidad optimista o pesimista para administrar el acceso a blobs y contenedores del servicio BLOB. Si no especifica explícitamente una estrategia, la estrategia El último que escribe gana será la predeterminada.  
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>Simultaneidad optimista para blobs y contenedores
-El servicio Almacenamiento asigna un identificador a cada objeto almacenado. Este identificador se actualiza cada vez que se realiza una operación de actualización en un objeto. El identificador se devuelve al cliente como parte de una respuesta HTTP GET usando el encabezado ETag (etiqueta de entidad) que se define dentro del protocolo HTTP. Un usuario que realiza una actualización en tal objeto puede enviar la etiqueta ETag original junto con un encabezado condicional para garantizar que una actualización solamente tendrá lugar si se ha cumplido una determinada condición; en este caso, la condición es un encabezado “If-Match”, que requiere el servicio Almacenamiento para garantizar que el valor de ETag especificado en la solicitud de actualización es el mismo que el almacenado en el servicio Almacenamiento.  
+El servicio Almacenamiento asigna un identificador a cada objeto almacenado. Este identificador se actualiza cada vez que se realiza una operación de actualización en un objeto. El identificador se devuelve al cliente como parte de una respuesta HTTP GET usando el encabezado ETag (etiqueta de entidad) que se define dentro del protocolo HTTP. Un usuario que realiza una actualización en tal objeto puede enviar la etiqueta ETag original junto con un encabezado condicional para garantizar que una actualización solamente tendrá lugar si se ha cumplido una determinada condición; en este caso, la condición es un encabezado "If-Match", que requiere el servicio de almacenamiento para garantizar que el valor de ETag especificado en la solicitud de actualización sea el mismo que el almacenado en dicho servicio.  
 
 El esquema de este proceso es el siguiente:  
 
@@ -131,7 +131,7 @@ Para bloquear un blob para uso exclusivo, puede adquirir una [concesión](http:/
 
 Las concesiones permiten diferentes estrategias de sincronización, como por ejemplo las siguientes: escritura exclusiva / lectura compartida, escritura exclusiva / lectura exclusiva y escritura compartida / lectura exclusiva. Donde existe una concesión, el servicio Almacenamiento impone escrituras exclusivas (operaciones poner, establecer y eliminar) garantizando, sin embargo, que la exclusividad para operaciones de lectura requiere que el desarrollador garantice que todas las aplicaciones cliente usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento. Las operaciones de lectura que no incluyen un identificador de concesión, dan lugar a lecturas compartidas.  
 
-En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición de una concesión exclusiva durante 30 segundos en un blob, actualizando el contenido de dicho blob y, a continuación, liberando la concesión. Si ya hay una concesión válida en el blob cuando intenta adquirir una nueva concesión, el servicio BLOB devuelve un resultado de estado “HTTP (409) Conflicto”. El fragmento de código siguiente usa un objeto **AccessCondition** para encapsular la información de concesión cuando crea una solicitud para actualizar el blob en el servicio Almacenamiento.  Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición de una concesión exclusiva durante 30 segundos en un blob, actualizando el contenido de dicho blob y, a continuación, liberando la concesión. Si ya hay una concesión válida en el blob cuando intenta adquirir una nueva concesión, la instancia de Blob service devuelve un resultado de estado "HTTP (409) Conflicto". El fragmento de código siguiente usa un objeto **AccessCondition** para encapsular la información de concesión cuando crea una solicitud para actualizar el blob en el servicio Almacenamiento.  Puede descargar aquí el ejemplo completo: [Administración de simultaneidad con Almacenamiento de Azure](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -232,7 +232,7 @@ catch (StorageException ex)
 }  
 ```
 
-Para deshabilitar explícitamente la comprobación de simultaneidad, debe establecer la propiedad **ETag** del objeto **employee** en “*” antes de ejecutar la operación de reemplazo.  
+Para deshabilitar explícitamente la comprobación de simultaneidad, debe establecer la propiedad **ETag** del objeto **employee** en "*" antes de ejecutar la operación de reemplazo.  
 
 ```csharp
 customer.ETag = "*";  

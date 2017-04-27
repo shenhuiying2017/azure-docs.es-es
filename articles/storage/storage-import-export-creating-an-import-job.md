@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,7 +67,7 @@ Antes de crear un trabajo de importación, necesita obtener un nombre de la ubic
 
  Siga los pasos siguientes para obtener la ubicación de envío:
 
--   Identifique el nombre de la ubicación de la cuenta de almacenamiento. Este valor puede encontrarse en el campo **Ubicación** en el **Panel** de la cuenta de almacenamiento de Azure Portal o puede consultarse mediante el uso de la operación [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) de Service Management API.
+-   Identifique el nombre de la ubicación de la cuenta de almacenamiento. Este valor puede encontrarse en el campo **Ubicación** del **Panel** de la cuenta de almacenamiento de Azure Portal o puede consultarse mediante el uso de la operación [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) de Service Management API.
 
 -   Recupere la ubicación que está disponible para procesar esta cuenta de almacenamiento mediante una llamada a la operación `Get Location`.
 

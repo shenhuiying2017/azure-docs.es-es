@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: getting-started
-ms.date: 2/14/2017
+ms.date: 4/4/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9a0e7a9aadf6ca12915635408653a37241dbb321
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 8a903cd870f01f9ca6224efd1386b68c63e3aa98
+ms.lasthandoff: 04/06/2017
 
 
 ---
 
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Implementación de una aplicación de escalado automático con una plantilla
 
-Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. Este tutorial se basa en [Implementación de un conjunto de escalado sencillo](virtual-machine-scale-sets-mvss-start.md) y describe cómo implementar una aplicación de escalado automático simple en un conjunto de escalado con una plantilla de Azure Resource Manager.
+Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. Este tutorial se basa en [Implementación de un conjunto de escalado sencillo](virtual-machine-scale-sets-mvss-start.md) y describe cómo implementar una aplicación de escalado automático simple en un conjunto de escalado con una plantilla de Azure Resource Manager.  También puede configurar el escalado automático con PowerShell, la CLI o el portal. Para obtener más información, consulte la [información general sobre el escalado automático](virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="two-quickstart-templates"></a>Dos plantillas de inicio rápido
 Cuando implementa un conjunto de escalado, puede instalar software nuevo en una imagen de plataforma con una [extensión de VM](../virtual-machines/virtual-machines-windows-extensions-features.md). Una extensión de VM es una aplicación pequeña que realizan tareas de automatización y configuración posteriores a la implementación en máquinas virtuales de Azure, como es la implementación de una aplicación. En [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) se ofrecen dos plantillas de ejemplo distintas, las que muestran cómo implementar una aplicación de escalado automático en un conjunto de escalado con extensiones de VM.

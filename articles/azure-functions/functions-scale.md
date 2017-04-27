@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 04/04/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 4eb138348686e9d7befe4d5433d174374977c2a1
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: cea92fe434288012a398f6821bc9cd7ab85b7d3e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,11 +44,13 @@ En el **plan de consumo**, se asignan aplicaciones de función a una instancia d
 
 En el **plan de App Service**, las aplicaciones de función se ejecutan en máquinas virtuales dedicadas, de la misma forma que Web Apps funciona actualmente en las SKU de los niveles Básico, Estándar y Premium. Se asignan máquinas virtuales dedicadas a aplicaciones de App Service y a aplicaciones de función, y siempre están disponibles tanto si se está ejecutando código como si no. Se trata de una buena opción si tiene máquinas virtuales infrautilizadas que ya estén ejecutando otro código o si piensa ejecutar funciones de forma continua o casi continua. Una máquina virtual desvincula el costo del tiempo de ejecución y el tamaño de la memoria. Como consecuencia, puede limitar el costo de muchas funciones de ejecución prolongada al correspondiente a las máquinas virtuales en que se ejecutan. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
+Con un plan de App Service, se puede escalar horizontalmente de forma manual mediante la adición de más instancias de máquina virtual de un solo núcleo o habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service-web/web-sites-scale.md) para obtener más información. Si va a ejecutar funciones de JavaScript en un plan de App Service, debería elegir un plan con menos núcleos. Para obtener más información, consulte la [referencia de JavaScript relativa a las funciones](functions-reference-node.md#choose-single-core-app-service-plans).  
+
 ## <a name="how-the-consumption-plan-works"></a>Funcionamiento del plan de consumo
 
 El plan de consumo escala automáticamente recursos de CPU y memoria al agregar instancias de procesamiento adicionales basadas en las necesidades de las funciones que se ejecutan en la aplicación de función. A cada instancia de procesamiento de la aplicación de función se le asignan hasta 1,5 GB de recursos de memoria.
 
-Cuando se ejecuta en un plan de consumo, si una instancia de Function App pasa a estar inactiva, los nuevos blobs pueden tardar en procesarse hasta 10 minutos al día. Una vez que Function App se ejecuta, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
+Cuando se ejecuta en un plan de consumo, si una instancia de Function App pasa a estar inactiva, los nuevos blobs pueden tardar en procesarse hasta 10 minutos. Una vez que Function App se ejecuta, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
 
 Al crear una Function App, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. A nivel interno, Azure Functions usa Azure Storage para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro. Algunas cuentas de almacenamiento no son compatibles con colas ni tablas, como las cuentas de almacenamiento solo para blob (incluido Premium Storage) y las cuentas de almacenamiento de propósito general con replicación ZRS. Estas cuentas se filtran en la hoja Cuenta de almacenamiento al crear una Function App.
 

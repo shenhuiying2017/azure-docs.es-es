@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1f274fdbcdb64425a296ac7388938c423745f477
-ms.openlocfilehash: c9c0756fd714438e4ae74deadf0e5f009164af13
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -84,7 +85,7 @@ Poder ejecutar la aplicación en modo de solo lectura ofrece otra ventaja: la ca
 
 ## <a name="handling-updates-when-running-in-read-only-mode"></a>Control de las actualizaciones durante la ejecución en modo de solo lectura
 
-Existen muchas formas de controlar solicitudes de actualización durante la ejecución en modo de solo lectura. No se va a tratar esto de forma exhaustiva pero, por lo general, hay un par de patrones que tener en cuenta.
+Existen muchas formas de controlar solicitudes de actualización durante la ejecución en modo de solo lectura. No se va a tratar esto de forma exhaustiva, pero, por lo general, hay un par de patrones que tener en cuenta.
 
 1.  Puede responder al usuario y indicarle que actualmente no se aceptan actualizaciones. Por ejemplo, un sistema de administración de contactos podría permitir que los clientes accedan a información de contacto, pero no que la actualicen.
 
@@ -134,7 +135,7 @@ Si usa el patrón de disyuntor en la aplicación, puede impedir que reintente un
 
 Para identificar la existencia de un problema continuado con un punto de conexión principal, puede supervisar la frecuencia con que el cliente encuentra errores con posibilidad de reintento. Como cada caso es diferente, tendrá que decidir el umbral que desea usar para la decisión de cambiar al punto de conexión secundario y ejecutar la aplicación en modo de solo lectura. Por ejemplo, podría decidir cambiar si hay diez errores consecutivos sin ninguna ejecución correcta. Otro ejemplo consiste en cambiar si se produce un error en el 90 % de las solicitudes en un periodo de dos minutos.
 
-Para el primer escenario, basta con que cuente los errores y, si se produce un resultado correcto antes de alcanzar el máximo, restablezca el recuento a cero. Para el segundo escenario, una posibilidad de implementación es usar el objeto MemoryCache (en. NET). Para cada solicitud, agregue un elemento CacheItem a la memoria caché, establezca el valor en correcto (1) o error (0), y establezca la hora de expiración en 2 minutos a partir del momento actual (o la restricción temporal que sea). Cuando se alcanza la hora de expiración de una entrada, se quita esta automáticamente. Esto le dará un intervalo gradual de 2 minutos. Cada vez que se envíe una solicitud al servicio de almacenamiento, use primero una consulta Linq en el objeto MemoryCache para calcular el porcentaje de corrección, para lo cual se suman los valores y se dividen por el recuento. Cuando el porcentaje de corrección sea inferior a un umbral (por ejemplo, 10 %), establezca la propiedad **LocationMode** para solicitudes de lectura en **SecondaryOnly** y cambie la aplicación al modo de solo lectura antes de continuar.
+Para el primer escenario, basta con que cuente los errores y, si se produce un resultado correcto antes de alcanzar el máximo, restablezca el recuento a cero. Para el segundo escenario, una posibilidad de implementación es usar el objeto MemoryCache (en. NET). Para cada solicitud, agregue un elemento CacheItem a la memoria caché, establezca el valor en correcto (1) o error (0), y establezca la hora de expiración en 2 minutos a partir del momento actual (o la restricción temporal que sea). Cuando se alcanza la hora de expiración de una entrada, esta se quita automáticamente. Esto le dará un intervalo gradual de 2 minutos. Cada vez que se envíe una solicitud al servicio de almacenamiento, use primero una consulta Linq en el objeto MemoryCache para calcular el porcentaje de corrección, para lo cual se suman los valores y se dividen por el recuento. Cuando el porcentaje de corrección sea inferior a un umbral (por ejemplo, 10 %), establezca la propiedad **LocationMode** para solicitudes de lectura en **SecondaryOnly** y cambie la aplicación al modo de solo lectura antes de continuar.
 
 El umbral de errores que se usa para determinar cuándo se debe realizar el cambio puede variar para cada servicio en la aplicación, por lo que debería considerar convertir los umbrales en parámetros configurables. Aquí también se decide controlar los errores con posibilidad de reintento de cada servicio por separado o en conjunto, según lo descrito antes.
 
@@ -202,7 +203,7 @@ En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actual
 | T2       | Transacción B:<br>Actualizar<br> entidad empleado<br> en región primaria  |                                | T1                 | Transacción B escrita en región primaria,<br> aún sin replicar.  |
 | T3       | Transacción C:<br> Actualizar <br>administrator<br>entidad rol administrador en región<br>primary |                    | T1                 | Transacción C escrita en región primaria,<br> aún sin replicar.  |
 | *T4*     |                                                       | Transacción C <br>replicada en<br> región secundaria | T1         | Transacción C replicada en región secundaria.<br>LastSyncTime no actualizado porque <br>la transacción B está aún sin replicar.|
-| *T5*     | Leer entidades <br>desde región secundaria                           |                                  | T1                 | Obtiene el valor obsoleto de la entidad <br> empleado porque la transacción B aún <br> no se ha replicado. Obtiene el valor nuevo para la<br> entidad rol de administrador porque C<br> se ha replicado. Hora de última sincronización aún no se ha<br> actualizado porque la transacción B<br> no se ha replicado. Puede ver que la<br>entidad rol de administrador es incoherente <br>porque la fecha y hora de la entidad son posteriores a <br>Hora de última sincronización. |
+| *T5*     | Leer entidades <br>desde región secundaria                           |                                  | T1                 | Obtiene el valor obsoleto de la entidad <br> empleado porque la transacción B aún <br> no se ha replicado. Obtiene el valor nuevo para la<br> entidad rol de administrador porque C<br> se ha replicado. La hora de la última sincronización aún no se ha<br> actualizado porque la transacción B<br> no se ha replicado. Puede ver que la<br>entidad rol de administrador es incoherente <br>porque la fecha y hora de la entidad son posteriores a <br>Hora de última sincronización. |
 | *T6*     |                                                      | Transacción B<br> replicada en<br> región secundaria | T6                 | *T6*: todas las transacciones hasta la C <br>se han replicado, Hora de última sincronización<br> se ha actualizado. |
 
 En este ejemplo, suponga que el cliente pasa a leer desde la región secundaria en T5. Puede leer correctamente la entidad **rol administrador** en este momento, pero la entidad contiene un valor para el recuento de administradores que no es coherente con el número de entidades **empleado** que están marcadas como administradores en la región secundaria en este momento. El cliente podría mostrar simplemente este valor y correr el riesgo de que sea información incoherente. O bien, el cliente podría intentar determinar que el **rol administrador** se encuentra en un estado potencialmente incoherente porque las actualizaciones se han producido desordenadas y después informar al usuario sobre este hecho.
@@ -234,9 +235,4 @@ Si ha hecho configurables los umbrales para cambiar la aplicación al modo de so
 * Para más información sobre la redundancia geográfica con acceso de lectura, incluido otro ejemplo de cómo se establece LastSyncTime, visite [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opciones de redundancia de Microsoft Azure Storage y almacenamiento con redundancia geográfica con acceso de lectura).
 
 * Para ver un ejemplo completo de cómo cambiar entre el punto de conexión principal y el secundario, consulte los [ejemplos de Azure para usar el patrón de disyuntor con almacenamiento RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

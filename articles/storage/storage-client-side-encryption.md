@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 223a7f808ae21ddf8e237e7c5ec2d7ba035e38e8
-ms.openlocfilehash: 82d91881e7f744471f4e60d1c6571e0ae2f7ee4e
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5413e86ac3c83947566b2686392612bd33c4483f
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,14 +50,14 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 
 1. La biblioteca de cliente asume que el usuario está administrando la clave de cifrado de claves (KEK), ya sea localmente o en almacenes de claves de Azure. El usuario no necesita conocer la clave específica que se usó para el cifrado. En su lugar, se puede configurar y usar una resolución de clave que resuelva distintos identificadores de clave para las claves.
 2. La biblioteca de cliente descarga los datos cifrados junto con cualquier material de cifrado que esté almacenado en el servicio.
-3. A continuación, la clave de cifrado de contenido encapsulado (CEK) se desencapsula (descifra) usando la clave de cifrado de claves (KEK). Aquí nuevamente, la biblioteca de cliente no tiene acceso a la KEK. Simplemente invoca el algoritmo de desencapsulado personalizado o el del proveedor del Almacén de claves.
+3. A continuación, la clave de cifrado de contenido encapsulado (CEK) se desencapsula (descifra) usando la clave de cifrado de claves (KEK). Aquí nuevamente, la biblioteca de cliente no tiene acceso a la KEK. Simplemente, invoca el algoritmo de desencapsulado personalizado o el del proveedor de Key Vault.
 4. La clave de cifrado de contenido (CEK) se usa entonces para descifrar los datos cifrados del usuario.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de cifrado
 La biblioteca de cliente de almacenamiento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
 ### <a name="blobs"></a>Blobs
-La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. Precisamente, se admite el cifrado cuando los usuarios emplean los métodos **UploadFrom*** u **OpenWrite**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.
+La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. Específicamente, se admite el cifrado cuando los usuarios emplean los métodos **UploadFrom*** u **OpenWrite**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.
 
 Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
 
@@ -97,7 +98,7 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 
 Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo EncryptProperty (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 ### <a name="batch-operations"></a>Operaciones por lotes
 En las operaciones por lotes, se usará la misma KEK en todas las filas de esa operación por lotes porque la biblioteca de cliente solo permite un objeto de opciones (y, por lo tanto, una directiva/KEK) por cada operación por lotes. Sin embargo, la biblioteca de cliente generará internamente un nuevo vector de inicialización aleatorio y una CEK aleatoria por cada fila del lote. Los usuarios también pueden optar por cifrar diferentes propiedades para cada operación del lote mediante la definición de este comportamiento en la resolución de cifrado.
@@ -245,8 +246,3 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 * Descargar la [Biblioteca de cliente de almacenamiento de Azure para el paquete NuGet de .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Descargar los paquetes de NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) de Azure Key Vault  
 * Consulte la [documentación del Almacén de claves de Azure](../key-vault/key-vault-whatis.md)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

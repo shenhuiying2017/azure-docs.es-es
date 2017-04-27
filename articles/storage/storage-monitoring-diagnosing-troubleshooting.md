@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 8d2aa0c8ff9e39faf47c6c3339cd8da2610d2324
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/22/2017
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Información general
-Diagnosticar y solucionar problemas en una aplicación distribuida que está hospedada en un entorno de nube puede ser más complicado que en los entornos tradicionales. Las aplicaciones se pueden implementar en una infraestructura de PaaS o IaaS, en una ubicación local, en un dispositivo móvil o en varios de estos elementos combinados. Normalmente, el tráfico de red de la aplicación puede atravesar redes públicas y privadas, y la aplicación puede usar varias tecnologías de almacenamiento, como tablas, BLOB, colas o archivos de Almacenamiento de Microsoft Azure, además de otros almacenes de datos como, por ejemplo, bases de datos relacionales y de documentos.
+Diagnosticar y solucionar problemas en una aplicación distribuida que está hospedada en un entorno de nube puede ser más complicado que en los entornos tradicionales. Las aplicaciones se pueden implementar en una infraestructura de PaaS o IaaS, en una ubicación local, en un dispositivo móvil o en varios de estos elementos combinados. Normalmente, el tráfico de red de la aplicación puede atravesar redes públicas y privadas, y la aplicación puede usar varias tecnologías de almacenamiento, como tablas, blobs, colas o archivos de Microsoft Azure Storage, además de otros almacenes de datos como, por ejemplo, bases de datos relacionales y de documentos.
 
 Para administrar correctamente esas aplicaciones, debe supervisarlas de forma proactiva y comprender cómo diagnosticar y solucionar problemas relacionados con todos sus aspectos y con las tecnologías de las que dependen. Como usuario de los servicios de Almacenamiento de Azure, debe supervisar continuamente los servicios de Almacenamiento que utiliza la aplicación para observar si se produce algún cambio inesperado en el comportamiento (por ejemplo, tiempos de respuesta más lentos de lo habitual), y usar el registro para recopilar datos más detallados y poder analizar los problemas en profundidad. Con la información de diagnóstico que obtenga de la supervisión y el registro, le será más fácil averiguar la causa raíz del problema que apareció en la aplicación. Entonces, podrá solucionar el problema y determinar los pasos más adecuados que puede tomar para remediarlo. Almacenamiento de Azure es uno de los servicios principales de Azure y constituye una parte importante de la mayoría de las soluciones que implementan los clientes en la infraestructura de Azure. Almacenamiento de Azure incluye funcionalidades que permiten simplificar la supervisión, el diagnóstico y la solución de problemas de almacenamiento de las aplicaciones basadas en la nube.
 
@@ -361,7 +361,7 @@ Tenga en cuenta que el servicio de almacenamiento solamente calcula la métrica 
 #### <a name="investigating-client-performance-issues"></a>Investigación de problemas de rendimiento del cliente
 Uno de los posibles motivos de que el cliente responda lentamente es que haya un número limitado de subprocesos o conexiones disponibles o por la lentitud de los recursos, como la CPU, la memoria o el ancho de banda de red. Tal vez pueda resolver el problema modificando el código de cliente para que sea más eficiente (por ejemplo, con llamadas asincrónicas al servicio de almacenamiento) o con una máquina virtual mayor (con más núcleos y más memoria).
 
-Para los servicios de tabla y cola, el algoritmo de Nagle también puede provocar un valor alto de **AverageE2ELatency** en comparación con el de **AverageServerLatency**: para más información, consulte la entrada [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (El algoritmo de Nagle no responde bien a las solicitudes pequeñas). Puede deshabilitar el algoritmo Nagle en el código utilizando la clase **ServicePointManager** en el espacio de nombres **System.Net**. Esto debe hacerlo antes de realizar ninguna llamada a los servicios Tabla o Cola en la aplicación, dado que esto no afecta a las conexiones que ya están abiertas. El siguiente ejemplo proviene del método **Application_Start** de un rol de trabajo.
+Para los servicios de tablas y colas, el algoritmo de Nagle también puede provocar un valor alto de **AverageE2ELatency** en comparación con el de **AverageServerLatency**: para obtener más información, consulte la entrada [Nagle’s Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (El algoritmo de Nagle no responde bien a las solicitudes pequeñas). Puede deshabilitar el algoritmo Nagle en el código utilizando la clase **ServicePointManager** en el espacio de nombres **System.Net**. Esto debe hacerlo antes de realizar ninguna llamada a los servicios Tabla o Cola en la aplicación, dado que esto no afecta a las conexiones que ya están abiertas. El siguiente ejemplo proviene del método **Application_Start** de un rol de trabajo.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: bc7ce4867180dd9f896b894b56a02bf033ed6bbb
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: deb4916d69ad9a447836b33711864c242e5c5dec
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ El objetivo de este tutorial es mostrar cómo integrar KnowBe4 con Azure Active 
 Integrar KnowBe4 con Azure AD le proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a KnowBe4.
-* Puede permitir que los usuarios inicien sesión automáticamente en KnowBe4 (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en el inicio de sesión único (SSO) de KnowBe4 con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -46,7 +46,7 @@ Para configurar la integración de Azure AD con KnowBe4, necesita los siguientes
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
@@ -54,7 +54,7 @@ El objetivo de este tutorial es permitirle probar el inicio de sesión único de
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 * Incorporación de KnowBe4 desde la galería
-* Configuración y comprobación del inicio de sesión único de Azure AD
+* Configuración y prueba del inicio de sesión único de Azure AD
 
 ## <a name="add-knowbe4-from-the-gallery"></a>Incorporación de KnowBe4 desde la galería
 Para configurar la integración de KnowBe4 en Azure AD, es preciso agregar KnowBe4 desde la galería a la lista de aplicaciones SaaS administradas.
@@ -88,11 +88,11 @@ Esta relación de vínculo se establece asignando el valor del **nombre de usuar
 
 Para configurar y probar el inicio de sesión único de Azure AD con KnowBe4, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para que los usuarios puedan utilizar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de KnowBe4](#creating-a-KnowBe4-test-user)**: para tener un homólogo de Britta Simon en KnowBe4 que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación KnowBe4.
@@ -180,7 +180,7 @@ No hay ningún elemento de acción para usted en esta sección. Durante un inten
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a KnowBe4.
 
-    ![Assign User][200] 
+   ![Asignar usuario][200] 
 
 **Para asignar a Britta Simon a KnowBe4, realice los pasos siguientes:**
 

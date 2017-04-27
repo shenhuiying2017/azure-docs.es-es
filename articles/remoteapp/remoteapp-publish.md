@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0b81ef8425e44a9813fc0220f0ab314a3110f265
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 4cd4d35f44320ac57f015b5444985e8b4976ccf0
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-publish-an-app-in-remoteapp"></a>Cómo publicar una aplicación en RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -42,10 +43,5 @@ En la pestaña **Publicación** del portal, haga clic en **Publicar**. Puede agr
 > Si olvidó agregar la aplicación al menú **Inicio** al crear la plantilla, tiene la posibilidad de agregar la ruta de acceso a la aplicación. (O volver a crear la imagen de plantilla, pero supone algo más de trabajo).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

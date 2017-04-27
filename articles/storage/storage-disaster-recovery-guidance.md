@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 64650bf7baf46b0f5473deb1a9b4ec329979d153
-ms.openlocfilehash: 0fc78521abb0fce2a38b14d1411dad42b3580df2
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 83ab487f382eb84aa64b927bdf5560eec5cbbd6d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -48,7 +49,7 @@ Si eligió el [almacenamiento con redundancia geográfica con acceso de lectura 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Qué esperar si se produce una conmutación por error de almacenamiento
 Si eligió el [almacenamiento con redundancia geográfica (GRS)](storage-redundancy.md#geo-redundant-storage) o el [almacenamiento geográficamente redundante con acceso de lectura (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado), Almacenamiento de Azure conservará los datos en dos regiones (la principal y la secundaria). En las dos regiones, Almacenamiento de Azure mantendrá constantemente réplicas de los datos.
 
-Cuando se produce un desastre regional que afecta a la región primaria, se tratará en primer lugar de restaurar el servicio en esa región. Según la naturaleza de los desastres y sus repercusiones, en raras ocasiones es posible que no podamos restaurar la región primaria. En ese momento, realizaremos una conmutación por error geográfica. La replicación de datos entre regiones consiste en un proceso asincrónico que puede provocar retrasos, por lo que es posible que se pierdan los cambios que todavía no se hayan replicado a la región secundaria. Puede consultar la ["hora de última sincronización" de la cuenta de almacenamiento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obtener información sobre el estado de replicación.
+Cuando se produce un desastre regional que afecta a la región primaria, se tratará en primer lugar de restaurar el servicio en esa región. Según la naturaleza de los desastres y sus repercusiones, en raras ocasiones es posible que no podamos restaurar la región primaria. En ese momento, realizaremos una conmutación por error geográfica. La replicación de datos entre regiones consiste en un proceso asincrónico que puede provocar retrasos, por lo que es posible que se pierdan los cambios que todavía no se hayan replicado a la región secundaria. Puede consultar la [hora de última sincronización de la cuenta de almacenamiento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obtener información sobre el estado de replicación.
 
 Ahora hablaremos de dos aspectos relativos a la experiencia de conmutación por error geográfica de almacenamiento:
 
@@ -57,8 +58,8 @@ Ahora hablaremos de dos aspectos relativos a la experiencia de conmutación por 
 * Antes de la conmutación por error geográfica y durante este proceso, no tendrá acceso de escritura a la cuenta de almacenamiento debido a las repercusiones del desastre. Sin embargo, sí que podrá seguir realizando operaciones de lectura en la base de datos secundaria si la cuenta de almacenamiento se ha configurado como RA-GRS.
 * Cuando se haya completado la conmutación por error geográfica y se propaguen los cambios de DNS, se reanudará el acceso de lectura y escritura de la cuenta de almacenamiento. Esto apunta a lo que solía ser el punto de conexión secundario. 
 * Tenga en cuenta que tendrá acceso de escritura si tiene GRS o RA-GRS configurado para la cuenta de almacenamiento. 
-* Puede consultar la ["hora de la última conmutación por error geográfica" de la cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obtener más información.
-* Después de la conmutación por error, la cuenta de almacenamiento volverá a estar completamente funcional, pero con un rendimiento reducido, ya que se hospeda realmente en una región de independiente donde no se pueden realizar replicaciones geográficas. Para mitigar este riesgo, se restaurará la región primaria original y, luego, se realizará una conmutación por error geográfica para restaurar el estado original. Si la región primaria original es irrecuperable, asignamos otra región secundaria.
+* Puede consultar la [hora de la última conmutación por error geográfica de la cuenta de almacenamiento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obtener más información.
+* Después de la conmutación por error, la cuenta de almacenamiento volverá a estar completamente funcional, pero con un rendimiento reducido, ya que se hospeda realmente en una región independiente donde no se pueden realizar replicaciones geográficas. Para mitigar este riesgo, se restaurará la región primaria original y, luego, se realizará una conmutación por error geográfica para restaurar el estado original. Si la región primaria original es irrecuperable, asignamos otra región secundaria.
   Para obtener más información sobre la infraestructura de replicación geográfica de Almacenamiento de Azure, consulte el artículo del blog del equipo de almacenamiento que trata sobre las [opciones de redundancia y RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Prácticas recomendadas para proteger los datos
@@ -70,10 +71,5 @@ Para hacer una copia de seguridad de los datos de almacenamiento de forma perió
 * Archivos: use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) para copiar los archivos en otra cuenta de almacenamiento de otra región.
 
 Para información sobre cómo crear aplicaciones que aprovechan totalmente la característica RA-GRS, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Directivas de retención de informes de Azure Active Directory | Microso
 description: "Directivas de retención de datos de informes en Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -12,55 +12,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2016
+ms.date: 04/06/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
-ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: aa7a69c933abfda3bf4d1ac1a298c4ba684efd7e
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Directivas de retención de informes de Azure Active Directory
-*Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
 
 Este tema proporciona respuestas a las preguntas más frecuentes en relación a la retención de datos de los distintos informes de actividad de Azure Active Directory. 
 
-¿Cómo puede empezar la recopilación de datos de actividad?
+**P: ¿Cómo puede empezar la recopilación de datos de actividad?**
+
+**R:**
 
 | Edición de Azure AD | Inicio de la recopilación |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Al suscribirse a una suscripción |
 | Azure AD Free | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
+---
+**P: ¿Cuándo estarán disponibles los datos de actividad en Azure Portal?**
 
-¿Cuándo estarán disponibles los datos de actividad en Azure Portal?
+**R:**
 
 - **Inmediatamente**: si ya ha estado trabajando con informes en el Portal de Azure clásico
 - **Dentro de 2 horas**: si no ha activado la generación de informes en el Portal de Azure clásico
 
-¿Cómo puede empezar la recopilación de señales de seguridad?  
-En el caso de las señales de seguridad, el proceso de recopilación se inicia cuando decide usar Identity Protection Center. 
+---
+**P: ¿Cómo puede empezar la recopilación de señales de seguridad?**  
 
-¿Durante cuánto tiempo se almacenan los datos recopilados?
+**R:** En el caso de las señales de seguridad, el proceso de recopilación se inicia cuando decide usar Identity Protection Center. 
+
+
+---
+**P: ¿Durante cuánto tiempo se almacenan los datos recopilados?**
+
+**R:**
 
 **Informes de actividad**    
 
-| Informe | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--    | :--           | :--                | :--                |
-| Auditoría de directorio | 7 días | 30 días | 30 días |
-| Actividad de inicio de sesión |    7 días | 30 días | 30 días |
+| Informe                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Auditoría de directorio        | 7 días        | 30 días             | 30 días             |
+| Actividad de inicio de sesión       | 7 días        | 30 días             | 30 días             |
 
 **Señales de seguridad**
 
-| Informe | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--    | :--           | :--                | :--                |
-| Inicios de sesión no seguros | 7 días | 30 días | 90 días |
+| Informe         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Usuarios en riesgo  | 7 días        | 30 días             | 90 días             |
+| Inicios de sesión no seguros | 7 días        | 30 días             | 90 días             |
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+---

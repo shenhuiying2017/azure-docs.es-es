@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -138,16 +138,16 @@ Las métricas de transacciones se registran para las solicitudes del usuario y p
 > 
 > 
 
-Los datos de capacidad se registran diariamente para el servicio Blob de una cuenta de almacenamiento, y se escriben dos entidades de tabla. Una entidad proporciona estadísticas para los datos de usuario y la otra proporciona estadísticas sobre el contenedor de blob `$logs` utilizado por el análisis de almacenamiento. La tabla `$MetricsCapacityBlob` incluye las estadísticas siguientes:
+Los datos de capacidad se registran diariamente para la instancia de Blob service de una cuenta de almacenamiento, y se escriben dos entidades de tabla. Una entidad proporciona estadísticas para los datos de usuario y la otra proporciona estadísticas sobre el contenedor de blob `$logs` utilizado por el análisis de almacenamiento. La tabla `$MetricsCapacityBlob` incluye las estadísticas siguientes:
 
-* **Capacity**: la cantidad de almacenamiento utilizado por el servicio BLOB de la cuenta de almacenamiento, en bytes.
-* **ContainerCount**: el número de contenedores de blobs del servicio BLOB de la cuenta de almacenamiento.
-* **ObjectCount**: el número de blobs en bloque o en páginas confirmados y sin confirmar del servicio BLOB de la cuenta de almacenamiento.
+* **Capacity**: la cantidad de almacenamiento que ha utilizado la instancia de Blob service de la cuenta de almacenamiento, en bytes.
+* **ContainerCount**: el número de contenedores de blobs de la instancia de Blob service de la cuenta de almacenamiento.
+* **ObjectCount**: el número de blobs en bloque o en páginas confirmados y sin confirmar de la instancia de Blob service de la cuenta de almacenamiento.
 
 Para obtener más información acerca de las métricas de capacidad, vea el [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### <a name="how-metrics-are-stored"></a>Cómo se almacenan las métricas
-Todos los datos de métricas para cada uno de los servicios de almacenamiento se almacenan en tres tablas reservadas para ese servicio: una tabla para la información sobre transacciones, otra tabla para la información sobre las transacciones por minuto y una última tabla para la información sobre capacidad. La información sobre transacciones y transacciones por minuto consta de datos de solicitudes y respuestas, y la información sobre capacidad consta de datos de uso del almacenamiento. Se puede acceder a las métricas por hora y por minuto, y a la capacidad del servicio Blob de una cuenta de almacenamiento, en tablas cuyos nombres se describen en la tabla siguiente.
+Todos los datos de métricas para cada uno de los servicios de almacenamiento se almacenan en tres tablas reservadas para ese servicio: una tabla para la información sobre transacciones, otra tabla para la información sobre las transacciones por minuto y una última tabla para la información sobre capacidad. La información sobre transacciones y transacciones por minuto consta de datos de solicitudes y respuestas, y la información sobre capacidad consta de datos de uso del almacenamiento. Se puede acceder a las métricas por hora y por minuto, y a la capacidad de la instancia de Blob service de una cuenta de almacenamiento, en tablas cuyos nombres se describen en la tabla siguiente.
 
 | Nivel de métricas | Nombres de tabla | Versiones compatibles |
 | --- | --- | --- |
@@ -174,7 +174,7 @@ Son facturables las acciones siguientes realizadas por el análisis de almacenam
 Si ha configurado una directiva de retención de datos, no se le cobrarán las transacciones de eliminación cuando el análisis de almacenamiento elimine los antiguos datos de métricas y de registro. Sin embargo, las transacciones de eliminación desde un cliente sí son facturables. Para obtener más información acerca de las directivas de retención, consulte [Establecer una directiva de retención de datos de análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Descripción de las solicitudes facturables
-Las solicitudes realizadas al servicio de almacenamiento de una cuenta pueden ser facturables o no facturables. El análisis de almacenamiento registra cada solicitud realizada a un servicio, incluyendo un mensaje de estado que indica cómo se administró la solicitud. De igual forma, el análisis de almacenamiento guarda las métricas para un servicio y para las operaciones de la API de dicho servicio, incluidos los porcentajes y el recuento de algunos mensajes de estado. Todas estas características pueden ayudarle a analizar las solicitudes facturables, a llevar a cabo mejoras en la aplicación y a diagnosticar problemas en las solicitudes a los servicios. Para obtener más información sobre la facturación, consulte [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Las solicitudes realizadas al servicio de almacenamiento de una cuenta son facturables o no facturables. El análisis de almacenamiento registra cada solicitud realizada a un servicio, incluyendo un mensaje de estado que indica cómo se administró la solicitud. De igual forma, el análisis de almacenamiento guarda las métricas para un servicio y para las operaciones de la API de dicho servicio, incluidos los porcentajes y el recuento de algunos mensajes de estado. Todas estas características pueden ayudarle a analizar las solicitudes facturables, a llevar a cabo mejoras en la aplicación y a diagnosticar problemas en las solicitudes a los servicios. Para obtener más información sobre la facturación, consulte [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Al examinar los datos de análisis de almacenamiento, puede usar las tablas del tema [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343260.aspx) para determinar qué solicitudes son facturables. De esta manera, podrá comparar los datos de métricas y de registro con los mensajes de estado para ver si se le cobró por una solicitud determinada. También puede usar las tablas del tema anterior para investigar la disponibilidad de un servicio de almacenamiento o de una operación de API determinada.
 

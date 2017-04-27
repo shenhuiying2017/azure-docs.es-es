@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/07/2017
+ms.date: 04/05/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 9797df57e6efcba689e6d2f13fed165ee0cc0755
-ms.openlocfilehash: 2b51cdf8ef55c2ee80e3f660a1073419e353ec3a
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: cc2b025b7f3e28954c7f95409ffab03e5cbcf13d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -80,6 +81,8 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 | **12.** |CHAP |Las credenciales CHAP no se pueden quitar una vez creadas. Además, si modifica las credenciales CHAP, deberá desconectar los volúmenes y volver a ponerlos en línea para que el cambio surta efecto. |Este problema se corregirá en una versión posterior. |
 | **13.** |Servidor iSCSI |El "almacenamiento usado" que aparece para un volumen iSCSI puede ser diferente en el servicio StorSimple Manager y en el host iSCSI. |El host iSCSI tiene la vista del sistema de archivos.<br></br>El dispositivo ve los bloques asignados cuando el volumen estaba en el tamaño máximo. |
 | **14.** |Servidor de archivos |Si un archivo de una carpeta tiene una secuencia de datos alternativa (ADS) asociada, no se hará una copia de seguridad de dicha secuencia ni se restaurará a través de la recuperación ante desastres, la clonación o la recuperación a nivel de elemento. | |
+| **15.** |Servidor de archivos |No se admiten los vínculos simbólicos. | |
+| **16.** |Servidor de archivos |Los archivos protegidos por el Sistema de cifrado de archivos (EFS) de Windows al copiarse o almacenarse en el servidor de archivos de la matriz virtual de StorSimple desembocarán en una configuración no admitida.  | |
 
 ## <a name="next-step"></a>Paso siguiente
 [Instale Update 0.4](storsimple-virtual-array-install-update-04.md) en StorSimple Virtual Array.
@@ -90,10 +93,5 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 * [Notas de la versión de StorSimple Virtual Array Update 0.3](storsimple-ova-update-03-release-notes.md)
 * [Notas de la versión de la matriz virtual de StorSimple Update 0.1 y 0.2](storsimple-ova-update-01-release-notes.md)
 * [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

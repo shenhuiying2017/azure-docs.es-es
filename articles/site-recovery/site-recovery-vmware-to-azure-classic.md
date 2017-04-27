@@ -12,15 +12,18 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5c597e94f524a7ecbb9e4269adbbbd735a90aa14
+ms.lasthandoff: 04/06/2017
 
 
 ---
+
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery"></a>Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery
 > [!div class="op_single_selector"]
 > * [Portal de Azure](site-recovery-vmware-to-azure.md)
@@ -579,7 +582,7 @@ El estado de protección también se puede supervisar en **Elementos protegidos*
 3. Puede cambiar las siguientes opciones:
 
    * **Nombre de la máquina virtual de Azure**: el nombre que tendrá la máquina en Azure después de la conmutación por error. El nombre debe cumplir con los requisitos de Azure.
-   * **Tamaño de la máquina virtual de Azure**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Para más información sobre los tamaños y adaptadores, consulte las [tablas de tamaños](../virtual-machines/virtual-machines-linux-sizes.md). Observe lo siguiente:
+   * **Tamaño de la máquina virtual de Azure**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Para más información sobre los tamaños y adaptadores, consulte las [tablas de tamaños](../virtual-machines/linux/sizes.md). Observe lo siguiente:
 
      * Cuando modifique el tamaño de una máquina virtual y guarde la configuración, el número de adaptadores de red cambiará la próxima vez que abra la pestaña **Configurar**. El número mínimo de adaptadores de red en máquinas virtuales de destino es igual al número mínimo de adaptadores de red en una máquina virtual de origen. El número máximo de adaptadores de red se determina por el tamaño de la máquina virtual.
        * Si el número de adaptadores de red en la máquina de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.

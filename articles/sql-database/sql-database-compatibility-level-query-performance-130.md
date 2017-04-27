@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 5649895d1ae39d9a7fa863407b5341f1cdf567ee
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a5e84ded4e7b574a24583be507902f9537328153
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,10 +29,10 @@ En este artículo, se exploran las ventajas de ejecutar Azure SQL Database en el
 
 Como recordatorio del historial, la alineación de las versiones SQL con los niveles de compatibilidad predeterminados es la siguiente:
 
-* 100: en SQL Server 2008 y Base de datos SQL de Azure V11.
-* 110: en SQL Server 2012 y Base de datos SQL de Azure V11.
-* 120: en SQL Server 2014 y Base de datos SQL de Azure V12.
-* 130: en SQL Server 2016 y Base de datos SQL de Azure V12.
+* 100: en SQL Server 2008 y Azure SQL Database.
+* 110: en SQL Server 2012 y Azure SQL Database.
+* 120: en SQL Server 2014 y Azure SQL Database.
+* 130: en SQL Server 2016 y Azure SQL Database.
 
 > [!IMPORTANT]
 > El nivel de compatibilidad predeterminado es 130 para bases de datos **recién creadas**.
@@ -414,7 +414,7 @@ Aunque la mayoría de las cargas se benefician del nivel de compatibilidad 130, 
 
 1. Mover al nivel de compatibilidad 130 y ver cómo funciona todo. Si nota algunas regresiones, vuelva a establecer el nivel de compatibilidad en el nivel original, o mantenga el nivel 130, y revierta solamente la estimación de cardinalidad al modo heredado (como se explicó anteriormente, esto por sí solo podría solucionar el problema).
 2. Pruebe detalladamente las aplicaciones existentes con una carga similar a la de producción, ajústelas y valide el rendimiento antes de pasar a producción. En el caso de que aparezcan problemas, igual que en el caso anterior, siempre puede volver al nivel de compatibilidad original o puede revertir la estimación de cardinalidad al modo heredado.
-3. Como última opción, y la forma más reciente de resolver estas cuestiones, puede usar el Almacén de consultas. Esta es la opción recomendada en este momento. Para ayudarle en el análisis de las consultas con el nivel de compatibilidad 120 o inferior frente al nivel 130, no podemos insistir lo suficiente en nuestra recomendación de que use el Almacén de consultas. El Almacén de consultas está disponible con la versión más reciente de Base de datos SQL de Azure V12 y se ha diseñado para ayudarle a solucionar problemas de rendimiento de las consultas. Piense en el Almacén de consultas como una caja negra para la base de datos en donde se recopila y presenta información detallada del historial de todas las consultas. Esto simplifica enormemente el análisis forense del rendimiento, reduciendo el tiempo de diagnóstico y la resolución de problemas. Puede encontrar más información en [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)(Una caja negra para la base de datos).
+3. Como última opción, y la forma más reciente de resolver estas cuestiones, puede usar el Almacén de consultas. Esta es la opción recomendada en este momento. Para ayudarle en el análisis de las consultas con el nivel de compatibilidad 120 o inferior frente al nivel 130, no podemos insistir lo suficiente en nuestra recomendación de que use el Almacén de consultas. El Almacén de consultas está disponible con la versión más reciente de Azure SQL Database y se ha diseñado para ayudarlo a solucionar problemas de rendimiento de las consultas. Piense en el Almacén de consultas como una caja negra para la base de datos en donde se recopila y presenta información detallada del historial de todas las consultas. Esto simplifica enormemente el análisis forense del rendimiento, reduciendo el tiempo de diagnóstico y la resolución de problemas. Puede encontrar más información en [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)(Una caja negra para la base de datos).
 
 En el nivel superior, si ya tiene un conjunto de bases de datos que se ejecuta en el nivel de compatibilidad 120 o inferior y planea cambiar algunas de ellas a 130, o dado que la carga de trabajo aprovisiona automáticamente nuevas bases de datos que se establecieron de forma predeterminada en el nivel 130, tenga en cuenta lo siguiente:
 
@@ -432,7 +432,7 @@ El uso de Base de datos SQL de Azure para beneficiarse de todas las mejoras de S
 * [Blog: Query Store: A flight data recorder for your database (Almacén de consultas: Una caja negra para la base de datos) por Borko Novakovic, 8 de junio de 2016](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 * [Nivel de compatibilidad de ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 * [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)
-* [Compatibility Level 130 for Azure SQL Database V12](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
+* [Nivel de compatibilidad 130 para Azure SQL Database](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
 * [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx)
 * [Descripción de los índices de almacén de columnas](https://msdn.microsoft.com/library/gg492088.aspx)
 * [Blog: Improved Query Performance with Compatibility Level 130 in Azure SQL Database (Rendimiento mejorado de consultas con el nivel de compatibilidad 130 en Base de datos SQL de Azure) por Alain Lissoir, 6 de mayo de 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)

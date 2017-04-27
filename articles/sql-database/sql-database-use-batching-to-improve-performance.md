@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 62e8e0299aff517f45c89349ed836ec8a6dabd2b
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +45,7 @@ En la primera parte del artículo, se examinan diversas técnicas de procesamien
 ## <a name="batching-strategies"></a>Estrategias de procesamiento por lotes
 ### <a name="note-about-timing-results-in-this-topic"></a>Nota sobre los tiempos resultantes en este tema
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observar en una base de datos V12 con los nuevos [niveles de servicio](sql-database-service-tiers.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
+> Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron hace tiempo y no se corresponden necesariamente con el rendimiento que podría observar actualmente. La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
 > 
 > 
 
@@ -585,7 +586,7 @@ En este ejemplo, puede aprovechar el hecho de que SocialSecurityNumber (número 
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Después, cree un procedimiento almacenado o escriba código que use la instrucción MERGE para realizar la actualización y la inserción. En el ejemplo siguiente, se usa la instrucción MERGE en un parámetro con valores de tabla @employees, del tipo EmployeeTableType. El contenido de la tabla @employees no se muestra aquí.
+Después, cree un procedimiento almacenado o escriba código que use la instrucción MERGE para realizar la actualización y la inserción. En el ejemplo siguiente, se usa la instrucción MERGE en un parámetro con valores de tabla, @employees, del tipo EmployeeTableType. El contenido de la tabla @employees no se muestra aquí.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -623,10 +624,5 @@ En la lista siguiente, se proporciona un resumen de las recomendaciones de proce
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este artículo se centra en cómo el diseño de base de datos y las técnicas de codificado relacionadas con el procesamiento por lotes pueden mejorar el rendimiento y la escalabilidad de las aplicaciones. Sin embargo, esto es solamente un factor en la estrategia global. Para conocer más formas de mejorar el rendimiento y la escalabilidad, consulte [Guía de rendimiento de Azure SQL Database para bases de datos únicas](sql-database-performance-guidance.md) y [Consideraciones de precio y rendimiento para un grupo elástico](sql-database-elastic-pool-guidance.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

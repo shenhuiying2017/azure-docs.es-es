@@ -11,17 +11,16 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
-ms.date: 02/27/2017
+ms.workload: 3/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d533dc2c49974f2ce4ef1d1f6dc12e23ec18877f
+ms.lasthandoff: 04/03/2017
 
 ---
+
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
 Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Azure en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Lote. En este artículo, aprenderá a ejecutar tareas de instancias múltiples mediante la biblioteca [.NET de Batch][api_net].
@@ -50,7 +49,9 @@ Al enviar una tarea con configuración de instancias múltiples a un trabajo, el
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos de las tareas de instancias múltiples
-Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Si intenta ejecutar una tarea de instancias múltiples en un grupo con la comunicación entre nodos deshabilitada o con un valor de *maxTasksPerNode* superior a 1, la tarea nunca será programada, sino que permanecerá indefinidamente en estado "activo". Este fragmento de código muestra la creación de un grupo de este tipo mediante la biblioteca .NET de Lote.
+Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Para deshabilitar la ejecución de tareas simultáneas, establezca la propiedad [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) en 1.
+
+Este fragmento de código muestra cómo crear un grupo para tareas de varias instancias mediante la biblioteca de .NET de Batch.
 
 ```csharp
 CloudPool myCloudPool =
@@ -66,7 +67,12 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-Además, se ejecutarán tareas de múltiples instancias *solo* en nodos de los **grupos creados después del 14 de diciembre de 2015**.
+> [!NOTE]
+> Si intenta ejecutar una tarea de instancias múltiples en un grupo con la comunicación entre nodos deshabilitada o con un valor de *maxTasksPerNode* superior a 1, la tarea nunca será programada, sino que permanecerá indefinidamente en estado "activo". 
+>
+> Se podrán ejecutar tareas de varias instancias solo en nodos de los grupos creados después del 14 de diciembre de 2015.
+>
+>
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Uso de StartTask para instalar MPI
 Para ejecutar aplicaciones MPI con una tarea de instancias múltiples, primero debe instalar una implementación de MPI (por ejemplo, MS-MPI o Intel MPI) en los nodos de proceso del grupo. Es un buen momento para utilizar una instancia de [StartTask][net_starttask], que se ejecuta cada vez que un nodo se une a un grupo o se ha reiniciado. En este fragmento de código se crea un objeto StartTask que especifica el paquete de instalación de MS-MPI como un [archivo de recursos][net_resourcefile]. La línea de comandos de la tarea de inicio se ejecuta una vez que el archivo de recurso se ha descargado en el nodo. En este caso, la línea de comandos realiza una instalación desatendida de MS-MPI.
@@ -89,7 +95,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>Acceso directo a memoria remota (RDMA)
-Cuando elige el [tamaño con capacidad RDMA](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como A9 para los nodos de proceso del grupo de Batch, la aplicación de MPI puede aprovechar la red de acceso directo a memoria remota (RDMA) de alto rendimiento y baja latencia de Azure.
+Cuando elige el [tamaño con capacidad RDMA](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como A9 para los nodos de proceso del grupo de Batch, la aplicación de MPI puede aprovechar la red de acceso directo a memoria remota (RDMA) de alto rendimiento y baja latencia de Azure.
 
 Consulte los tamaños compatibles con RDMA en los siguientes artículos:
 
@@ -98,8 +104,8 @@ Consulte los tamaños compatibles con RDMA en los siguientes artículos:
   * [Tamaños de Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (solo Windows)
 * Grupos de **VirtualMachineConfiguration**
 
-  * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Para sacar el máximo provecho a RDMA en los [nodos de proceso de Linux](batch-linux-nodes.md), debe utilizar **Intel MPI** en esos nodos. Para obtener más información sobre los grupos de CloudServiceConfiguration y VirtualMachineConfiguration, consulte la sección [Grupo](batch-api-basics.md) de la información general sobre las características de Batch.

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea75843bf671ad4d879c01cdd20d5bbc5e889c2
-ms.openlocfilehash: 08c991e9f217c49828889d0b806888e193b245a8
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 75685a21ce4a212638016be62640badd4870454a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -113,12 +114,7 @@ La siguiente directiva requiere que todas las cuentas de almacenamiento habilite
 Esta regla de directiva también está disponible como una definición de directiva integrada con el identificador de recurso `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para ver ejemplos sobre la creación y asignación de directivas, consulte [Assign and manage policies](resource-manager-policy-create-assign.md) (Asignación y administración de directivas). 
+* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para asignar directivas a través del portal, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). Para asignar directivas a través de la API de REST, PowerShell o la CLI de Azure, consulte [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts). 
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -38,7 +38,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
     ![símbolo del sistema][1]
 2. En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
-3. [Azure Portal](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
+3. [Azure Portal](https://portal.azure.com) debería mostrar tres nuevas bases de datos en el servidor:
 
    ![Confirmación de Visual Studio][2]
 

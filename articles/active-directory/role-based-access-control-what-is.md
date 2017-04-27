@@ -1,5 +1,5 @@
 ---
-title: "Administración de acceso y permisos con roles: Azure RBAC | Microsoft Docs"
+title: "Administración de acceso y permisos con RBAC: Azure RBAC | Microsoft Docs"
 description: "Introducción al control de acceso basado en roles de Azure en el Portal de Azure. Use las asignaciones de roles para asignar permisos en el directorio."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: fb12fb78d4257fc8264bd476de70671eb8264323
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: aa31b373e67d4742f7697e2ec6958e108535f746
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="get-started-with-access-management-in-the-azure-portal"></a>Introducción a la administración de acceso en el Portal de Azure
+# <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introducción al control de acceso basado en roles en Azure Portal
 Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos provocará que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al control de acceso basado en roles (RBAC) de Azure, podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
 
 También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones. Por ejemplo, utilice RBAC para dejar que un empleado administre máquinas virtuales en una suscripción, y que otro pueda administrar bases de datos SQL en la misma suscripción.
@@ -67,9 +68,4 @@ RBAC de Azure solo es compatible con operaciones de administración de los recur
 * Introducción a [Control de acceso basado en roles en el Portal de Azure](role-based-access-control-configure.md).
 * Consulte los [Roles RBAC integrados](role-based-access-built-in-roles.md)
 * Defina sus propios [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

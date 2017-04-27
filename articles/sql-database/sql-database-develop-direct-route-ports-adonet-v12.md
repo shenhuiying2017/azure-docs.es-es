@@ -1,6 +1,6 @@
 ---
 title: "Puertos más allá de 1433 para SQL Database | Microsoft Docs"
-description: "Las conexiones de cliente de ADO.NET a Base de datos SQL de Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes."
+description: "Las conexiones de cliente de ADO.NET a Azure SQL Database omiten el proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
-ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e47d8f71fbfe95027e1fbfebb0b7e91ffe653c62
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -41,7 +42,7 @@ La secuencia es la siguiente:
 2. Luego, ADO.NET se conecta al servidor de Base de datos SQL directamente, sin ningún middleware entre ellos.
 3. Las consultas se envían directamente a la base de datos y los resultados se devuelven directamente al cliente.
 
-Asegúrese de que los intervalos de puertos 11000 a 11999 y 14000 a 14999 en la máquina cliente de Azure quedan disponible para las interacciones de cliente de ADO.NET 4.5 con Base de datos SQL V12.
+Asegúrese de que los intervalos de puertos de 11000 a 11999 y de 14000 a 14999 en el equipo cliente de Azure queden disponibles para las interacciones de cliente de ADO.NET 4.5 con SQL Database.
 
 * En concreto, los puertos del intervalo deben estar libres de cualquier otro bloqueador de salida.
 * En la máquina virtual de Azure, **Firewall de Windows con seguridad avanzada** controla la configuración de puertos.
@@ -64,10 +65,5 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 * [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 * [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md)
 * [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -16,20 +16,21 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4c6b70d793a7d734f5a29139e1f0b91f0d41e73a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configuración de Intel NUC como puerta de enlace de IoT
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
 - Configure Intel NUC como puerta de enlace de IoT.
 - Instale el paquete del SDK de puerta de enlace de IoT de Azure en Intel NUC.
 - Ejecute una aplicación de ejemplo "hola_mundo" en Intel NUC para comprobar la funcionalidad de la puerta de enlace.
-    
+
   > Si tiene problemas, busque soluciones en la [página de solución de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Lo qué aprenderá
@@ -97,9 +98,12 @@ Para instalar el paquete, siga estos pasos:
 1. Agregue el repositorio de la nube de IoT mediante la ejecución de los comandos siguientes en una ventana de terminal:
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
+   smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```
+
+   > Escriba "y" cuando se le pregunte si incluir este canal.
 
    El comando `rpm` importa la clave rpm. El comando `smart channel` agrega el canal rpm a Smart Package Manager. Antes de ejecutar el comando `smart update`, verá una salida similar a la siguiente.
 
@@ -119,14 +123,14 @@ Para instalar el paquete, siga estos pasos:
 
    `packagegroup-cloud-azure` es el nombre del paquete. El comando `smart install` se usa para instalar el paquete.
 
-
     > Ejecute el siguiente comando si ve este error: "la clave pública no está disponible".
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
-   
+    > Reinicie el dispositivo Intel NUC si ve el siguiente error: "no package provides util-linux-dev" (ningún paquete proporciona util-linux-dev).
+
    Después de instalar el paquete, Intel NUC está listo para funcionar como puerta de enlace.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Ejecución de la aplicación de ejemplo "hola_mundo" del SDK de puerta de enlace de IoT de Azure
@@ -145,7 +149,7 @@ Permita que la aplicación "Hola mundo" se ejecute durante unos minutos y, a con
 
 > Puede omitir los errores sobre control de argumento no válido (NULL) que aparecen tras pulsar Entrar.
 
-Para comprobar que la puerta de enlace se ejecutó correctamente, abra el archivo log.txt que se encuentra ahora en la carpeta hola_mundo: ![vista del directorio de log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png).
+Para comprobar que la puerta de enlace se ejecutó correctamente, abra el archivo log.txt que se encuentra ahora en la ![vista del directorio de log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png) de la carpeta hola_mundo.
 
 Abra log.txt mediante el comando siguiente:
 
@@ -163,5 +167,6 @@ Si tiene problemas, busque soluciones en la [página de solución de problemas](
 ¡Enhorabuena! Ha terminado de configurar Intel NUC como puerta de enlace. Ahora está listo para pasar a la lección siguiente, donde configurará el equipo host, creará una instancia de Azure IoT Hub y registrará el dispositivo lógico de la instancia de Azure IoT Hub.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Preparación del equipo host y de IoT Hub de Azure](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[Uso de una puerta de enlace de IoT para conectar un dispositivo a Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+
 

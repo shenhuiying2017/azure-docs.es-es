@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -132,6 +132,8 @@ Valide que el sondeo de mantenimiento personalizado esté configurado correctame
 * Asegúrese de que la sonda se ha especificado correctamente según la [guía](application-gateway-create-probe-ps.md).
 * Si la instancia de Puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el nombre de host debe especificarse como 127.0.0.1, salvo que se configure de otra manera en la sonda personalizada.
 * Asegúrese de que una llamada a http://\<host\>:\<puerto\>\<ruta de acceso\> devuelva el código de resultado HTTP 200.
+* Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
+* Si utiliza un sondeo HTTPS, asegúrese de que el servidor de back-end no requiera SNI; para ello, configure un certificado de reserva en dicho servidor. 
 * Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
 
 ## <a name="request-time-out"></a>Tiempo de solicitud superado

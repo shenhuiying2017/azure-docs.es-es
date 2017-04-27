@@ -1,6 +1,6 @@
 ---
-title: "Introducción al almacenamiento de tablas y los servicios conectados de Visual Studio (ASP.NET 5) | Microsoft Docs"
-description: "Introducción a Almacenamiento de tablas de Azure en un proyecto ASP.NET 5 en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
+title: "Introducción a Table Storage y los servicios conectados de Visual Studio (ASP.NET Core) | Microsoft Docs"
+description: "Introducción a Azure Table Storage en un proyecto de ASP.NET Core en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5067bd03961387593c37a8d3b7eeae4e1e586539
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b64d4f7e55977c7ce144987f7600e5ddcb25596c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 5067bd03961387593c37a8d3b7eeae4e1e586539
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Información general
-En este artículo se describe cómo empezar a usar el almacenamiento Tabla de Azure en Visual Studio después de crear una cuenta de almacenamiento de Azure en un proyecto de ASP.NET 5 mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después de hacer referencia a una.
+En este artículo se describe cómo empezar a usar Azure Table Storage en Visual Studio después de crear una cuenta de Azure Storage en un proyecto de ASP.NET Core mediante el cuadro de diálogo **Add Connected Services** (Agregar servicios conectados) de Visual Studio, o después de hacer referencia a una.
 
 El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
@@ -34,10 +35,10 @@ Para más información general sobre el uso de Almacenamiento de tablas de Azure
 
 Para comenzar, necesita crear una tabla en su cuenta de almacenamiento. Le mostraremos cómo crear una tabla de Azure en el código. También le mostraremos cómo realizar operaciones básicas de tabla y de entidad, como agregar, modificar, leer y leer entidades de tabla. Los ejemplos están escritos en código C\# y usan la biblioteca del cliente de Azure Storage para .NET.
 
-**NOTA:** algunas de las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
+**NOTA**: Algunas de las API que realizan llamadas a Azure Storage en ASP.NET Core son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
 
 ## <a name="access-tables-in-code"></a>Acceso a tablas en código
-Para obtener acceso a las tablas en los proyectos ASP.NET 5, deberá incluir los elementos siguientes en los archivos de origen C# que acceden al almacenamiento de tablas de Azure.
+Para obtener acceso a las tablas de los proyectos de ASP.NET Core, deberá incluir los elementos siguientes en los archivos de origen de C# que acceden a Azure Table Storage.
 
 1. Asegúrese de que las declaraciones del espacio de nombres de la parte superior del archivo de C# incluyen estas instrucciones **using** .
    
@@ -184,10 +185,5 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

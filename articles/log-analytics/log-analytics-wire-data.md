@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 Datos de conexión son datos consolidados de red y rendimiento de los equipos con agentes de OMS, como agentes conectados con Windows y Operations Manager. Los datos de red se combinan con los datos de registro para ayudar a correlacionar datos. Los agentes de OMS instalados en los equipos en la infraestructura de TI supervisan los datos de red enviados a dichos equipos y desde estos para los niveles 2 y 3 de la red en el [modelo OSI](https://en.wikipedia.org/wiki/OSI_model) , incluidos los distintos protocolos y puertos utilizados.
 
 > [!NOTE]
-> La solución Datos de conexión no está actualmente disponible para agregarse a áreas de trabajo. Los clientes que ya tienen la solución Datos de conexión habilitada pueden continuar utilizándola.
+> La solución Wire Data 1.0 no está actualmente disponible para agregarse a áreas de trabajo. Los clientes que ya tienen la solución Wire Data 1.0 habilitada pueden continuar utilizándola. Los nuevos clientes, sin embargo, deberían usar la solución [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview).
 >
 >
 
@@ -106,9 +107,4 @@ Requisitos: Para poder utilizar el ejemplo siguiente, debe tener instalada la so
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.
 * Consulte la [entrada de blog Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Uso de Datos de conexión en la búsqueda de registros de Operations Management Suite) donde encontrará información adicional sobre la frecuencia con la que se recopilan los datos y cómo puede modificar las propiedades de la colección de agentes de Operations Manager.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

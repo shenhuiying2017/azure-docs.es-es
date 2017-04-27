@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/07/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e522fabf9be5af7477e556ee0c2bf66f41c28fe
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 78d7ce3bbd3205fd995ba331af08d830097c8156
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -32,10 +32,10 @@ Este ejemplo importa los datos siguientes en una cuenta de Azure Storage denomin
 
 |Ubicación|Descripción|Tamaño de los datos|
 |--------------|-----------------|-----|
-|H:\Video|Una colección de vídeos|12 TB|
-|H:\Photo|Una colección de fotos|30 GB|
+|H:\Video\ |Una colección de vídeos|12 TB|
+|H:\Photo\ |Una colección de fotos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|Una imagen de disco Blu-ray™|25 GB|
-|\\\bigshare\john\music|Una colección de archivos de música en un recurso compartido de red|10 GB|
+|\\\bigshare\john\music\|Una colección de archivos de música en un recurso compartido de red|10 GB|
 
 ## <a name="storage-account-destinations"></a>Destinos de la cuenta de almacenamiento
 
@@ -43,10 +43,10 @@ El trabajo de importación importará los datos en los siguientes destinos en la
 
 |Origen|Directorio virtual o blob de destino|
 |------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video\ |video/|
+|H:\Photo\ |photo/|
+|K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
+|\\\bigshare\john\music\ |music|
 
 Con esta asignación, el archivo `H:\Video\Drama\GreatMovie.mov` se importará al blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
@@ -56,27 +56,24 @@ A continuación, para determinar cuántas unidades de disco duro se necesitan, c
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-En este ejemplo, dos unidades de disco duro de 8 TB deberían ser suficientes. Sin embargo, dado que el directorio de origen `H:\Video` tiene 12 TB de datos y la capacidad de la unidad de disco duro es de solo 8 TB, podrá especificarlo de la siguiente manera en el archivo **dataset.csv**:
-
-```
-BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-H:\Video\,https://mystorageaccount.blob.core.windows.net/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-H:\Photo\,https://mystorageaccount.blob.core.windows.net/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-\\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-```
-
-## <a name="attach-drives-and-configure-the-job"></a>Conexión de unidades y configuración del trabajo
-
-Conectará ambos discos a la máquina y creará volúmenes. A continuación, cree archivo **driveset.csv**:
+En este ejemplo, dos unidades de disco duro de 8 TB deberían ser suficientes. Sin embargo, dado que el directorio de origen `H:\Video` tiene 12 TB de datos y la capacidad de la unidad de disco duro es de solo 8 TB, podrá especificarlo de la siguiente manera en el archivo **driveset.csv**:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-
 La herramienta distribuirá datos en las dos unidades de disco duro de forma optimizada.
+
+## <a name="attach-drives-and-configure-the-job"></a>Conexión de unidades y configuración del trabajo
+Conectará ambos discos a la máquina y creará volúmenes. Luego, cree el archivo **dataset.csv**:
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+```
 
 Además, puede establecer los metadatos siguientes para todos los archivos:
 

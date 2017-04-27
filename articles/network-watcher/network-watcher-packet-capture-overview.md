@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 211c33ceb8e3b9adc9ad75cf18aa459ad5523c18
-ms.openlocfilehash: 1478e5bb08b29e083861b63e4ca999a38fab8452
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: dde3d1b1b0708d49ac713e18242c3376d301c675
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -26,14 +26,10 @@ ms.lasthandoff: 02/22/2017
 
 La captura variable de paquetes de Network Watcher permite crear sesiones de captura de paquetes para realizar el seguimiento del tráfico de entrada y salida de una máquina virtual. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
-La captura de paquetes es una extensión de máquina virtual que se inicia de forma remota a través de Network Watcher. Esta funcionalidad reduce la carga de la ejecución manual de una captura de paquetes en el equipo deseado, lo que permite ahorrar tiempo. La captura de paquetes puede realizarse a través del portal, PowerShell, CLI o API de REST. Un ejemplo de cómo se puede activar la captura de paquetes es con las alertas de la máquina virtual. La sesión de captura cuenta con filtros para asegurar la captura del tráfico que se desea supervisar. Los filtros se basan en la información de 5-tupla (protocolo, dirección IP local, dirección IP remota, el puerto local y puerto remoto). Los datos capturados se almacenan en el disco local o en un blob de almacenamiento.
-
-![Introducción a la captura de paquetes][1]
+La captura de paquetes es una extensión de máquina virtual que se inicia de forma remota a través de Network Watcher. Esta funcionalidad reduce la carga de la ejecución manual de una captura de paquetes en el equipo deseado, lo que permite ahorrar tiempo. La captura de paquetes puede realizarse a través del portal, PowerShell, CLI o API de REST. Un ejemplo de cómo se puede activar la captura de paquetes es con las alertas de la máquina virtual. La sesión de captura cuenta con filtros para asegurar la captura del tráfico que se desea supervisar. Los filtros se basan en la información de 5-tupla (protocolo, dirección IP local, dirección IP remota, el puerto local y puerto remoto). Los datos capturados se almacenan en el disco local o en un blob de almacenamiento. Hay un límite de 10 sesiones de captura de paquetes por región y suscripción. Este límite se aplica solo a las sesiones y no a los archivos de captura de paquetes guardados localmente, en la máquina virtual, o en una cuenta de almacenamiento.
 
 > [!IMPORTANT]
-> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+> La captura de paquetes requiere una extensión de máquina virtual `AzureNetworkWatcherExtension`. Para instalar la extensión en una máquina virtual Windows, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Windows](../virtual-machines/windows/extensions-nwa.md), y en una máquina virtual con Linux, consulte [Extensión de máquina virtual del agente de Azure Network Watcher para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 Para reducir la información que se captura únicamente a la información que desee, las siguientes opciones están disponibles para una sesión de captura de paquetes:
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 04/05/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caa4f001871beeb83cc0406bd2f89c5aa026cd97
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ Obtenga información sobre el Centro de seguridad de Azure, sus capacidades clav
 | Respuesta | Sugiere formas de detener el ataque actual y de ayudar a impedir ataques futuros |
 
 ## <a name="introductory-walkthrough"></a>Tutorial de introducción
- Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese hasta la opción **Security Center** o seleccione el icono **Security Center** que ancló anteriormente al panel del portal.
+ Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sesión en el portal](https://portal.azure.com). En el menú principal del portal, desplácese hasta la opción **Security Center** o seleccione el icono **Security Center** que ancló anteriormente al panel del portal.
 
 ![Icono Seguridad en el Portal de Azure][1]
 
@@ -83,7 +83,7 @@ En la hoja **Directiva de seguridad**, seleccione una suscripción para ver los 
 >
 >
 
-Seleccione **Directiva de prevención** (ver más arriba) para abrir la hoja **Directiva de prevención**. **Mostrar recomendaciones para** permite elegir los controles de seguridad que desea supervisar y recomendar según las necesidades de seguridad de los recursos de la suscripción.
+Seleccione **Directiva de prevención** (ver más arriba) para abrir la hoja **Directiva de prevención**. **Mostrar recomendaciones para** permite elegir los controles de seguridad que desea supervisar y las recomendaciones que desea ver según las necesidades de seguridad de los recursos de la suscripción.
 
 A continuación, seleccione un grupo de recursos para ver los detalles de la directiva.
 
@@ -115,7 +115,7 @@ Haga clic en el icono **Recomendaciones** para obtener una lista de recomendacio
 ### <a name="resource-health"></a>Estado de los recursos
 En el icono **Estado de seguridad de los recursos** se muestra el estado general de la seguridad del entorno por tipo de recurso, incluidas las VM, las aplicaciones web y otros recursos.   
 
-Seleccione un tipo de recurso en el icono **Estado de seguridad de los recursos** para ver más información, incluida una lista de las posibles vulnerabilidades de seguridad que se hayan identificado. (En el ejemplo de abajo, se ha seleccionado**Máquinas virtuales** ).
+Seleccione un tipo de recurso en el icono **Estado de seguridad de los recursos** para ver más información, incluida una lista de las posibles vulnerabilidades de seguridad que se hayan identificado. (En el siguiente ejemplo, se selecciona la opción **Compute**).
 
 ![Icono Estado de los recursos][6]
 

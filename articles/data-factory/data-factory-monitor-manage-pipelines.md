@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
-ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,7 +74,7 @@ Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100%, bloquear el 
 1. Haga clic con el botón derecho en la canalización y luego en **Abrir canalización** para ver todas las actividades de la canalización junto con los conjuntos de datos de entrada y salida para las actividades. Esta característica resulta útil cuando la canalización incluye más de una actividad y se quiere entender el linaje operativo de una sola canalización.
 
     ![Menú Abrir canalización](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. En el ejemplo siguiente, verá dos actividades en la canalización con sus entradas y salidas. En esta canalización de ejemplo se encuentran la actividad llamada **JoinData** del tipo de actividad Hive de HDInsight y **EgressDataAzure** del tipo de actividad de copia.
+2. En el ejemplo siguiente, verá una actividad de copia en la canalización con una entrada y una salida. 
 
     ![Actividades en una canalización](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. Puede navegar de nuevo a la página principal haciendo clic en el vínculo **Data Factory** situado en la ruta de navegación en la esquina superior izquierda.
@@ -84,11 +84,9 @@ Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100%, bloquear el 
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visualización del estado de cada actividad dentro de una canalización
 Puede ver el estado actual de una actividad viendo el estado de cualquiera de los conjuntos de datos que genera la actividad.
 
-En el siguiente ejemplo, **BlobPartitionHiveActivity** se ejecutó correctamente y generó un conjunto de datos llamado **PartitionedProductsUsageTable** cuyo estado es **Listo**.
+Al hacer doble clic en **OutputBlobTable** en la vista **Diagrama**, puede observar todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que la actividad de copia se ejecutó correctamente durante las últimas ocho horas y generó los segmentos en el estado **Listo**.  
 
 ![Estado de la canalización](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-Al hacer doble clic en **PartitionedProductsUsageTable** en la vista el **Diagrama**, puede observar todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que **BlobPartitionHiveActivity** se ejecutó correctamente cada mes durante los últimos ocho meses y generó los segmentos con el estado **Listo**.
 
 Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de los siguientes estados:
 
@@ -567,7 +565,7 @@ También verá el número de alertas en el icono **Reglas de alerta**. Haga clic
 
 ![Hoja Métrica de la factoría de datos: Reglas de alerta](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
 
-En la hoja **Reglas de alerta**, vea las alertas existentes. Para agregar una alerta, haga clic en ** Agregar alerta** en la barra de herramientas.
+En la hoja **Reglas de alerta**, vea las alertas existentes. Para agregar una alerta, haga clic en  **Agregar alerta** en la barra de herramientas.
 
 ![Hoja Reglas de alertas](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Uso del kit de herramientas de Azure para IntelliJ para crear aplicaciones de Scala para Spark | Microsoft Docs
-description: "Obtenga información sobre cómo crear una aplicación independiente Spark para ejecutarla en clústeres de HDInsight Spark."
+description: "Uso de herramientas de HDInsight en el kit de herramientas de Azure para IntelliJ con el fin de desarrollar aplicaciones de Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 494545ae20e0b766a3787ae462d5d0f4331853b1
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-spark-linux-cluster"></a>Uso de las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)
-En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrollar aplicaciones Spark escritas en Scala y enviarlas a un clúster Spark en HDInsight mediante las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ.  Puede usar las herramientas de varias maneras diferentes:
+# <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para el clúster de HDInsight
+
+Uso de herramientas de HDInsight en el kit de herramientas de Azure para IntelliJ con el fin de desarrollar aplicaciones de Spark escritas en Scala y enviarlas a un clúster de HDInsight Spark directamente desde el IDE de IntelliJ. Puede usar el complemento de las herramientas de HDInsight de varias maneras distintas:
 
 * Para desarrollar y enviar una aplicación Spark en Scala en un clúster de HDInsight Spark
 * Para acceder a los recursos del clúster de Azure HDInsight Spark
@@ -184,7 +185,7 @@ Mientras se ejecuta la aplicación Spark en Scala local en un equipo Windows, pu
    
    * Proporcione un nombre de proyecto y la ubicación del proyecto.
    * En **Project SDK**(SDK de proyecto), asegúrese de proporcionar una versión de Java superior a la 7.
-   * Para **SDK de Scala**, haga clic en **Crear**, **Descargar**y, luego, seleccione la versión de Scala para usar ** Scala 2.11.x para Spark 2.0 y Scala 2.10.x para Spark 1.6**.
+   * Para **SDK de Scala**, haga clic en **Crear**, **Descargar**y, luego, seleccione la versión de Scala para usar  **Scala 2.11.x para Spark 2.0 y Scala 2.10.x para Spark 1.6**.
      
        ![Crear aplicación Spark en Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
    * En **Spark SDK** (SDK de Spark), descargue [aquí](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) el SDK para utilizarlo. Si lo desea, puede omitir este paso y utilizar en su lugar el [repositorio de Spark Maven](http://mvnrepository.com/search?q=spark). Sin embargo, debe comprobar que tiene instalado el repositorio de Maven correcto para poder desarrollar aplicaciones de Spark. Por ejemplo, debe asegurarse de que tiene la parte Spark Streaming instalada si está utilizando Spark Streaming. Asimismo, asegúrese de que utiliza el repositorio marcado como Scala 2.10 para clústeres Spark 1.6 y como Scala 2.11 para clústeres Spark 2.0.

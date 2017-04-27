@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -30,11 +31,11 @@ En este artículo se resumen los elementos que se admiten cuando usa Azure Site 
 
 ## <a name="deployment-options"></a>Opciones de implementación
 
-**Implementación** | **Servidores físicos o de VMware** | **Hyper-V (sin VMM)** | **Hyper-V (con VMM)**
+**Implementación** | **Servidores físicos o de VMware** | **Hyper-V (con o sin SCVMM)
 --- | --- | --- | ---
-**Portal de Azure** | Máquinas virtuales de VMware locales en sitios secundario de VMware.<br/><br/> Descargue la [Guía del usuario de InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (no disponible en Azure Portal). | No compatible | VM de Hyper-V en nubes VMM en una nube VMM secundaria local.<br/><br/> Solo replicación de Hyper-V estándar. SAN no es compatible.
-**Portal clásico** | Solo en el modo mantenimiento. No se pueden crear almacenes nuevos. | No compatible | Solo en modo de mantenimiento
-**PowerShell** | No compatible | No compatible | Compatible
+**Portal de Azure** | Máquinas virtuales de VMware locales en sitios secundario de VMware.<br/><br/> Descargue la [Guía del usuario de InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (no disponible en Azure Portal). | VM de Hyper-V en nubes VMM en una nube VMM secundaria local.<br></br> No se admite sin SCVMM.  <br/><br/> Solo replicación de Hyper-V estándar. SAN no es compatible.
+**Portal clásico** | Solo en el modo mantenimiento. No se pueden crear almacenes nuevos. | Solo en modo de mantenimiento<br></br> No se admite sin SCVMM.
+**PowerShell** | No compatible | Compatible<br></br> No se admite sin SCVMM.
 
 ## <a name="on-premises-servers"></a>Servidores locales
 
@@ -119,7 +120,7 @@ Disco > 1 TB | No | Sí
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí | Sí
 Espacios de almacenamiento | No | Sí
 Agregar/quitar disco en caliente | No | No
-Excluir el disco | No | No
+Excluir el disco | No | Sí
 Varias rutas (MPIO) | N/D | Sí
 
 ## <a name="vaults"></a>Almacenes
@@ -140,9 +141,4 @@ Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre los [requisitos previos de implementación](site-recovery-prereq.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

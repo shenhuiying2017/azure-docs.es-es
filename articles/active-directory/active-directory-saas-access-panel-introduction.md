@@ -15,9 +15,9 @@ ms.date: 02/27/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d6330397b6e74b62836a2e864b1c37ab172d0028
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c5a0f3f958d42d514a95477c1e39f02c78307d4d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -60,7 +60,7 @@ Después de la autenticación, los usuarios pueden interactuar con las aplicacio
 ## <a name="web-browser-requirements"></a>Requisitos del explorador web
 Como mínimo, el Panel de acceso requiere un explorador que admita JavaScript y que tenga CSS habilitado. Para que el usuario inicie sesión en aplicaciones mediante el inicio de sesión único (SSO) basado en contraseña, debe instalarse la extensión del Panel de acceso en el explorador del usuario. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
 
-La extensión de Panel de acceso actualmente está disponible para los exploradores Internet Explorer 8 y posteriores, Chrome y Firefox.
+La extensión de panel de acceso actualmente está disponible para los exploradores Internet Explorer 8 y posteriores, Edge, Chrome y Firefox.
 
 ## <a name="mobile-app-support"></a>Compatibilidad para aplicación móvil
 El equipo de Azure Active Directory publica la aplicación móvil Mis aplicaciones. Cuando los usuarios instalan esta aplicación, pueden iniciar sesión en aplicaciones SSO basadas en contraseña en dispositivos iOS y Android.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
-ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 407d50afe3470f5a9e84026eaa2dcccea4d06641
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -45,7 +46,7 @@ Para obtener la dirección URL de clonación del repositorio de GitHub y el toke
 4. Seleccione la imagen de perfil en la esquina superior derecha de GitHub y seleccione **Configuración**.
 5. En el menú **Configuración personal** de la izquierda, seleccione **Tokens de acceso personal**.
 6. Seleccione **Generar nuevo token**.
-7. En la página **New personal access token (Nuevo token de acceso personal)** escriba la información que considere oportuno en **Token description (Descripción del token)**, acepte los elementos predeterminados en el **Select scopes (Seleccionar ámbitos)** y después elija **Generate Token (Generar token)**.
+7. En la página **New personal access token** (Nuevo token de acceso personal), escriba una **descripción de token**. Si es un repositorio público, acepte los elementos predeterminados de **Select scopes** (Seleccionar ámbitos); en caso contrario, seleccione el alcance **repo** (repositorio). A continuación, elija **Generate Token** (Generar token). [Obtenga más información sobre los ámbitos de OAuth en GitHub](https://developer.github.com/v3/oauth/#scopes).
 8. Guarde el token generado, ya que lo necesitará más adelante.
 9. Ahora puede cerrar GitHub.   
 10. Continúe con la sección [Conexión del laboratorio al repositorio de artefactos](#connect-your-lab-to-the-artifact-repository) .
@@ -95,10 +96,5 @@ Para obtener la dirección URL de clonación del repositorio de Visual Studio Te
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 * [How to troubleshoot failing Artifacts in AzureDevTestLabs (Cómo solucionar errores de artefactos en Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 * [Join a VM to existing AD Domain using ARM template in Azure DevTest Labs (Unir una máquina virtual al dominio de AD existente mediante la plantilla ARM en Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

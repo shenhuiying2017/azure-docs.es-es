@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
-ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: cbbef00cb4c54f4df2634fbe7b3dacbd34a175bd
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,40 +68,15 @@ Cualquier transferencia de datos dentro de una determinada región de Azure se p
 No, el Bus de servicio no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola/tema. Consulte la siguiente pregunta.
 
 ## <a name="quotas"></a>Cuotas
-Para obtener una lista de las cuotas y los límites de Service Bus, consulte [Información general sobre cuotas][Quotas overview].
+
+Para obtener una lista de las cuotas y los límites de Service Bus, consulte [Información general sobre cuotas de Service Bus][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>¿El Bus de servicio tiene alguna cuota de uso?
-De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Dado que entendemos que puede necesitar más de estos límites, póngase en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites adecuadamente. En lo que respecta a Service Bus, las cuotas de uso agregado es 5000 millones de mensajes al mes.
+De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Dado que entendemos que puede necesitar más de estos límites, póngase en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites adecuadamente. En lo que respecta a Service Bus, las cuotas de uso agregado ascienden a 5000 millones de mensajes al mes.
 
 Aunque nos reservamos el derecho de deshabilitar una cuenta de cliente que supere sus cuotas de uso en un mes determinado, se proporcionará una notificación por correo electrónico y se realizarán varios intentos para ponerse en contacto con un cliente antes de llevar a cabo cualquier acción. Los clientes que superen estas cuotas todavía será responsables de los cargos que superen las cuotas.
 
 Al igual que con otros servicios de Azure, el Bus de servicio aplica un conjunto de cuotas específicas para garantizar que hay un uso justo de los recursos. Las siguientes son las cuotas de uso que aplica el servicio:
-
-#### <a name="queuetopic-size"></a>Tamaño de cola o tema
-Especifique el tamaño máximo de la cola o del tema al crearlos. Esta cuota puede tener un valor de 1, 2, 3, 4 o 5 GB. Si se alcanza el tamaño máximo de la cola establecido, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción.
-
-#### <a name="naming-restrictions"></a>Restricciones de nomenclatura
-Un espacio de nombres de Service Bus solo puede tener entre 6 y 50 caracteres. El límite de recuento de caracteres para cada cola, tema o suscripción está entre 1 y 50 caracteres.
-
-#### <a name="number-of-concurrent-connections"></a>Número de conexiones simultáneas
-Cola, tema o suscripción: el número de conexiones TCP simultáneas de una cola, tema o suscripción está limitado a 100. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Para cada generador de mensajes, el Bus de servicio mantiene una conexión TCP si cualquiera de los clientes creados por esa factoría de mensajes tiene una operación activa pendiente o ha completado una operación hace menos de 60 segundos. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas.
-
-#### <a name="number-of-topicsqueues-per-service-namespace"></a>Número de temas o colas por espacio de nombres del servicio
-El número máximo de temas o colas (entidades con copia en almacenamiento duraderas) en un espacio de nombres del servicio es 10 000. Si se alcanza esta cuota, se rechazarán las posteriores solicitudes de creación colas o temas nuevos en el espacio de nombres del servicio. En este caso, el Portal de Azure clásico mostrará un mensaje de error o el código del cliente que llama recibirá una excepción, en función de si el intento de creación se realiza a través del portal o en el código del cliente.
-
-### <a name="message-size-quotas"></a>Cuotas de tamaño de los mensajes
-#### <a name="queuetopicsubscription"></a>Cola, tema o suscripción
-**Tamaño de los mensajes** : cada mensaje se limita a un tamaño total de 256 KB, incluidos los encabezados del mensaje.
-
-**Tamaño de encabezado de mensaje** : cada encabezado de mensaje se limita a 64 KB.
-
-Se rechazarán los mensajes que superen estas cuotas de tamaño y el código de llamada recibirá una excepción.
-
-**Número de suscripciones por tema** : el número máximo de suscripciones por tema se limita a 2000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de suscripciones adicionales al tema. En este caso, el Portal de Azure clásico mostrará un mensaje de error o el código del cliente que llama recibirá una excepción, en función de si el intento de creación se realiza a través del portal o en el código del cliente.
-
-**Número de filtros SQL por tema** : el número máximo de filtros SQL por tema está limitado a 2000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
-
-**Número de filtros de correlación por tema** : el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>¿Cuáles son algunas de las excepciones generadas por las API de Azure Service Bus y sus acciones sugeridas?
@@ -140,10 +116,5 @@ Para más información sobre Service Bus, consulte los temas siguientes.
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Shared Access Signatures]: service-bus-sas.md
 

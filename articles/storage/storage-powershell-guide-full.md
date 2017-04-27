@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 8b9e174523b3d08be20a4d30cc83c11f5bc93cd5
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: a47a806856be9e2daa9bcac8ce23da4d15386cc8
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/06/2017
 ## <a name="overview"></a>Información general
 Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Es un Shell de línea de comandos y un lenguaje de scripting basados en tareas y diseñados especialmente para la administración del sistema. Con PowerShell, podrá controlar y automatizar fácilmente la administración de los servicios y aplicaciones de Azure. Por ejemplo, puede usar los cmdlets para realizar las mismas tareas que podría realizar a través de [Azure Portal](https://portal.azure.com).
 
-En esta guía, exploraremos cómo usar los [Cmdlets de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt269418.aspx) para realizar diversas tareas de desarrollo y administración con el Almacenamiento de Azure.
+En esta guía, se examina cómo usar los [cmdlets de Azure Storage](https://msdn.microsoft.com/library/azure/mt269418.aspx) para realizar diversas tareas de desarrollo y administración con Azure Storage.
 
 En esta guía se considera que ya tiene experiencia previa en el uso de [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) y [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). La guía le proporcionará una serie de scripts para que pueda aprender a usar PowerShell con Almacenamiento de Azure. Antes de ejecutar cada script, deberá actualizar las variables de los mismos según su configuración.
 
@@ -42,7 +42,7 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 1. Descargue e instale la última versión de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
 2. Inicie el Entorno de scripting integrado (ISE) de Windows PowerShell: en el equipo local, vaya al menú **Inicio** . Escriba **Herramientas administrativas** y haga clic en ella para ejecutarla. En la ventana **Herramientas administrativas**, haga clic con el botón derecho en **Windows PowerShell ISE** y haga clic en **Ejecutar como administrador**.
 3. En **Windows PowerShell ISE**, haga clic en **Archivo** > **Nuevo** para crear un nuevo archivo de script.
-4. A continuación le proporcionaremos un simple script que le mostrará los comandos básicos de PowerShell para poder acceder a Almacenamiento de Azure. El script le pedirá sus credenciales de cuenta de Azure para agregar su cuenta al entorno local de PowerShell. Una vez hecho esto, el script establecerá una suscripción predeterminada de Azure y creará una nueva cuenta de almacenamiento en Azure. Posteriormente, el script creará un nuevo contenedor en la nueva cuenta de almacenamiento y cargará un archivo de imagen existente (blob) en ese contenedor. Una vez el script ha enumerado todos los blobs en ese contenedor, creará un nuevo directorio de destino en el equipo local y descargará el archivo de imagen.
+4. A continuación, se presenta un sencillo script que muestra los comandos básicos de PowerShell para poder acceder a Azure Storage. El script le pedirá sus credenciales de cuenta de Azure para agregar su cuenta al entorno local de PowerShell. Una vez hecho esto, el script establecerá una suscripción predeterminada de Azure y creará una nueva cuenta de almacenamiento en Azure. Posteriormente, el script creará un nuevo contenedor en la nueva cuenta de almacenamiento y cargará un archivo de imagen existente (blob) en ese contenedor. Una vez el script ha enumerado todos los blobs en ese contenedor, creará un nuevo directorio de destino en el equipo local y descargará el archivo de imagen.
 5. En la siguiente sección de código, seleccione el script que se encuentra entre las notas **#begin** y **#end**. Presione CTRL+C para copiarlo en el portapapeles.
 
     ```powershell
@@ -123,7 +123,7 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
    * **$Location:** use la ubicación "Oeste de EE. UU." proporcionado en el script o elija otra ubicación de Azure como "Este de EE. UU", "Europa del Norte", etc.
    * **$ContainerName:** use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
    * **$ImageToUpload:** escriba una ruta de acceso a una imagen en el equipo local, como por ejemplo: "C:\Images\HelloWorld.png".
-   * **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Azure Storage, como por ejemplo: "C:\DownloadImages".
+   * **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Azure Storage, como "C:\DownloadImages".
 8. Después de actualizar las variables del script en el archivo "mystoragescript.ps1", haga clic en **Archivo** > **Guardar**. A continuación, haga clic en **Depurar** > **Ejecutar** o presione **F5** para ejecutar el script.  
 
 Una vez ejecutado el script, debería tener una carpeta de destino local que incluye el archivo de imagen descargado. La siguiente captura de pantalla le muestra un ejemplo del resultado:
@@ -154,7 +154,7 @@ Para administrar Almacenamiento de Azure con Azure PowerShell, necesita autentic
     Add-AzureAccount
     ```
 
-2. En la ventana "Iniciar sesión en Microsoft Azure", escriba la dirección de correo electrónico y contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, a continuación, cierra la ventana.
+2. En la ventana "Iniciar sesión en Microsoft Azure", escriba la dirección de correo electrónico y la contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
 
 3. Seguidamente, ejecute el siguiente comando para ver las cuentas de Azure que están en el entorno local de PowerShell y verifique que su cuenta se encuentra entre ellas:
    
@@ -284,9 +284,9 @@ Utilice el siguiente cmdlet para recuperar una clave específica. Los valores v�
 Si desea volver a generar las claves, use el siguiente cmdlet. Los valores válidos para -KeyType -son "Principal" y "Secundaria".
 
 ```powershell
-New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Primary"
     
-New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Secondary"
 ```
 
 ## <a name="how-to-manage-azure-blobs"></a>Administrar blobs de Azure
@@ -450,7 +450,7 @@ Ahora que ya ha aprendido a administrar los blobs de Azure y las instantáneas d
 ## <a name="how-to-manage-azure-tables-and-table-entities"></a>Cómo administrar las entidades de tabla y las tablas de Azure
 El servicio de almacenamiento de tablas Azure es un almacén de datos NoSQL que puede utilizar para almacenar y consultar conjuntos grandes de datos estructurados y no relacionales. Los componentes principales del servicio son tablas, entidades y propiedades. Una tabla es una colección de entidades. Una entidad es un conjunto de propiedades. Cada entidad puede tener hasta 252 propiedades, las cuales son todas pares nombre-valor. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de tablas de Azure. Para más información, consulte [Introducción al modelo de datos de Table Service](http://msdn.microsoft.com/library/azure/dd179338.aspx) e [Introducción a Azure Table Storage mediante .NET](storage-dotnet-how-to-use-tables.md).
 
-En las subsecciones siguientes, aprenderá a administrar el servicio de almacenamiento Tabla de Azure mediante Azure PowerShell. Los escenarios que aquí se describen incluyen **crear**, **eliminar** y **recuperar** **tablas**, así como **agregar**, **consultar** y **eliminar entidades de tabla**.
+En las subsecciones siguientes, aprenderá a administrar el servicio Azure Table Storage mediante Azure PowerShell. Los escenarios que aquí se describen incluyen **crear**, **eliminar** y **recuperar** **tablas**, así como **agregar**, **consultar** y **eliminar entidades de tabla**.
 
 ### <a name="how-to-create-a-table"></a>Cómo crear una tabla
 Todas las tablas deberán estar en una cuenta de almacenamiento de Azure. En el siguiente ejemplo le indicaremos cómo crear una tabla en Almacenamiento de Azure. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. Seguidamente, usa el cmdlet [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) para crear una tabla en Almacenamiento de Azure.
@@ -497,7 +497,7 @@ Para agregar una entidad a una tabla, primero deberá crear un objeto que defina
 
 Puede definir hasta 252 propiedades personalizadas para una entidad. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-En el siguiente ejemplo le indicaremos cómo agregar entidades a una tabla. El ejemplo le mostrará cómo recuperar la tabla de empleados y cómo agregar varias entidades. En primer lugar, establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, recupera la tabla proporcionada mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la tabla no existe, se usará el cmdlet [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) para crear una tabla en Almacenamiento de Azure. Seguidamente, el ejemplo definirá una función Add-Entity personalizada para así poder agregar entidades a la tabla, especificando la partición de cada entidad y su clave de fila. La función Add-Entity llama al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx), que se encuentra en la clase [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) para crear un objeto de entidad. A continuación, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) en este objeto de entidad para agregarlo a una tabla.
+En el siguiente ejemplo le indicaremos cómo agregar entidades a una tabla. El ejemplo le mostrará cómo recuperar la tabla de empleados y cómo agregar varias entidades. En primer lugar, establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, recupera la tabla proporcionada mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la tabla no existe, se usará el cmdlet [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) para crear una tabla en Almacenamiento de Azure. Seguidamente, el ejemplo definirá una función Add-Entity personalizada para así poder agregar entidades a la tabla especificando la partición de cada entidad y su clave de fila. La función Add-Entity llama al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx), que se encuentra en la clase [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) para crear un objeto de entidad. A continuación, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) en este objeto de entidad para agregarlo a una tabla.
 
 ```powershell
 #Function Add-Entity: Adds an employee entity to a table.
@@ -541,7 +541,7 @@ Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 
 ```
 
 #### <a name="how-to-query-table-entities"></a>Cómo consultar entidades de tabla
-Para consultar una tabla, use la clase [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) . Para realizar el siguiente ejemplo, tendrá que tener ejecutado el script que se le proporcionó en la sección Cómo agregar entidades de esta guía. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla "Empleados" que se creó antes mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Al llamar al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) que se encuentra en la clase Microsoft.WindowsAzure.Storage.Table.TableQuery, se crea un nuevo objeto de consulta. En el ejemplo, buscaremos las entidades que tienen una columna "ID" cuyo valor es 1, tal y como se especificó en un filtro de cadena. Para obtener información detallada, vea [Consultar tablas y entidades](http://msdn.microsoft.com/library/azure/dd894031.aspx). Al ejecutar esta consulta, devolverá todas las entidades que coinciden con los criterios del filtro.
+Para consultar una tabla, use la clase [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) . Para el siguiente ejemplo, tendrá que haber ejecutado el script que se le proporcionó en la sección de esta guía que explica cómo agregar entidades. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla de empleados que se creó antes mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Al llamar al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) que se encuentra en la clase Microsoft.WindowsAzure.Storage.Table.TableQuery, se crea un nuevo objeto de consulta. En el ejemplo, se buscan las entidades que tienen una columna "ID" cuyo valor es 1, tal y como se especificó en un filtro de cadena. Para obtener información detallada, vea [Consultar tablas y entidades](http://msdn.microsoft.com/library/azure/dd894031.aspx). Al ejecutar esta consulta, devolverá todas las entidades que coinciden con los criterios del filtro.
 
 ```powershell
 #Define the storage account and context.
@@ -575,7 +575,7 @@ $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$
 ```
 
 #### <a name="how-to-delete-table-entities"></a>Cómo eliminar entidades de tabla
-Puede eliminar una entidad usando sus claves de partición y fila. Para realizar el siguiente ejemplo, tendrá que tener ejecutado el script que se le proporcionó en la sección Cómo agregar entidades de esta guía. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla "Empleados" que se creó antes mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) . Si la tabla existe, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) para recuperar una entidad basada en sus valores clave de partición y fila. A continuación, pase la entidad al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) para eliminarla.
+Puede eliminar una entidad usando sus claves de partición y fila. Para el siguiente ejemplo, tendrá que haber ejecutado el script que se le proporcionó en la sección de esta guía que explica cómo agregar entidades. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla de empleados que se creó antes mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Si la tabla existe, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) para recuperar una entidad basada en sus valores clave de partición y fila. A continuación, pase la entidad al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) para eliminarla.
 
 ```powershell
 #Define the storage account and context.

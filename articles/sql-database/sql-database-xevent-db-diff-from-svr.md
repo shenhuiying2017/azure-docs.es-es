@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 8c94c8789696507d89e08a637067ca040d45246a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/07/2017
 
 En este tema se explica cómo la implementación de eventos extendidos en Base de datos SQL de Azure es ligeramente diferente en comparación con los eventos extendidos de Microsoft SQL Server.
 
-- La versión 12 de Base de datos SQL adquirió la característica de eventos extendidos en la segunda mitad del calendario de 2015.
+- SQL Database adquirió la característica de eventos extendidos en la segunda mitad del año 2015.
 - SQL Server tiene eventos extendidos desde 2008.
 - El conjunto de características de eventos extendidos en Base de datos SQL es un subconjunto sólido de las características en SQL Server.
 

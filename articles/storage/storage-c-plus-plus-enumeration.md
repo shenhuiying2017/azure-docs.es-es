@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
-ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d234dd87919f4906628014156708489bd1efab6c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,12 +149,12 @@ do
 
 Mediante la especificación del parámetro *max_results* del segmento, puede obtener equilibrio entre los números de solicitudes y el uso de memoria para cumplir con las consideraciones de rendimiento de la aplicación.
 
-Además, si usa API de enumeración segmentadas pero almacena los datos en una colección local de manera "expansiva", también es altamente recomendable refactorizar el código para controlar el almacenamiento de datos de una colección local cuidadosamente a escala.
+Además, si usa API de enumeración segmentadas, pero almacena los datos en una colección local de manera "expansiva", también es altamente recomendable refactorizar el código para controlar el almacenamiento de datos en una colección local cuidadosamente a escala.
 
 ## <a name="lazy-listing"></a>Enumeración diferida
 Aunque la enumeración expansiva produjo posibles problemas, es recomendable si no hay demasiados objetos en el contenedor.
 
-Si también usa C# o SDK de Java de Oracle, debe estar familiarizado con el modelo de programación Enumerable, que ofrece una enumeración de estilo diferido, en la que los datos con un determinado desplazamiento solo se capturan si es necesario. En C++, la plantilla de iterador también proporciona un enfoque similar.
+Si también SDK de Java de Oracle o C#, debería estar familiarizado con el modelo de programación Enumerable, que ofrece una enumeración de estilo diferido, en la que los datos con un determinado desplazamiento solo se capturan si es necesario. En C++, la plantilla de iterador también proporciona un enfoque similar.
 
 Una API de enumeración diferida normal, con **list_blobs** como ejemplo, tiene el siguiente aspecto:
 
@@ -202,10 +203,5 @@ Para obtener más información sobre el almacenamiento de Azure y la biblioteca 
 * [Documentación de la Biblioteca de cliente de almacenamiento de Azure para la API de C++.](http://azure.github.io/azure-storage-cpp/)
 * [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

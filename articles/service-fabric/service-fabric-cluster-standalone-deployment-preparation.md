@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 1/17/2017
 ms.author: maburlik;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bd9ea82adc97698957dfebc3ee7c14c498808dd3
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -105,7 +105,9 @@ Cuando un administrador de clústeres configura un clúster independiente de Ser
 4. Si el clúster que se va a implementar es un clúster seguro, valide que los requisitos previos de seguridad necesarios estén implementados y que se ajusten a la configuración.
 5. Si las máquinas del clúster no son accesibles desde Internet, establezca lo siguiente en la configuración del clúster:
 * Deshabilite la telemetría: en *Propiedades*, establezca   *"enableTelemetry" en false*.
-* Deshabilite la descarga de versiones automáticas de Fabric y las notificaciones de que la versión actual del clúster está próxima a finalizar el soporte técnico: en *Propiedades*, establezca   *"fabricClusterAutoupgradeEnabled" en true*.
+* Deshabilite la descarga de versiones de Fabric y las notificaciones automáticas de que la versión actual del clúster está próxima a finalizar el soporte técnico: en *properties*, establezca   *"fabricClusterAutoupgradeEnabled": false*.
+* Como alternativa, en el caso de que el acceso a Internet de red está limitado a los dominios de la lista blanca, tendrán que incluirse los dominios siguientes para la actualización automática: go.microsoft.com y download.microsoft.com.
+
 6. Establezca las exclusiones adecuadas del antivirus de Service Fabric:
 
 | **Directorios excluidos del antivirus** |

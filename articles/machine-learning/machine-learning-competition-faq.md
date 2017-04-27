@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/10/2017
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c4d3d354ef3665134302655f602b043aa8ab0
-ms.openlocfilehash: 106efcd5580f91d6d1ed926b19c142d8ea0b0c7c
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ed387d9ef595312d4fcde78b2fdc3644e96ee27
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -105,13 +105,13 @@ La hora de envío es el factor de desempate. La entrada que se haya enviado ante
 
 **¿Puedo participar usando el área de trabajo de invitado?**
 
-No. Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una entrada válida para el envío del área de trabajo. 
+No. Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
 
-**¿Puedo participar con un área de trabajo en cualquier región de Azure?**
+**¿Puedo participar mediante un área de trabajo de cualquier región de Azure?**
 
-Actualmente, la plataforma de la competición solo admite las entradas enviadas desde un área de trabajo de la región **centro-sur de EE. UU.** de Azure. Todas las áreas de trabajo residen en la región centro-sur de EE. UU., para que pueda enviar una entrada desde cualquier área de trabajo gratuita. Si decide usar un área de trabajo estándar, solo tiene que comprobar que se encuentra en la región centro-sur de EE. UU. de Azure; en caso contrario, el envío no se realizará correctamente. 
+Actualmente, la plataforma de la competición solo admite las participaciones enviadas desde un área de trabajo de la región de Azure correspondiente al **centro-sur de EE. UU.** Todas las áreas de trabajo residen en la región centro-sur de EE. UU., para que pueda enviar una entrada desde cualquier área de trabajo gratuita. Si decide usar un área de trabajo estándar, solo tiene que comprobar que se encuentra en la región centro-sur de EE. UU. de Azure; en caso contrario, el envío no se realizará correctamente. 
 
-**¿Se conservan las entradas o soluciones de las competiciones de los usuarios?**
+**¿Se conservan las participaciones y soluciones de las competiciones de los usuarios?**
 
 Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
 

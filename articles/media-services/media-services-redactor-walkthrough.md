@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 04/03/2017
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -90,12 +91,12 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 
 ### <a name="set-up-the-tool"></a>Configuración de la herramienta
 
-1.  Descargue y genere la solución completa. 
+1.    Descargue y genere la solución completa. 
 
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  Descargue FFMPEG desde [aquí](https://ffmpeg.org/download.html). Este proyecto se desarrolló originalmente mediante la versión be1d324 (2016-10-04) con vinculación estática. 
-3.  Copie ffmpeg.exe y ffprobe.exe en la misma carpeta de salida que AzureMediaRedactor.exe. 
+2.    Descargue FFMPEG desde [aquí](https://ffmpeg.org/download.html). Este proyecto se desarrolló originalmente mediante la versión be1d324 (2016-10-04) con vinculación estática. 
+3.    Copie ffmpeg.exe y ffprobe.exe en la misma carpeta de salida que AzureMediaRedactor.exe. 
 
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -113,9 +114,13 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
     
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  El campo de texto de la parte inferior se actualizará con los identificadores de los rostros. Cree un archivo denominado "idlist.txt" con estos identificadores como una lista delimitada de nueva línea. 
-6.  Cargue el archivo en el recurso de salida del paso 1. Cargue el vídeo original en este recurso y establézcalo como recurso principal. 
-7.  Ejecute el trabajo Redaction (Censura) de este recurso con el modo "Redact" (Censurar) para obtener el vídeo censurado final. 
+5.    El campo de texto de la parte inferior se actualizará con los identificadores de los rostros. Cree un archivo denominado "idlist.txt" con estos identificadores como una lista delimitada de nueva línea. 
+
+    >[!NOTE]
+    > El archivo idlist.txt debe guardarse en ANSI. Puede usar el Bloc de notas para guardarlo en tal codificación.
+    
+6.    Cargue el archivo en el recurso de salida del paso 1. Cargue el vídeo original en este recurso y establézcalo como recurso principal. 
+7.    Ejecute el trabajo Redaction (Censura) de este recurso con el modo "Redact" (Censurar) para obtener el vídeo censurado final. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
@@ -129,9 +134,5 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[Anuncio de función de censura facial para Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)
 

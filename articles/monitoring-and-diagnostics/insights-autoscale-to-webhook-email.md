@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -75,10 +76,7 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
 | propiedades |yes |el valor debe ser {} vacío o puede contener pares de clave y valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticación en Webhook
-Hay dos formas de identificador URI de autenticación:
-
-1. Autenticación basada en token, en la que se guarda el identificador URI de webhook con un identificador de token como parámetro de consulta. Por ejemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Autenticación básica, en la que se usa un identificador de usuario y una contraseña. Por ejemplo, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+El webhook puede realizar la autenticación con un método basado en token, en el que el URI del webhook se guarda con un identificador de token como un parámetro de consulta. Por ejemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Esquema de carga de Webhook de notificación de escalado automático
 Cuando se genera la notificación de escalado automático, los metadatos siguientes se incluyen en la carga de Webhook:
@@ -128,10 +126,5 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | oldCapacity |yes |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |yes |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
 | propiedades |No |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

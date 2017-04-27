@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
-ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7f1d55b90af4e5397d74a8e37b44b5a88530897d
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,19 +26,46 @@ API Management proporciona la capacidad de proteger el acceso a las API (es deci
 
 Para obtener información acerca de cómo proteger el acceso al servicio de back-end de una API mediante certificados de cliente (por ejemplo, de API Management a back-end), consulte [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 
-## <a name="checking-a-thumbprint-against-a-desired-value"></a>Comprobación de una huella digital en relación con un valor deseado
+## <a name="checking-the-expiration-date"></a>Comprobación de la fecha de expiración
+
+Las directivas siguientes pueden configurarse para comprobar si el certificado ha caducado:
+
+```
+<choose>
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter > DateTime.Now)" >
+        <return-response>
+            <set-status code="403" reason="Invalid client certificate" />
+        </return-response>
+    </when>
+</choose>
+```
+
+## <a name="checking-the-issuer-and-subject"></a>Comprobación del emisor y el asunto
+
+Es posible configurar las directivas siguientes para comprobar el emisor y el firmante de un certificado de cliente:
+
+```
+<choose>
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName != "expected-subject-name")" >
+        <return-response>
+            <set-status code="403" reason="Invalid client certificate" />
+        </return-response>
+    </when>
+</choose>
+```
+
+## <a name="checking-the-thumbprint"></a>Comprobación de la huella digital
 
 Es posible configurar las directivas siguientes para comprobar la huella digital de un certificado de cliente:
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint-to-validate")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
         <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
+            <set-status code="403" reason="Invalid client certificate" />
         </return-response>
     </when>
 </choose>
-
 ```
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Comprobación de una huella digital en relación con certificados cargados en API Management
@@ -47,9 +74,9 @@ En el ejemplo siguiente se muestra cómo comprobar la huella digital de un certi
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
+    <when condition="@(context.Request.Certificate == null || !context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
         <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
+            <set-status code="403" reason="Invalid client certificate" />
         </return-response>
     </when>
 </choose>

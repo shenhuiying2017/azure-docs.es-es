@@ -11,27 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
-ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2fcde595a40dafda7549f5bccb582b57585b314e
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>Tutorial: Integración de Azure Active Directory con Qualtrics
 El objetivo de este tutorial es mostrar la integración de Azure y Qualtrics.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en Qualtrics
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Qualtrics
 
 Después de completar este tutorial, los usuarios de Azure AD asignados a Qualtrics podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía Qualtrics (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para Qualtrics
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
@@ -40,7 +42,8 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-qualtrics"></a>Habilitación de la integración de aplicaciones para Qualtrics
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Qualtrics.
 
-### <a name="to-enable-the-application-integration-for-qualtrics-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para Qualtrics:
+**Siga estos pasos con el fin de habilitar la integración de aplicaciones para Qualtrics:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-qualtrics-tutorial/IC700993.png "Active Directory")
@@ -61,11 +64,12 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Qualtrics con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Qualtrics**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configurar inicio de sesión único")
@@ -80,25 +84,25 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
    ![Configurar inicio de sesión único](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configurar inicio de sesión único")
 5. Envíe el archivo de metadatos al equipo de soporte técnico de Qualtrics.
    
-   > [!NOTE]
-   > La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Qualtrics. Tan pronto como se complete la configuración, recibirá una notificación.
+   >[!NOTE]
+   >La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Qualtrics. Tan pronto como se complete la configuración, recibirá una notificación.
    > 
    > 
 6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
-No hay elemento de acción para que configure el aprovisionamiento de usuarios en Qualtrics.  
-Cuando un usuario asignado intenta iniciar sesión en Qualtrics desde el panel de acceso, Qualtrics comprueba si el usuario existe.  
+No hay elemento de acción para que configure el aprovisionamiento de usuarios en Qualtrics. Cuando un usuario asignado intenta iniciar sesión en Qualtrics desde el panel de acceso, Qualtrics comprueba si el usuario existe.  
 
 Si no hay cuentas de usuario disponibles, Qualtrics crea una automáticamente.
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-qualtrics-perform-the-following-steps"></a>Para asignar usuarios a Qualtrics, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a Qualtrics, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Qualtrics**, haga clic en **Asignar usuarios**.
    
@@ -107,11 +111,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 

@@ -10,28 +10,26 @@ tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 115749f29d73efdb81f491d9f31687b097f6d270
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 34b4b89dc2492c8f12a49d521f7eb0ec73a339ba
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Enlace de un certificado SSL personalizado a una aplicación web
 
-Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, luego, enlaza el certificado SSL de un nombre de dominio personalizado a ella. 
+Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, luego, enlaza el certificado SSL de un nombre de dominio personalizado a ella. Para este ejemplo, necesitará lo siguiente:
 
-Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Asegúrese de lo siguiente:
+* Acceso a la página de configuración DNS de su registrador de dominios.
+* Un archivo PFX válido y su contraseña para el certificado SSL que desea cargar y enlazar.
 
-- Se ha creado una conexión con Azure mediante el comando `az login`.
-- Tiene acceso a la página de configuración DNS de su registrador de dominios.
-- Tiene un archivo PFX válido y su contraseña para el certificado SSL que desea cargar y enlazar.
-
-Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -48,12 +46,13 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Crea un plan de App Service, |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Crea una aplicación web de Azure. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Actualiza un plan de App Service para escalar su plan de tarifa. |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#upload) | Carga de un certificado SSL a una aplicación web. |
-| [az appservice web config ssl bind](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#bind) | Enlace de un certificado SSL a una aplicación web. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Asigna un dominio personalizado a una aplicación web. |
+| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#upload) | Carga un certificado SSL a una aplicación web. |
+| [az appservice web config ssl bind](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#bind) | Enlaza un certificado SSL cargado a una aplicación web. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../app-service-cli-samples.md).
+

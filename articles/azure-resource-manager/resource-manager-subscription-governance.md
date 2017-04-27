@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c46ea77c591b9c5914f83b9d5c1498b4f397a617
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -82,11 +82,12 @@ Las plantillas scaffold se aplican en el nivel de suscripción para ampliar los 
 El primer pilar de una plantilla scaffold son los estándares de nomenclatura. Cuando se diseñan bien, se pueden identificar los recursos en el portal, en una factura y en los scripts. Es probable que ya tenga estándares de nomenclatura para la infraestructura local. Al agregar Azure a su entorno, debe extender estos estándares de nomenclatura a los recursos de Azure. Un estándar de nomenclatura permite administrar de forma más eficaz el entorno en todos los niveles.
 
 > [!TIP]
+> Convenciones de nomenclatura:
 > * Revise y adopte siempre que sea posible esta [guía de patrones y prácticas](../guidance/guidance-naming-conventions.md), que lo ayudará a decidirse por un estándar de nomenclatura significativo.
 > * Alterne el uso de mayúsculas y minúsculas en los nombres de recursos (por ejemplo, miGrupoDeRecursos y NombreDeLaRedVirtual). Nota: Hay determinados recursos, como las cuentas de almacenamiento, en los que solo se pueden emplear minúsculas (y ningún otro carácter especial).
 > * Plantéese usar las directivas de Azure Resource Manager (que se describen en la sección siguiente) para aplicar los estándares de nomenclatura.
 > 
-> 
+> Las sugerencias anteriores lo ayudan a implementar una convención de nomenclatura coherente.
 
 ## <a name="policies-and-auditing"></a>Directivas y auditoría
 El segundo pilar implica la creación de [directivas de Azure Resource Manager](resource-manager-policy.md) y un [registro de actividades de auditoría](resource-group-audit.md). Las directivas de Resource Manager ofrecen la posibilidad de administrar riesgos en Azure. Puede definir directivas que garanticen la soberanía de datos restringiendo, aplicando o auditando determinadas acciones. 
@@ -156,14 +157,14 @@ Las etiquetas de recurso son flexibles y deben asociarse a la mayoría de los re
 Consulte [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) (Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
 > [!TIP]
-> Cree una estrategia de etiquetado que identifique en las distintas suscripciones qué metadatos se necesitan para el negocio, las finanzas, la seguridad, la administración de riesgos y la administración general del entorno. Considere la posibilidad de utilizar una directiva que exija etiquetar los siguientes recursos:
+> Considere la posibilidad de utilizar una directiva que exija etiquetar los siguientes recursos:
 > 
 > * Grupos de recursos
 > * Almacenamiento
 > * Máquinas virtuales
 > * Servidores web y entornos de servicios de aplicaciones
 > 
-> 
+> Esta estrategia de etiquetado identifica en las distintas suscripciones qué metadatos se necesitan para los aspectos comerciales, económicos, de seguridad, de administración de riesgos y de administración general del entorno. 
 
 ## <a name="resource-group"></a>Grupos de recursos
 Resource Manager permite colocar recursos en grupos significativos de administración, facturación y afinidad natural. Como se mencionó anteriormente, Azure tiene dos modelos de implementación. En el modelo clásico anterior, la unidad básica de administración era la suscripción. Era difícil desglosar los recursos dentro de una suscripción, así que había que crear un gran número de suscripciones. Con el modelo de Resource Manager, se han introducido los grupos de recursos. Los grupos de recursos son contenedores de recursos que tienen un ciclo de vida común o comparten un atributo como "Todos los servidores SQL Server" o "Aplicación A".
@@ -171,12 +172,12 @@ Resource Manager permite colocar recursos en grupos significativos de administra
 Además, no pueden estar dentro de otros grupos y los recursos solo pueden pertenecer a un solo grupo de recursos. Puede aplicar determinadas acciones en todos los recursos de un grupo de recursos. Por ejemplo, al eliminar un grupo de recursos, se quitan todos los recursos del grupo de recursos. Normalmente, las aplicaciones completas o los sistemas relacionados se colocan en el mismo grupo de recursos. Por ejemplo, una aplicación de tres niveles denominada "aplicación web de Contoso" contendría el servidor web, el servidor de aplicaciones y el servidor SQL Server en el mismo grupo de recursos.
 
 > [!TIP]
-> El modo de organizar los grupos de recursos puede variar según se trate de cargas de trabajo de TI tradicional o del método ágil.
+> El modo de organizar los grupos de recursos puede variar según se trate de cargas de trabajo de TI tradicional o del método ágil:
 > 
 > * Las cargas de trabajo de TI tradicional se suelen agrupar por elementos dentro del mismo ciclo de vida, como una aplicación. Si se agrupan las aplicaciones, se podrán administrar las aplicaciones de forma individual.
 > * Las cargas de trabajo de TI o del método ágil tienden a centrarse en las aplicaciones en la nube orientadas a los clientes externos. Los grupos de recursos deben reflejar las capas de implementación (por ejemplo, el nivel web y el de aplicaciones) y administración.
 > 
-> 
+> La comprensión de la carga de trabajo lo ayudará a desarrollar una estrategia de grupo de recursos.
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 Probablemente se esté preguntando quién debe tener acceso a los recursos y cómo puede controlar dicho acceso. Permitir o denegar el acceso a Azure Portal, así como controlar el acceso a los recursos del portal, resulta fundamental. 
@@ -186,14 +187,15 @@ Cuando se publicó inicialmente Azure, los controles de acceso a una suscripció
 Esta proliferación de suscripciones ya no es necesaria. Gracias al control de acceso basado en rol, puede asignar usuarios a roles estándares (por ejemplo, los tipos de roles comunes de lectura y escritura). También se pueden definir reglas personalizadas.
 
 > [!TIP]
+> Para implementar el control de acceso basado en roles:
 > * Conecte su almacén de identidades corporativo (normalmente, Active Directory) a Azure Active Directory con la herramienta AD Connect.
 > * Controle el administrador o coadministrador de una suscripción mediante una identidad administrada. **No** asigne administradores o coadministradores a un nuevo propietario de la suscripción. En su lugar, use los roles RBAC para proporcionar derechos de **propietario** a un grupo o usuario.
 > * Agregue los usuarios de Azure a un grupo (por ejemplo, los propietarios de la aplicación X) en Active Directory. Utilice el grupo sincronizado para proporcionar a los miembros del grupo los derechos adecuados para administrar el grupo de recursos que contiene la aplicación.
 > * Siga el principio de conceder los **privilegios mínimos** necesarios para realizar el trabajo previsto. Por ejemplo:
-> * Grupo de implementación: un grupo que solo puede implementar recursos.
-> * Administración de máquinas virtuales: un grupo que puede reiniciar las máquinas virtuales (para realizar operaciones)
+>   * Grupo de implementación: un grupo que solo puede implementar recursos.
+>   * Administración de máquinas virtuales: un grupo que puede reiniciar las máquinas virtuales (para realizar operaciones)
 > 
-> 
+> Estas sugerencias lo ayudarán a administrar el acceso de los usuarios en la totalidad de su suscripción.
 
 ## <a name="azure-resource-locks"></a>Bloqueos de recursos de Azure
 A medida que su organización agrega servicios básicos a la suscripción, cada vez reviste más importancia asegurarse de que estos servicios estén disponibles para evitar la interrupción de la actividad empresarial. Gracias a los [bloqueos de recursos](resource-group-lock-resources.md), se pueden restringir las operaciones en recursos de gran valor donde modificarlas o eliminarlas tendría un gran impacto en las aplicaciones o la infraestructura en la nube. Puede aplicar bloqueos a una suscripción, un recurso o un grupo de recursos. Normalmente, los bloqueos se aplican a recursos fundamentales como redes virtuales, puertas de enlace y cuentas de almacenamiento. 
@@ -204,13 +206,13 @@ Para crear o eliminar bloqueos de administración, debe tener acceso a las accio
 Entre los roles integrados, solamente se conceden esas acciones al propietario y al administrador de acceso de usuarios.
 
 > [!TIP]
-> Las opciones de red principales deben protegerse con bloqueos. La eliminación accidental de una puerta de enlace o una VPN de sitio a sitio podría resultar desastroso para una suscripción de Azure. Azure no permite eliminar una red virtual que se esté utilizando, pero, por preocupación, recomendamos aplicar más restricciones. Las directivas también resultan cruciales para el mantenimiento de los controles adecuados. Recomendamos aplicar un bloqueo **CanNotDelete** en las directivas que se están utilizando.
+> Las opciones de red principales deben protegerse con bloqueos. La eliminación accidental de una puerta de enlace o una VPN de sitio a sitio podría resultar desastroso para una suscripción de Azure. Azure no permite eliminar una red virtual que se esté utilizando, pero, por preocupación, recomendamos aplicar más restricciones. 
 > 
 > * Red virtual: CanNotDelete
 > * Grupo de seguridad de red: CanNotDelete
 > * Directivas: CanNotDelete
 > 
-> 
+> Las directivas también resultan cruciales para el mantenimiento de los controles adecuados. Recomendamos aplicar un bloqueo **CanNotDelete** en las directivas que se están utilizando.
 
 ## <a name="core-networking-resources"></a>Recursos de red principales
 El acceso a los recursos puede ser interno (dentro de la red corporativa) o externo (a través de Internet). Es muy fácil que los usuarios de una organización puedan colocar accidentalmente los recursos en la zona incorrecta y, posiblemente, abrirlos para acceder con intenciones malintencionado. Al igual que con los dispositivos locales, las empresas deben agregar los controles adecuados para asegurarse de que los usuarios de Azure tomen las decisiones correctas. Para el gobierno de suscripciones, identificamos los recursos principales que proporcionan un control de acceso básico. Se trata de los siguientes:
@@ -221,15 +223,17 @@ El acceso a los recursos puede ser interno (dentro de la red corporativa) o exte
 ![Redes principales](./media/resource-manager-subscription-governance/core-network.png)
 
 > [!TIP]
+> En el caso de las redes:
 > * Cree redes virtuales específicas para las cargas de trabajo orientadas tanto a clientes externos como a internos. Con este enfoque se reduce la posibilidad de colocar accidentalmente máquinas virtuales que están diseñadas para cargas de trabajo internas en un espacio orientado a clientes externos.
-> * Los grupos de seguridad de red son esenciales para esta configuración. Como mínimo, bloquean el acceso a Internet desde las redes virtuales internas y a la red corporativa desde las externas.
+> * Configure grupos de seguridad de red para limitar el acceso. Como mínimo, bloquean el acceso a Internet desde las redes virtuales internas y a la red corporativa desde las externas.
 > 
-> 
+> Estas sugerencias lo ayudarán a implementar recursos de red seguros.
 
-### <a name="automation"></a>Automatización
+### <a name="automation"></a>Automation
 Administrar los recursos de manera individual es un proceso lento y potencialmente propenso a errores en determinadas operaciones. Azure proporciona varias funciones de automatización, como Azure Automation, Logic Apps y Azure Functions. [Azure Automation](../automation/automation-intro.md) permite a los administradores crear y definir runbooks para administrar las tareas comunes de administración de recursos. Puede crear runbooks mediante un editor de código de PowerShell o uno de tipo gráfico. Puede generar flujos de trabajo complejos de varias fases. Azure Automation suele utilizarse para controlar tareas comunes, como detener recursos sin usar o crear recursos como respuesta a un desencadenador específico sin necesidad de intervención humana.
 
 > [!TIP]
+> En el caso de la automatización:
 > * Cree una cuenta de Azure Automation y revise los runbooks disponibles (de línea de comandos y gráficos) en la [Galería de runbooks](../automation/automation-runbook-gallery.md).
 > * Importe y personalice los runbooks claves para utilizarlos.
 > 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -171,6 +171,11 @@ Observe cómo se crea una instancia del objeto **query** con un tamaño de pági
 Tenga en cuenta que el objeto query expone varios elementos **next\***, según la opción de deserialización que requiera la consulta, como objetos de trabajo o dispositivo gemelo, o JSON sin formato que se usará cuando se utilicen proyecciones.
 
 ### <a name="limitations"></a>Limitaciones
+> [!IMPORTANT]
+> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si realiza consultas a dispositivos gemelos individuales por identificador, siempre resultará preferible utilizar la API de dispositivos gemelos de recuperación, que contendrá en todo momento los valores más recientes y cuenta con umbrales de limitación superiores.
+>
+>
+
 Actualmente, las comparaciones solo se admiten entre tipos primitivos (no objetos), por ejemplo `... WHERE properties.desired.config = properties.reported.config` solo se admite si esas propiedades tienen valores primitivos.
 
 ## <a name="get-started-with-jobs-queries"></a>Introducción a las consultas de trabajos

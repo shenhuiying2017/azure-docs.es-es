@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 04/07/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
-ms.lasthandoff: 12/06/2016
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b1e32eef393aa213cac6af68821ad0572e4a3c92
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -26,13 +26,14 @@ ms.lasthandoff: 12/06/2016
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## <a name="file-upload"></a>Carga de archivos
+
 Para utilizar la [funcionalidad de carga de archivos en el centro de IoT Hub][lnk-upload], primero debe asociar una cuenta de Azure Storage con su centro. Seleccione la configuración de **carga de archivos** para mostrar una lista de propiedades de carga de archivos para el Centro de IoT que se modifica.
 
-![][13]
+![Visualización de la configuración de carga de archivos de IoT Hub en el portal][13]
 
 **Contenedor de almacenamiento:** Use Azure Portal para seleccionar un contenedor de blobs en una cuenta de Azure Storage de su suscripción actual de Azure con el fin de asociarlo a su IoT Hub. Si es necesario, puede crear una cuenta de Azure Storage en la hoja **Cuentas de almacenamiento** y el contenedor de blobs en la hoja **Contenedores**. El Centro de IoT genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
-![][14]
+![Visualización de contenedores de almacenamiento para la carga de archivos en el portal][14]
 
 **Receive notifications for uploaded files**(Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos mediante el botón de alternancia.
 
@@ -42,9 +43,10 @@ Para utilizar la [funcionalidad de carga de archivos en el centro de IoT Hub][ln
 
 **File notification maximum delivery count**(Número máximo de entregas de notificaciones de archivo): el número de veces que el Centro de IoT tratará de entregar una notificación de carga de archivos. Se establece en 10 días de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
-![][15]
+![Configuración de la carga de archivos de IoT Hub en el portal][15]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para información sobre las funcionalidades de carga archivos de IoT Hub, consulte [Upload files from a device][lnk-upload] (Carga de archivos desde un dispositivo) en la guía para desarrolladores.
 
 Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:

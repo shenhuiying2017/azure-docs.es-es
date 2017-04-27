@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: aaada39283b19015e460768b072d0164b0d22bae
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ Para participar en SSE Files Preview, póngase en contacto con ssediscussions@mi
 Para más información, consulte la sección de preguntas más frecuentes.
 
 ### <a name="availability-for-file-storage"></a>Disponibilidad de File Storage
-El cifrado del servicio de almacenamiento para File Storage está disponible actualmente en estas regiones: este de EE. UU., este de EE. UU.&2;, centro de EE. UU., centro-norte de EE. UU., centro-sur de EE. UU., centro-oeste de EE. UU., oeste de EE. UU., oeste de EE. UU.&2;, Asia Oriental, Europa del Norte, Europa Occidental, este de Australia y sudeste de Australia.
+Storage Service Encryption para File Storage está actualmente disponible en todas las regiones de Azure.
 
 
 Para habilitar o deshabilitar el cifrado del servicio Storage para una cuenta de almacenamiento, inicie sesión en [Azure Portal](https://azure.portal.com) y seleccione una cuenta de almacenamiento. En la hoja Configuración, busque la sección Blob service como se muestra en esta captura de pantalla y haga clic en Cifrado.
@@ -74,7 +74,7 @@ SEE tiene las siguientes limitaciones:
 * No se admite el cifrado de cuentas de almacenamiento clásico.
 * El cifrado de las cuentas de almacenamiento clásico migradas a las cuentas de almacenamiento de Resource Manager se admite para Blob service, pero no para File service.
 * El cifrado de File Storage solo se admite para las cuentas de almacenamiento recién creadas.
-* Datos existentes: SSE solo cifra los datos recientemente creados una vez que se habilita el cifrado. Por ejemplo, si crea una cuenta de almacenamiento de Resource Manager nueva pero no activa el cifrado, luego carga los blobs o los VHD archivados a esa cuenta de almacenamiento y, después, activa SSE, no se cifrarán esos blobs, a menos que se reescriban o se copien.
+* Datos existentes: SSE solo cifra los datos recientemente creados una vez que se habilita el cifrado. Por ejemplo, si crea una cuenta de almacenamiento de Resource Manager nueva, pero no activa el cifrado, luego carga los blobs o los VHD archivados a esa cuenta de almacenamiento y, después, activa SSE, no se cifrarán esos blobs, a menos que se reescriban o se copien.
 * Compatibilidad con Marketplace: habilite el cifrado de las máquinas virtuales creadas desde Marketplace mediante el [Portal de Azure](https://portal.azure.com), PowerShell y la CLI de Azure. La imagen base de VHD seguirá sin cifrar; sin embargo, se cifrarán todas las escrituras que se realicen una vez que se ponga en marcha la VM.
 * Los datos de la tabla y de las colas no se cifrarán.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
-ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ Hay que comprender dos conceptos acerca de las directivas:
 * definición de la directiva: describe cuándo se aplica la directiva y qué acción realizar
 * asignación de la directiva: la definición de la directiva se aplica a un ámbito (suscripción o grupo de recursos)
 
-Este tema se centra en la definición de la directiva. Para obtener información acerca de la asignación de directivas, consulte [Asignación y administración de directivas](resource-manager-policy-create-assign.md).
+Este tema se centra en la definición de la directiva. Para obtener información acerca de la asignación de directivas, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos) o [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).
 
 Azure proporciona algunas definiciones de directiva predefinidas que pueden reducir el número de directivas que tiene que definir. Si una definición de directiva integrada funciona para su escenario, úsela para la asignación a un ámbito.
 
@@ -239,7 +239,7 @@ Los siguientes temas contienen ejemplos de directivas:
 
 * Para ver ejemplos de directivas de etiqueta, consulte [Apply resource policies for tags](resource-manager-policy-tags.md) (Aplicación de directivas de recursos para etiquetas).
 * Para ver ejemplos de directivas de almacenamiento, consulte [Aplicación de directivas de recursos a cuentas de almacenamiento](resource-manager-policy-storage.md).
-* Para ver ejemplos de directivas de máquina virtual, consulte [Aplicación de directivas de recursos a máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) y [Aplicación de directivas de recursos a máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+* Para ver ejemplos de directivas de máquina virtual, consulte [Aplicación de directivas de recursos a máquinas virtuales Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) y [Aplicación de directivas de recursos a máquinas virtuales Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
 ### <a name="allowed-resource-locations"></a>Ubicaciones de recursos permitidas
 Para especificar qué ubicaciones se permiten, vea el ejemplo de la sección [Estructura de la definición de directiva](#policy-definition-structure). Para asignar esta definición de directiva, use la directiva integrada con el identificador de recurso `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
@@ -326,7 +326,7 @@ En el ejemplo siguiente se muestra el uso de caracteres comodín que admite la c
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Después de definir una regla de directiva, asígnela a un ámbito. Para obtener información acerca de la asignación de directivas, consulte [Asignación y administración de directivas](resource-manager-policy-create-assign.md).
+* Después de definir una regla de directiva, asígnela a un ámbito. Para asignar directivas a través del portal, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). Para asignar directivas a través de la API de REST, PowerShell o la CLI de Azure, consulte [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 * El esquema de la directiva está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 

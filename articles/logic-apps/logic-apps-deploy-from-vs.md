@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5dfff8620d66eca0d54763efbc5702e4b4d122d1
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -34,7 +34,7 @@ Para instalar y configurar las herramientas de Visual Studio para Azure Logic Ap
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) o Visual Studio 2015
 * [SDK de Azure más reciente](https://azure.microsoft.com/downloads/) (2.9.1 o superior)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * Acceso a la web para usar el diseñador incrustado
@@ -50,7 +50,7 @@ Una vez cumplidos los requisitos previos:
 5. Reinicie Visual Studio después de la instalación.
 
 > [!NOTE]
-> También puede descargar las herramientas de Azure Logic Apps para Visual Studio directamente desde el [Marketplace de Visual Studio](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+> También puede descargar las [herramientas de Azure Logic Apps para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) y las [herramientas de Azure Logic Apps para Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio) directamente desde Visual Studio Marketplace.
 
 Una vez finalizada la instalación, podrá usar el proyecto Grupo de recursos de Azure con el Diseñador de aplicaciones lógicas.
 

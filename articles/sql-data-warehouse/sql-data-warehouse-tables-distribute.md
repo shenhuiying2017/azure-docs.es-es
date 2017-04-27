@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 4becdace365fce1fb70e9e870dd4c8b81d1c7496
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fe47cc1e5489d094f08b771cc8ec89de84509972
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribución de tablas en Almacenamiento de datos SQL
 > [!div class="op_single_selector"]
-> * [Información general][Información general]
-> * [Tipos de datos][Tipo de datos]
-> * [Distribución][Distribución]
-> * [Índice][Índice]
+> * [Información general][Overview]
+> * [Tipos de datos][Data Types]
+> * [Distribución][Distribute]
+> * [Índice][Index]
 > * [Partición][Partition]
-> * [Estadísticas][Estadísticas]
-> * [Temporales][Temporal]
+> * [Estadísticas][Statistics]
+> * [Temporal][Temporary]
 >
 >
 
@@ -180,7 +182,7 @@ Una manera sencilla de identificar una tabla como asimétrica es usar `DBCC PDW_
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado.  Para empezar, cree la vista [dbo.vTableSizes][dbo.vTableSizes] mediante la instrucción SQL del artículo sobre [Información general][Información general].  Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
+Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado.  Para empezar, cree la vista [dbo.vTableSizes][dbo.vTableSizes] mediante la instrucción SQL del artículo sobre [información general de tablas][Overview].  Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
 
 ```sql
 select *
@@ -198,7 +200,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>Resolución de la asimetría de datos
-No toda asimetría es suficiente para garantizar una corrección.  En algunos casos, el rendimiento de una tabla en algunas consultas puede superar el daño que supone la asimetría de datos.  Para decidir si merece la pena resolver la asimetría de datos en una tabla, conviene tener el mayor conocimiento posible sobre los volúmenes de datos y consultas en la carga de trabajo.   Una manera de examinar el impacto de la asimetría es utilizar los pasos del artículo [Supervisión de consultas][Supervisión de consultas] para supervisar el impacto de la asimetría en el rendimiento de las consultas y específicamente el impacto en el tiempo que tardan en completarse las consultas en las distribuciones individuales.
+No toda asimetría es suficiente para garantizar una corrección.  En algunos casos, el rendimiento de una tabla en algunas consultas puede superar el daño que supone la asimetría de datos.  Para decidir si merece la pena resolver la asimetría de datos en una tabla, conviene tener el mayor conocimiento posible sobre los volúmenes de datos y consultas en la carga de trabajo.   Una manera de examinar el impacto de la asimetría es utilizar los pasos del artículo [Supervisión de consultas][Query Monitoring]: con ellos, podrá conocer la influencia de la asimetría en el rendimiento de las consultas y, específicamente, en el tiempo que tardan en completarse en las distribuciones individuales.
 
 Lo importante al distribuir datos es hallar el equilibrio perfecto entre minimizar la asimetría de datos y reducir el movimiento de datos. Ambas tareas pueden ser opuestas, de forma que, a veces, preferirá mantener la asimetría datos para reducir el movimiento de datos. Por ejemplo, cuando la columna de distribución es frecuentemente la columna compartida en las combinaciones y agregaciones, reducirá el movimiento de datos. La ventaja que reporta reducir el movimiento de datos al mínimo podría compensar el impacto de tener asimetría de datos.
 
@@ -283,31 +285,26 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca del diseño de tablas, consulte los artículos sobre [Distribución][Distribución], [Índice][Índice], [Partition][Partition], [Tipo de datos][Tipo de datos], [Estadísticas][Estadísticas] y [tablas temporales][Temporal].
+Para obtener más información acerca del diseño de tablas, consulte los artículos sobre [distribución][Distribute], [índices][Index], [partición][Partition], [tipos de datos][Data Types], [estadísticas][Statistics] y [tablas temporales][Temporary].
 
-Para obtener información general sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL][Procedimientos recomendados para Almacenamiento de datos SQL].
+Para acceder a información general sobre los procedimientos recomendados, vea [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Información general]: ./sql-data-warehouse-tables-overview.md
-[Tipo de datos]: ./sql-data-warehouse-tables-data-types.md
-[Distribución]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporal]: ./sql-data-warehouse-tables-temporary.md
-[Procedimientos recomendados para Almacenamiento de datos SQL]: ./sql-data-warehouse-best-practices.md
-[Supervisión de consultas]: ./sql-data-warehouse-manage-monitor.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

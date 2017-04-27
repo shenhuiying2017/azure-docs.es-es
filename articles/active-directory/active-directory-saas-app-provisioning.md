@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 1bee9573e23e1c814626d19a3df1eb7ab12486ab
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 39714145f84f5f9229dbf4bbe136103d4d102bed
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -86,23 +87,11 @@ Azure AD aprovisiona a los usuarios para aplicaciones SaaS mediante la conexión
 Para obtener más información sobre cómo se asignan los atributos entre Azure AD y la aplicación SaaS, consulte el artículo [Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md).
 
 ## <a name="list-of-apps-that-support-automated-user-provisioning"></a>Lista de aplicaciones que admiten el aprovisionamiento automático de usuarios
-Haga clic en una aplicación para ver un tutorial sobre cómo configurar el aprovisionamiento automático correspondiente:
-
-* [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
-* [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
-* [Concur](http://go.microsoft.com/fwlink/?LinkId=309575)
-* [Docusign](http://go.microsoft.com/fwlink/?LinkId=403254)
-* [Dropbox para Empresas](http://go.microsoft.com/fwlink/?LinkId=309581)
-* [Google Apps](http://go.microsoft.com/fwlink/?LinkId=309577)
-* [Jive](http://go.microsoft.com/fwlink/?LinkId=309591)
-* [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
-* [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
-* [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-* [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (aprovisionamiento de entrada)
+Todas las aplicaciones destacadas de la galería de aplicaciones de Azure AD admiten el aprovisionamiento automático de usuarios. [Puede ver la lista de aplicaciones destacadas aquí.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 
 Para que una aplicación admita el aprovisionamiento automático de usuarios, primero debe proporcionar los extremos necesarios que permitan a los programas externos automatizar la creación, el mantenimiento y la eliminación de usuarios. Por lo tanto, no todas las aplicaciones SaaS son compatibles con esta característica. En el caso de las aplicaciones que sí son compatibles, el equipo de ingeniería de Azure AD podrá crear un conector de aprovisionamiento para esas aplicaciones, y las prioridades para realizar este trabajo se basan en las necesidades de los clientes actuales y potenciales.
 
-Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/category/172035-user-provisioning).
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
@@ -112,10 +101,5 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

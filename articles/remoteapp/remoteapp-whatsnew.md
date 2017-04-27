@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6720bb6471ef36179042562c751e1a501979f02b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-new-in-azure-remoteapp"></a>Novedades en RemoteApp de Azure
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,7 +44,7 @@ Una de las ventajas de Azure RemoteApp es que siempre trabajamos para mejorarlo.
 En agosto hubo cambios importantes. A continuación, presentamos los aspectos destacados:
 
 * Ahora puede usar una red virtual de Azure con una colección en la nube. Revise las [instrucciones para la creación de la nube](remoteapp-create-cloud-deployment.md) para ver los pasos nuevos.
-* Se hizo posible agregar aplicaciones al menú **Inicio **para el cliente de Windows RemoteApp. Las aplicaciones aparecerán en la lista de aplicaciones y puede anclarlas en el menú **Inicio **de Windows.
+* Se hizo posible agregar aplicaciones al menú **Inicio** para el cliente de Windows RemoteApp. Las aplicaciones aparecerán en la lista de aplicaciones y puede anclarlas en el menú **Inicio** de Windows.
 * Se agregó una imagen nueva a la galería de máquinas virtuales de Azure - Host de sesión de Escritorio remoto de Windows Server con Microsoft Office 365 ProPlus.
 * Se corrigió el cliente de Mac para que las aplicaciones con ventanas modales dejarán de inmovilizarse.
 * Se documentó la forma en que puede usar la [suscripción a Office 365 ProPlus](remoteapp-officesubscription.md) con Azure RemoteApp.
@@ -87,10 +88,5 @@ Gracias por seguir con nosotros, volveremos el próximo mes con más novedades.
 
 ### <a name="help-us-help-you"></a>Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

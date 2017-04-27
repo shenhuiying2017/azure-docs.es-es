@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e286693b585a5991dbecd537fe5cd6621dd27e01
+ms.lasthandoff: 04/26/2017
 
 ---
 
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard
 
 > [!NOTE]
-> Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> Este ejemplo está disponible en [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-En este tutorial se muestra cómo escribir una aplicación de consola de .NET Core que recibe mensajes de un centro de eventos mediante **EventProcessorHost**. Puede ejecutar la solución de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) tal como está, reemplazando las cadenas por los valores de la cuenta de almacenamiento y centro de eventos. También puede seguir los pasos de este tutorial para crear el suyo propio.
+En este tutorial se muestra cómo escribir una aplicación de consola de .NET Core que recibe mensajes de un centro de eventos mediante **EventProcessorHost**. Puede ejecutar la solución de [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) tal como está, reemplazando las cadenas por los valores de la cuenta de almacenamiento y centro de eventos. También puede seguir los pasos de este tutorial para crear el suyo propio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -121,7 +121,7 @@ Agregue los siguientes paquetes de NuGet al proyecto:
     using System.Threading.Tasks;
     ```
 
-2. Agregue constantes a la clase `Program` para la cadena de conexión de Event Hubs, el nombre del contenedor de la cuenta de almacenamiento y el nombre y la clave de la cuenta de almacenamiento. Agregue el código siguiente, reemplazando los marcadores de posición con sus valores correspondientes.
+2. Agregue constantes a la clase `Program` para la cadena de conexión del centro de eventos, el nombre del centro de eventos, el nombre del contenedor de la cuenta de almacenamiento, y el nombre de la cuenta de almacenamiento y la clave de la cuenta de almacenamiento. Agregue el código siguiente, reemplazando los marcadores de posición con sus valores correspondientes.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";

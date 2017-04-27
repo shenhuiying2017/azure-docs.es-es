@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
-ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ El conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase
 >
 >
 
-Si necesita más espacio de almacenamiento, puede crear discos adicionales y conectarlos a la máquina virtual. Estos discos usan almacenamiento de Azure persistente, por lo que sus datos se conservan incluso cuando el servidor se reaprovisiona debido a un cambio de tamaño o se apaga. Para agregar un disco y conectarlo a la máquina virtual, siga las instrucciones que se describen en [Adición de un disco a una máquina virtual Linux](../virtual-machines/virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). En estos pasos se usa la interfaz de la línea de comandos de Azure (CLI de Azure), que ya está instalada en la DSVM. De modo que estos procedimientos se pueden realizar por completo en la propia máquina virtual. Otra opción para aumentar el almacenamiento es usar [archivos de Azure](../storage/storage-how-to-use-files-linux.md).
+Si necesita más espacio de almacenamiento, puede crear discos adicionales y conectarlos a la máquina virtual. Estos discos usan almacenamiento de Azure persistente, por lo que sus datos se conservan incluso cuando el servidor se reaprovisiona debido a un cambio de tamaño o se apaga. Para agregar un disco y conectarlo a la máquina virtual, siga las instrucciones que se describen en [Adición de un disco a una máquina virtual Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). En estos pasos se usa la interfaz de la línea de comandos de Azure (CLI de Azure), que ya está instalada en la DSVM. De modo que estos procedimientos se pueden realizar por completo en la propia máquina virtual. Otra opción para aumentar el almacenamiento es usar [archivos de Azure](../storage/storage-how-to-use-files-linux.md).
 
 Para descargar los datos, abra una ventana de terminal y ejecute este comando:
 
@@ -407,7 +407,7 @@ Una de las características interesantes de Rattle es la posibilidad de ejecutar
 Cuando haya terminado de crear modelos, seleccione la pestaña **Log** (Registrar) para ver el código R ejecutado por Rattle durante la sesión. Puede seleccionar el botón **Export** (Exportar) para guardarlo.
 
 > [!NOTE]
-> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ... * (Exportar este registro) en el texto del registro.
+> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ...* (Exportar este registro) en el texto del registro.
 >
 >
 

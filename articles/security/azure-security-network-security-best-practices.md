@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71e0d74f0e4787393e3184a3a5b553c4935cf785
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -187,7 +188,7 @@ Puede obtener este tipo de equilibrio de carga global en Azure mediante [Azure T
 
 Por ejemplo, si el usuario realiza una solicitud a su servicio desde la Unión Europea, la conexión se dirige a sus servicios situados en un centro de datos de la Unión Europea. Esta parte del equilibrio de carga global del Administrador de tráfico ayuda a mejorar el rendimiento, ya que la conexión al centro de datos más cercano es más rápida que a los centros de datos que están lejos.
 
-En relación a la disponibilidad, el equilibrio de carga global garantiza que el servicio esté disponible incluso si todo un centro de datos deja de estar disponible.
+En relación con la disponibilidad, el equilibrio de carga global garantiza que el servicio esté disponible incluso si todo un centro de datos deja de estarlo.
 
 Por ejemplo, si un centro de datos de Azure deja de estar disponible por motivos ambientales o debido a interrupciones (como errores en la red regional), las conexiones al servicio se vuelven a enrutar al centro de datos en línea más cercano. Este equilibrio de carga global se logra al aprovechar las directivas DNS que se pueden crear en el Administrador de tráfico.
 
@@ -235,9 +236,4 @@ Sin embargo, hay mucho planeamiento y problemas de diseño que deben solucionars
 Microsoft creó el [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) (Diagrama de arquitectura de referencia de extensión de centro de datos) y otro material auxiliar para ayudarle a comprender cuál sería la apariencia de una extensión del centro de datos. Esto proporciona un ejemplo de implementación de referencia que puede usar para planear y diseñar una extensión del centro de datos empresarial seguro en la nube. Se recomienda leer este documento para hacerse una idea de los componentes clave de una solución segura.
 
 Para más información sobre cómo extender su centro de datos de forma segura en Azure, vea el vídeo [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA) (Extensión de su centro de datos a Microsoft Azure).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

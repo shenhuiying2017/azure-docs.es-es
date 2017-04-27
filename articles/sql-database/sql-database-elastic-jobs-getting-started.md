@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -36,7 +37,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
    ![símbolo del sistema](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
 2. En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita esta acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
-3. El [Portal de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
+3. [Azure Portal](https://portal.azure.com) debería mostrar tres nuevas bases de datos:
 
    ![Confirmación de Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
@@ -478,9 +479,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 209d1cbe4f1ad08a98caf0a8d16f5b0ee45468ca
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Es posible que desee hacer más cambios para que el experimento predictivo esté
 En este proceso de conversión no se descarta el experimento de entrenamiento. Cuando se complete el proceso, tendrá dos pestañas en Studio: una para el experimento de entrenamiento y otra para el experimento predictivo. De este modo, puede realizar cambios en el experimento de entrenamiento antes de implementar el servicio web y volver a compilar el experimento predictivo. O bien, puede guardar una copia del experimento de entrenamiento para iniciar otra línea de experimentación.
 
 > [!NOTE]
-> Al hacer clic en **Predictive Web Service** (Servicio web predictivo), se inicia un proceso automático para convertir el experimento de entrenamiento en un experimento predictivo, lo que funciona correctamente en la mayoría de los casos. Si el experimento de entrenamiento es complejo (por ejemplo, tiene varias rutas de acceso para el entrenamiento que se unen), es posible que prefiera realizar esta conversión manualmente. Para obtener más información, consulte [Conversión de un experimento de entrenamiento de Machine Learning en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Al hacer clic en **Predictive Web Service** (Servicio web predictivo), se inicia un proceso automático para convertir el experimento de entrenamiento en un experimento predictivo, lo que funciona correctamente en la mayoría de los casos. Si el experimento de entrenamiento es complejo (por ejemplo, tiene varias rutas de acceso para el entrenamiento que se unen), es posible que prefiera realizar esta conversión manualmente. Para obtener más información, consulte el artículo sobre la [preparación del modelo de implementación en Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 > 
 > 
 
@@ -111,7 +111,7 @@ Si desea realizar cambios en el experimento predictivo original, como selecciona
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más detalles sobre el proceso de desarrollo y el experimento, consulte los artículos siguientes:
 
-* conversión del experimento - [Convertir un experimento de entrenamiento de Aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+* Conversión del experimento: [Método de preparación del modelo de implementación en Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 * implementación del servicio web: [Implementación de un servicio web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 * reciclaje del modelo - [Reciclar modelos de Aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md)
 

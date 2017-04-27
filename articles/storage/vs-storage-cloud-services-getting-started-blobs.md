@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: e154c81ef3765a3c006b3c27a979be881f14d0ee
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +29,7 @@ En este artículo se describe cómo empezar a usar el almacenamiento de blobs de
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
 
-Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos.
+Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook", puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos.
 
 * Para más información sobre la manipulación de blobs mediante programación, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md).
 * Para una información general sobre Almacenamiento de Azure, consulte [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/).
@@ -55,7 +56,7 @@ Para obtener acceso mediante programación a los blobs de los proyectos del Serv
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 4. Obtenga un objeto **CloudBlobContainer** para hacer referencia a un contenedor de blobs específico.
    
-        // Get a reference to a container named “mycontainer.”
+        // Get a reference to a container named "mycontainer."
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 > [!NOTE]
@@ -71,7 +72,7 @@ Para obtener acceso mediante programación a los blobs de los proyectos del Serv
 
 Para crear un contenedor en su cuenta de almacenamiento, lo único que hay que hacer es agregar una llamada a **CreateIfNotExistsAsync** como en el código siguiente:
 
-    // If “mycontainer” doesn’t exist, create it.
+    // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
@@ -238,10 +239,5 @@ Dado que el método de ejemplo llama a un método asincrónico, debe ir precedid
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

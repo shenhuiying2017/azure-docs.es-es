@@ -17,9 +17,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -105,22 +105,22 @@ Es necesario registrar el origen (solicitud) del registro del paciente desde el 
 
 1. Debemos obtener un registro de nueva cita de Dynamics CRM Online.
 
-    El desencadenador procedente de CRM nos proporciona los valores de **CRM PatentId**,  **record type**, **New or Updated Record** (valor booleano nuevo o actualizado) y **SalesforceId**. El valor de **SalesforceId** puede ser null porque solo se utiliza para obtener una actualización.
-    Obtenemos el registro de CRM mediante los valores de **PatientID** y **Tipo de registro** de CRM.
+   El desencadenador procedente de CRM nos proporciona los valores de **CRM PatentId**, **record type**, **New or Updated Record** (valor booleano nuevo o actualizado) y **SalesforceId**. El valor de **SalesforceId** puede ser null porque solo se utiliza para obtener una actualización.
+   Obtenemos el registro de CRM mediante los valores de **PatientID** y **Tipo de registro** de CRM.
 
-2. A continuación, es necesario agregar a nuestra aplicación de API de DocumentDB la operación **InsertLogEntry**, tal y como se muestra aquí.
+2. A continuación, es necesario agregar a nuestra aplicación de API de DocumentDB la operación **InsertLogEntry**, tal y como se muestra aquí en el Diseñador de aplicaciones lógicas.
 
-### <a name="insert-log-entry-designer-view"></a>Vista de diseñador para insertar entrada de registro
+   **Inserción de entrada de registro**
 
-![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>Vista de diseñador para insertar entrada de error
+   **Inserción de entrada de error**
 
-![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Insertar entrada de registro](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>Comprobación de errores en la creación de registro
+   **Comprobación de errores en la creación de registro**
 
-![Condición](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Condición](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código fuente de la aplicación lógica
 

@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 04/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -132,7 +132,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Paso 4: configurar MPIO para alta disponibilidad y equilibrio de carga
 En entornos de múltiples rutas basadas en alta disponibilidad y equilibrio de carga, hay que agregar manualmente varias sesiones para declarar las distintas rutas de acceso disponibles. Por ejemplo, si el host tiene dos interfaces conectadas a la SAN y el dispositivo también tiene otras dos interfaces conectadas a la SAN, serán necesarias cuatro sesiones configuradas con permutaciones de ruta de acceso adecuadas (solo se necesitarán dos sesiones si cada interfaz DATA e interfaz de host están en una subred IP diferente y no es enrutable).
 
-**Se recomienda que haya al menos 4 sesiones paralelas activas entre el dispositivo y su host de aplicación.** Esto puede lograrse habilitando 4 interfaces de red en su sistema Windows Server. Use interfaces de red físicas o las tecnologías de virtualización de red en el nivel de hardware o del sistema operativo en su host de Windows Server. Con las dos interfaces de red en el dispositivo, esta configuración dará como resultado 8 sesiones, de las cuales 4 serán activas (las conectadas al controlador activo) y 4 pasivas (las que estén conectadas al controlador pasivo). Esta configuración ayuda a optimizar el rendimiento del dispositivo y la nube.
+**Se recomienda que haya al menos 8 sesiones paralelas activas entre el dispositivo y su host de aplicación.** Esto puede lograrse habilitando 4 interfaces de red en su sistema Windows Server. Use interfaces de red físicas o interfaces virtuales mediante las tecnologías de virtualización de red en el nivel de hardware o del sistema operativo en su host de Windows Server. Con las dos interfaces de red en el dispositivo, esta configuración tendría como resultado ocho sesiones activas. Esta configuración ayuda a optimizar el rendimiento del dispositivo y la nube.
 
 > [!IMPORTANT]
 > **Recomendamos no combinar interfaces de red de 1 GbE y de 10 GbE. Si usa dos interfaces de red, ambas deben ser de idéntico tipo.**

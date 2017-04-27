@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +25,11 @@ ms.lasthandoff: 03/17/2017
 Estas P+F responden a preguntas acerca de la integración de registro de Azure, un servicio que le permite integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración proporciona un panel unificado de todos los recursos, locales o en la nube, para que pueda agregar, correlacionar, analizar y alertar de eventos de seguridad asociados a las aplicaciones.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>¿Es el software Integración de registro de Azure gratuito?
-Sí. No hay ningún cargo por el software Integración de registro de Azure. 
+Sí. No hay ningún cargo por el software Integración de registro de Azure.
+
+## <a name="where-is-azure-log-integration-available"></a>¿Dónde se encuentra disponible la integración de registro de Azure?
+
+Está actualmente disponible en la versión comercial de Azure y en Azure Government. No se encuentra disponible ni en China ni en Alemania.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>¿Cómo puedo ver las cuentas de almacenamiento desde las que el servicio de integración de registro de Azure extrae los registros de máquinas virtuales de Azure?
 Ejecute el comando **azlog source list**.
@@ -82,7 +86,7 @@ Consulte:
 Consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>¿Cómo puedo modificar la información recopilada mediante el diagnóstico de máquinas virtuales?
-Consulte [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para más información acerca de cómo obtener, modificar y configurar Diagnósticos de Azure en Windows *(WAD)* . A continuación se muestra un ejemplo:
+Consulte [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para más información acerca de cómo obtener, modificar y configurar Diagnósticos de Azure en Windows *(WAD)* . A continuación se muestra un ejemplo:
 
 ### <a name="get-the-wad-config"></a>Obtención de la configuración de WAD
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
@@ -107,7 +111,7 @@ El ejemplo siguiente muestra una configuración en la que se recopilan solo los 
 
 Después de realizar cambios, compruebe la cuenta de almacenamiento para asegurarse de que se recopilan los eventos correctos.
 
-Si experimenta problemas durante la instalación y configuración, abra una [solicitud de soporte técnico](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), seleccione Integración de registros como el servicio para el que está solicitando soporte técnico.
+Si experimenta problemas durante la instalación y la configuración, abra una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) y seleccione **Integración de registros** como el servicio para el que está solicitando soporte técnico.
 
 
 <!--Image references-->

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 03/30/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ae2280f7bd7945f723d88dc6ce3f9a117074e93f
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 7c1532db4d58673add9b8076154c471554810614
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,22 @@ Al iniciar sesión mediante programación, necesitará el identificador de la ap
     Para obtener más información sobre los permisos de Data Lake Store y ACL y las ACL predeterminadas y de acceso, consulte [Control de acceso en Data Lake Store](data-lake-store-access-control.md).
 7. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. El grupo recién agregado, con los permisos asociados, se mostrará ahora en la hoja **Acceso** .
    
-    ![Asignación de permisos a un grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Asignación de permisos a un grupo")    
+    ![Asignación de permisos a un grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Asignación de permisos a un grupo")
+
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Paso 4: Obtener el punto de conexión del token de OAuth 2.0 (solo para aplicaciones basadas en Java)
+
+1. Inicie sesión en el nuevo [Azure Portal](https://portal.azure.com) y haga clic en Active Directory en el panel izquierdo.
+
+2. En el panel izquierdo, haga clic en **Registros de aplicaciones**.
+
+3. En la parte superior de la hoja Registros de aplicaciones, haga clic en **Puntos de conexión**.
+
+    ![Punto de conexión de token de OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Punto de conexión de token de OAuth")
+
+4. En la lista de puntos de conexión, copie el correspondiente al token de OAuth 2.0.
+
+
+     ![Punto de conexión de token de OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punto de conexión de token de OAuth")   
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo creó una aplicación web de Azure AD y recopiló la información que necesita en las aplicaciones cliente que cree mediante SDK con .NET, SDK de Java, etc. Ahora puede continuar en los artículos siguientes, que hablan de cómo usar la aplicación web de Azure AD para autenticarse primero en Data Lake Store y luego realizar otras operaciones en el almacén.

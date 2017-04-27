@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 04/02/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca485599d159fd4e7e001b68e4d4b41b6b2043f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e1ceaf7baef021f97f70a6b1a5203e178db613db
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -173,6 +173,16 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
 
 Puede agregar otros parámetros, cuyas descripciones se encuentran en la sección de parámetros de la plantilla.
 
+## <a name="to-get-the-instrumentation-key"></a>Para obtener la clave de instrumentación
+Después de crear un recurso de aplicación, querrá la clave de instrumentación: 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## <a name="set-the-price-plan"></a>Establecimiento del plan de precios
 
@@ -193,17 +203,11 @@ Para crear un recurso de aplicación con el plan de precios de Enterprise, use l
 |2|Enterprise|
 
 * Si solo desea usar el plan de precios básico predeterminado, puede omitir el recurso CurrentBillingFeatures de la plantilla.
+* Si desea cambiar el plan de precios una vez creado el recurso de componente, puede usar una plantilla que omita el recurso "microsoft.insights/components". Además, omita el nodo `dependsOn` del recurso de facturación. 
+
+Para comprobar el plan de precios actualizado, consulte la hoja de características y precios en el explorador. **Actualice la vista de explorador** para asegurarse de ver el estado más reciente.
 
 
-## <a name="to-get-the-instrumentation-key"></a>Para obtener la clave de instrumentación
-Después de crear un recurso de aplicación, querrá el iKey: 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## <a name="add-a-metric-alert"></a>Agregar una alerta de métrica
 

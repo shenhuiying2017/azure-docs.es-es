@@ -14,21 +14,22 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 7dd1289453fe146b446322570fcb1c0df74b4db2
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
 
-Asegúrese de que la aplicación tendrá un rendimiento correcto y descubra rápidamente los posibles errores. [Application Insights][start] le indicará las excepciones y los problemas de rendimiento, y le ayudará a buscar y diagnosticar las causas principales.
+Asegúrese de que la aplicación tendrá un rendimiento correcto y descubra rápidamente los posibles errores. [Application Insights][start] le indicará las excepciones y los problemas de rendimiento, y lo ayudará a buscar y diagnosticar las causas principales.
 
 Application Insights puede supervisar aplicaciones y servicios web Java y ASP.NET y servicios WCF. Pueden estar hospedados localmente, en máquinas virtuales o como sitios web de Microsoft Azure. 
 
 En el lado del cliente, Application Insights puede obtener datos de telemetría de páginas web y una amplia variedad de dispositivos, entre los que se incluyen iOS, Android y aplicaciones de la Tienda Windows.
 
-## <a name="a-namesetupaset-up-performance-monitoring"></a><a name="setup"></a>Configuración de la supervisión de rendimiento
+## <a name="setup"></a>Configuración de la supervisión de rendimiento
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
 * [Aplicaciones web ASP.NET](app-insights-asp-net.md)
@@ -37,7 +38,7 @@ Si todavía no ha agregado Application Insights a un proyecto (es decir, si no d
 * [Aplicaciones web J2EE](app-insights-java-get-started.md)
   * [Agregar supervisión de dependencias](app-insights-java-agent.md)
 
-## <a name="a-nameviewaexploring-performance-metrics"></a><a name="view"></a>Exploración de las métricas de rendimiento
+## <a name="view"></a>Exploración de las métricas de rendimiento
 En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que configuró para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
 
 Haga clic en cualquier gráfico para ver su contenido con mayor detalle y los resultados durante más tiempo. Por ejemplo, haga clic en el mosaico Solicitudes y seleccione un intervalo de tiempo:
@@ -53,7 +54,7 @@ Haga clic en un gráfico para elegir las métricas mostradas o para agregar un n
 > 
 > 
 
-## <a name="a-namemetricsawhat-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>¿Qué significa todo esto? Informes y mosaicos de rendimiento
+## <a name="metrics"></a>¿Qué significa todo esto? Informes y mosaicos de rendimiento
 Puede obtener una gran variedad de métricas de rendimiento. Comencemos por las que aparecen de forma predeterminada en la hoja de la aplicación.
 
 ### <a name="requests"></a>Solicitudes
@@ -106,24 +107,22 @@ Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el 
 
 *No puedo ver el botón Agregar alerta* : ¿es una cuenta de grupo a la que tiene acceso de solo lectura? Consulte con el administrador de cuenta.
 
-## <a name="a-namediagnosisadiagnosing-issues"></a><a name="diagnosis"></a>Diagnóstico de problemas
+## <a name="diagnosis"></a>Diagnóstico de problemas
 Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 * Configure las [pruebas web][availability] para recibir una alerta si el sitio web deja de funcionar o si no responde correctamente, o lo hace más lentamente de lo habitual. 
 * Compare el recuento de Solicitudes con otras métricas para ver si la lentitud de respuesta o los errores se encuentran relacionados con la carga.
 * [Inserte y busque instrucciones de seguimiento][diagnostic] en el código para facilitar la identificación de los problemas.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 [Pruebas web][availability]: reciba solicitudes web en su aplicación de forma periódica desde distintos lugares del mundo.
 
 [Capture y busque seguimientos de diagnóstico][diagnostic]: inserte llamadas de seguimiento y cribe los resultados para identificar los problemas.
 
-[Seguimiento del uso][usage]: averigüe cuántas personas usan una aplicación.
+[Seguimiento del uso][usage]: averigüe cuántas personas usan la aplicación.
 
-[Solución de problemas][qna]: y preguntas más frecuentes
+[Solución de problemas][qna]: con preguntas y respuestas
 
-## <a name="video"></a>Vídeo
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->
@@ -136,10 +135,5 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

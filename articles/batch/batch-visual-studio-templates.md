@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -55,7 +55,7 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
-* Un equipo con Visual Studio 2015, o posterior, instalado.
+* Un equipo con Visual Studio 2015 instalado. Las plantillas de proceso por lotes solo se admiten actualmente para Visual Studio 2015.
 * Las plantillas de Batch, que están disponibles en la [Galería de Visual Studio][vs_gallery] como extensiones de Visual Studio. Las plantillas se pueden obtener de dos formas:
   
   * Instale las plantillas con el cuadro de diálogo **Extensiones y actualizaciones** de Visual Studio (para obtener más información, vea [Buscar y usar extensiones de Visual Studio][vs_find_use_ext]). En el cuadro de diálogo **Extensiones y actualizaciones** , busque y descargue las dos extensiones siguientes:

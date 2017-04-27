@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 94f0a741be663aae9f2ec4ee221a4b2b58e390e2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 73cd37a83ba31f428b3d0262230e4c650692a842
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -34,13 +34,13 @@ Puede crear una canalización con una actividad de copia que inserte datos de un
 
 La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, la **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
 1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
-3. Cree una **canalización** con una actividad de copia que tome un conjunto de datos como entrada y un conjunto de datos como salida. 
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
 Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar datos de un índice de Azure Search, consulte la sección [Ejemplo de JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) de este artículo. 
 
@@ -67,9 +67,9 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
-Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md) . Las propiedades (como el nombre, la descripción, las tablas de entrada y salida, y las distintas directivas) están disponibles en todos los tipos de actividades. Las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
+Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md) . Las propiedades (como el nombre, la descripción, las tablas de entrada y salida, y las distintas directivas) están disponibles en todos los tipos de actividades. Por otra parte, las propiedades disponibles en la sección typeProperties varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En la actividad de copia, si el origen es de tipo **AzureSearchIndexSink**, están disponibles las propiedades siguientes en la sección typeProperties:
+En la actividad de copia, si el receptor es de tipo **AzureSearchIndexSink**, estarán disponibles las propiedades siguientes en la sección typeProperties:
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -250,7 +250,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 }
 ```
 
-Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. A continuación, se muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
+Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. El siguiente fragmento de código JSON muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
 
 ```JSON
 "typeProperties": {
@@ -266,7 +266,7 @@ Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la pr
 
 
 ## <a name="copy-from-a-cloud-source"></a>Copia desde un origen en la nube
-Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. A continuación, se muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
+Si va a copiar datos desde un almacén de datos en la nube a Azure Search, la propiedad `executionLocation` es obligatoria. El siguiente fragmento de código JSON muestra el cambio necesario en la actividad de copia `typeProperties` como ejemplo. Comprobar [copiar datos entre almacenes de datos en la nube](data-factory-data-movement-activities.md#global) para obtener más detalles y los valores admitidos.
 
 ```JSON
 "typeProperties": {

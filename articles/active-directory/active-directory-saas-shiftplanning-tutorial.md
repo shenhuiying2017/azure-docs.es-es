@@ -11,36 +11,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 6104bd7e22d855c4c8737ef1080bfd445b29eafb
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1477ba08b35a853ef7c26f74a4d9e86b3bf6d850
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>Tutorial: Integración de Azure Active Directory con ShiftPlanning
-El objetivo de este tutorial es mostrar la integración de Azure y ShiftPlanning.  
+El objetivo de este tutorial es mostrar la integración de Azure y ShiftPlanning.
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en ShiftPlanning
+* Una suscripción habilitada para el inicio de sesión único (SSO) en ShiftPlanning
 
 Después de completar este tutorial, los usuarios de Azure AD que ha asignado a ShiftPlanning podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de ShiftPlanning (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para ShiftPlanning
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-shiftplanning"></a>Habilitación de la integración de aplicaciones para ShiftPlanning
+## <a name="enable-the-application-integration-for-shiftplanning"></a>Habilitación de la integración de aplicaciones para ShiftPlanning
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para ShiftPlanning.
 
-### <a name="to-enable-the-application-integration-for-shiftplanning-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para ShiftPlanning:
+**Siga estos pasos con el fin de habilitar la integración de aplicaciones para ShiftPlanning:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
@@ -67,13 +70,16 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en ShiftPlanning con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base&64;.  
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en ShiftPlanning con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
+
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
+**Siga estos pasos para configurar el inicio de sesión único:**
+
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **ShiftPlanning**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configurar inicio de sesión único")
@@ -103,66 +109,59 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
    
     ![Inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Inicio de sesión único")
    
-    1. Seleccione **SAML habilitado**.
-
-    2. Seleccione **Permitir inicio de sesión de contraseña**
-
-    3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ShiftPlanning**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de emisor de SAML**.
-
-    4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ShiftPlanning**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
-
-    5. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+   1. Seleccione **SAML habilitado**.
+   2. Seleccione **Allow Password Login** (Permitir inicio de sesión de contraseña).
+   3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ShiftPlanning**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de emisor de SAML**.
+   4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ShiftPlanning**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
+   5. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
        
-    > [!TIP]
-    > Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
+     >[!TIP]
+     >Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+     > 
+     > 
 
-    6. Abra el certificado codificado en base&64; en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
-
-    7. Haga clic en **Guardar configuración**.
+   6. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
+   7. Haga clic en **Guardar configuración**.
 
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para permitir que los usuarios de Azure AD inicien sesión en ShiftPlanning, deben aprovisionarse en ShiftPlanning.  
+
 En el caso de ShiftPlanning, el aprovisionamiento es una tarea manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice estos pasos:
-1. Inicie sesión en su sitio de la compañía de **ShiftPlanning** como administrador.
+**Para aprovisionar cuentas de usuario, realice estos pasos:**
 
+1. Inicie sesión en su sitio de la compañía de **ShiftPlanning** como administrador.
 2. Haga clic en **Administrador**.
    
     ![Administración](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Administración")
-
 3. Haga clic en **Personal**.
    
     ![Personal](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Personal")
-
 4. En **Acciones**, haga clic en **Agregar empleado**.
    
     ![Agregar empleados](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Agregar empleados")
-
 5. En la sección **Agregar empleados** , lleve a cabo estos pasos:
    
     ![Guardar empleados](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Guardar empleados")
    
-    1. Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre**, **Apellidos** y **Correo electrónico**.
+   1. Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre**, **Apellidos** y **Correo electrónico**.
+   2. Haga clic en **Guardar empleados**.
 
-    2. Haga clic en **Guardar empleados**.
-
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ShiftPlanning ofrecida por ShiftPlanning para aprovisionar cuentas de usuario de AAD.
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ShiftPlanning ofrecida por ShiftPlanning para aprovisionar cuentas de usuario de AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-shiftplanning-perform-the-following-steps"></a>Para asignar usuarios a ShiftPlanning, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a ShiftPlanning, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2. En la página de integración de aplicaciones de **ShiftPlanning**, haga clic en **Asignar usuarios**.
@@ -174,10 +173,5 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
     ![Sí](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Sí")
  
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

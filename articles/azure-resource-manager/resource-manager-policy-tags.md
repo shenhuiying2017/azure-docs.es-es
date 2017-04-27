@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 72d398c529fc7dd5eef450da0e134dcdab534ac5
-ms.openlocfilehash: 375a8df763eb6b4b8f7349e0061ab39c076ebfc6
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -173,13 +174,8 @@ foreach($r in $resources)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para ver ejemplos sobre la creación y asignación de directivas, consulte [Assign and manage policies](resource-manager-policy-create-assign.md) (Asignación y administración de directivas). 
+* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para asignar directivas a través del portal, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). Para asignar directivas a través de la API de REST, PowerShell o la CLI de Azure, consulte [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).
 * Para obtener una introducción a las directivas de recursos, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

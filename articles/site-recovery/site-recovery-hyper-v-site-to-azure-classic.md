@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2b5e2c2d5cc572ba951a61fd1eb78613c43ec453
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -208,9 +208,9 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
      * **Tamaño**: el tamaño de destino de la máquina virtual que conmuta por error.
 
        ![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-   * Establecer la configuración de una máquina virtual adicional en *Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales***nombre_máquina_virtual* > **Configurar**, incluidos:
+   * Establecer la configuración de una máquina virtual adicional en *Elementos protegidos** > **Grupos de protección** > *nombre_grupoProtección* > **Máquinas virtuales** *nombre_máquina_virtual* > **Configurar**, lo que incluye lo siguiente:
 
-     * **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md) para conocer el número de NIC que se admiten.
+     * **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/linux/sizes.md) para conocer el número de NIC que se admiten.
 
        Al modificar el tamaño de una máquina virtual y guardar la configuración, el número del adaptador de red cambiará la próxima vez que abra la página **Configurar** . El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida. Se explica a continuación:
 
