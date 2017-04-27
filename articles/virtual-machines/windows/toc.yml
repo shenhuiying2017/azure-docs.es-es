@@ -13,18 +13,24 @@
     href: quick-create-powershell.md
   - name: "Creación de una máquina virtual: CLI de Azure"
     href: quick-create-cli.md
+- name: "Tutoriales"
+  items:
+  - name: "1 - Creación y administración de una máquina virtual"
+    href: tutorial-manage-vm.md
+  - name: "2 - Creación y administración de discos"
+    href: tutorial-manage-data-disk.md
+  - name: "3 - Automatización de la configuración"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - Equilibrio de carga de máquinas virtuales"
+    href: tutorial-load-balancer.md
+  - name: "5 - Administración de redes"
+    href: tutorial-virtual-network.md
 - name: "Muestras"
   items:
   - name: "PowerShell"
     href: powershell-samples.md
   - name: "CLI de Azure"
     href: cli-samples.md
-- name: "Tutoriales"
-  items:
-  - name: "Creación y administración de una máquina virtual"
-    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Equilibro de carga de máquinas virtuales de alta disponibilidad"
-    href: load-balanced-iis-tutorial.md
 - name: "Conceptos"
   items:
   - name: "Regiones y disponibilidad"
@@ -261,7 +267,7 @@
     - name: "Administración del acceso"
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: "Cifrado de un disco"
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: "Aplicación de directivas a máquinas virtuales"
       href: policy.md
     - name: "Configuración del Almacén de claves"

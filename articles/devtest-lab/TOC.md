@@ -1,7 +1,6 @@
 # Información general
-## [¿Qué es DevTest Labs?](devtest-lab-overview.md)
-## [¿Por qué usar DevTest Labs?](devtest-lab-why.md)
-## [Conceptos de DevTest Labs](devtest-lab-concepts.md)
+## [Acerca de Azure DevTest Labs](devtest-lab-overview.md)
+## [Conceptos](devtest-lab-concepts.md)
 
 # Introducción
 ## [Creación de laboratorio](devtest-lab-create-lab.md)

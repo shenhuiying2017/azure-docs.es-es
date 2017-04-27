@@ -1,6 +1,8 @@
 # Información general
 ## [¿Qué es Azure DNS?](dns-overview.md)
 ## [Registros y zonas DNS](dns-zones-records.md)
+## [Delegación de DNS con el DNS de Azure](dns-domain-delegation.md)
+## [Preguntas más frecuentes sobre DNS](dns-faq.md)
 
 # Introducción
 
@@ -10,7 +12,7 @@
 ### [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
 ### [CLI de Azure 2.0](dns-getstarted-cli.md)
 
-## [Delegación del dominio en DNS de Azure](dns-domain-delegation.md)
+## [Delegación del dominio en DNS de Azure](dns-delegate-domain-azure-dns.md)
 ## [Creación de registros DNS personalizados para una aplicación web](dns-web-sites-custom-domain.md)
 
 # Procedimientos

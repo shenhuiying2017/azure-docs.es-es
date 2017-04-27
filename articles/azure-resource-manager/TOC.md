@@ -10,6 +10,12 @@
 ## [Creación de su primera plantilla](resource-manager-create-first-template.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Muestras
+## PowerShell
+### [Implementación de la plantilla](resource-manager-samples-powershell-deploy.md)
+## CLI de Azure
+### [Implementación de la plantilla](resource-manager-samples-cli-deploy.md)
+
 # Procedimientos
 ## Crear plantillas
 ### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Compartición del estado entre plantillas vinculadas](best-practices-resource-manager-state.md)
 ### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
 ## Implementación
-### [PowerShell](resource-group-template-deploy.md)
-### [CLI de Azure](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Implementación de la plantilla](resource-group-template-deploy.md)
+#### [Implementación de una plantilla privada con el token de SAS](resource-manager-powershell-sas-token.md)
+### CLI de Azure
+#### [Implementación de la plantilla](resource-group-template-deploy-cli.md)
+#### [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API DE REST](resource-group-template-deploy-rest.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

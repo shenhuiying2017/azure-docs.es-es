@@ -12,26 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 02/27/2017
+ms.date: 04/03/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 0563f6c3aa4508ef2acac6b17dc85ecbf11bb154
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
 
-Con la escala automática, el servicio Lote de Azure puede agregar o quitar de forma dinámica nodos de ejecución en un grupo en función de los parámetros definidos. Con esto puede ahorrar tiempo y dinero ajustando automáticamente la cantidad de potencia de procesamiento utilizada por la aplicación: agregar nodos a medida que las demandas de la tarea del trabajo aumentan y quitarlos cuando disminuyen.
+Con la escala automática, el servicio Lote de Azure puede agregar o quitar de forma dinámica nodos de ejecución en un grupo en función de los parámetros definidos. El ajuste automático del número de nodos de ejecución que usa la aplicación puede suponer un ahorro de tiempo y dinero. El escalado automático permite agregar nodos a medida que aumente la demanda de tareas del trabajo y quitarlos cuando reduzca.
 
-Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una fórmula de *escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET para Batch](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
+Habilite el escalado automático en un grupo de nodos de ejecución asociándolo a una *fórmula de escalado automático* que se puede definir. Por ejemplo, en Batch .NET, puede usar el método [PoolOperations.EnableAutoScale][net_enableautoscale]. El servicio Batch usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Batch responde a los datos de métricas de servicio que se recolectan periódicamente. Con estos datos de métricas, Batch ajusta el número de nodos de ejecución del grupo en función de la fórmula, en un intervalo configurable.
 
-Puede habilitar el escalado automático al crear un grupo o bien en un grupo existente. También puede cambiar una fórmula existente en un grupo con el "escalado automático" habilitado. Lote proporciona la capacidad de evaluar las fórmulas antes de asignarlas a grupos y de supervisar el estado de las ejecuciones de escalado automático.
+Puede habilitar el escalado automático al crear un grupo o bien en un grupo existente. También puede cambiar una fórmula existente en un grupo con el "escalado automático" habilitado. Batch le permite evaluar las fórmulas antes de asignarlas a grupos y supervisar el estado de las ejecuciones de escalado automático.
+
+En este artículo se describen las distintas entidades que conforman las fórmulas de escalado automático, por ejemplo, variables, operadores, operaciones y funciones. En Lote, encontrará información acerca de cómo obtener varias métricas de recursos y tareas de proceso. Puede usar estas métricas para ajustar de forma inteligente el número de nodos del grupo en función del estado de tareas y el uso de recursos. Después, aprenderá a construir una fórmula y a habilitar el escalado automático en un grupo mediante API de .NET y de REST de Lote. Por último, terminaremos con algunas fórmulas de ejemplo.
+
+> [!IMPORTANT]
+> Cada cuenta de Lote de Azure se limita a un número máximo de núcleos (y por lo tanto de nodos de ejecución) que pueden utilizarse para su procesamiento. El servicio Batch solo crea nodos hasta ese límite de núcleos. Puede que el servicio Batch no alcance el número de nodos de ejecución que se especifiquen mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
+> 
+> 
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
-Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] (REST de Batch) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET para Batch) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula][rest_autoscaleformula] de un grupo (REST de Batch) o a una propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -46,24 +53,29 @@ $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Con estas instrucciones en la fórmula, el objetivo es llegar a un número de nodos de proceso al que debe escalar el grupo: el número de **destino** de **nodos dedicados**. Este número puede ser mayor, menor o igual que el número actual de nodos del grupo. Lote evalúa la fórmula de escalado automático del grupo según un intervalo específico (a continuación se describen los[intervalos de escalado automático](#automatic-scaling-interval) ). Después, ajustará el número de destino de nodos del grupo al número que la fórmula de escalado automático especifica en el momento de la evaluación.
+Incluya estas instrucciones en la fórmula de escalado automático para llegar a un número de nodos de ejecución al que debe escalarse el grupo: el número de **destino** de **nodos dedicados**. Este número puede ser mayor, menor o igual que el número actual de nodos del grupo. Lote evalúa la fórmula de escalado automático del grupo según un intervalo específico (a continuación se describen los[intervalos de escalado automático](#automatic-scaling-interval) ). Batch ajusta el número de destino de nodos del grupo al número que la fórmula de escalado automático especifica en el momento de la evaluación.
 
-A modo de ejemplo rápido, esta fórmula de escalado automático de dos líneas especifica que el número de nodos se debe ajustar según el número de tareas activas, hasta un máximo de 10 nodos de ejecución:
+### <a name="sample-autoscale-formula"></a>Fórmula de escalado automático de muestras
+
+Aquí puede ver un ejemplo de fórmula de escalado automático que se puede ajustar para trabajar en la mayoría de escenarios. Las variables `startingNumberOfVMs` y `maxNumberofVMs` de la fórmula de ejemplo se pueden ajustar a sus necesidades.
 
 ```
-$averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 15));
-$TargetDedicated = min(10, $averageActiveTaskCount);
+startingNumberOfVMs = 1;
+maxNumberofVMs = 25;
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+$TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
-Las siguientes secciones de este artículo tratan de las distintas entidades que conformarán las fórmulas de escalado automático, incluidos variables, operadores, operaciones y funciones. En Lote, encontrará información acerca de cómo obtener varias métricas de recursos y tareas de proceso. Puede usar estas métricas para ajustar de forma inteligente el número de nodos del grupo en función del estado de tareas y el uso de recursos. Después, aprenderá a construir una fórmula y a habilitar el escalado automático en un grupo mediante API de .NET y de REST de Lote. Por último, terminaremos con algunas fórmulas de ejemplo.
+Con esta fórmula de escalado automático, el grupo se crea inicialmente con una sola máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución o en cola. La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. La fórmula garantiza que TargetDedicated nunca supera las 25 máquinas virtuales. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres una a una y la fórmula de escalado automático reduce el grupo.
 
-> [!IMPORTANT]
-> Cada cuenta de Lote de Azure se limita a un número máximo de núcleos (y por lo tanto de nodos de ejecución) que pueden utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite de núcleos. Por lo tanto, podría no alcanzar el número de nodos de ejecución que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
-> 
-> 
+## <a name="variables"></a>variables
+En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio se integran en el servicio de Lote: algunas son de lectura y escritura y otras son de solo lectura. Las variables definidas por el usuario son las que *usted* define. En la fórmula de ejemplo que se muestra en la sección anterior, `$TargetDedicated` y `$PendingTasks` son variables definidas por el servicio. Las variables `startingNumberOfVMs` y `maxNumberofVMs` son variables definidas por el usuario.
 
-## <a name="variables"></a>Variables
-En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio se integran en el servicio de Lote: algunas son de lectura y escritura y otras son de solo lectura. Las variables definidas por el usuario son las que *usted* define. En la fórmula de ejemplo de dos líneas anterior, `$TargetDedicated` es una variable definida por el servicio, mientras que `$averageActiveTaskCount` está definida por el usuario.
+> [!NOTE]
+> Las variables definidas por el servicio van siempre precedidas de un símbolo de dólar ($). En el caso de las variables definidas por el usuario, el símbolo de dólar es opcional.
+>
+>
 
 Las tablas siguientes muestran las variables de lectura y escritura y de solo lectura definidas por el servicio Lote.
 
@@ -71,7 +83,7 @@ Puede **obtener** y **establecer** los valores de estas variables definidas por 
 
 | Variables definidas por el servicio de solo escritura | Description |
 | --- | --- |
-| $TargetDedicated |Número **objetivo** de **nodos de ejecución dedicados** para el grupo. Es el número de nodos de ejecución al que se debe escalar el grupo. Es un número "objetivo" porque es posible que un grupo no alcance el número objetivo de nodos. Esto puede ocurrir si el número de nodos de destino se modifica de nuevo mediante una evaluación posterior de escalado automático antes de que el grupo haya alcanzado el objetivo inicial. También puede ocurrir si se alcanza una cuota de nodos o núcleos de la cuenta de Lote antes de llegar al número de nodos de destino. |
+| $TargetDedicated |El número de **destino** de **nodos de ejecución dedicados** del grupo corresponde al número de nodos de ejecución al que debe escalarse el grupo. Es un número "objetivo" porque es posible que un grupo no alcance el número objetivo de nodos. Por ejemplo, puede que el grupo no alcance al número de destino de nodos si el número de nodos se modifica de nuevo mediante una evaluación de escalado automático posterior antes de que el grupo llegue al valor de destino inicial. También puede ocurrir si se alcanza una cuota de nodos o núcleos de la cuenta de Lote antes de llegar al número de nodos de destino. |
 | $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: finaliza las tareas de inmediato y las vuelve a poner en la cola de trabajos para que se vuelvan a programar.<li>**terminate**: finaliza las tareas de inmediato y las quitar de la cola de trabajos.<li>**taskcompletion**: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo.<li>**retaineddata**: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
 
 Puede **obtener** el valor de estas variables definidas por el servicio para realizar ajustes basados en las métricas del servicio Batch:
@@ -97,7 +109,7 @@ Puede **obtener** el valor de estas variables definidas por el servicio para rea
 | $CurrentDedicated |El número actual de dedicado de nodos de ejecución dedicados. |
 
 > [!TIP]
-> Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de ejemplo](#getsampledata) más adelante para más información.
+> Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Para obtener más información, vea más adelante la sección [Obtención de datos de muestra](#getsampledata).
 > 
 > 
 
@@ -223,7 +235,7 @@ Para ello, utilice `GetSample(interval look-back start, interval look-back end)`
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Cuando Lote evalúe la línea anterior, devolverá un intervalo de muestras como un vector de valores. Por ejemplo:
+Cuando Batch evalúe la línea anterior, devolverá un intervalo de muestras como vector de valores. Por ejemplo:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -231,16 +243,16 @@ $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 
 Una vez recopilado el vector de ejemplos, puede usar funciones como `min()`, `max()` y `avg()` para derivar valores significativos del intervalo recopilado.
 
-Para mayor seguridad, puede forzar el *error* en una evaluación de fórmula si menos de un determinado porcentaje de ejemplos está disponible para un período de tiempo determinado. Al forzar el error en una evaluación de fórmula, indica a Lote que deje de seguir evaluando la fórmula si el porcentaje de muestras especificado no está disponible, y no se realizará ningún cambio en el tamaño del grupo. Para especificar un porcentaje necesario de ejemplos para que la evaluación se realice correctamente, especifíquelo como el tercer parámetro de `GetSample()`. En este caso, se especifica un requisito del 75 por ciento de muestras:
+Para mayor seguridad, puede forzar el *error* en una evaluación de fórmula si menos de un determinado porcentaje de ejemplos está disponible para un período de tiempo determinado. Al forzar el error en una evaluación de fórmula, indica a Batch que deje de evaluar la fórmula si el porcentaje de muestras especificado no está disponible. En este caso, no se efectúa ningún cambio en el tamaño del grupo. Para especificar un porcentaje necesario de ejemplos para que la evaluación se realice correctamente, especifíquelo como el tercer parámetro de `GetSample()`. En este caso, se especifica un requisito del 75 por ciento de muestras:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-También es importante, debido al retraso mencionado anteriormente en la disponibilidad de las muestras, especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Esto es porque los ejemplos tardan aproximadamente un minuto en propagarse por el sistema, por lo que los ejemplos del intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no suelen estar disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
+Dado que puede haber un retraso en la disponibilidad de muestras, es importante especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Las muestras tardan aproximadamente un minuto en propagarse por el sistema, por lo que puede que las muestras del rango `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no estén disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
 
 > [!IMPORTANT]
-> Es **muy recomendable** que **evite confiar*solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame el ejemplo más reciente que tengas, independientemente de cuánto tiempo hace que lo tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> Es **muy recomendable** que **evite confiar *solo* en**  en las fórmulas de escalado automático`GetSample(1)`. Esto se debe a que `GetSample(1)` dice básicamente al servicio Batch "dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
 > 
 > 
 
