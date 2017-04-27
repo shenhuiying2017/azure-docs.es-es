@@ -119,7 +119,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
                     .UseContentRoot(Directory.GetCurrentDirectory())
-                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                     .UseStartup<Startup>()
                     .UseUrls(url)
                     .Build()))
@@ -355,3 +355,4 @@ Los servicios con estado a los que solo se llama desde dentro del clúster deben
 [2]:./media/service-fabric-reliable-services-communication-aspnetcore/integration.png
 [3]:./media/service-fabric-reliable-services-communication-aspnetcore/httpsys.png
 [4]:./media/service-fabric-reliable-services-communication-aspnetcore/kestrel.png
+

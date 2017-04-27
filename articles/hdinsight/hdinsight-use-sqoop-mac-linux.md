@@ -186,7 +186,7 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 * [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o Azure Blob Storage.
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

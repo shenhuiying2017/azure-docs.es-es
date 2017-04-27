@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 04/26/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
@@ -87,19 +87,19 @@ En el momento en que inicia sesión en la Galería, se convierte en un miembro d
     ![Escribir el título y las etiquetas para su publicación](media/machine-learning-gallery-experiments/experiment-description.png)
 5. En el cuadro **RESUMEN**, escriba un resumen del experimento. Describa brevemente el problema que resuelve el experimento y cómo se ha abordado.
 6. En el cuadro **DESCRIPCIÓN DETALLADA**, describa los pasos de cada parte del experimento. Algunos temas útiles para incluir son:
-    * Captura de pantalla del gráfico del experimento
-    * Orígenes de datos y explicación
-    * Procesamiento de datos
-    * Ingeniería de características
-    * Descripción del modelo
-    * Resultados y evaluación del rendimiento del modelo.
+   * Captura de pantalla del gráfico del experimento
+   * Orígenes de datos y explicación
+   * Procesamiento de datos
+   * Ingeniería de características
+   * Descripción del modelo
+   * Resultados y evaluación del rendimiento del modelo.
 
-    Puede usar Markdown para aplicar formato a la descripción. Para ver el aspecto de las entradas de la página de descripción del experimento una vez publicado este, seleccione **Vista previa**.
+   Puede usar Markdown para aplicar formato a la descripción. Para ver el aspecto de las entradas de la página de descripción del experimento una vez publicado este, seleccione **Vista previa**.
 
-    ![Seleccionar "Vista previa" para ver el aspecto que tendrá el texto](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+   ![Seleccionar "Vista previa" para ver el aspecto que tendrá el texto](media/machine-learning-gallery-experiments/preview-markdown-text.png)
 
-    > [!TIP]
-    > Los cuadros de texto proporcionados para la edición y la vista previa de Markdown son pequeños. Se recomienda escribir la documentación completa del experimento en un editor de Markdown, copiarla y luego pegarla en el cuadro de texto de la Galería. Después de publicar el experimento, puede realizar cualquier corrección mediante herramientas estándar basadas en web que usen Markdown para la edición y la vista previa.
+   > [!TIP]
+   > Los cuadros de texto proporcionados para la edición y la vista previa de Markdown son pequeños. Se recomienda escribir la documentación completa del experimento en un editor de Markdown, copiarla y luego pegarla en el cuadro de texto de la Galería. Después de publicar el experimento, puede realizar cualquier corrección mediante herramientas estándar basadas en web que usen Markdown para la edición y la vista previa.
 
 7. En la página **Selección de imagen**, elija una imagen en miniatura para el experimento. La imagen en miniatura aparece en la parte superior de la página de detalles y en el icono del experimento. Los demás usuarios verán la imagen en miniatura cuando examinen la Galería. Puede cargar una imagen de su equipo o seleccionar una imagen de archivo de la Galería.
     </br>

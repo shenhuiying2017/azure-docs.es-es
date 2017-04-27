@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: a967a522ebbdce57fa5b4f938369ddd88253701c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -55,10 +56,5 @@ Si necesita agregar Baltimore CyberTrust Root, tiene el número de serie 02:00:0
 Para obtener más información sobre los certificados raíz que usa Azure, consulte [Azure Root Certificate Migration (Migración de certificados raíz de Azure)](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
 Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
