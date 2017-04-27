@@ -48,7 +48,7 @@ Ambos certificados se pueden regenerar; para ello, haga clic en **Restablecer da
 
     ![Paso 2 de exportación de un Emulador de DocumentDB local](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-export-step-2.png)
 
-3. Haga clic en **Copiar en archivo... **.
+3. Haga clic en **Copiar en archivo...**.
 
     ![Paso 3 de exportación de un Emulador de DocumentDB local](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-export-step-3.png)
 
@@ -60,7 +60,7 @@ Ambos certificados se pueden regenerar; para ello, haga clic en **Restablecer da
 
     ![Paso 5 de exportación de un Emulador de DocumentDB local](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-export-step-5.png)
 
-6. Haga clic en **X.509 codificado base&64; (. CER)** y luego en **Siguiente**.
+6. Haga clic en **X.509 codificado base 64 (. CER)** y luego en **Siguiente**.
 
     ![Paso 6 de exportación de un Emulador de DocumentDB local](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-export-step-6.png)
 
