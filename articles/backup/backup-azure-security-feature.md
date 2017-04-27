@@ -15,105 +15,101 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: pajosh
 translationtype: Human Translation
-ms.sourcegitcommit: 5c49de40401235d38142efd60d22b0591752fe75
-ms.openlocfilehash: f17802bf455b82f0b5239356c35024ecde7f1f35
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 41a7024b51bc7a3c9cf34dba97255ea61fd27924
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="security-features-for-protecting-hybrid-backups-using-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
-Cada vez más clientes tienen problemas de seguridad como malware, ransomware, intrusión etc. Estos problemas de seguridad provocan la pérdida de datos y el costo por infracción de seguridad no para de aumentar. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. Este artículo trata sobre cómo habilitar y sacar provecho de estas características mediante el agente de Microsoft Azure Recovery Services y el servidor de copia de seguridad de Microsoft Azure. Estas características se han basado en tres pilares de seguridad:
+# <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
+Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. En este artículo se habla de cómo habilitar y usar estas características mediante un agente de Azure Recovery Services y Azure Backup Server. Estas características son:
 
-1. **Prevención**: se agrega una capa adicional de autenticación cada vez que se realiza una operación crítica, como cambiar la frase de contraseña. Esta validación se realiza para asegurarse de que dichas operaciones solo pueden realizarlas usuarios que tengan credenciales de Azure válidas.
-2. **Alerta**: se envía una notificación por correo electrónico al administrador de suscripciones cada vez que se realiza una operación crítica, como eliminar datos de copia de seguridad. Este correo electrónico garantiza que el usuario recibe una notificación oportunamente acerca de dichas acciones.
-3. **Recuperación**: los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos, aunque se produzca un ataque. Además, se mantiene el mayor número de puntos de recuperación mínimos para protegerse contra datos dañados.
+- **Prevención**. Se agrega una capa adicional de autenticación cada vez que se realiza una operación crítica, como cambiar la frase de contraseña. Esta validación se realiza para asegurarse de que dichas operaciones solo pueden realizarlas usuarios que tengan credenciales de Azure válidas.
+- **Alertas**. Se envía una notificación por correo electrónico al administrador de suscripciones cada vez que se realiza una operación crítica, como eliminar datos de copia de seguridad. Este correo electrónico garantiza que el usuario reciba una notificación rápidamente acerca de dichas acciones.
+- **Recuperación**. Los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de la eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos, aunque se produzca un ataque. Además, se mantiene un mayor número de puntos de recuperación mínimos para protegerse contra datos dañados.
 
 > [!NOTE]
-> Las características de seguridad solo se deben habilitar si se usa: <br/>
-> * **Agente de MAB**: la versión mínima del agente es la 2.0.9052. Cuando haya habilitado estas características, debe realizar la actualización a esta versión del agente para realizar operaciones críticas, como cambiar la frase de contraseña y detener la copia de seguridad con eliminación de datos. <br/>
-> * **Servidor de copia de seguridad de Azure**: la versión mínima del agente de MAB es la 2.0.9052 con la actualización 1 del servidor de copia de seguridad de Azure. <br/>
-> * **DPM**: la versión mínima del agente de MAB es la 2.0.9052 con DPM 2012 R2 UR12 o DPM 2016 UR2. <br/>
-> * **Copia de seguridad de VM de IaaS**: no habilite estas características en la copia de seguridad de VM de IaaS. Estas características no están aún disponibles para la copia de seguridad de VM de IaaS, por lo que su habilitación no afectará a la copia de seguridad de VM de IaaS.
-> * Estas características solo están disponibles para el almacén de Recovery Services.
-> * Todos los almacenes de Recovery Services recién creados tienen las siguientes características habilitadas de forma predeterminada. En el caso de los almacenes de Recovery Services existentes, los usuarios necesitan habilitar estas características mediante los pasos mencionados en la sección siguiente.
-> * Una vez habilitadas, obtendrá las características de seguridad de todos los equipos del agente de Azure Recovery Services (MARS) y los servidores DPM registrados en el almacén. <br/>
-> * La habilitación a esta configuración es una acción única, por lo que una vez que se habiliten estas características no será posible deshabilitarlas. <br/>
->
+> Las características de seguridad no se deben habilitar si usa la copia de seguridad de VM de infraestructura como servicio (IaaS). Estas características no están aún disponibles para la copia de seguridad de VM de IaaS, por lo que su habilitación no tendrá ningún impacto. Las características de seguridad solo se deben habilitar si se usa: <br/>
+>  * **Agente de Azure Backup**. La versión mínima del agente es la 2.0.9052. Cuando haya habilitado estas características, debe realizar la actualización a esta versión del agente para realizar operaciones críticas. <br/>
+>  * **Azure Backup Server**. La versión mínima del agente de Azure Backup es la 2.0.9052 con Update 1 de Azure Backup Server. <br/>
+>  * **System Center Data Protection Manager**. La versión mínima del agente de Azure Backup es la 2.0.9052 con Data Protection Manager 2012 R2 UR12 o Data Protection Manager 2016 UR2. <br/> 
+
+
+> [!NOTE]
+> Estas características solo están disponibles para el almacén de Recovery Services. Todos los almacenes de Recovery Services recién creados tienen las siguientes características habilitadas de forma predeterminada. En el caso de los almacenes de Recovery Services existentes, los usuarios habilitan estas características mediante los pasos mencionados en la sección siguiente. Una vez habilitadas las características, se aplican a todos los equipos agente de Recovery Services, instancias de Azure Backup Server y servidores Data Protection Manager registrados con el almacén. La habilitación a esta configuración es una acción única, por lo que una vez que se habiliten estas características no será posible deshabilitarlas.
 >
 
-## <a name="enabling-security-features"></a>Habilitación de características de seguridad
-Los usuarios que crean un almacén de Recovery Services podrán hacer uso de todas las características de seguridad. En el caso de un almacén de Recovery Services existente, se deben usar los pasos siguientes para habilitar estas características:
+## <a name="enable-security-features"></a>Habilitar características de seguridad
+Si va a crear un almacén de Recovery Services, puede usar todas las características de seguridad. Si trabaja con un almacén existente, habilite las características de seguridad siguiendo estos pasos:
 
-1. Inicie sesión en Azure Portal con las credenciales de Azure
-2. Escriba Recovery Services en el menú del concentrador para navegar a la lista de Recovery Services.
+1. Inicie sesión en Azure Portal con las credenciales de Azure.
+2. Seleccione **Examinar** y escriba **Recovery Services**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
+    ![Captura de pantalla de opción Examinar de Azure Portal](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    Aparece la lista de almacenes de Servicios de recuperación. Seleccione un almacén en ella.
+    Aparece la lista de almacenes de Servicios de recuperación. Seleccione un almacén en ella. Se abre el panel del almacén seleccionado.
+3. En la lista de elementos que aparece en el almacén, en **Configuración**, haga clic en **Propiedades**.
 
-    Se abre el panel del almacén seleccionado.
-3. En la lista de elementos que aparece en el almacén, haga clic en **Propiedades** en **Configuración**.
+    ![Captura de pantalla de opciones del almacén de Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)
+4. En **Configuración de seguridad**, haga clic en **Actualizar**.
 
-    ![Abrir las propiedades del almacén](./media/backup-azure-security-feature/vault-list-properties.png)
-4. Haga clic en **Actualizar** en **Configuración de seguridad**.
+    ![Captura de pantalla de propiedades del almacén de Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
-    ![Abrir configuración de seguridad](./media/backup-azure-security-feature/security-settings-update.png)
+    El vínculo de actualización abre la hoja **Configuración de seguridad**, que proporciona un resumen de las características y permite habilitarlas.
+5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar si ha habilitado [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
 
-    El vínculo de actualización abre la hoja Configuración de seguridad, donde puede habilitar estas características y ver el resumen de la característica.
-5. Seleccione un valor en el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) para confirmar si ha habilitado [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
+   Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
+6. Para guardar la configuración de seguridad, seleccione **Habilitar** y haga clic en **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) del paso anterior.
 
-   Como parte de las características de seguridad, cuando se realizan operaciones críticas en Azure Backup, es preciso escribir el PIN de seguridad que se encuentra en Azure Portal. La habilitación de Azure Multi-Factor Authentication agrega una capa de seguridad, lo que garantiza que solo los usuarios autorizados con credenciales válidas de Azure y autenticados desde un segundo dispositivos pueden acceder a Azure Portal y realizar dichas operaciones críticas.
-6. Utilice el botón de alternancia para realizar la **habilitación** y haga clic en el botón **Guardar** de la parte superior para guardar la configuración de seguridad, como se muestra en la ilustración. **Habilitar** solo se puede seleccionar después de seleccionar un valor en la lista desplegable "Have you configured Azure Multi-Factor Authentication?" (¿Ha configurado Azure Multi-Factor Authentication?).
+    ![Captura de pantalla de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
-    ![Habilitación de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
+## <a name="recover-deleted-backup-data"></a>Recuperar datos de copia de seguridad eliminados
+Backup conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de **detener copia de seguridad con la eliminación de datos de copia de seguridad**. Para restaurar estos datos dentro del período de 14 días, siga los pasos que se muestran a continuación, según lo que use:
 
-## <a name="recovering-deleted-backup-data"></a>Recuperación de datos de copia de seguridad eliminados
-Como medida de seguridad, Azure Backup conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de detener copia de seguridad con la eliminación de datos de copia de seguridad. Para restaurar estos datos en el período de 14 días, siga estos pasos:
+En el caso de los usuarios del **agente de Azure Recovery Services**:
 
-Para los usuarios del **agente de Microsoft Recovery Services (MARS)**:
-
-1. Si la máquina en la que se realizaron las copias de seguridad aún está disponible, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) (Recuperar los datos en el mismo equipo) en MARS para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) (Recuperar los datos en otro equipo) para usar otro equipo MARS para obtener estos datos.
+1. Si el equipo en el que se realizaron las copias de seguridad aún está disponible, use [Recuperar los datos en la misma máquina](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) en Azure Recovery Services para realizar la recuperación desde todos los puntos de recuperación antiguos.
+2. Si este equipo no está disponible, utilice [Recuperar en una máquina alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) para usar otro equipo de Azure Recovery Services para obtener estos datos.
 
 Para los usuarios del **servidor de copia de seguridad de Azure**:
 
-1. Si el servidor en que se realizan las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica Recuperar datos para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) (Recuperar datos de otro servidor de copia de seguridad de Azure) para usar otro servidor de copia de seguridad de Azure para obtener estos datos.
+1. Si el servidor en el que se realizaron las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica **Recuperar datos** para realizar la recuperación desde todos los puntos de recuperación antiguos.
+2. Si este servidor no está disponible, utilice [Recuperación de datos de otro servidor de copia de seguridad de Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otra instancia de Azure Backup Server para obtener estos datos.
 
-Para los usuarios de **Data Protection Manager (DPM)**:
+En el caso de los usuarios de **Data Protection Manager**:
 
-1. Si el servidor en que se realizan las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica Recuperar datos para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si el equipo que se ha mencionado anteriormente no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otro servidor DPM para obtener estos datos.
+1. Si el servidor en el que se realizaron las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica **Recuperar datos** para realizar la recuperación desde todos los puntos de recuperación antiguos.
+2. Si este servidor no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otro servidor Data Protection Manager para obtener estos datos.
 
-## <a name="preventing-attacks"></a>Prevención de ataques
-Como parte de esta característica, se han agregado comprobaciones para asegurarse de que los usuarios válidos son los únicos que pueden realizar varias operaciones.
+## <a name="prevent-attacks"></a>Prevenir ataques
+Se han agregado comprobaciones para asegurarse de que los usuarios válidos son los únicos que pueden realizar varias operaciones. Entre estas se incluyen la adición de una capa de autenticación adicional y el mantenimiento de una duración de retención mínima con fines de recuperación.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autenticación para realizar operaciones críticas
-Como parte de la adición de una capa adicional de autenticación para las operaciones críticas, se le solicita que escriba el PIN de seguridad al realizar las operaciones Detener la protección con eliminación de datos y Cambio de la frase de contraseña.
+Como parte de la adición de una capa de autenticación adicional para las operaciones críticas, se le solicita que escriba un PIN se seguridad al realizar las operaciones **Detener la protección con eliminación de datos** y **Cambio de la frase de contraseña**.
 
-Para recibir el PIN de seguridad, siga estos pasos:
+Para recibir este PIN:
 
-1. Inicie sesión en Azure Portal.
-2. Navegue hasta el almacén del servicio de recuperación > Configuración > Propiedades.
-3. Haga clic en **Generar** en PIN de seguridad. La generación del vínculo abre una hoja, que contiene el PIN de seguridad que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services.
-    Este PIN solo es válido durante 5 minutos y se genera automáticamente después de ese período.
+1. Inicie sesión en el Portal de Azure.
+2. Vaya al **almacén de Recovery Services** > **Configuración** > **Propiedades**.
+3. En **PIN de seguridad**, haga clic en **Generar**. Se abrirá una hoja que contiene el PIN que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services.
+    Este PIN solo es válido durante cinco minutos y se genera automáticamente después de ese período.
 
-### <a name="maintaining-minimum-retention-range"></a>Mantenimiento del intervalo de retención mínimo
+### <a name="maintain-a-minimum-retention-range"></a>Mantener una duración de retención mínima
 Para asegurarse de que siempre hay un número válido de puntos de recuperación disponibles, se han agregado las siguientes comprobaciones:
 
-1. Para la retención diaria, se deben realizar un mínimo de **siete** días de retención
-2. Para la retención semanal, se deben realizar un mínimo de **cuatro** semanas de retención
-3. Para la retención mensual, se deben realizar un mínimo de **tres** meses de retención
-4. Para la retención anual, se debe realizar un mínimo de **un** año de retención
+- Para la retención diaria, se deben realizar un mínimo de **siete** días de retención.
+- Para la retención semanal, se deben realizar un mínimo de **cuatro** semanas de retención.
+- Para la retención mensual, se deben realizar un mínimo de **tres** meses de retención.
+- Para la retención anual, se debe realizar un mínimo de **un** año de retención.
 
 ## <a name="notifications-for-critical-operations"></a>Notificaciones de operaciones críticas
-Cada vez que se realizan algunas operaciones críticas, se envía una notificación por correo electrónico al administrador de suscripciones con detalles sobre la operación. Si desea configurar los identificadores de correo electrónico adicionales para recibir notificaciones por correo electrónico, puede usar Azure Portal para configurarlos.
+Normalmente, al realizarse una operación crítica, se envía una notificación por correo electrónico al administrador de suscripciones con detalles sobre la operación. Puede configurar destinatarios de correo electrónico adicionales para estas notificaciones con Azure Portal.
 
-Las características de seguridad que se mencionan en este artículo proporcionan mecanismos de defensa contra ataques dirigidos impide que los atacantes toquen las copias de seguridad. Y lo que es más importante, estas características proporcionan la capacidad de recuperar datos si se produce un ataque.
+Las características de seguridad que se mencionan en este artículo proporcionan mecanismos de defensa contra ataques dirigidos. Lo que es más importante, en caso de producirse un ataque, es que estas características permiten recuperar los datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características
-* [Descargue la versión más reciente del agente de Azure Recovery Services](http://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques
-* [Descargue la versión más reciente del servidor de copia de seguridad de Azure](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques
-* [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques
+* [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características.
+* [Descargue la versión más reciente del agente de Azure Recovery Services](http://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques.
+* [Descargue la versión más reciente de Azure Backup Server](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
+* [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
 
