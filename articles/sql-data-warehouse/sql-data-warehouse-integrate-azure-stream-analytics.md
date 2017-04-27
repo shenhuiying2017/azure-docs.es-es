@@ -12,21 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d7faede5df839c699f562b3aa21b8bb9836a3b
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1c328ec609cc27a42fb6b30897d7f0b466134e7
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Uso de Análisis de transmisiones de Azure con Almacenamiento de datos SQL
-Análisis de transmisiones de Azure es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para aprender los conceptos básicos, lea la [Introducción al Análisis de transmisiones de Azure][Introducción al Análisis de transmisiones de Azure]. Después puede aprender a crear una solución de extremo a extremo siguiendo el tutorial de [Introducción al uso de Azure Stream Analytics][Introducción al uso de Azure Stream Analytics].
+Análisis de transmisiones de Azure es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para aprender los conceptos básicos, lea la [introducción a Azure Stream Analytics][Introduction to Azure Stream Analytics]. Después puede aprender a crear una solución de un extremo a otro con Stream Analytics siguiendo el tutorial de [introducción al uso de Azure Stream Analytics][Get started using Azure Stream Analytics].
 
 En este artículo, aprenderá a usar la base de datos de Almacenamiento de datos SQL de Azure como receptor de salida para los trabajos de Análisis de transmisiones.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En primer lugar, ejecute los pasos siguientes del tutorial de [Introducción al uso de Azure Stream Analytics][Introducción al uso de Azure Stream Analytics].  
+En primer lugar, ejecute los pasos siguientes del tutorial de [introducción al uso de Azure Stream Analytics][Get started using Azure Stream Analytics].  
 
 1. Creación de una entrada de Centro de eventos
 2. Configuración e inicio de la aplicación del generador de eventos
@@ -70,9 +72,9 @@ Haga clic en el botón de comprobación para agregar esta salida de trabajo y co
 Cuando la conexión a la base de datos se realice correctamente, verá una notificación en la parte inferior del portal. Puede hacer clic en Probar conexión en la parte inferior para probar la conexión con la base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información general sobre la integración, consulte la [Introducción a la integración de SQL Data Warehouse][Introducción a la integración de SQL Data Warehouse].
+Para obtener información general sobre la integración, consulte la [información general de la integración de SQL Data Warehouse][SQL Data Warehouse integration overview].
 
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -83,18 +85,13 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 
-[Introducción al Análisis de transmisiones de Azure]: ../stream-analytics/stream-analytics-introduction.md
-[Introducción al uso de Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
-[información general sobre desarrollo de Almacenamiento de datos SQL]:  ./sql-data-warehouse-overview-develop.md
-[Introducción a la integración de SQL Data Warehouse]:  ./sql-data-warehouse-overview-integrate.md
+[Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
+[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Documentación de Azure Stream Analytics]: http://azure.microsoft.com/documentation/services/stream-analytics/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e557ff1d3faad244d660d9d98bc6d889e59f13c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 54346a8e6f42fc81cd727db03c02f0e935db07d3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -25,26 +27,21 @@ Información general de las consideraciones, prácticas recomendadas y tareas pa
 
 | Categoría | Tarea o consideración | Description |
 |:--- |:--- |:--- |
-| Rendimiento lento |Buscar una consulta de usuario de larga ejecución |[Find long-running queries (Búsqueda de consultas de larga ejecución)][Find long-running queries (Búsqueda de consultas de larga ejecución)] |
-| Simultaneidad |Asignar recursos simultáneos a consultas de usuario |[Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL] |
+| Rendimiento lento |Buscar una consulta de usuario de larga ejecución |[Buscar consultas de ejecución prolongada][Find long-running queries] |
+| Simultaneidad |Asignar recursos simultáneos a consultas de usuario |[Administración de simultaneidad y cargas de trabajo][Concurrency and workload management] |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias de administración, vaya a la [Administración de base datos en Almacenamiento de datos SQL de Azure][Administración de base datos en Almacenamiento de datos SQL de Azure].
+Para obtener más sugerencias de administración, vaya a la [información general sobre la administración][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries (Búsqueda de consultas de larga ejecución)]: sql-data-warehouse-manage-monitor.md
-[Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: sql-data-warehouse-develop-concurrency.md
-[Administración de base datos en Almacenamiento de datos SQL de Azure]: sql-data-warehouse-overview-manage.md
+[Find long-running queries]: sql-data-warehouse-manage-monitor.md
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

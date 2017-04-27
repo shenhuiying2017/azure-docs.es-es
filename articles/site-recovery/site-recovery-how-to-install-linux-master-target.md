@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: ef4324ebf3c24cdf2ebed58e4938f401b66b9c95
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c75a3a2477f113f17aab7a3e1969f15a4ec88a02
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,6 +37,13 @@ Publique cualquier comentario o pregunta que tenga al final del artículo, o bie
 * El destino maestro debe estar en una red que pueda comunicarse con el servidor de procesos y el servidor de configuración.
 * La versión del destino maestro debe ser igual o anterior a las versiones del servidor de procesos y el servidor de configuración. Por ejemplo, si la versión del servidor de configuración es 9.4, la versión del destino maestro puede ser 9.4 o 9.3, pero no 9.5.
 * El destino maestro solo puede ser una máquina virtual de VMware y no un servidor físico.
+* El destino maestro debe seguir la directriz de tamaño especificada a continuación:
+    * RAM: 6 GB o más
+    * Tamaño del disco del sistema operativo: 50 GB o más (para instalar CentOS6.6)
+    * Tamaño adicional de disco para la unidad de retención: 1 TB
+    * Núcleos de CPU: 4 núcleos o más
+
+
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Pasos para implementar el servidor de destino principal
@@ -401,5 +408,6 @@ Ahora ya puede continuar con la [reprotección](site-recovery-how-to-reprotect.m
 
 * Asegúrese de no activar Storage vMotion en ningún componente de administración como, por ejemplo, un destino maestro. Si el destino maestro se mueve después de un reprotección correcta, no se podrán desasociar los discos de máquina virtual (VMDK) y se producirá un error en la conmutación por recuperación.
 * La máquina de destino maestro no debe contener ninguna instantánea en la máquina virtual. Si hay instantáneas, se producirá un error en la conmutación por recuperación.
-* Debido a ciertas configuraciones de NIC personalizadas en algunos clientes, la interfaz de red está deshabilitada durante el inicio, por lo que el agente del destino maestro no se puede inicializar. Asegúrese de que se han definido correctamente las siguientes propiedades. Compruebe estas propiedades en /etc/sysconfig/network-scripts/ifcfg-eth* del archivo de la tarjeta Ethernet.       * BOOTPROTO=dhcp * ONBOOT=yes
+* Debido a ciertas configuraciones de NIC personalizadas en algunos clientes, la interfaz de red está deshabilitada durante el inicio, por lo que el agente del destino maestro no se puede inicializar. Asegúrese de que se han definido correctamente las siguientes propiedades. Compruebe estas propiedades en /etc/sysconfig/network-scripts/ifcfg-eth* del archivo de la tarjeta Ethernet.
+        * BOOTPROTO=dhcp * ONBOOT=yes
 

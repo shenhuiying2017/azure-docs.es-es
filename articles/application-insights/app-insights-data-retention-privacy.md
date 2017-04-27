@@ -1,21 +1,22 @@
 ---
-title: "Retención de datos y almacenamiento en Application Insights"
+title: "Retención y almacenamiento de datos en Azure Application Insights | Microsoft Docs"
 description: "Declaración de directiva de retención y privacidad"
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
-ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d82f27c9a657a97f23b60ade352e4d2a87166233
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -67,7 +68,7 @@ Las principales categorías son:
 * [Excepciones](app-insights-asp-net-exceptions.md) y bloqueos: **volcados de pila**, identificador de compilación y tipo de CPU. 
 * [Dependencias](app-insights-asp-net-dependencies.md) : llamadas a servicios externos como REST, SQL y AJAX. Identificador URI o cadena de conexión, duración, con éxito, comando.
 * [Pruebas de disponibilidad](app-insights-monitor-web-app-availability.md) : duración de prueba y pasos, respuestas.
-* [Registros de seguimiento](app-insights-search-diagnostic-logs.md) y [telemetría personalizada](app-insights-api-custom-events-metrics.md) - **: todo el código que se escribe en los registros o telemetría**.
+* [Registros de seguimiento](app-insights-asp-net-trace-logs.md) y [telemetría personalizada](app-insights-api-custom-events-metrics.md) - **: todo el código que se escribe en los registros o telemetría**.
 
 [Más detalle](#data-sent-by-application-insights).
 
@@ -198,16 +199,7 @@ También puede [desactivar algunos de los datos mediante la edición de Applicat
 ## <a name="credits"></a>Créditos
 Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://www.maxmind.com](http://www.maxmind.com).
 
-## <a name="a-namevideoavideos"></a><a name="video"></a>Vídeos
-#### <a name="introduction"></a>Introducción
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player]
-> 
-> 
 
-#### <a name="get-started"></a>Primeros pasos
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player]
-> 
-> 
 
 <!--Link references-->
 
@@ -221,10 +213,5 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

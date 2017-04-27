@@ -12,18 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 4/10/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 84075b60074b0607c14787db72c8dff8b701a8ea
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de administración de Event Hubs
 
-Las bibliotecas de administración de Event Hubs pueden aprovisionar dinámicamente las entidades y los espacios de nombres de Event Hubs. De esta manera, se pueden tener escenarios complejos de implementación y mensajería, lo que permite determinar mediante programación qué entidades se deben aprovisionar. Estas bibliotecas están actualmente disponibles para .NET.
+Las bibliotecas de administración de Event Hubs pueden aprovisionar dinámicamente las entidades y los espacios de nombres de Event Hubs. Esto posibilita los escenarios complejos de implementación y mensajería, lo que permite determinar mediante programación qué entidades aprovisionar. Estas bibliotecas están actualmente disponibles para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidad admitida
 
@@ -64,7 +65,7 @@ El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
     };
     ```
 
-1. Establezca los parámetros CreateOrUpdate en los valores especificados.
+1. Establezca los parámetros de `CreateOrUpdate` en los valores especificados.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -80,9 +81,4 @@ El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejemplo de administración de .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referencia de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

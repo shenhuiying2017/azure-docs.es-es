@@ -12,17 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/31/2017
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
-ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 965c60ffde55041cc3864d06d81f5590c7ea1c11
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net#  para el Aprendizaje automático de Azure
 ## <a name="overview"></a>Información general
-Net# es un lenguaje desarrollado por Microsoft que se utiliza para definir las arquitecturas de red neuronal. Puede usar Net# en módulos de red neuronal de Microsoft Azure Machine Learning o en la función `rxNeuralNetwork()` en [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+Net# es un lenguaje desarrollado por Microsoft que se utiliza para definir las arquitecturas de red neuronal. Puede usar Net# en módulos de red neuronal de Microsoft Azure Machine Learning.
+
+<!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
+
+, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+
+-->
 
 En este artículo, aprenderá los conceptos básicos necesarios para desarrollar una red neuronal personalizada: 
 
@@ -396,22 +403,17 @@ La definición de la siguiente red está diseñada para reconocer los números y
 * La red tiene una tercera capa oculta, *Hid3*, que está totalmente conectada a la segunda capa oculta, *Conv2*.
 * La capa de salida, *Digit*, está conectada solo a la tercera capa oculta, *Hid3*. La palabra clave **all** indica que la capa de salida está conectada por completo a *Hid3*.
 * La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
-* El número de ponderaciones por kernel es *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300*.
+* El número de ponderaciones por kernel es *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26, o bien 26 * 50 = 1300*.
 * Puede calcular los nodos en cada capa oculta del modo siguiente:
   * **NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
   * **NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
   * **NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
-* El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
-* Dado que **Sharing**[d] es falso solo para *d == 0*, el número de los kernel es ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
+* El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa, [50, 5, 5], de este modo: ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
+* Dado que **Sharing**[d] es False solo para *d == 0*, el número de kernels será ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Agradecimientos
 El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, aprendizaje automático) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para más información, consulte [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Redes neuronales en Azure ML: Introducción a Net#)
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

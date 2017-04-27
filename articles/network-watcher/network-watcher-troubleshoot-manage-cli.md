@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 0dcc02e4f3b1e512a2c9e4b96894324414182af9
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a213c146a9ea1bb6c23bbcbfb6353372f2e4cbfc
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -55,7 +55,7 @@ También puede ejecutar el comando para ver las conexiones de una suscripción.
 azure network vpn-connection list -s subscription
 ```
 
-Cuando tenga el nombre de la cuenta de almacenamiento, puede ejecutar este comando para obtener su identificador de recurso:
+Cuando tenga el nombre de la conexión, puede ejecutar este comando para obtener su identificador de recurso:
 
 ```azurecli
 azure network vpn-connection show -g resourceGroupName -n connectionName
@@ -65,9 +65,23 @@ azure network vpn-connection show -g resourceGroupName -n connectionName
 
 La solución de problemas de recursos devuelve datos sobre el estado de mantenimiento del recurso; también guarda registros en una cuenta de almacenamiento para su revisión. En este paso, se crea una cuenta de almacenamiento; si ya existe una cuenta de almacenamiento, puede usarla.
 
-```azurecli
-azure storage account create -n storageAccountName -l location -g resourceGroupName
-```
+1. Creación de la cuenta de almacenamiento
+
+    ```azurecli
+    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    ```
+
+1. Obtenga las claves de cuenta de almacenamiento.
+
+    ```azurecli
+    azure storage account keys list storageAccountName -g resourcegroupName
+    ```
+
+1. Cree el contenedor.
+
+    ```azurecli
+    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Ejecución de la solución de problemas de recursos Network Watcher
 

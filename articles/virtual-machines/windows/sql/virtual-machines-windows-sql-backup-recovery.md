@@ -16,18 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 0d2310748c65a25ead71f7c0859919b7241d9f6c
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f05ef18fb33942883ba164985721ce2d4f79d3fa
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure
 ## <a name="overview"></a>Información general
-Realizar una copia de seguridad de los datos en bases de datos de SQL Server es una parte importante de la estrategia en la protección frente a la pérdida de datos debido a errores de usuario o de aplicaciones. Esto ocurre igualmente para SQL Server que se ejecuta en Máquinas virtuales de Azure (VM).
+Azure Storage mantiene tres copias de cada disco de máquina virtual de Azure para garantizar la protección contra la pérdida de datos o los daños de los datos físicos. Por lo tanto, a diferencia de lo que ocurriría en un entorno local, no tiene que preocuparse por tales incidencias. Pese a todo, debería seguir creando copias de seguridad de las bases de datos de SQL Server para protegerse frente a errores de aplicaciones o de usuarios (como la inserción de datos incorrectos o la eliminación de tablas) y poder realizar una restauración a un momento dado.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Para SQL Server que se ejecuta en Máquinas virtuales de Azure, puede usar técnicas de copia de seguridad y restauración nativas mediante discos conectados para el destino de los archivos de copia de seguridad. No obstante, hay un límite en el número de discos que se pueden acoplar a una máquina virtual de Azure según el [tamaño de la máquina virtual](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Existe también una sobrecarga de la administración de discos que tener en cuenta.
+Para SQL Server que se ejecuta en Máquinas virtuales de Azure, puede usar técnicas de copia de seguridad y restauración nativas mediante discos conectados para el destino de los archivos de copia de seguridad. No obstante, hay un límite en el número de discos que se pueden acoplar a una máquina virtual de Azure según el [tamaño de la máquina virtual](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Existe también una sobrecarga de la administración de discos que tener en cuenta.
 
 A partir de SQL Server 2014, puede realizar la copia de seguridad o restauración en Almacenamiento de blobs de Microsoft Azure. SQL Server 2016 también proporciona mejoras para esta opción. Además, para archivos de base de datos almacenados en Almacenamiento de blobs de Microsoft Azure, SQL Server 2016 proporciona una opción para copias de seguridad prácticamente instantáneas y para restauraciones rápidas con capturas de pantalla de Azure. En este artículo se proporciona una introducción de estas opciones, y puede encontrar información adicional en [Copia de seguridad y restauración de SQL Server con el servicio de Almacenamiento de blobs de Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx).
 
@@ -87,10 +88,5 @@ Si está planeando la implementación de SQL Server en una máquina virtual de A
 Aunque la copia de seguridad y la restauración pueden usarse para migrar los datos, existen rutas de acceso de migración de datos posiblemente más sencillas para SQL Server en una máquina virtual de Azure. Para obtener una descripción completa de las opciones de migración y recomendaciones, vea [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-windows-migrate-sql.md).
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

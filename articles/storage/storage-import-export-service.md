@@ -12,17 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: b83d44399960137c07494e8fe97ec96fa74df3fb
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos al almacenamiento de blobs
-
 El servicio Azure Import/Export le permite transferir de forma segura grandes cantidades de datos a Azure Blob Storage mediante el envío de unidades de disco duro a un centro de datos de Azure. También puede usar este servicio para transferir datos desde el Almacenamiento de blobs de Azure hasta las unidades de disco duro y enviarlas al sitio local. Este servicio resulta adecuado para aquellas situaciones en la que quiere transferir varios terabytes (TB) de datos a Azure o desde esta plataforma, pero la carga o descarga a través de la red no es factible debido al ancho de banda limitado o a los costos elevados de la red.
 
 El servicio requiere que las unidades de disco duro estén cifradas con BitLocker para la seguridad de los datos. El servicio admite cuentas de almacenamiento clásicas y de Azure Resource Manager (nivel de acceso esporádico y estándar) presentes en todas las regiones de Azure público. Las unidades de disco duro se deben enviar a una de las ubicaciones especificadas más adelante en este artículo.
@@ -73,6 +72,7 @@ Descargue la versión más reciente de [WAImportExport](http://download.microsof
 
 >[!NOTE]
 >**Versión anterior:** puede [descargar la versión WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) de la herramienta y consultar la [guía de uso de WAImportExpot V1](storage-import-export-tool-how-to-v1.md). La versión WAImportExpot V1 de la herramienta proporciona compatibilidad para **preparar discos cuando hay datos escritos previamente en el disco**. También deberá usar la herramienta WAImportExpot V1 si la única clave disponible es una clave SAS.
+
 >
 
 ### <a name="hard-disk-drives"></a>Unidades de disco duro
@@ -104,9 +104,11 @@ Ubicaciones de envío admitidas:
 * Este de EE. UU.
 * Oeste de EE. UU.
 * Este de EE. UU. 2
+* Oeste de EE. UU. 2
 * Central EE. UU.:
 * Centro-Norte de EE. UU
 * Centro-Sur de EE. UU
+* Centro occidental de EE.UU.
 * Europa del Norte
 * Europa occidental
 * Asia oriental
@@ -116,9 +118,18 @@ Ubicaciones de envío admitidas:
 * Oeste de Japón
 * Este de Japón
 * India Central
-* Canadá
-* Gobierno de EE. UU.
-* China
+* Sur de la India
+* Centro de Canadá
+* Este de Canadá
+* Sur de Brasil
+* Corea Central
+* Gobierno de EE. UU. - Virginia
+* Gobierno de EE. UU. - Iowa
+* Departamento de Defensa de EE. UU. Este
+* Departamento de Defensa de EE. UU. Centro
+* Este de China
+* Norte de China
+* Sur del Reino Unido 2
 
 ### <a name="shipping"></a>Envío
 **Envío de unidades al centro de datos:**

@@ -1,6 +1,6 @@
 ---
-title: "Creación de entornos de varias máquinas virtuales con plantillas de Azure Resource Manager | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear entornos de varias máquinas virtuales en Azure DevTest Labs a partir de una plantilla de Azure Resource Manager"
+title: "Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager | Microsoft Docs"
+description: "Obtenga información acerca de cómo crear entornos de varias máquinas virtuales y recursos de PaaS en Azure DevTest Labs a partir de una plantilla de Azure Resource Manager"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
+ms.lasthandoff: 04/07/2017
 
 
 ---
 
-# <a name="create-multi-vm-environments-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales con plantillas de Azure Resource Manager
+# <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
 [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) le permite fácilmente [crear y agregar una máquina virtual a un laboratorio](./devtest-lab-add-vm-with-artifacts.md). Esto funciona bien para crear una máquina virtual a la vez. Sin embargo, si el entorno contiene varias máquinas virtuales, cada una tiene que crearse por separado. Para escenarios como una aplicación web de varios niveles o una granja de SharePoint, se necesita un mecanismo para permitir la creación de varias máquinas virtuales en un solo paso. Mediante el uso de plantillas de Azure Resource Manager, puede definir ahora la infraestructura y la configuración de la solución de Azure e implementar repetidamente varias máquinas virtuales de manera coherente. Esta característica proporciona las siguientes ventajas:
 

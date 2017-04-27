@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bd503bb141b5686f149c5fb46ba069db070d5fae
-ms.openlocfilehash: 99dbb3deefb066b619b839aa709fe5e9b804eb27
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6ca819329de130257ec67e63a53f87cbca9f39b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +31,7 @@ Después de completar este tutorial, los usuarios de Azure AD que ha asignado a 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para NetDocuments
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
@@ -61,13 +62,13 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en NetDocuments con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
 
-La configuración de un inicio de sesión único para NetDocuments requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+La configuración del SSO para NetDocuments requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+**Para configurar el inicio de sesión único (SSO), realice los pasos siguientes:**
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **NetDocuments**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
@@ -82,10 +83,11 @@ La configuración de un inicio de sesión único para NetDocuments requiere la r
    1. En el cuadro de texto **URL de inicio de sesión**, escriba su dirección URL que usan los usuarios para iniciar sesión en la aplicación NetDocuments (por ejemplo, "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
    2. En el cuadro de texto **URL de respuesta de NetDocuments**, escriba el mismo valor que ha escrito en el cuadro de texto **URL de inicio de sesión**.  
       
-      > [!NOTE]
-      > Puede encontrar el valor correcto al final del cuadro de diálogo **Identidad federada** (consulte la captura de pantalla para el paso 9).
-      > 
-      
+      >[!NOTE]
+      >Puede encontrar el valor correcto al final del cuadro de diálogo **Identidad federada** (consulte la captura de pantalla para el paso 9).
+      >
+      >
+     
    3. Haga clic en **Siguiente**.
 4. En la página **Configurar inicio de sesión único en NetDocuments**, para descargar el certificado, haga clic en **Descargar certificado** y, luego, guarde el archivo de certificado en el equipo.
    
@@ -109,7 +111,7 @@ La configuración de un inicio de sesión único para NetDocuments requiere la r
     
     ![Configurar inicio de sesión único](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configurar inicio de sesión único")
     
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para permitir que los usuarios de Azure AD inicien sesión en NetDocuments, deben aprovisionarse en NetDocuments. En el caso de NetDocuments, el aprovisionamiento es una tarea manual.
 
@@ -126,16 +128,17 @@ Para permitir que los usuarios de Azure AD inicien sesión en NetDocuments, debe
    
    ![Dirección de correo electrónico](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Dirección de correo electrónico")
    
-   > [!NOTE]
-   > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
+   >[!NOTE]
+   >El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
    > 
    > 
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de NetDocuments ofrecida por NetDocuments para aprovisionar cuentas de usuario de AAD.
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de NetDocuments ofrecida por NetDocuments para aprovisionar cuentas de usuario de AAD.
+>
+>
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a NetDocuments, lleve a cabo los siguientes pasos:**
@@ -148,11 +151,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Recursos adicionales
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)

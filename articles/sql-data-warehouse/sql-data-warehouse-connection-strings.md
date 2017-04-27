@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 99be9d9b840e3d8cfbb24a76fc3dc8d5e041f63d
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: cfdec6b621267d642371104c328f9b5e6fd19c59
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +51,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][Query with Visual Studio].
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][Query with Visual Studio] (Realización de consultas con Visual Studio).
 
 <!--Image references-->
 
@@ -63,9 +65,4 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 [JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/29/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90e56bb2b7db0bb964684f9cac04096a6577adc
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5ef6e368a170816b7000c23cdf686644690fca45
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -26,7 +27,8 @@ Servicios multimedia de Azure ahora permite configurar y solicitar licencias de 
 
 La solicitud de licencia de Widevine recibe el formato de un mensaje JSON.  
 
-Tenga en cuenta que puede crear un mensaje vacío sin valores, simplemente use "{}" y se creará una plantilla de licencia con todos los valores predeterminados.  
+>[!NOTE]
+> Puede crear un mensaje vacío sin valores: simplemente use "{}" y se creará una plantilla de licencia con todos los valores predeterminados. La configuración predeterminada funciona para la mayoría de los casos. Por ejemplo, en el caso de escenarios de entrega de licencia basados en Microsoft, los valores siempre deberían ser los predeterminados. Si tiene que establecer los valores de "provider" y "content_id", el proveedor debe coincidir con las credenciales de Widevine de Google.
 
     {  
        “payload”:“<license challenge>”,
@@ -62,7 +64,7 @@ Tenga en cuenta que puede crear un mensaje vacío sin valores, simplemente use "
 | --- | --- | --- |
 | payload |cadena codificada en Base64 |La solicitud de licencia enviada por un cliente. |
 | content_id |cadena codificada en Base64 |Identificador utilizado para derivar KeyId(s) y Content Key(s) para cada content_key_specs.track_type. |
-| provider |string |Utilizado para buscar directivas y claves de contenido. Obligatorio. |
+| provider |string |Utilizado para buscar directivas y claves de contenido. En el caso de que se use la entrega de claves de Microsoft para la entrega de licencias de Widevine, este parámetro se omite. |
 | policy_name |string |Nombre de una directiva previamente registrada. Opcional |
 | allowed_track_types |enum |SD_ONLY o SD_HD. Controla qué claves de contenido deben incluirse en una licencia. |
 | content_key_specs |matriz de estructuras JSON, vea **Especificaciones de clave de contenido** a continuación |Un control más preciso sobre qué claves de contenido se devolverán. Vea Especificaciones de clave de contenido para obtener más información.  Solo se puede especificar uno de los valores allowed_track_types y content_key_specs. |
@@ -197,10 +199,5 @@ En el ejemplo siguiente se muestra cómo utilizar las API de .NET para configura
 
 ## <a name="see-also"></a>Consulte también
 [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-drm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

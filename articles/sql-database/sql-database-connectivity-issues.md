@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
-ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -167,7 +167,7 @@ Debe configurar el servidor de Base de datos SQL para que acepte la comunicació
 
 Si olvida configurar la dirección IP, el programa fallará con un mensaje de error que indica la dirección IP necesaria.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 Para obtener más información, consulte [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
 
@@ -186,7 +186,7 @@ Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows
 6. &gt; Acciones
 7. &gt; Nueva regla
 
-Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos más allá del 1433 para ADO.NET 4.5 y SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md)
 

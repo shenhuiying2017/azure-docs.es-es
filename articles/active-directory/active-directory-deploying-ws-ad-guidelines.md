@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0bcde69385b74fa62a629159abfff4bb16d9da89
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,7 +37,7 @@ En este artículo se supone que el lector está familiarizado con los conceptos 
 * Implementación, configuración y administración de aplicaciones de usuarios de confianza (sitios y servicios web) que pueden usar tokens de Windows Server AD FS
 * Conceptos generales sobre las máquinas virtuales como, por ejemplo, cómo configurar una máquina virtual, discos virtuales y redes virtuales
 
-Este artículo resalta los requisitos necesarios para un escenario de implementación híbrido en el que Windows Server AD DS o AD FS se implementan en parte de forma local y en parte en máquinas virtuales de Azure. En el documento se explican en primer lugar las diferencias más importantes entre ejecutar Windows Server AD DS y AD FS en máquinas virtuales de Azure en comparación con la implementación en máquinas locales, y analiza también las decisiones importantes que afectan al diseño y la implementación. El resto del artículo ofrece instrucciones para cada uno de los puntos de decisión más detalladamente y explica cómo aplicarlas a diferentes escenarios de implementación.
+Este artículo resalta los requisitos necesarios para un escenario de implementación híbrido en el que Windows Server AD DS o AD FS se implementan en parte de forma local y en parte en máquinas virtuales de Azure. En el documento se explican en primer lugar las diferencias más importantes entre ejecutar Windows Server AD DS y AD FS en máquinas virtuales de Azure en comparación con la implementación en el entorno local, y analiza también importantes elementos de decisión que afectan al diseño y la implementación. El resto del artículo ofrece instrucciones para cada uno de los puntos de decisión más detalladamente y explica cómo aplicarlas a diferentes escenarios de implementación.
 
 Este artículo no explica la configuración de [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), un servicio basado en REST que ofrece funcionalidad de administración de identidades y control de acceso para las aplicaciones en la nube. Sin embargo, Azure Active Directory (Azure AD) y Windows Server AD DS están diseñados para trabajar conjuntamente para proporcionar una solución de administración de identidades y acceso para entornos híbridos de TI y aplicaciones modernas. Para ayudar a comprender las diferencias y relaciones entre Windows Server AD DS y Azure AD, tenga en cuenta lo siguiente:
 
@@ -120,7 +120,7 @@ Azure también resulta indicado como sustituto de sitios costosos de recuperaci�
 Por último, puede que desee implementar una aplicación de red en Azure, como SharePoint, que requiere Windows Server Active Directory pero no tiene ninguna dependencia de la red local ni del Windows Server Active Directory corporativo. En este caso, la implementación de un bosque aislado en Azure para cumplir los requisitos del servidor de SharePoint es óptima. De nuevo, también se admite la implementación de aplicaciones de red que requieren conectividad con la red local y el Active Directory corporativo.
 
 > [!NOTE]
-> Como ofrece una conexión de nivel&3;, el componente VPN que proporciona conectividad entre una red virtual de Azure y una red local también puede habilitar a los servidores miembro que se ejecutan de forma local para que aprovechen los controladores de dominio que se ejecutan como máquinas virtuales en la red virtual de Azure. Pero si la VPN no está disponible, la comunicación entre equipos locales y los controladores de dominio basados en Azure no funcionará, lo cual provocará errores de autenticación y otros varios.  
+> Como ofrece una conexión de nivel 3, el componente VPN que proporciona conectividad entre una red virtual de Azure y una red local también puede habilitar a los servidores miembro que se ejecutan de forma local para que aprovechen los controladores de dominio que se ejecutan como máquinas virtuales en la red virtual de Azure. Pero si la VPN no está disponible, la comunicación entre equipos locales y los controladores de dominio basados en Azure no funcionará, lo cual provocará errores de autenticación y otros varios.  
 > 
 > 
 

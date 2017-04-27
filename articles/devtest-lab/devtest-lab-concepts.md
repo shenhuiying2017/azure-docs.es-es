@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 79a880ed30b1fd50e7d4f232f03629c228a72a2e
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -91,10 +91,10 @@ Para ver cómo crear roles personalizados en DevTest Labs, consulte el artículo
 
 Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un ámbito determinado, también se le conceden automáticamente en cada ámbito de nivel inferior que engloba. Por ejemplo, si un usuario está asignado al rol de propietario de la suscripción, tiene acceso a todos los recursos de una suscripción, lo que incluye todas las máquinas virtuales, todas las redes virtuales y todos los laboratorios. Por lo tanto, el propietario de una suscripción hereda automáticamente el rol de propietario de laboratorio. Sin embargo, lo contrario no es cierto. El propietario de un laboratorio tiene acceso a un laboratorio, que es un ámbito inferior al del nivel de suscripción. Por lo tanto, el propietario de un laboratorio no podrá ver las máquinas virtuales, las redes virtuales o los recursos que se encuentren fuera del laboratorio.
 
-## <a name="arm-templates"></a>Plantillas de ARM
-Todos los conceptos tratados en este artículo pueden configurarse mediante el uso de las plantillas de Azure Resource Manager (ARM). Las plantillas de ARM le permiten definir la configuración y la infraestructura de la solución de Azure, e implementarla varias veces en un estado coherente.
+## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
+Todos los conceptos tratados en este artículo pueden configurarse mediante el uso de plantillas de Azure Resource Manager, que permiten definir la configuración y la infraestructura de la solución de Azure e implementarla varias veces en un estado coherente.
 
-[Las plantillas de ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describen la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de una plantilla.
+[Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describe la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de ella.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

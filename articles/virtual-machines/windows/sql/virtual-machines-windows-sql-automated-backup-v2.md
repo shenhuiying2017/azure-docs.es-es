@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/30/2017
+ms.date: 04/05/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: dbf4b04ad92d9339b15d7f247b947dd58b17daa5
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,7 +68,7 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Cop
 | --- | --- | --- |
 | **Copia de seguridad automatizada** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita la copia de seguridad automatizada para una VM de Azure que ejecuta SQL Server 2016 Standard o Enterprise. |
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener copias de seguridad. |
-| **Storage Account** | Cuenta de almacenamiento de Azure | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Copia de seguridad automatizada en Almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura del archivo de copia de seguridad incluye la fecha, la hora y el nombre de máquina. |
+| **Storage Account** | Cuenta de almacenamiento de Azure | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Copia de seguridad automatizada en Almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
 | **Cifrado** |Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada en el mismo contenedor de **copia de seguridad automatizada** con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
 | **Password** |Texto de contraseña | Una contraseña para claves de cifrado. Esto solo es necesario si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
@@ -322,10 +323,5 @@ Puede encontrar directrices adicionales sobre la copia de seguridad y la restaur
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

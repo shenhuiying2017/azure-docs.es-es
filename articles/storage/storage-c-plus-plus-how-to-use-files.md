@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: af3ba5a4d1bd457f19038b9917ce55920e5e882b
-ms.openlocfilehash: 7d97e0f8be183c8858520d795ac28b7ad63a6dae
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f8ecb68fddf4293592e546c0c10d0c86664bd090
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/22/2017
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-En este tutorial, aprenderá a realizar operaciones básicas en el servicio File Storage de Microsoft Azure. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si no está familiarizado con el servicio File Storage de Microsoft Azure, le resultará útil repasar los conceptos de las secciones siguientes comprender los ejemplos.
+En este tutorial, aprenderá a realizar operaciones básicas en el servicio Microsoft Azure File Storage. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si no está familiarizado con el servicio File Storage de Microsoft Azure, le resultará útil repasar los conceptos de las secciones siguientes para comprender los ejemplos.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 

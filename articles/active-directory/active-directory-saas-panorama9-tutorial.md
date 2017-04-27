@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 12868706693a076ead3cfc13ce5901bbc56d588b
-ms.openlocfilehash: 961aef8496a7de264c5d57c7a990c69996c1527e
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 66d68ef805a28552c5d161b4761e2aa3052c118c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integración de Azure Active Directory con Panorama9
 El objetivo de este tutorial es mostrar la integración de Azure y Panorama9.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en Panorama9
+* Una suscripción habilitada para el inicio de sesión único (SSO) en Panorama9
 
 Después de completar este tutorial, los usuarios de Azure AD asignados a Panorama9 podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía Panorama9 (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones en Panorama9
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-panorama9-tutorial/IC790016.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-panorama9"></a>Habilitación de la integración de aplicaciones en Panorama9
+## <a name="enable-the-application-integration-for-panorama9"></a>Habilitación de la integración de aplicaciones para Panorama9
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Panorama9.
 
 **Siga estos pasos para habilitar la integración de aplicaciones para Panorama9:**
@@ -62,17 +64,17 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Panorama9 con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
 
-La configuración de un inicio de sesión único para Panorama9 requiere la recuperación de un valor de huella digital de un certificado.  
+La configuración del SSO para Panorama9 requiere la recuperación de un valor de huella digital de un certificado.  
 
 Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+**Para configurar el inicio de sesión único (SSO), realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Panorama9**, haga clic en **Configurar inicio de sesión único** para abrir el diálogo **Configurar inicio de sesión único**.
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Panorama9**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configurar inicio de sesión único")
 2. En la página **¿Cómo quiere que los usuarios inicien sesión en Panorama9?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, después, haga clic en **Siguiente**.
@@ -107,30 +109,31 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para permitir que los usuarios de Azure AD inicien sesión en Panorama9, deben aprovisionarse en Panorama9.  
-En el caso de Panorama9, el aprovisionamiento es una tarea manual.
+
+* En el caso de Panorama9, el aprovisionamiento es una tarea manual.
 
 **Siga estos pasos para configurar el aprovisionamiento de usuario:**
 1. Inicie sesión en el sitio de la compañía **Panorama9** como administrador.
 2. En el menú en la parte superior, haga clic en **Administrar** y luego haga clic en **Usuarios**.
    
-   ![Usuarios](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Usuarios")
+  ![Usuarios](./media/active-directory-saas-panorama9-tutorial/IC790027.png "Usuarios")
 3. Haga clic en **+**.
 4. En la sección de datos del usuario, lleve a cabo estos pasos:
    
-   ![Usuarios](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Usuarios")
-   
-   1. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que quiera aprovisionar.
-   2. Haga clic en **Guardar**.
+  ![Usuarios](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Usuarios")
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Panorama9 ofrecida por Panorama9 para aprovisionar cuentas de usuario de AAD.
-> 
+  1. En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario válido de Azure Active Directory que quiera aprovisionar.
+  2. Haga clic en **Guardar**.
 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Panorama9 ofrecida por Panorama9 para aprovisionar cuentas de usuario de AAD.
+>
+>
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a Panorama9, lleve a cabo los siguientes pasos:**
@@ -143,11 +146,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 

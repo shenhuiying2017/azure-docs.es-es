@@ -16,9 +16,9 @@ ms.workload: data-catalog
 ms.date: 03/14/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: b92db8dd81af0c58861644cc02ca9e56b6a6a832
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d68ed62022834c9417d820a7a64e30b47f71a1bd
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -417,6 +417,24 @@ Puede publicar metadatos mediante una API pública, una herramienta de registro 
     <tr>
       <td>Colección de Azure DocumentDB</td>
       <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Tabla de ODBC genérico</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>Vista de ODBC genérico</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2></font></td>
@@ -918,6 +936,22 @@ Si necesita compatibilidad con fuentes adicionales, envíe una solicitud de cara
       <td>Colección</td>
       <td>
         <font size=2> protocolo: document-db <br>autenticación: {azure-access-key} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; colección </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC genérico</td>
+      <td>Contenedor</td>
+      <td>Base de datos</td>
+      <td>
+        <font size=2> protocolo: odbc <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opciones <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+      </td>
+    </tr>
+    <tr>
+      <td>ODBC genérico</td>
+      <td>Tabla</td>
+      <td>Tabla, vista</td>
+      <td>
+        <font size=2> protocolo: odbc <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opciones <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
       </td>
     </tr>
     <tr>

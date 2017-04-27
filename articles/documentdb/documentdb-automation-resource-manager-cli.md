@@ -11,14 +11,14 @@ ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/04/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 150e8f3e186683bce735d0952adb57544505d1e9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -65,7 +65,6 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
-                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,6 +92,7 @@ Ejemplos:
 
 ### <a name="notes"></a>Notas
 * Las ubicaciones deben ser regiones donde DocumentDB esté disponible de forma general. Se proporciona la lista actual de regiones en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
+* Para habilitar el acceso al portal, incluya la dirección de este último correspondiente a su región en el filtro de intervalos de IP, como se especifica en [Configuración de la directiva de control de acceso de IP](documentdb-firewall-support.md#configure-ip-policy).
 
 ## <a id="update-documentdb-account-cli"></a> Actualización de una cuenta de base de datos de DocumentDB
 
@@ -180,6 +180,20 @@ Arguments
 Ejemplo:
 
     az documentdb list-keys -g rg-test -n docdb-test
+
+## <a id="list-connection-strings-cli"></a> Enumeración de cadenas de conexión
+
+En el caso de las cuentas de MongoDB, se puede recuperar la cadena de conexión para conectar la aplicación de MongoDB a la cuenta de la base de datos con el comando siguiente.
+
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+```
+
+Ejemplo:
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> Regeneración de la clave de cuenta
 

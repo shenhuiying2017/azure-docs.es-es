@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1abac24447f709690c42add7c383394443ef957c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: dd8c1b07262fc375678262a7617699c1f69c6090
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -269,7 +271,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```
    
    > [!NOTE]
-   > Es una buena idea crear un usuario en la base de datos maestra para los usuarios de Almacenamiento de datos SQL de Azure. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos.  También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server.  Para más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en Almacenamiento de datos SQL][Proteger una base de datos en Almacenamiento de datos SQL].
+   > Es una buena idea crear un usuario en la base de datos maestra para los usuarios de Almacenamiento de datos SQL de Azure. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos.  También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server.  Para obtener más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse].
    > 
    > 
 2. **Cree un usuario de SQL Data Warehouse**: abra una conexión con la base de datos de **SQL Data Warehouse** y ejecute el comando siguiente.
@@ -406,22 +408,17 @@ FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en Almacenamiento de datos SQL][Proteger una base de datos en Almacenamiento de datos SQL]. Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos].
+Para obtener más información sobre cómo administrar los usuarios y la seguridad de la base de datos, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para más información sobre cómo las clases de recursos mayores pueden mejorar la calidad de los índices de almacén de columnas agrupado, consulte [Regeneración de índices para mejorar la calidad de los segmentos].
 
 <!--Image references-->
 
 <!--Article references-->
-[Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Regeneración de índices para mejorar la calidad de los segmentos]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Administración de bases de datos e inicios de sesión en Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

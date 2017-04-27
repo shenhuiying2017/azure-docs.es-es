@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
-ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -360,7 +360,7 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-AzCopy usa un *índice de volumen* en los nombres de los archivos de datos divididos para distinguir los diversos archivos. El índice de volumen consta de dos partes, un *índice de rango de clave de partición* y un *índice de archivo dividido*. Ambos índices se basan en&0;.
+AzCopy usa un *índice de volumen* en los nombres de los archivos de datos divididos para distinguir los diversos archivos. El índice de volumen consta de dos partes, un *índice de rango de clave de partición* y un *índice de archivo dividido*. Ambos índices se basan en 0.
 
 El rango de clave de partición será 0 si un usuario no especifica la opción `/PKRS`.
 
@@ -402,7 +402,7 @@ AzCopy generará un archivo de datos JSON en el contenedor de blobs local con la
 
 El archivo de datos JSON generado sigue el formato de carga para metadatos mínimos. Para obtener más información sobre el formato de carga, consulte [Formato de carga para las operaciones del servicio Tabla](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Tenga en cuenta que al exportar tablas a blobs, AzCopy descargará las entidades de tabla para archivos de datos temporales locales y, a continuación, cargará tales entidades en el blob. Estos archivos de datos temporales se colocan en la carpeta de archivos de diario con la ruta de acceso predeterminada "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". Puede especificar la opción /Z:[carpeta-de-archivos-de-diario] para cambiar la ubicación de la carpeta de archivos de diario y así cambiar la ubicación de los archivos de datos temporales. El tamaño de los archivos de datos temporales se decide según el tamaño de las entidades de tabla y el tamaño especificado con la opción /SplitSize, aunque el archivo de datos temporales en el disco local se eliminará inmediatamente después de que se cargue en el blob. Asegúrese de que tiene suficiente espacio en el disco local para almacenar estos archivos de datos temporales antes de que se eliminen.
+Tenga en cuenta que al exportar tablas a blobs, AzCopy descargará las entidades de tabla para archivos de datos temporales locales y, a continuación, cargará tales entidades en el blob. Estos archivos de datos temporales se colocan en la carpeta de archivos de diario con la ruta de acceso predeterminada "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". Puede especificar la opción /Z:[carpeta-de-archivos-de-diario] para cambiar la ubicación de la carpeta de archivos de diario y, así, modificar también la de los archivos de datos temporales. El tamaño de los archivos de datos temporales se decide según el de las entidades de tabla y el especificado con la opción /SplitSize, aunque el archivo de datos temporales en el disco local se eliminará inmediatamente después de que se cargue en el blob. Asegúrese de que tiene suficiente espacio en el disco local para almacenar estos archivos de datos temporales antes de que se eliminen.
 
 ## <a name="table-import"></a>Tabla: importación
 ### <a name="import-table"></a>Importación de la tabla
@@ -883,7 +883,7 @@ Puede crear un archivo app.config `AzCopy.exe.config` con la propiedad `AzureSto
       </appSettings>
     </configuration>
 
-Para la propiedad "AzureStorageUseV1MD5" • True: el valor predeterminado, AzCopy utilizará la implementación de MD5. NET.
+Respecto a la propiedad "AzureStorageUseV1MD5": • True (valor predeterminado): AzCopy utilizará la implementación de MD5 .NET.
 • False: AzCopy utilizará el algoritmo de MD5 compatible con FIPS.
 
 Tenga en cuenta que los algoritmos compatibles con FIPS están deshabilitados de forma predeterminada en el equipo de Windows, puede escribir secpol.msc en la ventana de ejecución y comprobar este modificador en Configuración de seguridad -> Directivas locales -> Opciones de seguridad -> Criptografía de sistema: Usar algoritmos compatibles con FIPS para cifrado, firma y operaciones hash.

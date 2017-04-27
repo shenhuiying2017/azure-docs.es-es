@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
 ms.service: sql-database
-ms.custom: overview
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 8b9b9b70cc7b6a9b89a52523f713b43b74713042
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e3bafbd9f010550f8b7117de27495b21cadbd3c1
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="azure-sql-database-access-control"></a>Control de acceso a Azure SQL Database
@@ -33,7 +33,7 @@ Base de datos SQL de Microsoft Azure ofrece un servicio de base de datos relacio
 
 El servicio de Base de datos SQL de Azure solo está disponible a través del puerto TCP 1433. Para tener acceso a una Base de datos SQL desde el equipo, asegúrese de que el firewall de equipos cliente permite la comunicación TCP saliente en el puerto TCP 1433. Si no es necesario para otras aplicaciones, bloquee las conexiones entrantes en el puerto TCP 1433. 
 
-Como parte del proceso de conexión, las conexiones de máquinas virtuales de Azure se redirigen a una dirección IP y un puerto diferente, único para cada rol de trabajo. El número de puerto está comprendido en el rango del 11000 al 11999. Para más información sobre los puertos TCP, consulte [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Como parte del proceso de conexión, las conexiones de máquinas virtuales de Azure se redirigen a una dirección IP y un puerto diferente, único para cada rol de trabajo. El número de puerto está comprendido en el rango del 11000 al 11999. Para obtener más información sobre los puertos TCP, consulte [Puertos más allá del 1433 para ADO.NET 4.5 y SQL Database2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## <a name="authentication"></a>Autenticación
 

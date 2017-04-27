@@ -15,9 +15,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 35264f1ec5df5a3e171f7631e0d3b46bf9c0b8e7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -82,7 +82,7 @@ Las reglas de alerta en una solución de administración se componen de los tres
 
 - **Búsqueda guardada.**  Define la búsqueda de registros que se va a ejecutar.  Varias reglas de alerta pueden compartir una única búsqueda guardada.
 - **Programación.**  Define la frecuencia con la que se va a ejecutar la búsqueda de registros.  Cada regla de alerta tendrá una única programación.
-- **Acción de alerta.**  Cada regla de alerta tendrá un único recurso de acción con un tipo de **alerta** que define los detalles de la alerta como, por ejemplo, los criterios de cuándo se creará un registro de alertas y la gravedad de la alerta.  El recurso de acción definirá, opcionalmente, una respuesta de correo electrónico y de runbook.
+- **Acción de alerta.**  Cada regla de alerta tendrá un único recurso de acción con un tipo de **alerta** que define los detalles de la alerta, como los criterios de cuándo se creará un registro de alertas y la gravedad de la alerta.  El recurso de acción definirá, opcionalmente, una respuesta de correo electrónico y de runbook.
 - **Acción de webhook (opcional).**  Si la regla de alerta llama a un webhook, se requiere un recurso de acción adicional con un tipo de **Webhook**.    
 
 Los recursos de búsquedas guardadas se han descrito anteriormente.  Los demás recursos se describen a continuación.
@@ -229,7 +229,7 @@ Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respu
 
 Las acciones de webhook inician un proceso llamando a una dirección URL y, opcionalmente, proporcionando una carga que se va a enviar. Son similares a las acciones de corrección, salvo por el hecho de que están pensadas para webhooks que pueden invocar procesos que no tienen que ver con Runbooks de Automatización de Azure. También ofrecen la posibilidad extra de proporcionar una carga adicional para entregarla en el proceso remoto.
 
-Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo de **Webhook** además del recurso de acción **Alert**.  
+Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo de **Webhook**, además del recurso de acción **Alert**.  
 
     {
         "name": "<name-of-the-action>",
@@ -248,7 +248,7 @@ Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo d
         }
     }
 
-En las tablas siguientes se describen las propiedades para los recursos de acción de alerta.
+En las tablas siguientes se describen las propiedades para los recursos de acción de Webhook.
 
 | Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|

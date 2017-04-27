@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
-ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7b08ce207b2a3cc2dd3d3559765def6af42a844a
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -61,7 +61,7 @@ La copia de instantáneas incrementales permite realizar copiar de una cuenta de
 
 Siempre que se cumplan las condiciones siguientes:
 
-* El blob se creó a partir del&1; de enero de&2016;.
+* El blob se creó a partir del 1 de enero de 2016.
 * El blob no se sobrescribió con [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) o [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) entre dos instantáneas.
 
 **Nota**: Esta característica está disponible para los blobs en páginas de Azure premium y estándar.

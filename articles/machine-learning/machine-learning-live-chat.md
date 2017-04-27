@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/10/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1dd817c9b3160c47463a3a88380d550d127d898e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f8e624b54578009e55921606a9e37f884faf50c7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -32,7 +32,8 @@ Escriba su pregunta y obtendrá respuestas.
 
 ![Cuadro de diálogo de chat de AT de Azure](./media/machine-learning-live-chat/AzureMLChat.png)
 
-## <a name="dont-see-the-live-chat-icon"></a>¿No se ve el icono de Chat activo?
+**¿No se ve el icono de Chat activo?**
+
 El chat en directo está formado por miembros del equipo de Machine Learning. Si no ve el icono de chat en directo, es porque el equipo no está disponible en ese momento. Por ejemplo, puede que ya haya concluido la jornada laboral normal. 
 
 Siempre puede publicar sus preguntas en el [foro de Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), donde la verán los miembros del equipo de Machine Learning y otros desarrolladores y científicos de datos de conocimientos.

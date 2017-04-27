@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 1bbb2cd3fae094305eb36e8d9958f9c94568e419
-ms.openlocfilehash: c23139a755be08fbdee24f4fd87a0347252a7101
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: b6e5d2dce97c2f10d0e440a0bde05d50d8965833
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -81,7 +82,7 @@ Será preciso que incluya la siguiente instrucción import en el archivo en el  
 
 ## <a name="asynchronous-operations"></a>Operaciones asincrónicas
 > [!NOTE]
-> Todos los métodos que realizan una solicitud en el servicio son operaciones asincrónicas. En los ejemplos de código, encontrará que estos métodos tienen un controlador de finalización. El código de dentro del controlador de finalización se ejecutará **después** de que se haya completado la solicitud. El código posterior al controlador de finalización se ejecutará **mientras** se realiza la solicitud.
+> Todos los métodos que realizan una solicitud en el servicio son operaciones asincrónicas. En los ejemplos de código, verá que estos métodos tienen un controlador de finalización. El código de dentro del controlador de finalización se ejecutará **después** de que se haya completado la solicitud. El código posterior al controlador de finalización se ejecutará **mientras** se realiza la solicitud.
 > 
 > 
 
@@ -374,10 +375,5 @@ Ahora que ha aprendido cómo utilizar el Almacenamiento de blobs de iOS, siga es
 
 Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o en [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Si quiere sugerir características nuevas para Azure Storage, publíquelas en la página de [comentarios sobre Azure Storage](https://feedback.azure.com/forums/217298-storage/).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

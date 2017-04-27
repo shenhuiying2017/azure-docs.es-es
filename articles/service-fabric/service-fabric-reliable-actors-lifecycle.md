@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 22f906de37ad7ae2a48acf26be26f2af1e3bde7a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0d942fa9f4a3b9094d8122e4745c0450f507ea16
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,14 +29,14 @@ Cuando se activa un actor, ocurre lo siguiente:
 
 * Cuando se recibe una llamada para un actor y no hay ninguno activo, se crea uno nuevo.
 * Se carga el estado del actor si es de mantenimiento.
-* Se llama al método `OnActivateAsync` (que se puede invalidar en la implementación del actor).
+* Se llama al método `OnActivateAsync` (C#) o `onActivateAsync` (Java) (que se puede invalidar en la implementación del actor).
 * El actor ahora se considera activo.
 
 ## <a name="actor-deactivation"></a>Desactivación de actores
 Cuando se desactiva un actor, ocurre lo siguiente:
 
 * Cuando un actor no se usa durante un período de tiempo, se quita de la tabla de actores activos.
-* Se llama al método `OnDeactivateAsync` (que se puede invalidar en la implementación del actor). y esto borra todos los temporizadores del actor. Las operaciones de actor como los cambios de estado no deben llamarse desde este método.
+* Se llama al método `OnDeactivateAsync` (C#) o `onDeactivateAsync` (Java) (que se puede invalidar en la implementación del actor). y esto borra todos los temporizadores del actor. Las operaciones de actor como los cambios de estado no deben llamarse desde este método.
 
 > [!TIP]
 > El tiempo de ejecución de actores de Fabric emite algunos [eventos relacionados con la activación y desactivación de actores](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
@@ -44,7 +44,7 @@ Cuando se desactiva un actor, ocurre lo siguiente:
 >
 
 ### <a name="actor-garbage-collection"></a>Recolección de actores no utilizados
-Cuando un actor está desactivado, se liberan las referencias al objeto de actor y, normalmente, el recolector de elementos no utilizados de Common Language Runtime (CLR) puede recolectarlas. La recolección de elementos no utilizados solo limpia el objeto de actor; **no** quita el estado almacenado en el administrador de estados del actor. La próxima vez que se activa el actor, se crea un nuevo objeto de actor y se restaura su estado.
+Cuando un actor se desactiva, se liberan las referencias al objeto del actor y, normalmente, el recolector de elementos no utilizados de Common Language Runtime (CLR) o de la máquina virtual Java (JVM) puede recolectarlas. La recolección de elementos no utilizados solo limpia el objeto de actor; **no** quita el estado almacenado en el administrador de estados del actor. La próxima vez que se activa el actor, se crea un nuevo objeto de actor y se restaura su estado.
 
 ¿Qué se considera como "en uso" para fines de desactivación y recolección de elementos no utilizados?
 
@@ -82,6 +82,18 @@ public class Program
 }
 ```
 
+```Java
+public class Program
+{
+    public static void main(String[] args)
+    {
+        ActorRuntime.registerActorAsync(
+                MyActor.class,
+                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
+                timeout);
+    }
+}
+```
 El runtime de cada actor activo realiza un seguimiento del tiempo que ha estado inactivo (es decir, sin usarse). Dicho runtime comprueba cada uno de los actores para ver si puede recolectarse como elemento no utilizado cada `ScanIntervalInSeconds` y, si ha estado inactivo durante `IdleTimeoutInSeconds`, lo recolecta.
 
 Cada vez que se usa un actor, su tiempo de inactividad se restablece a 0. Después de esto, el actor solo se puede recolectar como elemento no utilizado si permanece de nuevo inactivo durante `IdleTimeoutInSeconds`. Recuerde que se considera que se ha usado un actor si se usa un método de interfaz de actor o una devolución de llamada de recordatorio. **No** se considera que un actor se haya usado si se ejecuta la devolución de llamada del temporizador.
@@ -114,6 +126,14 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
+```Java
+ActorId actorToDelete = new ActorId(id);
+
+ActorService myActorServiceProxy = ActorServiceProxy.create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
+
+myActorServiceProxy.deleteActorAsync(actorToDelete);
+```
 
 La eliminación de un actor tiene las siguientes consecuencias, con independencia de que esté activo o no en ese momento:
 
@@ -131,7 +151,8 @@ Tenga en cuenta que un actor no puede llamar a Delete por sí mismo desde uno de
 * [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
 * [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
 * [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+* [Código de ejemplo de C#](https://github.com/Azure/servicefabric-samples)
+* [Código de ejemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

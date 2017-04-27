@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
@@ -26,7 +27,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 -   [Recursos de glifo](#glyphs)  
   
-##  <a name="a-namestringsa-string-resources"></a><a name="strings"></a> Recursos de cadena  
+##  <a name="strings"></a> Recursos de cadena  
  API Management proporciona un conjunto completo de recursos de cadena para su uso en el portal para desarrolladores. Estos recursos están localizados en todos los idiomas admitidos por API Management. El conjunto predeterminado de plantillas utiliza estos recursos para encabezados de páginas etiquetas y cualquier cadena constante que se muestren en el portal para desarrolladores. Para usar un recurso de cadena en sus plantillas, especifique el prefijo de la cadena del recurso seguido por el nombre de la cadena, como se muestra en el siguiente ejemplo.  
   
 ```  
@@ -83,13 +84,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="a-nameapisstringsa-apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
+###  <a name="ApisStrings"></a> ApisStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
 |PageTitleApis|API existentes|  
   
-###  <a name="a-nameappdetailsstringsa-appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -98,7 +99,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebApplicationsScreenshotAlt|Instantánea|  
 |WebApplicationsScreenshotsHeader|Capturas de pantalla|  
   
-###  <a name="a-nameapplicationliststringsa-applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -114,13 +115,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebDevelopersSubmitLink|Enviar|  
 |WebDevelopersYourApplicationsHeader|Sus aplicaciones|  
   
-###  <a name="a-nameappstringsa-appstrings"></a><a name="AppStrings"></a> AppStrings  
+###  <a name="AppStrings"></a> AppStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicaciones|  
   
-###  <a name="a-namecommonresourcesa-commonresources"></a><a name="CommonResources"></a> CommonResources  
+###  <a name="CommonResources"></a> CommonResources  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -131,7 +132,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|El cuerpo de la solicitud HTTP es demasiado extenso.|  
   
-###  <a name="a-namecommonstringsa-commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
+###  <a name="CommonStrings"></a> CommonStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -155,7 +156,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TablePlaceholderNothingToDisplay|No hay ningún dato para el intervalo de tiempo y el ámbito seleccionados.|  
 |ButtonLabelClose|cierre|  
   
-###  <a name="a-namedocumentationa-documentation"></a><a name="Documentation"></a> Documentation  
+###  <a name="Documentation"></a> Documentation  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -285,11 +286,11 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |OAuth2AuthorizationServerCommunicationException|No se ha podido establecer una conexión HTTP con el servidor de autorización o se ha interrumpido de forma inesperada.|  
 |WebDocumentationOAuth2GeneralErrorMessage|Se ha producido un error inesperado.|  
 |AuthorizationServerCommunicationException|Se ha producido una excepción de comunicación con el servidor de autorización. Póngase en contacto con el administrador.|  
-|TextblockSubscriptionKeyHeaderDescription|Clave de suscripción que proporciona acceso a esta API. Se encontró en el `<a href='/developer'\>Profile</a\>`.|  
+|TextblockSubscriptionKeyHeaderDescription|Clave de suscripción que proporciona acceso a esta API. Se encontró en el <a href='/developer'\>perfil</a\>.|  
 |TextblockOAuthHeaderDescription|Token de acceso OAuth 2.0 obtenido de <i\>{0}</i\>. Tipos de concesión admitidos: <i\>{1}</i\>.|  
 |TextblockContentTypeHeaderDescription|Tipo de soporte del cuerpo enviado a la API.|  
-|ErrorMessageApiNotAccessible|A la API a la que está tratando de llamar no se puede acceder en este momento. Póngase en contacto con el editor de la API `<a href="/issues"\>here</a\>`.|  
-|ErrorMessageApiTimedout|La API a la que está tratando de llamar está tardando más de lo normal en devolver una respuesta. Póngase en contacto con el editor de la API `<a href="/issues"\>here</a\>`.|  
+|ErrorMessageApiNotAccessible|A la API a la que está tratando de llamar no se puede acceder en este momento. Póngase en contacto con el publicador de la API <a href="/issues"\>aquí</a\>.|  
+|ErrorMessageApiTimedout|La API a la que está tratando de llamar está tardando más de lo normal en devolver una respuesta. Póngase en contacto con el publicador de la API <a href="/issues"\>aquí</a\>.|  
 |BadRequestParameterExpected|"Se espera el parámetro '{0}'"|  
 |TooltipTextDoubleClickToSelectAll|Haga doble clic para seleccionarlo todo.|  
 |TooltipTextHideRevealSecret|Mostrar/ocultar|  
@@ -303,7 +304,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |SectionHeadingCodeSamples|Ejemplos de código|  
 |TextblockOpenidConnectHeaderDescription|Token de identificador de OpenID Connect obtenido de <i\>{0}</i\>. Tipos de concesión admitidos: <i\>{1}</i\>.|  
   
-###  <a name="a-nameerrorpagestringsa-errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -321,7 +322,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TitlePotentialCause|Causa posible|  
 |TitlePotentialSolution|Es posible que se trate únicamente de un problema temporal. Hay varias soluciones que puede probar.|  
   
-###  <a name="a-nameissuesstringsa-issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="IssuesStrings"></a> IssuesStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -332,7 +333,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebIssuesSignIn|iniciar sesión|  
 |WebIssuesStatusReportedBy|Estado: {0} &#124; Notificado por {1}|  
   
-###  <a name="a-namenotfoundstringsa-notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -347,7 +348,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TitlePotentialCause|Causa posible|  
 |TitlePotentialSolution|Posible solución|  
   
-###  <a name="a-nameproductdetailsstringsa-productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -369,13 +370,13 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TextblockSubscriptionDescription|Se creará una nueva suscripción de la siguiente manera:|  
 |TextblockSubscriptionLimitReached|Ha alcanzado el límite de suscripciones.|  
   
-###  <a name="a-nameproductsstringsa-productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="ProductsStrings"></a> ProductsStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
 |PageTitleProducts|Productos|  
   
-###  <a name="a-nameproviderinfostringsa-providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -383,7 +384,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |TextboxExternalIdentitiesSigninInvitation|O bien inicie sesión con|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Inicie sesión con:|  
   
-###  <a name="a-namesigninresourcesa-signinresources"></a><a name="SigninResources"></a> SigninResources  
+###  <a name="SigninResources"></a> SigninResources  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -479,7 +480,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |DialogHeadingTermsOfUse|Términos de uso|  
 |ValidationMessageConsentNotAccepted|Debe aceptar los términos de uso antes de continuar.|  
   
-###  <a name="a-namesigninstringsa-signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
+###  <a name="SigninStrings"></a> SigninStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -491,7 +492,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebAuthenticationSigninTitle|Iniciar sesión|  
 |WebAuthenticationSignUpNow|Regístrese ahora|  
   
-###  <a name="a-namesignupstringsa-signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
+###  <a name="SignupStrings"></a> SignupStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -501,7 +502,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebAuthenticationSigninNow|Inicie sesión ahora|  
 |ButtonLabelSignup|Suscripción|  
   
-###  <a name="a-namesubscriptionliststringsa-subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -524,7 +525,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |PageTitleRenameSubscription|Cambiar el nombre de la suscripción|  
 |SubscriptionPropertyLabelName|Nombre de la suscripción|  
   
-###  <a name="a-namesubscriptionstringsa-subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -535,14 +536,14 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |InformationMessageKeyWasRegenerated|¿Está seguro de que desea regenerar esta clave?|  
 |ButtonLabelShowKey|Presentación|  
   
-###  <a name="a-nameupdateprofilestringsa-updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
 |Nombre|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Actualizar perfil|  
 |PageTitleUpdateProfile|Actualizar información de cuenta|  
   
-###  <a name="a-nameuserprofilea-userprofile"></a><a name="UserProfile"></a> UserProfile  
+###  <a name="UserProfile"></a> UserProfile  
   
 |Nombre|Texto|  
 |----------|----------|  
@@ -566,7 +567,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |ValidationMessageSubscriptionNameRequired|El nombre de suscripción no puede estar vacío.|  
 |ApiManagementUserLimitReached|Este servicio ha alcanzado el número máximo de usuarios permitidos. Actualice a un plan de tarifa superior.|  
   
-##  <a name="a-nameglyphsa-glyph-resources"></a><a name="glyphs"></a> Recursos de glifo  
+##  <a name="glyphs"></a> Recursos de glifo  
  Las plantillas del portal para desarrolladores de API Management puede usar los glifos de [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons). Este conjunto de glifos incluye más de 250 glifos en formato de fuente del conjunto [Glyphicon Halflings](http://glyphicons.com/). Para utilizar un glifo de este conjunto, utilice la siguiente sintaxis.  
   
 ```html  
@@ -576,9 +577,5 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
  Para obtener la lista completa de glifos, consulte [Glyphicons de Bootstrap](http://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
+Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
 

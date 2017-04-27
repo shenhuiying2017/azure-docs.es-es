@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 61658fdafb6d2ead155c2d1b5c2563771c93ed0f
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: e9fd8855cf0c51df5f3ec4f80a733e778996fb82
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -120,7 +121,7 @@ catch(ServiceException $e){
 Para obtener más información sobre las restricciones que se aplican a los nombres de las tablas, consulte [Introducción al modelo de datos de Table Service][table-data-model].
 
 ## <a name="add-an-entity-to-a-table"></a>Adición de una entidad a una tabla
-Para agregar una entidad a una tabla, cree un nuevo objeto **Entity** y páselo a **TableRestProxy->insertEntity**. Tenga en cuenta que al crear una entidad, es necesario especificar los valores de `PartitionKey` y `RowKey`. Estos valores son los identificadores exclusivos de la entidad y se pueden consultar más rápidamente que las demás propiedades. El sistema usa `PartitionKey` para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma `PartitionKey` se almacenan en el mismo nodo. (Las operaciones que afecten a entidades almacenadas en el mismo nodo se realizarán mejor que aquellas que afecten a entidades almacenadas en nodos distintos). `RowKey` es el identificador exclusivo de una entidad dentro de una partición.
+Para agregar una entidad a una tabla, cree un nuevo objeto **Entity** y páselo a **TableRestProxy->insertEntity**. Tenga en cuenta que al crear una entidad, es necesario especificar los valores de `PartitionKey` y `RowKey`. Estos valores son los identificadores exclusivos de la entidad y se pueden consultar más rápidamente que las demás propiedades. El sistema usa `PartitionKey` para distribuir automáticamente las entidades de la tabla entre numerosos nodos de almacenamiento. Las entidades con la misma `PartitionKey` se almacenan en el mismo nodo. (Las operaciones que afecten a entidades almacenadas en el mismo nodo se realizarán mejor que aquellas que afecten a entidades almacenadas en nodos distintos). `RowKey` es el identificador exclusivo de una entidad dentro de una partición.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -481,7 +482,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que está familiarizado con los aspectos básicos del servicio Tabla de Azure, use estos vínculos para obtener más información sobre las tareas de almacenamiento más complejas.
+Ahora que está familiarizado con los aspectos básicos de Azure Table service, use estos vínculos para obtener más información sobre tareas de almacenamiento más complejas.
 
 * Visite el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
@@ -494,9 +495,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

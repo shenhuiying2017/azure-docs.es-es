@@ -3,7 +3,7 @@ title: Carga de datos de SQL Server en Azure SQL Data Warehouse (SSIS) | Microso
 description: "Se muestra cómo crear un paquete de SQL Server Integration Services (SSIS) para mover datos desde una gran variedad de orígenes de datos a Almacenamiento de datos SQL."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: douglaslms
 manager: jhubbard
 editor: 
 ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
 ms.custom: loading
+ms.date: 03/30/2017
+ms.author: douglasl;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a8c557ea07cbccb913bc47c510f6759dd832c861
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d208f783e5b4e7786350706d8025e6e13f45f0d2
+ms.lasthandoff: 04/03/2017
+
 
 
 ---
@@ -55,14 +56,14 @@ SQL Server Integration Services (SSIS) es un conjunto flexible de herramientas q
 Para seguir paso a paso este tutorial, necesita:
 
 1. **SQL Server Integration Services (SSIS)**. SSIS es un componente de SQL Server y requiere una versión de evaluación o una versión con licencia de SQL Server. Para conseguir una versión de evaluación de SQL Server 2016 Preview, consulte [Evaluaciones de SQL Server][SQL Server Evaluations].
-2. **Visual Studio**. Para conseguir de forma gratuita Visual Studio 2015 Community Edition, consulte [Visual Studio Community][Visual Studio Community].
-3. **SQL Server Data Tools para Visual Studio (SSDT)**. Para obtener SQL Server Data Tools para Visual Studio 2015, consulte [Descargar las últimas herramientas de datos SQL Server][Download SQL Server Data Tools (SSDT)].
+2. **Visual Studio**. Para conseguir de forma gratuita Visual Studio Community Edition, vaya a [Visual Studio Community][Visual Studio Community].
+3. **SQL Server Data Tools para Visual Studio (SSDT)**. Para obtener SQL Server Data Tools para Visual Studio, vaya a [Descargar SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
 4. **Datos de ejemplo**. En este tutorial, se usan datos de ejemplo almacenados en SQL Server (en la base de datos de ejemplo AdventureWorks) como datos de origen que se cargan en Almacenamiento de datos SQL. Para conseguir la base de datos de ejemplo AdventureWorks, consulte [AdventureWorks 2014 Sample Databases][AdventureWorks 2014 Sample Databases] (Bases de datos de ejemplo AdventureWorks 2014).
 5. **Una base de datos de Almacenamiento de datos SQL y permisos**. En este tutorial se conecta a una instancia de Almacenamiento de datos SQL y se cargan datos en ella. Necesita permisos para crear una tabla y para cargar datos.
 6. **Una regla de firewall**. Tendrá que crear una regla de firewall en Almacenamiento de datos SQL con la dirección IP del equipo local antes de cargar datos en Almacenamiento de datos SQL.
 
 ## <a name="step-1-create-a-new-integration-services-project"></a>Paso 1: Creación de un proyecto de Integration Services
-1. Inicie Visual Studio 2015.
+1. Inicie Visual Studio.
 2. En el menú **Archivo**, seleccione **Nuevo | Proyecto**.
 3. Vaya a los tipos de proyecto **Instalado | Plantillas | Business Intelligence | Integration Services** .
 4. Seleccione **Proyecto de Integration Services**. Proporcione los valores de **Nombre** y **Ubicación**, y seleccione **Aceptar**.

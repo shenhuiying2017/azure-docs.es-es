@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb7e798120ea9075dba92da76826ff621882c32a
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 85ef906d680df8f6848b323d79a09b8414ed0817
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="azure-storage-client-tools"></a>Herramientas de cliente de Almacenamiento de Azure
-Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Almacenamiento de Azure. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una “X” en cada bloque si permite enumerar o tener acceso a la abstracción de los datos. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
+Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Almacenamiento de Azure. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una "X" en cada bloque si permite enumerar la abstracción de los datos o tener acceso a ella. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
 
 Únicamente proporcionamos una instantánea de las herramientas de cliente de Almacenamiento de Azure. Estas herramientas pueden seguir evolucionando y ampliando su funcionalidad. Si existen correcciones o actualizaciones, le agradeceremos que nos lo haga saber a través de un comentario. De igual manera, si conoce otras herramientas que deberíamos mostrar, estaremos encantados de agregarlas.
 
@@ -252,9 +253,4 @@ No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguie
     <td></td>
   </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

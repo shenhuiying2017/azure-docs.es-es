@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 3cd588751346517f9359f760561839339b0f9edb
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2e1915f017db8286b8a381aacf62205f3d34bcc9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="securing-access-to-azure-remoteapp-and-beyond"></a>Protección del acceso a Azure RemoteApp, y mucho más
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -34,7 +35,7 @@ Hay tres áreas principales que debe tener en cuenta el administrador:
 Siga leyendo para obtener más información y respuestas a estas preguntas.
 
 ## <a name="who-can-access-the-collection"></a>¿Quién puede acceder a la colección?
-El administrador elige a los usuarios que pueden tener acceso a las aplicaciones remotas en la colección. Puede usar cuentas profesionales o educativas (anteriormente denominadas "cuentas organizativas") de Azure Active Directory (Azure AD) o cuentas de Microsoft (por ejemplo, @outlook.com). La mayoría de los escenarios de empresa usan cuentas de Azure AD; le permiten usar características de acceso condicional, que se describen más adelante, y también son la única opción para las colecciones unidas a un dominio. El resto del artículo se supone que usa cuentas de Azure AD con Azure RemoteApp.
+El administrador elige a los usuarios que pueden tener acceso a las aplicaciones remotas en la colección. Puede usar cuentas profesionales o educativas (anteriormente denominadas "cuentas de organización") de Azure Active Directory (Azure AD) o cuentas de Microsoft (por ejemplo, @outlook.com). La mayoría de los escenarios de empresa usan cuentas de Azure AD; le permiten usar características de acceso condicional, que se describen más adelante, y también son la única opción para las colecciones unidas a un dominio. El resto del artículo se supone que usa cuentas de Azure AD con Azure RemoteApp.
 
 **¿Qué hemos logrado?**
 
@@ -115,10 +116,5 @@ Con Azure RemoteApp debe configurar primero su red virtual y, después, utilizar
 El diagrama siguiente muestra la solución completa donde hemos creado un canal de acceso seguro del usuario final, a través de Azure RemoteApp (ARA), al recurso de back-end.
 ![Secure Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png) En la fase 1, hemos seleccionado a los usuarios y hemos creado reglas de acceso que rigen cómo se puede acceder a ARA. En el ejemplo siguiente solo se permite el acceso a los usuarios que trabajan en la red corporativa. Los usuarios no conformes no podrá acceder de ninguna manera al entorno de ARA.
 En la "fase 2" se ha expuesto el recurso de back-end solo a través de la configuración de red virtual o VPN que se controla. Azure RemoteApp se ha colocado en la misma red virtual. El resultado final es que solo se puede acceder al recurso a través del entorno de ARA.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

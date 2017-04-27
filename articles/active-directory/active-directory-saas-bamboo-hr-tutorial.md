@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 308c9f4d59f6c6981af74f4208c9963e3d0102dd
-ms.openlocfilehash: 6644afc1de68230ccca089529b32195c4c8ddfe7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e190cfdf6d7a9dee86ed7b9072dc51ca8c993d32
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +33,7 @@ Después de completar este tutorial, los usuarios de Azure AD que asignó a Bamb
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 * Habilitación de la integración de aplicaciones para BambooHR
-* Configuración del inicio de sesión único
+* Configuración del inicio de sesión único (SSO)
 * Configuración del aprovisionamiento de usuario
 * Asignación de usuarios
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en BambooHR con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.  
 
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base&64;. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 **Siga estos pasos para configurar el inicio de sesión único:**
 
@@ -96,12 +96,12 @@ Como parte de este procedimiento, es necesario crear un archivo de certificado c
    ![Inicio de sesión único SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Inicio de sesión único SAML")
    
    1. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en BambooHR**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de inicio de sesión único**.
-   2. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+   2. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
    
       >[!TIP]
       >Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o). 
       > 
-   3. Abra el certificado codificado en base&64; en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
+   3. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
    4. Haga clic en **Guardar**.
 8. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
@@ -128,7 +128,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en BambooHR, deben ap
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de BambooHR para aprovisionar cuentas de usuario de AAD. 
 > 
 
-## <a name="assig-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a BambooHR, lleve a cabo los siguientes pasos:**
@@ -141,6 +141,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 

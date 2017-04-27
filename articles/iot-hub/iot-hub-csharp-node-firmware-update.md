@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 03/17/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: a586d437ed7636874d324c9d3fc5274fe9001627
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c2192328a152e955d182c4a07b391c98a5960964
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -40,7 +40,7 @@ Al final de este tutorial, tendrá una aplicación de dispositivo de consola de 
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 o Visual Studio 2017.
 * Node.js versión 0.12.x o posteriores. <br/>  En [Preparación del entorno de desarrollo][lnk-dev-setup] se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
@@ -57,16 +57,16 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
 
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][img-createapp]
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **TriggerFWUpdate** y luego seleccione **Administrar paquetes NuGet**.
-3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al [paquete NuGet del SDK de dispositivo de IoT de Azure][lnk-nuget-service-sdk] y sus dependencias.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **TriggerFWUpdate** y luego seleccione **Administrar paquetes NuGet**.
+1. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al [paquete NuGet del SDK de dispositivo de IoT de Azure][lnk-nuget-service-sdk] y sus dependencias.
 
     ![Ventana del Administrador de paquetes NuGet][img-servicenuget]
-4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
+1. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Agregue los campos siguientes a la clase **Program** . Sustituya los valores de varios marcadores de posición por la cadena de conexión de IoT Hub que creó en la sección anterior y por el identificador del dispositivo.
+1. Agregue los campos siguientes a la clase **Program** . Sustituya los valores de varios marcadores de posición por la cadena de conexión de IoT Hub que creó en la sección anterior y por el identificador del dispositivo.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -74,7 +74,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Agregue el método siguiente a la clase **Program** :
+1. Agregue el método siguiente a la clase **Program** :
    
         public static async Task QueryTwinFWUpdateReported()
         {
@@ -82,7 +82,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Agregue el método siguiente a la clase **Program** :
+1. Agregue el método siguiente a la clase **Program** :
 
         public static async Task StartFirmwareUpdate()
         {
@@ -99,7 +99,7 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. Por último, agregue las líneas siguientes al método **Main** :
+1. Por último, agregue las líneas siguientes al método **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartFirmwareUpdate().Wait();
@@ -107,7 +107,9 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. Compile la solución.
+1. En el Explorador de soluciones, abra **Establecer proyectos de inicio...** y asegúrese de que la **acción** de **TriggerFWUpdate** sea **Iniciar**.
+
+1. Compile la solución.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
@@ -123,6 +125,8 @@ Ya está preparado para ejecutar las aplicaciones.
 
 3. Verá la respuesta del dispositivo al método directo en la consola.
 
+    ![Firmware actualizado correctamente][img-fwupdate]
+
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha usado un método directo para desencadenar una actualización de firmware remota en un dispositivo y ha utilizado las propiedades notificadas para entender el progreso del proceso de actualización del firmware.
 
@@ -131,6 +135,7 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-firmware-update/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-firmware-update/createnetapp.png
+[img-fwupdate]: media/iot-hub-csharp-node-firmware-update/fwupdated.png
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

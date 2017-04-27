@@ -1,10 +1,10 @@
 ---
-title: "Modificación de los prefijos de las direcciones IP de la puerta de enlace de red local y la dirección IP de la puerta de enlace | Microsoft Docs"
+title: "Modificación de los prefijos de direcciones IP de puertas de enlace de red local y la dirección IP de VPN Gateway | Azure | PowerShell | Microsoft Docs"
 description: "Este artículo explica paso a paso cómo cambiar los prefijos de direcciones IP de la puerta de enlace de red local."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2016
+ms.date: 04/05/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 2459f106e90616b05062224be82a06ef20fbc7b4
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a26cbe2172dc27c152246d70b7f6b504ec4a08a5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -35,10 +36,5 @@ Necesitará instalar la versión más reciente de los cmdlets de PowerShell del 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede comprobar la conexión de la puerta de enlace. Consulte [Comprobación de una conexión de puerta de enlace](vpn-gateway-verify-connection-resource-manager.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

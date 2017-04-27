@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c427ddbe408fc42403eb6738d1983c220e899a7
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 7a9b8037967f0180d2f7d2a7d100d0cc3ad9e4a2
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -258,7 +258,7 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>¿Por qué obtengo un error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
 Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si no existe, recibirá un error **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
-Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de ARM para implementar a través de PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el nombre del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Azure Resource Manager para la implementación a través de PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
 Los errores de implementación de máquina virtual se capturan en los registros de actividad. Puede encontrar registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que seleccione la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]).

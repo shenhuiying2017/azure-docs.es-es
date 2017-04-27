@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2a124c42e6c90e9443475e1f46cf3e10b5d53d6a
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 46240f3dc99a8c8a103a1e7919ad4f5e7a8ea62a
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -70,40 +71,7 @@ Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cue
 Kubernetes utiliza DaemonSets para ejecutar una única instancia de un contenedor en cada host del clúster.
 Son perfectos para ejecutar agentes de supervisión.
 
-Este es el archivo DaemonSet YAML. Guárdelo en un archivo denominado `oms-daemonset.yaml` y reemplace los valores de marcador de posición de `WSID` y `KEY` a continuación con el identificador y la clave del área de trabajo en el archivo.
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: omsagent
-spec:
-  template:
-    metadata:
-      labels:
-        app: omsagent
-    spec:
-      containers:
-      - env:
-        - name: WSID
-          value: <your workspace ID>
-        - name: KEY
-          value: <your key>
-        image: microsoft/oms
-        name: omsagent
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-```
+Este es el [archivo DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Guárdelo en un archivo denominado `oms-daemonset.yaml` y reemplace los valores de marcador de posición de `WSID` y `KEY` con el identificador y la clave del área de trabajo en el archivo.
 
 Cuando haya agregado la clave y el identificador de área de trabajo a la configuración de DaemonSet, puede instalar el agente de OMS en el clúster con la herramienta de línea de comandos `kubectl`:
 
@@ -113,9 +81,4 @@ $ kubectl create -f oms-daemonset.yaml
 
 ### <a name="conclusion"></a>Conclusión
 Eso es todo. Pasados unos minutos, debería ver los datos que fluyen en el panel OMS.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

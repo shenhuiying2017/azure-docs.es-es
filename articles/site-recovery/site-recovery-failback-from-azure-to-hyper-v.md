@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 3/31/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 845a950f02ba95a100ffedbb07e4d1491b22a2da
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 8746abc957816f103abe6c33308af2a584e35485
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="failback-in-site-recovery"></a>Conmutación por recuperación en Site Recovery
+
+# <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Conmutación por recuperación en Site Recovery para máquinas virtuales de Hyper-V
+
 > [!div class="op_single_selector"]
 > * [Máquinas de VMware o físicas desde Azure](site-recovery-failback-azure-to-vmware.md)
 > * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)

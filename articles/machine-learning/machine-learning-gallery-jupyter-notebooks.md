@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ff7d5c372500c2cd392ed65a921d8a994b090f23
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ Desde esta página, puede examinar todos los cuadernos de la galería. También 
 ## <a name="download"></a>Descargar
 Puede descargar una copia de cualquier bloc de notas de la galería en el área de trabajo de Machine Learning Studio.
 
-### <a name="from-the-gallery"></a>Desde la galería
+### <a name="download-from-the-gallery"></a>Descargar de la galería
 Para descargar una copia de un bloc de notas de la galería:
 
 1. Abrir página de detalles del bloc de notas en la galería
@@ -56,7 +57,7 @@ Para descargar una copia de un bloc de notas de la galería:
 
 Al hacer clic en **Abrir en Studio**, el bloc de notas se carga en el área de trabajo de Machine Learning Studio y se abre (si es todavía no ha iniciado sesión en Studio, se le pedirá que inicie sesión con su cuenta de Microsoft antes de que el bloc de notas se copie en el área de trabajo). Puede encontrar más adelante el bloc de notas haciendo clic en **Blocs de notas** en el lado izquierdo de la página principal de Studio.
 
-### <a name="in-machine-learning-studio"></a>En Machine Learning Studio
+### <a name="download-in-machine-learning-studio"></a>Descarga en Machine Learning Studio
 También puede abrir cualquiera de los mismos blocs de notas de la galería mientras trabaja en Machine Learning Studio:
 
 1. En Machine Learning Studio, haga clic en **+NUEVO**
@@ -71,10 +72,5 @@ El bloc de notas se mostrará, junto con los otros blocs de notas, en la página
 **[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

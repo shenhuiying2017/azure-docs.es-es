@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
 translationtype: Human Translation
-ms.sourcegitcommit: c54b16517b6f08ed8bfddfb6e2c793ec0f292899
-ms.openlocfilehash: 678f747fd1b2e5017d1859fd594c3b4bc465ea41
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 013354515d841003c912ac0338690dd975a79ef7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Escalado de un servicio web de Azure Machine Learning mediante la incorporación de puntos de conexión adicionales
 > [!NOTE]
-> En este tema se describen técnicas que se aplican a un servicio web Machine Learning clásico. 
+> En este tema se describen técnicas que se aplican a un servicio web Machine Learning **clásico**. 
 > 
 > 
 
@@ -42,9 +43,4 @@ Las API sincrónicas se usan normalmente en situaciones en las que se desea una 
 <!--Image references-->
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
 [2]: ./media/machine-learning-scaling-webservice/machlearn-2.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

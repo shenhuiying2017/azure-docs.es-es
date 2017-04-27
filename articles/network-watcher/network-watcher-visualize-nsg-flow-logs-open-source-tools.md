@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -88,7 +88,7 @@ Para más instrucciones sobre cómo instalar Elasticsearch, consulte la página 
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. A continuación, se debe configurar Logstash para que lea la salida del archivo eve.json. Cree un archivo logstash.conf mediante:
+1. A continuación, necesitamos configurar Logstash para tener acceso a los registros de flujo y analizarlos. Cree un archivo logstash.conf mediante:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -168,7 +168,7 @@ Para iniciar Logstash, ejecute el comando:
 sudo /etc/init.d/logstash start
 ```
 
-Para más información sobre este complemento, consulte la documentación [aquí](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
+Para obtener más información sobre este complemento, consulte la documentación [aquí](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### <a name="install-kibana"></a>Instalación de Kibana
 
@@ -209,27 +209,27 @@ El panel de ejemplo proporciona varias visualizaciones de los registros de flujo
 
 1. Flujos por decisión o dirección a lo largo del tiempo: gráficos de serie temporal que muestran el número de flujos en el período de tiempo. Puede editar la unidad de tiempo y el alcance de estas dos visualizaciones. Flows by Decision (Flujos por decisión) muestra la proporción de decisiones de permitir o denegar tomadas, mientras que Flows by Direction (Flujos por dirección) muestra la proporción de tráfico de entrada y de salida. Con estos objetos visuales, puede examinar las tendencias del tráfico a lo largo del tiempo y buscar picos o patrones poco habituales.
 
-  ![Figura&2;][2]
+  ![Figura 2][2]
 
 1. Flujos por puerto de origen o destino (Flows by Destination Port y Flows by Source Port): gráficos circulares que muestran el desglose de los flujos a sus puertos respectivos. En esta vista se ven los puertos de uso más frecuente. Si hace clic en un puerto específico en el gráfico circular, el resto del panel se filtrará para mostrar flujos de ese puerto.
 
-  ![Figura&3;][3]
+  ![Figura 3][3]
 
 1. Number of Flows (Número de flujos) y Earliest Log Time (Hora de registro más antigua): métricas que muestran el número de flujos registrados y la fecha del registro más antiguo capturado.
 
-  ![Figura&4;][4]
+  ![Figura 4][4]
 
 1. Flows by NSG and Rule (Flujos por grupo de seguridad de red y regla): gráfico de barras que muestra la distribución de los flujos dentro de cada grupo de seguridad de red, así como la distribución de reglas en cada uno de ellos. Desde aquí puede ver qué grupo de seguridad de red y qué reglas generan la mayor parte del tráfico.
 
-  ![Figura&5;][5]
+  ![Figura 5][5]
 
 1. Diez principales IP de origen o destino (Top 10 Source IPs y Top 10 Destination IPs): gráficos de barras que muestran las diez principales direcciones IP de origen y de destino. Puede ajustar estos gráficos para mostrar más o menos direcciones IP principales. Desde aquí puede ver las direcciones IP más frecuentes, así como la decisión de tráfico (permitir o denegar) que se está tomando para cada IP.
 
-  ![Figura&6;][6]
+  ![Figura 6][6]
 
 1. Flow Tuples (Tuplas de flujo): en esta tabla se muestra la información contenida en cada tupla de flujo, así como su grupo de seguridad de red y regla correspondiente.
 
-  ![Figura&7;][7]
+  ![Figura 7][7]
 
 Mediante la barra de consulta en la parte superior del panel, puede filtrar el panel en función de cualquier parámetro de los flujos, como el id. de suscripción, los grupos de recursos, la regla o cualquier otra variable de interés. Para más información sobre las consultas y los filtros de Kibana, consulte la [documentación oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html).
 

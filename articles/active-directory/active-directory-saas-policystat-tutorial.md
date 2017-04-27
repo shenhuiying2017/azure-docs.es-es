@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ecd58d8f1df60aff99d9ac2e0245d06f61e0b6bb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ Después de completar este tutorial, los usuarios de Azure AD asignados a Policy
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para PolicyStat
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-policystat-tutorial/IC808662.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-policystat"></a>Habilitación de la integración de aplicaciones para PolicyStat
+## <a name="enable-the-application-integration-for-policystat"></a>Habilitación de la integración de aplicaciones para PolicyStat
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para PolicyStat.
 
 **Siga estos pasos para habilitar la integración de aplicaciones para PolicyStat:**
@@ -63,7 +64,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en PolicyStat con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
 
@@ -126,19 +127,18 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
    4. En la lista **Correo**, seleccione **User.mail**.
    5. Haga clic en **Completo**.
 
-##<a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+##<a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para permitir que los usuarios de Azure AD inicien sesión en PolicyStat, deben aprovisionarse en PolicyStat.  
 
-PolicyStat admite aprovisionamiento de usuarios justo a tiempo. Esto significa que no es necesario agregar usuarios manualmente a PolicyStat.  
-Los usuarios se agregarán automáticamente en su primer inicio de sesión a través del inicio de sesión único.
+PolicyStat admite aprovisionamiento de usuarios justo a tiempo. Esto significa que no es necesario agregar usuarios manualmente a PolicyStat. Los usuarios se agregarán automáticamente en su primer inicio de sesión a través del inicio de sesión único.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de PolicyStat ofrecida por PolicyStat para aprovisionar cuentas de usuario de AAD.
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de PolicyStat ofrecida por PolicyStat para aprovisionar cuentas de usuario de AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a PolicyStat, lleve a cabo los siguientes pasos:**
@@ -151,11 +151,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-policystat-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 

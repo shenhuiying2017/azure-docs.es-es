@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ae8e531c32b49e121b1c43b15071c138aaacf498
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,6 +29,11 @@ ms.lasthandoff: 03/21/2017
 >
 
 La CLI de Azure es una excelente manera de administrar la infraestructura de Azure desde cualquier plataforma. En este artículo se muestra cómo crear y administrar las instancias de Caché en Redis de Azure usando la CLI de Azure.
+
+> [!NOTE]
+> Este artículo se aplica a una versión anterior de la CLI de Azure. Para conocer los scripts de ejemplo más recientes de la CLI 2.0 de Azure, consulte [Ejemplos de caché de Redis para la CLI de Azure](cli-samples.md).
+> 
+> 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para crear y administrar instancias de Caché en Redis de Azure mediante la CLI de Azure, debe realizar los pasos siguientes.

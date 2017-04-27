@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 186b8331d2fcfc16bd41eb08badb200e2abf9e30
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 1072148f11052a643bdc70239029a651d9d71dda
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,8 +30,8 @@ El servicio de Azure Virtual Network le permite conectar de forma segura los rec
 
 Para más información acerca de las siguientes funcionalidades de Azure Virtual Network, haga clic en la funcionalidad:
 - **[Aislamiento:](#isolation)** las redes virtuales están completamente aisladas entre sí. Puede crear redes virtuales independientes para el desarrollo, la prueba y la producción que usan los mismos bloques de direcciones de CIDR. Por el contrario, puede crear varias redes virtuales que usan diferentes bloques de direcciones CIDR y que conectan redes entre sí. También puede segmentar una red virtual en varias subredes. Azure proporciona resolución de nombres interna para máquinas virtuales e instancias de rol de Cloud Services conectadas a una red virtual. Si lo desea, puede configurar una red virtual para usar sus propios servidores DNS, en lugar de utilizar la resolución de nombres interna Azure.
-- **[Conectividad a Internet:](#internet)** todas las máquinas virtuales de Azure y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
-- **[Conectividad de los recursos de Azure:](#within-vnet)** los recursos de Azure como Cloud Services y máquinas virtuales se pueden conectar a la misma red virtual. Los recursos pueden conectarse entre sí mediante direcciones IP privadas, aunque estén en subredes diferentes. Azure proporciona el enrutamiento predeterminado entre subredes, redes virtuales y redes locales, por lo que no tendrá que configurar ni administrar rutas.
+- **[Conectividad a Internet:](#internet)**  todas las máquinas virtuales de Azure y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
+- **[Conectividad de los recursos de Azure:](#within-vnet)**  los recursos de Azure como Cloud Services y máquinas virtuales se pueden conectar a la misma red virtual. Los recursos pueden conectarse entre sí mediante direcciones IP privadas, aunque estén en subredes diferentes. Azure proporciona el enrutamiento predeterminado entre subredes, redes virtuales y redes locales, por lo que no tendrá que configurar ni administrar rutas.
 - **[Conectividad de red virtual:](#connect-vnets)** las redes virtuales se pueden conectar entre sí, habilitando los recursos conectados a cualquier red virtual para que se comuniquen con cualquier recurso de cualquier red virtual.
 - **[Conectividad local:](#connect-on-premises)** las redes virtuales se pueden conectar a redes locales a través de conexiones de redes privadas entre la red y Azure, o a través de una conexión VPN de sitio a sitio a través de Internet.
 - **[Filtrado de tráfico:](#filtering)** el tráfico de red de entrada y salida de las instancias de rol de Cloud Services y máquinas virtuales se puede filtrar por dirección IP y puerto de origen, dirección IP y puerto de destino, y por protocolo.
@@ -39,7 +39,7 @@ Para más información acerca de las siguientes funcionalidades de Azure Virtual
 
 ## <a name = "isolation"></a>Aislamiento de red y segmentación
 
-Puede implementar varias redes virtuales dentro de cada suscripción y región de Azure. Cada red virtual está aislada de otras redes virtuales. Para cada red virtual, puede:
+Puede implementar varias redes virtuales dentro de cada [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) y [región](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) de Azure. Cada red virtual está aislada de otras redes virtuales. Para cada red virtual, puede:
 - Especificar un espacio de direcciones IP privado personalizado mediante direcciones públicas y privadas (RFC 1918). Azure asigna recursos conectados a la red virtual a una dirección IP privada desde el espacio de direcciones que asigne.
 - Segmentar la red virtual en una o varias subredes y asignar una parte del espacio de direcciones de redes virtuales para cada subred.
 - Utilizar la resolución de nombres que proporciona Azure o especificar su propio servidor DNS para su uso por recursos conectados a una red virtual. Para más información sobre la resolución de nombres de las redes virtuales, lea el artículo [Resolución de nombres para las máquinas virtuales y servicios en la nube](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -49,10 +49,10 @@ Todos los recursos conectados a una red virtual tienen conectividad saliente a I
 
 Para la comunicación entrante con los recursos de Azure desde Internet, o para la comunicación saliente a Internet sin SNAT, se debe asignar un recurso una dirección IP pública. Para más información sobre las direcciones IP públicas, lea el artículo [Direcciones IP publicas](virtual-network-public-ip-address.md).
 
-## <a name="within-vnet"></a>Conexión a recursos de Azure
+## <a name="within-vnet"></a>Conexión de recursos de Azure
 Se pueden conectar varios recursos de Azure a una red virtual, como máquinas virtuales (VM), Cloud Services, entornos de App Service y conjuntos de escalado de máquinas virtuales. Las máquinas virtuales se conectan a una subred dentro de una red virtual a través de una interfaz de red (NIC). Para más información sobre las NIC, consulte el artículo [Interfaces de red](virtual-network-network-interface.md).
 
-## <a name="connect-vnets"></a>Conexión a redes virtuales
+## <a name="connect-vnets"></a>Conexión de redes virtuales
 
 Puede conectar redes virtuales entre sí, habilitar recursos conectados a cualquier red virtual para que se comuniquen entre sí a través de redes virtuales. Puede utilizar una o ambas de las siguientes opciones para conectar redes virtuales entre sí:
 - **Emparejamiento:** permite que los recursos se conecten a distintas redes virtuales de Azure en la misma ubicación de Azure para comunicarse entre sí. El ancho de banda y la latencia en las redes virtuales son los mismos que si los recursos estuvieran conectados a la misma red virtual. Para aprender más sobre emparejamiento, lea el artículo [Emparejamiento de redes virtuales de Azure](virtual-network-peering-overview.md).
@@ -68,13 +68,11 @@ Puede conectar su red local a una red virtual mediante cualquier combinación de
 Para más información acerca de todas las opciones de la conexión anterior, consulte el artículo [Diagramas de topología de conexión](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
 
 ## <a name="filtering"></a>Filtrado del tráfico de red
-<!---Get confirmation that a UDR on the gateway subnet is supported. Need to provide some additional info as to the key differences between the two options.--->
-
 Puede filtrar el tráfico de red entre subredes mediante una o ambas de las siguientes opciones:
 - **Grupos de seguridad de red:** cada grupo de seguridad de red puede contener varias reglas de seguridad entrante y saliente, que le permiten filtrar el tráfico por dirección IP, puerto y protocolo de origen y destino. Puede aplicar un grupo de seguridad de red a cada NIC de una máquina virtual. También puede aplicar un grupo de seguridad de red a la subred de una NIC u otro recurso de Azure, a la que está conectado. Consulte el artículo [Grupos de seguridad de red](virtual-networks-nsg.md) para más información sobre los NSG.
 - **Dispositivos virtuales de red (NVA):** un dispositivo virtual de red es una máquina virtual que ejecuta software que realiza una función de red, como un firewall. Consulte una lista de dispositivos virtuales de red disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Los dispositivos virtuales de red también están disponibles para proporcionar la optimización de la WAN y otras funciones de tráfico de red. Los dispositivos virtuales de red normalmente se usan con rutas BGP o definidas por el usuario. También puede utilizar un dispositivo virtual de red para filtrar el tráfico entre redes virtuales.
 
-## <a name="routing"></a>Enrutamiento del tráfico de red
+## <a name="routing"></a>Redirección del tráfico de red
 
 Azure crea tablas de rutas que permiten a los recursos conectados a una subred de cualquier red virtual se comuniquen entre sí, de forma predeterminada. Puede implementar una o ambas de las siguientes opciones para reemplazar las rutas predeterminadas que crea Azure:
 - **Rutas definidas por el usuario:** puede crear tablas de rutas personalizadas con las rutas que controlan a dónde se enruta el tráfico para cada subred. Para aprender más sobre las rutas definidas por el usuario, lea el artículo [Rutas definidas por el usuario](virtual-networks-udr-overview.md).

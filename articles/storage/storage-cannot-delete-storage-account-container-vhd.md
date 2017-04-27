@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
-ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 64f875581dccd2ad1215a82eba1e2659fe01d191
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/08/2017
 
 Es posible que al intentar eliminar la cuenta de almacenamiento de Azure, un contenedor o un disco duro virtual en [Azure Portal](https://portal.azure.com/) o el [Portal de Azure clásico](https://manage.windowsazure.com/) reciba errores. Los problemas pueden deberse a las siguientes circunstancias:
 
-* Al eliminar una VM, el disco y el disco duro virtual no se eliminan automáticamente. Este podría ser el motivo del error en la eliminación de la cuenta de almacenamiento. No eliminamos el disco, por tanto puede usarlo para montar otra máquina virtual.
-* Todavía hay una concesión en un disco o en el blob asociado con el disco.
+* Al eliminar una VM, el disco y el disco duro virtual no se eliminan automáticamente. Este podría ser el motivo del error en la eliminación de la cuenta de almacenamiento. No eliminamos el disco; por tanto, puede usarlo para montar otra máquina virtual.
+* Sigue habiendo una concesión para un disco o el blob asociado a él.
 * Sigue siendo una imagen de máquina virtual que está usando una cuenta de almacenamiento, un contenedor o un blob.
 
 Si su problema con Azure no se trata en este artículo, visite los foros de Azure en [MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede publicar su problema en ellos o en @AzureSupport en Twitter. También puede presentar una solicitud de soporte técnico de Azure; para ello seleccione **Obtener soporte técnico** en el sitio de [soporte técnico de Azure](https://azure.microsoft.com/support/options/) .
@@ -43,7 +43,7 @@ Cuando se desplaza a la cuenta clásica de almacenamiento en [Azure Portal](http
 
 Cuando de desplaza a la cuenta de almacenamiento en [Portal de Azure clásico](https://manage.windowsazure.com/) y selecciona **Eliminar**, puede que vea uno de los mensajes de error siguientes:
 
-- *La cuenta de almacenamiento StorageAccountName contiene imágenes de máquina virtual. Asegúrese de que estas imágenes de máquina virtual se quiten antes de eliminar esta cuenta de almacenamiento.*.
+- *La cuenta de almacenamiento StorageAccountName contiene imágenes de máquina virtual. Asegúrese de que estas imágenes de máquina virtual se quiten antes de eliminar esta cuenta de almacenamiento*.
 
 - *Error al eliminar la cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm>. No se puede eliminar la cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm>: 'La cuenta de almacenamiento <nombre-de-cuenta-de-almacenamiento-de-vm> tiene algunas imágenes o discos activos. Controle que se quiten las imágenes y los discos antes de eliminar esta cuenta de almacenamiento.'.*
 

@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -29,8 +29,8 @@ Si se producen errores al obtener acceso a una aplicación publicada o al public
 
 * Abra la consola de Servicios de Windows y compruebe que el servicio **Microsoft AAD Application Proxy Connector** (Conector del proxy de aplicación de Microsoft AAD) está habilitado y en ejecución. Puede que también quiera consultar la página de propiedades del servicio Proxy de aplicación, como se muestra en la imagen siguiente:   
   ![Captura de pantalla de la ventana de propiedades del conector del proxy de aplicación de Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
-* Abra el Visor de eventos y busque eventos del conector del proxy de aplicación en **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector** > **Administrador**.
-* Si es necesario, puede disponer de registros más detallados si activa los registros de análisis y depuración, así como el registro de sesiones del conector del proxy de aplicación.
+* Abra el Visor de eventos y busque eventos del conector del proxy de aplicación en **Registros de aplicaciones y servicios** > **Microsoft** >  **AadApplicationProxy** > **Conector** > **Administrador**.
+* Si los necesita, encontrará registros más detallados activando [los registros de sesiones del conector del proxy de aplicación](application-proxy-understand-connectors.md#under-the-hood).
 
 Para más información sobre la herramienta de solución de problemas de Azure AD, consulte [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Herramienta de solución de problemas para validar los requisitos previos de red del conector).
 

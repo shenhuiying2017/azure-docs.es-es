@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -259,5 +259,5 @@ DocumentDB expone de forma transparente las métricas de rendimiento, latencia, 
 6. Peter Bailis et al. [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) [Obsolescencia limitada probabilística (PBS) para cuórums parciales prácticos].
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carga, capacidad y disponibilidad en sistemas de quórum)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearización: una condición de corrección para objetos concurrentes)
-9. Acuerdo de Nivel de Servicio de Azure DocumentDB (última actualización, diciembre de 2016)
+9. [Acuerdo de Nivel de Servicio de Azure DocumentDB](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)
 

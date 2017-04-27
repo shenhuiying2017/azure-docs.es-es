@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9c027decf5d982519bc9f41aa9588fa431ef3975
-ms.openlocfilehash: 17ad8938cbee539e74f87210077a12c72e777edc
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: a1d7c2f01d3bf345f63077c4d42d79476235e941
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="tutorial-azure-ad-integration-with-slack"></a>Tutorial: Integración de Azure AD con Slack
+# <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integración de Azure Active Directory con Slack
 
 En este tutorial, obtendrá información sobre cómo integrar Slack con Azure Active Directory (Azure AD).
 
@@ -39,8 +39,10 @@ Para configurar la integración de Azure AD con Slack, se necesitan los siguient
 * Una suscripción de Azure AD
 * Una suscripción de inicio de sesión único de Slack habilitada
 
-> [!NOTE]
-> No se recomienda probar los pasos de este tutorial con un entorno de producción.
+>[!NOTE]
+>No se recomienda probar los pasos de este tutorial con un entorno de producción.
+>
+>
 
 Para probar los pasos de este tutorial, siga estas recomendaciones:
 
@@ -76,7 +78,7 @@ Para configurar la integración de Slack con Azure AD, agregue Slack desde la ga
 
 6. En el panel de resultados, seleccione **Slack** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![En el panel de resultados, seleccione "Slack".](./media/active-directory-saas-slack-tutorial/tutorial_slack_0001.png)
+     ![En el panel de resultados, seleccione "Slack".](./media/active-directory-saas-slack-tutorial/tutorial_slack_0001.png)
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único (SSO) de Azure AD con Slack con un usuario de prueba llamado "Britta Simon".
@@ -85,13 +87,13 @@ Para que el inicio de sesión único funcione, Azure AD debe establecer una rela
 
 Para configurar y probar el inicio de sesión único de Azure AD con Slack, es preciso completar los siguientes bloques de creación:
 
-1. [Configure el inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on) para permitir al usuario usar esta característica.
+1. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on), para permitir que los usuarios utilicen esta característica.
 2. [Cree un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user) para probar el inicio de sesión único de Azure AD con el usuario Britta Simon.
 3. [Cree un usuario de prueba de Slack](#creating-a-slack-test-user) para dar a ese usuario Britta Simon de Azure AD un homólogo de Slack para vincularse.
 4. [Asigne el usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user) para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. [Pruebe el inicio de sesión único](#testing-single-sign-on) para comprobar que la configuración funciona.
+5. [Prueba del inicio de sesión único](#testing-single-sign-on) para comprobar que la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Slack de la siguiente manera:
 
@@ -106,13 +108,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 3. En **Dominio y direcciones URL de Slack**, lleve a cabo los pasos siguientes:
 
     ![Cuadro de diálogo "Inicio de sesión único"](./media/active-directory-saas-slack-tutorial/tutorial_slack_02.png)
+  1. En el cuadro **URL de inicio de sesión**, escriba una dirección URL que utilice la convención de nomenclatura _https://<company name>.slack.com_.
+  2. En el cuadro **Identificador**, escriba **https://slack.com**.
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL que utilice la convención de nomenclatura *https://<company name>.slack.com*.
-
-    b. En el cuadro **Identificador**, escriba **https://slack.com**.
-
-    > [!NOTE]
-    > Los valores anteriores no son valores reales. Aquí se recomienda usar valores exclusivos para la dirección URL y el identificador. Después, actualizará los valores con la dirección URL y el identificador reales. Para obtener los valores, póngase en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact).
+     >[!NOTE]
+     >Los valores anteriores no son valores reales. Aquí se recomienda usar valores exclusivos para la dirección URL y el identificador. Después, actualizará los valores con la dirección URL y el identificador reales. Para obtener los valores, póngase en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact).
+     >
+     >
 
 4. La aplicación Slack espera las aserciones de Lenguaje de marcado de aserción de seguridad (SAML), que se mostrará en un formato concreto. Configure las notificaciones y administre los valores de los atributos en la sección **Atributos de usuario** de la página de integración de la aplicación Slack, tal y como se muestra en la siguiente captura de pantalla:
 
@@ -127,19 +129,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | last_name | user.surname |
     | User.Username | extractmailprefix([userprincipalname]) |
 
-    a. Haga clic en el botón **Agregar atributo**.
+    1. Haga clic en el botón **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-slack-tutorial/tutorial_slack_04.png)
-
-    b. En el cuadro de diálogo **Agregar atributo**, en el cuadro **Nombre**, escriba el primer nombre de la columna **Nombre del atributo** de la tabla.
+    2. En el cuadro de diálogo **Agregar atributo**, en el cuadro **Nombre**, escriba el primer nombre de la columna **Nombre del atributo** de la tabla.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-slack-tutorial/tutorial_slack_05.png)
-
-    c. En el cuadro **Valor**, escriba el primer valor de la columna **Valor de atributo** de la tabla.
-
-    d. Haga clic en **Aceptar**.
-
-    e. Repita los pasos "a" a "d" para las tres filas de la tabla siguientes.
+    3. En el cuadro **Valor**, escriba el primer valor de la columna **Valor de atributo** de la tabla.
+    4. Haga clic en **Aceptar**.
+    5. Repita los pasos "a" a "d" para las tres filas de la tabla siguientes.
 
 6. En **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
@@ -180,24 +178,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 15. En el cuadro de diálogo **Configuración de la autenticación SAML** , realice los pasos siguientes:
 
     ![Cuadro de diálogo "Configuración de la autenticación SAML"](./media/active-directory-saas-slack-tutorial/tutorial_slack_003.png)
-
-    a. En el cuadro **SAML 2.0 Endpoint (HTTP)** [Punto de conexión SAML 2.0 (HTTP)], escriba el valor de **Dirección URL del servicio de inicio de sesión único de SAML** en la ventana de configuración de la aplicación Azure AD.
-
-    b. En el cuadro **Identity Provider Issuer** (Emisor del proveedor de identidades), especifique el valor de **ID de identidad de SAML** en la ventana de configuración de aplicaciones de Azure AD.
-
-    c. Abra el certificado descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro **Certificado público**.
-
-    d. Configure las tres opciones anteriores según corresponda para su equipo de Slack. Para más información acerca de la configuración, consulte [Guide to single sign-on with Slack](https://get.slack.help/hc/en-us/articles/220403548-Guide-to-single-sign-on-with-Slack) (Guía de inicio de sesión único con Slack).
-
-    e. Haga clic en **Guardar configuración**.
-
-    <!-- Anule la selección de **Permitir a los usuarios cambiar su dirección de correo electrónico**.
-
-    e. Seleccione **Permitir a los usuarios elegir su propio nombre de usuario**.
-
-    f. En **Authentication for your team must be used by** (Miembros de su equipo que tienen que usar la autenticación) seleccione **It’s optional** (Es opcional). -->
-
-
+  1. En el cuadro **SAML 2.0 Endpoint (HTTP)** [Punto de conexión SAML 2.0 (HTTP)], escriba el valor de **Dirección URL del servicio de inicio de sesión único de SAML** en la ventana de configuración de la aplicación Azure AD.
+  2. En el cuadro **Identity Provider Issuer** (Emisor del proveedor de identidades), especifique el valor de **ID de identidad de SAML** en la ventana de configuración de aplicaciones de Azure AD.
+  3. Abra el certificado descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro **Certificado público**.
+  4. Configure las tres opciones anteriores según corresponda para su equipo de Slack. Para más información acerca de la configuración, consulte [Guide to single sign-on with Slack](https://get.slack.help/hc/en-us/articles/220403548-Guide-to-single-sign-on-with-Slack) (Guía de inicio de sesión único con Slack).
+  5. Haga clic en **Guardar configuración**.
+  6. Anule la selección de **Permitir a los usuarios cambiar su dirección de correo electrónico**.
+  7. Seleccione **Permitir a los usuarios elegir su propio nombre de usuario**.
+  8. En **Authentication for your team must be used by** (Miembros de su equipo que tienen que usar la autenticación) seleccione **It’s optional** (Es opcional).
+  
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal de la siguiente manera:
 
@@ -216,14 +205,10 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 4. En el cuadro de diálogo **Usuario**, escriba la siguiente información:
 
     ![Cuadro de diálogo "Usuario"](./media/active-directory-saas-slack-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Seleccione la casilla **Mostrar contraseña** y, después , anote el valor que se muestra en el cuadro **Contraseña**.
-
-    d. Haga clic en **Crear**.
+  1. En el cuadro **Nombre**, escriba **BrittaSimon**.
+  2. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+  3. Seleccione la casilla **Mostrar contraseña** y, después , anote el valor que se muestra en el cuadro **Contraseña**.
+  4. Haga clic en **Crear**.
 
 ### <a name="create-a-slack-test-user"></a>Creación de un usuario de prueba de Slack
 
@@ -231,8 +216,10 @@ En esta sección, se crea un usuario llamado a Britta Simon en Slack. Slack admi
 
 No hay ningún elemento de acción para usted en esta sección. Si el usuario ya no existe en Slack, se crea uno nuevo cuando se intenta acceder a Slack.
 
-> [!NOTE]
-> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact).
+>[!NOTE]
+>Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact).
+>
+>
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -264,7 +251,7 @@ Para asignar el usuario Britta Simon a Slack, realice los pasos siguientes:
 
 7. En la hoja **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="test-sso"></a>Prueba de inicio de sesión único
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
 

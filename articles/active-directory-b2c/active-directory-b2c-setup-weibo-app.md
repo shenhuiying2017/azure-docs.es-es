@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b7283da1a3774b06d782fbac204b18cc074d413f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b6fdb9311ca2be3752c4ef74c91fe7abe9a91210
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de Weibo
 
 > [!NOTE]
-> Esta característica aún sigue en la fase de versión preliminar.
+> Esta característica se encuentra en su versión preliminar. No utilice este proveedor de identidades en su entorno de producción.
 > 
 
 ## <a name="create-a-weibo-application"></a>Creación de una aplicación de Weibo

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 4676e0da4309b1460e471f94946161fa22d46226
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Cree un panel de Customer Insights en tiempo real con Azure Logic Apps y Azure Functions
@@ -35,17 +35,17 @@ Las funciones proporcionan proceso sin servidor en la nube.  En este escenario, 
 
 Toda la solución se puede [compilar en Visual Studio](logic-apps-deploy-from-vs.md) e [implementar como parte de una plantilla de recursos](logic-apps-create-deploy-template.md).  También hay tutorial en vídeo del escenario [en Channel 9](http://aka.ms/logicappsdemo).
 
-## <a name="building-the-logic-app-to-trigger-on-customer-data"></a>Compilación de la aplicación lógica para actuar en función de los datos del cliente
+## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Compilación de la aplicación lógica para actuar con datos del cliente
 
 Después de [crear una aplicación de lógica](logic-apps-create-a-logic-app.md) en Visual Studio o Azure Portal:
 
 1. Agregue un desencadenador para **On New Tweets** (En los tweets nuevos) de Twitter
-1. Configure el desencadenador para escuchar tweets con una palabra clave o hashtag.
+2. Configure el desencadenador para escuchar tweets con una palabra clave o hashtag.
 
-> [!NOTE]
-> La propiedad de periodicidad del desencadenador determinará la frecuencia con que la aplicación lógica busca nuevos elementos en los desencadenadores basados en sondeo.
+   > [!NOTE]
+   > La propiedad de periodicidad del desencadenador determinará la frecuencia con que la aplicación lógica busca nuevos elementos en los desencadenadores basados en sondeo.
 
-![Ejemplo de desencadenador de Twitter][1]
+   ![Ejemplo de desencadenador de Twitter][1]
 
 Esta aplicación se activará ante todos los tweets nuevos.  Posteriormente, se pueden tomar los datos de los tweets y conocer mejor las opiniones expresadas.  Para ello, se utiliza [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/) para detectar las opiniones que hay en el texto.
 
@@ -99,7 +99,7 @@ Una vez que se ha desarrollado una solución, se puede capturar e implementar a 
 
 Azure Functions también se puede incorporar a la plantilla de implementación (con el fin de que toda la solución, con todas las dependencias, se puede administrar como una sola plantilla).  Un ejemplo de una plantilla de implementación de funciones se puede encontrar en el [repositorio azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Vea otros ejemplos y escenarios comunes de Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Vea un tutorial en vídeo sobre la creación de esta solución de un extremo a otro](http://aka.ms/logicappsdemo)

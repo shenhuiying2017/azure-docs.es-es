@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8744c5a133738fc60b86e7abd4b0d4b1cb28314c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 532382c7e15ad9b67915e05e7c980a4123036a0f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>Uso de Azure RemoteApp con las cuentas de usuario de Office 365
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp dejará de estar disponible el 31 de agosto de 2017. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -44,16 +45,11 @@ Vamos a cambiar su suscripción de Azure desde el directorio actual en el direct
 Siga las instrucciones descritas en [Cambio del inquilino de Azure Active Directory en Azure RemoteApp](remoteapp-changetenant.md). Preste especial atención a los siguientes aspectos:
 
 * Paso n.º 1: si ha implementado Azure RemoteApp (ARA) en esta suscripción, asegúrese de quitar todas las cuentas de usuario de Azure AD de cualquier colección ARA en primer lugar antes de intentar nada más. También puede eliminar las colecciones existentes.
-* Paso n.º 2: este es un paso crítico. Debe usar una cuenta de Microsoft (por ejemplo, @outlook.com)) como administrador de servicios en la suscripción. Esto es debido a que no podemos tener cuentas de usuario del Azure AD existente vinculadas a la suscripción. De otro modo, no podremos moverla a un Azure AD diferente.
+* Paso n.º 2: este es un paso crítico. Debe usar una cuenta de Microsoft (por ejemplo, @outlook.com) como administrador de servicios en la suscripción. Esto se debe a que no es posible tener cuentas de usuario de la instancia de Azure AD existente vinculadas a la suscripción. De lo contrario, no resultaría posible moverla a una instancia distinta de Azure AD.
 * Paso n.º 4: al agregar un directorio existente, el sistema le pedirá que inicie sesión con la cuenta de administrador para ese directorio. Asegúrese de usar la cuenta de administrador de la fase 1.
 * Paso n.º 5: cambio del directorio principal de la suscripción a su directorio de Office 365. El resultado final debe ser que aparezca la suscripción en el directorio de Office 365 en Configuración -> Suscripciones. 
   ![Cambio del directorio principal de la suscripción](./media/remoteapp-o365user/settings.png)
 
 En este momento, su suscripción de Azure RemoteApp está asociada al Office 365 Azure AD. Puede usar las cuentas de usuario existentes de Office 365 con Azure Remote App.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: db2e8391bcae98b2ef0fb93fb4e4e98a287b4846
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -78,7 +78,7 @@ Debe tener lo siguiente:
    
     a. Busque el paquete en el repositorio de Maven. En este tutorial, utilizamos [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
-    b. En el repositorio, recopile los valores de **GroupId**, **ArtifactId** y **Version**.
+    b. En el repositorio, recopile los valores de **GroupId**, **ArtifactId** y **Version**. Asegúrese de que los valores recopilados coincidan con el clúster. En este caso, estamos usando un paquete de Scala 2.10 y Spark 1.4.0, pero quizás tenga que seleccionar versiones diferentes para la versión de Scala o Spark concreta del clúster. Puede averiguar la versión de Scala del clúster mediante la ejecución de `scala.util.Properties.versionString` en el kernel de Spark Jupyter o en el envío de Spark. Puede averiguar la versión de Spark del clúster mediante la ejecución de `sc.version` en Jupyter Notebooks.
    
     ![Uso de paquetes externos con cuadernos de Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Uso de paquetes externos con cuadernos de Jupyter")
    

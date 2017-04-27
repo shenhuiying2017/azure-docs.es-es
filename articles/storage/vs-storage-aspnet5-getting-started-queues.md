@@ -1,6 +1,6 @@
 ---
-title: "Introducción al almacenamiento de colas y los servicios conectados de Visual Studio (ASP.NET 5) | Microsoft Docs"
-description: "Cómo empezar a usar el almacenamiento en cola de Azure en un proyecto de ASP.NET en Visual Studio"
+title: "Introducción a Queue Storage y los servicios conectados de Visual Studio (ASP.NET Core) | Microsoft Docs"
+description: "Introducción al uso de Azure Queue Storage en un proyecto de ASP.NET Core en Visual Studio"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b166ced70b845dd297a1eb87aaec5456ec3e0b31
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 4622496544ce6e1057ac68a2e9946917573e997e
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-5"></a>Introducción al almacenamiento de colas y a los servicios conectados de Visual Studio (ASP.NET 5)
+# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introducción a Queue Storage y a los servicios conectados de Visual Studio (ASP.NET Core)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Información general
-En este artículo se describe cómo empezar a usar Almacenamiento en cola de Azure en Visual Studio después de crear a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET 5 con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después de hacer referencia a una. La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión de la cuenta de almacenamiento a los archivos de configuración del proyecto.
+En este artículo se describe cómo empezar a usar Azure Queue Storage en Visual Studio después de crear una cuenta de Azure Storage en un proyecto de ASP.NET Core mediante el cuadro de diálogo **Add Connected Services** (Agregar servicios conectados) de Visual Studio, o después de hacer referencia a una. La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión de la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
 El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 kilobytes (KB) y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
 Para comenzar, necesita crear una cola de Azure en la cuenta de almacenamiento. Le mostraremos cómo crear una cola en el código. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C\# y usan la biblioteca del cliente de Azure Storage para .NET. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
-**NOTA:** algunas de las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Vea [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
+**NOTA**: Algunas de las API que realizan llamadas a Azure Storage en ASP.NET Core son asincrónicas. Vea [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
 
 * Consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas mediante programación.
 * Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Almacenamiento de Azure.
@@ -38,7 +39,7 @@ Para comenzar, necesita crear una cola de Azure en la cuenta de almacenamiento. 
 * Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
 
 ## <a name="access-queues-in-code"></a>Acceso a colas en el código
-Para obtener acceso a las colas en los proyectos de ASP.NET 5, debe incluir los elementos siguientes en los archivos de origen C# que tengan acceso al almacenamiento de colas de Azure.
+Para obtener acceso a las colas de los proyectos de ASP.NET Core, debe incluir los elementos siguientes en los archivos de origen de C# que tengan acceso a Azure Queue Storage.
 
 1. Asegúrese de que las declaraciones del espacio de nombres de la parte superior del archivo de C# incluyen estas instrucciones **using** .
    
@@ -153,10 +154,5 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

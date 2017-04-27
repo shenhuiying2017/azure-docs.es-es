@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4c32d3cf70b222e2795df2b94e23da67bf38d72b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 
 1. La biblioteca de cliente asume que el usuario está administrando la clave de cifrado de claves (KEK) de manera local. El usuario no necesita conocer la clave específica que se usó para el cifrado. En su lugar, se puede configurar y usar una resolución de clave que resuelva distintos identificadores de clave para las claves.
 2. La biblioteca de cliente descarga los datos cifrados junto con cualquier material de cifrado que esté almacenado en el servicio.
-3. A continuación, la clave de cifrado de contenido encapsulado (CEK) se desencapsula (descifra) usando la clave de cifrado de claves (KEK). Aquí nuevamente, la biblioteca de cliente no tiene acceso a la KEK. Simplemente invoca el algoritmo de desencapsulado personalizado del proveedor.
+3. A continuación, la clave de cifrado de contenido encapsulado (CEK) se desencapsula (descifra) usando la clave de cifrado de claves (KEK). Aquí nuevamente, la biblioteca de cliente no tiene acceso a la KEK. Simplemente invoca el algoritmo de desencapsulado del proveedor personalizado.
 4. La clave de cifrado de contenido (CEK) se usa entonces para descifrar los datos cifrados del usuario.
 
 ## <a name="encryption-mechanism"></a>Mecanismo de cifrado

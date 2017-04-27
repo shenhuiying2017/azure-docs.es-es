@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83b12c6daf5422039f3dd95eb9b177b972fad840
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 091ad6068c64bfe06c090430874d23f6ca497b34
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tablas temporales en el Almacenamiento de datos SQL
 > [!div class="op_single_selector"]
-> * [Información general][Información general]
-> * [Tipos de datos][Tipo de datos]
-> * [Distribución][Distribución]
-> * [Índice][Índice]
+> * [Información general][Overview]
+> * [Tipos de datos][Data Types]
+> * [Distribución][Distribute]
+> * [Índice][Index]
 > * [Partición][Partition]
-> * [Estadísticas][Estadísticas]
-> * [Temporales][Temporal]
+> * [Estadísticas][Statistics]
+> * [Temporal][Temporary]
 > 
 > 
 
@@ -231,26 +233,21 @@ DROP TABLE #stats_ddl;
 El Almacenamiento de datos SQL impone algunas limitaciones al implementar las tablas temporales.  Actualmente, solo se admiten tablas temporales con ámbito de sesión.  No se admiten tablas temporales globales.  Además, no se pueden crear vistas en las tablas temporales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte los artículos sobre [Información general][Información general], [Tipo de datos][Tipo de datos], [distribución de una tabla][Distribución], [indexación de una tabla][Índice], [creación de particiones de una tabla][Partition] y [mantenimiento de estadísticas de tablas][Estadísticas].  Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][Procedimientos recomendados para Almacenamiento de datos SQL de Azure].
+Para obtener más información, consulte los artículos sobre [información general de tablas][Overview], [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition] y [mantenimiento de estadísticas de tabla][Statistics].  Para obtener más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse de Azure][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Información general]: ./sql-data-warehouse-tables-overview.md
-[Tipo de datos]: ./sql-data-warehouse-tables-data-types.md
-[Distribución]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporal]: ./sql-data-warehouse-tables-temporary.md
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

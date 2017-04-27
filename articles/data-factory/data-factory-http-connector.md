@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2016
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d01dd1fdeed4aa809ba5118f79968f7719b11865
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 4870d2a0bbe35f3980864d8b4f3d011a189b650e
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -145,13 +145,12 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | Especifica el tipo del conjunto de datos. Se debe establecer en `Http`. | Sí |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. | No |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. <br><br> Para construir una dirección URL dinámica, puede usar [funciones y variables de sistema de Data Factory](data-factory-functions-variables.md), como "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)". | No |
 | requestMethod | Método HTTP. Los valores permitidos son **GET** o **POST**. | No. El valor predeterminado es `GET`. |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
 | requestBody | Cuerpo de la solicitud HTTP. | No |
-| partitionedBy | partitionedBy se puede usar para especificar un valor de folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. | No |
-| formato | Si desea simplemente **recuperar los datos del punto de conexión HTTP tal cual** sin analizarlos, omita esta configuración de formato. <br><br> Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat) y [Formato Parquet](#specifying-parquetformat).  |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**, y los niveles que se admiten son: **Optimal** (Óptimo) y **Fastest** (Más rápido). Para más información, consulte la sección [Especificación de la compresión](#specifying-compression). |No |
+| formato | Si desea simplemente **recuperar los datos del punto de conexión HTTP tal cual** sin analizarlos, omita esta configuración de formato. <br><br> Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Los niveles admitidos son **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 ### <a name="example-using-the-get-default-method"></a>Ejemplo: Uso del método GET (predeterminado)
 
@@ -196,20 +195,19 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 }
 ```
 
-[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
-
-[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
-
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
 Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En este momento, cuando el origen de la actividad de copia es de tipo **Http**, se admiten las siguientes propiedades.
+En este momento, cuando el origen de la actividad de copia es de tipo **HttpSource**, se admiten las siguientes propiedades.
 
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | El tiempo que la solicitud HTTP espera (TimeSpan) a obtener una respuesta. Es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. | No. Valor predeterminado: 00:01:40 |
+
+## <a name="supported-file-and-compression-formats"></a>Formatos de archivo y de compresión admitidos
+Consulte los detalles en [Formatos de compresión y de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples"></a>Ejemplos de JSON
 En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos del origen HTTP a Azure Blob Storage. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
@@ -267,7 +265,7 @@ Si se establece **external** en **true**, se informa al servicio Data Factory qu
         "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
+            "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
             "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
         },
         "external": true,

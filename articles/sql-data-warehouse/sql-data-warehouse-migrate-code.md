@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +33,8 @@ En la lista siguiente se resumen las características más comunes que no se adm
 * [Instrucción MERGE][merge statement]
 * combinaciones entre bases de datos
 * [Cursores][cursors]
-* [INSERT..EXEC][INSERT..EXEC]
+* <seg>
+  [INSERT..EXEC][INSERT..EXEC]</seg>
 * cláusula OUTPUT
 * funciones insertadas definidas por el usuario
 * funciones de múltiples instrucciones
@@ -90,8 +93,8 @@ También hay algunas funciones del sistema que no son compatibles. Algunas de la
 
 Algunos de estos problemas se pueden solucionar.
 
-## <a name="rowcount-workaround"></a>Solución alternativa @@ROWCOUNT
-Para evitar la falta de compatibilidad para @@ROWCOUNT,, cree un procedimiento almacenado que recuperará el último número de filas de sys.dm_pdw_request_steps y, a continuación, ejecute `EXEC LastRowCount` después de una instrucción DML.
+## <a name="rowcount-workaround"></a>Solución alternativa para @@ROWCOUNT
+Con el fin de evitar la falta de compatibilidad para @@ROWCOUNT, cree un procedimiento almacenado que recupere el último número de filas de sys.dm_pdw_request_steps y, a continuación, ejecute `EXEC LastRowCount` después de una instrucción DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -135,9 +138,4 @@ Para ver una lista completa de todas las instrucciones de T-SQL admitidas, vea [
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

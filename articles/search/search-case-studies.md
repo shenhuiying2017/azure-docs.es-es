@@ -16,8 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 197e5eba551d60ec33bcb5705bfa13f145554b74
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -42,8 +43,8 @@ Como nueva empresa con grandes planes para su sitio web de búsqueda de servicio
 ## <a name="weichert-realtorshttpscustomersmicrosoftcompagescustomerstoryaspxrecid21252"></a>[Agente inmobiliario Weichert](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 El agente inmobiliario Weichert se traslada a la nube y está dando un vuelco total al modo en que la empresa lleva sus negocios. La migración a Microsoft Azure permitió a la empresa reducir los costos operativos en un 60 por ciento después de decir que no a costosos hardware y software locales, modernizar por completo la solución de CRM con unas capacidades de búsqueda eficaces y facilitar nuevos y variados servicios de datos críticos para el futuro de la empresa. [Más información...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=21252)
 
-## <a name="whattopediacomsearch-dev-case-study-whattopediamd"></a>[Whattopedia.com](search-dev-case-study-whattopedia.md)
-Obtenga información acerca de cómo una nueva empresa sueca creó un portal de información que conecta a los compradores con los distribuidores, a través de una experiencia muy importante de búsqueda de ámbito, similar a cómo los portales de viajes establecen correspondencias entre turistas y hoteles, restaurantes y opciones de entretenimiento en territorios no registrados..[Más información...](search-dev-case-study-whattopedia.md)
+## <a name="whattopediacom"></a>Whattopedia.com
+Obtenga información acerca de cómo una nueva empresa sueca creó un portal de información que conecta a los compradores con los distribuidores a través de una experiencia de búsqueda acotada por ámbito de gran pertinencia, similar al modo en que los portales de viajes establecen correspondencias entre turistas y hoteles, restaurantes y opciones de entretenimiento en territorios no registrados.
 
 <!--Image References -- here for future reference. Had to -->
 [1]: ./media/search-case-studies/autotrader_m.png
@@ -52,9 +53,4 @@ Obtenga información acerca de cómo una nueva empresa sueca creó un portal de 
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 04/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b5153d2339f688b22796789d74cb9117985a43d2
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52c3e88689441045c3bd34ea3ab17a8a1d270f23
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -51,7 +51,7 @@ A continuación se indican las características principales de las licencias bas
 
 - En algunos casos, las licencias no se pueden asignar a un usuario. Por ejemplo, es posible que no haya licencias disponibles suficientes en el inquilino o puede que se hayan asignado servicios en conflicto al mismo tiempo. Los administradores tienen acceso a información sobre usuarios para los que Azure AD no pudo procesar íntegramente las licencias de grupo. Pueden realizar acciones correctivas según esa información.
 
-- Durante la versión preliminar pública, se requiere una suscripción de pago o de prueba a las ediciones básica o premium de Azure AD en el inquilino para usar la administración de licencias basadas en grupos. Además, todos los usuarios que hereden alguna licencia de grupos deben tener asignada la licencia de la edición de pago de Azure AD.
+- Durante la versión preliminar pública, se requiere una suscripción de pago o de prueba a las ediciones básica o premium de Azure AD en el inquilino para usar la administración de licencias basadas en grupos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

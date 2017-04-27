@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ Para tener este modelo listo para la implementación, tenemos que convertir este
 Se puede hacer manualmente, pero afortunadamente, para realizar estos tres pasos, basta con hacer clic en la opción **Set Up Web Service** (Configurar servicio web) de la parte inferior del lienzo del experimento (y seleccionar la opción **Predictive web Service** [Servicio web predictivo]).
 
 > [!TIP]
-> Si desea obtener más detalles sobre lo que ocurre cuando convierte un experimento de entrenamiento en un experimento predictivo, vea [Convertir un experimento de entrenamiento en Machine Learning en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Si desea obtener más detalles sobre lo que ocurre cuando convierte un experimento de entrenamiento en uno de predicción, consulte el artículo sobre la [preparación del modelo de implementación en Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Al hacer clic en **Set Up Web Service**(Configurar servicio web), pasa lo siguiente:
 

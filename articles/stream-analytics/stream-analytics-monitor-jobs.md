@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 37797743df0e2ce029b65f267a7cea5c8d793773
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: dc19bec960edff15feffc41bee1bbc63eeff5c6d
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
- En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada.  Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
-
-![Pestaña Trabajos de Supervisión de trabajos](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+ En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada.  Puede habilitarla manualmente en Azure Portal navegando hasta la página Supervisión del trabajo y haciendo clic en el botón Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en el área Métricas de Azure Portal para el trabajo de Stream Analytics.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
@@ -34,7 +32,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
 * Un trabajo de Análisis de transmisiones existente que requiera la habilitación de supervisión.
 
-## <a name="setup-a-project"></a>Configuración de un proyecto
+## <a name="create-a-project"></a>Creación de un proyecto
 1. Cree una aplicación de consola .NET de Visual Studio C#.
 2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Análisis de transmisiones de Azure. El segundo es el SDK de Azure Monitor que se usará para habilitar la supervisión. El último es el cliente de Azure Active Directory que se usará para autenticación.
    
@@ -142,7 +140,7 @@ El código siguiente configurará las variables y los clientes de administració
 El código siguiente habilitará la supervisión de un trabajo de Análisis de transmisiones **existente** . La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad "Id" (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Análisis de transmisiones.
 
 > [!WARNING]
-> Si previamente ha habilitado la supervisión de otro trabajo de Análisis de transmisiones, a través del Portal de Azure o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
+> Si previamente ha habilitado la supervisión de otro trabajo de Stream Analytics, a través del Azure Portal o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
 > 
 > La cuenta de almacenamiento está vinculada a la región en la que se ha creado el trabajo de Análisis de transmisiones, no específicamente al trabajo.
 > 

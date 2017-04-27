@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: e24bd626cd950f6e6d9474d1bd5f97c3ea4fb925
-ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6b6610bb4d4b427f525934146340a9cca6f52cb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ Después de completar este tutorial, los usuarios de Azure AD que ha asignado a 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para Picturepark
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-picturepark"></a>Habilitación de la integración de aplicaciones para Picturepark
+## <a name="enable-the-application-integration-for-picturepark"></a>Habilitación de la integración de aplicaciones para Picturepark
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Picturepark.
 
 **Siga estos pasos para habilitar la integración de aplicaciones para Picturepark:**
@@ -64,7 +65,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
 
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Picturepark con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
 
@@ -103,21 +104,23 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
    4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Picturepark**, copie el valor de **Dirección URL de SSO de SAML** y péguelo en el cuadro de texto **URI de emisor**.
    5. Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del emisor de confianza**.  
       
-      > [!TIP]
-      > Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+      >
+      >
 
 9. Haga clic en **JoinDefaultUsersGroup**.
-10. Para establecer el atributo **Emailaddress** en el cuadro de texto **Notificación**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+10. Para establecer el atributo **Emailaddress** en el cuadro de texto **Notificación**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** y haga clic en **Guardar**.
 
-      ![Configuración](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuración") a. Haga clic en **Guardar**.
+      ![Configuración](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuración")
 11. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configurar inicio de sesión único")
 
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 Para permitir que los usuarios de Azure AD inicien sesión en Picturepark, deben aprovisionarse en Picturepark.  
-En el caso de Picturepark, el aprovisionamiento es una tarea manual.
+
+ * En el caso de Picturepark, el aprovisionamiento es una tarea manual.
 
 **Para aprovisionar cuentas de usuario, realice estos pasos:**
 
@@ -136,12 +139,12 @@ En el caso de Picturepark, el aprovisionamiento es una tarea manual.
   2. Seleccione un valor en **Language**(Idioma).
   3. Haga clic en **Crear**.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Picturepark ofrecida por Picturepark para aprovisionar cuentas de usuario de AAD.
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Picturepark ofrecida por Picturepark para aprovisionar cuentas de usuario de AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a Picturepark, lleve a cabo los siguientes pasos:**
@@ -154,11 +157,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-picturepark-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 

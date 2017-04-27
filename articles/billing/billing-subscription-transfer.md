@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
-ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: e64c0336578be2c1a1126f7459775f47d73f9d6e
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
@@ -95,7 +95,7 @@ El administrador de la empresa puede transferir la propiedad de las suscripcione
 
 * **¿Se transfiere todo? ¿Incluidos los grupos de recursos, las VM, los discos y otros servicios en ejecución?**
 
-  Sí, todos los recursos, como máquinas virtuales, discos y sitios web se transferirían al nuevo propietario. Sin embargo, cualquier [rol de administrador](billing-add-change-azure-subscription-administrator.md) y directiva del [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) que haya configurado no se transferirán. 
+  Sí, todos los recursos, como máquinas virtuales, discos y sitios web se transferirían al nuevo propietario. Sin embargo, cualquier [rol de administrador](billing-add-change-azure-subscription-administrator.md) y directiva del [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) que haya configurado no se transferirán entre los distintos directorios.
 
 * <a id="no-button"></a>**¿Por qué no veo el botón Transfer Subscription (Transferir suscripción)?**
 

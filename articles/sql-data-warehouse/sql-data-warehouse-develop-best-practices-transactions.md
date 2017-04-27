@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -118,7 +120,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimización de actualizaciones
-`UPDATE` es una operación con registro completo.  Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficaz utilizar para ello una operación con registro mínimo, como [CTAS][CTAS].
+`UPDATE` es una operación con registro completo.  Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficiente utilizar una operación con registro mínimo, como [CTAS][CTAS], para hacerlo.
 
 En el ejemplo siguiente, se ha convertido la actualización de una tabla completa en una operación `CTAS` para que sea posible el registro mínimo.
 
@@ -184,7 +186,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Optimización con modificación de particiones
-Cuando se enfrenta a modificaciones a gran escala dentro de una [partición de tabla][partición de tabla], un patrón de modificación de particiones tiene mucho sentido. Si la modificación de datos es importante y abarca varias particiones, basta con iterar en las particiones para obtener el mismo resultado.
+Cuando se enfrenta a modificaciones a gran escala dentro de una [partición de tabla][table partition], un patrón de modificación de particiones constituye un buen enfoque. Si la modificación de datos es importante y abarca varias particiones, basta con iterar en las particiones para obtener el mismo resultado.
 
 Los pasos para realizar una conmutación de particiones son los siguientes:
 
@@ -416,30 +418,25 @@ Almacenamiento de datos SQL de Azure permite pausar, reanudar y escalar su almac
 
 Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar Almacenamiento de datos SQL. Sin embargo, esto no siempre es posible. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
 
-* Vuelva a escribir las operaciones de ejecución prolongada con [CTAS][CTAS]
+* Vuelva a escribir las operaciones de ejecución prolongada con [CTAS][CTAS].
 * Divida la operación en fragmentos, lo que opera en un subconjunto de las filas
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Transacciones en el Almacenamiento de datos SQL][Transacciones en el Almacenamiento de datos SQL] para obtener más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener más información sobre otros procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][Procedimientos recomendados para Almacenamiento de datos SQL de Azure].
+Consulte [Transactions in SQL Data Warehouse][Transactions in SQL Data Warehouse] (Transacciones en SQL Data Warehouse) para obtener más información sobre los niveles de aislamiento y los límites transaccionales.  Para obtener información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Transacciones en el Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-transactions.md
-[partición de tabla]: ./sql-data-warehouse-tables-partition.md
+[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[table partition]: ./sql-data-warehouse-tables-partition.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

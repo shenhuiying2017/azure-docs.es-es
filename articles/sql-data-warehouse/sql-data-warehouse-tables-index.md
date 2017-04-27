@@ -16,9 +16,9 @@ ms.custom: tables
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
-ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: dff94161c7d6dfedc91cfb36954e847f945985f7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -53,7 +53,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 Hay algunos escenarios en los que un almacén de columnas en clúster puede que no sea una buena opción:
 
-* Las tablas de almacén de columnas no admiten índices no clúster secundarios.  Considere la posibilidad de usar tablas de índice clúster o montón en su lugar.
 * Las tablas de almacén de columnas no admiten varchar (max), nvarchar (max) y varbinary (max).  Considere la posibilidad de usar un índice agrupado o de montón en su lugar.
 * Las tablas de almacén de columnas pueden que sean menos eficientes para datos transitorios.  Considere la posibilidad de usar tablas de montón, e incluso tablas temporales.
 * Tablas pequeñas con menos de 100 millones de filas.  Considere la posibilidad de usar tablas de montón.
@@ -168,7 +167,7 @@ Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los
 | [COMPRESSED_rowgroup_rows_AVG] |Si el número medio de filas es mucho menor que el número máximo de filas de un grupo de filas, considere la posibilidad de usar CTAS o ALTER INDEX REBUILD para volver a comprimir los datos. |
 | [COMPRESSED_rowgroup_count] |Número de grupos de filas en formato de almacén de columnas. Si este número es muy alto con respecto a la tabla es un indicador de que la densidad del almacén de columnas es baja. |
 | [COMPRESSED_rowgroup_rows_DELETED] |Las filas se eliminan lógicamente en formato de almacén de columnas. Si el número es alto con respecto al tamaño de la tabla, considere la posibilidad de volver a crear la partición o de volver a compilar el índice, ya que esto las quita físicamente. |
-| [COMPRESSED_rowgroup_rows_MIN] |Utilícelo en conjunción con las columnas AVG y MAX para conocer el intervalo de valores para los grupos de filas del almacén de columnas. Un número bajo por encima del umbral de carga (102&400; por cada distribución de particiones alineada) sugiere que hay optimizaciones disponibles en la carga de datos |
+| [COMPRESSED_rowgroup_rows_MIN] |Utilícelo en conjunción con las columnas AVG y MAX para conocer el intervalo de valores para los grupos de filas del almacén de columnas. Un número bajo por encima del umbral de carga (102 400 por cada distribución de particiones alineada) sugiere que hay optimizaciones disponibles en la carga de datos |
 | [COMPRESSED_rowgroup_rows_MAX] |Mismo caso anterior. |
 | [OPEN_rowgroup_count] |Los grupos de filas abiertos son normales. Cabe esperar un grupo de filas OPEN por cada distribución de tabla (60). Cantidades excesivas sugieren carga de datos entre particiones. Compruebe la estrategia de creación de particiones para asegurarse de que es válida. |
 | [OPEN_rowgroup_rows] |Cada grupo de filas puede incluir un máximo de 1 048 576 filas. Use este valor para ver lo llenos que están actualmente los grupos de filas abiertos |

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6da1efc35b624e0b06693037b4f91d71f0f40eb4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -41,20 +43,15 @@ Si la cadena es corta, puede usar [sp_executesql][sp_executesql] como de costumb
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
+Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

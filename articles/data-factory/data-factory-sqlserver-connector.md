@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3ab6d21263ee2f4082cae8d772e715ed04d7d7c0
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 70c7e2334336be78d26784815fb988ce1d22eb12
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -41,20 +41,20 @@ Puede crear una canalización con actividad de copia que mueva los datos desde u
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia. 
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
 
-Tanto si usa las herramientas o las API, realice los pasos siguientes para crear una canalización que mueva los datos de un almacén de datos de origen a un almacén de datos del receptor: 
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
-1. Cree **servicios vinculados** para vincular los almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** para representar los datos de entrada y salida para la operación de copia. 
-3. Cree una **canalización** con una actividad de copia que tome un conjunto de datos como entrada y un conjunto de datos como salida. 
+1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el asistente, se crean automáticamente definiciones JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones JSON de entidades de Data Factory que se usan para copiar datos a/desde una base de datos SQL Server local, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones JSON de entidades de Data Factory que se usan para copiar datos a/desde una base de datos SQL Server local, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo. 
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de SQL Server: 
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
-En los ejemplos se ha usado un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos de SQL Server local a una factoría de datos. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SQL Server local.
+Se crea un servicio vinculado de tipo **OnPremisesSqlServer** para vincular una base de datos SQL Server local a una instancia de Data Factory. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SQL Server local.
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio SQL Server vinculado.
 
@@ -80,7 +80,7 @@ Puede cifrar las credenciales con el cmdlet **New-AzureRmDataFactoryEncryptValue
     "name": "MyOnPremisesSQLDB",
     "properties":
     {
-        "type": "OnPremisesSqlLinkedService",
+        "type": "OnPremisesSqlServer",
         "typeProperties": {
             "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
             "gatewayName": "<gateway name>"
@@ -97,7 +97,7 @@ Si se especifican el nombre de usuario y la contraseña, la puerta de enlace los
      "Name": " MyOnPremisesSQLDB",
      "Properties":
      {
-         "type": "OnPremisesSqlLinkedService",
+         "type": "OnPremisesSqlServer",
          "typeProperties": {
              "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
              "username": "<domain\\username>",
@@ -135,7 +135,7 @@ Cuando el origen es una actividad de copia de tipo **SqlSource**, están disponi
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | SqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. Es posible hacer referencia a varias tablas de la base de datos a la que hace referencia el conjunto de datos de entrada. Si no se especifica, la instrucción SQL que se ejecuta: select from MyTable. |No |
-| sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. |No |
+| sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
 | storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 
 Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecuta la consulta en el origen de Base de datos SQL de Azure para obtener los datos.
@@ -625,12 +625,12 @@ Observe que la tabla de destino tiene una columna de identidad.
 Tenga en cuenta que la tabla de origen y de destino tienen un esquema diferente (el destino tiene una columna adicional con identidad). En este escenario, debe especificar la propiedad **structure** de la definición del conjunto de datos de destino, que no incluye la columna de identidad.
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
-Para más información sobre la asignación de columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).
+Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-copy"></a>Copia repetible
-Cuando se copian datos en SQL Server Database, la actividad de copia anexa datos a la tabla del receptor de forma predeterminada. Para ejecutar una semántica UPSERT en su lugar, consulte el artículo [Escritura repetible en SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
+Cuando se copian datos en SQL Server Database, la actividad de copia anexa datos a la tabla receptora de forma predeterminada. Para ejecutar una semántica UPSERT en su lugar, consulte el artículo [Escritura repetible en SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink). 
 
-Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se leen sin importar cuántas veces se ejecuta un segmento. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se lean sin importar el número de ejecuciones. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>Invocación del procedimiento almacenado desde el receptor de SQL
 Para ver un ejemplo de invocación de un procedimiento almacenado desde el receptor de SQL en una actividad de copia de una canalización, consulte el artículo [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) (Invocación de un procedimiento almacenado desde el receptor de SQL en la actividad de copia).

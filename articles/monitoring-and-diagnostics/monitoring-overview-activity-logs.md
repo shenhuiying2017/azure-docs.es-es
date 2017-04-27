@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,9 +47,9 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 ![Registro de actividad de Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](insights-auditlog-to-webhook-email.md)
+* [Crear una alerta que se desencadene con un evento de registro de actividad.](monitoring-activity-log-alerts.md)
 * [Transmitirlo al **Centro de eventos**](monitoring-stream-activity-logs-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
-* Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](monitoring-archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
 * Verlo y realizar consultas en él en el **Portal de Azure**.
 * Consultarlo mediante un cmdlet de PowerShell, la CLI o la API de REST.
@@ -80,11 +80,10 @@ Puede transmitir el registro de actividad a un centro de eventos o almacenarlo e
 
     ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. En la hoja que aparece, puede seleccionar:  
-
-   * Las regiones para las que le gustaría exportar eventos
-   * La cuenta de almacenamiento en la que desea guardar los eventos
-   * El número de días que desea conservar estos eventos en el almacenamiento. Un valor de 0 días conserva los registros para siempre.
-   * El espacio de nombres de Service Bus en el que quiere que se cree un centro de eventos para transmitir estos eventos.
+  * Las regiones para las que le gustaría exportar eventos
+  * La cuenta de almacenamiento en la que desea guardar los eventos
+  * El número de días que desea conservar estos eventos en el almacenamiento. Un valor de 0 días conserva los registros para siempre.
+  * El espacio de nombres de Service Bus en el que quiere que se cree un centro de eventos para transmitir estos eventos.
 
      ![Exportar en hoja de registro de actividad](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.

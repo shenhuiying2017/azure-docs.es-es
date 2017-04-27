@@ -16,9 +16,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: a90c412d2d66834cd0df3f348fa488b6ce10c898
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 159e41f3d1b43abc830b79e1ea0bed05e05505a2
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ Los sitios web de las redes sociales constituyen una de las principales fuerzas 
 En este tutorial, obtendrá tweets mediante la API de streaming de Twitter y, a continuación, usará Apache Hive en HDInsight de Azure para obtener una lista de usuarios de Twitter que envían más tweets que contienen una palabra determinada.
 
 > [!IMPORTANT]
-> Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obtener pasos específicos para un clúster basado en Linux, vea [Análisis de datos de Twitter con Hive en HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Para obtener pasos específicos para un clúster basado en Linux, vea [Análisis de datos de Twitter con Hive en HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
@@ -563,7 +563,7 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

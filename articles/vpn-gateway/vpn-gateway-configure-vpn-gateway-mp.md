@@ -4,7 +4,7 @@ description: "Este artículo le lleva por la configuración de la puerta de enla
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: fbe59ba8-b11f-4d21-9bb1-225ec6c6d351
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b6f001345daf411497295357ab43d01635ae743e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2ea4e6bb86b1ba6f7b501b193d0713d3901457af
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,21 +62,25 @@ Cuando la puerta de enlace cambia a *Conectando*, puede recopilar la informació
 Si va a crear una conexión de sitio a sitio, una vez que se cree la puerta de enlace, recopile la información de la configuración del dispositivo VPN. Esta información se encuentra en la página **Panel** de la red virtual:
 
 1. **Dirección IP de puerta de enlace:** la dirección IP se encuentra en la página **Panel**. No podrá verla hasta después de que ha terminado de crear la puerta de enlace.
-2. **Clave compartida:** haga clic en el botón **Administrar clave**, en la parte inferior de la pantalla. Haga clic en el icono situado junto a la clave para copiarlo en el Portapapeles y, a continuación, pegue y guarde la clave. Este botón solo funciona cuando hay un solo túnel VPN S2S. Si tiene varios túneles VPN S2S, utilice la API *Get Virtual Network Gateway Shared Key* o el cmdlet de PowerShell.
+2. **Clave compartida:** haga clic en el botón **Administrar clave**, en la parte inferior de la pantalla. Haga clic en el icono situado junto a la clave para copiarlo en el Portapapeles y, a continuación, pegue y guarde la clave. Este botón solo funciona cuando hay un solo túnel VPN S2S. Si tiene varios túneles de VPN S2S, utilice la API *Get Virtual Network Gateway Shared Key* o el cmdlet de PowerShell.
 
 ![Administrar claves](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 ### <a name="step-2--configure-your-vpn-device"></a>Paso 2:  Configurar el dispositivo VPN
-En lo que respecta a las conexiones de sitio a sitio, después de completar los pasos anteriores, usted o su administrador de red deberán configurar el dispositivo VPN para crear la conexión. [Para obtener más información acerca de los dispositivos VPN, consulte Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md) .
+Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. Aunque no se proporcionan todos los pasos de configuración para todos los dispositivos VPN, se puede encontrar información en los siguientes vínculos útiles:
+
+- Para obtener más información sobre dispositivos VPN compatibles, vea [Dispositivos VPN](vpn-gateway-about-vpn-devices.md). 
+- Para obtener vínculos a los valores de configuración de dispositivo, vea [Dispositivos VPN validados](vpn-gateway-about-vpn-devices.md#devicetable). Estos vínculos se proporcionan dentro de lo posible. Siempre es mejor ponerse en contacto con el fabricante del dispositivo para obtener la información de configuración más reciente.
+- Para obtener información sobre cómo modificar los ejemplos de configuración de dispositivo, vea [Edición de ejemplos](vpn-gateway-about-vpn-devices.md#editing).
+- Para los parámetros de IPsec/IKE, vea [Parámetros](vpn-gateway-about-vpn-devices.md#ipsec).
+- Antes de configurar el dispositivo VPN, compruebe si hay [problemas conocidos de compatibilidad de dispositivos](vpn-gateway-about-vpn-devices.md#known) para el dispositivo VPN que desea usar.
+
+Al configurar el dispositivo VPN, necesitará los elementos siguientes:
+
+- La dirección IP pública de la puerta de enlace de red virtual. Para encontrarla, vaya a la hoja **Introducción** de la red virtual.
+- Una clave compartida. Se trata de la misma clave compartida que se especifica al crear la conexión VPN de sitio a sitio. En nuestros ejemplos, se utiliza una clave compartida muy básica. Debe generar una clave más compleja para su uso.
 
 Una vez configurado el dispositivo VPN, puede ver la información de conexión actualizada en la página Panel para la red virtual.
-
-También puede ejecutar uno de los comandos siguientes para probar la conexión:
-
-|  | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
-| --- | --- | --- | --- | --- |
-| **SA de comprobación de modo principal** |show crypto isakmp sa |show crypto isakmp sa |get ike cookie |show security ike security-association |
-| **SA de comprobación de modo rápido** |show crypto ipsec sa |show crypto ipsec sa |get sa |show security ipsec security-association |
 
 ### <a name="step-3-verify-your-local-network-ranges-and-vpn-gateway-ip-address"></a>Paso 3: Verificación de los intervalos de red local y la dirección IP de puerta de enlace de VPN
 #### <a name="verify-your-vpn-gateway-ip-address"></a>Verificación de la dirección IP de la puerta de enlace de VPN

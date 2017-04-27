@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d055a859ec89ef7fec23db9bf1d574dd8cb76293
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: aba69b95db8313dd9ce711ddc6c26e5df55d79a4
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/25/2017
 ## <a name="overview"></a>Información general
 [almacenamiento Premium de Azure](../../../storage/storage-premium-storage.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/)de SQL Server en IaaS.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use almacenamiento Premium. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
@@ -47,7 +47,7 @@ Para obtener información general sobre SQL Server en máquinas virtuales de Azu
 Hay varios requisitos previos para usar el almacenamiento Premium.
 
 ### <a name="machine-size"></a>Tamaño de la máquina
-Para usar el almacenamiento Premium deberá usar máquinas virtuales de la serie DS. Si nunca usó máquinas de la serie DS en el servicio en la nube, debe eliminar la máquina virtual existente, mantener los discos conectados y, a continuación, crear un nuevo servicio en la nube antes de volver a crear la máquina virtual como un tamaño de rol DS*. Para más información sobre los tamaños de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para usar el almacenamiento Premium deberá usar máquinas virtuales de la serie DS. Si nunca usó máquinas de la serie DS en el servicio en la nube, debe eliminar la máquina virtual existente, mantener los discos conectados y, a continuación, crear un nuevo servicio en la nube antes de volver a crear la máquina virtual como un tamaño de rol DS*. Para más información sobre los tamaños de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Servicios en la nube
 Solo puede usar máquinas virtuales DS* con almacenamiento Premium cuando se crean en un servicio en la nube nuevo. Si usando AlwaysOn de SQL Server en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
@@ -142,9 +142,9 @@ Ahora puede usar esta información para asociar los VHD conectados a discos fís
 Una vez asignados los VHD a discos físicos en los grupos de almacenamiento, puede desconectarlos y copiarlos en una cuenta de almacenamiento Premium. A continuación, conéctelos con la configuración de la caché correcta. Consulte los pasos del 8 al 12 del ejemplo incluido en el [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). Estos pasos muestran cómo extraer una configuración de disco VHD conectado a una máquina virtual en un archivo CSV, copiar los VHD, modificar la configuración de la caché del disco y, por último, volver a implementar la máquina virtual como una máquina virtual de la serie DS con todos los discos conectados.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Ancho de banda del almacenamiento de la VM y rendimiento del almacenamiento del VHD
-El nivel de rendimiento del almacenamiento depende del tamaño especificado de la máquina virtual DS* y de los tamaños del VHD. Las máquinas virtuales tienen diferentes asignaciones para el número de VHD que se pueden conectar y el ancho de banda máximo que admitirán (MB/s). Para obtener las cifras específicas del ancho de banda, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+El nivel de rendimiento del almacenamiento depende del tamaño especificado de la máquina virtual DS* y de los tamaños del VHD. Las máquinas virtuales tienen diferentes asignaciones para el número de VHD que se pueden conectar y el ancho de banda máximo que admitirán (MB/s). Para obtener las cifras específicas del ancho de banda, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para más información, [consulte la tabla de IOPS y tipos de discos](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para más información, [consulte la tabla de IOPS y tipos de discos](../../../storage/storage-premium-storage.md#scalability-and-performance-targets).
 
 Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
 
@@ -271,7 +271,7 @@ Este escenario muestra dónde tiene imágenes personalizadas que residen en una 
 
 
 #### <a name="step-3-use-existing-image"></a>Paso 3: Usar una imagen existente
-Puede usar una imagen existente. También puede [captar la imagen de una máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenga en cuenta que la máquina de la que capte una imagen no tiene que ser la máquina DS*. Ahora que tiene la imagen, los pasos siguientes muestran cómo copiarla en la cuenta de Premium Storage con el commandlet de PowerShell**Start-AzureStorageBlobCopy**.
+Puede usar una imagen existente. También puede [captar la imagen de una máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenga en cuenta que la máquina de la que se crea una imagen no tiene que ser DS*. Ahora que ya ha creado la imagen, los pasos siguientes muestran cómo copiarla en la cuenta de Premium Storage con el commandlet de PowerShell **Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account

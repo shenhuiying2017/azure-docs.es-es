@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 77e48af7ba59ed1e5b2ebcda0760e0eda1f407df
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -33,7 +33,7 @@ Hay dos maneras de crear discos estándar para máquinas virtuales de Azure:
 
 **Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las máquinas virtuales de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 64 TB de almacenamiento por máquina virtual.
 
-[**Azure Managed Disks**](storage-managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento, Azure se encarga de ello.
+[**Azure Managed Disks**](storage-managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento: Azure se encarga de ello.
 
 Aunque están disponibles los dos tipos de discos, se recomienda utilizar Managed Disks para aprovechar su gran cantidad de características.
 
@@ -42,7 +42,7 @@ Para empezar a usar el almacenamiento estándar de Azure, visite la página de [
 Para obtener información acerca de cómo crear una máquina virtual con Managed Disks, consulte uno de los artículos siguientes.
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Características del almacenamiento estándar 
 
@@ -153,4 +153,4 @@ El servicio Azure Backup también se puede usar con Managed Disks para crear un 
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/linux/quick-create-cli.md)

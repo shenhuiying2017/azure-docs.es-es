@@ -12,22 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9ce6110b3677ccf8252a91654d71de4273e68b9e
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6c26bf3eda7ef15e7a580a31ab7b6624c8a7a826
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Movimiento de datos hacia y desde el sistema de archivos local mediante Azure Data Factory
 Puede copiar datos de HDFS en cualquier almacén de datos de receptor admitido. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). En la actualidad, Factoría de datos solo admite el movimiento de datos desde HDFS local a otros almacenes de datos, pero no el movimiento inverso.
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos hacia un sistema de archivos local y desde él. Puede copiar datos desde un sistema de archivos local a cualquier almacén de datos receptor o desde cualquier almacén de datos de origen compatible. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Se basa en la información general ofrecida por el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md). Consulte los [orígenes y receptores admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obtener una lista de almacenes de datos que se pueden utilizar como orígenes o receptores con el sistema de archivos local. 
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos hacia un sistema de archivos local y desde él. Puede copiar datos desde un sistema de archivos local a cualquier almacén de datos receptor o desde cualquier almacén de datos de origen compatible. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Se basa en la información general ofrecida por el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md). Consulte los [orígenes y receptores admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obtener una lista de almacenes de datos que se pueden utilizar como orígenes o receptores con el sistema de archivos local.
+
+> [!NOTE]
+> La actividad de copia no elimina el archivo de origen una vez copiado correctamente en el destino. Si necesita eliminar el archivo de origen tras una copia correcta, cree una actividad personalizada para tal fin y úsela en la canalización. 
 
 ## <a name="enabling-connectivity"></a>Habilitación de la conectividad
-Data Factory admite la conexión hacia y desde el sistema de archivos local mediante **Data Management Gateway**. Debe instalar Data Management Gateway en el entorno local para que el servicio de Data Factory se conecte a cualquier almacén de datos local compatible, incluido el sistema de archivos. Para más información al respecto y para obtener instrucciones paso a paso sobre la configuración de una puerta de enlace, consulte [Movimiento de datos entre orígenes locales y la nube con la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md). Aparte de la puerta de enlace de administración de datos, no es necesario instalar otros archivos binarios para la comunicación hacia y desde un sistema de archivos local. Debe instalar y usar Data Management Gateway incluso si el sistema de archivos está en la máquina virtual de IaaS de Azure. Para información más detallada sobre la puerta de enlace, consulte el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md). 
+Data Factory admite la conexión hacia y desde el sistema de archivos local mediante **Data Management Gateway**. Debe instalar Data Management Gateway en el entorno local para que el servicio de Data Factory se conecte a cualquier almacén de datos local compatible, incluido el sistema de archivos. Para más información al respecto y para obtener instrucciones paso a paso sobre la configuración de una puerta de enlace, consulte [Movimiento de datos entre orígenes locales y la nube con la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md). Aparte de la puerta de enlace de administración de datos, no es necesario instalar otros archivos binarios para la comunicación hacia y desde un sistema de archivos local. Debe instalar y usar Data Management Gateway incluso si el sistema de archivos está en la máquina virtual de IaaS de Azure. Para información más detallada sobre la puerta de enlace, consulte el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md).
 
 Para usar un recurso compartido de archivos de Linux, instale [Samba](https://www.samba.org/) en el servidor Linux e instale Data Management Gateway en un servidor Windows. No se admite la instalación de la puerta de enlace de administración de datos en un servidor Linux.
 
@@ -36,15 +39,15 @@ Puede crear una canalización con actividad de copia que mueva los datos desde u
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instrucciones paso a paso de la creación de una canalización con una actividad de copia. 
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
 
-Si usa las herramientas o las API, realice los pasos siguientes para crear una canalización que mueve los datos de un almacén de datos de origen a un almacén de datos del receptor: 
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Cree **servicios vinculados** para vincular los almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** que representen los datos de entrada y salida para la operación de copia. 
-3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
+1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el asistente, se crean automáticamente las definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos hacia un sistema de archivos y desde este, consulte la sección de [ejemplos de JSON](#json-examples) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos hacia un sistema de archivos y desde este, consulte la sección de [ejemplos de JSON](#json-examples) de este artículo.
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un sistema de archivos:
 
@@ -179,6 +182,9 @@ En esta sección se describe el comportamiento resultante de la operación de co
 | false |preserveHierarchy |Para una carpeta de origen Folder1 con la siguiente estructura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>se crea la carpeta de destino Folder1 con la estructura siguiente:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>No se selecciona la subcarpeta Subfolder1, con File3, File4 y File5. |
 | false |flattenHierarchy |Para una carpeta de origen Folder1 con la siguiente estructura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>se crea la carpeta de destino Folder1 con la estructura siguiente:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nombre de archivo generado automáticamente para File2<br/><br/>No se selecciona la subcarpeta Subfolder1, con File3, File4 y File5. |
 | false |mergeFiles |Para una carpeta de origen Folder1 con la siguiente estructura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>se crea la carpeta de destino Folder1 con la estructura siguiente:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 se combina en un archivo con un nombre de archivo generado automáticamente.<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/><br/>No se selecciona la subcarpeta Subfolder1, con File3, File4 y File5. |
+
+## <a name="supported-file-and-compression-formats"></a>Formatos de archivo y de compresión admitidos
+Consulte los detalles en [Formatos de compresión y de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples"></a>Ejemplos de JSON
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre el sistema de archivos local y Azure Blob Storage. Sin embargo, puede copiar datos *directamente* desde cualquiera de los orígenes y hasta cualquiera de los receptores enumerados en [orígenes y receptores compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
@@ -355,7 +361,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 }
 ```
 
-**Actividad de copia en una canalización con el origen del sistema de archivos y el receptor de blob:** 
+**Actividad de copia en una canalización con el origen del sistema de archivos y el receptor de blob:**
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**.
 
@@ -596,7 +602,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 ```
 
 
-También puede asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor en la definición de actividad de copia. Para detalles, consulte el artículo sobre [asignación de columnas de conjuntos de datos en Azure Data Factory](data-factory-map-columns.md).
+También puede asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor en la definición de actividad de copia. Para obtener más información, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
  Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.

@@ -1,6 +1,6 @@
 ---
-title: "Creación de aplicaciones independientes con Scala para ejecutarlas en clústeres de Azure Spark | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una aplicación independiente Spark para ejecutarla en clústeres de HDInsight Spark."
+title: "Creación de aplicaciones de Scala Maven para su ejecución en clústeres de Azure Spark | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una aplicación independiente de Spark mediante Maven para su ejecución en clústeres de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Creación de una aplicación independiente con Scala para ejecutarla en un clúster de Apache Spark en HDInsight
+# <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Creación de una aplicación de Scala Maven para su ejecución en un clúster de Apache Spark en HDInsight
 
-En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrollar aplicaciones de Spark independiente escritas con Scala mediante Maven con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.  En un nivel superior, para crear una aplicación con Scala en IntelliJ IDEA, es necesario seguir estos pasos:
+Obtenga información acerca de cómo crear una aplicación Spark escrita en Scala mediante Maven con IntelliJ IDEA. En el artículo se utiliza Apache Maven como el sistema de compilación y comienza con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.  Crear una aplicación de Scala en IntelliJ IDEA conlleva los pasos siguientes:
 
 * Use Maven como el sistema de compilación.
 * Actualice el archivo del modelo de objetos de proyectos (POM) para resolver las dependencias de módulo de Spark.
@@ -38,7 +38,7 @@ En este artículo se proporcionan instrucciones paso a paso sobre cómo desarrol
 > 
 > 
 
-**Requisitos previos**
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).

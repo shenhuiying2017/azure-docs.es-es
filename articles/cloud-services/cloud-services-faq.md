@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: a0fd75e0797319aecac29b48df75e7a268063e04
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -95,5 +95,5 @@ En primer lugar, asegúrese de que la instancia de máquina virtual para la que 
 
 ## <a name="remote-desktop"></a>Escritorio remoto
 ### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>¿Cómo se usa el escritorio remoto con un NSG?
-Agregue una regla al NSG que reenvía al puerto **20000**.
+Agregue reglas al NSG que permitan el tráfico en los puertos **3389** y **20000**.  El Escritorio remoto usa el puerto **3389**.  Las instancias del servicio en la nube tienen la carga equilibrada, por lo que no se puede controlar directamente a qué instancia conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* administran el tráfico RDP y permiten al cliente enviar una cookie de RDP y especificar una instancia concreta a la que conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* requieren que ese puerto **20000*** se abra (y puede estar bloqueado en el caso de que tenga un NSG).
 

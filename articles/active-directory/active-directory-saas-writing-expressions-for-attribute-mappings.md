@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,9 +41,9 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 - - -
 ### <a name="append"></a>Append
-**Función:**<br>  Append(source, suffix)
+**Función:**<br> Append(source, suffix)
 
-**Descripción:**<br>  adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.
+**Descripción:**<br> adopta un valor de la cadena de origen y anexa el sufijo al final de la misma.
 
 **Parámetros:**<br> 
 
@@ -53,9 +54,9 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Función:**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Función:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Descripción:**<br>  adopta una cadena de fecha en un formato y la convierte a un formato distinto.
+**Descripción:**<br> adopta una cadena de fecha en un formato y la convierte a un formato distinto.
 
 **Parámetros:**<br> 
 
@@ -67,7 +68,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 - - -
 ### <a name="join"></a>Join
-**Función:**<br>  Join(separator, source1, source2, …)
+**Función:**<br> Join(separator, source1, source2, …)
 
 **Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
 
@@ -78,13 +79,13 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **separator** |Obligatorio |Cadena |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| **source1 … sourceN ** |Obligatorio, número variable de veces |Cadena |Valores de cadena que se van a agrupar. |
+| **origen1  … origenN ** |Obligatorio, número variable de veces |Cadena |Valores de cadena que se van a agrupar. |
 
 - - -
 ### <a name="mid"></a>Mid
-**Función:**<br>  Mid(source, start, length)
+**Función:**<br> Mid(source, start, length)
 
-**Descripción:**<br>  devuelve una subcadena del valor de origen. Una subcadena es una cadena que contiene sólo algunos de los caracteres de la cadena de origen.
+**Descripción:**<br> devuelve una subcadena del valor de origen. Una subcadena es una cadena que contiene sólo algunos de los caracteres de la cadena de origen.
 
 **Parámetros:**<br> 
 
@@ -96,7 +97,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 - - -
 ### <a name="not"></a>Not
-**Función:**<br>  Not(source)
+**Función:**<br> Not(source)
 
 **Descripción:**<br> Invierte el valor booleano de **source**. Si el valor de **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
 
@@ -108,7 +109,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 - - -
 ### <a name="replace"></a>Replace
-**Función:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Función:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descripción:**<br>
 Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo de los parámetros proporcionados:
@@ -141,9 +142,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Función:**<br>  StripSpaces(source)
+**Función:**<br> StripSpaces(source)
 
-**Descripción:**<br>  quita todos los caracteres de espacio (" ") de la cadena de origen.
+**Descripción:**<br> quita todos los caracteres de espacio (" ") de la cadena de origen.
 
 **Parámetros:**<br> 
 
@@ -153,7 +154,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 - - -
 ### <a name="switch"></a>Switch
-**Función:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Función:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descripción:**<br> Cuando el valor de **source** coincide con una **key**, devuelve el **value** de dicha **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**.  Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros.
 
@@ -169,7 +170,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 ## <a name="examples"></a>Ejemplos
 ### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido
 Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br>
- Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
+Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
 
 **Expresión:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -188,7 +189,7 @@ Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo a
 **Entrada/salida de ejemplo:** <br>
 
 * **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
-* **SALIDA**: "John.Doe@contoso.com.test"
+* **ENTRADA**:  "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Generar el alias de usuario concatenando partes de nombre y apellidos
 Debe generar un alias de usuario con las tres primeras letras del nombre del usuario y las cinco primeras letras del apellido del usuario.
@@ -204,7 +205,7 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
 Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>
- Por ejemplo, desea dar formato a las fechas de ServiceNow.
+Por ejemplo, desea dar formato a las fechas de ServiceNow.
 
 **Expresión:** <br>
 
@@ -217,7 +218,7 @@ Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Reemplazar un valor basado en un conjunto predefinido de opciones
 Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. <br>
- Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
+Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
 
 **Expresión:** <br>
 
@@ -236,10 +237,5 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 04/02/2017
 ms.author: liamca
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9024c47e7d483129d66105012e0d67cfa9700cb9
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -29,7 +30,7 @@ Todos estamos acostumbrados a los motores de búsqueda como Bing y Google, y al 
 1. Seleccionar una latencia objetivo (o cantidad máxima de tiempo) que una solicitud de búsqueda típica debería tardar en completarse.
 2. Crear y probar una carga de trabajo real en su servicio de búsqueda con un conjunto de datos realista para medir estas tasas de latencia.
 3. Comenzar con un número reducido de consultas por segundo y continuar aumentar el número que se ejecuta en la prueba hasta que la latencia caiga por debajo de la latencia objetivo definida.  Esta es una prueba comparativa importante que le ayudará a planear el escalado a medida que el uso de la aplicación crece.
-4. Siempre que sea posible, reutilice las conexiones HTTP.  Si usa el SDK de .NET para Búsqueda de Azure, deberá reutilizar una instancia o una instancia de [SearchIndexClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx) , y si usa la API de REST, deberá reutilizar un única instancia de HttpClient.
+4. Siempre que sea posible, reutilice las conexiones HTTP.  Si usa el SDK de .NET para Búsqueda de Azure, deberá reutilizar una instancia o una instancia de [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) , y si usa la API de REST, deberá reutilizar un única instancia de HttpClient.
 
 Al crear estas cargas de trabajo de prueba, hay algunas características de Búsqueda de Azure que debe tener en cuenta:
 
@@ -46,7 +47,7 @@ Al crear estas cargas de trabajo de prueba, hay algunas características de Bús
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Escalado de Búsqueda de Azure para grandes volúmenes de consultas y solicitudes limitadas
 Si recibe demasiadas solicitudes limitadas o se superan las tasas de latencia objetivo debido a una carga de consultas mayor, puede intentar reducir las tasas de latencia de dos maneras:
 
-1. **Aumentar las réplicas:** Una réplica es como una copia de los datos que permite a Azure Search equilibrar la carga de solicitudes entre las diversas copias.  Búsqueda de Azure administra el equilibrado de la carga y la replicación de los datos entre las réplicas, y puede modificar el número de réplicas asignado a su servicio en cualquier momento.  Puede asignar hasta 12 réplicas en un servicio de búsqueda estándar y 3 réplicas en un servicio de búsqueda básico.  Las réplicas se pueden ajustar desde el [Azure Portal](search-create-service-portal.md) o mediante la [API de administración de Azure Search](search-get-started-management-api.md).
+1. **Aumentar las réplicas:** Una réplica es como una copia de los datos que permite a Azure Search equilibrar la carga de solicitudes entre las diversas copias.  Búsqueda de Azure administra el equilibrado de la carga y la replicación de los datos entre las réplicas, y puede modificar el número de réplicas asignado a su servicio en cualquier momento.  Puede asignar hasta 12 réplicas en un servicio de búsqueda estándar y 3 réplicas en un servicio de búsqueda básico. Las réplicas pueden ajustarse desde [Azure Portal](search-create-service-portal.md) o [PowerShell](search-manage-powershell.md).
 2. **Aumentar el nivel de búsqueda:** Azure Search se ofrece con [diferentes planes](https://azure.microsoft.com/pricing/details/search/), cada uno de los cuales ofrece diferentes niveles de rendimiento.  En algunos casos, el número de consultas es tan alto que su nivel actual no puede ofrecer tasas de latencia suficientemente bajas aunque se use el máximo de réplicas.  En este caso, puede considerar la posibilidad de usar uno de los niveles de búsqueda más altos, como el nivel S3 de Búsqueda de Azure, ideal para escenarios con un gran número de documentos y cargas de trabajo de consulta muy altas.
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>Escalado de Búsqueda de Azure para consultas individuales lentas
@@ -54,7 +55,7 @@ Otro motivo por el que las tasas de latencia pueden ser lentas es una única con
 
 1. **Aumentar las particiones**: Una partición es un mecanismo para dividir los datos entre recursos adicionales.  Por este motivo, cuando se agrega una segunda partición, los datos se dividen en dos.  Una tercera partición divide el índice en tres, etc.  En algunos casos, el efecto que produce es que las consultas lentas se realizarán con más rapidez debido a la paralelización de los procesos.  Hemos observado algunos ejemplos en los que esta paralelización funciona muy bien con consultas que tienen consultas de baja selectividad.  Se componen de consultas que coinciden con muchos documentos o cuando el uso de facetas necesita proporcionar recuentos en una gran cantidad de documentos.  Como se necesita una gran cantidad de proceso para puntuar la pertinencia de los documentos o para contar el número de documentos, agregar particiones adicionales puede ayudar a proporcionar capacidad de proceso adicional.  
    
-   Puede haber un máximo de 12 particiones en el servicio de búsqueda estándar y 1 partición en el servicio de búsqueda básico.  Las particiones se pueden ajustar desde el [Azure Portal](search-create-service-portal.md) o mediante la [API de administración de Azure Search](search-get-started-management-api.md).
+   Puede haber un máximo de 12 particiones en el servicio de búsqueda estándar y 1 partición en el servicio de búsqueda básico.  Las particiones pueden ajustarse desde [Azure Portal](search-create-service-portal.md) o [PowerShell](search-manage-powershell.md).
 2. **Límitar los campos de alta cardinalidad:** un campo de alta cardinalidad consta de un campo filtrable o de navegación por facetas que tiene un número significativo de valores únicos y, como resultado, necesita muchos recursos para procesar sus resultados.   Por ejemplo, establecer un campo de identificador de producto o de descripción como filtrable o de navegación por facetas haría que fuera de alta cardinalidad ya que la mayoría de los valores de un documento a otro son únicos. Siempre que sea posible, limite el número de campos de alta cardinalidad.
 3. **Aumentar el nivel de búsqueda:** Aumentar a nivel superior de Azure Search puede ser otra manera de mejorar el rendimiento de las consultas lentas.  Cada nivel superior también proporciona CPU más rápidas y más memoria, lo que puede tener un impacto positivo en el rendimiento de las consultas.
 
@@ -76,7 +77,7 @@ El objetivo de un conjunto de servicios de búsqueda distribuido geográficament
    ![Tablas de referencias cruzadas de servicios por región][1]
 
 ### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Sincronización de los datos entre varios servicios Búsqueda de Azure
-Hay dos opciones para mantener los servicios de búsqueda distribuidos sincronizados: usar el [indexador de Azure Search](search-indexer-overview.md) o la API de inserción (también denominada [API de REST de Azure Search](https://msdn.microsoft.com/library/dn798935.aspx)).  
+Hay dos opciones para mantener los servicios de búsqueda distribuidos sincronizados: usar el [indexador de Azure Search](search-indexer-overview.md) o la API de inserción (también denominada [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="azure-search-indexers"></a>Indexadores de Búsqueda de Azure
 Si usa el indexador de Búsqueda de Azure, ya está importando los cambios de los datos desde un almacén de datos central, como Azure SQL DB o DocumentDB. Cuando se crea un nuevo servicio de búsqueda, puede crear también un indexador de Búsqueda de Azure para ese servicio que apunte a este mismo almacén de datos. De este modo, siempre que lleguen cambios nuevos al almacén de datos, los distintos indexadores los indexarán.  
@@ -86,7 +87,7 @@ Este es un ejemplo del aspecto que podría tener esa arquitectura.
    ![Origen de datos único con indexador distribuido y combinaciones de servicios][2]
 
 ### <a name="push-api"></a>API de inserción
-Si usa la API de inserción de Búsqueda de Azure para [actualizar el contenido de su índice de Búsqueda de Azure](https://msdn.microsoft.com/library/dn798930.aspx)y desea mantener sincronizados los distintos servicios de búsqueda, inserte los cambios en todos los servicios de búsqueda cada vez que se necesite una actualización.  Al hacerlo es importante asegurarse de controlar los casos en los que se produce un error de actualización de un servicio de búsqueda y se realizan correctamente una o varias actualizaciones.
+Si usa la API de inserción de Búsqueda de Azure para [actualizar el contenido de su índice de Búsqueda de Azure](https://docs.microsoft.com/rest/api/searchservice/update-index)y desea mantener sincronizados los distintos servicios de búsqueda, inserte los cambios en todos los servicios de búsqueda cada vez que se necesite una actualización.  Al hacerlo es importante asegurarse de controlar los casos en los que se produce un error de actualización de un servicio de búsqueda y se realizan correctamente una o varias actualizaciones.
 
 ## <a name="leveraging-azure-traffic-manager"></a>Uso del Administrador de tráfico de Azure
 [Administrador de tráfico de Azure](../traffic-manager/traffic-manager-overview.md) permite enrutar solicitudes a diversos sitios web con ubicación geográfica atendidos por distintos servicios Búsqueda de Azure.  Una ventaja del Administrador de tráfico es que puede sondear Búsqueda de Azure para asegurarse de que está disponible y enrutar los usuarios a servicios de búsqueda alternativos en caso de tiempo de inactividad.  Además, si va a enrutar solicitudes de búsqueda a través de Sitios web de Azure, el Administrador de tráfico de Azure permite equilibrar la carga de aquellos casos en los que el sitio web está activo pero Búsqueda de Azure no.  Este es un ejemplo de una arquitectura que utiliza el Administrador de tráfico.
@@ -113,9 +114,4 @@ Para más información sobre el rendimiento y para ver algunas demostraciones so
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

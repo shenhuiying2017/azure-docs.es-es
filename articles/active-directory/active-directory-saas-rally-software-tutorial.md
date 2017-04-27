@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 504a5723f025d7383dbec78cdd268b7c1b94a1e5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8d913c024fce9945cfd5eaf336deed259dfbef50
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integración de Azure Active Directory con Rally Software
 El objetivo de este tutorial es mostrar la integración de Azure y Rally Software.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
@@ -29,16 +31,17 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para Rally Software
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-rally-software-tutorial/IC769525.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-rally-software"></a>Habilitación de la integración de aplicaciones para Rally Software
+## <a name="enable-the-application-integration-for-rally-software"></a>Habilitación de la integración de aplicaciones para Rally Software
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Rally Software.
 
-### <a name="to-enable-the-application-integration-for-rally-software-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para Rally Software:
+**Siga estos pasos con el fin de habilitar la integración de aplicaciones para Rally Software:**
+
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-rally-software-tutorial/IC700993.png "Active Directory")
@@ -65,13 +68,15 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
     ![Rally Software](./media/active-directory-saas-rally-software-tutorial/IC769527.png "Rally Software")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Rally Software con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Rally Software con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
+
 Como parte de este procedimiento, es necesario cargar un certificado en Rally Software.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Rally Software**, haga clic en** Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+**Siga estos pasos para configurar el inicio de sesión único:**
+
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Rally Software**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configurar inicio de sesión único")
 
@@ -99,21 +104,20 @@ Como parte de este procedimiento, es necesario cargar un certificado en Rally So
    
     ![Autenticación](./media/active-directory-saas-rally-software-tutorial/IC769542.png "Autenticación")
    
-    1. Seleccione **Rally o autenticación de SSO** en la lista desplegable de autenticación.
- 
-    2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Rally Software**, copie el valor del **Id. de proveedor de identidad** y péguelo en el cuadro de texto **Identity Provider URL** (URL del proveedor de identidades).
-
-    3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Rally Software**, copie el valor de **Dirección URL de cierre de sesión remoto**.
+  1. Seleccione **Rally o autenticación de SSO** en la lista desplegable de autenticación.
+  2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Rally Software**, copie el valor del **Id. de proveedor de identidad** y péguelo en el cuadro de texto **Identity Provider URL** (URL del proveedor de identidades).
+  3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Rally Software**, copie el valor de **Dirección URL de cierre de sesión remoto**.
 
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 Para que los usuarios de AAD puedan inician sesión, deben aprovisionarse para la aplicación Rally Software con sus nombres de usuario de Azure Active Directory.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
+**Siga estos pasos para configurar el aprovisionamiento de usuario:**
+
 1. Inicie sesión en su inquilino de Rally Software.
 
 2. Vaya a **Configuración \> USUARIOS** y haga clic en **+ Agregar nuevo**.
@@ -126,21 +130,20 @@ Para que los usuarios de AAD puedan inician sesión, deben aprovisionarse para l
    
     ![Creación de usuarios](./media/active-directory-saas-rally-software-tutorial/IC781040.png "Creación de usuarios")
    
-    1. En el cuadro de texto **Nombre de usuario** , escriba el nombre del usuario de Azure AD que quiera aprovisionar.
+   1. En el cuadro de texto **Nombre de usuario** , escriba el nombre del usuario de Azure AD que quiera aprovisionar.
+   2. En el cuadro de texto **Dirección de correo electrónico** , escriba la dirección de correo electrónico del usuario de Azure AD que quiera aprovisionar.
+   3. Haga clic en **Guardar y cerrar**.
 
-    2. En el cuadro de texto **Dirección de correo electrónico** , escriba la dirección de correo electrónico del usuario de Azure AD que quiera aprovisionar.
-
-    3. Haga clic en **Guardar y cerrar**.
-
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Rally Software ofrecida por Rally Software para aprovisionar cuentas de usuario de AAD.
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Rally Software ofrecida por Rally Software para aprovisionar cuentas de usuario de AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-rally-software-perform-the-following-steps"></a>Para asignar usuarios a Rally Software, lleve a cabo los siguientes pasos:
+**Para asignar usuarios a Rally Software, lleve a cabo los siguientes pasos:**
+
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2. En la página de integración de aplicaciones de **Rally Software**, haga clic en **Asignar usuarios**.
@@ -151,11 +154,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
     ![Sí](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 

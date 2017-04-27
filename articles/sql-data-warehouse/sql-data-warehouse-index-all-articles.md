@@ -12,11 +12,13 @@ ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.custom: reference
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -34,7 +36,7 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | &nbsp; | Artículo | Texto actualizado, fragmento | Se actualiza cuando |
 | ---:|:--- |:--- |:--- |
 | 2 |[Load data from Azure blob storage into SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- To track bytes and files SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc; |2016-09-07 |
-| 3 |[SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** ¿Puedo restaurar un almacén de datos en pausa?** Para restaurar un almacén de datos que está en pausa, primero debe ponerlo en línea. Después de que el almacén de datos vuelve a estar en línea, dispone de siete días de puntos de restauración para elegir. ** Restaurar a una región con redundancia geográfica** Si usa el almacenamiento con redundancia geográfica, puede restaurar el almacén de datos a su centro de datos emparejado en otra región geográfica. El almacenamiento de datos se restaura desde la última copia de seguridad diaria. ** Restaurar la escala de tiempo** Puede restaurar una base de datos a cualquier punto de restauración de los últimos siete días. Las instantáneas comienzan cada cuatro a ocho horas y están disponibles durante siete días. Cuando una instantánea tiene una antigüedad superior a siete días, caduca y su punto de restauración ya no está disponible. ** Costos de restauración** Los cargos de almacenamiento por el almacenamiento de datos restaurado se facturan con la tarifa de Azure Premium Storage. Si se pausa un almacenamiento de datos restaurado, se le cobrará por el almacenamiento según la tarifa de Azure Premium Storage. La ventaja de pausar es que no se le cobra |2016-09-29 |
+| 3 |[SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** ¿Puedo restaurar un almacenamiento de datos en pausa? ** Para restaurar un almacenamiento de datos que esté en pausa, primero debe ponerlo en línea. Después de que el almacén de datos vuelve a estar en línea, dispone de siete días de puntos de restauración para elegir. ** Restauración a una región con redundancia geográfica ** Si usa el almacenamiento con redundancia geográfica, puede restaurar el almacenamiento de datos a su centro de datos emparejado de otra región geográfica. El almacenamiento de datos se restaura desde la última copia de seguridad diaria. ** Restaurar la escala de tiempo ** Puede restaurar una base de datos a cualquier punto de restauración de los últimos siete días. Las instantáneas comienzan cada cuatro a ocho horas y están disponibles durante siete días. Cuando una instantánea tiene una antigüedad superior a siete días, caduca y su punto de restauración ya no está disponible. ** Costos de restauración ** Los cargos de almacenamiento por el almacenamiento de datos restaurado se facturan con la tarifa de Azure Premium Storage. Si se pausa un almacenamiento de datos restaurado, se le cobrará por el almacenamiento según la tarifa de Azure Premium Storage. La ventaja de pausar es que no se le cobra |2016-09-29 |
 
 ## <a name="get-started"></a>Primeros pasos
 | &nbsp; | Título | Descripción |
@@ -158,15 +160,10 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 ## <a name="miscellaneous"></a>Varios
 | &nbsp; | Título | Description |
 | ---:|:--- |:--- |
-| 83 |[Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](sql-data-warehouse-install-visual-studio.md) |Instalación de herramientas de desarrollo de Visual Studio y SQL Server Data Tools (SSDT) para Almacenamiento de datos SQL de Azure |
+| 83 |[Instalación de Visual Studio y SSDT para SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Instalación de herramientas de desarrollo de Visual Studio y SQL Server Data Tools (SSDT) para Almacenamiento de datos SQL de Azure |
 | 84 |[Información de migración al Almacenamiento premium](sql-data-warehouse-migrate-to-premium-storage.md) |Instrucciones para migrar un almacenamiento de datos SQL existente a almacenamiento premium |
 | 85 |[Introducción a la detección de amenazas](sql-data-warehouse-security-threat-detection.md) |Cómo empezar a trabajar con la detección de amenazas |
 | 86 |[Límites de capacidad de Almacenamiento de datos SQL](sql-data-warehouse-service-capacity-limits.md) |Valores máximos para las conexiones, bases de datos, tablas y consultas de Almacenamiento de datos SQL. |
 | 87 |[Solución de problemas de Almacenamiento de datos SQL de Azure](sql-data-warehouse-troubleshoot.md) |Cómo solucionar los problemas de Almacenamiento de datos SQL de Azure. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

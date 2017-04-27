@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8a001350c9e1ac50641c3ee4430849023233c60
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -93,19 +94,19 @@ Ahora que tenemos el paquete de marathon-lb, podemos implementar el contenedor d
 
 ```
 
-* Establezca el valor de `HAProxy_0_VHOST` en el FQDN del equilibrador de carga de sus agentes. Tiene el formato `<acsName>agents.<region>.cloudapp.azure.com`. Por ejemplo, si crea un clúster de Container Service con el nombre `myacs` en la región `West US`, el FQDN sería `myacsagents.westus.cloudapp.azure.com`. Para encontrarlo, también puede buscar el equilibrador de carga que tenga el término "agent" en el nombre al examinar los recursos en el grupo que creó para Container Service en [Azure Portal](https://portal.azure.com).
-* Establezca el valor de servicePort en un puerto > = 10 000. Esto identifica el servicio que se ejecuta en este contenedor; marathon-lb usa este valor para identificar los servicios entre los que debe equilibrar la carga.
+* Establezca el valor de `HAPROXY_0_VHOST` en el FQDN del equilibrador de carga de sus agentes. Tiene el formato `<acsName>agents.<region>.cloudapp.azure.com`. Por ejemplo, si crea un clúster de Container Service con el nombre `myacs` en la región `West US`, el FQDN sería `myacsagents.westus.cloudapp.azure.com`. Para encontrarlo, también puede buscar el equilibrador de carga que tenga el término "agent" en el nombre al examinar los recursos en el grupo que creó para Container Service en [Azure Portal](https://portal.azure.com).
+* Establezca `servicePort` en un puerto >= 10 000. Esto identifica el servicio que se ejecuta en este contenedor; marathon-lb usa este valor para identificar los servicios entre los que debe equilibrar la carga.
 * Establezca la etiqueta `HAPROXY_GROUP` en "external".
 * Establezca `hostPort` en 0. Eso significa que Marathon asignará un puerto disponible de manera arbitraria.
 * Establezca `instances` en el número de instancias que desea crear. Siempre puede escalar hacia arriba y abajo más adelante.
 
-Merece la pena indicar que Marathon se implementará en el clúster privado de forma predeterminada, lo que significa que solo se podrá acceder a la implementación anterior a través de un equilibrador de carga, que normalmente es el comportamiento que se desea.
+Merece la pena indicar que Marathon se implementará en el clúster privado de forma predeterminada, lo que significa que solo se podrá acceder a la implementación anterior a través del equilibrador de carga, que normalmente es el comportamiento que se desea.
 
 ### <a name="deploy-using-the-dcos-web-ui"></a>Implementación mediante la IU web de DC/OS
-1. Visite la página de Marathon en http://localhost/marathon (después de configurar su [túnel SSH](container-service-connect.md) y haga clic en `Create Appliction`.
+1. Visite la página de Marathon en http://localhost/marathon (después de configurar su [túnel SSH](container-service-connect.md)) y haga clic en `Create Application`.
 2. En el cuadro de diálogo `New Application`, haga clic en `JSON Mode` en la esquina superior derecha
 3. Pegue el código anterior JSON en el editor
-4. Haga clic en `Create Appliction`
+4. Haga clic en `Create Application`
 
 ### <a name="deploy-using-the-dcos-cli"></a>Implementación mediante la CLI de DC/OS
 Para implementar esta aplicación con la CLI de DC/OS, solo hay que copiar el JSON anterior en un archivo denominado `hello-web.json` y ejecutar:
@@ -132,10 +133,5 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/), consulte la documentación de DC/OS.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

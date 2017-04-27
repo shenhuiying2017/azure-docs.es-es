@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -31,7 +31,7 @@ Para implementar una directiva, debe realizar tres pasos:
 
 Azure proporciona algunas directivas predefinidas que pueden reducir el número de directivas que tiene que definir. Si una directiva definida previamente funciona para su escenario, omita los dos primeros pasos y asigne dicha directiva a un ámbito.
 
-Este tema se centra en los pasos para crear una definición de directiva y asignar esa definición a un ámbito. No se centra en la sintaxis para crear la definición de la directiva. Para información sobre la sintaxis de directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+Este artículo se centra en los pasos necesarios para crear una definición de directiva y asignarla a un ámbito mediante la API de REST, PowerShell o la CLI de Azure. Si prefiere usar el portal para asignar directivas, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). El artículo no se centra en la sintaxis para crear la definición de la directiva. Para información sobre la sintaxis de directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>API de REST
 

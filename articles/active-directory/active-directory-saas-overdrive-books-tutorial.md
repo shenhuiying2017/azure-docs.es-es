@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 35c1dfb5aaee4427f40e72a2293c756ae4fcb76c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5d6f44f868010d50b36a9171b7db63aeee7e8bc0
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive-books"></a>Tutorial: Integración de Azure Active Directory con Overdrive Books
 El objetivo de este tutorial es mostrar la integración de Azure y OverDrive.  
+
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único en OverDrive
+* Una suscripción habilitada para el inicio de sesión único (SSO) en OverDrive
 
 Después de completar este tutorial, los usuarios de Azure AD que ha asignado a OverDrive podrán realizar un inicio de sesión único en la aplicación en el sitio de OverDrive de la compañía (inicio de sesión iniciado por el proveedor de servicios) o con la [introducción al panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
 1. Habilitación de la integración de aplicaciones para OverDrive
-2. Configuración del inicio de sesión único
+2. Configuración del inicio de sesión único (SSO)
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "Escenario")
 
-## <a name="enabling-the-application-integration-for-overdrive"></a>Habilitación de la integración de aplicaciones para OverDrive
+## <a name="enable-the-application-integration-for-overdrive"></a>Habilitación de la integración de aplicaciones para OverDrive
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para OverDrive.
 
 **Siga estos pasos para habilitar la integración de aplicaciones para OverDrive:**
@@ -62,11 +64,11 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
    ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
    
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
+## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en OverDrive con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+**Para configurar el inicio de sesión único (SSO), realice los pasos siguientes:**
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **OverDrive**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
@@ -81,25 +83,26 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configurar inicio de sesión único")
    
-   > [!NOTE]
-   > El equipo de soporte técnico de OverDrive configura para usted el inicio de sesión único y le envía una notificación cuando se ha completado la configuración.
+   >[!NOTE]
+   >El equipo de soporte técnico de OverDrive configura para usted el inicio de sesión único y le envía una notificación cuando se ha completado la configuración.
    > 
    > 
 5. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configurar inicio de sesión único")
    
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
 
 No hay elemento de acción para que configure el aprovisionamiento de usuarios en OverDrive.  
+
 Cuando un usuario asignado intenta iniciar sesión en OverDrive, se crea automáticamente una cuenta de OverDrive si es necesario.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de OverDrive que proporcione OverDrive para aprovisionar cuentas de usuario de AAD.
-> 
+>[!NOTE]
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de OverDrive que proporcione OverDrive para aprovisionar cuentas de usuario de AAD.
+>
+>
  
-
-## <a name="assigning-users"></a>Asignación de usuarios
+## <a name="assign-users"></a>Asignar usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
 **Para asignar usuarios a OverDrive, lleve a cabo los siguientes pasos:**
@@ -113,11 +116,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    
    ![Sí](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Recursos adicionales
 
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

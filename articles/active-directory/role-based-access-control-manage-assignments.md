@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
+ms.date: 3/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,7 +33,7 @@ El acceso que se asigna con RBAC es específico porque se pueden restringir los 
 * **Ámbito** : las asignaciones de roles RBAC se limitan a una suscripción, un grupo de recursos o un recurso específicos. Un usuario con acceso a un único recurso no puede tener acceso a otros recursos de la misma suscripción.
 * **Rol** : dentro del ámbito de la asignación, se limita el acceso aún más mediante la asignación de un rol. Los roles pueden ser generales, como propietarios, o específicos, como lectores de máquina virtual.
 
-Asimismo, solo pueden asignarse desde dentro de la suscripción, el grupo de recursos o el recurso que esté en el ámbito de la asignación. No obstante, puede ver todas las asignaciones de acceso de un usuario o grupo determinado en un solo lugar.
+Asimismo, solo pueden asignarse desde dentro de la suscripción, el grupo de recursos o el recurso que esté en el ámbito de la asignación. No obstante, puede ver todas las asignaciones de acceso de un usuario o grupo determinado en un solo lugar. Puede tener hasta 2000 asignaciones de roles en cada suscripción. 
 
 Para administrar el acceso a los recursos, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md).
 

@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: ac56273cf85aff550febecf0d75ec87d5c6dbbca
-ms.openlocfilehash: 26547135548dde96e9da601f2e0ccfe96c626880
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -238,25 +238,15 @@ Considere un escenario en el que solo desea un script que active una IP pública
 El mismo script se puede utilizar con planes de recuperación diferentes y proporcionar parámetros diferentes mediante el almacenamiento del valor correspondiente a planes de recuperación diferentes en otra variable.
 
 ## <a name="sample-scripts"></a>Scripts de ejemplo
-Para ver un repositorio de los scripts que puede importar directamente en su cuenta de Automation, consulte el [repositorio de OMS de Kristian Nese para scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+Implemente scripts de ejemplo en su cuenta de Automation mediante el siguiente botón Implementar en Azure.
 
-Aquí, el script es una plantilla de Azure Resource Manager que implementará todos los scripts siguientes:
+[![Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* Grupo de seguridad de red
+También puede ver un breve vídeo sobre la recuperación de una aplicación de WordPress de dos niveles en Azure.
 
-El runbook NSG asignará direcciones IP públicas a cada máquina virtual del plan de recuperación y conectará sus adaptadores de red virtual a un grupo de seguridad de red que permita la comunicación predeterminada.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-El runbook PublicIP asigna direcciones IP públicas a todas las máquinas virtuales del plan de recuperación. El acceso a las máquinas y las aplicaciones dependerá de la configuración de firewall de cada invitado.
-
-* CustomScript
-
-El runbook CustomScript asigna direcciones IP públicas a todas las máquinas virtuales del plan de recuperación e instala una extensión del script personalizado que extraerá el script al que hace referencia durante la implementación de la plantilla.
-
-* NSGwithCustomScript
-
-El runbook NSGwithCustomScript asigna direcciones IP públicas a cada máquina virtual del plan de recuperación, instala un script personalizado mediante una extensión y conecta los adaptadores de red virtual a un NSG, lo que permite las comunicaciones entrantes y salientes predeterminadas para el acceso remoto.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 [Cuenta de ejecución del servicio Azure Automation](../automation/automation-sec-configure-azure-runas-account.md)

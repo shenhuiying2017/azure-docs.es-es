@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 843a3cafd5a00dd4b4de04a43f18d58e60a48b29
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -58,7 +59,7 @@ No tiene que establecer ningún umbral o regla de configuración. El aprendizaje
 
   * Todavía no. Pero puede:
   * [Configurar alertas](app-insights-alerts.md) que le indiquen cuándo una métrica cruza un umbral.
-  * [Exportar telemetría](app-insights-export-telemetry.md) a una [base de datos](app-insights-code-sample-export-sql-stream-analytics.md) o a [PowerBI](app-insights-export-power-bi.md) u [otras](app-insights-code-sample-export-telemetry-sql-database.md) herramientas para poder usted mismo realizar un análisis.
+  * [Exportar telemetría](app-insights-export-telemetry.md) a una [base de datos](app-insights-code-sample-export-sql-stream-analytics.md) o a [PowerBI](app-insights-export-power-bi.md) para poder realizar un análisis usted mismo.
 * *¿Con qué frecuencia se lleva a cabo el análisis?*
 
   * Ejecutamos el análisis diariamente en la telemetría desde el día anterior.
@@ -136,9 +137,4 @@ Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le g
 
 * [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

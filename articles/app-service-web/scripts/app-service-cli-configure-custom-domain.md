@@ -10,24 +10,22 @@ tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/09/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: dfc20a284b0aef77ad1abbf6db00560e8ba3eba8
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 480c18285e4708ce2771f10a848e4a55acf0c817
+ms.lasthandoff: 04/10/2017
 
 ---
-
 # <a name="map-a-custom-domain-to-a-web-app"></a>Asignación de un dominio personalizado a una aplicación web
 
-Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, le asigna `www.<yourdomain>`. 
+Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, le asigna `www.<yourdomain>`.
 
-Si es necesario, instale la CLI de Azure con la instrucción que se encuentra en la [Guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) y, luego, ejecute `az login` para crear una conexión con Azure. También necesita acceso a la página de configuración DNS de su registrador de dominios.
-
-Este ejemplo funciona en un shell de Bash. Para ver las opciones de ejecución de scripts de la CLI de Azure en un cliente Windows, consulte [Using the Azure CLI on Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Uso de la CLI de Azure en Windows).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -43,11 +41,12 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Crea un plan de App Service, |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Crea una aplicación web de Azure. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Actualiza un plan de App Service para escalar su plan de tarifa. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Crea una aplicación web. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Asigna un dominio personalizado a una aplicación web. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../app-service-cli-samples.md).
+

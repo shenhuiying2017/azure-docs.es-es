@@ -3,7 +3,7 @@ title: "Referencia de la API de auditoría de Azure Active Directory | Microsoft
 description: "Introducción a la API de auditoría de Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: markusvi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 04/05/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -75,6 +76,8 @@ En lo que respecta a los datos relacionados con las API de inicio de sesión, se
 Para especificar el tipo de registros que le interesa, puede crear una instrucción de filtro que puede contener uno o una combinación de los campos de filtro siguientes:
 
 * [activityDate](#activitydate): define una fecha o un intervalo de fechas
+* [category](#category): define la categoría por la que desea filtrar.
+* [activityStatus](#activitystatus): define el estado de una actividad.
 * [activityType](#activitytype): define el tipo de una actividad
 * [activity](#activity): define la actividad como cadena  
 * [actor/name](#actorname): define el actor en el formato de nombre del actor
@@ -97,6 +100,45 @@ Para especificar el tipo de registros que le interesa, puede crear una instrucci
 datetime debe estar en formato UTC.
 
 - - -
+### <a name="category"></a>categoría
+
+**Valores admitidos**:
+
+| Categoría                         | Valor     |
+| :--                              | ---       |
+| Core Directory (Directorio principal)                   | Directorio |
+| Self-service Password Management (Administración de contraseñas de autorservicio) | SSPR      |
+| Self-service Group Management (Administración de grupos de autoservicio)    | SSGM      |
+| Account Provisioning (Aprovisionamiento de cuentas)             | Sync      |
+| Automated Password Rollover (Sustitución automática de contraseña)      | Automated Password Rollover (Sustitución automática de contraseña) |
+| Protección de identidad              | IdentityProtection |
+| Invited Users (Usuarios invitados)                    | Invited Users (Usuarios invitados) |
+| MIM Service (Servicio MIM)                      | MIM Service (Servicio MIM) |
+
+
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**Valores admitidos**:
+
+| Estado de la actividad | Valor |
+| :--             | ---   |
+| Correcto         | 0     |
+| Error         | - 1   |
+
+**Operadores compatibles**: eq
+
+**Ejemplo**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **Operadores compatibles**: eq
 
@@ -139,6 +181,7 @@ No distingue mayúsculas de minúsculas.
 **Ejemplo**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>target/namde
@@ -190,10 +233,5 @@ No distingue mayúsculas de minúsculas.
 ## <a name="next-steps"></a>Pasos siguientes
 * ¿Quiere ver ejemplos de actividades del sistema filtradas? Consulte los [ejemplos de la API de auditoría de Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * ¿Quiere obtener más información sobre la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

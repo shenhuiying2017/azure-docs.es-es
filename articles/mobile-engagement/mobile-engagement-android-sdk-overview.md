@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 03/30/2017
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -52,18 +53,12 @@ Puede agregar estas características:
 [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de la versión
-### <a name="423-08102016"></a>4.2.3 (08/10/2016)
-* No se producirán más bloqueos de WiFi.
-* Se ha corregido un interbloqueo al llamar a getDeviceId antes de init (error de la versión 4.2.0).
+### <a name="424-03302017"></a>4.2.4 (30/03/2017)
+* Se han corregido los colores del texto de notificación en aplicación de Android 7 para que coincidan con los de las versiones anteriores de Android.
 
 Para todas las versiones, consulte las [notas de la versión completas](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Procedimientos de actualización
 Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, consulte [Procedimientos de actualización](mobile-engagement-android-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

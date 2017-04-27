@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: eb0482d0dec3121710cc2ee56ab538cd66cb03c9
-ms.openlocfilehash: eaf7fabc243b3dfa37d974f4315a378bec9356b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3d7801d8a53ac048333e43ee64724c11c25bf6a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ En función de las necesidades de la organización invitadora, un usuario de col
 
 - Estado 1: alojado en una instancia externa de Azure AD y representado como un usuario invitado en la organización anfitriona. En este caso, el usuario de B2B inicia sesión con una cuenta de Azure AD que pertenece a su espacio principal. Si la organización externa del usuario no utiliza Azure AD en el momento de la invitación, el usuario invitado de Azure AD se crea cuando el usuario canjea su invitación, y después de que Azure AD compruebe su dirección de correo electrónico. También se denomina espacio Just-In-Time (JIT) o espacio viral.
 
-- Estado 2: alojado en una cuenta Microsoft y representado como usuario invitado en la organización host. En este caso, el usuario invitado inicia sesión con una cuenta Microsoft. En la actualización de la versión preliminar publica de Azure AD, la identidad social (google.com o similar), que no es una cuenta Microsoft, se crea como una cuenta Microsoft durante el canje de la oferta.
+- Estado 2: alojado en una cuenta Microsoft y representado como usuario invitado en la organización host. En este caso, el usuario invitado inicia sesión con una cuenta Microsoft. La identidad social (google.com o similar), que no es una cuenta Microsoft, se crea como una cuenta Microsoft durante el canje de la oferta.
 
 - Estado 3: alojado en la instancia de Active Directory local de la organización host y sincronizado con la instancia de Azure AD de la organización host. Durante esta versión se debe usar PowerShell para cambiar manualmente el valor de UserType de dichos usuarios en la nube.
 

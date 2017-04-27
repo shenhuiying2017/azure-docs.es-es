@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f4a79413bc5e660504b4b6b48fcf496fb0f08ade
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -39,7 +39,7 @@ En esta introducción se describe cómo funciona el escalado horizontal con SQL 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Funcionamiento de las operaciones de administración de proceso en SQL Data Warehouse
 La arquitectura de SQL Data Warehouse está formada por un nodo del control, nodos de proceso y la capa de almacenamiento que se reparten a lo largo de 60 distribuciones. 
 
-Durante una sesión activa normal en SQL Data Warehouse, el nodo principal del sistema que administra los metadatos y contiene el optimizador de consultas distribuidas. Debajo de este nodo principal se encuentran los nodos de proceso y el nivel de almacenamiento. Para un 400 DWU, el sistema tiene un nodo principal, cuatro nodos de proceso y la capa de almacenamiento, que consta de 60 distribuciones. 
+Durante una sesión activa normal en SQL Data Warehouse, el nodo principal del sistema administra los metadatos y contiene el optimizador de consultas distribuidas. Debajo de este nodo principal se encuentran los nodos de proceso y el nivel de almacenamiento. Para un 400 DWU, el sistema tiene un nodo principal, cuatro nodos de proceso y la capa de almacenamiento, que consta de 60 distribuciones. 
 
 Cuando se lleva a cabo una operación de escala o pausa, el sistema primero elimina todas las consultas entrantes y luego revierte las transacciones para garantizar un estado coherente. Para las operaciones de escala, el escalado solo se producirá una vez completada esta reversión transaccional. Para una operación de escalado vertical, el sistema aprovisiona el número deseado adicional de nodos de proceso y luego comienza a asociar de nuevo los nodos de proceso con el nivel de almacenamiento. Para una operación de escalado horizontal, se liberan los nodos que no necesita y el resto de nodos de proceso se vuelven a asociar ellos mismos con el número apropiado de distribuciones. Para una operación de pausa, se liberan todos los nodos de proceso y el sistema se somete a una serie de operaciones de metadatos para dejar el sistema final en un estado estable.
 
@@ -171,7 +171,7 @@ Para escalar la base de datos, se requieren los permisos descritos en [ALTER DAT
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes para comprender mejor algunos conceptos fundamentales adicionales sobre rendimiento:
 
-* [Administración de carga de trabajo y simultaneidad][Workload and concurrency management]
+* [Administración de cargas de trabajo y simultaneidad][Workload and concurrency management]
 * [Introducción al diseño de tablas][Table design overview]
 * [Distribución de tablas][Table distribution]
 * [Indexación de tablas][Table indexing]

@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/05/2017
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 579015f419ac0ee886f8e8497760a562ab324c24
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 90f417768d58c42df9b786b5c50d96970f133548
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -38,13 +38,13 @@ Para usar Service Management API, necesita [crear una cuenta de Azure](https://a
 Azure SDK para Python ajusta la [API de administración de servicios de Azure][svc-mgmt-rest-api], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
 ## <a name="Installation"> </a>Instalación
-Todas las características descritas en este artículo están disponibles en el paquete `azure-servicemanagement-legacy` , que puede instalarse con pip. Para más información sobre la instalación (por ejemplo, si no está familiarizado con Python), consulte este artículo: [Instalación de Python y el SDK](../python-how-to-install.md)
+Todas las características descritas en este artículo están disponibles en el paquete `azure-servicemanagement-legacy` , que puede instalarse con pip. Para obtener más información sobre la instalación (por ejemplo, si no está familiarizado con Python), consulte este artículo: [Instalación de Python y el SDK](../python-how-to-install.md).
 
 ## <a name="Connect"> </a>Conexión a la administración de servicios
 Para conectarse al punto de conexión de administración de servicios, necesita el identificador de suscripción de Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [Portal de Azure clásico][management-portal].
 
 > [!NOTE]
-> A partir del SDK de Azure para Python v0.8.0, es posible usar certificados creados con OpenSSL al ejecutar en Windows.  Para ello, se requiere Python 2.7.4 o posterior. Recomendamos que los usuarios usen OpenSSL en lugar de .pfx, ya que la compatibilidad con certificados .pfx probablemente se eliminará en el futuro.
+> Ahora es posible usar certificados creados con OpenSSL al ejecutar en Windows.  Para ello, se requiere Python 2.7.4 o posterior. Recomendamos que los usuarios usen OpenSSL en lugar de .pfx, ya que la compatibilidad con certificados .pfx probablemente se eliminará en el futuro.
 > 
 > 
 
@@ -78,7 +78,7 @@ Puede crear un certificado de administración autofirmado en la máquina con `ma
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-El comando crea el archivo `.cer` y lo instala en el almacén de certificados **Personal** . Para más información, consulte [Introducción a los certificados para Azure Cloud Services](cloud-services-certs-create.md).
+El comando crea el archivo `.cer` y lo instala en el almacén de certificados **Personal** . Para obtener más información, consulte [Introducción a los certificados para Azure Cloud Services](cloud-services-certs-create.md).
 
 Después de haber creado el certificado, deberá cargar el archivo `.cer` en Azure mediante la acción "Cargar" de la pestaña "Configuración" del [Portal de Azure clásico][management-portal].
 

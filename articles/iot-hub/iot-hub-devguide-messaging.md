@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ac3f4d2220c1902f00049ce237468ddee992209d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -191,8 +191,8 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 | --- | --- |
 | EnqueuedTimeUtc |Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el dispositivo completado o el mensaje expirado. |
 | OriginalMessageId |**MessageId** del mensaje de nube a dispositivo al que pertenece esta información de comentarios. |
-| StatusCode |Entero requerido. Se utiliza en los mensajes de comentarios generados por el Centro de IoT. <br/> 0 = correcto <br/> 1 = mensaje expirado <br/> 2 = el número máximo de entregas excedido <br/> 3 = mensaje rechazado |
-| Description |Valores de cadena para **StatusCode**. |
+| StatusCode |Cadena necesaria. Se utiliza en los mensajes de comentarios generados por el Centro de IoT. <br/> "Success" <br/> "Expired" <br/> 'DeliveryCountExceeded' <br/> "Rejected" <br/> 'Purged' |
+| Descripción |Valores de cadena para **StatusCode**. |
 | deviceId |**DeviceId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
 | DeviceGenerationId |**DeviceGenerationId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
 

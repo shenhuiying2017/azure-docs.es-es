@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 42f3f6a24e423f54ad7bb282404ddc6ff2450cb7
-ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: db2d6dbdec80e8c443014c72c80172ad3effb82c
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -25,13 +26,13 @@ ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
 [OLTP en memoria](sql-database-in-memory.md) puede utilizarse para mejorar el rendimiento del procesamiento de transacciones, la ingesta de datos y los escenarios de datos transitorios, en instancias [premium](sql-database-service-tiers.md) de Azure SQL Database sin aumentar el plan de tarifa. 
 
 > [!NOTE] 
-> Más información sobre cómo [Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Más información sobre cómo [Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Siga estos pasos para adoptar In-Memory OLTP en la base de datos existente.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Paso 1: Asegúrese de estar utilizando una base de datos premium
-OLTP en memoria solo se admite en bases de datos premium v12. Se admite In-Memory si el resultado devuelto es 1 (no 0):
+OLTP en memoria solo se admite en bases de datos premium. Se admite In-Memory si el resultado devuelto es 1 (no 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -173,10 +174,5 @@ Considere la posibilidad de supervisar los efectos de rendimiento de las impleme
 * [In-Memory OLTP (optimización In-Memory)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Introducción a los procedimientos almacenados compilados de forma nativa](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Asesor de optimización en memoria](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

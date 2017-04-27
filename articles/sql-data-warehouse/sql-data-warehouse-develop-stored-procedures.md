@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 103b3ad93c6bb99f1781e9b3c485caa6042ae0a3
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -63,7 +65,7 @@ GO
 EXEC prc_nesting
 ```
 
-Tenga en cuenta que SQL Data Warehouse no admite @@NESTLEVEL. en estos momentos. Necesitará realizar un seguimiento del nivel de anidamiento. Es probable que alcance el límite del nivel 8 de anidamiento, pero, en su caso, deberá reprocesar el código y "acoplarlo" para adecuarlo a dicho límite.
+Tenga en cuenta que SQL Data Warehouse no admite actualmente @@NESTLEVEL. Debe poder realizar usted mismo un seguimiento de su nivel de anidamiento. Es probable que alcance el límite del nivel 8 de anidamiento, pero, en su caso, deberá reprocesar el código y "acoplarlo" para adecuarlo a dicho límite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 El Almacenamiento de datos SQL no permite utilizar el conjunto de resultados de un procedimiento almacenado con una instrucción INSERT. Sin embargo, puede utilizar un método alternativo.
@@ -88,21 +90,16 @@ Son las siguientes:
 * Instrucción de devolución
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo][información general sobre desarrollo].
+Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 [tablas temporales]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[información general sobre desarrollo]: ./sql-data-warehouse-overview-develop.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nivel de anidamiento]: https://msdn.microsoft.com/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
