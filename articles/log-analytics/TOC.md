@@ -56,7 +56,8 @@
 ### [Capacidad y rendimiento](log-analytics-capacity.md)
 ### [Seguimiento de cambios](log-analytics-change-tracking.md)
 ### [Contenedores](log-analytics-containers.md)
-### [Key Vault](log-analytics-azure-key-vault.md)
+### [DNS Analytics](log-analytics-dns.md)
+### [Almacén de claves](log-analytics-azure-key-vault.md)
 ### Mensajes de Logic Apps B2B
 #### [Solución de mensajes de Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)

@@ -12,7 +12,12 @@
 ##[Instalación de una puerta de enlace de datos local](analysis-services-gateway.md)
 ##[Conexión con Excel](analysis-services-connect-excel.md)
 ##[Conexión con Power BI](analysis-services-connect-pbi.md)
+##[Proveedores de datos](analysis-services-data-providers.md)
 ##[Copia de seguridad y restauración](analysis-services-backup.md)
+##[Alta disponibilidad](analysis-services-bcdr.md)
+##[Conexiones a origen de datos](analysis-services-datasource.md)
+
+##[Creación de un archivo .odc](analysis-services-odc.md)
 
 # Referencia
 ##[PowerShell](analysis-services-powershell.md)
@@ -21,6 +26,11 @@
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Recursos
-##[Conexiones a origen de datos](analysis-services-datasource.md)
-##[Proveedores de datos](analysis-services-data-providers.md)
-##[Creación de un archivo .odc](analysis-services-odc.md)
+##[Blog del equipo de Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
+##[Foro de Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+##[Comentarios](https://feedback.azure.com/forums/556165-azure-analysis-services)
+##[Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+##[Precios](https://azure.microsoft.com/pricing/details/analysis-services/)
+##[Vídeos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+##[Estado de Azure](https://azure.microsoft.com/status/)
+

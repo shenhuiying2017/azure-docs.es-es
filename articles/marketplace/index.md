@@ -1,6 +1,6 @@
 ---
-title: "Documentación sobre Azure Marketplace: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a crear, implementar y administrar máquinas virtuales Windows o Linux. Tutoriales, referencias de API y otra documentación."
+title: "Documentación de Azure Marketplace | Microsoft Docs"
+description: "Información acerca de Azure Marketplace."
 services: marketplace
 author: carolz
 manager: carolz
@@ -13,14 +13,14 @@ ms.topic: landing-page
 ms.date: 04/14/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: fc1bb285fbec529724345d3974e42837a3d79114
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 6dca59ddd5fe524b7778abe770b6387f8bb24f01
+ms.lasthandoff: 04/20/2017
 
 ---
 # <a name="azure-marketplace-documentation"></a>Documentación sobre Azure Marketplace
 
-Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servicios en línea que permite a las nuevas empresas y a los fabricantes de software independientes (ISV) ofrecer sus soluciones a clientes de Azure de todo el mundo.
+Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servicios en línea que permite a las nuevas empresas y a los fabricantes de software independientes (ISV) ofrecer sus soluciones a clientes de todo el mundo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/seller-guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -48,7 +48,7 @@ Obtenga información sobre Azure Marketplace, una tienda de aplicaciones y servi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

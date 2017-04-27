@@ -1,10 +1,9 @@
 # Información general
 ## [Introducción al servicio Data Factory de Azure](data-factory-introduction.md)
 ## Conceptos
-### [Conjuntos de datos](data-factory-create-datasets.md)
 ### [Canalizaciones y actividades](data-factory-create-pipelines.md)
+### [Conjuntos de datos](data-factory-create-datasets.md)
 ### [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md)
-### [Servicios vinculados de procesos](data-factory-compute-linked-services.md)
 
 # Introducción
 ## [Tutorial: creación de una canalización para copiar datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -20,7 +19,8 @@
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-### [API de REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+### [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Tutorial: Movimiento de datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Preguntas más frecuentes](data-factory-faq.md)
 
 # Procedimientos
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabla web](data-factory-web-table-connector.md)
 ### [Data Management Gateway](data-factory-data-management-gateway.md)
-### [Movimiento de datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Transformación de datos](data-factory-data-transformation-activities.md)
 ### [Actividad de Hive de HDInsight](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 ### [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Reproceso de modelos en Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Servicios vinculados de procesos](data-factory-compute-linked-services.md)
 
 ## Desarrollo
 ### [Plantilla de Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)

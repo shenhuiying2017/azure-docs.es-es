@@ -2,7 +2,7 @@
 ## [¿Qué es Azure Functions?](functions-overview.md)
 # Introducción
 ## [Crear su primera función](functions-create-first-azure-function.md)
-## [Crear una función de webhook](functions-create-a-web-hook-or-api-function.md)
+## [Crear una función desencadenada de webhook](functions-create-github-webhook-triggered-function.md)
 ## [Crear una función conectada a Azure](functions-create-an-azure-connected-function.md)
 ## [Crear una función de procesamiento de eventos](functions-create-an-event-processing-function.md)
 # Procedimientos
