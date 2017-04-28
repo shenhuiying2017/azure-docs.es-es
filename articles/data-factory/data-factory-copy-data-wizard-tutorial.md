@@ -31,8 +31,6 @@ ms.lasthandoff: 02/03/2017
 > * [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
 
 El **Asistente para copia** de Azure Data Factory permite crear de manera fácil y rápida una canalización que implementa el escenario de ingesta y movimiento de datos. Por lo tanto, se recomienda utilizar al asistente como primer paso para crear una canalización de ejemplo para el escenario de movimiento de datos. En este tutorial se muestra cómo crear una instancia de Azure Data Factory, iniciar el Asistente para copia, y realizar una serie de pasos en los que se proporcionan detalles acerca del escenario de ingesta y movimiento de datos. Al terminar los pasos del asistente, este crea automáticamente una canalización con una actividad de copia para copiar datos desde Azure Blob Storage a Azure SQL Database. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener más información sobre la actividad de copia. 
 

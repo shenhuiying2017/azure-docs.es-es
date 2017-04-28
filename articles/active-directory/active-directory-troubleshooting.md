@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,10 +52,5 @@ Cuando se hace clic en **+Nuevo** > **App Services**, aparece el elemento **Acti
 Sin embargo, mientras se carga la página, el elemento aparece atenuado y marcado como **No disponible**. Se trata de un estado temporal. Si espera unos segundos, el elemento estará disponible. Si el retraso se prolonga, el problema se suele resolver cuando se actualiza la página web.
 
 ![Captura de pantalla: Active Directory no está disponible](./media/active-directory-troubleshooting/not-available.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
