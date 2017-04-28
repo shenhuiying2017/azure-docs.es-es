@@ -9,8 +9,3 @@
 | Bloquear la cuenta de usuario tras **X** denegaciones consecutivas de MFA |No establecido |99 |
 | Restablecer el recuento de bloqueos de cuenta tras **X** minutos |No establecido |9.999 |
 | Desbloquear cuenta tras **X** minutos |No establecido |9.999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-
