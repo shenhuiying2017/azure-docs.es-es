@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c62f8d077906ce8ad1b5501864a21ee369b2314a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -44,7 +44,7 @@ En este artículo se enumeran los problemas habituales relacionados con Microsof
 
 **Problemas del cliente de Linux**
 
-* [Error intermitente de ES: "El host está apagado (Error 112)" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar comandos list en el punto de montaje](#errorhold)
+* [Error intermitente de ES: "El host está apagado (Error 112)" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar comandos list en el punto de montaje](#error112)
 * [Error de montaje 115 al tratar de montar Azure Files en la VM de Linux](#error15)
 * [El recurso compartido de archivos de Azure montado en la máquina virtual de Linux experimenta un rendimiento lento](#delayproblem)
 * [Error de montaje 11: el recurso no está disponible temporalmente al montarse en el kernel de Ubuntu 4.8 o posterior](#ubuntumounterror)
@@ -73,8 +73,8 @@ Reduzca el número de identificadores abiertos simultáneos cerrando algunos de 
 <a id="slowboth"></a>
 
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Rendimiento reducido al acceder a File Storage desde Windows o Linux
-* Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda que utilice 1 MB como el tamaño de E/S para disfrutar de un rendimiento óptimo.
-* Si conoce el tamaño final de un archivo que está ampliando con escrituras y el software aún no presenta problemas de compatibilidad cuando la cola del archivo, que aún no se ha escrito, contiene ceros, establezca el tamaño del archivo con antelación en lugar de que cada escritura sea una de ampliación.
+* Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda utilizar 1 MB como tamaño de E/S para que el rendimiento sea óptimo.
+* Si conoce el tamaño final de un archivo que amplía con operaciones de escritura y el software aún no presenta problemas de compatibilidad cuando la cola del archivo, que aún no se ha escrito, contiene ceros, establezca el tamaño del archivo con antelación en lugar de que cada operación de escritura sea de ampliación.
 * Utilice el método de copia correcto:
       * Utilice AZCopy para todas las transferencias entre dos recursos compartidos de archivos. Para más detalles, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy).
       * Use Robocopy entre un recurso compartido de archivos y un equipo local. Consulte [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) (Robocopy multiproceso para copias más rápidas) para más detalles.
@@ -101,7 +101,7 @@ Si la revisión está instalada, se muestra el siguiente resultado:
 
 ### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Seguimiento de las operaciones de lectura y escritura en Azure File Storage
 
-[Analizador de mensajes de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=44226) puede mostrarle la solicitud de un cliente en texto simple, y hay una relación bastante aproximada entre las solicitudes de conexión y las transacciones (suponiendo que aquí esté SMB y no REST).  El inconveniente es que tendrá que ejecutar esto en cada cliente, lo que requiere mucho tiempo si tiene muchos trabajadores de VM IaaS.
+[Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) puede mostrar las solicitudes de los cliente en forma de texto no cifrado y hay una relación bastante aproximada entre las solicitudes de conexión y las transacciones (suponiendo que se use SMB, no REST).  El inconveniente es que tendrá que ejecutar esto en cada cliente, lo que requiere mucho tiempo si tiene muchos trabajadores de VM IaaS.
 
 Si usa el análisis de mensajes con ProcMon, puede obtener una idea bastante aproximada de qué código de aplicación es responsable de las transacciones.
 
@@ -116,13 +116,13 @@ No cree ni abra nunca un archivo de E/S en caché que solicite acceso de escritu
 Este problema puede deberse a las condiciones siguientes:
 
 ### <a name="cause-1"></a>Causa 1
-"Error de sistema 53. Acceso denegado". Por motivos de seguridad, se bloquean las conexiones a los recursos compartidos de archivos de Azure si no se cifra el canal de comunicación y el intento de conexión no se realiza desde el mismo centro de datos en el que residen los recursos compartidos de archivos de Azure. No se efectúa el cifrado del canal de comunicación si el sistema operativo de cliente del usuario no es compatible con el cifrado SMB. Esto se indica mediante el mensaje de error "Error de sistema 53. Acceso denegado" cuando un usuario trata de montar un recurso compartido de archivos de forma local o desde un centro de datos distinto. Windows 8, Windows Server 2012 y versiones posteriores de cada solicitud de negociación que incluya SMB 3.0 admiten el cifrado.
+"Error de sistema 53. Acceso denegado". Por motivos de seguridad, las conexiones a los recursos compartidos de Azure Files se bloquean si el canal de comunicación no está cifrado y el intento de conexión no se realiza desde la misma región de Azure en la que residen los recursos compartidos de archivos de Azure. No se efectúa el cifrado del canal de comunicación si el sistema operativo cliente del usuario no admite el cifrado SMB. Esto se indica mediante el mensaje de error "Error de sistema 53. Acceso denegado" cuando un usuario trata de montar un recurso compartido de archivos de forma local o desde un centro de datos distinto. Windows 8, Windows Server 2012 y versiones posteriores de cada solicitud de negociación que incluya SMB 3.0 admiten el cifrado.
 
 ### <a name="solution-for-cause-1"></a>Solución para la causa 1
-Conéctese desde un cliente que cumpla los requisitos de Windows 8, Windows Server 2012 o versiones posteriores, o bien que se conecte desde una máquina virtual que se encuentre en el mismo centro de datos que la cuenta de almacenamiento de Azure que se utilice para el recurso compartido de archivos de Azure.
+Conéctese desde un cliente que cumpla los requisitos de Windows 8, Windows Server 2012, o las versiones posteriores, o bien que se conecte desde una máquina virtual que se encuentre en la misma región de Azure que la cuenta de Azure Storage que se utiliza para el recurso compartido de archivos de Azure.
 
 ### <a name="cause-2"></a>Causa 2
-Se puede producir el error del sistema 53 o 67 al montar un recurso compartido de archivos de Azure si se ha bloqueado la comunicación saliente al centro de datos de Azure Files en el puerto 445. Haga clic en [aquí](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver el resumen de los ISP que permiten o deniegan el acceso desde el puerto 445.
+Se producen los errores del sistema 53 o 67 al montar un recurso compartido de archivos de Azure si se ha bloqueado la comunicación saliente a la región de Azure de Azure Files en el puerto 445. Haga clic en [aquí](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver el resumen de los ISP que permiten o deniegan el acceso desde el puerto 445.
 
 Comcast y algunas organizaciones de TI bloquean dicho puerto. Para descubrir si este es el motivo del mensaje de error del sistema 53, puede usar la utilidad Portqry para enviar una consulta al punto de conexión TCP:445. Si el punto de conexión TCP:445 se muestra como filtrado, eso quiere decir que el puerto TCP está bloqueado. Aquí se muestra una consulta de ejemplo:
 
@@ -165,7 +165,7 @@ Monte el recurso compartido desde una línea de comandos que no sea de administr
 
 ## <a name="my-storage-account-contains--and-the-net-use-command-fails"></a>Mi cuenta de almacenamiento contiene "/" y el comando net use genera un error
 ### <a name="cause"></a>Causa
-Cuando se ejecuta el comando **net use** en el símbolo del sistema (cmd.exe), se analiza agregando "/" como una opción de línea de comandos, lo cual hace que la asignación genere un error.
+Cuando el comando **net use** se ejecuta en el símbolo del sistema (cmd.exe), se analiza agregando "/" como opción de la línea de comandos, lo que hace que la asignación genere un error.
 
 ### <a name="solution"></a>Solución
 Puede utilizar cualquiera de los siguientes pasos para solucionar el problema:
@@ -184,7 +184,7 @@ Desde un archivo por lotes, esto se puede realizar de la siguiente forma:
 
 ## <a name="my-applicationservice-cannot-access-mounted-azure-files-drive"></a>Mi aplicación o servicio no puede acceder a la unidad de Azure Files montada
 ### <a name="cause"></a>Causa
-Las unidades se montan para usuarios individuales. Si su aplicación o servicio se ejecuta con una cuenta de usuario diferente, los usuarios no verán la unidad.
+Las unidades se montan para usuarios individuales. Si su aplicación o servicio se ejecuta en otra cuenta de usuario, los usuarios no verán la unidad.
 
 ### <a name="solution"></a>Solución
 Monte la unidad desde la misma cuenta de usuario en la que se encuentre la aplicación. Puede hacerlo con herramientas como psexec.
@@ -213,13 +213,13 @@ Para copiar un archivo en File Storage, debe descifrarlo primero. Para ello, emp
 
 Sin embargo, tenga en cuenta que la configuración de la clave del Registro afecta a todas las operaciones de copia de recursos compartidos de red.
 
-<a id="errorhold"></a>
+<a id="error112"></a>
 
 ## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Error "El host está apagado (Error 112)" en los recursos compartidos de archivos, o bien el shell se bloquea al ejecutar comandos list en el punto de montaje
 ### <a name="cause"></a>Causa
 Este error se produce en el cliente de Linux cuando este lleva inactivo mucho tiempo. Cuando el cliente está inactivo durante mucho tiempo, el cliente se desconecta y se agota el tiempo de espera de la conexión. 
 
-La conexión puede estar inactiva por diversas razones. Una razón son los errores de comunicación de red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje "flexible", que es el valor predeterminado.
+La conexión puede estar inactiva por diversas razones. Una de ellas son los errores de comunicación de la red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje "flexible", que es el valor predeterminado.
 
 Otra razón podría ser que también hay algunas correcciones de reconexión que no están presentes en los kernels anteriores.
 
@@ -251,7 +251,7 @@ Si no se puede cambiar a las versiones más recientes del kernel, puede solucion
 Las distribuciones de Linux aún no admiten la característica de cifrado de SMB 3.0. En algunas distribuciones, el usuario puede recibir un mensaje de error 115 al tratar de montar Azure Files mediante SMB 3.0 debido a una característica que falta.
 
 ### <a name="solution"></a>Solución
-Si el cliente de SMB de Linux que se use no admite el cifrado, monte Azure Files utilizando SMB 2.1 desde una VM de Linux que se encuentre en el mismo centro de datos que la cuenta de File Storage.
+Si el cliente de SMB de Linux que se usa no admite el cifrado, monte Azure Files con SMB 2.1 desde una máquina virtual Linux que se encuentre en la misma región de Azure que la cuenta de File Storage.
 
 <a id="delayproblem"></a>
 
@@ -275,7 +275,7 @@ Si no están presentes las opciones cache=strict o serverino, desmonte y vuelva 
 ## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Error de montaje 11: el recurso no está disponible temporalmente al montarse en el kernel de Ubuntu 4.8 o posterior
 
 ### <a name="cause"></a>Causa
-Problema conocido en el kernel de Ubuntu 16.10 (v.4.8), donde el cliente notifica que el cifrado es compatible, pero realmente no lo es. 
+Problema conocido en el kernel de Ubuntu 16.10 (v.4.8), donde el cliente notifica que admite el cifrado, pero realmente no lo hace. 
 
 ### <a name="solution"></a>Solución
 Hasta que se corrija en Ubuntu 16.10, especifique la opción de montaje "vers=2.1" o use Ubuntu 16.04.

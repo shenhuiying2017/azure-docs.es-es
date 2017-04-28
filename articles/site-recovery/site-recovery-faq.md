@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: aebd94edbad210f15bce5b39ebf73269ec67a209
-ms.openlocfilehash: 3bcba1123d3ec00c760d022d200609bf28c22362
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3807e51d47927ce94a62b943b85be67a247420b8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,7 +67,7 @@ Sí. Puede replicar en Azure las máquinas virtuales que están en servidores de
 Puede replicar servidores físicos con Windows y Linux, en Azure o en un sitio secundario. [Obtenga información](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) acerca de los requisitos del sistema operativo.  Se aplican los mismos requisitos si está replicando servidores físicos en Azure o en un sitio secundario.
 
 
-Tenga en cuenta que los servidores físicos se ejecutarán como máquinas virtuales en Azure si se desactiva el servidor local. Actualmente no se admite la conmutación por recuperación a un servidor físico local, pero puede conmutar por recuperación a una máquina virtual que se ejecute en Hyper-V o VMware.
+Tenga en cuenta que los servidores físicos se ejecutarán como máquinas virtuales en Azure si se desactiva el servidor local. Actualmente, no se admite la conmutación por recuperación a un servidor físico local. Para una máquina protegida como física, solo se puede conmutar por recuperación a una máquina virtual de VMware.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>¿Qué máquinas virtuales de VMware se pueden proteger?
 
@@ -156,16 +156,13 @@ Puede agregar nuevos equipos a grupos de replicación existentes. Para ello, sel
 Sí. Puede leer más acerca de la limitación de ancho de banda en los artículos de implementación donde se tratan los siguientes temas:
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
-* [Capacity planning for replicating Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#step-5-capacity-planning)
-* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#step-5-capacity-planning)
+* [Capacity planning for replicating Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#capacity-planning)
+* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
 
 ## <a name="failover"></a>Conmutación por error
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?
-Es posible tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio o mediante Azure ExpressRoute. Debe preparar algunas cosas para la conexión. Obtenga más información en los artículos siguientes:
+Es posible tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio o mediante Azure ExpressRoute. Debe preparar algunas cosas para la conexión. [Más información](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
-* [Connect to Azure VMs after failover of VMware VMs or physical servers](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
-* [Connect to Azure VMs after failover of Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
-* [Connect to Azure VMs after failover of Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Si se realiza una conmutación por error a Azure, ¿cómo se asegura Azure de que los datos resistan el proceso?
 Azure está diseñado para la resistencia. Site Recovery ya se ha diseñado para la conmutación por error en un centro de datos de Azure secundario según el Acuerdo de Nivel de Servicio de Azure por si surge la necesidad de hacerlo. Si esto ocurre, nos aseguraremos de que los metadatos y los almacenes permanecen en la misma región geográfica que eligió para su almacén.  
@@ -181,6 +178,12 @@ Para automatizar estos procesos, puede utilizar Orchestrator u Operations Manage
 * [Obtenga más información](site-recovery-create-recovery-plans.md) sobre los planes de recuperación.
 * [Más información](site-recovery-failover.md) acerca de la conmutación por error.
 * [Más información](site-recovery-failback-azure-to-vmware.md) acerca de la conmutación por recuperación de servidores físicos y máquinas virtuales de VMware
+
+### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>¿Si mi host local no responde o se ha bloqueado, puedo conmutar por error a otro host?
+Sí, puede usar la recuperación en una ubicación alternativa para realizar la conmutación por recuperación a otro host de Azure. Lea más sobre las opciones de los vínculos siguientes para las máquinas virtuales de Hyper-v y VMware.
+
+* [Para máquinas virtuales de VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
+* [Para máquinas virtuales de Hyper-v](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
 
 ## <a name="service-providers"></a>Proveedores de servicios
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Soy un proveedor de servicios. ¿Site Recovery funciona para los modelos de infraestructura compartida o específica?
@@ -207,7 +210,7 @@ Sí.
 Se admite Azure Pack, el sistema de plataforma en la nube e implementaciones basadas en System Center (2012 y superiores). [Más información](https://technet.microsoft.com/library/dn850370.aspx) acerca de la integración de Azure Pack y Site Recovery.
 
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>¿Se admite un paquete Azure Pack sencillo e implementaciones de servidor VMM individuales?
-Sí, es posible replicar máquinas virtuales de Hyper-V en Azure, o replicar entre sitios del proveedor de servicios.  Tenga en cuenta que si se replica entre sitios del proveedor de servicios, la integración de runbooks de Azure no estará disponible.
+Sí, es posible replicar máquinas virtuales de Hyper-V en Azure, o entre sitios del proveedor de servicios.  Tenga en cuenta que si se replica entre sitios del proveedor de servicios, la integración de runbooks de Azure no estará disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Lea la [Información general sobre Site Recovery](site-recovery-overview.md)

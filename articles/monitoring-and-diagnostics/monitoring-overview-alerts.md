@@ -16,9 +16,9 @@ ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c9065c3346c924ea21060c9e7e5b297a3cb26941
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -44,9 +44,9 @@ En el diagrama siguiente se resumen las alertas y lo que puede hacer con ellas e
 Puede recibir alertas basadas en:
 
 * **Valores de métrica**: la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse. Para ver una lista creciente de las métricas disponibles compatibles con Azure Monitor, consulte la [lista de métricas que se admiten en Azure Monitor](monitoring-supported-metrics.md).
-* **Eventos de registro de actividad**: esta alerta puede desencadenarse en cada evento o solo cuando se produce una serie de eventos específica.
+* **Eventos del registro de actividad**: esta alerta se puede desencadenar cuando se produce un evento concreto en un recurso o cuando se publica una notificación del servicio en su suscripción.
 
-## <a name="what-can-alerts-do"></a>¿Qué pueden hacer las alertas?
+## <a name="what-can-metric-alerts-do"></a>¿Qué pueden hacer las alertas de métricas?
 Puede configurar una alerta para hacer las siguientes acciones:
 
 * Enviar notificaciones de correo electrónico al administrador de servicios o a los coadministradores, o a las direcciones de correo electrónico adicionales que especifique.
@@ -56,12 +56,27 @@ Puede configurar una alerta para hacer las siguientes acciones:
     - Aplicación lógica de Azure
     - un servicio de terceros
 
+## <a name="what-can-activity-log-alerts-do"></a>¿Qué pueden hacer las alertas del registro de actividad?
+Puede configurar una alerta para hacer las siguientes acciones:
+* Desencadenarse cada vez que produce un evento concreto en uno de los recursos de su suscripción
+* Desencadenarse cada vez que se publica una notificación del servicio en su suscripción
+* Alertar a los miembros de un grupo de acciones a través de
+    * sms
+    * Email
+    * webhook
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtener información sobre las reglas de alertas y su configuración mediante:
+Obtenga información sobre las reglas de alertas y su configuración mediante:
 
-* [Portal de Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [Interfaz de la línea de comandos (CLI)](insights-alerts-command-line-interface.md)
-* [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Más información sobre las [métricas](monitoring-overview-metrics.md)
+* Configuración de [alertas de métricas a través de Azure Portal](insights-alerts-portal.md)
+* Configuración de [alertas de métricas con PowerShell](insights-alerts-powershell.md)
+* Configuración de [alertas de métricas con la interfaz de línea de comandos (CLI)](insights-alerts-command-line-interface.md)
+* Configuración de [alertas de métricas con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Más información sobre el [registro de actividad](monitoring-overview-activity-logs.md)
+* Configuración de [alertas del registro de actividad a través de Azure Portal](monitoring-activity-log-alerts.md)
+* Configuración de [alertas del registro de actividad a través de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Revisión del [esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md)
+* Más información sobre las [notificaciones del servicio](monitoring-service-notifications.md)
+* Más información sobre los [grupos de acciones](monitoring-action-groups.md)
 

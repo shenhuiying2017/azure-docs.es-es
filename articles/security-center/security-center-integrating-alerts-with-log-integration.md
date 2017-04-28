@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integración de las alertas de Azure Security Center con la integración de registro de Azure
-Muchos equipos de respuesta a incidentes y operaciones de seguridad confían en una solución de administración de eventos (SIEM) e información de seguridad como punto de partida para clasificar e investigar alertas de seguridad. Gracias a la integración de registro de Azure, los clientes pueden sincronizar alertas de Azure Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM casi en tiempo real.
+Muchos equipos de respuesta a incidentes y operaciones de seguridad confían en una solución de administración de eventos (SIEM) e información de seguridad como punto de partida para clasificar e investigar alertas de seguridad. La integración de registros de Azure permite integrar las alertas de Azure Security Center con una solución de SIEM.
 
-La integración de registro de Azure es compatible con HP ArcSight, Splunk, IBM QRadar y otras soluciones.
+En la actualidad, la integración de registros de Azure admite HP ArcSight, Splunk e IBM QRadar.
 
 ## <a name="what-logs-can-i-integrate"></a>¿Qué registros se pueden integrar?
 Azure genera gran cantidad de registros para cada servicio. Estos registros se categorizan de la siguiente manera:
 
-* **Registros de control/administración**, que ofrecen visibilidad sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager.
-* **Registros del plano de los datos** , que ofrecen visibilidad sobre los eventos que surgen cuando se usa un recurso de Azure. Un ejemplo de esto es el Registro de eventos de Windows, que son los registros de seguridad y aplicación en una máquina virtual.
+* **Registros de control/administración**, que ofrecen visibilidad sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager. Estos eventos del plano de control aparecen en los registros de actividad de Azure
+* **Registros del plano de los datos** , que ofrecen visibilidad sobre los eventos que surgen cuando se usa un recurso de Azure. Un ejemplo es el registro de eventos de Windows, donde se puede obtener información acerca de los eventos de seguridad del canal de seguridad del Visor de eventos. Los eventos del plano de datos (que los generan una máquina virtual o un servicio de Azure) los exponen los registros de diagnóstico de Azure.
 
 La integración de registro de Azure actualmente admite la integración de lo siguiente:
 
@@ -78,15 +78,12 @@ El servicio de integración de registro de Azure recolecta datos de telemetría 
 
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
-6. Dirija el conector del reenviador de archivos SIEM estándar a la carpeta adecuada para canalizar los datos a la instancia SIEM. Consulte las [configuraciones de SIEM](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) en la configuración de SIEM.
-
-Si tiene dudas sobre la integración del registro de Azure, envíe un correo electrónico a [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+6. Configure el conector de reenviador de archivos de SIEM a la carpeta correspondiente. El procedimiento variará en función del SIEM que use.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre los registros de auditoría de Azure y las definiciones de propiedad, consulte:
+Para más información acerca de los registros de auditoría de Azure y las definiciones de propiedad, consulte:
 
-* [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/resource-group-audit.md)
-* [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx) , para recuperar los eventos de registro de auditoría.
+* [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

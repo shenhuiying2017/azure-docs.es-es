@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7a752bfb349d2730537538f6856fe431204d3329
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 49cbfca4f733356548b6c8f491fead9e2d7fdf5c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +34,7 @@ A. SQL Data Warehouse ofrece varias soluciones para proteger datos, como TDE y l
 P: ¿Dónde puedo encontrar los estándares empresariales o legales que cumple SQL Data Warehouse?
 
 A. Visite la página [Cumplimiento normativo] para consultar diversas ofertas de cumplimiento por producto, como SOC e ISO. Primero, elija por el título Cumplimiento, luego, expanda Azure en la sección de servicios en la nube de Microsoft del lado derecho de la página para ver qué servicios son compatibles con Azure.
- 
+
 P: ¿Puedo conectar Power BI?
 
 A. Sí. Aunque Power BI admite la consulta directa con SQL Data Warehouse, no se ha diseñado para administrar gran cantidad de usuarios o datos en tiempo real. Para usar Power BI con fines de producción, se recomienda usar Power BI sobre IaaS de servicio de análisis o Azure Analysis Services. 
@@ -41,6 +42,10 @@ A. Sí. Aunque Power BI admite la consulta directa con SQL Data Warehouse, no se
 P: ¿Qué son los límites de capacidad de SQL Data Warehouse?
 
 A. Consulte nuestra página de [límites de capacidad] actuales. 
+
+P: ¿Por qué tardan tanto tiempo en completarse las operaciones de escalado, pausar y reanudación?
+
+A. Hay varios factores que puede influir en el tiempo que tardan en completarse las operaciones de administración de procesos. Un caso habitual de operaciones de ejecución prolongada es la reversión de transacciones. Cuando se inicia una operación de escalado o pausa, se bloquean todas las sesiones entrantes y se purgan las consultas. Para dejar el sistema en un estado estable, las transacciones se deben revertir antes de que pueda comenzar una operación. Cuanto mayor sea su número y el tamaño del registro de las transacciones, más tiempo estará detenida la operación al restaurar el sistema a un estado estable.
 
 ## <a name="user-support"></a>Asistencia técnica de usuario
 
@@ -113,7 +118,7 @@ Para obtener más información sobre SQL Data Warehouse, vea nuestra página [In
 [límites de capacidad]: ./sql-data-warehouse-service-capacity-limits.md
 [tipos de datos]: ./sql-data-warehouse-tables-data-types.md
 [características de tablas no admitidas]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md 
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [solicitudes de características de proyectos de bases de datos]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx

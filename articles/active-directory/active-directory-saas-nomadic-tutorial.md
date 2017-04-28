@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ee8b12207ecb21bccc2670122565ba154aaa9ff8
-ms.openlocfilehash: ce07a93977930852b49d4eaad4ad18254425a773
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 450b84a2df3d85c07388b679359ee69dd3cd4af4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,25 +39,25 @@ Para configurar la integración de Azure AD con Nomadic, necesita los siguientes
 - Una suscripción de Azure AD
 - Una suscripción habilitada para el inicio de sesión único en Nomadic
 
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+>
+>
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único (SSO) de Azure AD en un entorno de prueba. 
 
+La situación descrita en este tutorial consta de dos bloques de creación principales:
+ 
 1. Adición de Nomadic desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+2. Configuración y prueba del inicio de sesión único de Azure AD
 
-
-## <a name="adding-nomadic-from-the-gallery"></a>Adición de Nomadic desde la galería
+## <a name="add-nomadic-from-the-gallery"></a>Agregar Nomadic desde la galería
 Para configurar la integración de Nomadic en Azure AD, deberá agregar Nomadic desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Nomadic desde la galería, realice los pasos siguientes:**
@@ -64,7 +65,7 @@ Para configurar la integración de Nomadic en Azure AD, deberá agregar Nomadic 
 1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
-
+ 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Aplicaciones][2]
@@ -81,21 +82,20 @@ Para configurar la integración de Nomadic en Azure AD, deberá agregar Nomadic 
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_0001.png)
 
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+En esta sección, configurará y probará el SSO de Azure AD con Nomadic mediante un usuario de prueba llamado "Britta Simon".
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Nomadic con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD necesita saber cuál es el usuario homólogo de Nomadic para un usuario de Azure AD. Es decir, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Nomadic.
+Para que el SSO funcione, Azure AD debe saber cuál es el usuario homólogo en Nomadic de un usuario de Azure AD. Es decir, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Nomadic.
 
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Nomadic.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Nomadic, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Nomadic](#creating-a-nomadic-test-user)**: para tener un homólogo de Britta Simon en Nomadic que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -114,13 +114,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 3. En la sección **Dominio y direcciones URL de Nomadic**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_02.png)
+  1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.nomadic.fm/signin`.
+  2. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.nomadic.fm/auth/saml2/sp`.
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.nomadic.fm/signin`.
-    
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.nomadic.fm/auth/saml2/sp`.
-
-    > [!NOTE] 
-    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Nomadic](mailto:help@nomadic.fm) para obtener estos valores.
+     >[!NOTE] 
+     >Estos valores no son reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Nomadic](mailto:help@nomadic.fm) para obtener estos valores.
+     >
+     >
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
@@ -144,8 +144,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 9. Para configurar SSO para su aplicación, póngase en contacto con el [equipo de soporte técnico de Nomadic](mailto:help@nomadic.fm) y proporcione los **metadatos** descargados.
   
-
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][100]
@@ -167,25 +166,18 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 4. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadic-tutorial/create_aaduser_04.png) 
+  1. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+  2. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+  3. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+  4. Haga clic en **Crear**. 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
-
-    d. Haga clic en **Crear**. 
-
-
-
-### <a name="creating-a-nomadic-test-user"></a>Creación de un usuario de prueba de Nomadic
+### <a name="create-a-nomadic-test-user"></a>Creación de un usuario de prueba de Nomadic
 
 En esta sección, creará un usuario llamado Britta Simon en Nomadic. Colabore con el [equipo de soporte técnico de Nomadic](mailto:help@nomadic.fm) para agregar los usuarios en la plataforma de Nomadic.
 
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Nomadic.
+En esta sección, habilitará a Britta Simon para que use el SSO de Azure concediéndole acceso a Nomadic.
 
 ![Asignar usuario][200] 
 
@@ -214,13 +206,11 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
-
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de SSO de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Nomadic en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Nomadic.
-
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -242,8 +232,4 @@ Al hacer clic en el icono de Nomadic en el panel de acceso, debería iniciar ses
 [201]: ./media/active-directory-saas-nomadic-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-nomadic-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-nomadic-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 4/4/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: b4b5e1af6c03e1124de78308cab1dad86d06641e
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,6 +29,7 @@ En este artículo se describe cómo administrar y personalizar Servicios de fede
 |:--- |:--- |
 | **Administración de AD FS** | |
 | [Reparación de la confianza](#repairthetrust) |Cómo reparar la confianza de federación con Office 365. |
+| [Federación con Azure AD mediante un identificador de inicio de sesión alternativo](#alternateid) | Configuración de la federación con un identificador de inicio de sesión alternativo  |
 | [Adición de un servidor de AD FS](#addadfsserver) |Cómo expandir una granja de servidores de AD FS con un servidor de AD FS adicional. |
 | [Incorporación de un servidor proxy de aplicación web de AD FS](#addwapserver) |Cómo expandir una granja de servidores de AD FS con un servidor proxy de aplicación web (WAP) adicional. |
 | [Adición de un dominio federado](#addfeddomain) |Cómo agregar un dominio federado. |
@@ -66,6 +67,22 @@ Puede usar Azure AD Connect para comprobar el estado actual de la confianza de A
 
 > [!NOTE]
 > Azure AD Connect solo puede reparar o actuar en los certificados autofirmados. Azure AD Connect no puede reparar certificados de terceros.
+
+## Federación con Azure AD mediante un identificador de inicio de sesión alternativo<a name=alternateid></a>
+Se recomienda que el nombre principal de usuario (UPN) local y el nombre principal de usuario en la nube sean el mismo. Si el UPN local usa un dominio no enrutable (p. ej. Contoso.local) o no se puede cambiar debido a dependencias de aplicación locales, se recomienda configurar el identificador de inicio de sesión alternativo. El identificador de inicio de sesión alternativo le permite configurar una experiencia de inicio de sesión donde los usuarios puedan iniciar sesión con un atributo que no sea su UPN, por ejemplo, el correo electrónico. La opción predeterminada de nombre principal de usuario en Azure AD Connect es el atributo userPrincipalName en Active Directory. Si elige cualquier otro atributo como nombre principal de usuario y está realizando una federación mediante AD FS, Azure AD Connect configurará AD FS para el identificador de inicio de sesión alternativo. A continuación, se muestra un ejemplo de elección de un atributo diferente para el nombre principal de usuario:
+
+![Selección de atributo de identificador alternativo](media/active-directory-aadconnect-federation-management/attributeselection.png)
+
+La configuración del identificador de inicio de sesión alternativo para AD FS consta de dos pasos principales:
+1. **Configurar el conjunto de notificaciones de emisión correcto**: las reglas de notificación del usuario de confianza de Azure AD se modifican para utilizar el atributo UserPrincipalName seleccionado como identificador alternativo del usuario de confianza.
+2. **Habilitar el identificador de inicio de sesión alternativo en la configuración de AD FS**: se actualiza la configuración de AD FS para que AD FS pueda buscar usuarios en los bosques correspondientes con el identificador alternativo. Esta configuración se admite en AD FS en Windows Server 2012 R2 (con KB2919355) o versiones posteriores. Si los servidores de AD FS son 2012 R2, Azure AD Connect comprueba si está presente la KB necesaria. Si no se detecta la KB, se mostrará una advertencia cuando finalice la configuración, tal y como se muestra a continuación:
+
+    ![Advertencia de que falta la KB en 2012 R2](media/active-directory-aadconnect-federation-management/kbwarning.png)
+
+    Para corregir la configuración en caso de que falte la KB, instale [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) y, a continuación, repare la confianza utilizando [Reparar AAD y confianza de ADFS ](#repairthetrust).
+
+> [!NOTE]
+> Para más información sobre alternateID y los pasos para configurarlo manualmente, consulte [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## Adición de un servidor de AD FS <a name=addadfsserver></a>
 

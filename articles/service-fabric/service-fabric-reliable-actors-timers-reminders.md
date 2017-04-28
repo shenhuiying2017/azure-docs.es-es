@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9d22438c6ca14ddb8843f4b72cae40e3b622e849
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.
 
 ## <a name="actor-timers"></a>Temporizadores de actor
-Los temporizadores de actor ofrecen un contenedor simple alrededor de los temporizadores de .NET para que los métodos de devolución de llamada respeten las garantías de simultaneidad basadas en turnos que proporciona el tiempo de ejecución de los actores.
+Los temporizadores de actor ofrecen un contenedor simple alrededor de los temporizadores de .NET o Java para que los métodos de devolución de llamada respeten las garantías de simultaneidad basadas en turnos proporcionados por el tiempo de ejecución de los actores.
 
-Los actores pueden usar los métodos `RegisterTimer` y `UnregisterTimer` en su clase base para registrar y anular el registro de los temporizadores. En el ejemplo siguiente se muestra el uso de las API de temporizador. Las API son muy similares al temporizador de .NET. En este ejemplo, cuando el temporizador vence, el runtime de los actores llamará al método `MoveObject` . Se garantiza que el método respetará la simultaneidad basada en turnos. Esto significa que no habrá otros métodos de actor o devoluciones de llamada de temporizador o recordatorio en curso hasta que esta devolución de llamada complete la ejecución.
+Los actores pueden usar los métodos `RegisterTimer`(C#) o `registerTimer`(Java) y `UnregisterTimer`(C#) o `unregisterTimer`(Java) en su clase base para registrar y anular el registro de los temporizadores. En el ejemplo siguiente se muestra el uso de las API de temporizador. Las API son muy similares al temporizador de .NET o de Java. En este ejemplo, cuando el temporizador vence, el entorno de ejecución de los actores llamará al método `MoveObject`(C#) o `moveObject`(Java). Se garantiza que el método respetará la simultaneidad basada en turnos. Esto significa que no habrá otros métodos de actor o devoluciones de llamada de temporizador o recordatorio en curso hasta que esta devolución de llamada complete la ejecución.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -68,10 +69,67 @@ class VisualObjectActor : Actor, IVisualObject
     }
 }
 ```
+```Java
+public class VisualObjectActorImpl extends FabricActor implements VisualObjectActor
+{
+    private ActorTimer updateTimer;
+
+    public VisualObjectActorImpl(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    @Override
+    protected CompletableFuture onActivateAsync()
+    {
+        ...
+
+        return this.stateManager()
+                .getOrAddStateAsync(
+                        stateName,
+                        VisualObject.createRandom(
+                                this.getId().toString(),
+                                new Random(this.getId().toString().hashCode())))
+                .thenApply((r) -> {
+                    this.registerTimer(
+                            (o) -> this.moveObject(o),                        // Callback method
+                            "moveObject",
+                            null,                                             // Parameter to pass to the callback method
+                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
+                    return null;
+                });
+    }
+
+    @Override
+    protected CompletableFuture onDeactivateAsync()
+    {
+        if (updateTimer != null)
+        {
+            unregisterTimer(updateTimer);
+        }
+
+        return super.onDeactivateAsync();
+    }
+
+    private CompletableFuture moveObject(Object state)
+    {
+        ...
+        return this.stateManager().getStateAsync(this.stateName).thenCompose(v -> {
+            VisualObject v1 = (VisualObject)v;
+            v1.move();
+            return (CompletableFuture<?>)this.stateManager().setStateAsync(stateName, v1).
+                    thenApply(r -> {
+                      ...
+                      return null;});
+        });
+    }
+}
+```
 
 El siguiente período del temporizador comienza cuando la devolución de llamada completa la ejecución. Esto implica que el temporizador está detenido mientras se ejecuta la devolución de llamada y se inicia cuando esta se completa.
 
-El runtime de los actores guarda los cambios realizados en el administrador de estados del actor cuando finaliza la devolución de llamada. Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia. 
+El runtime de los actores guarda los cambios realizados en el administrador de estados del actor cuando finaliza la devolución de llamada. Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia.
 
 Todos los temporizadores se detienen cuando el actor se desactiva como parte de la recolección de elementos no utilizados. Después de eso, no se invoca ninguna devolución de llamada de temporizador. Además, el tiempo de ejecución de los actores no conserva ninguna información sobre los temporizadores que se estaban ejecutando antes de la desactivación. Es el actor el que decide si se registran los temporizadores que necesita cuando se reactive en el futuro. Para obtener más información, consulte la sección [Recolección de actores no utilizados](service-fabric-reliable-actors-lifecycle.md).
 
@@ -94,7 +152,22 @@ protected override async Task OnActivateAsync()
 }
 ```
 
-En este ejemplo, `"Pay cell phone bill"` es el nombre del recordatorio. Se trata de una cadena que el actor usa para identificar un recordatorio de forma única. `BitConverter.GetBytes(amountInDollars)` es el contexto que está asociado con el recordatorio. Se pasará al actor como un argumento en la devolución de llamada del recordatorio, es decir, `IRemindable.ReceiveReminderAsync`.
+```Java
+@Override
+protected CompletableFuture onActivateAsync()
+{
+    String reminderName = "Pay cell phone bill";
+    int amountInDollars = 100;
+
+    ActorReminder reminderRegistration = this.registerReminderAsync(
+            reminderName,
+            state,
+            dueTime,    //The amount of time to delay before firing the reminder
+            period);    //The time interval between firing of reminders
+}
+```
+
+En este ejemplo, `"Pay cell phone bill"` es el nombre del recordatorio. Se trata de una cadena que el actor usa para identificar un recordatorio de forma única. `BitConverter.GetBytes(amountInDollars)`(C#) es el contexto que está asociado con el recordatorio. Se pasará al actor como un argumento en la devolución de llamada del recordatorio, es decir, `IRemindable.ReceiveReminderAsync`(C#) o `Remindable.receiveReminderAsync`(Java).
 
 Los actores que usan recordatorios deben implementar la interfaz `IRemindable` , tal y como se muestra en el ejemplo siguiente.
 
@@ -117,30 +190,48 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
     }
 }
 ```
+```Java
+public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Remindable
+{
+    public ToDoListActor(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Cuando un recordatorio se desencadena, el runtime de Reliable Actors invocará al método `ReceiveReminderAsync` en el actor. Un actor puede registrar varios recordatorios y el método `ReceiveReminderAsync` se invoca cuando se desencadene uno de ellos. El actor puede usar el nombre del recordatorio que se pasa al método `ReceiveReminderAsync` para averiguar el recordatorio que se activó.
+    public CompletableFuture receiveReminderAsync(String reminderName, byte[] context, Duration dueTime, Duration period)
+    {
+        if (reminderName.equals("Pay cell phone bill"))
+        {
+            int amountToPay = ByteBuffer.wrap(context).getInt();
+            System.out.println("Please pay your cell phone bill of " + amountToPay);
+        }
+        return CompletableFuture.completedFuture(true);
+    }
 
-El sistema en tiempo de ejecución de Actors guarda el estado del actor cuando termina la llamada `ReceiveReminderAsync` . Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia. 
+```
 
-Para anular el registro de un recordatorio, un actor llama al método `UnregisterReminderAsync`, tal y como se muestra en el ejemplo siguiente.
+Cuando un recordatorio se desencadena, el entorno de ejecución de Reliable Actors invocará al método `ReceiveReminderAsync`(C#) o `receiveReminderAsync`(Java) en el actor. Un actor puede registrar varios recordatorios y el método `ReceiveReminderAsync`(C#) o `receiveReminderAsync`(Java) se invoca cuando se desencadene uno de ellos. El actor puede usar el nombre del recordatorio que se pasa al método `ReceiveReminderAsync`(C#) o `receiveReminderAsync`(Java) para averiguar el recordatorio que se activó.
+
+El entorno de ejecución de Actors guarda el estado del actor cuando termina la llamada a `ReceiveReminderAsync`(C#) o `receiveReminderAsync`(Java). Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia.
+
+Para anular el registro de un recordatorio, un actor llama al método `UnregisterReminderAsync`(C#) o `unregisterReminderAsync`(Java), tal y como se muestra en el ejemplo siguiente.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
+```Java
+ActorReminder reminder = getReminder("Pay cell phone bill");
+CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
+```
 
-Como se indicó anteriormente, el método `UnregisterReminderAsync` acepta una interfaz `IActorReminder`. La clase base del actor admite un método `GetReminder` que puede usarse para recuperar la interfaz `IActorReminder` pasándole el nombre del recordatorio. Esto resulta útil porque el actor no necesita conservar la interfaz `IActorReminder` que devuelve la llamada al método `RegisterReminder`.
+Como se indicó anteriormente, el método `UnregisterReminderAsync`(C#) o `unregisterReminderAsync`(Java) acepta una interfaz `IActorReminder`(C#) o `ActorReminder`(Java). La clase base del actor admite un método `GetReminder`(C#) o `getReminder`(Java) que puede usarse para recuperar la interfaz `IActorReminder`(C#) o `ActorReminder`(Java) pasándole el nombre del recordatorio. Esto resulta útil porque el actor no necesita conservar la interfaz `IActorReminder`(C#) o `ActorReminder`(Java) que devuelve la llamada al método `RegisterReminder`(C#) o `registerReminder`(Java).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Eventos de actor](service-fabric-reliable-actors-events.md)
 * [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
 * [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
 * [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Código de ejemplo de C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de ejemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
