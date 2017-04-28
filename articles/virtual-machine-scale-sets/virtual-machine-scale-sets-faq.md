@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 4/10/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -538,6 +538,28 @@ En este ejemplo, una alerta va a Pagerduty.com cuando se alcanza un umbral.
 
 
 
+## <a name="patching-and-operations"></a>Aplicación de revisiones y operaciones
+
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>¿Cómo creo un conjunto de escalado en un grupo de recursos existente?
+
+Todavía no es posible crear conjuntos de escalado en un grupo de recursos existente desde Azure Portal, pero puede especificar un grupo de recursos existente al implementar un conjunto de escalado desde una plantilla de Azure Resource Manager. También puede especificar un grupo de recursos existente al crear un conjunto de escalado con Azure PowerShell o CLI.
+
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>¿Podemos mover un conjunto de escalado a otro grupo de recursos?
+
+Sí, se pueden mover recursos del conjunto de escalado a una nueva suscripción o a un nuevo grupo de recursos.
+
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>¿Cómo actualizo mi conjunto de escalado de máquinas virtuales a una nueva imagen? ¿Cómo administro la aplicación de revisiones?
+
+Para actualizar su conjunto de escalado de máquinas virtuales con una nueva imagen y para administrar la aplicación de revisiones consulte [Actualización de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>¿Puedo usar la operación de restablecimiento de la imagen inicial para restablecer una máquina virtual sin cambiar la imagen? (Es decir, quiero restablecer una máquina virtual a la configuración de fábrica en lugar de a una nueva imagen).
+
+Sí, puede usar la operación de restablecimiento de la imagen inicial para restablecer una máquina virtual sin cambiar la imagen. Sin embargo, si el conjunto de escalado de máquinas virtuales hace referencia a una imagen de plataforma con `version = latest`, la máquina virtual se puede actualizar a una imagen del SO posterior cuando llame a `reimage`.
+
+Para más información, consulte el artículo sobre la [administración de todas las máquinas virtuales de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+
+
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>¿Cómo se activa el diagnóstico de arranque?
@@ -561,21 +583,6 @@ Cuando se crea una nueva máquina virtual, el elemento InstanceView de la máqui
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## <a name="updates"></a>Actualizaciones
-
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>¿Cómo actualizo mi conjunto de escalado de máquinas virtuales a una nueva imagen? ¿Cómo administro la aplicación de revisiones?
-
-Para actualizar su conjunto de escalado de máquinas virtuales con una nueva imagen y para administrar la aplicación de revisiones consulte [Actualización de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
-
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>¿Puedo usar la operación de restablecimiento de la imagen inicial para restablecer una máquina virtual sin cambiar la imagen? (Es decir, quiero restablecer una máquina virtual a la configuración de fábrica en lugar de a una nueva imagen).
-
-Sí, puede usar la operación de restablecimiento de la imagen inicial para restablecer una máquina virtual sin cambiar la imagen. Sin embargo, si el conjunto de escalado de máquinas virtuales hace referencia a una imagen de plataforma con `version = latest`, la máquina virtual se puede actualizar a una imagen del SO posterior cuando llame a `reimage`.
-
-Para más información, consulte el artículo sobre la [administración de todas las máquinas virtuales de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
-
 
 
 ## <a name="virtual-machine-properties"></a>Propiedades de máquina virtual

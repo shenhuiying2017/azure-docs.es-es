@@ -5,20 +5,20 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: pblachar, librown
+editor: librown
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 7c91ae265dd86e8d7f206c1ada021c40fd8c4479
-ms.openlocfilehash: cb3b7cfefe22176e17064ad6cbb9df4da8c57c0f
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 731275c72422a622e1d49f7d362447ef3361338b
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Preguntas más frecuentes de la aplicación Microsoft Authenticator
@@ -38,6 +38,18 @@ Estos códigos se usan cuando inicia sesión en la cuenta. Después de escribir 
 El motivo por el que los códigos cambian cada 30 segundos es para que nunca se utilice el mismo código dos veces. No es lo mismo que una contraseña, que se supone que debe recordar. La idea es que solo un usuario con acceso a su teléfono conozca el código de comprobación.
 
 Los códigos no requieren Internet ni datos, por lo que no tiene que preocuparse de tener el servicio de teléfono para iniciar sesión ni de que la aplicación utilice el plan de datos. Cuando se cierra la aplicación, esta no sigue ejecutándose en segundo plazo, por lo que no agotará la batería. Puede cerrar la aplicación e ignorarla hasta la próxima vez que inicie sesión.  
+
+### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Solo recibo notificaciones cuando tengo la aplicación abierta. Si la aplicación no está abierta, no recibo ninguna notificación.
+
+Si recibe notificaciones, pero no realizan ningún ruido ni viran vibrar a pesar de que el timbre esté activado, primero compruebe la configuración de la aplicación. Habilite la aplicación para que use un sonido o vibre con sus notificaciones.
+
+Si no recibe las notificaciones, compruebe los siguientes casos:
+
+- ¿El teléfono se encuentra en modo silencioso o no molestar? Ese modo puede evitar que las aplicaciones envíen notificaciones.
+- ¿Puede recibir notificaciones de otras aplicaciones? De lo contrario, puede haber un problema con las conexiones de red en su teléfono o el canal de notificaciones de Android o Apple. Puede solucionar el primer caso en la configuración del teléfono, pero puede que necesite ponerse en contacto con su proveedor de servicios para obtener ayuda con el segundo caso.
+- ¿Puede recibir notificaciones de algunas cuentas en la aplicación, pero no de otras? Si es así, quite la cuenta problemática de la aplicación y agréguela de nuevo para volver a habilitar las notificaciones push. 
+
+Si ya ha probado estas sugerencias y sigue teniendo problemas, envíenos sus registros de diagnóstico (vaya a la configuración de la aplicación, a continuación, seleccione **Ayuda y comentarios** y **Enviar registros**); a continuación, vaya al [foro de la aplicación de Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e indíquenos el problema que ve y qué pasos ha probado hasta ahora. 
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Ya uso la aplicación Microsoft Authenticator con los códigos de comprobación. ¿Cómo cambio a las notificaciones push de un solo clic?
 La aprobación de un inicio de sesión mediante notificaciones push solo está disponible para las cuentas personales, profesionales y educativas de Microsoft. No está disponible para cuentas de terceros, como Google o Facebook. Si tiene una cuenta profesional o educativa de Microsoft, su organización puede deshabilitar esta opción.
@@ -83,6 +95,10 @@ Esta es una lista completa de permisos que es posible que se le pidan y de cómo
 ### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>¿Por qué la aplicación Microsoft Authenticator permite aprobar una solicitud sin desbloquear el servicio?
 
 Esto es así por diseño. La verificación en dos pasos realiza dos comprobaciones: una comprobación de algo que sabe y una comprobación de algo que tiene. Lo que sabe es la contraseña. Lo que tiene es el teléfono (configurado con la aplicación Microsoft Authenticator y registrado como una prueba de MFA).  Por tanto, al tener el teléfono y aprobar la solicitud, se cumplen los criterios del segundo factor de la autenticación. 
+
+### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>¿Qué significa el icono de candado en la lista de cuentas?
+
+El icono de candado indica que el dispositivo está registrado en Azure AD y registrado en la cuenta. El registro de dispositivos para iOS tiene lugar durante la inscripción de Microsoft Intune.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

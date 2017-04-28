@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3b1a347322e2307aadbd287cb2235e39e11f1e79
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,15 +38,15 @@ Para configurar la integración de Azure AD con PerformanceCentre, necesita los 
 * Una suscripción de Azure AD
 * Una suscripción habilitada para el inicio de sesión único en PerformanceCentre
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 > 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/). 
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descripción del escenario
 El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
@@ -53,9 +54,9 @@ El objetivo de este tutorial es permitirle probar el inicio de sesión único de
 El escenario descrito en este tutorial consta de tres bloques de creación principales:
 
 *  Incorporación de PerformanceCentre desde la galería 
-*  Configuración y comprobación del inicio de sesión único de Azure AD
+*  Configuración y prueba del inicio de sesión único de Azure AD
 
-## <a name="adding-performancecentre-from-the-gallery"></a>Incorporación de PerformanceCentre desde la galería
+## <a name="add-performancecentre-from-the-gallery"></a>Agregar PerformanceCentre desde la galería
 Para configurar la integración de PerformanceCentre en Azure AD, deberá agregar PerformanceCentre desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar PerformanceCentre desde la galería, realice los pasos siguientes:**
@@ -80,23 +81,23 @@ Para configurar la integración de PerformanceCentre en Azure AD, deberá agrega
    
     ![Aplicaciones][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con PerformanceCentre según un usuario de prueba denominado "Britta Simon".
+## <a name="configure-and-test-azure-ad-sso"></a>Configuración y prueba del inicio de sesión único de Azure AD
+El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con PerformanceCentre con un usuario de prueba denominado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de PerformanceCentre para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de PerformanceCentre.  
 
-Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario **en Azure AD como el valor del **nombre de usuario** en PerformanceCentre.
+Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en PerformanceCentre.
 
 **Para configurar y probar el inicio de sesión único de Azure AD con PerformanceCentre, debe completar los siguientes bloques de creación:**
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de PerformanceCentre](#creating-a-halogen-software-test-user)** : para tener un homólogo de Britta Simon en PerformanceCentre que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD clásico y configurar el inicio de sesión único en la aplicación de PerformanceCentre.
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurarlo en la aplicación PerformanceCentre.
 
 **Para configurar el inicio de sesión único de Azure AD con PerformanceCentre, realice los pasos siguientes:**
 
@@ -140,7 +141,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     
      ![Inicio de sesión único de Azure AD ][16]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.  
 
 ![Creación de un usuario de Azure AD][20]
@@ -182,10 +183,10 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    1. Anote el valor del campo **Nueva contraseña**.
-    2. Haga clic en **Completo**.   
+   1. Anote el valor del campo **Nueva contraseña**.
+   2. Haga clic en **Completo**.   
 
-### <a name="creating-a-performancecentre-test-user"></a>Creación de un usuario de prueba de PerformanceCentre
+### <a name="create-a-performancecentre-test-user"></a>Creación de un usuario de prueba de PerformanceCentre
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en PerformanceCentre.
 
 **Para crear un usuario llamado Britta Simon en PerformanceCentre, realice los pasos siguientes:**
@@ -199,17 +200,18 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
     ![Crear usuario][401]
    
    1. Escriba los atributos necesarios para Britta Simon en los cuadros de texto correspondientes.
-   > [!IMPORTANT]
-   > El atributo del nombre del usuario de Britta en PerformanceCentre debe ser el mismo que el nombre del usuario en Azure AD.
-   > 
-   > 
+
+    >[!IMPORTANT]
+    >El atributo del nombre del usuario de Britta en PerformanceCentre debe ser el mismo que el nombre del usuario en Azure AD.
+    > 
+    > 
  
    2. Seleccione **Administrador de cliente** como **Elegir rol**.
    3. Haga clic en **Guardar**.   
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a PerformanceCentre.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a PerformanceCentre.
 
 ![Asignar usuario][200] 
 
@@ -229,7 +231,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
 
 Al hacer clic en el icono de PerformanceCentre en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de PerformanceCentre.
@@ -275,10 +277,5 @@ Al hacer clic en el icono de PerformanceCentre en el Panel de acceso, debería i
 [402]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_402.png
 
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

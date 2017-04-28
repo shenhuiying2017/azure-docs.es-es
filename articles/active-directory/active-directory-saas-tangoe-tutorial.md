@@ -12,21 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: bb140097831453d46f6bfef1c9fbe569eefb3020
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8ab2dd16940f36411cf9a9f244bd3ec6eaf9749b
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integración de Azure Active Directory con Tangoe Command Premium Mobile
+
 En este tutorial, obtendrá información sobre cómo integrar Tangoe Command Premium Mobile con Azure Active Directory (Azure AD).
 
 La integración de Tangoe Command Premium Mobile con Azure AD proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a Tangoe Command Premium Mobile.
-* Puede permitir que los usuarios inicien sesión automáticamente en Tangoe Command Premium Mobile (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en Tangoe Command Premium Mobile (SSO) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -37,15 +39,15 @@ Para configurar la integración de Azure AD con Tangoe Command Premium Mobile, n
 * Una suscripción de Azure
 * Una suscripción habilitada para el inicio de sesión único en Tangoe Command Premium Mobile
 
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+>[!NOTE]
+>Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 > 
 > 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 * No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. 
@@ -53,7 +55,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Tangoe Command Premium Mobile desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+2. Configuración y prueba del inicio de sesión único de Azure AD
 
 ## <a name="adding-tangoe-command-premium-mobile-from-the-gallery"></a>Incorporación de Tangoe Command Premium Mobile desde la galería
 Para configurar la integración de Tangoe Command Premium Mobile en Azure AD, deberá agregar Tangoe Command Premium Mobile desde la galería a la lista de aplicaciones SaaS administradas.
@@ -80,7 +82,7 @@ Para configurar la integración de Tangoe Command Premium Mobile en Azure AD, de
 
 ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Tangoe Command Premium Mobile con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Tangoe Command Premium Mobile para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Tangoe Command Premium Mobile.
@@ -93,14 +95,14 @@ Para configurar y probar el inicio de sesión único de Azure AD con Tangoe Comm
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Tangoe Command Premium Mobile](#creating-an-tangoe-test-user)** : para tener un homólogo de Britta Simon en Tangoe Command Premium Mobile que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 En esta sección, habilitará el inicio de sesión único de Azure AD en el portal clásico y configurará el inicio de sesión único en la aplicación Tangoe Command Premium Mobile.
 
 **Para configurar el inicio de sesión único de Azure AD con Tangoe Command Premium Mobile, realice los pasos siguientes:**
 
-1. En el portal clásico, en la página de integración de la aplicación de la aplicación **Tangoe Command Premium Mobile**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1. En el portal clásico, en la página de integración de la aplicación **Tangoe Command Premium Mobile**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único][6]
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Tangoe Command Premium Mobile?**, seleccione **Inicio de sesión único de Azure AD** y, después, haga clic en **Siguiente**.
@@ -114,16 +116,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
    2. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: **"https://sso.tangoe.com/sp/ACS.saml2"**
 
-    > [!NOTE]  
-    > Si no conoce los valores correctos de las direcciones URL, puede usar los valores indicados anteriormente como marcadores de posición y solicitar los valores correctos al servicio de asistencia al cliente de Tangoe.
-    >
+     >[!NOTE]  
+     >Si no conoce los valores correctos de las direcciones URL, puede usar los valores indicados anteriormente como marcadores de posición y solicitar los valores correctos al servicio de asistencia al cliente de Tangoe.
+     >
 
 4. En la página **Configurar inicio de sesión único en Tangoe Command Premium Mobile** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_05.png) 
-   
-   1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
-   2. Haga clic en **Siguiente**.
+  1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
+  2. Haga clic en **Siguiente**.
 
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el servicio de asistencia al cliente de Tangoe y proporcione lo siguiente:
 
@@ -139,7 +140,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Inicio de sesión único de Azure AD ][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
 
 * En la lista Usuarios, seleccione **Britta Simon**.
@@ -161,12 +162,9 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_05.png) 
-   
-    a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-   
-    b. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-   
-    c. Haga clic en **Siguiente**.
+  1. En Tipo de usuario, seleccione Nuevo usuario de la organización. 
+  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
+  3. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tangoe-tutorial/create_aaduser_06.png) 
@@ -186,14 +184,17 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
   1. Anote el valor del campo **Nueva contraseña**.
   2. Haga clic en **Completo**.   
 
-### <a name="creating-an-tangoe-command-premium-mobile-test-user"></a>Creación de un usuario de prueba de Tangoe Command Premium Mobile
-En esta sección, creará un usuario llamado Britta Simon en Tangoe Command Premium Mobile. La aplicación Tangoe Command Premium Mobile necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. Así pues, colabore con el servicio de asistencia al cliente de Tangoe para aprovisionar todos estos usuarios en la aplicación. 
+### <a name="create-an-tangoe-command-premium-mobile-test-user"></a>Crear un usuario de prueba de Tangoe Command Premium Mobile
+En esta sección, creará un usuario llamado Britta Simon en Tangoe Command Premium Mobile. 
 
-> [!NOTE]
-> Si necesita crear un usuario de forma manual o por lotes de los usuarios, póngase en contacto con el equipo de soporte técnico de Tangoe Command Premium Mobile.
-> 
+La aplicación Tangoe Command Premium Mobile necesita que todos los usuarios estén aprovisionados en la aplicación antes de realizar el inicio de sesión único. Así pues, colabore con el servicio de asistencia al cliente de Tangoe para aprovisionar todos estos usuarios en la aplicación. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+>[!NOTE]
+>Si necesita crear un usuario de forma manual o por lotes de los usuarios, póngase en contacto con el equipo de soporte técnico de Tangoe Command Premium Mobile.
+>
+>
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Tangoe Command Premium Mobile.
 
 ![Asignar usuario][200] 
@@ -217,8 +218,8 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+En esta sección, probará la configuración de SSO de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Tangoe Command Premium Mobile en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Tangoe Command Premium Mobile.
 
@@ -243,9 +244,4 @@ Al hacer clic en el icono de Tangoe Command Premium Mobile en el panel de acceso
 [203]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 04/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 31495f402b810c524bd7b906498774302500b732
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: db36f52f538905683b4cbc6db7cc41b56710db8c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -29,25 +29,12 @@ ms.lasthandoff: 01/24/2017
 > 
 > 
 
-Cuando haya una aplicación o un script que necesite acceder a recursos, puede configurar una identidad para la aplicación y autenticarla con sus propias credenciales. Este enfoque es preferible a ejecutar la aplicación con sus propias credenciales por los siguientes motivos:
+Cuando haya una aplicación o un script que necesite acceder a recursos, puede configurar una identidad para la aplicación y autenticarla con sus propias credenciales. Esta identidad se conoce como una entidad de servicio. Este enfoque le permite:
 
-* Puede asignar permisos a la identidad de aplicación que sean diferentes a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
-* No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian. 
-* Puede usar un certificado para automatizar la autenticación al ejecutar un script desatendido.
+* Asignar permisos a la identidad de la aplicación que sean diferentes a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
+* Usar un certificado para la autenticación al ejecutar un script desatendido.
 
 En este tema se explica cómo usar [Azure PowerShell](/powershell/azureps-cmdlets-docs) para configurar todo lo que necesita para que una aplicación se ejecute con sus propias credenciales e identidad.
-
-Con PowerShell, tiene dos opciones para autenticar aplicaciones de AD:
-
-* contraseña
-* certificado
-
-Este tema muestra cómo usar ambas opciones en PowerShell. Si va a iniciar sesión en Azure desde otro entorno de programación (como Python, Ruby o Node.js), la mejor opción es la autenticación con contraseña. Antes de decidir si desea utilizar una contraseña o un certificado, consulte la sección [Aplicaciones de ejemplo](#sample-applications) para obtener ejemplos de autenticación en los distintos marcos.
-
-## <a name="active-directory-concepts"></a>Conceptos de Active Directory
-En este artículo, se crean dos objetos: la aplicación de Active Directory (AD) y la entidad de servicio. La aplicación de AD es la representación global de su aplicación. Contiene las credenciales (un identificador de aplicación y una contraseña o certificado). La entidad de servicio es la representación local de su aplicación en una instancia de Active Directory. Contiene la asignación de rol. Este tema se centra en una aplicación de inquilino único donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización. En una aplicación de un solo inquilino, tendrá una aplicación de AD y una entidad de servicio.
-
-Quizás se pregunte por qué necesita ambos objetos. Este enfoque tiene más sentido para las aplicaciones multiinquilino. Las aplicaciones multiinquilino normalmente se usan para las aplicaciones de software como servicio (SaaS), que se ejecutan en muchas suscripciones diferentes. Para las aplicaciones multiinquilino, tendrá una aplicación de AD y varias entidades de servicio (una en cada instancia de Active Directory que concede acceso a la aplicación). Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## <a name="required-permissions"></a>Permisos necesarios
 Para completar este tema, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Active Directory y asignar la entidad de servicio a un rol. 
@@ -57,259 +44,304 @@ El portal representa la forma más sencilla de comprobar si su cuenta tiene los 
 Ahora, continúe en la sección sobre autenticación mediante [contraseña](#create-service-principal-with-password) o [certificado](#create-service-principal-with-certificate).
 
 ## <a name="create-service-principal-with-password"></a>Creación de entidad de servicio con contraseña
-Estos son los pasos que se realizan en esta sección:
-
-* Creación de la aplicación de AD con contraseña.
-* Creación de la entidad de servicio.
-* Asignación del rol de lector a la entidad de servicio.
-
-Para realizar rápidamente estos pasos, consulte los tres cmdlets siguientes:
+El script siguiente crea una identidad para una aplicación y la asigna al rol Colaborador del ámbito especificado:
 
 ```powershell
-$app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
-New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-Start-Sleep 15
-New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
+Param (
+
+ # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ [Parameter(Mandatory=$false)]
+ [String] $ResourceGroup,
+
+ # Use to set subscription. If no value is provided, default subscription is used. 
+ [Parameter(Mandatory=$false)]
+ [String] $SubscriptionId,
+
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationDisplayName,
+
+ [Parameter(Mandatory=$true)]
+ [String] $Password
+ )
+
+ Login-AzureRmAccount
+ Import-Module AzureRM.Resources
+
+ if ($SubscriptionId -eq "") 
+ {
+    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+ }
+ else
+ {
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
+ }
+
+ if ($ResourceGroup -eq "")
+ {
+    $Scope = "/subscriptions/" + $SubscriptionId
+ }
+ else
+ {
+    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
+ }
+
+ # Create Active Directory application with password
+ $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
+
+ # Create Service Principal for the AD app
+ $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+
+ $NewRole = $null
+ $Retries = 0;
+ While ($NewRole -eq $null -and $Retries -le 6)
+ {
+    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    Sleep 15
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    $Retries++;
+ }
 ```
 
-El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio). Si recibe este error, puede volver a ejecutar el cmdlet para asignarlo a un rol.
+Algunos elementos que hay que indicar sobre el script:
 
-Analicemos estos pasos con más atención para asegurarnos de que entiende el proceso.
+* Para conceder el acceso de identidad a la suscripción predeterminada, no es preciso proporcionar los parámetros ResourceGroup o SubscriptionId.
+* Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos.
+* En el caso de las aplicaciones de un solo inquilino, no se validan la página de inicio ni los URI identificadores.
+*  En este ejemplo, la entidad de servicio se agrega al rol de colaborador. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
+* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio).
+* Si necesita conceder a la entidad de servicio acceso a más suscripciones o grupos de recursos, vuelva a ejecutar el cmdlet `New-AzureRMRoleAssignment` con ámbitos diferentes.
 
-1. Inicie sesión en su cuenta.
-   
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Cree una nueva aplicación de Active Directory; para ello, proporcione un nombre para mostrar, el URI que describe la aplicación, los URI que identifican la aplicación y la contraseña de la identidad de aplicación.
-
-   ```powershell   
-   $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org/exampleapp" -IdentifierUris "https://www.contoso.org/exampleapp" -Password "{Your_Password}"
-   ```
-
-     En el caso de las aplicaciones de un solo inquilino, no se validan los URI.
-   
-     Si su cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory, verá un mensaje de error que indica "Authentication_Unauthorized" o "No subscription found in the context" (No se encontró ninguna suscripción en el contexto).
-3. Examine el nuevo objeto de aplicación. 
-   
-   ```powershell
-   $app
-   ```
-   
-     En particular, observe la propiedad `ApplicationId`, que es necesaria para crear entidades de servicio y asignaciones de rol, y para adquirir el token de acceso.
-   
-   ```powershell
-   DisplayName             : exampleapp
-   ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
-   IdentifierUris          : {https://www.contoso.org/example}
-   HomePage                : https://www.contoso.org
-   Type                    : Application
-   ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
-   AvailableToOtherTenants : False
-   AppPermissions          : 
-   ReplyUrls               : {}
-   ```
-4. Cree una entidad de servicio para la aplicación pasando el identificador de la aplicación de Active Directory.
-   
-   ```powershell
-   New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-   ```
-
-5. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Para el parámetro `ServicePrincipalName`, proporcione el valor de `ApplicationId` que usó al crear la aplicación. Antes de ejecutar este cmdlet, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos cmdlets se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre ellos. En un script, debe agregar un paso de suspensión entre los cmdlets (como `Start-Sleep 15`). Si recibe un error que indica: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio), vuelva a ejecutar el cmdlet.
-
-   ```powershell   
-   New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
-   ```
-
-    Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error. El mensaje indica que la cuenta no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}". 
-
-Eso es todo. La aplicación de AD y la entidad de servicio ya están configuradas. La sección siguiente muestra cómo iniciar sesión con las credenciales mediante PowerShell. Si desea usar las credenciales en la aplicación de código, puede ir directamente a las [aplicaciones de ejemplo](#sample-applications). 
 
 ### <a name="provide-credentials-through-powershell"></a>Proporcionar credenciales a través de PowerShell
-Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
+Ahora, debe iniciar sesión como la aplicación para realizar operaciones. Para el nombre de usuario, use el valor de `ApplicationId` que creó para la aplicación. Para la contraseña, use la que especificó al crear la cuenta. 
 
-1. Cree un objeto `PSCredential` que contenga sus credenciales mediante la ejecución del comando `Get-Credential`. Necesitará el valor de `ApplicationId` antes de ejecutar este comando, así que asegúrese de que lo tiene disponible para pegar.
-
-   ```powershell   
-   $creds = Get-Credential
-   ```
-
-2. Se le pedirá que escriba sus credenciales. Para el nombre de usuario, use el valor de `ApplicationId` que utilizó al crear la aplicación. Para la contraseña, use la que especificó al crear la cuenta.
-   
-     ![escribir credenciales](./media/resource-group-authenticate-service-principal/arm-get-credential.png)
-3. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory. Si solo tiene una suscripción, puede utilizar:
-
-   ```powershell   
-   $tenant = (Get-AzureRmSubscription).TenantId
-   ```
-   
-     Si tiene varias suscripciones, especifique la suscripción donde reside su instancia de Active Directory. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
-
-   ```powershell
-   $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-   ```
-
-4. Inicie sesión como la entidad de servicio especificando que esta cuenta es una entidad de servicio, y proporcione el objeto de credenciales. 
-   
-   ```powershell
-   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
-   ```
-   
-     Ahora está autenticado como la entidad de servicio para la aplicación de Active Directory que ha creado.
-
-### <a name="save-access-token-to-simplify-log-in"></a>Guardado del token de acceso para simplificar el inicio de sesión
-Para evitar tener que especificar las credenciales de la entidad de servicio cada vez que necesite iniciar sesión, puede guardar el token de acceso.
-
-1. Para usar el token de acceso actual en una sesión posterior, guarde el perfil.
-   
-   ```powershell
-   Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
-   ```
-   
-     Abra el perfil y examine su contenido. Observe que contiene un token de acceso. 
-2. En lugar de tener que volver a iniciar sesión manualmente, solo tiene que cargar el perfil.
-   
-   ```powershell
-   Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
-   ```
-
-  > [!NOTE]
-  > El token de acceso expirará y, por lo tanto, el uso de un perfil guardado solo funcionará mientras el token sea válido.
-  >  
-
-Como alternativa, puede invocar operaciones de REST desde PowerShell para iniciar sesión. De la respuesta de autenticación, puede recuperar el token de acceso para su uso con otras operaciones. Para ver un ejemplo de recuperación del token de acceso mediante la invocación de operaciones REST, consulte [Generación de un token de acceso](resource-manager-rest-api.md#generating-an-access-token).
-
-## <a name="create-service-principal-with-certificate"></a>Creación de entidad de servicio con certificado
-Estos son los pasos que se realizan en esta sección:
-
-* Creación de un certificado autofirmado.
-* Creación de aplicaciones de AD con el certificado.
-* Creación de la entidad de servicio.
-* Asignación del rol de lector a la entidad de servicio.
-
-Para realizar rápidamente estos pasos con Azure PowerShell 2.0 en Windows 10 o Windows Server 2016 Technical Preview, vea los siguientes cmdlets:
-
-```powershell
-$cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
-$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-$app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-Start-Sleep 15
-New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
+```powershell   
+$creds = Get-Credential
+Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
 ```
 
-El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio). Si recibe este error, puede volver a ejecutar el cmdlet para asignarlo a un rol.
+El identificador del inquilino no es confidencial, por lo que se puede insertar directamente en el script. Si necesita recuperar el identificador del inquilino, use:
 
-Analicemos estos pasos con más atención para asegurarnos de que entiende el proceso. Este artículo también muestra cómo llevar a cabo las tareas con versiones anteriores de los sistemas operativos o de Azure PowerShell.
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+```
 
-### <a name="create-the-self-signed-certificate"></a>Creación del certificado autofirmado
-La versión de PowerShell disponible con Windows 10 y Windows Server 2016 Technical Preview tiene un cmdlet `New-SelfSignedCertificate` actualizado para generar un certificado autofirmado. Los sistemas operativos anteriores tienen el cmdlet New-SelfSignedCertificate, pero no proporciona los parámetros necesarios para este tema. En su lugar, debe importar un módulo para generar el certificado. Este tema muestra ambos enfoques para generar el certificado en función del sistema operativo que tenga. 
+## <a name="create-service-principal-with-self-signed-certificate"></a>Creación de una entidad de servicio con un certificado autofirmado
+Para generar un certificado autofirmado y una entidad de servicio con Azure PowerShell 2.0 en Windows 10 o Windows Server 2016 Technical Preview:
 
-* Si tiene **Windows 10 o Windows Server 2016 Technical Preview**, ejecute el siguiente comando para crear un certificado autofirmado: 
-   
-  ```powershell
-  $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
-  ```
-* Si **no tiene Windows 10 o Windows Server 2016 Technical Preview**, descargue el [generador de certificados autofirmados](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) del sitio Microsoft Script Center. Extraiga el contenido e importe el cmdlet que necesita.
+```powershell
+Param (
 
-  ```powershell  
-  # Only run if you could not use New-SelfSignedCertificate
-  Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
-  ```
+ # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ [Parameter(Mandatory=$false)]
+ [String] $ResourceGroup,
+
+ # Use to set subscription. If no value is provided, default subscription is used. 
+ [Parameter(Mandatory=$false)]
+ [String] $SubscriptionId,
+
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationDisplayName
+ )
+
+ Login-AzureRmAccount
+ Import-Module AzureRM.Resources
+
+ if ($SubscriptionId -eq "") 
+ {
+    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+ }
+ else
+ {
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
+ }
+
+ if ($ResourceGroup -eq "")
+ {
+    $Scope = "/subscriptions/" + $SubscriptionId
+ }
+ else
+ {
+    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
+ }
+
+ $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
+ $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+ # Use Key credentials
+ $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+
+ $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+
+ $NewRole = $null
+ $Retries = 0;
+ While ($NewRole -eq $null -and $Retries -le 6)
+ {
+    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    Sleep 15
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    $Retries++;
+ }
+```
+
+Algunos elementos que hay que indicar sobre el script:
+
+* Para conceder el acceso de identidad a la suscripción predeterminada, no es preciso proporcionar los parámetros ResourceGroup o SubscriptionId.
+* Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos.
+* En el caso de las aplicaciones de un solo inquilino, no se validan la página de inicio ni los URI identificadores.
+*  En este ejemplo, la entidad de servicio se agrega al rol de colaborador. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
+* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio).
+* Si necesita conceder a la entidad de servicio acceso a más suscripciones o grupos de recursos, vuelva a ejecutar el cmdlet `New-AzureRMRoleAssignment` con ámbitos diferentes.
+
+Si **no tiene Windows 10 o Windows Server 2016 Technical Preview**, descargue el [generador de certificados autofirmados](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) del sitio Microsoft Script Center. Extraiga el contenido e importe el cmdlet que necesita.
+
+```powershell  
+# Only run if you could not use New-SelfSignedCertificate
+Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+```
   
-     Después, genere el certificado.
+En el script, sustituya las dos líneas siguientes para generar el certificado.
   
-  ```powershell
-  New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-  $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
-  ```
-
-Ya tiene el certificado y puede continuar con la creación de la aplicación de AD.
-
-### <a name="create-the-active-directory-app-and-service-principal"></a>Creación de la aplicación de Active Directory y una entidad de servicio
-1. Recupere el valor de clave del certificado.
-   
-   ```powershell
-   $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-   ```
-2. Inicie sesión en la cuenta de Azure.
-   
-   ```powershell
-   Login-AzureRmAccount
-   ```
-3. Cree una nueva aplicación de Active Directory; para ello, proporcione un nombre para mostrar, el URI que describe la aplicación, los URI que identifican la aplicación y la contraseña de la identidad de aplicación.
-   
-     Si tiene Azure PowerShell 2.0 (agosto 2016 o versiones posteriores), use el siguiente cmdlet:
-
-   ```powershell   
-   $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
-   ```
-   
-    Si tiene Azure PowerShell 1.0, use el siguiente cmdlet:
-
-   ```powershell
-   $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert  -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-   ```
-   
-    En el caso de las aplicaciones de un solo inquilino, no se validan los URI.
-   
-    Si su cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory, verá un mensaje de error que indica "Authentication_Unauthorized" o "No subscription found in the context" (No se encontró ninguna suscripción en el contexto).
-   
-    Examine el nuevo objeto de aplicación. 
-   
-   ```powershell
-   $app
-   ```
-   
-    Tenga en cuenta que la propiedad **ApplicationId** es necesaria para crear entidades de servicio, asignar roles y obtener tokens de acceso.
-
-   ```powershell
-   DisplayName             : exampleapp
-   ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
-   IdentifierUris          : {https://www.contoso.org/example}
-   HomePage                : https://www.contoso.org
-   Type                    : Application
-   ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
-   AvailableToOtherTenants : False
-   AppPermissions          : 
-   ReplyUrls               : {}
-   ```
-4. Cree una entidad de servicio para la aplicación pasando el identificador de la aplicación de Active Directory.
-   
-   ```powershell
-   New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-   ```
-5. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). Para el parámetro `ServicePrincipalName`, proporcione el valor de `ApplicationId` que usó al crear la aplicación. Antes de ejecutar este cmdlet, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos cmdlets se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre ellos. En un script, debe agregar un paso de suspensión entre los cmdlets (como `Start-Sleep 15`). Si recibe un error que indica: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio), vuelva a ejecutar el cmdlet.
-   
-   ```powershell
-   New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
-   ```
-   
-    Si su cuenta no tiene permisos suficientes para asignar un rol, verá un mensaje de error. El mensaje indica que la cuenta no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write' en el ámbito '/subscriptions/{guid}".
-
-Eso es todo. La aplicación de AD y la entidad de servicio ya están configuradas. La sección siguiente muestra cómo iniciar sesión con el certificado a través de PowerShell.
+```powershell
+New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+$cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
+```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Proporcionar un certificado a través de un script automatizado de PowerShell
 Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory. Si solo tiene una suscripción, puede utilizar:
 
 ```powershell
-$tenant = (Get-AzureRmSubscription).TenantId
+Param (
+ 
+ [Parameter(Mandatory=$true)]
+ [String] $CertSubject,
+ 
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationId,
+
+ [Parameter(Mandatory=$true)]
+ [String] $TenantId
+ )
+
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
+ Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-Si tiene varias suscripciones, especifique la suscripción donde reside su instancia de Active Directory. Para obtener más información, consulte [Administración del directorio de Azure AD](../active-directory/active-directory-administer.md).
+Ni el identificador de la aplicación ni el identificador del inquilino son confidenciales, por lo que se pueden integrar directamente en el script. Si necesita recuperar el identificador del inquilino, use:
 
 ```powershell
-$tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Para realizar la autenticación en el script, especifique que la cuenta es una entidad de servicio y proporcione la huella digital de certificado, el id. de aplicación y el id. de inquilino. Para automatizar el script, puede almacenar estos valores como variables de entorno y recuperarlos durante la ejecución o puede incluirlos en el script.
+Si necesita recuperar el identificador de la aplicación, use:
 
 ```powershell
-Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
-Ahora está autenticado como la entidad de servicio para la aplicación de Active Directory que ha creado.
+## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Creación de una entidad de servicio con un certificado de una entidad de certificación
+Para usar un certificado emitido por una entidad de certificación para crear una entidad de servicio, use el siguiente script:
+
+```powershell
+Param (
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationDisplayName,
+
+ [Parameter(Mandatory=$true)]
+ [String] $SubscriptionId,
+
+ [Parameter(Mandatory=$true)]
+ [String] $CertPath,
+
+ [Parameter(Mandatory=$true)]
+ [String] $CertPlainPassword
+ )
+
+ Login-AzureRmAccount
+ Import-Module AzureRM.Resources
+ Set-AzureRmContext -SubscriptionId $SubscriptionId
+
+ $KeyId = (New-Guid).Guid
+ $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
+
+ $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
+ $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
+
+ $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
+ $KeyCredential.StartDate = $PFXCert.NotBefore
+ $KeyCredential.EndDate= $PFXCert.NotAfter
+ $KeyCredential.KeyId = $KeyId
+ $KeyCredential.CertValue = $KeyValue
+
+ # Use Key credentials
+ $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
+
+ $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+
+ $NewRole = $null
+ $Retries = 0;
+ While ($NewRole -eq $null -and $Retries -le 6)
+ {
+    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    Sleep 15
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    $Retries++;
+ }
+ 
+ $NewRole
+```
+
+Algunos elementos que hay que indicar sobre el script:
+
+* El acceso se limita a la suscripción.
+* En el caso de las aplicaciones de un solo inquilino, no se validan la página de inicio ni los URI identificadores.
+*  En este ejemplo, la entidad de servicio se agrega al rol de colaborador. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
+* El script entra en suspensión durante 15 segundos para dar tiempo a que la nueva entidad de servicio se propague por Active Directory. Si el script no espera el tiempo suficiente, verá un mensaje de error que dice: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: la entidad de servicio {id} no existe en el directorio).
+* Si necesita conceder a la entidad de servicio acceso a más suscripciones o grupos de recursos, vuelva a ejecutar el cmdlet `New-AzureRMRoleAssignment` con ámbitos diferentes.
+
+### <a name="provide-certificate-through-automated-powershell-script"></a>Proporcionar un certificado a través de un script automatizado de PowerShell
+Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory.
+
+```powershell
+Param (
+ 
+ [Parameter(Mandatory=$true)]
+ [String] $CertPath,
+
+ [Parameter(Mandatory=$true)]
+ [String] $CertPlainPassword,
+ 
+ [Parameter(Mandatory=$true)]
+ [String] $ApplicationId,
+
+ [Parameter(Mandatory=$true)]
+ [String] $TenantId
+ )
+
+ $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
+ $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
+ $Thumbprint = $PFXCert.Thumbprint
+
+ Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
+```
+
+Ni el identificador de la aplicación ni el identificador del inquilino son confidenciales, por lo que se pueden integrar directamente en el script. Si necesita recuperar el identificador del inquilino, use:
+
+```powershell
+(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+```
+
+Si necesita recuperar el identificador de la aplicación, use:
+
+```powershell
+(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
+```
 
 ## <a name="change-credentials"></a>Cambio de credenciales
 
@@ -332,6 +364,35 @@ Para agregar un valor de certificado, cree un certificado autofirmado, como se m
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
 ```
+
+## <a name="save-access-token-to-simplify-log-in"></a>Guardado del token de acceso para simplificar el inicio de sesión
+Para evitar tener que especificar las credenciales de la entidad de servicio cada vez que necesite iniciar sesión, puede guardar el token de acceso.
+
+Para usar el token de acceso actual en una sesión posterior, guarde el perfil.
+   
+```powershell
+Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+```
+   
+Abra el perfil y examine su contenido. Observe que contiene un token de acceso. En lugar de tener que volver a iniciar sesión manualmente, solo tiene que cargar el perfil.
+   
+```powershell
+Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
+```
+
+> [!NOTE]
+> El token de acceso expirará y, por lo tanto, el uso de un perfil guardado solo funcionará mientras el token sea válido.
+>  
+
+Como alternativa, puede invocar operaciones de REST desde PowerShell para iniciar sesión. De la respuesta de autenticación, puede recuperar el token de acceso para su uso con otras operaciones. Para ver un ejemplo de recuperación del token de acceso mediante la invocación de operaciones REST, consulte [Generación de un token de acceso](resource-manager-rest-api.md#generating-an-access-token).
+
+## <a name="debug"></a>Depurar
+
+Durante la creación de una entidad de servicio pueden producirse los siguientes errores:
+
+* **"Authentication_Unauthorized"** o **"No subscription found in the context"** (No se encuentra una suscripción en el contexto). - Este error se ve cuando la cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory para registrar una aplicación. Por lo general, este error aparece cuando los usuarios administradores de Active Directory son los únicos que pueden registrar las aplicaciones y la cuenta no es de un administrador. Pida al administrador que le asigne un rol de administrador o que permita a los usuarios registrar aplicaciones.
+
+* Su cuenta **"no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write' en el ámbito '/ subscriptions / {guid}'."**  - Este error aparece cuando la cuenta no tiene permisos suficientes para asignar un rol a una identidad. Pida al administrador de suscripciones que le agregue al rol de administrador de acceso de usuario.
 
 ## <a name="sample-applications"></a>Aplicaciones de ejemplo
 Las aplicaciones de ejemplo siguientes muestran cómo iniciar sesión como entidad de servicio.

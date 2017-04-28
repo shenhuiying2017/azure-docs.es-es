@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5f31b24a0d46b9d557a55b3c9d0cd7748ecb9c33
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 941a795c4c83e05ec3c5bb55790f8fcc72829a65
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -46,7 +46,7 @@ Este escenario:
 
 ## <a name="creating-an-azure-function-and-overview"></a>Creación de una función de Azure e información general
 
-El primer paso es crear una función de Azure para procesar la alerta y crear una captura de paquetes. 
+El primer paso es crear una función de Azure para procesar la alerta y crear una captura de paquetes.
 
 En la lista siguiente se muestra información general sobre el flujo de trabajo que tiene lugar.
 
@@ -65,7 +65,7 @@ La creación de una función de Azure se puede realizar en el portal siguiendo l
 
 ## <a name="adding-modules"></a>Incorporación de módulos
 
-Para usar cmdlets Network Watcher, de PowerShell, el último módulo de PowerShell debe cargarse en Function App.
+Para usar cmdlets de PowerShell de Network Watcher, el módulo más reciente de PowerShell debe cargarse en Function App.
 
 1. Una vez instalados los últimos módulos de Azure PowerShell en su equipo local, ejecute el siguiente comando de PowerShell:
 
@@ -73,7 +73,7 @@ Para usar cmdlets Network Watcher, de PowerShell, el último módulo de PowerShe
     (Get-Module AzureRM.Network).Path
     ```
 
-    De este modo, obtendrá la ruta de acceso local de los módulos de Azure PowerShell. Estas carpetas se usan en un paso posterior. A continuación, se muestran los módulos usados:
+    Este ejemplo le proporciona la ruta de acceso local de los módulos de Azure PowerShell. Estas carpetas se usan en un paso posterior. A continuación, se muestran los módulos usados:
 
     * AzureRM.Network
 
@@ -107,9 +107,9 @@ Para usar cmdlets Network Watcher, de PowerShell, el último módulo de PowerShe
 
 ## <a name="authentication"></a>Autenticación
 
-Para usar los cmdlets de PowerShell, debe autenticarse. La autenticación debe configurarse en Function App. Para ello, se configuran las variables de entorno y es necesario cargar en Function App un archivo de clave cifrada.
+Para usar los cmdlets de PowerShell es preciso autenticarse. La autenticación debe configurarse en Function App. Para ello, se configuran las variables de entorno y se carga un archivo de clave cifrada en Function App.
 
-> [!note]
+> [!NOTE]
 > Este escenario proporciona solo un ejemplo de cómo para implementar la autenticación con Azure Functions, hay otras maneras de hacerlo.
 
 ### <a name="encrypted-credentials"></a>Credenciales cifradas
@@ -139,7 +139,7 @@ En el Editor de App Service de Function App, cree una carpeta llamada **keys** e
 
 ### <a name="retrieving-values-for-environment-variables"></a>Recuperación de valores para variables de entorno
 
-La configuración final requerida consiste en instalar las variables de entorno necesarias para tener acceso a los valores de la autenticación. A continuación, se muestra una lista de las variables de entorno que se crean.
+La configuración final requerida consiste en instalar las variables de entorno necesarias para tener acceso a los valores de la autenticación. En la siguiente lista, se enumeran las variables de entorno que se crean:
 
 * AzureClientID
 
@@ -303,7 +303,7 @@ Vaya a una máquina virtual existente y agregue una regla de alerta. Se puede en
 ![agregar regla de alerta de vm a una máquina virtual][1]
 
 > [!NOTE]
-> Algunas métricas no están habilitadas de forma predeterminada. Para encontrar más información sobre cómo habilitar la adición de métricas, visite [Habilitación de supervisión y diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> De manera predeterminada, la métrica de los segmentos TCP no está habilitada. Para más información acerca de cómo habilitar métricas adicionales, visite [Habilitación de supervisión y diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
 Por último, pegue la dirección URL del paso anterior en el cuadro de texto de webhook de la alerta. Haga clic en **Aceptar** para guardar la regla de alerta.
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 4fbd80f7e9775fe3c12a54302be4a162d2102e2f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 717269a2c0e0b1a3d332e627154eacd2d2c5001e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,6 +27,7 @@ ms.lasthandoff: 03/16/2017
 * **[Use una versión de prueba de Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
 * **[La hoja de referencia rápida de usuarios de SQL](https://aka.ms/sql-analytics)** traduce las expresiones más comunes.
 * **[Referencia de lenguaje](app-insights-analytics-reference.md)** Aprenda a utilizar las eficaces características del lenguaje de consulta de Analytics.
+
 
 ## <a name="queries-in-analytics"></a>Funciones de consultas de Analytics
 Una consulta típica consta de una tabla de *origen* seguida de una serie de *operadores* separados por `|`. 
@@ -56,6 +57,7 @@ También hay operaciones estadísticas potentes:
 
 El lenguaje tiene muchas características atractivas:
 
+
 * [Filtre](app-insights-analytics-reference.md#where-operator) la telemetría de la aplicación sin procesar por cualquier campo, incluidas sus métricas y propiedades personalizadas.
 * [Una](app-insights-analytics-reference.md#join-operator) varias tablas: ponga en correlación las solicitudes con vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
 * [Agregaciones](app-insights-analytics-reference.md#aggregations)estadísticas de gran eficacia.
@@ -81,7 +83,20 @@ Abra Analytics desde la [hoja de información general](app-insights-dashboards.m
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Se recomienda empezar por el [paseo por el lenguaje](app-insights-analytics-tour.md).
+* Se recomienda empezar por el [paseo por el lenguaje](app-insights-analytics-tour.md). 
+
+### <a name="query-examples"></a>Ejemplos de consultas
+
+* Pruebe estos tutoriales para ilustrar la eficacia del uso de Analytics:
+ 1.    [Diagnóstico automático de picos y saltos escalonados en duraciones de solicitudes](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
+ 2.    [Análisis de las degradaciones de rendimiento con análisis de series temporales](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
+ 3.    [Análisis de los errores de aplicaciones con autocluster y diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
+ 4.    [Detecciones de formas avanzadas con análisis de series temporales](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
+ 5.    [Uso de operaciones de ventana deslizante para analizar el uso de aplicaciones (MAU/DAU acumulados, etc.)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
+ 6.    [Detección de interrupciones del servicio en función del análisis de registros de depuración](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) y la entrada de blog correspondiente [aquí](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics)
+ 7.    [Generación de perfiles de rendimiento de las aplicaciones mediante registros de depuración simples](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) y la entrada de blog correspondiente [aquí](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
+ 8.    [Medición de la duración de cada paso en el flujo de código mediante registros de depuración simples](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) y la entrada de blog correspondiente [aquí](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
+ 9.    [Análisis de la simultaneidad mediante registros de depuración simples](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) y la entrada de blog correspondiente [aquí](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
 
 
 

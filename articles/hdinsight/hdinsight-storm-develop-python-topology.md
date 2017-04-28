@@ -1,6 +1,6 @@
 ---
 title: "Uso de componentes de Python en una topología Storm en HDinsight | Microsoft Docs"
-description: "Obtenga información acerca de cómo puede usar los componentes de Python con Apache Storm en HDInsight de Azure. Aprenderá a usar los componentes de Python desde una topología Storm basada en Clojure y una topología basada en Java."
+description: "Obtenga información acerca de cómo puede usar los componentes de Python con Apache Storm en Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,175 +13,146 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 04/04/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 39a8eb9ce6a5363f541f02c33cd46d56fdabcae8
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desarrollo de topologías Apache Storm con Python en HDInsight
 
-Apache Storm admite varios lenguajes, e incluso le permite combinar componentes de varios lenguajes en una topología. En este documento, obtendrá información sobre cómo usar componentes de Python en las topologías Java y Storm basado en Clojure en HDInsight.
+Aprenda a usar los componentes de Python con Apache Storm en HDInsight. Apache Storm admite varios lenguajes, e incluso le permite combinar componentes de varios lenguajes en una topología. El marco de trabajo de Flux (introducido con Storm 0.10.0) permite crear fácilmente soluciones que usan componentes de Python.
 
 > [!IMPORTANT]
-> Este documento proporciona pasos sobre el uso de clústeres de HDInsight basados en Linux y Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> La información de este documento se probó con Storm en HDInsight 3.5. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte la sección sobre el [desuso de HDInsight 3.3 y 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+
+El código de este proyecto está disponible en [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Python 2.7 o versiones posteriores
-* Java JDK 1.7 o superior
-* [Leiningen](http://leiningen.org/)
+
+* Java JDK 1.8 o versiones posteriores
+
+* Maven 3
+
+* (Opcional) Un entorno de desarrollo de Storm local. Un entorno de Storm local solo es necesario si desea ejecutar localmente la topología. Para más información, consulte [Setting up a development environment](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) (Configuración de un entorno de desarrollo).
 
 ## <a name="storm-multi-language-support"></a>Compatibilidad con varios lenguajes de Storm
 
-Storm se diseñó para funcionar con componentes escritos con cualquier lenguaje de programación; sin embargo, para ello es necesario que los componentes comprendan cómo trabajar con la [definición de Thrift para Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Para Python, se proporciona un módulo como parte del proyecto de Apache Storm que le permite interactuar fácilmente con Storm. Puede encontrar este módulo en [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Storm se diseñó para funcionar con componentes escritos con cualquier lenguaje de programación. Los componentes deben aprender a trabajar con la [definición Thrift para Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Para Python, se proporciona un módulo como parte del proyecto de Apache Storm que le permite interactuar fácilmente con Storm. Puede encontrar este módulo en [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Como Apache Storm es un proceso de Java que se ejecuta en Java Virtual Machine (JVM), los componentes escritos en otros lenguajes se ejecutan como subprocesos. Los bits de Storm que se ejecutan en JVM se comunican con estos subprocesos mediante mensajes JSON enviados a través de stdin y stdout. Se puede encontrar más detalles sobre la comunicación entre los componentes en la documentación de [Multi-lang protocolo](https://storm.apache.org/documentation/Multilang-protocol.html) (Protocolo de varios lenguajes).
+Apache Storm es un proceso de Java que se ejecuta en la máquina virtual Java (JVM). Los componentes escritos en otros lenguajes se ejecutan como subprocesos. Storm se comunica con estos subprocesos mediante mensajes JSON enviados a través de stdin y stdout. Se puede encontrar más detalles sobre la comunicación entre los componentes en la documentación de [Multi-lang protocolo](https://storm.apache.org/documentation/Multilang-protocol.html) (Protocolo de varios lenguajes).
 
-### <a name="the-storm-module"></a>La interfaz de usuario de Storm
-El módulo de Storm (https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py,) proporciona los bits necesarios para crear componentes de Python que funcionen con Storm.
+## <a name="python-and-the-flux-framework"></a>Python y el marco de trabajo de Flux
 
-Esto proporciona cosas como `storm.emit` para emitir tuplas, y `storm.logInfo` para escribir en los registros. Resulta conveniente echar un vistazo a este archivo y comprender lo que proporciona.
+El marco de trabajo de Flux le permite definir las topologías de Storm de forma independiente con respecto a los componentes. Mientras los componentes en este ejemplo se escriben con Python, la topología se define mediante YAML. El texto siguiente es un ejemplo de cómo se hace referencia a un componente de Python en el documento YAML:
 
-## <a name="challenges"></a>Desafíos
-Con el módulo **storm.py** , puede crear spouts de Python que consumen datos y bolts que procesan datos; sin embargo, la definición general de topología Storm que permite la comunicación entre los componentes se sigue escribiendo con Java o Clojure. Además, si usa Java, también debe crear componentes de Java que actúen como interfaz para los componentes de Python.
+```yaml
+# Spout definitions
+spouts:
+  - id: "sentence-spout"
+    className: "org.apache.storm.flux.wrappers.spouts.FluxShellSpout"
+    constructorArgs:
+      # Command line
+      - ["python", "sentencespout.py"]
+      # Output field(s)
+      - ["sentence"]
+    # parallelism hint
+    parallelism: 1
+```
 
-También, como los clústeres de Storm se ejecutan de forma distribuida, debe asegurarse de que los módulos que necesiten los componentes de Python estén disponibles en todos los nodos de trabajo del clúster. Storm no proporciona ninguna manera fácil de realizar esto con recursos de varios lenguajes, así que o bien deberá incluir todas las dependencias como parte del archivo jar en la topología, o instalar manualmente dependencias en cada nodo de trabajo del cluster.
+La clase `FluxShellSpout` se usa para iniciar el script `sentencespout.py` que implementa el spout.
 
-### <a name="java-vs-clojure-topology-definition"></a>Definición de la topología Java frente a Clojure
-De los dos métodos de la definición de una topología, Clojure es, sin duda, el más fácil y limpio dado que se puede hacer referencia directa a componentes de Python en la definición de la topología. En las definiciones de topologías basadas en Java, también debe definir componentes de Java que administren cosas como declarar los campos de las tuplas devueltas por los componentes de Python.
+Flux espera que los scripts de Python estén en el directorio `/resources` dentro del archivo jar que contiene la topología. Por ello, este ejemplo almacena los scripts de Python en el directorio `/multilang/resources`. El archivo `pom.xml` incluye este archivo mediante el siguiente código XML:
 
-Ambos métodos se describen en este documento, junto con proyectos de ejemplo.
+```xml
+<!-- include the Python components -->
+<resource>
+    <directory>${basedir}/multilang</directory>
+    <filtering>false</filtering>
+</resource>
+```
 
-## <a name="python-components-with-a-java-topology"></a>Componentes de Python con una topología Java
-> [!NOTE]
-> Este ejemplo está disponible en [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) en el directorio de **JavaTopology** . Se trata de un proyecto basado en Maven. Si no está familiarizado con Maven,consulte [Desarrollo de topologías basadas en Java con Apache Storm en HDInsight](hdinsight-storm-develop-java-topology.md) para obtener más información sobre cómo crear un proyecto de Maven en una topología Storm.
-> 
-> 
+Como se mencionó anteriormente, hay un archivo `storm.py` que implementa la definición de Thrift para Storm. El marco de trabajo de Flux incluye este archivo automáticamente cuando se compila el proyecto, por lo que no tiene que preocuparse de incluirlo.
 
-Una topología basada en Java que usa Python (u otros componentes de lenguaje JVM) parece inicialmente que usa componentes de Java; pero si mira cada uno de los spouts o bolts de Java, verá código similar al siguiente:
+## <a name="build-the-project"></a>Compilación del proyecto
 
-    public SplitBolt() {
-        super("python", "countbolt.py");
-    }
+Desde la raíz del proyecto, use el comando siguiente:
 
-Aquí es donde Java invoca a Python y ejecuta el script que contiene la lógica real del bolt. Los bolts y spouts de Java (en este ejemplo), simplemente declaran los campos de la tupla que emitirá el componente subyacente de Python.
+```bash
+mvn clean compile package
+```
 
-Los archivos de Python reales se almacenan en el directorio `/multilang/resources` en este ejemplo. Se hace referencia al directorio `/multilang` en el archivo **pom.xml**:
+Este comando crea un archivo `target/WordCount-1.0-SNAPSHOT.jar` que contiene la topología compilada.
 
-<resources>
-    <resource>
-        <!-- Where the Python bits are kept -->
-        <directory>${basedir}/multilang</directory>
-    </resource>
-</resources>
+## <a name="run-the-topology-locally"></a>Ejecución de la topología de manera local
 
-Esto incluye todos los archivos de la carpeta `/multilang` del archivo jar que se generarán a partir de este proyecto.
+Para ejecutar la topología de manera local, use el siguiente comando:
 
-> [!IMPORTANT]
-> Tenga en cuenta que solo se especifica el directorio `/multilang` y no `/multilang/resources`. Storm no espera recursos de JVM en un directorio `resources` , por lo que se buscan ya internamente. La colocación de componentes en esta carpeta le permite simplemente hacer referencia por nombre en el código Java. Por ejemplo: `super("python", "countbolt.py");`. Otra manera de verlo es que Storm considera el directorio `resources` como la raíz (/) cuando se accede a recursos de varios lenguajes.
-> 
-> En este proyecto de ejemplo, el `storm.py` módulo se incluye en el directorio `/multilang/resources`.
-> 
-> 
-
-### <a name="build-and-run-the-project"></a>Compilación y ejecución del proyecto
-Para ejecutar este proyecto localmente, use el siguiente comando de Maven para compilar y ejecutar en modo local:
-
-    mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCount
-
-Use ctrl + c para terminar el proceso.
-
-Para implementar el proyecto en un clúster de HDInsight mediante Apache Storm, siga estos pasos:
-
-1. Cree un archivo uber-jar:
-   
-        mvn package
-   
-    Se creará un archivo denominado **WordCount--1.0 SNAPSHOT.jar** en el directorio `/target` para este proyecto.
-2. Cargue el archivo jar en el clúster de Hadoop mediante uno de los métodos siguientes:
-   
-   * En clústeres de HDInsight **basados en Linux**: use `scp WordCount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:WordCount-1.0-SNAPSHOT.jar` para copiar el archivo jar en el clúster, y sustituya USERNAME por el nombre de usuario de SSH y CLUSTERNAME por el nombre del clúster de HDInsight.
-     
-       Después de que el archivo ha terminado de cargarse, conéctese al clúster mediante SSH e inicie la topología con `storm jar WordCount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount wordcount`
-   * En clústeres de HDInsight **basados en Windows**: conéctese al panel de Storm; para ello, vaya a HTTPS://CLUSTERNAME.azurehdinsight.net/ desde el explorador. Sustituya CLUSTERNAME por el nombre del clúster de HDInsight y proporcione el nombre y la contraseña de administrador cuando se le solicite.
-     
-       Mediante el formulario, realice las acciones siguientes:
-     
-     * **Archivo del producto**: seleccione **Examinar** y luego, el archivo **WordCount-1.0-SNAPSHOT.jar**.
-     * **Nombre de clase**: escriba `com.microsoft.example.WordCount`.
-     * **Parámetros adicionales**: escriba un nombre descriptivo como `wordcount` para identificar la topología.
-       
-       Por último, seleccione **Submit** (Enviar) para iniciar la topología.
+```bash
+storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.yaml
+```
 
 > [!NOTE]
-> Cuando se ha iniciado una topología Storm, esta se ejecuta hasta que se detiene (termina). Para detener la topología, use el comando `storm kill TOPOLOGYNAME` desde la línea de comandos (por ejemplo, una sesión de SSH en un clúster de Linux), o bien, desde la interfaz de usuario de Storm, seleccione la topología y después, el botón **Terminar**.
-> 
-> 
+> Este comando requiere un entorno de desarrollo de Storm local. Para más información, consulte [Setting up a development environment](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) (Configuración de un entorno de desarrollo).
 
-## <a name="python-components-with-a-clojure-topology"></a>Componentes de Python con una topología Clojute
-> [!NOTE]
-> Este ejemplo está disponible en [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) en el directorio de **ClojureTopology** .
-> 
-> 
+Una vez que se inicia la topología, esta emite información en la consola local que se parece al siguiente texto:
 
-Esta topología se creó mediante [Leiningen](http://leiningen.org) para [crear un nuevo proyecto de Clojure](https://github.com/technomancy/leiningen/blob/stable/doc/TUTORIAL.md#creating-a-project). Después de eso, se realizaron las siguientes modificaciones en el proyecto de  scaffolding:
+```
+24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
+24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
+24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
+24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
+24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
+24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
+^C24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
+```
 
-* **project.clj**: se agregaron dependencias para Storm y exclusiones para los elementos que pueden ocasionar problemas cuando se implementan en el servidor de HDInsight.
-* **resources/resources**: Leiningen crea un directorio `resources` predeterminado, sin embargo, parece que los archivos que se almacenan aquí se agregan a la raíz del archivo jar creado con este proyecto y Storm espera archivos en un subdirectorio llamado `resources`. Así que se agregó un subdirectorio y los archivos de Python se almacenan en `resources/resources`. En tiempo de ejecución, esto se considerará la raíz (/) para obtener acceso a los componentes de Python.
-* **src/wordcount/core.clj**: este archivo contiene la definición de la topología y se hace referencia a él desde el archivo **project.clj**. Para obtener más información sobre el uso de Clojure para definir una topología Storm, consulte [Clojure DSL](https://storm.apache.org/documentation/Clojure-DSL.html).
+Para detener la topología, use Ctrl + C.
 
-### <a name="build-and-run-the-project"></a>Compilación y ejecución del proyecto
-**Para compilar y ejecutar el proyecto localmente**, use el siguiente comando:
+## <a name="run-the-topology-on-hdinsight"></a>Ejecución de la topología en HDInsight
 
-    lein clean, run
+1. Use el siguiente comando para copiar el archivo `WordCount-1.0-SNAPSHOT.jar` en el clúster de Storm en HDInsight:
 
-Para detener la topología, use **Ctrl + C**.
+    ```bash
+    scp target\WordCount-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net
+    ```
 
-**Para compilar un archivo uberjar e implementarlo en HDInsight**, siga estos pasos:
+    Reemplace `sshuser` con el usuario SSH para el clúster. Reemplace `mycluster` por el nombre del clúster. Puede que se le solicite que escriba la contraseña del usuario de SSH.
 
-1. Cree un archivo uberjar que contenga la topología y las dependencias necesarias:
-   
-        lein uberjar
-   
-    Se creará un nuevo archivo llamado `wordcount-1.0-SNAPSHOT.jar` en el directorio de `target\uberjar+uberjar` .
-2. Use uno de los siguientes métodos para implementar y ejecutar la topología en un cluster de HDInsight:
-   
-   * **HDInsight basado en Linux**
-     
-     1. Copie el archivo en el nodo principal del clúster de HDInsight con `scp`. Por ejemplo:
-        
-             scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
-        
-         Reemplace USERNAME por un usuario de SSH de su clúster y CLUSTERNAME por el nombre del clúster de HDInsight.
-     2. Después de que se ha copiado el archivo en el clúster, use SSH para conectarse al clúster y enviar el trabajo. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-     
-     3. Después de que se ha conectado, use lo siguiente para iniciar la topología:
-        
-             storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
-   * **HDInsight basado en Windows**
-     
-     1. Conéctese al panel de Storm; para ello, vaya a HTTPS://CLUSTERNAME.azurehdinsight.net/ desde el explorador. Sustituya CLUSTERNAME por el nombre del clúster de HDInsight y proporcione el nombre y la contraseña de administrador cuando se le solicite.
-     2. Mediante el formulario, realice las acciones siguientes:
-        
-        * **Archivo del producto**: seleccione **Examinar** y luego, el archivo **WordCount-1.0-SNAPSHOT.jar**.
-        * **Nombre de clase**: escriba `wordcount.core`.
-        * **Parámetros adicionales**: escriba un nombre descriptivo como `wordcount` para identificar la topología.
-          
-          Por último, seleccione **Submit** (Enviar) para iniciar la topología.
+    Para más información sobre cómo usar SSH y SCP, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+2. Una vez cargado el archivo, conéctese al clúster mediante SSH:
+
+    ```bash
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ```
+
+3. En la sesión SSH, use el siguiente comando para iniciar la topología en el clúster:
+
+    ```bash
+    storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
+    ```
+
+3. Puede usar la interfaz de usuario de Storm para ver la topología en el clúster. Esta interfaz de usuario web se encuentra en https://mycluster.azurehdinsight.net/stormui. Reemplace `mycluster` por el nombre del clúster.
 
 > [!NOTE]
-> Cuando se ha iniciado una topología Storm, esta se ejecuta hasta que se detiene (termina). Para detener la topología, use el comando `storm kill TOPOLOGYNAME` desde la línea de comandos (una sesión de SSH en un clúster de Linux), o bien, desde la interfaz de usuario de Storm, seleccione la topología y después, el botón **Terminar**.
-> 
-> 
+> Cuando se ha iniciado una topología Storm, esta se ejecuta hasta que se detiene. Para detener la topología, use uno de los siguientes métodos:
+>
+> * El comando `storm kill TOPOLOGYNAME` desde la línea de comandos
+> * El botón **Terminar** en la interfaz de usuario de Storm.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, aprendió a usar los componentes de Python en una topología Storm. Consulte los siguientes documentos para ver otras maneras de usar Python con HDInsight.
+
+Consulte los siguientes documentos para ver otras maneras de usar Python con HDInsight.
 
 * [Uso de Python para la transmisión de trabajos de MapReduce](hdinsight-hadoop-streaming-python.md)
 * [Uso de funciones definidas por el usuario (UDF) de Python en Pig y Hive](hdinsight-python.md)
-
 

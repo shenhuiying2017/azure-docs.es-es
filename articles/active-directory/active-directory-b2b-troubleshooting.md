@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ccd7bb3cab65f95c53489de07479c9750e860040
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,6 @@ ms.lasthandoff: 03/15/2017
 
 Estos son algunos de los recursos para solucionar problemas comunes relacionados con la colaboración B2B de Azure Active Directory (Azure AD).
 
-## <a name="i-cant-create-an-external-user-due-to-an-existing-contact"></a>No puedo crear un usuario externo debido a un contacto que ya existe
-
-Si el usuario externo al que está invitando ya tiene un objeto de contacto, no podrá invitarlo hasta que se resuelva el conflicto, normalmente, tras eliminar ese objeto de contacto. Hasta que la colaboración B2B no esté disponible de forma generalizada, debe resolver el conflicto manualmente.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>He agregado un usuario externo, pero no lo veo en mi libreta de direcciones global o en el selector de personas
 
@@ -66,7 +63,7 @@ Para resolver este problema, el administrador del usuario externo debe sincroniz
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>¿Cómo "\#", que habitualmente no es un carácter válido, se sincroniza con Azure AD?
 
-"\#" es un carácter reservado en los UPN para los usuarios externos o la colaboración B2B de Azure AD (es decir, el usuario &lt;user@contoso.com&gt; invitado, se convierte en &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;). Por tanto, no se permite usar \# en los UPN procedentes de entornos locales para iniciar sesión en Azure Portal.
+“\#” es un carácter reservado en los UPN para usuarios externos o de colaboración B2B de Azure AD (es decir, el invitado user@contoso.com se convierte en user_contoso.com#EXT@fabrikam.onmicrosoft.com). Por lo tanto, no se permite usar \# en los UPN procedentes de entornos locales para iniciar sesión en Azure Portal.
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recibo un error al agregar los usuarios externos a un grupo sincronizado
 
@@ -74,11 +71,11 @@ Los usuarios externos pueden agregarse únicamente a los grupos "Seguridad" o "A
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Mi usuario externo no ha recibido un correo electrónico para realizar el canje
 
-El invitado debe ponerse en contacto con su ISP o comprobar su filtro de correo no deseado para asegurarse de que se permite la siguiente dirección: &lt;Invites@microsoft.com&gt;
+El invitado debe ponerse en contacto con su ISP o comprobar su filtro de correo no deseado para asegurarse de que se permite la siguiente dirección: Invites@microsoft.com
 
-## <a name="my-recipient-received-multiple-emails-from-me"></a>Mi destinatario ha recibido varios mensajes de correo electrónico de mí
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Tenga en cuenta que, en ocasiones, el mensaje personalizado no se incluye en los mensajes de invitación
 
-En algunos casos en los que el destinatario de la invitación tiene varios alias para su cuenta, podrían recibir dos invitaciones. En estos casos, el primer vínculo canjeado es la cuenta que se crea, y el segundo vínculo de canje no es válido.
+Para cumplir con las leyes de privacidad, nuestra API no incluye mensajes personalizados en la invitación de correo electrónico cuando el autor de la invitación no tiene una dirección de correo electrónico de la organización propietaria de los recursos (también conocida como el inquilino anfitrión) o cuando una entidad de servicio de una aplicación envía la invitación. Si se trata de un escenario importante para usted, puede hacer que nuestra API no envíe el correo electrónico de invitación y enviarlo a través de un mecanismo de correo electrónico de su elección. Recuerde que puede consultar al asesor legal de su organización para asegurarse de que cualquier correo electrónico que envíe que esta forma también cumple las leyes de privacidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

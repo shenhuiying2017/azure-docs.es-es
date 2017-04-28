@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
-ms.openlocfilehash: 7999398f69ed0ce5129dd38f8e9e1994db25f9a5
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5eef2116f238b477fa8de46ce7b25728c393739c
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -27,35 +27,40 @@ Advisor lo ayuda a optimizar y reducir el gasto global de Azure mediante la iden
 
 ![Pestaña Cost (Costo) de Advisor](./media/advisor-cost-recommendations/advisor-cost-tab2.png)
 
-## <a name="low-utilization-virtual-machines"></a>Máquinas virtuales con un uso escaso 
+## <a name="optimize-virtual-machine-spend-by-resizing-underutilized-instances"></a>Optimización del gasto en máquinas virtuales mediante la adecuación del tamaño en instancias infrautilizadas 
+Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero administrando el tamaño y número de máquinas virtuales. Advisor supervisa la utilización de las máquinas virtuales durante 14 días e identifica aquellas con una utilización escasa. Se considera que una máquina virtual tiene una utilización escasa si su utilización de la CPU es del 5 % o menos y el de la red es de 7 MB o menos durante cuatro o más días.
 
-Mientras que determinados escenarios de aplicaciones pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero administrando el tamaño y el número de máquinas virtuales. Advisor supervisa la utilización de las máquinas virtuales durante 14 días e identifica aquellas con una utilización escasa. Se considera que una máquina virtual tiene una utilización escasa si su utilización de la CPU es del 5 % o menos y el de la red es de 7 MB o menos durante cuatro o más días.
-
-Advisor le muestra el costo estimado de seguir ejecutando la máquina virtual. Puede apagar o cambiar el tamaño de la máquina virtual.  
+Advisor muestra el costo estimado de continuar ejecutando la máquina virtual, para que puede elegir entre apagarla o cambiar su tamaño.  
 
 ![Recomendaciones sobre el costo de Advisor para cambiar el tamaño de máquinas virtuales](./media/advisor-cost-recommendations/advisor-cost-resizevms.png)
 
-## <a name="sql-elastic-database-pool-recommendations"></a>Recomendaciones sobre los grupos de bases de datos elásticas SQL
-
-Advisor identifica las instancias de SQL Server que pueden beneficiarse de la creación de grupos de bases de datos elásticas. Los grupos de bases de datos elásticas proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de utilización diferentes. Para obtener más información sobre los grupos de bases de datos elásticas de Azure, consulte [¿Qué es un grupo elástico de Azure?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/)
+## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Usar una solución rentable para administrar los objetivos de rendimiento de varias bases de datos SQL
+Advisor identifica las instancias de SQL Server que pueden beneficiarse de la creación de grupos de bases de datos elásticas. Los grupos de bases de datos elásticas proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de utilización diferentes. Para más información sobre los grupos de bases de datos elásticas de Azure, consulte [¿Qué es un grupo elástico de Azure?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/)
 
 ![Recomendaciones sobre el costo de Advisor para grupos de bases de datos elásticas](./media/advisor-cost-recommendations/advisor-cost-elasticdbpools.png)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el panel de navegación de la izquierda, haga clic en **More services** (Más servicios), en el panel de menú de servicio, desplácese hacia abajo hasta **Monitoring and Management** (Supervisión y administración), y, a continuación, haga clic en **Azure Advisor**. Esto inicia el panel de Advisor. 
-3. En el panel de Advisor, haga clic en la pestaña **Cost** (Costo), seleccione la suscripción para la que le gustaría recibir las recomendaciones y después haga clic en **Obtener recomendaciones**
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+
+2. En el panel izquierdo, haga clic en **Más servicios**.
+
+3. En el panel de menú de servicio, en **Supervisión y administración**, haga clic en **Azure Advisor**.  
+ Se muestra el panel de Advisor.
+
+4. En el panel de Advisor, haga clic en la pestaña **Costo**.
+
+5. Seleccione la suscripción para la que desea recibir las recomendaciones y haga clic en **Obtener recomendaciones**.
 
 > [!NOTE]
-> Para obtener acceso a las recomendaciones de Advisor, primero debe **registrar** su suscripción en él. Una suscripción se registra cuando el **propietario de esta** inicia el panel de Advisor y hace clic en el botón **Get recommendations** (Obtener recomendaciones). Esta operación **solo se realiza una vez**. Una vez registrada la suscripción, los **propietarios**, **contribuidores**, o **lectores** de dicha suscripción, un grupo de recursos o un recursos concreto pueden acceder a las recomendaciones de Advisor.
+> Para acceder a las recomendaciones de Advisor, primero debe *registrar su suscripción* en dicha solución. Una suscripción se registra cuando el *propietario de esta* inicia el panel de Advisor y hace clic en el botón **Obtener recomendaciones**. Esta operación *solo se realiza una vez*. Una vez registrada la suscripción, puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* para una suscripción, un grupo de recursos o un recurso concreto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las recomendaciones de Advisor, consulte los recursos siguientes:
--  [Introducción a Advisor](advisor-overview.md)
--  [Primeros pasos](advisor-get-started.md)
--  [Recomendaciones sobre alta disponibilidad de Advisor](advisor-cost-recommendations.md)
--  [Recomendaciones sobre seguridad de Advisor](advisor-cost-recommendations.md)
--  [Recomendaciones sobre rendimiento de Advisor](advisor-cost-recommendations.md)
+Para aprender más sobre las recomendaciones de Advisor, consulte:
+* [Introducción a Advisor](advisor-overview.md)
+* [Introducción](advisor-get-started.md)
+* [Recomendaciones sobre rendimiento de Advisor](advisor-cost-recommendations.md)
+* [Recomendaciones sobre alta disponibilidad de Advisor](advisor-cost-recommendations.md)
+* [Recomendaciones sobre seguridad de Advisor](advisor-cost-recommendations.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Seguimiento de cambios con Azure Log Analytics | Microsoft Docs
-description: "La solución de seguimiento de cambios de Log Analytics lo ayuda a identificar los cambios de software y servicios de Windows que se producen en su entorno."
+description: "La solución Seguimiento de cambios de Log Analytics ayuda a identificar los cambios en el software y el servicio de Windows que se producen en su entorno."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 04/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
 
-Este artículo le ayudará a usar la solución de seguimiento de cambios de Log Analytics para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux; en los archivos y servicios de Windows, y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
+Este artículo le ayudará a usar la solución de seguimiento de cambios de Log Analytics para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos y las claves del Registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
 La solución se instala para actualizar el tipo de agente que ha instalado. Los cambios en los demonios de Linux, los Servicios de Windows y el software instalados en los servidores supervisados se leen y, a continuación, los datos se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
 
@@ -42,6 +42,15 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 3. En Seguimiento de cambios de archivos de Windows, escriba toda la ruta de acceso, incluido el nombre del archivo del que desea realizar un seguimiento y, a continuación, haga clic en el símbolo **Agregar**. Por ejemplo: C:\Archivos de programa (x86)\Internet Explorer\iexplore.exe o C:\Windows\System32\drivers\etc\hosts.
 4. Haga clic en **Guardar**.  
    ![Seguimiento de cambios de archivos de Windows](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
+
+### <a name="configure-windows-registry-keys-to-track"></a>Configuración de las claves del Registro de Windows para realizar un seguimiento
+Use los pasos siguientes para configurar las claves del Registro para realizar un seguimiento en los equipos Windows.
+
+1. En el portal de OMS, haga clic en **Configuración** (el símbolo de engranaje).
+2. En la página **Configuración**, haga clic en **Datos** y en **Seguimiento del Registro de Windows**.
+3. En Seguimiento de cambios del Registro de Windows, escriba toda la clave de la que desea realizar un seguimiento y haga clic en el símbolo **Agregar**.
+4. Haga clic en **Guardar**.  
+   ![Seguimiento de cambios del Registro de Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="limitations"></a>Limitaciones
 Actualmente, la solución de seguimiento de cambios no admite nada de lo siguiente:
@@ -73,13 +82,52 @@ En la tabla siguiente se muestra la frecuencia de recopilación de datos para lo
 
 | **Tipo de cambio** | **frequency** | **¿Envía el** **agente** **las diferencias cuando las encuentra?** |
 | --- | --- | --- |
-| Registro de Windows | 50 minutos | no |
+| Registro de Windows | 50 minutos | No |
 | Archivo de Windows | 30 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
 | Archivo de Linux | 15 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
 | Servicios de Windows | 30 minutos | Sí, cada 30 minutos cuando se detectan cambios. Cada 24 horas se envía una instantánea con independencia de que haya cambio o no. Por lo tanto, se envía la instantánea incluso cuando no hay ningún cambio. |
 | Demonios de Linux | 5 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
 | Software de Windows | 30 minutos | Sí, cada 30 minutos cuando se detectan cambios. Cada 24 horas se envía una instantánea con independencia de que haya cambio o no. Por lo tanto, se envía la instantánea incluso cuando no hay ningún cambio. |
 | Software Linux | 5 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |
+
+### <a name="registry-key-change-tracking"></a>Seguimiento de cambios en las claves del Registro
+
+Log Analytics realiza la supervisión y el seguimiento del Registro de Windows con la solución Seguimiento de cambios. El objetivo de supervisar los cambios en las claves del Registro identificar los puntos de extensibilidad en los que se puede activar código de terceros y malware. En la lista siguiente se muestran las claves del Registro predeterminada de las que la solución realiza un seguimiento y por qué se hace.
+
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
+    - Supervisa los scripts que se ejecutan al arrancar.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
+    - Supervisa los scripts que se ejecutan al apagar el equipo.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+    - Supervisa las claves que se cargan antes de que el usuario inicie sesión en su cuenta de Windows para programas de 32 bits que se ejecutan en equipos de 64 bits.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
+    - Supervisa los cambios en la configuración de la aplicación.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+    - Supervisa las entradas de inicio automático comunes que se enlazan directamente en el Explorador de Windows y suele ejecutar In-Process con Explorer.exe.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+    - Supervisa las entradas de inicio automático comunes que se enlazan directamente en el Explorador de Windows y suele ejecutar In-Process con Explorer.exe.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+    - Supervisa las entradas de inicio automático comunes que se enlazan directamente en el Explorador de Windows y suele ejecutar In-Process con Explorer.exe.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+    - Supervisa el registro del controlador de superposición de iconos.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+    - Supervisa el registro del controlador de superposición de iconos para programas de 32 bits que se ejecutan en equipos de 64 bits.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
+    - Supervisa si hay nuevos complementos de objeto auxiliares del explorador para Internet Explorer, que pueden utilizarse para acceder a Document Object Model de la página actual y para controlar la navegación.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
+    - Supervisa si hay nuevos complementos de objeto auxiliares del explorador para Internet Explorer, que pueden utilizarse para acceder a Document Object Model de la página actual y para controlar la navegación para programas de 32 bits que se ejecutan en equipos de 64 bits.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
+    - Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+    - Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada para programas de 32 bits que se ejecutan en equipos de 64 bits.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
+    - Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc. Es similar a la sección [drivers] del archivo SYSTEM.INI.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
+    - Supervisa los controladores de 32 bits asociados a wavemapper, wave1 y wave2, msacm.imaadpcm, .msadpcm, .msgsm610 y vidc para programas de 32 bits que se ejecutan en equipos de 64 bits. Es similar a la sección [drivers] del archivo SYSTEM.INI.
+- HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
+    - Supervisa la lista de DLL del sistema conocidas o utilizadas; este sistema impide que las personas se aprovechen de permisos de directorio de aplicación débiles colocando versiones de troyanos en DLL del sistema.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
+    - Supervisa la lista de paquetes que pueden recibir notificaciones de eventos de Winlogon, el modelo de compatibilidad de inicio de sesión interactivo para el sistema operativo Windows.
 
 
 ## <a name="use-change-tracking"></a>Uso de seguimiento de cambios

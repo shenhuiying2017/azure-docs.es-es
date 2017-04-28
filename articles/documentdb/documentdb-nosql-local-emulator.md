@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2017
+ms.date: 04/06/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
-ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 767698f12a5cb58fafc70c58e3d36a65194c2999
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -34,7 +34,7 @@ Se recomienda que antes de nada vea el siguiente vídeo, donde Kirill Gavrylyuk 
 > 
 > 
 
-## <a name="documentdb-emulator-system-requirements"></a>Requisitos de sistema del Emulador de DocumentDB
+## <a name="system-requirements"></a>Requisitos del sistema
 El Emulador de DocumentDB presenta los siguientes requisitos de hardware y software:
 
 * Requisitos de software
@@ -43,25 +43,64 @@ El Emulador de DocumentDB presenta los siguientes requisitos de hardware y softw
   *    2 GB DE RAM
   *    10 GB de espacio disponible en disco duro
 
-## <a name="installing-the-documentdb-emulator"></a>Instalación del Emulador de DocumentDB
+## <a name="installation"></a>Instalación
 Puede descargar e instalar el Emulador de DocumentDB desde el [Centro de descarga de Microsoft](https://aka.ms/documentdb-emulator). 
 
 > [!NOTE]
 > Para instalar, configurar y ejecutar el Emulador de DocumentDB, debe tener privilegios administrativos en el equipo.
 
-## <a name="checking-for-documentdb-emulator-updates"></a>Comprobación de la existencia de actualizaciones del Emulador de DocumentDB
+## <a name="running-on-docker-for-windows"></a>Ejecución en Docker para Windows
+
+El emulador de DocumentDB se puede ejecutar en Docker para Windows. El emulador no funciona en Docker para Oracle Linux.
+
+Una vez que tenga [Docker para Windows](https://www.docker.com/docker-windows) instalado, puede extraer la imagen del emulador de Docker Hub ejecutando el siguiente comando desde su shell favorito (cmd.exe, PowerShell, etc.).
+
+```      
+docker pull mominag/documentdb_emulator 
+```
+Para iniciar la imagen, ejecute los siguientes comandos.
+
+``` 
+md %LOCALAPPDATA%\DocumentDBEmulatorCert 2>nul
+docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i mominag/documentdb_emulator
+```
+
+La respuesta será similar a la siguiente:
+
+```
+Starting Emulator
+Emulator Endpoint: https://172.20.229.193:8081/
+Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+Exporting SSL Certificate
+You can import the SSL certificate from an administrator command prompt on the host by running:
+cd /d %LOCALAPPDATA%\DocumentDBEmulatorCert
+powershell .\importcert.ps1
+--------------------------------------------------------------------------------------------------
+Starting interactive shell
+``` 
+
+Si cierra el shell interactivo una vez iniciado el emulador, se cerrará el contenedor de este.
+
+Use el punto de conexión y la clave maestra de la respuesta en el cliente e importe el certificado SSL en el host. Para importar el certificado SSL, haga lo siguiente desde un símbolo del sistema de administración:
+
+```
+cd %LOCALAPPDATA%\DocumentDBEmulatorCert
+powershell .\importcert.ps1
+```
+
+## <a name="checking-for-updates"></a>Búsqueda de actualizaciones
 El Emulador de DocumentDB incluye un explorador de datos de Azure DocumentDB integrado para examinar los datos almacenados en DocumentDB y crear nuevas recopilaciones; además, le permite saber si hay una nueva actualización disponible para su descarga. 
 
 > [!NOTE]
 > No se garantiza que los datos que se crean en una versión del Emulador de DocumentDB estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de Azure DocumentDB y no en el Emulador de DocumentDB. 
 
-## <a name="how-the-documentdb-emulator-works"></a>Funcionamiento del Emulador de DocumentDB
+## <a name="how-the-emulator-works"></a>Funcionamiento del emulador
 El Emulador de DocumentDB proporciona una emulación de alta fidelidad del servicio DocumentDB. Admite una funcionalidad idéntica a la de Azure DocumentDB, incluida la compatibilidad para crear y consultar documentos JSON, aprovisionar y escalar colecciones y ejecutar procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el Emulador de DocumentDB e implementarlas en Azure a escala global realizando simplemente un solo cambio de configuración en el punto de conexión de la conexión de DocumentDB.
 
 Aunque se crea una emulación local de alta fidelidad del propio servicio DocumentDB, la implementación del Emulador de DocumentDB es diferente de la del servicio. Por ejemplo, el Emulador de DocumentDB utiliza componentes del sistema operativo estándar, como el sistema de archivos local para la persistencia y la pila del protocolo HTTPS para la conectividad. Esto significa que ciertas funcionalidades que se basan en la infraestructura de Azure, como la replicación global, la latencia de milisegundos de un solo dígito para lecturas/escrituras y los niveles de coherencia ajustable, no están disponibles a través del Emulador de DocumentDB.
 
 
-## <a name="authenticating-requests-against-the-documentdb-emulator"></a>Autenticación de solicitudes en el Emulador de DocumentDB
+## <a name="authenticating-requests"></a>Autenticación de solicitudes
 De la misma manera que con el documento de Azure en la nube, se deben autenticar todas las solicitudes que se realicen en el Emulador de DocumentDB. El Emulador de DocumentDB es compatible con una sola cuenta fija y una clave de autenticación ya conocida para la autenticación de clave maestra. Esta cuenta y clave son las únicas credenciales que se admiten para su uso con el Emulador de DocumentDB. Son las siguientes:
 
     Account name: localhost:<port>
@@ -72,7 +111,7 @@ De la misma manera que con el documento de Azure en la nube, se deben autenticar
 
 Además, al igual que el servicio Azure DocumentDB, el emulador de DocumentDB admite solo una comunicación segura mediante SSL.
 
-## <a name="start-and-initialize-the-documentdb-emulator"></a>Inicio del Emulador de DocumentDB
+## <a name="start-and-initialize-the-emulator"></a>Inicio e inicialización del emulador
 
 Para iniciar el Emulador de Azure DocumentDB, seleccione el botón Inicio o pulse la tecla Windows. Comience a escribir **Emulador de DocumentDB** y seleccione el emulador en la lista de aplicaciones. 
 
@@ -84,13 +123,13 @@ Cuando se ejecuta el emulador, verá un icono en el área de notificación de la
 
 El Emulador de DocumentDB se instala de forma predeterminada en el directorio `C:\Program Files\DocumentDB Emulator`. También puede iniciar y detener el emulador desde la línea de comandos. Vea la [referencia de la herramienta de la línea de comandos](#command-line) para obtener más información.
 
-## <a name="start-the-documentdb-emulator-data-explorer"></a>Inicio del Explorador de datos del emulador de DocumentDB
+## <a name="start-data-explorer"></a>Inicio del Explorador de datos
 
 Cuando se inicia el emulador de DocumentDB, se abre automáticamente el Explorador de datos de DocumentDB en el explorador. La dirección aparecerá como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador web o iniciarlo desde el icono de la bandeja de Windows del Emulador de DocumentDB, tal y como se muestra a continuación.
 
 ![Iniciador del explorador de datos del emulador local de DocumentDB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 
-## <a name="developing-with-the-documentdb-emulator"></a>Desarrollo con el Emulador de DocumentDB
+## <a name="developing-with-the-emulator"></a>Desarrollo con el emulador
 Una vez que el Emulador de DocumentDB se esté ejecutando en el escritorio, puede usar cualquier [SDK de DocumentDB](documentdb-sdk-dotnet.md) compatible o la [API de REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interactuar con el Emulador. El Emulador de DocumentDB también incluye un Explorador de datos integrado que le permite crear colecciones y ver y editar documentos sin escribir ningún código. 
 
     // Connect to the DocumentDB Emulator running locally
@@ -106,7 +145,7 @@ También puede usar herramientas existentes como [DocumentDB Studio](https://git
 
 Con el emulador de DocumentDB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Para más información acerca de cómo cambiar este valor, consulte la sección sobre la [configuración del valor de PartitionCount](#set-partitioncount).
 
-## <a name="export-the-documentdb-emulator-ssl-certificate"></a>Exportación del certificado SSL del Emulador de DocumentDB
+## <a name="export-the-ssl-certificate"></a>Exportación del certificado SSL
 
 El sistema en tiempo de ejecución y los lenguajes de .NET utilizan el almacén de certificados de Windows para conectarse de forma segura al emulador local de DocumentDB. Otros lenguajes tienen sus propios métodos de administración y uso de certificados. Java utiliza su propio [almacén de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), mientras que Python utiliza [contenedores de sockets](https://docs.python.org/2/library/ssl.html).
 
@@ -118,7 +157,7 @@ El certificado X.509 puede importarse en el almacén de certificados de Java sig
 
 Al conectarse al emulador desde los SDK de Node.js y Python, se deshabilita la verificación de SSL.
 
-## <a id="command-line"></a>Referencia de la herramienta de la línea de comandos del Emulador de DocumentDB
+## <a id="command-line"></a>Referencia de la herramienta de la línea de comandos
 Desde la ubicación de instalación, puede usar la línea de comandos para iniciar y detener el emulador, configurar las opciones y realizar otras operaciones.
 
 ### <a name="command-line-syntax"></a>Sintaxis de línea de comandos

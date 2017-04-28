@@ -1,0 +1,330 @@
+---
+title: "Implementación de la aplicación de Azure Service Fabric | Microsoft Docs"
+description: Use las API de FabricClient para implementar y quitar aplicaciones de Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 04/10/2017
+ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 4c7a92352d4fef6a0e55b608bf5c957cd2c40332
+ms.lasthandoff: 04/11/2017
+
+
+---
+# <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementación y eliminación de aplicaciones mediante FabricClient
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [API de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
+> 
+> 
+
+<br/>
+
+Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la implementación en un clúster de Azure Service Fabric. La implementación implica los tres pasos siguientes:
+
+1. Carga del paquete de aplicación en el almacén de imágenes
+2. Cargar el tipo de aplicación
+3. Crear la instancia de aplicación
+
+Después de implementar una aplicación y ejecutar una instancia del clúster, puede eliminar la instancia y el tipo de aplicación. Quitar completamente una aplicación de clúster implica los pasos siguientes:
+
+1. Quitar (o eliminar) la instancia de la aplicación en ejecución
+2. Anular el registro del tipo de aplicación si ya no lo necesita
+3. Quitar el paquete de aplicación del almacén de imágenes
+
+Si usa [Visual Studio para implementar y depurar aplicaciones](service-fabric-publish-app-remote-cluster.md) en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell,  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se ofrece información sobre lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
+ 
+## <a name="connect-to-the-cluster"></a>Conexión al clúster
+Para conectarse al clúster, cree una instancia de [FabricClient](/dotnet/api/system.fabric.fabricclient) antes de ejecutar cualquiera de los ejemplos de código de este artículo. Para obtener ejemplos de conexión a un clúster de desarrollo local, a un clúster remoto o a un cluster protegido con Azure Active Directory, certificados X509 o Windows Active Directory, consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis).  Para conectarse al clúster de desarrollo local, ejecute lo siguiente:
+
+```csharp
+// Connect to the local cluster.
+FabricClient fabricClient = new FabricClient();
+```
+
+## <a name="upload-the-application-package"></a>Cargar el paquete de la aplicación
+Imagine que compila y empaqueta una aplicación denominada *MyApplication* en Visual Studio. De forma predeterminada, el nombre del tipo de aplicación que aparece en ApplicationManifest.xml es "MyApplicationType".  El paquete de aplicación, que contiene el manifiesto de aplicación necesario, así como los manifiestos de servicio y los paquetes code/config/data, se encuentra en *C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
+
+Cargar el paquete de aplicación lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric.
+Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage).
+
+El método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) carga el paquete de aplicación en el almacén de imágenes del clúster. 
+
+Si el paquete de aplicación es grande o tiene muchos archivos, puede [comprimirlo](service-fabric-package-apps.md#compress-a-package) y copiarlo en el almacén de imágenes mediante PowerShell. La compresión reduce el tamaño y el número de archivos.
+
+Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para más información sobre el almacén de imágenes y su cadena de conexión.
+
+## <a name="register-the-application-package"></a>Registrar el paquete de la aplicación
+El tipo y la versión de la aplicación declarados en el manifiesto de aplicación estarán disponibles para usarse cuando se registre el paquete de aplicación. El sistema leerá el paquete cargado en el paso anterior, comprobará dicho paquete, procesará su contenido y copiará el paquete procesado en una ubicación del sistema interno.  
+
+El método [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) registra el tipo de aplicación en el clúster y hace que esté disponible para su implementación.
+
+El método [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) enumera todas las versiones del tipo de aplicación registradas correctamente, así como su estado de registro. Puede utilizar este comando para determinar cuándo se realiza el registro.
+
+## <a name="create-an-application-instance"></a>Creación de una instancia de aplicación
+Se pueden crear instancias de una aplicación a partir de cualquier versión del tipo de aplicación que se haya registrado correctamente mediante el método [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). El nombre de cada aplicación debe empezar con el esquema *fabric:* y ser únicos para cada instancia de la aplicación. También se crean los servicios predeterminados que se hayan definido en el manifiesto de aplicación del tipo de aplicación de destino.
+
+Pueden crearse varias instancias de aplicación para cualquier versión concreta de un tipo de aplicación registrado. Cada instancia de la aplicación se ejecuta de forma aislada, con su propio proceso y directorio de trabajo.
+
+Para ver qué aplicaciones y servicios con nombre se ejecutan en el clúster, ejecute los métodos [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) y [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync).
+
+## <a name="create-a-service-instance"></a>Creación de una instancia de servicio
+Puede crear una instancia de un servicio desde un tipo de servicio mediante el método [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Si el servicio se declara como servicio predeterminado en el manifiesto de aplicación, se crea una instancia del servicio con la aplicación.  La llamada al método [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) de un servicio del que ya se ha creado una instancia devolverá una excepción. 
+
+## <a name="remove-a-service-instance"></a>Eliminación de una instancia de servicio
+Cuando una instancia de servicio deja de necesitarse, para quitarla de la instancia de la aplicación en ejecución hay que llamar al método [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync).  Esta operación no se puede revertir y el estado del servicio no se puede recuperar.
+
+## <a name="remove-an-application-instance"></a>Eliminación de una instancia de aplicación
+Cuando una instancia de aplicación deje de necesitarse, se puede quitar por nombre de manera permanente mediante el método [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync). [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) quita automáticamente todos los servicios que pertenecen a la aplicación, con lo que se eliminan de forma permanente todos los estados de servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
+
+## <a name="unregister-an-application-type"></a>Anulación de un registro del tipo de aplicación
+Cuando una versión concreta de un tipo de aplicación deje de necesitarse, debe anularse el registro del tipo de aplicación mediante el método [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). Anular el registro de tipos de aplicación que no se usan libera espacio de almacenamiento del almacén de imágenes. No se puede anular el registro de un tipo de aplicación mientras no haya ninguna aplicación con instancias con él o no haya actualizaciones de aplicaciones pendientes que hagan referencia a él.
+
+## <a name="remove-an-application-package-from-the-image-store"></a>Eliminación de un paquete de aplicación del almacén de imágenes
+Cuando un paquete de aplicación deje de necesitarse, puede eliminarlo del almacén de imágenes para liberar recursos del sistema mediante el método [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+
+## <a name="troubleshooting"></a>Solución de problemas
+### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
+El entorno del SDK de Service Fabric ya debe tener configurados los valores predeterminados correctos. Pero si es necesario, ImageStoreConnectionString para todos los comandos debe coincidir con el valor que usa el clúster de Service Fabric. Encontrará ImageStoreConnectionString en el manifiesto de clúster, que se recupera mediante el método [Get-ServiceFabricClusterManifest](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.getclustermanifestasync).
+
+ImageStoreConnectionString se encuentra en el manifiesto de clúster:
+
+```xml
+<ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+
+    [...]
+
+    <Section Name="Management">
+      <Parameter Name="ImageStoreConnectionString" Value="file:D:\ServiceFabric\Data\ImageStore" />
+    </Section>
+
+    [...]
+```
+
+Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para más información sobre el almacén de imágenes y su cadena de conexión.
+
+### <a name="deploy-large-application-package"></a>Implementación de un paquete de aplicación grande
+Problema: el método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) agota el tiempo de espera para un paquete de aplicación grande (del orden de GB).
+Pruebe lo siguiente:
+- Especifique un tiempo de espera mayor para el método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) con el parámetro `timeout`. De forma predeterminada, el tiempo de espera es de 30 minutos.
+- Compruebe la conexión de red entre la máquina de origen y el clúster. Si la conexión es lenta, considere la posibilidad de usar una máquina con una conexión de red mejor.
+Si la máquina cliente se encuentra en otra región diferente al clúster, considere el uso de una máquina cliente que se encuentre en una región más cercana o en la misma región que el clúster.
+- Compruebe si está alcanzando la limitación externa. Por ejemplo, cuando el almacén de imágenes está configurado para usar Azure Storage, se puede limitar carga.
+
+Problema: la carga del paquete se completó correctamente, pero el método [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de espera.
+Pruebe lo siguiente:
+- [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes.
+La compresión reduce el tamaño y el número de archivos lo que, a su vez, reduce la cantidad de tráfico y trabajo que Service Fabric debe realizar. La operación de carga puede ser más lenta (especialmente si incluyen el tiempo de compresión), pero el registro y la anulación del registro del tipo de aplicación son más rápidos.
+- Especifique un tiempo de espera mayor para el método [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con el parámetro `timeout`.
+
+### <a name="deploy-application-package-with-many-files"></a>Implementación del paquete de aplicación con muchos archivos
+Problema: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de espera para un paquete de aplicación con muchos archivos (del orden de miles).
+Pruebe lo siguiente:
+- [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes. La compresión reduce el número de archivos.
+- Especifique un tiempo de espera mayor para [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con el parámetro `timeout`.
+
+## <a name="code-example"></a>Ejemplo de código
+En el ejemplo siguiente se copia un paquete de aplicación en el almacén de imágenes, se aprovisiona el tipo de aplicación, se crea una instancia de la aplicación, crea una instancia de servicio, se quita la instancia de la aplicación, se desaprovisiona el tipo de aplicación y se elimina el paquete de aplicación del almacén de imágenes.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Reflection;
+using System.Threading.Tasks;
+
+using System.Fabric;
+using System.Fabric.Description;
+using System.Threading;
+
+namespace ServiceFabricAppLifecycle
+{
+class Program
+{
+static void Main(string[] args)
+{
+
+    string clusterConnection = "localhost:19000";
+    string appName = "fabric:/MyApplication";
+    string appType = "MyApplicationType";
+    string appVersion = "1.0.0";
+    string serviceName = "fabric:/MyApplication/Stateless1";
+    string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
+    string packagePathInImageStore = "MyApplication";
+    string packagePath = "C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug";
+    string serviceType = "Stateless1Type";
+
+    // Connect to the cluster.
+    FabricClient fabricClient = new FabricClient(clusterConnection);
+
+    // Copy the application package to a location in the image store
+    try
+    {
+        fabricClient.ApplicationManager.CopyApplicationPackage(imageStoreConnectionString, packagePath, packagePathInImageStore);
+        Console.WriteLine("Application package copied to {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Application package copy to Image Store failed: ");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Provision the application.  "MyApplicationV1" is the folder in the image store where the app package is located. 
+    // The application type with name "MyApplicationType" and version "1.0.0" (both are found in the application manifest) 
+    // is now registered in the cluster.            
+    try
+    {
+        fabricClient.ApplicationManager.ProvisionApplicationAsync(packagePathInImageStore).Wait();
+
+        Console.WriteLine("Provisioned application type {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Provision Application Type failed:");
+
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    //  Create the application instance.
+    try
+    {
+        ApplicationDescription appDesc = new ApplicationDescription(new Uri(appName), appType, appVersion);
+        fabricClient.ApplicationManager.CreateApplicationAsync(appDesc).Wait();
+        Console.WriteLine("Created application instance of type {0}, version {1}", appType, appVersion);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("CreateApplication failed.");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Create the stateless service description.  For stateful services, use a StatefulServiceDescription object.
+    StatelessServiceDescription serviceDescription = new StatelessServiceDescription();
+    serviceDescription.ApplicationName = new Uri(appName);
+    serviceDescription.InstanceCount = 1;
+    serviceDescription.PartitionSchemeDescription = new SingletonPartitionSchemeDescription();
+    serviceDescription.ServiceName = new Uri(serviceName);
+    serviceDescription.ServiceTypeName = serviceType;
+
+    // Create the service instance.  If the service is declared as a default service in the ApplicationManifest.xml,
+    // the service instance is already running and this call will fail.
+    try
+    {
+        fabricClient.ServiceManager.CreateServiceAsync(serviceDescription).Wait();
+        Console.WriteLine("Created service instance {0}", serviceName);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("CreateService failed.");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Delete a service instance.
+    try
+    {
+        DeleteServiceDescription deleteServiceDescription = new DeleteServiceDescription(new Uri(serviceName));
+
+        fabricClient.ServiceManager.DeleteServiceAsync(deleteServiceDescription);
+        Console.WriteLine("Deleted service instance {0}", serviceName);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("DeleteService failed.");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Delete an application instance from the application type.
+    try
+    {
+        DeleteApplicationDescription deleteApplicationDescription = new DeleteApplicationDescription(new Uri(appName));
+
+        fabricClient.ApplicationManager.DeleteApplicationAsync(deleteApplicationDescription).Wait();
+        Console.WriteLine("Deleted application instance {0}", appName);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("DeleteApplication failed.");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Un-provision the application type.
+    try
+    {
+        fabricClient.ApplicationManager.UnprovisionApplicationAsync(appType, appVersion).Wait();
+        Console.WriteLine("Un-provisioned application type {0}, version {1}", appType, appVersion);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Un-provision application type failed: ");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Delete the application package from a location in the image store.
+    try
+    {
+        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
+        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Application package removal from Image Store failed: ");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    Console.WriteLine("Hit enter...");
+    Console.Read();
+}        
+}
+}
+
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+[Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
+
+[Introducción al estado de Service Fabric](service-fabric-health-introduction.md)
+
+[Diagnosticar y solucionar problemas de un servicio de Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+
+[Modelar una aplicación en Service Fabric](service-fabric-application-model.md)
+
+<!--Link references--In actual articles, you only need a single period before the slash-->
+[10]: service-fabric-application-model.md
+[11]: service-fabric-application-upgrade.md
+

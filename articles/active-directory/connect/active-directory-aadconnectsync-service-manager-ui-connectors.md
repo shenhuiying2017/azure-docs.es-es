@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/03/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2240678fed44db748ae062bdf91e457159b4a2
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6d893efd775ff6b55524ba3a621d8248adbdd432
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
@@ -67,6 +67,28 @@ Empiece seleccionando un **ámbito**. Puede buscar según los datos (RDN, DN, de
 Por ejemplo, si hace una búsqueda de un subárbol, obtiene todos los objetos de una unidad organizativa.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 En esta cuadrícula, puede seleccionar un objeto, elegir las **propiedades** y [realizar un seguimiento](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) desde el espacio del conector de origen, a través del metaverso, y hasta el espacio del conector de destino.
+
+### <a name="changing-the-ad-ds-account-password"></a>Cambio de la contraseña de la cuenta de AD DS
+Si cambia la contraseña de la cuenta, el servicio de sincronización ya no podrá importar o exportar cambios a las instancias locales de AD.   Verá lo siguiente:
+
+- Se produce un error en el paso de importación y exportación para el conector de AD con el error "no-start-credentials".
+- En el Visor de eventos de Windows, el registro de eventos de aplicación contiene un error con el identificador de evento 6000 y mensaje “El agente de administración "contoso.com" no se pudo ejecutar porque las credenciales no eran válidas”.
+
+Para resolver el problema, actualice la cuenta de usuario de AD DS mediante lo siguiente:
+
+
+1. Inicie el Synchronization Service Manager (INICIO → Synchronization Service).
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+2. Vaya a la pestaña **Conectores**.
+3. Seleccione el conector de AD que está configurado para usar la cuenta de AD DS.
+4. En Acciones, seleccione **Propiedades**.
+5. En el cuadro de diálogo emergente, seleccione Connect to Active Directory Forest (Conectar con el bosque de Active Directory):
+6. El nombre de bosque indica la instancia local de AD correspondiente.
+7. El nombre de usuario indica la cuenta de AD DS que se usa para la sincronización.
+8. Escriba la nueva contraseña de la cuenta de AD DS en el cuadro de texto Contraseña ![Utilidad de clave de cifrado de Azure AD Connect Sync](media/active-directory-aadconnectsync-encryption-key/key6.png).
+9. Haga clic en Aceptar para guardar la nueva contraseña y reinicie Synchronization Service para quitar la contraseña antigua de la memoria caché.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
