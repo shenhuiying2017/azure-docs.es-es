@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d3952e65aaf3ca89f83e99409e196840dd692a01
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +32,7 @@ Para ver o modificar las notificaciones emitidas en el token SAML a la aplicaci�
 
 ![][1]
 
-Existen dos razones posibles por las que podría tener la necesidad de editar las notificaciones emitidas en el token SAML: •La aplicación se ha escrito para requerir un conjunto diferente de URI de notificaciones o valores de notificación •La aplicación se ha implementado de forma que requiere que la notificación NameIdentifier sea algo distinto al nombre de usuario (conocido también como nombre principal de usuario) almacenado en Azure Active Directory. 
+Hay dos posibles razones por las que podría tener la necesidad de editar las notificaciones emitidas en el token SAML: •La aplicación se escribió para requerir un conjunto diferente de identificadores URI de notificaciones o valores de notificaciones •La aplicación se ha implementado de tal forma que requiere que la notificación NameIdentifier no sea el nombre de usuario (conocido también como nombre principal de usuario) almacenado en Azure Active Directory. 
 
 Puede editar cualquiera de los valores de notificación predeterminados; para ello, seleccione el icono en forma de lápiz que aparece cuando sitúa el mouse sobre una de las filas de la tabla de atributos del token SAML. También puede quitar notificaciones (excepto NameIdentifier) mediante el icono **X** y agregar notificaciones nuevas con el botón **Agregar atributo de usuario**.
 
@@ -42,7 +43,7 @@ Para solucionar el problema en el que la aplicación se ha implementado con un n
 
 En el menú **Valor de atributo**, seleccione **user.mail** para que la notificación NameIdentifier sea la dirección de correo electrónico del usuario en el directorio, o seleccione **user.onpremisessamaccountname** para establecerla en el nombre de cuenta SAM del usuario que se ha sincronizado desde la instancia local de Azure AD. 
 
-También puede usar la función especial ExtractMailPrefix() para quitar el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario, lo que da lugar a que solo se pase la primera parte del nombre de usuario (por ejemplo, "joesmith" en lugar de joesmith@contoso.com).
+También puede usar la función especial ExtractMailPrefix() para quitar el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario, lo que da lugar a que solo se pase la primera parte del nombre de usuario (por ejemplo, "joesmith" en lugar de joesmith@contoso.com.
 
 ![][3]
 
@@ -63,13 +64,7 @@ Si no hay ningún valor almacenado para el atributo seleccionado para un usuario
 * [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
-[2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
-[3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
-[4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[1]: ../media/active-directory-saml-claims-customization/claimscustomization1.png
+[2]: ../media/active-directory-saml-claims-customization/claimscustomization2.png
+[3]: ../media/active-directory-saml-claims-customization/claimscustomization3.png
+[4]: ../media/active-directory-saml-claims-customization/claimscustomization4.png
