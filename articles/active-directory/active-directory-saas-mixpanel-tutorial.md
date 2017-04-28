@@ -98,7 +98,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 **Para configurar el inicio de sesión único de Azure AD con Mixpanel, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Mixpanel**, haga clic en** Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Mixpanel**, haga clic en**Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único][6] 
 2. En la página **Cómo desea que los usuarios inicien sesión en Mixpanel**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
