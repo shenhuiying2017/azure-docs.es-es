@@ -91,7 +91,7 @@ Hay dos objetos de directiva de grupo (GPO) integrados: uno para el contenedor "
 1. En la consola **Administración de directivas de grupo**, haga clic para expandir los nodos **Forest: contoso100.com** y **Domains** para ver las directivas de grupo para el dominio administrado.
 
     ![GPO integrados](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. Puede personalizar estos GPO integrados para configurar las directivas de grupo en el dominio administrado. Haga clic en el GPO y haga clic en **Editar... ** para personalizar el GPO integrado. La herramienta Editor de administración de directivas de grupo le permite personalizar el GPO.
+2. Puede personalizar estos GPO integrados para configurar las directivas de grupo en el dominio administrado. Haga clic en el GPO y haga clic en **Editar...** para personalizar el GPO integrado. La herramienta Editor de administración de directivas de grupo le permite personalizar el GPO.
 
     ![Editar GPO integrado](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 3. Ahora puede usar la consola del **Editor de administración de directivas de grupo** para editar el GPO integrado. Por ejemplo, la captura de pantalla siguiente muestra cómo personalizar el GPO "Equipos del controlador de dominio de AAD" integrado.
