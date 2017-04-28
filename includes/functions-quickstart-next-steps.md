@@ -10,7 +10,3 @@ Este inicio rápido demuestra una ejecución sencilla de una función desencaden
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
 * [¿Qué es Servicios de aplicaciones de Azure?](../articles/app-service/app-service-value-prop-what-is.md)  
   Azure Functions aprovecha la plataforma Azure App Service para obtener una funcionalidad básica, como implementaciones, variables de entorno y diagnósticos. 
-
-<!--HONumber=Feb17_HO1-->
-
-
