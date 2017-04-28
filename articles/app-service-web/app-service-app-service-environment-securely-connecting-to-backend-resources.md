@@ -23,7 +23,7 @@ ms.lasthandoff: 03/01/2017
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones
 ## <a name="overview"></a>Información general
-Dado que siempre se crea un entorno de App Service** **en una red virtual de Azure Resource Manager **o** en [una][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.  Tras el cambio reciente realizado en junio de 2016, los ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  
+Dado que siempre se crea un entorno de App Service****en una red virtual de Azure Resource Manager **o** en [una][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.  Tras el cambio reciente realizado en junio de 2016, los ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  
 
 Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de máquinas virtuales con el puerto 1433 bloqueado.  En el extremo puede incluirse una lista de control de acceso para permitir únicamente el acceso de otros recursos de la misma red virtual.  
 

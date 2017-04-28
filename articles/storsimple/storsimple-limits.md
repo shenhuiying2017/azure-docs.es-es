@@ -49,11 +49,11 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Velocidad de procesamiento de instantáneas en la nube |15 minutos/TB. |<ul><li>Tiempo mínimo para que la instantánea en la nube esté lista para cargarse (por TB de datos del volumen asociado en la copia de seguridad). </li><li> El tiempo total de la instantánea en la nube se calcula mediante la suma de este tiempo al de carga de la instantánea, que se ve afectado por el ancho de banda de Internet en la nube. |
 | Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa SSD)* |920/720 MB/s con una sola interfaz de red de 10 GbE |Hasta 2x con MPIO y dos interfaces de red. |
 | Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa HDD)* |120/250 MB/s | |
-| Rendimiento máximo de lectura y escritura de cliente (cuando se obtiene desde la capa de la nube)* para Update 3 y posterior** |40/60 MB/s para volúmenes en capas<br><br>80/60 MB/s para volúmenes en capas con una opción de archivado seleccionada durante la creación de volumen |El rendimiento de lectura depende de que los clientes generen y mantengan una profundidad de cola de E/S suficiente. <br><br>La velocidad conseguida depende de la velocidad de la cuenta de almacenamiento subyacente utilizada. |
+| Rendimiento máximo de lectura y escritura de cliente (cuando se obtiene desde la capa de la nube)*para Update 3 y posterior** |40/60 MB/s para volúmenes en capas<br><br>80/60 MB/s para volúmenes en capas con una opción de archivado seleccionada durante la creación de volumen |El rendimiento de lectura depende de que los clientes generen y mantengan una profundidad de cola de E/S suficiente. <br><br>La velocidad conseguida depende de la velocidad de la cuenta de almacenamiento subyacente utilizada. |
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
-& #42; & #42; Los números de rendimiento antes de Update 3 pueden ser inferiores.
+&#42; &#42; Los números de rendimiento antes de Update 3 pueden ser inferiores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los [Requisitos del sistema StorSimple](storsimple-system-requirements.md). 
