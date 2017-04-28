@@ -28,7 +28,7 @@ SharePoint Server incluye un servicio de perfiles de usuario que se usa para la 
 En este artículo se explica cómo configurar dominios administrados de Azure AD Domain Services para implementar el servicio de sincronización de perfiles de usuario de SharePoint Server.
 
 ## <a name="the-aad-dc-service-accounts-group"></a>El grupo “Cuentas de servicio de controlador de dominio de AAD”
-Un grupo de seguridad denominado “**Cuentas de servicio de controlador de dominio de AAD**” está disponible en la unidad organizativa “Usuarios” en el dominio administrado. Puede ver este grupo en el complemento MMC **Usuarios y equipos de Active Directory ** del dominio administrado.
+Un grupo de seguridad denominado “**Cuentas de servicio de controlador de dominio de AAD**” está disponible en la unidad organizativa “Usuarios” en el dominio administrado. Puede ver este grupo en el complemento MMC **Usuarios y equipos de Active Directory** del dominio administrado.
 
 ![Grupo de seguridad Cuentas de servicio de controlador de dominio de AAD](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts.png)
 
