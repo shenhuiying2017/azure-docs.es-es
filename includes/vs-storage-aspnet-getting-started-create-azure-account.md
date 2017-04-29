@@ -4,8 +4,3 @@ La manera más fácil de crear la primera cuenta de almacenamiento de Azure es m
 Puede crear también una cuenta de Azure Storage mediante [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), la [CLI de Azure](../articles/storage/storage-azure-cli.md) o la [biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

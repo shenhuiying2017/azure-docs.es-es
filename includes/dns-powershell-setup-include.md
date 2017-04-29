@@ -46,7 +46,3 @@ El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
-
-<!--HONumber=Dec16_HO3-->
-
-

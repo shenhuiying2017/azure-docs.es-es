@@ -47,8 +47,3 @@ Cuando se especifica la propiedad `compression` en un JSON del conjunto de datos
 * Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un blob de Azure. Defina el conjunto de datos del blob de Azure de salida con la propiedad de JSON `compression` `type` como GZip.
 * Leer el archivo .zip del servidor FTP, descomprimirlo para obtener los archivos que contiene y colocar dichos archivos en Azure Data Lake Store. Defina el conjunto de datos del FTP de entrada con la propiedad de JSON `compression` `type` como ZipDeflate.
 * Leer datos comprimidos con GZIP de un blob de Azure, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un blob de Azure. Defina el conjunto de datos de blob de Azure de entrada con `compression` `type` establecidos en GZIP y el conjunto de datos de salida con `compression` `type` establecido en BZIP2 en este caso.   
-
-
-<!--HONumber=Feb17_HO3-->
-
-
