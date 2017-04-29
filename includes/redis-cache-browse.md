@@ -12,8 +12,3 @@ Puede ver y configurar la caché desde la hoja **Redis Caché**.
 
 ![Caché en Redis - Todas las configuraciones](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

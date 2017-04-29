@@ -6,8 +6,3 @@ Para implementar los recursos en Azure, debe haber iniciado sesión en la cuenta
 
 En los ejemplos siguientes se supone que ya dispone de un grupo de recursos en la cuenta con el nombre especificado. 
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

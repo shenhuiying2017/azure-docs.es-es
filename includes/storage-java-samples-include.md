@@ -8,7 +8,3 @@ Esta es una lista de todos nuestros repositorios de ejemplo para la biblioteca d
 * [Introducción al servicio Cola de Azure en .NET](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
 * [Getting Started with Azure Table service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/) (Introducción a Azure Table service en Java)
 * [Ejemplos de la biblioteca de cliente de Java de Storage](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
-
-<!--HONumber=Jan17_HO3-->
-
-

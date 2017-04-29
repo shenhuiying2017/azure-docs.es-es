@@ -5,8 +5,3 @@ Puesto que un recurso compartido de almacenamiento de archivos es un recurso com
 
 Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azure](https://portal.azure.com), los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que esos recursos compartidos de archivos son recursos compartidos del protocolo SMB, puede tener acceso a ellos a través de la API del sistema de archivos estándar y familiar.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

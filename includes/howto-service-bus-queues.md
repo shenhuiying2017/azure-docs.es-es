@@ -12,8 +12,3 @@ Las colas del Bus de servicio son una tecnología de uso general que puede utili
 El uso de las colas le permite escalar sus aplicaciones más fácilmente y dotar de más resistencia a su arquitectura.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

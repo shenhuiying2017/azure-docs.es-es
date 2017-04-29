@@ -14,7 +14,3 @@ Esta es una lista de todos nuestros repositorios de ejemplo para la biblioteca c
 * [Import Export Job Management through REST API](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/) (Administración de trabajos de Import/Export mediante la API de REST)
 * [MyDriving - An Azure IOT and Mobile Sample Application](https://azure.microsoft.com/resources/samples/mydriving/) (MyDriving: solución de IoT de Azure y aplicación móvil de ejemplo)
 * [Ejemplos de biblioteca de cliente de Azure Storage para .NET](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
-
-<!--HONumber=Feb17_HO3-->
-
-

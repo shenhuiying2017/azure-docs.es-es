@@ -13,8 +13,3 @@
    
    ![Captura de pantalla que muestra un mensaje sobre la comprobación de la identidad de la máquina virtual.](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
