@@ -8,8 +8,3 @@
 
     > [!Note]
   > El nombre de la cuenta podría tardar 15 minutos o más en aparecer en el portal. Para que se actualice inmediatamente, haga clic en **Servidores de configuración** > ***nombre de servidor*** > **Actualizar servidor**.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

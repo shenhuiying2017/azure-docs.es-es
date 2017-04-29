@@ -1,4 +1,4 @@
-### <a name="a-nameserver-authahow-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>Autenticación con un proveedor (flujo de servidor)
+### <a name="server-auth"></a>Autenticación con un proveedor (flujo de servidor)
 Para que Mobile Apps administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en el Servicio de aplicaciones de Azure, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor.
 Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
@@ -19,7 +19,7 @@ Los valores válidos para el proveedor son "aad", "facebook", "google", "microso
 
 En este caso, Azure App Service administra el flujo de autenticación de OAuth 2.0.  Muestra la página de inicio de sesión del proveedor seleccionado y genera un token de autenticación de App Service después de iniciar sesión correctamente con el proveedor de identidades. La función login, cuando se completa, devuelve un objeto JSON que expone el identificador de usuario y el token de autenticación de App Service en los campos userId y authenticationToken, respectivamente. El token puede almacenarse en caché y volver a usarse hasta que expire.
 
-###<a name="a-nameclient-authahow-to-authenticate-with-a-provider-client-flow"></a><a name="client-auth"></a>Autenticación con un proveedor (flujo de cliente)
+###<a name="client-auth"></a>Autenticación con un proveedor (flujo de cliente)
 
 La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto al Servicio de aplicaciones para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 En este ejemplo simplificado se obtiene un token de Live Connect, que se suministra al Servicio de aplicaciones mediante la llamada a la función login.
 
-###<a name="a-nameauth-getinfoahow-to-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
+###<a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
 
 Se puede recuperar la información de autenticación desde el punto de conexión `/.auth/me` mediante una llamada HTTP con cualquier biblioteca de AJAX.  Asegúrese de establecer el encabezado `X-ZUMO-AUTH` en el token de autenticación.  El token de autenticación se almacena en `client.currentUser.mobileServiceAuthenticationToken`.  Por ejemplo, para usar la API de captura:
 
@@ -78,8 +78,3 @@ fetch(url, { headers: headers })
 ```
 
 La captura está disponible como [un paquete npm](https://www.npmjs.com/package/whatwg-fetch) o para descarga desde el explorador desde [CDNJS](https://cdnjs.com/libraries/fetch). También podría utilizar jQuery u otra API de AJAX para capturar la información.  Los datos se recibieron como un objeto JSON.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

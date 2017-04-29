@@ -86,7 +86,3 @@ Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON qu
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

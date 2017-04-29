@@ -7,8 +7,3 @@ En este artículo se supone que
 
 > [!TIP]
 > Asegúrese de que se puede conectar al puerto 443 del servidor de configuración (que se ejecuta de forma local) desde la instancia de Azure Virtual Network en la que las máquinas virtuales se han conmutado por error.
-
-
-<!--HONumber=Feb17_HO1-->
-
-
