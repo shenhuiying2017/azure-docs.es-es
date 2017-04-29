@@ -26,7 +26,3 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [Envío de mensajes de nube a dispositivo con IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Introducción a Iot Hub]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
-
-<!--HONumber=Feb17_HO3-->
-
-

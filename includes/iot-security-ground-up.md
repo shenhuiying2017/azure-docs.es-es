@@ -78,8 +78,3 @@ Cada solución preconfigurada del conjunto de aplicaciones de IoT de Azure crea 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución IoT con la línea existente de sistemas empresariales y para automatizar los procesos de flujo de trabajo. Las aplicaciones lógicas permiten a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Las aplicaciones lógicas ofrecen conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 * [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

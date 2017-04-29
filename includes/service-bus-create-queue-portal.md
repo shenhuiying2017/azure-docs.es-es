@@ -19,8 +19,3 @@ Asegúrese de haber creado antes un espacio de nombres de Service Bus, como se m
 
 [namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
-
-
-<!--HONumber=Dec16_HO1-->
-
-

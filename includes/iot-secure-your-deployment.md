@@ -107,8 +107,3 @@ En este artículo se proporciona información general sobre los detalles de los 
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/
 [lnk-blob]: https://azure.microsoft.com/services/storage/
-
-
-<!--HONumber=Feb17_HO3-->
-
-
