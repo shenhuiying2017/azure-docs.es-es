@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > Si agrega el servidor VMware vCenter o el host VMware vSphere con una cuenta que no tiene privilegios de administrador en el servidor vCenter o el servidor host, asegúrese de que la cuenta tiene habilitados los siguientes privilegios: Centro de datos, Almacén de datos, Carpeta, Host, Red, Recurso, Máquina virtual y Conmutador distribuido de vSphere. Además, el servidor VMware vCenter necesita el privilegio Vistas de almacenamiento habilitado.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
