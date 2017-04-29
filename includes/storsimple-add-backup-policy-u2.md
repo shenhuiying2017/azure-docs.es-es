@@ -22,8 +22,3 @@
 
 La directiva recién agregada se mostrará en la vista tabular en la página **Directivas de copia de seguridad** .
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: ec64215bfa3b812cddbed290d343c2d99fb70257
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -408,7 +408,7 @@ Anular el registro de una UDF es sencillo mediante la emisión de una solicitud 
 Aunque los fragmentos de código anteriores mostraban el registro (POST), la anulación del registro (PUT), la lectura/enumeración (GET) y la ejecución (POST) mediante el [SDK de JavaScript de DocumentDB](https://github.com/Azure/azure-documentdb-js), también puede utilizar las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) u otro [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documentos
-Puede insertar, reemplazar, eliminar, leer, enumerar y consultar documentos JSON arbitrarios de una colección. DocumentDB no impone ningún esquema y no requiere índices secundarios para ser compatible con las consultas de documentos en una colección. De forma predeterminada, el tamaño máximo de un documento es de 2 MB.   
+Puede insertar, reemplazar, eliminar, leer, enumerar y consultar documentos JSON arbitrarios de una colección. DocumentDB no impone ningún esquema y no requiere índices secundarios para ser compatible con las consultas de documentos en una colección. El tamaño máximo de un documento es de 2 MB.   
 
 Al ser un servicio de base de datos totalmente abierto, DocumentDB no crea ningún tipo de datos especializados, como fecha y hora, o codificaciones específicas para documentos JSON. Tenga en cuenta que DocumentDB no necesita ninguna convención JSON especial para codificar las relaciones entre varios documentos; la sintaxis SQL de DocumentDB proporciona operadores de consulta jerárquica y relacional muy eficaz para consultar y proyectar documentos sin ninguna anotación especial o necesidad de codificar relaciones entre documentos utilizando propiedades importantes.  
 

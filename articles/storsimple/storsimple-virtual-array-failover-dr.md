@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
-ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
+ms.lasthandoff: 04/13/2017
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
@@ -54,7 +54,7 @@ Para una conmutación por error de un dispositivo, asegúrese de que se cumplen 
   > No intente configurar el dispositivo virtual registrado a través del servicio. No debe realizarse ninguna configuración del dispositivo a través del servicio.
   > 
   > 
-* El dispositivo de destino no puede tener el mismo nombre que el dispositivo de origen. Siempre puede cambiar el nombre del dispositivo de destino una vez completada la conmutación por error.
+* El dispositivo de destino no puede tener el mismo nombre que el dispositivo de origen.
 * El dispositivo de origen y de destino deben ser del mismo tipo. Solo puede conmutar por error una matriz virtual configurada como servidor de archivos a otro servidor de archivos. Lo mismo es cierto para un servidor iSCSI.
 * Para la recuperación ante desastres de un servidor de archivos, recomendamos unir el dispositivo de destino al mismo dominio que el origen. Esta configuración garantiza que los permisos del recurso compartido se resuelvan automáticamente. Realice la conmutación por error a un dispositivo de destino solo en el mismo dominio.
 * Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos que tienen una capacidad igual o superior en comparación con el dispositivo de origen. Los dispositivos que están conectados al servicio, pero que no cumplen los criterios de espacio suficiente, no están disponibles como dispositivos de destino.
@@ -78,7 +78,7 @@ Antes de comenzar la recuperación ante desastres, el dispositivo realiza unas c
   
   * Nombres de ACR válidos.
   * IQN válido (que no supere 220 caracteres).
-  * Contraseñas CHAP válidas (entre&12; y&16; caracteres).
+  * Contraseñas CHAP válidas (entre 12 y 16 caracteres).
 
 Si se produce un error en cualquiera de las comprobaciones previas anteriores, no puede continuar con la recuperación ante desastres. Resuelva esos problemas y vuelva a intentar la recuperación ante desastres.
 
@@ -155,7 +155,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
     1. Haga clic en el dispositivo de StorSimple que se usó como dispositivo de destino para el proceso de conmutación por error.
     2. Vaya a **Configuración > administración > Recursos compartidos** (o **Volúmenes** si se trata de un servidor iSCSI). En la hoja **Recursos compartidos**, puede ver todos los recursos compartidos (o volúmenes) del dispositivo antiguo.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Ahora puede cambiar el nombre del dispositivo (igual que el dispositivo de origen anterior) para que los servidores de aplicaciones se puedan conectar directamente a este dispositivo. Si no desea cambiar el nombre del dispositivo, necesitará [crear un alias DNS](https://support.microsoft.com/kb/168322) para que todas las aplicaciones que están intentando conectarse se puedan redirigir al nuevo dispositivo.
+14. Tendrá que [crear un alias DNS](https://support.microsoft.com/kb/168322) para que todas las aplicaciones que están intentando conectarse se puedan redirigir al nuevo dispositivo.
 
 ## <a name="errors-during-dr"></a>Errores durante la recuperación ante desastres
 
