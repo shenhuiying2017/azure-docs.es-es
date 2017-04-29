@@ -12,8 +12,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 3. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:   
    ![SendGrid, paso 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

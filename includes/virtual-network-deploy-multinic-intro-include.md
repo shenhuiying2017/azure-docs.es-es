@@ -2,8 +2,3 @@ Puede crear máquinas virtuales (VM) en Azure y asociar varias interfaces de red
 
 Para poder implementar varias NIC en las máquinas virtuales, es necesario que comprenda cuándo puede usar varias NIC y cómo se utilizan. Lea la [Introducción para implementar varias NIC](../articles/virtual-network/virtual-networks-multiple-nics.md) y así obtener más información acerca de las máquinas virtuales con varias NIC.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

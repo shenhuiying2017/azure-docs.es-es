@@ -203,8 +203,3 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 ### <a name="is-there-tooling-support-for-vnets"></a>¿Hay compatibilidad con las herramientas para redes virtuales?
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

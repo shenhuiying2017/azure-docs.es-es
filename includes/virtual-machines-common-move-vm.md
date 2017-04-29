@@ -27,8 +27,3 @@ Puede mover una máquina virtual y sus recursos asociados a otro grupo de recurs
    
     ![Captura de pantalla de la hoja Mover recursos.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

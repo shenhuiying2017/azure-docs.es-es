@@ -2,8 +2,3 @@ Para crear y administrar un clúster de informática de alto rendimiento (HPC) b
 
 Para ver más opciones de ejecución de cargas de trabajo paralelas a gran escala, HPC y de lote en Azure, consulte los [recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes](../articles/batch/big-compute-resources.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

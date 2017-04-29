@@ -5,8 +5,3 @@
    1. Busque la **clave de registro del servicio**.
    2. Haga clic en el icono de copia ![](./media/storsimple-ova-get-service-registration-key/image6-include.png) para copiar la clave y guardarla para su uso posterior.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

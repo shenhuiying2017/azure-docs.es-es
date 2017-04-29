@@ -15,8 +15,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 4. Indique sus credenciales de Outlook e inicie sesión: ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
    Eso es todo. Acaba de crear una conexión a Outlook. Esta conexión estará disponible para su uso en cualquier otra aplicación lógica que cree.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

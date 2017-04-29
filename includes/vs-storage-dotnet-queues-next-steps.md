@@ -9,8 +9,3 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   * Para trabajar con los blobs de Almacenamiento de Azure, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
   * Para almacenar datos relacionales, consulte [Conexión a Base de datos SQL mediante .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

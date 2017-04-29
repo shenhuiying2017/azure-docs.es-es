@@ -9,8 +9,3 @@
 * [Configuración personalizada para entornos de Servicio de aplicaciones, incluida la configuración de cumplimiento de PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Hospedaje de aplicaciones de alta densidad con entornos del Servicio de aplicaciones](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

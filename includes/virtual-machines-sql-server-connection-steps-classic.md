@@ -21,8 +21,3 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 5. En el cuadro **Contraseña** , escriba la contraseña del inicio de sesión que creó en una tarea anterior.
 6. Haga clic en **Conectar**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

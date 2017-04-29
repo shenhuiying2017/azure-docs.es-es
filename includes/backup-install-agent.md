@@ -40,8 +40,3 @@ Después de crear el almacén de Copia de seguridad de Azure, se debe instalar u
     
     ![Configurar Copia de seguridad de Azure](./media/backup-install-agent/configure.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

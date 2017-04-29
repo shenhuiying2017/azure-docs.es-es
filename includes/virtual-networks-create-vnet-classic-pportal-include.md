@@ -26,8 +26,3 @@ Para crear una red virtual clásica basada en el escenario anterior, siga estos 
     
     ![Creación de una red virtual en el Portal de Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

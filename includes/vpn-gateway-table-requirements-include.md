@@ -9,8 +9,3 @@ La tabla siguiente enumera los requisitos para las puertas de enlace VPN basadas
 | **Número máximo de conexiones P2S** |No compatible |128 |128 |128 |
 | **Compatibilidad con enrutamiento activo (BGP)** |No compatible |No compatible |Compatible |Compatible |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,8 +14,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 4. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:   
    ![paso de creación de conexión de Office 365 Video](./media/connectors-create-api-office365video/office365video-4.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

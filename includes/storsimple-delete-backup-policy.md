@@ -8,8 +8,3 @@
 
 La página **Directivas de copia de seguridad** se actualizará para mostrar la nueva lista de directivas.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

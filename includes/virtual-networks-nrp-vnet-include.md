@@ -77,8 +77,3 @@ Red virtual de ejemplo en formato JSON:
 * Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) para obtener información sobre las Redes virtuales.
 * Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163618.aspx) para obtener información sobre las subredes.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

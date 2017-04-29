@@ -5,8 +5,3 @@ Análisis de Data Lake facilita la compleja tarea de administrar infraestructura
 | Número máximo de trabajos simultáneos |3 | |
 | Paralelismo máximo por cuenta |60 |Utilice cualquier combinación de hasta 60 unidades como máximo de paralelismo entre los tres trabajos. |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

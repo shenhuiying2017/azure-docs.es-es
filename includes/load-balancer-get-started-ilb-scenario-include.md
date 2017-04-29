@@ -9,8 +9,3 @@ Un equilibrador de carga interno está configurado en una red virtual
 * Dos máquinas virtuales denominadas DB1 y DB2
 * Puntos de conexión
 * Equilibrador de carga interno
-
-
-<!--HONumber=Nov16_HO2-->
-
-

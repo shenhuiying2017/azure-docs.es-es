@@ -5,8 +5,3 @@
 5. En **ASP.NET Core Templates** (Plantillas de ASP.NET Core), seleccione **Aplicación web** y pulse **Aceptar**.
 6. Anule la selección de **Host en la nube**. Usará Docker como solución de implementación.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

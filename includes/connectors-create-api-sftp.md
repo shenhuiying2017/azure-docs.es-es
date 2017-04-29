@@ -12,8 +12,3 @@ Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuen
 3. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:   
    ![Imagen 3 de conexión en línea de SFTP](./media/connectors-create-api-sftp/sftp-3.png) 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

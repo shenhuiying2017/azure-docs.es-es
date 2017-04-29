@@ -12,12 +12,7 @@
    
     ![Crear copia de seguridad2 manual](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 5. Una vez finalizado el trabajo de copia de seguridad, vaya a la pestaña **Catálogo de copia de seguridad** .
-6. Establezca las selecciones de filtro en el dispositivo, la directiva de copia de seguridad y el intervalo de tiempo adecuados. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png)  después de establecer los filtros.
+6. Establezca las selecciones de filtro en el dispositivo, la directiva de copia de seguridad y el intervalo de tiempo adecuados. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) después de establecer los filtros.
    
    La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

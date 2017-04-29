@@ -5,8 +5,3 @@
   * Solo puede utilizar las VPN de PolicyBase para las conexiones S2S (solo para determinadas configuraciones). La mayoría de las configuraciones de VPN Gateway requieren una VPN basada en enrutamientos.
 * **RouteBased:**las VPN basadas en enrutamiento se denominaban anteriormente puertas de enlace de enrutamiento dinámico en el modelo de implementación clásica. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo any-to-any (o caracteres comodín). El valor de un tipo de VPN basado en enrutamiento es *RouteBased*.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

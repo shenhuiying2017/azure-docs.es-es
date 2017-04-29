@@ -53,8 +53,3 @@ Al crear un **URI de SAS**, tenga en cuenta lo siguiente:
 * **Hora de expiración** . Asegúrese de que el acceso a los objetos de Almacenamiento de Azure no expirará durante el período activo de la canalización.
 * El URI debe crearse en el nivel correcto del contenedor/blob o la tabla, en función de la necesidad. Un URI de SAS de un blob de Azure permite que el servicio de la Factoría de datos tenga acceso a ese blob en particular. Un URI de SAS de un contenedor de blob de Azure permite que el servicio de la Factoría de datos procese una iteración en los blobs de ese contenedor. Si necesita proporcionar acceso a más o menos objetos más adelante, o actualizar el URI de SAS, no olvide actualizar el servicio vinculado con el nuevo URI.   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

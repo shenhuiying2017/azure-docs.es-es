@@ -122,8 +122,3 @@
        
         Compruebe que el puerto 9354 está abierto para la comunicación saliente, ya que lo usa el Bus de servicio para la comunicación de servicio al dispositivo de StorSimple Manager.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

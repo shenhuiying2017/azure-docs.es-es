@@ -5,8 +5,3 @@ Para ilustrar mejor cómo configurar una dirección IP estática para una VM, en
 
 En este escenario creará una VM denominada **DNS01** en la subred **FrontEnd** y la configurará para usar una dirección IP estática de **192.168.1.101**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -28,8 +28,3 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
 
 En este punto, debería poder escribir el nombre de dominio del Administrador de tráfico en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

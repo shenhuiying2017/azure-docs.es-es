@@ -8,8 +8,3 @@
 | Cantidad máxima de memoria que se asigna a un trabajo |400 MB |
 | Número máximo de sockets de red permitido por trabajo |1000 |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

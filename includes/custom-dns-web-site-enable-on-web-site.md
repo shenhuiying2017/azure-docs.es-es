@@ -20,8 +20,3 @@ Después de que los registros del nombre de dominio se hayan propagado, es preci
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -2,8 +2,3 @@ Los sondeos personalizados le permiten tener un control más específico sobre e
 
 Este artículo le ayuda a crear una puerta de enlace de aplicaciones con un sondeo personalizado o a agregar un sondeo personalizado a una puerta de enlace de aplicaciones existente. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

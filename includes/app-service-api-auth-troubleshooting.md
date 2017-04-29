@@ -19,8 +19,3 @@ La mayoría de las veces, los errores de autenticación proceden de opciones de 
 * Para una aplicación de API de .NET, inicie una [sesión de depuración remota](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) y examine los valores de las variables que se pasan al código que usa ADAL para adquirir un token de portador o al código que comprueba las reclamaciones dirigidas al identificador de entidad de servicio esperado. Tenga en cuenta que el código puede tomar valores de configuración de muchos orígenes diferentes, por lo que es posible encontrarse sorpresas como esta. Por ejemplo, si escribe `ida:ClientId` de forma incorrecta como `ida:ClientID` al configurar los valores de Azure App Service Environment, el código podría obtener el valor `ida:ClientId` que está buscando en el archivo Web.config y omitir la configuración de Azure App Service. 
 * Si los procesos no funcionan en una ventana normal de Internet Explorer, podría estar interfiriendo un inicio de sesión existente. Inténtelo con una sesión de exploración de InPrivate o pruébelo en Chrome o Firefox.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

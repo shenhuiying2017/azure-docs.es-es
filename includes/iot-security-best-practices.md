@@ -45,8 +45,3 @@ Las funcionalidades de los distintos dispositivos IoT varían. Algunos dispositi
 
 Puede que algunos dispositivos heredados y limitados no se hayan diseñado de forma específica para la implementación de IoT. Estos dispositivos pueden carecer de la funcionalidad para cifrar datos, conectarse a Internet o proporcionar auditoría avanzada. En estos casos, una puerta de enlace de campo moderna y segura puede agregar datos desde dispositivos heredados y proporcionar la seguridad necesaria para la conexión a Internet de estos dispositivos. Las puertas de enlace de campo proporcionan una autenticación segura, una negociación de sesiones cifradas, la recepción de comandos desde la nube y muchas otras características de seguridad.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

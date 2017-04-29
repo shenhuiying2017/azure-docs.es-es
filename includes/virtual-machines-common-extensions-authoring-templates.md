@@ -32,8 +32,3 @@ Como se puede ver en lo anterior, la plantilla de extensión contiene dos partes
 ## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Identificación de publisher, type y typeHandlerVersion para cualquier extensión.
 Tanto Microsoft como publicadores de terceros de confianza publican las extensiones de VM de Azure y cada extensión se identifica de forma exclusiva por publisher, type y typeHandlerVersion. Pueden determinarse de la manera siguiente:  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -115,8 +115,3 @@ Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantil
     data:    Tags:
     data:
     info:    group create command OK
-
-
-<!--HONumber=Nov16_HO3-->
-
-
