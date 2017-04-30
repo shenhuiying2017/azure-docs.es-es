@@ -14,7 +14,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 5. Escriba un **nombre** para identificar el servicio SendGrid en la configuración de Azure. Los nombres deben tener de 1 a 100 caracteres y contener únicamente caracteres alfanuméricos, guiones, puntos y caracteres de subrayado. El nombre debe ser único en la lista de elementos de la Tienda de Azure.
 6. Escriba y confirme la **contraseña**.
 7. Elija la **suscripción**.
-8. Cree un **grupo de recursos** o use uno existente.
+8. Cree un **grupo de recursos**  o use uno existente.
 9. En la sección **Plan de tarifa**, seleccione el plan de SendGrid en el que desea registrarse.
 
     ![sendgrid-pricing][sendgrid-pricing]
