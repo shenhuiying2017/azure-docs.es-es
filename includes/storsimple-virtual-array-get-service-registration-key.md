@@ -5,7 +5,3 @@
 2.  En ella, haga clic en **Administrar &gt;** **claves**.
 
 3.  Haga clic en el icono de copia para copiar la clave de registro del servicio y guardarla para usarla más adelante.
-
-<!--HONumber=Nov16_HO4-->
-
-

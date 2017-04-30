@@ -9,8 +9,3 @@ En este paso, crearás una regla de firewall para abrir el puerto de sondeo para
 7. En la página **Nombre**, especifique un nombre de regla, como **Always On Listener Probe Port** (Puerto de sondeo de escucha Always On), en el cuadro de texto **Nombre** y haga clic en **Finalizar**.
 8. Repita los pasos anteriores para el puerto de escucha del grupo de disponibilidad (como se especificó anteriormente en el parámetro $EndpointPort del script) y especifique un nombre de regla adecuado, como **Puerto de escucha Always On**.
 
-
-
-<!--HONumber=Nov16_HO5-->
-
-

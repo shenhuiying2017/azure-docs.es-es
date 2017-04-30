@@ -38,8 +38,3 @@ El siguiente ejemplo muestra cómo usar el Explorador de almacenamiento de Micro
 
 Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
