@@ -17,6 +17,7 @@ ms.author: mthalman;mikhegn
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -130,10 +131,5 @@ Para obtener más información sobre la integración continua con las aplicacion
 * [Página de inicio de la documentación de Team Services](https://www.visualstudio.com/docs/overview)
 * [Administración de compilaciones en Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Administración de versiones en Team Services](https://www.visualstudio.com/docs/release/overview)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,10 +17,11 @@ ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure
+# <a name="intro"></a> Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure
 Un servicio en la nube puede integrarse con CDN de Azure, sirviendo cualquier contenido desde la ubicación del servicio en la nube. Este enfoque le ofrece las siguientes ventajas:
 
 * Fácil implementación y actualización de imágenes, scripts y hojas de estilo en los directorios de proyecto del servicio en la nube
@@ -157,7 +158,7 @@ Puede acceder de forma parecida a cualquier dirección URL de acceso público en
 * Cualquier controlador/acción
 * Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 
-De hecho, con la configuración anterior, es posible hospedar todo el servicio en la nube desde **http://*&lt;nombrecdn>*.vo.msecnd.net/**. Si se navega a **http://camservice.azureedge.net/**, el resultado de la acción se obtiene de Home/Index.
+De hecho, con la configuración anterior, es posible hospedar todo el servicio en la nube desde **http://*&lt;nombrecdn>*.vo.msecnd.net/**. Si se navega a**http://camservice.azureedge.net/**, el resultado de la acción se obtiene de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -600,9 +601,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
