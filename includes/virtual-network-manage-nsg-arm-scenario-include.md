@@ -16,8 +16,3 @@ La combinación de estas reglas crea un escenario similar a DMZ, donde la subred
 
 Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal. En las siguientes instrucciones de ejemplo, la plantilla se ha usado para implementar los nombres de grupo de recursos **RG GSN**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -19,8 +19,3 @@ Autorice a la aplicación lógica a conectarse a su cuenta de OneDrive con los p
 5. Observe que la conexión se ha creado en el portal. Ahora, continúe con el resto de los pasos en la aplicación lógica:  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -2,8 +2,3 @@ Puede crear máquinas virtuales (VM) en Azure y exponerlas a la Internet públic
 
 Para poder implementar direcciones IP públicas estáticas en máquinas virtuales, es necesario comprender cuándo puede usar direcciones IP públicas estáticas y cómo se usan. Consulte [Información general sobre el direccionamiento IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) para obtener más información sobre el direccionamiento IP en Azure.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

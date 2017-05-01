@@ -16,8 +16,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 5. Observe que la conexión se ha creado en el portal. Ya puede continuar para crear la aplicación lógica y usar GitHub en ella:   
    ![](./media/connectors-create-api-github/github-5.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

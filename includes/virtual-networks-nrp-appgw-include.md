@@ -219,8 +219,3 @@ Ejemplo de una plantilla de Json de una puerta de enlace de aplicaciones:
 ### <a name="additional-resources"></a>Recursos adicionales
 Lea [ API de REST de la puerta de enlace de aplicaciones](https://msdn.microsoft.com/library/azure/mt299388.aspx) para obtener más información.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

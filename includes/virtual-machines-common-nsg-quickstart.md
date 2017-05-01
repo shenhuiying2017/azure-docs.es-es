@@ -11,8 +11,3 @@ Vamos a usar un ejemplo común de tráfico web en el puerto 80. Una vez que teng
 
 Puede crear configuraciones de red complejas para proteger su entorno mediante reglas y grupos de seguridad de red. Nuestro ejemplo solo utiliza una o dos reglas que permiten el tráfico HTTP o la administración remota. Para más información, consulte la sección [Más información acerca de los grupos de seguridad de red](#more-information-on-network-security-groups) o el artículo [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

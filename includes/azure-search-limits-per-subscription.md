@@ -15,8 +15,3 @@ El límite máximo de servicios se puede elevar a petición. Si necesita tener m
 
 <sup>4</sup> Básico tiene una partición fija. En este nivel, se utilizan SU adicionales para asignar más réplicas a más cargas de trabajo de consulta.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

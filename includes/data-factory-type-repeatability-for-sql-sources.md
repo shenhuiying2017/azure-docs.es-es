@@ -83,8 +83,3 @@ Factoría de datos de Azure rellenará esta columna según sus necesidades para 
 
 De manera similar al mecanismo 1, la actividad de copia limpiará primero automáticamente los datos para el segmento especificado del tabla SQL de destino y después ejecutará la actividad de copia normalmente para insertar los datos del origen al destino para dicho segmento. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

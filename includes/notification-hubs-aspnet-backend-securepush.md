@@ -80,8 +80,3 @@ Tenga en cuenta que el método `Post` ahora no envía una notificación del sist
 1. Ahora implementaremos de nuevo esta aplicación en un sitio web de Azure a fin de que sea accesible para todos los dispositivos. Haga clic con el botón derecho en el proyecto **AppBackend** y, a continuación, seleccione **Publicar**.
 2. Seleccione Sitio web Azure como destino de publicación. Inicie sesión con su cuenta de Azure, seleccione un sitio web nuevo o existente y anote la propiedad **Dirección URL de destino** en la pestaña **Conexión**. Más tarde en este tutorial haremos referencia a esta dirección URL como *extremo de backend* . Haga clic en **Publicar**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

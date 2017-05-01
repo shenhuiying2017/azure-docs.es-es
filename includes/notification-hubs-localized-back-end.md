@@ -71,8 +71,3 @@ En el programador de servicios móviles, puede usar el siguiente script:
     });
 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

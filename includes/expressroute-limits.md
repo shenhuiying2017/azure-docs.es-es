@@ -25,8 +25,3 @@ Los l√≠mites siguientes se aplican a los recursos de ExpressRoute por suscripci√
 | 5 Gbps |10 |75 |
 | 10 Gbps |10 |100 |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

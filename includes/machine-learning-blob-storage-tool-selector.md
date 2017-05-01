@@ -13,8 +13,3 @@ Este menú vincula a tecnologías que puede usar para mover datos hacia Azure Bl
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

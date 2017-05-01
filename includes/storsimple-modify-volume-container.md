@@ -17,8 +17,3 @@
        ![Modificación de un contenedor de volúmenes con la plantilla de ancho de banda 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
    3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) para guardar la configuración actualizada. La página **Contenedores de volúmenes** se actualizará para reflejar los cambios.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -24,8 +24,3 @@ Si desea conectarse a SQL Server a través de Internet, debe configurar una regl
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

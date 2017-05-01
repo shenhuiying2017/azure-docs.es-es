@@ -3,8 +3,3 @@ Este documento le guiará a través de una implementación que usa varias NIC en
 
 ![Escenario de MultiNIC](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

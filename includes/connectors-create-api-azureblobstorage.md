@@ -26,8 +26,3 @@ Para conectarse a la cuenta de Almacenamiento de blobs de Azure, siga estos paso
    
     ![paso de creación de la conexión de Almacenamiento de blobs de Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -11,15 +11,10 @@
    2. Seleccione el tipo de copia de seguridad de instantánea local o en la nube.
    3. Especifique la frecuencia de copia de seguridad, la retención y la hora de inicio de la programación.
    4. Habilite o deshabilite la programación.
-   5. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png)  para guardar los cambios de la programación.
+   5. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) para guardar los cambios de la programación.
 5. En la sección **Volúmenes** , agregue o quite los volúmenes de esta directiva.
 6. Guarde los cambios de esta directiva.
 7. Se le pedirá confirmación. Haga clic en **Aceptar** para guardar la directiva.
 
 La página **Directivas de copia de seguridad** se actualizará para guardar los cambios en la directiva.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -8,8 +8,3 @@ Este artículo trata sobre el Servicio de aplicaciones de Azure (aplicaciones we
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

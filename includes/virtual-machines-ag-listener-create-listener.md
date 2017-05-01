@@ -20,8 +20,3 @@ En este paso, creas manualmente el agente de escucha del grupo de disponibilidad
    > 
 9. En la misma ventana de propiedades de la **Dirección IP**, cambia el valor de **Nombre de dirección IP**. Este nombre de dirección IP se utilizará en la variable **$IPResourceName** del script de PowerShell. Repite este paso en cada recurso de IP si tu solución abarca varias redes virtuales de Azure.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

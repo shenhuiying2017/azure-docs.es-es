@@ -14,8 +14,3 @@
         ![Agregar cuenta de almacenamiento](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 4. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

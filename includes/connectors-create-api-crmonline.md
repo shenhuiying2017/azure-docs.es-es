@@ -16,8 +16,3 @@ Autorice a la aplicación lógica a conectarse a su cuenta de CRM Online con los
 4. Observe que la conexión se ha creado en el portal. Ahora, continúe con el resto de los pasos en la aplicación lógica:  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

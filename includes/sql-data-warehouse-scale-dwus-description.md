@@ -14,8 +14,3 @@ Puede aumentar o reducir el proceso ajustando Unidades de almacenamiento de dato
 
 Para obtener una lista de los valores de DWU actuales, consulte el objetivo de nivel de servicio en [Service capacity limits](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)(Límites de capacidad de servicio).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
