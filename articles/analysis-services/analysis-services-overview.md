@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2760705d189a1b557625bcb4868ba2a429026bb5
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d1cb0751633f1a190d8ecfe1888ab6cdd8736480
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -33,10 +33,6 @@ Vea este vídeo para obtener más información sobre cómo Azure Analysis Servic
 >
 >
 
-> [!IMPORTANT]
-> Azure Analysis Services está en **versión preliminar**. Hay algunas cosas que aún no funcionan. Asegúrese de consultar [Expectativas de la versión preliminar](#preview-expectations) más adelante en este artículo. Y no olvide mirar nuestro [blog de Azure Analysis Services](https://go.microsoft.com/fwlink/?linkid=830920) para obtener la información más reciente.
-> 
-> 
 
 ## <a name="built-on-sql-server-analysis-services"></a>Basado en SQL Server Analysis Services
 Azure Analysis Services es compatible con la misma edición SQL Server 2016 Analysis Services Enterprise Edition que ya conoce. Azure Analysis Services admite modelos tabulares en el nivel de compatibilidad 1200. Se admiten todas las traducciones, particiones, seguridad de nivel de fila, relaciones bidireccionales y DirectQuery.
@@ -91,31 +87,6 @@ Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la co
 ¿Tiene sugerencias o solicitudes de características? No olvide dejar sus comentarios en la página de [comentarios de Azure Analysis Services](https://aka.ms/azureanalysisservicesfeedback).
 
 ¿Tiene sugerencias sobre la documentación? Puede agregar comentarios mediante Disqus en la parte inferior de cada artículo.
-
-## <a name="preview-expectations"></a>Expectativas de la versión preliminar
-Actualmente, Azure Analysis Services está en versión preliminar. Hay algunas cosas que debe tener en cuenta.
-
-##### <a name="server-modes"></a>Modos de servidor
-Azure Analysis Services admite el modo tabular para modelos tabulares en el nivel de compatibilidad 1200. No se admiten el modo multidimensional y minería de datos, ni Power Pivot for SharePoint.
-
-##### <a name="data-sources"></a>Orígenes de datos
-En la versión preliminar, se admiten los siguientes orígenes de datos en los modelos tabulares 1200 implementados en un servidor de Azure Analysis Services.
-
-| **Nube** | **Local (requiere una puerta de enlace de datos)** |
-| --- | --- |
-| Base de datos SQL |SQL Server |
-| Almacenamiento de datos SQL |APS |
-| Oracle | Oracle |
-| Teradata | |
-
-### <a name="data-source-providers"></a>Proveedores de orígenes de datos
-Para conectarse a los orígenes de datos, los modelos de datos de Azure Analysis Services podrían requerir distintos proveedores de datos que los modelos de datos de SQL Server Analysis Services. Los requisitos de proveedores de datos dependen de si el origen de datos está en la nube o es local, y del tipo de modelo de datos (en memoria o DirectQuery). Para más información, consulte [Datasource connections](analysis-services-datasource.md) (Conexiones de orígenes de datos).
-
-### <a name="client-connections"></a>Conexiones de cliente
-
-Las aplicaciones cliente requieren las [bibliotecas de cliente](analysis-services-data-providers.md) más recientes para conectarse a Azure Analysis Services.
-
-No se admiten libros de Excel con conexiones dinámicas con un servidor de Azure Analysis Services y guardado en OneDrive o SharePoint Online.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe más acerca de Azure Analysis Services, es momento de empezar a trabajar. Obtenga información acerca de cómo [crear un servidor](analysis-services-create-server.md) en Azure y cómo [implementar un modelo tabular](analysis-services-deploy.md) en él.

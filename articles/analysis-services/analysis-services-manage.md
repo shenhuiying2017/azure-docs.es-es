@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 684b7a439b20a5cee0e7ce76167ce25903df3b50
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9a298a5869d449c974267483eb779f45bc6b7abc
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,12 +40,6 @@ Para obtener las últimas características y la experiencia más completa al con
 
 [Descargue SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-En la página de descarga, tiene dos opciones:
- 
-* Versión candidata para lanzamiento: solo se recomienda cuando se conecta a la versión preliminar de Azure Analysis Services. Esta versión obtiene las actualizaciones más recientes y funciona mejor con la versión preliminar de Azure Analysis Services.
-* Versión de producción actual: se recomienda su utilización al conectarse a los servidores de producción así como a la versión preliminar de Azure Analysis Services. Al usar esta versión, debe seleccionar **Autenticación de Windows** al conectarse.
-
-Puede instalar ambas versiones en el mismo equipo, en paralelo.
 
 ### <a name="to-connect-with-ssms"></a>Para conectarse con SSMS
  Si se usa SSMS, antes de conectarse al servidor por primera vez, asegúrese de que su nombre de usuario se incluye en el grupo de administradores de Analysis Services. Para más información, consulte la sección[Administradores de servidor](#server-administrators) en este mismo artículo.
