@@ -14,7 +14,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
 En las siguientes secciones, se proporcionan instrucciones detalladas de cada uno de estos pasos. 
 
-#### <a name="a-namegetnetaget-the-name-of-the-cluster-network-resource"></a><a name="getnet"></a>Obtener el nombre del recurso de red del clúster
+#### <a name="getnet"></a>Obtener el nombre del recurso de red del clúster
 
 1. Use RDP para conectarse a la máquina virtual de Azure que hospeda la réplica principal. 
 
@@ -26,7 +26,7 @@ En las siguientes secciones, se proporcionan instrucciones detalladas de cada un
 
    ![Nombre de red del clúster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-#### <a name="a-nameaddcapaadd-the-client-access-point"></a><a name="addcap"></a>Agregar el punto de acceso cliente
+#### <a name="addcap"></a>Agregar el punto de acceso cliente
 
 El punto de acceso cliente es el nombre de red que las aplicaciones utilizan para conectarse a las bases de datos en un grupo de disponibilidad. Cree el punto de acceso cliente en el Administrador de clústeres de conmutación por error. 
 
@@ -42,7 +42,7 @@ El punto de acceso cliente es el nombre de red que las aplicaciones utilizan par
    
    Para terminar de crear el agente de escucha, haga clic en **Siguiente** dos veces y, a continuación, en **Finalizar**. No pongas el agente de escucha o el recurso en línea en este momento.
    
-#### <a name="a-namecongroupaconfigure-the-ip-resource-for-the-availability-group"></a><a name="congroup"></a>Configurar el recurso IP para el grupo de disponibilidad
+#### <a name="congroup"></a>Configurar el recurso IP para el grupo de disponibilidad
 
 1. Haga clic en la pestaña **Recursos** y expanda el punto de acceso cliente que acaba de crear. El punto de acceso cliente está desconectado.
 
@@ -58,7 +58,7 @@ El punto de acceso cliente es el nombre de red que las aplicaciones utilizan par
 1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 ------------------------->
 
-#### <a name="a-name--dependencygroupamake-the-sql-server-availability-group-resource-dependent-on-the-client-access-point"></a><a name = "dependencyGroup"></a>Hacer que el recurso del grupo de disponibilidad de SQL Server dependa del punto de acceso cliente
+#### <a name = "dependencyGroup"></a>Hacer que el recurso del grupo de disponibilidad de SQL Server dependa del punto de acceso cliente
 
 1. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y en el grupo de disponibilidad.
 
@@ -70,7 +70,7 @@ El punto de acceso cliente es el nombre de red que las aplicaciones utilizan par
 
 1. Haga clic en **Aceptar**.
 
-#### <a name="a-namelistnameamake-the-client-access-point-resource-dependent-on-the-ip-address"></a><a name="listname"></a>Hacer que el recurso de punto de acceso cliente dependa de la dirección IP
+#### <a name="listname"></a>Hacer que el recurso de punto de acceso cliente dependa de la dirección IP
 
 1. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y en el grupo de disponibilidad. 
 
@@ -84,7 +84,7 @@ El punto de acceso cliente es el nombre de red que las aplicaciones utilizan par
 
 1. Haz clic en el nombre del agente de escucha y luego haz clic en **Poner en línea**. 
 
-#### <a name="a-namesetparamaset-the-cluster-parameters-in-powershell"></a><a name="setparam"></a>Establecer los parámetros de clúster en PowerShell
+#### <a name="setparam"></a>Establecer los parámetros de clúster en PowerShell
 
 1. Copie el siguiente script de PowerShell en uno de los servidores SQL Server. Actualice las variables para su entorno.     
    ```PowerShell
@@ -102,10 +102,5 @@ El punto de acceso cliente es el nombre de red que las aplicaciones utilizan par
 
 > [!NOTE]
 > Si los servidores SQL Server se encuentran en distintas regiones, debe ejecutar el script de PowerShell dos veces. La primera vez, utilice `$ILBIP` y `$ProbePort` en la primera región. La segunda vez, utilice `$ILBIP` y `$ProbePort` en la segunda región. El nombre de red del clúster y el nombre del recurso IP del clúster son iguales. 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

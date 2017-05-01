@@ -2,7 +2,7 @@ En esta sección, se actualiza el código del proyecto de back-end de Mobile App
 
 Elija uno de los procedimientos siguientes que se ajuste al tipo de proyecto de back-end&mdash;: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Proyecto de back-end de .NET
+### <a name="dotnet"></a>Proyecto de back-end de .NET
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes NuGet**. Busque `Microsoft.Azure.NotificationHubs` y, después, haga clic en **Instalar**. Se instala la biblioteca de Notification Hubs para enviar notificaciones desde el back-end.
 2. En el proyecto de servidor, abra **Controladores** > **TodoItemController.cs** y agregue las siguientes instrucciones using:
 
@@ -48,7 +48,7 @@ Elija uno de los procedimientos siguientes que se ajuste al tipo de proyecto de 
     Esta acción envía una notificación de plantilla que contiene el archivo item.text cuando se inserta un nuevo elemento.
 4. Vuelva a publicar el proyecto de servidor.
 
-### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Proyecto de back-end de Node.js
+### <a name="nodejs"></a>Proyecto de back-end de Node.js
 1. Si no lo ha hecho todavía, [descargue el proyecto de back-end de inicio rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o use el [editor en línea de Azure Portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
 
@@ -93,8 +93,3 @@ Elija uno de los procedimientos siguientes que se ajuste al tipo de proyecto de 
 
     Esta acción envía una notificación de plantilla que contiene el archivo item.text cuando se inserta un nuevo elemento.
 3. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -86,8 +86,3 @@ Puede ver las etiquetas existentes en su suscripción con el siguiente comando:
 ```azurecli
 azure tag list
 ```
-
-
-<!--HONumber=Jan17_HO2-->
-
-

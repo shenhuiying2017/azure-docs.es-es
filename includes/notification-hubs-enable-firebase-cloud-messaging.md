@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Haga clic en la pestaña **Cloud Messaging** (Mensajería de nube) en la configuración del proyecto y copie el valor de **Server key** (Clave del servidor) y **Sender ID** (Identificador del remitente). Estos valores se usarán más adelante para configurar la directiva de acceso del centro de notificaciones y el controlador de notificaciones en la aplicación.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

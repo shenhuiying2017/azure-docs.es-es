@@ -82,8 +82,3 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
             }
         }
 6. Cree la aplicación y pruebe la autenticación mediante una cuenta válida. Ejecútela al menos dos veces. Durante la primera ejecución, debe recibir un mensaje para iniciar sesión y crear la memoria caché del token. Después de eso, cada ejecución intenta cargar la caché de tokens para la autenticación. No es necesario para iniciar sesión.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

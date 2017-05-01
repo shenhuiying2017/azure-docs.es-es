@@ -5,8 +5,3 @@
     ![Establecimiento de la clave de WNS en el portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
 El back-end ahora está configurado para usar WNS para enviar notificaciones push.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

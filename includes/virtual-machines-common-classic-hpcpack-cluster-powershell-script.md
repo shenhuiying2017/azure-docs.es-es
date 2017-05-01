@@ -55,8 +55,3 @@ En el ejemplo siguiente se crea un clúster de HPC Pack mediante el archivo de c
 ## <a name="configuration-file"></a>Archivo de configuración
 El archivo de configuración para el script de implementación es un archivo XML. El archivo de esquema HPCIaaSClusterConfig.xsd está en la carpeta de scripts de implementación de HPC Pack IaaS. **IaaSClusterConfig** es el elemento raíz del archivo de configuración que contiene los elementos secundarios descritos en detalle en el archivo Manual.rtf de la carpeta de scripts de implementación.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

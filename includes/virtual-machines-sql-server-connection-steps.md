@@ -35,7 +35,7 @@ Abra puertos adicionales para otros componentes cada vez que sea necesario. Para
 3. En el panel de la consola, haga clic en **Protocolos para MSSQLSERVER** (el nombre de instancia predeterminado). En el panel de detalles, haga clic con el botón derecho en **TCP** y, después, haga clic en **Habilitar** si no está habilitado aún.
    
     ![Habilitar TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón secundario en **SQL Server (*nombre de la instancia*)** (la instancia predeterminada es **SQL Server (MSSQLSERVER)**) y, a continuación, haga clic en **Reiniciar** para detener y reiniciar la instancia de SQL Server.
+4. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón secundario en **SQL Server (*nombre de la instancia*) **(la instancia predeterminada es** SQL Server (MSSQLSERVER)**) y, a continuación, haga clic en** Reiniciar** para detener y reiniciar la instancia de SQL Server.
    
     ![Reiniciar el motor de base de datos](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Cierre el Administrador de configuración de SQL Server.
@@ -93,9 +93,4 @@ Para conectarse al motor de base de datos desde otro equipo, debe crear al menos
 9. Haga clic en Aceptar.
 
 Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

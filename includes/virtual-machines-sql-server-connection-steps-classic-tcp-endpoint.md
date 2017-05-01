@@ -17,8 +17,3 @@ Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener u
 7. En **Puerto privado**, especifique el puerto de escucha de SQL Server, cuyo valor predeterminado es **1433**.
 8. Haga clic en **Aceptar** para crear el punto de conexión.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
