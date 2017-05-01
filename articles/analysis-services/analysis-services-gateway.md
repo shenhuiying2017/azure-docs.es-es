@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -129,6 +129,25 @@ Internamente, la puerta de enlace de datos local usada para conectar Azure Analy
 Si tiene problemas al instalar y configurar una puerta de enlace, no deje de consultar [Solución de problemas con la puerta de enlace de datos local](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Si cree que existe algún problema con el firewall, consulte las secciones relativas a firewall o proxy.
 
 Si cree que existen problemas relacionados con el proxy o con la puerta de enlace, consulte [Configuración de proxy para la puerta de enlace de datos local](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+
+### <a name="telemetry"></a>Telemetría
+La telemetría puede usarse para tareas de supervisión y solución de problemas. 
+
+**Para activar la telemetría:**
+
+1.    Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, su %systemdrive%\Program Files\puerta de enlace de datos local. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: una propiedad del servicio de puerta de enlace de datos local.
+2.    En el archivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config del directorio del cliente, cambie el valor SendTelemetry a true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    Guarde los cambios y reinicie el servicio de Windows: el servicio de puerta de enlace de datos local.
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de Analysis Services](analysis-services-manage.md)

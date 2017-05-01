@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: a07051ea0be58cafcf1a7d7ae800b44e7abd05cd
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Más información sobre la administración de contraseñas
 > [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -105,7 +105,7 @@ Si un usuario federado o con sincronización de hash de contraseña cambia o res
 6. Una vez que el mensaje llega al bus de servicio, el extremo de restablecimiento de contraseña se activa automáticamente y observa que tiene una solicitud de restablecimiento pendiente.
 7. A continuación, el servicio busca al usuario correspondiente mediante el atributo delimitador de la nube.  Para que esta búsqueda se realice correctamente, el objeto de usuario debe existir en el espacio del conector AD, debe estar vinculado al objeto MV correspondiente y se debe vincular al objeto de conector de AAD correspondiente. Por último, para que la sincronización encuentre esta cuenta de usuario, el vínculo del objeto de conector de AD al objeto MV debe tener la regla de sincronización `Microsoft.InfromADUserAccountEnabled.xxx` en el vínculo.  Esto es necesario porque cuando se recibe la llamada de la nube, el motor de sincronización utiliza el atributo cloudAnchor para buscar el objeto del espacio del conector de AAD; posteriormente, sigue el vínculo al objeto MV y, a continuación, sigue el vínculo al objeto de AD. Dado que podría haber varios objetos de AD (bosque múltiple) para el mismo usuario, el motor de sincronización se basa en el `Microsoft.InfromADUserAccountEnabled.xxx` vínculo para seleccionar el correcto. Tenga en cuenta que, como resultado de esta lógica, debe conectar Azure AD Connect al controlador de dominio principal para que funcione la escritura diferida de contraseñas.  Si es necesario hacer esto, puede configurar Azure AD Connect para usar un emulador de controlador de dominio principal haciendo clic con el botón derecho en las **propiedades** del conector de sincronización de Active Directory; luego, seleccione **configure directory partitions** (Configurar particiones del directorio). Desde allí, busque la sección de **configuración de conexión de controlador de dominio** y active la casilla titulada **only use preferred domain controllers** (Solo utilizar los controladores de dominio preferidos). Nota: si el controlador de dominio preferido no es un emulador PDC, Azure AD Connect se seguirá conectando a los PDC para realizar la escritura diferida de contraseñas.
 8. Una vez que se encuentra la cuenta de usuario, se intenta restablecer la contraseña directamente en el bosque de AD correspondiente.
-9. Si la operación de establecimiento de la contraseña se realiza correctamente, notificamos al usuario que la contraseña se ha modificado y que puede continuar con su trabajo.
+9. Si la operación de establecimiento de la contraseña se realiza correctamente, notificamos al usuario que la contraseña se ha modificado y que puede continuar con su trabajo. Si la contraseña del usuario se sincroniza con Azure AD mediante la sincronización de contraseñas, existe la posibilidad de que la directiva de contraseñas local sea menos segura que la directiva de contraseñas en la nube. En este caso, seguimos recomendando que, sea cual sea la directiva local, se permita que la sincronización de hash de contraseña sincronice el hash de dicha contraseña. Esto garantiza que la directiva local se aplica en la nube, sin importar si utiliza la sincronización de contraseñas o la federación para proporcionar el inicio de sesión único.
 10. Si se produce un error en la operación de establecimiento de la contraseña, se devolverá el error al usuario y se le permitirá que vuelva a intentarlo.  La operación puede producir un error porque el servicio no estaba disponible, la contraseña seleccionada no cumplía las directivas de la organización, no se encontraba el usuario en el entorno local de AD o por otros motivos.  Disponemos de un mensaje específico para muchos de estos casos, a fin de indicar al usuario qué puede hacer para resolver el problema.
 
 ## <a name="scenarios-supported-for-password-writeback"></a>Escenarios admitidos para la escritura diferida de contraseñas
@@ -629,7 +629,7 @@ Para probar cualquiera de estos casos, vaya a http://passwordreset.microsoftonli
 ## <a name="next-steps"></a>Pasos siguientes
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización

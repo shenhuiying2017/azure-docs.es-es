@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
-ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11b9f52801e9a62b9c52f0f622fdcae761cc122a
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ Live Metrics Stream muestra las métricas de [Application Insights](app-insights
 
 A diferencia del [Explorador de métricas](app-insights-metrics-explorer.md), Live Metrics Stream muestra un conjunto fijo de métricas. Los datos se conservan solo mientras se encuentran en el gráfico, y luego se descartan.
 
-Los datos de Live Metrics Stream son gratuitos: no se agregarán a la facturación.
+Los datos de Live Metrics Stream son gratuitos: no se agregarán a la facturación. Están disponible para aplicaciones ASP.NET y Java.
 
 ![Vídeo de Live Metrics Stream](./media/app-insights-live-stream/youtube.png) [Vídeo de Live Metrics Stream](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
@@ -57,7 +57,7 @@ Si quiere supervisar una instancia de rol de servidor en particular, puede filtr
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Supervisión del uso con Application Insights](app-insights-overview-usage.md)
+* [Supervisión del uso con Application Insights](app-insights-web-track-usage.md)
 * [Uso de la Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 
 

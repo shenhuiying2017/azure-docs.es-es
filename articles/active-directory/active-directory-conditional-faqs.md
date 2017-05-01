@@ -11,31 +11,44 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: dee29df176389f39907d302cedc6143c0d3e3322
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-active-directory-conditional-access-faq"></a>Preguntas más frecuentes acerca del acceso condicional de Azure Active Directory
+
 ## <a name="which-applications-work-with-conditional-access-policies"></a>¿Qué aplicaciones funcionan con directivas de acceso condicional?
-**R:** consulte el tema [Compatibilidad con el acceso condicional de las aplicaciones](active-directory-conditional-access-supported-apps.md).
+
+**A:** Consulte [Aplicaciones y navegadores que usan reglas de acceso condicional en Azure Active Directory](active-directory-conditional-access-supported-apps.md).
+
+---
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>¿Se aplican directivas de acceso condicional a usuarios de colaboración B2B o invitados?
-**R:** se exigen las directivas a usuarios de la colaboración B2B. Sin embargo, en algunos casos, puede que un usuario no sea capaz de cumplir los requisitos de la directiva si, por ejemplo, una organización no admite la autenticación multifactor. 
+**R:** se exigen las directivas a usuarios de la colaboración B2B. Sin embargo, en algunos casos, puede que un usuario no sea capaz de cumplir los requisitos de la directiva si, por ejemplo, una organización no admite la autenticación multifactor. Actualmente, la directiva no se exige a los usuarios invitados de SharePoint. La relación de invitado se mantiene dentro de SharePoint. Las cuentas de usuarios invitados no están sujetas a las directivas de acceso del servidor de autenticación. El acceso de invitado se puede administrar en SharePoint.
 
-Actualmente, la directiva no se exige a los usuarios invitados de SharePoint. La relación de invitado se mantiene dentro de SharePoint. Las cuentas de usuarios invitados no están sujetas a las directivas de acceso del servidor de autenticación. El acceso de invitado se puede administrar en SharePoint.
+---
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>¿Se aplica la directiva de SharePoint Online también a OneDrive para la Empresa?
 **R:** Sí.
 
+---
+
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>¿Por qué no se puede establecer una directiva en las aplicaciones cliente, como Word o Outlook?
 **R:** una directiva de acceso condicional establece los requisitos de acceso a un servicio y se exige cuando se realiza la autenticación en dicho servicio. La directiva no se establece directamente en una aplicación cliente, sino que se aplica cuando llama a un servicio. Por ejemplo, una directiva establecida en SharePoint se aplicará a los clientes que llamen a SharePoint, mientras que una directiva establecida en Exchange se aplicará a Outlook.
+
+--- 
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>¿Se aplica una directiva de acceso condicional a las cuentas de servicio?
 **R:** las directivas de acceso condicional se aplican a todas las cuentas de servicio. Aquí se incluyen las cuentas de usuario que se utilizan como cuentas de servicio. En muchos casos, una cuenta de servicio que se ejecuta en modo desatendido no puede satisfacer una directiva. Por ejemplo, esto sucede cuando se requiere MFA. En estos casos, las cuentas de los servicios se pueden excluir de una directiva, para lo que se usa la configuración de administración de directivas de acceso condicional. Aquí encontrará más información acerca de cómo aplicar una directiva a los usuarios.
 
+---
 
+## <a name="are-graph-apis-available-to-configure-configure-conditional-access-policies"></a>¿Están disponibles instancias de API Graph para configurar directivas de acceso condicional?
+**A:** Todavía no. 
+
+---

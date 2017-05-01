@@ -5,18 +5,18 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: d92e3edb-31aa-4d21-9bf8-6e5917d7bf5f
+ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 6844a46978618d5dc3292168bbcc228480311d47
-ms.openlocfilehash: e84a3aeb9e7a8cddccb293ab2bb9d7fdc5fa82b4
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8a7481b71df5ca407dbed5da3d3cc26991504c82
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -28,9 +28,9 @@ La integración de MaxxPoint con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a MaxxPoint
 - Puede permitir que los usuarios inicien sesión automáticamente en MaxxPoint (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede administrar sus cuentas en una ubicación central: el nuevo portal de Azure.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,16 +39,13 @@ Para configurar la integración de Azure AD con MaxxPoint, necesita los siguient
 - Una suscripción de Azure AD
 - Una suscripción habilitada para el inicio de sesión único en MaxxPoint
 
-
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No debe usar el entorno de producción, a menos que sea necesario.
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
@@ -62,7 +59,7 @@ Para configurar la integración de MaxxPoint en Azure AD, es preciso agregar Max
 
 **Para agregar MaxxPoint desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -70,7 +67,7 @@ Para configurar la integración de MaxxPoint en Azure AD, es preciso agregar Max
 
     ![Aplicaciones][2]
     
-3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+3. Haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo para agregar la nueva aplicación.
 
     ![Aplicaciones][3]
 
@@ -81,7 +78,6 @@ Para configurar la integración de MaxxPoint en Azure AD, es preciso agregar Max
 5. En el panel de resultados, seleccione **MaxxPoint** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_0001.png)
-
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, configurará y probará el inicio de sesión único de Azure AD con MaxxPoint con un usuario de prueba llamado "Britta Simon".
@@ -100,15 +96,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con MaxxPoint, 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación MaxxPoint.
+En esta sección, habilitará el inicio de sesión único de Azure AD en el portal de Azure y configurará el inicio de sesión único en la aplicación MaxxPoint.
 
 **Para configurar el inicio de sesión único de Azure AD con MaxxPoint, realice los pasos siguientes:**
 
-1. En el Portal de administración de Azure, en la página de integración de la aplicación **MaxxPoint**, haga clic en **Inicio de sesión único**.
+1. En el portal de Azure, en la página de integración de la aplicación **MaxxPoint**, haga clic en **Inicio de sesión único**.
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_300.png)
 
@@ -125,39 +121,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`.
 
     > [!NOTE] 
-    > Tenga en cuenta que este no es el valor real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de MaxxPoint](mailto:iumsupport@intercall.com) para obtener estos valores.
+    > Tenga en cuenta que este no es el valor real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Llame al equipo de MaxxPoint al número de teléfono **888-728-0950** para obtener este valor.
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)     
-
-6. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_500.png)
-
-7. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_05.png)
-
-8. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_600.png)
-
-9. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_maxxpoint_06.png) 
 
-10. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el [equipo de soporte técnico de MaxxPoint](mailto:iumsupport@intercall.com) y proporcione los **metadatos** descargados. 
+6. Haga clic en el botón **Guardar** .
 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-maxxpoint-tutorial/tutorial_general_400.png)
+
+7. Para configurar el inicio de sesión único para su aplicación, llame al equipo de soporte técnico de MaxxPoint al número de teléfono **888-728-0950** y le ayudarán a proporcionarles el archivo **XML de metadatos** descargado. 
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro del [portal de Azure](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada mediante la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Documentación insertada sobre Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
+El objetivo de esta sección es crear un usuario de prueba en el portal de Azure llamado "Britta Simon".
 
 ![Creación de un usuario de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_01.png) 
 
@@ -181,12 +167,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     d. Haga clic en **Crear**. 
 
-
-
 ### <a name="creating-a-maxxpoint-test-user"></a>Creación de un usuario de prueba de MaxxPoint
 
-En esta sección, creará un usuario llamado Britta Simon en MaxxPoint. Trabaje con el [equipo de soporte técnico de MaxxPoint](mailto:iumsupport@intercall.com) para agregar los usuarios a la plataforma de MaxxPoint.
-
+En esta sección, creará un usuario llamado Britta Simon en MaxxPoint. Llame al equipo de soporte técnico de MaxxPoint al número de teléfono **888-728-0950** para agregar los usuarios a la aplicación MaxxPoint.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -196,7 +179,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar Britta Simon a MaxxPoint, realice los pasos siguientes:**
 
-1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y seleccione **Aplicaciones empresariales**. Después, haga clic en **Todas las aplicaciones**.
+1. En el portal de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -218,8 +201,6 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-
-
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -225,7 +225,7 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 
 #### <a name="track-usage"></a>Seguir el uso
 * [Agregue telemetría de cliente web][usage] para supervisar las vistas de páginas y las métricas básicas de usuario.
-* [Realice el seguimiento de métricas y eventos personalizado][track] para obtener más información sobre cómo se usa la aplicación tanto en el servidor como en el cliente.
+* [Realice el seguimiento de métricas y eventos personalizados](app-insights-web-track-usage.md) para más información sobre cómo se usa la aplicación tanto en el servidor como en el cliente.
 
 <!--Link references-->
 
@@ -235,5 +235,5 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

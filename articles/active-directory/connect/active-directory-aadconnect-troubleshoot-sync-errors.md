@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -43,7 +43,7 @@ Los errores que se producen durante la exportación a Azure AD indican que la op
 #### <a name="description"></a>Descripción
 * Cuando Azure AD Connect \(motor de sincronización\) indica a Azure Active Directory que agregue o actualice objetos, Azure AD hace coincidir el objeto entrante que utiliza el atributo **sourceAnchor** con el atributo **immutableId** de los objetos de Azure AD. Esta se denomina una **coincidencia exacta**.
 * Cuando Azure AD **no encuentra** ningún objeto que hace coincidir con el atributo **immutableId** con el atributo **sourceAnchor** del objeto entrante, antes de aprovisionar un nuevo objeto, recurre al uso de los atributos ProxyAddresses y UserPrincipalName para encontrar una coincidencia. Esta se denomina **coincidencia parcial**. La coincidencia parcial está diseñada para hacer coincidir objetos que ya están presentes en Azure AD (cuyo origen en Azure AD) con los nuevos que se van a agregar o actualizar durante la sincronización de objetos que representan la misma entidad (usuarios, grupos) de forma local.
-* El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la** coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
+* El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la**  coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
 
 En otras palabras, para que la coincidencia parcial funcione, el objeto con el que se va a realizar no debe tener ningún valor en el atributo *immutableId*. Si algún objeto cuyo atributo *immutableId* tenga un valor genera errores de coincidencia exacta, pero satisface los criterios de coincidencia parcial, la operación provocará un error de sincronización InvalidSoftMatch.
 
@@ -180,9 +180,9 @@ a. Asegúrese de que el atributo userPrincipalName tiene caracteres compatibles 
 #### <a name="related-articles"></a>Artículos relacionados
 * [Preparación del aprovisionamiento de usuarios a Office 365 mediante la sincronización de directorios](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### <a name="datavalidationfailed"></a>DataValidationFailed
+### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Descripción
-Este es un caso específico, ya que se produce el error de sincronización **"DataValidationFailed"** cuando el sufijo del atributo UserPrincipalName de un usuario se cambia de un dominio federado a otro.
+Este es un caso específico, ya que se produce el error de sincronización **"FederatedDomainChangeError"** cuando el sufijo del atributo UserPrincipalName de un usuario se cambia de un dominio federado a otro.
 
 #### <a name="scenarios"></a>Escenarios
 Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de un dominio federado a otro dominio federado local. Por ejemplo, *UserPrincipalName = bob@contoso.com* se ha cambiado a *UserPrincipalName = bob@fabrikam.com*.
@@ -191,7 +191,7 @@ Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de u
 1. Bob Smith, una cuenta de Contoso.com, se agrega como un nuevo usuario a Active Directory con el atributo UserPrincipalName bob@contoso.com
 2. Bob pasa a otra división de Contoso.com llamada Fabrikam.com y el valor de UserPrincipalName se cambia a bob@fabrikam.com
 3. Tanto contoso.com como fabrikam.com son dominios federados con Azure Active Directory.
-4. El atributo userPrincipalName de Bob no se actualiza, por lo que se produce un error de sincronización de "DataValidationFailed".
+4. El atributo userPrincipalName de Bob no se actualiza, por lo que se produce un error de sincronización de "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Solución
 Si se actualizó el sufijo de UserPrincipalName de un usuario de bob@**contoso.com** a bob@**fabrikam.com**, donde tanto **contoso.com** como **fabrikam.com** son **dominios federados**, siga estos pasos para corregir el error de sincronización

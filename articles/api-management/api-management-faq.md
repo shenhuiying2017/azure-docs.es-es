@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
-ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
@@ -44,6 +44,8 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 * [¿Se puede usar un certificado SSL autofirmado para un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [¿Por qué se obtiene un error de autenticación al intentar clonar un repositorio?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [¿Funciona API Management con Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
+* [¿Por qué es necesaria una subred dedicada en las redes virtuales de estilo Resource Manager cuando API Management está implementado en ellas?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
+* [¿Cuál es el tamaño de subred mínimo necesario al implementar API Management en una red virtual?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
 * [¿Se puede mover un servicio API Management de una suscripción a otra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [¿Existen restricciones de la importación de mi API o problemas conocidos con ella?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
@@ -114,8 +116,8 @@ Ahora se admite el [paso a través de SOAP](http://blogs.msdn.microsoft.com/apim
 En los niveles Estándar y Premium, la dirección IP pública del inquilino de API Management es estática durante la vigencia del inquilino, con algunas excepciones. La dirección IP cambia en estas circunstancias:
 
 * El servicio se elimina y se vuelve a crear.
-* La suscripción al servicio se suspende (por ejemplo, por falta de pago) y se reinstaura.
-* El usuario agrega o quita Azure Virtual Network (solo se puede usar Virtual Network en el nivel Premium).
+* La suscripción al servicio se [suspende](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o se [advierte](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (por ejemplo, por falta de pago) y luego se reinstaura.
+* Se agrega o se quita Azure Virtual Network (solo se puede usar Virtual Network en los niveles Desarrollador y Premium).
 
 Para las implementaciones de varias regiones, la dirección regional cambia si se vacía la información de la región y, a continuación, se reinstaura (solo se puede usar puede utilizar la implementación en varias regiones en el nivel Premium).
 
@@ -144,6 +146,13 @@ Si utiliza el Administrador de credenciales de Git o si está intentando clonar 
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>¿Funciona API Management con Azure ExpressRoute?
 Sí. API Management funciona con Azure ExpressRoute.
+
+### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>¿Por qué es necesaria una subred dedicada en las redes virtuales de estilo Resource Manager cuando API Management está implementado en ellas?
+El requisito de subred dedicada para API Management procede del hecho de que se basa en el modelo de implementación clásica (capa V1 de PAAS). Aunque podemos implementarlo en una red virtual de Resource Manager (capa V2), hay consecuencias derivadas de ello. El modelo de implementación clásica de Azure no está estrechamente vinculado al modelo de Resource Manager, así que si crea un recurso en la capa V2, la capa V1 no lo sabe y pueden surgir problemas, por ejemplo, que API Management intente usar una IP que ya está asignada a una NIC (creada en V2).
+Para más información sobre la diferencia entre el modelo de implementación clásica y el modelo de Resource Manager de Azure consulte las [diferencias en los modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md).
+
+### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>¿Cuál es el tamaño de subred mínimo necesario al implementar API Management en una red virtual?
+El tamaño de subred mínimo necesario para implementar API Management es [/29](../virtual-network/virtual-networks-faq.md#configuration), que es el mínimo que admite Azure.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>¿Se puede mover un servicio API Management de una suscripción a otra?
 Sí. Para más información, consulte vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).

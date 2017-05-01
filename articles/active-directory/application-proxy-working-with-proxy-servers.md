@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07adf751001a49e0365dde7cb8d7d2317a6b8134
-ms.openlocfilehash: d79c8418769656ecfd35a71a450176bd27427f68
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 64d06a67ee5480e6bdbac2f6745ea32faa2cf003
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ Empezaremos examinando estos escenarios de implementación principales:
 * Configuración de conectores para omitir los proxy de salida locales.
 * Configuración de conectores para usar un proxy de salida para obtener acceso al Proxy de aplicación de Azure AD.
 
-Para obtener más información acerca de cómo funcionan los conectores, consulte [Provisión de acceso remoto seguro a aplicaciones locales](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
+Para obtener más información acerca de cómo funcionan los conectores, consulte [Provisión de acceso remoto seguro a aplicaciones locales](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ## <a name="configure-your-connectors"></a>Configuración de los conectores
 
@@ -73,7 +73,7 @@ Para deshabilitar el uso de proxy de salida para el conector, edite el archivo C
   </appSettings>
 </configuration>
 ```
-Para asegurarse de que el servicio de actualización de los conectores también omite el proxy, realice un cambio similar en el archivo ApplicationProxyConnectorUpdaterService.exe.config que se encuentra en C:\Archivos de programa\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Para asegurarse de que el servicio de actualización de los conectores también omite el proxy, realice un cambio similar en el archivo ApplicationProxyConnectorUpdaterService.exe.config, que se encuentra en C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Asegúrese de realizar copias de los archivos originales por si fuera necesario revertir a los archivos .config predeterminados.
 
@@ -172,7 +172,7 @@ Ahora debería ver todo el tráfico pasando a través del proxy. Si tiene proble
 
 La mejor manera de identificar y solucionar problemas de conectividad del conector es realizar una captura de red en el servicio de conector cuando se inicia. Esta tarea puede resultar desalentadora; así pues, veamos algunas breves sugerencias sobre cómo capturar y filtrar seguimientos de red.
 
-Puede usar la herramienta de supervisión que prefiera. En este artículo, hemos usado la versión 3.4 del Monitor de red de Microsoft. Puede [descargarlo de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=4865).
+Puede usar la herramienta de supervisión que prefiera. En este artículo, hemos usado la versión 3.4 del Monitor de red de Microsoft. Puede [descargarlo de Microsoft](https://www.microsoft.com/download/details.aspx?id=4865).
 
 Los ejemplos y los filtros que se utilizan en las siguientes secciones son específicos del Monitor de red, pero los principios se pueden aplicar a cualquier herramienta de análisis.
 
@@ -240,7 +240,7 @@ El análisis de seguimiento de red no está indicado para todos los usuarios. Si
 
 Si sigue experimentando problemas de conectividad del conector, cree una incidencia con nuestro equipo de soporte técnico. El equipo puede ayudarle a solucionar otros problemas.
 
-Para más información sobre cómo resolver errores del conector del Proxy de aplicación, consulte [Solucionar problemas de Proxy de aplicación](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
+Para más información sobre cómo resolver errores del conector del Proxy de aplicación, consulte [Solucionar problemas de Proxy de aplicación](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

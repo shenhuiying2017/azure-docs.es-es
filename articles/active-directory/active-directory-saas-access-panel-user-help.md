@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 6195b80037762a7f71eee9138c765e4d342acd5f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2017
 
 Probablemente haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal MyApps. Aunque habrá casos en los que deba ponerse en contacto con el departamento de soporte técnico o con su administrador para resolver un problema, en este tema hemos recopilado pasos a preguntas comunes que puede intentar primero por su cuenta.
 
-Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md#reset-your-password).
+Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 
 ## <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
@@ -49,7 +49,7 @@ MyApps es un portal web que le permite:
 3.    Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
 4.    Haga clic en **Submit**(Enviar).
 
-Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>¿Cómo configuro el restablecimiento de contraseña?
@@ -58,7 +58,7 @@ Para más información, consulte [Actualización de la propia contraseña](activ
 2.    En **Administrar cuenta**, haga clic en **Configurar autoservicio de restablecimiento de contraseña**.
 3.    Siga los pasos descritos en el cuadro de diálogo y envíe.
 
-Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md#reset-your-password).
+Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?
@@ -84,7 +84,9 @@ Para más información, consulte [Restablecimiento de la contraseña](active-dir
 - Al hacer clic en un grupo del que es miembro se le permite ver los detalles y abandonar el grupo.
 - Al hacer clic en un grupo del que es propietario se le permite ver los detalles, agregar o quitar miembros y abandonar el grupo.
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Para más información relacionada con la solución de problemas, consulte [Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles](active-directory-application-access-panel-content-map.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png

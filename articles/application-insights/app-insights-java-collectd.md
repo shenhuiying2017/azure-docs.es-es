@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5a39d4ec9bbf1c7672267c7e89c957ebc49f1f3a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -124,6 +125,14 @@ Separar directivas con una nueva línea.
 * Abra un terminal e inicie collectd en modo detallado para ver cualquier problema que esté notificando:
   * `sudo collectd -f`
 
+## <a name="known-issue"></a>Problema conocido
+
+El complemento de escritura de Application Insights es incompatible con determinados complementos de lectura. Algunos complementos envían a veces "NaN" donde el complemento de Application Insights espera un número de punto flotante.
+
+Síntoma: el registro recopilado muestra errores que incluyen "AI:... SyntaxError: token inesperado N".
+
+Solución alternativa: excluir los datos recopilados por los complementos de escritura con problemas. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -134,12 +143,6 @@ Separar directivas con una nueva línea.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
