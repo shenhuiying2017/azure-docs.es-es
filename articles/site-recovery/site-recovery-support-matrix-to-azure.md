@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,11 +33,11 @@ En este artículo se resumen los componentes y las configuraciones compatibles c
 
 ## <a name="support-for-deployment-options"></a>Compatibilidad con opciones de implementación
 
-**Implementación** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-**Portal de Azure** | VM de VMware locales en Azure Storage, con redes y almacenamiento clásicos o Azure Resource Manager.<br/><br/> Realice la conmutación por error en las VM clásicas o basadas en Resource Manager. | VM de Hyper-V locales (no en nubes de Virtual Machine Manager) en Azure Storage, con redes y almacenamiento clásicos o Resource Manager.<br/><br/> Realice la conmutación por error en las VM clásicas o basadas en Resource Manager. | VM de Hyper-V locales (VM en nubes de Virtual Machine Manager) en Azure Storage, con redes y almacenamiento clásicos o Resource Manager.<br/><br/> Realice la conmutación por error en las VM clásicas o basadas en Resource Manager.
-**Portal clásico** | Solo en el modo mantenimiento. No se pueden crear almacenes nuevos. | Solo en el modo mantenimiento. | Solo en el modo mantenimiento.
-**PowerShell** | No se admite actualmente. | Compatible | Compatible
+**Implementación** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)** |
+--- | --- | ---
+**Portal de Azure** | VM de VMware locales en Azure Storage, con redes y almacenamiento clásicos o Azure Resource Manager.<br/><br/> Realice la conmutación por error en las VM clásicas o basadas en Resource Manager. | Máquinas virtuales de Hyper-V locales en Azure Storage con Resource Manager o redes y almacenamiento clásicos.<br/><br/> Realice la conmutación por error en las VM clásicas o basadas en Resource Manager.
+**Portal clásico** | Solo en el modo mantenimiento. No se pueden crear almacenes nuevos. | Solo en el modo mantenimiento.
+**PowerShell** | No se admite actualmente. | Compatible
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Compatibilidad con servidores de administración de centro de datos
@@ -50,15 +50,15 @@ En este artículo se resumen los componentes y las configuraciones compatibles c
 **Hyper-V (con Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 y System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > No se admite actualmente una nube de System Center Virtual Machine Manager 2016 que combine hosts de Windows Server 2016 y 2012 R2. 
+  > No se admite actualmente una nube de System Center Virtual Machine Manager 2016 que combine hosts de Windows Server 2016 y 2012 R2.
 
 ### <a name="host-servers"></a>Servidores host
 
 **Implementación** | **Soporte técnico**
 --- | ---
 **Servidor de máquina virtual de VMware o físico** | vCenter 5.5 o 6.0 (compatible solo con características de 5.5) 
-**Hyper-V (sin Virtual Machine Manager)** | Windows Server 2016 y Windows Server 2012 R2 con las últimas actualizaciones
-**Hyper-V (con Virtual Machine Manager)** | Windows Server 2016 y Windows Server 2012 R2 con las actualizaciones más recientes.<br/><br/> Los hosts de Windows Server 2016 se deben administrar mediante System Center Virtual Machine Manager 2016.
+**Hyper-V (con o sin Virtual Machine Manager)** | Windows Server 2016 y Windows Server 2012 R2 con las actualizaciones más recientes.<br></br>Si se usa SCVMM, los hosts de Windows Server 2016 debe administrarlos SCVMM 2016.
+
 
   >[!Note]
   >No se admite actualmente un sitio de Hyper-V que combine hosts que ejecutan Windows Server 2016 y 2012 R2. Actualmente, no se admite la recuperación en una ubicación alternativa de las máquinas virtuales en un host de Windows Server 2016.
@@ -68,50 +68,67 @@ En este artículo se resumen los componentes y las configuraciones compatibles c
 Las máquinas virtuales que están protegidas deben cumplir los [requisitos de Azure](#failed-over-azure-vm-requirements) cuando se replican en Azure.
 La tabla siguiente resume la compatibilidad con los sistemas operativos de las máquinas replicadas en distintos escenarios de implementación cuando se usa Azure Site Recovery. Esta compatibilidad es aplicable a cualquier carga de trabajo que se ejecute en el SO mencionado.
 
- **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | ---
-Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 con al menos SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Cualquier sistema operativo invitado [compatible con Azure](https://technet.microsoft.com/library/cc794868.aspx) | Cualquier sistema operativo invitado [compatible con Azure](https://technet.microsoft.com/library/cc794868.aspx)
+ **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)** |
+--- | --- |
+Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 con al menos SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(No se admite la actualización de máquinas de replicación de SLES 11 SP3 a SLES 11 SP4. Si se ha actualizado una máquina replicada de SLES 11SP3 a SLES 11 SP4, debe deshabilitar la replicación y volver a proteger la máquina después de la actualización). | Cualquier sistema operativo invitado [compatible con Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
+
+>[!IMPORTANT]
+>(Se aplica a los servidores físicos/VMware que se replican en Azure).
+>
+> En servidores Red Hat Enterprise Linux Server 7+ y CentOS 7+, la versión de kernel 3.10.0-514 se admite a partir de la versión 9.8 de Azure Site Recovery Mobility Service.<br/><br/>
+> Los clientes con el kernel 3.10.0-514 que dispongan de una versión de Mobility Service anterior a la 9.8, deben deshabilitar la replicación, actualizar la versión de Mobility Service a la 9.8 y volver a habilitar la replicación.  
+
+## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Sistemas de archivos compatibles y configuraciones de almacenamiento de invitado en Linux (servidores físicos/VMware)
+
+Los sistemas de archivos y el software de configuración de almacenamiento siguientes son compatibles con servidores Linux que se ejecutan en servidores físicos o VMware:
+* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server) y XFS (solo hasta la versión v4)
+* Administrador de volúmenes: LVM2
+* Software de múltiples rutas: asignador de dispositivos
+
+No se admiten servidores físicos con controlador de almacenamiento HP CCISS.
 
 >[!Note]
->Compatibilidad con almacenamiento para sistema de archivos de versiones Linux (EXT3, ETX4, ReiserFS, XFS), Asignador de dispositivo-software de múltiples rutas, Administrador de volúmenes (LVM2). *No* se admiten servidores físicos con almacenamiento de controlador HP CCISS.
->El sistema de archivos ReiserFS solo se admite en SUSE Linux Enterprise Server 11 SP3.
+> En servidores Linux, todos los directorios siguientes (si se configuran como sistemas de archivos o particiones independientes) deben ubicarse en el mismo disco (el disco de sistema operativo) del servidor de origen: / (root), /boot, /usr, /usr/local, /var, /etc.<br/><br/>
+> ASR no admite las características de XFS v5, como la suma de comprobación de metadatos, en sistemas de archivos XFS. Asegúrese de que los sistemas de archivos XFS no usan ninguna característica de v5. Puede usar la utilidad xfs_info para comprobar el superbloque XFS para la partición. Si ftype está establecido en 1, entonces se usan las características de XFSv5. 
+>
+
 
 ## <a name="support-for-network-configuration"></a>Compatibilidad con la configuración de red
 La tabla siguiente resume la compatibilidad con la configuración de red en distintos escenarios de implementación que usan Azure Site Recovery para replicarse en Azure.
 
 ### <a name="host-network-configuration"></a>Configuración de red del servidor host
 
-**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-Formación de equipos NIC | Sí<br/><br/>No compatible en máquinas físicas| Sí | Sí
-VLAN | Sí | Sí | Sí
-IPv4 | Sí | Sí | Sí
-IPv6 | No | No | No
+**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
+--- | --- | ---
+Formación de equipos NIC | Sí<br/><br/>No compatible en máquinas físicas| Sí
+VLAN | Sí | Sí
+IPv4 | Sí | Sí
+IPv6 | No | No
 
 ### <a name="guest-vm-network-configuration"></a>Configuración de red de la máquina virtual invitada
 
-**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-Formación de equipos NIC | No | No | No
-IPv4 | Sí | Sí | Sí
-IPv6 | No | No | No
-Dirección IP estática (Windows) | Sí | Sí | Sí
-Dirección IP estática (Linux) | No | No | No
-Varias NIC | Sí | Sí | Sí
+**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
+--- | --- | ---
+Formación de equipos NIC | No | No
+IPv4 | Sí | Sí
+IPv6 | No | No
+Dirección IP estática (Windows) | Sí | Sí
+Dirección IP estática (Linux) | No | No
+Varias NIC | Sí | Sí
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuración de red de la máquina virtual de Azure a la que se conmuta por error
 
-**Redes de Azure** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-ExpressRoute | Sí | Sí | Sí
-ILB | Sí | Sí | Sí
-ELB | Sí | Sí | Sí
-Traffic Manager | Sí | Sí | Sí
-Varias NIC | Sí | Sí | Sí
-IP reservada | Sí | Sí | Sí
-IPv4 | Sí | Sí | Sí
-Conservar dirección IP de origen | Sí | Sí | Sí
+**Redes de Azure** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
+--- | --- | ---
+ExpressRoute | Sí | Sí
+ILB | Sí | Sí
+ELB | Sí | Sí
+Traffic Manager | Sí | Sí
+Varias NIC | Sí | Sí
+IP reservada | Sí | Sí
+IPv4 | Sí | Sí
+Conservar dirección IP de origen | Sí | Sí
 
 
 ## <a name="support-for-storage"></a>Compatibilidad con el almacenamiento
@@ -119,50 +136,51 @@ La tabla siguiente resume la compatibilidad con la configuración de almacenamie
 
 ### <a name="host-storage-configuration"></a>Configuración de almacenamiento del servidor host
 
-**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
+**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Sí para VMware<br/><br/> No para servidores físicos | N/D | N/D
-SMB 3.0 | N/D | Sí | Sí
-SAN (ISCSI) | Sí | Sí | Sí
-Varias rutas (MPIO)<br></br>Probado con: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON | Sí | Sí | Sí
+NFS | Sí para VMware<br/><br/> No para servidores físicos | N/D
+SMB 3.0 | N/D | Sí
+SAN (ISCSI) | Sí | Sí
+Varias rutas (MPIO)<br></br>Probado con: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON | Sí | Sí
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Configuración de almacenamiento del servidor físico o invitado
 
-**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-VMDK | Sí | N/D | N/D
-VHD/VHDX | N/D | Sí | Sí
-VM de 2 generación | N/D | Sí | Sí
-EFI/UEFI| No | Sí | Sí
-Disco en clúster compartido | Sí para VMware<br/><br/> N/D para servidores físicos | No | No
-Disco cifrado | No | No | No
-NFS | No | N/D | N/D
-SMB 3.0 | No | No | No
-RDM | Sí<br/><br/> N/D para servidores físicos | N/D | N/D
-Disco > 1 TB | No | No | No
-Volumen con disco en bandas > 1 TB<br/><br/> Administración de volúmenes lógicos (LVM) | Sí | Sí | Sí
-Espacios de almacenamiento | No | Sí | Sí
-Agregar/quitar disco en caliente | No | No | No
-Excluir el disco | Sí | Sí | Sí
-Varias rutas (MPIO) | N/D | Sí | Sí
+**Configuración** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
+--- | --- | ---
+VMDK | Sí | N/D
+VHD/VHDX | N/D | Sí
+VM de 2 generación | N/D | Sí
+EFI/UEFI| No | Sí
+Disco en clúster compartido | Sí para VMware<br/><br/> N/D para servidores físicos | No
+Disco cifrado | No | No
+NFS | No | N/D
+SMB 3.0 | No | No
+RDM | Sí<br/><br/> N/D para servidores físicos | N/D
+Disco > 1 TB | No | No
+Volumen con disco en bandas > 1 TB<br/><br/> Administración de volúmenes lógicos (LVM) | Sí | Sí
+Espacios de almacenamiento | No | Sí
+Agregar/quitar disco en caliente | No | No
+Excluir el disco | Sí | Sí
+Varias rutas (MPIO) | N/D | Sí
 
-**Almacenamiento de Azure** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
---- | --- | --- | ---
-LRS | Sí | Sí | Sí
-GRS | Sí | Sí | Sí
-Almacenamiento de acceso esporádico | No | No | No
-Almacenamiento de acceso frecuente| No | No | No
-Cifrado en reposo (SSE)| Sí | Sí | Sí
-Premium Storage | Sí | No | No
-Servicio Import/Export | No | No | No
+**Almacenamiento de Azure** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
+--- | --- | ---
+LRS | Sí | Sí
+GRS | Sí | Sí
+RA-GRS | Sí | Sí
+Almacenamiento de acceso esporádico | No | No
+Almacenamiento de acceso frecuente| No | No
+Cifrado en reposo (SSE)| Sí | Sí
+Premium Storage | Sí | Sí
+Servicio Import/Export | No | No
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Compatibilidad con la configuración del proceso de Azure
 
-**Característica de proceso** | **Servidores físicos o de VMware** | **Hyper-V (sin Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
+**Característica de proceso** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
 --- | --- | --- | ---
-Conjuntos de disponibilidad | No | No | No
-CONCENTRADOR | Sí | Sí | Sí
+Conjuntos de disponibilidad | Sí | Sí
+CONCENTRADOR | Sí | Sí  
 
 ## <a name="failed-over-azure-vm-requirements"></a>Requisitos de la máquina virtual de Azure a la que se conmuta por error
 
