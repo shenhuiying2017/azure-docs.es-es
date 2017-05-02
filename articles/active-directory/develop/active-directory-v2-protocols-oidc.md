@@ -25,7 +25,7 @@ ms.lasthandoff: 02/23/2017
 OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación web. Cuando usa la implementación de OpenID Connect del punto de conexión v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones basadas en web. En este artículo se muestra cómo hacerlo, independientemente del lenguaje. Describiremos cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto de Microsoft.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con la versión&2;.0 del punto de conexión. Para determinar si debe usar la versión&2;.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 > 
 > 
 

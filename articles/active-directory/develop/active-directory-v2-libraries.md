@@ -90,7 +90,7 @@ Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2
 Próximamente
 
 ## <a name="related-content"></a>Contenido relacionado
-Para obtener más información sobre el punto de conexión de Azure AD v2.0, consulte la [introducción a la versión&2;.0 del modelo de aplicaciones de Azure AD][AAD-App-Model-V2-Overview].
+Para obtener más información sobre el punto de conexión de Azure AD v2.0, consulte la [introducción a la versión 2.0 del modelo de aplicaciones de Azure AD][AAD-App-Model-V2-Overview].
 
 Para ayudarnos a perfeccionar y dar forma a nuestro contenido, utilice la característica de comentarios Disqus al final de este artículo para proporcionar sus comentarios.
 
