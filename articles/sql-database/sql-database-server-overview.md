@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers
+ms.custom: DBs and servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
-ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 430af168e1bd19c15170996247bc7c7a62fe52d4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,8 +42,8 @@ Un servidor lógico de Azure Database:
 - Proporciona acceso a los metadatos de recursos contenidos a través de las DMV conectándose a una base de datos maestra. 
 - Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicios de sesión, firewall, auditoría, detección de amenazas, etc. 
 - Está restringido por una cuota dentro de la suscripción primaria (seis servidores por suscripción. [Consulte el artículo sobre los límites de la suscripción aquí](../azure-subscription-service-limits.md)).
-- Proporciona el ámbito de la cuota de la base de datos y la cuota de DTU para los recursos que contiene (por ejemplo, DTU 45000 en V12).
-- Es el ámbito de control de versiones para funciones que se habilitan en los recursos contenidos (la última versión es la V12).
+- Proporciona el ámbito de la cuota de la base de datos y la cuota de DTU para los recursos que contiene (por ejemplo, DTU 45000).
+- Es el ámbito de control de versiones para funciones que se habilitan en los recursos contenidos. 
 - Los inicios de sesión de la entidad de seguridad en el nivel de servidor pueden administrar todas las bases de datos en un servidor.
 - Puede contener inicios de sesión similares a los de las instancias de SQL Server en sus instalaciones que tienen acceso a una o más bases de datos en el servidor y puede ser concesionario de derechos administrativos limitados. Para obtener más información, consulte el artículo sobre [inicios de sesión](sql-database-manage-logins.md).
 
@@ -55,7 +56,7 @@ Un servidor lógico de Azure Database:
 
 ## <a name="what-collations-are-supported"></a>¿Qué intercalaciones son compatibles?
 
-La intercalación de bases de datos predeterminada que utiliza Microsoft Azure SQL Database (incluida la base de datos maestra) es **SQL_LATIN1_GENERAL_CP1_CI_AS**, donde **LATIN1_GENERAL** corresponde a inglés (Estados Unidos); **CP1** es la página de códigos 1252; **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se tienen en cuenta los acentos. No se recomienda modificar la intercalación de bases de datos de la versión&12; después de su creación. Para obtener más información acerca de las intercalaciones, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La intercalación de bases de datos predeterminada que utiliza Microsoft Azure SQL Database (incluida la base de datos maestra) es **SQL_LATIN1_GENERAL_CP1_CI_AS**, donde **LATIN1_GENERAL** corresponde a inglés (Estados Unidos); **CP1** es la página de códigos 1252; **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se tienen en cuenta los acentos. No se recomienda modificar la intercalación de bases de datos después de su creación. Para obtener más información acerca de las intercalaciones, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>¿Cuáles son los requisitos de nomenclaturas de los objetos de base de datos?
 
@@ -68,8 +69,8 @@ Para obtener información sobre las características admitidas, consulte el [art
 ## <a name="how-do-i-manage-a-logical-server"></a>¿Cómo se puede administrar un servidor lógico?
 
 Puede administrar servidores lógicos de Azure SQL Database mediante varios métodos:
-- [Portal de Azure](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [Portal de Azure](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
 - [REST](/rest/api/sql/)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -81,10 +82,5 @@ Puede administrar servidores lógicos de Azure SQL Database mediante varios mét
 - En el siguiente vínculo, encontrará información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
 - Para obtener información general sobre la seguridad, consulte [Introducción a la seguridad de Azure SQL Database](sql-database-security-overview.md).
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

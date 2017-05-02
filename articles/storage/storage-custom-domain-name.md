@@ -1,6 +1,6 @@
 ---
-title: "Configuración de un nombre de dominio para el punto de conexión de Blob Storage | Microsoft Docs"
-description: "Aprenda a asignar un dominio de usuario personalizado al punto de conexión de Almacenamiento de blobs para una cuenta de almacenamiento de Azure en el Portal de Azure clásico."
+title: "Configuración de un nombre de dominio personalizado para el punto de conexión de Azure Blob Storage | Microsoft Docs"
+description: "Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión de Blob Storage en una cuenta de Azure Storage."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -12,102 +12,149 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 04/17/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
-ms.openlocfilehash: 65ecd654cf6f1558a8f9ad6d6718ae5396fb52d0
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 985d14cdbe776e71c93f86750cbcab93ae7c6c5a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs
-## <a name="overview"></a>Información general
-Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado del almacenamiento de blobs es `<storage-account-name>.blob.core.windows.net`. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com** , al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos Blob en la cuenta de almacenamiento a través de ese dominio.
+
+Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado del almacenamiento de blobs es `<storage-account-name>.blob.core.windows.net`. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al punto de conexión del blob para la cuenta de almacenamiento, entonces los usuarios pueden obtener acceso a los datos de blob en la cuenta de almacenamiento a través de ese dominio.
 
 > [!IMPORTANT]
-> Almacenamiento de Azure no admite aún HTTPS con dominios personalizados. Somos conscientes de que los clientes están interesados en esta característica y estará disponible en futuras versiones.
+> Almacenamiento de Azure no admite aún HTTPS con dominios personalizados. Aunque todavía no disponemos de un calendario que podamos compartir, somos conscientes del interés de los clientes sobre esta función.
 >
->
 
-Existen dos formas de que el dominio personalizado apunte al extremo del blob para la cuenta de almacenamiento. La forma más simple es crear un registro CNAME asignando el dominio y el subdominio personalizados al extremo del blob. Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es el dominio y el subdominio personalizados. Tenga en cuenta que el subdominio es siempre obligatorio. El dominio de destino es el extremo de servicio del blob.
+La siguiente tabla muestra algunas direcciones URL de ejemplo para datos de blob ubicados en una cuenta de almacenamiento denominada **mystorageaccount**. El dominio personalizado registrado para la cuenta de almacenamiento es **www.contoso.com**:
 
-El proceso de asignación del dominio personalizado al punto de conexión del blob puede provocar un período breve de inactividad para el dominio mientras registra el dominio en el [Portal de Azure clásico](https://manage.windowsazure.com). Si el dominio personalizado ya es compatible con una aplicación con un contrato de nivel de servicio (SLA) que requiere que no exista tiempo de inactividad, puede usar el subdominio **asverify** de Azure para proporcionar un paso de registro intermedio para que los usuarios puedan obtener acceso al dominio mientras se realiza la asignación de DNS.
+| Tipo de recurso | Dirección URL predeterminada | URL de dominio personalizado |
+| --- | --- | --- |
+| Cuenta de almacenamiento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| Contenedor raíz | http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob o http://www.contoso.com/$root/myblob |
 
-La siguiente tabla muestra las direcciones URL de ejemplo para obtener acceso a los datos Blob en una cuenta de almacenamiento denominada **mystorageaccount**. El dominio personalizado registrado para la cuenta de almacenamiento es **www.contoso.com**:
+## <a name="direct-vs-intermediary-domain-mapping"></a>Asignación de dominios directa frente a intermedia
 
-| Tipo de recurso | Formatos de dirección URL |
-| --- | --- |
-| Cuenta de almacenamiento |**URL predeterminada:** http://mystorageaccount.blob.core.windows.net<p>**URL de dominio personalizada:** http://www.contoso.com</td> |
-| Blob |**URL predeterminada:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**URL de dominio personalizada:** http://www.contoso.com/mycontainer/myblob |
-| Contenedor raíz |**URL predeterminada:** http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**URL de dominio personalizada:** http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
+Hay dos maneras de dirigir su dominio personalizado al punto de conexión de blob para la cuenta de almacenamiento: la asignación directa de CNAME y mediante el subdominio intermedio *asverify*.
 
-## <a name="register-a-custom-domain-for-your-storage-account"></a>Registro de un dominio personalizado para la cuenta de almacenamiento
-Use este procedimiento para registrar el dominio personalizado si no le preocupa que el dominio deje de estar disponible brevemente para los usuarios o si el dominio personalizado no hospeda actualmente una aplicación.
+### <a name="direct-cname-mapping"></a>Asignación directa de CNAME
 
-Si el dominio personalizado es compatible actualmente con una aplicación que no puede tener ningún tiempo de inactividad, use el procedimiento descrito en <a href="#register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain">Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario</a>.
+El primer método, y el más simple, es crear un registro de nombre canónico (CNAME) que se asigne el dominio y el subdominio personalizados directamente al punto de conexión del blob. Un registro CNAME es una característica del sistema de nombres de dominio (DNS) que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es su propio dominio y subdominio personalizados, por ejemplo, *www.contoso.com*. El dominio de destino es su punto de conexión de Blob service, por ejemplo, *mystorageaccount.blob.core.windows.net*.
 
-Para configurar un nombre de dominio personalizado, debe crear un nuevo registro CNAME con el registrador de dominios. El registro CNAME especifica un alias para el nombre de dominio; en este caso, asigna la dirección del dominio personalizado al punto de conexión de Almacenamiento de blobs para la cuenta de almacenamiento.
+El método directo se trata en [Registro de un dominio personalizado](#register-a-custom-domain).
 
-Cada registrador dispone de un método similar pero ligeramente distinto de especificación de un registro CNAME. Sin embargo, el concepto es el mismo. Tenga en cuenta que muchos paquetes de registro de domino básicos no ofrecen configuración DNS, por lo que puede que sea necesario actualizar el paquete de registro de dominios antes de crear el registro CNAME.
+### <a name="intermediary-mapping-with-asverify"></a>Asignación intermedia con *asverify*
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), diríjase a la pestaña **Almacenamiento** .
-2. En la pestaña **Almacenamiento** , haga clic en el nombre de la cuenta de almacenamiento para la que desee asignar el dominio personalizado.
-3. Haga clic en la pestaña **Configure** .
-4. En la parte inferior de la pantalla, haga clic en **Administrar dominio** para mostrar el cuadro de diálogo **Administrar dominio personalizado**. En el texto de la parte superior del cuadro de diálogo, verá información sobre cómo crear el registro CNAME. Para este procedimiento, ignore el texto que hace referencia al subdominio **asverify** .
-5. Inicie sesión en el sitio web del registrador DNS y vaya a la página de administración de DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
-6. Busque la sección para la administración de CNAME. Tiene que dirigirse a la página de configuración avanzada y buscar las palabras **CNAME**, **Alias** o **Subdomains**.
-7. Cree un nuevo registro CNAME y proporcione un alias de subdominio como **www** o **photos**. A continuación, proporcione un nombre de host, que es el punto de conexión del servicio BLOB, en el formato **mystorageaccount.blob.core.windows.net** (donde **mystorageaccount** es el nombre de la cuenta de almacenamiento). El nombre de host que se va a utilizar se proporciona en el texto del cuadro de diálogo **Manage Custom Domain** .
-8. Una vez que haya creado el registro CNAME, vuelva al cuadro de diálogo **Manage Custom Domain** y especifique el nombre del dominio personalizado, incluido el subdominio, en el campo **Nombre de dominio personalizado**. Por ejemplo, si el dominio es **contoso.com** y el subdominio **www**, especifique **www.contoso.com**; si el subdominio es **photos**, especifique **photos.contoso.com**. Tenga en cuenta que el subdominio es obligatorio.
-9. Haga clic en el botón **Register** para registrar el dominio personalizado.
+El segundo método también utiliza los registros CNAME, pero primero emplea un subdominio especial reconocido por Azure para evitar tiempos de inactividad: **asverify**.
 
-Si el registro es correcto, verá el mensaje **Your custom domain is active**. Los usuarios podrán ahora ver los datos Blob en el dominio personalizado siempre que dispongan de los permisos correspondientes.
+El proceso de asignación de un dominio personalizado a un punto de conexión de blob puede provocar un período breve de inactividad en el dominio mientras lo registra [Azure Portal](https://portal.azure.com). Si el dominio personalizado ya incluye una aplicación con un acuerdo de nivel de servicio (SLA) que requiere que no exista tiempo de inactividad, puede usar el subdominio *asverify* de Azure como paso de registro intermedio. Este paso intermedio garantiza que los usuarios puedan obtener acceso al dominio mientras se realiza la asignación de DNS.
 
-## <a name="register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain"></a>Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario
-Use este procedimiento para registrar el dominio personalizado si este es actualmente compatible con una aplicación con un contrato de nivel de servicio que requiera que no exista tiempo de inactividad. Si crea un CNAME que señale de asverify.&lt;subdomain&gt;.&lt;customdomain&gt; a asverify.&lt;storageaccount&gt;.blob.core.windows.net, puede registrar previamente el dominio con Azure. A continuación, puede crear un segundo CNAME que señale de &lt;subdomain&gt;.&lt;customdomain&gt; a &lt;storageaccount&gt;.blob.core.windows.net, en el que el tráfico directo al dominio personalizado se dirigirá al extremo del blob.
+El método intermedio se trata en [Registro de un dominio personalizado mediante el subdominio *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
 
-El subdominio asverify es un subdominio especial reconocido por Azure. Si antepone **asverify** a su propio subdominio, permite que Azure reconozca el dominio personalizado sin modificar el registro DNS para el dominio. Una vez que modifique el registro DNS para el dominio, se asignará al extremo del blob sin que exista tiempo de inactividad.
+## <a name="register-a-custom-domain"></a>Registro de un dominio personalizado
+Use este procedimiento para registrar el dominio personalizado si no le preocupa que el dominio deje de estar disponible brevemente para sus usuarios o si el dominio personalizado no hospeda actualmente una aplicación.
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), diríjase a la pestaña **Almacenamiento** .
-2. En la pestaña **Almacenamiento** , haga clic en el nombre de la cuenta de almacenamiento para la que desee asignar el dominio personalizado.
-3. Haga clic en la pestaña **Configure** .
-4. En la parte inferior de la pantalla, haga clic en **Administrar dominio** para mostrar el cuadro de diálogo **Administrar dominio personalizado**. En el texto de la parte superior del cuadro de diálogo, verá información sobre cómo crear el registro CNAME con el subdominio **asverify** .
-5. Inicie sesión en el sitio web del registrador DNS y vaya a la página de administración de DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
-6. Busque la sección para la administración de CNAME. Tiene que dirigirse a la página de configuración avanzada y buscar las palabras **CNAME**, **Alias** o **Subdomains**.
-7. Cree un nuevo registro CNAME y proporcione un alias de subdominio que incluya el subdominio asverify. Por ejemplo, el subdominio que especifique estará en formato **asverify.www** o **asverify.photos**. A continuación, proporcione un nombre de host, que es el punto de conexión del servicio Blob, en el formato **asverify.mystorageaccount.blob.core.windows.net** (donde **mystorageaccount** es el nombre de la cuenta de almacenamiento). El nombre de host que se va a utilizar se proporciona en el texto del cuadro de diálogo **Manage Custom Domain** .
-8. Una vez que haya creado el registro CNAME, vuelva al cuadro de diálogo **Manage Custom Domain** y especifique el nombre del dominio personalizado en el campo **Nombre de dominio personalizado**. Por ejemplo, si el dominio es **contoso.com** y el subdominio **www**, especifique **www.contoso.com**; si el subdominio es **photos**, especifique **photos.contoso.com**. Tenga en cuenta que el subdominio es obligatorio.
-9. Haga clic en la casilla que dice **Avanzado: Uso del subdominio asverify para registrar previamente mi dominio personalizado**.
-10. Haga clic en el botón **Register** para registrar previamente el dominio personalizado.
+Si el dominio personalizado ya incluye una aplicación que no puede tener ningún tiempo de inactividad, use el procedimiento descrito en [Registro de un dominio personalizado mediante el subdominio *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
 
-    Si el registro previo es correcto, verá el mensaje **Your custom domain is active**.
-11. En este momento, Azure ha comprobado el dominio personalizado, pero no se ha realizado el enrutamiento del tráfico al dominio en la cuenta de almacenamiento. Para completar el proceso, vuelva al sitio web del registrador DNS y cree otro registro CNAME que asigne su subdominio al extremo del servicio BLOB. Por ejemplo, especifique el subdominio como **www** o **photos**, y el nombre de host como **mystorageaccount.blob.core.windows.net** (donde **mystorageaccount** es el nombre de la cuenta de almacenamiento). Con este paso se completa el registro del dominio personalizado.
-12. Finalmente, puede eliminar el registro CNAME que creó con **asverify**, ya que solo era necesario como paso intermedio.
+Para configurar un nombre de dominio personalizado, debe crear un nuevo registro CNAME en DNS. El registro CNAME especifica un alias para un nombre de dominio. En este caso, asigna la dirección del dominio personalizado al punto de conexión de Blob Storage para la cuenta de almacenamiento.
 
-Los usuarios podrán ahora ver los datos Blob en el dominio personalizado siempre que dispongan de los permisos correspondientes.
+Por lo general, puede administrar la configuración de DNS de su dominio en el sitio web del registrador de su dominio. Cada registrador dispone de un método similar pero ligeramente distinto de especificación de un registro CNAME. Sin embargo, el concepto es el mismo. Algunos paquetes de registro de domino básicos no ofrecen configuración DNS, por lo que puede que sea necesario actualizar el paquete de registro de dominios antes de crear el registro CNAME.
 
-## <a name="verify-that-the-custom-domain-references-your-blob-service-endpoint"></a>Comprobación de que el dominio personalizado hace referencia al extremo del servicio BLOB
-Para comprobar que el dominio personalizado se haya asignado realmente al extremo del servicio BLOB, cree un blob en un contenedor público en la cuenta de almacenamiento. A continuación, en un explorador web, use un URI con el mismo formato para obtener acceso al blob:
+1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
+1. En **BLOB SERVICE** en la hoja de menú, seleccione **Dominio personalizado** para abrir la hoja *Dominio personalizado*.
+1. Inicie sesión en el sitio web del registrador de su dominio y vaya a la página de administración de DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
+1. Busque la sección para la administración de CNAME. Tiene que dirigirse a la página de configuración avanzada y buscar las palabras **CNAME**, **Alias** o **Subdomains**.
+1. Cree un nuevo registro CNAME y proporcione un alias de subdominio como **www** o **fotos**. A continuación, proporcione un nombre de host, que es el punto de conexión del servicio BLOB, en el formato **mystorageaccount.blob.core.windows.net** (donde *mystorageaccount* es el nombre de la cuenta de almacenamiento). El nombre de host que se usará parece en el elemento n.º 1 de la hoja *Dominio personalizado* en [Azure Portal](https://portal.azure.com).
+1. En el cuadro de texto de la hoja *Dominio personalizado* en [Azure Portal](https://portal.azure.com), escriba el nombre de su dominio personalizado, incluido el subdominio. Por ejemplo, si su dominio es **contoso.com** y su alias de subdominio es **www**, escriba **www.contoso.com**. Si su subdominio es **fotos**, escriba **fotos.contoso.com**. El subdominio es *obligatorio*.
+1. Seleccione **Guardar** en la hoja *Dominio personalizado* hoja para registrar su dominio personalizado. Si el registro se realiza correctamente, verá un mensaje que indica que la cuenta de almacenamiento se actualizó correctamente.
 
-    http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
+Una vez que el nuevo registro CNAME se propaga a través de DNS, los usuarios pueden ver datos de blob mediante su dominio personalizado, siempre y cuando tengan los permisos adecuados.
 
-Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web a través de un subdominio personalizado **photos.contoso.com** que se asigne a un blob en el contenedor **myforms**:
+## <a name="register-a-custom-domain-using-the-asverify-subdomain"></a>Registro de un dominio personalizado mediante el subdominio *asverify*
+Use este procedimiento para registrar el dominio personalizado si este es actualmente compatible con una aplicación con un contrato de nivel de servicio que requiera que no exista tiempo de inactividad. Mediante la creación de un CNAME que dirija de `asverify.<subdomain>.<customdomain>` a `asverify.<storageaccount>.blob.core.windows.net`, puede registrar previamente el dominio en Azure. Luego, puede crear un segundo CNAME que dirija de `<subdomain>.<customdomain>` a `<storageaccount>.blob.core.windows.net`; en este punto el tráfico a su dominio personalizado se dirigirá al punto de conexión del blob.
 
-    http://photos.contoso.com/myforms/applicationform.htm
+El subdominio **asverify** es un subdominio especial reconocido por Azure. Si antepone `asverify` a su propio subdominio, permite que Azure reconozca el dominio personalizado sin modificar el registro DNS para el dominio. Cuando modifique el registro DNS para el dominio, se asignará al punto de conexión del blob sin que exista tiempo de inactividad.
 
-## <a name="unregister-a-custom-domain-from-your-storage-account"></a>Anular el registro de un dominio personalizado para la cuenta de almacenamiento
-Para anular el registro de un dominio personalizado, siga estos pasos:
+1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
+1. En **BLOB SERVICE** en la hoja de menú, seleccione **Dominio personalizado** para abrir la hoja *Dominio personalizado*.
+1. Inicie sesión en el sitio web del proveedor de DNS y vaya a la página de administración de DNS. Podría encontrarlo en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
+1. Busque la sección para la administración de CNAME. Tiene que dirigirse a la página de configuración avanzada y buscar las palabras **CNAME**, **Alias** o **Subdomains**.
+1. Cree un nuevo registro CNAME y proporcione un alias de subdominio que incluya el subdominio *asverify*. Por ejemplo, **asverify.www** o **asverify.fotos**. A continuación, proporcione un nombre de host, que es el punto de conexión del servicio Blob, en el formato **asverify.mystorageaccount.blob.core.windows.net** (donde **mystorageaccount** es el nombre de la cuenta de almacenamiento). El nombre de host que se usará parece en el elemento n.º 2 de la hoja *Dominio personalizado* en [Azure Portal](https://portal.azure.com).
+1. En el cuadro de texto de la hoja *Dominio personalizado* en [Azure Portal](https://portal.azure.com), escriba el nombre de su dominio personalizado, incluido el subdominio. No incluya *asverify*. Por ejemplo, si su dominio es **contoso.com** y su alias de subdominio es **www**, escriba **www.contoso.com**. Si su subdominio es **fotos**, escriba **fotos.contoso.com**. El subdominio es obligatorio.
+1. Seleccione la casilla **Usar validación CNAME indirecta**.
+1. Seleccione **Guardar** en la hoja *Dominio personalizado* hoja para registrar su dominio personalizado. Si el registro se realiza correctamente, verá un mensaje que indica que la cuenta de almacenamiento se actualizó correctamente. En este momento, Azure ha comprobado el dominio personalizado, pero no se ha realizado el enrutamiento del tráfico al dominio en la cuenta de almacenamiento.
+1. Vuelva al sitio web del proveedor de DNS y cree otro registro CNAME que asigne su subdominio al punto de conexión de Blob service. Por ejemplo, especifique el subdominio como **www** o **fotos** (sin el *asverify*) y el nombre de host como **mystorageaccount.blob.core.windows.net** (donde **mystorageaccount** es el nombre de la cuenta de almacenamiento). Con este paso se completa el registro del dominio personalizado.
+1. Finalmente, puede eliminar el registro CNAME que creó y que contiene el subdominio **asverify**, ya que solo era necesario como paso intermedio.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En el panel de navegación, haz clic en **Almacenamiento**.
-3. En la página **Almacenamiento** , haga clic en el nombre de la cuenta de almacenamiento para mostrar el panel.
-4. En la cinta de opciones, haga clic en **Administrar dominio**.
-5. En el cuadro de diálogo **Administrar dominio personalizado**, haga clic en **Unregister** (Anular el registro).
+Una vez que el nuevo registro CNAME se propaga a través de DNS, los usuarios pueden ver datos de blob mediante su dominio personalizado, siempre y cuando tengan los permisos adecuados.
 
-## <a name="additional-resources"></a>Recursos adicionales
-* [Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
+## <a name="test-your-custom-domain"></a>Prueba de un dominio personalizado
 
+Para confirmar que el dominio personalizado se haya asignado realmente al punto de conexión de Blob service, cree un blob en un contenedor público en la cuenta de almacenamiento. A continuación, en un explorador web, use un URI con el mismo formato para obtener acceso al blob:
 
+`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
+Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web del contenedor **myforms** en el subdominio personalizado **fotos.contoso.com**:
 
-<!--HONumber=Nov16_HO4-->
+`http://photos.contoso.com/myforms/applicationform.htm`
+
+## <a name="deregister-a-custom-domain"></a>Anulación del registro de un dominio personalizado
+
+Para anular el registro de un dominio personalizado para su punto de conexión de Blob Storage, use uno de los procedimientos siguientes.
+
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+
+Use el comando de CLI [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) y especifique una cadena vacía (`""`) para el valor del argumento `--custom-domain` para quitar un registro de dominio personalizado.
+
+* Formato de comando:
+
+  ```azurecli
+  az storage account update \
+      --name <storage-account-name> \
+      --resource-group <resource-group-name> \
+      --custom-domain ""
+  ```
+
+* Ejemplo de comando:
+
+  ```azurecli
+  az storage account update \
+      --name mystorageaccount \
+      --resource-group myresourcegroup \
+      --custom-domain ""
+  ```
+
+### <a name="powershell"></a>PowerShell
+
+Use el cmdlet de PowerShell [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/Set-AzureRmStorageAccount) y especifique una cadena vacía (`""`) para el valor del argumento `-CustomDomainName` para quitar un registro de dominio personalizado.
+
+* Formato de comando:
+  
+  ```powershell
+  Set-AzureRmStorageAccount `
+      -ResourceGroupName "<resource-group-name>" `
+      -AccountName "<storage-account-name>" `
+      -CustomDomainName ""
+  ```
+
+* Ejemplo de comando:
+
+  ```powershell
+  Set-AzureRmStorageAccount `
+      -ResourceGroupName "myresourcegroup" `
+      -AccountName "mystorageaccount" `
+      -CustomDomainName ""
+  ```
+
+### <a name="azure-portal"></a>Portal de Azure
+
+Actualmente no se puede quitar un registro de dominio personalizado mediante Azure Portal. Este es un problema conocido. Actualmente no disponemos una fecha de resolución, pero se actualizará este artículo cuando se haya resuelto el problema. Mientras tanto, use la CLI de Azure 2.0 o Azure PowerShell para quitar la configuración de dominio personalizado.
+
+## <a name="next-steps"></a>Pasos siguientes
+* [Asignación de un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
 

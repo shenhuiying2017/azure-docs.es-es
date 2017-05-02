@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bf15644cbf3a640bb706292c17cddbefa0574605
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: dd5df541c0362b8fe8265fd26dc73908215076ad
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Hive al crear el clúster de HDInsight
@@ -34,8 +34,8 @@ Durante la creación del clúster, el script enumera los archivos, los copia en 
 > [!NOTE]
 > El uso de las acciones de script de este artículo permite que las bibliotecas estén disponibles en las situaciones siguientes:
 >
-> * **HDInsight basado en Linux**: cuando se usa la **línea de comandos de Hive**, **WebHCat** y **HiveServer2**.
-> * **HDInsight basado en Windows**: cuando se usa la **línea de comandos de Hive** y **WebHCat**.
+> * **HDInsight basado en Linux**: cuando se usa un cliente de Hive, **WebHCat** y **HiveServer2**.
+> * **HDInsight basado en Windows**: cuando se usa el cliente de Hive y **WebHCat**.
 
 ## <a name="the-script"></a>La secuencia de comandos
 

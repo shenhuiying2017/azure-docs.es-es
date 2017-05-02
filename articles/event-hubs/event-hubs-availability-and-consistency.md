@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 8ada071c9ef7c534f6e048e4804aa1b4b2b787e0
-ms.openlocfilehash: f9b28b177e83e49bd83328919efbd5887b46c7d4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 934ac698c09f2d7c130fe787994dc6fa12abbd2f
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidad y coherencia en Event Hubs
 
 ## <a name="overview"></a>Información general
-Azure Event Hubs usa un [modelo de creación de particiones](event-hubs-what-is-event-hubs.md#partitions) para mejorar la disponibilidad y paralelización dentro de un solo centro de eventos. Por ejemplo, si un Centro de eventos tiene cuatro particiones y una de ellas se mueve de un servidor a otro en una operación de equilibrio de carga, se puede enviar y recibir desde las otras tres. Además, un mayor número de particiones permite que más lectores simultáneos procesen los datos, lo que mejora el rendimiento agregado. Conocer las implicaciones de la creación de particiones y la ordenación de un sistema distribuido es un aspecto fundamental del diseño de soluciones.
+Azure Event Hubs usa un [modelo de creación de particiones](event-hubs-what-is-event-hubs.md#partitions) para mejorar la disponibilidad y paralelización dentro de un solo centro de eventos. Por ejemplo, si un centro de eventos tiene cuatro particiones y una de ellas se mueve de un servidor a otro en una operación de equilibrio de carga, se puede enviar y recibir desde las otras tres. Además, un mayor número de particiones permite que más lectores simultáneos procesen los datos, lo que mejora el rendimiento agregado. Conocer las implicaciones de la creación de particiones y la ordenación de un sistema distribuido es un aspecto fundamental del diseño de soluciones.
 
 Para ayudar a explicar el equilibrio entre ordenación y disponibilidad, consulte el [teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), que también se conoce como teorema de Brewer. Dicho teorema indica que hay que elegir entre coherencia, disponibilidad y tolerancia a la partición.
 
@@ -37,7 +37,7 @@ El teorema de Brewer define la coherencia y la disponibilidad de la forma siguie
 Event Hubs se basa en un modelo de datos con particiones. Se puede configurar el número de particiones en el centro de eventos durante la instalación, pero no se puede cambiar este valor más adelante. Puesto que se deben utilizar particiones con Event Hubs, solo necesita tomar una decisión con respecto a la disponibilidad y la coherencia de la aplicación.
 
 ## <a name="availability"></a>Disponibilidad
-La manera más sencilla de empezar a trabajar con Event Hubs es usar el comportamiento predeterminado. Si crea un objeto `EventHubClient` nuevo y usa el método `Send`, los eventos se distribuyen automáticamente entre las particiones del Centro de eventos. Este comportamiento permite disfrutar del máximo tiempo de actividad.
+La manera más sencilla de empezar a trabajar con Event Hubs es usar el comportamiento predeterminado. Si crea un objeto `EventHubClient` nuevo y usa el método `Send`, los eventos se distribuyen automáticamente entre las particiones del centro de eventos. Este comportamiento permite disfrutar del máximo tiempo de actividad.
 
 Para los casos de uso que requieren el máximo tiempo de actividad, se prefiere este modelo.
 
@@ -59,7 +59,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-El ejemplo anterior envía el evento a una de las particiones disponibles en el Centro de eventos y establece el número de secuencia correspondiente de la aplicación. Esta solución requiere que la aplicación de procesamiento conserve el estado, pero proporciona a los remitentes un punto de conexión con más probabilidades de estar disponible.
+El ejemplo anterior envía el evento a una de las particiones disponibles en el centro de eventos y establece el número de secuencia correspondiente a partir de la aplicación. Esta solución requiere que la aplicación de procesamiento conserve el estado, pero proporciona a los remitentes un punto de conexión con más probabilidades de estar disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:

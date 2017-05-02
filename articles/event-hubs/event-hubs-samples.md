@@ -1,6 +1,6 @@
 ---
 title: Ejemplos de Azure Event Hubs | Microsoft Docs
-description: Ejemplos de Event Hubs
+description: Ejemplos de Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: f3c8f6e52b8713bcdb58d55e8bbc2301a7c316e4
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2eaf642d3d6617c8500aee283809209a5f31ef88
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="event-hubs-samples"></a>Ejemplos de Event Hubs 
 
-Los ejemplos de Event Hubs muestran las características claves de [Azure Event Hubs](/azure/event-hubs/). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
+Los ejemplos de Event Hubs muestran las características clave de [Azure Event Hubs](/azure/event-hubs/). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
 
 En el momento de redactar este artículo, los ejemplos de Event Hubs se encuentran en distintos lugares:
 
@@ -40,11 +40,11 @@ Los ejemplos siguientes muestran cómo enviar y recibir eventos mediante el [cli
 
 ### <a name="send-events"></a>Envío de eventos 
 
-El ejemplo de [introducción a los envíos](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) muestra cómo escribir una aplicación de consola de .NET Core que envía eventos a un centro de eventos.
+El ejemplo de [Get started sending](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) (Introducción al envío) muestra cómo escribir una aplicación de consola de .NET Core que envía eventos a un centro de eventos.
 
 ### <a name="receive-events"></a>Recepción de eventos 
 
-El ejemplo de [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) (Introducción a la recepción con el host del procesador de eventos) es una aplicación de consola de .NET Core que recibe mensajes desde un Centro de eventos mediante `Event Processor Host`.
+El ejemplo de [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) (Introducción a la recepción con el host del procesador de eventos) es una aplicación de consola de .NET Core que recibe mensajes desde un centro de eventos mediante `Event Processor Host`.
 
 ## <a name="net-framework"></a>.NET Framework    
 
@@ -56,7 +56,7 @@ El ejemplo de [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dot
 
 ### <a name="get-started-with-event-hubs"></a>Introducción a los Centros de eventos 
 
-El ejemplo de [introducción a Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) muestra las funcionalidades básicas de Event Hubs, como la creación de un centro de eventos, el envío de eventos a un centro de eventos y el consumo de eventos mediante el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
+El ejemplo de [Event Hubs Getting Started](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) (Introducción a Event Hubs) muestra las funcionalidades básicas de Event Hubs, como la creación de un centro de eventos, el envío de eventos a un centro de eventos y el consumo de eventos mediante el [host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
 
 ### <a name="scale-out-event-processing"></a>Escalado horizontal del procesamiento de eventos 
 
@@ -64,11 +64,11 @@ El ejemplo de [escalado horizontal del procesamiento de eventos](https://code.ms
 
 ###  <a name="pull-data-from-sql-into-an-event-hub"></a>Extracción de datos de SQL a un centro de eventos
 
-El ejemplo de [extracción de datos de SQL](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) muestra cómo extraer datos de una tabla SQL e insertarlos en un centro de eventos para usarlos como una entrada en las aplicaciones analíticas auxiliares.
+El ejemplo de [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) (Extracción de datos de SQL) muestra cómo extraer datos de una tabla SQL e insertarlos en un centro de eventos para usarlos como una entrada en las aplicaciones analíticas auxiliares.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Extracción de datos web a un centro de eventos 
 
-El ejemplo de [importación de datos desde la web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) muestra cómo extraer datos de fuentes públicas (como la información de tráfico del Departamento de transporte) e insertarlos en un centro de eventos.
+El ejemplo de [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) (Importación de datos desde la web) muestra cómo extraer datos de fuentes públicas (como la información de tráfico del Departamento de transporte) e insertarlos en un centro de eventos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

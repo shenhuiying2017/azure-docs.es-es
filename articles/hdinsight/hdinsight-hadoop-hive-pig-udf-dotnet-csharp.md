@@ -14,64 +14,58 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f9ea34229e2f6e498c2826be04c09fb2da6393e3
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: f141d4f58727696c5f493c9e8eb19feb518e8968
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en Hadoop de HDInsight
 
-Hive y Pig resultan excelentes para trabajar con datos en Azure HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Hive y Pig permiten efectuar llamadas a código externo a través de funciones definidas por el usuario (UDF) o de streaming.
-
-Con este documento, aprenderá a usar C# con Hive y Pig.
+Aprenda cómo usar funciones definidas por el usuario (UDF) de C# con Apache Hive y Pig on HDInsight.
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento requieren un clúster de HDInsight que usa Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Los pasos de este tutorial se aplican a los clústeres de HDInsight basados tanto en Linux como en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el artículo relativo al [control de versiones de componentes de HDInsight](hdinsight-component-versioning.md).
+
+Tanto Hive como Pig pueden pasar datos a aplicaciones externas para el procesamiento. Este proceso se conoce como _streaming_. Al usar una aplicación .NET, los datos se pasan a la aplicación en STDIN y la aplicación devuelve los resultados en STDOUT. Para leer y escribir en STDIN y STDOUT, puede usar `Console.ReadLine()` y `Console.WriteLine()` desde una aplicación de la consola.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Windows 7 o posterior.
+* Estar familiarizado con la escritura y la compilación del código C# orientado a .NET Framework 4.5.
 
-* Visual Studio con las siguientes versiones:
+    * Use el IDE que prefiera. Recomendamos [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017 o [Visual Studio Code](https://code.visualstudio.com/). En los pasos descritos en este documento se utiliza Visual Studio 2017.
 
-  * Visual Studio 2012 Professional/Premium/Ultimate con [actualización 4](http://www.microsoft.com/download/details.aspx?id=39305)
+* Una manera de cargar archivos .exe en el clúster y ejecutar trabajos de Pig y Hive. Recomendamos Data Lake Tools para Visual Studio, Azure PowerShell y CLI de Azure. En los pasos descritos en este documento se emplean las herramientas Data Lake para Visual Studio para cargar los archivos y ejecutar la consulta de ejemplo de Hive.
 
-  * Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    Para obtener información sobre otros modos de ejecutar consultas de Hive y tareas de Pig, consulte los documentos siguientes:
 
-  * Visual Studio 2015
+    * [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md)
 
-  * Visual Studio 2017
+    * [Uso de Apache Pig con HDInsight](hdinsight-use-pig.md)
 
-* Hadoop en un clúster de HDInsight, consulte [Aprovisionamiento de un clúster de HDInsight](hdinsight-provision-clusters.md) para conocer los pasos que le permitirán crear un clúster.
-
-* Herramientas de Hadoop para Visual Studio o herramientas de Data Lake para Visual Studio. Consulte [Introducción al uso de herramientas de Hadoop de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para conocer los pasos que le permitirán instalar y configurar las herramientas.
-
-    > [!NOTE]
-    > Las herramientas de Data Lake se instalan en Visual Studio 2017 seleccionando la carga de trabajo __Desarrollo de Azure__ durante la instalación.
+* Hadoop en un clúster de HDInsight. Para obtener más información sobre cómo crear un clúster, consulte [Creación de un clúster de HDInsight](hdinsight-provision-clusters.md).
 
 ## <a name="net-on-hdinsight"></a>.NET en HDInsight
 
-Common Language Runtime (CLR) de .NET y los marcos se instalan de forma predeterminada en los clústeres de HDInsight basados en Windows. El CLR de .NET permite usar las aplicaciones de C# con el streaming de Hive y Pig (los datos se pasan entre Hive y Pig, y la aplicación de C# a través de stdin y stdout).
+* Los clústeres de __HDInsight basado en Linux__ se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.5 de HDInsight.
 
-> [!NOTE]
-> Actualmente, no se pueden ejecutar UDF de .NET Framework en clústeres de HDInsight basados en Linux.
+    Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
+* Los clústeres de __HDInsight basados en Windows__ usan Microsoft .NET CLR para ejecutar aplicaciones. NET.
 
-## <a name="net-and-streaming"></a>.NET y streaming
+Para obtener más información sobre la versión de .NET framework y Mono incluida en las versiones de HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](hdinsight-component-versioning.md).
 
-El streaming obliga a Hive y Pig a pasar datos a una aplicación externa a través de stdout y a recibir los resultados a través de stdin. Para las aplicaciones de C#, use `Console.ReadLine()` y `Console.WriteLine()`.
+## <a name="create-the-c-projects"></a>Creación de proyectos de C\#
 
-Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay que usar la plantilla de **Aplicación de consola (.NET Framework)** en los proyectos de C#.
-
-## <a name="hive-and-c35"></a>Hive y C&#35;
-
-### <a name="create-the-c-project"></a>Creación de un proyecto de C#
+### <a name="hive-udf"></a>UDF de Hive
 
 1. Abra Visual Studio y cree una solución. Para el tipo de proyecto, elija **Aplicación de consola (.NET Framework)** y asigne al nuevo proyecto el nombre **HiveCSharp**.
+
+    > [!IMPORTANT]
+    > Seleccione __.NET Framework 4.5__ si está usando un clúster de HDInsight basado en Linux. Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
 2. Reemplace el contenido de **Program.cs** por lo siguiente:
 
@@ -126,54 +120,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
 3. Compile el proyecto.
 
-### <a name="upload-to-storage"></a>Carga en el almacenamiento
-
-1. En Visual Studio, abra el **Explorador de servidores**.
-
-2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
-
-3. Si se le solicitan, escriba sus credenciales de suscripción de Azure y, a continuación, haga clic en **Iniciar sesión**.
-
-4. Expanda el clúster de HDInsight en el que desea implementar esta aplicación y, a continuación, expanda **Cuenta de almacenamiento predeterminada**.
-
-    ![Explorador de servidores en el que se muestra la cuenta de almacenamiento para el clúster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
-
-5. Haga doble clic en **Contenedor predeterminado** para el clúster para ver el contenido del contenedor predeterminado.
-6. Haga clic en el icono de carga y, a continuación, vaya a la carpeta **bin\debug** del proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
-
-    ![icono para cargar](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
-
-7. Una vez que finalice la carga, se puede usar la aplicación desde una consulta de Hive.
-
-### <a name="hive-query"></a>Consulta de Hive
-
-1. En Visual Studio, abra el **Explorador de servidores**.
-
-2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
-
-3. Haga clic con el botón derecho en el clúster en el que ha implementado la aplicación **HiveCSharp** y, a continuación, elija **Escribir una consulta de Hive**.
-
-4. Use el siguiente texto para la consulta de Hive:
-
-    ```hiveql
-    add file wasbs:///HiveCSharp.exe;
-
-    SELECT TRANSFORM (clientid, devicemake, devicemodel)
-    USING 'HiveCSharp.exe' AS
-    (clientid string, phoneLabel string, phoneHash string)
-    FROM hivesampletable
-    ORDER BY clientid LIMIT 50;
-    ```
-
-    Esta consulta selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable`, y los pasa a la aplicación HiveCSharp.exe. La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que HiveCSharp.exe esté en la raíz del contenedor de almacenamiento predeterminado (`add file wasbs:///HiveCSharp.exe`).
-
-5. Haga clic en **Enviar** para enviar el trabajo al clúster de HDInsight. Se abre la ventana **Resumen del trabajo de Hive**.
-
-6. Haga clic en **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado**. Para ver la salida del trabajo, haga clic en **Salida de trabajo**.
-
-## <a name="pig-and-c35"></a>Pig y C&#35;
-
-### <a name="create-the-c-project"></a>Creación de un proyecto de C#
+### <a name="pig-udf"></a>UDF de Pig
 
 1. Abra Visual Studio y cree una solución. Para el tipo de proyecto, elija **Aplicación de consola**. Asigne al nuevo proyecto el nombre **PigUDF**.
 
@@ -212,32 +159,94 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
 3. Guarde **Program.cs**y, a continuación, compile el proyecto.
 
-### <a name="upload-the-application"></a>Cargue la aplicación.
+## <a name="upload-to-storage"></a>Carga en el almacenamiento
 
-1. El streaming de Pig espera que la aplicación sea local en el sistema de archivos del clúster. Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+1. En Visual Studio, abra el **Explorador de servidores**.
 
-2. Una vez conectado, copie **PigUDF.exe** desde el directorio **bin/debug** para el proyecto PigUDF en el equipo local y péguelo en el directorio **% PIG_HOME %** del clúster.
+2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
 
-### <a name="use-the-application-from-pig-latin"></a>Uso de la aplicación desde Pig Latin
+3. Si se le solicitan, escriba sus credenciales de suscripción de Azure y, a continuación, haga clic en **Iniciar sesión**.
 
-1. Desde la sesión de escritorio remoto, use el icono de **línea de comandos de Hadoop** del escritorio para iniciar la línea de comandos de Hadoop.
+4. Expanda el clúster de HDInsight en el que desee implementar esta aplicación. Aparecerá una entrada con el texto __(Cuenta de almacenamiento predeterminada)__ en la lista.
 
-2. Utilice lo siguiente para iniciar la línea de comandos de Pig:
+    ![Explorador de servidores en el que se muestra la cuenta de almacenamiento para el clúster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-        cd %PIG_HOME%
-        bin\pig
+    * Si se puede expandir esta entrada, significa que está utilizando una __cuenta de Azure Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en __(Contenedor predeterminado)__.
+
+    * Si, por el contrario, no puede expandirse, quiere decir que está usando __Azure Data Lake Store__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, haga doble clic en la entrada __(Cuenta de almacenamiento predeterminada)__.
+
+6. Para cargar los archivos .exe, siga uno de estos métodos:
+
+    * Si utiliza una __cuenta de Azure Storage__, haga clic en el icono de carga y, a continuación, navegue hasta la carpeta **bin\debug** para localizar el proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
+
+        ![icono para cargar](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+    
+    * Si usa __Azure Data Lake Store__, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, elija __Cargar__. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Abrir**.
+
+    Una vez que la carga del archivo __HiveCSharp.exe__ haya finalizado, repita el proceso de carga con el archivo __PigUDF.exe__.
+
+## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
+
+1. En Visual Studio, abra el **Explorador de servidores**.
+
+2. Expanda **Azure** y, después, haga lo mismo con **HDInsight**.
+
+3. Haga clic con el botón derecho en el clúster en el que ha implementado la aplicación **HiveCSharp** y, a continuación, elija **Escribir una consulta de Hive**.
+
+4. Use el siguiente texto para la consulta de Hive:
+
+    ```hiveql
+    -- Uncomment the following if you are using Azure Storage
+    -- add file wasbs:///HiveCSharp.exe;
+    -- Uncomment the following if you are using Azure Data Lake Store
+    -- add file adl:///HiveCSharp.exe;
+
+    SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'HiveCSharp.exe' AS
+    (clientid string, phoneLabel string, phoneHash string)
+    FROM hivesampletable
+    ORDER BY clientid LIMIT 50;
+    ```
+
+    > [!IMPORTANT]
+    > Quite la marca de comentario de la instrucción `add file` que coincide con el tipo de almacenamiento predeterminado que se usa para su clúster.
+
+    Esta consulta selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable`, y los pasa a la aplicación HiveCSharp.exe. La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que HiveCSharp.exe esté en la raíz del contenedor de almacenamiento predeterminado.
+
+5. Haga clic en **Enviar** para enviar el trabajo al clúster de HDInsight. Se abre la ventana **Resumen del trabajo de Hive**.
+
+6. Haga clic en **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado**. Para ver la salida del trabajo, haga clic en **Salida de trabajo**.
+
+## <a name="run-a-pig-job"></a>Ejecución de un trabajo de Pig
+
+1. Use uno de los métodos siguientes para conectar su clúster de HDInsight:
+
+    * Si está usando un clúster de HDInsight __basado en Linux__, use SSH. Por ejemplo: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    
+    * Si usa un clúster de HDInsight __basado en Windows__, [conecte con el clúster mediante Escritorio remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+
+2. Utilice uno de los siguientes comandos para iniciar la línea de comandos de Pig:
+
+        pig
+
+    > [!IMPORTANT]
+    > Si usa un clúster basado en Windows, use en su lugar los siguientes comandos:
+    > ```
+    > cd %PIG_HOME%
+    > bin\pig
+    > ```
 
     Se muestra un símbolo del sistema `grunt>`.
 
-3. Escriba lo siguiente para ejecutar un trabajo de Pig con la aplicación de .NET Framework:
+3. Escriba lo siguiente para ejecutar un trabajo de Pig que usa la aplicación de .NET Framework:
 
-        DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
-        LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
+        DEFINE streamer `PigUDF.exe` CACHE('/PigUDF.exe');
+        LOGS = LOAD '/example/data/sample.log' as (LINE:chararray);
         LOG = FILTER LOGS by LINE is not null;
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    La instrucción `DEFINE` crea un alias de `streamer` para las aplicaciones de pigudf.exe, y `SHIP` lo distribuye entre los nodos del clúster. Más adelante, `streamer` se usa con el operador `STREAM` para procesar las líneas individuales incluidas en el registro y devolver los datos como una serie de columnas.
+    La instrucción `DEFINE` crea un alias de `streamer` para las aplicaciones de pigudf.exe y `CACHE` lo carga desde el almacenamiento predeterminado del clúster. Más adelante, `streamer` se usa con el operador `STREAM` para procesar las líneas individuales incluidas en el registro y devolver los datos como una serie de columnas.
 
     > [!NOTE]
     > El nombre de la aplicación que se usa para el streaming debe estar encerrado entre caracteres \` (acento grave) cuando se usa como alias, y entre caracteres ' (comilla sencilla) cuando se utiliza con `SHIP`.
@@ -250,7 +259,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="summary"></a>Resumen
+## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a utilizar una aplicación de .NET Framework desde Hive y Pig en HDInsight. Si desea obtener información sobre cómo utilizar Python con Hive y Pig, consulte [Uso de Python con Hive y Pig en HDInsight](hdinsight-python.md).
 

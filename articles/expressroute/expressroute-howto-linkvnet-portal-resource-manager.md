@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b3c0cca9a6d5171b1248b0f463cbbb26641fc5f2
-ms.openlocfilehash: a1a689dbfc35107b52f9b84f74ac8bfac0727a0e
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 4d86910acca16299627c4202ef073c526bd4fc26
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conexión de una red virtual a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager: Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Clásico: PowerShell](expressroute-howto-linkvnet-classic.md)
 > * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -33,22 +33,18 @@ ms.lasthandoff: 02/10/2017
 
 Este artículo le ayudará a vincular redes virtuales a circuitos de Azure ExpressRoute a través del modelo de implementación de Resource Manager y Azure Portal. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción.
 
-**Información sobre los modelos de implementación de Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
-* Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
+## <a name="before-you-begin"></a>Antes de empezar
+* Revise los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 * Tiene que tener un circuito ExpressRoute activo.
   
-  * Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite el circuito mediante el proveedor de conectividad.
+  * Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) y habilite el circuito mediante el proveedor de conectividad.
   * Asegúrese de que dispone de un emparejamiento privado de Azure configurado para el circuito. Consulte el artículo de [configuración del enrutamiento](expressroute-howto-routing-portal-resource-manager.md) para obtener instrucciones sobre el enrutamiento.
   * Asegúrese de que el emparejamiento privado de Azure está configurado y el emparejamiento BGP entre la red y Microsoft está activo para habilitar la conectividad de extremo a extremo.
-  * Asegúrese de que ha creado y aprovisionado totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para crear una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (siga solo los pasos 1 a 5).
+  * Asegúrese de que ha creado y aprovisionado totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para [crear una puerta de enlace de red virtual en ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Una puerta de enlace de red virtual para ExpressRoute usa el GatewayType "ExpressRoute", no VPN.
 
 * Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute estándar. Todas las redes virtuales deben pertenecer a la misma región geopolítica al utilizar un circuito de ExpressRoute estándar. 
-
 * Puede vincular una red virtual fuera de la región geopolítica del circuito de ExpressRoute, o bien conectar un mayor número de redes virtuales a este si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
+* Puede [ver un vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) antes de comenzar para entender mejor los pasos.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conexión de una red virtual en la misma suscripción a un circuito
 
@@ -87,14 +83,15 @@ Puede compartir un circuito ExpressRoute entre varias suscripciones. En la ilust
     > 
     >
 
-### <a name="administration"></a>Administración
-El "propietario del circuito" es un usuario avanzado autorizado del recurso de circuito ExpressRoute. Puede crear autorizaciones que los "propietarios del circuito", a su vez, pueden canjear. Los usuarios del circuito son propietarios de puertas de enlace de red virtual (que no se incluyen en la misma suscripción que el circuito ExpressRoute). Los usuarios del circuito pueden canjear autorizaciones (una autorización por red virtual).
+### <a name="administration---circuit-owners-and-circuit-users"></a>Administración: los propietarios de circuito y los usuarios de circuito
+
+El "propietario del circuito" es un usuario avanzado autorizado del recurso de circuito ExpressRoute. Puede crear autorizaciones que los "propietarios del circuito", a su vez, pueden canjear. Los usuarios del circuito son propietarios de puertas de enlace de red virtual que no se incluyen en la misma suscripción que el circuito ExpressRoute. Los usuarios del circuito pueden canjear autorizaciones (una autorización por red virtual).
 
 El propietario del circuito tiene la capacidad de modificar y revocar las autorizaciones en cualquier momento. La revocación de una autorización dará como resultado la eliminación de todas las conexiones de vínculos de la suscripción cuyo acceso se haya revocado.
 
 ### <a name="circuit-owner-operations"></a>Operaciones del propietario del circuito
 
-#### <a name="creating-an-authorization"></a>Creación de una autorización
+**Creación de una autorización de conexión**
 
 El propietario del circuito crea una autorización. Esto da lugar a la creación de una clave de autorización que puede usar un usuario del circuito para conectar sus puertas de enlace de red virtual al circuito ExpressRoute. Una autorización solo es válida para una conexión.
 
@@ -106,19 +103,15 @@ El propietario del circuito crea una autorización. Esto da lugar a la creación
 
     ![Clave de autorización](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
-#### <a name="deleting-authorizations"></a>Eliminación de autorizaciones
+**Eliminación de una autorización de conexión**
 
 Puede eliminar una conexión si selecciona el icono **Eliminar** en la hoja correspondiente a su conexión.
 
 ### <a name="circuit-user-operations"></a>Operaciones del usuario del circuito
 
-   > [!NOTE]
-   > El usuario del circuito necesita el identificador del recurso y una clave de autorización del propietario del circuito. 
+El usuario del circuito necesita el identificador del recurso y una clave de autorización del propietario del circuito. 
 
-#### <a name="redeeming-connection-authorizations"></a>Canjear autorizaciones de conexión
-
-
-Rellene los detalles y haga clic en **Aceptar** en la pestaña Básica.
+**Canje de una autorización de conexión**
 
 1.    Haga clic en el botón **+Nuevo**.
 
@@ -143,7 +136,8 @@ Rellene los detalles y haga clic en **Aceptar** en la pestaña Básica.
 
 7. Revise la información de la hoja **Resumen** y haga clic en **Aceptar**.
 
-#### <a name="releasing-connection-authorizations"></a>Liberación de autorizaciones de conexión
+
+**Liberación de una autorización de conexión**
 
 Puede liberar una autorización eliminando la conexión que vincula el circuito ExpressRoute a la red virtual.
 

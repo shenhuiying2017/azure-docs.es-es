@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: feb466064f2e26a329977240eeafb28148bdf212
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fe10aaca3232e5baa0b726b7262a6e9e8ce6b638
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -68,7 +69,7 @@ public class Send
     {
 ```
 
-Reemplace el nombre del espacio de nombres y del Centro de eventos por los valores que usó al crear el Centro de eventos.
+Reemplace los nombres del espacio de nombres y del centro de eventos por los valores que usó al crear el centro de eventos.
 
 ``` Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -100,10 +101,5 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Recepción de eventos mediante EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un Centro de eventos](event-hubs-create.md)
+* [Creación de un centro de eventos](event-hubs-create.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

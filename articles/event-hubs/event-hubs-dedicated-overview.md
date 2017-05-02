@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
-ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -55,7 +55,7 @@ Dispone de las siguientes ventajas cuando utiliza Event Hubs con capacidad dedic
 * Cero mantenimiento: nosotros administramos el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones.
 * Precio fijo mensual.
 
-Event Hubs dedicado también elimina algunas de las limitaciones de rendimiento de la oferta Estándar. La unidades de rendimiento en los niveles Estándar y Básico le proporcionan 1000 eventos por segundo o 1 Mbps de entrada por unidad y el doble de esa cantidad de salida. La oferta de escala Dedicado no tiene ninguna restricción en la cantidad de eventos de entrada y de salida. Estos límites solo se rigen por la capacidad de procesamiento de Event Hubs dedicado adquirida.
+Event Hubs dedicado también elimina algunas de las limitaciones de rendimiento de la oferta Estándar. La unidades de rendimiento en los niveles Estándar y Básico le proporcionan 1000 eventos por segundo o 1 Mbps de entrada por unidad y el doble de esa cantidad de salida. La oferta de escala Dedicado no tiene ninguna restricción en la cantidad de eventos de entrada y de salida. Estos límites solo se rigen por la capacidad de procesamiento de los centros de eventos adquiridos.
 
 Este servicio está dirigido a los usuarios de telemetría más grandes y está disponible para los clientes con un contrato Enterprise.
 

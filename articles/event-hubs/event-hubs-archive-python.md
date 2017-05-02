@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
-ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5e37870f932ce775293b913504f2530d1d8935e1
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="event-hubs-archive-walkthrough-python"></a>Tutorial de Event Hubs Archive: Python
-Event Hubs Archive es una nueva característica de Event Hubs que le permite ofrecer automáticamente los datos de transmisión que hay en un Centro de datos a la cuenta de Azure Blob Storage que prefiera. Esto facilita la realización del procesamiento por lotes en datos de transmisión por secuencias en tiempo real. En este artículo se describe cómo utilizar Event Hubs Archive con Python. Para más información acerca de Event Hubs Archive, consulte este [artículo con información general al respecto](event-hubs-archive-overview.md).
+Event Hubs Archive es una nueva característica de Event Hubs que le permite ofrecer automáticamente los datos de transmisión que hay en un centro de datos a la cuenta de Azure Blob Storage que prefiera. Esto facilita la realización del procesamiento por lotes en datos de transmisión por secuencias en tiempo real. En este artículo se describe cómo utilizar Event Hubs Archive con Python. Para más información acerca de Event Hubs Archive, consulte este [artículo con información general al respecto](event-hubs-archive-overview.md).
 
-En este ejemplo se usa el [SDK de Azure Python](https://azure.microsoft.com/develop/python/) para demostrar la característica Archive. El programa sender.py envía datos telemétricos del entorno simulados a Event Hubs en formato JSON. El Centro de eventos está configurado para usar la característica Archive para escribir estos datos en Blob Storage en lotes. Luego, la aplicación archivereader.py lee estos blobs y crea un archivo de anexos por dispositivo, y escribe los datos en archivos .csv.
+En este ejemplo se usa el [SDK de Azure Python](https://azure.microsoft.com/develop/python/) para demostrar la característica Archive. El programa sender.py envía datos telemétricos del entorno simulados a Event Hubs en formato JSON. El centro de eventos está configurado para usar la característica Archive para escribir estos datos en Blob Storage en lotes. Luego, la aplicación archivereader.py lee estos blobs y crea un archivo de anexos por dispositivo, y escribe los datos en archivos .csv.
 
 Lo que se logrará
 
 1. Crear una cuenta de Azure Blob Storage y un contenedor de blobs en ella, para lo que se debe usar Azure Portal.
 2. Crear un espacio de nombres del Centro de eventos desde Azure Portal.
-3. Crear un Centro de eventos con la característica Archive habilitada desde Azure Portal.
-4. Enviar datos al Centro de eventos con un script de Python.
+3. Crear un centro de eventos con la característica Archive habilitada desde Azure Portal.
+4. Enviar datos al centro de eventos con un script de Python.
 5. Leer los archivos del archivo y procesarlos con otro script de Python.
 
 Requisitos previos
@@ -51,9 +51,9 @@ Requisitos previos
 4. Una vez que aparezca el mensaje **Implementaciones correctas**, haga clic en el nombre de la nueva cuenta de almacenamiento y, en la hoja **Essentials**, haga clic en **Blobs**. Cuando se abra la hoja **Blob service**, haga clic en **+ Container** (Contenedor +) en la parte superior. Asigne al contenedor el nombre **archive** y cierre la hoja **Blob service**.
 5. Haga clic en **Claves de acceso** en la hoja izquierda y copie el nombre de la cuenta de almacenamiento y el valor de **key1**. Guarde estos valores en el Bloc de notas, o en cualquier otra ubicación temporal.
 
-## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Creación de un script de Python para enviar eventos a un Centro de eventos
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Creación de un script de Python para enviar eventos a un centro de eventos
 1. Abra el editor de Python que prefiera, como [Visual Studio Code][Visual Studio Code].
-2. Crear un script denominado **sender.py**. Este script le enviará 200 eventos a un Centro de eventos. Son lecturas simples del entorno enviadas en JSON.
+2. Crear un script denominado **sender.py**. Este script le enviará 200 eventos a un centro de eventos. Son lecturas simples del entorno enviadas en JSON.
 3. Pegue el código siguiente en sender.py:
    
    ```python

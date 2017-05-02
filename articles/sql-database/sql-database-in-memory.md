@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -27,7 +28,7 @@ Mediante el uso de tecnologías en memoria en Azure SQL Database, puede lograr m
 
 A continuación se muestran dos ejemplos de cómo OLTP en memoria ayudó significativamente a mejorar el rendimiento:
 
-- Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU (es decir, el consumo de recursos) en un 70 %](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU (es decir, el consumo de recursos) en un 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - El vídeo siguiente muestra la mejora significativa del consumo de recursos con una carga de trabajo de ejemplo: [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (OLTP en memoria en Azure SQL Database).
 
 Las tecnologías en memoria están disponibles en todas las bases de datos del plan Premium, incluidas las de grupos elásticos Premium.
@@ -139,7 +140,7 @@ Antes de cambiar la base de datos a un plan inferior, Básico o Estándar, quite
 
 ## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instalación del ejemplo de In-Memory OLTP.
 
-La base de datos de ejemplo AdventureWorksLT [V12] se puede crear con unos pocos clics en el [portal de Azure](https://portal.azure.com/). Los pasos descritos en esta sección explican cómo puede enriquecer la base de datos AdventureWorksLT con objetos de OLTP en memoria y muestran las ventajas de rendimiento.
+La base de datos de ejemplo AdventureWorksLT se puede crear con unos pocos clics en el [Azure Portal](https://portal.azure.com/). Los pasos descritos en esta sección explican cómo puede enriquecer la base de datos AdventureWorksLT con objetos de OLTP en memoria y muestran las ventajas de rendimiento.
 
 Si desea ver una demostración más simple, pero más atractiva visualmente, del rendimiento de OLTP en memoria, consulte:
 
@@ -148,7 +149,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 #### <a name="installation-steps"></a>Pasos de instalación
 
-1. En el [Portal de Azure](https://portal.azure.com/), cree una base de datos Premium en un servidor V12. Establezca el **origen** en la base de datos de ejemplo de AdventureWorksLT [V12]. Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
+1. En el [Azure Portal](https://portal.azure.com/), cree una base de datos Premium en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started-portal.md).
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -495,7 +496,7 @@ En una base de datos con el plan de tarifa P2, puede esperar un rendimiento nuev
 
 #### <a name="deeper-information"></a>Información más detallada
 
-- [Más información sobre cómo Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con OLTP en memoria en SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Más información sobre cómo Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con OLTP en memoria en SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Más información sobre OLTP en memoria](http://msdn.microsoft.com/library/dn133186.aspx)
 
@@ -518,9 +519,4 @@ En una base de datos con el plan de tarifa P2, puede esperar un rendimiento nuev
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
