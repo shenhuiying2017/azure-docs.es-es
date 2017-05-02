@@ -8,8 +8,3 @@ Se paga por dos cosas: los costos de proceso por horas de la puerta de enlace de
 * Si va a enviar tráfico entre redes virtuales en diferentes regiones, el precio será según la región.
 * Si va a enviar tráfico solo entre redes virtuales que están en la misma región, no habrá ningún costo por datos. El tráfico entre redes virtuales de la misma región es gratuito.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

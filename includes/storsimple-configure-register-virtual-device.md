@@ -17,8 +17,3 @@ Una vez que complete la configuración y el registro, el dispositivo se conectar
 
 ![Fase en línea de dispositivo virtual de StorSimple](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

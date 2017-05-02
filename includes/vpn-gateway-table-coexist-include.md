@@ -4,8 +4,3 @@
 | **Portal de Azure** |No compatible |No compatible |
 | **PowerShell** |[Artículo](../articles/expressroute/expressroute-howto-coexist-classic.md) |[Artículo](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
