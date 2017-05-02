@@ -50,7 +50,7 @@ El complemento de Power Query para Excel facilita la importación de datos desde
 
 1. Abra Excel.
 2. Cree un libro vacío.
-3. Haga clic en el menú **Power Query**, en **De Azure** y, luego, en **De HDInsight de Microsoft Azure **.
+3. Haga clic en el menú **Power Query**, en **De Azure** y, luego, en **De HDInsight de Microsoft Azure**.
    
     ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
    

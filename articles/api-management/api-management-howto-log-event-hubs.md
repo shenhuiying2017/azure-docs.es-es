@@ -100,7 +100,7 @@ Haga clic en **Directivas** en el menú de API Management situado a la izquierda
 
 ![Add policy][add-policy]
 
-Sitúe el cursor en la sección de la directiva de `inbound` y haga clic en la directiva **Registro en el centro de eventos`log-to-eventhub` para insertar la plantilla de declaración de directivas **.
+Sitúe el cursor en la sección de la directiva de `inbound` y haga clic en la directiva **Registro en el centro de eventos`log-to-eventhub` para insertar la plantilla de declaración de directivas**.
 
 ![Policy editor][event-hub-policy]
 
