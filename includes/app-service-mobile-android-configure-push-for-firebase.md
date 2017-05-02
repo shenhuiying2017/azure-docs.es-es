@@ -10,8 +10,3 @@ El back-end de·Mobile Apps ahora está configurado para usar Firebase Cloud Mes
 
 
 <!-- images -->
-
-
-<!--HONumber=Dec16_HO2-->
-
-

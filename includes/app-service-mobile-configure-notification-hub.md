@@ -9,8 +9,3 @@ Ya ha conectado un centro de notificaciones al proyecto de back-end de Mobile Ap
 
 [Azure Portal]: https://portal.azure.com/
 [Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

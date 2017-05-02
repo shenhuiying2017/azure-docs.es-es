@@ -18,8 +18,3 @@ De forma predeterminada, se pueden invocar las API en un back-end de Mobile Apps
         table.access = 'authenticated';
 
     Para más información, consulte [Autenticación necesaria para el acceso a las tablas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Para obtener información sobre cómo descargar el proyecto de código de inicio rápido desde su sitio, consulte [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
-
-
-<!--HONumber=Dec16_HO2-->
-
-
