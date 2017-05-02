@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0f10ad4904b10a9554e949e77f0192edcb8f624f
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -50,6 +50,7 @@ Los administradores pueden requerir que confirme los métodos de autenticación 
 * [Cómo cambiar la contraseña mediante el restablecimiento de la contraseña de autoservicio](active-directory-passwords-update-your-own-password.md)
 * [Página de registro en el restablecimiento de contraseña](http://aka.ms/ssprsetup)
 * [Portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/)
+* [No puede iniciar sesión en su cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registro en el restablecimiento de contraseña que muestra los métodos registrados y botón Finalizar"
 

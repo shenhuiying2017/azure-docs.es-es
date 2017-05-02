@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ La siguiente ilustración muestra un ejemplo de las rutas definidas por el usuar
 ![Rutas del sistema de Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Las rutas definidas por el usuario solo se aplican al tráfico que sale de una subred. Por ejemplo, no puede crear rutas para especificar el modo de entrada del tráfico en una subred de Internet. Asimismo, la aplicación a la cual está enviando el tráfico no puede estar en la misma subred en la que se origina ese tráfico. Recuerde siempre crear una subred independiente para sus aplicaciones. 
+> Las rutas definidas por el usuario se aplican al tráfico que sale de una subred de cualquier recurso (por ejemplo, interfaces de red conectadas a máquinas virtuales) en la subred. Por ejemplo, no puede crear rutas para especificar el modo de entrada del tráfico en una subred desde Internet. El dispositivo al que se va a reenviar el tráfico no puede estar en la misma subred donde se origina el tráfico. Recuerde siempre crear una subred independiente para sus aplicaciones. 
 > 
 > 
 

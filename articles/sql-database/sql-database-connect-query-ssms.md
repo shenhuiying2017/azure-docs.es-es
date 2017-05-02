@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -37,7 +37,7 @@ Antes de empezar, asegúrese de que ha instalado la versión más reciente de [S
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
+Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
@@ -78,7 +78,7 @@ Use SQL Server Management Studio para establecer una conexión con un servidor d
 
 ## <a name="query-data"></a>Datos de consulta
 
-Use la instrucción [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de Transact-SQL para consultar datos de la instancia de Azure SQL Database.
+Utilice el código siguiente para consultar los 20 primeros productos por categoría con la instrucción Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. En el Explorador de objetos, haga clic con el botón derecho en **mySampleDatabase** y luego en **Nueva consulta**. Se abre una ventana de consulta en blanco que está conectada a la base de datos.
 2. En la ventana Consulta, escriba la consulta siguiente:
@@ -96,7 +96,7 @@ Use la instrucción [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) d
 
 ## <a name="insert-data"></a>Insertar datos
 
-Use la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de Transact-SQL para insertar datos en la instancia de Azure SQL Database.
+Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT.Product con la instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. En la ventana Consulta, reemplace la consulta anterior con la siguiente consulta:
 
@@ -126,7 +126,7 @@ Use la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) d
 
 ## <a name="update-data"></a>Actualización de datos
 
-Use la instrucción [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de Transact-SQL para actualizar datos en la instancia de Azure SQL Database.
+Utilice el código siguiente para actualizar el nuevo producto que ha agregado anteriormente con la instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1. En la ventana Consulta, reemplace la consulta anterior con la siguiente consulta:
 
@@ -142,7 +142,7 @@ Use la instrucción [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) d
 
 ## <a name="delete-data"></a>Eliminación de datos
 
-Use la instrucción [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) de Transact-SQL para eliminar datos en la instancia de Azure SQL Database.
+Utilice el código siguiente para eliminar el nuevo producto que ha agregado anteriormente con la instrucción Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. En la ventana Consulta, reemplace la consulta anterior con la siguiente consulta:
 
