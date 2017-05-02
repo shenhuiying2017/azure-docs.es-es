@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
 ms.openlocfilehash: 94fdae2992e69f4330d325968a9e66b3f6f38ce0
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -107,7 +108,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
      ![Configurar inicio de sesión único](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) 
    
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Image Relay (por ejemplo:* https://fabrikam.ImageRelay.com/*).
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Image Relay (por ejemplo:*https://fabrikam.ImageRelay.com/*).
    
     b. Haga clic en **Next**.
 4. En la página **Configurar inicio de sesión único en Image Relay**, siga estos pasos:
@@ -281,9 +282,4 @@ Al hacer clic en el icono de Image Relay en el panel de acceso, debería iniciar
 [203]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
