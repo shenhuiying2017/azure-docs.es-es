@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -94,13 +94,15 @@ En la tabla siguiente se resume el acceso que se puede establecer con cada model
 
 Los roles de usuario heredados de Log Analytics solo controlan el acceso a las actividades realizadas en el [portal de Log Analytics](https://mms.microsoft.com).
 
-Las siguientes actividades en el portal de Log Analytics también requieren permisos de Azure:
+Las siguientes actividades también requieren permisos de Azure:
 
 | Acción                                                          | Permisos de Azure necesarios | Notas |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Agregar y quitar soluciones de administración                        | Escritura de grupo de recursos <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Agregar y quitar soluciones de administración                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Cambiar el plan de tarifa                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Ver los datos en los iconos de soluciones *Backup* y *Site Recovery* | Administrador o coadministrador | Accede a los recursos implementados mediante el modelo de implementación clásica |
+| Creación de un área de trabajo en Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Administración del acceso a Log Analytics mediante permisos de Azure
 Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
@@ -177,7 +179,7 @@ Puede cambiar el rol de cuenta de un usuario asociado a su cuenta de OMS. Tiene 
 4. En el cuadro de diálogo de confirmación, haga clic en **Sí**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Eliminación de un usuario de un área de trabajo
-Siga estos pasos para quitar un usuario de un área de trabajo. La eliminación del usuario no implica el cierre del área de trabajo. En su lugar, elimina la asociación entre ese usuario y el área de trabajo. Si un usuario tiene asociadas varias áreas de trabajo, ese usuario podrá continuar iniciando sesión en OMS y ver el resto de áreas de trabajo.
+Siga estos pasos para quitar un usuario de un área de trabajo. La eliminación del usuario no implica el cierre del área de trabajo. En su lugar, elimina la asociación entre ese usuario y el área de trabajo. Si un usuario tiene asociadas varias áreas de trabajo, podrá continuar iniciando sesión en OMS y ver el resto de áreas de trabajo.
 
 1. En el portal de OMS, haga clic en el icono **Configuración**.
 2. Haga clic en la pestaña **Cuentas** y, después, en la pestaña **Administrar usuarios**.

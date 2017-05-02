@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -35,7 +35,7 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 
 Antes de empezar, asegúrese de que tiene instalada la versión más reciente de [Visual Studio Code](https://code.visualstudio.com/Download) y cargue la [extensión mssql](https://aka.ms/mssql-marketplace). Para obtener instrucciones de instalación para la extensión mssql, vea [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) (Instalación de VS Code) y [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (mssql para Visual Studio Code). 
 
-## <a name="configure-vs-code-mac-os-only"></a>Configuración de VS Code (solo Mac OS)
+## <a name="configure-vs-code"></a>Configuración del código de VS 
 
 ### <a name="mac-os"></a>**Mac OS**
 Para macOS, debe instalar OpenSSL, que es un requisito previo para DotNet Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL**. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+
+No se necesita ninguna configuración especial.
+
+### <a name="windows"></a>**Windows**
+
+No se necesita ninguna configuración especial.
+
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante Visual Studio Code.
+Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
@@ -108,7 +116,7 @@ Use Visual Studio Code para establecer una conexión con el servidor de Azure SQ
 
 ## <a name="query-data"></a>Datos de consulta
 
-Use la instrucción [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) de Transact-SQL para consultar datos de la instancia de Azure SQL Database.
+Utilice el código siguiente para consultar los 20 primeros productos por categoría con la instrucción Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
 1. En la ventana del **editor**, escriba la siguiente consulta en la ventana de consulta vacía:
 
@@ -125,7 +133,7 @@ Use la instrucción [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) d
 
 ## <a name="insert-data"></a>Insertar datos
 
-Use la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de Transact-SQL para insertar datos en la instancia de Azure SQL Database.
+Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT.Product con la instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
 1. En la ventana del **editor**, elimine la consulta anterior y escriba la siguiente consulta:
 
@@ -153,7 +161,7 @@ Use la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) d
 
 ## <a name="update-data"></a>Actualización de datos
 
-Use la instrucción [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) de Transact-SQL para actualizar datos en la instancia de Azure SQL Database.
+Utilice el código siguiente para actualizar el nuevo producto que ha agregado anteriormente con la instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
 1.  En la ventana del **editor**, elimine la consulta anterior y escriba la siguiente consulta:
 
@@ -167,7 +175,7 @@ Use la instrucción [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) d
 
 ## <a name="delete-data"></a>Eliminación de datos
 
-Use la instrucción [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) de Transact-SQL para eliminar datos en la instancia de Azure SQL Database.
+Utilice el código siguiente para eliminar el nuevo producto que ha agregado anteriormente con la instrucción Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
 1. En la ventana del **editor**, elimine la consulta anterior y escriba la siguiente consulta:
 

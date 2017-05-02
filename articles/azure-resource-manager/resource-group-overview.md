@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6d88b7c5ad96a1c7cfb60bde3c9d952b654adb9f
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -256,7 +256,7 @@ En algunos casos, desea ejecutar el código o script que accede a los recursos, 
 
 * [Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal.md)
 * [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal-cli.md)
-* [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](resource-group-create-service-principal-portal.md)
+* [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](resource-group-create-service-principal-portal.md)
 
 También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 

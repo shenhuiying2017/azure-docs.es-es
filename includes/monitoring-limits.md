@@ -2,9 +2,4 @@
 | Recurso | Límite |
 | --- | --- |
 | Configuración de escalado automático |100 por región por suscripción |
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+| Alertas de métricas |100 reglas de alertas activas por suscripción |

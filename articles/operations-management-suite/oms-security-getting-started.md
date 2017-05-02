@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -33,14 +33,14 @@ La solución Seguridad y auditoría de OMS proporciona una vista completa de la 
 
 1. En el panel principal de **Microsoft Operations Management Suite**, haga clic en el icono **Configuración**, situado a la izquierda.
 2. En la hoja **Configuración**, en **Soluciones**, haga clic en la opción **Seguridad y auditoría**.
-3. Aparecerá el panel **Seguridad y auditoría**:
+3. Aparece el panel **Seguridad y auditoría**:
    
     ![Panel de Seguridad y auditoría de OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
 Si obtiene acceso a este panel por primera vez y no dispone de dispositivos supervisados por OMS, los iconos no se completarán con los datos obtenidos del agente. Una vez que instale el agente, tardará un tiempo en completarse. Por lo tanto, es posible que al principio vea que faltan algunos datos que aún se están cargando en la nube.  En este caso, es normal que vea algunos iconos sin información tangible. Lea [Conexión de equipos Windows a Log Analytics](https://technet.microsoft.com/library/mt484108.aspx) para más información sobre cómo instalar el agente de OMS en un sistema Windows y [Conexión de equipos Linux a OMS](https://technet.microsoft.com/library/mt622052.aspx) para más información sobre cómo realizar esta tarea en un sistema Linux.
 
 > [!NOTE]
-> El agente recopilará la información en función de los eventos actuales que están habilitados; por ejemplo, el nombre del equipo, la dirección IP y el nombre de usuario. Sin embargo, no se recopila ningún documento, archivo, nombre de la base de datos ni datos privados.   
+> El agente recopila la información en función de los eventos actuales que están habilitados; por ejemplo, el nombre del equipo, la dirección IP y el nombre de usuario. Sin embargo, no se recopila ningún documento, archivo, nombre de la base de datos ni datos privados.   
 > 
 > 
 
@@ -92,19 +92,19 @@ Al igual que cualquier otro icono dinámico disponible en el panel de OMS, al ha
 ![resultado de la búsqueda](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> *rango* es una puntuación que se proporciona para reflejar el estado de la protección (activada, desactivada, actualizada, etc.) y las amenazas que se encuentran. Que este valor sea un número ayuda a realizar adiciones.
+> *rango* es una puntuación que se proporciona para reflejar el estado de la protección (activada, desactivada, actualizada, etc.) y las amenazas encontradas. Que este valor sea un número ayuda a realizar adiciones.
 > 
 > 
 
 Si hace clic en el nombre del equipo, tendrá la vista cronológica del estado de protección de este equipo. Esto es muy útil para escenarios en los que debe comprender si alguna vez se instaló el antimalware y se quitó en algún momento.   
 
 ### <a name="update-assessment"></a>Evaluación de la actualización
-Esta opción permite determinar rápidamente la exposición general a posibles problemas de seguridad y la importancia de estas actualizaciones para su entorno. La solución Seguridad y auditoría de OMS solo proporciona la visualización de estas actualizaciones; los datos reales provienen de las [soluciones Actualizaciones del sistema](https://technet.microsoft.com/library/mt484096.aspx), que es un módulo diferente en OMS. A continuación se muestra un ejemplo de las actualizaciones:
+Esta opción permite determinar rápidamente la exposición general a posibles problemas de seguridad y la importancia de estas actualizaciones para su entorno. La solución Seguridad y auditoría de OMS solo proporciona la visualización de estas actualizaciones; los datos reales provienen de las [soluciones de administración de actualizaciones](oms-solution-update-management.md), que es un módulo diferente en OMS. A continuación se muestra un ejemplo de las actualizaciones:
 
-![actualizaciones del sistema](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![actualizaciones del sistema](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Para más información sobre la solución de actualizaciones, lea [Actualización de servidores con la solución de actualizaciones del sistema](https://technet.microsoft.com/library/mt484096.aspx).
+> Para más información acerca de la solución de administración de actualizaciones, consulte [Solución de administración de actualizaciones de OMS](oms-solution-update-management.md).
 > 
 > 
 
@@ -135,6 +135,14 @@ Este icono se puede utilizar para obtener acceso a todos los equipos que tienen 
 
 Puede continuar con su investigación haciendo clic en cada equipo y revisar los eventos de seguridad que se marcaron.
 
+### <a name="threat-intelligence"></a>Información sobre amenazas
+
+Mediante el uso de la opción Información sobre amenazas disponible en Seguridad y auditoría de OMS, los administradores de TI pueden identificar las amenazas de seguridad en el entorno, por ejemplo, identificar si un determinado equipo forma parte de un botnet. Los equipos pueden ser nodos en un botnet cuando los atacantes instalan de forma ilegal malware que se conecta en secreto al equipo para hacerse con el control. También puede identificar posibles amenazas procedentes de canales de comunicación de tipo underground, como darknet. Para más información sobre información de amenazas, consulte el artículo [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md).
+
+### <a name="baseline-assessment"></a>Evaluación de línea base
+
+Microsoft, junto con organizaciones gubernamentales y del sector de todo el mundo, define una configuración de Windows que representa implementaciones de servidor muy seguras. Esta configuración es un conjunto de claves del Registro, la configuración de la directiva de auditoría y la configuración de la directiva de seguridad, junto con los valores recomendados de Microsoft para esta configuración. Este conjunto de reglas se conoce como línea base de seguridad. Consulte [Evaluación de línea base en la solución Seguridad y auditoría de Operations Management Suite](oms-security-baseline.md) para más información sobre esta opción.
+
 ### <a name="azure-security-center"></a>Azure Security Center
 Este icono es básicamente un acceso directo para obtener acceso al panel de Azure Security Center. Lea [Introducción a Azure Security Center](../security-center/security-center-get-started.md) paramás información sobre esta solución.
 
@@ -153,7 +161,7 @@ El propósito principal de esta opción es permitir al departamento de TI identi
 Esta opción también puede utilizarse durante la [investigación de una respuesta a incidentes](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) para realizar la evaluación y obtener información sobre el ataque.
 
 > [!NOTE]
-> Para más información acerca de cómo usar OMS para una respuesta a incidentes, consulte [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Cómo aprovechar Azure Security Center y Microsoft Operations Management Suite para una respuesta a incidentes).
+> Para más información acerca de cómo usar OMS para una respuesta a incidentes, dispone del vídeo [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Cómo aprovechar Azure Security Center y Microsoft Operations Management Suite para una respuesta a incidentes).
 > 
 > 
 

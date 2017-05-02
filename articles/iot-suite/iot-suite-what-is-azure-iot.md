@@ -16,15 +16,16 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1c8703d64ff45e589a7ce93f1f2176681e1bf331
+ms.lasthandoff: 04/25/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Conjunto de aplicaciones de IoT de Azure
-El Conjunto de aplicaciones de IoT de Microsoft Azure es una solución de clase empresarial que le permite comenzar a trabajar rápidamente mediante un conjunto de soluciones preconfiguradas extensibles. Estas soluciones abordan escenarios de IoT habituales, como la [supervisión remota][lnk-preconfigured-solutions] y el [mantenimiento predictivo][lnk-predictive-maintenance]. Estas soluciones son implementaciones de la arquitectura de la solución de IoT descrita en este artículo.
+El Conjunto de aplicaciones de IoT de Microsoft Azure es una solución de clase empresarial que le permite comenzar a trabajar rápidamente mediante un conjunto de soluciones preconfiguradas extensibles. Estas soluciones abordan escenarios de IoT habituales, como la [supervisión remota][lnk-preconfigured-solutions], el [mantenimiento predictivo][lnk-predictive-maintenance], y la [fábrica conectada][lnk-connected-factory]. Estas soluciones son implementaciones de la arquitectura de la solución de IoT descrita en este artículo.
 
 Las soluciones preconfiguradas son soluciones completas, integrales y funcionales que incluyen:
 
@@ -52,9 +53,4 @@ Explore estos recursos para más información acerca del Conjunto de aplicacione
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[lnk-connected-factory]: iot-suite-connected-factory-overview.md

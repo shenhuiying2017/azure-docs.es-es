@@ -4,13 +4,9 @@ Después de aplicar las etiquetas, puede recuperar todos los recursos de la susc
 
 Se aplican las siguientes limitaciones a las etiquetas:
 
-* Cada recurso o grupo de recursos puede tener un máximo de 15 etiquetas. 
+* Cada recurso o grupo de recursos puede tener un máximo de 15 pares de clave/valor de etiquetas. Esta limitación solo se aplica a las etiquetas que se aplican directamente al recurso o grupo de recursos. Un grupo de recursos puede contener muchos recursos con 15 pares de clave/valor de etiquetas cada uno. 
 * El nombre de la etiqueta está limitado a 512 caracteres.
 * El valor de la etiqueta está limitado a 256 caracteres. 
 * Los recursos de un grupo de recursos no heredan las etiquetas aplicadas a este. 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+Si necesita asociar más de 15 valores a un recurso, utilice una cadena JSON como valor de la etiqueta. La cadena JSON puede contener muchos valores que se aplican a una sola clave de etiqueta. En este artículo se muestra un ejemplo de asignación de una cadena JSON a la clave de etiqueta.

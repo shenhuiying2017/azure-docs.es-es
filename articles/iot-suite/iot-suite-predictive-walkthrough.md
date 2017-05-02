@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 719f9810abb12cbe8645651d35cbff936cecd158
-ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -63,7 +64,7 @@ Centro de IoT proporciona la confirmación de los comandos del dispositivo.
 El **host de procesador de eventos** se ejecuta en un trabajo web de Azure. El **procesador de eventos** toma los valores promedio de los sensores para un ciclo completado. Luego, pasa esos valores a una API que expone el modelo entrenado para calcular la vida útil restante (RUL) de un motor. La API se expone un área de trabajo de Machine Learning que se aprovisiona como parte de la solución.
 
 ## <a name="machine-learning"></a>Aprendizaje automático
-El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. También puede desplazarse al área de trabajo de Machine Learning desde el icono de la página [azureiotsuite.com][lnk-azureiotsuite] de la solución de aprovisionamiento cuando se encuentra en el estado **Listo**.
+El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede desplazarse al área de trabajo de Machine Learning desde el icono de la página [azureiotsuite.com][lnk-azureiotsuite] de la solución de aprovisionamiento cuando la solución se encuentra en el estado **Listo**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -83,8 +84,3 @@ También puede explorar algunas de las demás características y funcionalidades
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -1,28 +1,27 @@
-### <a name="noconnection"></a>Adición o eliminación de prefijos (sin conexión de la puerta de enlace)
-### <a name="to-add-additional-prefixes"></a>Para agregar prefijos adicionales
+### <a name="noconnection"></a>Modificar prefijos - no hay ninguna conexión de puerta de enlace
 
-Para agregar prefijos de dirección adicionales a una puerta de enlace de red local que se ha creado, pero que aún no tiene una conexión de puerta de enlace, use el ejemplo siguiente. Asegúrese de cambiar los valores por los suyos.
+- Para agregar prefijos de dirección adicionales:
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-```
-### <a name="to-remove-an-address-prefix"></a>Para quitar un prefijo de dirección
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```
 
-Para quitar un prefijo de dirección de una puerta de enlace de red local que no dispone de una conexión VPN, use el ejemplo siguiente. Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos el prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualizará la puerta de enlace de red local y se excluirá ese prefijo.
+- Para quitar un prefijo de dirección:<br>
+  Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualiza la puerta de enlace de la red local, sin incluir ese prefijo.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-```
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+  ```
 
-### <a name="withconnection"></a>Adición o eliminación de prefijos (conexión de la puerta de enlace existente)
-Si ha creado una conexión de puerta de enlace y desea agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto dará como resultado un tiempo de inactividad para la conexión VPN. Al actualizar los prefijos, quite primero la conexión, modifique los prefijos y luego cree una nueva conexión. En los siguientes ejemplos, asegúrese de cambiar los valores por los suyos.
+### <a name="withconnection"></a>Modificar prefijos - conexión de puerta de enlace existente
+Si tiene una conexión de puerta de enlace y desea agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto tendrá como resultado un tiempo de inactividad para la conexión VPN.
 
 > [!IMPORTANT]
-> No elimine la puerta de enlace de VPN. Si lo hace, tendrá que realizar otra vez los pasos para crearla de nuevo, así como volver a configurar el enrutador local con la nueva configuración.
+> No elimine la puerta de enlace de VPN. Si lo hace, tendrá que volver atrás los pasos necesarios para volver a crearla. Además, debe actualizar el dispositivo VPN local con la nueva dirección IP de la puerta de enlace VPN.
 > 
 > 
 
@@ -45,7 +44,7 @@ Si ha creado una conexión de puerta de enlace y desea agregar o quitar los pref
   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
-3. Cree la conexión. En este ejemplo, vamos a configurar un tipo de conexión IPsec. Cuando se vuelva a crear la conexión, use el tipo de conexión que se especifica para la configuración. Para otros tipos de conexión, consulte la página de [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .
+3. Cree la conexión. En este ejemplo, vamos a configurar un tipo de conexión de IPsec. Cuando se vuelva a crear la conexión, use el tipo de conexión que se especifica para la configuración. Para otros tipos de conexión, consulte la página de [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .
    
   Establezca la variable para VirtualNetworkGateway.
 
@@ -53,7 +52,7 @@ Si ha creado una conexión de puerta de enlace y desea agregar o quitar los pref
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
   ```
    
-  Cree la conexión. Tenga en cuenta que en este ejemplo se utiliza la variable $local que estableció en el paso anterior.
+  Cree la conexión. Este ejemplo utiliza la variable $local que se estableció en el paso 2.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
