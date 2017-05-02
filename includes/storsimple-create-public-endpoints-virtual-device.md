@@ -12,8 +12,3 @@
 
 Una vez creado el punto de conexión, puede ver sus detalles para determinar la dirección IP virtual (VIP) pública. Anote esta dirección.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

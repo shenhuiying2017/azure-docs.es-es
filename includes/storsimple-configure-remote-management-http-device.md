@@ -7,8 +7,3 @@
 5. Haga clic en **Descargar certificado de administración remota** para descargar un certificado de administración remota. Deberá especificar una ubicación para guardar este archivo. A continuación, este certificado debe estar instalado en el equipo cliente o host que va a utilizar para conectarse al dispositivo virtual.
 6. Haga clic en **Guardar** en la parte inferior de la página.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

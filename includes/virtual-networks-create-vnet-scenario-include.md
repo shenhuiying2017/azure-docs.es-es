@@ -8,8 +8,3 @@ En este escenario, creará una red virtual denominada **TestVNet** con un bloque
 * **FrontEnd**, con **192.168.1.0/24** como su bloque CIDR.
 * **BackEnd**, con **192.168.2.0/24** como su bloque CIDR.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
