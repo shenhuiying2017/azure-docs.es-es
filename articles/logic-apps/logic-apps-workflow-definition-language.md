@@ -136,7 +136,7 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |"@@"|Se devuelve una cadena de 1 carácter que contiene "@".|  
 |" @"|Se devuelve una cadena de 2 caracteres que contienen " @".|  
   
-Con la *interpolación de cadena*, las expresiones también pueden aparecer dentro de cadenas donde las expresiones se ajustan en `@{ ... }`. Por ejemplo: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+Con la *interpolación de cadena*, las expresiones también pueden aparecer dentro de cadenas donde las expresiones se ajustan en `@{ ... }`. Por ejemplo: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 El resultado siempre es una cadena, lo que hace esta característica similar a la función `concat`. Supongamos que ha definido `myNumber` como `42` y `myString` como `sampleString`:  
   

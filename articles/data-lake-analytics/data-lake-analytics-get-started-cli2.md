@@ -111,8 +111,8 @@ Azure Portal proporciona una interfaz de usuario para copiar algunos archivos de
 Para cargar archivos mediante la CLI 2.0, use los siguientes comandos:
 
 ```azurecli
-az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
 Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure.  Para cargar datos al almacenamiento de blobs de Azure, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](../storage/storage-azure-cli.md).
