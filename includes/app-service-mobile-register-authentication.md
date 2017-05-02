@@ -12,8 +12,3 @@ En primer lugar, debe registrar la aplicación en el sitio del proveedor de iden
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

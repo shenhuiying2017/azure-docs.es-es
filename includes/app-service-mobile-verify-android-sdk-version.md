@@ -15,8 +15,3 @@ Si aparece cualquiera de estos mensajes, es posible que la versión del SDK de A
 3. En el Explorador de proyectos de Android Studio, haga clic con el botón derecho en el nodo del proyecto, elija **Propiedades** y en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.
 
 En Android Studio, el archivo de manifiesto ya no se utiliza para especificar el SDK de destino y la versión del SDK mínima, al contrario que ocurre con Eclipse.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

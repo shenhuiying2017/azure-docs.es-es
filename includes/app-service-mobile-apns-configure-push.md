@@ -6,8 +6,3 @@
 El servicio ahora está configurado para trabajar con las notificaciones push en iOS.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
-
-
-<!--HONumber=Dec16_HO2-->
-
-
