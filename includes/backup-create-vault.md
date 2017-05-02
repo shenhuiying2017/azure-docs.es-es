@@ -36,8 +36,3 @@ Si usa Azure como un punto de conexión de almacenamiento de copia de seguridad 
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

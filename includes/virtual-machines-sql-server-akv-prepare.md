@@ -32,8 +32,3 @@ Cuando llegue al paso Creación de un Almacén de claves, tenga en cuenta la pro
 
 La URL del Almacén de claves se asigna posteriormente al parámetro **$akvURL** en el script de PowerShell para habilitar la integración de Almacén de claves de Azure.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

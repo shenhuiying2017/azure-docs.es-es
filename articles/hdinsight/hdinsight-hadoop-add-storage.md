@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -52,7 +52,7 @@ Durante el procesamiento, el script realiza las siguientes acciones:
 * Detiene y reinicia los servicios Oozie, YARN, MapReduce2 y HDFS para que recopilen la información de la nueva cuenta de almacenamiento.
 
 > [!WARNING]
-> Si la cuenta de almacenamiento está en una región distinta a la del clúster de HDInsight, puede que experimente un rendimiento deficiente. Al acceder a los datos en una región diferente, el tráfico de red se envía fuera del centro de datos regional de Azure y en la red pública de Internet, lo que puede producir latencia. Además, el envío de datos fuera de un centro de datos regional puede resultar más costoso, dado que se aplica un cargo de salida cuando los datos abandonan el centro de datos.
+> No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight.
 
 ## <a name="the-script"></a>La secuencia de comandos
 

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ffcf0f0aa80f0a6b65cbef65e361e4830fcca3ff
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7ab1d760d26aac7fc185b0e9f5e4a7a47cc2eee5
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,7 +29,7 @@ En este tema se muestra cómo crear y administrar [grupos elásticos](sql-databa
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## <a name="create-an-elastic-pool"></a>Creación de un grupo elástico
-El cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) crea un grupo elástico. Los valores de eDTU por grupo, DTU mín. y máx. están limitados por el valor de nivel de servicio (basic, standard o premium). Consulte la sección [Límites de almacenamiento y de eDTU para grupos elásticos y bases de datos agrupadas](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+El cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) crea un grupo elástico. Los valores de eDTU por grupo, DTU mín. y máx. están limitados por el valor de nivel de servicio (Básico, Estándar, Premium y Premium RS). Consulte la sección [Límites de almacenamiento y de eDTU para grupos elásticos y bases de datos agrupadas](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -111,7 +111,7 @@ Para recuperar las métricas, siga estos pasos:
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
 ## <a name="get-resource-usage-data-for-a-database-in-an-elastic-pool"></a>Obtención de datos de uso de recursos de una base de datos en un grupo elástico
-Estas API son las mismas que las API actuales (V12) que se utilizan para supervisar el uso de recursos de una base de datos única, salvo por la diferencia semántica siguiente: las métricas recuperadas se expresan como un porcentaje del eDTU máximo por base de datos (o límite equivalente para la métrica subyacente como CPU o E/S) establecido para ese grupo. Por ejemplo, el 50 % de uso de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50 % del límite de capacidad por cada base de datos de dicho recurso del grupo principal.
+Estas API son las mismas que las API que se utilizan para supervisar el uso de recursos de una base de datos única, salvo por la diferencia semántica siguiente: las métricas recuperadas se expresan como un porcentaje del eDTU máximo por base de datos (o límite equivalente para la métrica subyacente como CPU o E/S) establecido para ese grupo. Por ejemplo, el 50 % de uso de cualquiera de estas métricas indica que el consumo de recursos específicos es del 50 % del límite de capacidad por cada base de datos de dicho recurso del grupo principal.
 
 Para recuperar las métricas, siga estos pasos:
 

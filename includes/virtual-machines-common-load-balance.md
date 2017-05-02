@@ -64,8 +64,3 @@ Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Cr
 
 Para obtener más información, consulte [Equilibrio de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

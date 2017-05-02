@@ -16,8 +16,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 5. Por último, seleccione el botón **Autorizar**.  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

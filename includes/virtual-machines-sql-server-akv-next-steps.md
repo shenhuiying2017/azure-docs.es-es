@@ -96,8 +96,3 @@ Para más información sobre cómo usar estas características de cifrado, vea [
 
 Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [Información general de SQL Server en Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

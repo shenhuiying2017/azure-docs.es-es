@@ -33,8 +33,3 @@
 Se le dirige a la página de destino del **Servicio**. Se tarda unos minutos en crear el servicio. Después de que el servicio se cree correctamente, se le notificará de forma adecuada y el estado del servicio cambiará a **Activo**.
 
 
-
-
-<!--HONumber=Nov16_HO5-->
-
-

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: f691f3886fce217ea784237f03a4f02ed58e12ee
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: e2d70bbb2af4231a9ba7e4d9a843593ff5d9f7d3
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -31,10 +31,10 @@ Obtenga información sobre las interfaces de red (NIC) y cómo trabajar con ella
 
 En este artículo se explica cómo trabajar con los conceptos que se muestran en la imagen. Haga clic en cualquiera de los siguientes conceptos para ir directamente a esa sección del artículo:
 
-- [Interfaces de red](#nics): una NIC está conectada a una subred dentro de una red virtual de Azure (VNet). En la imagen, **VM1** tiene asociadas dos NIC y **VM1** tiene asociada una NIC. Ambas NIC están conectadas a la misma red virtual, pero a subredes diferentes. En esta sección se explica cómo enumerar las NIC existentes y cómo crear, cambiar y eliminar NIC.
+- [Interfaces de red](#nics): una NIC está conectada a una subred dentro de una red virtual de Azure (VNet). En la imagen, **VM1** tiene asociadas dos NIC y **VM2** tiene asociada una NIC. Ambas NIC están conectadas a la misma red virtual, pero a subredes diferentes. En esta sección se explica cómo enumerar las NIC existentes y cómo crear, cambiar y eliminar NIC.
 - [Configuraciones de IP](#ip-configs): cada NIC tiene asociadas una o varias configuraciones de IP. Cada configuración de IP tiene asignada una dirección IP privada. Una configuración de IP puede tener una dirección IP pública. En la imagen, **NIC1** y **NIC3** tienen asociada una configuración de IP cada una, mientras que **NIC2** tiene asociadas dos configuraciones de IP. La configuración de IP asignada a NIC1 y NIC3 tiene asignadas direcciones IP públicas, mientras que ninguna de las configuraciones de IP asignadas a NIC2 tiene asignada una dirección IP pública. En esta sección se explica cómo crear, cambiar y eliminar configuraciones de IP con direcciones IP privadas asignadas con métodos de asignación estático y dinámico. En esta sección también se indican los pasos necesarios para asociar y desasociar direcciones IP públicas hacia y desde una configuración de IP.
 - [Grupos de seguridad de red](#nsgs): los grupos de seguridad de red (NSG) contienen una o varias reglas de seguridad entrante o saliente. Las reglas controlan el tipo de tráfico de red que puede entrar y salir de una interfaz de red, una subred o ambos. En la imagen, **NIC1** y **NIC3** tienen asociado un NSG, pero **NIC2** no. En esta sección se indican los pasos necesarios para ver los NSG que se aplican a una NIC, agregar un NSG a una NIC y quitar un NSG de una NIC.
-- [Máquinas virtuales](#vms): una máquina virtual tiene asociada al menos una NIC, pero puede haber varias NIC asociadas, según el tamaño de la máquina virtual. Para ver cuántas NIC admite cada tamaño de máquina virtual, consulte los artículos sobre el tamaño de las máquinas virtuales [Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Linux](../virtual-machines/virtual-machines-linux-sizes.md). En esta sección se proporcionan los pasos para crear máquinas virtuales con una o varias NIC, así como asociar y desasociar NIC hacia y desde las máquinas virtuales existentes.
+- [Máquinas virtuales](#vms): una máquina virtual tiene asociada al menos una NIC, pero puede haber varias NIC asociadas, según el tamaño de la máquina virtual. Para ver cuántas NIC admite cada tamaño de máquina virtual, consulte los artículos sobre el tamaño de las máquinas virtuales [Windows](../virtual-machines/windows/sizes.md) o [Linux](../virtual-machines/linux/sizes.md). En esta sección se proporcionan los pasos para crear máquinas virtuales con una o varias NIC, así como asociar y desasociar NIC hacia y desde las máquinas virtuales existentes.
 
 Si no está familiarizado con las NIC y las máquinas virtuales de Azure, se recomienda completar el ejercicio que encontrará en [Creación de su primera red virtual de Azure](virtual-network-get-started-vnet-subnet.md) antes de leer este artículo. El ejercicio le ayudará a familiarizarse con las redes virtuales y las máquinas virtuales.
 
@@ -219,6 +219,9 @@ Para cambiar la configuración de direcciones IP públicas y privadas de una con
 >[!NOTE]
 >Si la NIC principal tiene varias configuraciones de IP y cambia la dirección IP privada de la configuración de IP principal, debe reasignar manualmente todas las direcciones IP secundarias a la NIC en Windows (no es necesario para Linux). Para asignar manualmente las direcciones IP a una NIC en un sistema operativo, lea el artículo [Asignación de varias direcciones IP a máquinas virtuales](virtual-network-multiple-ip-addresses-portal.md#os-config). No agregue direcciones IP públicas al sistema operativo de la máquina virtual.
 
+>[!WARNING]
+>Para cambiar la dirección IP privada de una configuración IP secundaria asociada a una NIC secundaria, deben completarse los pasos anteriores solo después de que se detenga la VM y se cancele la asignación de esta.
+
 |**Herramienta**|**Comando**|
 |---|---|
 |**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
@@ -269,10 +272,11 @@ Puede asociar una NIC existente a una máquina virtual al crearla, o puede asoci
 
 Puede usar PowerShell o la CLI para crear una máquina virtual o la NIC con todos los atributos anteriores para los que no se puede usar el portal. Antes de completar las tareas de las secciones siguientes, tenga en cuenta las restricciones y los comportamientos siguientes:
 
-- Los diferentes tamaños de máquina virtual admiten un número distinto de NIC. Para obtener más información sobre cuántas NIC admite cada tamaño de máquina virtual, consulte los artículos sobre el tamaño de las máquinas virtuales [Windows](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Los diferentes tamaños de máquina virtual admiten un número distinto de NIC. Para obtener más información sobre cuántas NIC admite cada tamaño de máquina virtual, consulte los artículos sobre el tamaño de las máquinas virtuales [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Anteriormente, solo se podían agregar NIC a VM que admitían varias NIC y que se habían creado con al menos dos NIC. No podía agregar una NIC a una VM creada con una NIC, incluso si el tamaño de la VM admitía varias NIC. Por el contrario, solo se podían quitar NIC de VM con al menos tres NIC conectadas a ella, ya que las VM creadas con al menos dos NIC siempre debían tener al menos dos NIC conectadas. Ninguna de estas restricciones se aplican ya. Ahora puede crear una VM con cualquier número de NIC (hasta el número admitido por el tamaño de la VM) y agregar o quitar cualquier número de NIC, siempre y cuando la VM siempre tenga l menos una NIC asociada. 
 - De forma predeterminada, la primera NIC asociada a una máquina virtual se define como la NIC *principal*. Todas las demás NIC asociadas a la máquina virtual son NIC *secundarias*.
 - De forma predeterminada, todo el tráfico saliente de la máquina virtual se envía la dirección IP asignada a la configuración de IP principal de la NIC principal. Por supuesto, puede controlar qué dirección IP se usa para el tráfico saliente en el sistema operativo de la máquina virtual.
-- En el pasado, era un requisito que todas las máquinas virtuales situadas en el mismo conjunto de disponibilidad debían tener una o varias NIC. Ahora puede haber máquinas virtuales con cualquier número de NIC en el mismo conjunto de disponibilidad. Una máquina virtual solo puede agregarse a un conjunto de disponibilidad cuando se crea. Para más información acerca de los conjuntos de disponibilidad, lea el artículo [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- En el pasado, era un requisito que todas las máquinas virtuales situadas en el mismo conjunto de disponibilidad debían tener una o varias NIC. Ahora puede haber máquinas virtuales con cualquier número de NIC en el mismo conjunto de disponibilidad. Una máquina virtual solo puede agregarse a un conjunto de disponibilidad cuando se crea. Para más información acerca de los conjuntos de disponibilidad, lea el artículo [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 - Aunque las NIC asociadas a la misma máquina virtual se pueden conectar a subredes diferentes dentro de una red virtual, todas las NIC deben estar conectadas a la misma red virtual.
 - Puede agregar cualquier dirección IP de la configuración de IP de cualquier NIC principal o secundaria a un grupo de back-end de Azure Load Balancer. En el pasado, solo la dirección IP principal para la NIC principal podía agregarse a un grupo de back-end.
 - La eliminación de una máquina virtual no suprime las NIC asociadas a ella. Cuando se elimina una máquina virtual, las NIC se desasocian de la máquina virtual. Puede asociar las NIC a diferentes máquinas virtuales, o bien eliminarlas.

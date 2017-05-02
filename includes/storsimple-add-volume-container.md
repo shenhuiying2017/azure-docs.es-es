@@ -18,8 +18,3 @@
 
 El contenedor de volúmenes se guardará y el contenedor de volúmenes recién creado se mostrará en la página **Contenedor de volúmenes** .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

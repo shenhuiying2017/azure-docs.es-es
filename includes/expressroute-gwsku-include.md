@@ -6,8 +6,3 @@ Las puertas de enlace de red virtual de ExpressRoute pueden utilizar las SKU sig
 * HighPerformance
 * UltraPerformance
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

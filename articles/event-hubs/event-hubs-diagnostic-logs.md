@@ -1,6 +1,6 @@
 ---
 title: "Registros de diagnóstico de Azure Event Hubs | Microsoft Docs"
-description: "Aprenda a configurar registros de diagnósticos para Event Hubs en Azure."
+description: "Aprenda a configurar registros de diagnósticos para centros de eventos en Azure."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/27/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -59,7 +59,7 @@ Para obtener más información sobre el diagnóstico de configuraciones, consult
 Event Hubs captura registros de diagnósticos de dos categorías:
 
 * **ArchivalLogs**: registros relacionados con archivos de Event Hubs, específicamente, registros relacionados con errores de archivo.
-* **OperationalLogs**: información sobre lo que sucede durante el funcionamiento de Event Hubs, en concreto, el tipo de operación, como la creación de centro de eventos, los recursos usados y el estado de la operación.
+* **OperationalLogs**: información sobre lo que sucede durante el funcionamiento de Event Hubs, en concreto, el tipo de operación, como la creación de centros de eventos, los recursos usados y el estado de la operación.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registros de diagnósticos
 Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que utilizan el formato descrito en los ejemplos siguientes.

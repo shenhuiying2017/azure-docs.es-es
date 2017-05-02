@@ -55,8 +55,3 @@ Tabla de ruta de ejemplo en formato JSON:
 * Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) para obtener información sobre las tablas de ruta.
 * Lea la [documentación de la API de REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) de las rutas definidas por el usuario (UDR).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

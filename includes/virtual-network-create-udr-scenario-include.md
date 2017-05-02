@@ -12,8 +12,3 @@ En este escenario creará un enrutamiento definido por el usuario para la *subre
 
 La combinación de estas rutas garantizará de que todo el tráfico destinado de una subred a otra se enrutará a la máquina virtual **FW1** , que se utiliza como aplicación virtual. También debe activar el reenvío IP para esa VM, para asegurarse de que esta puede recibir el tráfico destinado a otras VM.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -58,8 +58,3 @@ Puede usar reglas para permitir solo el tráfico desde equipos específicos corr
 
 Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [¿Qué es una lista de control de acceso de red?](../articles/virtual-network/virtual-networks-acl.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

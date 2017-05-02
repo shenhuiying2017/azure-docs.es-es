@@ -30,8 +30,3 @@ Deberá realizar los siguientes pasos antes de buscar y aplicar la actualizació
 
 Después de haber completado correctamente estas comprobaciones previas manuales, puede buscar e instalar las actualizaciones.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

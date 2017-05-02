@@ -16,8 +16,3 @@ En este ejemplo, le mostraremos cómo usar el desencadenador **SharePoint Online
 
 En este punto, la aplicación lógica se ha configurado con un desencadenador que iniciará una ejecución de los otros desencadenadores y acciones en el flujo de trabajo. Esto tendrá lugar cada vez que se cree un nuevo elemento en la lista de SharePoint Online seleccionada.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

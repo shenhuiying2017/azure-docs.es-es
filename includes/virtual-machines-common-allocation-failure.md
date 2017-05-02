@@ -99,7 +99,7 @@ Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM or
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Escenario de asignación: implementaciones de ensayo o producción (solo plataforma como servicio).
 **Error**
 
-New_General* o New_VMSizeNotSupported*
+New_General *o New_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -112,7 +112,7 @@ Elimine la primera implementación y el servicio en la nube original y vuelva im
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Escenario de asignación: grupo de afinidad (proximidad de la VM o el servicio)
 **Error**
 
-New_General* o New_VMSizeNotSupported*
+New_General *o New_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -125,7 +125,7 @@ Si no es necesario un grupo de afinidad, no lo use, o bien intente agrupar los r
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Escenario de asignación: red virtual basada en un grupo de afinidad
 **Error**
 
-New_General* o New_VMSizeNotSupported*
+New_General *o New_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -151,7 +151,7 @@ En general, mientras el error no indique que "no se admite el tamaño de VM soli
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un conjunto de disponibilidad existente.
 **Error**
 
-Upgrade_VMSizeNotSupported* o GeneralError*
+Upgrade_VMSizeNotSupported *o GeneralError*
 
 **Causa de anclaje del clúster**
 
@@ -204,10 +204,5 @@ No se puede actualizar la implementación. Es posible que el tamaño de la máqu
 
 **GeneralError***
 
-"Se produjo un error interno en el servidor. Vuelva a intentar realizar la solicitud"  o "Error al producir una asignación para el servicio".
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+"Se produjo un error interno en el servidor. Vuelva a intentar realizar la solicitud" o "Error al producir una asignación para el servicio".
 

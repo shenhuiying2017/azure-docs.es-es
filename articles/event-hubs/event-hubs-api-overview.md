@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a10ab3cf10826c63785d6427c27712573e82457a
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -24,7 +25,7 @@ ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
 
 ## <a name="runtime-apis"></a>API de tiempo de ejecución
 
-A continuación, se muestra una lista de todos los clientes del entorno de ejecución de Event Hubs disponibles. Aunque algunas de estas bibliotecas también incluyen la funcionalidad de administración limitada, también hay [determinadas bibliotecas](#management-apis) dedicadas a las operaciones de administración. El enfoque central de estas bibliotecas es enviar y recibir mensajes de un centro de eventos.
+A continuación, se muestra una lista de todos los clientes del tiempo de ejecución de Azure Event Hubs disponibles. Aunque algunas de estas bibliotecas también incluyen la funcionalidad de administración limitada, también hay [determinadas bibliotecas](#management-apis) dedicadas a las operaciones de administración. El enfoque central de estas bibliotecas es enviar y recibir mensajes de un centro de eventos.
 
 Consulte la [información adicional](#additional-information) para más detalles sobre el estado actual de cada biblioteca del entorno de ejecución.
 
@@ -59,8 +60,3 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Creación de un centro de eventos](event-hubs-create.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

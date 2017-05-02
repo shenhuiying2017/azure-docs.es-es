@@ -27,8 +27,3 @@ Azure admite dos escenarios independientes con relación al DNS inverso:
 Para admitir esto, se puede usar el DNS de Azure para hospedar las zonas ARPA y administrar los registros PTR para cada búsqueda de DNS inverso.  El proceso de creación de la zona ARPA, configuración de la delegación y configuración de los registros PTR es el mismo que para las zonas DNS normales.  Las únicas diferencias son que la delegación se debe configurar mediante su ISP en lugar del registrador de DNS, y solo se debe usar el tipo de registro PTR.
 
 Para esto último, Azure le permite configurar la búsqueda inversa de las direcciones IP asignadas a su servicio.  Azure configura esta búsqueda inversa como un registro PTR en la zona ARPA correspondiente.  Microsoft hospeda y administra estas zonas ARPA correspondientes a todos los intervalos de direcciones IP usados por Azure. **El resto de este artículo describe este escenario con detalle.**
-
-
-<!--HONumber=Nov16_HO3-->
-
-

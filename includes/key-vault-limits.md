@@ -9,8 +9,3 @@
 
 <sup>1</sup> El límite global para la suscripción para todos los tipos de transacciones es 5 veces el límite del almacén de claves. Por ejemplo, en "HSM - otras transacciones" el límite es de 5000 transacciones en 10 segundos por suscripción.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

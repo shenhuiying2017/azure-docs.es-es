@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,7 +28,10 @@ Microsoft R Server en HDInsight tiene acceso a Azure Blob Storage y a [Azure Dat
 Cuando se crea un clúster de Hadoop en HDInsight, se especifica una cuenta de Azure Storage o Data Lake Store. Un contenedor de almacenamiento específico de esa cuenta conserva el sistema de archivos para el clúster creado (por ejemplo, el Sistema de archivos distribuido de Hadoop). Con vistas al rendimiento, el clúster de HDInsight se crea en el mismo centro de datos que la cuenta de almacenamiento principal especificada. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md "Uso de almacenamiento de blobs de Azure con HDInsight").   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>Uso de varias cuentas de almacenamiento de blobs de Azure
-Si es necesario, se puede acceder a varias cuentas de almacenamiento o contenedores de Azure con el clúster de HDI. Para ello, tiene que especificar las cuentas de almacenamiento adicionales en la interfaz de usuario durante la creación del clúster y seguir estos pasos para poder usarlas en R.  
+Si es necesario, se puede acceder a varias cuentas de almacenamiento o contenedores de Azure con el clúster de HDI. Para ello, tiene que especificar las cuentas de almacenamiento adicionales en la interfaz de usuario durante la creación del clúster y seguir estos pasos para poder usarlas en R.
+
+> [!WARNING]
+> No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight.
 
 1. Cree un clúster de HDInsight con el nombre de cuenta de almacenamiento **storage1** y un contenedor predeterminado denominado **container1**.
 2. Especifique una cuenta de almacenamiento adicional con el nombre **storage2**.  
@@ -128,7 +131,7 @@ Después de asignar un nombre a la entidad de servicio y crear una contraseña p
 
 También es posible agregar acceso al clúster a uno o varios almacenes Data Lake Store después de crear el clúster; para ello, abra la entrada de Azure Portal para un almacén Data Lake Store y vaya a **Explorador de datos > Acceso > Agregar**. 
 
-Para obtener detalles adicionales sobre cómo agregar el acceso para el clúster HDI a almacenes Data Lake Store, vea el artículo [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
+Para obtener detalles adicionales sobre cómo agregar el acceso para el clúster HDI a almacenes Data Lake Store, vea el artículo [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>Uso del almacén de Data Lake con R Server
 Una vez que haya dado acceso a un almacén de Data Lake, puede usar el almacén en R Server en HDInsight de la manera en que lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://**, de la forma siguiente:

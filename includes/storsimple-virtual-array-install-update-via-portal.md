@@ -53,7 +53,3 @@
 9. Una vez instaladas correctamente las actualizaciones, verá un mensaje que lo indica en la hoja Actualizaciones del dispositivo. La versión de software también cambia a **10.0.10288.0**. 
 
     ![actualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
-
-<!--HONumber=Nov16_HO4-->
-
-

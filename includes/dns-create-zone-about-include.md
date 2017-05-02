@@ -12,7 +12,3 @@ Al crear una zona DNS de Azure DNS:
 > No tiene que poseer un nombre de dominio para crear una zona DNS con dicho nombre de dominio en DNS de Azure. Sin embargo, es necesario ser propietario del dominio para configurar los servidores de nombres en DNS de Azure como los servidores de nombres correctos para el nombre de dominio con el registrador de nombres de dominio.
 > 
 > Para más información, vea [Delegación de un dominio en DNS de Azure](../articles/dns/dns-domain-delegation.md).
-
-<!--HONumber=Jan17_HO1-->
-
-

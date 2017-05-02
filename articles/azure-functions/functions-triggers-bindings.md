@@ -3,7 +3,7 @@ title: Trabajo con desencadenadores y enlaces de Azure Functions | Microsoft Doc
 description: "Obtenga información sobre cómo usar desencadenadores y enlaces en Azure Functions para conectar la ejecución del código a los eventos en línea y servicios basados en la nube."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
@@ -14,125 +14,288 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: chrande
+ms.date: 04/14/2017
+ms.author: donnam
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: ed0ade96cc1cf6afc82787133d3fbcf874c43e0f
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
-# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Obtenga información sobre cómo trabajar con desencadenadores y enlaces de Azure Functions 
-En este tema se muestra cómo utilizar desencadenadores y enlaces de Azure Functions para conectar el código a diferentes desencadenadores y servicios de Azure y otros servicios basados en la nube. Incluye algunas de las características avanzadas de enlace y la sintaxis compatible con todos los tipos de enlace.  
-
-Para obtener información detallada sobre cómo trabajar con un tipo concreto de enlace o desencadenador, consulte uno de los temas de referencia siguientes:
-
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP/webhook](functions-bindings-http-webhook.md) | [Temporizador](functions-bindings-timer.md) | [Aplicaciones móviles](functions-bindings-mobile-apps.md) | [Bus de servicio](functions-bindings-service-bus.md)  |  
-| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Storage Table](functions-bindings-storage-table.md) |  
-| [Centros de eventos](functions-bindings-event-hubs.md) | [Centros de notificaciones](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
-En estos documentos se da por supuesto que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md) y los artículos de referencia para desarrolladores de [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
+Azure Functions le permite escribir código en respuesta a eventos en Azure y otros servicios mediante *desencadenadores* y *enlaces*. En este artículo, se ofrece una introducción conceptual a los desencadenadores y enlaces de todos los lenguajes de programación compatibles. Aquí se describen características comunes de todos los enlaces.
 
 ## <a name="overview"></a>Información general
-Los desencadenadores son respuestas a eventos que se utilizan para desencadenar el código personalizado. Además, permiten responder a eventos en la plataforma Azure o en entornos locales. Los enlaces representan los metadatos necesarios que se emplean para conectar el código con el desencadenador desead, o bien los datos de entrada o de salida asociados. El archivo *function.json* de cada función contiene todos los enlaces relacionados. No hay ningún límite en el número de enlaces de entrada y salida que una función puede tener. Sin embargo, se admite solo un enlace de desencadenador para cada función.  
 
-Para que tenga más claro cuáles son los distintos enlaces que puede integrar con la aplicación de Azure Function, consulte la tabla siguiente.
+Los desencadenadores y enlaces permiten definir de forma declarativa cómo se invoca una función y con qué datos funcionará. Los *desencadenadores* establecen el modo de invocar una función. Cada función debe tener exactamente un desencadenador. Los desencadenadores tienen datos asociados, que suelen ser la carga que desencadenó la función. 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+Los *enlaces* de entrada y de salida permiten conectarse de manera declarativa a datos desde el código. De forma similar a los desencadenadores, se pueden especificar las cadenas de conexión y otras propiedades en la configuración de la función. Los enlaces son opcionales y cada función puede tener varios enlaces de entrada y de salida. 
 
-Si quiere comprender mejor los conceptos de desencadenador y enlace, supongamos que desea ejecutar código para procesar un nuevo elemento que se ha colocado en una cola de Azure Storage. Para tal fin, Azure Functions proporciona un desencadenador de colas de Azure. Necesitará la siguiente información para supervisar la cola:
+Mediante los desencadenadores y enlaces, puede escribir código más genérico sin codificar de forma rígida los detalles de los servicios con los que interactúa. Los datos procedentes de los servicios se convierten simplemente en valores de entrada para el código de función. Si desea enviar datos a otro servicio (por ejemplo, para crear una fila nueva en Azure Table Storage), utilice el valor devuelto por el método. O bien, si necesita enviar varios valores, use un objeto auxiliar. Los desencadenadores y los enlaces cuentan con una propiedad denominada **name**, un identificador que se emplea en el código para acceder al enlace.
 
-* La cuenta de almacenamiento donde se encuentra la cola
+Puede configurar desencadenadores y enlaces en la pestaña **Integrar** del portal de Azure Functions. Entre bastidores, la interfaz de usuario modifica un archivo llamado *function.json* en el directorio de la función. Este archivo puede editarse cambiando a la opción **Editor avanzado**.
+
+En la siguiente tabla, se muestran los desencadenadores y enlaces compatibles con Azure Functions. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+### <a name="example-queue-trigger-and-table-output-binding"></a>Ejemplo: desencadenador de colas y enlace de salida de tablas
+
+Supongamos que quiere escribir una fila nueva en Azure Table Storage cada vez que aparezca un nuevo mensaje en Azure Queue Storage. Este escenario puede implementarse mediante un desencadenador de colas de Azure y un enlace de salida de tablas. 
+
+Los desencadenadores de colas precisan de la siguiente información en la pestaña **Integrar**:
+
+* El nombre del valor de configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento para la cola
 * El nombre de la cola
-* Un nombre de variable que utilizaría el código para hacer referencia al nuevo elemento que se ha colocado en la cola.  
+* El identificador del código que leerá el contenido del mensaje de la cola, como, por ejemplo, `order`
 
-Un enlace de desencadenador de colas contiene esta información para una función de Azure. A continuación, encontrará un archivo *function.json* de ejemplo con un enlace de desencadenador de colas. 
+Para escribir en Azure Table Storage, utilice un enlace de salida con estos datos:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
-  ],
-  "disabled": false
-}
-```
+* El nombre del valor de configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento para la tabla
+* El nombre de la tabla
+* El identificador del código que creará los elementos de salida o el valor devuelto por la función
 
-El código puede enviar distintos tipos de salida en función de cómo se procese el nuevo elemento de la cola. Por ejemplo, podría escribir un nuevo registro en una tabla de Azure Storage.  Para ello, cree un enlace de salida a una tabla de Azure Storage. Abajo encontrará un archivo *function.json* de ejemplo que incluye un enlace de salida a una tabla de almacenamiento que podría usarse con un desencadenador de colas. 
+Los enlaces se sirven de los valores de configuración de la aplicación para que las cadenas de conexión apliquen el procedimiento recomendado de que *function.json* no contenga secretos de los servicios.
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    },
-    {
-      "type": "table",
-      "name": "myNewUserTableBinding",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-La siguiente función de C# responde a un nuevo elemento que se va a colocar en la cola y escribe una nueva entrada de usuario en una tabla de Azure Storage.
+A continuación, utilice los identificadores que facilitó para posibilitar la integración con Azure Storage en el código.
 
 ```cs
 #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
-                                TraceWriter log)
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
 {
-    // In this example the queue item is a JSON string representing an order that contains the name, 
-    // address and mobile number of the new customer.
-    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
-
-    await myNewUserTableBinding.AddAsync(
-        new Person() { 
-            PartitionKey = "Test", 
-            RowKey = Guid.NewGuid().ToString(), 
-            Name = order.name,
-            Address = order.address,
-            MobileNumber = order.mobileNumber }
-        );
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
 }
-
+ 
 public class Person
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public string Name { get; set; }
-    public string Address { get; set; }
     public string MobileNumber { get; set; }
 }
 ```
 
-Para ver otros ejemplos de código e información más específica sobre los tipos de almacenamiento de Azure compatibles, consulte [Enlaces y desencadenadores de Azure Functions para Azure Storage](functions-bindings-storage.md).
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-Para usar las características más avanzadas de enlace en Azure Portal, haga clic en la opción **Editor avanzado** de la pestaña **Integrar** de la función. El Editor avanzado permite editar el archivo *function.json* directamente en el portal.
+    context.done(null, order);
+};
 
-## <a name="random-guids"></a>GUID aleatorios
-Azure Functions proporciona una sintaxis para generar los GUID aleatorios con los enlaces. La siguiente sintaxis de enlace escribirá la salida en un BLOB nuevo con un nombre único en un contenedor de Storage: 
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Esta es la función *function.json* correspondiente al código anterior. Tenga en cuenta que se puede emplear la misma configuración, con independencia del lenguaje de la implementación de la función.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "myqueue-items",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "$return",
+      "type": "table",
+      "direction": "out",
+      "tableName": "outTable",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+Para ver y editar el contenido de *function.json* en el portal de Azure, haga clic en la opción **Editor avanzado** en la pestaña **Integrar** de la función.
+
+Para obtener más ejemplos de código e información sobre la integración con Azure Storage, consulte el artículo sobre [desencadenadores y enlaces de Azure Functions para Azure Storage](functions-bindings-storage.md).
+
+### <a name="binding-direction"></a>Dirección de los enlaces
+
+Todos los desencadenadores y enlaces tienen la propiedad `direction`:
+
+- En el caso de los desencadenadores, esta propiedad siempre aparece como `in`
+- Los enlaces de entrada y de salida usan `in` y `out`
+- Algunos enlaces admiten la dirección especial `inout`. Si utiliza `inout`, solo estará disponible la opción **Editor avanzado** en la pestaña **Integrar**.
+
+## <a name="using-the-function-return-type-to-return-a-single-output"></a>Uso del tipo de valor devuelto por la función para devolver un resultado único
+
+En el ejemplo anterior, se muestra cómo utilizar el valor devuelto por la función para proporcionar la salida a un enlace, lo cual se consigue mediante el parámetro de nombre especial `$return`. (Esto solo se admite en los lenguajes que presenten un valor devuelto, como C#, JavaScript y F#). Si una función tiene varios enlaces de salida, emplee `$return` para únicamente uno de ellos. 
+
+```json
+// excerpt of function.json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+En los ejemplos siguientes, puede ver cómo se usan los tipos de valores devueltos con los enlaces de salida en C#, JavaScript y F#.
+
+```cs
+// C# example: use method return value for output binding
+public static string Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+// C# example: async method, using return value for output binding
+public static Task<string> Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```javascript
+// JavaScript: return a value in the second parameter to context.done
+module.exports = function (context, input) {
+    var json = JSON.stringify(input);
+    context.log('Node.js script processed queue message', json);
+    context.done(null, json);
+}
+```
+
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+## <a name="resolving-app-settings"></a>Resolver la configuración de la aplicación
+Como procedimiento recomendado, los secretos y las cadenas de conexión deberían administrarse mediante los ajustes de la aplicación, en lugar de archivos de configuración. De este modo, se limita el acceso a estos secretos y resulta seguro almacenar *function.json* en un repositorio de control de código fuente público.
+
+Los ajustes de la aplicación también son útiles cuando se desea cambiar la configuración en función del entorno. Por ejemplo, en un entorno de prueba, es posible que quiera supervisar una cola o un contenedor de almacenamiento de blobs diferente.
+
+Los ajustes de la aplicación se resuelven cuando un valor aparece entre símbolos de porcentaje; por ejemplo `%MyAppSetting%`. Tenga en cuenta que la propiedad `connection` de los desencadenadores y los enlaces es un caso especial y resuelve automáticamente los valores como ajustes de la aplicación. 
+
+En el ejemplo siguiente, aparece un desencadenador de colas que se sirve del valor de configuración de la aplicación `%input-queue-name%` para definir la cola que se desencadenará.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%input-queue-name%",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+
+## <a name="trigger-metadata-properties"></a>Propiedades de metadatos de los desencadenadores
+
+Además de la carga de datos que proporciona un desencadenador (como el mensaje de la cola que desencadenó una función), muchos desencadenadores facilitan valores de metadatos adicionales. Estos valores pueden usarse como parámetros de entrada en C# y F# o como propiedades en el objeto `context.bindings` de JavaScript. 
+
+Por ejemplo, los desencadenadores de colas admiten las siguientes propiedades:
+
+* QueueTrigger (desencadena el contenido del mensaje si hay una cadena válida)
+* DequeueCount
+* ExpirationTime
+* Id
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
+
+Los detalles sobre las propiedades de metadatos de cada desencadenador se describen en el tema de referencia correspondiente. También podrá encontrar documentación en la pestaña **Integrar** del portal, en la sección **Documentación**, debajo del área de configuración de enlaces.  
+
+Por ejemplo, debido a que los desencadenadores de blobs tienen algunos retrasos, puede utilizar un desencadenador de colas para ejecutar la función (consulte el artículo relativo al [desencadenador de Blob Storage](functions-bindings-storage-blob.md#storage-blob-trigger)). El mensaje de la cola contendría el nombre de archivo del blob que se desencadenará. Mediante la propiedad de metadatos `queueTrigger`, puede especificar este comportamiento en la configuración, en lugar del código.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Las propiedades de metadatos de los desencadenadores también se pueden usar en una *expresión de enlace* para otro enlace, tal y como se describe en la siguiente sección.
+
+## <a name="binding-expressions-and-patterns"></a>Patrones y expresiones de enlace
+
+Una de las características más eficaces de los desencadenadores y los enlaces son las *expresiones de enlace*. En el enlace, puede definir expresiones de patrón que, después, podrán emplearse en otros enlaces o en el código. Asimismo, los metadatos de los desencadenadores pueden utilizarse en expresiones de enlace, tal y como aparece en la muestra de la sección anterior.
+
+Por ejemplo, imagine que desea cambiar el tamaño de unas imágenes en un contenedor de almacenamiento de blobs concreto, similar a la plantilla **Image Resizer** (Cambio de tamaño de imágenes) de la página **Nueva función**. Vaya a **Nueva función** -> lenguaje **C#** -> escenario **Samples** (Muestras) -> **ImageResizer-CSharp**. 
+
+Esta es la definición de *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Observe que el parámetro `filename` se usa tanto en la definición del desencadenador de blobs como en el enlace de salida de blobs. Este parámetro también puede incluirse en el código de la función.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### <a name="random-guids"></a>GUID aleatorios
+Azure Functions facilita una práctica sintaxis para generar GUID en los enlaces por medio de la expresión de enlace `{rand-guid}`. En el ejemplo siguiente, se usa dicha expresión para crear un nombre de blob único: 
 
 ```json
 {
@@ -143,248 +306,91 @@ Azure Functions proporciona una sintaxis para generar los GUID aleatorios con lo
 }
 ```
 
+## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Enlace a propiedades de entrada personalizadas en una expresión de enlace
 
-## <a name="returning-a-single-output"></a>Devolución de una única salida
-En los casos donde el código de la función devuelva una única salida, puede utilizar un enlace de salida denominado "`$return`" para conservar una firma de la función más natural en el código. Solo puede usarse con lenguajes que admiten un valor devuelto (C#, Node.js y F #). El enlace sería similar al de salida de blob siguiente que se utiliza con un desencadenador de colas.
+Las expresiones de enlace también pueden hacer referencia a propiedades definidas en la propia carga de los desencadenadores. Por ejemplo, es posible que quiera establecer un enlace de forma dinámica a un archivo de almacenamiento de blobs a partir de un nombre de archivo proporcionado en un webhook.
+
+Por ejemplo, la función *function.json* siguiente recurre a una propiedad denominada `BlobName` en la carga del desencadenador:
 
 ```json
 {
   "bindings": [
     {
-      "type": "queueTrigger",
-      "name": "input",
+      "name": "info",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "test-input-node"
+      "webHookType": "genericJson",
     },
     {
+      "name": "blobContents",
       "type": "blob",
-      "name": "$return",
-      "direction": "out",
-      "path": "test-output-node/{id}"
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
     }
   ]
 }
 ```
 
-El siguiente código de C# devuelve la salida de una forma más natural sin utilizar un parámetro `out` en la firma de la función.
+Para realizar esto en C# y F#, debe definir un POCO que establezca los campos que se deserializarán en la carga del desencadenador.
 
-```cs
-public static string Run(WorkItem input, TraceWriter log)
+```csharp
+using System.Net;
+
+public class BlobInfo
 {
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
 }
 ```
 
-Ejemplo asincrónico:
-
-```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-
-Este mismo enfoque se demuestra con Node.js a continuación:
+En JavaScript, la deserialización de JSON se lleva a cabo de manera automática y el usuario puede usar directamente las propiedades.
 
 ```javascript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
-}
-```
-
-Abajo se muestra un ejemplo de F#:
-
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-Este código también puede utilizarse con varios parámetros de salida designando una salida única con `$return`.
-
-## <a name="resolving-app-settings"></a>Resolver la configuración de la aplicación
-Es un procedimiento recomendado para almacenar información confidencial como parte del entorno de tiempo de ejecución mediante la configuración de la aplicación. Al mantener la información confidencial fuera de los archivos de configuración de la aplicación, se limita la exposición cuando se utiliza un repositorio público para almacenar los archivos de la aplicación.  
-
-El tiempo de ejecución de Azure Functions resuelve la configuración de la aplicación para los valores cuando el nombre de la configuración de la aplicación está entre signos de porcentaje, `%your app setting%`. El siguiente [enlace de Twilio](functions-bindings-twilio.md) utiliza una configuración de la aplicación denominada `TWILIO_ACCT_PHONE` para el campo `from` del enlace. 
-
-```json
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received Node.js",
-  "direction": "out"
-},
-```
-
-
-
-## <a name="parameter-binding"></a>Enlace de parámetros
-En lugar de usar una configuración estática en las propiedades de enlace de salida, puede configurar que los parámetros se enlacen dinámicamente a los datos que forman parte del enlace de entrada del desencadenador. Piense en un escenario en el que los nuevos pedidos se procesan mediante una cola de Azure Storage. Cada nuevo elemento de la cola es una cadena JSON que contiene, al menos, las siguientes propiedades:
-
-```json
-{
-  "name" : "Customer Name",
-  "address" : "Customer's Address",
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
-}
-```
-
-Tal vez quiera enviar al cliente un mensaje de texto SMS utilizando su cuenta de Twilio para notificarle que ha recibido el pedido.  Puede configurar los campos `body` y `to` del enlace de salida de Twilio para que se enlacen dinámicamente a los campos `name` y `mobileNumber` que formaban parte de la entrada, tal y como se muestra a continuación.
-
-```json
-{
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-Ahora, el código de la función solo tiene que inicializar el parámetro de salida como se indica abajo. Durante la ejecución, las propiedades de salida se enlazarán a los datos de entrada deseados.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
-}
-```
-
-Node.js:
-
-```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
-}
-```
-
-## <a name="advanced-binding-at-runtime-imperative-binding"></a>Enlace avanzado en tiempo de ejecución (enlace imperativo)
-
-El patrón de enlace estándar de entrada y salida que usa *function.json* se llama enlace [*declarativo*](https://en.wikipedia.org/wiki/Declarative_programming), donde la declaración de JSON define el enlace. Sin embargo, se puede utilizar el enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming). Con este patrón, se puede enlazar a cualquier número de enlaces compatibles de entrada y salida sobre la marcha en el código de función.
-Puede que se necesite un enlace imperativo en casos donde el cálculo de la ruta de acceso al enlace o de otras entradas debe ocurrir en el tiempo de ejecución de la función en lugar de en el tiempo de diseño. 
-
-Defina un enlace imperativo como se indica a continuación:
-
-- **No** incluya una entrada en *function.json* para los enlaces imperativos deseados.
-- Pase un parámetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
-- Utilice el siguiente patrón de C# para realizar el enlace de datos.
-
-```cs
-using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-{
-    ...
-}
-```
-
-donde `BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es el tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser también un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
-    
-El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#storage-blob-output-binding) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-    {
-        writer.Write("Hello World!!");
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
     }
-}
-```
-
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) es un tipo de enlace de salida admitido.
-De esta forma, el código obtiene la configuración de la aplicación predeterminada para la cadena de conexión de la cuenta de almacenamiento (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Por ejemplo,
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    var attributes = new Attribute[]
-    {    
-        new BlobAttribute("samples-output/path"),
-        new StorageAccountAttribute("MyStorageAccount")
-    };
-
-    using (var writer = await binder.BindAsync<TextWriter>(attributes))
-    {
-        writer.Write("Hello World!");
+    else {
+        context.res = {
+            status: 404
+        };
     }
+    context.done();
 }
 ```
-
-En la tabla siguiente se muestra el atributo de .NET correspondiente que se debe utilizar para cada tipo de enlace y a qué paquete hacer referencia.
-
-> [!div class="mx-codeBreakAll"]
-| Enlace | Atributo | Agregar referencia |
-|------|------|------|
-| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| Cola de almacenamiento | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Blob de almacenamiento | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Tabla de almacenamiento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte los siguientes recursos:
+Para obtener más información sobre un tipo de enlace concreto, consulte estos artículos:
 
-* [Prueba de una función](functions-test-a-function.md)
-* [Escalar una función](functions-scale.md)
-
+- [HTTP y webhooks](functions-bindings-http-webhook.md)
+- [Temporizador](functions-bindings-timer.md)
+- [Queue storage](functions-bindings-storage-queue.md)
+- [Blob storage](functions-bindings-storage-blob.md)
+- [Almacenamiento de tablas](functions-bindings-storage-table.md)
+- [Event Hubs](functions-bindings-event-hubs.md)
+- [Bus de servicio](functions-bindings-service-bus.md)
+- [DocumentDB](functions-bindings-documentdb.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Centros de notificaciones](functions-bindings-notification-hubs.md)
+- [Aplicaciones móviles](functions-bindings-mobile-apps.md)
+- [Archivo externo](functions-bindings-external-file.md)
 

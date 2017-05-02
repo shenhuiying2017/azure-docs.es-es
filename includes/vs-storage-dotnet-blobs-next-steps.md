@@ -8,8 +8,3 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   * Para trabajar con las colas de Almacenamiento de Azure, consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
   * Para almacenar datos relacionales, consulte [Conexión a Base de datos SQL mediante .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

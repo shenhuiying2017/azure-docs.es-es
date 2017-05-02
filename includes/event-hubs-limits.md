@@ -12,8 +12,3 @@ En la tabla siguiente se enumeran las cuotas y los límites específicos de los 
 | Período de retención máximo de datos de eventos |Entidad |Estática |- |1-7 días |
 | Unidades de rendimiento máximo |Espacio de nombres |Estática |Si se supera el límite de la unidad de rendimiento, los datos se limitarán y se generará un excepción **ServerBusyException**. Puede solicitar un número mayor de unidades de rendimiento para el nivel Estándar; para ello, rellene una incidencia de soporte técnico. Las unidades de rendimiento adicionales se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. |20 | |
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

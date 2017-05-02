@@ -1,6 +1,6 @@
 ---
 title: "Creación de un espacio de nombres y un grupo de consumidores de Azure Event Hubs mediante una plantilla | Microsoft Docs"
-description: "Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager"
+description: "Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante plantillas de Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 271eca35ad18725306410d1e8b81bdf06712db1f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 4a9a315f5b03e0fb5424713a3ff3757d928ba150
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Centros de eventos con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
-En este artículo se muestra cómo usar una plantilla de Azure Resource Manager que crea un espacio de nombres de tipo Event Hubs con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
+En este artículo se muestra cómo usar una plantilla de Azure Resource Manager, que crea un espacio de nombres de tipo Event Hubs, con un centro de eventos y un grupo de consumidores. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
@@ -34,7 +34,7 @@ Para ver la plantilla completa, consulte la [plantilla de grupos de consumidores
 > 
 
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
-Con esta plantilla, implementará un espacio de nombres de Centros de eventos con un grupo de consumidores y un centro de eventos.
+Con esta plantilla, implementará un espacio de nombres de Event Hubs con un grupo de consumidores y un centro de eventos.
 
 [Centros de eventos](event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad.
 
@@ -57,7 +57,7 @@ El nombre del espacio de nombres de Centros de eventos que se creará.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-El nombre del centro de eventos creado en el espacio de nombres de Centros de eventos.
+El nombre del centro de eventos creado en el espacio de nombres de Event Hubs.
 
 ```json
 "eventHubName": {
@@ -84,7 +84,7 @@ La versión de API de la plantilla.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos para implementar
-Crea un espacio de nombres de tipo **Centros de eventos**con un centro de eventos y un grupo de consumidores.
+Crea un espacio de nombres de tipo **Event Hubs** con un centro de eventos y un grupo de consumidores.
 
 ```json
 "resources":[  
@@ -153,5 +153,5 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 

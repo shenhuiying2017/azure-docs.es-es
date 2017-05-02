@@ -2,8 +2,3 @@ La configuración de un nombre de dominio personalizado en una aplicación web e
 
 Para obtener más información sobre los modos de plan de los Servicios de aplicaciones, incluyendo cómo cambiar el modo de un sitio, consulte [Escalación de sitios web](../articles/app-service-web/web-sites-scale.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

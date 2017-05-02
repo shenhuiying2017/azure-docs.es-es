@@ -16,8 +16,3 @@ En este punto, la aplicación lógica se ha configurado con un desencadenador qu
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

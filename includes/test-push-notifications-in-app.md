@@ -3,8 +3,3 @@
 * En la aplicación, agregue un nuevo elemento y haga clic en **+**.
 * Compruebe que se ha recibido la notificación y, a continuación, haga clic en **Aceptar** para descartarla. Ya ha completado correctamente este tutorial.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

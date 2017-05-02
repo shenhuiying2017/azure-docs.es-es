@@ -16,8 +16,3 @@ Esta condición evaluará el campo de dirección de correo electrónico de cada 
    ![Imagen 7 de condición de Salesforce](./media/connectors-create-api-salesforce/condition-7.png)  
 8. Guarde las aplicaciones lógicas.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

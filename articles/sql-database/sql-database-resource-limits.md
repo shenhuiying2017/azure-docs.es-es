@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: a2177926e76b25ceb5ecb4fd9471f961d3fa989f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/29/2017
 Azure SQL Database administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: **Resources Governance** (Regulación de recursos) y **Enforcement of Limits** (Aplicación de límites). Este tema explica estas dos áreas principales de la administración de recursos.
 
 ## <a name="resource-governance"></a>Regulador de recursos
-Uno de los objetivos de diseño de los niveles de servicio Básico, Estándar y Premium es que la instancia de Azure SQL Database se comporte como si la base de datos se ejecutase en su propio equipo, aislada de otras bases de datos. La regulación de recursos emula este comportamiento. Si el uso de recursos agregados alcanza el máximo de CPU disponible, memoria, E/S de registro y los recursos de E/S de datos asignados a la base de datos, el regulador de recursos pone en cola las consultas en ejecución y asignará recursos a las consultas en cola a medida que se vayan liberando.
+Uno de los objetivos de diseño de los niveles de servicio Básico, Estándar, Premium y Premium RS es que la instancia de Azure SQL Database se comporte como si la base de datos se ejecutase en su propio equipo, aislada de otras bases de datos. La regulación de recursos emula este comportamiento. Si el uso de recursos agregados alcanza el máximo de CPU disponible, memoria, E/S de registro y los recursos de E/S de datos asignados a la base de datos, el regulador de recursos pone en cola las consultas en ejecución y asignará recursos a las consultas en cola a medida que se vayan liberando.
 
 Como en un equipo dedicado, el uso de todos los recursos disponibles, provoca una ejecución más larga de las consultas en ejecución, lo que a su vez puede provocar la finalización del tiempo de espera de los comandos en el cliente. Las aplicaciones con lógica de reintento agresivo y aplicaciones que ejecutan consultas en la base de datos con una frecuencia alta, pueden encontrar mensajes de error al intentar ejecutar nuevas consultas cuando se ha alcanzado el límite de solicitudes simultáneas.
 
@@ -47,7 +47,7 @@ Por ejemplo, el número de conexiones a una base de datos SQL y el número de so
 Existen niveles de servicio y rendimiento para los grupos elásticos y bases de datos únicas.
 
 ### <a name="single-databases"></a>Bases de datos únicas
-Para una base de datos única, los límites de una base de datos se definen mediante el nivel de servicio de base de datos el nivel de rendimiento. En la tabla siguiente se describen las características de las bases de datos de nivel Básico, Estándar y Premium en distintos niveles de rendimiento.
+Para una base de datos única, los límites de una base de datos se definen mediante el nivel de servicio de base de datos el nivel de rendimiento. En la tabla siguiente se describen las características de las bases de datos de nivel Básico, Estándar, Premium y Premium RS en distintos niveles de rendimiento.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -56,7 +56,7 @@ Para una base de datos única, los límites de una base de datos se definen medi
 >
 
 ### <a name="elastic-pools"></a>Grupos elásticos
-[Grupos elásticos](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos elásticos de nivel Básico, Estándar y Premium.
+[Grupos elásticos](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos elásticos de nivel Básico, Estándar, Premium y Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -66,8 +66,8 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 | Ámbito | Límite | Description |
 | --- | --- | --- |
 | Bases de datos que usan exportación automatizada por suscripción |10 |La exportación automatizada le permite crear una programación personalizada para realizar copias de seguridad de las bases de datos SQL. La versión preliminar de esta característica finalizará el 1 de marzo de 2017.  |
-| Bases de datos por servidor |Hasta 5000 |Se permiten hasta 5000 bases de datos por servidor en servidores V12. |
-| DTU por servidor |45000 |Se permiten 45000 DTU por servidor en servidores V12 para el aprovisionamiento de bases de datos independientes y grupos elásticos. El número total de grupos y bases de datos independientes permitidos por servidor está limitado únicamente por el número de DTU de servidor.  
+| Bases de datos por servidor |Hasta 5000 |Se permiten hasta 5000 bases de datos por servidor. |
+| DTU por servidor |45000 |Se permiten 45000 DTU por servidor para el aprovisionamiento de bases de datos independientes y grupos elásticos. El número total de grupos y bases de datos independientes permitidos por servidor está limitado únicamente por el número de DTU de servidor.  
 
 > [!IMPORTANT]
 > La exportación automática de Azure SQL Database Automated Export se encuentra ahora en versión preliminar y se retirará el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, ya no podrá configurar la exportación automatizada en cualquier instancia de SQL Database. Los trabajos de exportación automatizada existentes continuarán funcionando hasta el 1 de marzo de 2017. A partir del 1 de diciembre de 2016, podrá usar la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) o [Azure Automation](../automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un script de ejemplo, puede descargar [este que está disponible en GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).

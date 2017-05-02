@@ -1,7 +1,2 @@
 > [!WARNING]
 > Esta característica está actualmente en versión preliminar y puede no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. La característica no tiene compatibilidad, puede tener funcionalidades limitadas y no estar disponible en todas las [ubicaciones de Azure](https://azure.microsoft.com/regions/). Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,8 +15,3 @@ En el artículo se supone que ha iniciado sesión en su suscripción en el porta
    
    ![Confirme que la nueva etiqueta DNS está configurada](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

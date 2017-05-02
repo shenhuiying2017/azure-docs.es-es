@@ -16,9 +16,9 @@ ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 799bacdac6ff49cb6fa38cd208318673629d4035
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e8452e272916222679dd5e411b5f8732d3e8059b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/15/2017
 > 
 > 
 
-Azure DevTest Labs permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. Este artículo explica en detalle paso a paso cómo configurar cada directiva.  
+Azure DevTest Labs le permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. Este artículo explica en detalle paso a paso cómo configurar cada directiva.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>Establecimiento de tamaños de máquina virtual permitidos
 La directiva para establecer los tamaños permitidos de la máquina virtual ayuda a minimizar la pérdida del laboratorio al permitirle especificar los tamaños de máquina virtual que se permiten en este. Si se activa esta directiva, los tamaños de máquina virtual de esta lista son los únicos que pueden utilizarse en la creación de tales máquinas.
@@ -99,6 +99,9 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 4. Seleccione **Guardar**.
 
     Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra la hoja de la máquina virtual y cambie su configuración de **Inicio automático** . 
+
+## <a name="set-expiration-date"></a>Establecimiento de la fecha de expiración
+Puede establecer una fecha de expiración cuando [cree la VM](devtest-lab-add-vm.md). En **Configuración avanzada**, elija el icono del calendario para especificar una fecha en la que la VM se eliminará automáticamente.  De forma predeterminada, la VM nunca expirará.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

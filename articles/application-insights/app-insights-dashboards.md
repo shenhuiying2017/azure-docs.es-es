@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: e6efa8c05c51b0438912738c3c5fcad4bc12b8f4
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -56,8 +56,16 @@ Cuando esté consultando una hoja o un conjunto de gráficos especialmente inter
 
 Observe que los gráficos se agrupan en iconos: un icono puede contener más de un gráfico. El icono se ancla entero al panel.
 
+El gráfico se actualiza automáticamente con una frecuencia que depende del intervalo de tiempo del gráfico:
+
+* Intervalo de tiempo hasta una hora: actualizar cada 5 minutos
+* Intervalo de tiempo de 1 a 24 horas: actualizar cada 15 minutos
+* Tiempo de intervalo superior a 24 horas: (intervalo de tiempo)/60.
+
 ### <a name="pin-any-query-in-analytics"></a>Ancle cualquier consulta en Analytics
 También puede [anclar gráficos de Analytics](app-insights-analytics-using.md#pin-to-dashboard) a un panel [compartido](#share-dashboards-with-your-team). Esto permite agregar gráficos de cualquier consulta arbitraria junto con las métricas estándares. (Esta característica se cobra).
+
+Los resultados se recalculan automáticamente cada hora. Haga clic en el icono de actualización en el gráfico para recalcular inmediatamente. (Cuando el explorador se actualiza, no se recalculan los resultados).
 
 ## <a name="adjust-a-tile-on-the-dashboard"></a>Ajuste de un icono en el panel
 Una vez que un icono se encuentra en el panel, es posible ajustarlo.

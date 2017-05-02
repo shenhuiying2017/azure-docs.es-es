@@ -189,8 +189,3 @@ Ejemplo de plantilla de equilibrador de carga en formato Json:
 ### <a name="additional-resources"></a>Recursos adicionales
 Lea el artículo [API de REST del Equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx) para obtener más información.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

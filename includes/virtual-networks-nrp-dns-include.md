@@ -82,8 +82,3 @@ Para más información, lea la [documentación de API de REST para las zonas DNS
 
 Para obtener más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

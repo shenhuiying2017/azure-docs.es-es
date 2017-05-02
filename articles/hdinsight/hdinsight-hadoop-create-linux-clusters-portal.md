@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 22b45634ee66ec29c089ecd0a4d9bacc60f68b94
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 79a8b7352c12676bd26555b4447e030ecb4ad011
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -90,6 +90,9 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
     | **Tiendas de metadatos externas**                      | De manera opcional, puede especificar una base de datos SQL para guardar los metadatos de Hive y Oozie asociados con el clúster. En **Seleccionar una base de datos SQL para Hive**, seleccione una base de datos SQL y luego escriba el nombre de usuario y la contraseña de la base de datos. Repita estos pasos para los metadatos de Oozie.<br><br>Algunas consideraciones al usar Azure SQL Database para las tiendas de metadatos. <ul><li>La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.</li><li>Al crear una tienda de metadatos, no debe usar un nombre de base de datos que contenga guiones, ya que esto puede producir un error en el proceso de creación del clúster.</li></ul>                                                                                                                                                                       |
 
     Haga clic en **Siguiente**. 
+
+    > [!WARNING]
+    > No se admite el uso de una cuenta de almacenamiento adicional en una ubicación diferente a la del clúster de HDInsight.
 
 5. De manera opcional, haga clic en **Aplicaciones** para instalar aplicaciones que funcionen con clústeres de HDInsight. Estas aplicaciones puede desarrollarlas Microsoft, fabricantes de software independientes (ISV) o el propio usuario. Para más información, consulte [Instalación de aplicaciones de HDInsight](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 

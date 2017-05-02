@@ -12,8 +12,3 @@
 8. Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.
 9. En la casilla **Puerto**, especifique el número del puerto del agente de escucha del grupo de disponibilidad mediante el parámetro $EndpointPort usado anteriormente (en este tutorial, el valor predeterminado era 1433) y, después, haga clic en **Aceptar**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

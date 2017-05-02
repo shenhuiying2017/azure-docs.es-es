@@ -2,8 +2,3 @@ Las máquinas virtuales de IaaS (máquinas virtuales) y las instancias de rol de
 
 En determinados casos, desea que una máquina virtual o una instancia de rol tenga una dirección IP estática, por ejemplo, si la máquina virtual va a ejecutar DNS o va a ser un controlador de dominio. Puede hacerlo configurando una dirección IP privada estática.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

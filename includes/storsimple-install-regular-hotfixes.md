@@ -17,8 +17,3 @@
 4. Cuando se le solicite, proporcione la ruta de acceso a la carpeta compartida de red que contiene los archivos de la revisión.
 5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

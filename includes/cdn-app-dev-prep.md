@@ -51,8 +51,3 @@ Si, en lugar de una entidad de servicio, prefiere la autenticación interactiva 
 4. En lugar de asignar una entidad de servicio al rol **CDN Profile Contributor** (Colaborador de perfil de CDN), vamos a asignar usuarios individuales o grupos.  En este ejemplo, puede ver que hemos asignado *CDN Demo User* (Usuario de demostración de CDN) al rol **CDN Profile Contributor** (Colaborador de perfil de CDN).  
 
     ![Acceso de usuario individual](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

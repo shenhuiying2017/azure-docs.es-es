@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Zoho Mail con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base&64;.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
@@ -114,14 +114,14 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
    
     c. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Change Password URL** (Cambiar dirección URL de contraseña).
    
-    d. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+    d. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
       
     > [!TIP]
     > Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
     > 
     > 
    
-    e. Abra el certificado codificado en base&64; en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **PublicKey**
+    e. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **PublicKey**
    
     f. En **Algoritmo**, seleccione **RSA**.
    

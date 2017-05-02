@@ -42,8 +42,3 @@ La nueva etiqueta debería aparecer en la lista de etiquetas del recurso.
 
 ![Etiqueta nueva guardada en el Portal de Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

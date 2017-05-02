@@ -12,8 +12,3 @@ Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuen
 3. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:  
    ![paso de creación de conexión de FTP](./media/connectors-create-api-ftp/ftp-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

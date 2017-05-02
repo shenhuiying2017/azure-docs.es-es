@@ -14,8 +14,3 @@ En este escenario, creará un NSG para cada subred de la red virtual **TestVNet*
 
 La combinación de estas reglas crea un escenario similar a DMZ, donde la subred de back-end solo puede recibir tráfico entrante para SQL de la subred de front-end y no tiene acceso a Internet, mientras que la subred de front-end puede comunicarse con Internet y recibir solicitudes HTTP entrantes solamente.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

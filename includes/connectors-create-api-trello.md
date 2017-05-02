@@ -16,8 +16,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 5. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:   
    ![](./media/connectors-create-api-trello/trello-5.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

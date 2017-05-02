@@ -5,8 +5,3 @@ En la tabla siguiente se enumeran la posibles combinaciones de carga y captura d
 | Linux gen. |N<sup>1</sup> |Y |N<sup>3</sup> |Y |
 | Linux espec. |Y |N<sup>2</sup> |Y |N<sup>4</sup> |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

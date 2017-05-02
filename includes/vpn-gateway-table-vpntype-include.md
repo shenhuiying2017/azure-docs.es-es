@@ -18,8 +18,3 @@
 | **De punto a sitio** |Compatible |No compatible |
 | **Clásico a Resource Manager** |Compatible |No compatible |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

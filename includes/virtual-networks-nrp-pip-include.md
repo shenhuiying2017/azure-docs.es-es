@@ -39,8 +39,3 @@ Dirección IP pública de ejemplo en formato JSON:
 * Obtenga más información sobre las [direcciones IP públicas de nivel de instancia](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 * Lea la [documentación de referencia de API de REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) para obtener información sobre direcciones IP públicas.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

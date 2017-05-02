@@ -49,8 +49,3 @@ Factoría de datos admite los siguientes valores de tipo basados en .NET compati
 
 Para Datetime y Datetimeoffset, también puede opcionalmente especificar la cadena "culture" y "format" para facilitar el análisis de la cadena de fecha y hora personalizada. Consulte el ejemplo de conversión de tipos siguiente.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

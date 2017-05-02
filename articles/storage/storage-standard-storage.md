@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 77e48af7ba59ed1e5b2ebcda0760e0eda1f407df
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -52,7 +52,7 @@ Examinemos algunas de las características del almacenamiento estándar. Para m�
 
 **Discos de almacenamiento estándar:** los discos de almacenamiento estándar se pueden conectar a todas las máquinas virtuales de Azure, incluidas las máquinas virtuales de varias series de tamaños que se usan con Premium Storage, como las series DSv2 y GS. Un disco de almacenamiento estándar solo puede conectarse a una máquina virtual. Sin embargo, se pueden asociar uno o varios de estos discos a una máquina virtual, hasta el número máximo definido para el tamaño de la máquina virtual. En la sección siguiente sobre objetivos de escalabilidad y rendimiento del almacenamiento estándar, se describirán las especificaciones con más detalle. 
 
-**Blob en páginas estándar**: los blobs en páginas estándar se utilizan para contener discos persistentes para las máquinas virtuales y, al igual que otros tipos de blobs de Azure, se puede acceder a ellos directamente a través de REST. Los [blob en páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) son una colección de páginas de 512 bytes optimizadas para operaciones de lectura y escritura aleatorias. 
+**Blob en páginas estándar**: los blobs en páginas estándar se utilizan para contener discos persistentes para las máquinas virtuales y, al igual que otros tipos de blobs de Azure, se puede acceder a ellos directamente a través de REST. Los [blob en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) son una colección de páginas de 512 bytes optimizadas para operaciones de lectura y escritura aleatorias. 
 
 **Replicación del almacenamiento:** en la mayoría de las regiones, los datos de una cuenta de almacenamiento estándar se pueden replicar localmente o replicar geográficamente en varios centros de datos. Los cuatro tipos de replicación disponible son: el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Actualmente, en el almacenamiento estándar Managed Disks solo admiten el almacenamiento con redundancia local (LRS). Para más información, consulte [Replicación de Azure Storage](storage-redundancy.md).
 
@@ -99,11 +99,11 @@ Para el servicio Storage, el archivo VHD es un blob en páginas. Es posible toma
 
 Se pueden crear [instantáneas incrementales](storage-incremental-snapshots.md) para discos estándar no administrados de la misma manera que se usan las instantáneas con el almacenamiento estándar. Si el disco de origen se encuentra en una cuenta de almacenamiento con redundancia local, se recomienda crear instantáneas y, luego, copiarlas en una cuenta de almacenamiento estándar con redundancia geográfica. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](storage-redundancy.md).
 
-Si un disco está conectado a una máquina virtual, determinadas operaciones de la API no se permiten en los discos. Por ejemplo, no puede realizar una operación [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) en ese blob mientras el disco esté conectado a una máquina virtual. En su lugar, cree una instantánea del blob mediante el método de API de REST [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob) y, luego, realice la operación [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) de la instantánea para copiar el disco conectado. Como alternativa, puede separar el disco y, después, realizar las operaciones necesarias.
+Si un disco está conectado a una máquina virtual, determinadas operaciones de la API no se permiten en los discos. Por ejemplo, no puede realizar una operación [Copy Blob](/rest/api/storageservices/Copy-Blob) en ese blob mientras el disco esté conectado a una máquina virtual. En su lugar, cree una instantánea del blob mediante el método de API de REST [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob) y, luego, realice la operación [Copy Blob](/rest/api/storageservices/Copy-Blob) de la instantánea para copiar el disco conectado. Como alternativa, puede separar el disco y, después, realizar las operaciones necesarias.
 
-Para mantener copias con redundancia geográfica de las instantáneas, puede copiar dichas instantáneas de una cuenta de almacenamiento con redundancia local a una cuenta de almacenamiento estándar con redundancia geográfica mediante AzCopy o Copy Blob. Para más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) y [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
+Para mantener copias con redundancia geográfica de las instantáneas, puede copiar dichas instantáneas de una cuenta de almacenamiento con redundancia local a una cuenta de almacenamiento estándar con redundancia geográfica mediante AzCopy o Copy Blob. Para más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) y [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-Para más información acerca de cómo realizar operaciones de REST en blobs en páginas en cuentas de almacenamiento estándar, consulte [Azure Storage Services REST API Reference](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) (Referencia de API de RES de los servicios de Azure Storage).
+Para más información acerca de cómo realizar operaciones de REST en blobs en páginas en cuentas de almacenamiento estándar, consulte [Azure Storage Services REST API Reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (Referencia de API de RES de los servicios de Azure Storage).
 
 ### <a name="managed-disks"></a>Discos administrados
 
@@ -125,7 +125,7 @@ Al usar el almacenamiento estándar, se aplican las siguientes consideraciones d
 
 **Discos administrados:** los discos administrados se facturan por el tamaño aprovisionado. Si un disco se aprovisiona como un disco de 10 GB, pero se usan solo 5 GB, se cobrará el tamaño del aprovisionamiento, es decir, 10 GB.
 
-**Instantáneas**: las instantáneas de los discos estándar se facturan por la capacidad adicional que usan. Para obtener información sobre las instantáneas, consulte [Crear una instantánea de un blob](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob).
+**Instantáneas**: las instantáneas de los discos estándar se facturan por la capacidad adicional que usan. Para obtener información sobre las instantáneas, consulte [Crear una instantánea de un blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Transferencias de datos de salida**: las [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/data-transfers/) (datos que salen de los centros de datos de Azure) se facturan en función del uso de ancho de banda.
 

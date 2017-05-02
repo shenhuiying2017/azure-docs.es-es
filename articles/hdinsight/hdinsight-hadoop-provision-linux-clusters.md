@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 1b7772fbf719013d82e5baed1bbbf229d6f2946c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,7 @@ Actualmente, HDInsight de Azure proporciona cuatro tipos diferentes de clústere
 | [Storm](hdinsight-storm-overview.md) |Procesamiento de eventos en tiempo real |
 | [Spark](hdinsight-apache-spark-overview.md) |Procesamiento en memoria, consultas interactivas, procesamiento de transmisión de microlotes |
 | [Interactive Hive (versión preliminar)](hdinsight-hadoop-use-interactive-hive.md) |Almacenamiento en caché en memoria para realizar consultas de Hive interactivas y más rápidas |
-| [R Server en Spark (versión preliminar)](hdinsight-hadoop-r-server-overview.md) |Diversas estadísticas de macrodatos, modelado de predicción y funcionalidades de aprendizaje automático. |
+| [R Server en Spark](hdinsight-hadoop-r-server-overview.md) |Diversas estadísticas de macrodatos, modelado de predicción y funcionalidades de aprendizaje automático. |
 | [Kafka (versión preliminar)](hdinsight-apache-kafka-introduction.md) | Una plataforma de streaming distribuida que se puede utilizar para compilar aplicaciones y canalizaciones de datos de streaming en tiempo real. |
 
 Cada tipo de clúster tiene dentro su propio número de nodos, la terminología de los nodos y el tamaño de máquina virtual predeterminado para cada tipo de nodo. En la siguiente tabla, el número de nodos de cada tipo de nodo se muestra entre paréntesis.
@@ -237,7 +237,7 @@ En el modelo de implementación clásica, algunos tamaños de máquina virtual s
 | Standard_D13_v2 |8 |56 GB |8 |Temporal (SSD) =400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |Temporal (SSD) =800 GB |32 |32x500 |
 
-Para conocer los aspectos que se deben tener en cuenta en la implementación al planear el uso de estos recursos, consulte [Tamaños de las máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para más información sobre los precios de los diferentes tamaños, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
+Para conocer los aspectos que se deben tener en cuenta en la implementación al planear el uso de estos recursos, consulte [Tamaños de las máquinas virtuales](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para más información sobre los precios de los diferentes tamaños, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > Si tiene pensado crear más de 32 nodos de trabajo, bien en el momento de creación del clúster o escalando el clúster tras la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
@@ -252,6 +252,9 @@ En algunos casos, es posible que desee agregar almacenamiento adicional al clús
 Puede agregar cuentas de almacenamiento al crear un clúster de HDInsight o después de haberlo creado.  Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 Para más información sobre el uso de una cuenta de Azure Storage secundaria, consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener más información sobre el uso de almacenamiento de Data Lake secundario, consulte [Creación de clústeres de HDInsight con Data Lake Store con Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+> [!WARNING]
+> No se admite el uso de una cuenta de almacenamiento adicional en una ubicación diferente a la del clúster de HDInsight.
 
 ## <a name="use-hiveoozie-metastore"></a>Uso de la tienda de metadatos de Hive/Oozie
 Se recomienda que use un Metastore personalizado si quiere conservar las tablas de Hive después de eliminar el clúster de HDInsight. Podrá adjuntar ese Metastore a otro clúster de HDInsight.

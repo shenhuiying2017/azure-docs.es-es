@@ -17,8 +17,3 @@ Autorice a la aplicación lógica a conectarse a su cuenta de Office 365 con los
 4. Observe que la conexión se ha creado en el portal. Ahora, continúe con el resto de los pasos en la aplicación lógica:   
     ![Paso de creación de una conexión a Office 365](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

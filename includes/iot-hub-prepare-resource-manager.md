@@ -42,8 +42,3 @@ Ahora ha terminado de crear la aplicación de Azure AD que le permitirá autenti
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -6,8 +6,3 @@
     ![Propiedades de MPIO > Detectar múltiples rutas](./media/storsimple-configure-mpio-volumes/IC741003.png)
 4. Reinicie el servidor cuando se le pida.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

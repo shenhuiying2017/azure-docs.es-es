@@ -14,8 +14,3 @@ Aquí mostraremos cómo usar el desencadenador **Service Bus - When a message is
 
 En este punto, la aplicación lógica está configurado con un desencadenador, que activará otros desencadenadores y acciones del flujo de trabajo cuando se reciba un nuevo elemento en la cola que ha seleccionado.    
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

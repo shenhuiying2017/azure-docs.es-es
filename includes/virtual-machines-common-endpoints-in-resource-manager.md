@@ -70,8 +70,3 @@ Con los grupos de seguridad de red, la función de enrutamiento de puertos la co
 
 > [!NOTE]
 > Cuando se implementa un equilibrador de carga, lo habitual es no asignar una dirección IP pública a la propia máquina virtual. En su lugar, el equilibrador de carga tiene una dirección IP pública asignada. Aún así será preciso crear las reglas de ACL y el grupo de seguridad de red para definir el flujo de tráfico que entra y sale de la máquina virtual. Las reglas NAT del equilibrador de carga se usan simplemente para definir qué puertos se permiten a través del equilibrador de carga y cómo se distribuyen entre el máquinas virtuales de back-end. Por lo tanto, debe crear una regla NAT para que el tráfico fluya a través del equilibrador de carga. Para permitir que el tráfico llegue a la máquina virtual, cree una regla de ACL de grupo de seguridad de red.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

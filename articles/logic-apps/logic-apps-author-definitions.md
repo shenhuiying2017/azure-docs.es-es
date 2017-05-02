@@ -295,7 +295,7 @@ También queremos una subcadena del nombre del pedido, porque los cinco primeros
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }

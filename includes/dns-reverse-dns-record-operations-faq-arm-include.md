@@ -40,8 +40,3 @@ No. Si quiere utilizar los registros de DNS inverso para sus direcciones IP púb
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>¿Puedo enviar correos electrónicos a dominios externos desde mis servicios de proceso de Azure?
 
 No. [Los servicios de proceso de Azure no admiten el envío de correos electrónicos a dominios externos](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -18,8 +18,3 @@ En los detalles de uso puede ver todas las etiquetas en la columna de **etiqueta
 
 Mediante el análisis de estas junto con el uso, las organizaciones podrán obtener nuevos puntos de vista en sus datos de consumo.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

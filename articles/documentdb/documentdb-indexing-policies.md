@@ -35,7 +35,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Cómo se pueden realizar cambios en la directiva de indexación de una colección?
 * ¿Cómo se puede comparar el almacenamiento y el rendimiento de diferentes directivas de indexación?
 
-## <a name="a-idcustomizingindexingpolicya-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalización de la directiva de indexación de una colección
+## <a id="CustomizingIndexingPolicy"></a> Personalización de la directiva de indexación de una colección
 Los desarrolladores pueden personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta y coherencia de las consultas, reemplazando la directiva de indexación predeterminada en una colección de DocumentDB y configurando los aspectos siguientes.
 
 * **Inclusión y exclusión de documentos y rutas de acceso del índice y al índice**. Los desarrolladores pueden elegir que se incluyan o excluyan determinados documentos en el índice en el momento de insertarlos o reemplazarlos en la colección. Los desarrolladores también pueden elegir incluir o excluir determinadas propiedades JSON, lo que también se conoce como rutas de acceso (incluidos patrones de caracteres comodín) para indexarlas en documentos que se incluyen en un índice.
@@ -112,7 +112,7 @@ DocumentDB modela los documentos JSON y el índice en forma de árbol, y permite
 
 Las rutas de acceso de índice comienzan con la raíz (/) y suelen terminar con el operador comodín ?, que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
 
-Las rutas de acceso del índice también pueden usar el operador comodín * para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación de todo el contenido de la propiedad payload.
+Las rutas de acceso del índice también pueden usar el operador comodín *para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación de todo el contenido de la propiedad payload.
 
 Estos son los patrones comunes para especificar las rutas de acceso del índice:
 

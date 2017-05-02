@@ -52,8 +52,3 @@ En este procedimiento, hará lo siguiente:
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
 2. En el servidor web front-end, en **Administración central**, edite los valores de **Configuración general de la aplicación web** para la base de datos de contenido deseada para volver a habilitar la papelera de reciclaje. Para ello, haga clic en **Administración central** -> **Administración de aplicaciones** -> **Aplicaciones web (Administrar aplicaciones web)** -> **SharePoint - 80** -> **Configuración de aplicación general**. Establezca el estado de la Papelera de reciclaje en **Activado**.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

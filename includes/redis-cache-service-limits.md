@@ -12,8 +12,3 @@ Para más información sobre los límites de configuración de Azure Redis Cache
 
 Dado que Microsoft realiza la configuración y la administración de instancias de Caché en Redis de Azure, no se admiten todos los comandos de Redis en la Caché en Redis de Azure. Para más información, vea [Comandos de Redis no admitidos en la Caché en Redis de Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

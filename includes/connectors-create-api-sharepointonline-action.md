@@ -29,8 +29,3 @@ Para configurar esta acción, deberá proporcionar la siguiente información. Cu
 10. Guarde los cambios en el flujo de trabajo.  
 11. Enhorabuena, ahora tiene una aplicación lógica totalmente funcional que se desencadena cuando se agrega un nuevo elemento a una lista de SharePoint Online. La aplicación crea entonces un archivo, con algunas de las propiedades del nuevo elemento de la lista.  Ahora puede probarla mediante la creación de un nuevo elemento en la lista de SharePoint. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

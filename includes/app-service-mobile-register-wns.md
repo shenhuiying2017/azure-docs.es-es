@@ -14,8 +14,3 @@
    > El secreto de aplicación y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
    >
    >
-
-
-<!--HONumber=Dec16_HO2-->
-
-

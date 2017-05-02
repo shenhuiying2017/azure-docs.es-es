@@ -19,14 +19,9 @@
    4. Seleccione una retención. Las opciones de retención dependen de la frecuencia de copia de seguridad.
    5. Seleccione la fecha y hora de inicio para la directiva.
    6. Seleccione la casilla para habilitar la directiva.
-6. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png)  para continuar.
+6. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) para continuar.
 7. Volverá a los detalles de la directiva. Haga clic en **Guardar** para guardar los cambios realizados en esta directiva. Se le notificará cuando se haya guardado la directiva.
 8. Vuelva a la página **Directivas de copia de seguridad** . La lista tabular de las directivas de copia de seguridad se actualizará para mostrar la directiva modificada.
    
     ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -8,8 +8,3 @@
 
 <sup>1</sup>Los límites de Administración de API son diferentes para cada nivel de precios. Para ver los niveles de precios y sus límites asociados y opciones de escalado, consulte [Precios de Administración de API](https://azure.microsoft.com/pricing/details/api-management/).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

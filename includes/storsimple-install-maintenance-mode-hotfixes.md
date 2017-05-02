@@ -15,8 +15,3 @@
 5. Después de aplicar la revisión en un controlador, inicie sesión en el otro controlador. Aplique la revisión tal y como lo hizo con el controlador anterior.
 6. Una vez aplicadas las revisiones, salga del modo de mantenimiento. Consulte [Paso 4: Salida del modo de mantenimiento](../articles/storsimple/storsimple-update-device.md#step4) para obtener instrucciones.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

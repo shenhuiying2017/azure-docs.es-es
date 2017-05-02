@@ -23,8 +23,3 @@
    | 5 |PDU |
 4. Para encender el sistema gira el interruptor de alimentación de ambos PCM a la posición de encendido.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

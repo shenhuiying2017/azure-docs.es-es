@@ -14,8 +14,3 @@ Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuen
 4. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica.  
     ![Imagen 3 de conexión a Bus de servicio](./media/connectors-create-api-servicebus/servicebus-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

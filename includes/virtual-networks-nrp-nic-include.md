@@ -75,8 +75,3 @@ Dirección IP pública de ejemplo en formato JSON:
 ### <a name="additional-resources"></a>Recursos adicionales
 * Lea la [documentación de referencia de la API de REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) para obtener información sobre las NIC.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

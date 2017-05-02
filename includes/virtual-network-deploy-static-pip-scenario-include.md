@@ -7,8 +7,3 @@ Es posible que necesite una dirección IP estática para los servidores web que 
 
 Puede seguir los pasos siguientes para implementar el entorno que se muestra en la ilustración anterior.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

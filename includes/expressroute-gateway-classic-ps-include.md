@@ -24,7 +24,3 @@ Hay varias [SKU de puerta de enlace](../articles/expressroute/expressroute-about
 Utilice el siguiente comando para quitar una puerta de enlace.
 
     Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
-
-<!--HONumber=Nov16_HO3-->
-
-

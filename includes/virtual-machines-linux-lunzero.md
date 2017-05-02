@@ -19,8 +19,3 @@ Este comportamiento de disco no es un problema de Azure, sino la forma en la que
 * Revise la salida de `lsscsi` después de agregar un disco de datos para comprobar que tiene un disco en LUN 0.
 * Si el disco no aparece correctamente en la máquina virtual, compruebe que existe el disco en LUN 0.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

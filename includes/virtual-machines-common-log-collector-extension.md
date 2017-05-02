@@ -483,8 +483,3 @@ SetAzureVMLogCollector.ps1
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede examinar o copiar los registros desde una ubicación muy sencilla.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

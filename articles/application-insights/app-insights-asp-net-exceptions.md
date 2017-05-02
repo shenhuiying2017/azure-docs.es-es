@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d55892027a01bc9a1be2455d5d9bfee05b6fb982
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,6 +28,7 @@ Las excepciones en la aplicación web en directo se notifican mediante [Applicat
   * Instale el [SDK de Application Insights](app-insights-asp-net.md) en su código de aplicación.
   * Servidores web de IIS: ejecute el [agente de Application Insights](app-insights-monitor-performance-live-website-now.md).
   * Aplicaciones web de Azure: agregue la [extensión de Application Insights](app-insights-azure-web-apps.md).
+  * Aplicaciones web de Java: instale el [agente de Java](app-insights-java-agent.md).
 * Instale el [fragmento de código de JavaScript](app-insights-javascript.md) en las páginas web para capturar las excepciones del explorador.
 * En algunos marcos de aplicaciones o con algunas opciones de configuración, debe realizar algunos pasos adicionales para capturar más excepciones:
   * [Formularios web](#web-forms)

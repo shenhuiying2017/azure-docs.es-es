@@ -22,8 +22,3 @@ Las nuevas características y funcionalidad solo se incorporarán a las nuevas v
 
 Se recomienda que actualice al SDK más reciente tan pronto como sea posible. Una vez etiquetado un SDK para la retirada, tendrá 12 meses para actualizar la aplicación. Si, por la razón que sea, no puede completar la actualización de la aplicación en este período de tiempo, póngase en contacto con el [equipo de DocumentDB](mailto:askdocdb@microsoft.com) y solicite su ayuda antes de la fecha límite.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

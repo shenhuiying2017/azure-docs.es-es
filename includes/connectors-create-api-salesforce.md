@@ -16,8 +16,3 @@ Aquí se explica cómo autorizar a la aplicación lógica a conectarse a su cuen
 5. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:  
    ![Imagen 5 de conexión a Salesforce](./media/connectors-create-api-salesforce/salesforce-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -5,8 +5,3 @@ En este escenario se realizarán las siguientes tareas:
 * Crear sondeos de estado
 
 ![Escenario del equilibrador de carga](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -80,8 +80,3 @@ Ejemplo de Administrador de tráfico en formato Json:
 ## <a name="additional-resources"></a>Recursos adicionales
 Para más información, lea la [documentación de API de REST para el Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163664.aspx) .
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

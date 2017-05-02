@@ -52,8 +52,3 @@ Puede establecer la suscripción actual de Azure ejecutando estos comandos en el
 
 Para más información acerca de las cuentas y suscripciones de Azure, consulte [Conexión a su suscripción](/powershell/azureps-cmdlets-docs#step-3-connect).
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-

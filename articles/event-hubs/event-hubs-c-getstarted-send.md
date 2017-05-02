@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: f62c0ca57bfd15a9ad1f767fa8fd59cc73b71c43
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f029b2dfaff372b3a8282d056ca52bd5d0893e64
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Envío de mensajes a Centros de eventos
-En esta sección se escribirá una aplicación C para enviar eventos al Centro de eventos. Usaremos la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de C como se muestra [aquí](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, vea la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
+En esta sección se escribirá una aplicación en C para enviar eventos al centro de eventos. Usaremos la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de C como se muestra [aquí](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, vea la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. En la página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), haga clic en el vínculo **Instalación de Qpid Proton** y siga las instrucciones dependiendo de su entorno.
 2. Para compilar la biblioteca Proton, instale los paquetes siguientes:
@@ -60,7 +60,7 @@ En esta sección se escribirá una aplicación C para enviar eventos al Centro d
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente contenido. No olvide sustituir el valor para el nombre del Centro de eventos y el espacio de nombres (este último suele ser `{event hub name}-ns`). También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente contenido. No olvide sustituir el valor para el nombre del centro de eventos y el espacio de nombres (este último suele ser `{event hub name}-ns`). También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"

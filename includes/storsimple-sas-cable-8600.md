@@ -41,8 +41,3 @@
       | 5, 6 |Puertos SAS del receptáculo principal (con la etiqueta EBOD) |
       | 7, 8 |Puertos SAS del receptáculo EBOD (puerto A) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

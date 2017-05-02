@@ -37,8 +37,3 @@
 
 Para ver un vídeo que muestra cómo completar la configuración mínima del dispositivo, haga clic [aquí](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

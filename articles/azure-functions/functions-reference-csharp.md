@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 04/04/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 38546a1cc3ae1696dbb37d4dd47d2d540ecd08fa
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 76b43c78341abb638e2ede97f68c05ee6df0700f
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -169,7 +169,7 @@ Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json*
 }
 ```
 
-Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json`net46` especifique* como se muestra aquí.
+Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json`net46` especifique*  como se muestra aquí.
 
 Al cargar un archivo *project.json* , el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"` . Basta con agregar las instrucciones `using` necesarias al archivo *run.csx* para que use los tipos definidos en los paquetes NuGet.
 
@@ -313,6 +313,96 @@ Puede usar una ruta de acceso relativa con la directiva `#load` :
 * `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
 
 La directiva `#load` solo funciona con archivos *.csx* (script de C#), no con archivos *.cs*. 
+
+## <a name="versioning"></a>Control de versiones
+
+El entorno en tiempo de ejecución de Functions se ejecuta como una extensión de sitio para la Function App. Las extensiones de sitio son puntos de extensibilidad que permiten agregar funciones a un servicio Azure App Service, sitio web o Function App. `Kudu` y `Monaco` son dos ejemplos de extensiones de sitio. Asimismo, puede crear y usar extensiones personalizadas. Puede configurar la versión de las extensiones mediante el ajuste de configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`.
+
+El ajuste `FUNCTIONS_EXTENSION_VERSION` solo establece la versión principal del entorno en tiempo de ejecución. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Gracias a ello, puede administrar cuándo actualizar a las distintas versiones a fin de evitar cambios bruscos.
+
+Además, es posible que quiera actualizar el entorno en tiempo de ejecución antes de que se convierta en la versión predeterminada en el portal. No obstante, no se preocupe. Puede revertir el cambio en cualquier momento volviendo a establecer el valor anterior en el ajuste `FUNCTIONS_EXTENSION_VERSION`.
+
+*Para determinar la versión del entorno en tiempo de ejecución de la Azure Function App, siga estas instrucciones:*
+
+Busque el archivo `applicationhost.config` ubicado en la carpeta `D:\local\Config` de Kudu. En la entrada `virtualDirectory`, podrá encontrar la versión exacta del entorno en tiempo de ejecución de Functions: 
+
+```xml
+<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Functions\0.8.10564" />
+```
+Puede usar este valor para establecer una versión principal y secundaria específicas del entorno en tiempo de ejecución de la Function App. Cada vez que cambie la versión de una Function App, deberá reiniciarla.
+
+## <a name="advanced-binding-at-runtime-imperative-binding"></a>Enlace avanzado en tiempo de ejecución (enlace imperativo)
+
+En C# y otros lenguajes .NET, puede usar un patrón de enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming), en contraposición a los enlaces [*declarativos*](https://en.wikipedia.org/wiki/Declarative_programming) de *function.json*. Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Con este patrón, se puede enlazar a cualquier número de enlaces compatibles de entrada y salida sobre la marcha en el código de función.
+
+Defina un enlace imperativo como se indica a continuación:
+
+- **No** incluya una entrada en *function.json* para los enlaces imperativos deseados.
+- Pase un parámetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
+- Utilice el siguiente patrón de C# para realizar el enlace de datos.
+
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
+
+donde `BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es el tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser también un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+    
+El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#storage-blob-output-binding) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
+
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) es un tipo de enlace de salida admitido.
+De esta forma, el código obtiene la configuración de la aplicación predeterminada para la cadena de conexión de la cuenta de almacenamiento (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Por ejemplo,
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
+
+En la tabla siguiente, aparecen los atributos de .NET para cada tipo de enlace, así como los paquetes en los que se definen. 
+
+> [!div class="mx-codeBreakAll"]
+| Enlace | Atributo | Agregar referencia |
+|------|------|------|
+| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
+| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
+| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
+| Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
+| Cola de almacenamiento | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Blob de almacenamiento | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Tabla de almacenamiento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:

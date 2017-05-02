@@ -17,40 +17,38 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 44e418e52fc18dd22820331f7d921e789da62832
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a9bd1938c6b0aad2c08d063fd892fea2f8aad56e
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Crear clústeres basados en Linux en HDInsight con Azure PowerShell
+
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Microsoft Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell. También se incluye un script de ejemplo.
 
 > [!NOTE]
 > Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, consulte [Crear clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para más información sobre el uso de la CLI de Azure para crear un clúster.
-> 
-> 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de iniciar este procedimiento, debe tener lo siguiente:
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell.
-    Para más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para ver la lista de cmdlets de Windows PowerShell para HDInsight, consulte la [referencia de cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
-  
+* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+
     > [!IMPORTANT]
     > La compatibilidad con Azure PowerShell para administrar recursos de HDInsight mediante Azure Service Manager está **en desuso** y dejó de estar disponible por completo el 1 de enero de 2017. En los pasos descritos en este documento, se usan los nuevos cmdlets de HDInsight que funcionan con Azure Resource Manager.
-    > 
-    > Para instalar la versión más reciente, siga los pasos descritos en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) . Si tiene scripts que se deben modificar para usar los nuevos cmdlets que funcionan con Azure Resource Manager, consulte [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migración a herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight) para más información.
-    > 
-    > 
+    >
+    > Para instalar la última versión de Azure PowerShell, siga los pasos descritos en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Si tiene scripts que se deben modificar para usar los nuevos cmdlets que funcionan con Azure Resource Manager, consulte [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migración a herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight) para más información.
 
 ### <a name="access-control-requirements"></a>Requisitos de control de acceso
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-clusters"></a>Creación de clústeres
+## <a name="create-cluster"></a>Crear clúster
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Para crear un clúster de HDInsight con Azure PowerShell, debe realizar los procedimientos siguientes:
@@ -123,21 +121,38 @@ Los valores que se especifican para **$sshCredentials** se usan para crear el us
 
 > [!IMPORTANT]
 > En este script, debe especificar el número de nodos de trabajo que se incluirán en el clúster. Si tiene pensado usar más de 32 nodos de trabajo (en el momento de crear el clúster o cambiando el tamaño del clúster después de su creación), también debe especificar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
-> 
+>
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-> 
-> 
 
 Un clúster puede tardar hasta 20 minutos en crearse.
 
-En el siguiente ejemplo se muestra cómo agregar una cuenta de almacenamiento adicional:
+## <a name="create-cluster-configuration-object"></a>Creación de un clúster: objeto de configuración
+
+También puede crear un objeto de configuración de HDInsight mediante el cmdlet `New-AzureRmHDInsightClusterConfig`. A continuación, puede modificar este objeto de configuración con el fin de habilitar otras opciones de configuración para el clúster. Por último, utilice el parámetro `-Config` del cmdlet `New-AzureRmHDInsightCluster` para emplear la configuración.
+
+El script siguiente crea un objeto de configuración para configurar un R Server en el tipo de clúster de HDInsight. La configuración habilita un nodo perimetral, RStudio y una cuenta de almacenamiento adicional.
 
     # Create another storage account used as additional storage account
     $additionalStorageAccountName = $token + "store2"
-    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $additionalStorageAccountName -Location $location -Type Standard_LRS
+    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
+        -StorageAccountName $additionalStorageAccountName `
+        -Location $location `
+        -Type Standard_LRS
     $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 
-    $config = New-AzureRmHDInsightClusterConfig
+    # Create a new configuration for RServer cluster type
+    # Use -EdgeNodeSize to set the size of the edge node for RServer clusters
+    # if you want a specific size. Otherwise, the default size is used.
+    $config = New-AzureRmHDInsightClusterConfig `
+        -ClusterType "RServer" `
+        -EdgeNodeSize "Standard_D12_v2"
+
+    # Add RStudio to the configuration
+    $rserverConfig = @{"RStudio"="true"}
+    $config = $config | Add-AzureRmHDInsightConfigValues `
+        -RServer $rserverConfig
+
+    # Add an additional storage account
     Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.windows.net" -StorageAccountKey $additionalStorageAccountKey
 
     # Create a new HDInsight cluster
@@ -150,37 +165,46 @@ En el siguiente ejemplo se muestra cómo agregar una cuenta de almacenamiento ad
         -DefaultStorageAccountKey $defaultStorageAccountKey `
         -DefaultStorageContainer $defaultStorageContainerName  `
         -ClusterSizeInNodes $clusterNodes `
-        -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.4" `
+        -Version "3.5" `
         -SshCredential $sshCredentials `
         -Config $config
 
+> [!WARNING]
+> No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight. Cuando utilice este ejemplo, cree la cuenta de almacenamiento adicional en la misma ubicación que el servidor.
+
 ## <a name="customize-clusters"></a>Personalización de los clústeres
+
 * Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 * Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
+
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes recursos para aprender a trabajar con él.
 
 ### <a name="hadoop-clusters"></a>Clústeres Hadoop
+
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clústeres HBase
+
 * [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clústeres Storm
+
 * [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Clústeres de Spark
+
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)

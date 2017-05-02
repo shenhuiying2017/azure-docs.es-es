@@ -18,8 +18,3 @@ Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su c
 6. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica:   
    ![paso de creación de conexión de GoogleDrive](./media/connectors-create-api-googledrive/googledrive-6.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

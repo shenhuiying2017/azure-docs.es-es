@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0e71a840d4f503779131ee4a21fe6063d33185f1
-ms.openlocfilehash: cbefca2d45a332cd57cfea49dfeaa300426d5502
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cdc951d4e16e7f0df425dba7c33d86255276f526
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -26,18 +26,14 @@ ms.lasthandoff: 02/24/2017
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitaciones de colaboración B2B de Azure AD
 La colaboración B2B de Active Directory (Azure AD) de Azure está sujeta actualmente a las limitaciones descritas en este artículo.
 
-## <a name="invitation-apis-are-in-preview"></a>Las API de invitación están en versión preliminar
-La superficie de API es nuestra dirección de avance anticipada. Sin embargo, al igual que todas las versiones preliminares, la API está sujeta al contrato de espacio de nombres de versión preliminar. La API se moverá a una versión numerada con nuestra versión de disponibilidad general (GA).
-
 ## <a name="possible-double-multi-factor-authentication"></a>Posibilidad de doble autenticación multifactor
-Esta redundancia puede surgir si su asociado ya tiene implementada una directiva de Azure Multi-Factor Authentication. La autenticación multifactor de la colaboración B2B se realiza y administra en la organización que realiza la invitación. Dicha autenticación es conveniente porque abarca todas las identidades y le proporciona control sobre la seguridad de la autenticación de sus invitados de la colaboración B2B.
-
-Sin embargo, si un asociado ya tiene instalada Multi-Factor Authentication y la exige, los usuarios del asociado podrían tener que realizar la autenticación una vez en su organización principal y luego de nuevo en la suya.
+Con B2B de Azure AD, puede aplicar la autenticación multifactor en la organización del recurso (la organización que invita). Los motivos de este enfoque se detallan en [Acceso condicional para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md). Esto significa que si un asociado ya tiene instalada Multi-Factor Authentication y la exige, los usuarios del asociado podrían tener que realizar la autenticación una vez en su organización principal y luego de nuevo en la suya.
 
 En una versión futura, tenemos previsto introducir una directiva donde se pueda evitar el problema de la doble autenticación eligiendo confiar en la autenticación multifactor del asociado.
 
+
 ## <a name="instant-on"></a>Activación instantánea
-En los flujos de colaboración B2B, hemos agregado usuarios al directorio y los hemos actualizado dinámicamente durante el canje de invitación, la asignación de aplicaciones y así sucesivamente. Las actualizaciones y escrituras se producen normalmente en una instancia de directorio y se deben replicar en todas las instancias. Hemos observado que, debido a la cantidad finita de tiempo que puede tardar en completarse la replicación, en ocasiones pueden surgir problemas de autorización. Estamos trabajando duro para minimizar o eliminar estos problemas antes de nuestra versión de GA. Aunque es poco probable que los experimente, si lo hace, pruebe a actualizar o reintente la operación para resolverlos.
+En los flujos de colaboración B2B, hemos agregado usuarios al directorio y los hemos actualizado dinámicamente durante el canje de invitación, la asignación de aplicaciones y así sucesivamente. Las actualizaciones y escrituras se producen normalmente en una instancia de directorio y se deben replicar en todas las instancias. Puede tardar algo de tiempo en completar la replicación. A veces, cuando el objeto se escribe o se actualiza en una instancia del directorio y la llamada para recuperar este objeto tiene una carga equilibrada en otra instancia, pueden aparecer problemas de autorización. Nos hemos esforzado para eliminar o reducir estas latencias de replicación, pero es posible que en algunos casos excepcionales puedan producirse todavía. Si esto sucede, actualice o vuelva a intentarlo. Si está escribiendo una aplicación mediante la API, los reintentos con algún retroceso es una buena práctica defensiva para mitigar este problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

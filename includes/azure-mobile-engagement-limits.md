@@ -9,8 +9,3 @@
 | Campañas de inserción activas |50 por aplicación |
 | Número total de campañas de inserción (activas y completadas) |1000 por aplicación |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

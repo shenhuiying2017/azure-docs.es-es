@@ -3,8 +3,3 @@ Los errores de aprovisionamiento surgen si carga o capturar una imagen de máqui
 
 En la tabla siguiente se enumeran las posibles combinaciones de imágenes generalizadas y especializadas, el tipo de error que puede encontrarse y lo que necesita hacer para solucionar los errores.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

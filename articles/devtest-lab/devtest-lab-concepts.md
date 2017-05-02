@@ -15,22 +15,13 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 79a880ed30b1fd50e7d4f232f03629c228a72a2e
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
-> [!NOTE]
-> Este artículo es la tercera parte de una serie de tres:
->
-> 1. [¿Qué es DevTest Labs?](devtest-lab-overview.md)
-> 2. [¿Por qué usar DevTest Labs?](devtest-lab-why.md)
-> 3. **[Conceptos de DevTest Labs](devtest-lab-concepts.md)**
->
->
-
 ## <a name="overview"></a>Información general
 La lista siguiente contiene las definiciones y los conceptos clave de DevTest Labs:
 

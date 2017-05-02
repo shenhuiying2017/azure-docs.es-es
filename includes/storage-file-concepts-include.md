@@ -30,8 +30,3 @@ Almacenamiento de archivos contiene los siguientes componentes:
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 Para obtener detalles sobre cómo asignar un nombre a recursos compartidos, directorios y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,8 +15,3 @@ El back-end inserta datos de la solicitud en la tabla TodoItem de SQL Database y
 Puede repetir los pasos del 3 al 5 para otras plataformas.
 
 [Azure Portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

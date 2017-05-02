@@ -16,8 +16,3 @@ En el caso de aquellos usuarios que crearon sus propias cuentas para las aplicac
 
 Al integrar una aplicación en Azure AD, puede asignar las identidades de aplicaciones establecidas de los usuarios a sus respectivas identidades de Azure AD.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

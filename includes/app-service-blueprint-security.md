@@ -16,8 +16,3 @@
   * [Configurar el control de acceso para el tráfico de red entrante de su ASE](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [Conectarse de forma segura a recursos back-end desde su ASE](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

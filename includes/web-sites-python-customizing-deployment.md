@@ -28,8 +28,3 @@ Puede utilizar la [interfaz de la línea de comandos de Azure][interfaz de la l�
 Cuando estos archivos no existen, Azure crea un script de implementación temporal y lo ejecuta.  Es idéntico al que se crea con el comando anterior.
 
 [interfaz de la línea de comandos de Azure]: http://azure.microsoft.com/downloads/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

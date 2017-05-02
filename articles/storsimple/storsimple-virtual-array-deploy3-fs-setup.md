@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
-ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
@@ -134,7 +134,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para completar la 
     
     3. Para el cifrado se usa una clave AES de 256 bits con la clave definida por el usuario. Especifique una clave de 32 caracteres y vuelva a escribirla para confirmarla. Regístrela en cualquier aplicación de administración de claves, por si la necesita en el futuro.
     
-    4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada.
+    4. Haga clic en **Configurar los valores obligatorios** para especificar las credenciales de la cuenta de almacenamiento que va a usar en su dispositivo. Haga clic en **Agregar nuevo** si no hay ninguna credencial de la cuenta de almacenamiento configurada. **Asegúrese de que la cuenta de almacenamiento que usa es compatible con los blobs en bloques. No se admiten blobs en páginas.** Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
     ![Configurar un servidor de archivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. En la hoja **Agregar credenciales de cuenta de almacenamiento**, realice las siguientes operaciones: 

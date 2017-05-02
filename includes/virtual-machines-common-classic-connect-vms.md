@@ -25,8 +25,3 @@ Para conectar máquinas virtuales en un servicio en la nube independiente:
    
    ![Agregar una máquina virtual a un servicio de nube existente](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
