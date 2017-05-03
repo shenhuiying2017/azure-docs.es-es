@@ -1,28 +1,26 @@
 ---
-title: "Evento de finalización de cambio de tamaño del grupo: Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: dfee89e3-510f-41a0-ace7-737527f40d20
-caps.latest.revision: 4
+title: "Evento completo de cambio de tamaño de grupo de Azure Batch | Microsoft Docs"
+description: "Referencia del evento completo de cambio de tamaño de grupo de Batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 623b6cae00ee0f3b0c5073b1a8bee68d2bf17b72
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 7072293d98526812cb42ce9c2f8e33bfcafaa149
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-resize-complete-event"></a>Evento de finalización de cambio de tamaño del grupo
-Cuerpo del registro del evento de finalización de cambio de tamaño del grupo
 
-## <a name="remarks"></a>Comentarios
+# <a name="pool-resize-complete-event"></a>Evento de finalización de cambio de tamaño del grupo
+
  Este evento se genera cuando finaliza o no se puede realizar el cambio de tamaño de un grupo.
 
  En el siguiente ejemplo, se muestra el cuerpo de un evento de cambio de tamaño del grupo para un grupo que aumentó su tamaño y se finalizó correctamente.

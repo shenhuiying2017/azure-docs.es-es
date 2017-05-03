@@ -1,6 +1,6 @@
 ---
 title: "Creación de la identidad de la aplicación de Azure con la CLI de Azure | Microsoft Docs"
-description: "Describe cómo usar la CLI de Azure para crear una aplicación de Active Directory y una entidad de servicio, además de cómo concederle acceso a recursos mediante el control de acceso basado en roles. Muestra cómo autenticar aplicaciones con una contraseña o un certificado."
+description: "Se describe cómo usar la CLI de Azure para crear una entidad de servicio y una aplicación de Azure Active Directory, además de cómo concederle acceso a recursos mediante el control de acceso basado en rol. Muestra cómo autenticar aplicaciones con una contraseña o un certificado."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4ea75e08a630ad777444ea3a3cb85f4bb0efe01f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8a883dedee31d9efab6e2eb4c0ac67b467afe34
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,7 +37,7 @@ Cuando haya una aplicación o un script que necesite acceder a recursos, puede c
 En este artículo se muestra cómo usar la [CLI de Azure 1.0](../cli-install-nodejs.md) para configurar una aplicación para que se ejecute con sus propias credenciales e identidad. Instale la versión más reciente de la [CLI de Azure 1.0](../cli-install-nodejs.md) para asegurarse de que el entorno coincide con los ejemplos de este artículo.
 
 ## <a name="required-permissions"></a>Permisos necesarios
-Para completar este tema, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Active Directory y asignar la entidad de servicio a un rol. 
+Para completar este tema, debe tener permisos suficientes tanto en su suscripción de Azure como en Azure Active Directory. En concreto, debe poder crear una aplicación en Azure Active Directory y asignar la entidad de servicio a un rol. 
 
 El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte [Comprobación de los permisos necesarios en el portal](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -72,7 +72,7 @@ En esta sección, llevará a cabo los pasos necesarios para crear la aplicación
      info:    ad sp create command OK
    ```
 
-3. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). En el caso del parámetro objectid, especifique el identificador de objeto que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
+3. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). En el caso del parámetro objectid, especifique el identificador de objeto que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Azure Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -83,7 +83,7 @@ Eso es todo. La aplicación de AD y la entidad de servicio ya están configurada
 ### <a name="provide-credentials-through-azure-cli"></a>Proporcionar credenciales a través de la CLI de Azure
 Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
 
-1. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory. Para recuperar el identificador del inquilino para la suscripción actualmente autenticada, use:
+1. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Azure Active Directory. Para recuperar el identificador del inquilino para la suscripción actualmente autenticada, use:
    
    ```azurecli
    azure account show
@@ -192,7 +192,7 @@ Para completar estos pasos, debe tener instalado [OpenSSL](http://www.openssl.or
      data:                      https://www.contoso.org/example
      info:    ad sp create command OK
    ```
-6. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). En el caso del parámetro objectid, especifique el identificador de objeto que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
+6. Conceda los permisos de la entidad de servicio en la suscripción. En este ejemplo, se agrega la entidad de servicio al rol Lector, que concede permiso para leer todos los recursos de la suscripción. Para obtener información sobre otros roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md). En el caso del parámetro objectid, especifique el identificador de objeto que usó al crear la aplicación. Antes de ejecutar este comando, debe esperar un poco para que la nueva entidad de servicio se propague por Azure Active Directory. Si estos comandos se ejecutan manualmente, lo habitual es que haya transcurrido suficiente tiempo entre las tareas. En un script, debe agregar un paso de suspensión entre los comandos (como `sleep 15`). Si recibe un error que indica que la entidad de seguridad no existe en el directorio, vuelva a ejecutar el comando.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
@@ -201,7 +201,7 @@ Para completar estos pasos, debe tener instalado [OpenSSL](http://www.openssl.or
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>Proporcionar un certificado a través de un script automatizado de la CLI de Azure
 Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
 
-1. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Active Directory. Para recuperar el identificador del inquilino para la suscripción actualmente autenticada, use:
+1. Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Azure Active Directory. Para recuperar el identificador del inquilino para la suscripción actualmente autenticada, use:
    
    ```azurecli
    azure account show
@@ -263,7 +263,7 @@ Ahora, debe iniciar sesión como la aplicación para realizar operaciones.
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
-Ahora está autenticado como la entidad de servicio para la aplicación de Active Directory que ha creado.
+Ahora está autenticado como la entidad de servicio para la aplicación de Azure Active Directory que ha creado.
 
 ## <a name="change-credentials"></a>Cambio de credenciales
 
@@ -285,7 +285,7 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 Durante la creación de una entidad de servicio pueden producirse los siguientes errores:
 
-* **"Authentication_Unauthorized"** o **"No subscription found in the context"** (No se encuentra una suscripción en el contexto). - Este error se ve cuando la cuenta no tiene los [permisos necesarios](#required-permissions) en Active Directory para registrar una aplicación. Por lo general, este error aparece cuando los usuarios administradores de Active Directory son los únicos que pueden registrar las aplicaciones y la cuenta no es de un administrador. Pida al administrador que le asigne un rol de administrador o que permita a los usuarios registrar aplicaciones.
+* **"Authentication_Unauthorized"** o **"No subscription found in the context"** (No se encuentra una suscripción en el contexto). - Este error se ve cuando la cuenta no tiene los [permisos necesarios](#required-permissions) en Azure Active Directory para registrar una aplicación. Por lo general, este error aparece cuando los usuarios administradores de Azure Active Directory son los únicos que pueden registrar las aplicaciones y la cuenta no es de un administrador. Pida al administrador que le asigne un rol de administrador o que permita a los usuarios registrar aplicaciones.
 
 * Su cuenta **"no tiene autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write' en el ámbito '/ subscriptions / {guid}'."**  - Este error aparece cuando la cuenta no tiene permisos suficientes para asignar un rol a una identidad. Pida al administrador de suscripciones que le agregue al rol de administrador de acceso de usuario.
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 203648d999032d86dca10f9b47c40a2208ab79e9
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 746fefab12aae11774a7d582e39ac2bc7eb9c88b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ DocumentDB está diseñado para tener funcionalidades de geovallado basadas en d
 DocumentDB permite agregar (asociar) o quitar (desasociar) regiones de una cuenta de base de datos en cualquier momento (vea la [ilustración anterior](#UnlimitedRegionsPerAccount)). En virtud de la replicación de datos entre particiones en paralelo, DocumentDB garantiza que cuando una nueva región esté en línea estará disponible en menos de 30 minutos en cualquier lugar del mundo para un máximo de 100 TB. 
 
 ### <a id="FailoverPriorities"></a>Prioridades de conmutación por error
-Para controlar la secuencia exacta de las conmutaciones por error regionales cuando se produzca una interrupción en varias regiones, DocumentDB permite asociar la prioridad a diversas regiones asociadas a la cuenta de la base de datos (consulte la siguiente ilustración). DocumentDB garantiza que la secuencia de la conmutación por error automática se produce en el orden de prioridad que especificó.
+Para controlar la secuencia exacta de las conmutaciones por error regionales cuando se produzca una interrupción en varias regiones, DocumentDB permite asociar la prioridad a diversas regiones asociadas a la cuenta de la base de datos (consulte la siguiente ilustración). DocumentDB garantiza que la secuencia de la conmutación por error automática se produce en el orden de prioridad que especificó. Para más información acerca de las conmutaciones por error regionales, consulte [Conmutaciones por error regionales automáticas para la continuidad empresarial en DocumentDB](documentdb-regional-failovers.md).
 
 **Un inquilino de DocumentDB puede configurar el orden de prioridad de la conmutación por error (panel derecho) para las regiones asociadas a una cuenta de la base de datos**
 

@@ -1,6 +1,6 @@
 ---
-title: "Asignación de un nombre DNS personalizado a una aplicación web de Azure| Microsoft Docs"
-description: "Aprenda a agregar un nombre de dominio DNS personalizado (por ejemplo, dominio personal) a aplicaciones web, back-ends de aplicaciones móviles o aplicaciones de API en Azure App Service."
+title: Asignar un nombre DNS personalizado a Azure Web Apps | Microsoft Docs
+description: "Aprenda a agregar un nombre de dominio DNS personalizado (dominio personal) a aplicaciones web, back-ends de aplicaciones móviles o aplicaciones de API en Azure App Service."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,231 +12,218 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/21/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 25ddbd0c89ec7eee8eb240cf111245bb8b5add48
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e12718590cd678e553fcbbb4572d5b94ad079ab5
+ms.lasthandoff: 04/22/2017
 
 
 ---
-# <a name="map-a-custom-dns-name-to-an-azure-web-app"></a>Asignación de un nombre DNS personalizado a una aplicación web de Azure
+# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Asignar un nombre DNS personalizado a Azure Web Apps
 
-En este tutorial se muestra cómo asignar un nombre DNS personalizado (por ejemplo, un dominio personal) a su aplicación web, al back-end de aplicaciones móviles o a una aplicación de API en [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
+En este tutorial se muestra cómo asignar un nombre DNS personalizado a [Azure Web Apps](app-service-web-overview.md). 
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-En este tutorial se sigue el escenario de ejemplo de la asignación de dos nombres DNS a una aplicación en App Service:
+En este tutorial se muestran tres escenarios comunes de asignación de dos nombres DNS a una aplicación en App Service:
 
-- `contoso.com`: un dominio raíz. Usará un [registro D](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) para asignarlo a Azure. 
-- `www.contoso.com`: un subdominio de `contoso.com`. Puede usar un [ registro D](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) o un [registro CNAME](https://en.wikipedia.org/wiki/CNAME_record).
+- `www.contoso.com`: un subdominio de `contoso.com`. Deberá usar un registro CNAME para asignarlo a la aplicación.
+- `contoso.com`: un dominio raíz. Deberá usar un registro A para asignarlo a la aplicación.
+- `*.contoso.com`: dominio con caracteres comodín. Deberá usar un registro CNAME para asignarlo a la aplicación.
 
-En el tutorial también se muestra cómo asignar un nombre [DNS con comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record) a App Service (por ejemplo, `*.contoso.com`).
+Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS personalizado a App Service.
+
+> [!NOTE]
+> Se recomienda usar un CNAME para todos los nombres DNS personalizados, excepto un dominio raíz (por ejemplo, contoso.com). 
+> 
+> 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Dado que en este tutorial se muestra cómo asignar un nombre DNS a Azure App Service, debe tener acceso administrativo a la página de configuración de DNS de su proveedor de dominios respectivo (por ejemplo, GoDaddy). Por ejemplo, para agregar una asignación para `contoso.com` y `www.contoso.com`, es necesario que pueda configurar entradas DNS para `contoso.com`.
+Para completar este tutorial, tiene que acceder al registro DNS del proveedor de dominios (como GoDaddy) y a los permisos para editar la configuración del dominio. 
 
-Si todavía no ha registrado un dominio con un proveedor de dominios, siempre puede [comprar simplemente un dominio directamente a Azure y asignarlo a la aplicación](custom-dns-web-site-buydomains-web-app.md).
+Por ejemplo, para agregar entradas DNS para `contoso.com` y `www.contoso.com`, debe tener acceso para configurar las opciones de configuración DNS del dominio raíz `contoso.com`. 
 
-## <a name="step-1---prepare-your-app"></a>Paso 1: Preparación de la aplicación
-Para asignar un nombre DNS personalizado, su [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe estar en el nivel **Compartido** o superior. En este paso, asegúrese de que la aplicación de Azure se encuentra en el plan de tarifa admitido.
+> [!NOTE]
+> Si no dispone de un nombre de dominio existente, considere la posibilidad de seguir el [tutorial sobre dominios de App Service](custom-dns-web-site-buydomains-web-app.md) para comprar un dominio mediante Azure Portal. 
+>
+>
 
-### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="prepare-your-app"></a>Preparación de la aplicación
+Para asignar un nombre de DNS personalizado, su [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) debe ser de nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación de App Service se encuentra en el plan de tarifa compatible.
 
-Abra Azure Portal. 
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Para ello, inicie sesión en [https://portal.azure.com/](https://portal.azure.com) con su cuenta de Azure.
+Abra Azure Portal. Para ello, inicie sesión en [https://portal.azure.com/](https://portal.azure.com) con su cuenta de Azure.
 
 ### <a name="navigate-to-your-app"></a>Navegación a la aplicación
-En el menú izquierdo, haga clic en **App Service** y luego haga clic en el nombre de la aplicación de Azure.
+En el menú izquierdo, haga clic en **App Services** y luego, en el nombre de la aplicación.
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-Ha llegado a la _hoja_ de la aplicación (una página del portal que se abre horizontalmente).  
+Ha llegado a la hoja de administración de la aplicación de App Service (_hoja_: página de portal que se abre horizontalmente).  
 
 ### <a name="check-the-pricing-tier"></a>Comprobación del plan de tarifa
-En la página **Descripción general**, que se abre de forma predeterminada, compruebe que la aplicación no esté en el nivel **Gratis**.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+En el panel de navegación izquierdo de la hoja de la aplicación, desplácese a la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)**.
 
-No se admiten DNS personalizados en el nivel **Gratis**. Si necesita escalar verticalmente, siga la sección siguiente. De lo contrario, vaya al [Paso 2]().
+![Menú Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+
+Asegúrese de que la aplicación web no está en el nivel **Gratis**. El nivel actual de la aplicación aparece resaltado con un cuadro azul oscuro. 
+
+![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+
+No se admiten DNS personalizados en el nivel **Gratis**. Si necesita escalar verticalmente, siga la sección siguiente. Si no, cierre la hoja **Elija su plan de tarifa** y vaya directamente a [Asignar un registro CNAME](#cname) o [Asignar un registro A](#a).
 
 ### <a name="scale-up-your-app-service-plan"></a>Escalado vertical del plan de App Service
 
-Para escalar verticalmente el plan, haga clic en **Escalar verticalmente (plan de App Service)** en el panel izquierdo.
+Seleccione alguno de los niveles de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). 
 
-Seleccione el nivel que quiera escalar. Por ejemplo, seleccione **Compartido**. Cuando esté listo, haga clic en **Seleccionar**.
+Haga clic en **Seleccionar**.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
 Cuando aparezca la siguiente notificación, la operación de escalado se habrá completado.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+![Confirmación de la operación de escalado](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="info"></a>
+<a name="cname"></a>
 
-## <a name="step-2---get-mapping-information"></a>Paso 2: Obtención de información de asignación
+## <a name="map-a-cname-record"></a>Asignar un registro CNAME
 
-En este paso, obtendrá la información que necesitará para crear los registros DNS más adelante. 
-
-### <a name="open-the-custom-domain-ui"></a>Apertura de la IU del dominio personalizado
-
-En la hoja de la aplicación, haga clic en **Dominios personalizados** en el menú. 
-
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
-
-### <a name="copy-the-mapping-information"></a>Copia de la información de asignación
-
-En la página **Dominios personalizados**, copie la **dirección IP** de la aplicación y su nombre de host predeterminado en **Nombres de host asignados al sitio**.
-
-Más adelante necesitará la dirección IP para la asignación de registros D y el nombre de host predeterminado para la asignación de registros CNAME.
-
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
-
-## <a name="step-3---add-dns-records"></a>Paso 3: Adición de registros DNS 
-
-En este paso, agregará los registros DNS necesarios para asignar su DNS personalizado a la aplicación. Este paso se realiza con su propio proveedor de dominios.
+En el ejemplo del tutorial, quiere agregar un registro CNAME para el subdominio `www` (`www.contoso.com`). 
 
 ### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
 
 En primer lugar, inicie sesión en el sitio web de su proveedor de dominios.
 
-A continuación, deberá buscar la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, por lo que debe consultar la documentación del proveedor. En general, debe buscar vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración de servidores de nombres**. A menudo, puede encontrar el vínculo al consultar la información de la cuenta y al buscar un vínculo como **Mis dominios**. 
+Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, por lo que debe consultar la documentación del proveedor. Busque los vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**. 
 
-Después, busque un vínculo que le permita administrar registros DNS. Este vínculo podría denominarse **Archivo de zona**, **Registros DNS** o **Configuración avanzada**.
+A menudo, puede encontrar el vínculo al consultar la información de la cuenta y al buscar un vínculo como **Mis dominios**. Después, busque un vínculo que le permita administrar registros DNS. Este vínculo podría denominarse **Archivo de zona**, **Registros DNS** o **Configuración avanzada**.
 
-La captura de pantalla siguiente es un ejemplo de la apariencia que podría tener su página de registros DNS:
+La captura de pantalla siguiente es un ejemplo de página de registros DNS:
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
+![Página de registros DNS de ejemplo](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
 
 En la captura de pantalla de ejemplo, haga clic en **Agregar** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. De nuevo, consulte la documentación del proveedor.
 
 > [!NOTE]
-> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no se harán efectivos hasta que haga clic en un vínculo **Guardar cambios** independiente después de crearlos. 
+> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no se harán efectivos hasta que haga clic en un vínculo **Guardar cambios** independiente. 
 >
 >
 
-<a name="a"></a>
+### <a name="create-the-cname-record"></a>Crear un registro CNAME
 
-### <a name="create-an-a-record"></a>Creación de un registro A
+Agregue un registro CNAME para asignar un subdominio al nombre de host predeterminado de la aplicación (`<app_name>.azurewebsites.net`).
 
-En el ejemplo del tutorial, desea agregar un registro D para el dominio raíz, `contoso.com`. 
+En el dominio `www.contoso.com` del ejemplo, el registro CNAME debe apuntar al nombre `www` en `<app_name>.azurewebsites.net`.
 
-Para asignar un registro D a la aplicación, App Service necesita en realidad _dos_ registros DNS:
-
-- Un registro **D** para asignar a la dirección IP de la aplicación.
-- Un registro **TXT** para asignar al nombre de host predeterminado de la aplicación. Este registro permite a App Service comprobar que posee el dominio personalizado que quiere asignar.
-
-En la tabla siguiente se muestra cómo configurar una asignación de registro D para los tipos de dominio admitidos (`@` normalmente representa el dominio raíz). 
-
-<table cellspacing="0" border="1">
-  <tr>
-    <th>Tipo de dominio</th>
-    <th>Tipo de registro</th>
-    <th>Host</th>
-    <th>Valor</th>
-  </tr>
-  <tr>
-    <td rowspan="2" align="left">Dominio raíz<br>(por ejemplo, <code>contoso.com</code>)</td>
-    <td>Una </td>
-    <td>@</td>
-    <td>Dirección IP del <a href="#info">Paso 2</a></td>
-  </tr>
-  <tr>
-    <td>TXT</td>
-    <td>@</td>
-    <td>Nombre de host predeterminado del <a href="#info">Paso2</a></td>
-  </tr>
-  <tr>
-    <td rowspan="2" align="left">Subdominio<br>(por ejemplo, <code>www.contoso.com</code>)</td>
-    <td>Una </td>
-    <td>www</td>
-    <td>Dirección IP del <a href="#info">Paso 2</a></td>
-  </tr>
-  <tr>
-    <td>TXT</td>
-    <td>www</td>
-    <td>Nombre de host predeterminado del <a href="#info">Paso2</a></td>
-  </tr>
-  <tr>
-    <td rowspan="2" align="left">Dominio con comodín<br>(por ejemplo, <code>*.contoso.com</code>)</td>
-    <td>Una </td>
-    <td>\*</td>
-    <td>Dirección IP del <a href="#info">Paso 2</a></td>
-  </tr>
-  <tr>
-    <td>TXT</td>
-    <td>\*</td>
-    <td>Nombre de host predeterminado del <a href="#info">Paso2</a></td>
-  </tr>
-</table>
-
-Para el ejemplo de dominio `contoso.com`, la página de registros DNS aparece como en la siguiente captura de pantalla:
-
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/a-record.png)
-
-<a name="cname"></a>
-
-### <a name="create-a-cname-record"></a>Creación de un registro CNAME
-En el ejemplo del tutorial, quiere agregar un registro CNAME para el dominio raíz, `contoso.com`. 
-
-A diferencia de la [asignación de un registro D](#a), para asignar un registro CNAME a su aplicación no es necesario ningún registro adicional.
-
-> [!IMPORTANT]
-> Se recomienda el uso de una asignación de CNAME. Si elimina la aplicación y la crea de nuevo o cambia de un nivel de hospedaje dedicado al nivel **Compartido**, la dirección IP virtual de la aplicación puede cambiar. Una asignación de CNAME es válida a pesar de un cambio así, mientras que una asignación de D se invalida potencialmente con una nueva dirección IP. 
->
-> Sin embargo, _no_puede crear un registro CNAME para el dominio raíz (por ejemplo, el "registro raíz"). Para más información, consulte [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)(Por qué no se puede usar un registro CNAME en el dominio raíz).
-> Para asignar un dominio raíz a la aplicación de Azure, utilice en su lugar un [registro A](#a) .
-> 
-> 
-
-En la tabla siguiente se muestra cómo configurar una asignación de registros CNAME para los tipos de dominio admitidos.
-
-Configure su registro CNAME de la siguiente manera.
-
-<table cellspacing="0" border="1">
-  <tr>
-    <th>Tipo de dominio</th>
-    <th>Host CNAME</th>
-    <th>Valor CNAME</th>
-  </tr>
-  <tr>
-    <td>Subdominio<br>(por ejemplo, <code>www.contoso.com</code>)</td>
-    <td>www</td>
-    <td>Nombre de host predeterminado del <a href="#info">Paso2</a></td>
-  </tr>
-  <tr>
-    <td>Dominio con comodín<br>(por ejemplo, <code>*.contoso.com</code>)</td>
-    <td>\*</td>
-    <td>Nombre de host predeterminado del <a href="#info">Paso2</a></td>
-  </tr>
-</table>
-
-Para el ejemplo de dominio `www.contoso.com`, la página de registros DNS aparece como en la siguiente captura de pantalla:
+La página de registros DNS debe tener un aspecto similar al de la captura de pantalla siguiente:
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-<a name="enable"></a>
+### <a name="enable-the-cname-record-mapping-in-your-app"></a>Habilitar la asignación de registros CNAME en la aplicación
 
-## <a name="step-4---enable-the-custom-dns-in-your-app"></a>Paso 4: Habilitación de DNS personalizado en la aplicación
+Ahora puede agregar el nombre DNS configurado a la aplicación.
 
-Ahora puede agregar sus nombres DNS configurados (por ejemplo, `contoso.com` y `www.contoso.com`) a su aplicación.
+En el panel de navegación izquierdo de la hoja de la aplicación, haga clic en **Dominios personalizados**. 
 
-De vuelta a la página **Dominios personalizados** de su aplicación en el portal de Azure (consulte el [Paso 1](#info)), deberá agregar el nombre de dominio completo (FQDN) de su dominio personalizado a la lista.
+![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-### <a name="add-the-a-hostname-to-your-app"></a>Adición del nombre de host D a la aplicación
+En la hoja **Dominios personalizados** de la aplicación, debe agregar el nombre completo del registro DNS personalizado (`www.contoso.com`) a la lista.
 
 Haga clic en el icono **+** situado junto a **Agregar nombre de host**.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Escriba el FQDN para el que configuró anteriormente el registro D (por ejemplo, `contoso.com`) y, a continuación, haga clic en **Validar**.
+Escriba el nombre de dominio completo para el que ha configurado anteriormente el registro CNAME (por ejemplo, `www.contoso.com`) y haga clic en **Validar**.
+
+De lo contrario, se activa el botón **Agregar nombre de host**. 
+
+Asegúrese de que **Tipo de registro de nombre de host** se establece en **Registro CNAME (example.com)**.
+
+Haga clic en **Agregar nombre de host** para agregar el nombre DNS a la aplicación.
+
+![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+
+El nuevo nombre de host puede tardar algún tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
+
+![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+![Error de comprobación](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+
+<a name="a"></a>
+
+## <a name="map-an-a-record"></a>Asignar un registro A
+
+En el ejemplo del tutorial, desea agregar un registro D para el dominio raíz, `contoso.com`. 
+
+<a name="info"></a>
+
+### <a name="copy-your-apps-ip-address"></a>Copiar la dirección IP de la aplicación
+
+Para asignar un registro A, necesita la dirección IP externa de la aplicación. Encontrará esta dirección IP en la hoja **Dominios personalizados**.
+
+En el panel de navegación izquierdo de la hoja de la aplicación, haga clic en **Dominios personalizados**. 
+
+![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+
+En la página **Dominios personalizados**, copie la dirección IP de la aplicación.
+
+![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
+
+En primer lugar, inicie sesión en el sitio web de su proveedor de dominios.
+
+Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, por lo que debe consultar la documentación del proveedor. Busque los vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**. 
+
+A menudo, puede encontrar el vínculo al consultar la información de la cuenta y al buscar un vínculo como **Mis dominios**. Después, busque un vínculo que le permita administrar registros DNS. Este vínculo podría denominarse **Archivo de zona**, **Registros DNS** o **Configuración avanzada**.
+
+La captura de pantalla siguiente es un ejemplo de página de registros DNS:
+
+![Página de registros DNS de ejemplo](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
+
+En la captura de pantalla de ejemplo, haga clic en **Agregar** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. De nuevo, consulte la documentación del proveedor.
+
+> [!NOTE]
+> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no se harán efectivos hasta que haga clic en un vínculo **Guardar cambios** independiente. 
+>
+>
+
+### <a name="create-the-a-record"></a>Crear el registro A
+
+Para asignar un registro D a la aplicación, App Service necesita en realidad **dos** registros DNS:
+
+- Un registro **D** para asignar a la dirección IP de la aplicación.
+- Un registro **TXT** para asignar al nombre de host predeterminado de la aplicación, `<app_name>.azurewebsites.net`. Este registro permite a App Service comprobar que posee el dominio personalizado que quiere asignar.
+
+En el dominio `www.contoso.com` del ejemplo, cree los registros D y TXT según la tabla siguiente (`@` suele representar el dominio raíz). 
+
+| Tipo de registro | Host | Valor |
+| - | - | - |
+| Una  | `@` | Dirección IP del paso [Copiar la dirección IP de la aplicación](#info) |
+| TXT | `@` | `<app_name>.azurewebsites.net` |
+
+La página de registros DNS debe tener un aspecto similar al de la captura de pantalla siguiente:
+
+![Página de registros DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
+
+### <a name="enable-the-a-record-mapping-in-your-app"></a>Habilitar la asignación de registros D en la aplicación
+
+Ahora puede agregar el nombre DNS configurado a la aplicación.
+
+De vuelta a la página **Dominios personalizados** de la aplicación en Azure Portal, debe agregar el nombre completo del registro DNS personalizado (`contoso.com`) a la lista.
+
+Haga clic en el icono **+** situado junto a **Agregar nombre de host**.
+
+![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+
+Escriba el nombre de dominio completo para el que ha configurado anteriormente el registro D (por ejemplo, `contoso.com`) y haga clic en **Validar**.
 
 De lo contrario, se activa el botón **Agregar nombre de host**. 
 
@@ -244,44 +231,118 @@ Asegúrese de que el **tipo de registro de nombre de host** esté establecido en
 
 Haga clic en **Agregar nombre de host** para agregar el nombre DNS a la aplicación.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
 El nuevo nombre de host puede tardar algún tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
-
-<a name="add-cname"></a>
-### <a name="add-the-cname-hostname-to-your-app"></a>Adición del nombre de host de CNAME a la aplicación
-
-Haga clic en el icono **+** situado junto a **Agregar nombre de host**.
-
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
-
-Escriba el FQDN para el que ha configurado anteriormente el registro CNAME (por ejemplo, `www.contoso.com`) y, a continuación, haga clic en **Validar**.
+![Registro D agregado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+![Error de comprobación](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+
+<a name="wildcard"></a>
+
+## <a name="map-a-wildcard-domain"></a>Asignar un dominio con caracteres comodín
+
+También puede asignar un [DNS con caracteres comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (por ejemplo, `*.contoso.com`) a la aplicación de App Service. 
+
+Los pasos que aquí se ofrecen muestran cómo asignar el dominio con caracteres comodín `*.contoso.com` mediante un registro CNAME. 
+
+### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
+
+En primer lugar, inicie sesión en el sitio web de su proveedor de dominios.
+
+Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, por lo que debe consultar la documentación del proveedor. Busque los vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**. 
+
+A menudo, puede encontrar el vínculo al consultar la información de la cuenta y al buscar un vínculo como **Mis dominios**. Después, busque un vínculo que le permita administrar registros DNS. Este vínculo podría denominarse **Archivo de zona**, **Registros DNS** o **Configuración avanzada**.
+
+La captura de pantalla siguiente es un ejemplo de página de registros DNS:
+
+![Página de registros DNS de ejemplo](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
+
+En la captura de pantalla de ejemplo, haga clic en **Agregar** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. De nuevo, consulte la documentación del proveedor.
+
+> [!NOTE]
+> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no se harán efectivos hasta que haga clic en un vínculo **Guardar cambios** independiente. 
+>
+>
+
+### <a name="create-the-cname-record"></a>Crear un registro CNAME
+
+Agregue un registro CNAME para asignar un nombre con caracteres comodín al nombre de host predeterminado de la aplicación (`<app_name>.azurewebsites.net`).
+
+En el dominio `*.contoso.com` del ejemplo, el registro CNAME debe apuntar al nombre `*` en `<app_name>.azurewebsites.net`.
+
+La página de registros DNS debe tener un aspecto similar al de la captura de pantalla siguiente:
+
+![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+
+### <a name="enable-the-cname-record-mapping-in-your-app"></a>Habilitar la asignación de registros CNAME en la aplicación
+
+Ahora puede agregar cualquier subdominio que coincida con el nombre con caracteres comodín.
+
+En el ejemplo de caracteres comodín `*.contoso.com`, ahora puede agregar `sub1.contoso.com` y `sub2.contoso.com`. 
+
+En el panel de navegación izquierdo de la hoja de la aplicación, haga clic en **Dominios personalizados**. 
+
+![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+
+Haga clic en el icono **+** situado junto a **Agregar nombre de host**.
+
+![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+
+Escriba el nombre de dominio completo de un subdominio que coincida con su dominio con caracteres comodín (por ejemplo, `sub1.contoso.com`) y haga clic en **Validar**.
 
 De lo contrario, se activa el botón **Agregar nombre de host**. 
 
-Asegúrese de que el **tipo de registro de nombre de host** esté establecido en el **registro D (ejemplo.com)**.
+Asegúrese de que **Tipo de registro de nombre de host** se establece en **Registro CNAME (example.com)**.
 
 Haga clic en **Agregar nombre de host** para agregar el nombre DNS a la aplicación.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
 El nuevo nombre de host puede tardar algún tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
 
-![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+Puede hacer clic en el icono **+** de nuevo para agregar otro nombre de host que coincida con su dominio con caracteres comodín.
 
-### <a name="step-5---test-in-browser"></a>Paso 5: Prueba en el explorador
+Por ejemplo, agregue `sub2.contoso.com` siguiendo los mismos pasos de antes.
+
+![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
+
+## <a name="test-in-browser"></a>Probar en el explorador
 
 En el explorador, busque los nombres DNS que configuró anteriormente (`contoso.com` y `www.contoso.com`).
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
+## <a name="automate-with-scripts"></a>Automatizar con scripts
+
+Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azureps-cmdlets-docs/). 
+
+### <a name="azure-cli"></a>CLI de Azure 
+
+El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
+
+```bash 
+az appservice web config hostname add --webapp <app_name> --resource-group <resourece_group_name> \ 
+--name <fully_qualified_domain_name> 
+``` 
+
+Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/app-service-cli-configure-custom-domain.md) 
+
+### <a name="azure-powershell"></a>Azure PowerShell 
+
+El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
+
+```PowerShell  
+Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> ` 
+-HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
+```
+
+Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/app-service-powershell-configure-custom-domain.md).
+
 ## <a name="more-resources"></a>Más recursos
 
-[Comprar y configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](custom-dns-web-site-buydomains-web-app.md)
+[Comprar y configurar un nombre de dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md)
 

@@ -1,10 +1,10 @@
 ---
 title: "Azure AD Connect: Autenticación de paso a través | Microsoft Docs"
-description: "Este tema le proporcionará la información necesaria sobre el funcionamiento de las autenticaciones de paso a través de Azure AD en Active Directory (AD) local para proporcionar acceso a Azure Active Directory (Azure AD) y a los servicios conectados."
+description: "En este artículo se describe la autenticación de paso a través de Azure Active Directory (Azure AD) y cómo permite inicios de sesión de Azure AD mediante la validación de las contraseñas de los usuarios en una instancia local de Active Directory."
 services: active-directory
-keywords: "qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
+keywords: "qué es la autenticación de paso a través de Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
 documentationcenter: 
-author: billmath
+author: swkrish
 manager: femila
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,116 +12,224 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 67b832253619afe789a4dfdb95893e8c0ae62bee
-ms.openlocfilehash: 17890fddf948ddc0e89a9107ac5fe65223cd05e1
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 0f54fb7d2d8cf010baf79409bc6a528d34982500
+ms.lasthandoff: 04/22/2017
 
 ---
 
-# <a name="what-is-azure-ad-pass-through-authentication"></a>Qué es la autenticación de paso a través de Azure AD
-Al utilizar las mismas credenciales (nombre de usuario y contraseña) para acceder a los recursos corporativos y a los servicios basados en la nube, los usuarios no tienen que recordar unas credenciales distintas. Esto reduce las posibilidades de que se olviden de cómo iniciar sesión y presenta la ventaja de reducir la necesidad de que el departamento de soporte técnico tenga que restablecer contraseñas.
+# <a name="configure-user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Configuración del inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
-Mientras que en muchas organizaciones se utiliza la [sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) de Azure AD para proporcionar a los usuarios una única credencial para acceder a los servicios locales y en la nube, otras requieren que las contraseñas, incluso aquellas en forma de hash, permanezcan dentro de los límites internos de la organización.
+## <a name="what-is-azure-active-directory-azure-ad-pass-through-authentication"></a>¿Qué es la autenticación de paso a través de Azure Active Directory (Azure AD)?
 
-La autenticación de paso a través de Azure AD proporciona una solución sencilla para estos clientes. Se asegura de que la validación de contraseñas para servicios de Azure AD se realice en su directorio Active Directory local. Las contraseñas se pueden validar sin necesidad de poseer una compleja infraestructura de red ni de almacenar las contraseñas locales en la nube de forma alguna.
+Permitir a los usuarios utilizar las mismas credenciales (contraseñas) para iniciar sesión tanto en los recursos locales como en los servicios en la nube es beneficioso no solo para los usuarios sino también para la organización. Los usuarios tienen una contraseña menos que recordar. Esto mejora la experiencia del usuario y reduce las posibilidades de que los usuarios olviden cómo iniciar sesión. Esto, a su vez, reduce los costos del departamento de soporte técnico, ya que los problemas relacionados con las contraseñas normalmente consumen la mayor parte de los recursos de soporte técnico.
 
-Cuando se combina con la opción [Inicio de sesión único](active-directory-aadconnect-sso.md), los usuarios no necesitan escribir su contraseña para iniciar sesión en Azure AD ni otros servicios en la nube. Esta característica proporciona a estos clientes una experiencia realmente integrada en sus máquinas corporativas.
+Muchas organizaciones usan [la sincronización de contraseñas de Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), una característica de [Azure AD Connect](active-directory-aadconnect.md) que sincroniza las contraseñas de los usuarios de una instancia de Active Directory local con Azure AD, como una forma de proporcionar a los usuarios las mismas credenciales en los recursos locales y en los servicios en la nube. Sin embargo, otras organizaciones requieren que las contraseñas, incluso en un formulario con hash, no salgan de los límites internos de su organización.
 
-![Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
+La autenticación de paso a través de Azure AD proporciona una solución sencilla para estas organizaciones. Cuando los usuarios inician sesión en Azure AD, garantiza que las contraseñas de los usuarios se validan directamente con su instancia de Active Directory local. Esta característica también proporciona las siguientes ventajas:
 
-La autenticación de paso a través se puede configurar mediante Azure AD Connect y utiliza un agente local simple que escucha las solicitudes de validación de contraseña. El agente se puede implementar fácilmente en varios equipos para proporcionar una alta disponibilidad y equilibrio de carga. Puesto que todas las comunicaciones son exclusivamente salientes, no es necesario disponer de una arquitectura de red perimetral (DMZ) ni instalar el conector en una arquitectura de red perimetral. Los requisitos del equipo para el conector son los siguientes:
+- Fácil de usar
+  - La validación de la contraseña se realiza sin la necesidad de realizar complejas implementaciones locales o la configuración de la red.
+  - Solo utiliza un conector local ligero que escucha las solicitudes de validación de contraseña y las responde.
+  - Se puede configurar junto con [Azure AD Connect](active-directory-aadconnect.md). El conector local ligero se instala en el mismo servidor que Azure AD Connect.
+- Protección
+  - Las contraseñas locales nunca se almacenan en la nube.
+  - El conector local ligero solo realiza conexiones salientes desde dentro de la red. Por consiguiente, no hay ningún requisito para instalar el conector en una red perimetral.
+  - La autenticación de paso a través funciona perfectamente con Azure Multi-factor Authentication.
+- Confiable y escalable
+  - Se pueden instalar conectores locales ligeros adicionales en varios servidores para lograr una alta disponibilidad de las solicitudes de inicio de sesión.
 
-- Windows Server 2012 R2 o superior
-- Unión a un dominio en el bosque en el que se validan los usuarios
+![Autenticación de paso a través de Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
+
+Si se combina con la característica [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md), los usuarios no necesitarán escribir sus contraseñas para iniciar sesión en Azure AD, cuando se encuentran en sus equipos corporativos dentro de su red corporativa (una experiencia realmente integrada).
+
+## <a name="whats-available-during-preview"></a>¿Que está disponible en la versión preliminar?
 
 >[!NOTE]
->Pueden admitirse entornos de varios bosques si hay relaciones de confianza entre los bosques y el enrutamiento de sufijos de nombre está configurado correctamente.
+>La autenticación de paso a través de Azure AD está actualmente en versión preliminar. Es una característica gratuita y no es necesario usar ninguna edición de pago de Azure AD para usarla. 
 
-## <a name="supported-clients-in-the-preview"></a>Clientes compatibles en la versión preliminar
+Los siguientes escenarios son totalmente compatibles durante la versión preliminar:
 
-La autenticación de paso a través es compatible mediante clientes basados en explorador web y clientes de Office compatibles con la [autenticación moderna](https://aka.ms/modernauthga). Para los clientes incompatibles, como los clientes de Office heredados o Exchange Active Sync (es decir, clientes de correo electrónico nativos en dispositivos móviles), se recomienda a los usuarios que utilicen el equivalente a la autenticación moderna. Estos clientes no solo permiten la autenticación de paso a través, sino también que se aplique el acceso condicional, como la autenticación multifactor.
+- Todas las aplicaciones basadas en explorador.
+- Aplicaciones de cliente de Office 365 que admiten la [autenticación moderna](https://aka.ms/modernauthga).
 
-Actualmente no se admite la autenticación de paso a través para clientes que usen Windows 10 y se hayan unido a Azure AD. No obstante, los clientes pueden utilizar la sincronización de contraseña como reserva automática para Windows 10, además de para los clientes heredados.
+Los siguientes escenarios NO se admiten durante la versión preliminar:
 
->[!NOTE]
->Durante la versión preliminar, se habilita la sincronización de contraseña de forma predeterminada cuando se selecciona la autenticación de paso a través como opción de inicio de sesión en Azure AD Connect. Esta configuración se puede deshabilitar en la página Opciones de Azure AD Connect.
+- Las aplicaciones cliente de Office heredadas y Exchange ActiveSync (es decir, aplicaciones de correo electrónico nativas en dispositivos móviles).
+  - Se recomienda a las organizaciones que cambien a la autenticación moderna, en caso de que sea posible. Esto permite la compatibilidad de la autenticación de paso a través, pero también ayuda a proteger sus identidades mediante características de [acceso condicional](../active-directory-conditional-access.md) como la autenticación multifactor.
+- Azure AD Join para dispositivos con Windows 10.
 
-## <a name="how-azure-ad-pass-through-authentication-works"></a>Cómo funciona la autenticación de paso a través de Azure AD
-Cuando un usuario escribe su nombre de usuario y contraseña en la página de inicio de sesión de Azure AD, Azure AD coloca ambos en la cola del conector local que corresponda para la validación. A continuación, uno de los conectores locales disponibles recupera el nombre de usuario y la contraseña y valida estas credenciales con Active Directory. La validación se produce a través de API de Windows estándar, de manera similar al modo en que los Servicios de federación de Active Directory validan la contraseña.
+>[!IMPORTANT]
+>Como solución alternativa para los escenarios que la autenticación de paso a través no admite en la actualidad (aplicaciones cliente de Office heredadas, Exchange ActiveSync y Azure AD Join para dispositivos con Windows 10), la sincronización de contraseñas también se habilita de manera predeterminada cuando se habilita la autenticación de paso a través. La sincronización de contraseñas actúa como reserva solo en estos escenarios concretos. Si no se necesita, la sincronización de contraseñas se puede desactivar en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) de Azure AD Connect.
 
-Después, el controlador de dominio local evalúa la solicitud y devuelve una respuesta al conector, que, a su vez, la devuelve a Azure AD. Azure AD evalúa entonces la respuesta y responde al usuario según corresponda, por ejemplo, emitiendo un token o solicitando la autenticación multifactor. En el diagrama se muestran los diversos pasos:
+## <a name="how-to-enable-azure-ad-pass-through-authentication"></a>¿Cómo se habilita la autenticación de paso a través de Azure AD?
 
-![Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
+### <a name="pre-requisites"></a>Requisitos previos
 
-## <a name="azure-ad-pass-through-prerequisites"></a>Requisitos previos de paso a través de Azure AD
-Antes de poder habilitar y usar la autenticación de paso a través de Azure AD, debe disponer de lo siguiente:
+Para poder habilitar la autenticación de paso a través de Azure AD, es preciso cumplir los siguientes requisitos previos:
 
-- Azure AD Connect
 - Un inquilino de Azure AD del que sea administrador global.
 
 >[!NOTE]
->Se recomienda que la cuenta sea una cuenta de administrador solo en la nube, para que pueda administrar la configuración del inquilino en caso de que sus servicios locales generen errores o no estén disponibles.
+>Se recomienda que la cuenta del administrador global esté solo en la nube para que pueda administrar la configuración del inquilino, en caso de que sus servicios locales generen errores o dejen de estar disponibles. Puede agregar una cuenta de administrador global solo en la nube como se muestra [aquí](../active-directory-users-create-azure-portal.md).
 
-- Un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. Esta máquina debe pertenecer al mismo bosque que los usuarios que se validan.
-- Si tiene más de un bosque que contenga usuarios que se van a validar con Azure AD, los bosques deben tener relaciones de confianza entre ellos.
-- El valor UserPrincipalName local debe utilizarse como nombre de usuario de Azure AD.
-- Un segundo servidor con Windows Server 2012 R2 o posterior en el que ejecutar un segundo conector para obtener una alta disponibilidad y equilibrio de carga. A continuación se incluyen instrucciones sobre cómo implementar este conector.
-- Si hay un firewall entre el conector y Azure AD, asegúrese de lo siguiente:
+- Azure AD Connect, versión 1.1.484.0 o superior. Se recomienda usar la [versión más reciente de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+- Un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect.
+  - Este servidor debe ser miembro del mismo bosque de AD que los usuarios cuyas contraseñas se deben validar.
+  - Tenga en cuenta que un conector se instala en el mismo servidor que Azure AD Connect.
+
+>[!NOTE]
+>Los entornos de varios bosques se admiten si hay relaciones de confianza de bosque entre los bosques de AD y el enrutamiento de sufijos de nombre está configurado correctamente.
+
+- Si desea alta disponibilidad, necesitará servidores adicionales que ejecuten Windows Server 2012 R2 o posterior para instalar conectores independiente.
+- Si hay un firewall entre cualquiera de estos conectores y Azure AD, asegúrese de lo siguiente:
     - Si está habilitado el filtrado para direcciones URL, asegúrese de que el conector puede comunicarse con las siguientes direcciones URL:
         -  \*.msappproxy.net
-        -  \*.servicebus.windows.net.  
-        -  El conector también establece conexión en conexiones IP directas con los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
-    - Asegúrese de que el firewall no realiza la inspección de SSL mientras el conector usa certificados de cliente para comunicarse con Azure AD.
-    - Asegúrese de que el conector puede realizar solicitudes HTTPS (TCP) a Azure AD en los siguientes puertos.
+        -  \*.servicebus.windows.net
+    - Los conectores también crean conexiones IP directas con los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+    - Asegúrese de que el firewall no realiza la inspección de SSL mientras los conectores usan certificados de cliente para comunicarse con Azure AD.
+    - Asegúrese de que el conector puede realizar solicitudes HTTPS (TCP) a Azure AD a través de los puertos 80 y 443.
+      - Si el firewall aplica las reglas en función de los usuarios de origen, abra estos puertos para el tráfico procedente de los servicios de Windows que se ejecutan como un servicio de red.
 
-|Número de puerto|Descripción
-| --- | ---
-|80|Permite el tráfico HTTP saliente para la validación de seguridad, como listas de revocación de certificados SSL.
-|443|    Habilita la autenticación de usuario en Azure AD.
-|8080/443|    Habilita la secuencia de arranque del conector y la actualización automática del conector.
-|9090|    Habilita el registro de conector (solo es necesario para el proceso de registro del conector).
-|9091|    Habilita la renovación automática de certificados de confianza del conector.
-|9352, 5671|    Habilita la comunicación entre el conector y el servicio de Azure AD para las solicitudes entrantes.
-|9350|    [Opcional] Posibilita un mejor rendimiento de las solicitudes entrantes.
-|10100–10120|    Habilita las respuestas del conector a Azure AD.
+>[!NOTE]
+>Recientemente hemos realizado mejoras para reducir el número de puertos que necesitan los conectores para comunicarse con nuestro servicio. Si se ejecutan versiones anteriores de Azure AD Connect o de los conectores independientes, los puertos adicionales (5671, 8080, 9090, 9091, 9350, 9352, 10100 10120) deben mantenerse abiertos.
 
-Si el firewall fuerza el tráfico según los usuarios que se originan, abra estos puertos para el tráfico procedente de  los servicios de Windows que se ejecutan como un servicio de red. Además, asegúrese de habilitar el puerto 8080 para NT Authority\System.
+### <a name="enabling-azure-ad-pass-through-authentication"></a>Habilitación de la autenticación de paso a través de Azure AD
 
-## <a name="enabling-pass-through-authentication"></a>Habilitación de la autenticación de paso a través
-La autenticación de paso a través de Azure AD se habilita por medio de Azure AD Connect. Al habilitar la autenticación de paso a través, se implementa el primer conector en el mismo servidor que Azure AD Connect. Al instalar Azure AD Connect, seleccione una instalación personalizada y elija Autenticación de paso a través en la página de opciones de inicio de sesión. Para más información, consulte [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+La autenticación de paso a través de Azure AD se puede habilitar por medio de Azure AD Connect.
 
-![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso3.png)
+Si va a realizar una instalación nueva de Azure AD Connect, elija la [ruta de acceso de instalación personalizada](active-directory-aadconnect-get-started-custom.md). En la página "Inicio de sesión de usuario", seleccione "Autenticación de paso a través". Si finaliza satisfactoriamente, se instala un conector de autenticación de paso a través en el mismo servidor que Azure AD Connect. Además, habilita la característica de autenticación de paso a través en su inquilino.
 
-De forma predeterminada, el primer conector de autenticación de paso a través se instala en el servidor de Azure AD Connect. Debe implementar un segundo conector en otro equipo para asegurarse de disponer de una alta disponibilidad y de equilibrio de carga para las solicitudes de autenticación.
+![Azure AD Connect: Inicio de sesión de usuario](./media/active-directory-aadconnect-sso/sso3.png)
 
-Para implementar el segundo conector, siga las instrucciones siguientes:
+Si ya tiene una instalación de Azure AD Connect, utilice la ruta de acceso de la [instalación rápida](active-directory-aadconnect-get-started-express.md) o de la [instalación personalizada](active-directory-aadconnect-get-started-custom.md), elija "Change user sign-in page" (Cambiar página de inicio de sesión del usuario) en Azure AD Connect y haga clic en "Siguiente". Después, seleccione "Autenticación de paso a través" para instalar un conector de autenticación de paso a través en el mismo servidor que Azure AD Connect y habilitar la característica en su inquilino.
 
-### <a name="step-1-install-the-connector-without-registration"></a>Paso 1: Instalar el conector sin registro
+![Azure AD Connect: Change user sign-in page (Cambiar página de inicio de sesión del usuario)](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-1.    Descargue el [conector](https://go.microsoft.com/fwlink/?linkid=837580) más reciente.
+>[!IMPORTANT]
+>La autenticación de paso a través de Azure AD es una característica de nivel de inquilino. Afecta al inicio de sesión de usuario en todos los dominios administrados de su inquilino. Sin embargo, los usuarios de dominios federados seguirán iniciando sesión mediante Servicios de federación de Active Directory (ADFS) o cualquier otro proveedor de federación que se haya configurado previamente. Si convierte un dominio de federado a administrado, todos los usuarios del mismo empiezan automáticamente a iniciar sesión mediante autenticación de paso a través. A los usuarios que están solo en la nube no les afecta la autenticación de paso a través.
+
+### <a name="ensuring-high-availability"></a>Garantía de alta disponibilidad
+
+Si planea utilizar la autenticación de paso a través en una implementación de producción, se recomienda encarecidamente que instale un segundo conector en un servidor independiente (que no sea en el que se ejecutan Azure AD Connect y el primer conector) para asegurarse de que dispone de alta disponibilidad de las solicitudes de inicio de sesión. Puede instalar tantos conectores adicionales como necesite; la cantidad que se instale se basa en el número máximo y medio de solicitudes de inicio de sesión que controla el inquilino.
+
+Para implementar un conector independiente, siga estas instrucciones:
+
+#### <a name="step-1-download-and-install-the-connector"></a>Paso 1: Descargar e instalar el conector
+
+En este paso se descarga el software del conector y se instala en el servidor.
+
+1.    [Descargue](https://go.microsoft.com/fwlink/?linkid=837580) el conector más reciente.
 2.    Abra un símbolo del sistema como administrador.
-3.    Ejecute el siguiente comando en el que el modificador /q significa instalación desatendida (la instalación no le pide que acepte el contrato de licencia para el usuario final).
+3.    Ejecute el siguiente comando (/q significa instalación desatendida, a instalación no le pide que acepte el contrato de licencia para el usuario final):
 
-```
+`
 AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
-```
+`
+>[!NOTE]
+>Solo se puede instalar un conector por servidor.
 
-### <a name="step-2-register-the-connector-with-azure-ad-for-pass-through-authentication"></a>Paso 2: Registrar el conector con Azure AD para la autenticación de paso a través
+#### <a name="step-2-register-the-connector-with-azure-ad-for-pass-through-authentication"></a>Paso 2: Registrar el conector en Azure AD para la autenticación de paso a través
+
+En este paso, se registra en nuestro servicio el conector instalado en su servidor y se hace que esté disponible para recibir solicitudes de inicio de sesión.
 
 1.    Abra una ventana de PowerShell como administrador.
-2.    Vaya a **C:\Archivos de programa\Microsoft AAD App Proxy Connector** y ejecute el script.  
-`.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
-3.    Cuando se le solicite, escriba las credenciales de su cuenta de administrador de inquilinos de Azure AD.
+2.    Navegue hasta **C:\Archivos de programa\Microsoft AAD App Proxy Connector** y ejecute el script como se muestra a continuación: `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
+3.    Cuando se le solicite, escriba las credenciales de una cuenta de administrador global en el inquilino de Azure AD.
+
+## <a name="how-does-azure-ad-pass-through-authentication-work"></a>¿Cómo funciona la autenticación de paso a través de Azure AD?
+
+Cuando un usuario intenta iniciar sesión en Azure AD (y si la autenticación de paso a través está habilitada en el inquilino), ocurre lo siguiente:
+
+1. El usuario escribe su nombre de usuario y contraseña en la página de inicio de sesión de Azure AD. Nuestro servicio coloca el nombre de usuario y la contraseña (cifrada mediante una clave pública) en una cola para su validación.
+2. Uno de los conectores locales disponibles realiza una llamada saliente a la cola y recupera el nombre de usuario y la contraseña.
+3. Después, el conector valida el nombre de usuario y la contraseña en Active Directory mediante las API de Windows estándar (un mecanismo similar al que usa AD FS). Tenga en cuenta que el nombre de usuario puede ser que el nombre de usuario predeterminado local (normalmente, "userPrincipalName") o de otro atributo (conocido como "Id. alternativo") configurado en Azure AD Connect.
+4. Después, el controlador de dominio local evalúa la solicitud y devuelve una respuesta (satisfactoria o error) al conector,
+5. que, a su vez, la devuelve a Azure AD.
+6. Luego, Azure AD evalúa la respuesta y responde al usuario según corresponda. Por ejemplo, genera un token para la aplicación o solicita la autenticación multifactor.
+
+En el diagrama siguiente también se muestran los distintos pasos. Tenga en cuenta que todas las solicitudes y respuestas que se realizan a través del canal HTTPS.
+
+![Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
+
+### <a name="note-about-password-writeback"></a>Nota acerca de la escritura diferida de contraseñas
+
+En caso de que haya configurado la [escritura diferida de contraseñas](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) en su inquilino y para un usuario concreto, si el usuario inicia sesión mediante la autenticación de paso a través, puede cambiar o restablecer su contraseña como antes. La contraseña se volverá a escribir en la instancia local de Active Directory, tal como cabría esperar.
+
+Sin embargo, si cualquiera de estas condiciones no se cumple (no está configurada la escritura diferida de contraseñas o el usuario no tiene una licencia válida de Azure AD asignada), el usuario no podrá actualizar sus contraseñas en la nube, ni siquiera cuando su contraseña haya caducado. En su lugar verá el siguiente mensaje: "La organización no permite actualizar la contraseña en este sitio. Actualícela de acuerdo con el método que recomienda la organización o, si necesita ayuda, póngase en contacto con el administrador. ".
 
 ## <a name="troubleshooting-pass-through-authentication"></a>Solución de problemas de la autenticación de paso a través
-Al solucionar problemas de autenticación de paso a través, existen diversas categorías de problemas que pueden producirse. Según el tipo de problema, es posible que deba buscar soluciones en distintos lugares.
 
-Para errores relacionados con el conector, puede consultar el registro de eventos de la máquina del conector en **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**. Si es necesario, puede disponer de registros más detallados si ve los registros de análisis y depuración, y habilita el registro de sesiones del conector. No se recomienda la ejecución con este registro habilitado de forma predeterminada, y el contenido solo es visible una vez que el registro se deshabilita.
+Esta sección le ayudará a encontrar información para solucionar algunos de los problemas comunes no solo durante la instalación, el registro o la desinstalación de conectores de autenticación de paso a través (ya sea a través de Azure AD Connect o un conector independiente), sino también durante la habilitación y manejo de la característica en su inquilino.
 
-También es posible encontrar más información en los registros de seguimiento del conector, en **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Estos registros también indican la razón por la que se ha producido un error en la autenticación de paso a través para un usuario determinado, como la entrada siguiente, que incluye el código de error 1328:
+### <a name="issues-during-installation-of-connectors-either-via-azure-ad-connect-or-standalone"></a>Problemas durante la instalación de conectores (a través de Azure AD Connect o de un conector independiente)
+
+#### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Ya existe un conector del proxy de aplicación de Azure AD
+
+No se puede instalar un conector de autenticación de paso a través en el mismo servidor que un conector del [proxy de aplicación de Azure AD](../../active-directory/active-directory-application-proxy-get-started.md). El conector de autenticación de paso a través se tendrá que instalar en un servidor independiente.
+
+#### <a name="an-unexpected-error-occured"></a>Se ha producido un error inesperado
+
+[Recopile los registros del conector](#how-to-collect-pass-through-authentication-connector-logs?) en el servidor y póngase en contacto con el Soporte técnico de Microsoft para que le solucionen el problema.
+
+### <a name="issues-during-registration-of-connectors"></a>Problemas durante el registro de conectores
+
+#### <a name="registration-of-the-connecter-failed-due-to-blocked-ports"></a>No se pudo realizar el registro del conector porque había puertos bloqueados
+
+Asegúrese de que el servidor en el que se ha instalado el conector puede comunicarse tanto con nuestras direcciones URL de servicio como con los puertos que se enumeran [aquí](#pre-requisites).
+
+#### <a name="an-unexpected-error-occurred"></a>Se ha producido un error inesperado
+
+[Recopile los registros del conector](#how-to-collect-pass-through-authentication-connector-logs?) en el servidor y póngase en contacto con el Soporte técnico de Microsoft para que le solucionen el problema.
+
+### <a name="issues-during-un-installation-of-connectors"></a>Problemas durante la desinstalación de conectores
+
+#### <a name="warning-message-when-un-installing-azure-ad-connect"></a>Mensaje de advertencia al desinstalar Azure AD Connect
+
+Si la autenticación de paso a través está habilitada en su inquilino e intenta desinstalar Azure AD Connect, aparecerá el siguiente mensaje de advertencia: "Users will not be able to sign-in to Azure AD unless you have other pass-through authentication agents installed on other servers." (Los usuarios no podrán iniciar sesión en Azure AD, a menos que tenga otros agentes de autenticación de paso a través instalados en otros servidores).
+
+Para no interrumpir el inicio de sesión del usuario, es preciso tener una instalación de [alta disponibilidad](#ensuring-high-availability) en vigor para desinstalar Azure AD Connect.
+
+### <a name="issues-with-enabling-the-pass-through-authentication-feature"></a>Problemas con la habilitación de la característica de autenticación de paso a través
+
+#### <a name="the-enabling-of-the-feature-failed-because-there-were-no-connectors-available"></a>La característica no se pudo habilitar porque no había conectores disponibles
+
+Es preciso que tenga al menos un servidor de conector activo para habilitar la autenticación de paso a través en su inquilino. Puede instalar un conector mediante la instalación de Azure AD Connect o de un conector independiente.
+
+#### <a name="the-enabling-of-the-feature-failed-due-to-blocked-ports"></a>La característica no se habilitó porque había puertos bloqueados
+
+Asegúrese de que el servidor en el que se ha instalado Azure AD Connect puede comunicarse tanto con nuestras direcciones URL de servicio como con los puertos que se enumeran [aquí](#pre-requisites).
+
+### <a name="issues-while-operating-the-pass-through-authentication-feature"></a>Problemas al usar la característica de autenticación de paso a través
+
+#### <a name="user-facing-sign-in-errors"></a>Errores de inicio de sesión a los que se enfrenta el usuario
+
+La característica informa de los siguientes errores a los que se enfrenta el usuario en la pantalla de inicio de sesión de Azure AD. Dichos errores se detallan a continuación, junto con los pasos para resolverlos.
+
+|Error|Description|Resolución
+| --- | --- | ---
+|AADSTS80001|No es posible conectarse a Active Directory.|Asegúrese de que los servidores del conector son miembros del mismo bosque de AD que los usuarios cuyas contraseñas hay que validar y que pueden conectarse a Active Directory.  
+|AADSTS8002|Se ha agotado el tiempo de espera al conectarse a Active Directory.|Asegúrese de que Active Directory está disponible y responde a las solicitudes de los conectores.
+|AADSTS80004|El nombre de usuario transferido al conector no era válido.|Asegúrese de que el usuario esté intentando iniciar sesión con el nombre de usuario correcto.
+|AADSTS80005|La validación encontró una excepción WebException impredecible|Es probable que sea un error transitorio. Vuelva a intentarlo. Si el error no desaparece, póngase en contacto con el soporte técnico de Microsoft.
+|AADSTS80007|Error al establecer comunicación con Active Directory.|Compruebe los registros del conector para más información y verifique que Active Directory está funcionando según lo previsto.
+
+### <a name="how-to-collect-pass-through-authentication-connector-logs"></a>¿Cómo se recopilan los registros del conector de autenticación de paso a través?
+
+En función del tipo de problema, es posible que dichos registros tenga que buscarlos en distintos lugares.
+
+#### <a name="connector-event-logs"></a>Registros de eventos de conector
+
+Para ver los errores relacionados con el conector, abra la aplicación Visor de eventos en el servidor y consulte **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+
+Para ver registros detallados de análisis y depuración, puede habilitar el registro de "Sesión". No ejecute el conector con este registro habilitado durante las operaciones normales; úselo solo para solucionar problemas. Tenga en cuenta que el contenido del registro solo se ve cuando el registro se vuelve a deshabilitar.
+
+#### <a name="detailed-trace-logs"></a>Registros de seguimiento detallados
+
+Para solucionar errores de inicio de sesión de los usuarios, busque los registros de seguimiento en **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Dichos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica de autenticación de paso a través. A continuación encontrará una entrada de registro de ejemplo:
 
 ```
     ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -129,15 +237,17 @@ También es posible encontrar más información en los registros de seguimiento 
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Puede obtener los detalles del error si inicia un símbolo del sistema y ejecuta el siguiente comando (reemplace "1328" por el número de error de la solicitud):
+Para obtener detalles descriptivos del error ('1328' en el ejemplo anterior), abra el símbolo del sistema y ejecute el siguiente comando. Nota: será preciso que reemplace '1328' por el número de error real que ve en los registros.
 
 `Net helpmsg 1328`
 
-El resultado es similar a la siguiente respuesta:
+El resultado debería ser similar al que se muestra a continuación:
 
 ![Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
 
-Si está habilitado el registro de auditoría, también es posible encontrar información adicional en los registros de seguridad de los controladores de dominio. La siguiente sería una consulta simple para obtener las solicitudes de autenticación del conector:
+#### <a name="domain-controller-logs"></a>Registros de controlador de dominio
+
+Si están habilitados los registros de auditoría, se puede encontrar información adicional en los registros de seguridad de los controladores de dominio. A continuación puede ver una manera sencilla de consultar las solicitudes de inicio de sesión que han enviado los conectores de autenticación de paso a través:
 
 ```
     <QueryList>
@@ -147,13 +257,7 @@ Si está habilitado el registro de auditoría, también es posible encontrar inf
     </QueryList>
 ```
 
-A continuación, se detallan otros errores notificados en la pantalla de inicio de sesión de Azure AD, junto con los pasos de resolución correspondientes.
+## <a name="feedback"></a>Comentarios
 
-|Error|Description|Resolución
-| --- | --- | ---
-|AADSTS80001|No es posible conectarse a Active Directory.|Asegúrese de que los equipos de conector están unidos a un dominio y se pueden conectar a Active Directory.  
-|AADSTS8002|Se ha agotado el tiempo de espera al conectarse a Active Directory.|Compruebe que Active Directory está disponible y que responde a las solicitudes del conector.
-|AADSTS80004|El nombre de usuario transferido al conector no era válido.|Asegúrese de que el usuario esté intentando iniciar sesión con el nombre de usuario correcto.
-|AADSTS80005|La validación encontró una excepción WebException impredecible|Se trata de un problema transitorio. Vuelva a intentarlo. Si continúa, póngase en contacto con el soporte técnico de Microsoft.
-|AADSTS80007|Error al establecer comunicación con Active Directory.|Compruebe los registros del conector para más información y verifique que Active Directory está funcionando según lo previsto.
+Sus comentarios son importantes. Puede enviarlos a la siguiente dirección de correo electrónico: [aadopauthfeedback@microsoft.com](mailto:aadopauthfeedback@microsoft.com). Si tiene las solicitudes de características nuevas, use nuestro [foro de UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect).
 

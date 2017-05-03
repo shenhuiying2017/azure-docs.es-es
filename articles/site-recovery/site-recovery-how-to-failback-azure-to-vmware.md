@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: b054245de2c5bf6019c2cb29409289f2ac8766ec
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -93,6 +93,12 @@ No se puede conmutar por recuperación una máquina virtual hasta que tenga al m
 
 Si selecciona el punto de recuperación coherente con la aplicación, solo se recuperará una máquina virtual al punto de recuperación coherente con la aplicación más reciente mediante conmutación por recuperación. En el caso de un plan de recuperación con un grupo de replicación, todos los grupos de replicación se recuperarán a su punto de recuperación disponible común.
 Tenga en cuenta que los puntos de recuperación coherentes con la aplicación pueden ser anteriores en el tiempo, por lo que podrían perderse datos.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>¿Qué ocurre con las herramientas de VMware después de la conmutación por recuperación?
+
+Durante la conmutación por error a Azure, no pueden ejecutar las herramientas de VMware en la máquina virtual de Azure. Si se trata de una máquina virtual Windows, ASR deshabilita las herramientas de VMware durante la conmutación por error. Si es una máquina virtual Linux, ASR desinstala las herramientas de VMware durante la conmutación por error. 
+
+Durante la conmutación por recuperación de la máquina virtual Windows, se vuelven a habilitar las herramientas de VMware. De forma similar, para una máquina virtual Linux, las herramientas de VMware se vuelven a instalar en la máquina durante la conmutación por recuperación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

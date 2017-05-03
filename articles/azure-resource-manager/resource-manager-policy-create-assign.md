@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -141,6 +141,8 @@ En el ejemplo siguiente se muestra una definición de un alias. Como puede ver, 
 ```
 
 ## <a name="powershell"></a>PowerShell
+
+Antes de continuar con los ejemplos de PowerShell, asegúrese de que tiene [instalada la última versión](/powershell/azure/install-azurerm-ps) de Azure PowerShell. Se agregaron parámetros de directiva en la versión 3.6.0. Si tiene una versión anterior, los ejemplos devuelven un error que indica que no se encuentra el parámetro.
 
 ### <a name="create-policy-definition"></a>Creación de definición de directiva
 Puede crear una definición de directiva con el cmdlet `New-AzureRmPolicyDefinition`. En los ejemplos siguientes se crea una definición de directiva para permitir recursos solo en Europa del Norte y Europa Occidental.

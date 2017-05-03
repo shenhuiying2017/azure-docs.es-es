@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 0f4ca1924531df890433ec092790e6bec7c41df0
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 4529037cb610e31028a35cf4643a2a99e90b2b8f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -39,13 +39,13 @@ Un escenario importante para este marco de trabajo consiste en garantizar que se
 
 1. Inicie sesión en la máquina virtual de Linux de la que desea realizar la copia de seguridad como usuario raíz.
 
-2. Descargue VMSnapshotPluginConfig.json de [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) y cópielo en la carpeta /etc/azure de todas las máquinas virtuales de las que va a realizar copias de seguridad. Cree el directorio /etc/azure si aún no existe.
+2. Descargue VMSnapshotScriptPluginConfig.json de [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) y cópielo en la carpeta /etc/azure de todas las máquinas virtuales de las que va a realizar copia de seguridad. Cree el directorio /etc/azure si aún no existe.
 
-3. Copie el script anterior y el posterior de la aplicación en todas las máquinas virtuales de las que desea realizar copias de seguridad. Puede copiar los scripts en cualquier ubicación de la máquina virtual, solo necesita actualizar la ruta de acceso completa de los archivos de script en el archivo VMSnapshotPluginConfig.json
+3. Copie el script anterior y el posterior de la aplicación en todas las máquinas virtuales de las que desea realizar copias de seguridad. Puede copiar los scripts en cualquier ubicación de la máquina virtual, solo debe actualizar la ruta de acceso completa de los archivos de script en el archivo VMSnapshotPluginConfig.json.
 
 4. Asegúrese de proporcionar los siguientes permisos para los archivos:
 
-   - VMSnapshotPluginConfig.json: permiso "600", es decir, solo el usuario "raíz"debe tener permisos de "lectura"y"escritura" para este archivo, ningún usuario debe tener permisos de "ejecución".
+   - VMSnapshotPluginConfig.json: permiso "600", es decir, solo el usuario "raíz" debe tener permisos de "lectura" y "escritura" para este archivo, ningún usuario debe tener permisos de "ejecución".
    - Archivo del script anterior: permiso "700" es decir, solo el usuario "raíz" debe tener permisos de "lectura", "escritura" y "ejecución" para este archivo.
    - Archivo del script posterior: permiso "700" es decir, solo el usuario "raíz" debe tener permisos de "lectura", "escritura" y "ejecución" para este archivo.
 
@@ -54,7 +54,7 @@ Un escenario importante para este marco de trabajo consiste en garantizar que se
    > En caso de que los anteriores requisitos no se cumplan, no se ejecutará el script, lo cual resultará en la realización de copias de seguridad coherentes con el sistema de archivos y coherentes frente a bloqueos.
    >
 
-5. Configuración del archivo VMSnapshotPluginConfig.json como se describe a continuación
+5. Configure el archivo VMSnapshotPluginConfig.json como se describe a continuación:
     - **pluginName**: deje este campo como está ya que, de lo contrario, los scripts podrían no funcionar según lo previsto.
     - **preScriptLocation**: proporcione la ruta de acceso completa del script anterior en la máquina virtual de la que se va a realizar la copia de seguridad.
     - **postScriptLocation**: proporcione la ruta de acceso completa del script posterior en la máquina virtual de la que se va a realizar la copia de seguridad.
@@ -76,14 +76,14 @@ Asegúrese de que agrega el registro adecuado al escribir el script anterior y e
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |El script anterior devolvió un error por lo que puede que la copia de seguridad no sea coherente con la aplicación.    | Examine los registros de error del script para corregir el problema.|  
 |    Post-ScriptExecutionFailed |    El script posterior devolvió un error que podría afectar al estado de la aplicación. |    Examine los registros de error del script para corregir el problema y compruebe el estado de la aplicación. |
-| Pre-ScriptNotFound |    No se encontró el script anterior en la ubicación especificada en el archivo de configuración VMSnapshotPluginConfig.json. |    Asegúrese de que el script anterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
-| Post-ScriptNotFound |    No se encontró el script posterior en la ubicación especificada en el archivo de configuración VMSnapshotPluginConfig.json |    Asegúrese de que el script posterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
+| Pre-ScriptNotFound |    No se encontró el script anterior en la ubicación especificada en el archivo de configuración VMSnapshotScriptPluginConfig.json. |    Asegúrese de que el script anterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
+| Post-ScriptNotFound |    No se encontró el script posterior en la ubicación especificada en el archivo de configuración VMSnapshotScriptPluginConfig.json. |    Asegúrese de que el script posterior está en la ruta de acceso especificada en el archivo de configuración para garantizar la realización de copias de seguridad coherentes con la aplicación.|
 | IncorrectPluginhostFile |    El archivo de Pluginhost que se incluye con la extensión VmSnapshotLinux está dañado por lo que no se puede ejecutar el script anterior ni el posterior y la copia de seguridad no será coherente con la aplicación.    | Desinstale la extensión VmSnapshotLinux. Esta se volverá a instalar automáticamente con la siguiente copia de seguridad para solucionar el problema. |
-| IncorrectJSONConfigFile | El archivo VMSnapshotPluginConfig.json es incorrecto por lo que no se puede ejecutar el script anterior ni el posterior y la copia de seguridad no será coherente con la aplicación | Descargue la copia de [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) y configúrela de nuevo |
+| IncorrectJSONConfigFile | El archivo VMSnapshotScriptPluginConfig.json es incorrecto por lo que no se puede ejecutar el script anterior ni el posterior y la copia de seguridad no será coherente con la aplicación | Descargue la copia de [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) y configúrela de nuevo |
 | InsufficientPermissionforPre-Script | Para ejecutar scripts, el usuario raíz debe ser el propietario del archivo y este debe tener permisos "700", es decir, solo el propietario tiene permisos de "lectura", "escritura" y "ejecución" | Asegúrese de que el usuario "raíz" es el "propietario" del archivo de script y que solo el propietario tiene permisos de "lectura", "escritura" y "ejecución". |
 | InsufficientPermissionforPost-Script | Para ejecutar scripts, el usuario raíz debe ser el propietario del archivo y este debe tener permisos "700", es decir, solo el propietario tiene permisos de "lectura", "escritura" y "ejecución" | Asegúrese de que el usuario "raíz" es el "propietario" del archivo de script y que solo el propietario tiene permisos de "lectura", "escritura" y "ejecución". |
-| Pre-ScriptTimeout | La ejecución del script anterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo VMSnapshotPluginConfig.json situado en /etc/azure. |
-| Post-ScriptTimeout | La ejecución del script posterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo VMSnapshotPluginConfig.json situado en /etc/azure. |
+| Pre-ScriptTimeout | La ejecución del script anterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo VMSnapshotScriptPluginConfig.json situado en /etc/azure. |
+| Post-ScriptTimeout | La ejecución del script posterior de la copia de seguridad coherente con la aplicación ha superado el tiempo de espera. | Compruebe el script y aumente el tiempo de espera en el archivo VMSnapshotScriptPluginConfig.json situado en /etc/azure. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la copia de seguridad en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

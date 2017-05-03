@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,83 +31,53 @@ La aplicación de una directiva de etiqueta a un grupo de recursos o a una suscr
 
 Un requisito común es que todos los recursos de un grupo de recursos tengan una etiqueta y un valor determinados. Este requisito a menudo es necesario para realizar un seguimiento de los costos por departamento. Se deben cumplir las condiciones siguientes:
 
-* La etiqueta y el valor necesarios se anexan a los recursos nuevos y actualizados que no tienen etiquetas existentes.
-* La etiqueta y el valor necesarios se anexan a los recursos nuevos y actualizados que puede contener otras etiquetas, pero no la etiqueta y el valor necesarios.
+* La etiqueta y el valor obligatorios se anexan a los recursos nuevos y actualizados que no tienen la etiqueta.
 * La etiqueta y el valor necesarios no se pueden quitar de los recursos existentes.
 
-Este requisito se hace cumplir aplicando a un grupo de recursos las tres directivas siguientes:
+Este requisito se cumple aplicando dos directivas integradas a un grupo de recursos.
 
-* [Anexar la etiqueta](#append-tag) 
-* [Anexar la etiqueta con otras etiquetas](#append-tag-with-other-tags)
-* [Requerir la etiqueta y el valor](#require-tag-and-value)
+| ID | Descripción |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Aplica una etiqueta obligatoria y su valor predeterminado cuando el usuario no la especifica. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Aplica una etiqueta obligatoria y su valor. |
 
-### <a name="append-tag"></a>Anexar la etiqueta
+### <a name="powershell"></a>PowerShell
 
-La siguiente regla de directiva anexa la etiqueta costCenter con un valor predefinido si no hay ninguna etiqueta:
+En el siguiente script de PowerShell, se asignan las dos definiciones de directivas integradas a un grupo de recursos. Antes de ejecutar el script, asigne todas las etiquetas obligatorias al grupo de recursos. Se necesita cada etiqueta en el grupo de recursos para los recursos del grupo. Para asignarlas a todos los grupos de recursos en su suscripción, no proporcione el parámetro `-Name` cuando obtenga los grupos de recursos.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### <a name="append-tag-with-other-tags"></a>Anexar la etiqueta con otras etiqueta
-
-La siguiente regla de directiva anexa la etiqueta costCenter con un valor predefinido si hay etiquetas, pero la etiqueta costCenter no está definida:
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### <a name="require-tag-and-value"></a>Requerir la etiqueta y el valor
-
-La siguiente regla de directiva deniega la actualización o creación de recursos que no tienen la etiqueta costCenter asignada al valor predefinido.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+Después de asignar las directivas, puede desencadenar una actualización a todos los recursos existentes para aplicar las directivas de etiqueta que ha agregado. En el siguiente script se conservan las demás etiquetas que existían en los recursos:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -150,26 +120,6 @@ La siguiente directiva deniega todas las solicitudes que no tienen una etiqueta 
   "then" : {
     "effect" : "deny"
   }
-}
-```
-
-## <a name="trigger-updates-to-existing-resources"></a>Desencadenamiento de actualizaciones en recursos existentes
-
-El siguiente script de PowerShell desencadena una actualización en los recursos existentes para aplicar directivas de etiqueta que usted ha agregado.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
 }
 ```
 

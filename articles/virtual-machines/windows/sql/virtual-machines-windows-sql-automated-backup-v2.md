@@ -16,13 +16,17 @@ ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dbf4b04ad92d9339b15d7f247b947dd58b17daa5
-ms.lasthandoff: 04/06/2017
-
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
+ms.lasthandoff: 04/26/2017
 
 ---
+
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Copia de seguridad automatizada v2 para Azure Virtual Machines con SQL Server 2016 (Resource Manager)
+
+> [!div class="op_single_selector"]
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 Copia de seguridad automatizada v2 configura automáticamente [Copia de seguridad administrada para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas las bases de datos existentes y nuevas en una VM de Azure que ejecuta las versiones SQL Server 2016 Standard, Enterprise o Developer. Esto le permite configurar copias de seguridad de datos normales que utilizan el almacenamiento de blobs de Azure. Copia de seguridad automatizada v2 depende de la [Extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
@@ -47,10 +51,9 @@ Para utilizar Copia de seguridad automatizada v2, revise los siguientes requisit
 
 **Configuración de base de datos**:
 
-- Las bases de datos de destino deben utilizar el modelo de recuperación completa.
+- Las bases de datos de destino deben utilizar el modelo de recuperación completa. Para obtener más información sobre el impacto del modelo de recuperación completa en las copias de seguridad, vea [Copia de seguridad en el modelo de recuperación completa](https://technet.microsoft.com/library/ms190217.aspx).
 - Las bases de datos del sistema no tienen que usar el modelo de recuperación completa. Sin embargo, sí debe usar el modelo de recuperación completa si necesita realizar copias de seguridad de registros para el modelo o para MSDB.
-
-Para obtener más información sobre el impacto del modelo de recuperación completa en las copias de seguridad, vea [Copia de seguridad en el modelo de recuperación completa](https://technet.microsoft.com/library/ms190217.aspx).
+- Las bases de datos de destino deben estar en la instancia predeterminada de SQL Server. La extensión de IaaS de SQL Server no admite instancias con nombre.
 
 **Modelo de implementación de Azure**:
 
@@ -122,9 +125,11 @@ Posteriormente, se vuelve a realizar la copia de seguridad completa de todas las
 > Al programar copias de seguridad diarias, se recomienda programar un período de tiempo amplio para asegurarse de se puede realizar la copia de seguridad de todas las bases de datos durante ese período. Esto es especialmente importante en el caso de que tenga una gran cantidad de datos de los que realizar una copia de seguridad.
 
 ## <a name="configuration-in-the-portal"></a>Configuración en el Portal
-Puede usar Azure Portal para configurar Copia de seguridad automatizada v2 durante el aprovisionamiento o para las máquinas virtuales existentes de SQL Server 2016. 
+
+Puede usar Azure Portal para configurar Copia de seguridad automatizada v2 durante el aprovisionamiento o para las máquinas virtuales existentes de SQL Server 2016.
 
 ### <a name="new-vms"></a>Nuevas máquinas virtuales
+
 Utilice Azure Portal para configurar la opción Copia de seguridad automatizada v2 cuando cree una nueva máquina virtual con SQL Server 2016 en el modelo de implementación de Resource Manager. 
 
 En la hoja **Configuración de SQL Server**, seleccione **Copia de seguridad automatizada**. La siguiente captura de pantalla del Portal de Azure muestra la hoja **Copia de seguridad automatizada de SQL** .
@@ -137,6 +142,7 @@ En la hoja **Configuración de SQL Server**, seleccione **Copia de seguridad aut
 Para conocer el contexto, consulte el tema completo en [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Máquinas virtuales existentes
+
 Para las máquinas virtuales de SQL Server existentes, seleccione su máquina virtual de SQL Server. Después, seleccione la sección **Configuración de SQL Server** de la hoja **Configuración**.
 
 ![Copia de seguridad automatizada de SQL para máquinas virtuales existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
@@ -150,6 +156,7 @@ Cuando termine, haga clic en el botón **Aceptar** situado en la parte inferior 
 Si habilita Copia de seguridad automatizada por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que el Portal de Azure no muestre que se ha configurado Copia de seguridad automatizada. Espere unos minutos hasta que el agente se instale y configure. Después, el Portal de Azure mostrará la nueva configuración.
 
 ## <a name="configuration-with-powershell"></a>Configuración con PowerShell
+
 Puede usar PowerShell para configurar Copia de seguridad automatizada v2. Antes de comenzar:
 
 - [Descargue e instale la última versión de Azure PowerShell](http://aka.ms/webpi-azps).
@@ -176,7 +183,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a name="a-idverifysettings-verify-current-settings"></a><a id="verifysettings"> Verificación de la configuración actual
+### <a id="verifysettings"></a> Verificación de la configuración actual
 Si ha habilitado la copia de seguridad automatizada durante el aprovisionamiento, puede usar PowerShell para comprobar la configuración actual. Ejecute el comando **Get-AzureRmVMSqlServerExtension** y examine la propiedad **AutoBackupSettings**:
 
 ```powershell

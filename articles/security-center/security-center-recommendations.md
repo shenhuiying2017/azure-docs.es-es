@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 04/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b16d8607ca0dbb08421b332df11e462267eb80f5
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 68d74cfde8146007930a4c340b7412fca00afc39
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -49,7 +49,7 @@ Después de establecer una directiva de seguridad, el Centro de seguridad analiz
 
 Para ver los detalles de cada recomendación:
 
-1. Haga clic en el icono **Recomendaciones** de la hoja **Security Center**. Se abrirá la hoja **Recomendaciones** .
+Seleccione el icono **Recomendaciones** de la hoja **Security Center**. Se abrirá la hoja **Recomendaciones** .
 
 Las recomendaciones aparecen en un formato de tabla, donde cada línea representa una recomendación determinada. Las columnas de esta tabla son:
 
@@ -98,7 +98,7 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 
 Puede filtrar y descartar las recomendaciones.
 
-1. Haga clic en **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
+1. Seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
 
     ![Filtrar recomendaciones][2]
 2. Si determina que una recomendación no corresponde, puede descartar la recomendación y, luego, filtrarla para que no aparezca en la vista. Hay dos formas de descartar una recomendación. Una forma es hacer clic con el botón derecho en un elemento y seleccionar **Descartar**. La otra es mover el puntero sobre un elemento, hacer clic en los tres puntos que aparecen a la derecha y seleccionar **Descartar**. Para ver las recomendaciones descartadas, haga clic en **Filtro** y seleccione **Descartadas**.

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 2b4510c417843085101e4b3696c0b81f655df7b5
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 2dc1f8ae8e0a2986806445dc9852a54ceaaef5a4
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -70,7 +70,7 @@ Para obtener instrucciones sobre cómo usar Azure Portal con el fin de ejecutar 
 
 * Para el **URI de script de Bash**, escriba `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
 
-* Asegúrese de que solo ejecuta el script en el nodo principal. Desactive las casillas del nodo de trabajo y el nodo de Zookeeper.
+* Asegúrese de que ejecuta el script solo en el nodo principal y en el de trabajo y desactive el resto de las casillas.
 
 * Haga clic en **Crear**.
 

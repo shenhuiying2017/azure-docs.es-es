@@ -1,28 +1,26 @@
 ---
-title: Evento de error en tareas - Azure | Microsoft Docs
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
+title: Evento de error de tarea de Azure Batch | Microsoft Docs
+description: Referencia del evento de error de tarea de Batch.
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 880fe1cfb0496311d7c386f25762c5d02a6c91f4
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-fail-event"></a>Evento de error en tareas
-Cuerpo del registro del evento de error en tareas
 
-## <a name="remarks"></a>Comentarios
+# <a name="task-fail-event"></a>Evento de error en tareas
+
  Este evento se emite cuando una tarea se completa con error. Actualmente todos los códigos de salida distintos de cero se consideran errores. Este evento se emitirá *además de* un evento de tarea completada y se puede usar para detectar cuando una tarea presenta un error.
 
 

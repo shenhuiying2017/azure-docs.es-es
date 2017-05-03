@@ -9,5 +9,4 @@ Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. Au
 Al configurar el dispositivo VPN, necesita lo siguiente:
 
 - Una clave compartida. Se trata de la misma clave compartida que se especifica al crear la conexión VPN de sitio a sitio. En estos ejemplos se utiliza una clave compartida básica. Se recomienda que genere y utilice una clave más compleja.
-
 - La dirección IP pública de la puerta de enlace de red virtual. Puede ver la dirección IP pública mediante Azure Portal, PowerShell o la CLI.

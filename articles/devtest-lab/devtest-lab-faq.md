@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 7a9b8037967f0180d2f7d2a7d100d0cc3ad9e4a2
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 519f035b411f254e8412ba9a8868b226c63cccb6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -228,7 +228,7 @@ Los grupos de recursos se crean de esta manera para que Azure DevTest Labs admin
 No hay ningún límite en el número de laboratorios que se pueden crear por suscripción específica. Sin embargo, los recursos usados están limitados por cada suscripción. Puede leer sobre los [límites y las cuotas impuestos en las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>¿Cuántas máquinas virtuales se pueden crear por laboratorio?
-No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. No obstante, actualmente el laboratorio admite solo la ejecución de 40 máquinas virtuales al mismo tiempo en almacenamiento estándar y 25 máquinas virtuales de forma simultánea en almacenamiento premium. En estos momentos estamos trabajando para aumentar estos límites.
+No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. Sin embargo, los recursos usados están limitados por cada suscripción (por ejemplo, los núcleos de máquinas virtuales, direcciones IP públicas, etc). Puede leer sobre los [límites y las cuotas impuestos en las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>¿Cómo se puede compartir un vínculo directo a mi laboratorio?
 Para compartir un vínculo directo a los usuarios de laboratorio, puede realizar el procedimiento siguiente:
