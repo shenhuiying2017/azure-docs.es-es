@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -63,16 +63,11 @@ Para restaurar la disponibilidad de las bases de datos, es preciso iniciar la co
 Utilice una de las siguientes guías para realizar la conmutación por error en una base de datos secundaria con replicación geográfica:
 
 * [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md)
-* [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md)
+* [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## <a name="recover-using-geo-restore"></a>Recuperación mediante la restauración geográfica
-Si el tiempo de inactividad de la aplicación no da lugar a responsabilidades civiles, puede usar la restauración geográfica como método para recuperar las bases de datos de la aplicación. Dicho método crea una copia de la base de datos a partir de la última copia de seguridad con redundancia geográfica.
-
-Utilice una de las siguientes guías para restaurar geográficamente una base de datos en una región nueva:
-
-* [Geo-Restore an Azure SQL Database from a geo-redundant backup using the Azure Portal (Restauración geográfica de una Base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica con el Portal de Azure)](sql-database-geo-restore-portal.md)
-* [Restore an Azure SQL Database from a geo-redundant backup using PowerShell (Restauración de una Base de datos SQL de Azure a una región nueva con Powershell)](sql-database-geo-restore-powershell.md)
+Si el tiempo de inactividad de la aplicación no da lugar a responsabilidades civiles, puede usar la [restauración geográfica](sql-database-recovery-using-backups.md) como método para recuperar las bases de datos de la aplicación. Dicho método crea una copia de la base de datos a partir de la última copia de seguridad con redundancia geográfica.
 
 ## <a name="configure-your-database-after-recovery"></a>Configuración de la base de datos después de realizar la recuperación
 Si se usa la conmutación por error con replicación geográfica o la funcionalidad de restauración geográfica para recuperar la base de datos tras una interrupción, hay que asegurarse de que la conectividad con las bases de datos nuevas está configurada correctamente para que se pueda reanudar el funcionamiento normal de la aplicación. Esta es una lista de comprobación de las tareas necesarias para que la producción de la base de datos recuperada esté lista.

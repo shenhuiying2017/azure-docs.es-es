@@ -1,6 +1,6 @@
 ---
 title: "Información general acerca de las tablas en SQL Data Warehouse | Microsoft Docs"
-description: "Introducción a las tablas de Almacenamiento de datos SQL de Azure."
+description: "Introducción a las tablas de Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -12,27 +12,29 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: barbkess;jrj
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe62d672ebd4c6d9f5e161e337dbace0c80f67a5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 914d85267e82ce6a2e60f3841889935046f17c87
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>Información general de tablas en Almacenamiento de datos SQL
+# <a name="overview-of-tables-in-sql-data-warehouse"></a>Información general de tablas en SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Información general][Información general]
-> * [Tipos de datos][Tipo de datos]
-> * [Distribución][Distribución]
-> * [Índice][Índice]
+> * [Información general][Overview]
+> * [Tipos de datos][Data Types]
+> * [Distribución][Distribute]
+> * [Índice][Index]
 > * [Partición][Partition]
-> * [Estadísticas][Estadísticas]
-> * [Temporales][Temporal]
+> * [Estadísticas][Statistics]
+> * [Temporal][Temporary]
 > 
 > 
 
-Es sencillo empezar a crear tablas en Almacenamiento de datos SQL.  La sintaxis básica de [CREATE TABLE][CREATE TABLE] sigue la sintaxis común que probablemente ya conozca si ha trabajado con otras bases de datos.  Para crear una tabla, solo es preciso asignarle un nombre, asignar un nombre a las columnas de la misma y definir los tipos de datos de cada columna.  Si ha creado las tablas en otras bases de datos, esto le resultará muy familiar.
+Es sencillo empezar a crear tablas en SQL Data Warehouse.  La sintaxis básica de [CREATE TABLE][CREATE TABLE] sigue la sintaxis común que probablemente ya conozca si ha trabajado con otras bases de datos.  Para crear una tabla, solo es preciso asignarle un nombre, asignar un nombre a las columnas de la misma y definir los tipos de datos de cada columna.  Si ha creado las tablas en otras bases de datos, esto le resultará muy familiar.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
@@ -47,35 +49,35 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
-Un nuevo atributo fundamental introducido por sistemas distribuidos como Almacenamiento de datos SQL es la **columna de distribución**.  La columna de distribución es mucho lo que parece.  Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano.  Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**.  Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento.  Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distributing tables in SQL Data Warehouse][Distribución] (Distribución de tablas en Almacenamiento de datos SQL).
+Un nuevo atributo fundamental introducido por sistemas distribuidos como SQL Data Warehouse es la **columna de distribución**.  La columna de distribución es mucho lo que parece.  Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano.  Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**.  Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento.  Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distribución de tablas en SQL Data Warehouse][Distribute].
 
 ## <a name="indexing-and-partitioning-tables"></a>Indexación y creación de particiones de tablas
-A medida que el uso de Almacenamiento de datos SQL es más avanzado y con el fin de optimizar el rendimiento, deseará más información acerca del diseño de tablas.  Para más información, consulte los artículos acerca de [tipos de datos de tablas][Tipo de datos], [distribución de una tabla][Distribución], [indexación de una tabla][Índice] y [creación de particiones en una tabla][Partition].
+A medida que el uso de SQL Data Warehouse es más avanzado y con el fin de optimizar el rendimiento, deseará más información acerca del diseño de tablas.  Para más información, consulte los artículos [Tipos de datos de las tablas en SQL Data Warehouse][Data Types], [Distribución de tablas en SQL Data Warehouse][Distribute], [Indexación de tablas en SQL Data Warehouse][Index] y [Creación de particiones de tablas en SQL Data Warehouse][Partition].
 
 ## <a name="table-statistics"></a>Estadísticas de tabla
-Las estadísticas son muy importantes para obtener el máximo rendimiento de Almacenamiento de datos SQL.  Dado que SQL Data Warehouse aún no crea ni actualiza automáticamente las estadísticas, como se pueda esperar de Azure SQL Database, la lectura del artículo sobre [Estadísticas][Estadísticas] puede ser muy importante para asegurarse de que obtiene el máximo rendimiento de las consultas.
+Las estadísticas son muy importantes para obtener el máximo rendimiento de SQL Data Warehouse.  Dado que SQL Data Warehouse aún no crea ni actualiza automáticamente las estadísticas, como se pueda esperar de Azure SQL Database, la lectura del artículo sobre [estadísticas][Statistics] puede ser muy importante para asegurarse de que obtiene el máximo rendimiento de las consultas.
 
 ## <a name="temporary-tables"></a>Tablas temporales
-Las tablas temporales son tablas que solo existen durante el inicio de sesión y no pueden verlas los restantes usuarios.  Las tablas temporales no solo pueden ser una buena forma de evitar que otros vean los resultados temporales, sino que también reducen la necesidad de limpieza.  Dado que las tablas temporales también utilizan el almacenamiento local, pueden ofrecer un rendimiento más rápido para algunas operaciones.  Consulte el artículos [Temporal tables in SQL Data Warehouse][Temporal] (Tablas temporales en Almacenamiento de datos SQL) para más información acerca de las tablas temporales.
+Las tablas temporales son tablas que solo existen durante el inicio de sesión y no pueden verlas los restantes usuarios.  Las tablas temporales no solo pueden ser una buena forma de evitar que otros vean los resultados temporales, sino que también reducen la necesidad de limpieza.  Dado que las tablas temporales también utilizan el almacenamiento local, pueden ofrecer un rendimiento más rápido para algunas operaciones.  Consulte el artículo [Tablas temporales en SQL Data Warehouse][Temporary] para más información acerca de las tablas temporales.
 
 ## <a name="external-tables"></a>Tablas externas
-Las tablas externas, que también se conocen como tablas de Polybase, son tablas que pueden consultarse desde Almacenamiento de datos SQL, pero que apuntan a datos externos de Almacenamiento de datos SQL.  Por ejemplo, puede crear una tabla externa que apunte a archivos de Almacenamiento de blobs de Azure.  Para más información acerca de cómo crear y consultar una tabla externa, consulte [Load data from Azure blob storage into SQL Data Warehouse (PolyBase)][Load data from Azure blob storage into SQL Data Warehouse (PolyBase)] (Carga de datos con PolyBase).  
+Las tablas externas, que también se conocen como tablas de Polybase, son tablas que pueden consultarse desde SQL Data Warehouse, pero que apuntan a datos externos de SQL Data Warehouse.  Por ejemplo, puede crear una tabla externa que apunte a archivos de Azure Blob Storage.  Para más información acerca de cómo crear y consultar una tabla externa, consulte [Load data from Azure blob storage into SQL Data Warehouse (PolyBase)][Load data with Polybase] [Carga de datos de Azure Blob Storage en SQL Data Warehouse (PolyBase)].  
 
 ## <a name="unsupported-table-features"></a>Características no compatibles de las tablas
-Mientras que Almacenamiento de datos SQL contiene muchas de las características de tabla que ofrecen otras bases de datos, hay algunas características que aún no son compatibles.  A continuación se muestra una lista de algunas de las características de tabla que no son compatibles.
+Mientras que SQL Data Warehouse contiene muchas de las características de tabla que ofrecen otras bases de datos, hay algunas características que aún no son compatibles.  A continuación se muestra una lista de algunas de las características de tabla que no son compatibles.
 
 | Características no admitidas |
 | --- |
-| [Propiedad Identity][Propiedad Identity] (consulte [Assigning Surrogate Key Workaround][Assigning Surrogate Key Workaround]) (Solución alternativa para la asignación de una clave suplente) |
-| [Restricciones de tabla][Restricciones de tabla] Primary key, Foreign key, Unique y Check |
-| [Índices únicos][Índices únicos] |
-| [Columnas calculadas][Columnas calculadas] |
-| [Columnas dispersas][Columnas dispersas] |
-| [Tipos definidos por el usuario][Tipos definidos por el usuario] |
-| [Secuencia][Secuencia] |
-| [Desencadenadores][Desencadenadores] |
-| [Vistas indexadas][Vistas indizadas] |
-| [Sinónimos][Sinónimos] |
+| [Propiedad Identity][Identity Property] [consulte [Assigning Surrogate Key Workaround][Assigning Surrogate Key Workaround](Solución alternativa para la asignación de una clave suplente)] |
+| Clave principal, claves externas, única y comprobar [restricciones de tabla][Table Constraints] |
+| [Índices únicos][Unique Indexes] |
+| [Columnas calculadas][Computed Columns] |
+| [Columnas dispersas][Sparse Columns] |
+| [Tipos definidos por el usuario][User-Defined Types] |
+| [Secuencia][Sequence] |
+| [Desencadenadores][Triggers] |
+| [Vistas indizadas][Indexed Views] |
+| [Sinónimos][Synonyms] |
 
 ## <a name="table-size-queries"></a>Consultas de tamaño de tabla
 Una forma sencilla de identificar el espacio y las filas que consume una tabla en cada una de las 60 distribuciones es usar [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
@@ -273,41 +275,36 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte los artículos sobre [tipos de datos de tablas][Tipo de datos], [distribución de una tabla][Distribución], [indexación de una tabla][Índice], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tablas][Estadísticas] y [tablas temporales][Temporal].  Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][Procedimientos recomendados para Almacenamiento de datos SQL de Azure].
+Para más información, consulte los artículos sobre [Tipos de datos de las tablas en SQL Data Warehouse][Data Types], [Distribución de tablas en SQL Data Warehouse][Distribute], [Indexación de tablas en SQL Data Warehouse][Index], [Creación de particiones de tablas en SQL Data Warehouse][Partition], [Administración de estadísticas en tablas en SQL Data Warehouse][Statistics] y [Tablas temporales en SQL Data Warehouse][Temporary].  Para obtener más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse de Azure][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Información general]: ./sql-data-warehouse-tables-overview.md
-[Tipo de datos]: ./sql-data-warehouse-tables-data-types.md
-[Distribución]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporal]: ./sql-data-warehouse-tables-temporary.md
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
-[Load data from Azure blob storage into SQL Data Warehouse (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Propiedad Identity]: https://msdn.microsoft.com/library/ms186775.aspx
+[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
 [Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
-[Restricciones de tabla]: https://msdn.microsoft.com/library/ms188066.aspx
-[Columnas calculadas]: https://msdn.microsoft.com/library/ms186241.aspx
-[Columnas dispersas]: https://msdn.microsoft.com/library/cc280604.aspx
-[Tipos definidos por el usuario]: https://msdn.microsoft.com/library/ms131694.aspx
-[Secuencia]: https://msdn.microsoft.com/library/ff878091.aspx
-[Desencadenadores]: https://msdn.microsoft.com/library/ms189799.aspx
-[Vistas indizadas]: https://msdn.microsoft.com/library/ms191432.aspx
-[Sinónimos]: https://msdn.microsoft.com/library/ms177544.aspx
-[Índices únicos]: https://msdn.microsoft.com/library/ms188783.aspx
+[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
+[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
+[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
+[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
+[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
+[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
+[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
+[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
+[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

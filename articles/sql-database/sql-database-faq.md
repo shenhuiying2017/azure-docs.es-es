@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
 ms.service: sql-database
-ms.custom: overview
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ef58f595ff58b9156df813cf92e2306654a8b3ed
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 610fd07388839ee3673e963f2289cbe0639ad650
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -77,7 +77,7 @@ Para comprender los niveles de servicio y de eDTU, consulte [Opciones de base de
 A diferencia de las bases de datos únicas, el uso de [replicación geográfica activa](sql-database-geo-replication-overview.md) con bases de datos elásticas no afecta a la facturación.  Solo se cobrarán las eDTU aprovisionadas para cada uno de los grupos (grupo principal y grupo secundario).
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>¿Cómo afectará a mi factura el uso de la característica de auditoría?
-La auditoría está integrada en el servicio de la Base de datos SQL sin coste adicional y está disponible para las bases de datos Básica, Estándar y Premium. Sin embargo, para almacenar los registros de auditoría, la característica de auditoría usa una cuenta de Almacenamiento de Azure y se aplican tarifas por tablas y colas de Almacenamiento de Azure en función del tamaño de su registro de auditoría.
+La auditoría está integrada en el servicio de SQL Database sin coste adicional y está disponible para las bases de datos de los niveles Básico, Estándar, Premium y Premium RS. Sin embargo, para almacenar los registros de auditoría, la característica de auditoría usa una cuenta de Almacenamiento de Azure y se aplican tarifas por tablas y colas de Almacenamiento de Azure en función del tamaño de su registro de auditoría.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>¿Cómo puedo encontrar el nivel de rendimiento y de nivel de servicio adecuado para las bases de datos únicas y los grupos elásticos?
 Dispone de algunas herramientas. 
@@ -87,7 +87,7 @@ Dispone de algunas herramientas.
 * Para ver si necesita ajustar una base de datos única hacia arriba o hacia abajo, consulte la [guía de rendimiento para bases de datos únicas](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>¿Con qué frecuencia se puede cambiar el nivel de servicio o el nivel de rendimiento de una base de datos única?
-Si usa las bases de datos V12, puede cambiar el nivel de servicio (entre Básica, Estándar y Premium) o el nivel de rendimiento dentro de un nivel de servicio (por ejemplo, de S1 a S2) siempre que quiera. En cuanto a las versiones anteriores de las bases de datos, puede cambiar el nivel de servicio o el nivel de rendimiento un total de cuatro veces en un período de 24 horas.
+Puede cambiar el nivel de servicio (entre Básico, Estándar, Premium y Premium RS) o el nivel de rendimiento dentro de un nivel de servicio (por ejemplo, de S1 a S2) siempre que quiera. En cuanto a las versiones anteriores de las bases de datos, puede cambiar el nivel de servicio o el nivel de rendimiento un total de cuatro veces en un período de 24 horas.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>¿Con qué frecuencia se pueden ajustar las eDTU por cada grupo?
 Tan a menudo como desee.
@@ -102,7 +102,7 @@ En general, los grupos elásticos están diseñados para un [patrón de aplicaci
 El almacenamiento de copia de seguridad es el almacenamiento asociado a las copias de seguridad de base de datos automatizadas que se usan para la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) y la [restauración geográfica](sql-database-recovery-using-backups.md#geo-restore). La Base de datos SQL de Microsoft Azure le proporciona hasta un 200 % de almacenamiento de base de datos aprovisionado máximo, para que pueda almacenar copias de seguridad sin coste adicional. Por ejemplo, si tiene una instancia de base de datos de tipo Estándar con un tamaño de base de datos aprovisionado de 250 GB, se le proporcionarán 500 GB para almacenar sus copias de seguridad sin coste adicional. Si su base de datos excede el tamaño del almacenamiento de copias de seguridad suministrado, puede elegir reducir el período de retención poniéndose en contacto con el Servicio técnico de Azure o pagar el almacenamiento de copias de seguridad extra; si se decide por la segunda opción, esta se facturará según la tarifa de almacenamiento de redundancia geográfica con acceso de lectura (RA-GRS) estándar. Para obtener más información sobre la facturación RA-GRS, consulte los Detalles de los precios de almacenamiento.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Me cambio de Web/Business a los nuevos niveles de servicio, ¿qué necesito saber?
-Las bases de datos Web y Business de Azure se han retirado. Los niveles Basic, Standard, Premium y Elastic son los que reemplazan las bases de datos Web y Business. Tenemos Preguntas más frecuentes adicionales que le ayudarán en este período de transición. [Preguntas frecuentes relacionadas con la retirada de las versiones Web y Business](sql-database-web-business-sunset-faq.md)
+Las bases de datos Web y Business de Azure se han retirado. Los niveles Básico, Estándar, Premium y Premium RS son los que reemplazan las bases de datos web y profesionales. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>¿Qué es un retraso de replicación esperado al replicar geográficamente una base de datos entre dos regiones dentro de la misma ubicación geográfica de Azure?
 Actualmente admitimos un RPO de cinco segundos, mientras que el retraso de replicación ha sido inferior a este valor durante el hospedaje de la base de datos secundaria geográficamente en la región emparejada recomendada de Azure y en el mismo nivel de servicio.

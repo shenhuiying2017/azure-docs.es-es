@@ -1,5 +1,5 @@
 ---
-title: "Creación de aplicaciones que usan temas y suscripciones de Service Bus | Microsoft Docs"
+title: "Creación de aplicaciones que usan temas y suscripciones de Azure Service Bus | Microsoft Docs"
 description: "Introducción a las funcionalidades de publicación-suscripción que ofrecen los temas y suscripciones de Service Bus."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 04/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
-ms.openlocfilehash: 799ef33c924a0067bb5e8da9d1b4e50091dbabf6
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 75dbbff8e666ed6c9b11fcfc1aa5be0eb759a0bb
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -49,12 +50,12 @@ Para admitir el panel de administración, se crea una segunda suscripción en el
 Con esta configuración, cada mensaje de los terminales de PDV queda a disposición de las suscripciones **Dashboard** e **Inventory**.
 
 ## <a name="show-me-the-code"></a>Visualización del código
-En el artículo [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) se describe cómo registrarse en una cuenta de Azure y crear un espacio de nombres del servicio. Para usar un espacio de nombres de Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. La manera más fácil de hacer referencia a las dependencias de Service Bus es instalar el [paquete Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. El ensamblado también se puede encontrar como parte del SDK de Azure. La descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/).
+En el artículo [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) se describe cómo registrarse en una cuenta de Azure y crear un espacio de nombres del servicio. La manera más fácil de hacer referencia a las dependencias de Service Bus es instalar el [paquete Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. También se pueden encontrar las bibliotecas de Service Bus como parte del Azure SDK. La descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Creación del tema y de las suscripciones
-Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager). Se requieren credenciales apropiadas para crear una instancia de **NamespaceManager** para un espacio de nombres concreto. Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](service-bus-sas-overview.md). La clase [TokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
+Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager). Se requieren credenciales apropiadas para crear una instancia de **NamespaceManager** para un espacio de nombres concreto. Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](service-bus-sas.md). La clase [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
 
-La clase [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. El siguiente código muestra cómo se crea la instancia **NamespaceManager** y se usa para crear el tema **DataCollectionTopic**.
+La clase [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. El siguiente código muestra cómo se crea la instancia **NamespaceManager** y se usa para crear el tema **DataCollectionTopic**.
 
 ```csharp
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "test-blog", string.Empty);
@@ -67,7 +68,7 @@ NamespaceManager namespaceManager = new NamespaceManager(uri, tokenProvider);
 namespaceManager.CreateTopic("DataCollectionTopic");
 ```
 
-Tenga en cuenta que hay sobrecargas del método[CreateTopic](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) que permiten establecer las propiedades del tema. Por ejemplo, puede establecer el valor predeterminado del período de vida (TTL) de los mensajes enviados al tema. A continuación, agregue las suscripciones **Inventory** y **Dashboard**.
+Tenga en cuenta que hay sobrecargas del método[CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_) que permiten establecer las propiedades del tema. Por ejemplo, puede establecer el valor predeterminado del período de vida (TTL) de los mensajes enviados al tema. A continuación, agregue las suscripciones **Inventory** y **Dashboard**.
 
 ```csharp
 namespaceManager.CreateSubscription("DataCollectionTopic", "Inventory");
@@ -75,13 +76,13 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
 ### <a name="send-messages-to-the-topic"></a>Envío de mensajes al tema
-En el caso de operaciones en tiempo de ejecución en entidades de Service Bus (por ejemplo, enviar y recibir mensajes), una aplicación debe crear primero un objeto [MessagingFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#microsoft_servicebus_messaging_messagingfactory). De forma parecida a la clase [NamespaceManager](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager), la instancia de **MessagingFactory** se crea a partir de la dirección base del espacio de nombres del servicio y del proveedor de tokens.
+En el caso de operaciones en tiempo de ejecución en entidades de Service Bus (por ejemplo, enviar y recibir mensajes), una aplicación debe crear primero un objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#microsoft_servicebus_messaging_messagingfactory). De forma parecida a la clase [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager), la instancia de **MessagingFactory** se crea a partir de la dirección base del espacio de nombres del servicio y del proveedor de tokens.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
 ```
 
-Los mensajes enviados a los temas de Service Bus, y los recibidos de ellos, son instancias de la clase [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Esta clase consta de un conjunto de propiedades estándar (como [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) y [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), un diccionario que se usa para conservar las propiedades de la aplicación y un cuerpo de datos de aplicación arbitrarios. Una aplicación puede establecer el cuerpo pasando cualquier objeto serializable (el siguiente ejemplo pasa un objeto **SalesData** que los datos de ventas del terminal del PDV), que usará [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx) para serializar el objeto. También se puede proporcionar un objeto [Stream](https://msdn.microsoft.com/library/system.io.stream.aspx).
+Los mensajes enviados a los temas de Service Bus, y los recibidos de ellos, son instancias de la clase [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Esta clase consta de un conjunto de propiedades estándar (como [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) y [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), un diccionario que se usa para conservar las propiedades de la aplicación y un cuerpo de datos de aplicación arbitrarios. Una aplicación puede establecer el cuerpo pasando cualquier objeto serializable (el siguiente ejemplo pasa un objeto **SalesData** que los datos de ventas del terminal del PDV), que usará [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx) para serializar el objeto. También se puede proporcionar un objeto [Stream](https://msdn.microsoft.com/library/system.io.stream.aspx).
 
 ```csharp
 BrokeredMessage bm = new BrokeredMessage(salesData);
@@ -90,7 +91,7 @@ bm.Properties["StoreName"] = "Redmond";
 bm.Properties["MachineID"] = "POS_1";
 ```
 
-La manera más fácil de enviar mensajes al tema es usar [CreateMessageSender](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageSender_System_String_) para crear un objeto [MessageSender](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesender) directamente desde la instancia de [MessagingFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory).
+La manera más fácil de enviar mensajes al tema es usar [CreateMessageSender](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageSender_System_String_) para crear un objeto [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender) directamente desde la instancia de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory):
 
 ```csharp
 MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
@@ -98,7 +99,7 @@ sender.Send(bm);
 ```
 
 ### <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
-Al igual que cuando se usan las colas, para recibir mensajes desde una suscripción se puede usar un objeto [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver) que se crea directamente desde [MessagingFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory) con [CreateMessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageReceiver_System_String_). Puede usar uno de los dos modos de recepción (**ReceiveAndDelete** y **PeekLock**), como se describe en [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md).
+Al igual que cuando se usan las colas, para recibir mensajes desde una suscripción se puede usar un objeto [MessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) que se crea directamente desde [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) con [CreateMessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageReceiver_System_String_). Puede usar uno de los dos modos de recepción (**ReceiveAndDelete** y **PeekLock**), como se describe en [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md).
 
 Tenga en cuenta que cuando se crea un objeto **MessageReceiver** para las suscripciones, el parámetro *entityPath* tiene la forma `topicPath/subscriptions/subscriptionName`. Por lo tanto, para crear un objeto **MessageReceiver** para la suscripción **Inventory** del tema **DataCollectionTopic**, *entityPath* debe establecerse en `DataCollectionTopic/subscriptions/Inventory`. El código aparece como sigue:
 
@@ -117,7 +118,7 @@ catch (Exception e)
 ```
 
 ## <a name="subscription-filters"></a>Filtros de suscripción
-Hasta ahora, en este escenario todos los mensajes enviados al tema han estado disponibles para todas las suscripciones registradas. Aquí las palabras clave son "han estado a disposición". Mientras que las suscripciones de Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes a la cola de suscripción virtual. Esto se realiza mediante los *filtros* de suscripción. Al crear una suscripción, se puede especificar una expresión de filtro que tenga la forma de un predicado de estilo SQL92 que opere a través de las propiedades del mensaje, tanto las propiedades de sistema (por ejemplo, [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label)) como las propiedades de la aplicación, como **StoreName** en el ejemplo anterior.
+Hasta ahora, en este escenario todos los mensajes enviados al tema han estado disponibles para todas las suscripciones registradas. Aquí las palabras clave son "han estado a disposición". Mientras que las suscripciones de Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes a la cola de suscripción virtual. Esto se realiza mediante los *filtros* de suscripción. Al crear una suscripción, se puede especificar una expresión de filtro que tenga la forma de un predicado de estilo SQL92 que opere a través de las propiedades del mensaje, tanto las propiedades de sistema (por ejemplo, [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label)) como las propiedades de la aplicación, como **StoreName** en el ejemplo anterior.
 
 Al desarrollar el escenario para ilustrarlo, es preciso agregar un segunda almacén al escenario minorista. Los datos de ventas de todos los terminales de los PDV de ambos almacenes deben enrutarse al sistema de gestión centralizada de inventarios, pero un administrador de almacén que use la herramienta Panel solo está interesado en el rendimiento de dicho almacén. Para hacerlo, se puede usar el filtrado de suscripciones. Tenga en cuenta que cuando los terminales de los PDV publican mensajes, establecen la propiedad de la aplicación **StoreName** en el mensaje. Dados dos almacenes, por ejemplo **Redmond** y **Seattle**, los terminales de los PDV de Redmond marcan sus mensajes de datos de ventas con **StoreName** igual a **Redmond**, mientras que los de Seattle usa un **StoreName** igual a **Seattle**. El administrador del almacén de Redmond solo quiere ver los datos de sus terminales de PDV. El sistema aparece como sigue:
 
@@ -130,7 +131,7 @@ SqlFilter dashboardFilter = new SqlFilter("StoreName = 'Redmond'");
 namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboardFilter);
 ```
 
-Con este [filtro de suscripción](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter), solo se copiarán en la cola virtual de la suscripción **Dashboard** los mensajes que tengan la propiedad **StoreName** establecida en **Redmond**. Sin embargo, hay mucha más información sobre al filtrado de suscripciones. Las aplicaciones pueden tener varias reglas de filtro por suscripción, además de la capacidad de modificar las propiedades de un mensaje cuando pasa a la cola virtual de una suscripción.
+Con este [filtro de suscripción](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), solo se copiarán en la cola virtual de la suscripción **Dashboard** los mensajes que tengan la propiedad **StoreName** establecida en **Redmond**. Sin embargo, hay mucha más información sobre al filtrado de suscripciones. Las aplicaciones pueden tener varias reglas de filtro por suscripción, además de la capacidad de modificar las propiedades de un mensaje cuando pasa a la cola virtual de una suscripción.
 
 ## <a name="summary"></a>Resumen
 Todas las razones para usar las colas que se describen [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) también se aplican a los temas, en concreto:
@@ -141,11 +142,7 @@ Todas las razones para usar las colas que se describen [Creación de aplicacione
 * Acoplamiento débil: la red de mensajes puede desarrollarse sin que ello afecte a los puntos de conexión existentes; por ejemplo, agregar suscripciones o cambiar filtros a un tema para permitir que haya nuevos consumidores.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

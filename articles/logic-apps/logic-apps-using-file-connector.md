@@ -1,84 +1,100 @@
 ---
-title: "Conexión a una carpeta del sistema de archivos local en Azure Logic Apps | Microsoft Docs"
-description: "Uso de la puerta de enlace de datos local para conectarse a un sistema de archivos local en el flujo de trabajo de aplicaciones lógicas"
+title: "Conexión a una carpeta del sistema de archivos local desde Azure Logic Apps | Microsoft Docs"
+description: "Conexión a sistemas de archivos locales desde el flujo de trabajo de la aplicación lógica a través de la puerta de enlace de datos local y el conector del sistema de archivos"
+keywords: Sistemas de archivos
 services: logic-apps
-documentationcenter: dev-center-name
 author: derek1ee
 manager: anneta
+documentationcenter: 
+ms.assetid: 
 ms.service: logic-apps
-ms.devlang: wdl
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli
+ms.author: deli; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: 336e3f2bba2fe3bb7abdd6959354349ff61ed6a8
-ms.openlocfilehash: 3bbcb5e9c7a4731eb8eb410a94fddb93b2ea8416
-
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 9eab48d40c3d9db896724d3bdb574d89fdab2796
+ms.lasthandoff: 04/04/2017
 
 ---
-# <a name="use-the-file-system-connector-with-the-on-premises-data-gateway-in-a-logic-app"></a>Uso del conector del sistema de archivos con la puerta de enlace de datos local en una aplicación lógica
 
-La conectividad de nube híbrida es la esencia de Logic Apps. La puerta de enlace de datos local le permite administrar los datos y acceder de manera segura a los recursos locales de Logic Apps. En este artículo, mostraremos cómo conectarse a un sistema de archivos local con un escenario muy sencillo: copiar un archivo que se carga en Dropbox para un recurso compartido de archivos y, después, enviar un correo electrónico.
+# <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Conexión a sistemas de archivos locales desde las aplicaciones lógicas con el conector de sistema de archivos
+
+La conectividad de nube híbrida es fundamental para las aplicaciones lógicas y para administrar datos y acceder de forma segura a recursos locales, las aplicaciones lógicas pueden utilizar la puerta de enlace de datos local. En este artículo, mostramos cómo conectarse a un sistema de archivos local con un escenario básico: copiar un archivo que se carga en Dropbox para un recurso compartido de archivos y, después, enviar un correo electrónico.
 
 ## <a name="prerequisites"></a>Requisitos previos
-- Instale y configure la [puerta de enlace de datos local](https://www.microsoft.com/en-us/download/details.aspx?id=53127) más reciente.
+
+- Instale y configure la [puerta de enlace de datos local](https://www.microsoft.com/download/details.aspx?id=53127) más reciente.
 - Instale la puerta de enlace de datos local más reciente, versión 1.15.6150.1 o superior. En [Conexión a la puerta de enlace de datos local](http://aka.ms/logicapps-gateway) se enumeran los pasos. La puerta de enlace debe instalarse en una máquina local para poder continuar con el resto de los pasos.
 
-## <a name="use-file-system-connector"></a>Uso del conector de sistema de archivos
+## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Incorporación de desencadenadores y acciones para conectarse al sistema de archivos
 
-1. Vamos a crear un desencadenador "Cuando se crea un archivo" de Dropbox y, después, tener una visión general de la acción del conector de archivos es tan sencillo como escribir "Sistema de archivos" en la búsqueda.
+1. Cree una aplicación de la lógica y agregue el desencadenador **Dropbox - Cuando se crea un archivo**. 
+2. En el desencadenador, elija **Paso siguiente** > **Agregar una acción**. 
+3. En el cuadro de búsqueda, escriba `file system` para poder ver todas las acciones admitidas para el conector del sistema de archivos.
 
- ![Conector Buscar archivo](media/logic-apps-using-file-connector/search-file-connector.png)
+   ![Conector Buscar archivo](media/logic-apps-using-file-connector/search-file-connector.png)
 
-2. Elija "Crear archivo" y crear una conexión para él.
- - Si no tiene una conexión existente, se le pedirá que cree una.
- - Seleccione la opción “Connect via on-premises data gateway” (Conectarse a través de la puerta de enlace de datos local). Se muestran más propiedades.
- - Seleccione la carpeta raíz. La carpeta raíz puede ser una carpeta local en la máquina en la que está instalada la puerta de enlace de datos local; también puede ser un recurso compartido de red al que tiene acceso la máquina.
- - Escriba el nombre de usuario y la contraseña en la puerta de enlace.
- - Seleccione la puerta de enlace que se ha instalado en el paso anterior.
-    
- > [!NOTE]
- > La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos.
+2. Elija la acción **Crear archivo** y cree una conexión con el sistema de archivos.
 
- ![Configuración de la conexión](media/logic-apps-using-file-connector/create-file.png)
+   Si no tiene una conexión existente, se le pedirá que cree una.
 
-3. Una vez proporcionados todos los detalles, haga clic en "Crear". Logic Apps configura y prueba la conexión para asegurarse de que funciona correctamente. Si todo se desprotege, verá opciones para la tarjeta que seleccionó anteriormente. El conector de sistema de archivos ahora está listo para usarse.
+   1. Seleccione **Connect via on-premises data gateway** (Conectarse a través de la puerta de enlace de datos local). Aparecen más propiedades.
+   2. Seleccione la carpeta raíz para el sistema de archivos.
+      
+       > [!NOTE]
+       > La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. Puede especificar una carpeta local en la máquina en la que está instalada la puerta de enlace de datos local; o bien, la carpeta puede ser un recurso compartido de red al que tiene acceso la máquina.
 
-4. Ponga el archivo cargado en Dropbox y cópielo en la carpeta raíz del recurso compartido de archivos local.
+   3. Escriba el nombre de usuario y la contraseña para la puerta de enlace.
+   4. Seleccione la puerta de enlace que ha instalado anteriormente.
 
- ![Acción Crear archivo](media/logic-apps-using-file-connector/create-file-filled.png)
+       ![Configuración de la conexión](media/logic-apps-using-file-connector/create-file.png)
 
-5. Una vez copiado el archivo, vamos a enviar un correo electrónico para que los usuarios correspondientes lo sepan. Al igual que otros conectores, la salida de acciones anteriores estará disponible en el selector de “contenido dinámico”.
- - Especifique los destinatarios, el título y el cuerpo del correo electrónico. Utilice el selector de “contenido dinámico” para elegir la salida del conector de archivos para que el correo electrónico sea más completo.
+3. Después de proporcionar todos los detalles, elija **Crear**. 
 
- ![Acción Enviar correo electrónico](media/logic-apps-using-file-connector/send-email.png)
+   Logic Apps configura y comprueba la conexión, asegurándose de que la conexión funciona correctamente. 
+   Si la conexión se configura correctamente, verá opciones para la acción que ha seleccionado anteriormente. 
+   El conector de sistema de archivos ahora está listo para usarse.
 
-6. Guarde la aplicación lógica y pruébela al cargar archivos en Dropbox. Debe ver que el archivo se ha copiado en el recurso compartido de archivos local y que recibe una notificación por correo electrónico sobre la operación.
+4. Especifique que desea copiar archivos desde Dropbox a la carpeta raíz para el recurso compartido de archivos local.
 
-    > [!TIP] 
-    > Consulte cómo [supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   ![Acción Crear archivo](media/logic-apps-using-file-connector/create-file-filled.png)
 
-7. Cuando todo haya acabado, tendrá una aplicación lógica en funcionamiento con el conector de sistema de archivos. Puede empezar a explorar las otras funcionalidades que ofrece:
+5. Después de la aplicación lógica copie el archivo, agregue una acción de Outlook que envíe un correo electrónico para que los usuarios correspondientes lo sepan. Especifique los destinatarios, el título y el cuerpo del correo electrónico. 
 
-    - Crear archivo
-    - Enumerar archivos de la carpeta
-    - Anexar archivo
-    - Eliminar archivo
-    - Obtener contenido de archivo
-    - Obtener contenido de archivo mediante la ruta de acceso
-    - Obtener metadatos de archivo
-    - Obtener metadatos de archivo mediante la ruta de acceso
-    - Enumerar archivos de la carpeta raíz
-    - Actualizar archivo
+   En el selector de contenido dinámico, puede elegir salidas de datos desde el conector de archivos para que pueda agregar más detalles al correo electrónico.
+
+   ![Acción Enviar correo electrónico](media/logic-apps-using-file-connector/send-email.png)
+
+6. Guarde la aplicación lógica. Pruebe la aplicación cargando archivos en Dropbox. El archivo se debe copiar en el recurso compartido local de archivos y debe recibir un correo electrónico acerca de la operación.
+
+   > [!TIP] 
+   > Aprenda cómo [supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+
+Enhorabuena, ahora tiene una aplicación lógica que funciona y que se puede conectar a su sistema de archivos local. Intente explorar otras funcionalidades ofrecidas por el conector, por ejemplo:
+
+- Crear archivo
+- Enumerar archivos de la carpeta
+- Anexar archivo
+- Eliminar archivo
+- Obtener contenido de archivo
+- Obtener contenido de archivo mediante la ruta de acceso
+- Obtener metadatos de archivo
+- Obtener metadatos de archivo mediante la ruta de acceso
+- Enumerar archivos de la carpeta raíz
+- Actualizar archivo
+
+## <a name="get-help"></a>Obtener ayuda
+
+Para formular preguntas, o responderlas, y saber lo que hacen otros usuarios de Azure Logic Apps, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Para ayudar a mejorar Azure Logic Apps y los conectores, vote o envíe ideas en el [sitio de comentarios de usuario de Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Información sobre [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- Cree una [conexión local](../logic-apps/logic-apps-gateway-connection.md) a Logic Apps.
 
-
-
-<!--HONumber=Jan17_HO5-->
-
+- [Conexión a datos locales](../logic-apps/logic-apps-gateway-connection.md) desde aplicaciones lógicas
+- Aprenda sobre la [integración empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md).
 

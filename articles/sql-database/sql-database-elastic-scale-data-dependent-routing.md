@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.date: 03/27/2017
+ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
-ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: ff9f3ee4e44f7d0b51a6724304b0ec0f967f7d88
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -42,7 +43,7 @@ Las aplicaciones deben crear una instancia de **ShardMapManager** durante la ini
 Si una aplicación no manipula el propio mapa de particiones, las credenciales utilizadas en el método de fábrica deben tener simplemente permisos de solo lectura en la base de datos del **mapa de particiones global** . Estas credenciales normalmente son distintas de las credenciales que se usan para abrir conexiones con el administrador de mapa de particiones. Consulte también [Credenciales usadas para acceder a la biblioteca de cliente de bases de datos elásticas](sql-database-elastic-scale-manage-credentials.md). 
 
 ## <a name="call-the-openconnectionforkey-method"></a>Llamada al método OpenConnectionForKey
-El método **[ShardMap.OpenConnectionForKey](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))** devuelve una conexión ADO.Net lista para emitir comandos a la base de datos adecuada según el valor del parámetro **key**. La información de particionamiento la almacena **ShardMapManager** en la caché de la aplicación, de modo que las solicitudes no implican normalmente una búsqueda de base de datos contra la base de datos **Mapa de particiones global**. 
+El método **[ShardMap.OpenConnectionForKey](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)** devuelve una conexión ADO.Net lista para emitir comandos a la base de datos adecuada según el valor del parámetro **key**. La información de particionamiento la almacena **ShardMapManager** en la caché de la aplicación, de modo que las solicitudes no implican normalmente una búsqueda de base de datos contra la base de datos **Mapa de particiones global**. 
 
     // Syntax: 
     public SqlConnection OpenConnectionForKey<TKey>(
@@ -126,10 +127,5 @@ Las propiedades de las transacciones están garantizadas para todas las operacio
 Para desasociar una partición, o volver a adjuntar una partición, consulte [Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

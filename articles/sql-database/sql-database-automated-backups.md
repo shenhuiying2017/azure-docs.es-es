@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8323aa27c93c1c460b31f7f7c822644f5eee929a
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -38,11 +38,6 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 * Restaurar una base de datos en otra región geográfica. Esta opción permite recuperarse de un desastre en una región geográfica cuando no puede acceder a su servidor y base de datos. Crea una nueva base de datos en cualquier servidor existente del mundo. 
 * Restaurar una base de datos desde una copia de seguridad específica guardada en el almacén de Azure Recovery Services. Esta opción permite restaurar una versión antigua de la base de datos para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Consulte el tema sobre la [retención a largo plazo](sql-database-long-term-retention.md).
 * Para llevar a cabo una restauración, consulte el artículo sobre la [restauración de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md).
-
-> [!TIP]
-> Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery-portal.md).
->
-
 
 > [!NOTE]
 > En Azure Storage, el término *replicación* hace referencia a la copia de archivos desde una ubicación a otra. La *replicación de base de datos* de SQL hace referencia a mantener varias bases de datos secundarias sincronizadas con una base de datos principal. 
@@ -82,14 +77,14 @@ Si la aplicación requiere que las copias de seguridad estén disponibles durant
 Una vez que agregue la directiva de LTR a una base de datos mediante Azure Portal o la API, las copias de seguridad completas de la base de datos semanales se copiarán de forma automática en su almacén del servicio Azure Backup. Si la base de datos se cifra con TDE, las copias de seguridad se cifran automáticamente en reposo.  El almacén de Recovery Services eliminará de forma automática sus copias de seguridad caducadas según su fecha y hora y la directiva de LTR.  Por ello, no tiene que administrar la programación de copias de seguridad ni preocuparse por la limpieza de archivos antiguos. La API de restauración admite las copias de seguridad almacenadas en el almacén siempre que este se encuentre en la misma suscripción que la base de datos SQL. Puede usar Azure Portal o PowerShell para acceder a estas copias de seguridad.
 
 > [!TIP]
-> Para ver un tutorial, consulte [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación mediante PowerShell](sql-database-get-started-backup-recovery-portal.md).
+> Para obtener una guía de procedimientos, vea [Configuración de la retención de copias de seguridad a largo plazo de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Para descubrir otras soluciones de continuidad empresarial de Azure SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](sql-database-business-continuity.md).
-- Para restaurar a un momento dado mediante Azure Portal, consulte [Restauración de una base de datos SQL de Azure a un momento dado anterior con Azure Portal](sql-database-point-in-time-restore-portal.md).
+- Para restaurar a un momento dado mediante Azure Portal, consulte [Restauración de una base de datos SQL de Azure a un momento dado anterior con Azure Portal](sql-database-recovery-using-backups.md).
 - Para restaurar a un momento dado mediante PowerShell, consulte [Restauración de una base de datos SQL de Azure a un momento dado anterior con PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante Azure Portal, consulte [Administración de la retención de copia de seguridad a largo plazo mediante Azure Portal](sql-database-manage-long-term-backup-retention-portal.md).
-- Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante PowerShell, consulte [Administración de la retención de copia de seguridad a largo plazo mediante PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
+- Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante Azure Portal, consulte [Administración de la retención de copia de seguridad a largo plazo mediante Azure Portal](sql-database-long-term-backup-retention-configure.md).
+- Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante PowerShell, consulte [Administración de la retención de copia de seguridad a largo plazo mediante PowerShell](sql-database-long-term-backup-retention-configure.md).
 

@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 878bb6e792cff555747912a57c1a15632f06b2f7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: d5be10b4898002a693f617043b2e2b8a890035ca
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -53,7 +53,7 @@ Crear un grupo elástico a partir de una hoja de **servidor** que ya existe en e
 
     **O**
 
-    Quizá vea un mensaje que indica que existen grupos elásticos recomendados para el servidor (solo V12). Haga clic en el mensaje para ver los grupos recomendados según la telemetría de uso histórica de base de datos y, después, en el nivel para ver más detalles y personalizar el grupo. Consulte [Descripción de las recomendaciones de grupos](#understand-pool-recommendations) más adelante en este tema para ver cómo se realiza la recomendación.
+    Quizá vea un mensaje que indica que existen grupos elásticos recomendados para el servidor. Haga clic en el mensaje para ver los grupos recomendados según la telemetría de uso histórica de base de datos y, después, en el nivel para ver más detalles y personalizar el grupo. Consulte [Descripción de las recomendaciones de grupos](#understand-pool-recommendations) más adelante en este tema para ver cómo se realiza la recomendación.
 
     ![grupo recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
@@ -104,7 +104,7 @@ El servicio Base de datos SQL evalúa el historial de uso y recomienda uno o var
 
 La recomendación de grupo consta de:
 
-- Un plan de tarifa del grupo (Basic, Standard o Premium).
+- Un plan de tarifa del grupo (Básico, Estándar, Premium o Premium RS)
 - Las **eDTU del grupo** adecuadas (también denominadas eDTU máx. por grupo)
 - Las **eDTU máx.** y **eDTU mín.** por base de datos
 - La lista de bases de datos recomendadas para el grupo

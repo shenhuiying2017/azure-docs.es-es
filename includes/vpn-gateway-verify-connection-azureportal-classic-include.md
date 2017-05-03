@@ -11,7 +11,3 @@ En Azure Portal, puede ver el estado de la conexión de una instancia de VPN Gat
 5. Para ver más información acerca de la conexión, haga clic en el nombre de la conexión para abrir la hoja **Conexión VPN de sitio a sitio**.
 
     ![Más información del estado de la conexión](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Más información del estado de la conexión")
-
-<!--HONumber=Jan17_HO5-->
-
-

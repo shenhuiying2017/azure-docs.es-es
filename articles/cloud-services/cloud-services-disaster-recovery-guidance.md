@@ -1,9 +1,9 @@
 ---
 title: "Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services | Microsoft Docs"
-description: "Descubra qué hacer en caso de que se produzca una interrupción del servicio de Azure que afecte a los Servicios en la nube de Azure."
+description: "Descubra qué hacer en caso de que se produzca una interrupción del servicio de Azure que afecte a Azure Cloud Services."
 services: cloud-services
 documentationcenter: 
-author: kmouss
+author: mmccrory
 manager: drewm
 editor: 
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
@@ -12,69 +12,52 @@ ms.workload: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2016
-ms.author: kmouss;aglick
+ms.date: 04/04/2017
+ms.author: mmccrory
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 5db1864f5fb04b30a7b8ce59932e826fcef792f0
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b20f846caa12866ce8815c7931a2c66346cd4085
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Qué hacer en caso de una interrupción del servicio de Azure que afecte a los Servicios en la nube de Azure
+# <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services
 En Microsoft, hacemos todo lo posible para garantizar que nuestros servicios estén siempre disponibles cuando los necesite. En ocasiones, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
 
 Microsoft proporciona Acuerdos de Nivel de Servicio para sus servicios como un compromiso en cuanto al tiempo de actividad y la conectividad. Puede encontrar el Acuerdo de Nivel de Servicio para los diferentes servicios de Azure en [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 Azure ya integra en su plataforma muchas características que admiten aplicaciones de alta disponibilidad. Para obtener más información sobre estos servicios, lea [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-En este artículo se expone un escenario real de recuperación ante desastres en el que toda una región experimenta una interrupción debido a un desastre natural importante o a una interrupción del servicio generalizada. Se trata de casos muy infrecuentes, pero debe estar preparado para la posibilidad de que se produzca una interrupción en toda una región. Si una región completa experimenta una interrupción del servicio, las copias con redundancia local de los datos estarían temporalmente no disponibles. Si ha habilitado la replicación geográfica, se almacenan en una región distinta tres copias adicionales de los blobs y las tablas de Almacenamiento de Azure. En caso de una interrupción completa en una región o de un desastre en el que la región primaria no sea recuperable, Azure reasignará todas las entradas DNS a la región de replicación geográfica.
+En este artículo se expone un escenario real de recuperación ante desastres en el que toda una región experimenta una interrupción debido a un desastre natural importante o a una interrupción del servicio generalizada. Se trata de casos muy infrecuentes, pero debe estar preparado para la posibilidad de que se produzca una interrupción en toda una región. Si una región completa experimenta una interrupción del servicio, las copias con redundancia local de los datos estarían temporalmente no disponibles. Si ha habilitado la replicación geográfica, se almacenan en una región distinta tres copias adicionales de los blobs y las tablas de Azure Storage. En caso de una interrupción completa en una región o de un desastre en el que la región primaria no sea recuperable, Azure reasignará todas las entradas DNS a la región de replicación geográfica.
 
 > [!NOTE]
 > Tenga en cuenta que no tiene ningún control sobre este proceso y que solo se producirá si se da una interrupción del servicio en todo el centro de datos. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para más información, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si desea poder influir sobre su propia conmutación por error, plantéese usar un [almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage), el cual crea una copia de solo lectura de sus datos en otra región.
 >
 >
 
-Para ayudarle a administrar estos eventos poco frecuentes, le proporcionamos las siguientes orientaciones para máquinas virtuales (VM) de Azure destinadas a los casos de interrupción del servicio en toda una región donde se ha implementado la aplicación de VM de Azure.
 
-## <a name="option-1-wait-for-recovery"></a>Opción 1: esperar a que se recupere el servicio
-En este caso, no se requieren acciones por su parte. Los equipos de Azure trabajan con rapidez para que el servicio vuelva a estar disponible. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/).
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opción 1: uso de una implementación de copia de seguridad a través de Azure Traffic Manager
+La solución de recuperación ante desastres más sólida implica mantener varias implementaciones de la aplicación en diferentes regiones para después utilizar [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para dirigir el tráfico entre ellas. Azure Traffic Manager proporciona varios [métodos de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md), por lo que puede elegir si desea administrar las implementaciones con un modelo de copia de seguridad o principal o dividir el tráfico entre ellas.
 
-> [!NOTE]
-> Se trata de la mejor opción si el cliente no ha configurado Azure Site Recovery o si cuenta con una implementación secundaria en otra región.
->
->
+![Equilibrio de Azure Cloud Services en distintas regiones con Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-Para los clientes que deseen obtener un acceso inmediato a sus servicios implementados en la nube, se encuentran disponibles las siguientes opciones.
+Para obtener la respuesta más rápida a la pérdida de una región, es importante configurar la [Supervisión de puntos de conexión de Traffic Manager](../traffic-manager/traffic-manager-monitoring.md).
 
-> [!NOTE]
-> Tenga en cuenta que estas opciones pueden conllevar la pérdida de algunos datos.     
->
->
-
-## <a name="option-2-re-deploy-your-cloud-service-configuration-to-a-new-region"></a>Opción 2: volver a implementar la configuración del servicio en la nube en una nueva región
-Si tiene el código original, puede simplemente volver a implementar la aplicación, así como la configuración y los recursos asociados en un nuevo servicio en la nube en una región distinta.  
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opción 2: implementación la aplicación en una región nueva
+Mantener varias implementaciones activas tal como se describe en la opción anterior supone costos adicionales. Si su objetivo de tiempo de recuperación (RTO) es lo suficientemente flexible y tiene el código original o el paquete de Cloud Services compilado, puede crear una nueva instancia de la aplicación en otra región y actualizar los registros DNS para que apunten a la nueva implementación.
 
 Para más información sobre cómo crear e implementar una aplicación de servicio en la nube, consulte [Creación e implementación de un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 
 En función de los orígenes de datos de la aplicación, es posible que deba comprobar los procedimientos de recuperación para el origen de datos de su aplicación.
 
-* Para los orígenes de datos de Almacenamiento de Azure, consulte [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md#read-access-geo-redundant-storage) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
-* Para los orígenes de Base de datos SQL, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
+* Para los orígenes de datos de Azure Storage, consulte [Replicación de Azure Storage](../storage/storage-redundancy.md#read-access-geo-redundant-storage) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
+* Para los orígenes de SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con SQL Database](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
 
-## <a name="option-3-use-a-backup-deployment-through-azure-traffic-manager"></a>Opción 3: usar una implementación de copia de seguridad a través del Administrador de tráfico de Azure
-Para esta opción, se da por hecho que ya ha diseñado la solución de aplicación teniendo en cuenta la recuperación ante desastres. Puede utilizar esta opción si ya tiene una implementación de aplicación de servicios en la nube secundaria que se ejecuta en una región distinta y está conectada a través de un canal de administrador de tráfico. En este caso, compruebe el estado de la implementación secundaria. Si es bueno, puede redirigir el tráfico a ella mediante el Administrador de tráfico de Azure. Con esta estrategia, es posible aprovechar el método de enrutamiento de tráfico y las configuraciones de orden de conmutación por error del Administrador de tráfico de Azure. Para más información, consulte [¿Qué es Traffic Manager?](../traffic-manager/traffic-manager-overview.md).
 
-![Equilibrio de los Servicios en la nube de Azure en distintas regiones con el Administrador de tráfico de Azure](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+## <a name="option-3-wait-for-recovery"></a>Opción 3: espera a la recuperación
+En este caso, no se requiere ninguna acción por su parte, pero el servicio no estará disponible hasta que se restaure la región. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo implementar una estrategia de alta disponibilidad y recuperación ante desastres, consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 Para obtener unos conocimientos técnicos detallados sobre las funcionalidades de una plataforma de nube, consulte [Guía técnica sobre resistencia en Azure](../resiliency/resiliency-technical-guidance.md).
-
-Si las instrucciones no están claras, o si desea que Microsoft realice las operaciones en su lugar, póngase en contacto con el [servicio de asistencia al cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

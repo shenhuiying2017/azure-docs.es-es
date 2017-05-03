@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
-ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf864e0d9922e8e842945db9964899d602fd7eed
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ Azure proporciona un conjunto de soluciones de almacén de datos y almacenamient
 En este artículo se describe:
 
 * [Números de referencia de rendimiento](#performance-reference) , para almacenes de datos origen y receptor que le ayudan a planear su proyecto.
-* Características que pueden aumentar el rendimiento de la copia en diferentes escenarios, como [copia en paralelo](#parallel-copy), [unidades de movimiento de datos de nube](#cloud-data-movement-units) y [copia almacenada provisionalmente](#staged-copy).
+* Características que pueden aumentar el rendimiento de la copia en diferentes escenarios, como [unidades de movimiento de datos de nube](#cloud-data-movement-units), [copia en paralelo](#parallel-copy) y [copia almacenada provisionalmente](#staged-copy);
 * [Directrices de ajuste de rendimiento](#performance-tuning-steps) , acerca de cómo optimizar el rendimiento y los factores clave que pueden afectar al rendimiento de la copia.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ En este artículo se describe:
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 8 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1 GBps**. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
+> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 32 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1 GBps**. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
 >
 >
 
@@ -84,6 +84,38 @@ Echemos un vistazo a un escenario de ejemplo. En el ejemplo siguiente, se van a 
 y así sucesivamente.
 
 En este ejemplo, cuando el valor de **concurrency** está establecido en 2, la **ejecución de actividad 1** y la **ejecución de actividad 2** copian datos de dos ventanas de actividad **a la vez** para mejorar el rendimiento del movimiento de datos. Sin embargo, si hay varios archivos asociados con la ejecución de actividad 1, el servicio de movimiento de datos copia de uno en uno los archivos del origen al destino.
+
+### <a name="cloud-data-movement-units"></a>Unidades de movimiento de datos de nube
+Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una DMU podría utilizarse en una operación de copia de una nube a otra, pero no en una copia híbrida.
+
+De forma predeterminada, Data Factory usa una única DMU para realizar una única ejecución de la actividad de copia. Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
+
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 32
+        }
+    }
+]
+```
+Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (predeterminado), 2, 4, 8, 16 y 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
+
+> [!NOTE]
+> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se **copian varios archivos de Blob Storage, Data Lake Store, Amazon S3 o FTP en la nube a Blob Storage, Data Lake Store o Azure SQL Database**.
+>
+>
 
 ### <a name="parallelcopies"></a>parallelCopies
 Puede usar la propiedad **parallelCopies** para indicar el paralelismo que quiere que use la actividad de copia. Esta propiedad se puede considerar como el número máximo de subprocesos dentro de la actividad de copia que se pueden leer del origen o escribir en los almacenes de datos receptores en paralelo.
@@ -126,38 +158,6 @@ Puntos a tener en cuenta:
 
 > [!NOTE]
 > Debe usar Data Management Gateway versión 1.11 o superior para emplear la característica **parallelCopies** cuando realice una copia híbrida.
->
->
-
-### <a name="cloud-data-movement-units"></a>Unidades de movimiento de datos de nube
-Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una DMU podría utilizarse en una operación de copia de una nube a otra, pero no en una copia híbrida.
-
-De forma predeterminada, Data Factory usa una única DMU para realizar una única ejecución de la actividad de copia. Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
-
-```json
-"activities":[  
-    {
-        "name": "Sample copy activity",
-        "description": "",
-        "type": "Copy",
-        "inputs": [{ "name": "InputDataset" }],
-        "outputs": [{ "name": "OutputDataset" }],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "cloudDataMovementUnits": 4
-        }
-    }
-]
-```
-Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (predeterminado), 2, 4 y 8. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
-
-> [!NOTE]
-> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se **copian varios archivos de Blob Storage, Data Lake Store, Amazon S3 o FTP en la nube a Blob Storage, Data Lake Store o Azure SQL Database**, y el tamaño de archivo es mayor o igual que 16 MB de forma individual.
 >
 >
 

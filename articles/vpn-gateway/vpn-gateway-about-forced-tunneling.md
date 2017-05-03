@@ -13,36 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2016
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5183fc3b4e7ec3fe6060a6a9551656332300995f
-ms.openlocfilehash: 75cd2b7073d5cda6fc90aa963a9ad321e6992743
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 326d09de70e00463df554f27d754ef6999da21d1
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
+
+La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio para inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquinas virtuales en Azure siempre atravesará desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionar o auditar el tráfico. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
+
+[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+Este artículo le guiará a través del proceso de configuración de la tunelización forzada para redes virtuales creadas mediante el modelo de implementación clásica. La tunelización forzada puede configurarse mediante el uso de PowerShell, no a través del portal. Si desea configurar la tunelización forzada para el modelo de implementación de Resource Manager, seleccione el artículo clásico de la lista desplegable siguiente:
+
 > [!div class="op_single_selector"]
 > * [PowerShell: clásico](vpn-gateway-about-forced-tunneling.md)
 > * [PowerShell: administrador de recursos](vpn-gateway-forced-tunneling-rm.md)
 > 
 > 
-
-La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio para inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. 
-
-Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquinas virtuales en Azure siempre atravesará desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionar o auditar el tráfico. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
-
-Este artículo le guiará a través del proceso de configuración de la tunelización forzada para redes virtuales creadas mediante el modelo de implementación clásica. 
-
-**Información sobre los modelos de implementación de Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-**Modelos de implementación y herramientas para la tunelización forzada**
-
-Puede configurarse una conexión de tunelización forzada para el modelo de implementación clásica y el de Resource Manager. Para obtener más información, vea la tabla siguiente. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
-
-[!INCLUDE [vpn-gateway-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones
 La tunelización forzada en Azure se configura a través de rutas definidas por el usuario (UDR) de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure. La sección siguiente muestra la limitación actual de la tabla de enrutamiento y las rutas de una red virtual de Azure:
@@ -74,7 +66,8 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 ## <a name="configure-forced-tunneling"></a>Configuración de la tunelización forzada
 El siguiente procedimiento lo ayudará a especificar la tunelización forzada en una red virtual. Los pasos de configuración corresponden al archivo de configuración de red virtual.
 
-    <VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
+```
+<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>
         </AddressSpace>
@@ -109,60 +102,81 @@ El siguiente procedimiento lo ayudará a especificar la tunelización forzada en
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSite>
+```
 
 En el ejemplo, la red virtual MultiTier-VNet tiene tres subredes: *Frontend*, *Midtier* y *Backend* con cuatro conexiones entre entornos: *DefaultSiteHQ* y tres *ramas*. 
 
 Los pasos establecerán *DefaultSiteHQ* como la conexión de sitio predeterminada para la tunelización forzada y configurarán las subredes Midtier y Backend para que usen dicha tunelización.
 
 1. Cree una tabla de enrutamiento. Use el siguiente cmdlet para crear la tabla de enrutamiento.
-   
-        New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+
+  ```powershell
+  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+  ```
 2. Agregue una ruta predeterminada a la tabla de enrutamiento. 
    
-    El siguiente ejemplo agrega una ruta predeterminada a la tabla de enrutamiento que creó en el paso 1. Tenga en cuenta que la única ruta admitida es el prefijo de destino de&0;.0.0.0/0 para el próximo salto VPNGateway.
-   
-        Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+    El siguiente ejemplo agrega una ruta predeterminada a la tabla de enrutamiento que creó en el paso 1. Tenga en cuenta que la única ruta admitida es el prefijo de destino de 0.0.0.0/0 para el próximo salto VPNGateway.
+
+  ```powershell
+  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+  ```
 3. Asocie la tabla de enrutamiento a las subredes. 
    
     Una vez creada una tabla de enrutamiento y agregada una ruta, use el ejemplo siguiente para agregar o asociar la tabla de enrutamiento a una subred de la red virtual. Los siguientes ejemplos agregan la tabla de enrutamiento MyRouteTable a las subredes Midtier y Backend de VNet MultiTier-VNet.
-   
-        Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-   
-        Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+
+  ```powershell
+  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+  ```
 4. Asigne un sitio predeterminado para la tunelización forzada. 
    
     En el paso anterior, los scripts del cmdlet de ejemplo crean la tabla de enrutamiento y la tabla de enrutamiento asociada a dos de las subredes de la red virtual. El paso restante consiste en seleccionar un sitio local entre las conexiones de varios sitios de la red virtual como el sitio predeterminado o túnel.
-   
-        $DefaultSite = @("DefaultSiteHQ")
-        Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+
+  ```powershell
+  $DefaultSite = @("DefaultSiteHQ")
+  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+  ```
 
 ## <a name="additional-powershell-cmdlets"></a>Cmdlets de PowerShell adicionales
 ### <a name="to-delete-a-route-table"></a>Para eliminar una tabla de enrutamiento
-    Remove-AzureRouteTable -Name <routeTableName>
 
+```powershell
+Remove-AzureRouteTable -Name <routeTableName>
+```
+  
 ### <a name="to-list-a-route-table"></a>Para mostrar una tabla de enrutamiento
-    Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
+
+```powershell
+Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
+```
 
 ### <a name="to-delete-a-route-from-a-route-table"></a>Para eliminar una ruta de una tabla de enrutamiento
-    Remove-AzureRouteTable –Name <routeTableName>
+
+```powershell
+Remove-AzureRouteTable –Name <routeTableName>
+```
 
 ### <a name="to-remove-a-route-from-a-subnet"></a>Para quitar una ruta de una subred
-    Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
+
+```powershell
+Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
+```
 
 ### <a name="to-list-the-route-table-associated-with-a-subnet"></a>Para mostrar la tabla de enrutamiento asociada a una subred
-    Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
+
+```powershell
+Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
+```
 
 ### <a name="to-remove-a-default-site-from-a-vnet-vpn-gateway"></a>Para quitar un sitio predeterminado de una puerta de enlace de VPN de VNet
-    Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
+
+```powershell
+Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
+```
 
 
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

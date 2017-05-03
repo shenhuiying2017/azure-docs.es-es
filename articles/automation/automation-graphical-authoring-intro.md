@@ -4,7 +4,7 @@ description: "Creación gráfica le permite crear runbooks para Automatización 
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/03/2016
+ms.date: 04/14/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8d408f6ac49ea376508e025c53b09434c2ea164a
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1e61e3717a9006f67c0b57c33573c2d0f5fbfa05
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -253,13 +254,13 @@ Puede establecer [puntos de control](automation-powershell-workflow.md#checkpoin
 Los puntos de control solo se habilitan en los runbooks gráficos de flujo de trabajo de PowerShell; no están disponibles en los runbooks gráficos.  Si el runbook usa cmdlets de Azure, debe seguir cualquier actividad establecida con puntos de control con un AzureRMAccount en caso de suspender el runbook y de reiniciarlo a partir de dicho punto de control en un trabajo diferente. 
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticación a los recursos de Azure
-Los runbooks de Automatización de Azure que administran recursos de Azure requerirán tendrán que autenticarse en Azure.  La nueva característica de [cuenta de ejecución](automation-sec-configure-azure-runas-account.md) (también denominada "entidad de servicio") es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción a los runbooks de Automatización de Azure.  Puede agregar esta funcionalidad a un runbook gráfico incorporando el activo de conexión **AzureRunAsConnection**, que utiliza el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell, y el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) al lienzo. Esto se muestra en el ejemplo siguiente.<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Los runbooks de Automatización de Azure que administran recursos de Azure requerirán tendrán que autenticarse en Azure.  La característica de [cuenta de ejecución](automation-offering-get-started.md#automation-account) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation.  Puede agregar esta funcionalidad a un runbook gráfico incorporando el activo de conexión **AzureRunAsConnection**, que utiliza el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell, y el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) al lienzo. Esto se muestra en el ejemplo siguiente.<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 La actividad de obtención de conexión de ejecución (es decir, Get-AutomationConnection) se configura con un origen de datos de valor constante denominado "AzureRunAsConnection".<br>![Configuración de la conexión de ejecución](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 La siguiente actividad, Add-AzureRmAccount, agrega la cuenta de ejecución autenticada para que pueda utilizarse en el runbook.<br>
 ![Conjunto de parámetros Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 Para los parámetros **APPLICATIONID**, **CERTIFICATETHUMBPRINT** y **TENANTID**, tendrá que especificar el nombre de la propiedad de la ruta acceso de campo, ya que la actividad genera un objeto con varias propiedades.  De lo contrario, al ejecutar el runbook, el intento de autenticación no se realizará correctamente.  Estos son los requisitos mínimos para autenticar el runbook con la cuenta de ejecución.
 
-Con el fin de que la compatibilidad con versiones anteriores siga estando disponible para los suscriptores que hayan creado una cuenta de Automation con una [cuenta de usuario de Azure AD](automation-sec-configure-aduser-account.md) con el objetivo de administrar recursos de administración de servicios de Azure (ASM) o de Azure Resource Manager, el método de autenticación será el cmdlet Add-AzureAccount con un [activo de credencial](http://msdn.microsoft.com/library/dn940015.aspx) que representa un usuario de Active Directory con acceso a la cuenta de Azure.
+Para que la compatibilidad con versiones anteriores siga estando disponible para los suscriptores que hayan creado una cuenta de Automation con una [cuenta de usuario de Azure AD](automation-create-aduser-account.md) con el objetivo de administrar recursos de implementación clásica de Azure o de Azure Resource Manager, el método de autenticación será el cmdlet Add-AzureAccount con un [activo de credencial](automation-credentials.md) que representa un usuario de Active Directory con acceso a la cuenta de Azure.
 
 Puede agregar esta funcionalidad a un runbook gráfico si agrega un recurso de credencial al lienzo, seguido de una actividad Add-AzureAccount.  Add-AzureAccount usa la actividad de credencial para su entrada.  Esto se muestra en el ejemplo siguiente.
 
@@ -381,10 +382,5 @@ En el ejemplo siguiente se usa la salida de una actividad llamada *Get Twitter C
 * Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 * Para comprender cómo autenticarse con la cuenta de ejecución de Automatización de Azure, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

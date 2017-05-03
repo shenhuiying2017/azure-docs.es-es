@@ -1,6 +1,6 @@
 ---
 title: "Creación de la identidad de la aplicación de Azure en el portal | Microsoft Docs"
-description: "Describe cómo crear una nueva aplicación de Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en roles en el Administrador de recursos de Azure para administrar el acceso a los recursos."
+description: "Describe cómo crear una nueva aplicación de Azure Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en rol en Azure Resource Manager para administrar el acceso a los recursos."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 0b1d7bb2cbbeed2b41c22f19c1db49e81dadd4d7
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="use-portal-to-create-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos
+# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 > [!div class="op_single_selector"]
 > * [PowerShell](resource-group-authenticate-service-principal.md)
 > * [CLI de Azure](resource-group-authenticate-service-principal-cli.md)
@@ -28,7 +29,7 @@ ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 >
 >
 
-Si tiene una aplicación que necesita tener acceso a ciertos recursos o modificarlos, puede configurar una aplicación de Active Directory (AD) y asignarle los permisos requeridos. Este enfoque es preferible a ejecutar la aplicación con sus propias credenciales por los siguientes motivos:
+Si tiene una aplicación que necesita tener acceso a ciertos recursos o modificarlos, puede configurar una aplicación de Azure Active Directory (AD) y asignarle los permisos requeridos. Este enfoque es preferible a ejecutar la aplicación con sus propias credenciales por los siguientes motivos:
 
 * Puede asignar permisos a la identidad de aplicación que sean diferentes a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
 * No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian. 
@@ -37,20 +38,20 @@ Si tiene una aplicación que necesita tener acceso a ciertos recursos o modifica
 En este tema se muestra cómo realizar tales pasos a través del portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
  
 ## <a name="required-permissions"></a>Permisos necesarios
-Para completar este tema, debe tener permisos suficientes para registrar una aplicación en su instancia de Active Directory y asignar la aplicación a un rol en su suscripción de Azure. Vamos a asegurarnos de que tiene los permisos adecuados para realizar esos pasos.
+Para completar este tema, debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción de Azure. Vamos a asegurarnos de que tiene los permisos adecuados para realizar esos pasos.
 
-### <a name="check-active-directory-permissions"></a>Comprobación de los permisos de Active Directory
+### <a name="check-azure-active-directory-permissions"></a>Comprobación de los permisos de Azure Active Directory
 1. Inicie sesión en su cuenta de Azure mediante [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory**.
 
      ![seleccionar azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-3. En su instancia de Active Directory, seleccione **Configuración de usuario**.
+3. En su instancia de Azure Active Directory, seleccione **Configuración de usuario**.
 
      ![seleccionar configuración de usuario](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. Compruebe la configuración de **App registrations** (Registros de aplicaciones). Si está establecida en **Sí**, los usuarios que no sean administradores pueden registrar aplicaciones de AD. Esta configuración significa que ningún usuario de Active Directory puede registrar una aplicación. Puede continuar con [Check Azure subscription permissions](#check-azure-subscription-permissions) (Comprobar permisos de suscripción de Azure).
+4. Compruebe la configuración de **App registrations** (Registros de aplicaciones). Si está establecida en **Sí**, los usuarios que no sean administradores pueden registrar aplicaciones de AD. Esta configuración significa que ningún usuario en el inquilino de Azure Active Directory puede registrar una aplicación. Puede continuar con [Check Azure subscription permissions](#check-azure-subscription-permissions) (Comprobar permisos de suscripción de Azure).
 
      ![ver registros de aplicaciones](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. Si la configuración de registros de aplicaciones está establecida en **No**, solo los usuarios administradores pueden registrar aplicaciones. Debe comprobar si la cuenta es un administrador de Active Directory. Seleccione **Introducción** y **Buscar un usuario** en Quick tasks (Tareas rápidas).
+5. Si la configuración de registros de aplicaciones está establecida en **No**, solo los usuarios administradores pueden registrar aplicaciones. Debe comprobar si la cuenta es un administrador del inquilino de Active Directory. Seleccione **Introducción** y **Buscar un usuario** en Quick tasks (Tareas rápidas).
 
      ![encontrar usuario](./media/resource-group-create-service-principal-portal/find-user.png)
 6. Busque la cuenta y selecciónela cuando la encuentre.
@@ -59,7 +60,7 @@ Para completar este tema, debe tener permisos suficientes para registrar una apl
 7. Para la cuenta, seleccione **Directory role** (Rol de directorio). 
 
      ![rol de directorio](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. Vea el rol asignado para Active Directory. Si su cuenta está asignada al rol Usuario pero la configuración del registro de aplicaciones (de los pasos anteriores) está limitada a los usuarios administradores, pida a su administrador que le asigne un rol de administrador o que permita a los usuarios registrar aplicaciones.
+8. Vea el rol de directorio asignado en Azure AD. Si su cuenta está asignada al rol Usuario pero la configuración del registro de aplicaciones (de los pasos anteriores) está limitada a los usuarios administradores, pida a su administrador que le asigne un rol de administrador o que permita a los usuarios registrar aplicaciones.
 
      ![rol de vista](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -68,9 +69,9 @@ En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorizat
 
 Para comprobar los permisos de su suscripción:
 
-1. Si los pasos anteriores no le han llevado a su cuenta de Active Directory, seleccione **Azure Active Directory** en el panel izquierdo.
+1. Si los pasos anteriores no le han llevado a su cuenta de Azure AD, seleccione **Azure Active Directory** en el panel izquierdo.
 
-2. Busque su cuenta de Active Directory. Seleccione **Introducción** y **Buscar un usuario** en Quick tasks (Tareas rápidas).
+2. Encuentre la cuenta de Azure AD. Seleccione **Introducción** y **Buscar un usuario** en Quick tasks (Tareas rápidas).
 
      ![encontrar usuario](./media/resource-group-create-service-principal-portal/find-user.png)
 2. Busque la cuenta y selecciónela cuando la encuentre.
@@ -84,7 +85,7 @@ Para comprobar los permisos de su suscripción:
 
      ![mostrar permisos](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
-## <a name="create-an-active-directory-application"></a>Creación de una aplicación de Active Directory
+## <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
 1. Inicie sesión en su cuenta de Azure mediante [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory**.
 
@@ -106,7 +107,7 @@ Ha creado la aplicación.
 ## <a name="get-application-id-and-authentication-key"></a>Obtención del id. y la clave de autenticación de la aplicación
 Al iniciar sesión mediante programación, necesitará el identificador de la aplicación y una clave de autenticación. Para obtener estos valores, use los pasos siguientes:
 
-1. En **App registrations** (Registros de aplicaciones), en Active Directory, seleccione su aplicación.
+1. En **Registros de aplicaciones**, en Azure Active Directory, seleccione su aplicación.
 
      ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones de la sección de [aplicaciones de ejemplo](#sample-applications) hacen referencia a este valor como el id. de cliente.
@@ -126,9 +127,9 @@ Al iniciar sesión mediante programación, necesitará el identificador de la ap
 ## <a name="get-tenant-id"></a>Obtención del identificador de inquilino
 Al iniciar sesión mediante programación, deberá pasar el id. de inquilino con la solicitud de autenticación. 
 
-1. Para obtener el id. de inquilino, seleccione **Propiedades** en su instancia de Active Directory. 
+1. Para obtener el identificador de inquilino, seleccione **Propiedades** en el inquilino de Azure AD. 
 
-     ![seleccionar propiedades de active directory](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+     ![Selección de las propiedades de Azure AD](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
 2. Copie el **id. de directorio**. Este valor es el id. de inquilino.
 
@@ -165,7 +166,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
 ## <a name="log-in-as-the-application"></a>Inicio de sesión con la aplicación
 
-La aplicación está ahora configurada en Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. A la aplicación se le asigna un rol que le proporciona determinadas acciones que puede realizar. 
+La aplicación está ahora configurada en Azure Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. A la aplicación se le asigna un rol que le proporciona determinadas acciones que puede realizar. 
 
 Para iniciar sesión a través de PowerShell, consulte [Proporcione credenciales a través de PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
 
@@ -206,10 +207,5 @@ Las aplicaciones de ejemplo siguientes muestran cómo iniciar con la aplicación
 ## <a name="next-steps"></a>Pasos siguientes
 * Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

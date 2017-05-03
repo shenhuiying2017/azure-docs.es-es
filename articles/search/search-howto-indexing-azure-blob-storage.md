@@ -12,12 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
-ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
+ms.lasthandoff: 04/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 * CSV (consulte la característica [Indexación de blobs CSV](search-howto-index-csv-blobs.md) en versión preliminar)
 
 > [!IMPORTANT]
-> La compatibilidad con archivos CSV y JSON está actualmente en fase de versión preliminar. Estos formatos solo están disponibles con la versión **2015-02-28-Preview** de la API de REST o una versión preliminar 2.x del SDK de. NET. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
+> La compatibilidad con matrices CSV y JSON está actualmente en fase de versión preliminar. Estos formatos solo están disponibles con la versión **2015-02-28-Preview** de la API de REST o una versión preliminar 2.x del SDK de. NET. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 >
 >
 
@@ -139,11 +139,15 @@ Para más información sobre la API de creación de indexador, consulte [Crear i
 En función de la [configuración del indizador](#PartsOfBlobToIndex), el indizador de blob puede indizar solo los metadatos de almacenamiento (resulta útil cuando solo le interesan los metadatos y no necesita indizar el contenido de los blobs), los metadatos de almacenamiento y contenido, o bien el contenido textual y los metadatos. De forma predeterminada, el indizador extrae los metadatos y el contenido.
 
 > [!NOTE]
-> De forma predeterminada, se indizan blobs con contenido estructurado como JSON, CSV o XML como un único fragmento de texto. Si desea indizar blobs CSV y JSON en una forma estructurada, consulte las características [Indexación de blobs JSON](search-howto-index-json-blobs.md) y [Indexación de blobs CSV](search-howto-index-csv-blobs.md) en versión preliminar. En estos momentos no se puede analizar el contenido XML. Si tiene que hacerlo, agregue una sugerencia en [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
->
+> De forma predeterminada, se indexan blobs con contenido estructurado como JSON o CSV como un único fragmento de texto. Si desea indizar blobs CSV y JSON en una forma estructurada, consulte las características [Indexación de blobs JSON](search-howto-index-json-blobs.md) y [Indexación de blobs CSV](search-howto-index-csv-blobs.md) en versión preliminar.
+> 
 > Un documento compuesto o insertado (por ejemplo, un archivo ZIP o un documento de Word con correo electrónico de Outlook insertado que contiene datos adjuntos) también se indexa como un solo documento.
 
-* Se extrae el contenido textual entero en un campo de cadena denominado "`content`".
+* Se extrae el contenido textual en un campo de cadena denominado "`content`".
+
+> [!NOTE]
+> Azure Search limita la cantidad de texto que extrae según el plan de tarifa: 32 000 caracteres para el nivel Gratis, 64 000 para Básico y 4 millones para Estándar, Estándar S2 y Estándar S3. Se incluye una advertencia en la respuesta de estado del indexador para documentos truncados.  
+
 * Las propiedades de metadatos especificadas por el usuario en el blob, si las hubiera, se extraen textualmente.
 * Las propiedades de metadatos de blob estándar se extraen en los campos siguientes:
 
@@ -173,7 +177,7 @@ Debe considerar detenidamente qué campo extraído se debe asignar al campo de c
 * Si ninguna de las opciones anteriores le sirve, puede agregar una propiedad de metadatos personalizada a los blobs. De todas formas, esta opción requiere que el proceso de carga de blob agregue dicha propiedad de metadatos a todos los blobs. Dado que la clave es una propiedad obligatoria, todos los blobs que no tengan esa propiedad no se indexarán.
 
 > [!IMPORTANT]
-> Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones de base&64; (la segunda opción anterior).
+> Si no hay ninguna asignación explícita para el campo de clave en el índice, Azure Search usa automáticamente `metadata_storage_path` como clave y valores de clave de codificaciones de base 64 (la segunda opción anterior).
 >
 >
 
@@ -184,7 +188,7 @@ En este ejemplo, vamos a seleccionar el campo `metadata_storage_name` como clave
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
 
-Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y habilitar la codificación de base&64; para las claves para un indexador ya existente:
+Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y habilitar la codificación de base 64 para las claves para un indexador ya existente:
 
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
     Content-Type: application/json
@@ -300,7 +304,7 @@ Para admitir la eliminación de documentos, utilice un enfoque de "eliminación 
 
 Por ejemplo, la siguiente directiva considera que un blob se va a eliminar si tiene una propiedad de metadatos `IsDeleted` con el valor `true`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 

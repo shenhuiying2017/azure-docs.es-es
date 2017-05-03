@@ -1,32 +1,32 @@
 ---
 title: Enlaces y desencadenadores de Service Bus en Azure Functions | Microsoft Docs
-description: "Descubra cómo utilizar desencadenadores y enlaces de bus de servicio de Azure en funciones de Azure."
+description: "Descubra cómo utilizar desencadenadores y enlaces de Azure Service Bus en Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
 editor: 
 tags: 
-keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
-ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6644f6b879e48787249111c5e02b75b963f1e1cd
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Enlaces de Service Bus en Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y codificar enlaces de Azure Service Bus en Azure Functions. Azure Functions admite enlaces de desencadenador y salida para colas y temas de Notification Hubs.
+En este artículo se explica cómo configurar y trabajar con enlaces de Azure Service Bus en Azure Functions. Azure Functions admite enlaces de desencadenador y salida para colas y temas de Service Bus.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo configurar y codificar enlaces de Azure Servi
 ## <a name="service-bus-trigger"></a>Desencadenador de Service Bus
 Utilice el desencadenador de Service Bus para responder a mensajes de una cola o tema de Service Bus. 
 
-Los desencadenadores de cola y tema de Notification Hubs para una función utilizan los siguientes objetos JSON en la matriz `bindings` de function.json:
+Los desencadenadores de cola y tema de Service Bus se definen mediante los siguientes objetos JSON en la matriz `bindings` de function.json:
 
 * Desencadenador de *cola*:
 
@@ -66,17 +66,17 @@ Los desencadenadores de cola y tema de Notification Hubs para una función utili
 
 Tenga en cuenta lo siguiente:
 
-* Para `connection`, [cree una configuración de aplicación en la aplicación de la función]() que contenga la cadena de conexión al espacio de nombres de Service Hub y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el desencadenador. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  La cadena de conexión debe ser para un espacio de nombres del bus de servicio y no estar limitada a una cola o un tema concretos.
+* Para `connection`, [cree una configuración de aplicación en la aplicación de la función](functions-how-to-use-azure-function-app-settings.md) que contenga la cadena de conexión al espacio de nombres de Service Hub y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el desencadenador. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+  La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos.
   Si `connection` se deja vacío, el desencadenador asume que se especifica una cadena de conexión de Service Bus predeterminada en una configuración de aplicación con el nombre `AzureWebJobsServiceBus`.
-* Para `accessRights`, los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en `listen`. De lo contrario, el runtime de Funciones puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo.
+* Para `accessRights`, los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en `listen`. De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo.
 
 ## <a name="trigger-behavior"></a>Comportamiento de un desencadenador
 * **Subprocesamiento único**: De forma predeterminada, el runtime de Functions procesa simultáneamente varios mensajes en cola. Para indicar al runtime que procese los mensajes de la cola o del tema de uno en uno, establezca `serviceBus.maxConcurrentCalls` en 1 en el archivo *host.json*. 
   Para información acerca de *host.json*, consulte [Estructura de carpetas](functions-reference.md#folder-structure) y [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestión de mensajes dudosos**: Service Bus realiza su propio tratamiento de mensajes dudosos, que no se puede controlar ni configurar en el código ni en la configuración de Azure Functions. 
 * **Comportamiento de PeekLock**: El sistema en tiempo de ejecución de Funciones recibe un mensaje en el [modo `PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) y llama a `Complete` en el mensaje si la función finaliza correctamente, o bien llama a `Abandon` si se produce un error en la función. 
-  Si la ejecución de la función dura más que el tiempo de espera de `PeekLock` , el bloqueo se renovará automáticamente.
+  Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente.
 
 <a name="triggerusage"></a>
 
@@ -88,10 +88,10 @@ En C# y F#, el mensaje de desencadenador de Service Bus se puede deserializar en
 * `string`: útil para mensajes de cadena
 * `byte[]`: útil para datos binarios
 * Cualquier [objeto](https://msdn.microsoft.com/library/system.object.aspx): útil para datos serializados mediante JSON.
-  Si declara un tipo de entrada personalizado (por ejemplo, `FooType`), Azure Functions intentará deserializar los datos JSON en el tipo especificado.
+  Si declara un tipo de entrada personalizado (como, `CustomType`), Azure Functions intentará deserializar los datos JSON en el tipo especificado.
 * `BrokeredMessage`: proporciona el mensaje deserializado con el método [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
 
-En Node.js, el mensaje de desencadenador de Service Bus se pasa a la función como una cadena o, en el caso de mensajes JSON, un objeto de JavaScript.
+En Node.js, el mensaje de desencadenador de Service Bus se pasa a la función como una cadena o como un objeto JSON.
 
 <a name="triggersample"></a>
 
@@ -153,7 +153,7 @@ module.exports = function(context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="service-bus-output-binding"></a>Enlace de salida de Service Bus
-La salida de cola y tema de Notification Hubs para una función utiliza los siguientes objetos JSON en la matriz `bindings` de function.json:
+La salida de cola y tema de Service Bus para una función utiliza los siguientes objetos JSON en la matriz `bindings` de function.json:
 
 * Salida de *cola*:
 
@@ -162,7 +162,7 @@ La salida de cola y tema de Notification Hubs para una función utiliza los sigu
         "name" : "<Name of output parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
@@ -183,10 +183,10 @@ La salida de cola y tema de Notification Hubs para una función utiliza los sigu
 
 Tenga en cuenta lo siguiente:
 
-* Para `connection`, [cree una configuración de aplicación en la aplicación de la función]() que contenga la cadena de conexión al espacio de nombres de Service Hub y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el enlace de salida. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  La cadena de conexión debe ser para un espacio de nombres del bus de servicio y no estar limitada a una cola o un tema concretos.
+* Para `connection`, [cree una configuración de aplicación en la aplicación de la función](functions-how-to-use-azure-function-app-settings.md) que contenga la cadena de conexión al espacio de nombres de Service Hub y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el enlace de salida. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+  La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos.
   Si `connection` se deja vacío, el enlace de salida asume que se especifica una cadena de conexión de Service Bus predeterminada en una configuración de aplicación con el nombre `AzureWebJobsServiceBus`.
-* Para `accessRights`, los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en `listen`. De lo contrario, el runtime de Funciones puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo.
+* Para `accessRights`, los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en `listen`. De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo.
 
 <a name="outputusage"></a>
 

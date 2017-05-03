@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ Si la interrupción fue temporal, es posible que Azure recupere la región princ
 
 * Cancele todas las solicitudes de restauración geográfica pendientes.   
 * Realice la conmutación por error de las bases de datos de administración a la región principal (5). Nota: Después de la recuperación de la región, las principales anteriores se convierten automáticamente en secundarias. Ahora volverán a cambiar los roles. 
-* Cambie la cadena de conexión de la aplicación para que vuelva a apuntar a la región principal. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región principal. Algunos clientes existentes verán que sus datos no están disponibles temporalmente.   
+* Cambie la cadena de conexión de la aplicación para que vuelva a apuntar a la región primaria. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región principal. Algunos clientes existentes verán que sus datos no están disponibles temporalmente.   
 * Establezca todas las bases de datos en el grupo de recuperación ante desastres de solo lectura para asegurarse de que no se puede modificar en la región de recuperación ante desastres (6). 
 * Para las bases de datos del grupo de recuperación ante desastres que hayan cambiado desde la recuperación, cambie el nombre o elimine las bases de datos correspondientes en el grupo principal (7). 
 * Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (8). 
@@ -172,10 +173,5 @@ Este artículo se centra en las estrategias de recuperación ante desastres para
 * Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)  
 * Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
