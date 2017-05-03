@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
@@ -40,6 +40,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de copias de seguridad](#backup-contributor) | Puede administrar copias de seguridad en el almacén de Recovery Services |
 | [Operador de copias de seguridad](#backup-operator) | Puede administrar copias de seguridad, excepto su eliminación, en el almacén de Recovery Services |
 | [Lector de copias de seguridad](#backup-reader) | Puede ver todos los servicios de administración de copias de seguridad  |
+| [Lector de facturación](#billing-reader) | Puede ver toda la información de facturación  |
 | [Colaborador de BizTalk](#biztalk-contributor) |Puede administrar los servicios de BizTalk |
 | [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) |Puede administrar bases de datos ClearDB MySQL |
 | [Colaborador](#contributor) |Puede administrar todo el contenido, excepto el acceso |
@@ -215,6 +216,15 @@ Puede supervisar la administración de copias de seguridad en el almacén de Rec
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Leer resultados de la operación realizada en elementos registrados del almacén |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Leer elementos registrados del almacén |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Leer uso del almacén de Recovery Services |
+
+## <a name="billing-reader"></a>Lector de facturación
+Puede ver toda la información de facturación
+
+| **Acciones** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leer roles y asignaciones de roles |
+| Microsoft.Billing/*/read |Leer la información de facturación |
+| Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
 ### <a name="biztalk-contributor"></a>Colaborador de BizTalk
 Puede administrar los servicios de BizTalk

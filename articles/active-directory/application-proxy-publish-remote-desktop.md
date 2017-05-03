@@ -1,5 +1,5 @@
 ---
-title: "Publicación de Escritorio Remoto con el Proxy de aplicación de Azure Active Directory | Microsoft Docs"
+title: "Publicación de Escritorio remoto con el proxy de aplicación de Azure AD | Microsoft Docs"
 description: "Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
@@ -11,76 +11,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/11/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fd0ecc62fd3cfc860423acd02108648e99f44753
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e45d704e68c17d36fd5b195179730b80d0f53e0c
+ms.lasthandoff: 04/20/2017
 
 
 ---
 
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
-En este artículo se describe cómo hacer que las implementaciones de Escritorio Remoto de Windows sean accesibles para los usuarios remotos. Las implementaciones de Escritorio Remoto pueden residir localmente o en redes privadas, como las implementaciones de IaaS.
+En este artículo se habla de cómo implementar Servicios de Escritorio remoto (RDS) con el proxy de aplicación de modo que los usuarios remotos puedan seguir siendo productivos. 
 
-> [!NOTE]
-> La característica Proxy de aplicación solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory (Azure AD). Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+La audiencia objetivo para este artículo es:
+- Clientes del proxy de aplicación de Azure AD actuales que desean ofrecer más aplicaciones a los usuarios finales mediante la publicación de aplicaciones locales a través de Servicios de Escritorio remoto. 
+- Clientes de Servicios de Escritorio remoto actuales que desean reducir la superficie expuesta a ataques de su implementación mediante el proxy de aplicación de Azure AD. Este escenario ofrece un conjunto limitado de controles de acceso condicional y verificación en dos pasos a RDS.
 
-El tráfico de protocolo de Escritorio remoto (RDP) se puede publicar a través del Proxy de aplicación de Azure AD como una aplicación de proxy de paso. Esta solución resuelve el problema de conectividad y proporciona protección de seguridad básica como almacenamiento en búfer de red, front-end de Internet reforzado y protección frente a denegación de servicio distribuido (DDoS).
+## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Cómo se adapta el proxy de aplicación a la implementación de RDS estándar
 
-## <a name="remote-desktop-deployment"></a>Implementación de Escritorio remoto
+Una implementación de RDS estándar incluye diversos servicios de rol de Escritorio remoto que se ejecutan en Windows Server. Al examinar la [arquitectura de Servicios de Escritorio remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), vemos que hay varias opciones de implementación. La diferencia más destacable entre la [implementación de RDS con el proxy de aplicación de Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrada en el siguiente diagrama) y las otras opciones de implementación es que el escenario del proxy de aplicación tiene una conexión saliente permanente desde el servidor que ejecuta el servicio del conector. Otras implementaciones dejan conexiones entrantes abiertas a través de un equilibrador de carga. 
 
-En la implementación de Escritorio remoto, la Puerta de enlace de Escritorio remoto se publica para que pueda convertir el tráfico de la llamada a procedimiento remoto (RPC) sobre HTTPS en RDP sobre protocolo de datagramas de usuario (UDP).
+![El proxy de aplicación se sitúa entre la máquina virtual RDS y la red pública de Internet](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
-Puede configurar los clientes para que usen clientes de Escritorio remoto, como MSTSC.exe, para tener acceso al Proxy de aplicación de Azure AD. De esta forma, puede crear una nueva conexión HTTPS con la Puerta de enlace de Escritorio remoto mediante sus conectores. Como resultado, la puerta de enlace no se expondrá directamente a Internet y todas las solicitudes HTTPS se terminarán en primer lugar en la nube.
+En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta de enlace de Escritorio remoto se ejecutan en máquinas accesibles desde Internet. Estos puntos de conexión se exponen por las siguientes razones:
+- Acceso web de Escritorio remoto ofrece al usuario un punto de conexión público para iniciar sesión y ver los diversos escritorios y aplicaciones locales a los que puede tener acceso. Al seleccionar un recurso, se crea una conexión RDP mediante la aplicación nativa en el SO.
+- Puerta de enlace de Escritorio remoto aparece en escena una vez que un usuario inicia la conexión RDP. Puerta de enlace de Escritorio remoto controla el tráfico RDP que llega a través de Internet y lo traduce al servidor local al que se conecta el usuario. En este escenario, el tráfico que recibe Puerta de enlace de Escritorio remoto procede del proxy de aplicación de Azure AD.
 
-La topología se muestra en el diagrama siguiente:
+>[!TIP]
+>Si no ha implementado nunca RDS o desea más información antes de empezar, obtenga información sobre cómo [implementar RDS sin problemas con Azure Resource Manager y Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
- ![Diagrama local de servicios de Azure AD](./media/application-proxy-publish-remote-desktop/remote-desktop-topology.png)
+## <a name="requirements"></a>Requisitos
 
-## <a name="configure-the-remote-desktop-gateway-url"></a>Configuración de la dirección URL de la Puerta de enlace de Escritorio remoto
+Los puntos de conexión de Acceso web y Puerta de enlace de Escritorio remoto deben estar en la misma máquina y compartir una raíz. Acceso web y Puerta de enlace de Escritorio remoto se publicarán como una sola aplicación para que pueda tener experiencia de inicio de sesión único entre las dos aplicaciones. 
 
-Cuando los usuarios configuren la dirección URL de Puerta de enlace de Escritorio remoto y desencadenen el tráfico de RDP, como hacen normalmente, podrán tener acceso a archivos y otros métodos.
+Ya debe tener [RDS implementados](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](active-directory-application-proxy-enable.md). 
 
-Puede publicar mediante el nombre de dominio proporcionado por el Proxy de aplicación (msappproxy.net) o mediante un nombre de dominio personalizado configurado en Azure AD; por ejemplo rdg.contoso.com.
+Los usuarios finales solo pueden tener acceso a este escenario a través de los escritorios de Windows 7 y Windows 10 que se conectan a través de la página Acceso web de Escritorio remoto. Este escenario no se admite en otros sistemas operativos, incluso en aquellos con las aplicaciones de Escritorio remoto de Microsoft.
 
-Si los dispositivos de cliente y el archivo RDP ya están configurados con una URL de Puerta de enlace de Escritorio remoto, puede decidir utilizar el mismo nombre de dominio y, por tanto, evitar el cambio. En este caso, se debe proporcionar el certificado que abarca este dominio al Proxy de aplicación y su lista de revocación de certificados (CRL) debe ser accesible a través de Internet.
+Los usuarios finales deben usar Internet Explorer y habilitar el complemento ActiveX de RDS al conectarse a sus recursos. 
 
-Si no se configura ninguna dirección URL de Puerta de enlace de Escritorio remoto, los usuarios o administradores pueden especificarla en los clientes de escritorio remoto (MSTSC) mediante el cuadro de conexión a Escritorio remoto, tal y como se muestra aquí.
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar el escenario conjunto de RDS y el proxy de aplicación
 
- ![Cuadro de diálogo Conexión a Escritorio remoto](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-advanced.png)
+Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, siga los pasos para combinar las dos soluciones. Estos pasos le guían a través de la publicación de los dos puntos de conexión de RDS accesibles desde la Web (Acceso web y Puerta de enlace de Escritorio remoto) como aplicaciones y de la posterior dirección del tráfico de RDS para que pase por el proxy de aplicación.
 
-Aparece el cuadro de diálogo **Configuración de la conexión** al hacer clic en **Configuración** en la pestaña de **opciones avanzadas**.
+### <a name="publish-the-rd-host-endpoint"></a>Publicar el punto de conexión del host de RD
 
- ![Ventana de Configuración de la conexión del cuadro de diálogo Conexión a Escritorio remoto](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-settings.png)
+1. [Publique una nueva aplicación del proxy de aplicación](application-proxy-publish-azure-portal.md) con los valores siguientes:
+   - Dirección URL interna: https://<rdhost>.com /, donde <rdhost> es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto. 
+   - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS. 
+   - Método de autenticación previa: Azure Active Directory
+   - Traducir URL en encabezados: no
+2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
+3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**. Se solicita a los usuarios que se autentiquen una vez en Azure AD y una vez en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto. 
+4. Vaya a **Azure Active Directory** > **Registros de aplicaciones** > *Su aplicación* > **Configuración**. 
+5. Seleccione **Propiedades** y actualice el campo **Dirección URL de la página principal** para apuntar al punto de conexión de Acceso web de Escritorio remoto (como https://<rdhost>.com/RDWeb).
 
-## <a name="remote-desktop-web-access"></a>Acceso web de Escritorio remoto
+### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigir el tráfico RDS al proxy de aplicación
 
-Si su organización usa el portal de Acceso web de Escritorio remoto (RDWA), también puede publicar mediante el Proxy de aplicación de Azure AD. Puede publicar en este portal con la autenticación previa y el inicio de sesión único (SSO).
+Conéctese a la implementación de RDS como administrador y cambie el nombre del servidor de Puerta de enlace de Escritorio remoto para la implementación. Esto garantiza que las conexiones pasen por el proxy de aplicación de Azure AD.
 
-La topología del escenario RDWA se muestra en el diagrama siguiente:
+1. Conéctese al servidor RDS que ejecuta el rol Agente de conexión a Escritorio remoto.
+2. Inicie **Administrador del servidor**.
+3. Seleccione **Servicios de Escritorio remoto** en el panel de la izquierda.
+4. Seleccione **Información general**.
+5. En la sección Descripción general de la implementación, seleccione el menú desplegable y elija **Editar propiedades de implementación**.
+6. En la pestaña Puerta de enlace de Escritorio remoto, cambie el campo **Nombre del servidor** por la dirección URL externa que ha establecido para el punto de conexión del host de RD en el proxy de aplicación. 
+7. Cambie el campo **Método de inicio de sesión** por **Autenticación de contraseña**.
 
- ![Diagrama del escenario RDWA](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal1.png)
+  ![Pantalla Propiedades de implementación de RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-En el caso anterior, los usuarios se autenticarán en Azure AD antes de acceder a RDWA. Si ya se han autenticado en Azure AD (por ejemplo, si usan Office 365) no tienen que volver a autenticarse para RDWA.
+8. Para cada colección, ejecute el siguiente comando. Reemplace *<yourcollectionname>* y *<proxyfrontendurl>* por su propia información. Este comando habilita el inicio de sesión único entre Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto, además de optimizar el rendimiento:
 
-Cuando los usuarios inician la sesión de RDP, tienen que autenticarse de nuevo en el canal de RDP. El motivo es que el SSO de RDWA en la Puerta de enlace de Escritorio remoto se basa en el almacenamiento de las credenciales de usuario en el cliente mediante ActiveX. Este proceso se desencadena a partir de la autenticación basada en formularios de RDWA. Cuando la autenticación de RDWA utiliza Kerberos, no se presenta autenticación basada en formularios y, por tanto, no funcionará el RDWA a RDP SSO.
+   ```
+   Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
+   ```
 
-Si RDWA necesita SSO para el tráfico de RDP, o si la autenticación basada en formularios de RDWA se ha personalizado en gran medida, puede publicar en RDWA sin autenticación previa.
+Ahora que ha configurado Escritorio remoto, el proxy de aplicación de Azure AD ha asumido el papel de componente accesible desde Internet de RDS. Puede quitar los otros puntos de conexión accesibles desde Internet públicos de sus máquinas Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto. 
 
-La topología de este escenario se muestra en el diagrama siguiente:
+## <a name="test-the-scenario"></a>Probar el escenario
 
- ![Diagrama del escenario RDWA](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal2.png)
+Pruebe el escenario con Internet Explorer en un equipo con Windows 7 o Windows 10.
 
-En el caso anterior, los usuarios deben autenticarse en RDWA mediante la autenticación basada en formularios, pero no necesitan autenticarse a través de RDP.
-
->[!NOTE]
->En ambos casos, no es necesaria ninguna autenticación previa en el tráfico de RDP. Por lo tanto, los usuarios pueden acceder a este tráfico sin pasar antes por RDWA.
+1. Vaya a la dirección URL externa que ha configurado o busque su aplicación en el [panel MyApps](https://myapps.microsoft.com).
+2. Se le solicita que se autentique en Azure Active Directory. Use una cuenta que haya asignado a la aplicación.
+3. Se le solicita que se autentique en Acceso web de Escritorio remoto. 
+4. Una vez que la autenticación RDS se realice correctamente, podrá seleccionar el escritorio o aplicación que desee y empezar a trabajar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
-[Habilitación del proxy de aplicación en Azure Portal](active-directory-application-proxy-enable.md)
-
+[Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el proxy de aplicación de Azure AD](application-proxy-security-considerations.md)

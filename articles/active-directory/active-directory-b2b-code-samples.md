@@ -42,8 +42,7 @@ Puede invitar de forma masiva a usuarios externos a una organización desde dire
 3. Inicie sesión en el espacio.
 
     ```
-    $cred = Get-Credential
-    Connect-MsolService -Credential $cred
+    Connect-AzureAd -tenantId <tenantId>
     ```
 
 4. Ejecución del cmdlet de PowerShell

@@ -1,28 +1,26 @@
 ---
-title: "Evento de creación del grupo: Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
+title: "Evento de creación de grupo de Azure Batch | Microsoft Docs"
+description: "Referencia del evento de creación de grupo de Batch."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: b66319c384ba1fe80489246e9816b8fc7cc3727d
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-create-event"></a>Evento de creación del grupo
-Cuerpo del registro del evento de creación del grupo
 
-## <a name="remarks"></a>Comentarios
+# <a name="pool-create-event"></a>Evento de creación del grupo
+
  Este evento se genera cuando se ha creado un grupo. El contenido del registro va a exponer información general acerca del grupo. Tenga en cuenta que si el tamaño de destino del grupo es mayor que 0 nodos de proceso, un evento de inicio de cambio de tamaño del grupo seguirá inmediatamente después de este evento.
 
  En el siguiente ejemplo, se muestra el cuerpo de un evento de creación de grupo para un grupo creado mediante la propiedad CloudServiceConfiguration.

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
 ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -85,10 +86,5 @@ ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
 | Activar o desactivar el menú de coincidencias de búsqueda |ALT+S |
 | Alternar menú **Abrir en** |ALT + O |
 | Explorar el contenedor, si el recurso es un contenedor |ALT + L |
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
