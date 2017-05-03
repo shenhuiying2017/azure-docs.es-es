@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c974bd122fa2549f0d3e2d96fa70abfdd17ccc1d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -44,7 +44,7 @@ Para seguir las instrucciones de este artículo, necesitará:
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 Una plantilla de Resource Manager facilita la creación de los siguientes elementos de la aplicación en una única operación coordinada:
 * Clústeres de HDInsight y sus recursos dependientes (por ejemplo, la cuenta de almacenamiento predeterminada)
-* Otros recursos (por ejemplo, Azure SQL Database para usar Apache Sqoop) 
+* Otros recursos (por ejemplo, Azure SQL Database para usar Apache Sqoop)
 
 En la plantilla, se definen los recursos que son necesarios para la aplicación. También se especifican los parámetros de implementación para introducir los valores para los diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
@@ -139,7 +139,7 @@ Este procedimiento permite crear el clúster de Hadoop en HDInsight.
 
     El script de PowerShell solo configura el nombre del clúster. El nombre de la cuenta de almacenamiento está codificado en la plantilla. Se le pide que escriba la contraseña del usuario del clúster. (El nombre de usuario predeterminado es **admin**). Se le pide también que escriba la contraseña del usuario SSH. (El nombre predeterminado del usuario SSH es **sshuser**).  
 
-Para obtener más información, consulte [Implementación con PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
+Para obtener más información, consulte [Implementación con PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).
 
 ## <a name="deploy-with-cli"></a>Implementación con la CLI
 El ejemplo siguiente utiliza la interfaz de la línea de comandos (CLI) de Azure. En él, se crea un clúster y su contenedor y cuenta de almacenamiento dependientes mediante una llamada a una plantilla de Resource Manager:
