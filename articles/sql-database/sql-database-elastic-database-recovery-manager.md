@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 15b4e8d2de44b71ec0fd65a9c78879b5613bb748
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 2f034718730f112ba85865ae032fb7bd07045b16
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ En un entorno de base de datos particionada, hay un inquilino por base de datos 
 
 Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 
-1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte el artículo que explica cómo [restaurar una base de datos eliminada](sql-database-restore-deleted-database-portal.md).
+1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte el artículo que explica cómo [restaurar una base de datos eliminada](sql-database-recovery-using-backups.md).
 2. Se produce un evento de conmutación por error geográfica. Para continuar, se debe actualizar el nombre del servidor y el nombre de la base de datos del administrador de mapas de particiones en la aplicación y luego actualizar los detalles de la asignación de particiones de todas las particiones de un mapa de particiones. Si hay una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales. Para descubrir las opciones de recuperación de una base de datos tras una posible interrupción del centro de datos, consulte los temas sobre la [continuidad empresarial](sql-database-business-continuity.md) y la [recuperación ante desastres](sql-database-disaster-recovery.md).
 3. Se restaura la partición o la base de datos de ShardMapManager al anterior punto de tiempo. Para obtener información sobre la recuperación a un momento dado mediante copias de seguridad, consulte [este artículo](sql-database-recovery-using-backups.md).
 
@@ -77,7 +77,7 @@ En este ejemplo se eliminan particiones del mapa de particiones.
    rm.DetachShard(s.Location, customerMap);
    ``` 
 
-Se asigna la ubicación de partición en el GSM antes de la eliminación de la partición. Como se eliminó la partición, se supone esto fue intencionado y el rango con clave de particionamiento ya no está en uso. De lo contrario, puede ejecutar la restauración a un momento dado. para recuperar la partición de un momento anterior. (En ese caso, revise la sección siguiente para detectar las incoherencias de partición). Para recuperar, consulte el artículo sobre la [recuperación a un momento dado](sql-database-point-in-time-restore-portal.md).
+El mapa de particiones refleja la ubicación de partición en el GSM antes de la eliminación de la partición. Como se eliminó la partición, se supone esto fue intencionado y el rango con clave de particionamiento ya no está en uso. De lo contrario, puede ejecutar la restauración a un momento dado. para recuperar la partición de un momento anterior. (En ese caso, revise la sección siguiente para detectar las incoherencias de partición). Para recuperar, consulte el artículo sobre la [recuperación a un momento dado](sql-database-recovery-using-backups.md).
 
 Puesto que se supone que la eliminación de la base de datos era intencionada, la acción de limpieza administrativas final consiste en eliminar la entrada a la partición en el administrador de mapas de particiones. Esto impide que la aplicación escriba accidentalmente información en un rango que no se espera.
 

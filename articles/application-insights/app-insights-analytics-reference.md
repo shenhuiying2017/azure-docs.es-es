@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 03/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 7f6c71056bca7beebc02313409aabe386d191e23
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -357,7 +357,7 @@ Tenga en cuenta que los patrones son contiguos: pueden solaparse y, normalmente,
     El número de inicializaciones determina el número de puntos de búsqueda local iniciales del algoritmo. En algunos casos, según la estructura de los datos, un número de inicializaciones creciente aumenta el número o la calidad de los resultados mediante un espacio de búsqueda mayor con un equilibrio de consulta más lento. El argumento num_seeds tiene una disminución de los resultados en ambas direcciones, por lo que reducirlo por debajo de 5 proporcionará una mejora de rendimiento insignificante, mientras que aumentarlo por encima de 50 rara vez generará patrones adicionales.
   
     Ejemplo: `T | evaluate autocluster("num_seeds=50")`
-* `size_weight=`*0<double<1*+ (valor predeterminado: 0,5)
+* `size_weight=` *0<double<1*+ (valor predeterminado: 0,5)
   
     Proporciona control sobre el equilibrio entre genérico (gran cobertura) e informativo (muchos valores compartidos). Aumentar size_weight normalmente reduce el número de patrones, y cada patrón tiende a abarcar un porcentaje mayor. Reducir size_weight normalmente genera patrones más específicos, con más valores compartidos y una cobertura de porcentaje más pequeña. La fórmula interna es la media geométrica ponderada entre la puntuación genérica normalizada y la puntuación informativa con size_weight y 1-size_weight como los pesos. 
   
@@ -728,7 +728,7 @@ requests
 
 Expande una lista de una celda de tipo dinámico (JSON) para que cada entrada tenga una fila independiente. Todas las demás celdas de una fila expandida se duplican. 
 
-(Consulte también [`summarize makelist`](#summarize-operator) , que realiza la función opuesta).
+(Consulte también [`summarize makelist`](#summarize-operator), que realiza la función opuesta).
 
 **Ejemplo**
 
@@ -824,7 +824,7 @@ Los elementos de la cláusula `with` se comparan a su vez con el texto de origen
 * En un análisis de regex, una expresión regular puede utilizar el operador de minimización '?' para pasar lo antes posible a la siguiente coincidencia.
 * Un nombre de columna con un tipo analiza el texto como el tipo especificado. A menos que kind=relaxed, un análisis incorrecto invalida la coincidencia del patrón completo.
 * Un nombre de columna sin tipo, o con el tipo 'string', copia el número mínimo de caracteres que se va a obtener en la siguiente coincidencia.
-* ' *' omite el número mínimo de caracteres que se va a obtener en la siguiente coincidencia. Puede utilizar '*' al principio y al final del patrón, o bien después de un tipo que no sea una cadena, o entre las coincidencias de la cadena.
+* " * " omite el número mínimo de caracteres que se va a obtener en la siguiente coincidencia. Puede utilizar " * " al principio y al final del patrón, o bien después de un tipo que no sea una cadena o entre las coincidencias de la cadena.
 
 Todos los elementos de un patrón de análisis deben coincidir correctamente; de lo contrario, no se producirá ningún resultado. La excepción a esta regla es que cuando kind=relaxed, si no se puede analizar una variable con tipo, el resto del análisis continúa.
 
@@ -1017,8 +1017,7 @@ Intenta agrupar registros similares. Para cada grupo, el operador envía el valo
 **Argumentos**
 
 * *ColumnName* : la columna que se va a examinar. Tiene que ser de tipo cadena.
-* <seg>
-  *Threshold* : un valor en el intervalo {0..1}.</seg> El valor predeterminado es 0.001. Para las entradas grandes, el valor threshold debe ser pequeño. 
+* *Threshold*: un valor en el intervalo {0..1}. El valor predeterminado es 0.001. Para las entradas grandes, el valor threshold debe ser pequeño. 
 
 **Devuelve**
 
@@ -1035,9 +1034,13 @@ Por ejemplo, el resultado de `reduce by city` podría incluir:
 | París |27163 |
 
 ### <a name="render-directive"></a>Directiva render
-    T | render [ table | timechart  | barchart | piechart ]
+    T | render [ table | timechart  | barchart | piechart | areachart | scatterchart ] 
+        [kind= default|stacked|stacked100|unstacked]
 
 Render indica cómo mostrar la tabla de la capa de presentación. Debe ser el último elemento de la canalización. Es una alternativa cómoda a usar los controles de la pantalla, lo que le permite guardar una consulta con un método de presentación determinado.
+
+Para algunos tipos de gráfico, `kind` proporciona opciones adicionales. Por ejemplo, un gráfico de barras `stacked` segmenta cada barra según una dimensión elegida, que muestra la contribución al total de los diferentes valores de la dimensión. En un gráfico `stacked100`, cada barra tiene la misma altura de 100 %, por lo que se pueden comparar las contribuciones relativas.
+
 
 ### <a name="restrict-clause"></a>Cláusula restrict
 Especifica el conjunto de nombres de tabla disponibles para los operadores que siguen. Por ejemplo:
@@ -1185,7 +1188,7 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 
 Si proporciona una expresión numérica o temporal sin utilizar `bin()`, Analytics la aplica automáticamente con un intervalo de `1h` para horas o `1.0` para números.
 
-Si no proporciona ningún elemento *GroupExpression* , toda la tabla se resume en una única fila de salida.
+Si no proporciona ningún elemento *GroupExpression*, toda la tabla se resume en una única fila de salida.
 
 **Devuelve**
 
@@ -1438,7 +1441,7 @@ Calcula el promedio de *Expression* en todo el grupo.
 
 Devuelve el esquema mínimo que admite todos los valores de *DynamicExpression*. 
 
-El tipo de columna del parámetro debe ser `dynamic` , una matriz o un contenedor de propiedades. 
+El tipo de columna del parámetro debe ser `dynamic`, una matriz o un contenedor de propiedades. 
 
 **Ejemplo**
 
@@ -1526,7 +1529,7 @@ Devuelve el número de filas en las que *Predicate* se evalúa en `true`. Si no 
 **Sugerencia de rendimiento**: utilice `summarize count(filter)` en lugar de `where filter | summarize count()`
 
 > [!NOTE]
-> Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md) , el número de puntos de datos que se ha mantenido en Application Insights será menor que el número de eventos originales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
+> Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos que se ha mantenido en Application Insights será menor que el número de eventos originales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 > 
 > 
 
@@ -1538,7 +1541,7 @@ Devuelve el número de filas en las que *Predicate* se evalúa en `true`.
 **Sugerencia de rendimiento**: utilice `summarize countif(filter)` en lugar de `where filter | summarize count()`
 
 > [!NOTE]
-> Evite usar countif() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md) , el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
+> Evite usar countif() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 > 
 > 
 
@@ -1763,6 +1766,12 @@ Compruebe si se puede convertir una cadena a un tipo específico:
 
     iff(notnull(todouble(customDimensions.myValue)),
        ..., ...)
+
+
+
+
+
+
 
 ### <a name="scalar-comparisons"></a>Comparaciones escalares
 |  |  |
@@ -2096,6 +2105,12 @@ La función de raíz cuadrada.
 ## <a name="date-and-time"></a>Fecha y hora
 [ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) |  [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
+Un elemento timespan representa un intervalo de tiempo, como 3 horas o 1 año.
+
+Un objeto datetime representa una fecha y hora específicas del calendario/reloj en UTC.
+
+No hay ningún tipo "date" independiente. Para quitar la hora de un elemento datetime, utilice una expresión como `bin(timestamp, 1d)`.
+
 ### <a name="date-and-time-literals"></a>Literales de fecha y hora
 |  |  |
 | --- | --- |
@@ -2118,22 +2133,22 @@ La función de raíz cuadrada.
 | `time("0.12:34:56.7")` |`0d+12h+34m+56.7s` |
 
 ### <a name="date-and-time-expressions"></a>Expresiones de fecha y hora
-| Expression | Resultado |
-| --- | --- |
-| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` |
-| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` |
-| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` |
-| `2h * 24` |`2d` |
-| `2d` / `2h` |`24` |
-| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |
-| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |
-|  | |
-| `<` |Menor que |
-| `<=` |Menor que o Igual a |
-| `>` |Mayor que |
-| `>=` |Mayor que o Igual a |
-| `<>` |Not Equals |
-| `!=` |Not Equals |
+| Expression | Resultado |Efecto|
+| --- | --- |---|
+| `datetime("2015-01-02") - datetime("2015-01-01")` |`1d` | Diferencia temporal|
+| `datetime("2015-01-01") + 1d` |`datetime("2015-01-02")` | Sumar días |
+| `datetime("2015-01-01") - 1d` |`datetime("2014-12-31")` | Restar días|
+| `2h * 24` |`2d` |Múltiplos del intervalo de tiempo|
+| `2d` / `2h` |`24` |División del intervalo de tiempo|
+| `datetime("2015-04-15T22:33") % 1d` |`timespan("22:33")` |Hora de un elemento datetime|
+| `bin(datetime("2015-04-15T22:33"), 1d)` |`datetime("2015-04-15T00:00")` |Fecha de un elemento datetime|
+|  | ||
+| `<` ||Menor que |
+| `<=` ||Menor o igual |
+| `>` ||Mayor que |
+| `>=` ||Mayor o igual |
+| `<>` ||No igual |
+| `!=` ||No igual |
 
 ### <a name="ago"></a>ago
 Resta un intervalo de tiempo especificado a la hora UTC actual. Al igual que `now()`, esta función se puede usar varias veces en una instrucción, y la hora UTC a la que se hace referencia será la misma para todas las instancias.

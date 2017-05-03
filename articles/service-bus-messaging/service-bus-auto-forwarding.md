@@ -1,6 +1,6 @@
 ---
-title: "Entidades de mensajería de Service Bus con reenvío automático | Microsoft Docs"
-description: "Encadenamiento de una cola o suscripción a otra cola u otro tema."
+title: "Entidades de mensajería de Azure Service Bus con reenvío automático | Microsoft Docs"
+description: "Encadenamiento de una cola o suscripción de Service Bus a otra cola u otro tema."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 04/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
-ms.openlocfilehash: cbbd416a065b3284e85957cc024955d11524d3da
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d58e9b9dc4771cc69265d02b62cf8fe3c9b7d72e
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadenamiento de entidades de Bus de servicio con reenvío automático
-La característica de *reenvío automático* permite encadenar una cola o suscripción a otra cola o tema que forme parte del mismo espacio de nombres. Cuando el reenvío automático está habilitado, Service Bus elimina automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Tenga en cuenta que todavía se puede enviar un mensaje a la entidad de destino directamente. Además, no es posible encadenar una subcola (como una cola de mensajes fallidos) a otra cola o tema.
+
+La característica de *reenvío automático* de Service Bus permite encadenar una cola o suscripción a otra cola u otro tema que forman parte del mismo espacio de nombres. Cuando el reenvío automático está habilitado, Service Bus elimina automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Tenga en cuenta que todavía se puede enviar un mensaje a la entidad de destino directamente. Además, no es posible encadenar una subcola (como una cola de mensajes fallidos) a otra cola o tema.
 
 ## <a name="using-auto-forwarding"></a>Uso del reenvío automático
 Para habilitar el reenvío automático, establezca las propiedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] de los objetos [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] para el origen, como en el siguiente ejemplo.
@@ -45,7 +47,8 @@ También puede utilizar el reenvío automático para desacoplar los remitentes d
 Si Alice se va de vacaciones, se llena su cola personal, en lugar del tema de ERP. En este escenario, como un representante de ventas no ha recibido ningún mensaje, ninguno de los temas de ERP alcanza la cuota.
 
 ## <a name="auto-forwarding-considerations"></a>Consideraciones sobre el reenvío automático
-Si la entidad de destino ha acumulado muchos mensajes y supera la cuota (o la entidad de destino está deshabilitada), la entidad de origen agrega los mensajes a su [cola de mensajes fallidos](service-bus-dead-letter-queues.md) hasta que haya espacio en el destino (o hasta que se vuelva a habilitar la entidad). Esos mensajes seguirán estando en la cola de correo devuelto, por lo que debe recibirlos y procesarlos explícitamente desde de la cola de correo devuelto.
+
+Si la entidad de destino acumula muchos mensajes y supera la cuota (o la entidad de destino está deshabilitada), la entidad de origen agrega los mensajes a su [cola de mensajes fallidos](service-bus-dead-letter-queues.md) hasta que haya espacio en el destino (o hasta que se vuelva a habilitar la entidad). Esos mensajes seguirán estando en la cola de correo devuelto, por lo que debe recibirlos y procesarlos explícitamente desde de la cola de correo devuelto.
 
 Al encadenar temas individuales para obtener un tema compuesto con muchas suscripciones, se recomienda tener un número moderado de suscripciones en el tema de primer nivel y muchas suscripciones en los temas de segundo nivel. Por ejemplo, un tema de primer nivel con 20 suscripciones, cada una de ellas encadenada a un tema de segundo nivel con 200 suscripciones, ofrece un mayor rendimiento que un tema de primer nivel con 200 suscripciones, cada una de ellas encadenada a un tema de segundo nivel con 20 suscripciones.
 
@@ -54,24 +57,23 @@ Service Bus factura una operación por cada mensaje reenviado. Por ejemplo, el e
 Para crear una suscripción encadenada a otra cola o a otro tema, el creador debe tener permisos de **administración** tanto en la entidad de origen como en la de destino. Para enviar mensajes al tema de origen, solo se requieren permisos de **envío** en el tema de origen.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre el reenvío automático, consulte los siguientes temas de referencia:
 
 * [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo]
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
-Para más información sobre las mejoras de rendimiento de Service Bus, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
+Para más información sobre las mejoras de rendimiento de Service Bus, vea: 
 
-[QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
-[QueueDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
-[SubscriptionDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
+* [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus](service-bus-performance-improvements.md)
+* [Entidades de mensajería con particiones][Partitioned messaging entities]
+
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
+[SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
 [Partitioned messaging entities]: service-bus-partitioning.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

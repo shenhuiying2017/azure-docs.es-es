@@ -1,6 +1,6 @@
 ---
 title: Escalado de Azure Redis Cache | Microsoft Docs
-description: "Obtenga información acerca de cómo ampliar las instancias de Caché en Redis de Azure"
+description: "Obtenga información acerca de cómo ampliar las instancias de Azure Redis Cache"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,24 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 022916bacd93d283a6495a60ca1afa0c27e34e0c
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Escalado de Azure Redis Cache
-> [!NOTE]
-> Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa. 
-> 
-> 
-
-Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la caché mediante la hoja **cambio de nivel de precios** en el [Portal de Azure](https://portal.azure.com).
+Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
 
 ## <a name="when-to-scale"></a>Cuándo se debe escalar
-Puede utilizar las características de [supervisión](cache-how-to-monitor.md) de Azure Redis Cache para supervisar el estado y el rendimiento de las aplicaciones de la memoria caché y para ayudar a determinar si es necesario escalar la memoria caché. 
+Puede utilizar las características de [supervisión](cache-how-to-monitor.md) de Azure Redis Cache para supervisar el estado y el rendimiento de la memoria caché y para ayudar a determinar si es necesario escalarla. 
 
 Puede supervisar las métricas siguientes para ayudar a determinar si necesita escalado.
 
@@ -38,31 +34,27 @@ Puede supervisar las métricas siguientes para ayudar a determinar si necesita e
 * Ancho de banda de red
 * Uso de CPU
 
-Si determina que la memoria caché ya no cumple los requisitos de su aplicación, puede cambiar a un nivel de precios de caché mayor o menor que sea adecuado para su aplicación. Para obtener más información acerca de cómo determinar qué nivel de precios de caché, consulte [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+Si determina que la memoria caché ya no cumple los requisitos de su aplicación, puede cambiar a un plan de tarifa de caché mayor o menor que sea adecuado para su aplicación. Para obtener más información acerca de cómo determinar qué nivel de precios de caché, consulte [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## <a name="scale-a-cache"></a>Escalado de una caché
-Para escalar la memoria caché, [vaya a ella](cache-configure.md#configure-redis-cache-settings) en [Azure Portal](https://portal.azure.com) y haga clic en **Configuración**, **Plan de tarifa**.
+Para escalar la memoria caché, [vaya a la caché](cache-configure.md#configure-redis-cache-settings) en [Azure Portal](https://portal.azure.com) y haga clic en **Escalar** en el menú **Recurso**.
 
-También puede hacer clic en la parte **Plan de tarifa** de la hoja **Caché en Redis**.
+![Escala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-![Nivel de precios][redis-cache-pricing-tier-part]
-
-Seleccione el plan de tarifa deseado en la hoja **Plan de tarifa** y haga clic en **Seleccionar**.
+Seleccione el plan de tarifa deseado en la hoja **Seleccionar plan de tarifa** y haga clic en **Seleccionar**.
 
 ![Nivel de precios][redis-cache-pricing-tier-blade]
 
-> [!NOTE]
-> Puede escalar a un nivel de precios diferente con las siguientes restricciones.
-> 
-> * No se puede escalar desde un plan de tarifa superior a un plan de tarifa inferior.
-> * No puede cambiar de una memoria caché **Premium** a una memoria caché **Estándar** o **Básica**.
-> * No puede cambiar de una memoria caché **Estándar** a una memoria caché **Básica**.
-> * Puede cambiar de una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
-> * No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
-> * No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** .
-> 
-> 
 
+Puede escalar a un plan de tarifa diferente con las siguientes restricciones:
+
+* No se puede escalar desde un plan de tarifa superior a un plan de tarifa inferior.
+  * No puede cambiar de una memoria caché **Premium** a una memoria caché **Estándar** o **Básica**.
+  * No puede cambiar de una memoria caché **Estándar** a una memoria caché **Básica**.
+* Puede cambiar de una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
+* No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
+* No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** .
+ 
 Durante la operación de escalado de la memoria caché al nuevo plan de tarifa, se muestra el estado **Escalando** en la hoja **Redis Cache**.
 
 ![Escalado][redis-cache-scaling]
@@ -70,7 +62,7 @@ Durante la operación de escalado de la memoria caché al nuevo plan de tarifa, 
 Cuando se completa el escalado, el estado cambia de **Escalado** a **En ejecución**.
 
 ## <a name="how-to-automate-a-scaling-operation"></a>Automatización de una operación de escalado
-Además del escalado de la instancia de Azure Redis Cache en Azure Portal, puede escalar mediante cmdlets de PowerShell de Azure Redis Cache, la CLI de Azure y las Bibliotecas de administración de Microsoft Azure (MAML). 
+Además de escalar las instancias de caché en Azure Portal, puede escalar mediante los cmdlets de PowerShell, la CLI de Azure y las Bibliotecas de administración de Microsoft Azure (MAML). 
 
 * [Escalado mediante PowerShell](#scale-using-powershell)
 * [Escalado con la CLI de Azure](#scale-using-azure-cli)
@@ -84,7 +76,7 @@ Las instancias de Azure Redis Cache se pueden escalar con PowerShell con el cmdl
 Para obtener más información sobre cómo escalar con PowerShell, consulte [Escalado de una caché de Redis con Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Escalado con la CLI de Azure
-Para escalar las instancias de Caché en Redis de Azure con la CLI de Azure, llame al comando `azure rediscache set` y pase los cambios de configuración que desee que incluyen un nuevo tamaño, sku o tamaño de clúster, dependiendo de la operación de escalado deseada.
+Para escalar las instancias de Azure Redis Cache con la CLI de Azure, llame al comando `azure rediscache set` y pase los cambios de configuración que desee que incluyen un nuevo tamaño, sku o tamaño de clúster, dependiendo de la operación de escalado deseada.
 
 Para obtener más información sobre el escalado con la CLI de Azure, consulte [Cambio de la configuración de una caché en Redis existente](cache-manage-cli.md#scale).
 
@@ -112,7 +104,7 @@ Para escalar las instancias de Azure Redis Cache mediante [Microsoft Azure Manag
 Para obtener más información, consulte el ejemplo [Administrar Caché en Redis mediante MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) .
 
 ## <a name="scaling-faq"></a>Preguntas frecuentes de escalado
-La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre el escalado de Caché en Redis de Azure.
+La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre el escalado de Azure Redis Cache.
 
 * [¿Puedo realizar operaciones de escalado en una memoria caché Premium?](#can-i-scale-to-from-or-within-a-premium-cache)
 * [Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
@@ -123,15 +115,14 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 * [Operaciones que no son compatibles](#operations-that-are-not-supported)
 * [¿Cuánto tarda el escalado?](#how-long-does-scaling-take)
 * [¿Cómo puedo saber si el escalado ha terminado?](#how-can-i-tell-when-scaling-is-complete)
-* [¿Por qué esta característica está en versión preliminar?](#why-is-this-feature-in-preview)
 
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>¿Puedo realizar operaciones de escalado en una memoria caché Premium?
 * No puede escalar desde una caché **Premium** a un plan de tarifa **Básico** o **Estándar**.
 * Puede escalar desde un plan de tarifa de caché **Premium** a otro.
 * No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. La primera operación debe ser escalar primero desde **Básica** a **Estándar** y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
-* Si ha habilitado la agrupación en clústeres cuando creó su caché **Premium** , puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size). En este momento no se puede habilitar la agrupación en clústeres en una memoria caché existente que se hubiera creado sin clústeres.
+* Si ha habilitado la agrupación en clústeres cuando creó su caché **Premium**, puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size). Si su caché se creó sin habilitar la agrupación en clústeres, no puede configurar la agrupación en clústeres después.
   
-  Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
+  Para obtener más información, consulte [Cómo configurar la agrupación en clústeres para una instancia Premium de Azure Redis Cache](cache-how-to-premium-clustering.md).
 
 ### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?
 No, el nombre de la memoria caché y las claves no se cambian durante una operación de escalado.
@@ -166,7 +157,7 @@ Tenga en cuenta que mientras las memorias caché Standard y Premium tienen un co
   * No puede cambiar de una memoria caché **Premium** a una memoria caché **Estándar** o **Básica**.
   * No puede cambiar de una memoria caché **Estándar** a una memoria caché **Básica**.
 * Puede cambiar de una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
-* No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
+* No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. La primera operación debe ser escalar primero desde **Básica** a **Estándar** y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
 * No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** .
 
 Si se produce un error en una operación de escalado, el servicio intentará revertir la operación y la memoria caché se restablecerá al tamaño original.
@@ -177,21 +168,12 @@ El escalado tarda aproximadamente 20 minutos, según la cantidad de datos que ha
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>¿Cómo puedo saber si el escalado ha terminado?
 En Azure Portal puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
 
-### <a name="why-is-this-feature-in-preview"></a>¿Por qué esta característica está en versión preliminar?
-Estamos lanzando esta característica para obtener comentarios. Nos basaremos en los comentarios y pronto se lanzará esta característica para Disponibilidad General.
-
 <!-- IMAGES -->
-[redis-cache-pricing-tier-part]: ./media/cache-how-to-scale/redis-cache-pricing-tier-part.png
 
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

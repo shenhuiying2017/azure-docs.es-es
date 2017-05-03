@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 04/10/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 961a3867362d14ab7b6ff99ce4002380d763082f
-
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 3624e4130cc1e87983ebc7c9adc4968436bec386
+ms.lasthandoff: 04/11/2017
 
 ---
+
 # <a name="connect-operations-manager-to-log-analytics"></a>Conexión de Operations Manager con Log Analytics
 Para mantener su inversión existente en System Center Operations Manager y usar las funcionalidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo OMS.  Esto le permite aprovechar las oportunidades de OMS mientras sigue utilizando Operations Manager para:
 
 * Seguir supervisando el estado de los servicios de TI con Operations Manager
 * Mantener la integración con sus soluciones ITSM compatibles con la administración de incidentes y problemas
-* Administrar el ciclo de vida de los agentes implementados en máquinas virtuales IaaS en nube pública y en local que supervise con Operations Manager
+* Administrar el ciclo de vida de los agentes implementados en máquinas virtuales IaaS en una nube pública y en entornos locales supervisados con Operations Manager
 
 La integración con System Center Operations Manager agrega valor a su estrategia de operaciones de servicio al aprovechar la velocidad y eficacia de OMS para recopilar, almacenar y analizar datos de Operations Manager.  OMS ayuda a correlacionar y a avanzar para identificar los errores de los problemas y a sacar a la superficie reapariciones para respaldar el proceso de administración de problema existente.   La flexibilidad del motor de búsqueda para examinar el rendimiento, eventos y datos de alertas con abundantes paneles y funcionalidades de informes para exponer estos datos de maneras significativas muestra la solidez que ofrece OMS como complemento de Operations Manager.
 
@@ -35,10 +36,12 @@ El siguiente diagrama muestra la conexión entre los agentes y servidores de adm
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
+Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, se pueden configurar los servidores de administración para que se conecten a OMS Gateway a fin de recibir información de configuración y enviar los datos recopilados según la solución que haya habilitado.  Para ver información adicional y pasos sobre cómo configurar el grupo de administración de Operations Manager para que se comunique a través de una puerta de enlace de OMS con el servicio OMS, consulte el artículo sobre la [conexión de equipos a OMS mediante la puerta de enlace de OMS](log-analytics-oms-gateway.md).  
+
 ## <a name="system-requirements"></a>Requisitos del sistema
 Antes de comenzar, revise los detalles siguientes para comprobar que cumple los requisitos previos necesarios.
 
-* OMS admite únicamente Operations Manager 2012 SP1 UR6 y versiones posteriores y Operations Manager 2012 R2 UR2 y versiones posteriores.  Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
+* OMS solo admite Operations Manager 2016, Operations Manager 2012 SP1 UR6 y versiones posteriores y Operations Manager 2012 R2 UR2 y versiones posteriores.  Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
 * Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se producirá un error en el agente de tráfico de Windows y el registro de eventos de Operations Manager se podría rellenar con muchos errores.
 * Una suscripción de OMS.  Para más información, consulte [Introducción a Log Analytics](log-analytics-get-started.md).
 
@@ -134,31 +137,39 @@ Hay varias maneras en las que puede comprobar que la integración de OMS con Ope
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
-## <a name="remove-integration-with-oms"></a>Eliminación de la integración con Office 365
+## <a name="remove-integration-with-oms"></a>Eliminación de la integración con OMS
 Cuando ya no necesite la integración entre el grupo de administración de Operations Manager y el área de trabajo de OMS, es necesario realizar varios pasos para quitar correctamente la conexión y la configuración del grupo de administración. El siguiente procedimiento actualizará el área de trabajo de OMS eliminando la referencia del grupo de administración, eliminando los conectores de OMS y, luego, eliminando los módulos de administración que admiten OMS.   
+
+Los módulos de administración para las soluciones habilitados que se integran con Operations Manager, así como los módulos de administración necesarios para admitir la integración con el servicio OMS no se puede eliminar fácilmente del grupo de administración.  Esto es porque algunos de los módulos de administración de OMS tienen dependencias en otros módulos de administración relacionados.  Para eliminar los módulos de administración con una dependencia en otros módulos de administración, descargue el script para [quitar un módulo de administración con dependencias](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) desde el centro de scripts de TechNet.  
 
 1. Abra el shell de comandos de Operations Manager con una cuenta que sea miembro del rol Administradores de Operations Manager.
    
-   > [!WARNING]
-   > Compruebe que no tiene ningún módulo de administración personalizado con la palabra Advisor o IntelligencePack en el nombre antes de continuar; de lo contrario, los siguientes pasos se eliminarán del grupo de administración.
-   > 
-   > 
-2. Desde el símbolo del shell de comandos, escriba `Get-SCOMManagementPack -name "*advisor*" | Remove-SCOMManagementPack`
-3. Después, escriba `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack`
-4. Abra la consola de operaciones de Operations Manager con una cuenta que sea miembro del rol Administradores de Operations Manager.
-5. Bajo **Administración**, seleccione el nodo **Módulos de administración** y, en el cuadro **Buscar**, escriba **Advisor** y compruebe que los siguientes módulos de administración todavía se importan en el grupo de administración:
+    > [!WARNING]
+    > Compruebe que no tiene ningún módulo de administración personalizado con la palabra Advisor o IntelligencePack en el nombre antes de continuar; de lo contrario, los siguientes pasos se eliminarán del grupo de administración.
+    > 
+
+2. Desde el símbolo del shell de comandos, escriba `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`.
+3. Después, escriba `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`.
+4. Para quitar los módulos de administración restantes que tienen una dependencia en otros módulos de administración de System Center Advisor, use el script *RecursiveRemove.ps1* que descargó antes desde el centro de scripts de TechNet.  
+ 
+    > [!NOTE]
+    > No elimine los módulos de administración de Microsoft System Center Advisor ni Microsoft System Center Advisor Internal.  
+    >  
+
+5. Abra la consola de operaciones de Operations Manager con una cuenta que sea miembro del rol Administradores de Operations Manager.
+6. Bajo **Administración**, seleccione el nodo **Módulos de administración** y, en el cuadro **Buscar**, escriba **Advisor** y compruebe que los siguientes módulos de administración todavía se importan en el grupo de administración:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-6. En el portal de OMS, haga clic en el icono **Configuración** .
-7. Seleccione **Connected Sources**(Orígenes conectados).
-8. En la tabla de la sección de System Center Operations Manager, verá el nombre del grupo de administración que desea quitar del área de trabajo.  En la columna **Last Data** (Últimos datos), haga clic en **Quitar**.  
+7. En el portal de OMS, haga clic en el icono **Configuración** .
+8. Seleccione **Connected Sources**(Orígenes conectados).
+9. En la tabla de la sección de System Center Operations Manager, verá el nombre del grupo de administración que desea quitar del área de trabajo.  En la columna **Last Data** (Últimos datos), haga clic en **Quitar**.  
    
-   > [!NOTE]
-   > El vínculo **Quitar** no estará disponible hasta después de 14 días si no hay ninguna actividad detectada en el grupo de administración conectado.  
-   > 
-   > 
-9. Aparecerá una ventana que le pide que confirme que desea continuar con la eliminación.  Haga clic en **Sí** para continuar. 
+    > [!NOTE]
+    > El vínculo **Quitar** no estará disponible hasta después de 14 días si no hay ninguna actividad detectada en el grupo de administración conectado.  
+    > 
+
+10. Aparecerá una ventana que le pide que confirme que desea continuar con la eliminación.  Haga clic en **Sí** para continuar. 
 
 Para eliminar los dos conectores (Microsoft.SystemCenter.Advisor.DataConnector y Advisor Connector), guarde el siguiente script de PowerShell en el equipo y realice la ejecución utilizando los siguientes ejemplos.
 
@@ -168,7 +179,7 @@ Para eliminar los dos conectores (Microsoft.SystemCenter.Advisor.DataConnector y
 ```
 
 > [!NOTE]
-> El equipo desde el que se ejecute este script, si no es un servidor de administración, debe tener el shell de comandos de Operations Manager 2012 SP1 o R2 instalado según la versión del grupo de administración.
+> El equipo desde el que se ejecuta este script, si no es un servidor de administración, debe tener el shell de comandos de Operations Manager instalado según la versión del grupo de administración.
 > 
 > 
 
@@ -263,10 +274,5 @@ En el futuro, si pretende volver a conectar el grupo de administración a un ár
 ## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar información.
 * [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) si la organización utiliza un servidor proxy o un firewall para que los agentes puedan comunicarse con el servicio Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

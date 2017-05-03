@@ -1,6 +1,6 @@
 ---
-title: "Factoría de datos de Azure: preguntas más frecuentes"
-description: "Preguntas más frecuentes acerca de la factoría de datos de Azure."
+title: "Azure Data Factory: preguntas más frecuentes"
+description: "Preguntas más frecuentes acerca de Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -15,40 +15,40 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
-ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
-ms.lasthandoff: 02/01/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 14b7900a8b4fbf86e8a814def6fa8c7915832376
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="azure-data-factory---frequently-asked-questions"></a>Factoría de datos de Azure: preguntas más frecuentes
+# <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 ## <a name="general-questions"></a>Preguntas generales
-### <a name="what-is-azure-data-factory"></a>¿Qué es la factoría de datos de Azure?
+### <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory?
 Data Factory es un servicio de integración de datos basado en la nube que **automatiza el movimiento y la transformación de datos**. Lo mismo que las máquinas de una fábrica toman las materias primas y las transforman en productos acabados, Data Factory organiza los servicios existentes que recopilan datos sin procesar y los transforman en información lista para usar.
 
 Data Factory le permite crear flujos de trabajo basados en datos para mover datos entre almacenes de datos locales y en la nube, así como para procesar o transformar datos mediante servicios de proceso como Azure HDInsight y Azure Data Lake Analytics. Después de crear una canalización que realice la acción que necesita, puede programar que se ejecute periódicamente (cada hora, diariamente, semanalmente, etc.).   
 
-Consulte [ y conceptos clave](data-factory-introduction.md) para más información.
+Para más información, consulte [Información general y conceptos clave](data-factory-introduction.md).
 
-### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>¿Dónde puedo encontrar detalles de precios de la factoría de datos de Azure?
-Vea la [página de detalles de precios de Data Factory][adf-pricing-details] para obtener información al respecto.  
+### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>¿Dónde puedo encontrar detalles de precios de Azure Data Factory?
+Vea la [página de detalles de precios de Azure Data Factory][adf-pricing-details] para obtener información al respecto.  
 
-### <a name="how-do-i-get-started-with-azure-data-factory"></a>¿Cómo puedo comenzar con la factoría de datos de Azure?
-* Para obtener información general sobre la factoría de datos de Azure, vea [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
-* Para ver un tutorial sobre cómo **copiar o mover datos** mediante la actividad de copia, consulte [Copiar datos desde el almacenamiento de blobs de Azure a base de datos de SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+### <a name="how-do-i-get-started-with-azure-data-factory"></a>¿Cómo puedo comenzar con Azure Data Factory?
+* Para obtener información general sobre Azure Data Factory, vea [Introducción a Azure Data Factory](data-factory-introduction.md).
+* Para ver un tutorial sobre cómo **copiar o mover datos** mediante la actividad de copia, consulte [Copiar datos desde Azure Blob Storage a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para ver un tutorial sobre cómo **transformar los datos** mediante HDInsight Hive Activity, consulte [Procesamiento de datos mediante la ejecución de scripts de Hive en un clúster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>¿Cuál es la disponibilidad de regiones de la factoría de datos?
-Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Europa del Norte**. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
+Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Europa del Norte**. Los servicios de Compute y Storage utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
 Consulte la sección **Límites de Azure Data Factory** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#data-factory-limits) .
 
-### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>¿Cuál es la experiencia de desarrollador/creación con el servicio de Factoría de datos de Azure?
-Puede crear factorías de datos mediante uno de los sistemas siguientes:
+### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>¿Cuál es la experiencia de desarrollador/creación con el servicio Azure Data Factory?
+Puede crear factorías de datos mediante una de las siguientes herramientas y SDK:
 
 * **Azure Portal**
-  : las hojas de Azure Data Factory de Azure Portal proporcionan una interfaz de usuario enriquecida para crear factorías de datos y servicios vinculados. El **Editor de Factoría de datos**, que también forma parte del portal, le permite crear fácilmente servicios vinculados, tablas, conjuntos de datos y canalizaciones mediante la especificación de definiciones de JSON para estos artefactos. Consulte [Creación de la primera canalización de datos mediante Azure Portal](data-factory-build-your-first-pipeline-using-editor.md) para obtener un ejemplo de uso del portal o el editor para crear e implementar una factoría de datos.
+  : las hojas de Azure Data Factory de Azure Portal proporcionan una interfaz de usuario enriquecida para crear factorías de datos y servicios vinculados. El **Editor de Data Factory**, que también forma parte del portal, le permite crear fácilmente servicios vinculados, tablas, conjuntos de datos y canalizaciones mediante la especificación de definiciones de JSON para estos artefactos. Consulte [Creación de la primera canalización de datos mediante Azure Portal](data-factory-build-your-first-pipeline-using-editor.md) para obtener un ejemplo de uso del portal o el editor para crear e implementar una factoría de datos.
 * **Visual Studio**
   : puede usar Visual Studio para crear una instancia de Azure Data Factory. Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
 * **Azure PowerShell**
@@ -61,10 +61,10 @@ Puede crear factorías de datos mediante uno de los sistemas siguientes:
    Consulte [Tutorial: Compilación de la primera factiría de datos de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para más información.
 
 ### <a name="can-i-rename-a-data-factory"></a>¿Se puede cambiar el nombre de una Factoría de datos?
-No. Al igual que otros recursos de Azure, el nombre de una Factorías de datos de Azure no se puede cambiar.
+No. Al igual que otros recursos de Azure, el nombre de una factoría de datos de Azure no se puede cambiar.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>¿Puedo mover una factoría de datos de una suscripción a Azure a otra?
-Sí. Use el botón **Mover** situado en la hoja de la factoría de datos tal como se muestra en el siguiente diagrama.
+Sí. Use el botón **Mover** situado en la hoja de la factoría de datos tal como se muestra en el siguiente diagrama:
 
 ![Mover factoría de datos](media/data-factory-faq/move-data-factory.png)
 
@@ -75,9 +75,12 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | --- | --- |
 | [Clúster de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Aprendizaje automático de Azure](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análisis con Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimiento almacenado](data-factory-stored-proc-activity.md) |
+
+### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>¿Cómo se compara Azure Data Factory con SQL Server Integration Services (SSIS)? 
+Consulte la presentación [Azure Data Factory frente a SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de uno de nuestros MVP (profesionales más valiosos): Reza Rad. Puede que algunos de los cambios recientes de Data Factory no aparezcan en las diapositivas. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Continuamente estamos agregando más funcionalidades a Azure Data Factory. Se incorporarán estas actualizaciones en la comparación de tecnologías de integración de datos de Microsoft este año más adelante.   
 
 ## <a name="activities---faq"></a>Actividades: preguntas más frecuentes
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>¿Qué tipos de actividades diferentes se pueden usar en una canalización de Data Factory?
@@ -175,7 +178,7 @@ Consulte [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>¿Cuánto tiempo se tardó en procesar un segmento?
 Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más información.
 
-También puede hacer lo siguiente en el Portal de Azure:  
+También puede hacer lo siguiente en Azure Portal:  
 
 1. Haga clic en la ventana **Conjuntos de datos** de la hoja **FACTORÍA DE DATOS** para su factoría de datos.
 2. Haga clic en el conjunto de datos específico de la hoja **Conjuntos de datos** .

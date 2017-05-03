@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 229dd21f3ab1ae716cd49611e720450ae5939eb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -92,7 +92,7 @@ Abra la hoja Características y precios en el recurso de Application Insights pa
 
 **d.** Haga clic en las opciones de administración de datos para ver el volumen de datos del último mes, establecer un límite diario o configurar un muestreo de ingesta.
 
-Los cargos de Application Insights se agregarán a la factura de Azure. Puede ver los detalles de su factura de Azure en la sección de facturación del portal de Azure o en el [Portal de facturación de Azure](https://account.windowsazure.com/Subscriptions). 
+Los cargos de Application Insights se agregarán a la factura de Azure. Puede ver los detalles de su factura de Azure en la sección de facturación de Azure Portal o en el [Portal de facturación de Azure](https://account.windowsazure.com/Subscriptions). 
 
 ![En el menú lateral, elija Facturación.](./media/app-insights-pricing/02-billing.png)
 
@@ -123,9 +123,16 @@ Estas son algunas cosas que puede hacer para reducir el volumen de datos:
 * Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
 * Divida la telemetría para separar las claves de instrumentación. 
 * Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs).
-* Por último, puede reducir el límite de volumen diario, lo cual limitará los datos recopilados pero dará como resultado una pérdida de datos durante el resto del día. Para cambiarlo, abra **Características y precios**, **Administración de datos**.
 
-    ![Ajuste del límite de volumen de telemetría diario](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>Administración del volumen de datos diario máximo
+
+Puede usar el límite diario de volumen para limitar los datos recopilados pero, si se alcanza el límite, se producirá una pérdida de todos los datos de telemetría enviados desde la aplicación para el resto del día. **No se recomienda** que la aplicación alcance el límite diario, ya que no puede realizar el seguimiento del estado y el rendimiento de la aplicación una vez que se alcanza. 
+
+En su lugar, use el [muestreo](app-insights-sampling.md) para optimizar el volumen de datos en el nivel que desee y use el límite diario únicamente como "último recurso" por si la aplicación comienza a enviar volúmenes de datos de telemetría mucho mayores de forma inesperada. 
+
+Para cambiar el límite diario, abra **Características y precios**, **Administración de datos**.
+
+![Ajuste del límite de volumen de telemetría diario](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>muestreo
 [Sampling](app-insights-sampling.md)es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 338fa476377e9ff04c9a1f4e585f790b92a59f87
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Base de datos SQL de Azure.
 
 > [!TIP]
-> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started.md).
+> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Plataforma y lenguaje
@@ -64,8 +65,8 @@ Cuando se produce un error transitorio al conectar con Base de datos SQL, el có
 
 ## <a name="network-considerations"></a>Consideraciones de red
 * En el equipo que hospeda el programa cliente, asegúrese de que el firewall permita la comunicación TCP saliente en el puerto 1433.  Más información: [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
-* Si el programa cliente se conecta a Base de datos SQL V12 mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir determinados intervalos de puerto en la máquina virtual. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Si el programa cliente se conecta a SQL Database mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir determinados intervalos de puerto en la máquina virtual. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+* En ocasiones, las conexiones de cliente a Azure SQL Database omiten el proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## <a name="data-sharding-with-elastic-scale"></a>Particionamiento de datos con la escala elástica
 La escala elástica simplifica el proceso de escalado y reducción horizontal. 
@@ -76,9 +77,4 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Descubra todas las [funcionalidades de Base de datos SQL](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,57 +15,76 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
-ms.openlocfilehash: a6ee1d018bf33aa76d089d20f6e71318a3586aa8
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
+ms.lasthandoff: 03/31/2017
 
 ---
 
 # <a name="advisor-high-availability-recommendations"></a>Recomendaciones sobre alta disponibilidad de Advisor
 
-Advisor lo ayuda a garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Puede obtener recomendaciones sobre alta disponibilidad de Advisor en la pestaña **High Availability** (Alta disponibilidad) del panel de Advisor.
+Azure Advisor lo ayuda a garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Puede obtener recomendaciones sobre alta disponibilidad de Advisor en la pestaña **High Availability** (Alta disponibilidad) del panel de Advisor.
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
+![Botón Alta disponibilidad en el panel de Advisor](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
 
 
-## <a name="virtual-machines-without-an-availability-set"></a>Máquinas virtuales sin un conjunto de disponibilidad
+## <a name="ensure-virtual-machine-fault-tolerance"></a>Garantía de la tolerancia a errores en máquinas virtuales
 
-Advisor identifica las máquinas virtuales que no forman parte de un conjunto de disponibilidad y recomienda moverlas a un conjunto de disponibilidad. Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual esté disponible y cumpla el Acuerdo de Nivel de Servicio de la máquina virtual de Azure. Puede crear un conjunto de disponibilidad de la máquina virtual o agregar la máquina virtual a un conjunto de disponibilidad existente.
+Advisor identifica las máquinas virtuales que no forman parte de un conjunto de disponibilidad y recomienda moverlas a un conjunto de disponibilidad. Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que, durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual esté disponible y cumpla el Acuerdo de Nivel de Servicio de máquina virtual de Azure. Puede elegir entre crear un conjunto de disponibilidad de la máquina virtual o agregar la máquina virtual a uno existente.
 
 > [!NOTE]
-> Si decide crear un conjunto de disponibilidad, debe agregar al menos una máquina virtual más en ese conjunto de disponibilidad después de haberlo creado. Se recomienda que agrupe dos o más máquinas virtuales en un conjunto de disponibilidad para garantizar que una de las máquinas esté disponible durante una interrupción.
+> Si decide crear un conjunto de disponibilidad, debe agregar al menos una máquina virtual más a él. Se recomienda que agrupe dos o más máquinas virtuales en un conjunto de disponibilidad para garantizar que al menos una de ellas esté disponible durante una interrupción.
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
+![Recomendación de Advisor: para la redundancia de las máquinas virtuales, utilice conjuntos de disponibilidad](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
 
-## <a name="availability-sets-with-a-single-virtual-machine"></a>Conjuntos de disponibilidad con una sola máquina virtual 
+## <a name="ensure-availability-set-fault-tolerance"></a>Garantía de la tolerancia a errores del conjunto de disponibilidad 
 
-Advisor identifica conjuntos de disponibilidad que contienen una sola máquina virtual y recomienda que agregue una o más máquinas virtuales a ella. Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual esté disponible y cumpla el Acuerdo de Nivel de Servicio de la máquina virtual de Azure. Puede crear una máquina virtual o usar una máquina virtual existente y agregarla al conjunto de disponibilidad.  
+Advisor identifica conjuntos de disponibilidad que contienen una sola máquina virtual y recomienda que se agregue una o más máquinas virtuales a él. Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que, durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual esté disponible y cumpla el Acuerdo de Nivel de Servicio de máquina virtual de Azure. Puede elegir entre crear una máquina virtual o usar una existente y agregarla al conjunto de disponibilidad.  
+
+![Recomendación de Advisor: agregue una o más máquinas virtuales a este conjunto de disponibilidad](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
 
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
+## <a name="ensure-application-gateway-fault-tolerance"></a>Garantía de la tolerancia a errores de Application Gateway
+Para garantizar la continuidad empresarial de aplicaciones críticas que se basan en Application Gateway, Advisor identifica instancias de Application Gateway que no están configuradas para la tolerancia a errores y recomienda acciones correctoras posibles. Advisor identifica instancias únicas de Application Gateway medianas o grandes, y recomienda que agregue al menos una instancia más. También identifica instancias múltiples de Application Gateway pequeñas y recomienda migrar a SKU medianas o grandes. Advisor recomienda estas acciones para asegurarse de que las instancias de Application Gateway estén configuradas para satisfacer los requisitos actuales del Acuerdo de Nivel de Servicio para estos recursos.
 
-## <a name="virtual-machines-with-standard-disks"></a>Máquinas virtuales con discos estándar
+![Recomendación de Advisor: implemente dos o más instancias de Application Gateway medianas o grandes](./media/advisor-high-availability-recommendations/advisor-high-availability-application-gateway.png)
 
-Advisor identifica las máquinas virtuales con discos estándar y recomienda actualizar a discos Premium.  
-El Almacenamiento premium de Azure le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Discos de máquinas virtuales que usan datos de almacén Premium Storage en unidades de estado sólido (SSD). Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere E/S por segundo elevadas, puede limitar los costos mediante el mantenimiento en storage estándar. Storage estándar almacena los datos de discos de máquinas virtuales en unidades de disco duro (HDD) en lugar de SSD. Puede migrar los discos de máquinas virtuales a discos Premium. Los discos Premium son compatibles con la mayoría de las SKU de máquinas virtuales. Sin embargo, en algunos casos, si desea usar discos Premium, es posible que deba actualizar también la SKU de la máquina virtual.   
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Mejora del rendimiento y la confiabilidad de los discos de máquina virtual
 
-![](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png) 
+Advisor identifica las máquinas virtuales con discos estándar y recomienda actualizarlos a discos premium.
+ 
+Azure Premium Storage ofrece compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S. Los discos de máquinas virtuales que usan cuentas de Premium Storage almacenan datos en unidades de estado sólido (SSD). Para lograr un rendimiento óptimo en la aplicación, se recomienda migrar todos los discos de máquinas virtuales que requieran E/S por segundo elevados a Premium Storage. 
 
-## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre alta disponibilidad en Advisor
+Si los discos no requieren E/S por segundo elevadas, puede limitar los costos si los mantiene en una cuenta de almacenamiento Estándar. Con la cuenta de almacenamiento Estándar, se almacenan los datos de discos de máquinas virtuales en unidades de disco duro (HDD) en lugar de SSD. Puede migrar los discos de máquinas virtuales a discos premium. Los discos premium son compatibles con la mayoría de las SKU de máquinas virtuales. Sin embargo, en algunos casos, si desea usar discos premium, es posible que deba actualizar también las SKU de máquina virtual.
+
+![Recomendación de Advisor: mejore la confiabilidad de los discos de máquina virtual actualizándolos a discos premium](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
+
+## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Protección de los datos de máquinas virtuales contra la eliminación accidental
+Advisor identifica las máquinas virtuales que no tienen la copia de seguridad habilitada y recomienda habilitarla. La configuración de la copia de seguridad de máquinas virtuales garantiza la disponibilidad de los datos críticos y ofrece protección contra la eliminación accidental o los daños.
+
+![Recomendación de Advisor: configure la copia de seguridad de máquinas virtuales para proteger los datos críticos](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
+
+## <a name="access-high-availability-recommendations-in-advisor"></a>Acceso a las recomendaciones sobre alta disponibilidad en Advisor
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el panel de navegación de la izquierda, haga clic en **More services** (Más servicios), en el panel de menú de servicio, desplácese hacia abajo hasta **Monitoring and Management** (Supervisión y administración), y, a continuación, haga clic en **Azure Advisor**. Esto inicia el panel de Advisor. 
-3. En el panel de Advisor, haga clic en la pestaña **High Availability** (Alta disponibilidad) y seleccione la suscripción para la que le gustaría recibir las recomendaciones.
+
+2. En el panel izquierdo, haga clic en **Más servicios**.
+
+3. En el panel de menú de servicio, en **Supervisión y administración**, haga clic en **Azure Advisor**.  
+ Se muestra el panel de Advisor.
+
+4. En el panel de Advisor, haga clic en la pestaña **Alta disponibilidad** y seleccione la suscripción para la que desea recibir recomendaciones.
 
 > [!NOTE]
-> Para obtener acceso a las recomendaciones de Advisor, primero debe **registrar** su suscripción en él. Una suscripción se registra cuando el **propietario de esta** inicia el panel de Advisor y hace clic en el botón **Get recommendations** (Obtener recomendaciones). Esta operación **solo se realiza una vez**. Una vez registrada la suscripción, los **propietarios**, **contribuidores**, o **lectores** de dicha suscripción, un grupo de recursos o un recursos concreto pueden acceder a las recomendaciones de Advisor.
+> Para acceder a las recomendaciones de Advisor, primero debe *registrar su suscripción* en dicha solución. Una suscripción se registra cuando el *propietario de esta* inicia el panel de Advisor y hace clic en el botón **Obtener recomendaciones**. Esta operación *solo se realiza una vez*. Una vez registrada la suscripción, puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* para una suscripción, un grupo de recursos o un recurso concreto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las recomendaciones de Advisor, consulte los recursos siguientes:
--  [Introducción a Azure Advisor](advisor-overview.md)
--  [Introducción a Advisor](advisor-get-started.md)
--  [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
--  [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
--  [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
+Para más información acerca de las recomendaciones de Advisor, consulte:
+* [Introducción a Azure Advisor](advisor-overview.md)
+* [Introducción a Advisor](advisor-get-started.md)
+* [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
+
 

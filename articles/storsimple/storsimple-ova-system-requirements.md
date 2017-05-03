@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
-ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: c76f8c8f035f0e6ff29e0cecab12475dd695e7df
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
@@ -41,7 +41,7 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | **Hipervisor** | **Versión** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 y posterior |
-| VMware ESXi |Versión&5;.5 y versiones posteriores. |
+| VMware ESXi |Versión 5.5 y versiones posteriores. |
 
 ### <a name="virtual-device-requirements"></a>Requisitos de los dispositivos virtuales
 | **Componente** | **Requisito** |
@@ -81,7 +81,9 @@ Los siguientes requisitos de software son para los iniciadores de SMB con acceso
 > [!IMPORTANT]
 > No copie ni almacene archivos protegidos por el Sistema de archivos de cifrado de Windows (EFS) en el servidor de archivos de la matriz virtual de StorSimple; esto provocará una configuración no admitida. 
 > 
-> 
+
+### <a name="supported-storage-format"></a>Formato de almacenamiento compatible.
+Se admite solo Blob Storage en bloques de Azure. No se admiten los blobs en páginas. Más información sobre [blobs en bloques y blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Requisitos de red
 La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de nube, de SMB o de iSCSI. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Fuera* o *saliente* hace referencia a la dirección en la que el dispositivo StorSimple envía datos externamente, más allá de la implementación: por ejemplo, saliente a Internet.

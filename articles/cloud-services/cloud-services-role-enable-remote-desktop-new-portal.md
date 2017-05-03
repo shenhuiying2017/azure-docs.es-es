@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: fc9b84d151144ae9cb49beacdf525fdc356818a6
+ms.lasthandoff: 04/11/2017
 
 
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services
 > [!div class="op_single_selector"]
-> * [Portal de Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Portal de Azure clásico](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
@@ -67,7 +67,7 @@ Una vez que Escritorio remoto está habilitado en los roles, puede iniciar una c
 4. Haga clic en **Abrir** y, a continuación, en **Conectar** para iniciar la conexión del Escritorio remoto.
 
 >[!NOTE]
-> Si su servicio en la nube se encuentra detrás de un NSG, quizás deba crear una regla para abrir el puerto **20000**.
+> Si su servicio en la nube se encuentra detrás de un NSG, quizás deba crear reglas que permitan el tráfico en los puertos **3389** y **20000**.  Escritorio remoto usa el puerto **3389**.  Las instancias de servicio en la nube tienen la carga equilibrada, por lo que no se puede controlar directamente la instancia de conexión.  Los agentes *RemoteForwarder* y *RemoteAccess* administran el tráfico RDP y permiten al cliente enviar una cookie RDP, así como especificar una instancia individual a la que conectarse.  Los agentes *RemoteForwarder* y *RemoteAccess* requieren que ese puerto **20000*** esté abierto, que podría estar bloqueado si tiene un grupo de seguridad de red.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

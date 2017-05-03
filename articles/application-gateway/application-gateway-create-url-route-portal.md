@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Creación de una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante el Portal
+# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Creación de una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante el portal
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-url-route-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-url-route-arm-ps.md)
+> * [Azure Portal](application-gateway-create-url-route-portal.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 
-El enrutamiento basado en URL permite asociar rutas en función de la dirección URL de la solicitud HTTP. Comprueba si hay una ruta a un grupo de back-end configurado para las listas de direcciones URL en la puerta de enlace de aplicaciones y envía el tráfico de red al grupo de back-end definido. Un uso común del enrutamiento basado en URL es el equilibrio de carga de las solicitudes de diferentes tipos de contenido entre diferentes grupos de servidores de back-end.
+El enrutamiento basado en URL permite asociar rutas en función de la dirección URL de la solicitud HTTP. Comprueba si hay una ruta a un grupo de back-end configurada para la dirección URL indicada en Application Gateway y envía el tráfico de red al grupo de back-end definido. Un uso común del enrutamiento basado en URL es el equilibrio de carga de las solicitudes de diferentes tipos de contenido entre diferentes grupos de servidores de back-end.
 
-El enrutamiento basado en URL introduce un nuevo tipo de regla en la puerta de enlace de aplicaciones. La puerta de enlace de aplicaciones tiene dos tipos de reglas: básicas y basadas en ruta de acceso. El tipo de regla básica proporciona un servicio round robin para los grupos de back-end mientras que las reglas basadas en ruta de acceso, además de la distribución round robin, también tienen en cuenta el patrón de la dirección URL de la solicitud durante la elección del grupo de back-end.
+El enrutamiento basado en URL introduce un nuevo tipo de regla en Application Gateway. Application Gateway tiene dos tipos de reglas: básicas y basadas en la ruta de acceso. El tipo de regla básica proporciona un servicio round robin para los grupos de back-end mientras que las reglas basadas en la ruta de acceso, además de la distribución round robin, también tienen en cuenta el patrón de la dirección URL de la solicitud durante la elección del grupo de back-end adecuado.
 
 ## <a name="scenario"></a>Escenario
 
@@ -38,7 +39,7 @@ En este escenario se asume que ya ha seguido los pasos para [crear una puerta de
 
 ![ruta de dirección URL][scenario]
 
-## <a name="a-namecreateruleacreate-the-path-based-rule"></a><a name="createrule"></a>Creación de la regla basada en ruta de acceso
+## <a name="createrule"></a>Creación de la regla basada en ruta de acceso
 
 Una regla basada en ruta de acceso requiere su propio agente de escucha; antes de crear la regla compruebe tiene un agente de escucha disponible para utilizar.
 
@@ -46,7 +47,7 @@ Una regla basada en ruta de acceso requiere su propio agente de escucha; antes d
 
 Vaya a [Azure Portal](http://portal.azure.com) y seleccione una Application Gateway existente. Haga clic en **Reglas**
 
-![Introducción a Puerta de enlace de aplicaciones][1]
+![Introducción a Application Gateway][1]
 
 ### <a name="step-2"></a>Paso 2
 
@@ -79,6 +80,8 @@ La incorporación de una regla basada en ruta de acceso a una puerta de enlace d
 
 ![agregar reglas basadas en ruta de acceso adicionales][3]
 
+Esto configura una regla basada en la ruta de acceso. Es importante comprender que las solicitudes no se vuelven a escribir según van llegando; Application Gateway las inspecciona y, según el modelo de dirección URL, las envía al back-end adecuado.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender a configurar la descarga de SSL con Puerta de enlace de aplicaciones de Azure, consulte [Configure an application gateway for SSL offload by using the portal](application-gateway-ssl-portal.md)
@@ -87,9 +90,4 @@ Para aprender a configurar la descarga de SSL con Puerta de enlace de aplicacion
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

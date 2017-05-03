@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ En las tablas siguientes se muestra qué servicios de Microsoft admiten la imple
 | Container Registry |Sí |[REST de Container Registry](/rest/api/containerregistry) |[Recursos de Container Registry](/azure/templates/microsoft.containerregistry/registries) |
 | Container Service |Sí |[REST de Servicio de contenedor](/rest/api/compute/containerservices) |[Recursos de Container Service](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |Sí | | |
-| Conjuntos de escala |Sí |[REST de Conjunto de escala](/rest/api/compute/virtualmachinescalesets) |[Recursos de conjunto de escalado](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Conjuntos de escala |Sí |[REST de Conjunto de escala](/rest/api/virtualmachinescalesets/) |[Recursos de conjunto de escalado](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |Sí |[Rest de Service Fabric](/rest/api/servicefabric) | [Recursos de Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Máquinas virtuales |Sí |[VM REST](/rest/api/compute/virtualmachines) |[Recursos de máquina virtual](/azure/templates/microsoft.compute/virtualmachines) |
 | Máquinas virtuales (clásicas) |Limitado |- |- |
@@ -132,7 +132,7 @@ Azure Active Directory funciona con el administrador de recursos para habilitar 
 | --- | --- | --- | --- |
 | Supervisión |Sí |[REST de Monitor](/rest/api/monitor) |[Recursos de Insights](/azure/templates/microsoft.insights/alertrules) |
 | Mapas de Bing |Sí | | |
-| DevTest Labs |Sí | [REST de DevTest](/rest/api/dtl) |[Recursos de DevTest Lab](/azure/templates/microsoft.devtestlab/labs) |
+| DevTest Labs |Sí | [REST de DevTest Labs](/rest/api/dtl) |[Recursos de DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
 | Cuenta de Visual Studio |Sí | |[Esquema de Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>Administración y seguridad
@@ -157,7 +157,7 @@ Azure Active Directory funciona con el administrador de recursos para habilitar 
 ## <a name="resource-providers-and-types"></a>Tipos y proveedores de recursos
 Al implementar los recursos, con frecuencia necesitará recuperar información sobre los tipos y proveedores de recursos. Puede recuperar esta información a través de la API de REST, Azure PowerShell o CLI de Azure.
 
-Para trabajar con un proveedor de recursos, dicho proveedor debe estar registrado con su cuenta. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Sin embargo, debe registrar manualmente algunos de ellos. Los ejemplos siguientes muestran cómo obtener el estado de registro de un proveedor de recursos y cómo registrarlo, si es necesario.
+Para trabajar con un proveedor de recursos, dicho proveedor debe estar registrado con su cuenta. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Sin embargo, debe registrar manualmente algunos de ellos. Los ejemplos de esta sección muestran cómo obtener el estado de registro de un proveedor de recursos y cómo registrarlo.
 
 ### <a name="portal"></a>Portal
 Puede ver fácilmente una lista de proveedores de recursos admitidos seleccionando **Proveedores de recursos** en la hoja de suscripción. Para registrar un proveedor con un proveedor de recursos, seleccione el vínculo **Registrar**.
@@ -255,7 +255,7 @@ Para detectar las versiones de la API que están disponibles para los tipos de r
 En el ejemplo siguiente se muestra cómo obtener las versiones de API disponibles para un tipo de recurso concreto.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 La salida es parecida a esta:

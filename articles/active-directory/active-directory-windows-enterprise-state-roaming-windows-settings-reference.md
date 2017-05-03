@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -36,7 +36,7 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 | Cuenta de Microsoft: copia de seguridad/restauración |No |Sí |
 
 ## <a name="what-is-backup"></a>¿Qué es una copia de seguridad?
-La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Copia de seguridad está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Copia de seguridad utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
+La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Backup está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Backup utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
 
 ## <a name="windows-settings-overview"></a>Introducción a la configuración de Windows
 Los grupos de configuración siguientes están disponibles para que los usuarios finales puedan habilitar o deshabilitar en ellos la sincronización de configuración en dispositivos de Windows 10.
@@ -89,7 +89,19 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Dispositivos**: impresoras compartidas a las que se conecta |X |X |Otros |
 | **Explorador de Edge**: lista de lectura |sync |sync |interno |
 | **Explorador Edge**: favoritos |sync |sync |interno |
-| **Explorador Edge**: el resto de la configuración de Edge |X |X | |
+| **Explorador Edge**: sitios principales <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: direcciones URL escritas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: configuración de la barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: mostrar el botón inicio <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: bloquear elementos emergentes <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: preguntarme qué hacer en cada descarga <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: ofrecer guardar contraseñas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: enviar solicitudes de no seguimiento <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: guardar entradas de formularios <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: mostrar sugerencias de búsqueda y de sitios web al escribir <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: preferencias de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: permitir que los sitios guarden licencias multimedia protegidas en mi dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Edge**: configuración del lector de pantalla <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Contraste alto**: activar o desactivar |sync |X |Facilidad de acceso |
 | **Contraste alto**: configuración de temas |sync |X |Facilidad de acceso |
 | **Internet Explorer**: abrir pestañas (dirección URL y título) |sync |sync |Internet Explorer |
@@ -158,6 +170,9 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Escritura**: reproducir sonidos de teclas al escribir |sync |backup |language |
 | **Escritura**: datos de personalización para teclado táctil |sync |backup |language |
 | **Wi-Fi**: perfiles Wi-Fi (solo WPA) |sync |sync |Contraseñas |
+
+###### <a name="footnote-1"></a>Nota al pie 1
+Versión mínima admitida de Windows Creators Update (Build 15063). 
 
 ## <a name="related-topics"></a>Temas relacionados
 * [Información general de Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

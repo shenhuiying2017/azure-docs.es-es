@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2017
+ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1c93a8900ea5fae8abe0d2d47f632a067736ac56
-ms.openlocfilehash: 7aef9360ab341dd7d4932a6e9c2d8ed1d7bf1163
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c63af2de6272604f4d2d1ee694ccc4272192ef9a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -63,14 +63,18 @@ Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure
 
 Necesita la última versión de los cmdlets de PowerShell. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) . El cmdlet de PowerShell Resource Manager para restablecer la puerta de enlace es `Reset-AzureRmVirtualNetworkGateway`. En el ejemplo siguiente se restablece la instancia de Azure VPN Gateway, "VNet1GW", en el grupo de recursos "TestRG1".
 
-    $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
-    Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+```powershell
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+```
 
-### <a name="a-nameresetclassicaclassic-deployment-model"></a><a name="resetclassic"></a>Modelo de implementación clásica
+### <a name="resetclassic"></a>Modelo de implementación clásica
 
-Necesita la última versión de los cmdlets de PowerShell. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) . El cmdlet de PowerShell para restablecer Azure VPN Gateway es `Reset-AzureVNetGateway`. En el ejemplo siguiente, se restablece la puerta de enlace de VPN de Azure para la red virtual denominada "ContosoVNet".
+Necesita la última versión de los cmdlets de PowerShell. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) . El cmdlet de PowerShell para restablecer Azure VPN Gateway es **Reset-AzureVNetGateway**. En el ejemplo siguiente, se restablece la puerta de enlace de VPN de Azure para la red virtual denominada "ContosoVNet".
 
-    Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+```powershell
+Reset-AzureVNetGateway –VnetName “ContosoVNet”
+``` 
 
 Resultado:
 

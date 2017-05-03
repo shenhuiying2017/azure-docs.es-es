@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 59a83a62ddee89c44533060b811bc8fc2f144bee
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,9 @@ En este artículo se describe cómo puede usar la actividad de copia de Azure Da
 En la actualidad, Data Factory solo permite mover datos de una base de datos DB2 a [almacenes de datos receptores admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats), pero no permite mover datos de otros almacenes de datos a una base de datos de DB2.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para que el servicio de Azure Data Factory pueda conectarse a la base de datos DB2 local, se debe instalar Data Management Gateway en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un componente que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más detalles sobre Data Management Gateway. Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para instrucciones paso a paso sobre cómo configurar la puerta de enlace como canalización de datos para mover datos.
+Data Factory admite la conexión a la base de datos de DB2 local mediante Data Management Gateway. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para más información acerca de la puerta de enlace de administración de datos y el artículo [Movimiento de datos entre orígenes locales y la nube con la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md) para obtener instrucciones detalladas sobre cómo configurar la puerta de enlace de una canalización de datos para mover los datos.
 
-Debe usar la puerta de enlace para conectarse a una base de datos DB2 incluso si la base de datos está hospedada en la nube, por ejemplo, en una máquina virtual de IaaS de Azure. Puede tener la puerta de enlace en la misma máquina virtual que hospeda la base de datos o en una máquina virtual independiente, siempre que la puerta de enlace se pueda conectar a la base de datos.  
+La puerta de enlace es necesaria incluso si DB2 está hospedado en una máquina virtual de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual de IaaS como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 
 La puerta de enlace de administración de datos proporciona un controlador de DB2 integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos de DB2.
 
@@ -47,19 +47,22 @@ Este conector de DB2 admite las siguientes plataformas y versiones de IBM DB2 ad
 * IBM DB2 para LUW 10.5
 * IBM DB2 para LUW 10.1
 
+> [!TIP]
+> Si aparece un error que indica: "No se encontró el paquete correspondiente a una solicitud de ejecución de la instrucción SQL. SQLSTATE = 51002 SQLCODE =-805 ", utilice una cuenta con privilegios elevados (de usuario avanzado o de administrador) para ejecutar la actividad de copia de una vez. A Después, el paquete necesario se creará automáticamente durante la copia. A continuación, puede cambiar al usuario normal para las ejecuciones de copia posteriores.
+
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos DB2 local mediante el uso de diferentes herramientas o API. 
 
 - La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
-- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instrucciones paso a paso de la creación de una canalización con una actividad de copia. 
+- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia. 
 
-Si usa las herramientas o las API, realice los pasos siguientes para crear una canalización que mueve los datos de un almacén de datos de origen a un almacén de datos del receptor:
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Cree **servicios vinculados** para vincular los almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** que representen los datos de entrada y salida para la operación de copia. 
+1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el asistente, se crean automáticamente las definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan para copiar los datos de un almacén de datos DB2 local, consulte la sección [Ejemplo de JSON: Copiar datos de DB2 a un blob de Azure](#json-example-copy-data-from-db2-to-azure-blob) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan para copiar los datos de un almacén de datos DB2 local, consulte la sección [Ejemplo de JSON: Copiar datos de DB2 a un blob de Azure](#json-example-copy-data-from-db2-to-azure-blob) de este artículo. 
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de DB2:
 
@@ -347,10 +350,10 @@ Al mover datos a DB2, se usarán las asignaciones siguientes de tipo DB2 a tipo 
 | Char |string |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
-Para más información sobre la asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte el artículo sobre la [asignación de columnas de conjunto de datos en Azure Data Factory](data-factory-map-columns.md).
+Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lectura repetible de orígenes relacionales
-Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se leen sin importar cuántas veces se ejecuta un segmento. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se lean sin importar el número de ejecuciones. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

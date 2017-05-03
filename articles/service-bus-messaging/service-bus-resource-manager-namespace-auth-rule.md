@@ -1,5 +1,5 @@
 ---
-title: "Creación de una regla de autorización de Azure Service Bus con plantilla | Microsoft Docs"
+title: "Creación de reglas de autorización de Service Bus con plantillas de Azure Resource Manager | Microsoft Docs"
 description: "Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e62ff884e5e48f8cc542cd85a750fc857302c6b4
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
+
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea una [regla de autorización](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) para una cola y un espacio de nombres de Service Bus. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
@@ -42,13 +44,14 @@ Para ver la plantilla completa, consulte la [plantilla de regla de autorización
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
 Con esta plantilla, implementará una regla de autorización de Bus de servicio para una entidad de mensajería y espacio de nombres (una cola en este caso).
 
-Esta plantilla usa la [firma de acceso compartido (SAS)](service-bus-sas-overview.md) para la autenticación. SAS permite a las aplicaciones autenticarse en el Bus de servicio mediante una clave de acceso configurada en el espacio de nombres o en la entidad de mensajería (cola o tema) al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token SAS que a su vez, los clientes pueden usar para autenticarse en el Bus de servicio.
+Esta plantilla usa la [firma de acceso compartido (SAS)](service-bus-sas.md) para la autenticación. SAS permite a las aplicaciones autenticarse en el Bus de servicio mediante una clave de acceso configurada en el espacio de nombres o en la entidad de mensajería (cola o tema) al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token SAS que a su vez, los clientes pueden usar para autenticarse en el Bus de servicio.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
 [![Implementación en Azure](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parámetros
+
 Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
 La plantilla define los parámetros siguientes.
@@ -170,9 +173,4 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

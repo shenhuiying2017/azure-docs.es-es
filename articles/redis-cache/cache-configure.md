@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/27/2017
+ms.date: 05/02/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
     * [Claves de acceso](#access-keys)
     * [Configuración avanzada](#advanced-settings)
     * [Asesor de caché en Redis](#redis-cache-advisor)
-    * [Plan de tarifa](#pricing-tier)
+    * [Escala](#scale)
     * [Tamaño del Clúster en Redis](#cluster-size)
     * [Persistencia de datos de Redis](#redis-data-persistence)
     * [Programar actualizaciones](#schedule-updates)
@@ -100,7 +100,7 @@ La sección **Configuración** permite acceder a los siguientes ajustes de la me
 * [Claves de acceso](#access-keys)
 * [Configuración avanzada](#advanced-settings)
 * [Asesor de caché en Redis](#redis-cache-advisor)
-* [Plan de tarifa](#pricing-tier)
+* [Escala](#scale)
 * [Tamaño del Clúster en Redis](#cluster-size)
 * [Persistencia de datos de Redis](#redis-data-persistence)
 * [Programar actualizaciones](#schedule-updates)
@@ -190,11 +190,11 @@ Cada plan de tarifa tiene distintos límites para las conexiones de cliente, mem
 | Carga de servidor |[Gráficos de uso: carga del servidor Redis](cache-how-to-monitor.md#usage-charts) |
 | Uso de la memoria |[Rendimiento y tamaño de la memoria caché](cache-faq.md#cache-performance) |
 
-Para actualizar la memoria caché, haga clic en **Actualizar ahora** para cambiar el [plan de tarifa](#pricing-tier) y escalar la memoria caché. Para más información sobre cómo elegir un plan de tarifa, consulte [¿Qué oferta y tamaño de Redis Caché debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Para actualizar la memoria caché, haga clic en **Actualizar ahora** para cambiar el plan de tarifa y [escalar](#scale) la memoria caché. Para más información sobre cómo elegir un plan de tarifa, consulte [¿Qué oferta y tamaño de Redis Caché debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
-### <a name="pricing-tier"></a>Nivel de precios
-Haga clic en el **Nivel de precios** para ver o cambiar el plan de tarifa para su memoria caché. Para obtener más información sobre el escalado, vea [Escalado de Caché en Redis de Azure](cache-how-to-scale.md).
+### <a name="scale"></a>Escala
+Haga clic en **Escalar** para ver o cambiar el plan de tarifa para su memoria caché. Para obtener más información sobre el escalado, vea [Escalado de Caché en Redis de Azure](cache-how-to-scale.md).
 
 ![Nivel de precios de Caché en Redis](./media/cache-configure/pricing-tier.png)
 
@@ -452,6 +452,13 @@ Para obtener más información sobre las bases de datos, consulte el artículo [
   * P2 (13 GB - 130 GB): hasta 15.000 conexiones
   * P3 (26 GB - 260 GB): hasta 30.000 conexiones
   * P4 (53 GB - 530 GB): hasta 40.000 conexiones
+
+> [!NOTE]
+> Si bien cada tamaño de caché permite *hasta* cierta cantidad de conexiones, cada conexión a Redis tiene asociada una sobrecarga. Un ejemplo de dicha sobrecarga podría ser el uso de memoria y CPU como resultado del cifrado TLS/SSL. El límite máximo de conexiones para un tamaño de caché determinado supone una caché con poca carga. Si la carga proveniente de la sobrecarga de conexiones *más* la carga proveniente de las operaciones de clientes supera la capacidad del sistema, la caché puede tener problemas de capacidad incluso si no ha excedido el límite de conexiones para el tamaño de la caché actual.
+> 
+> 
+
+
 
 ## <a name="redis-commands-not-supported-in-azure-redis-cache"></a>No se admiten comandos de Redis en Caché en Redis de Azure
 > [!IMPORTANT]

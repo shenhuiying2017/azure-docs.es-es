@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5bff7fa34fd8ce14a35018dfd3c13b9ca2019f2e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 000eaead1805ff06278b312a240aca07035e7289
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -82,6 +82,9 @@ Sí, las bases de datos de la serie Basic se pueden actualizar localmente (de Ba
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>Al migrar mis recursos de una suscripción a otra, ¿se migra también la base de datos MySQL ClearDB?
 Al realizar una migración de recursos entre suscripciones, se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md) . Una base de datos MySQL ClearDB es un servicio de terceros, de ahí que no se migre durante la migración de la suscripción de Azure. Si no administra la migración de su base de datos de MySQL antes de migrar recursos de Azure, se pueden deshabilitar las bases de datos MySQL ClearDB. En primer lugar migre manualmente las bases de datos y luego realice la migración de la suscripción de Azure de la aplicación web. 
+
+## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>Alcancé el límite de gasto en mi suscripción. Quité el límite y mi App Service está en línea. Sin embargo, no puedo obtener acceso a la base de datos. ¿Cómo vuelvo a habilitar la base de datos ClearDB?
+Póngase en contacto con el [soporte técnico de ClearDB](https://www.cleardb.com/developers/help/support) para volver a habilitar la base de datos. Proporcióneles información de suscripción de Azure y el nombre de la base de datos.
 
 ## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>¿Puedo transferir una base de datos ClearDB desde una suscripción de tarjeta de crédito hasta una suscripción de EA?
 Las bases de datos existentes de ClearDB utilizan la tarjeta de crédito asociada a las suscripciones existentes. Para usar una suscripción de EA, deberá migrar los datos a una base de datos nueva:

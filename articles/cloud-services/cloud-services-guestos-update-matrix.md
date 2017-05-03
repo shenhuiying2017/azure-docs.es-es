@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/8/2017
+ms.date: 4/18/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 182b03d7075c3161f09f27f265b624897cb7a9cc
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d471f5826cc05fb52ff4c24184628235477c075d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -39,6 +39,12 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+###### <a name="april-18-2017"></a>**18 de abril de 2017**
+La implementación del SO invitado de abril comienza el 18 de abril y está previsto que se publique el 9 de mayo.
+
+###### <a name="april-10-2017"></a>**10 de abril de 2017**
+La implementación del SO invitado de marzo comienza el 14 de marzo de 2017 y está previsto que se publique el 10 de abril de 2017.
+
 ###### <a name="january-10-2017"></a>**10 de enero de 2017**
 El SO invitado de enero contiene revisiones que solo afectan a la familia 2 de SO (Windows 2008 Server R2). Por tanto, solo hemos publicado la imagen de la familia 2 de SO (WA-GUEST-OS-2.59_201701-01) este mes. Para todas las demás familias de SO, el SO de diciembre (201612-01) permanece vigente.
 
@@ -66,9 +72,10 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.5_201703-01 |10 de abril de 2017 |Post 5.7 |TBD | 
 | WA-GUEST-OS-5.4_201612-01 |10 de enero de 2017 |Post 5.6 |TBD | 
 | WA-GUEST-OS-5.3_201611-01 |14 de diciembre de 2016 |Post 5.5 |TBD |
-| WA-GUEST-OS-5.2_201610-02 |1 de noviembre de 2016 |Post 5.4 |TBD |
+|~~WA-GUEST-OS-5.2_201610-02~~ |1 de noviembre de 2016 |10 de abril de 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Lanzamientos de la familia 4
 **Windows Server 2012 R2**
@@ -82,9 +89,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.40_201703-01 |10 de abril de 2017 |Post 4.42 |TBD |
 | WA-GUEST-OS-4.39_201612-01 |10 de enero de 2017 |Post 4.41 |TBD |
 | WA-GUEST-OS-4.38_201611-01 |14 de diciembre de 2016 |Post 4.40 |TBD |
-| WA-GUEST-OS-4.37_201610-02 |16 de noviembre de 2016 |Post 4.39 |TBD |
+|~~WA-GUEST-OS-4.37_201610-02~~ |16 de noviembre de 2016 |10 de abril de 2017 |TBD |
 |~~WA-GUEST-OS-4.36_201609-01~~ |13 de octubre de 2016 |14 de enero de 2017 |TBD |
 |~~WA-GUEST-OS-4.35_201608-01~~ |13 de septiembre de 2016 |16 de diciembre de 2016 |TBD |
 |~~WA-GUEST-OS-4.34_201607-01~~ |8 de agosto de 2016 |13 de noviembre de 2016 |TBD |
@@ -93,8 +101,7 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 |~~WA-GUEST-OS-4.31_201604-01~~ |2 de mayo de 2016 |13 de agosto de 2016 |TBD |
 |~~WA-GUEST-OS-4.30_201603-01~~ |7 de abril de 2016 |10 de julio de 2016 |TBD |
 |~~WA-GUEST-OS-4.29_201602-02~~ |12 de marzo de 2016 |2 de junio de 2016 |TBD |
-|~~WA-GUEST-OS-4.28_201601-01~~ |12 de febrero de 2016 |7 de mayo de 2016 |TBD |
-|~~WA-GUEST-OS-4.27_201512-01~~ |12 de enero de 2016 |12 de abril de 2016 |TBD |
+
 
 ## <a name="family-3-releases"></a>Lanzamientos de la familia 3
 **Windows Server 2012**
@@ -108,9 +115,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.47_201703-01 |10 de abril de 2017 |Post 3.49 |TBD |
 | WA-GUEST-OS-3.46_201612-01 |10 de enero de 2017 |Post 3.48 |TBD |
 | WA-GUEST-OS-3.45_201611-01 |14 de diciembre de 2016 |Post 3.47 |TBD |
-| WA-GUEST-OS-3.44_201610-01 |16 de noviembre de 2016 |Post 3.46 |TBD |
+| WA-GUEST-OS-3.44_201610-02 |16 de noviembre de 2016 |1 de mayo de 2017 |TBD |
 | ~~WA-GUEST-OS-3.43_201609-01~~ |13 de octubre de 2016 |14 de enero de 2017 |TBD |
 | ~~WA-GUEST-OS-3.42_201608-01~~ |13 de septiembre de 2016 |16 de diciembre de 2016 |TBD |
 | ~~WA-GUEST-OS-3.41_201607-01~~ |8 de agosto de 2016 |13 de noviembre de 2016 |TBD |
@@ -119,8 +127,7 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 | ~~WA-GUEST-OS-3.38_201604-01~~ |2 de mayo de 2016 |13 de agosto de 2016 |TBD |
 | ~~WA-GUEST-OS-3.37_201603-01~~ |7 de abril de 2016 |10 de julio de 2016 |TBD |
 | ~~WA-GUEST-OS-3.36_201602-02~~ |12 de marzo de 2016 |2 de junio de 2016 |TBD |
-| ~~WA-GUEST-OS-3.35_201601-01~~ |12 de febrero de 2016 |7 de mayo de 2016 |TBD |
-| ~~WA-GUEST-OS-3.34_201512-01~~ |12 de enero de 2016 |12 de abril de 2016 |TBD |
+
 
 ## <a name="family-2-releases"></a>Lanzamientos de la familia 2
 **Windows Server 2008 R2 SP1**
@@ -134,10 +141,11 @@ Admite .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.60_201703-01 |10 de abril de 2017 |Post 2.62 |TBD |
 | WA-GUEST-OS-2.59_201701-01 |10 de enero de 2017 |Post 2.61 |TBD |
 | WA-GUEST-OS-2.58_201612-01 |10 de enero de 2017 |Post 2.60 |TBD |
-| WA-GUEST-OS-2.57_201611-01 |14 de diciembre de 2016 |Post 2.59 |TBD |
-| WA-GUEST-OS-2.56_201610-01 |16 de noviembre de 2016 |10 de febrero de 2017 |TBD |
+|~~WA-GUEST-OS-2.57_201611-01~~ |14 de diciembre de 2016 |10 de abril de 2017 |TBD |
+|~~WA-GUEST-OS-2.56_201610-02~~ |16 de noviembre de 2016 |10 de febrero de 2017 |TBD |
 |~~WA-GUEST-OS-2.55_201609-01~~ |13 de octubre de 2016 |14 de enero de 2017 |TBD |
 |~~WA-GUEST-OS-2.54_201608-01~~ |13 de septiembre de 2016 |16 de diciembre de 2016 |TBD |
 |~~WA-GUEST-OS-2.53_201607-01~~ |8 de agosto de 2016 |13 de noviembre de 2016 |TBD |
@@ -146,8 +154,7 @@ Admite .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GUEST-OS-2.50_201604-01~~ |2 de mayo de 2016 |13 de agosto de 2016 |TBD |
 |~~WA-GUEST-OS-2.49_201603-01~~ |7 de abril de 2016 |10 de julio de 2016 |TBD |
 |~~WA-GUEST-OS-2.48_201602-02~~|12 de marzo de 2016 |2 de junio de 2016 |TBD |
-|~~WA-GUEST-OS-2.47_201601-01~~|12 de febrero de 2016 |7 de mayo de 2016 |TBD |
-|~~WA-GUEST-OS-2.46_201512-01~~|12 de enero de 2016 |12 de abril de 2016 |TBD |
+
 
 ## <a name="msrc-patch-updates"></a>Actualizaciones de revisiones de MSRC
 La lista de revisiones que se incluyen con cada lanzamiento mensual del SO invitado está disponible [aquí][patches].
