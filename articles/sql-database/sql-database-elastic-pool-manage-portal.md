@@ -11,15 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 11/17/2016
+ms.date: 04/18/2016
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d5be10b4898002a693f617043b2e2b8a890035ca
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -88,13 +88,12 @@ Después de establecer el plan de tarifa, haga clic en Configurar grupo donde ag
 
     Si está trabajando con bases de datos que tienen suficiente telemetría de historial de uso, el gráfico **Estimated eDTU and GB usage** (Uso estimado de eDTU y GB) y el gráfico de barras **Actual eDTU usage** (Uso real de eDTU) se actualizan para ayudarle a tomar decisiones de configuración. Además, el servicio puede proporcionar un mensaje de recomendación que le ayuda a ajustar el tamaño correcto del grupo. Consulte [Recomendaciones dinámicas](#dynamic-recommendations).
 
-3. Use los controles de la página **Configurar grupo** para explorar las opciones y configurar el grupo. Consulte los [límites de los grupos elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) para ver más información sobre los límites de cada nivel de servicio y las [consideraciones sobre precios y rendimiento para los grupos elásticos](sql-database-elastic-pool-guidance.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo elástico. Para más información sobre la configuración del grupo, consulte las [propiedades del grupo elástico](sql-database-elastic-pool.md#elastic-pool-properties).
+3. Use los controles de la página **Configurar grupo** para explorar las opciones y configurar el grupo. Consulte los [límites de los grupos elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) para ver más información sobre los límites de cada nivel de servicio y las [consideraciones sobre precios y rendimiento para los grupos elásticos](sql-database-elastic-pool.md) para ver instrucciones detalladas sobre el ajuste de tamaño correcto de un grupo elástico. Para más información sobre la configuración del grupo, consulte las [propiedades del grupo elástico](sql-database-elastic-pool.md#database-properties-for-pooled-databases).
 
     ![Configuración de grupos elásticos](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. Haga clic en **Seleccionar** in the **Configure Pool** después de cambiar la configuración.
 5. Haga clic en **Aceptar** para crear el grupo.
-
 
 ## <a name="understand-elastic-pool-recommendations"></a>Descripción de las recomendaciones de grupos elásticos
 
@@ -109,7 +108,8 @@ La recomendación de grupo consta de:
 - Las **eDTU máx.** y **eDTU mín.** por base de datos
 - La lista de bases de datos recomendadas para el grupo
 
-> ![IMPORTANTE] El servicio tiene en cuenta los últimos 30 días de telemetría al recomendar grupos. Para que una base de datos se considere una candidata para un grupo elástico, debe tener una existencia mínima de 7 días. Las bases de datos que ya están en un grupo elástico no se consideran candidatas para las recomendaciones de grupos elásticos.
+> [!IMPORTANT]
+> El servicio tiene en cuenta los últimos 30 días de telemetría al recomendar grupos. Para que una base de datos se considere una candidata para un grupo elástico, debe tener una existencia mínima de 7 días. Las bases de datos que ya están en un grupo elástico no se consideran candidatas para las recomendaciones de grupos elásticos.
 >
 
 El servicio evalúa las necesidades de recursos y la rentabilidad de mover las bases de datos únicas de cada nivel de servicio a grupos del mismo nivel. Por ejemplo, se evalúan todas las bases de datos Standard en un servidor para que quepan en un bloque de bases de datos elásticas Standard. Esto significa que el servicio no hace recomendaciones entre niveles como, por ejemplo, mover una base de datos Standard a un grupo Premium.
@@ -260,7 +260,7 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
 ## <a name="change-performance-settings-of-an-elastic-pool"></a>Cambio de la configuración de rendimiento de un grupo elástico
 
-Cuando supervise el uso de recursos de un grupo elástico, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md) para más información.
+Cuando supervise el uso de recursos de un grupo elástico, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool.md) para más información.
 
 Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base de datos:
 
@@ -281,7 +281,7 @@ Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para entender qué es un grupo elástico, consulte [Grupo elástico de SQL Database](sql-database-elastic-pool.md).
-- Para una guía sobre cómo usar grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md).
+- Para una guía sobre cómo usar grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool.md).
 - Para usar trabajos elásticos para ejecutar scripts de Transact-SQL con cualquier número de bases de datos en el grupo, consulte [Introducción a los trabajos elásticos](sql-database-elastic-jobs-overview.md).
 - Para consultar en cualquier número de bases de datos del grupo, consulte [Introducción a las consultas elásticas](sql-database-elastic-query-overview.md).
 - Para más información sobre las transacciones de cualquier número de bases de datos del grupo, consulte [Transacciones elásticas](sql-database-elastic-transactions-overview.md).
