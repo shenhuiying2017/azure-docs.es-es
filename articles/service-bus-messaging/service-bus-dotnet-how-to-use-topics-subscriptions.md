@@ -46,7 +46,7 @@ De este modo ya estará listo para escribir código para el bus de servicio.
 ## <a name="create-a-service-bus-connection-string"></a>Creación de una cadena de conexión de Service Bus
 El bus de servicio usa una cadena de conexión para almacenar extremos y credenciales. Puede poner la cadena de conexión en un archivo de configuración en vez de codificarla de forma rígida:
 
-* Si usa servicios de Azure, es aconsejable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos *.csdef y *.cscfg).
+* Si usa servicios de Azure, es aconsejable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos .csdef y .cscfg).
 * Al usar Sitios web Azure o Máquinas virtuales de Azure, es recomendable que almacene su cadena de conexión con el sistema de configuración .NET (por ejemplo, el archivo Web.config).
 
 En ambos casos, puede recuperar la cadena de conexión utilizando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
