@@ -34,7 +34,7 @@ En este artículo se explica cómo administrar la configuración de un grupo en 
 
    ![Apertura de la hoja Grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
-5. En la hoja **Grupo -*nombre del grupo***, seleccione **Propiedades**.
+5. En la hoja **Grupo -* nombre del grupo* **seleccione** Propiedades**.
 
    ![Apertura de la hoja Propiedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Cuando termine de modificar las propiedades del grupo, seleccione **Guardar**.    
