@@ -1,0 +1,17 @@
+Colección de medidas personalizadas. Use esta colección para notificar la medida designada asociada al elemento de telemetría. Casos de uso típicos:
+- el tamaño de carga útil de la telemetría de dependencia
+- el número de elementos en la cola procesados por la telemetría de solicitudes
+- tiempo que el cliente tardó en completar los pasos del asistente de finalización de la telemetría de eventos.
+
+Puede consultar las [medidas personalizadas](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) en el análisis de aplicaciones:
+
+```
+customEvents 
+| where customMeasurements != "" 
+| summarize avg(todouble(customMeasurements["Completion Time"]) * itemCount)
+```
+
+ > [!NOTE]
+ > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Y están sujetas para el muestreo con el elemento de telemetría que contiene esas mediciones. Use la [telemetría de métricas](#metric-telemetry) para realizar el seguimiento de la medida que tiene valores independientes de otro tipo de telemetría. 
+
+Longitud máxima de la clave: 150

@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -187,7 +187,7 @@ Sí. Sí, en estaciones de trabajo de Windows o Windows Server los trabajos de c
  Todos los datos de los que se realiza una copia de seguridad desde el agente de Copia de seguridad de Azure o SCDPM o del servidor de Copia de seguridad de Azure se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
 
  ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>¿Hay alguna forma de ajustar la cantidad de ancho de banda que utiliza el servicio Copia de seguridad?<br/>
-  Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Puede ajustar la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para obtener instrucciones detalladas, consulte **[Habilitación de la limitación de la red](backup-configure-vault.md#enable-network-throttling)**.
+  Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Puede ajustar la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para obtener instrucciones detalladas, consulte  **[Habilitación de la limitación de la red](backup-configure-vault.md#enable-network-throttling)**.
 
 
 
@@ -205,6 +205,7 @@ Azure Backup admite la siguiente lista de sistemas operativos para la copia de s
 | Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 y SP más recientes |64 bits |Datacenter, Foundation, Standard |
+| Windows Storage Server 2016 y SP más recientes |64 bits |Standard, Workgroup | 
 | Windows Storage Server 2012 R2 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Essential |

@@ -2,11 +2,9 @@
 ``time.nist.gov`` y ``time.windows.com``: se usan para comprobar la sincronización de la hora entre el sistema y la hora global
 <br/><br/>
 
-Direcciones URL para Azure Government Cloud:<br/>
+Direcciones URL para Azure Government Cloud:
 
-<ul>
-<li>*.ugv.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugv.backup.windowsazure.us</li>
-<li>*.ugi.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugi.backup.windowsazure.us</li>
-</ul>
+- \*\.ugv.hypervrecoverymanager.windowsazure.us
+- \*\.ugv.backup.windowsazure.us
+- \*\.ugi.hypervrecoverymanager.windowsazure.us
+- \*\.ugi.backup.windowsazure.us

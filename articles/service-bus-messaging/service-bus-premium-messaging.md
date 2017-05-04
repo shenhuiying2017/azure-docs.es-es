@@ -1,6 +1,6 @@
 ---
 title: "Información general de los niveles de precios de mensajería Estándar y Premium de Service Bus|Microsoft Docs"
-description: "Mensajería Premium y Estándar del Bus de servicio"
+description: "Niveles de mensajería Premium y Estándar de Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2017
+ms.date: 04/19/2017
 ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: f223ea7ac168d3c800b6ba664b31ab66b382d6cc
-ms.openlocfilehash: 2657965ff3ee028263f9ef0c48024fe1839eee6e
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar del Bus de servicio
+
 La mensajería de Service Bus, que incluye entidades como colas y temas, combina las funcionalidades de la mensajería empresarial con una completa semántica de publicación-suscripción en la escala de nube. La mensajería de Service Bus se utiliza como la red troncal de comunicación para muchas soluciones sofisticadas en la nube.
 
 El nivel *Premium* de la mensajería de Service Bus atiende solicitudes comunes de los clientes con relación a la escala, el rendimiento y la disponibilidad para aplicaciones fundamentales. Aunque los conjuntos de características son prácticamente idénticos, estos dos niveles de mensajería de Service Bus están diseñados para usarse en distintas situaciones.
@@ -40,13 +42,16 @@ La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en
 Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido. La mensajería Premium de Service Bus se basa en el motor de almacenamiento presentado en [Azure Events Hubs](https://azure.microsoft.com/services/event-hubs/). Con la mensajería Premium, obtener el máximo rendimiento es mucho más rápido que en el nivel Estándar.
 
 ## <a name="premium-messaging-technical-differences"></a>Diferencias técnicas de la mensajería Premium
-A continuación se presentan algunas diferencias existentes entre los niveles de mensajería Estándar y Premium.
+
+En las secciones siguientes se describen algunas diferencias existentes entre los niveles de mensajería Estándar y Premium.
 
 ### <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
+
 Las colas y los temas con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones para el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades exprés
-Dado que la mensajería Premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades exprés en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+
+Dado que la mensajería Premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 ## <a name="get-started-with-premium-messaging"></a>Introducción a la Mensajería premium
 
@@ -58,6 +63,7 @@ También puede crear un [espacios de nombres premium con plantillas de Azure Res
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 
 * [Introducción a la mensajería Premium de Azure Service Bus (entrada de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
@@ -68,9 +74,4 @@ Para más información sobre la mensajería de Service Bus, consulte los siguien
 <!--Image references-->
 
 [create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
