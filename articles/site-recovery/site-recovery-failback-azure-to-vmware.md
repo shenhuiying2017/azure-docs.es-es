@@ -15,15 +15,15 @@ ms.workload: required
 ms.date: 03/27/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3bd182a775377f912914c0c7a63fe41811146e1a
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
 > [!div class="op_single_selector"]
-> * [Máquinas de VMware o físicas desde Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Máquinas de VMware o físicas desde Azure](site-recovery-how-to-failback-azure-to-vmware.md)
 > * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure al sitio local. Siga las instrucciones que se describen aquí cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que haya vuelto a proteger las máquinas mediante esta [referencia](site-recovery-how-to-reprotect.md).

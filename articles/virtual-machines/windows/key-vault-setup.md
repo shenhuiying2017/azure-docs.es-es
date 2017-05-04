@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 993404815b557452898d045910a80fe1e87a4924
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -31,8 +31,8 @@ En la pila de Azure Resource Manager, los certificados o secretos se modelan com
 > [!NOTE]
 > 1. Para que un Almacén de claves se utilice con máquinas virtuales de Azure Resource Manager, la propiedad **EnabledForDeployment** del Almacén de claves se debe establecer en true. Puede hacer esto en varios clientes.
 > 2. El Almacén de claves debe crearse en la misma ubicación y suscripción que la máquina virtual.
-> 
-> 
+>
+>
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Uso de PowerShell para configurar el Almacén de claves
 Para crear un almacén de claves usando PowerShell, consulte [Introducción al Almacén de claves de Azure](../../key-vault/key-vault-get-started.md#vault).
@@ -46,7 +46,7 @@ Para almacenes de claves existentes, puede usar este cmdlet de PowerShell:
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="us-cli-to-set-up-key-vault"></a>Uso de la CLI para configurar el Almacén de claves
-Para crear un almacén de claves mediante la interfaz de la línea de comandos (CLI), consulte [Administración del Almacén de claves mediante CLI](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+Para crear un almacén de claves mediante la interfaz de la línea de comandos (CLI), consulte [Administración del Almacén de claves mediante CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 Para la CLI, primero debe crear el almacén de claves y luego asignar la directiva de implementación. Para ello, puede usar el siguiente comando:
 
@@ -68,5 +68,4 @@ Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` e
     }
 
 Para otras opciones que puede configurar al crear un almacén de claves mediante plantillas, consulte [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)(Creación de un almacén de claves).
-
 

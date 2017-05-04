@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d4a0dfbfab052e98e0dd641e8cab8fc143c2ff41
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -264,7 +264,7 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 | Completa mensual | 1 | 12 | 12 |
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
-| Cuota adicional  | 4  |   | Requisito de GFS, un total de&42;  |
+| Cuota adicional  | 4  |   | Requisito de GFS, un total de 42  |
 \* El multiplicador de GFS es el número de copias que es preciso proteger y retener para cumplir los requisitos de las directivas de copia de seguridad.
 
 ## <a name="set-up-veeam-storage"></a>Configuración del almacenamiento de Veeam
@@ -466,7 +466,7 @@ En la sección siguiente se describe cómo crear un script breve para iniciar y 
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar o eliminar una instantánea en la nube
 
-1. [Instale Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
+1. [Instale Azure PowerShell](/powershell/azure/overview).
 2. [Descargue e importe la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx).
 3. En el Portal de Azure clásico, obtenga el nombre del recurso y la [clave de registro del servicio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4. En el servidor que ejecuta el script, ejecute PowerShell como administrador. Escriba el siguiente comando:

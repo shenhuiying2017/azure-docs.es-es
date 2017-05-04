@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,7 +80,7 @@ Existen principalmente dos requisitos previos para que el intercambio de impleme
 
 - Si quiere usar una dirección IP estática para su ranura de producción, debe reservar también una para su ranura de ensayo. Si no, el intercambio dará error.
 
-- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. Puede comprobar el estado de las en la hoja de información general del portal de Azure o mediante el [comando Get-AzureRole de Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. Puede comprobar el estado de las en la hoja de información general del portal de Azure o mediante el [comando Get-AzureRole de Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Tenga en cuenta que las actualizaciones del SO invitado y las operaciones de recuperación de servicios pueden hacer que los intercambios de implementación den error. Consulte [Solución de problemas de implementación de servicios en la nube](cloud-services-troubleshoot-deployment-problems.md) para más información.
 
@@ -121,9 +122,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

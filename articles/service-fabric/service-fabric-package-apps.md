@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 45bf19b4c8406cfc09624bef2b9c0f1c443d8fd6
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -64,18 +64,18 @@ Para crear un paquete, haga clic con el botón derecho en el proyecto de aplicac
 
 ![Empaquetado de una aplicación con Visual Studio][vs-package-command]
 
-Una vez completado el empaquetado, busque la ubicación del paquete en la ventana **Salida** . Tenga en cuenta que el paso de empaquetado se produce automáticamente al implementar o depurar su aplicación en Visual Studio.
+Una vez completado el empaquetado, busque la ubicación del paquete en la ventana **Salida**. El paso de empaquetado se produce automáticamente al implementar o depurar la aplicación en Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Creación de un paquete mediante la línea de comandos
-También es posible empaquetar la aplicación mediante programación usando `msbuild.exe`. En el fondo esto es lo que está ejecutando Visual Studio, así que el resultado será el mismo.
+También es posible empaquetar la aplicación mediante programación usando `msbuild.exe`. En el fondo esto es lo que ejecuta Visual Studio, por lo que la salida es la misma.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ## <a name="test-the-package"></a>Probar el paquete
-Puede comprobar la estructura del paquete localmente a través de PowerShell mediante el comando [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) .
-Este comando comprobará si existen problemas de análisis de manifiestos y verificará todas las referencias. Este comando solo comprueba la corrección estructural de los directorios y archivos del paquete.
+Puede comprobar la estructura del paquete localmente a través de PowerShell mediante el comando [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Este comando comprueba si existen problemas de análisis de manifiestos y verifica todas las referencias. Este comando solo comprueba la corrección estructural de los directorios y archivos del paquete.
 No comprobará ningún contenido de código o de paquete de datos y se limitará a comprobar que todos los archivos necesarios están presentes.
 
 ```
@@ -111,7 +111,7 @@ True
 PS D:\temp>
 ```
 
-Si la aplicación tiene [parámetros de aplicación](service-fabric-manage-multiple-environment-app-configuration.md) definidos, puede pasarlos en [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) para realizar una validación adecuada.
+Si la aplicación tiene [parámetros de aplicación](service-fabric-manage-multiple-environment-app-configuration.md) definidos, puede pasarlos en [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para realizar una validación adecuada.
 
 Si conoce el clúster donde se implementará la aplicación, se recomienda pasar la cadena de conexión del almacén de imágenes. En este caso, el paquete también se valida con las versiones anteriores de la aplicación que ya se está ejecutando en el clúster. Por ejemplo, la validación puede detectar si ya se implementó un paquete con la misma versión pero distinto contenido.  
 
@@ -124,9 +124,9 @@ La [carga del paquete de aplicación](service-fabric-deploy-remove-applications.
 El mecanismo de implementación es el mismo para los paquetes comprimidos y sin comprimir. Si el paquete se comprime, se almacena como tal en el almacén de imágenes de clúster y se descomprime en el nodo antes de ejecutar la aplicación.
 La compresión reemplaza el paquete de Service Fabric válido por la versión comprimida. La carpeta debe permitir permisos de escritura. La ejecución de la compresión en un paquete ya comprimido no produce ningún cambio. 
 
-Puede comprimir un paquete ejecutando el comando de Powershell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) con el modificador `CompressPackage`. Puede descomprimir el paquete con el mismo comando, mediante el modificador `UncompressPackage`.
+Puede comprimir un paquete ejecutando el comando de Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con el modificador `CompressPackage`. Puede descomprimir el paquete con el mismo comando, mediante el modificador `UncompressPackage`.
 
-El siguiente comando comprime el paquete sin copiarlo en el almacén de imágenes. Puede copiar un paquete comprimido en uno o varios clústeres de Service Fabric, según sea necesario, con [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) sin la marca `SkipCopy`. El paquete ahora incluye los archivos comprimidos para los paquetes `code`, `config` y `data`. Los manifiestos de aplicación y de servicio no se comprimen porque son necesarios para muchas operaciones internas (por ejemplo, uso compartido de paquetes, nombre de tipo de aplicación y extracción de versiones para ciertas validaciones).
+El siguiente comando comprime el paquete sin copiarlo en el almacén de imágenes. Puede copiar un paquete comprimido en uno o varios clústeres de Service Fabric, según sea necesario, con [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sin la marca `SkipCopy`. El paquete ahora incluye los archivos comprimidos para los paquetes `code`, `config` y `data`. Los manifiestos de aplicación y de servicio no se comprimen porque son necesarios para muchas operaciones internas (por ejemplo, uso compartido de paquetes, nombre de tipo de aplicación y extracción de versiones para ciertas validaciones).
 La compresión de los manifiestos haría que estas operaciones resultaran ineficaces.
 
 ```
@@ -162,15 +162,16 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Como alternativa, puede comprimir y copiar el paquete con [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) en un solo paso.
+Como alternativa, puede comprimir y copiar el paquete con [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) en un solo paso.
 Si el paquete es grande, proporcione un tiempo de espera lo suficientemente alto como para dar tiempo tanto para la compresión del paquete como para la carga en el clúster.
 ```
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
 Internamente, Service Fabric calcula las sumas de comprobación para los paquetes de aplicación para la validación. Cuando se utilice la compresión, las sumas de comprobación se calculan en las versiones comprimidas de cada paquete.
-Si copió una versión sin comprimir del paquete de aplicación, y desea utilizar la compresión para el mismo paquete, debe cambiar la versión del manifiesto de aplicación para evitar la falta de coincidencia en la suma de comprobación.
-De forma similar, si cargó una versión comprimida del paquete, debe actualizar la versión del manifiesto de aplicación para utilizar un paquete sin comprimir.
+Si ha copiado una versión sin comprimir del paquete de aplicación y desea utilizar la compresión para el mismo paquete, debe cambiar la versión de los paquetes `code`, `config` y `data` para evitar la falta de coincidencia en la suma de comprobación. Si los paquetes no han cambiado, en lugar de modificar la versión, puede usar el [aprovisionamiento de diferencias](service-fabric-application-upgrade-advanced.md). Con esta opción, no incluya el paquete sin cambios; solo haga referencia a él desde el manifiesto de servicio.
+
+De forma similar, si ha cargado una versión comprimida del paquete y desea usar un paquete sin comprimir, debe actualizar las versiones para evitar la falta de coincidencia en la suma de comprobación.
 
 El paquete se empaqueta correctamente, validado y comprimido (si es necesario), por lo que está listo para la [implementación](service-fabric-deploy-remove-applications.md) en uno o varios clústeres de Service Fabric.
 

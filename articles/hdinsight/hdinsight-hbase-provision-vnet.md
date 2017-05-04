@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 6dd149808a89ccf7da2989751788e074d5340d5c
-ms.lasthandoff: 12/22/2016
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: fbd5c31a4ca1fa26d14001ba5765adfc91142a10
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -248,7 +248,7 @@ En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más i
 * [Introducción a HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Uso de nodos perimetrales vacíos en HDInsight](hdinsight-apps-use-edge-node.md)
 * [Configuración de la replicación geográfica de HBase en HDInsight](hdinsight-hbase-replication.md)
-* [Consulte Creación de clústeres de Hadoop en HDInsight.](hdinsight-provision-clusters.md)
+* [Consulte Creación de clústeres de Hadoop en HDInsight.](hdinsight-hadoop-provision-linux-clusters.md)
 * [Introducción al uso de HBase con Hadoop en HDInsight](hdinsight-hbase-tutorial-get-started.md)
 * [Análisis de opiniones de Twitter con HBase en HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Información general sobre redes virtuales][vnet-overview]
@@ -282,7 +282,7 @@ En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más i
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

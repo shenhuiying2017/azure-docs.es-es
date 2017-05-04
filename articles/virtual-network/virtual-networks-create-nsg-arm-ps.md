@@ -17,9 +17,9 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 6215abf064227f0d75a50e866b09ca2083a269d6
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 32a25a0ed80c31c366bf63d61d5c78267ba0f3c8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha cr
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Creación del grupo de seguridad de red para la subred front-end
 Para crear un NGS denominado *NSG-FrontEnd* según el escenario, complete los pasos siguientes:
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Cree una regla de seguridad que permita el acceso desde Internet al puerto 3389.
 
     ```powershell

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 Probablemente haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal MyApps. Aunque habrá casos en los que deba ponerse en contacto con el departamento de soporte técnico o con su administrador para resolver un problema, en este tema hemos recopilado pasos a preguntas comunes que puede intentar primero por su cuenta.
 
-Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
@@ -49,7 +49,7 @@ MyApps es un portal web que le permite:
 3.    Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
 4.    Haga clic en **Submit**(Enviar).
 
-Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>¿Cómo configuro el restablecimiento de contraseña?
@@ -58,7 +58,7 @@ Para más información, consulte [Actualización de la propia contraseña](activ
 2.    En **Administrar cuenta**, haga clic en **Configurar autoservicio de restablecimiento de contraseña**.
 3.    Siga los pasos descritos en el cuadro de diálogo y envíe.
 
-Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?

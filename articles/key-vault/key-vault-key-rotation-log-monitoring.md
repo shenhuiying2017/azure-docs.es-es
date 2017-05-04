@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ Una vez que haya creado el almacén de claves, podrá utilizarlo para guardar la
 En este artículo, se explica paso a paso un ejemplo sobre el uso de Azure Key Vault para guardar un secreto. En este caso, se trata de una clave de la cuenta de Azure Storage a la que accede una aplicación. El artículo también incluye una demostración de la implementación de una rotación programada de dicha clave. Por último, se explica paso a paso cómo supervisar los registros de auditoría del almacén de claves y cómo generar alertas cuando se realizan solicitudes inesperadas.
 
 > [!NOTE]
-> En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración del almacén de claves mediante CLI](key-vault-manage-with-cli.md).
+> En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración del almacén de claves mediante CLI](key-vault-manage-with-cli2.md).
 >
 >
 

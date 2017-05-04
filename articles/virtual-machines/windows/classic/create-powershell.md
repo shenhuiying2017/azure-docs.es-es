@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d9b713460f98104017ae73ea27f30b0d8d1ca7ee
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8b823c42743bc477dceaa3270836de8ebd92c28f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure Po
 
 En estos pasos se sigue un enfoque consistente en atar cabos para crear conjuntos de comandos de Azure PowerShell. Este enfoque puede ser útil si está familiarizado con PowerShell o desea conocer los valores que debe especificar para una configuración correcta. Los usuarios avanzados de PowerShell pueden tomar los comandos y sustituir sus propios valores de las variables (las líneas que comienzan con "$").
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar Azure PowerShell en un equipo local. Después, abra el símbolo del sistema de Windows PowerShell.
+Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) para instalar Azure PowerShell en un equipo local. Después, abra el símbolo del sistema de Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Paso 1: agregar la cuenta
 1. En el símbolo del sistema de Powershell, escriba **Add-AzureAccount** y haga clic en **Entrar**. 
@@ -122,7 +122,7 @@ Opcionalmente, para agregar el equipo de Windows a un dominio de Active Director
     $domacctdomain="<domain of the account that has permission to add the machine to the domain>"
     $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
-Para ver opciones adicionales de configuración previa de máquinas virtuales basadas en Linux, consulte la sintaxis del conjunto de parámetros **Windows** y **WindowsDomain** en [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
+Para ver opciones adicionales de configuración previa de máquinas virtuales basadas en Linux, consulte la sintaxis del conjunto de parámetros **Windows** y **WindowsDomain** en [Add-AzureProvisioningConfig](/powershell/module/azure/add-azureprovisioningconfig).
 
 Si lo desea, asígnele una dirección IP concreta, conocida como una DIP estática.
 

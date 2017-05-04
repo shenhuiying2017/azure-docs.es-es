@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3b946c9c482015483c929127ff3b42b6059f5e52
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Mediante el uso de máquinas virtuales de Azure, puede crear clústeres de MATLA
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Equipo cliente** : necesitará un equipo cliente basado en Windows para comunicarse con Azure y el clúster de MATLAB Distributed Computing Server después de la implementación.
-* **Azure PowerShell** : consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalarlo en el equipo cliente.
+* **Azure PowerShell** : consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalarlo en el equipo cliente.
 * **Suscripción de Azure** : si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
 * **Cuota de núcleos** : es posible que tenga que aumentar la cuota de núcleos para implementar un clúster grande o más de un MATLAB Distributed Computing Server. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 * **Licencias de MATLAB, Parallel Computing Toolbox y MATLAB Distributed Computing Server** ; los scripts asumen que se usa [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) para todas las licencias.  

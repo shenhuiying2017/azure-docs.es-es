@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: 2ac7c119e0706f0c5d479aa04a3afc34cc55cf22
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: cbc33fa15d069b55844cc6e4356ca5a01b40c199
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -256,7 +256,7 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 | Completa mensual | 1 | 12 | 12 |
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
-| Cuota adicional  | 4  |   | Requisito de GFS, un total de&42;  |
+| Cuota adicional  | 4  |   | Requisito de GFS, un total de 42  |
 \* El multiplicador de GFS es el número de copias que es preciso proteger y retener para cumplir los requisitos de las directivas de copia de seguridad.
 
 ## <a name="set-up-netbackup-storage"></a>Configuración del almacenamiento de NetBackup
@@ -473,7 +473,7 @@ Después de definir los grupos de disco inicial, debe definir tres directivas de
 | Completa mensual  | 1 | 12 | 12 |
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |
-| Cuota adicional  | 4  |    | Requisito de GFS, un total de&42; |
+| Cuota adicional  | 4  |    | Requisito de GFS, un total de 42 |
 \* El multiplicador de GFS es el número de copias que es preciso proteger y retener para cumplir los requisitos de las directivas de copia de seguridad.
 
 ## <a name="storsimple-cloud-snapshots"></a>Instantáneas de nube de StorSimple
@@ -503,7 +503,7 @@ En la sección siguiente se describe cómo crear un script breve para iniciar y 
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar o eliminar una instantánea en la nube
 
-1.  [Instale Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
+1.  [Instale Azure PowerShell](/powershell/azure/overview).
 2.  [Descargue e importe la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx).
 3.  En el Portal de Azure clásico, obtenga el nombre del recurso y la [clave de registro del servicio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4.  En el servidor que ejecuta el script, ejecute PowerShell como administrador. Escriba el siguiente comando:

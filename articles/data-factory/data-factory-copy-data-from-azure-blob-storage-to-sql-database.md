@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 393bc1ad782b072f3b27eeeb3e4149ec8ab64252
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 74301d651ae96588e5fd076900aada198c76deb0
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -91,7 +91,7 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
     John, Doe
     Jane, Doe
     ```
-2. Use herramientas como el [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
+2. Use herramientas como el [Explorador de Azure Storage](http://storageexplorer.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
 
     ![Explorador de almacenamiento de Azure Copia de datos de Almacenamiento de blobs en Base de datos SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use el siguiente script de SQL para crear la tabla **emp** en su Base de datos SQL de Azure.  
@@ -112,6 +112,7 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
 
     Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su máquina (dirección IP). Consulte [este artículo](../sql-database/sql-database-configure-firewall-settings.md) para conocer los pasos que deben darse para configurar el firewall de un servidor SQL de Azure.
 
+## <a name="create-a-data-factory"></a>Crear una factoría de datos
 Ha completado los requisitos previos. Puede crear una factoría de datos de una de las siguientes formas. Haga clic en una de las opciones de la lista desplegable de la parte superior o en los vínculos siguientes para realizar el tutorial.     
 
 * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -126,3 +127,4 @@ Ha completado los requisitos previos. Puede crear una factoría de datos de una 
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. No transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md). 
+

@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b36fb2b94dcee94eb299221bbb5c82080d23bfb1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +41,7 @@ En este tema se describe cómo buscar publicadores de imágenes de máquina virt
 
 ## <a name="find-azure-images-with-powershell"></a>Búsqueda de imágenes de Azure con PowerShell
 > [!NOTE]
-> Instale y configure la [versión más reciente de Azure PowerShell](/powershell/azureps-cmdlets-docs). Si usa módulos de Azure PowerShell anteriores a la versión 1.0, seguirá usando estos comandos, pero primero debe `Switch-AzureMode AzureResourceManager`. 
+> Instale y configure la [versión más reciente de Azure PowerShell](/powershell/azure/overview). Si usa módulos de Azure PowerShell anteriores a la versión 1.0, seguirá usando estos comandos, pero primero debe `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -134,3 +134,4 @@ En esta lista, copie el nombre de SKU elegido, y ya tiene toda la información p
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de imágenes que acaba de encontrar, o para usar una plantilla con esa información, consulte [Creación de una máquina virtual Windows con Resource Manager y PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/05/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 273f0f43a98cebba2d59a2e600be72eea3cb952e
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 49ba7e6d5d67b109632b08ce936357804c80da40
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -203,7 +203,7 @@ Con estos pasos se elimina la configuración en el nivel de directorio, lo cual 
   ```
 
 ## <a name="cmdlet-syntax-reference"></a>Referencia de sintaxis de cmdlet
-Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](https://docs.microsoft.com/powershell/azuread/).
+Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 

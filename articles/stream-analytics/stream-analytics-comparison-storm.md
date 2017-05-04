@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -125,7 +125,7 @@ Con Apache Storm en HDInsight, los clientes implementan y supervisan todo un cl�
 El precio de Análisis de transmisiones varía según el volumen de datos procesados y el número de unidades de streaming necesarias (por cada hora en la que se está ejecutando el trabajo).
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -133,7 +133,7 @@ El precio de Análisis de transmisiones varía según el volumen de datos proces
 Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster y se cobra según la hora en la que el clúster se ejecuta, independientemente de los trabajos implementados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
                 </p>
             </td>
         </tr>

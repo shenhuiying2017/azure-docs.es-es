@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0caac0c7ad76df7e7fa657227339d1df8b4a3c77
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -100,13 +100,13 @@ La CLI de Azure es una herramienta multiplataforma que le permite administrar lo
 >
 
 ### <a id="powershell"></a>Azure PowerShell
-Azure PowerShell es un eficaz entorno de scripting que se puede usar para controlar y automatizar la implementación y la administración de cargas de trabajo en Azure. Para obtener información sobre cómo configurar su estación de trabajo para que ejecute Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Azure PowerShell es un eficaz entorno de scripting que se puede usar para controlar y automatizar la implementación y la administración de cargas de trabajo en Azure. Para obtener información sobre cómo configurar su estación de trabajo para que ejecute Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Para cargar un archivo local en el almacenamiento de blobs de Azure**
 
-1. Abra la consola de Azure PowerShell como se indica en [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Abra la consola de Azure PowerShell como se indica en [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 2. Configure los valores de las cinco primeras variables del script siguiente:
 
         $resourceGroupName = "<AzureResourceGroupName>"

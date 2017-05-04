@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 12811b5cbfc6072075395d8542b79d10d2873286
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -58,7 +58,7 @@ Para más información sobre las direcciones IP en Azure, lea el artículo sobre
 
 ## <a name="manage-reserved-vips"></a>Administración de VIP reservadas
 
-Asegúrese de que ha instalado y configurado Azure PowerShell completando los pasos del artículo [Install and configure PowerShell](/powershell/azureps-cmdlets-docs) (Instalación y configuración de PowerShell). 
+Asegúrese de que ha instalado y configurado Azure PowerShell completando los pasos del artículo [Install and configure PowerShell](/powershell/azure/overview) (Instalación y configuración de PowerShell). 
 
 Para poder usar IP reservadas, debe agregarlo a su suscripción. Para crear una IP reservada del grupo de direcciones IP públicas disponibles en la ubicación *Centro de EE. UU.*, ejecute el siguiente comando:
 

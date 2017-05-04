@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 02ec1b7a58aff6ae0788e341e8987b9d32cb5a7b
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 7610ae44d8c9b828fb46333b143d7b1f6dc915eb
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -46,10 +46,10 @@ Para crear una aplicación web que llama a una API web, debe hacer lo siguiente:
 
 ## <a name="download-the-code"></a>Descargar el código
 
-El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). Puede clonar el ejemplo al ejecutar lo siguiente:
+El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Puede clonar el ejemplo al ejecutar lo siguiente:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar. El archivo de solución contiene dos proyectos: `TaskWebApp` y `TaskService`. `TaskWebApp` es una aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web del back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario. En este artículo no se incluye la creación de la aplicación web `TaskWebApp` ni de la API web `TaskService`. Para información sobre cómo crear la aplicación web .NET con Azure AD B2C, consulte el [tutorial de aplicación web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md). Para información sobre cómo crear la API web .NET protegida con Azure AD B2C, consulte el [tutorial de API web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).

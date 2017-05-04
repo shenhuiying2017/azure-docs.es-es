@@ -18,9 +18,9 @@ ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e1933c5bf65f3e28d952213317413d0f65309c5b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: caf50732ce19ded5016c6d5368f8b53b6ca3646f
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Aumento de la disponibilidad de máquinas virtuales mediante la creación de un conjunto de disponibilidad de Azure 
@@ -71,7 +71,7 @@ Antes de comenzar, asegúrese de que tiene la última versión del módulo Azure
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Para más información, consulte [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Control de versiones de Azure PowerShell).
+Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
 
 
 Si usa discos administrados para las VM, escriba:
@@ -88,7 +88,7 @@ Si usa sus propias cuentas de almacenamiento para las VM, escriba:
     -Name "myAvailabilitySet" -Location "West US" 
 ```
 
-Para más información, consulte [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset).
+Para más información, consulte [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 * Al crear una máquina virtual, si el conjunto de disponibilidad que quiere no está en la lista desplegable en el portal, puede que lo haya creado en otro grupo de recursos. Si no conoce el grupo de recursos de su conjunto de disponibilidad, vaya al menú del concentrador y haga clic en Examinar > Conjuntos de disponibilidad para ver una lista de los conjuntos de disponibilidad y los grupos de recursos a los que pertenecen.

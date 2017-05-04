@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ La directiva de control de acceso de Key Vault solo admite 16 entradas. Sin emba
 
 Instalación de los requisitos previos:
 * [Instale el módulo PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Instale Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Instale Azure PowerShell](/powershell/azure/overview).
 * Para ejecutar los siguientes comandos, necesita permisos para crear y editar grupos en el inquilino de Azure Active Directory. Si no tiene permisos, debe ponerse en contacto con el administrador de Azure Active Directory.
 
 Ejecute los siguientes comandos en PowerShell.
@@ -57,9 +58,4 @@ Si tiene que conceder un conjunto de permisos diferente para un grupo de aplicac
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre cómo [proteger el almacén de claves](key-vault-secure-your-key-vault.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

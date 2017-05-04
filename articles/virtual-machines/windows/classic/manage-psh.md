@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 44235e32b7cf5b2be90f6d460ac22d7c0350f894
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ba02fb8385afeefd0162ff79074352bb02275b55
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/27/2017
 Muchas tareas que se realizan a diario para administrar las máquinas virtuales pueden automatizarse mediante cmdlets de Azure PowerShell. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
 
 > [!NOTE]
-> Si no ha instalado y configurado todavía Azure PowerShell, obtenga instrucciones en el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> Si no ha instalado y configurado todavía Azure PowerShell, obtenga instrucciones en el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 > 
 > 
 

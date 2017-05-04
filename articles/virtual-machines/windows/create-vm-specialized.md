@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e9c9f440aa6554e30dc0974d1ab777a9bca50762
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78f993ce9bab6266479cdd121eeea4965724d9bd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Si desea obtener más información, consulte [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Control de versiones de Azure PowerShell).
+Si desea obtener más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
 
 
 ## <a name="create-the-subnet-and-vnet"></a>Creación de la subred y la red virtual
