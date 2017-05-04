@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 80d58a6ab5f2148b2391d4d63e70371724e5990b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -118,7 +119,7 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u2.md#step-6-create-a-vo
       
         ![Especificar ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
    2. Le recomendamos que active la casilla **Habilitar una copia de seguridad predeterminada para este volumen** .
-   3. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  para crear el volumen con la configuración especificada.
+   3. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
 
 El nuevo volumen ya está listo para usarse.
 
@@ -154,7 +155,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 6. Guarde los cambios haciendo clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). El Portal de Azure clásico mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 7. Si se va a expandir un volumen, realice los pasos siguientes en el equipo host Windows:
    
-   1. Vaya a **Administración de equipos** ->** Administración de discos**.
+   1. Vaya a **Administración de equipos** ->**Administración de discos**.
    2. Haga clic con el botón derecho en **Administración de discos** y seleccione **Volver a examinar los discos**.
    3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
    4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
@@ -214,8 +215,8 @@ Si va a convertir varios volúmenes (compatibles con diferentes cargas de trabaj
 5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir a la página **Configuración adicional** . Si configura un volumen anclado localmente, aparecerá el siguiente mensaje.
    
     ![Cambiar el mensaje de tipo de volumen](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
-6. Haga clic en el icono de flecha  ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)  para continuar.
-7. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  para iniciar el proceso de conversión. El Portal de Azure mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
+6. Haga clic en el icono de flecha  ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para continuar.
+7. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para iniciar el proceso de conversión. El Portal de Azure mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 
 ## <a name="take-a-volume-offline"></a>Desconectar un volumen
 Puede que necesite desconectar un volumen si tiene previsto modificarlo o eliminarlo. Cuando un volumen está desconectado, no está disponible para el acceso de lectura y escritura. Deberá desconectar el volumen en el host, así como en el dispositivo. 
@@ -253,7 +254,7 @@ Siga estos pasos para eliminar un volumen.
 5. Cuando se le pida confirmación, haga clic en **Sí**. El volumen se eliminará y la página **Volúmenes** mostrará la lista actualizada de volúmenes dentro del contenedor.
    
    > [!NOTE]
-   > Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio StorSimple Manager actualiza el espacio local disponible de forma periódica. Le recomendamos esperar unos minutos antes de tratar de crear el nuevo volumen.<br>  Además, si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutarán de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
+   > Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio StorSimple Manager actualiza el espacio local disponible de forma periódica. Le recomendamos esperar unos minutos antes de tratar de crear el nuevo volumen.<br> Además, si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutarán de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
    > 
    > 
 
@@ -272,10 +273,5 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 * Aprenda a [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

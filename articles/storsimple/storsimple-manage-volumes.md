@@ -17,6 +17,7 @@ ms.author: v-sharos
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -78,7 +79,7 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-vo
    
    1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
    2. Le recomendamos que, para habilitar una copia de seguridad predeterminada, active la casilla **Habilitar una copia de seguridad predeterminada para este volumen** .
-   3. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png)  para crear el volumen con la configuración especificada.
+   3. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
 
 El nuevo volumen ya está listo para usarse.
 
@@ -116,7 +117,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 6. Guarde los cambios haciendo clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png). El Portal de Azure clásico mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 7. Si se va a expandir un volumen, realice los pasos siguientes en el equipo host Windows:
    
-   1. Vaya a **Administración de equipos** ->** Administración de discos**.
+   1. Vaya a **Administración de equipos** ->**Administración de discos**.
    2. Haga clic con el botón derecho en **Administración de discos** y seleccione **Volver a examinar los discos**.
    3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
    4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
@@ -177,10 +178,5 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 * Aprenda a [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
