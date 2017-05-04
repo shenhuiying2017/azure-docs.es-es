@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +35,11 @@ Puede acceder a la información de registro como máximo, 10 minutos después de
 Use este tutorial para tener ayuda para empezar a trabajar con el registro del Almacén de claves de Azure, para crear la cuenta de almacenamiento, habilitar el registro e interpretar la información de registro recopilada.  
 
 > [!NOTE]
-> Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
-> 
+> Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
+>
 > Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell.
-> 
-> 
+>
+>
 
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
@@ -47,7 +47,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Un Almacén de claves existente que ha utilizado.  
-* Azure PowerShell, **versión mínima: 1.0.1**. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **versión mínima: 1.0.1**. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`.  
 * Suficiente almacenamiento en Azure para sus registros del Almacén de claves.
 
 ## <a id="connect"></a>Conexión a las suscripciones
@@ -66,11 +66,11 @@ A continuación, para especificar la suscripción asociada al almacén de claves
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> Este es un paso importante y especialmente útil si tiene varias suscripciones asociadas a su cuenta. Si este paso se omite, puede que reciba un error al registrar Microsoft.Insights. 
+> Este es un paso importante y especialmente útil si tiene varias suscripciones asociadas a su cuenta. Si este paso se omite, puede que reciba un error al registrar Microsoft.Insights.
 >   
 >
 
-Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Creación de una cuenta de almacenamiento nueva para los registros
 Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros del Almacén de claves. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
@@ -82,8 +82,8 @@ Para una mayor facilidad de administración, también usaremos el grupo de recur
 
 > [!NOTE]
 > Si decide usar una cuenta de almacenamiento existente, ésta debe usar tanto la misma suscripción que el almacén de claves como el modelo de implementación de Resource Manager, en lugar del modelo de implementación clásica.
-> 
-> 
+>
+>
 
 ## <a id="identify"></a>Identificación del Almacén de claves para los registros
 En nuestro tutorial de introducción, el nombre de nuestro almacén de claves era **ContosoKeyVault**, por lo que seguiremos usando ese nombre y almacenaremos los detalles en una variable denominada **kv**:
@@ -168,13 +168,13 @@ Al ejecutar este segundo comando, el delimitador **/** de los nombres de los blo
 Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejemplo:
 
 * Si tiene varios almacenes de claves y desea descargar los registros solo para un Almacén de claves, denominado CONTOSOKEYVAULT3:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 * Si tiene varios grupos de recursos y desea descargar los registros solo de un grupo de recursos específico, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 * Si desea descargar todos los registros del mes de enero de 2016, use `-Blob '*/year=2016/m=01/*'`:
-  
+
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
 Ahora está listo para comenzar a ver lo que está en los registros. Pero antes de pasar a eso, hay otros dos parámetros de Get-AzureRmDiagnosticSetting que puede ser necesario conocer:
@@ -272,8 +272,7 @@ Para ver un tutorial que use Azure Key Vault en una aplicación web, consulte [U
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx)(Cmdlets de Azure Key Vault).
+Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault)(Cmdlets de Azure Key Vault).
 
 Para ver un tutorial sobre la rotación de claves y la auditoría de registros con Azure Key Vault, consulte [Configuración de Key Vault con rotación de claves y auditoría integrales](key-vault-key-rotation-log-monitoring.md).
-
 

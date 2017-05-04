@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Existen varios enfoques que pueden usarse para configurar los requisitos previos
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Instale y configure Azure PowerShell.
-Debe tener Azure PowerShell versión 1.2.1 o superior instalado en el equipo. El artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) contiene todos los pasos necesarios para aprovisionar el equipo para que funcione con Azure PowerShell. El enfoque más sencillo es usar el método Instalador de plataforma web mencionado en dicho artículo. Aunque Azure PowerShell ya esté instalado, instálelo de nuevo con el enfoque del Instalador de plataforma web para tener la versión más reciente.
+Debe tener Azure PowerShell versión 1.2.1 o superior instalado en el equipo. El artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) contiene todos los pasos necesarios para aprovisionar el equipo para que funcione con Azure PowerShell. El enfoque más sencillo es usar el método Instalador de plataforma web mencionado en dicho artículo. Aunque Azure PowerShell ya esté instalado, instálelo de nuevo con el enfoque del Instalador de plataforma web para tener la versión más reciente.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Obtención y ejecución del script Azure Disk Encryption Prerequisite Setup
 El script Azure Disk Encryption Prerequisites Configuration configurará todos los requisitos previos necesarios para cifrar las máquinas virtuales de Azure.

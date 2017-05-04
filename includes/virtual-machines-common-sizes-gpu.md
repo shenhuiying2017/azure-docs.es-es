@@ -15,10 +15,6 @@ Las instancias de NC disponen de una tarjeta Tesla K80 de NVIDIA. Los usuarios a
 
 1 GPU = media tarjeta M60.
 
-**Sistemas operativos compatibles**
-
-* Windows Server 2016 o Windows Server 2012 R2: consulte la [configuración del controlador de la serie N para Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-
 ## <a name="nc-instances"></a>Instancias de NC
 
 | Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | GPU |
@@ -32,10 +28,4 @@ Las instancias de NC disponen de una tarjeta Tesla K80 de NVIDIA. Los usuarios a
 
 *Compatible con RDMA
 
-**Sistemas operativos compatibles**
-
-* Windows Server 2016 o Windows Server 2012 R2: consulte la [configuración del controlador de la serie N para Windows](../articles/virtual-machines/windows/n-series-driver-setup.md)
-* Ubuntu 16.04 LTS: consulte la [configuración del controlador de la serie N para Linux](../articles/virtual-machines/linux/n-series-driver-setup.md)
-
-<br>
 

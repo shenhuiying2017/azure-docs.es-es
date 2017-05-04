@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ Puede usar PowerShell para actualizar su cuenta de Automation existente si:
 Este script tiene los siguientes requisitos previos:
 
 * El script solo se puede ejecutar en Windows 10 y Windows Server 2016 con módulos de Azure Resource Manager 2.01 y versiones posteriores. No se admite en versiones anteriores de Windows.
-* Azure PowerShell 1.0 y versiones superiores. Para más información sobre la versión 1.0 de PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 y versiones superiores. Para más información sobre la versión 1.0 de PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Una cuenta de Automation, a la que se hace referencia como el valor de los parámetros *: -AutomationAccountName* y *- ApplicationDisplayName* en el siguiente script de PowerShell.
 
 Para obtener los valores de *SubscriptionID*, *ResourceGroup* y *AutomationAccountName*, que son parámetros necesarios para los scripts, haga lo siguiente:
@@ -515,7 +515,7 @@ Puede usar el código de ejemplo actualizado siguiente, procedente del runbook d
          }
     }
 
-Para ayudar a trabajar fácilmente entre varias suscripciones, el script incluye dos líneas adicionales de código que admiten la referencia a un contexto de suscripción. Un recurso de variable llamado *SubscriptionId* contiene el id. de la suscripción. Después de la instrucción del cmdlet `Add-AzureRmAccount`, el cmdlet [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) se declara con el conjunto de parámetros *-SubscriptionId*. Si el nombre de variable es demasiado genérico, puede revisarlo para incluir un prefijo o usar otra convención de nomenclatura para que resulte más fácil de identificar. Como alternativa, puede usar el conjunto de parámetros *-SubscriptionName* en lugar de *-SubscriptionId* con un recurso de variable correspondiente.
+Para ayudar a trabajar fácilmente entre varias suscripciones, el script incluye dos líneas adicionales de código que admiten la referencia a un contexto de suscripción. Un recurso de variable llamado *SubscriptionId* contiene el id. de la suscripción. Después de la instrucción del cmdlet `Add-AzureRmAccount`, el cmdlet [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) se declara con el conjunto de parámetros *-SubscriptionId*. Si el nombre de variable es demasiado genérico, puede revisarlo para incluir un prefijo o usar otra convención de nomenclatura para que resulte más fácil de identificar. Como alternativa, puede usar el conjunto de parámetros *-SubscriptionName* en lugar de *-SubscriptionId* con un recurso de variable correspondiente.
 
 El cmdlet que usa para la autenticación en el runbook, `Add-AzureRmAccount`, emplea el conjunto de parámetros *ServicePrincipalCertificate*. La autenticación se realiza mediante el certificado de la entidad de servicio, y no con las credenciales de usuario.
 

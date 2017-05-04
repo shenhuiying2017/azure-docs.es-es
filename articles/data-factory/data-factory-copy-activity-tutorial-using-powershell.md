@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 09d8634d8d1b16edb058d0bb259b089a54748279
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8b5cb66ea958cf6643fa34abb8d484b97b212373
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ En este tutorial, creará y supervisará una instancia de Azure Data Factory con
 La función de actividad de copia realiza el movimiento de datos en Data Factory. La actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para más información sobre la actividad de copia.   
 
 > [!NOTE]
-> Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de Data Factory](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) para obtener la documentación completa sobre estos cmdlets.
+> Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de Data Factory](/powershell/module/azurerm.datafactories) para obtener la documentación completa sobre estos cmdlets.
 >
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. No transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
@@ -482,7 +482,7 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 ## <a name="see-also"></a>Consulte también
 | Tema. | Descripción |
 |:--- |:--- |
-| [Referencia para cmdlets de Factoría de datos](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | Esta sección proporciona información acerca de todos los cmdlets de Data Factory |
+| [Referencia para cmdlets de Factoría de datos](/powershell/module/azurerm.datafactories) | Esta sección proporciona información acerca de todos los cmdlets de Data Factory |
 | [Procesos](data-factory-create-pipelines.md) |Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory de Azure. |
 | [datasets](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Azure Data Factory. |

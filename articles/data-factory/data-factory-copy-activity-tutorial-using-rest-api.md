@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f4d2535e929996101f6e22ffbd0b2105e8fbf2a8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure m
   2. Obtenga el **Id. de cliente** y la **Clave secreta**. 
   3. Obtenga el **Identificador de inquilino**. 
   4. Asigne la aplicación **ADFCopyTutorialApp** al rol **Colaborador de Data Factory**.  
-* Instale [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Instale [Azure PowerShell](/powershell/azure/overview).  
 * Inicie **PowerShell** y realice los pasos siguientes. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
   
   1. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en Azure Portal:
