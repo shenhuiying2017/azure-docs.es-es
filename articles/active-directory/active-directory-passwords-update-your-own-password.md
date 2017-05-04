@@ -16,84 +16,87 @@ ms.date: 04/11/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: bb62d6973dff00932e72ddb4b2c344f070537828
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c95f52f028cdfaed35821275d816a24035ff02fb
+ms.lasthandoff: 04/26/2017
 
 
 ---
-# <a name="help-i-forgot-my-password"></a>Ayuda, he olvidado mi contraseña
+# <a name="help-i-forgot-my-azure-ad-password"></a>Ayuda, he olvidado mi contraseña de Azure AD
 
-Paso 1... tranquilo
+Si ha olvidado la contraseña, nunca ha recibido ninguna de su equipo de TI, está bloqueada fuera de su cuenta o si desea cambiarla, podemos ayudarle.
 
-Si se encuentra en alguno de los siguientes escenarios, podemos ayudarle.
+## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>Restablecimiento o desbloqueo de mi contraseña en una cuenta profesional o educativa
 
-* No está seguro de cómo acceder a su cuenta y no recuerda su contraseña.
-* No se le ha asignado una contraseña y su administrador le envió aquí.
+Para entrar en su cuenta profesional o educativa, siga los pasos siguientes para acceder al autoservicio de restablecimiento de contraseña de Azure AD o, como nos gusta llamarlo, a SSPR.
 
-## <a name="unlock-my-account"></a>Desbloqueo de la cuenta
-
-Si está aquí para desbloquear la cuenta, siga los pasos que aparecen a continuación. Cuando vea **Chose a new password** (Elegir una nueva contraseña) en el paso 6, puede desbloquear o cambiar la contraseña, con lo que se desbloqueará.
-
-## <a name="reset-my-password"></a>Restablecimiento de mi contraseña
-
-Para volver a entrar en tu cuenta, siga estos pasos.
 1. En cualquier página de inicio de sesión profesional o educativa, haga clic en el vínculo **¿No puede acceder a su cuenta?** y en **Cuenta profesional o educativa**, o bien vaya directamente a la [página de restablecimiento de la contraseña](https://passwordreset.microsoftonline.com/).
 
+   > [!NOTE]
+   > Si quiere volver a una cuenta personal como hotmail.com o outlook.com, pruebe las [sugerencias que se encuentran en este artículo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+   >
     ![¿No puede tener acceso a su cuenta?][Login]
 
-2. Escriba su **Id. de usuario** profesional o educativo y demuestre que no es un robot; para ello, especifique el texto que aparece en el desafío CAPTCHA y haga clic en **Siguiente**.
+2. Escriba el **Id. de usuario** de su cuenta profesional o educativa, demuestre que no es un robot escribiendo los caracteres que aparecen en la pantalla y luego haga clic en **Siguiente**.
 
    > [!NOTE]
-   > Si el administrador no ha habilitado esta funcionalidad, aparece un vínculo "Póngase en contacto con el administrador" en este punto para que el administrador pueda proporcionar asistencia mediante correo electrónico o mediante su propio portal web.
+   > Si su personal de TI no ha habilitado esta funcionalidad, aparecerá un vínculo con el texto "Póngase en contacto con el administrador" para solicitar ayuda al personal de TI mediante correo electrónico o un portal web de su propiedad.
    >
 
-3. Según cómo su administrador haya configurado las cosas, verá una o varias de las siguientes opciones:
-    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**: envía un correo electrónico con un código de 6 dígitos a su correo electrónico alternativo o correo electrónico de autenticación (según elija).
-    * **Enviar mensaje de texto a mi teléfono móvil**: envía un mensaje de texto con un código de 6 dígitos a su teléfono móvil o su teléfono de autenticación (según elija).
-    * **Llamar al teléfono móvil**: llama a su teléfono móvil o teléfono de autenticación (según elija). Presione la tecla # para verificar la llamada.
-    * **Llamar al teléfono del trabajo**: llama a su teléfono del trabajo. Presione la tecla # para verificar la llamada.
-    * **Responder a mis preguntas de seguridad**: muestra las preguntas de seguridad registradas previamente para que responda.
-4. Rellene los campos obligatorios con respuestas a la información de desafío y haga clic en **Siguiente**.
+3. En función de cómo haya configurado el personal de TI el SSPR, verá una o varias de las siguientes opciones. El usuario o su personal de TI ya habrán rellenado parte de esta información antes de usar la información que se encuentra [aquí](active-directory-passwords-reset-register.md).
+    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**
+    * **Enviar mensaje de texto a mi teléfono móvil**
+    * **Llamar al teléfono móvil**
+    * **Llamar al teléfono del trabajo** 
+    * **Responder a mis preguntas de seguridad**
+
+    Elija una opción, proporcione las respuestas correctas y haga clic en **Siguiente**.
 
     ![Compruebe los datos de autenticación][Verification].
 
-5. Es posible que el administrador solicite un paso de comprobación adicional y tenga que repetir el paso 4 con otra opción.
-6. En la página **Elegir la nueva contraseña**, escriba una nueva contraseña que satisfaga las necesidades de las organizaciones, confirme la contraseña y haga clic en **Finalizar**.
+4. Es posible que el personal de TI necesite realizar otra comprobación y tenga que repetir el paso 3 de nuevo con una opción diferente.
+5. En la página **Elegir una nueva contraseña**, escriba la nueva contraseña, confírmela y luego haga clic en **Finalizar**. Se recomienda que la contraseña contenga entre 8 y 16 caracteres, caracteres en mayúsculas y minúsculas, números y caracteres especiales.
 
-    ![Cambio de la contraseña][Change]
+   > [!NOTE]
+   > Si necesita desbloquear la cuenta, en este punto elija la opción solo para desbloquear, o cambie la contraseña y, después, desbloquee.
+   >
 
-7. Cuando vea el mensaje **Se ha restablecido la contraseña**, puede iniciar sesión con la nueva contraseña.
+6. Cuando vea el mensaje **Se ha restablecido la contraseña**, puede iniciar sesión con la nueva contraseña.
 
     ![Se ha restablecido la contraseña][Complete]
 
-Después de usar este método para desbloquear o restablecer la contraseña, recibirá un correo electrónico, en el que se confirma que se ha completado el proceso, procedente de una cuenta similar a "Microsoft en nombre de su organización aquí". Si recibe un correo electrónico como ese y no había restablecido la contraseña para recuperar el acceso a su cuenta, póngase en contacto con su administrador.
+Ahora ya debería tener acceso a su cuenta. En caso contrario, debe ponerse en contacto con el personal de TI de su organización para obtener más ayuda.
+
+Es posible que reciba un correo electrónico de confirmación que procede de una cuenta como "Microsoft en nombre de \<su organización>\". Si recibe un correo electrónico como ese y no había usado el autoservicio de restablecimiento de contraseña para recuperar el acceso a su cuenta, póngase en contacto con el administrador.
 
 ## <a name="change-my-password"></a>Cambio de mi contraseña
 
-Si ya conoce la contraseña y necesita cambiarla, realice los pasos siguientes:
+Si ya conoce la contraseña y quiere cambiarla, realice los pasos siguientes.
 
 ### <a name="change-your-password-from-the-office-365-portal"></a>Cambio de la contraseña desde el portal de Office 365
 
-1. Haga clic en el perfil, en la parte superior derecha, y en **Ver cuenta**.
-2. Haga clic en **Seguridad y privacidad**.
-3. **Password**
-4. Escriba la contraseña anterior y establezca y confirme la nueva contraseña.
-5. Haga clic en **Enviar**.
+Utilice este método si accede normalmente a las aplicaciones mediante el portal de Office.
+
+1. Inicie sesión en su [cuenta de Office 365](https://www.office.com).
+2. Haga clic en el perfil, en la parte superior derecha, y en **Ver cuenta**.
+3. Haga clic en **Seguridad y privacidad** > **Contraseña**
+4. Escriba la contraseña anterior y establezca y confirme la nueva contraseña, y finalmente haga clic en **Enviar**.
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>Cambio de la contraseña en el panel de acceso de Azure
+
+Utilice este método si accede normalmente a las aplicaciones mediante el panel de acceso de Azure.
 
 1. Inicie sesión en el [panel de acceso de Azure](https://myapps.microsoft.com/) usando su contraseña existente.
 2. Haga clic en el perfil, en la parte superior derecha, y en **Perfil**.
 3. Haga clic en **Cambiar contraseña**.
-4. Escriba la contraseña anterior y establezca y confirme la nueva contraseña.
-5. Haga clic en **Enviar**.
+4. Escriba la contraseña anterior y establezca y confirme la nueva contraseña, y finalmente haga clic en **Enviar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Cómo registrarse para usar el autoservicio de restablecimiento de la contraseña](active-directory-passwords-reset-register.md)
 * [Página de registro en el restablecimiento de contraseña](http://aka.ms/ssprsetup)
 * [Portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/)
+* [No puede iniciar sesión en su cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "Página de inicio: ¿No puede tener acceso a su cuenta?"
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Compruebe los datos de autenticación"

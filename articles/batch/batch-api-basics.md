@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -73,11 +73,12 @@ Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio
 
 Puede crear una cuenta de Azure Batch mediante el [portal de Azure](batch-account-create-portal.md) o por medio de programación, como con la [biblioteca .NET de administración de lotes](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de almacenamiento de Azure.
 
-Batch admite dos configuraciones de cuenta, en función de la propiedad de *modo de asignación de grupo*. Las dos configuraciones le proporcionan distintas opciones para la autenticación con el servicio Batch y para el aprovisionamiento y la administración de [grupos](#pool) de Batch (consulte más adelante en este artículo). 
+Batch admite dos configuraciones de cuenta, en función de la propiedad de *modo de asignación de grupo*. Las dos configuraciones le proporcionan acceso a diferentes funcionalidades relacionadas con [grupos](#pool) de Batch (consulte lo que sigue a continuación en este artículo). 
 
 
-* **Servicio Batch** (valor predeterminado): puede acceder a las API de Batch mediante la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md). Los recursos de proceso de Batch se asignan en segundo plano en una cuenta administrada por Azure.   
-* **Suscripción de usuario**: solo puede acceder a las API de Batch mediante la [autenticación de Azure Active Directory](batch-aad-auth.md). Los recursos de proceso de Batch se asignan directamente en su suscripción de Azure. Este modo proporciona una mayor flexibilidad para configurar los nodos de proceso y realizar la integración con otros servicios. Este modo requiere configurar un almacén de claves de Azure adicional para su cuenta de Batch.
+* **Servicio de Batch**: esta es la opción predeterminada, con máquinas virtuales de grupos de Batch asignadas en segundo plano en suscripciones administradas por Azure. Se debe usar esta configuración de cuenta si se requieren grupos de Cloud Services, pero no se puede usar si se requieren grupos de máquinas virtuales creados a partir de imágenes personalizadas de máquinas virtuales o que usan una red virtual. Puede acceder a las API de Batch mediante la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md). 
+
+* **Suscripción de usuario**: se debe usar esta configuración de cuenta si se requieren grupos de máquinas virtuales creados a partir de imágenes personalizadas de máquinas virtuales o que usan una red virtual. Solo puede acceder a las API de Batch mediante la [autenticación de Azure Active Directory](batch-aad-auth.md) y no se admiten los grupos de Cloud Services. Las máquinas virtuales de proceso de Batch se asignan directamente en su suscripción de Azure. Este modo requiere configurar un almacén de claves de Azure para su cuenta de Batch.
  
 
 ## <a name="compute-node"></a>Nodo de ejecución

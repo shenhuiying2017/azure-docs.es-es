@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 03/06/2017
+wms.date: 04/14/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 85b7336958c90b477eea8ea185a69bab2bd87a79
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 884cd19bdfb1bf53d75cb27e840c448eff8bc991
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
 
-[Azure SQL Database](sql-database-technical-overview.md) ofrece cuatro niveles de servicio: **Básico**, **Estándar**, **Premium** y **Premium RS**. Cada nivel de servicio tiene varios niveles de rendimiento para controlar las diferentes cargas de trabajo. Unos niveles de rendimiento más altos ofrecen recursos adicionales diseñados para proporcionar un mayor rendimiento. Puede cambiar los niveles de servicio y de rendimiento dinámicamente sin tiempo de inactividad. Los niveles de servicio Básico, Estándar, Premium y Premium RS tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. El nivel Premium RS proporciona los mismos niveles de rendimiento, características de seguridad y de continuidad empresarial que el nivel Premium aunque con un Acuerdo de Nivel de Servicio reducido.
+[Azure SQL Database](sql-database-technical-overview.md) ofrece cuatro niveles de servicio: **Básico**, **Estándar**, **Premium** y **Premium RS**. Cada nivel de servicio tiene varios niveles de rendimiento para controlar las diferentes cargas de trabajo. Unos niveles de rendimiento más altos ofrecen recursos adicionales diseñados para proporcionar un mayor rendimiento. Puede cambiar los niveles de servicio y de rendimiento dinámicamente sin tiempo de inactividad. Los niveles de servicio Básico, Estándar y Premium tienen un Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %, opciones de continuidad empresarial flexibles, características de seguridad y facturación por hora. El nivel Premium RS proporciona los mismos niveles de rendimiento, características de seguridad y de continuidad empresarial que el nivel Premium aunque con un Acuerdo de Nivel de Servicio reducido.
 
 > [!IMPORTANT]
 > Las bases de datos del nivel Premium RS se ejecutan con un número menor de copias redundantes en comparación con las bases de datos Premium o Estándar. Por ello, si se produce un error del servicio, deberá recuperar la base de datos a partir de una copia de seguridad con un retardo de hasta 5 minutos.
@@ -44,18 +44,18 @@ En la tabla siguiente se proporcionan ejemplos de los niveles más adecuados par
 | **Premium RS** | Diseñado para cargas de trabajo intensivas de E/S pero que no requieren las mayores garantías de disponibilidad. Los ejemplos incluyen las pruebas en cargas de trabajo de alto rendimiento, o en una carga de trabajo analítico en el que la base de datos no es el sistema de registro. |
 |||
 
-En primer lugar, decida si desea ejecutar una base de datos única con una cantidad de recursos dedicados definida o si desea compartir un grupo de recursos entre un grupo de bases de datos. Revise las [consideraciones de grupo elástico](sql-database-elastic-pool-guidance.md). Para decidir el nivel de servicio, determine las características mínimas de la base de datos que necesita:
+En primer lugar, decida si desea ejecutar una base de datos única con una cantidad de recursos dedicados definida o si desea compartir un grupo de recursos entre un grupo de bases de datos. Revise las [consideraciones de grupo elástico](sql-database-elastic-pool.md). Para decidir el nivel de servicio, determine las características mínimas de la base de datos que necesita:
 
 | **Características del nivel de servicio** | **Básico** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
-| Tamaño máximo individual de la base de datos | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Almacenamiento total máximo en un grupo elástico | 117 GB | 1200 GB | 750 GB | 750 GB |
-| Cantidad máxima de bases de datos por grupo | 400  | 400 | 50 | 50 |
+| Tamaño máximo de la base de datos única | 2 GB | 250 GB | 4 TB*  | 500 GB  |
+| Tamaño máximo de la base de datos de un grupo elástico | 156 GB | 2,9 TB | 500 GB | 500 GB |
+| Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 | 100 |
 | Período de retención de copias de seguridad de base de datos | 7 días | 35 días | 35 días | 35 días |
 ||||||
 
 > [!IMPORTANT]
-> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente en versión preliminar pública en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Europa Occidental, Asia Suroriental, Japón Oriental, Este de Australia, centro de Canadá y Canadá Oriental. Para las limitaciones actuales, consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Las bases de datos individuales de hasta 4 TB están en la versión preliminar pública de los clientes que usan los niveles de rendimiento P11 y P15 sin cargo adicional. Los grupos Premium con más de 750 GB de almacenamiento también están disponibles actualmente. Estas opciones de almacenamiento adicional se encuentran actualmente disponibles en las siguientes regiones: Este de EE. UU. - 2, Oeste de EE. UU., Europa occidental, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental. Consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.
@@ -90,7 +90,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Niveles de servicio de grupos elásticos y rendimiento en las eDTU
 
-Los grupos permiten que las bases de datos compartan y consuman recursos de eDTU sin necesidad de asignar un nivel de rendimiento específico a cada una. Por ejemplo, una base de datos única de un grupo Estándar puede usar desde 0 eDTU al número máximo de eDTU de base de datos que estableció al configurar el grupo. Los grupos permiten que varias bases de datos con diferentes cargas de trabajo usen de forma eficaz los recursos de eDTU disponibles para todo el grupo. Consulte el artículo sobre las [consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para más información.
+Los grupos permiten que las bases de datos compartan y consuman recursos de eDTU sin necesidad de asignar un nivel de rendimiento específico a cada una. Por ejemplo, una base de datos única de un grupo Estándar puede usar desde 0 eDTU al número máximo de eDTU de base de datos que estableció al configurar el grupo. Los grupos permiten que varias bases de datos con diferentes cargas de trabajo usen de forma eficaz los recursos de eDTU disponibles para todo el grupo. Consulte el artículo sobre las [consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool.md) para más información.
 
 En la tabla siguiente se describen las características de los niveles de servicio de los grupos.
 
@@ -144,7 +144,7 @@ Al crear o actualizar una base de datos P11/P15 en una región no compatible, la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda los detalles sobre los [grupos elásticos](sql-database-elastic-pool-guidance.md) y las [consideraciones de precio y rendimiento para estos](sql-database-elastic-pool-guidance.md).
+* Aprenda los detalles sobre los [grupos elásticos](sql-database-elastic-pool.md) y las [consideraciones de precio y rendimiento para estos](sql-database-elastic-pool.md).
 * Aprenda cómo [supervisar, administrar y cambiar el tamaño de los grupos de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md) y [supervisar el rendimiento de bases de datos únicas](sql-database-single-database-monitor.md).
 * Ahora que conoce los niveles de SQL Database, pruébelos con una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera instancia de SQL Database](sql-database-get-started-portal.md).
 * Para escenarios de migración, utilice la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para calcular el número aproximado de DTU necesarias. 
