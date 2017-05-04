@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1842d55e2275560581cf2766cdf74e0939e68c98
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1cf6be168c3e87bfd567c216679f608593673340
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,8 +47,8 @@ Uno de los dos [modelos de implementación](resource-manager-deployment-model.md
 [Interfaz de la línea de comandos](cli-install-nodejs.md) que se puede utilizar para administrar los servicios de Azure desde Windows, OSX y equipos con Linux.
 
 ### <a name="powershell"></a>Azure PowerShell.
-[Interfaz de la línea de comandos](/powershell/azureps-cmdlets-docs) para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. En las guías de los recursos de Azure se detalla con qué modelo o modelos se puede implementar cada recurso.   
-Consulte también [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Interfaz de la línea de comandos](/powershell/azure/overview) para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. En las guías de los recursos de Azure se detalla con qué modelo o modelos se puede implementar cada recurso.   
+Consulte también [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>Modelo de implementación de Azure Resource Manager
 Uno de los dos [modelos de implementación](resource-manager-deployment-model.md) utilizados para implementar recursos en Microsoft Azure (el otro es el modelo de implementación clásica). Algunos recursos de Azure pueden implementarse solo en uno de los dos modelos, mientras que otros pueden hacerlo en cualquiera de ellos. Orientación sobre cada uno de los modelos con los que se pueden implementar los recursos de Azure.

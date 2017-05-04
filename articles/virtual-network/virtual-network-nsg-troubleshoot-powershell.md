@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b067278389a364514067bcef7045542486e113c9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +45,7 @@ Aunque este ejemplo utiliza el puerto TCP 3389, los pasos siguientes pueden util
 ## <a name="detailed-troubleshooting-steps"></a>Pasos de la solución de problemas detallada
 Complete los pasos siguientes para solucionar problemas de los NSG para una máquina virtual:
 
-1. Inicie una sesión de Azure PowerShell e inicie sesión en Azure. Si no está familiarizado con el uso de Azure PowerShell, lea el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Inicie una sesión de Azure PowerShell e inicie sesión en Azure. Si no está familiarizado con el uso de Azure PowerShell, lea el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 2. Escriba el siguiente comando para devolver todas las reglas de NSG que se aplican a una NIC denominada *VM1-NIC1* en el grupo de recursos *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -197,10 +198,5 @@ Tenga en cuenta los puntos siguientes cuando tenga que solucionar problemas de c
 * Si ha emparejado redes virtuales, de forma predeterminada, la etiqueta VIRTUAL_NETWORK se expandirá automáticamente para incluir prefijos para redes virtuales emparejadas. Puede ver estos prefijos en la lista **ExpandedAddressPrefix** para solucionar los problemas relacionados con la conectividad de emparejamiento de rede virtuales. 
 * Las reglas de seguridad vigentes solo se muestran si hay un NSG asociado con la NIC o subred de máquina virtual. 
 * Si no hay ningún NSG asociado a la NIC o subred y tiene una dirección IP pública asignada a la máquina virtual, todos los puertos estarán abiertos para el acceso entrante y saliente. Si la máquina virtual tiene una dirección IP pública, es muy recomendable aplicar los NSG a la subred o NIC.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

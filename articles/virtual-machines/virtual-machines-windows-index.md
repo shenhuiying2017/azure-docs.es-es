@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b0f97779c2cf8bf3e7535afa8a2ab1ee45958ad1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fd7b14d16a0654dc1368ddb00ea047aa7dd36a4c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 ## <a name="environment-setup"></a>Configuración del entorno
 [Cuenta gratuita](https://azure.microsoft.com/free/)
 
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Azure PowerShell](/powershell/azure/overview)
 
 [Instalación de la CLI de Azure](../cli-install-nodejs.md)
 
@@ -152,7 +152,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Service Management API de .NET](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Documentación de referencia de los cmdlets de PowerShell para Azure Service Management](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Documentación de referencia de los cmdlets de PowerShell para Azure Service Management](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## <a name="troubleshooting"></a>Solución de problemas
 [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

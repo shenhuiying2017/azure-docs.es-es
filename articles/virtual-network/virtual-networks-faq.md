@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: e1f7b85308d7482e0066809737749e73029cd758
-ms.openlocfilehash: eed133ba2f0a5e1665afd39b2122d3aacd3cc40a
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -73,7 +73,7 @@ Sí. Azure reserva algunas direcciones IP dentro de cada subred. La primera y la
 La subred más pequeña que se admite es /29 y la mayor es /8 (según las definiciones de subred de CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>¿Puedo llevar mis VLAN a Azure mediante redes virtuales?
-No. Las redes virtuales son superposiciones de nivel&3;. Azure no admite ninguna semántica de nivel&2;.
+No. Las redes virtuales son superposiciones de nivel 3. Azure no admite ninguna semántica de nivel 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>¿Puedo especificar directivas de enrutamiento personalizadas en mis redes virtuales y subredes?
 Sí. Puede usar el enrutamiento definido por usuario (UDR). Para obtener más información acerca de UDR, visite [Rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
@@ -214,6 +214,6 @@ Sí. Puede usar las API de REST para redes virtuales en los modelos de implement
 ### <a name="is-there-tooling-support-for-vnets"></a>¿Hay compatibilidad con las herramientas para redes virtuales?
 Sí. Más información acerca del uso de:
 - Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
-- PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) y [clásica](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking).
+- PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) y [clásica](/powershell/module/azure/?view=azuresmps-3.7.0).
 - La [interfaz de la línea de comandos (CLI) de Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) para administrar las redes virtuales que se implementan a través de ambos modelos de implementación.  
 

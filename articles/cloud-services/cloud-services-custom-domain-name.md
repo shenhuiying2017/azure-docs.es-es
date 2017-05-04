@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5834ad4e35894f9417d0319f120c8b74b69b3355
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -76,7 +77,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
      
        **O bien**  
-   * Instale y configure [Azure Powershell](/powershell/azureps-cmdlets-docs)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +112,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
        ![sección de vista rápida que muestra la IP virtual][vip]
      
        **O bien**  
-   * Instale y configure [Azure Powershell](/powershell/azureps-cmdlets-docs)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -156,9 +157,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
