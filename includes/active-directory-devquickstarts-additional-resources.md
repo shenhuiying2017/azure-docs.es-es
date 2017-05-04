@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan, visitando la página [de TechCenter para notificaciones de seguridad técnicas de Microsoft](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
