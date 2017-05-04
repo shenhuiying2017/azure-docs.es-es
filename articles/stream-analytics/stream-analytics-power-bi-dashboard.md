@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbc49d35def6d7b12ade529d1dd1156dee9d75b
-ms.openlocfilehash: 09c54f8cce119c1cbe6a08e969236612447d9e17
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 278f73d9ee3f64727b34b3674cd38eaf5301e675
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -142,7 +142,7 @@ Se recomienda utilizar una ventana de saltos de tamaño constante o una ventana 
 
 Puede utilizar la siguiente ecuación para calcular el valor que asignar a la ventana en segundos:
 
-![Ecuación&1;](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![Ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
 Por ejemplo:
 - Tiene 1000 dispositivos que envían datos a intervalos de un segundo.
@@ -151,7 +151,7 @@ Por ejemplo:
 
 En consecuencia, la ecuación se convierte en:
 
-![Ecuación&2;](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![Ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
 De este modo, podemos cambiar la consulta original a la siguiente:
 
@@ -177,7 +177,7 @@ De forma similar, si un trabajo intenta iniciarse después de que el token haya 
 Después de que la autorización se haya actualizado con Power BI, se mostrará una alerta verde en el área de autorización para indicar que el problema se ha resuelto.
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)

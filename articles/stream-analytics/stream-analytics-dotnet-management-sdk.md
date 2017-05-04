@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: b2729dfdb6bf85e6d254b08669eeb259f4ab59d5
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: c1904b90e2e076c5e204a348b5882c7200bbace3
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -34,7 +34,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 * Instale Visual Studio 2017 o 2015.
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
-* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -295,7 +295,7 @@ El método **Delete** eliminará el trabajo, además de los subrecursos subyacen
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecutar trabajos de análisis. Para obtener más información, consulte:

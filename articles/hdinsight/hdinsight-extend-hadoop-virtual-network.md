@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 04/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 52038c02901d49f787226ce629a1ca5942414e4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3052e53c642ef3e6d9bb0489476274987707f91
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ Descubra cómo usar las redes virtuales de Azure Virtual Network con HDInsight p
 
 * CLI de Azure 2.0: para obtener más información, vea [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (Instalar y configurar CLI de Azure 2.0).
 
-* Azure PowerShell: para obtener más información, vea [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) (Instalar y configurar Azure PowerShell).
+* Azure PowerShell: para obtener más información, vea [Install and Configure Azure PowerShell](/powershell/azure/overview) (Instalar y configurar Azure PowerShell).
 
 > [!NOTE]
 > Los pasos que aparecen en este documento se han probado con la versión más reciente de Azure PowerShell y la CLI de Azure. Si está utilizando una versión anterior, los comandos pueden variar. Para obtener mejores resultados, use los vínculos anteriores para instalar las versiones más recientes.

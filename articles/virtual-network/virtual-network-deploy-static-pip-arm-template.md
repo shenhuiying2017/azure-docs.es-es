@@ -17,9 +17,9 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d38adc6104337aa6cea9ee0f8042c22434624c9a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -118,7 +118,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
-1. Si nunca usó Azure PowerShell, complete los pasos del artículo [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Cómo instalar y configurar Azure PowerShell).
+1. Si nunca usó Azure PowerShell, complete los pasos del artículo [How to Install and Configure Azure PowerShell](/powershell/azure/overview) (Cómo instalar y configurar Azure PowerShell).
 2. En una consola de PowerShell, ejecute el cmdlet `New-AzureRmResourceGroup` para crear un nuevo grupo de recursos, si fuera necesario. Si ya tiene un grupo de recursos creado, vaya al paso 3.
 
     ```powershell

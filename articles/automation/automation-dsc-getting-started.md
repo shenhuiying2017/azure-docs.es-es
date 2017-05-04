@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 98f5a017221f0aaba04e2b90afc674e4c42d1bb3
-ms.openlocfilehash: 282cb0a7705d0650852699ed5fe09f61fda42d0f
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -216,12 +217,7 @@ Si ya no desea que DSC de Automatización de Azure administre un nodo, puede anu
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
 * [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 * [Windows PowerShell Desired State Configuration Overview (Información general de la configuración de estado deseado de Windows Powershell)](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Cmdlets de DSC de Automatización de Azure](/powershell/module/azurerm.automation/#automation)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

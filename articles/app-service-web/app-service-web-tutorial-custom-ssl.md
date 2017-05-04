@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/21/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ddbb31e9ed6080e7349f36788084e1e3580f9bd5
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5bbdd1db655c080b4372f6728bb47207757209e4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -221,7 +221,7 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-Puede automatizar enlaces SSL de la aplicación web con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+Puede automatizar enlaces SSL de la aplicación web con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>CLI de Azure
 

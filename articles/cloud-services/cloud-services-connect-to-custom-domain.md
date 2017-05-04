@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5489762a7a392e4e4098d85cba22d560e9858267
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ En primer lugar, vamos a configurar una red virtual en Azure. A continuación, a
 
 Antes de empezar, debemos tener en cuenta un par de cosas:
 
-1. En este tutorial se usa PowerShell, por lo que debe asegurarse de tener Azure PowerShell instalado y listo para usar. Para obtener ayuda con la configuración de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. En este tutorial se usa PowerShell, por lo que debe asegurarse de tener Azure PowerShell instalado y listo para usar. Para obtener ayuda con la configuración de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 2. El controlador de dominio de AD y las instancias de rol web o de trabajo deben estar en la red virtual.
 
 Siga esta guía paso a paso y, en caso de que surja algún problema, deje un comentario a continuación. Nos pondremos en contacto con usted (siempre leemos los comentarios).
@@ -155,9 +156,4 @@ Ahora, los servicios en la nube deben estar unidos al controlador de dominio per
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
