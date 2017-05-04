@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Se usarán los siguientes valores para esta configuración. Las variables se con
 
 ## <a name="before-beginning"></a>Antes de comenzar
 * Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información sobre cómo instalar los cmdlets de PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información sobre cómo instalar los cmdlets de PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). 
 
 ## <a name="declare"></a>Parte 1: Inicio de sesión y establecimiento de variables
 En esta sección, iniciará sesión y declarará los valores utilizados para esta configuración. Los valores declarados se usan en los scripts de ejemplo. Cambie los valores para reflejar su propio entorno. O bien, use los valores declarados y siga los pasos como si se tratara de un ejercicio.
@@ -261,7 +261,7 @@ Si desea crear una conexión P2S desde un equipo cliente distinto del que usó p
 
 Si tiene problemas para conectarse, compruebe lo siguiente:
 
-- Abra **Administrar certificados de usuario** y vaya a **Entidades de certificación raíz de confianza\Certificados**. Compruebe que aparezca el certificado raíz. El certificado raíz debe estar presente para que funcione la autenticación. Al exportar un archivo .pfx de certificado de cliente con el valor predeterminado "Incluir todos los certificados en la ruta de certificación (si es posible)", también se exporta la información del certificado raíz. Cuando se instala el certificado de cliente, el certificado raíz también se instala en el equipo cliente. 
+- Abra **Administrar certificados de usuario** y vaya a **Entidades de certificación raíz de confianza\Certificados**. Verifique que aparece el certificado raíz. El certificado raíz debe estar presente para que funcione la autenticación. Al exportar un archivo .pfx de certificado de cliente con el valor predeterminado "Incluir todos los certificados en la ruta de certificación (si es posible)", también se exporta la información del certificado raíz. Cuando se instala el certificado de cliente, el certificado raíz también se instala en el equipo cliente. 
 
 - Si va a usar un certificado que se emitió con una solución de CA empresarial y está teniendo problemas de autenticación, compruebe el orden de autenticación en el certificado de cliente. Para comprobar el orden de la lista de autenticación, haga doble clic en el certificado de cliente y vaya a **Detalles > Uso mejorado de claves**. Asegúrese de que la lista muestre "Autenticación de cliente" como primer elemento. Si no es así, debe emitir un certificado de cliente basado en la plantilla Usuario que tenga Autenticación de cliente como primer elemento de la lista.  
 
@@ -284,7 +284,7 @@ Si tiene problemas para conectarse, compruebe lo siguiente:
 
 ## <a name="connectVM"></a>Conexión a una máquina virtual
 
-1. Después de conectarse a la red virtual, puede conectarse a una máquina virtual a través de la conexión P2S. Para conectarse a la máquina virtual, necesita su dirección IP privada. En el ejemplo siguiente, se lo ayuda a obtener la dirección IP privada con [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0). En los resultados se devuelve una lista de máquinas virtuales y las direcciones IP privadas correspondientes en todos los grupos de recursos. 
+1. Después de conectarse a la red virtual, puede conectarse a una máquina virtual a través de la conexión P2S. Para conectarse a la máquina virtual, necesita su dirección IP privada. En el ejemplo siguiente, se lo ayuda a obtener la dirección IP privada con [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface). En los resultados se devuelve una lista de máquinas virtuales y las direcciones IP privadas correspondientes en todos los grupos de recursos. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ Puede restablecer un certificado de cliente quitando la huella digital de la lis
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información. Para más información acerca de las redes y las máquinas virtuales, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/linux/azure-vm-network-overview.md).
+

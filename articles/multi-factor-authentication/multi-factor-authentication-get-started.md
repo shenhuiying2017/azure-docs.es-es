@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
-ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,8 +36,8 @@ Para determinar la solución correcta de verificación en dos pasos, en primer l
 | ¿Qué intenta proteger? | MFA en la nube | Servidor MFA |
 | --- |:---:|:---:|
 | Aplicaciones propias de Microsoft |● |● |
-| Aplicaciones de SaaS en la galería de aplicaciones |● |● |
-| Aplicaciones web que se publican a través del proxy de aplicación de Azure AD |● |● |
+| Aplicaciones de SaaS en la galería de aplicaciones |● |  |
+| Aplicaciones web que se publican a través del proxy de aplicación de Azure AD |● |  |
 | Aplicaciones de IIS que no se publican a través del proxy de aplicación de Azure AD | |● |
 | Acceso remoto como VPN, RDG | |● |
 
@@ -84,9 +85,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 [![Nube](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Página de proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

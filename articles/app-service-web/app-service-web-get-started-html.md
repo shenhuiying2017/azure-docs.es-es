@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 472353a2d099db869f43649cd46c8b004ebd53cc
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: ba9b9b780da74c44f6314fa289f1d6b8c231dd30
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -42,7 +42,7 @@ Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md
 az group create --location "West Europe" --name myResourceGroup
 ```
 
-Para ver los posibles valores que se pueden usar para `---location`, utilice el comando `az appservice list-locations` de la CLI de Azure.
+Para ver los posibles valores que se pueden usar para `--location`, utilice el comando `az appservice list-locations` de la CLI de Azure.
 
 
 ## <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones

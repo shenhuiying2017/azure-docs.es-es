@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 32f115a4d901a43abf1bf69d1c0c72b65ec7368c
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2bc3e4573ff4f202c3c8492e8110dc35c7e8ff2a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ En este tutorial, desarrollará un trabajo que lee un archivo de valores separad
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-data-lake-analytics-account"></a>Creación de una cuenta de Análisis de Data Lake
 Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Para crear una cuenta de Análisis de Data Lake, debe especificar lo siguiente:

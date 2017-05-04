@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3539d6f6d3741387174e80ecc132db782d7df9f0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f30a450c7d3aa73bb2fb196ca7de94436916bed0
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -45,7 +45,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para crear un grupo de recursos mediante esta plantilla.
 
     ```powershell

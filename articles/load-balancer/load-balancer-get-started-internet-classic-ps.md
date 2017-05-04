@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
-ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 Para configurar un equilibrador de carga con PowerShell, siga estos pasos:
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Después de crear una máquina virtual, puede usar cmdlets de PowerShell para agregar un equilibrador de carga a una máquina virtual dentro del mismo servicio en la nube.
 
 En el ejemplo siguiente se agregará un conjunto de equilibrador de carga denominado "webfarm" al servicio en la nube "mytestcloud" (o myctestcloud.cloudapp.net), agregando los puntos de conexión para el equilibrador de carga a las máquinas virtuales denominadas "web1" y "web2". El equilibrador de carga recibe tráfico de red en el puerto 80 y equilibra la carga entre las máquinas virtuales definidas por el punto de conexión local (en este caso el puerto 80) mediante TCP.
@@ -73,9 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 También puede [empezar a crear un equilibrador de carga interno](load-balancer-get-started-ilb-classic-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento del tráfico de red de un equilibrador de carga específico.
 
 Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

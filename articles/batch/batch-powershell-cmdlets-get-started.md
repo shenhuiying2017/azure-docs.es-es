@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Con los cmdlets de PowerShell de Lote de Azure puede realizar directamente y mediante scripts muchas de las mismas tareas que se llevan a cabo con las API de Lote, el Portal de Azure y la interfaz de la línea de comandos (CLI) de Azure. Esta es una breve introducción a los cmdlets que se pueden usar para administrar cuentas de Lote y trabajar con recursos de Lote tales como grupos, trabajos y tareas.
 
-Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada de los cmdlets, consulte la [referencia de los cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada de los cmdlets, consulte la [referencia de los cmdlets de Lote de Azure](/powershell/module/azurerm.batch/#batch).
 
 Este artículo se basa en los cmdlets de Azure PowerShell versión 3.0.0. Le recomendamos que actualice su instancia de Azure PowerShell con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Realice las siguientes operaciones si desea utilizar Azure PowerShell para administrar los recursos de Batch.
 
-* [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 * Ejecución del cmdlet **Login-AzureRmAccount** para conectarse a la suscripción (los cmdlets de Azure Batch se incluyen en el módulo Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Realice las siguientes operaciones si desea utilizar Azure PowerShell para admin
 
 ## <a name="manage-batch-accounts-and-keys"></a>Administrar claves y cuentas por lotes
 ### <a name="create-a-batch-account"></a>Crear una cuenta de lote
-**New-AzureRmBatchAccount** crea una cuenta de Batch en un grupo de recursos especificado. Si aún no dispone de un grupo de recursos, créelo ejecutando el cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). Especifique una de las regiones de Azure en el parámetro **Ubicación**, como "centro de EE. UU.". Por ejemplo:
+**New-AzureRmBatchAccount** crea una cuenta de Batch en un grupo de recursos especificado. Si aún no dispone de un grupo de recursos, créelo ejecutando el cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Especifique una de las regiones de Azure en el parámetro **Ubicación**, como "centro de EE. UU.". Por ejemplo:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ Ahora, las propiedades del grupo están actualizadas en el servicio Batch. Para 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos, consulte [Azure Batch Cmdlets](https://msdn.microsoft.com/library/azure/mt125957.aspx)(Cmdlets de Lote de Azure).
+* Para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos, consulte [Azure Batch Cmdlets](/powershell/module/azurerm.batch/#batch)(Cmdlets de Lote de Azure).
 * Para más información sobre las aplicaciones y los paquetes de aplicación de Batch, consulte [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md).
 
 

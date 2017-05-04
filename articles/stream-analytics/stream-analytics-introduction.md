@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ En la actualidad, grandes cantidades de datos se transmiten a alta velocidad por
 * **Conectividad** : Análisis de transmisiones se conecta con Centros de eventos de Azure y con Centros de IoT de Azure de forma directa para la ingesta de transmisiones y con el servicio BLOB de Azure para los datos históricos. Los resultados se pueden escribir desde Análisis de transmisiones en tablas o blobs de Almacenamiento de Azure, Base de datos SQL de Azure, Azure Data Lake Store, DocumentDB, Centros de eventos, temas o colas de Bus de servicio de Azure y Power BI, donde se podrán visualizar, los podrán procesar los flujos de trabajo, se podrán usar en el análisis por lotes a través de [HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) o se podrán volver a procesar como una serie de eventos. Cuando se usan los Centros de eventos, es posible integrar varios Análisis de transmisiones con otros orígenes de datos y motores de procesamiento sin perder el carácter de streaming de los cálculos.  
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:

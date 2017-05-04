@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9ed3e60679a0c637c99f8019119289c71be81f83
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -55,7 +55,7 @@ Las aplicaciones y servicios pueden emitir llamadas directas de la API de REST o
 
 La funcionalidad que proporcionan las API de desarrollo también está disponible con las herramientas de línea de comandos: 
 
-* [Cmdlets de Batch en PowerShell][batch_ps]: los cmdlets de Azure Batch en el módulo [Azure PowerShell](/powershell/azureps-cmdlets-docs) permiten administrar los recursos de Batch con PowerShell.
+* [Cmdlets de Batch en PowerShell][batch_ps]: los cmdlets de Azure Batch en el módulo [Azure PowerShell](/powershell/azure/overview) permiten administrar los recursos de Batch con PowerShell.
 * [CLI de Azure](/cli/azure/overview): la interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluido Lote.
 
 ## <a name="batch-resource-management"></a>Administración de recursos de Lote

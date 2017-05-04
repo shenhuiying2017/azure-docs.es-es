@@ -44,7 +44,7 @@ ACU: 180 - 240
 
 ## <a name="dsv2-series"></a>Serie DSv2*
 
-ACU: 210-250
+ACU: 210 - 250
 
 | Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché máx.: E/S por segundo / Mbps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -68,7 +68,7 @@ Bps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
 ## <a name="dv2-series"></a>Serie Dv2
 
-ACU: 21--250
+ACU: 210 - 250
 
 | Tamaño              | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Rendimiento máximo del disco local: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Ancho de banda de red/NIC máx. |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

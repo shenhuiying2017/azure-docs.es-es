@@ -6,7 +6,7 @@ documentationcenter: na
 author: cherylmc
 manager: timlt
 editor: 
-tags: azure-resource-manager
+tags: azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fd7c834e8e061ba51b116ade88769dde05abcf9a
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: e5dcf957ea88175be02bce21929c43151417d0e3
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -48,7 +48,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 * Un dispositivo VPN compatible y alguien que pueda configurarlo. Para más información acerca de los dispositivos VPN compatibles y su configuración, consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 * Una dirección IP IPv4 pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
 * Si no está familiarizado con los intervalos de direcciones IP ubicados en la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles. Al crear esta configuración, debe especificar los prefijos del intervalo de direcciones IP al que Azure enrutará la ubicación local. Ninguna de las subredes de la red local puede superponerse con las subredes de la red virtual a la que desea conectarse.
-* Actualmente, se requiere PowerShell para especificar la clave compartida y crear la conexión de puerta de enlace VPN. Instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Cuando trabaje con PowerShell para esta configuración, asegúrese de que está ejecutando como administrador. 
+* Actualmente, se requiere PowerShell para especificar la clave compartida y crear la conexión de puerta de enlace VPN. Instale la versión más reciente de los cmdlets de PowerShell para Azure Service Management. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Cuando trabaje con PowerShell para esta configuración, asegúrese de que está ejecutando como administrador. 
 
 ### <a name="values"></a>Valores de configuración de ejemplo para este ejercicio
 

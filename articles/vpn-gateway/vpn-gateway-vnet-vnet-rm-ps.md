@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3d52c0f5faf90dedf587fb270e9a160a374ed558
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19cd1cf60a14f4a2087bcfdbb4b223039c82dec3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Los pasos de este artículo utilizan variables que se declaran al principio de c
 ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Antes de empezar
-Antes de empezar, necesitará instalar los cmdlets de PowerShell de Azure Resource Manager. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar los cmdlets de PowerShell. 
+Antes de empezar, necesitará instalar los cmdlets de PowerShell de Azure Resource Manager. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) para más información sobre cómo instalar los cmdlets de PowerShell. 
 
 ### <a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 En los pasos siguientes, se crearán dos redes virtuales junto con sus subredes de puerta de enlace y configuraciones correspondientes. A continuación crearemos una conexión VPN entre las dos redes virtuales. Es importante planear los intervalos de direcciones IP para la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen.

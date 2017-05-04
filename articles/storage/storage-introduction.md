@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Almacenamiento de Azure es la solución de almacenamiento en la nube para las ap
 * Cómo se consigue que los datos de Almacenamiento de Azure sean duraderos mediante la redundancia y la replicación
 * Qué pasos seguir a continuación para crear una primera aplicación de Almacenamiento de Azure
 
-Para empezar a utilizar rápidamente el Almacenamiento de Azure, consulte [Introducción en cinco minutos a Almacenamiento de Azure](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Para obtener más información sobre las herramientas, las bibliotecas y otros recursos para trabajar con Almacenamiento de Azure, consulte el apartado [Pasos siguientes](#next-steps) que encontrará a continuación.
 
@@ -185,12 +187,12 @@ Es posible acceder a los recursos de Almacenamiento de Azure por medio de cualqu
 * [Biblioteca de cliente de almacenamiento para PHP](https://azure.microsoft.com/develop/php/)
 * [Biblioteca de cliente de almacenamiento para Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Biblioteca de cliente de almacenamiento para Python](https://azure.microsoft.com/develop/python/)
-* [Cmdlets de almacenamiento para PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Cmdlets de almacenamiento para PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Servicios de administración de Azure Storage
 * [Referencia de API de REST de proveedor de recursos de almacenamiento](/rest/api/storagerp/)
 * [Biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Cmdlets de proveedor de recursos de almacenamiento para PowerShell 1.0](/powershell/storage/)
+* [Cmdlets de proveedor de recursos de almacenamiento para PowerShell 1.0](/powershell/module/azure.storage)
 * [API de REST de administración de servicios de almacenamiento (clásico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Servicios de movimiento de datos de Azure Storage
@@ -202,7 +204,7 @@ Es posible acceder a los recursos de Almacenamiento de Azure por medio de cualqu
 * [Herramientas de cliente de Almacenamiento de Azure](storage-explorers.md)
 * [SDK y herramientas de Azure](https://azure.microsoft.com/tools/)
 * [Emulador de almacenamiento de Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Utilidad de línea de comandos AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -210,8 +212,12 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 
 ### <a name="documentation"></a>Documentación
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [crear una cuenta de almacenamiento](storage-create-storage-account.md)
-* [Introducción en cinco minutos a Almacenamiento de Azure](storage-getting-started-guide.md)
+* [Cree una cuenta de almacenamiento](storage-create-storage-account.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Para administradores
 * [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)

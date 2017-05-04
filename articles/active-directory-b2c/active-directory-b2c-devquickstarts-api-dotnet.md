@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: d67043f2e0a062796f4d6167b28774ce494027c2
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -59,10 +59,10 @@ Cuando haya creado correctamente la directiva, estará listo para crear su aplic
 
 ## <a name="download-the-code"></a>Descargar el código
 
-El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). Puede clonar el ejemplo al ejecutar lo siguiente:
+El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Puede clonar el ejemplo al ejecutar lo siguiente:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar. El archivo de solución contiene dos proyectos: `TaskWebApp` y `TaskService`. `TaskWebApp` es una aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web del back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario. En este artículo se describe únicamente la aplicación `TaskService`. Para más información sobre cómo crear `TaskWebApp` con Azure AD B2C, consulte [nuestro tutorial de aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md).

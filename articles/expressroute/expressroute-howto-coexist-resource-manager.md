@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 1acd56f13c06d45287c38ea4f62aecf0ce0cf072
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ec9da5c9818f03a85e858800bd38be49d8ed14e6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,7 +79,7 @@ Hay dos conjuntos diferentes de procedimientos que puede elegir. El procedimient
 ## <a name="new"></a>Creación de una nueva red virtual y conexiones coexistentes
 Este procedimiento le guía en la creación de una red virtual y conexiones de sitio a sitio y ExpressRoute que coexisten.
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell. Para obtener información acerca de cómo instalar los cmdlets, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell. Para obtener información acerca de cómo instalar los cmdlets, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.
 2. Inicie sesión en su cuenta y configure el entorno.
 
   ```powershell
@@ -179,7 +179,7 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
 > 
 > 
 
-1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Para más información sobre cómo instalar los cmdlets, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones. 
+1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Para más información sobre cómo instalar los cmdlets, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones. 
 2. Elimine la puerta de enlace de la VPN de ExpressRoute o de sitio a sitio.
 
   ```powershell 
@@ -232,3 +232,4 @@ Para más información sobre la VPN de punto a sitio, consulte [Configuración d
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
+
