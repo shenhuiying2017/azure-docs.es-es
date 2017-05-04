@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 05/04/2017
 ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
 ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -219,7 +220,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
             }
         }
     }     
-    ```     
+    ```       
    Tenga en cuenta los siguientes puntos:
 
    * **type** está establecido en **SqlServerTable**.
@@ -396,9 +397,4 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 ## <a name="next-steps"></a>Pasos siguientes
 * Vea el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener todos los detalles sobre Data Management Gateway.
 * Consulte [Copia de datos de Azure Blob en Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) si necesita más información sobre el uso de la actividad de copia para mover datos desde un almacén de datos de origen a un almacén de datos receptor.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
