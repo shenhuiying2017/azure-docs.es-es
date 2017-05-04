@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 562e20d274079d221360d45302ff288190c1cd6e
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Después de leer este artículo, aprenderá a:
 
 > [!NOTE]
 > * Los cmdlets de Windows PowerShell para StorSimple permiten administrar el dispositivo StorSimple desde una consola en serie o de forma remota a través de la conexión remota de Windows PowerShell. Para obtener más información acerca de cada uno de los cmdlets individuales que pueden utilizarse en esta interfaz, vaya a [Referencia de cmdlets de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * Los cmdlets de Azure PowerShell StorSimple son un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas de nivel de servicio y de migración desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [Referencia de los cmdlets de Azure StorSimple](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * Los cmdlets de Azure PowerShell StorSimple son un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas de nivel de servicio y de migración desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [Referencia de los cmdlets de Azure StorSimple](/powershell/module/azure/?view=azuresmps-3.7.0).
 > 
 > 
 
@@ -174,10 +175,5 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

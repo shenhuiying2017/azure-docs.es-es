@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9d7176b018d25b2a60b2175c289dde7490f8d101
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 49ffe988867ba70df5bd7757a64edc9aa813071d
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -87,7 +87,6 @@ Si se cumplen los criterios de elegibilidad de las [directivas de participación
 * [Reversión del modelo de facturación a los valores de producción](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
 * [Reversión de la configuración de visibilidad de una SKU activa al valor de producción](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [Cómo cambiar el incentivo de revendedores para proveedores de soluciones en la nube](marketplace-publishing-csp-incentive.md)
-* [Descripción de los informes de información del vendedor](marketplace-publishing-report-seller-insights.md)
 * [Descripción de los informes de pago](marketplace-publishing-report-payout.md)
 * [Obtención de soporte técnico como publicador](marketplace-publishing-get-publisher-support.md)
 

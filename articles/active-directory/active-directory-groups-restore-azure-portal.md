@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ Usuario | Puede restaurar cualquier grupo eliminado de Office 365 de su propieda
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Visualización de grupos eliminados de Office 365 disponibles para restauración
-Los cmdlets siguientes se pueden usar para ver los grupos eliminados y comprobar que todavía no se purgaron los que le interesan. Los cmdlets forman parte del [módulo de versión preliminar de Azure Active Directory PowerShell v2](https://www.powershellgallery.com/packages/AzureADPreview). Puede encontrar más información sobre este módulo en el artículo sobre la [versión 2 de Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azuread/).
+Los cmdlets siguientes se pueden usar para ver los grupos eliminados y comprobar que todavía no se purgaron los que le interesan. Los cmdlets forman parte del [módulo de versión preliminar de Azure Active Directory PowerShell v2](https://www.powershellgallery.com/packages/AzureADPreview). Puede encontrar más información sobre este módulo en el artículo sobre la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 Tenga en cuenta que los cmdlets de gestión de la eliminación temporal y la recuperación de software se encuentran en su fase de versión preliminar pública, por lo que, en ocasiones, tenemos que aplicarles cambios drásticos. Por este motivo, se desaconseja el uso de estos cmdlets en un entorno de producción.
 
 1.    Ejecute el cmdlet siguiente para mostrar todos los grupos eliminados de Office 365 existentes en el inquilino que todavía se pueden restaurar.

@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: c74e63621d422f8fa13bc1dd2730ec2c3325a46a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7ea7008495225b384be3e4728524393bf8c9ba6e
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Integrar Azure AD en una aplicación iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> Pruebe la versión preliminar de nuestro nuevo [portal para desarrolladores](https://identity.microsoft.com/Docs/iOS) , que lo ayudará a empezar a trabajar con Azure Active Directory en tan solo unos minutos.  El portal para desarrolladores lo guiará a través del proceso de registro de una aplicación y de integración de Azure AD en el código.  Cuando haya terminado, tendrá una aplicación sencilla que podrá autenticar a los usuarios del inquilino, así como un back-end con capacidad para aceptar tokens y realizar validaciones. 
+> 
+> 
 
 Azure AD proporciona la biblioteca de autenticación de Active Directory (ADAL) para los clientes de iOS que necesitan tener acceso a recursos protegidos.  El único propósito de ADAL es facilitar a su aplicación la obtención de tokens de acceso.  Para demostrar lo fácil que es, crearemos aquí una aplicación de lista de tareas pendientes de Objective-C que:
 
@@ -38,11 +41,6 @@ Para crear la aplicación de trabajo completa, deberá:
 3. Usar ADAL para obtener tokens de Azure AD.
 
 Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación.  Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
-
-> [!TIP]
-> Pruebe la versión preliminar de nuestro nuevo [portal para desarrolladores](https://identity.microsoft.com/Docs/iOS) , que lo ayudará a empezar a trabajar con Azure Active Directory en tan solo unos minutos.  El portal para desarrolladores lo guiará a través del proceso de registro de una aplicación y de integración de Azure AD en el código.  Cuando haya terminado, tendrá una aplicación sencilla que podrá autenticar a los usuarios del inquilino, así como un back-end con capacidad para aceptar tokens y realizar validaciones. 
-> 
-> 
 
 ## <a name="1-determine-what-your-redirect-uri-will-be-for-ios"></a>1. Determinación de cuál será el URI de redireccionamiento para iOS
 Para iniciar de forma segura sus aplicaciones en ciertos escenarios SSO, es necesaria la creación de un **URI de redireccionamiento** en un formato determinado. Un URI de redirección se utiliza para garantizar que los tokens se devuelven a la aplicación correcta que los solicitó.

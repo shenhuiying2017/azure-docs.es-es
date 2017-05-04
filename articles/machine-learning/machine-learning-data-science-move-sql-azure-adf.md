@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
-ms.openlocfilehash: 72daf5bdce0dfcb2e09869c159eb88ee313be575
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b34362203984a368bb74395e3e9f466b086b7521
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ En este tema se muestra cómo mover datos desde una base de datos local de SQL S
 
 Para ver una tabla que resuma varias opciones para mover datos a Azure SQL Database, vea [Mover datos a Azure SQL Database para Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-## <a name="a-nameintroaintroduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>Introducción: ¿qué es la ADF y cuándo se debe usar para migrar datos?
+## <a name="intro"></a>Introducción: ¿qué es la ADF y cuándo se debe usar para migrar datos?
 La Factoría de datos de Azure es un servicio de integración de datos totalmente administrado basado en la nube que organiza y automatiza el movimiento y la transformación de datos. El concepto clave en el modelo de ADF es la canalización. Una canalización es una agrupación lógica de actividades, cada una de las cuales define las acciones que se deben realizar en los datos incluidos en los conjuntos de datos. Los servicios vinculados se usan para definir la información necesaria para que la Factoría de datos se conecte a los recursos de datos.
 
 Con la ADF, los servicios de procesamiento de datos existentes se pueden componer en canalizaciones de datos altamente disponibles y administradas en la nube. Estas canalizaciones de datos se pueden programar para ingerir, preparar, transformar, analizar y publicar datos, mientras que ADF administra y organiza los datos complejos y las dependencias de procesamiento. Las soluciones se pueden generar e implementar rápidamente en la nube. Para ello, se conecta una cantidad en aumento de orígenes de datos locales y de nube.
@@ -37,7 +38,7 @@ Considere el uso de ADF en estos casos:
 
 La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas. Para obtener más información sobre la ADF, vea la documentación de [Factoría de datos de Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
 
-## <a name="a-namescenarioathe-scenario"></a><a name="scenario"></a>Escenario
+## <a name="scenario"></a>Escenario
 Configuramos una canalización ADF que se compone de dos actividades de migración de datos. En conjunto, mueven datos a diario entre una instancia de SQL Database local y otra instancia de Azure SQL Database en la nube. Las dos actividades son:
 
 * copiar datos de una base de datos SQL Server local a una cuenta de almacenamiento de blobs de Azure.
@@ -48,25 +49,25 @@ Configuramos una canalización ADF que se compone de dos actividades de migraci�
 >
 >
 
-## <a name="a-nameprereqsaprerequisites"></a><a name="prereqs"></a>Requisitos previos
+## <a name="prereqs"></a>Requisitos previos
 En este tutorial se asume que dispone de:
 
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Acceso a una **base de datos SQL de Azure**. Si debe configurar una instancia de Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) (Introducción a Microsoft Azure SQL Database) proporciona información sobre cómo aprovisionar una nueva instancia de Azure SQL Database.
-* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > En este procedimiento se usa [Azure Portal](https://portal.azure.com/).
 >
 >
 
-## <a name="a-nameupload-dataa-upload-the-data-to-your-on-premise-sql-server"></a><a name="upload-data"></a> Cargar los datos al servidor SQL Server local
+## <a name="upload-data"></a> Cargar los datos al servidor SQL Server local
 Usamos el [conjunto de datos de taxis de Nueva York](http://chriswhong.com/open-data/foil_nyc_taxi/) para demostrar el proceso de migración. El conjunto de datos de taxis de Nueva York está disponible, como se especificó en esa publicación, en la instancia de Azure Blob Storage [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). Los datos tienen dos archivos, el archivo trip_data.csv, que contiene detalles de carreras, y el archivo trip_far.csv, que contiene detalles de la tarifa de cada carrera. En [Descripción del conjunto de datos de carreras de taxi de Nueva York](machine-learning-data-science-process-sql-walkthrough.md#dataset), se proporciona un ejemplo y una descripción de estos archivos.
 
 Puede adaptar el procedimiento que se proporciona aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Estas instrucciones son para un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en el servidor SQL Server local es el mismo.
 
-## <a name="a-namecreate-adfa-create-an-azure-data-factory"></a><a name="create-adf"></a> Crear una factoría de datos de Azure
+## <a name="create-adf"></a> Crear una factoría de datos de Azure
 Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en [Azure Portal](https://portal.azure.com/) se proporcionan en [Creación de Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalar y configurar Data Management Gateway
@@ -79,7 +80,7 @@ Data Management Gateway serializa y deserializa los datos de origen y receptor e
 
 Para obtener instrucciones de instalación e información detallada sobre Data Management Gateway, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)
 
-## <a name="a-nameadflinkedservicesacreate-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos
+## <a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos
 Un servicio vinculado define la información necesaria para que la Factoría de datos de Azure se conecte a un recurso de datos. El procedimiento paso a paso para crear servicios vinculados se proporciona en [Crear servicios vinculados](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
 Tenemos tres recursos en este escenario para los que se necesitan servicios vinculados.
@@ -88,30 +89,30 @@ Tenemos tres recursos en este escenario para los que se necesitan servicios vinc
 2. [Servicio vinculado para el almacenamiento de blobs de Azure](#adf-linked-service-blob-store)
 3. [Servicio vinculado para la base de datos SQL de Azure](#adf-linked-service-azure-sql)
 
-### <a name="a-nameadf-linked-service-onprem-sqlalinked-service-for-on-premise-sql-server-database"></a><a name="adf-linked-service-onprem-sql"></a>Servicio vinculado para la base de datos SQL Server local
+### <a name="adf-linked-service-onprem-sql"></a>Servicio vinculado para la base de datos SQL Server local
 Para crear un servicio vinculado para la instancia de SQL Server local:
 
 * Haga clic en **Almacén de datos** en la página de aterrizaje de ADF en el Portal de Azure clásico.
 * Seleccione **SQL** y escriba las credenciales de *nombre de usuario* y *contraseña* para el servidor SQL local. Debe especificar el nombre del servidor como **nombre de la instancia de la barra diagonal inversa del nombre de servidor completo (nombre de servidor\nombre de instancia)**. Nombre del servicio vinculado *adfonpremsql*.
 
-### <a name="a-nameadf-linked-service-blob-storealinked-service-for-blob"></a><a name="adf-linked-service-blob-store"></a>Servicio vinculado de blob
+### <a name="adf-linked-service-blob-store"></a>Servicio vinculado de blob
 Para crear el servicio vinculado para la cuenta de Azure Blob Storage:
 
 * Haga clic en **Almacén de datos** en la página de aterrizaje de ADF en el Portal de Azure clásico.
 * Seleccione **Azure Storage Account**
 * Escriba la clave de la cuenta de Azure Blob Storage y el nombre del contenedor. Ponga un nombre al servicio vinculado *adfds*.
 
-### <a name="a-nameadf-linked-service-azure-sqlalinked-service-for-azure-sql-database"></a><a name="adf-linked-service-azure-sql"></a>Servicio vinculado para la base de datos SQL de Azure
+### <a name="adf-linked-service-azure-sql"></a>Servicio vinculado para la base de datos SQL de Azure
 Para crear el servicio vinculado para Azure SQL Database:
 
 * Haga clic en **Almacén de datos** en la página de aterrizaje de ADF en el Portal de Azure clásico.
 * Seleccione **Azure SQL** y escriba las credenciales de *nombre de usuario* y *contraseña* para Azure SQL Database. El *nombre de usuario* debe ser *user@servername*.   
 
-## <a name="a-nameadf-tablesadefine-and-create-tables-to-specify-how-to-access-the-datasets"></a><a name="adf-tables"></a>Definir y crear tablas para especificar cómo tener acceso a los conjuntos de datos
+## <a name="adf-tables"></a>Definir y crear tablas para especificar cómo tener acceso a los conjuntos de datos
 Cree tablas que especifiquen la estructura, la ubicación y la disponibilidad de los conjuntos de datos con los siguientes procedimientos de scripts. Los archivos JSON se usan para definir las tablas. Para obtener más información sobre la estructura de estos archivos, vea [Conjuntos de datos](../data-factory/data-factory-create-datasets.md).
 
 > [!NOTE]
-> Debe ejecutar el cmdlet `Add-AzureAccount` antes de ejecutar el cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que se selecciona la suscripción de Azure adecuada para la ejecución del comando. Para obtener documentación sobre este cmdlet, consulte [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+> Debe ejecutar el cmdlet `Add-AzureAccount` antes de ejecutar el cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que se selecciona la suscripción de Azure adecuada para la ejecución del comando. Para obtener documentación sobre este cmdlet, consulte [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
@@ -131,7 +132,7 @@ Se necesitan tres definiciones de tabla para esta canalización de ADF:
 >
 >
 
-### <a name="a-nameadf-table-onprem-sqlasql-on-premise-table"></a><a name="adf-table-onprem-sql"></a>Tabla SQL local
+### <a name="adf-table-onprem-sql"></a>Tabla SQL local
 La definición de tabla del servidor SQL Server local se especifica en el siguiente archivo JSON:
 
         {
@@ -166,7 +167,7 @@ Copie la definición de JSON de la tabla en un archivo denominado *onpremtablede
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="a-nameadf-table-blob-storeablob-table"></a><a name="adf-table-blob-store"></a>Tabla Blob
+### <a name="adf-table-blob-store"></a>Tabla Blob
 La definición de la tabla para la ubicación del blob de salida se encuentra en la siguiente ubicación (este esquema asigna los datos ingeridos de una ubicación local a un blob de Azure):
 
         {
@@ -196,7 +197,7 @@ Copie la definición de JSON de la tabla en un archivo denominado *bloboutputtab
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="a-nameadf-table-azure-sqasql-azure-table"></a><a name="adf-table-azure-sq"></a>Tabla SQL de Azure
+### <a name="adf-table-azure-sq"></a>Tabla SQL de Azure
 La definición de la tabla para la salida SQL de Azure se encuentra en la siguiente ubicación (este esquema asigna los datos procedentes del blob):
 
     {
@@ -227,7 +228,7 @@ Copie la definición de JSON de la tabla en un archivo denominado *AzureSqlTable
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
 
-## <a name="a-nameadf-pipelineadefine-and-create-the-pipeline"></a><a name="adf-pipeline"></a>Definición y creación de la canalización
+## <a name="adf-pipeline"></a>Definición y creación de la canalización
 Especifique las actividades que pertenecen a la canalización y cree la canalización con los siguientes procedimientos de scripts. Un archivo JSON se usa para definir las propiedades de la canalización.
 
 * En el script se supone que el **nombre de la canalización** es *AMLDSProcessPipeline*.
@@ -315,7 +316,7 @@ Confirme que puede ver la canalización en ADF en Portal de Azure clásico de la
 
 ![Canalización de ADF](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
-## <a name="a-nameadf-pipeline-startastart-the-pipeline"></a><a name="adf-pipeline-start"></a>Inicio de la canalización
+## <a name="adf-pipeline-start"></a>Inicio de la canalización
 La canalización ya se puede ejecutar mediante el comando siguiente:
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
@@ -325,9 +326,4 @@ Los valores de los parámetros *startdate* y *enddate* deben reemplazarse por la
 Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen en el contenedor seleccionado para el blob, en este caso, un archivo por día.
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para más información sobre cómo hacer esto y sobre otras funcionalidades que proporciona ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

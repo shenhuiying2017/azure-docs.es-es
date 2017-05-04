@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 51ed9893aa0a49b2bde5069cfcad222b0bae4fdc
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1d7f24b8a65347bc54b273d08c06b22320cbeb2c
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -135,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Creación de un conjunto de registros SRV con un único registro
 
-Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el *\_servicio* y el * \_protocolo* en el nombre del conjunto de registros. No es necesario incluir "@" en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
+Al crear un [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique el  *\_servicio* y el * \_protocolo* en el nombre del conjunto de registros. No es necesario incluir "@" en el nombre del conjunto de registros al crear un conjunto de registros SRV en el vértice de la zona.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -385,5 +385,5 @@ Más información sobre [zonas y registros en Azure DNS](dns-zones-records.md).
 <br>
 Aprenda a [proteger las zonas y los registros](dns-protect-zones-recordsets.md) cuando se usa Azure DNS.
 <br>
-Revise la [documentación de referencia de PowerShell para Azure DNS](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
+Revise la [documentación de referencia de PowerShell para Azure DNS](/powershell/module/azurerm.dns).
 

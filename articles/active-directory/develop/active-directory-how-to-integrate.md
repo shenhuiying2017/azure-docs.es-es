@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: e8a092bc398e314a111973b6978012909aedc16e
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -77,13 +78,8 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 **Azure AD se implementa en centros de datos en todo el mundo y se administra y supervisa continuamente.**  Azure AD es el sistema de administración de identidades de Microsoft Azure y Office 365 y se implementa en 28 centros de datos en todo el mundo.  Se garantiza que los datos de directorio se replican en al menos tres centros de datos.  Los equilibradores de carga global garantizan el acceso de los usuarios a la copia más cercana de Azure AD que contiene sus datos y vuelve a dirigir automáticamente las solicitudes a otros centros de datos si se detecta un problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Introducción a la escritura de código](active-directory-developers-guide.md#getting-started)
+[Introducción a la escritura de código](active-directory-developers-guide.md#get-started)
 
 [Inicio de sesión de usuarios con Azure AD](active-directory-authentication-scenarios.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

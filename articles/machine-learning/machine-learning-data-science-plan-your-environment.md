@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: d11f023f263b0bb504e2ecb0ff69bb0cc726618b
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a712baabf2674bda0a53de63e7c204b08ba9d105
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -94,7 +94,7 @@ Hay muchas opciones dependiendo de qué lenguajes y entornos de desarrollo o her
    * SQL
 2. **¿Qué herramientas debe usar para analizar los datos?**
    
-   * [Microsoft Azure Powershell](/powershell/azureps-cmdlets-docs) : un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script.
+   * [Microsoft Azure Powershell](/powershell/azure/overview) : un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script.
    * [Estudio de aprendizaje automático de Azure](machine-learning-what-is-ml-studio.md)
    * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
    * [RStudio](http://www.rstudio.com)

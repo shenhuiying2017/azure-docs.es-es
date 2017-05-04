@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 4d7476156b51ca82b1f119becb1576a97d2bd457
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -54,10 +54,10 @@ Después de crear las directivas, ya podrá compilar la aplicación.
 
 ## <a name="download-the-code"></a>Descargar el código
 
-El código de este tutorial se conserva en [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). Puede clonar el ejemplo al ejecutar lo siguiente:
+El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Puede clonar el ejemplo al ejecutar lo siguiente:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar. El archivo de solución contiene dos proyectos: `TaskWebApp` y `TaskService`. `TaskWebApp` es la aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web del back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario. En este artículo se describe únicamente la aplicación `TaskWebApp`. Para más información sobre cómo crear `TaskService` con Azure AD B2C, consulte [nuestro tutorial de aplicaciones web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
@@ -67,9 +67,9 @@ Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio 
 Nuestro ejemplo está configurado para usar las directivas y el identificador de cliente de nuestro inquilino de demostración. Si desea usar su propio inquilino, deberá abrir `web.config` en el proyecto `TaskWebApp` y reemplazar los valores para
 
 * `ida:Tenant` por el nombre del inquilino
-* `ida:ClientId` por el identificador de la aplicación de la aplic. web
-* `ida:ClientSecret` por la clave secreta de la aplicación web
-* `ida:SignUpSignInPolicyId` por el nombre de la directiva "Inicio de sesión o registro"
+* `ida:ClientId` por el identificador de la aplicación de API web
+* `ida:ClientSecret` por la clave secreta de aplicación web
+* `ida:SignUpSignInPolicyId` por el nombre de directiva "Inicio de sesión o registro"
 * `ida:EditProfilePolicyId` por el nombre de la directiva "Editar perfil"
 * `ida:ResetPasswordPolicyId` por el nombre de la directiva "Restablecer contraseña"
 

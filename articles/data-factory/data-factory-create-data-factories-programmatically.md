@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -99,7 +99,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
     ```
 
    > [!NOTE]
-   > Reemplace el **resourcegroupname** por el nombre de su grupo de recursos de Azure. Puede crear un grupo de recursos con el cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) .
+   > Reemplace el **resourcegroupname** por el nombre de su grupo de recursos de Azure. Puede crear un grupo de recursos con el cmdlet [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
 7. Agregue el siguiente código que crea una **factoría de datos** en el método **Main**.
 
     ```csharp
@@ -445,7 +445,7 @@ Así es como puede crear la aplicación de Active Directory, entidad de servicio
 Anote el id. de aplicación y la contraseña (secreto de cliente) y úselos en el tutorial.
 
 ## <a name="get-azure-subscription-and-tenant-ids"></a>Obtención de los id. de suscripción y de inquilino de Azure
-Si no tiene instalada la última versión de PowerShell en su máquina, siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para hacerlo.
+Si no tiene instalada la última versión de PowerShell en su máquina, siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para hacerlo.
 
 1. Inicie Azure PowerShell y ejecute el comando siguiente.
 2. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.

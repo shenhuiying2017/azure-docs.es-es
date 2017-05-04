@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ce83fe64c4922b0e420f447e5b9db04c824412a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6b26945f4bbffc3dad81bdb267d008da259b47df
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
 
 * **Familiaridad con SSH y SCP** o **Azure PowerShell**. Este documento proporciona los pasos para utilizar SSH/SCP y Azure PowerShell al ejecutar este ejemplo.
 
-    Para obtener información acerca de cómo instalar Azure PowerShell, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+    Para obtener información acerca de cómo instalar Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview).
 
     Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

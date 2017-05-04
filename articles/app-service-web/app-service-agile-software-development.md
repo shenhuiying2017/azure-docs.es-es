@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 452a50ef4a01ac328c4c2de8767181107eb57cd6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -270,7 +270,7 @@ Agile Software Development es un componente indispensable para muchas empresas q
 * [ARMClient: configurar publicación de GitHub para el sitio](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Blog de David Ebbo](http://blog.davidebbo.com/)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Herramientas de línea de comandos multiplataforma de Azure](../cli-install-nodejs.md)
 * [Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)

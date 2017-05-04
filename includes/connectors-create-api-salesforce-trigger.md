@@ -16,8 +16,3 @@ En este tutorial aprenderá a utilizar el desencadenador **Salesforce - When an 
 
 En este punto, la aplicación lógica está configurada con un desencadenador que activará otros desencadenadores y acciones del flujo de trabajo cuando se cree un nuevo elemento en Salesforce.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

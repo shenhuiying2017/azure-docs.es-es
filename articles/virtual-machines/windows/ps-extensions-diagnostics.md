@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 658480c7827e8a703fb25d3062197fedcbe30520
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0a4c7df2ef385b8bdec467859af64fc243241d77
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Diagnósticos de Azure es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede usar la extensión de diagnósticos para recopilar datos de diagnóstico como registros de aplicaciones o contadores de rendimiento de una máquina virtual (VM) de Azure con Windows. En este artículo se describe cómo usar Windows PowerShell para habilitar la extensión de diagnósticos para una VM. Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Diagnósticos de Azure es la funcionalidad de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede usar la extensión de diagnósticos para recopilar datos de diagnóstico como registros de aplicaciones o contadores de rendimiento de una máquina virtual (VM) de Azure con Windows. En este artículo se describe cómo usar Windows PowerShell para habilitar la extensión de diagnósticos para una VM. Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Habilite la extensión de diagnósticos si usa el modelo de implementación del Administrador de recursos
 Puede habilitar la extensión de diagnósticos al crear una VM de Windows a través del modelo de implementación del Administrador de recursos de Azure añadiendo la configuración de extensiones a la plantilla del Administrador de recursos. Vea [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para habilitar la extensión de diagnósticos en una VM existente creada mediante el modelo de implementación de Resource Manager, puede usar el cmdlet de PowerShell [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) tal como se muestra a continuación.
+Para habilitar la extensión de diagnósticos en una VM existente creada mediante el modelo de implementación de Resource Manager, puede usar el cmdlet de PowerShell [Set-AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) tal como se muestra a continuación.
 
     $vm_resourcegroup = "myvmresourcegroup"
     $vm_name = "myvm"
@@ -48,7 +48,7 @@ Si la cuenta de almacenamiento de diagnóstico está en una suscripción distint
 
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-Una vez habilitada la extensión de diagnósticos en una VM, puede obtener la configuración actual mediante el cmdlet [AzureRMVmDiagnosticsExtension Get](https://msdn.microsoft.com/library/mt603678.aspx) .
+Una vez habilitada la extensión de diagnósticos en una VM, puede obtener la configuración actual mediante el cmdlet [AzureRMVmDiagnosticsExtension Get](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) .
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
@@ -59,17 +59,17 @@ El cmdlet devuelve *PublicSettings*, que contiene la configuración XML en un fo
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
 
-El cmdlet [Remove-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx) puede usarse para quitar la extensión de diagnósticos de la máquina virtual.  
+El cmdlet [Remove-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) puede usarse para quitar la extensión de diagnósticos de la máquina virtual.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Habilite la extensión de diagnósticos si usa el modelo de implementación clásico
-Puede usar el cmdlet [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) para habilitar la extensión de diagnósticos en una VM creada mediante el modelo de implementación clásica. En el ejemplo siguiente se muestra cómo crear una nueva VM mediante el modelo de implementación clásica con la extensión de diagnósticos habilitada.
+Puede usar el cmdlet [Set-AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) para habilitar la extensión de diagnósticos en una VM creada mediante el modelo de implementación clásica. En el ejemplo siguiente se muestra cómo crear una nueva VM mediante el modelo de implementación clásica con la extensión de diagnósticos habilitada.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
     $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Para habilitar la extensión de diagnósticos en una VM existente creada mediante el modelo de implementación clásica, use el cmdlet [Get-AzureVM](https://msdn.microsoft.com/library/mt589152.aspx) en primer lugar para obtener la configuración de VM. A continuación, actualice la configuración de VM para incluir la extensión de diagnósticos mediante el cmdlet [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) . Por último, aplique la configuración actualizada a la VM mediante [Update-AzureVM](https://msdn.microsoft.com/library/mt589121.aspx).
+Para habilitar la extensión de diagnósticos en una VM existente creada mediante el modelo de implementación clásica, use el cmdlet [Get-AzureVM](/powershell/module/azure/get-azurevm) en primer lugar para obtener la configuración de VM. A continuación, actualice la configuración de VM para incluir la extensión de diagnósticos mediante el cmdlet [Set-AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) . Por último, aplique la configuración actualizada a la VM mediante [Update-AzureVM](/powershell/module/azure/update-azurevm).
 
     $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 34b449b251672619aec6e86b9343343a9404126a
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Otros detalles importantes a tener en cuenta al planear la migración son:
 
 * **Cobros por ancho de banda**. [Los cobros por ancho de banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) se aplican porque los datos se transfieren fuera de una región de Azure.
 
-* **ACL de los datos**. Proteja los datos en la nueva región aplicando ACL a archivos y carpetas. Para más información, consulte [Protección de los datos almacenados en Azure Data Lake Store](data-lake-store-secure-data.md). Se recomienda que realice la migración para actualizar y ajustar las ACL. Puede que le interese usar una configuración similar a la configuración actual. Puede ver las ACL que se aplican a cualquier archivo mediante Azure Portal, [cmdlets de PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission) o SDK.  
+* **ACL de los datos**. Proteja los datos en la nueva región aplicando ACL a archivos y carpetas. Para más información, consulte [Protección de los datos almacenados en Azure Data Lake Store](data-lake-store-secure-data.md). Se recomienda que realice la migración para actualizar y ajustar las ACL. Puede que le interese usar una configuración similar a la configuración actual. Puede ver las ACL que se aplican a cualquier archivo mediante Azure Portal, [cmdlets de PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) o SDK.  
 
 * **Ubicación de los servicios de análisis**. Para obtener el mejor rendimiento, los servicios de análisis, como Azure Data Lake Analytics o Azure HDInsight, deben estar en la misma región que los datos.  
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2bb2422a8458f1577c14bad8d24d8c9cb3ead1b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,14 +32,14 @@ ms.lasthandoff: 03/31/2017
 
 Hay un par de enfoques que puede adoptar cuando desee eliminar una puerta de enlace de red virtual correspondiente a una configuración de puerta de enlace VPN.
 
-- Si quiere eliminar todo el contenido y volver a empezar, como en el caso de un entorno de prueba, puede suprimir el grupo de recursos. Cuando se elimina un grupo de recursos, se quitan todos los recursos de él. Este método solo se recomienda si no desea conservar los recursos del grupo en cuestión. Con este enfoque no podrá eliminar de forma selectiva solo unos pocos recursos.
+- Si quiere eliminar todo el contenido y volver a empezar, como en el caso de un entorno de prueba, puede eliminar el grupo de recursos. Cuando se elimina un grupo de recursos, se quitan todos los recursos de él. Este método solo se recomienda si no desea conservar los recursos del grupo en cuestión. Con este enfoque no podrá eliminar de forma selectiva solo unos pocos recursos.
 
 - Si desea mantener algunos de los recursos en el grupo de recursos, será algo más complicado eliminar una puerta de enlace de red virtual. Antes de poder eliminar la puerta de enlace de red virtual, primero debe quitar todos los recursos que dependen de la puerta de enlace. Los pasos que seguirá dependerán del tipo de conexiones que creó y de los recursos dependientes de cada conexión.
 
 ## <a name="before-beginning"></a>Antes de comenzar
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Descargue la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager.
-Descargue e instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener más información sobre cómo instalar y configurar los cmdlets de PowerShell.
+Descargue e instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para obtener más información sobre cómo instalar y configurar los cmdlets de PowerShell.
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conéctese a su cuenta de Azure. 
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para conectarse:
@@ -325,3 +325,4 @@ El resultado que se devuelve se muestra "Correcto".
     ResourceGroupName : RG1
     Location          : eastus
     ProvisioningState : Succeeded
+

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/21/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8e113a78519444fd1e0a9da89ec95aa0dccebb2b
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Para obtener acceso a una entidad, el cliente requiere un token SAS generado con
 La compatibilidad de la autenticación de SAS con Bus de servicio se incluye en el SDK .NET de Azure 2.0 y versiones posteriores. SAS incluye compatibilidad con un objeto [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas las API que aceptan una cadena de conexión como parámetro incluyen compatibilidad con cadenas de conexión SAS.
 
 ## <a name="acs-authentication"></a>Autenticación de ACS
-La autenticación de Bus de servicio mediante ACS se administra a través de un espacio de nombres de ACS "-sb" complementario. Si desea crear un espacio de nombres de ACS complementario para un espacio de nombres de Service Bus, no puede crearlo mediante el Portal de Azure clásico. Debe crear dicho espacio mediante el cmdlet [New-AzureSBNamespace de PowerShell](/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace). Por ejemplo:
+La autenticación de Bus de servicio mediante ACS se administra a través de un espacio de nombres de ACS "-sb" complementario. Si desea crear un espacio de nombres de ACS complementario para un espacio de nombres de Service Bus, no puede crearlo mediante el Portal de Azure clásico. Debe crear dicho espacio mediante el cmdlet [New-AzureSBNamespace de PowerShell](/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0). Por ejemplo:
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true

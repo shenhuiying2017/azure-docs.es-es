@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0095c9aeea3ab118fc212ee1ccbb71dcd84aae29
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/31/2017
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común sería tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se proporcionan comandos rápidos para crear una máquina virtual que tiene conectadas varias NIC. Para más información, lo que incluye cómo crear varias NIC dentro de sus propios scripts de PowerShell, lea más sobre la [implementación de máquinas virtuales con varias NIC](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Diferentes [tamaños de máquina virtual](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
 
 ## <a name="create-core-resources"></a>Creación de recursos principales
-Asegúrese de que tiene la [Azure PowerShell más reciente instalada y configurada](/powershell/azureps-cmdlets-docs). Inicie sesión en una cuenta de Azure:
+Asegúrese de que tiene la [Azure PowerShell más reciente instalada y configurada](/powershell/azure/overview). Inicie sesión en una cuenta de Azure:
 
 ```powershell
 Login-AzureRmAccount

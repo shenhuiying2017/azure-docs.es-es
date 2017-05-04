@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -160,7 +160,7 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
 * [Documentación de Git](http://git-scm.com/documentation)
 * [Documentación de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continuous-deployment.md)
-* [Uso de PowerShell para Azure](/powershell/azureps-cmdlets-docs)
+* [Uso de PowerShell para Azure](/powershell/azure/overview)
 * [Cómo utilizar la interfaz de línea de comandos de Azure](../cli-install-nodejs.md)
 
 [Servicio de aplicaciones de Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/

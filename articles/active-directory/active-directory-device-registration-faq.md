@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3fbb35a059b77f5e918f54e0fefe472893d8a974
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +37,7 @@ Solo los dispositivos siguientes aparecen en la información del USUARIO:
 
 **P: ¿Por qué no puedo ver en Azure Portal todos los dispositivos registrados en Azure Active Directory?** 
 
-**R:** Actualmente, no hay ninguna forma de ver todos los dispositivos registrados en Azure Portal. Puede usar Azure PowerShell para buscar todos los dispositivos. Para más información, vea el cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice).
+**R:** Actualmente, no hay ninguna forma de ver todos los dispositivos registrados en Azure Portal. Puede usar Azure PowerShell para buscar todos los dispositivos. Para más información, vea el cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 --- 
 

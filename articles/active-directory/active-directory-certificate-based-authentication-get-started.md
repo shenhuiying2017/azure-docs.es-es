@@ -13,9 +13,9 @@ ms.workload: identity
 ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: d818cd3a243fb78228706b21a002f295782189be
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e0adbb9f7c427c08e59841a598b4f0fc99e43f26
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -99,7 +99,7 @@ A continuación se presenta el esquema para una entidad de certificación:
         IntermediateAuthority = 1 
     } 
 
-Para la configuración, puede usar la [versión 2 de Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azuread/):  
+Para la configuración, puede usar la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
 1. Inicie Windows PowerShell con privilegios de administrador. 
 2. Instale el módulo de Azure AD. Es preciso instalar la versión [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33), o una superior.  
@@ -110,21 +110,21 @@ El primer paso de configuración consiste en establecer una conexión con el inq
 
 ### <a name="connect"></a>Conectar
 
-Para establecer una conexión con el inquilino, use el cmdlet [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread):
+Para establecer una conexión con el inquilino, use el cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
     Connect-AzureAD 
 
 
 ### <a name="retrieve"></a>Recuperar 
 
-Para recuperar las entidades de certificación de confianza definidas en el directorio, use el cmdlet [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority). 
+Para recuperar las entidades de certificación de confianza definidas en el directorio, use el cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0). 
 
     Get-AzureADTrustedCertificateAuthority 
  
 
 ### <a name="add"></a>Sumar
 
-Para crear una entidad de certificación de confianza, use el cmdlet [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority): 
+Para crear una entidad de certificación de confianza, use el cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0): 
    
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -135,7 +135,7 @@ Para crear una entidad de certificación de confianza, use el cmdlet [New-AzureA
 
 ### <a name="remove"></a>Remove
 
-Para quitar una entidad de certificación de confianza, use el cmdlet [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority):
+Para quitar una entidad de certificación de confianza, use el cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
    
     $c=Get-AzureADTrustedCertificateAuthority 
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -143,7 +143,7 @@ Para quitar una entidad de certificación de confianza, use el cmdlet [Remove-Az
 
 ### <a name="modfiy"></a>Modificar
 
-Para modificar una entidad de certificación de confianza, use el cmdlet [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority):
+Para modificar una entidad de certificación de confianza, use el cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority 
     $c[0].AuthorityType=1 
