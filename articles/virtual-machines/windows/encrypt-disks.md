@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fe53a68e2858df87c4b93348dfc426f9cd346121
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 84cdc5eec5567c9c6905eee285afd2426607ff08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -65,7 +65,7 @@ El cifrado del disco no se admite actualmente en los siguientes escenarios:
 * Integración con el Servicio de administración de claves local.
 
 ## <a name="create-azure-key-vault-and-keys"></a>Creación de Azure Key Vault y claves
-Antes de empezar, asegúrese de tener instalada la versión más reciente del módulo de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). En todos los ejemplos de comandos, reemplace todos los parámetros de ejemplo por sus propios nombres, ubicaciones y valores de clave. Los ejemplos siguientes usan la convención `myResourceGroup`, `myKeyVault`, `myVM`, etc.
+Antes de empezar, asegúrese de tener instalada la versión más reciente del módulo de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). En todos los ejemplos de comandos, reemplace todos los parámetros de ejemplo por sus propios nombres, ubicaciones y valores de clave. Los ejemplos siguientes usan la convención `myResourceGroup`, `myKeyVault`, `myVM`, etc.
 
 El primer paso es crear un almacén de Azure Key Vault para almacenar las claves criptográficas. Azure Key Vault puede almacenar claves, secretos o contraseñas que permiten su implementación segura en las aplicaciones y los servicios. Para el cifrado de discos virtuales, se crea un Key Vault para almacenar una clave criptográfica que se usa para cifrar o descifrar los discos virtuales. 
 
@@ -190,3 +190,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo administrar Azure Key Vault, vea [Configuración de Key Vault para máquinas virtuales en Azure Resource Manager](key-vault-setup.md).
 * Para obtener más información acerca del cifrado de discos, por ejemplo, cómo preparar una máquina virtual personalizada cifrada para cargar en Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+

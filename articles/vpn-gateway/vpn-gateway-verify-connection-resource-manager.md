@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 0e9fa1b1397c60985de9d2e60b3f01146036801f
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a67ea630cc8b5a3e9deab7733aa5cd2055949ec0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ En este artículo se muestra cómo comprobar la conexión de VPN Gateway para lo
 
 ## <a name="verify-using-powershell"></a>Comprobar mediante PowerShell
 
-Para realizar la verificación con PowerShell, instale la última versión de los cmdlets de PowerShell para Azure Resource Manager. Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Para obtener más información sobre los cmdlets de Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+Para realizar la verificación con PowerShell, instale la última versión de los cmdlets de PowerShell para Azure Resource Manager. Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). Para obtener más información sobre los cmdlets de Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
 1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.
@@ -87,7 +87,7 @@ Para comprobar mediante la CLI de Azure, instale la versión más reciente de lo
 
 
 ## <a name="verify-using-powershell-classic"></a>Verificación con PowerShell (clásico)
-Para realizar la verificación con PowerShell, instale la última versión de los cmdlets de Azure PowerShell. Asegúrese de descargar e instalar las versiones de Resource Manager y Service Management (SM). Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+Para realizar la verificación con PowerShell, instale la última versión de los cmdlets de Azure PowerShell. Asegúrese de descargar e instalar las versiones de Resource Manager y Service Management (SM). Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
 1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.

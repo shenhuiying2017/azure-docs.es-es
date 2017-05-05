@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 5d32a695c14ebe01d1ad8cf4b789bf2edc8c30ce
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 674404b135d2e512840505ee0927db98824aa8b1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ En este artículo no se muestra cómo implementar una plantilla de Resource Mana
 
 ## <a name="get-started-with-azure-powershell"></a>Introducción a Azure PowerShell
 
-Si no tiene instalado Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Si no tiene instalado Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 Si ha instalado Azure PowerShell en el pasado, pero no lo ha actualizado recientemente, considere la posibilidad de instalar la versión más reciente. Puede actualizar la versión con el mismo método usado para instalarla. Por ejemplo, si ha usado el Instalador de plataforma web, inícielo de nuevo y busque una actualización.
 
@@ -53,7 +53,7 @@ Para comprobar la versión del módulo de recursos de Azure, use el siguiente cm
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Este tema se ha actualizado a la versión 3.3.0. Si tiene una versión anterior, puede que su experiencia no coincida con los pasos mostrados en este tema. Para ver documentación sobre los cmdlets de esta versión, consulte el [módulo AzureRM.Resources](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
+Este tema se ha actualizado a la versión 3.3.0. Si tiene una versión anterior, puede que su experiencia no coincida con los pasos mostrados en este tema. Para ver documentación sobre los cmdlets de esta versión, consulte el [módulo AzureRM.Resources](/powershell/module/azurerm.resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Inicie sesión en la cuenta de Azure.
 Antes de trabajar en la solución, debe iniciar sesión en su cuenta.
