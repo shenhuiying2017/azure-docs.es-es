@@ -34,8 +34,3 @@
 9. La actualización tarda unas horas en completarse. Seleccione el trabajo de actualización y haga clic en **Detalles** para ver los detalles del trabajo en cualquier momento.
 10. Una vez que el trabajo se haya completado, navegue a la página **Mantenimiento** página y desplácese hacia abajo hasta **Actualizaciones de software**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
