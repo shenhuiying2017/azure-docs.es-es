@@ -2,8 +2,3 @@ Para habilitar el puerto no SSL, busque la memoria caché con [Examinar](../arti
 
 ![Configuración de caché en Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -11,8 +11,3 @@ Para configurar las características premium, primero seleccione uno de los plan
 
 ![Elija su plan de tarifa](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

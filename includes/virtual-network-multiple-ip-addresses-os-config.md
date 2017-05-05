@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
+## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
 Conéctese e inicie sesión en una máquina virtual que creó con múltiples direcciones IP privadas. Debe agregar manualmente todas las direcciones IP privadas (incluida la principal) que ha agregado a la máquina virtual. Complete los pasos siguientes para el sistema operativo de su máquina virtual:
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5** con la dirección IP privada que tiene una dirección IP pública asociada
     - **10.0.0.1** con su puerta de enlace predeterminada
     - **eth2** con el nombre de la NIC secundaria
-
-
-<!--HONumber=Feb17_HO2-->
-
-
