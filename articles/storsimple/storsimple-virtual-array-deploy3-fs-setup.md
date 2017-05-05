@@ -16,9 +16,9 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
@@ -102,7 +102,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
     4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de hora configurados.
 11. Configure las opciones de nube para el dispositivo. En este paso, completará la configuración del dispositivo local y, después, registrará el dispositivo en el servicio StorSimple Device Manager.
     
-    1. Escriba la **clave de registro del servicio** que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
+    1. Escriba la **clave de registro del servicio** que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
     2. Si es el primer dispositivo que registra en este servicio, aparecerá la **clave de cifrado de datos del servicio**. Copie esta clave y guárdela en un lugar seguro, ya que se necesita, junto con la clave de registro del servicio, para registrar dispositivos adicionales en el servicio StorSimple Device Manager. 
        
        Si no es el primer dispositivo que registra en este servicio, será preciso que especifique la clave de cifrado de datos del servicio. Para más información, consulte [Obtener la clave de cifrado de los datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
