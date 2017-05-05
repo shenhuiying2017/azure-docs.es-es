@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6f408d6e4a6a80f10a5116071efee7546c7febdf
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c78f07cb780d5e7cd758fb782fc6ba37946f9537
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -60,7 +60,7 @@ Un clúster de Service Fabric en Azure se coloca detrás de un equilibrador de c
 
 Por ejemplo, para poder aceptar tráfico externo en el puerto **80**, se deben configurar las siguientes condiciones:
 
-1. Escribir un servicio que escuche en el puerto 80. Configure el puerto 80 en el archivo ServiceManifest.xml del servicio y abra un agente de escucha en el mismo, por ejemplo, un servidor web autohospedado.
+1. Escriba un servicio que escuche en el puerto 80. Configure el puerto 80 en el archivo ServiceManifest.xml del servicio y abra un agente de escucha en el mismo, por ejemplo, un servidor web autohospedado.
 
     ```xml
     <Resources>
@@ -143,10 +143,10 @@ Por ejemplo, para poder aceptar tráfico externo en el puerto **80**, se deben c
 2. Crear un clúster de Service Fabric en Azure y especificar el puerto **80** como un puerto de punto de conexión personalizado para el tipo de nodo que va a hospedar el servicio. Si tiene más de un tipo de nodo, puede configurar una *restricción de colocación* en el servicio para asegurarse de que solo se puede ejecutar en el tipo de nodo que tiene el puerto de punto de conexión personalizado abierto.
 
     ![Apertura de un puerto en un tipo de nodo][4]
-3. Una vez creado el clúster, configure el equilibrador de carga de Azure en el grupo de recursos del clúster para reenviar el tráfico hacia el puerto 80. Al crear un clúster mediante el Portal de Azure, este se configura automáticamente para cada puerto de punto de conexión personalizado que se ha configurado.
+3. Una vez creado el clúster, configure el equilibrador de carga de Azure en el grupo de recursos del clúster para reenviar el tráfico hacia el puerto 80. Al crear un clúster mediante Azure Portal, este se configura automáticamente para cada puerto de punto de conexión personalizado que se ha configurado.
 
     ![Reenvío del tráfico en el equilibrador de carga de Azure][5]
-4. El equilibrador de carga de Azure utiliza un sondeo para determinar si envía o no tráfico a un nodo concreto. El sondeo comprueba periódicamente un punto de conexión de cada nodo para determinar si este está respondiendo o no. Si el sondeo no recibe una respuesta después de un número determinado de veces, el equilibrador de carga deja de enviar tráfico a dicho nodo. Al crear un clúster mediante el Portal de Azure, se configura automáticamente un sondeo para cada puerto de punto de conexión personalizado que se ha configurado.
+4. El equilibrador de carga de Azure utiliza un sondeo para determinar si envía o no tráfico a un nodo concreto. El sondeo comprueba periódicamente un punto de conexión de cada nodo para determinar si este está respondiendo o no. Si el sondeo no recibe una respuesta después de un número determinado de veces, el equilibrador de carga deja de enviar tráfico a dicho nodo. Al crear un clúster mediante Azure Portal, se configura automáticamente un sondeo para cada puerto de punto de conexión personalizado que se ha configurado.
 
     ![Reenvío del tráfico en el equilibrador de carga de Azure][8]
 

@@ -11,27 +11,27 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e75099e1ca7e3bbfc427883a8c343d773f3923ae
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servicio de Azure Batch para trabajos de Machine Learning
 
-El procesamiento de grupo de lote de Machine Learning usa el [servicio Azure Batch](../batch/batch-technical-overview.md) para proporcionar escala administrada por el cliente para el servicio de ejecución de lotes de Azure Machine Learning. El procesamiento por lotes clásico tiene lugar en un entorno de varios inquilinos, lo que limita el número de trabajos simultáneos que puede enviar y los trabajos se ponen en una cola que funciona según el principio de "el primero que entra es el primero en salir". Esta incertidumbre significa que no se puede predecir con exactitud cuándo se ejecutará el trabajo.
+El procesamiento de grupo de lote de Machine Learning proporciona una escala administrada por el cliente para el servicio de ejecución de lotes de Azure Machine Learning. El procesamiento por lotes clásico para aprendizaje automático tiene lugar en un entorno de varios inquilinos, lo que limita el número de trabajos simultáneos que se pueden enviar, y los trabajos se ponen en una cola que funciona según el principio de "el primero en entrar es el primero en salir". Esta incertidumbre significa que no se puede predecir con exactitud cuándo se ejecutará el trabajo.
 
-El procesamiento de grupo de lote le permite crear grupos de Azure Batch en los que puede enviar trabajos por lotes. Usted controla el tamaño del grupo y a qué grupo se envía el trabajo. El trabajo BES se ejecuta en su propio espacio de procesamiento, proporcionando un rendimiento del procesamiento predecible y la capacidad para crear grupos de recursos que corresponden a la carga de procesamiento que se envía.
+El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes. Usted controla el tamaño del grupo y a qué grupo se envía el trabajo. El trabajo BES se ejecuta en su propio espacio de procesamiento, proporcionando un rendimiento del procesamiento predecible y la capacidad para crear grupos de recursos que corresponden a la carga de procesamiento que se envía.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Cómo utilizar el procesamiento de grupo de lote
 
-Para utilizar el procesamiento de grupo de lote, tiene que tener:
+La configuración del procesamiento de grupo de lote no está actualmente disponible a través de Azure Portal. Para usar el procesamiento de grupo de lote, tiene que:
 
--   Una cuenta de grupo de lote que tenga una dirección URL de servicio de grupo y una clave de autorización
--   Un servicio web basado en el nuevo Resource Manager y un plan de facturación
+-   Llamar a CSS para crear una cuenta de grupo de lote y obtener una dirección URL de servicio de grupo y una clave de autorización
+-   Crear un servicio web basado en el nuevo Resource Manager y un plan de facturación
 
 Para crear su cuenta, llame al Soporte técnico y el servicio al cliente de Microsoft (CSS) y proporcione el identificador de su suscripción. CSS trabajará con usted para determinar la capacidad adecuada para su escenario. A continuación, CSS configura la cuenta con el número máximo de grupos que puede crear y el número máximo de máquinas virtuales que se pueden colocar en cada grupo. Una vez que su cuenta está configurada, se le proporciona la dirección URL del servicio de grupo y una clave de autorización.
 

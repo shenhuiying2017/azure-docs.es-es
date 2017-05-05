@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: dcf8a88ebd66f5e4a5a06538532fbfbae7ce852e
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -57,7 +57,7 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | PlatformInActive | Hay un problema con la plataforma. | No|
 | ServiceNotRunning | No se está ejecutando el servicio subyacente. | No|
 | NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| No|
-| ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| Sí|
+| ConnectionsNotConnected | Las conexiones no están conectadas. Esto es solo una advertencia.| Sí|
 | GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
 ### <a name="connection"></a>Conexión
@@ -88,7 +88,7 @@ Los archivos de registro de la solución de problemas de recursos se guardan en 
 > [!NOTE]
 > En algunos casos, solo se escribe un subconjunto de los archivos de registro en el almacenamiento.
 
-Para instrucciones sobre cómo descargar archivos desde cuentas de almacenamiento de Azure, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](http://storageexplorer.com/).
+Para instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](http://storageexplorer.com/).
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -193,7 +193,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a diagnosticar puertas de enlace de VPN y conexiones con PowerShell, visite [Solución de problemas de puerta de enlace: PowerShell](network-watcher-troubleshoot-manage-powershell.md).
+Para aprender a diagnosticar las VPN Gateway y conexiones con PowerShell, visite [Solución de problemas de puerta de enlace: PowerShell](network-watcher-troubleshoot-manage-powershell.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

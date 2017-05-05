@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 00f45f2bc1a7e15d93980779c23c8aa287cd25bb
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
+
+![Diagrama integral](media/iot-hub-get-started-e2e-diagram/7.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -40,7 +42,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-* Tiene que haber completado el tutorial para [conectar ESP8266 a Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), que engloba los siguientes requisitos:
+* Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.
   * Una aplicación cliente que envía mensajes a su centro de Azure IoT.
@@ -56,7 +58,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
    **Nivel de precios**: haga clic en **Básico** > **Seleccionar**. El nivel Básico es suficiente para este tutorial.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
 
    **Ubicación**: use la misma ubicación que emplea IoT Hub.
 1. Haga clic en **Crear**.
@@ -115,7 +117,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
    **Nombre**: nombre de la aplicación lógica.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
 
    **Ubicación**: use la misma ubicación que emplea IoT Hub.
 1. Haga clic en **Crear**.

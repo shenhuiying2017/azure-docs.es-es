@@ -1,5 +1,5 @@
 ---
-title: "Uso del Almacén de Azure Data Lake con Apache Storm en HDInsight de Azure"
+title: "Uso del Almacén de Azure Data Lake con Apache Storm en Azure HDInsight"
 description: "Aprenda a escribir datos en Almacén de Azure Data Lake desde una topología de Apache Storm en HDInsight. Este documento y el ejemplo asociado muestran cómo se puede usar el componente HdfsBolt para escribir en Almacén de Data Lake."
 services: hdinsight
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 30edf20d7fc742da9b42d3ea9baafcce31141259
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,8 +33,8 @@ Almacén de Azure Data Lake es un servicio de almacenamiento en la nube compatib
 
 Data Lake Store aparece en HDInsight como un sistema de archivos compatible con HDFS, por lo que puede usar el bolt Storm-HDFS para escribir en él. Cuando trabaja con Azure Data Lake en HDInsight, puede utilizar un esquema de archivos de `adl://`.
 
-* Si Data Lake Storage es el almacenamiento principal para el clúster, use `adl:///`. Esta es la raíz del almacenamiento de clúster en Azure Data Lake. Esto puede traducirse en una ruta de acceso de /clústeres/NOMBREDECLÚSTER en su cuenta de Data Lake Storage.
-* Si Data Lake Storage es el almacenamiento secundario para el clúster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Este URI especifica la cuenta de Data Lake Storage en la que se escriben los datos. Los datos se escriben a partir de la raíz de Data Lake Store.
+* Si Data Lake Store es el almacenamiento principal del clúster, use `adl:///`. Esta es la raíz del almacenamiento de clúster en Azure Data Lake. Esto puede traducirse en una ruta de acceso de /clústeres/NOMBREDECLÚSTER en la cuenta de Data Lake Store.
+* Si Data Lake Store es el almacenamiento adicional del clúster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Este URI especifica la cuenta de Data Lake Store en la que se escriben los datos. Los datos se escriben a partir de la raíz de Data Lake Store.
 
     > [!NOTE]
     > También puede usar este formato URI para guardar los datos en la cuenta de Data Lake Store que contiene el almacenamiento principal para su clúster. Esto le permite guardar los datos fuera de la ruta del directorio que contiene HDInsight.

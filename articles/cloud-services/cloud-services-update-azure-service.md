@@ -12,17 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: b159d3583c24e36c2803d7d02deca1415669d054
-ms.openlocfilehash: ebc5461177df5b5a16ab9b5668f5fda890ee11a4
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
-## <a name="overview"></a>Información general
-A vista de pájaro, actualizar un servicio en la nube, incluidos sus roles y el sistema operativo invitado, es un proceso de tres pasos. En primer lugar, se deben cargar los archivos binarios y archivos de configuración para el nuevo servicio en la nube, o la versión del sistema operativo. A continuación, Azure reserva recursos informáticos y de red para el servicio en la nube según los requisitos de la nueva versión de dicho servicio. Por último, Azure lleva a cabo una actualización gradual para actualizar de forma incremental el inquilino a la nueva versión o sistema operativo invitado, conservando su disponibilidad. En este artículo se tratan los detalles de este último paso: la actualización gradual.
+
+La actualización de un servicio en la nube, incluidos sus roles y el sistema operativo invitado, es un proceso de tres pasos. En primer lugar, se deben cargar los archivos binarios y archivos de configuración para el nuevo servicio en la nube, o la versión del sistema operativo. A continuación, Azure reserva recursos informáticos y de red para el servicio en la nube según los requisitos de la nueva versión de dicho servicio. Por último, Azure lleva a cabo una actualización gradual para actualizar de forma incremental el inquilino a la nueva versión o sistema operativo invitado, conservando su disponibilidad. En este artículo se tratan los detalles de este último paso: la actualización gradual.
 
 ## <a name="update-an-azure-service"></a>Actualización de un servicio de Azure
 Azure organiza las instancias de rol en agrupaciones lógicas denominadas dominios de actualización (UD). Los dominios de actualización (UD) son conjuntos lógicos de instancias de rol que se actualizan como un grupo.  Azure actualiza un servicio en la nube con los UD de uno en uno, lo que permite a las instancias de otros UD continuar atendiendo el tráfico.
@@ -90,11 +91,11 @@ Puede decidir si desea actualizar todos los roles en el servicio o un único rol
 
 El siguiente diagrama ilustra cómo funciona la actualización si está actualizando todos los roles en el servicio:
 
-![Actualización de servicio](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![Actualizar servicio](media/cloud-services-update-azure-service/IC345879.png "Actualizar servicio")
 
 El diagrama a continuación ilustra cómo tiene lugar la actualización si actualiza un único rol:
 
-![Actualización de rol](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![Actualizar rol](media/cloud-services-update-azure-service/IC345880.png "Actualizar rol")  
 
 Durante una actualización automática, el controlador de tejido de Azure evalúa periódicamente el estado del servicio en la nube para determinar cuándo es seguro introducir el siguiente UD. Esta evaluación de estado se realiza por rol y tiene en cuenta únicamente las instancias de la versión más reciente (es decir, instancias de las UD que ya se han introducido). Comprueba que un número mínimo de instancias de rol, para cada rol, hayan alcanzado un estado terminal satisfactorio.
 
@@ -178,7 +179,7 @@ Los dominios de actualización se identifican con un índice basado en cero: el 
 
 El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un servicio, cuando el servicio define dos dominios de actualización. El servicio está ejecutando ocho instancias del rol web y nueve instancias del rol de trabajo.
 
-![Distribución de dominios de actualización](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![Distribución de dominios de actualización](media/cloud-services-update-azure-service/IC345533.png "Distribución de dominios de actualización")
 
 > [!NOTE]
 > Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
@@ -186,12 +187,7 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Administración de servicios en la nube](cloud-services-how-to-manage.md)  
+[Administración de Cloud Services](cloud-services-how-to-manage.md)  
 [Supervisión de Cloud Services](cloud-services-how-to-monitor.md)  
-[Configuración de servicios en la nube](cloud-services-how-to-configure.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Configuración de Cloud Services](cloud-services-how-to-configure.md)  
 

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2b1b12666b71bf173342d5864772a94b9625d38b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -41,7 +41,9 @@ Al seleccionar **Publicar** se muestra una ventana emergente donde puede estable
 
 ![Publicación de una aplicación de Service Fabric][image2]
 
-Ahora ya puede hacer clic en **Publicar** en el cuadro de diálogo. Ya puede usar el [explorador de Service Fabric para ver el clúster y la aplicación](service-fabric-visualizing-your-cluster.md). La aplicación Visual Objects tiene un servicio web al que puede acudir escribiendo [http://localhost:8082/visualobjects](http://localhost:8082/visualobjects/) en la barra de direcciones del explorador.  Debería ver 10 objetos visuales flotantes desplazándose por la pantalla.
+Ahora ya puede hacer clic en **Publicar** en el cuadro de diálogo. Ya puede usar el [explorador de Service Fabric para ver el clúster y la aplicación](service-fabric-visualizing-your-cluster.md). La aplicación Visual Objects tiene un servicio web al que puede acudir si escribe [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) en la barra de direcciones del explorador.  Debería ver 10 objetos visuales flotantes desplazándose por la pantalla.
+
+**NOTA:** Si implementa en el perfil `Cloud.xml` (Azure Service Fabric), la aplicación debe estar disponible en **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/**. Asegúrese de tener `8081/TCP` configurado en Load Balancer (busque Load Balancer en el mismo grupo de recursos que la instancia de Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Paso 2: Actualizar el ejemplo de objetos visuales
 Puede que observe que con la versión que se implementó en el Paso 1, los objetos visuales no giran. Vamos a actualizar esta aplicación a una donde los objetos visuales giren.

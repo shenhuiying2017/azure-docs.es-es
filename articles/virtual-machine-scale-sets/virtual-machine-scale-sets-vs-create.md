@@ -17,16 +17,16 @@ ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 89db91d7ab8dc4340484054986b35583ed23b343
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 5f02d36bfc5aa390bba345f084ce530c27bb6520
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Visual Studio
 En este artículo se muestra cómo implementar un conjunto de escalado de máquinas virtuales de Azure mediante la utilización de una implementación de grupo de recursos de Visual Studio.
 
-Los [conjuntos de escalado de máquinas virtuales de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) son un recurso de proceso de Azure para implementar y administrar un conjunto de máquinas virtuales similares con equilibrio de carga y escalado automático. Puede aprovisionar e implementar conjuntos de escalado de máquinas virtuales mediante [plantillas de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Las plantillas de Azure Resource Manager se pueden implementar mediante la CLI de Azure, PowerShell, REST y también directamente desde Visual Studio. Visual Studio proporciona un conjunto de plantillas que se pueden implementar como parte de un proyecto de implementación de grupo de recursos de Azure.
+Los [conjuntos de escalado de máquinas virtuales de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) son un recurso de Azure Compute para implementar y administrar un conjunto de máquinas virtuales similares con equilibrio de carga y escalado automático. Puede aprovisionar e implementar conjuntos de escalado de máquinas virtuales mediante [plantillas de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Las plantillas de Azure Resource Manager se pueden implementar mediante la CLI de Azure, PowerShell, REST y también directamente desde Visual Studio. Visual Studio proporciona un conjunto de plantillas que se pueden implementar como parte de un proyecto de implementación de grupo de recursos de Azure.
 
 Las implementaciones de grupo de recursos de Azure son una forma de agrupar y publicar un conjunto de recursos de Azure relacionados en una única operación de implementación. Puede obtener más información aquí: [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
@@ -91,7 +91,7 @@ Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado d
 
 ![Cloud Explorer][cloud_explorer]
 
- El portal es la mejor opción para administrar visualmente la infraestructura de Azure con un explorador web, mientras que el Explorador de recursos de Azure ofrece una forma sencilla de explorar y depurar los recursos de Azure, proporcionando una ventana en la “vista de instancias” y mostrar también los comandos de PowerShell para los recursos que busca. Aunque los conjuntos de escalado de máquinas virtuales se encuentran disponibles en la versión preliminar, en el Explorador de recursos se muestran todos los detalles de estos conjuntos.
+ El portal es la mejor opción para administrar visualmente la infraestructura de Azure con un explorador web, mientras que el Explorador de recursos de Azure ofrece una forma sencilla de explorar y depurar los recursos de Azure al proporcionar una ventana en la "vista de instancias" y mostrar también los comandos de PowerShell para los recursos que está mirando. Aunque los conjuntos de escalado de máquinas virtuales se encuentran disponibles en la versión preliminar, en el Explorador de recursos se muestran todos los detalles de estos conjuntos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de implementar satisfactoriamente los conjuntos de escalado de máquinas virtuales en Visual Studio, puede personalizar aún más el proyecto para satisfacer las necesidades de la aplicación. Por ejemplo, configurar el escalado automático agregando un recurso de **Insights**, agregar infraestructura a la plantilla (como máquinas virtuales independientes) o implementar aplicaciones con la extensión del script personalizado. Se puede encontrar una buena serie de plantillas de ejemplo en el repositorio de GitHub de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) (busque "vmss").

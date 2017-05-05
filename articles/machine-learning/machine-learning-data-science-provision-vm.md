@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
-ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
-ms.lasthandoff: 11/23/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -38,7 +38,7 @@ Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de
   * [mxnet](https://github.com/dmlc/mxnet): un entorno de aprendizaje en profundidad diseñado para lograr eficiencia y flexibilidad
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): software de minería de datos visual y aprendizaje automático de Java.
   * [Apache Drill](https://drill.apache.org/): motor de consultas SQL sin esquemas para Hadoop, NoSQL y almacenamiento en la nube.  Es compatible con las interfaces ODBC y JDBC para habilitar consultas NoSQL y archivos de herramientas de BI estándar como Power BI, Excel o Tableau.
-* Bibliotecas en R y Python para usarlas en Aprendizaje automático de Azure y en otros servicios de Azure
+* Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
 * Git, incluido Git Bash, para trabajar con repositorios de código fuente, entre otros, GitHub, Visual Studio Team Services
 * Puertos de Windows de varias utilidades de línea de comandos de Linux populares (en otras, awk, sed, perl, grep, buscar, wget, curl, etc.) accesibles mediante el símbolo del sistema. 
 
@@ -48,16 +48,19 @@ Microsoft Data Science Virtual Machine da un empujón al inicio de los proyecto 
 
 No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Solo paga por las cuotas de uso de Azure, que dependen del tamaño de la máquina virtual que aprovisione. Puede encontrar más detalles sobre las cuotas de proceso en la sección de detalles de precios de la página [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) . 
 
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
+También hay una imagen de [CentOS](machine-learning-data-science-linux-dsvm-intro.md) disponible, con la mayoría de las mismas herramientas que la imagen de Windows. También hay una imagen de [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) disponible, con muchas herramientas similares más marcos de trabajo de aprendizaje profundo.
+
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Una cuenta de almacenamiento de Azure**: consulte la sección sobre [creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md#create-a-storage-account)para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
+* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Creación de su Microsoft Data Science Virtual Machine
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:
 
-1. Navegue a la lista de máquinas virtuales en el [portal de Azure](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1. Navegue a la lista de máquinas virtuales en [Azure Portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2. Seleccione el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3. El asistente que se usó para crear la instancia de Microsoft Data Science Virtual Machine necesita **datos de entrada** para cada uno de los **cinco pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
    
@@ -79,7 +82,7 @@ Estos son los pasos para crear una instancia de Microsoft Data Science Virtual M
    5. **Compra**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
 
 > [!NOTE]
-> El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
+> El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en Azure Portal.
 > 
 > 
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e890582e790ad9187287e1323159098e19d7325
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -36,11 +36,11 @@ La extensión del agente de OMS puede ejecutarse en estas distribuciones de Linu
 
 | Distribución | Versión |
 |---|---|
-| CentOS Linux | 5.6 y 7 |
-| Oracle Linux | 5.6 y 7 |
-| Red Hat Enterprise Linux Server | 5.6 y 7 |
+| CentOS Linux | 5, 6 y 7 |
+| Oracle Linux | 5, 6 y 7 |
+| Red Hat Enterprise Linux Server | 5, 6 y 7 |
 | Debian GNU/Linux | 6, 7 y 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS y 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 y 12 |
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
@@ -49,7 +49,7 @@ La extensión del agente de OMS para Linux requiere que la máquina virtual de d
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-El siguiente JSON muestra el esquema para la extensión del agente de OMS. La extensión requiere el identificador y la clave del área de trabajo de OMS de destino, que se pueden encontrar en el portal de OMS. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
+El siguiente JSON muestra el esquema para la extensión del agente de OMS. La extensión requiere el identificador y la clave del área de trabajo de OMS de destino, valores que se pueden encontrar en el portal de OMS. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
 
 ```json
 {
@@ -63,7 +63,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de OMS. La ex
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -81,7 +81,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de OMS. La ex
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1.3 |
 | workspaceId (p.ej) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (p. ej.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -106,7 +106,7 @@ En el siguiente ejemplo se da por supuesto que la extensión OMS está anidada d
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -131,7 +131,7 @@ Al colocar la plantilla JSON de la extensión en la raíz de la plantilla, el no
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -148,7 +148,7 @@ La CLI de Azure puede utilizarse para implementar la extensión de máquina virt
 
 ```azurecli
 azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
@@ -168,6 +168,30 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### <a name="error-codes-and-their-meanings"></a>Códigos de error y su significado
+
+| Código de error | Significado | Acción posible |
+| :---: | --- | --- |
+| 2 | Opción no válida proporcionada a la agrupación de shell | |
+| 3 | Ninguna opción proporcionada a la agrupación de shell | |
+| 4 | Tipo de paquete no válido | |
+| 5 | La agrupación de shell se debe ejecutar como raíz | |
+| 6 | Arquitectura de paquete no válida | |
+| 10 | La máquina virtual ya está conectada a un área de trabajo de OMS | Para conectar la máquina virtual al área de trabajo especificada en el esquema de extensión, establezca stopOnMultipleConnections en false en la configuración pública o quite esta propiedad. Esta máquina virtual se factura una vez por cada área de trabajo a la que se conecta. |
+| 11 | Configuración no válida proporcionada a la extensión | Siga los ejemplos anteriores para configurar todos los valores de propiedad necesarios para la implementación. |
+| 20 | | Error en la instalación de SCX y OMI | |
+| 21 | Error en la instalación de SCX y los kits del proveedor | |
+| 22 | Error en la instalación del paquete integrado | |
+| 23 | El paquete de SCX u OMI ya está instalado | |
+| 30 | Error de agrupación interno | |
+| 51 | Esta extensión no se admite en el sistema operativo de la máquina virtual | |
+| 60 | Versión no compatible de OpenSSL | Instale una versión de OpenSSL que cumpla nuestro [requisitos del paquete](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
+| 61 | Falta la biblioteca ctypes de Python | Instale la biblioteca ctypes de Python o el paquete (python-ctypes). |
+| 62 | Falta el programa tar | Instale tar. |
+| 63 | Falta el programa sed | Instale sed. |
+
+Puede encontrar información adicional de solución de problemas en la [Guía de solución de problemas del agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
 ### <a name="support"></a>Soporte técnico
 

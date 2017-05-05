@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/24/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 45b07f5dd29b7e920ac2abe6765020e0337ecf95
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -39,12 +39,16 @@ Hay varias maneras de instalar y usar Docker con OMS:
 
 * En sistemas operativos compatibles con Linux, instale y ejecute Docker y, después, instale y configure el agente de OMS para Linux.
 * En CoreOS, no se puede ejecutar el agente de OMS para Linux. En su lugar, ejecute una versión en contenedores del agente de OMS para Linux.
-* En Windows Server 2016 y Windows 10, instale el cliente y el motor de Docker y luego conecte un agente para recopilar información y enviarla a Log Analytics.
+* En Windows Server 2016 y Windows 10, instale el cliente de Docker y Docker Engine y luego conecte un agente para recopilar información y enviarla a Log Analytics.
 
 
 Puede revisar las versiones del sistema operativo Linux y de Docker compatibles con su host de contenedores en [GitHub](https://github.com/Microsoft/OMS-docker).
 
-Revise el artículo [Motor de Docker en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obtener información adicional sobre cómo instalar y configurar los motores de Docker en equipos con Windows.
+Si tiene un clúster de Kubernetes con Azure Container Service, obtenga más información en [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md) (Supervisión de un clúster de Azure Container Service con Microsoft Operations Management Suite [OMS]).
+
+Si tiene un clúster DC/OS de Azure Container Service, obtenga más información en [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/container-service-monitoring-oms.md) (Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service).
+
+Revise el artículo [Docker Engine en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obtener información adicional sobre cómo instalar y configurar Docker Engine en equipos con Windows.
 
 > [!IMPORTANT]
 > Docker se debe estar ejecutando **antes de** instalar el [agente de OMS para Linux](log-analytics-linux-agents.md) en los hosts de contenedores. Si ya ha instalado el agente antes de instalar Docker, debe volver a instalar el agente de OMS para Linux. Para más información acerca de Docker, consulte el [sitio web de Docker](https://www.docker.com).
@@ -98,7 +102,7 @@ Antes de instalar agentes en equipos con Windows, debe configurar el servicio Do
 
 Los datos de rendimiento no se admiten en equipos con Windows.
 
-Para más información sobre cómo configurar el demonio de Docker con Windows, consulte [Motor de Docker en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+Para más información sobre cómo configurar el demonio de Docker con Windows, consulte [Docker Engine en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 #### <a name="to-start-docker-and-verify-its-configuration"></a>Para iniciar Docker y comprobar su configuración
 
@@ -133,7 +137,7 @@ Para habilitar la supervisión de contenedores de Hyper-V y Windows, instale age
 
 Para comprobar que la solución Containers está establecida correctamente:
 
-- Compruebe si el módulo de administración no se descargó correctamente, busque *ContainerManagement.xxx*.
+- Compruebe si el módulo de administración se descargó correctamente. Busque *ContainerManagement.xxx*.
     - Los archivos deben estar en la carpeta C:\Archivos de programa\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 - Compruebe que el identificador de área de trabajo de OMS es correcto. Para ello, vaya a **Panel de control** > **Sistema y seguridad**.
     - Abra **Microsoft Monitoring Agent** y compruebe que la información del área de trabajo es correcta.
@@ -144,15 +148,15 @@ La solución Containers recopila diversos datos de registro y métricas de rendi
 
 La siguiente tabla muestra los métodos de recopilación de datos y otros detalles sobre cómo se recopilan los datos para Containers.
 
-| plataforma | [Agente de OMS para Linux](log-analytics-linux-agents.md) | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | [Agente de OMS para Linux](log-analytics-linux-agents.md) | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |![Sí](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |Cada 3 minutos |
 
-| plataforma | [Agente de Windows](log-analytics-windows-agents.md) | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | [Agente de Windows](log-analytics-windows-agents.md) | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Sí](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |Cada 3 minutos |
 
-| plataforma | [Extensión de VM de Log Analytics](log-analytics-azure-vm-extension.md) | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | [Extensión de VM de Log Analytics](log-analytics-azure-vm-extension.md) | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Las tablas de Azure |![Sí](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |Cada 3 minutos |
 

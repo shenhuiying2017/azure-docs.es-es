@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -406,6 +406,8 @@ Hay muchos tipos de acciones, cada una con un comportamiento único. Las accione
 -   **Wait**: esta acción simple espera una cantidad fija de tiempo o hasta una hora específica.  
   
 -   **Workflow**: esta acción representa un flujo de trabajo anidado.  
+
+-   **Función**: esta acción representa una función de Azure.
 
 ### <a name="collection-actions"></a>Acciones de colección
 
@@ -828,6 +830,47 @@ Si el valor de la propiedad `from` es una matriz vacía, el resultado es una tab
 Se realiza una comprobación de acceso en el flujo de trabajo \(más en concreto, del desencadenador\), lo que significa que necesita acceso al flujo de trabajo.  
   
 Los resultados de la acción `workflow` se basan en lo que define en la acción `response` en el flujo de trabajo secundario. Si no ha definido ninguna acción `response`, las salidas estarán vacías.  
+
+## <a name="function-action"></a>Acción de la función   
+
+|Nombre|Obligatorio|Tipo|Descripción|  
+|--------|------------|--------|---------------|  
+|function id|Sí|String|El identificador de recurso de la función que quiere invocar.|  
+|estático|No|String|El método HTTP que se usa para invocar la función. De forma predeterminada, es `POST` cuando no se especifica.|  
+|Consultas|No|Objeto|Representa los parámetros de consulta para agregar a la dirección URL. Por ejemplo, `"queries" : { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL.|  
+|encabezados|No|Objeto|Representa cada uno de los encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|No|Objeto|Representa la carga útil enviada al punto de conexión.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+Cuando se guarda la aplicación lógica, realizamos algunas comprobaciones en la función a la que se hace referencia:
+-   Debe tener acceso a la función.
+-   Solo se permite el desencadenador HTTP estándar o webhook JSON genérico.
+-   No debe tener ninguna ruta definida.
+-   Solo se permite el nivel de autorización "function" y "anonymous".
+
+La dirección URL de desencadenador se recupera, se almacena en la memoria caché y se usa en tiempo de ejecución. Por tanto, si una operación invalida la dirección URL almacenada en caché, se produce un error en tiempo de ejecución en la acción. Para resolver este problema, vuelva a guardar la aplicación lógica, lo que hará que recupere y almacene en caché la dirección URL de desencadenador nuevo.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Acciones de colección (ámbitos y bucles)
 

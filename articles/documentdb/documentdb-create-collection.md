@@ -12,19 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/18/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 97b634b10f75dd10c9cf4b61a5b9674f7ee73e00
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-collection-and-database-using-the-azure-portal"></a>Creación de una base de datos y una colección de DocumentDB mediante Azure Portal
-Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](documentdb-create-account.md), una base de datos, una colección y documentos. En este tema se describe cómo crear una colección de DocumentDB en el Portal de Azure.
+Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](documentdb-create-account.md), una base de datos, una colección y documentos. En este tema se describe cómo crear una colección de DocumentDB en Azure Portal.
 
-¿No está seguro de lo que es una colección? Vea [¿Qué es una colección de DocumentDB?](#what-is-a-documentdb-collection)
+¿No está seguro de lo que es una colección? Vea [What is a DocumentDB collection?](#what-is-a-documentdb-collection) (¿Qué es una colección de DocumentDB?).
+
+Hay dos maneras de crear una colección en el portal: con el botón Agregar colección o mediante [Explorador de datos (versión preliminar)](#data-explorer).
+
+## <a name="create-a-colletion-using-add-collection-button"></a>Crear una colección con el botón Agregar colección
 
 1. En [Azure Portal](https://portal.azure.com/), en la barra de salto, haga clic en **DocumentDB (NoSQL)** y, en la hoja **DocumentDB (NoSQL)**, seleccione la cuenta en la que se va a agregar una colección. Si no se muestra ninguna cuenta, deberá [crear una cuenta de DocumentDB](documentdb-create-account.md).
 
@@ -36,7 +40,7 @@ Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](docu
     ![Captura de pantalla con la opción Cuentas de DocumentDB de la barra de accesos directos, la cuenta en la hoja Cuentas de DocumentDB y la base de datos en la hoja de la cuenta de DocumentDB, en la lente Bases de datos, resaltados](./media/documentdb-create-collection/docdb-database-creation-3.png)
 3. En la hoja **Agregar colección**, en el cuadro **Id. de colección**, escriba el identificador de la nueva colección. Los nombres de colección deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final. Cuando se valida el nombre, aparece una marca de verificación verde en el cuadro Id.
 
-    ![Captura de pantalla con el botón Agregar colección de la hoja Base de datos, la configuración de la hoja Agregar colección y el botón Aceptar resaltados - Portal de Azure para DocumentDB - Creador de bases de datos basadas en la nube para bases de datos JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
+    ![Captura de pantalla con el botón Agregar colección de la hoja Base de datos, la configuración de la hoja Agregar colección y el botón Aceptar resaltados - Azure Portal para DocumentDB - Creador de bases de datos basadas en la nube para bases de datos JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 4. De forma predeterminada, **Capacidad de almacenamiento** está establecido en **250 GB** para administrar colecciones con particiones.
 
     Establezca la capacidad de almacenamiento en **10 GB** si desea una [colección de partición única](documentdb-partition-data.md#single-partition-and-partitioned-collections) con niveles de rendimiento desde 400-10.000 unidades de solicitud/segundo (RU/s). Una RU corresponde al rendimiento de una lectura de un documento de 1 KB. Para más información sobre las unidades de solicitud, consulte [Unidades de solicitud en DocumentDB](documentdb-request-units.md).
@@ -50,10 +54,18 @@ Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](docu
 8. Haga clic en **Aceptar** en la parte inferior de la pantalla para crear la nueva colección.
 9. La nueva colección aparece ahora en el modo **Colecciones** en la hoja **Información general**.
 
-    ![Captura de pantalla de la nueva colección en la hoja Base de datos - Portal de Azure para DocumentDB - Creador de bases de datos basadas en la nube para bases de datos JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-9.png)
+    ![Captura de pantalla de la nueva colección en la hoja Base de datos - Azure Portal para DocumentDB - Creador de bases de datos basadas en la nube para bases de datos JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 10. **Opcional:** para modificar el rendimiento de la colección en el portal, haga clic en **Escala** en el menú de recursos.
 
     ![Captura de pantalla del menú de recursos, con la opción Escala seleccionada](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## <a name="create-a-collection-by-using-data-explorer-preview"></a>Crear una colección mediante el Explorador de datos (versión preliminar)
+
+El otro método para crear una colección en el portal es el Explorador de datos. Para abrir el Explorador de datos, haga clic en **Explorador de datos (versión preliminar)** en la barra de navegación del portal y luego en el botón **Nueva colección**, como se muestra en la siguiente captura de pantalla.
+
+ ![Captura de pantalla que muestra el botón Nueva colección del portal](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## <a name="what-is-a-documentdb-collection"></a>¿Qué es una colección de DocumentDB?
 Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. Una colección es una entidad facturable, en la que el [costo](documentdb-performance-levels.md) viene determinado por el rendimiento aprovisionado de la colección. Las colecciones pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento.
@@ -71,7 +83,7 @@ No es necesario crear las colecciones con el portal, también puede crearlas con
 * Para ver un ejemplo de API de REST, consulte [Crear una colección](https://msdn.microsoft.com/library/azure/mt489078.aspx).
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Si la opción **Agregar colección** está deshabilitada en el portal de Azure, significa que la cuenta está deshabilitada, lo que normalmente se produce cuando se utilizan todos los créditos de beneficios del mes.    
+Si la opción **Agregar colección** está deshabilitada en Azure Portal, significa que la cuenta está deshabilitada, lo que normalmente se produce cuando se utilizan todos los créditos de beneficios del mes.    
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene una colección, el paso siguiente es agregar o importar documentos a la colección. Cuando se trata de agregar documentos a una colección, tiene varias posibilidades:

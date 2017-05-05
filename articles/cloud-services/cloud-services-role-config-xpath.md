@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: 55d29c8c0599224c6b4772b8712667aeba2c9822
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -49,7 +50,7 @@ Recupera el identificador del rol actual de la instancia.
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Código |var id = RoleEnvironment.CurrentRoleInstance.Id; |
 
-## <a name="update-domain"></a>  Actualizar dominio
+## <a name="update-domain"></a> Actualizar dominio
 Recupera el dominio de actualización de la instancia.
 
 | Tipo | Ejemplo |
@@ -167,10 +168,5 @@ Obtenga más información sobre el archivo [ServiceConfiguration.cscfg](cloud-se
 Cree un paquete [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 
 Habilite [Escritorio remoto](cloud-services-role-enable-remote-desktop.md) para un rol.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -16,9 +16,9 @@ ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: beadcbfa4907d68a687ec5144136132d8b0439e1
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ Antes de avanzar, probablemente deseará guardar los recursos siguientes. Nos pe
 * [Ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE] 
-> Para poder configurar y ejecutar el ejemplo introductorio de Power BI Embedded, debe crear al menos una **colección de área de trabajo** en su suscripción de Azure. Para ver cómo crear una **colección de áreas de trabajo** en el Portal de Azure, consulte [Introducción a la versión preliminar de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+> Para poder configurar y ejecutar el ejemplo introductorio de Power BI Embedded, debe crear al menos una **colección de área de trabajo** en su suscripción de Azure. Para ver cómo crear una **colección de áreas de trabajo** en Azure Portal, consulte [Introducción a la versión preliminar de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 ## <a name="configure-the-sample-app"></a>Configuración de la aplicación de ejemplo
 
@@ -44,16 +44,17 @@ Veamos la configuración del entorno de desarrollo de Visual Studio para acceder
 2. Abra **PowerBI embedded.sln** en Visual Studio. Puede que necesite ejecutar el comando **Update-Package** en la Consola del Administrador de paquetes NuGET para actualizar los paquetes utilizados en esta solución.
 3. Compile la solución.
 4. Ejecute la aplicación de consola **ProvisionSample** . En la aplicación de consola del ejemplo, aprovisione un área de trabajo e importe un archivo PBIX.
-5. Para aprovisionar un nuevo **área de trabajo**, seleccione la opción 2, **Report management** (Administración de informes) y, a continuación, la opción 3, **Import PBIX Desktop file into a workspace** (Importar archivo PBIX de Desktop en un área de trabajo).
+5. Para aprovisionar una nueva **área de trabajo**, seleccione la opción 1, **Collection management** (Administración de colecciones), y luego seleccione la opción 6, **Provision a new Workspace** (Aprovisionar una nueva área de trabajo).
+6. Para importar un nuevo **informe**, seleccione la opción 2, **Report management** (Administración de informes) y luego seleccione la opción 3, **Import PBIX Desktop file into a workspace** (Importar archivo PBIX de Desktop en un área de trabajo).
 
-6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para obtener más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
+7. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en **Azure Portal**. Para obtener más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
-7. Copie y guarde el recién creado **identificador del área de trabajo** para utilizarlo más adelante en este artículo. Una vez creado el **identificador del área de trabajo**, **Azure Portal** puede encontrarlo.
+8. Copie y guarde el recién creado **identificador del área de trabajo** para utilizarlo más adelante en este artículo. Una vez creado el **identificador del área de trabajo**, **Azure Portal** puede encontrarlo.
 
     ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
-8. Para importar un archivo PBIX en su **área de trabajo**, seleccione la opción **6. Importe el archivo de escritorio PBIX en un área de trabajo existente**. Si no tiene una archivo PBIX a mano, puede descargar la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547).
-9. Si se le solicita, escriba un nombre descriptivo para su **Dataset**.
+9. Para importar un archivo PBIX en su **área de trabajo**, seleccione la opción **6. Importe el archivo de escritorio PBIX en un área de trabajo existente**. Si no tiene una archivo PBIX a mano, puede descargar la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547).
+10. Si se le solicita, escriba un nombre descriptivo para su **Dataset**.
 
 Debería obtener una respuesta similar a la siguiente:
 

@@ -16,9 +16,9 @@ ms.date: 02/09/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e23c5849cb89d0d72052e3ebaace14a55f9c6f71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -28,7 +28,7 @@ Azure DocumentDB simplifica la distribución global de datos gracias a que ofrec
 Azure DocumentDB admite tanto las conmutaciones por error definidas por directivas como explícitas que le permiten controlar todo el comportamiento del sistema en caso de errores. En este artículo, nos centramos en los siguientes temas:
 
 * Funcionamiento de las conmutaciones por error manuales en DocumentDB
-* Funcionamiento de las conmutaciones por error automáticas en DocumentDB
+* Funcionamiento de las conmutaciones por error automáticas en DocumentDB y efectos del bloqueo de un centro de datos
 * Uso de las conmutaciones por error manuales en arquitecturas de aplicación
 
 También obtendrá más información sobre las conmutaciones por error en este vídeo de Azure Friday con Scott Hanselman y el administrador de ingeniería principal Karthik Raman.
@@ -72,7 +72,7 @@ El siguiente diagrama de arquitectura muestra una implementación de aplicación
 Ahora, veamos cómo el servicio DocumentDB administra los errores regionales mediante conmutaciones por error automáticas. 
 
 ## <a id="AutomaticFailovers"></a>Conmutaciones por error automáticas
-En el caso excepcional de una interrupción regional de Azure, DocumentDB desencadena automáticamente la conmutación por error de todas las cuentas de DocumentDB presentes en la región afectada. 
+En el caso excepcional de una interrupción regional de Azure o del centro de datos, DocumentDB desencadena automáticamente conmutaciones por error de todas las cuentas de DocumentDB presentes en la región afectada. 
 
 **¿Qué ocurre si una región de lectura sufre una interrupción?**
 
@@ -112,7 +112,7 @@ Algunos de los escenarios comunes en los que la conmutación por error manual pu
 
 **Actualización de servicio**: ciertas implementaciones de aplicaciones distribuidas globalmente pueden requerir que se redirija el tráfico a una región diferente mediante Traffic Manager durante actualizaciones de servicio programadas. Dicha implementación de aplicaciones puede usar la conmutación por error manual para mantener el estado de escritura en la región que tendrá tráfico activo durante el período de actualización del servicio.
 
-**Exploraciones de continuidad empresarial y recuperación ante desastres (BCDR)**: la mayoría de las aplicaciones empresariales incluyen pruebas de continuidad empresarial en su proceso de desarrollo y de lanzamiento. Las pruebas de BCDR a menudo son un paso importante de los certificados de cumplimiento, y garantizan la disponibilidad del servicio en caso de una interrupción regional. Puede probar si las aplicaciones que usan DocumentDB para el almacenamiento están preparadas para BCDR activando una conmutación por error manual de su cuenta de DocumentDB o agregando y quitando una región de forma dinámica.
+**Exploraciones de continuidad empresarial y recuperación ante desastres (BCDR) y alta disponibilidad y recuperación ante desastres (HADR)**: la mayoría de las aplicaciones empresariales incluyen pruebas de continuidad empresarial en su proceso de desarrollo y de lanzamiento. Las pruebas de BCDR y HADR a menudo son un paso importante de los certificados de cumplimiento y garantizan la disponibilidad del servicio en caso de una interrupción regional. Puede probar si las aplicaciones que usan DocumentDB para el almacenamiento están preparadas para BCDR activando una conmutación por error manual de su cuenta de DocumentDB o agregando y quitando una región de forma dinámica.
 
 En este artículo, hemos revisado cómo funcionan las conmutaciones por error manuales y automáticas en Azure DocumentDB, y cómo puede configurar sus aplicaciones y cuentas de DocumentDB para que estén disponibles globalmente. Utilice la compatibilidad con replicación global de Azure DocumentDB para mejorar la latencia de extremo a extremo y asegurarse de que estén altamente disponibles incluso en caso de errores de región. 
 

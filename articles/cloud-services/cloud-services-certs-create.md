@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
+ms.lasthandoff: 04/20/2017
 
 
 ---
-# <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para los servicios en la nube de Azure
+# <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates) cuando se usa el Portal de Azure clásico y la versión no clásica de Azure Portal). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
 
 Los certificados usados en Azure son certificados x.509 v3 y pueden estar firmados por otro certificado de confianza o estar autofirmados. Un certificado autofirmado está firmado por su propio creador; por lo tanto, no es de confianza de forma predeterminada. La mayoría de los exploradores pueden pasar por alto este problema. Solo debe usar certificados autofirmados cuando desarrolle y pruebe sus servicios en la nube. 
@@ -58,8 +58,10 @@ Puede utilizar cualquier herramienta disponible para crear un certificado autofi
 * Un certificado X.509.
 * Contiene una clave privada.
 * Creado para intercambio de claves (archivo .pfx).
-* El nombre de sujeto debe coincidir con el dominio usado para tener acceso al servicio en la nube. 
+* El nombre de sujeto debe coincidir con el dominio usado para tener acceso al servicio en la nube.
+
     > No se puede adquirir un certificado SSL para el dominio cloudapp.net (ni para ningún dominio relacionado con Azure); el nombre del firmante del certificado debe coincidir con el nombre de dominio personalizado que se usa para obtener acceso a la aplicación. Por ejemplo, **contoso.net**, no **contoso.cloudapp.net**.
+
 * Mínimo de cifrado de 2.048 bits.
 * **Solo certificados de servicio**: el certificado de cliente debe encontrarse en el almacén de certificados *Personal* .
 
@@ -77,8 +79,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 > [!NOTE]
 > Si desea utilizar el certificado con una dirección IP en lugar de un dominio, utilice la dirección IP en el parámetro - DnsName.
-> 
-> 
+
 
 Si quiere utilizar este [certificado con el portal de administración](../azure-api-management-certs.md), expórtelo a un archivo **.cer** :
 
@@ -98,11 +99,6 @@ Puede usar Java para [crear un certificado](../app-service-web/java-create-azure
 ## <a name="next-steps"></a>Pasos siguientes
 [Cargue el certificado de servicio en el Portal de Azure clásico](cloud-services-configure-ssl-certificate.md) (o en [Azure Portal](cloud-services-configure-ssl-certificate-portal.md)).
 
-Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico.
-
-> [!NOTE]
-> El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
-> 
-> 
+Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico. Azure Portal no usa certificados de administración para la autenticación.
 
 

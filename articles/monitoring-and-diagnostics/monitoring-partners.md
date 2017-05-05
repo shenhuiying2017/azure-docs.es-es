@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 4/20/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 7a3b8c4d373a97db1a1fae4af6d6ee4d8c35d4c4
-ms.openlocfilehash: ae3d9963045749f5487b4baac77e5eacc16ac9fc
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: b2eb107d3d4279b5e2ac0612561f613fdb7ba006
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -90,8 +91,8 @@ ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima ge
 
 [Obtenga más información.][sciencelogic-doc]
 
-## <a name="splunk-add-on-for-microsoft-cloud-services"></a>Complemento Splunk para Microsoft Cloud Services
-El complemento Splunk para Microsoft Cloud Services está [disponible aquí](https://splunkbase.splunk.com/app/3110/).
+## <a name="azure-monitor-add-on-for-splunk"></a>Complemento Azure Monitor para Splunk
+El complemento Azure Monitor para Splunk está [disponible en Splunkbase aquí](https://splunkbase.splunk.com/app/3534/).
 
 [Vaya a la documentación.][splunk-doc]
 
@@ -119,7 +120,7 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
-[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
+[splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
@@ -151,11 +152,6 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentación de OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "Documentación de ScienceLogic."
-[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentación de Splunk."
+[splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentación de Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentación de SumoLogic."
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

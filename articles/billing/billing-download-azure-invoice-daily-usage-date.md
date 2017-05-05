@@ -14,59 +14,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c920627e11e801bde88b47fc7c7e128e06f59ea8
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ae3f3343cf10a6b2f3aa49dccae6d0ac906dba5c
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
-También puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Para descargar su uso diario, vaya a la [Centro de cuentas de Azure](https://account.windowsazure.com). Solo el administrador de cuentas tiene permiso para obtener la información de facturación y uso. Para averiguar quién es el administrador de cuentas de la suscripción, consulte [Transferring ownership of an Azure subscription - FAQ](billing-subscription-transfer.md#faq) (Transferencia de la propiedad de una suscripción de Azure - Preguntas más frecuentes).
+También puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Para descargar su uso diario, vaya a la [Centro de cuentas de Azure](https://account.windowsazure.com). Solo determinados roles tienen permiso para obtener la información de facturación y uso, como el administrador de la cuenta. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obtención de la factura por correo electrónico (.pdf)
 Puede optar a destinatarios adicionales y configurarlos para recibir la factura de Azure en un correo electrónico. Esta característica puede no estar disponible para determinadas suscripciones, como ofertas de soporte técnico, contratos Enterprise o Azure bajo licencia Open.
 
-1. Seleccione su suscripción en la [hoja de suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Tendrá que habilitar la opción en cada suscripción que posea. Haga clic en **Facturas** y luego en **Email my invoice** (Enviar mi factura por correo electrónico). 
+1. Seleccione su suscripción en la [hoja Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Tendrá que habilitar la opción en cada suscripción que posea. Haga clic en **Facturas** y luego en **Email my invoice** (Enviar mi factura por correo electrónico). 
 
     ![Captura de pantalla que muestra el flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
-2. Haga clic en **Recibir notificaciones** y acepte los términos:
+2. Haga clic en **Recibir notificaciones** y acepte los términos.
 
     ![Captura de pantalla que muestra el flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Una vez que ha aceptado el contrato, puede configurar destinatarios adicionales:
+3. Una vez que ha aceptado el contrato, puede configurar destinatarios adicionales.
 
     ![Captura de pantalla que muestra el flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 Si no recibe un correo electrónico después de seguir los pasos, asegúrese de que su dirección de correo electrónico es correcta en las [preferencias de comunicación de su perfil](https://account.windowsazure.com/profile).
 
-
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Descarga de la factura desde Azure Portal (.pdf)
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta. 
-2. En el menú de concentrador, seleccione **Suscripción**. 
+1. Seleccione su suscripción desde la [hoja Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal como [un usuario con acceso a las facturas](billing-manage-access.md).
 
-    ![Captura de pantalla que muestra la opción Suscripción](./media/billing-download-azure-invoice-daily-usage-date/submenu.png) 
-
-3. En la hoja **Suscripciones**, seleccione la suscripción que desea ver y, a continuación, seleccione **Facturación y uso**. 
+2. Seleccione **Facturas**. 
 
     ![Captura de pantalla que muestra la opción Facturación y uso](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png) 
 
-4. En la hoja **Facturación y uso**, haga clic en **Descargar factura** para ver una copia de la factura en pdf. 
+3. Haga clic en **Descargar factura** para ver una copia de la factura en PDF. Si muestra **No disponible**, vea [¿Por qué no veo una factura para el último período de facturación?](#noinvoice)
 
     ![Captura de pantalla que muestra los períodos de facturación, la opción de descarga y los cargos totales para cada período de facturación](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
-5. Haga clic en el período de facturación para ver el uso diario. 
+4. También puede ver el uso diario si hace clic en el período de facturación. 
 
 Para más información sobre la factura, consulte [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md). Para ayudar a administrar los costos, consulte [Prevención de costos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Descarga del uso desde el centro de cuentas (.csv)
+
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions) como administrador de la cuenta.
+
 2. Seleccione la suscripción para la que quiere la información de factura y uso.
+
 3. Seleccione **HISTORIAL DE FACTURACIÓN**. 
 
     ![Captura de pantalla que muestra la opción del historial de facturación](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
@@ -85,13 +84,21 @@ Para más información sobre la factura, consulte [Comprender la factura de Micr
 
     ![Captura de pantalla que muestra la opción Descargar uso](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
+Solo el administrador de la cuenta puede tener acceso al Centro de cuentas de Azure. Otros administradores de facturación, como un propietario, pueden obtener información de uso mediante las [API de facturación](billing-usage-rate-card-overview.md).
+
 Para más información sobre el uso diario, consulte [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md). Para ayudar a administrar los costos, consulte [Prevención de costos inesperados con la administración de costos y facturación de Azure](billing-getting-started.md).
 
 ## <a name="noinvoice"></a> ¿Por qué no veo una factura para el último período de facturación?
+
 Pueden existir varias razones por las que no ve una factura:
+
 - Tiene un importe de crédito mensual con la suscripción que no ha superado o tiene una evaluación gratuita. Solo se genera una factura cuando debe dinero.
+
 - Han transcurrido menos de 30 días desde el día que se suscribió a Azure.
+
 - La factura no se ha generado aún. Espere hasta el final del período de facturación.
+
+- Si no es el administrador de la cuenta, es posible que las facturas anteriores no estén disponibles para usted.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

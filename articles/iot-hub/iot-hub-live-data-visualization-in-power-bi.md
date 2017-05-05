@@ -16,13 +16,16 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6a99749a96a6239428e5b018a26a6e8fd440c9d2
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
+
+![Diagrama integral](media/iot-hub-get-started-e2e-diagram/4.png)
+
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -32,43 +35,34 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
-- Prepare el centro de IoT para el acceso a datos mediante la adición de un grupo de consumidores.
-- Cree, configure y ejecute un trabajo de Stream Analytics para la transferencia de datos desde su centro de IoT a su cuenta de Power BI.
+- Prepare el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
+- Cree, configure y ejecute un trabajo de Stream Analytics para la transferencia de datos desde su IoT Hub a su cuenta de Power BI.
 - Cree y publique un informe de Power BI para visualizar los datos.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Tiene que haber completado el tutorial para [conectar ESP8266 a Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), que engloba los siguientes requisitos:
+- Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
 - Una cuenta de Power BI ([pruebe Power BI de manera gratuita](https://powerbi.microsoft.com/)).
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
-
-Las aplicaciones usan grupos de consumidores para extraer datos desde Azure IoT Hub. En esta lección, creará un grupo de consumidores que utilizará un trabajo de Stream Analytics para leer datos de su centro de IoT.
-
-Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
-
-1. En el [portal de Azure](https://ms.portal.azure.com/), abra su centro de IoT.
-1. Haga clic en **Puntos de conexión** en el panel izquierdo, seleccione **Eventos** en el panel central, escriba un nombre en **Grupos de consumidores** en el panel derecho y, a continuación, haga clic en **Guardar**.
-
-   ![Creación de un grupo de consumidores en Azure IoT Hub](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Creación, configuración y ejecución de un trabajo de Stream Analytics
 
-### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
+### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
 1. En Azure Portal, haga clic en Nuevo > Internet de las cosas > Trabajo de Stream Analytics.
 1. Escriba la siguiente información para el trabajo.
 
    **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
 
    **Ubicación**: use la misma ubicación que el grupo de recursos.
 
-   **Anclar al panel**: active esta opción para facilitar el acceso al centro de IoT desde el panel.
+   **Anclar al panel**: active esta opción para facilitar el acceso al IoT Hub desde el panel.
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -118,7 +112,7 @@ Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
 
    ![Adición de una consulta a un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Análisis de transmisiones
+### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
 
 En el trabajo de Stream Analytics, haga clic en **Iniciar** > **Ahora** > **Iniciar**. Una vez que el trabajo se inicia correctamente, su estado cambia de **Detenido** a **En ejecución**.
 

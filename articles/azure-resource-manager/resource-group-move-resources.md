@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se muev
 ## <a name="checklist-before-moving-resources"></a>Lista de comprobación antes de mover recursos
 Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Puede evitar errores mediante la comprobación de estas condiciones.
 
-1. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Active Directory](../active-directory/active-directory-howto-tenant.md). Para comprobar que ambas suscripciones tienen el mismo identificador de inquilino, utilice Azure PowerShell o la CLI de Azure.
+1. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Azure Active Directory](../active-directory/active-directory-howto-tenant.md). Para comprobar que ambas suscripciones tienen el mismo identificador de inquilino, utilice Azure PowerShell o la CLI de Azure.
 
   Para Azure PowerShell, use:
 
@@ -50,7 +50,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Si los identificadores de inquilino para las suscripciones de origen y destino no son los mismos, puede intentar cambiar el directorio de la suscripción. Sin embargo, esta opción solo está disponible para los administradores de servicios que han iniciado sesión con una cuenta de Microsoft (no una cuenta de organización). Para tratar de cambiar el directorio, inicie sesión en el [portal clásico](https://manage.windowsazure.com/) y seleccione **Configuración** y, después, la suscripción. Si el icono **Editar directorio** está disponible, selecciónelo para cambiar el entorno de Active Directory asociado. 
+  Si los identificadores de inquilino para las suscripciones de origen y destino no son los mismos, puede intentar cambiar el directorio de la suscripción. Sin embargo, esta opción solo está disponible para los administradores de servicios que han iniciado sesión con una cuenta de Microsoft (no una cuenta de organización). Para tratar de cambiar el directorio, inicie sesión en el [portal clásico](https://manage.windowsazure.com/) y seleccione **Configuración** y, después, la suscripción. Si el icono **Editar directorio** está disponible, selecciónelo para cambiar el entorno de Azure Active Directory asociado. 
 
   ![editar directorio](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,19 +67,19 @@ Puede trasladar la mayoría de los recursos a través de las operaciones de auto
 
 Llame a soporte técnico cuando necesite:
 
-* Trasladar los recursos a una nueva cuenta de Azure (y el inquilino de Active Directory).
+* Mueva los recursos a una nueva cuenta de Azure (y el inquilino de Azure Active Directory).
 * Trasladar recursos clásicos, pero que tienen problemas con las limitaciones.
 
 ## <a name="services-that-enable-move"></a>Servicios que permiten el traslado
 Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
-* Administración de API
-* Aplicaciones del Servicio de aplicaciones (aplicaciones web) - consulte las [limitaciones del Servicio de aplicaciones](#app-service-limitations)
-* Automatización
+* API Management
+* App Service apps (Web Apps) - consulte las [limitaciones de App Service](#app-service-limitations)
+* Automation
 * Batch
 * Mapas de Bing
 * CDN
-* Servicios en la nube (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* Cloud Services (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Cognitive Services
 * Content Moderator
 * Data Catalog
@@ -93,30 +93,30 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 * IoT Hubs
 * Key Vault 
 * Equilibradores de carga
-* Aplicaciones lógicas
+* Logic Apps
 * Machine Learning
-* Servicios multimedia
+* Media Services
 * Mobile Engagement
-* Centros de notificaciones
-* Visión operativa
+* Notification Hubs
+* Operational Insights
 * Operations Management
 * Power BI
 * Redis Cache
-* Programador
+* Scheduler
 * Search
 * Servidor de administración
-* Bus de servicio
+* Service Bus
 * Service Fabric
-* Almacenamiento
-* Almacenamiento (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* Storage
+* Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Stream Analytics
-* Servidor de base de datos SQL: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
+* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
 * Traffic Manager
 * Virtual Machines: no permite trasladarse a una nueva suscripción cuando sus certificados se almacenan en una instancia de Key Vault
-* Máquinas virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Conjuntos de escalado de máquina virtual
-* Virtual Networks: por el momento, no se puede mover una red virtual emparejada hasta que el emparejamiento de la red virtual se haya inhabilitado. Una vez deshabilitada, se podrá mover correctamente la red virtual y habilitar el emparejamiento de VNET.
-* Puerta de enlace de VPN 
+* Virtual Networks: por el momento, no se puede mover una red virtual emparejada hasta que el emparejamiento de la red virtual se haya inhabilitado. Una vez deshabilitada, se podrá mover correctamente la Virtual Network y habilitar el emparejamiento de VNet.
+* VPN Gateway 
 
  
 ## <a name="services-that-do-not-enable-move"></a>Servicios que no permiten el traslado
@@ -125,29 +125,29 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
 * Application Insights
-* Servicios de BizTalk
+* BizTalk Services
 * Container Service
 * ExpressRoute
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
-* Almacén de Servicios de recuperación: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Servicios de recuperación, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
+* Almacén de Recovery Services: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Recovery Services, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
 * Seguridad
 * Virtual Machines con certificados almacenados en Key Vault
-* Máquinas virtuales con discos administrados
-* Conjuntos de disponibilidad con máquinas virtuales con discos administrados
+* Virtual Machines con discos administrados
+* Conjuntos de disponibilidad con Virtual Machines con discos administrados
 * Managed Disks
 * Imágenes creadas a partir de discos administrados
 * Instantáneas creadas a partir de discos administrados
-* Redes virtuales (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
-* Máquinas virtuales creadas a partir de recursos de Marketplace (no se pueden mover entre suscripciones). Es necesario desaprovisionar el recurso en la suscripción activa y volver a implementarlo en la nueva suscripción
+* Virtual Networks (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* Virtual Machines creadas a partir de recursos de Marketplace (no se pueden mover entre suscripciones). Es necesario desaprovisionar el recurso en la suscripción activa y volver a implementarlo en la nueva suscripción
 
-## <a name="app-service-limitations"></a>limitaciones del Servicio de aplicaciones
-Si se trabaja con aplicaciones del Servicio de aplicaciones, no se puede mover solo un plan del Servicio de aplicaciones. Para mover las aplicaciones del Servicio de aplicaciones, las opciones son:
+## <a name="app-service-limitations"></a>Limitaciones de App Service
+Si se trabaja con aplicaciones de App Service, no se puede mover solo un plan de App Service. Para mover las aplicaciones de App Service, las opciones son:
 
-* Trasladar el plan del Servicio de aplicaciones y el resto de recursos del Servicio de aplicaciones de ese grupo de recursos a un nuevo grupo que aún no tenga recursos del Servicio de aplicaciones. Este requisito significa que debe trasladar incluso los recursos del Servicio de aplicaciones que no estén asociados al plan de App Service. 
-* Mover las aplicaciones a un grupo de recursos distinto, pero mantener todos los planes del Servicio de aplicaciones del grupo de recursos original.
+* Trasladar el plan de App Service y el resto de recursos de App Service de ese grupo de recursos a un nuevo grupo que aún no tenga recursos de App Service. Este requisito significa que debe trasladar incluso los recursos de App Service que no estén asociados al plan de App Service. 
+* Mover las aplicaciones a un grupo de recursos distinto, pero mantener todos los planes de App Service del grupo de recursos original.
 
-Si el grupo de recursos original también incluye un recurso de Application Insights, no podrá mover ese recurso porque Application Insights no admite actualmente la operación de traslado. Si se incluye el recurso de Application Insights al mover las aplicaciones de App Service, se producirá un error en toda la operación de traslado. Sin embargo, no es necesario que el plan del Servicio de aplicaciones y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
+Si el grupo de recursos original también incluye un recurso de Application Insights, no podrá mover ese recurso porque Application Insights no admite actualmente la operación de traslado. Si se incluye el recurso de Application Insights al mover las aplicaciones de App Service, se producirá un error en toda la operación de traslado. Sin embargo, no es necesario que el plan de App Service y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
 
 Por ejemplo, si el grupo de recursos contiene:
 
@@ -161,9 +161,9 @@ Tendrá las siguientes opciones:
 * Mover **web-a**
 * Mover **web-b**
 
-Todas las demás combinaciones implican el traslado de un tipo de recurso que no se puede mover (Application Insights) o se dejan un tipo de recurso que debe trasladarse al mover un plan del Servicio de aplicaciones (cualquier tipo de recurso del Servicio de aplicaciones).
+Todas las demás combinaciones implican el traslado de un tipo de recurso que no se puede mover (Application Insights) o se dejan un tipo de recurso que debe trasladarse al mover un plan de App Service (cualquier tipo de recurso de App Service).
 
-Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan del Servicio de aplicaciones, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo:
+Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan de App Service, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo:
 
 * **web-a** reside en **web-group**.
 * **plan-a** reside en **plan-group**.
