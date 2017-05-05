@@ -161,7 +161,7 @@ Durante el período de versión preliminar de una versión determinada de Azure 
   function UserHasLicenseAssignedFromGroup
   {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-     foreach($license in $user.Licenses
+     foreach($license in $user.Licenses)
      {
         #we look for the specific license SKU in all licenses assigned to the user
         if ($license.AccountSkuId -ieq $skuId)

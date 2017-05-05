@@ -207,7 +207,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Envíe informes de mantenimiento con **Send-ServiceFabric*EntityType*HealthReport.
+Envíe informes de mantenimiento con **Send-ServiceFabric*EntityType*HealthReport**.
 
 El ejemplo siguiente muestra informes periódicos sobre valores de la CPU en un nodo. Los informes se deben enviar cada 30 segundos, y tienen un período de vida de dos minutos. Si caducan, significa que el informador tiene problemas, por lo que el nodo se ha evaluado con error. Cuando la CPU está por encima de un umbral, el informe tiene un estado de advertencia. Cuando la CPU se mantiene por encima de un umbral un tiempo superior al configurado, se notifica como error. De lo contrario, el informador envía un estado correcto.
 
