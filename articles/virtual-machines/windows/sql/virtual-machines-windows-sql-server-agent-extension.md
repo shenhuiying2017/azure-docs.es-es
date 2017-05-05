@@ -17,9 +17,9 @@ ms.date: 04/24/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 27064b6b5c65e5ecd0ef6931bd8f333469419839
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 328b7cff01b485a908be65f52425ff4e81a96b53
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar las tareas de administración en Azure Virtual Machines con la extensión del Agente SQL Server (Resource Manager)
@@ -61,7 +61,7 @@ Requisitos para usar la extensión del Agente de IaaS SQL Server en la máquina 
 
 **Azure PowerShell**:
 
-* [Descargar y configurar los comandos de Azure PowerShell más recientes](/powershell/azureps-cmdlets-docs)
+* [Descargar y configurar los comandos de Azure PowerShell más recientes](/powershell/azure/overview)
 
 ## <a name="installation"></a>Instalación
 La extensión del Agente de IaaS SQL Server se instala automáticamente cuando aprovisiona una de las imágenes de la galería de máquina virtual de SQL Server.

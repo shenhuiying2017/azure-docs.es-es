@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: bc39944e9232dffbc7dd02e2a300a90a23ec5273
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c000669f4a45c7c4292154ce537c451dc70766e7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -60,7 +60,7 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 * Hardware VPN compatible para cada ubicación local. Consulte [Acerca de los dispositivos VPN para conectividad de red virtual](vpn-gateway-about-vpn-devices.md) para comprobar si el dispositivo que quiere usar es un dispositivo que se sabe que es compatible.
 * Una dirección IP IPv4 pública orientada externamente para cada dispositivo VPN. La dirección IP no se puede ubicar detrás de un NAT. Esto es un requisito.
-* Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Asegúrese de instalar la versión de Service Management (SM) además de la de Resource Manager (RM). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Asegúrese de instalar la versión de Service Management (SM) además de la de Resource Manager (RM). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) .
 * Alguna persona con experiencia en configuración de hardware de VPN Necesitará un conocimiento amplio de cómo configurar el dispositivo VPN o trabajar con alguien que lo tenga.
 * Los intervalos de dirección IP que desea usar para la red virtual (si aún no ha creado uno).
 * Los intervalos de direcciones IP para cada uno de los sitios de red locales a los que se va a conectar. Tendrá que asegurarse de que los intervalos de dirección IP para cada uno de los sitios de red locales a los que desea conectarse no se solapan. De lo contrario, el portal o la API de REST rechazarán la configuración que se carga.<br>Por ejemplo, si dispone de dos sitios de red locales que contienen el intervalo de dirección IP 10.2.3.0/24 y dispone de un paquete con una dirección de destino 10.2.3.3, Azure no sabrá a qué sitio desea enviar el paquete porque se solapan los intervalos de dirección. Para evitar problemas de enrutamiento, Azure no loe permite cargar un archivo de configuración que disponga de intervalos que se solapan.

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6028116d18207d13729d1816f64ad192d4cdb491
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory
 
-Para usar el [acceso condicional basado en dispositivo de Azure Active Directory](active-directory-conditional-access-azure-portal.md), los dispositivos deben estar registrados en Azure Active Directory (Azure AD). Para obtener una lista de los dispositivos registrados de una organización, utilice el cmdlet [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) en el [módulo de PowerShell de Azure Active Directory](https://docs.microsoft.com/en-us/powershell/msonline/). 
+Para usar el [acceso condicional basado en dispositivo de Azure Active Directory](active-directory-conditional-access-azure-portal.md), los dispositivos deben estar registrados en Azure Active Directory (Azure AD). Para obtener una lista de los dispositivos registrados de una organización, utilice el cmdlet [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) en el [módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
 Este artículo le proporciona los pasos para configurar el registro automático de dispositivos unidos a un dominio de Windows con Azure AD en su organización.
 
@@ -302,7 +302,7 @@ En la notificación anterior,
 
 
 Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-add-domain.md) para más información sobre nombres de dominios comprobados.  
-Para obtener una lista de los dominios comprobados de la compañía, puede usar el cmdlet [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 
+Para obtener una lista de los dominios comprobados de la compañía, puede usar el cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -565,7 +565,7 @@ El instalador crea una tarea programada en el sistema que se ejecuta en el conte
 
 ## <a name="step-5-verify-registered-devices"></a>Paso 5: Comprobación de los dispositivos registrados
 
-Para comprobar los dispositivos registrados correctamente de una organización, utilice el cmdlet [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) en el [módulo de PowerShell de Azure Active Directory](https://docs.microsoft.com/en-us/powershell/msonline/).
+Para comprobar los dispositivos registrados correctamente de una organización, utilice el cmdlet [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) en el [módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 La salida de este cmdlet muestra los dispositivos registrados en Azure AD. Para obtener todos los dispositivos, use el parámetro **-All** y, después, fíltrelos mediante la propiedad **deviceTrustType**. Los dispositivos unidos a un dominio tienen el valor **Unido a dominio**.
 
