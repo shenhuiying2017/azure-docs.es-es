@@ -1,6 +1,6 @@
 ---
 title: "Protección del dominio personalizado de la aplicación con HTTPS | Microsoft Docs"
-description: "Aprenda cómo proteger el nombre de dominio personalizado para la aplicación en el Servicio de aplicaciones de Azure mediante la configuración de un enlace de certificado SSL. También aprenderá cómo obtener un certificado SSL desde varias herramientas."
+description: "Aprenda cómo proteger el nombre de dominio personalizado para la aplicación en Azure App Service mediante la configuración de un enlace de certificado SSL. También aprenderá cómo obtener un certificado SSL desde varias herramientas."
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 0d909f6272cc9dcfd13bd9c18affa8d1e249efe4
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,9 +29,9 @@ ms.lasthandoff: 03/17/2017
 > 
 > 
 
-En este artículo se muestra cómo habilitar HTTPS para una aplicación web, un back-end de aplicación móvil o una aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) , que usa un nombre de dominio personalizado. Se ocupa de la autenticación solo del servidor. Si necesita la autenticación mutua (incluida la autenticación del cliente), consulte [Configuración de la autenticación mutua de TLS para el Servicio de aplicaciones](app-service-web-configure-tls-mutual-auth.md).
+En este artículo se muestra cómo habilitar HTTPS para una aplicación web, un back-end de aplicación móvil o una aplicación de API en [Azure App Service](../app-service/app-service-value-prop-what-is.md), que usa un nombre de dominio personalizado. Se ocupa de la autenticación solo del servidor. Si necesita la autenticación mutua (incluida la autenticación del cliente), consulte [Configuración de la autenticación mutua de TLS para App Service](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De manera predeterminada, Azure protege el dominio con comodín **\*.azurewebsites.net** con un certificado SSL único para que los clientes ya puedan tener acceso a su aplicación en **https://*&lt;nombreaplicación>*.azurewebsites.net**. Pero si desea usar un dominio personalizado, como**contoso.com**, **www.contoso.com**y**\*.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como usar un dominio personalizado y un certificado para él.   
+Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De manera predeterminada, Azure protege el dominio con comodín **\*.azurewebsites.net** con un certificado SSL único para que los clientes ya puedan acceder a la aplicación en **https://*&lt;nombreaplicación>*.azurewebsites.net**. Pero si quiere usar un dominio personalizado, como **contoso.com**, **www.contoso.com** y **\*.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como usar un dominio personalizado y un certificado para él.   
 
 > [!NOTE]
 > Puede obtener ayuda de expertos de Azure en cualquier momento en los [foros de Azure](https://azure.microsoft.com/support/forums/). Para obtener un soporte técnico más personalizado, vaya a [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
@@ -43,8 +43,8 @@ Para proteger con HTTPS una aplicación que tiene un nombre de dominio personali
 ## <a name="what-you-need"></a>Lo que necesita
 Para proteger su nombre de dominio personalizado con HTTPS, enlace un certificado SSL personalizado para ese dominio personalizado en Azure. Antes de enlazar un certificado personalizado, debe hacer lo siguiente:
 
-* **Configurar el dominio personalizado** : el Servicio de aplicaciones solo permite agregar un certificado para un nombre de dominio que ya está configurado en la aplicación. Para ver instrucciones, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](web-sites-custom-domain-name.md). 
-* **Escalar verticalmente al nivel básico o superior** : los planes del Servicio de aplicaciones en los niveles de precios más bajos no son compatibles con los certificados SSL personalizados. Para ver instrucciones, consulte [Escalado vertical de aplicaciones en Azure](web-sites-scale.md). 
+* **Configurar el dominio personalizado**: App Service solo permite agregar un certificado para un nombre de dominio que ya está configurado en la aplicación. Para ver instrucciones, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](web-sites-custom-domain-name.md). 
+* **Escalar verticalmente al nivel básico o superior**: los planes de App Service en los niveles de precios más bajos no son compatibles con los certificados SSL personalizados. Para ver instrucciones, consulte [Escalado vertical de aplicaciones en Azure](web-sites-scale.md). 
 * **Obtener un certificado SSL** : si aún no tiene ninguno, necesitará obtener uno en una [entidad de certificación](http://en.wikipedia.org/wiki/Certificate_authority) (CA) de confianza. El certificado debe cumplir todos los requisitos siguientes:
   
   * Está firmado por una CA de confianza (sin servidores de CA privados).
@@ -55,9 +55,9 @@ Para proteger su nombre de dominio personalizado con HTTPS, enlace un certificad
   * Se combina con todos los **[certificados intermedios](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** usados por la entidad de certificación. De lo contrario, puede encontrarse con problemas de interoperabilidad irreproducibles en algunos clientes.
     
     > [!NOTE]
-    > La forma más sencilla de obtener un certificado SSL que cumple todos los requisitos es [comprar uno en el Portal de Azure directamente](web-sites-purchase-ssl-web-site.md). En este artículo se muestra cómo hacerlo de forma manual y, a continuación, enlazarlo a su dominio personalizado en el Servicio de aplicaciones.
+    > La forma más sencilla de obtener un certificado SSL que cumple todos los requisitos es [comprar uno en Azure Portal directamente](web-sites-purchase-ssl-web-site.md). En este artículo se muestra cómo hacerlo de forma manual y, a continuación, enlazarlo a su dominio personalizado en App Service.
     > 
-    > **certificados de criptografía de curva elíptica (ECC)** pueden trabajar con el Servicio de aplicaciones, pero están fuera del ámbito de este artículo. Trabaje con la entidad de certificación sobre los pasos exactos para crear los certificados ECC.
+    > **certificados de criptografía de curva elíptica (ECC)** pueden trabajar con App Service, pero están fuera del ámbito de este artículo. Trabaje con la entidad de certificación sobre los pasos exactos para crear los certificados ECC.
     > 
     > 
 
@@ -75,7 +75,7 @@ Una vez que sepa qué certificado SSL desea comprar, envíe una Solicitud de fir
 * [Pasos para OpenSSL](#bkmk_openssl): una [herramienta de código abierto y multiplataforma](https://www.openssl.org). Úsela para ayudarle a obtener un certificado SSL desde cualquier plataforma.
 * [Pasos para subjectAltName con OpenSSL](#bkmk_subjectaltname): pasos para obtener certificados `subjectAltName`.
 
-Si desea probar la configuración en el Servicio de aplicaciones antes de comprar un certificado, puede generar un [certificado autofirmado](https://en.wikipedia.org/wiki/Self-signed_certificate). Este tutorial le ofrece dos formas de generarlo:
+Si desea probar la configuración en App Service antes de comprar un certificado, puede generar un [certificado autofirmado](https://en.wikipedia.org/wiki/Self-signed_certificate). Este tutorial le ofrece dos formas de generarlo:
 
 * [Pasos para un certificado autofirmado, Certreq.exe](#bkmk_sscertreq)
 * [Pasos para un certificado autofirmado, OpenSSL](#bkmk_ssopenssl)
@@ -134,7 +134,7 @@ Si desea probar la configuración en el Servicio de aplicaciones antes de compra
     
     ![proporcionar una ruta de archivo][certwiz4]
 
-Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicaciones. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
+Ahora está listo para cargar el archivo PFX exportado en App Service. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
 
 <a name="bkmk_iismgr"></a>
 
@@ -159,7 +159,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
    > 
    > 
 
-Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicaciones. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
+Ahora está listo para cargar el archivo PFX exportado en App Service. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
 
 <a name="bkmk_openssl"></a>
 
@@ -220,7 +220,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
    > 
    > 
 
-Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicaciones. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
+Ahora está listo para cargar el archivo PFX exportado en App Service. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
 
 <a name="bkmk_subjectaltname"></a>
 
@@ -308,7 +308,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
    > 
    > 
 
-Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicaciones. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
+Ahora está listo para cargar el archivo PFX exportado en App Service. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
 
 <a name="bkmk_sscertreq"></a>
 
@@ -362,7 +362,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
    
    ![proporcionar una ruta de archivo][certwiz4]
 
-Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicaciones. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
+Ahora está listo para cargar el archivo PFX exportado en App Service. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
 
 <a name="bkmk_ssopenssl"></a>
 
@@ -416,7 +416,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
    
     Cuando se le solicite, escriba una contraseña para proteger el archivo .pfx.
 
-Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicaciones. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
+Ahora está listo para cargar el archivo PFX exportado en App Service. Consulte [Paso 2. Cargar y enlazar el certificado SSL personalizado](#bkmk_configuressl).
 
 <a name="bkmk_configuressl"></a>
 
@@ -428,7 +428,7 @@ Antes de continuar, revise la sección [Lo que necesita](#bkmk_domainname) y com
 * Tiene un certificado SSL para el dominio personalizado de una entidad de certificación.
 
 1. En el explorador, abra **[Azure Portal.](https://portal.azure.com/)**
-2. Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
+2. Haga clic en la opción **App Service** del lado izquierdo de la página.
 3. Haga clic en el nombre de la aplicación a la que desea asignar este certificado. 
 4. En **Configuración**, haga clic en **Certificados SSL**
 5. Haga clic en **Cargar certificado**
@@ -469,12 +469,12 @@ Debido a esta dirección IP dedicada, debe configurar la aplicación más si:
 Ahora todo lo que queda por hacer es asegurarse de que HTTPS funciona para el dominio personalizado. En varios exploradores, vaya a `https://<your.custom.domain>` para ver que da servicio a la aplicación.
 
 * Si la aplicación genera errores de validación del certificado, probablemente esté utilizando un certificado autofirmado.
-* Si no es así, puede haber dejado certificados intermedios cuando exportó el certificado .pfx. Vuelva a [Lo que necesita](#bkmk_domainname) para comprobar que su CSR cumple todos los requisitos del Servicio de aplicaciones.
+* Si no es así, puede haber dejado certificados intermedios cuando exportó el certificado .pfx. Vuelva a [Lo que necesita](#bkmk_domainname) para comprobar que su CSR cumple todos los requisitos de App Service.
 
 <a name="bkmk_enforce"></a>
 
 ## <a name="enforce-https-on-your-app"></a>Implementar HTTPS en la aplicación
-Si desea permitir el acceso HTTP a la aplicación, omita este paso. El Servicio de aplicaciones *no* fuerza HTTPS, por lo que los visitantes aún pueden acceder a la aplicación mediante HTTP. Si desea forzar HTTPS para su aplicación, puede definir una regla de reescritura en el archivo `web.config` para la aplicación. Todas las aplicaciones del Servicio de aplicaciones tienen este archivo, independientemente de la plataforma del lenguaje de la aplicación.
+Si desea permitir el acceso HTTP a la aplicación, omita este paso. App Service *no* fuerza HTTPS, por lo que los visitantes aún pueden acceder a la aplicación mediante HTTP. Si desea forzar HTTPS para su aplicación, puede definir una regla de reescritura en el archivo `web.config` para la aplicación. Todas las aplicaciones de App Service tienen este archivo, independientemente de la plataforma del lenguaje de la aplicación.
 
 > [!NOTE]
 > Hay una redirección específica del lenguaje de las solicitudes. ASP.NET MVC puede usar el filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) en lugar de la regla de reescritura en `web.config` (consulte [Implementar una aplicación ASP.NET MVC 5 segura en una aplicación web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
@@ -489,7 +489,7 @@ Siga estos pasos:
    
     ![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
    
-    Si implementa la aplicación con Visual Studio o Git, el Servicio de aplicaciones genera automáticamente el elemento `web.config` adecuado para la aplicación. NET, PHP, Node.js o Python en la raíz de la aplicación. 
+    Si implementa la aplicación con Visual Studio o Git, App Service genera automáticamente el elemento `web.config` adecuado para la aplicación. NET, PHP, Node.js o Python en la raíz de la aplicación. 
     Si `web.config` no existe, ejecute `touch web.config` en el símbolo del sistema basado en web para crearlo. O bien, puede crearlo en su proyecto local y volver a implementar el código.
 4. Si tuviera que crear un elemento `web.config`, copie el código siguiente en él y guárdelo. Si ha abierto un elemento web.config existente, basta con copiar todo la etiqueta `<rule>` en el elemento `configuration/system.webServer/rewrite/rules` de su `web.config`.
    
@@ -526,11 +526,11 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 * [Centro de confianza de Microsoft Azure](/support/trust-center/security/)
 * [Opciones de configuración desbloqueadas en Sitios web Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Activación del registro de diagnósticos](web-sites-enable-diagnostic-log.md)
-* [Configuración de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-configure.md)
+* [Configuración de aplicaciones web en Azure App Service](web-sites-configure.md)
 * [Portal de administración de Azure](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: "¿Qué es DevTest Labs? | Microsoft Docs"
+title: Acerca de Azure DevTest Labs | Microsoft Docs
 description: "Aprenda cómo DevTest Labs puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -15,21 +15,13 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
-ms.openlocfilehash: 2f31d8bf78d63e207d5f26ad37c5cf7bd2bac5bb
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 62e2d214d6d685c7f27c8c45cae161eb25ed1cbd
+ms.lasthandoff: 04/20/2017
 
 
 ---
-# <a name="what-is-devtest-labs"></a>¿Qué es DevTest Labs?
-> [!NOTE]
-> Este artículo es la parte 1 de una serie de 3:
-> 
-> 1. **[¿Qué es DevTest Labs?](devtest-lab-overview.md)**
-> 2. [¿Por qué usar DevTest Labs?](devtest-lab-why.md)
-> 3. [Conceptos de DevTest Labs](devtest-lab-concepts.md)
-> 
-> 
-
+# <a name="about-azure-devtest-labs"></a>Acerca de Azure DevTest Labs
 ## <a name="overview"></a>Información general
 Los desarrolladores y evaluadores están buscando la manera de resolver los retrasos en la creación y administración de sus entornos trasladándolos a la nube.  Azure soluciona el problema de los retrasos en el entorno y hace posible el autoservicio dentro de una estructura nueva y rentable.  Sin embargo, los desarrolladores y evaluadores necesitan aún dedicar mucho tiempo a la configuración de los entornos que se administran automáticamente. Además, los encargados de la toma de decisiones no tienen claro cómo aprovechar la nube para maximizar sus ahorros sin agregar demasiada sobrecarga al proceso.
 
@@ -39,14 +31,24 @@ Azure DevTest Labs es un servicio que ayuda a los desarrolladores y evaluadores 
 > 
 > 
 
+DevTest Labs proporciona las siguientes ventajas en la creación, la configuración y la administración de entornos de desarrollador y prueba en la nube
+
+## <a name="worry-free-self-service"></a>Autoservicio sin preocupaciones
+DevTest Labs facilita el control de costos al permitirle definir directivas en el laboratorio, como el número de máquinas virtuales (VM) por usuario y el número de máquinas virtuales por laboratorio. DevTest Labs también permite crear directivas para apagar e iniciar automáticamente las máquinas virtuales.
+
+## <a name="quickly-get-to-ready-to-test"></a>Obtenga acceso rápidamente al modo "Listo para probar"
+DevTest Labs le permite crear entornos ya aprovisionados con todo lo que su equipo necesita para comenzar a desarrollar y probar aplicaciones. Basta con notificar los entornos en los que se instaló la última compilación en buen estado de la aplicación y podrá empezar a trabajar de inmediato. O bien, utilice contenedores para agilizar y simplificar aún más la creación de entornos.
+
+## <a name="create-once-use-everywhere"></a>Se crean una vez y se utilizan en todas partes
+Capture y comparta plantillas de entornos y artefactos dentro de su equipo u organización, todo con control de código fuente, para crear entornos de desarrollo y pruebas con facilidad.
+
+## <a name="integrates-with-your-existing-toolchain"></a>Se integra con la cadena de herramientas existente
+Aproveche complementos ya creados o nuestra API para aprovisionar entornos de desarrollo y pruebas directamente desde la herramienta de integración continua (CI), el entorno de desarrollo integrado (IDE) o la canalización de entrega de versiones que prefiera. También puede utilizar nuestra completa herramienta de línea de comandos.
+
+
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-[¿Por qué usar DevTest Labs?](devtest-lab-why.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+[Conceptos de DevTest Labs](devtest-lab-concepts.md)
 
 

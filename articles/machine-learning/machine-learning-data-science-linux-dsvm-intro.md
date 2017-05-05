@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c041802cd86f9e8b07771413f867691d76b01abf
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b94b8b84ae2cf26a1680f816460cc86c4d79e885
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Aprovisionamiento de Linux Data Science Virtual Machine
-Linux Data Science Virtual Machine es una máquina virtual de Azure que incluye una colección de herramientas preinstaladas, que se utilizan normalmente para hacer análisis de datos y tareas de aprendizaje automático. Los principales componentes de software que se incluyen son:
+Linux Data Science Virtual Machine es una máquina virtual de Azure basada en CentOS que incluye una colección de herramientas preinstaladas. que se utilizan normalmente para hacer análisis de datos y tareas de aprendizaje automático. Los principales componentes de software que se incluyen son:
 
 * Microsoft R Server Developer Edition
 * Distribución de Anaconda Python (versiones 2.7 y 3.5), incluidas las bibliotecas de análisis de datos más conocidas
@@ -31,14 +31,14 @@ Linux Data Science Virtual Machine es una máquina virtual de Azure que incluye 
 * JupyterHub: servidor de Jupyter Notebook multiusuario compatible con kernels de R, Python, PySpark y Julia
 * Explorador de Azure Storage
 * Interfaz de la línea de comandos de Azure (CLI) para administrar recursos de Azure
-* Base de datos de PostgreSQL
+* PostgresSQL Database
 * Herramientas de aprendizaje automático
   * [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): kit de herramientas de software de aprendizaje profundo de Microsoft Research
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
   * [Rattle](http://rattle.togaware.com/) (sigla del inglés “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): herramienta que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R
 * Azure SDK en Java, Python, node.js, Ruby, PHP
-* Bibliotecas en R y Python para usarlas en Aprendizaje automático de Azure y en otros servicios de Azure
+* Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
 * Editores y herramientas de desarrollo (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
 
 
@@ -54,16 +54,19 @@ Linux Data Science Virtual Machine puede facilitar esta carga considerablemente.
 
 No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Solo se pagan las cuotas de uso del hardware de Azure, que se calculan en función del tamaño de la máquina virtual que aprovisiona con la imagen de la máquina virtual. Obtenga más información sobre las cuotas de proceso en el [sitio del programa de asociados de Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
+También hay una imagen de [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) disponible, con la mayoría de las mismas herramientas que la imagen de CentOS más marcos de trabajo de aprendizaje profundo. También hay una imagen de [Windows](machine-learning-data-science-provision-vm.md) disponible.
+
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/free/).
-* **Una cuenta de almacenamiento de Azure**: consulte la sección sobre [creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md#create-a-storage-account)para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
+* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Creación de su Linux Data Science Virtual Machine
 A continuación le indicamos los pasos para crear una instancia de Linux Data Science Virtual Machine:
 
-1. Navegue al listado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
+1. Navegue al listado de máquinas virtuales en [Azure Portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
 2. Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3. En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
    
@@ -94,7 +97,7 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
    
    * Haga clic en **Comprar**para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** .
 
-El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
+El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en Azure Portal.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Acceso a Linux Data Science Virtual Machine
 Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Utilice las credenciales de la cuenta que haya creado en la sección **Aspectos básicos** del paso 3 para la interfaz de shell de texto. En Windows, puede descargar una herramienta de cliente SSH como [Putty](http://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go.
@@ -246,26 +249,26 @@ Para acceder a **Postgres**:
 En la VM se instalan las siguientes herramientas de Azure:
 
 * **Interfaz de la línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de almacenamiento de Microsoft Azure**: explorador de Almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Almacenamiento de Azure y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
+* **Explorador de Microsoft Azure Storage**: el explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
-  * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de almacenamiento de Azure, a Aprendizaje automático de Azure y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
+  * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
   * **R**: las bibliotecas relacionadas con Azure en R que están instaladas son **AzureML** y **RODBC**.
-  * **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio **/dsvm/sdk/AzureSDKJava** de la máquina virtual. Las bibliotecas principales son las API de administración y almacenamiento de Azure, DocumentDB y los controladores JDBC para SQL Server.  
+  * **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio **/dsvm/sdk/AzureSDKJava** de la máquina virtual. Las bibliotecas principales son las API de administración y Azure Storage, DocumentDB y los controladores JDBC para SQL Server.  
 
-Puede acceder al [Portal de Azure](https://portal.azure.com) desde el explorador Firefox instalado previamente. En el Portal de Azure, puede crear, administrar y supervisar los recursos de Azure.
+Puede acceder a [Azure Portal](https://portal.azure.com) desde el explorador Firefox instalado previamente. En Azure Portal, puede crear, administrar y supervisar los recursos de Azure.
 
-### <a name="azure-machine-learning"></a>Aprendizaje automático de Azure
-Aprendizaje automático de Azure es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Estudio de aprendizaje automático de Azure. Puede acceder a él desde un explorador web en la máquina virtual de ciencia de datos si visita la página de [Aprendizaje automático de Microsoft Azure](https://studio.azureml.net).
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio. Puede acceder a él desde un explorador web en la máquina virtual de ciencia de datos si visita la página de [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Una vez que inicie sesión en Estudio de aprendizaje automático de Azure, tendrá acceso a un lienzo de experimentación donde puede crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a Jupyter Notebook hospedado en Aprendizaje automático de Azure, que puede funcionar perfectamente con los experimentos de Estudio de aprendizaje automático de Azure. Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. De este modo, los clientes pueden escribir en cualquier lenguaje para invocar predicciones a partir de los modelos aprendizaje automático. Para obtener más información, consulte la [documentación sobre Aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/).
+Una vez que inicie sesión en Azure Machine Learning Studio, tendrá acceso a un lienzo de experimentación donde puede crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a Jupyter Notebook hospedado en Azure Machine Learning, que puede funcionar perfectamente con los experimentos de Azure Machine Learning Studio. Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. De este modo, los clientes pueden escribir en cualquier lenguaje para invocar predicciones a partir de los modelos aprendizaje automático. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en la producción en Aprendizaje automático de Azure. Hemos instalado bibliotecas en R (**AzureML**) y en Python (**azureml**) para habilitar esta funcionalidad.
+También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en la producción en Azure Machine Learning. Hemos instalado bibliotecas en R (**AzureML**) y en Python (**azureml**) para habilitar esta funcionalidad.
 
-Para obtener información sobre cómo implementar modelos en R y en Python en Aprendizaje automático de Azure, consulte la sección [Diez cosas que puede hacer en Data Science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (en concreto, la sección Compilación de modelos mediante R y Python, y hacer que estén operativos mediante Aprendizaje automático de Azure).
+Para obtener información sobre cómo implementar modelos en R y en Python en Azure Machine Learning, consulte la sección [Diez cosas que puede hacer en Data Science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (en concreto, la sección Compilación de modelos mediante R y Python, y hacer que estén operativos mediante Azure Machine Learning).
 
 > [!NOTE]
-> Estas instrucciones se han escrito para la versión de Windows de la VM de ciencia de datos. Sin embargo, la información proporcionada sobre la implementación de modelos en Aprendizaje automático de Azure es aplicable a la máquina virtual Linux.
+> Estas instrucciones se han escrito para la versión de Windows de la VM de ciencia de datos. Sin embargo, la información proporcionada sobre la implementación de modelos en Azure Machine Learning es aplicable a la máquina virtual Linux.
 > 
 > 
 

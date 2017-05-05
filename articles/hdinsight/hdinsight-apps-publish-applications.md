@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -39,7 +41,7 @@ Para enviar una aplicación personalizada a Marketplace, es preciso haberla crea
 También es preciso haber registrado una cuenta de desarrollador. Consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) y [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="define-application"></a>Definición de la aplicación
-La publicación de aplicaciones en Azure Marketplace conlleva dos pasos.  En primer lugar, es preciso definir un archivo **createUiDef.json** para indicar con que clústeres es compatible la aplicación y, después, publicar la plantilla desde el Portal de Azure. Este es un archivo createUiDef.json de ejemplo.
+La publicación de aplicaciones en Azure Marketplace conlleva dos pasos.  En primer lugar, es preciso definir un archivo **createUiDef.json** para indicar con que clústeres es compatible la aplicación y, después, publicar la plantilla desde Azure Portal. Este es un archivo createUiDef.json de ejemplo.
 
     {
         "handler": "Microsoft.HDInsight",
@@ -58,14 +60,10 @@ La publicación de aplicaciones en Azure Marketplace conlleva dos pasos.  En pri
 | tiers |Los niveles de clúster con los que es compatible la aplicación. |Standard, Premium (o ambos) |
 | versions |Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3.4 |
 
-## <a name="package-application"></a>Empaquetado de aplicación
-Cree un archivo zip que contenga todos los archivos requeridos para instalar aplicaciones de HDInsight. Dicho archivo zip lo necesitará en [Publicación de la aplicación](#publish-application).
-
-* [createUiDefinition.json](#define-application).
-* mainTemplate.json. En [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md), puede encontrar un ejemplo.
-  
+## <a name="application-install-script"></a>Script de instalación de aplicación
+Siempre que se instala una aplicación en un clúster (uno ya existente o uno nuevo), se crea un nodo perimetral y el script de instalación de aplicación se ejecuta en él.
   > [!IMPORTANT]
-  > El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y tener el formato siguiente. Además, cualquier acción de script de instalación y desinstalación debe ser idempotente, lo que significa que los scripts se pueden llamar de forma repetida y el resultado siempre será el mismo.
+  > El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y tener el formato siguiente.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -77,12 +75,22 @@ Cree un archivo zip que contenga todos los archivos requeridos para instalar apl
   > 
   > El ejemplo anterior se acaba convirtiendo en: hue-install-v0-4wkahss55hlas en la lista de acciones de script persistentes. Para ver una carga de JSON de ejemplo, diríjase a [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
-  > 
+El script de instalación debe tener las siguientes características:
+1. Asegúrese de que el script sea idempotente. Las distintas llamadas al script deben producir el mismo resultado.
+2. El script debe tener las versiones correctas. Use otra ubicación para el script cuando esté actualizando o probando cambios para que los clientes que estén intentando instalar la aplicación no se vean afectados. 
+3. Agregue un registro adecuado a los scripts en cada momento. Normalmente los registros de script son la única manera de depurar problemas de instalación de aplicaciones.
+4. Asegúrese de que las llamadas a servicios o recursos externos tengan reintentos adecuados para que la instalación no se vea afectada por problemas de red transitorios.
+5. Si el script inicia servicios en los nodos, asegúrese de que los servicios se supervisen y configuren para iniciarse automáticamente en caso de reinicio del nodo.
+
+## <a name="package-application"></a>Empaquetado de aplicación
+Cree un archivo zip que contenga todos los archivos requeridos para instalar aplicaciones de HDInsight. Dicho archivo zip lo necesitará en [Publicación de la aplicación](#publish-application).
+
+* [createUiDefinition.json](#define-application).
+* mainTemplate.json. En [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md), puede encontrar un ejemplo.
 * Todos los scripts requeridos.
 
 > [!NOTE]
 > Los archivos de aplicación (incluidos los archivos de aplicación web, en caso de que haya) se pueden ubicar en cualquier punto de conexión con acceso público.
-> 
 > 
 
 ## <a name="publish-application"></a>Publicación de la aplicación
@@ -104,10 +112,5 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 * [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
 * [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a llamar a plantillas de Resource Manager para crear clústeres de HDInsight.
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)(Utilización de nodos perimetrales vacíos en HDInsight): aprenda a usar un nodo perimetral vacío para acceder a los clústeres de HDInsight, probar aplicaciones de este y hospedarlas.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

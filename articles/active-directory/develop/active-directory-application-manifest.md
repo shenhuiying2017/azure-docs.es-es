@@ -17,6 +17,7 @@ ms.author: dkershaw;bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
 ms.openlocfilehash: 2dc166a346c58d43e9ed60332f47619c1de89816
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -41,7 +42,7 @@ Como consecuencia, para conocer el formato y las propiedades del manifiesto de a
 * **Solicitar a Azure AD que emita una notificación de pertenencias a grupos** para el usuario que inició sesión (groupMembershipClaims).  Esto también se puede configurar para emitir notificaciones sobre pertenencias a los roles de directorio del usuario. Para ver un ejemplo de implementación, consulte el artículo [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] (Autorización en aplicaciones en la nube mediante grupos de AD).
 * **Permitir que la aplicación admita flujos de concesión implícita de OAuth 2.0** (oauth2AllowImplicitFlow). Este tipo de flujo de concesión se utiliza con páginas web JavaScript integradas o aplicaciones de página única (SPA). Para más información sobre la concesión de autorización implícita, consulte [Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)][IMPLICIT-GRANT].
 * **Habilitar el uso de certificados X509 como clave secreta** (keyCredentials). Para ver ejemplos de implementación, consulte los artículos [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] (Compilación de aplicaciones de servicio y de demonio en Office 365) y [Developer’s guide to auth with Azure Resource Manager API][DEV-GUIDE-TO-AUTH-WITH-ARM] (Guía del desarrollador para la autenticación con la API de Azure Resource Manager).
-* **Agregar un nuevo URI de id. de aplicación ** para su aplicación (identifierURIs[]). Los URI de id. de aplicación se usan para identificar de forma exclusiva una aplicación dentro de su inquilino de Azure AD (o entre varios inquilinos de Azure AD, para escenarios de múltiples inquilinos cuando se califican mediante un dominio personalizado verificado). Se emplean cuando se solicitan permisos para una aplicación de recursos o cuando se obtiene un token de acceso para una aplicación de recursos. Al actualizar este elemento, se realiza la misma actualización en la colección servicePrincipalNames[] de la entidad de servicio correspondiente, que se encuentra en el inquilino principal de la aplicación.
+* **Agregar un nuevo URI de id. de aplicación** para su aplicación (identifierURIs[]). Los URI de id. de aplicación se usan para identificar de forma exclusiva una aplicación dentro de su inquilino de Azure AD (o entre varios inquilinos de Azure AD, para escenarios de múltiples inquilinos cuando se califican mediante un dominio personalizado verificado). Se emplean cuando se solicitan permisos para una aplicación de recursos o cuando se obtiene un token de acceso para una aplicación de recursos. Al actualizar este elemento, se realiza la misma actualización en la colección servicePrincipalNames[] de la entidad de servicio correspondiente, que se encuentra en el inquilino principal de la aplicación.
 
 El manifiesto de aplicación también proporciona una forma adecuada de realizar un seguimiento del estado del registro de la aplicación. Como está disponible en formato JSON, la representación del archivo se puede proteger en el control de código fuente, junto con el código fuente de la aplicación.
 
@@ -112,10 +113,5 @@ Use la siguiente sección de comentarios para proporcionar sus opiniones y ayuda
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

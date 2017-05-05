@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 33a5e085722fd9accf70793a580b5c8a5dc124c4
 ms.openlocfilehash: 83cfbd6a4297577dc5284982fcc5d0c1318fbf5c
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -100,7 +101,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con EthicsPoint
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de EthicsPoint Incident Management (EPIM)](#creating-a-ethicspoint-incident-management-test-user) **: para tener un homólogo de Britta Simon en EthicsPoint Incident Management (EPIM) que esté vinculado a su representación de Azure AD.
+3. **[Creación de un usuario de prueba de EthicsPoint Incident Management (EPIM)](#creating-a-ethicspoint-incident-management-test-user)**: para tener un homólogo de Britta Simon en EthicsPoint Incident Management (EPIM) que esté vinculado a su representación de Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -267,9 +268,4 @@ Al hacer clic en el icono de EthicsPoint Incident Management (EPIM) en el Panel 
 [203]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

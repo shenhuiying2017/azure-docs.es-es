@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -72,6 +72,14 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 
 **R.:** Montamos un recurso compartido SMB en el directorio \home\. Esto invalida cualquier contenido de dicho directorio.
 
+**P:** ¿Cuál es el formato de la dirección URL del servidor del Registro privado?
+
+**R:** Tiene que escribir la dirección URL completa del Registro, incluido "http://" o "https://".
+
+**P:** ¿Cuál es el formato del nombre de la imagen en la opción del Registro privado?
+
+**R:** Debe agregar el nombre completo de la imagen, incluida la dirección URL del Registro privado (p. ej. myacr.azurecr.io/dotnet:latest)
+
 **P:** Quiero exponer más de un puerto en mi imagen de contenedor personalizado. ¿Es posible?
 
 **R.:** Actualmente no se admite.
@@ -87,6 +95,10 @@ Si tiene alguna pregunta, comente el artículo y le responderemos tan pronto com
 **P.:** Mi contenedor personalizado escucha a un puerto distinto al puerto 80. ¿Cómo puedo configurar mi aplicación para enrutar las solicitudes hacia ese puerto?
 
 **R.:** Puede especificar un parámetro de la aplicación llamado **PORT** y asignarle el valor del número de puerto esperado.
+
+**P:** ¿Es necesario implementar HTTPS en mi contenedor personalizado?
+
+**R:** No, la plataforma controla la terminación HTTPS en los front-end compartidos.
 
 ## <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 

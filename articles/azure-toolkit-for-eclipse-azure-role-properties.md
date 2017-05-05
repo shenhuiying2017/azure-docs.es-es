@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Las siguientes páginas de propiedades están disponibles para los roles de Azur
 * [Propiedades de almacenamiento en caché](#caching_properties)
 * [Propiedades de certificados](#certificates_properties)
 * [Propiedades de componentes](#components_properties)
-* [Propiedades de depuración](#debugging_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
 * [Propiedades de puntos de conexión](#endpoints_properties)
 * [Propiedades de variables de entorno](#environment_variables_properties)
 * [Propiedades de equilibrio de carga y de afinidad de la sesión (conocidas también como "sesiones temporales")](#session_affinity_properties)
@@ -157,7 +158,7 @@ A continuación se muestra un ejemplo para agregar un nuevo componente WAR.
 
 ![][ic719503]
 
-Al realizar la implementación en la nube (no en el emulador de proceso), si desea implementar el componente a partir de una descarga, asegúrese que la casilla **Cuando esté en la nube, en lugar de incluir en el paquete, implementar desde** está activada. Si desea realizar la descarga desde su cuenta de almacenamiento de Azure, seleccione dicha cuenta en la lista desplegable **Cuenta de almacenamiento** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL. Si no desea usar Azure Storage, seleccione **(ninguno)** en la lista desplegable **Cuenta de almacenamiento** y escriba la dirección URL del componente en el campo **URL**. Especifique uno de los siguientes métodos:
+Al realizar la implementación en la nube (no en el emulador de proceso), si desea implementar el componente a partir de una descarga, asegúrese que la casilla **Cuando esté en la nube, en lugar de incluir en el paquete, implementar desde** está activada. Si desea realizar la descarga desde su cuenta de Azure Storage, seleccione dicha cuenta en la lista desplegable **Cuenta de Storage** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL. Si no desea usar Azure Storage, seleccione **(ninguno)** en la lista desplegable **Cuenta de Storage** y escriba la dirección URL del componente en el campo **URL**. Especifique uno de los siguientes métodos:
 
 * **copy:** el componente de descarga se copia en la ruta de acceso de destino especificada por la ruta **Al directorio**.
 * **same:** se usa el mismo método para **Implementar desde descarga** que para **Implementar desde paquete**.
@@ -174,14 +175,14 @@ Las reglas se procesan en el orden de la lista. Utilice los botones **Subir** y 
 > 
 > 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### <a name="debugging-properties"></a>Propiedades de depuración
-Abra el menú contextual del rol en el panel del Explorador de proyectos de Eclipse, haga clic en **Azure** y, a continuación, en **Depuración**. Desde este cuadro de diálogo puede habilitar o deshabilitar la depuración remota, así como crear configuraciones de depuración, como se muestra en la siguiente imagen.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-Para obtener más información acerca de la depuración, consulte [Depuración de aplicaciones de Azure en Eclipse][Debugging Azure Applications in Eclipse].
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -206,13 +207,13 @@ Si desea usar un número de puerto individual en lugar de un intervalo, deje el 
 
 En los puertos que se establecen en automático, si necesita determinar qué puerto se usa en tiempo de ejecución, la aplicación puede usar la API del tiempo de ejecución del servicio de Azure, que se documenta en el [resumen del paquete com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Para ver cómo se pueden usar los puntos de conexión de entrada de instancias como ayuda para la depuración de una implementación de instancias múltiples, consulte [Depuración de una instancia de rol específica en una implementación de varias instancias][Debugging a specific role instance in a multi-instance deployment].
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 Para modificar un punto de conexión, selecciónelo y haga clic en el botón **Editar** de la página de propiedades **Extremos**. Se abrirá un cuadro de diálogo que le permite modificar el nombre y tipo del punto de conexión, así como sus puertos público y privado. Presione **Aceptar** para guardar los valores modificados del punto de conexión.
 
 Para eliminar un punto de conexión, selecciónelo y haga clic en el botón **Quitar** de la página de propiedades **Extremos** y, a continuación, haga clic en **Sí** para confirmar la eliminación.
 
-Para configurar correctamente algunas de las características (como el almacenamiento en caché, la depuración remota, la afinidad de sesiones o la descarga de SSL) habilitadas por el usuario en un rol, el kit de herramientas puede configurar automáticamente los puntos de conexión especiales que se enumerarán junto con los puntos de conexión definidos por el usuario. El kit de herramientas evita que los usuarios editen o eliminen los puntos de conexión generados automáticamente, siempre que la función asociada esté habilitada.
+Para configurar correctamente algunas de las características (como el almacenamiento en caché, la afinidad de sesiones o la descarga de SSL) habilitadas por el usuario en un rol, el kit de herramientas puede configurar automáticamente los puntos de conexión especiales que se enumerarán junto con los puntos de conexión definidos por el usuario. El kit de herramientas evita que los usuarios editen o eliminen los puntos de conexión generados automáticamente, siempre que la función asociada esté habilitada.
 
 <a name="environment_variables_properties"></a> 
 
@@ -311,9 +312,9 @@ Si usa la opción **Implementar un paquete JDK de terceros disponible en Azure**
 Si usa la opción **Implementar un JDK desde una descarga personalizada** :
 
 1. Cree un archivo ZIP del directorio de instalación de JDK y asegúrese de que el nodo del directorio es el elemento secundario de la estructura del archivo ZIP, no su contenido. Anote el nombre del directorio, ya que lo necesitará más adelante, y tenga en cuenta que esta instalación de JDK se implementará en una máquina virtual de Windows.
-2. Cargue el archivo ZIP en su cuenta de almacenamiento de Azure como un blob. Para ello, puede usar cualquier herramienta externa para cargar blobs en Almacenamiento de Azure. Se recomienda usar un blob privado. Anote de la dirección URL del blob del contenido del archivo ZIP.
+2. Cargue el archivo ZIP en su cuenta de Azure Storage como un blob. Para ello, puede usar cualquier herramienta externa para cargar blobs en Azure Storage. Se recomienda usar un blob privado. Anote de la dirección URL del blob del contenido del archivo ZIP.
 3. Active la casilla **Implementar un JDK desde una descarga personalizada**.
-    Si desea realizar la descarga desde su cuenta de almacenamiento de Azure, seleccione dicha cuenta en la lista desplegable **Cuenta de almacenamiento** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL. Si no desea usar Azure Storage, seleccione **(none)** en la lista desplegable **Cuenta de almacenamiento** y escriba la dirección URL de la descarga de JDK en el campo **URL**. Si usa el almacenamiento de Azure, los nombres de blob de la dirección URL deben escribirse en minúscula.
+    Si desea realizar la descarga desde su cuenta de Azure Storage, seleccione dicha cuenta en la lista desplegable **Cuenta de Storage** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL. Si no desea usar Azure Storage, seleccione **(none)** en la lista desplegable **Cuenta de Storage** y escriba la dirección URL de la descarga de JDK en el campo **URL**. Si usa Azure Storage, los nombres de blob de la dirección URL deben escribirse en minúscula.
 4. Asegúrese de que el cuadro de texto **JAVA_HOME** hace referencia al nombre de directorio correcto. De forma predeterminada, hará referencia al mismo nombre de directorio de JDK que el valor que eligió para su uso local. Pero si el directorio que se incluye en el archivo ZIP tiene un nombre distinto (por ejemplo, porque se use una versión diferente), actualice el nombre del directorio en el cuadro de texto **JAVA_HOME** en consecuencia, ya que esta configuración se usará en la nube (no en el emulador de proceso).
 5. Haga clic en **Aceptar** para guardar los cambios.
 
@@ -342,7 +343,7 @@ Si usa la opción **Implementar desde una descarga personalizada** :
 
 1. Asegúrese de que ha seleccionado el tipo de servidor según los pasos anteriores. Esto indica al complemento cómo implementar el servidor desde una descarga personalizada, ya que debe pertenecer a la misma familia que el tipo de servidor seleccionado.
 2. Active la casilla **Implementar desde una descarga personalizada**.
-    Si desea realizar la descarga desde su cuenta de almacenamiento de Azure, seleccione dicha cuenta en la lista desplegable **Cuenta de almacenamiento** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL del archivo ZIP de descarga del servidor (si se usa Azure Storage, los nombres de blob en la URL deben escribirse en minúsculas). Si no desea usar Azure Storage, seleccione **(none)** en la lista desplegable **Cuenta de almacenamiento** y escriba la dirección URL del archivo ZIP de descarga del servidor en el campo **URL**. El archivo ZIP contendría una carpeta secundaria que representa el directorio de instalación del servidor de aplicaciones. Por ejemplo, si usa un archivo zip para Apache Tomcat 7.0.35, dicho archivo contendría la carpeta secundaria que representa el directorio de instalación, como **tomcat-apache-7.0.35**. 
+    Si desea realizar la descarga desde su cuenta de Azure Storage, seleccione dicha cuenta en la lista desplegable **Cuenta de Storage** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL del archivo ZIP de descarga del servidor (si se usa Azure Storage, los nombres de blob en la URL deben escribirse en minúsculas). Si no desea usar Azure Storage, seleccione **(none)** en la lista desplegable **Cuenta de Storage** y escriba la dirección URL del archivo ZIP de descarga del servidor en el campo **URL**. El archivo ZIP contendría una carpeta secundaria que representa el directorio de instalación del servidor de aplicaciones. Por ejemplo, si usa un archivo zip para Apache Tomcat 7.0.35, dicho archivo contendría la carpeta secundaria que representa el directorio de instalación, como **tomcat-apache-7.0.35**. 
 3. Especifique el valor de la variable de entorno del directorio de inicio. De manera predeterminada, será el valor que se usa para el servidor de aplicaciones local, en caso de haber alguno, pero si el servidor de aplicaciones en la nube es distinto del local, se puede especificar otro valor. Sin embargo, es preciso asegurarse de que el servidor de aplicaciones en la nube es de la misma familia que el tipo de servidor seleccionado anteriormente.
     Si actualiza el archivo zip del servidor de aplicaciones de nube en el futuro, puede cambiar manualmente la configuración del directorio particular, o bien, hacer que vuelva a coincidir con la configuración local (si también cambió el servidor de aplicaciones local).
 4. Haga clic en **Aceptar** para guardar los cambios.
@@ -352,7 +353,7 @@ La lógica subyacente que indica qué elementos aparecen en la pestaña **Servid
 Si usa la opción **Implementar mi servidor local (carga automática en almacenamiento en la nube)** :
 
 1. Active la casilla **Implementar mi servidor local (carga automática en almacenamiento en la nube)**.
-2. En la lista desplegable **cuenta de almacenamiento**, seleccione **(automático)**. Si especifica **(automático)**, el kit de herramientas de Eclipse usará para el servidor la misma cuenta de almacenamiento que la que seleccione para la implementación en el cuadro de diálogo **Publicar en Azure**.
+2. En la lista desplegable **Cuenta de Storage**, seleccione **(automático)**. Si especifica **(automático)**, el kit de herramientas de Eclipse usará para el servidor la misma cuenta de almacenamiento que la que seleccione para la implementación en el cuadro de diálogo **Publicar en Azure**.
 3. Haga clic en **Aceptar** para guardar los cambios.
 
 Seleccione una ruta de instalación del servidor en el equipo en el cuadro de texto **Ruta de acceso del servidor Local** si se cumple cualquiera de las condiciones siguientes:
@@ -370,7 +371,7 @@ A continuación se muestra un ejemplo de cómo se puede especificar una aplicaci
 
 Haga clic en **Agregar** para agregar otra aplicación o en **Quitar** para quitar una aplicación. Por eficiencia, si desea usar una descarga como origen de una aplicación al implementarla en la nube, use las [propiedades de los componentes](#components_properties) para especificar una dirección URL, cuenta de almacenamiento, etc. 
 
-A partir de la versión de abril de 2014, las aplicaciones se cargan automáticamente en la cuenta de almacenamiento (del contenedor **eclipsedeploy** ) seleccionada para la implementación. La lógica de inicio de la implementación contiene un paso que primero descarga las aplicaciones desde la cuenta de almacenamiento. Esto significa que puede actualizar las aplicaciones en la implementación sin que sea preciso volver a generar e implementar todo el paquete mediante la carga manual de las versiones más recientes de la aplicación directamente en dicha cuenta de almacenamiento (por ejemplo, mediante el uso del Portal de Azure) y la sustitución de los archivos WAR cargados originalmente por parte del kit de herramientas. A continuación, simplemente inicie el reciclado de todas las instancias de rol mediante el Portal de administración de Azure o de las utilidades de la línea de comandos. (Actualmente no se admite la activación del reciclado del rol directamente desde el kit de herramientas de Eclipse.)
+A partir de la versión de abril de 2014, las aplicaciones se cargan automáticamente en la cuenta de almacenamiento (del contenedor **eclipsedeploy** ) seleccionada para la implementación. La lógica de inicio de la implementación contiene un paso que primero descarga las aplicaciones desde la cuenta de almacenamiento. Esto significa que puede actualizar las aplicaciones en la implementación sin que sea preciso volver a generar e implementar todo el paquete mediante la carga manual de las versiones más recientes de la aplicación directamente en dicha cuenta de almacenamiento (por ejemplo, mediante el uso de Azure Portal) y la sustitución de los archivos WAR cargados originalmente por parte del kit de herramientas. A continuación, simplemente inicie el reciclado de todas las instancias de rol mediante el Portal de administración de Azure o de las utilidades de la línea de comandos. (Actualmente no se admite la activación del reciclado del rol directamente desde el kit de herramientas de Eclipse.)
 
 ### <a name="notes-about-server-configuration"></a>Notas sobre la configuración del servidor
 Los cambios realizados mediante la página de propiedades **Configuración del servidor** se reflejan en los elementos `<component>` del archivo package.xml.
@@ -457,9 +458,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2017
+ms.date: 04/25/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017, end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 6872b216ab2bfd5823b65b1bb70d503c7628ee13
-ms.openlocfilehash: 26d9f04f9d3019ab5fcad48ef1e9821a4dd6a724
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 6bcf667849a8cb52126f832eed0b99a893182150
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introducción a la aplicación Microsoft Authenticator
@@ -43,7 +43,7 @@ Para una cuenta Microsoft personal (una que use para iniciar sesión en Outlook.
 
 ### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Incorporación de una cuenta profesional o educativa a la aplicación con el escáner de códigos QR
 1. Vaya a la pantalla de configuración de comprobación de seguridad.  Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Active la casilla junto a **aplicación Azure Authenticator** y , a continuación, seleccione **Configurar**.
+2. Active la casilla situada junto a **Aplicación Authenticator** y luego seleccione **Configurar**.
 
     ![Botón Configurar en la pantalla de configuración de la comprobación de seguridad](./media/authenticator-app-how-to/azureauthe.png)
 

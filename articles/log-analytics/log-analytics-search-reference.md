@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f819992125f77897545ce3194870b1eadf400852
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -609,6 +609,85 @@ Ejemplo:
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 En este ejemplo se devuelve un evento (el último evento) por EventID.
+
+### <a name="join"></a>Unión
+Combina los resultados de dos consultas para formar un único conjunto de resultados.  Admite varios tipos de combinación que se describen en la tabla siguiente.
+  
+| Tipo de combinación | Descripción |
+|:--|:--|
+| interna | Devuelve solo aquellos registros con un valor coincidente en ambas consultas. |
+| externa | Devuelve todos los registros de ambas consultas.  |
+| izquierda  | Devuelve todos los registros de la consulta izquierda y los coincidentes de la consulta derecha. |
+
+
+- Actualmente las combinaciones no admiten consultas que incluyan la palabra clave **IN** ni el comando **measure**.
+- De momento solo se puede incluir un campo único en una combinación.
+- Una búsqueda única no puede incluir más de una combinación.
+
+**Sintaxis**
+
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
+
+**Ejemplos**
+
+Para ilustrar los distintos tipos de combinación, considere la posibilidad de combinar un tipo de datos recopilado de un registro personalizado denominado MyBackup_CL con el latido de cada equipo.  Estos tipos de datos tienen los siguientes datos.
+
+`Type = MyBackup_CL`
+
+| TimeGenerated | Equipo | LastBackupStatus |
+|:---|:---|:---|
+| 4/20/2017 01:26:32.137 AM | srv01.contoso.com | Correcto |
+| 4/20/2017 02:13:12.381 AM | srv02.contoso.com | Correcto |
+| 4/20/2017 02:13:12.381 AM | srv03.contoso.com | Error |
+
+`Type = Hearbeat` (Solo se muestra un subconjunto de campos)
+
+| TimeGenerated | Equipo | ComputerIP |
+|:---|:---|:---|
+| 4/21/2017 12:01:34.482 PM | srv01.contoso.com | 10.10.100.1 |
+| 4/21/2017 12:02:21.916 PM | srv02.contoso.com | 10.10.100.2 |
+| 4/21/2017 12:01:47.373 PM | srv04.contoso.com | 10.10.100.4 |
+
+#### <a name="inner-join"></a>combinación interna
+
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
+
+Devuelve los siguientes registros donde el campo de equipo coincide en ambos tipos de datos.
+
+| Equipo| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Correcto | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Latido |
+| srv02.contoso.com | 4/20/2017 02:13:12.381 AM | Correcto | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Latido |
+
+
+#### <a name="outer-join"></a>combinación externa
+
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
+
+Devuelve los registros siguientes para ambos tipos de datos.
+
+| Equipo| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Correcto  | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Latido |
+| srv02.contoso.com | 4/20/2017 02:14:12.381 AM | Correcto  | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Latido |
+| srv03.contoso.com | 4/20/2017 01:33:35.974 AM | Error  | 4/21/2017 12:01:47.373 PM | | |
+| srv04.contoso.com |                           |          | 4/21/2017 12:01:47.373 PM | 10.10.100.2 | Latido |
+
+
+
+#### <a name="left-join"></a>combinación izquierda
+
+`Type=MyBackup_CL | join left Computer (Type=Heartbeat) Computer`
+
+Devuelve los siguientes registros de MyBackup_CL con los campos coincidentes de Latido.
+
+| Equipo| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Correcto | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Latido |
+| srv02.contoso.com | 4/20/2017 02:13:12.381 AM | Correcto | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Latido |
+| srv03.contoso.com | 4/20/2017 02:13:12.381 AM | Error | | | |
 
 
 ### <a name="extend"></a>Extend

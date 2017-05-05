@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 23714856f0f778be04cf321e0726b53ade430f57
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -28,6 +29,15 @@ Este artículo contiene información sobre las diversas versiones y actualizacio
 > También hay un kit de herramientas de Azure para el IDE de Eclipse. Para obtener más información, consulte [Kit de herramientas de Azure para Eclipse].
 > 
 > 
+
+### <a name="april-14-2017"></a>14 de abril de 2017
+El kit de herramientas de Azure para IntelliJ, versión de abril de 2017, incluye las siguientes mejoras:
+
+* **Experiencia de inicio de sesión mejorada de Azure**: el kit de herramientas de Azure para IntelliJ ahora admite dos métodos para iniciar sesión en la cuenta de Azure: *interactivo* y *automatizado*. Para más información, vea [Instrucciones de inicio de sesión de Azure del kit de herramientas de Azure para IntelliJ].
+* **Publicación con contenedores de Docker**: ahora puede publicar las aplicaciones web como contenedores de Docker mediante el kit de herramientas de Azure para IntelliJ. Para más información, vea [Cómo publicar una aplicación web como un contenedor de Docker mediante el kit de herramientas de Azure para IntelliJ].
+* **Administración de cuentas de almacenamiento**: el kit de herramientas de Azure para IntelliJ ahora admite la administración de las cuentas de almacenamiento desde la vista del explorador de Azure. Para más información, vea [Administración de cuentas de almacenamiento mediante Azure Explorer para IntelliJ].
+* **Administración de máquinas virtuales**: el kit de herramientas de Azure para IntelliJ ahora admite la administración de las máquinas virtuales desde la ventana de herramientas del explorador de Azure. Para más información, vea [Administración de máquinas virtuales mediante Azure Explorer para IntelliJ].
+* **Eliminación de la compatibilidad con la depuración remota**. La depuración remota de aplicaciones web de Java en Azure App Service se ha eliminado del kit de herramientas de Azure para IntelliJ; esto ha sido necesario para resolver algunos problemas que los clientes experimentaban al usar el kit de herramientas.
 
 ### <a name="august-26-2016"></a>26 de agosto de 2016
 En la versión de agosto de 2016, el Kit de herramientas de Azure para IntelliJ incluye las siguientes mejoras:
@@ -47,8 +57,8 @@ El kit de herramientas de Azure para IntelliJ, versión de junio de 2016, incluy
 * **Compatibilidad para el JDK más reciente de Java**. Las versiones más recientes de los JDK de Java ahora admiten el Kit de herramientas de Azure para IntelliJ.
 * **Compatibilidad con la versión 2.9.1 del SDK de Azure**. La versión más reciente del SDK de Azure ahora es el requisito previo mínimo para el kit de herramientas de Azure para IntelliJ.
 * **Ejemplos integrados**. El Kit de herramientas de Azure para IntelliJ ahora cuenta con varias aplicaciones de ejemplo para ayudar a los desarrolladores a empezar a trabajar.
-* **Integración de herramientas de HDInsight**. Las herramientas de HDInsight de Azure ahora están incluidas en el Kit de herramientas de Azure para IntelliJ. Para más información, consulte [Complemento Herramientas de HDInsight para IntelliJ].
-* **Depuración remota de aplicaciones web de Java**. El Kit de herramientas de Azure para IntelliJ ahora admite la depuración remota de aplicaciones web de Java en el Servicio de aplicaciones de Azure.
+* **Integración de herramientas de HDInsight**. Las herramientas de Azure HDInsight ahora están incluidas en el Kit de herramientas de Azure para IntelliJ. Para más información, consulte [Complemento Herramientas de HDInsight para IntelliJ].
+* **Depuración remota de Java Web Apps**. El Kit de herramientas de Azure para IntelliJ ahora admite la depuración remota de aplicaciones web de Java en Azure App Service.
 
 ### <a name="april-12-2016"></a>12 de abril de 2016
 El kit de herramientas de Azure para IntelliJ, versión de abril de 2016, incluye las siguientes mejoras:
@@ -61,13 +71,15 @@ El kit de herramientas de Azure para IntelliJ, versión de abril de 2016, incluy
 Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
 
 * [Kit de herramientas de Azure para Eclipse]
+  * [Novedades del kit de herramientas de Azure para Eclipse]
   * [Instalación del Kit de herramientas de Azure para Eclipse]
   * [Creación de una aplicación web Hello World para Azure en Eclipse]
-  * [Novedades del kit de herramientas de Azure para Eclipse]
+  * [Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse]
 * [Kit de herramientas de Azure para IntelliJ]
-  * [Instalación del kit de herramientas de Azure para IntelliJ]
-  * [Creación de una aplicación web Hello World para Azure en IntelliJ]
   * *Novedades del kit de herramientas de Azure para IntelliJ (este artículo)*
+  * [Instalación del kit de herramientas de Azure para IntelliJ]
+  * [Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ]
+  * [Creación de una aplicación web Hello World para Azure en IntelliJ]
 
 Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
@@ -79,15 +91,17 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Creación de una aplicación web Hello World para Azure en IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalación del Kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalación del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Novedades del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Instrucciones de inicio de sesión de Azure del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Cómo publicar una aplicación web como un contenedor de Docker mediante el kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
+[Administración de cuentas de almacenamiento mediante Azure Explorer para IntelliJ]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[Administración de máquinas virtuales mediante Azure Explorer para IntelliJ]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
 
 [Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [Complemento Herramientas de HDInsight para IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

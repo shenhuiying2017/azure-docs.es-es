@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: patricka
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9a3fca0c81f44b456b8d0201201ffb73b904a0a5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45e899364f467404c9a817825e157ba12494a2fa
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ La API Graph de Azure Active Directory (AD) proporciona acceso mediante programa
 En la API Graph, para tener acceso a los datos y objetos de los directorios (en otras palabras, a los recursos o entidades) con los que desee realizar operaciones CRUD, puede usar direcciones URL basadas en el protocolo Open Data (OData) Protocol. Las direcciones URL que se usan en la API Graph constan de cuatro partes principales: raíz del servicio, identificador de inquilino, ruta de acceso a recursos y opciones de cadena de consulta: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Tome como ejemplo la siguiente dirección URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
 * **Raíz del servicio**: en la API Graph de Azure AD, la raíz del servicio es siempre https://graph.windows.net.
-* **Identificador de inquilino**: puede ser un nombre de dominio (registrado) comprobado, en el ejemplo anterior, contoso.com. También puede ser un Id. de objeto de inquilino o los alias "myorganiztion" o "me". Para más información, consulte [Tratamiento de las entidades y las operaciones en la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
+* **Identificador de inquilino**: puede ser un nombre de dominio (registrado) comprobado, en el ejemplo anterior, contoso.com. También puede ser un identificador de objeto de inquilino o los alias "myorganization" o "me". Para más información, consulte [Tratamiento de las entidades y las operaciones en la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
 * **Ruta de acceso a recursos**: esta sección de una dirección URL identifica el recurso con el que se va a interactuar (usuarios, grupos, un usuario concreto o un grupo determinado, etc.) En el ejemplo anterior, son los "grupos" de nivel superior a los que se dirige este conjunto de recursos También se puede dirigir una entidad concreta, como por ejemplo, “users/{objectId}” o “users/userPrincipalName”.
 * **Parámetros de consulta**:? separa la sección de ruta de acceso a recursos de la sección de parámetros de consulta. Todas las solicitudes de la API Graph requieren el parámetro de consulta “api-version”. La API Graph también admite las siguientes opciones de consulta de OData: **$filter**, **$orderby**, **$expand**, **$top** y **$format**. Sin embargo, las siguientes opciones de consulta no están admitidas actualmente: **$count**, **$inlinecount** y **$skip**. Para obtener más información, consulte [Consultas admitidas, filtros y opciones de paginación en la API de gráficos de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 

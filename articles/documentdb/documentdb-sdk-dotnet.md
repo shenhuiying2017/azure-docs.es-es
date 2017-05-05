@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/19/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c953615ef370dc89ed09bb8a32dc2caf7a7bcc3b
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: b0e43aa89dbed801e5e212279582223b09eb9854
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -52,43 +52,47 @@ ms.lasthandoff: 03/30/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="a-name11311131httpswwwnugetorgpackagesmicrosoftazuredocumentdb1131"></a><a name="1.13.1"/>[1.13.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.1)
+### <a name="a-name11321132"></a><a name="1.13.2"/>1.13.2
+* Se ha corregido un problema que omitía el valor PartitionKey proporcionado en FeedOptions para consultas de funciones agregadas.
+* Se ha corregido un problema en el control transparente de administración de particiones durante la ejecución entre particiones de la consulta Order By.
+
+### <a name="a-name11311131"></a><a name="1.13.1"/>1.13.1
 * Se ha corregido un problema que provocaba interbloqueos en algunas de las API asincrónicas cuando se empleaban en el contexto de ASP.NET.
 
-### <a name="a-name11301130httpswwwnugetorgpackagesmicrosoftazuredocumentdb1130"></a><a name="1.13.0"/>[1.13.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.13.0)
+### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
 * Correcciones para aumentar la resistencia de los SDK frente a la conmutación automática por error en determinadas condiciones.
 
-### <a name="a-name11221122httpswwwnugetorgpackagesmicrosoftazuredocumentdb1122"></a><a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
 * Corrección de un problema que, en ocasiones, provoca una excepción WebException: No se puede resolver el nombre remoto.
 * Se ha agregado compatibilidad para leer un documento escrito directamente mediante la adición de nuevas sobrecargas a la API ReadDocumentAsync.
 
-### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
+### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
 * Se agregó compatibilidad con consultas de agregación para LINQ (COUNT, MIN, MAX, SUM y AVG).
 * Se corrigió un problema de pérdida de memoria para el objeto ConnectionPolicy causado por el uso del controlador de eventos.
 * Se corrigió un problema por el que UpsertAttachmentAsync no funcionaba cuando se usaba el valor ETag.
 * Se corrigió un problema por el que la continuación de la consulta order-by en la partición cruzada no funcionaba cuando se ordenaba por un campo de cadena.
 
-### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
 * Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](documentdb-sql-query.md#Aggregates).
 * Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
 
-### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
 * Corrección para un problema por el cual algunas de las consultas entre particiones no funcionaban correctamente en el proceso de host de 32 bits.
 * Corrección para un problema por el cual el contenedor de la sesión no se actualizaba con el token para solicitudes erróneas en el modo de puerta de enlace.
 * Corrección para un problema por el cual una consulta con llamadas UDF en proyección daba error en algunos casos.
 * Revisiones de rendimiento de lado cliente para aumentar el procesamiento de lectura y escritura de las solicitudes.
 
-### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+### <a name="a-name11131113"></a><a name="1.11.3"/>1.11.3
 * Corrección para un problema por el cual el contenedor de la sesión no se actualizaba con el token para solicitudes erróneas.
 * Se agregó compatibilidad para que el SDK funcione en un proceso de host de 32 bits. Tenga en cuenta que si utiliza consultas entre particiones, se recomienda el procesamiento de host de 64 bits para obtener un mejor rendimiento.
 * Se mejoró el rendimiento en escenarios con consultas que tienen un número elevado de valores de clave de partición en una expresión IN.
 * Se rellenaron diversas estadísticas de cuotas de recursos en ResourceResponse para las solicitudes de lectura de recopilación de documentos al establecer la opción de solicitud de PopulateQuotaInfo.
 
-### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
+### <a name="a-name11111111"></a><a name="1.11.1"/>1.11.1
 * Corrección menor del rendimiento de la API de CreateDocumentCollectionIfNotExistsAsync incluida en 1.11.0.
 * Corrección del rendimiento en el SDK para escenarios que implican un alto grado de solicitudes simultáneas.
 
-### <a name="a-name11101110httpswwwnugetorgpackagesmicrosoftazuredocumentdb1110"></a><a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
 * Compatibilidad con nuevas clases y nuevos métodos para procesar la [fuente de cambios](documentdb-change-feed.md) de documentos que forman parte de una colección.
 * Compatibilidad con la continuación de consultas entre particiones y algunas mejoras de rendimiento para las consultas entre particiones.
 * Adición de métodos CreateDatabaseIfNotExistsAsync y CreateDocumentCollectionIfNotExistsAsync.
@@ -96,26 +100,26 @@ ms.lasthandoff: 03/30/2017
 * Corrección para colocación automática de bins de los ensamblados Microsoft.Azure.Documents.ServiceInterop.dll y DocumentDB.Spatial.Sql.dll a la carpeta bin de la aplicación cuando se usa el paquete NuGet con proyectos que tienen herramientas de project.json.
 * Compatibilidad con la emisión de los seguimientos de ETW de lado cliente que podrían resultar útiles en escenarios de depuración.
 
-### <a name="a-name11001100httpswwwnugetorgpackagesmicrosoftazuredocumentdb1100"></a><a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
+### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Se agregó compatibilidad de conectividad directa con colecciones con particiones.
 * Mejoró el rendimiento para el nivel de coherencia de uso vinculado.
 * Se han agregado los tipos de datos Polygon y LineString al especificar la directiva de indización de colecciones para las consultas espaciales de geovallado.
 * Se agregó compatibilidad de LINQ con StringEnumConverter, IsoDateTimeConverter y UnixDateTimeConverter, a la vez que se traducen los predicados.
 * Se corrigieron varios errores de SDK.
 
-### <a name="a-name195195httpswwwnugetorgpackagesmicrosoftazuredocumentdb195"></a><a name="1.9.5"/>[1.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
+### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
 * Se ha corregido un problema que provocaba el siguiente mensaje de error NotFoundException: The read session is not available for the input session token (La sesión de lectura no está disponible para el token de sesión de entrada). Esta excepción se produjo en algunos casos al consultar la región de lectura de una cuenta distribuida geográficamente.
 * Se ha expuesto la propiedad ResponseStream en la clase ResourceResponse que permite el acceso directo a la secuencia subyacente de una respuesta.
 
-### <a name="a-name194194httpswwwnugetorgpackagesmicrosoftazuredocumentdb194"></a><a name="1.9.4"/>[1.9.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.4)
+### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
 * Se han modificado las clases ResourceResponse, FeedResponse, StoredProcedureResponse y MediaResponse a fin de implementar la interfaz pública correspondiente para que se puedan simular con la finalidad de realizar una implementación basada en pruebas (TDD).
 * Se ha corregido un problema que generaba un encabezado de clave de partición con formato incorrecto al usar un objeto JsonSerializerSettings personalizado para serializar los datos.
 
-### <a name="a-name193193httpswwwnugetorgpackagesmicrosoftazuredocumentdb193"></a><a name="1.9.3"/>[1.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
+### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Se corrige un problema que causaba el error siguiente en las consultas de larga duración: El token de autorización no es válido en este momento.
 * Se corrige un problema que quitaba la colección SqlParameterCollection original de las consultas multipartición principal/ordenar por.
 
-### <a name="a-name192192httpswwwnugetorgpackagesmicrosoftazuredocumentdb192"></a><a name="1.9.2"/>[1.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Se ha agregado compatibilidad con las consultas paralelas en las colecciones particionadas.
 * Se ha agregado compatibilidad con las consultas ORDER BY y TOP entre particiones en las colecciones particionadas.
 * Se han corregido las referencias que faltaban en DocumentDB.Spatial.Sql.dll y Microsoft.Azure.Documents.ServiceInterop.dll, que se necesitan para hacer referencia a un proyecto de DocumentDB con una referencia al paquete NuGet de DocumentDB.
@@ -127,39 +131,39 @@ ms.lasthandoff: 03/30/2017
   * El método CreateOfferQuery que toma querySpec como un parámetro
 * Se ha quitado el sello de las clases públicas expuestas en la interfaz IDocumentClient.
 
-### <a name="a-name180180httpswwwnugetorgpackagesmicrosoftazuredocumentdb180"></a><a name="1.8.0"/>[1.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
+### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 * Se ha agregado compatibilidad con el reintento en solicitudes limitadas.  El usuario puede personalizar el número de reintentos y el tiempo de espera máximo mediante la configuración de la propiedad ConnectionPolicy.RetryOptions.
 * Se ha agregado una nueva interfaz IDocumentClient que define las firmas de todas las propiedades y métodos de DocumenClient.  Como parte de este cambio, también se han cambiado los métodos de extensión que crean IQueryable y IOrderedQueryable por los métodos de la propia clase DocumentClient.
 * Se ha agregado la opción de configuración para definir el valor de ServicePoint.ConnectionLimit para un identificador URI de punto de conexión dado de DocumentDB.  Use ConnectionPolicy.MaxConnectionLimit para cambiar el valor predeterminado, que está establecido en 50.
 * Se ha dejado de utilizar IPartitionResolver y su implementación.  La compatibilidad con IPartitionResolver está ahora obsoleta. Se recomienda usar colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
 
-### <a name="a-name171171httpswwwnugetorgpackagesmicrosoftazuredocumentdb171"></a><a name="1.7.1"/>[1.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * Se ha agregado una sobrecarga al identificador URI según el método ExecuteStoredProcedureAsync que toma RequestOptions como un parámetro.
 
-### <a name="a-name170170httpswwwnugetorgpackagesmicrosoftazuredocumentdb170"></a><a name="1.7.0"/>[1.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Se ha agregado compatibilidad con período de vida (TTL) para los documentos.
 
-### <a name="a-name163163httpswwwnugetorgpackagesmicrosoftazuredocumentdb163"></a><a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
+### <a name="a-name163163"></a><a name="1.6.3"/>1.6.3
 * Se corrige un error en el paquete de Nuget del SDK de .NET para empaquetarlo como parte de una solución de servicio en la nube de Azure.
 
-### <a name="a-name162162httpswwwnugetorgpackagesmicrosoftazuredocumentdb162"></a><a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
+### <a name="a-name162162"></a><a name="1.6.2"/>1.6.2
 * Se han implementado [colecciones particionadas](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
 
-### <a name="a-name153153httpswwwnugetorgpackagesmicrosoftazuredocumentdb153"></a><a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
+### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
 * **[Corregido]** La consulta del punto de conexión de DocumentDB genera: "System.Net.Http.HttpRequestException: Error al copiar contenido a una secuencia".
 
-### <a name="a-name152152httpswwwnugetorgpackagesmicrosoftazuredocumentdb152"></a><a name="1.5.2"/>[1.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
+### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Compatibilidad de LINQ ampliada, incluidos nuevos operadores de paginación, expresiones condicionales y comparación de intervalos.
   * Operador Take para habilitar el comportamiento de SELECT TOP en LINQ
   * Operador CompareTo para habilitar las comparaciones de intervalos de cadenas
   * Operadores conditional (?) y coalesce (??)
 * **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model en la consulta Where-In de LINQ.  [81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
-### <a name="a-name151151httpswwwnugetorgpackagesmicrosoftazuredocumentdb151"></a><a name="1.5.1"/>[1.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * **[Corregido]** Si Select no es la última expresión, el proveedor LINQ suponía que no había ninguna proyección y generaba SELECT * incorrectamente.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
-### <a name="a-name150150httpswwwnugetorgpackagesmicrosoftazuredocumentdb150"></a><a name="1.5.0"/>[1.5.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.0)
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Upsert implementada, métodos de UpsertXXXAsync agregados
 * Mejoras de rendimiento para todas las solicitudes
 * Compatibilidad del proveedor de LINQ con los métodos condicionales, de fusión y CompareTo para cadenas
@@ -167,10 +171,10 @@ ms.lasthandoff: 03/30/2017
 * **[Corregido]** BackoffRetryUtility usa el mismo HttpRequestMessage de nuevo en lugar de crear uno nuevo al reintentar
 * **[Obsoleto]** UriFactory.CreateCollection--> debería usar ahora UriFactory.CreateDocumentCollection
 
-### <a name="a-name141141httpswwwnugetorgpackagesmicrosoftazuredocumentdb141"></a><a name="1.4.1"/>[1.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 * **[Corregido]** problemas de localización al usar la información de referencia cultural diferente de EN como nl-NL etc. 
 
-### <a name="a-name140140httpswwwnugetorgpackagesmicrosoftazuredocumentdb140"></a><a name="1.4.0"/>[1.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Enrutamiento por identificador.
   * Nueva aplicación auxiliar UriFactory para ayudar a construir vínculos de recursos basados en identificador
   * Nuevas sobrecargas en DocumentClient para tener en cuenta URI
@@ -181,7 +185,7 @@ ms.lasthandoff: 03/30/2017
   * **Array** : Concat, Contains, Count
   * **IN** 
 
-### <a name="a-name130130httpswwwnugetorgpackagesmicrosoftazuredocumentdb130"></a><a name="1.3.0"/>[1.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.3.0)
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Se agregó compatibilidad para la modificación de las directivas de indexación
   * Nuevo método de ReplaceDocumentCollectionAsync en DocumentClient
   * Nueva propiedad IndexTransformationProgress en ResourceResponse<T> para el seguimiento del porcentaje de progreso de cambios de la directiva de índice
@@ -191,7 +195,7 @@ ms.lasthandoff: 03/30/2017
   * Nueva clase de SpatialIndex para la indexación de datos GeoJSON almacenados en DocumentDB
 * **[Corregido]** : consulta SQL incorrecta generada a partir de la expresión linq [n.º 38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
-### <a name="a-name120120httpswwwnugetorgpackagesmicrosoftazuredocumentdb120"></a><a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Dependencia de Newtonsoft.Json v5.0.7 
 * Cambios para admitir Order By
   
@@ -202,13 +206,13 @@ ms.lasthandoff: 03/30/2017
     
     Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, habrá que actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
 
-### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver
 * Serialización de DataContract
 * Compatibilidad con el GUID de proveedor de LINQ
 * Compatibilidad con UDF en LINQ
 
-### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdb100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK de GA
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
@@ -222,6 +226,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.13.2](#1.13.2) |19 de abril de 2017 |--- |
 | [1.13.1](#1.13.1) |29 de marzo de 2017 |--- |
 | [1.13.0](#1.13.0) |24 de marzo de 2017 |--- |
 | [1.12.2](#1.12.2) |20 de marzo de 2017 |--- |

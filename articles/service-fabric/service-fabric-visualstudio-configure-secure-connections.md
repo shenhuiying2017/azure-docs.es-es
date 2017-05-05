@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -26,7 +27,7 @@ Obtenga información sobre cómo usar Visual Studio para acceder de forma segura
 ## <a name="cluster-connection-types"></a>Tipos de conexión del clúster
 El clúster de Azure Service Fabric admite dos tipos de conexiones: conexiones **no seguras** y **basadas en certificados x509**. (En los clústeres de Service Fabric hospedados localmente también se admiten las autenticaciones de **Windows** y **dSTS**). Tendrá que configurar el tipo de conexión del clúster cuando se cree el clúster. Una vez creado, el tipo de conexión no se puede cambiar.
 
-Las herramientas de Visual Studio Service Fabric admiten todos los tipos de autenticación para conectarse a un clúster para la publicación. Consulte [Configuración de un clúster de Service Fabric en el Portal de Azure](service-fabric-cluster-creation-via-portal.md) para obtener instrucciones sobre cómo configurar un clúster de Service Fabric seguro.
+Las herramientas de Visual Studio Service Fabric admiten todos los tipos de autenticación para conectarse a un clúster para la publicación. Consulte [Configuración de un clúster de Service Fabric en Azure Portal](service-fabric-cluster-creation-via-portal.md) para obtener instrucciones sobre cómo configurar un clúster de Service Fabric seguro.
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>Configuración de las conexiones del clúster en perfiles de publicación
 Si publica un proyecto de Service Fabric desde Visual Studio, use el cuadro de diálogo **Publicar aplicación de Service Fabric** para elegir un clúster de Azure Service Fabric haciendo clic en el botón **Seleccionar** de la sección **Punto de conexión**. Puede iniciar sesión en su cuenta de Azure y, a continuación, seleccione un clúster existente en las suscripciones.
@@ -38,10 +39,10 @@ El cuadro de diálogo **Seleccionar clúster de Service Fabric** valida automát
 ![En el cuadro de diálogo **Select Service Fabric Cluster** (Seleccionar clúster de Service Fabric), puede configurar una conexión de clúster de Service Fabric existente o crear y configurar una conexión de clúster nueva.][selectsfcluster]
 
 ### <a name="to-connect-to-a-secure-cluster"></a>Para conectarse a un clúster seguro
-1. Asegúrese de que puede acceder a uno de los certificados de cliente en el que el clúster de destino puede confiar. Normalmente, el certificado se comparte como un archivo de intercambio de información personal (.pfx, Personal Information Exchange). Consulte [Configuración de un clúster de Service Fabric desde el Portal de Azure](service-fabric-cluster-creation-via-portal.md) para ver cómo configurar el servidor y conceder acceso a un cliente.
+1. Asegúrese de que puede acceder a uno de los certificados de cliente en el que el clúster de destino puede confiar. Normalmente, el certificado se comparte como un archivo de intercambio de información personal (.pfx, Personal Information Exchange). Consulte [Configuración de un clúster de Service Fabric desde Azure Portal](service-fabric-cluster-creation-via-portal.md) para ver cómo configurar el servidor y conceder acceso a un cliente.
 2. Instale el certificado de confianza. Para ello, haga doble clic en el archivo .pfx o use el script de PowerShell Import-PfxCertificate para importar los certificados. Instale el certificado en la ubicación **Cert:\LocalMachine\My**. Acepte toda la configuración predeterminada cuando importe el certificado.
 3. Elija el comando **Publicar...** en el menú contextual del proyecto para abrir el cuadro de diálogo **Publicar aplicación de Azure** y, a continuación, seleccione el clúster de destino. La herramienta resuelve automáticamente la conexión y guarda los parámetros de conexión segura en el perfil de publicación.
-4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
+4. Opcional: puede editar el perfil de publicación para especificar una conexión de clúster segura.
    
    Dado que está editando manualmente el archivo XML de perfil de publicación para especificar la información del certificado, asegúrese de anotar el nombre de almacén de certificados, ubicación de almacén y huella digital de certificado. Necesitará proporcionar estos valores para la ubicación del almacén y el nombre del almacén del certificado. Consulte [Recuperación de la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para más información.
    
@@ -71,9 +72,4 @@ Para obtener más información sobre el acceso a los clústeres de Service Fabri
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

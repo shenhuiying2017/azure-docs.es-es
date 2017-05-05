@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7b7177faa9fa571d3a62ee15b4a0fbfdab3a097f
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ A continuación, se describen los requisitos previos que debe llevar a cabo o co
         * Una máquina virtual Windows necesita un servidor de destino maestro Windows. Puede usar el servidor de procesos local y las máquinas de destino maestro de nuevo.
 * Para la conmutación por recuperación se necesita un servidor de configuración local. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta. Asegúrese de realizar una copia de seguridad programada periódica del servidor. En caso de desastre, tiene que restaurar el servidor con la misma dirección IP para que funcione la conmutación por recuperación.
 * Asegúrese de establecer la configuración disk.EnableUUID=true en los parámetros de configuración de la máquina virtual de destino maestra en VMware. Si la fila no existe, agréguela. Esta configuración es necesaria a fin de proporcionar un UUID uniforme al disco de máquina virtual (VMDK) para que se monte correctamente.
-* *No se puede utilizar vMaster de almacenamiento para el servidor de destino maestro*. Esto puede provocar un error en la conmutación por recuperación. La máquina virtual no se iniciará porque los discos no estarán disponibles para ella.
+* *No se puede usar Storage vMotion en el servidor de destino maestro*. Esto puede provocar un error en la conmutación por recuperación. La máquina virtual no se iniciará porque los discos no estarán disponibles para ella. Para evitar esto, excluya los servidores de destino maestros de la lista de vMotion.
 * Necesita agregar una nueva unidad al servidor de destino maestro. Esta unidad se denomina "unidad de retención". Agregue un nuevo disco y formatee la unidad.
 * El destino maestro tiene otros requisitos previos que se enumeran en la sección [Comprobaciones habituales tras completar la instalación del servidor de destino maestro](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
@@ -76,6 +76,11 @@ Recuerde que solo se realizará la replicación a través de la VPN S2S o el emp
 
 Lea más sobre cómo instalar un [servidor de procesos de Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
+> [!TIP]
+> Siempre se recomienda el uso de un servidor de procesos basado en Azure durante la conmutación por recuperación. El rendimiento de replicación es mayor si el servidor de procesos está más próximo a la máquina virtual de replicación (la máquina de recuperación en Azure). Pero durante la prueba de concepto o las demostraciones, puede usar el servidor de procesos local con ExpressRoute con emparejamiento privado para completar la prueba de concepto más rápido.
+
+
+
 ### <a name="what-are-the-ports-to-be-open-on-different-components-so-that-reprotect-can-work"></a>¿Cuáles son los puertos que se deben abrir en distintos componentes para que pueda funcionar la reprotección?
 
 ![Conmutación por error o recuperación: todos los puertos](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
@@ -94,9 +99,12 @@ Haga clic en los vínculos siguientes para leer sobre cómo instalar un servidor
 
 * Si la máquina virtual está presente de forma local en el servidor vCenter, el servidor de destino maestro necesita acceso al VMDK de la máquina virtual local. Se necesita acceso para escribir los datos replicados en los discos de la máquina virtual. Asegúrese de que el almacén de datos de la máquina virtual local esté montado en el host del destino maestro con acceso de lectura y escritura.
 
-* Si la máquina virtual no está presente de forma local en el servidor vCenter, debe crear una durante la reprotección. Esta máquina virtual se creará en el host ESX donde se crea el destino maestro. Elija con cuidado el host ESX para que se cree la máquina virtual de conmutación por recuperación en el host que desee.
+* Si la máquina virtual no está presente de forma local en el servidor vCenter, el servicio Site Recovery tiene que crear una nueva máquina virtual durante la reprotección. Esta máquina virtual se creará en el host ESX donde se crea el destino maestro. Elija con cuidado el host ESX para que se cree la máquina virtual de conmutación por recuperación en el host que desee.
 
 * *No se puede utilizar vMotion de almacenamiento para el servidor de destino maestro*. Esto puede provocar un error en la conmutación por recuperación. La máquina virtual no se iniciará porque los discos no estarán disponibles para ella.
+
+> [!WARNING]
+> Si un destino maestro se somete a una reprotección posterior de Storage vMotion, los discos de las máquinas virtuales protegidas asociadas al destino maestro migrarán al destino de vMotion. Si intenta una conmutación por recuperación después de esto, se produce un error de desasociación de los discos indicando que estos no se encuentran. Después de esto resulta muy difícil encontrar los discos en las cuentas de almacenamiento. Debe encontrarlos manualmente y asociarlos a la máquina virtual. Después de eso se puede arrancar la máquina virtual local.
 
 * Necesita agregar una nueva unidad al servidor de destino maestro Windows existente. Esta unidad se denomina "unidad de retención". Agregue un nuevo disco y formatee la unidad. La unidad de retención se utiliza para detener los momentos dados cuando la máquina virtual se replica de vuelta en el sitio local. A continuación, se indican algunos criterios para una unidad de retención, sin los cuales no aparecerá en la lista para el servidor de destino maestro.
 
@@ -113,6 +121,11 @@ Haga clic en los vínculos siguientes para leer sobre cómo instalar un servidor
    * El volumen de retención predeterminado para Windows es el volumen R.
 
    * El volumen de retención predeterminado para Linux es /mnt/retention.
+   
+   > [!IMPORTANT]
+   > Si usa una máquina CS+PS existente o una máquina PS+MT o de escalado, debe agregar una nueva unidad. La nueva unidad debe cumplir los requisitos anteriores. Si la unidad de retención no está presente, no se mostrará ninguna en la lista de selección desplegable en el portal. Después de agregar una unidad al destino maestro local, pasa un máximo de quince minutos hasta que se refleja en la selección en el portal. También puede actualizar el servidor de configuración si la unidad no aparece después de quince minutos.
+
+
 
 * Una máquina virtual Linux conmutada por error necesita un servidor de destino maestro Linux. Una máquina virtual Windows conmutada por error necesita un servidor de destino maestro Windows.
 

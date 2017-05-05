@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 27f9c5a18b85c0cc2f918ccefeb063f58cc967c6
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8d91d551cbb508485ca27d77b23eb319293e4237
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -44,7 +44,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 La aplicación completa se ofrece también al final de este tutorial.
 
 ## <a name="step-1-register-an-app"></a>Paso 1: Registro de una aplicación
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En el menú que aparece en la parte superior de la página, seleccione su cuenta. En la lista **Directorio** lista, elija el inquilino de Active Directory donde desea registrar la aplicación.
 
@@ -144,8 +144,7 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
 
     > [!IMPORTANT]
     > The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we add them to the in-memory database.
->
->
+
 
 4. A continuación, vamos a agregar los métodos que nos permitirán realizar un seguimiento de los usuarios con sesión iniciada, tal y como requiere Passport. Estos métodos incluyen la serialización y deserialización de la información del usuario.
 
@@ -180,9 +179,9 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
             }
             return fn(null, null);
             };
-            ```
+    ```
 
-5.  Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
+5.  Después agregaremos el código para cargar el motor de Express. Aquí se usa el patrón de /views y /routes predeterminado que proporciona Express.
 
     ```JavaScript
 
@@ -205,9 +204,9 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
           app.use(express.static(__dirname + '/../../public'));
         });
 
-        ```
+    ```
 
-6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
+6. Por último, se agregan las rutas que entregan las solicitudes de inicio de sesión reales al motor `passport-azure-ad`:
 
        
        ```JavaScript
@@ -250,13 +249,13 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
                 log.info('We received a return from AzureAD.');
                 res.redirect('/');
               });
-          ```
+       ```
 
 
-## Step 4: Use Passport to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.
+## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Paso 4: Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
+Ahora, la aplicación está correctamente configurada para comunicarse con el punto de conexión mediante el protocolo de autenticación de OpenID Connect.  `passport-azure-ad` se ha ocupado de todos los detalles de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de las sesiones de usuario. Ya solo falta proporcionar a los usuarios una forma de iniciar y cerrar sesión, y recopilar información adicional sobre los usuarios que han iniciado sesión.
 
-1. First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:
+1. En primer lugar, agregue el valor predeterminado, el inicio de sesión, la cuenta y los métodos de cierre de sesión al archivo `app.js`:
 
     ```JavaScript
 
@@ -329,9 +328,9 @@ Ahora `app.js` se habrá completado. Solo es preciso agregar las rutas y vistas 
                 exports.index = function(req, res){
                   res.render('index', { title: 'Express' });
                 };
-                ```
+    ```
 
-2. Create the `/routes/user.js` route under the root directory.
+2. Cree la ruta `/routes/user.js` en el directorio raíz.
 
                 ```JavaScript
                 /*
@@ -341,11 +340,11 @@ Ahora `app.js` se habrá completado. Solo es preciso agregar las rutas y vistas 
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-        ```
+                ```
 
- These pass along the request to our views, including the user if present.
+ Estas pasan la solicitud a nuestras vistas, incluido el usuario, si está presente.
 
-3. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user being passed through in the request is evidence we have a signed-in user.
+3. Cree la vista `/views/index.ejs` en el directorio raíz. Se trata de una página sencilla que llama a nuestros métodos de inicio y cierre de sesión y nos permite obtener información de la cuenta. Observe que podemos usar el condicional `if (!user)`, ya que el usuario pasado en la solicitud es una evidencia de que tenemos un usuario con la sesión iniciada.
 
     ```JavaScript
     <% if (!user) { %>

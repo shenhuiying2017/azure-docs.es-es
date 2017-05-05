@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Managed Disks es una característica que simplifica la administración de discos
 
 **Si creo un disco administrado estándar a partir un disco duro virtual existente con 80 GB de tamaño, ¿cuánto me costará?**
 
-Un disco administrado estándar creado a partir de un disco duro virtual de 80 GB se tratará como el siguiente tamaño de disco premium disponible, es decir, S10. Se le cobrará según el precio de los discos S10. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/storage) para más información.
+Un disco administrado estándar creado a partir de un disco duro virtual de 80 GB se tratará como el siguiente tamaño de disco estándar disponible, es decir, un disco S10. Se le cobrará según el precio de los discos S10. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/storage) para más información.
 
 **¿Existen costes de transacción para los discos administrados estándar?**
 
@@ -55,11 +55,11 @@ Sí. Puede cambiar el tipo de cuenta de almacenamiento de los discos administrad
 
 Sí, puede exportar los discos administrados mediante Azure Portal, PowerShell o la CLI de Azure.
 
-**¿Puedo usar un archivo de disco duro virtual en una cuenta de almacenamiento de Azure para crear un disco administrado en una suscripción distinta?**
+**¿Puedo usar un archivo de disco duro virtual en una cuenta de Azure Storage para crear un disco administrado en una suscripción distinta?**
 
 No.
 
-**¿Puedo usar un archivo de disco duro virtual en una cuenta de almacenamiento de Azure para crear un disco administrado en una región diferente?**
+**¿Puedo usar un archivo de disco duro virtual en una cuenta de Azure Storage para crear un disco administrado en una región diferente?**
 
 No.
 
@@ -120,6 +120,11 @@ Sí.
 **¿Se pueden crear discos administrados con LRS, GRS y ZRS?**
 
 Actualmente, Azure Managed Disks solo admite almacenamiento con redundancia local (LRS).
+
+**¿Puedo reducir mis discos administrados?**
+No. En la actualidad no se admite esta característica. 
+
+**¿Puedo cambiar la propiedad de nombre de equipo cuando se usa un disco del sistema operativo especializado (sin preparar con Sysprep ni generalizado) para aprovisionar una máquina virtual?** No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina virtual lo heredará de la máquina virtual principal que se usó para crear el disco del sistema operativo. 
 
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks y puerto 8443
 
@@ -189,8 +194,13 @@ Los límites combinados de memoria caché y SSD local para la serie DS son 4000�
 
 El SSD local es un almacenamiento temporal que se incluye con una máquina virtual de discos administrados. No existe ningún costo extra para este almacenamiento temporal. Se recomienda que no use este SSD local para almacenar los datos de la aplicación, ya que no se conserva en Azure Blob Storage.
 
+**¿Hay alguna repercusión si se usa TRIM en discos premium?**
+
+No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea en discos estándar o premium.
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 
 Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta. Puede publicar una pregunta al final de este artículo en los comentarios o en el [foro de Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) en MSDN para ponerse en contacto con el equipo de Azure Storage y otros miembros de la comunidad sobre este artículo.
 
 Para presentar una solicitud de característica, envíe sus solicitudes e ideas al [foro de comentarios de Azure Storage](https://feedback.azure.com/forums/217298-storage).
+

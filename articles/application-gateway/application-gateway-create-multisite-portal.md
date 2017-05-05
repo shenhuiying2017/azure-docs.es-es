@@ -15,16 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 90b7e2f7f5327684f173bd7e10f21e65bea8fbe7
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 84bd62ae17b7f7ba4cd815ef1f9880679607ebce
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configuración de una puerta de enlace de aplicaciones existente para hospedar varias aplicaciones web
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-multisite-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+> * [Azure Portal](application-gateway-create-multisite-portal.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 > 
 > 
 
@@ -52,7 +53,7 @@ A continuación se muestran los pasos necesarios para actualizar una puerta de e
 * **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 * **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 * **Agente de escucha** : tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). En el caso de las puertas de enlace de aplicaciones con sitios múltiples habilitados, también se agregan el nombre de host y los indicadores de SNI.
-* **Regla:** enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico que llegue a un agente de escucha concreto.
+* **Regla:** enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico que llegue a un agente de escucha concreto. Las reglas se procesan en el orden en que aparecen y el tráfico se dirige a través de la primera regla que coincida independientemente de la especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 * **Certificados:** cada agente de escucha requiere un certificado único, en este ejemplo se crean dos agentes de escucha para varios sitios. Deben crearse dos certificados .pfx y las contraseñas para ellos.
 
 ## <a name="create-back-end-pools-for-each-site"></a>Creación de grupos de back-end para cada sitio
@@ -79,7 +80,7 @@ En la hoja de grupos de back-end, haga clic en **Agregar** para agregar el grupo
 
 ## <a name="create-listeners-for-each-back-end"></a>Creación de agentes de escucha para cada back-end
 
-Puerta de enlace de aplicaciones se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. El agente de escucha básico creado en el portal no contiene esta propiedad.
+Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. El agente de escucha básico creado en el portal no contiene esta propiedad.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -140,9 +141,4 @@ Aprenda a proteger sitios web con [Firewall de aplicaciones web de Application G
 [9]: ./media/application-gateway-create-multisite-portal/figure9.png
 [10]: ./media/application-gateway-create-multisite-portal/figure10.png
 [multisite]: ./media/application-gateway-create-multisite-portal/multisite.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

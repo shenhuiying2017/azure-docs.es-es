@@ -1,5 +1,5 @@
 ---
-title: "Procedimientos recomendados para escalado automático | Microsoft Docs"
+title: "Procedimientos recomendados de escalado automático | Microsoft Docs"
 description: "Aprenda los principios para realizar el escalado automático en Virtual Machines, conjuntos de escalado de máquinas virtuales y Cloud Services."
 author: kamathashwin
 manager: carmonm
@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 04/20/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="best-practices-autoscaling-virtual"></a>Procedimientos recomendados de escalado automático en elementos virtuales
+# <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 En este artículo se explican los procedimientos recomendadas para el escalado automático de Azure. Se refiere a Virtual Machines, conjuntos de escalado de máquinas virtuales y Cloud Services.  Otros servicios de Azure usan distintos métodos de escalado.
 
 ## <a name="autoscale-concepts"></a>Conceptos de escalado automático
@@ -45,8 +46,8 @@ Si actualiza manualmente el recuento de instancias a un valor superior o inferio
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
 Si usa solo una parte de la combinación, el escalado automático escala o reduce horizontalmente (y a la inversa) hasta alcanzar el valor máximo o mínimo.
 
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>No alterne entre el Portal de Azure y el Portal de Azure clásico al administrar el escalado automático
-Para Cloud Services y App Services (Web Apps), use Azure Portal (portal.azure.com) para crear y administrar la configuración de escalado automático. Para los conjuntos de escalado de máquinas virtuales, use PowerShell, CLI o la API de REST para crear y administrar la configuración de escalado automático. No alterne entre el Portal de Azure clásico (manage.windowsazure.com) y el Portal de Azure (portal.azure.com) al administrar configuraciones de escalado automático. El Portal de Azure clásico y su back-end subyacente presentan una serie de limitaciones. Vaya al Portal de Azure para administrar el escalado automático mediante una interfaz gráfica de usuario. Las opciones son usar PowerShell de escalado automático, CLI o la API de REST (a través del Explorador de recursos de Azure).
+### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>No alterne entre Azure Portal y el Portal de Azure clásico al administrar el escalado automático
+Para Cloud Services y App Services (Web Apps), use Azure Portal (portal.azure.com) para crear y administrar la configuración de escalado automático. Para los conjuntos de escalado de máquinas virtuales, use PowerShell, CLI o la API de REST para crear y administrar la configuración de escalado automático. No alterne entre el Portal de Azure clásico (manage.windowsazure.com) y Azure Portal (portal.azure.com) al administrar configuraciones de escalado automático. El Portal de Azure clásico y su back-end subyacente presentan una serie de limitaciones. Vaya al Azure Portal para administrar el escalado automático mediante una interfaz gráfica de usuario. Las opciones son usar PowerShell de escalado automático, CLI o la API de REST (a través del Explorador de recursos de Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Elija la estadística adecuada para la métrica de diagnósticos
 Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *Máximo* y *Total* como métrica a partir de la que escalar. La estadística más común es *Promedio*.
@@ -83,7 +84,7 @@ En este caso
 5. La próxima vez que comprueba el escalado automático, la CPU ha seguido cayendo a 50. Vuelve a calcular: 50 x 3 instancias = 150/2 instancias = 75, lo que está por debajo del umbral de escalado horizontal de 80. Por tanto, reduce horizontalmente a 2 instancias.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Consideraciones para establecer valores de umbral de escalado en métricas especiales
- En el caso de las métricas especiales, como la métrica longitud de cola de bus de servicio o de almacenamiento, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
+ En el caso de las métricas especiales, como la métrica longitud de cola de Service Bus o de almacenamiento, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
 
 Veamos esto con un ejemplo para procurar que entienda el comportamiento de mejor forma.
 
@@ -149,9 +150,4 @@ El escalado automático notifica a los administradores y a los colaboradores del
 * No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 * Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado.
   Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

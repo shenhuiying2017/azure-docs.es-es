@@ -1,6 +1,6 @@
 ---
-title: 'Herramienta del Portal de Azure DocumentDB: Explorador de documentos | Microsoft Docs'
-description: "Mas información acerca del Explorador de documentos de DocumentDB, una herramienta del Portal de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB, una base de datos de documentos NoSQL."
+title: 'Herramienta de Azure Portal DocumentDB: Explorador de documentos | Microsoft Docs'
+description: "Mas información acerca del Explorador de documentos de DocumentDB, una herramienta de Azure Portal para ver, editar, crear y cargar documentos JSON con DocumentDB, una base de datos de documentos NoSQL."
 keywords: ver json
 services: documentdb
 author: kirillg
@@ -13,17 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/18/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
-ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB
-En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , una herramienta del Portal de Azure que permite ver, editar, crear, cargar y filtrar documentos JSON con DocumentDB. 
+# <a name="view-edit-create-and-upload-json-documents"></a>Ver, editar, crear y cargar documentos JSON 
+
+En este artículo se proporciona información general sobre las dos maneras de crear, editar y consultar documentos en el portal: el [Explorador de documentos](#launch-document-explorer) y el [Explorador de datos (versión preliminar)](#data-explorer).
 
 > [!NOTE]
 > El Explorador de documentos no está habilitado en las cuentas de DocumentDB que ofrecen compatibilidad de protocolos con MongoDB. Esta página se actualizará cuando se habilite esta característica.
@@ -148,8 +149,15 @@ El Explorador de documentos admite la ingesta en masa de uno o varios documentos
     ![Captura de pantalla del resultado de la ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. Una vez que la operación se completa, puede seleccionar hasta 100 documentos más para cargarlos.
 
+<a id="data-explorer"></a>
+## <a name="create-a-document-by-using-data-explorer-preview"></a>Crear un documento mediante el Explorador de datos (versión preliminar)
+
+El otro método para crear, editar y consultar documentos en el portal es el Explorador de datos. Para abrir el Explorador de datos, haga clic en **Explorador de datos (versión preliminar)** en la barra de navegación del portal, luego expanda el nombre de la base de datos, expanda el nombre de la colección, haga clic en **Documentos** y luego en **Nuevo documento**, como se muestra en la siguiente captura de pantalla.
+
+![Captura de pantalla que muestra el botón Nueva colección del portal](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
+
 ## <a name="work-with-json-documents-outside-the-portal"></a>Trabajo con documentos JSON fuera del portal
-El Explorador de documentos del Portal de Azure es simplemente una forma de trabajar con documentos en DocumentDB. También se pueden trabajar con documentos mediante la [API de REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para obtener un ejemplo de código, consulte los [ejemplos de documentos de SDK para .NET](documentdb-dotnet-samples.md#document-examples) y los [ejemplos de documentos de SDK de Node.js](documentdb-nodejs-samples.md#document-examples).
+El Explorador de documentos de Azure Portal es simplemente una forma de trabajar con documentos en DocumentDB. También se pueden trabajar con documentos mediante la [API de REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para obtener un ejemplo de código, consulte los [ejemplos de documentos de SDK para .NET](documentdb-dotnet-samples.md#document-examples) y los [ejemplos de documentos de SDK de Node.js](documentdb-nodejs-samples.md#document-examples).
 
 Si tiene que importar o migrar archivos desde otro origen (archivos JSON, MongoDB, SQL Server, archivos CSV, Almacenamiento de tablas de Azure, Amazon DynamoDB o HBase), puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos en DocumentDB.
 

@@ -1,6 +1,6 @@
 ---
-title: "Autenticación de Active Directory y Resource Manager | Microsoft Docs"
-description: "Guía del desarrollador para la autenticación con la API de Azure Resource Manager y Active Directory a fin de integrar una aplicación con otras suscripciones de Azure."
+title: "Autenticación de Azure Active Directory y Resource Manager | Microsoft Docs"
+description: "Guía del desarrollador para la autenticación con la API de Azure Resource Manager y Azure Active Directory a fin de integrar una aplicación con otras suscripciones de Azure."
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: de1355a8dc4b0099dca3efc2109ccfb9facf7269
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -71,7 +71,7 @@ Administre las suscripciones conectadas:
 ## <a name="register-application"></a>Registre la aplicación
 Antes de comenzar a codificar, registre la aplicación web con Azure Active Directory (AD). El registro de aplicación crea una identidad central para la aplicación en Azure AD. Contiene información básica acerca de la aplicación, como el Id. de cliente de OAuth, las direcciones URL de respuesta y las credenciales que utiliza la aplicación para autenticarse y acceder a las API de Azure Resource Manager. El registro de aplicación también registra los distintos permisos delegados que necesita la aplicación al acceder a las API de Microsoft en nombre del usuario.
 
-Dado que la aplicación tiene acceso a otra suscripción, debe configurarla como una aplicación multiinquilino. Para aprobar la validación, proporcione un dominio asociado a Active Directory. Para ver los dominios asociados a Active Directory, inicie sesión en el [Portal clásico](https://manage.windowsazure.com). Seleccione Active Directory y, luego, **Dominios**.
+Dado que la aplicación tiene acceso a otra suscripción, debe configurarla como una aplicación multiinquilino. Para aprobar la validación, proporcione un dominio asociado a Azure Active Directory. Para ver los dominios asociados a Azure Active Directory, inicie sesión en el [portal clásico](https://manage.windowsazure.com). Seleccione Azure Active Directory y luego **Dominios**.
 
 En el ejemplo siguiente se muestra cómo registrar la aplicación con Azure PowerShell. Debe tener la versión más reciente (agosto de 2016) de Azure PowerShell para que funcione este comando.
 
@@ -93,7 +93,7 @@ Azure AD también admite credenciales de certificado para las aplicaciones: cree
 Para obtener más información sobre cómo crear una aplicación de AD con un certificado, consulte [Uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) o [Uso de la CLI de Azure para crear una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obtención de un identificador de inquilino a partir del identificador de suscripción
-Para solicitar un token que se pueda utilizar para llamar a Resource Manager, la aplicación necesita conocer el identificador del inquilino de Azure AD que hospeda la suscripción de Azure. Es muy probable que los usuarios conozcan sus identificadores de suscripción pero quizá no sus identificadores de inquilino para Active Directory. Para obtener el identificador de inquilino del usuario, solicítele el identificador de suscripción. Proporcione ese identificador de suscripción al enviar una solicitud acerca de la suscripción:
+Para solicitar un token que se pueda utilizar para llamar a Resource Manager, la aplicación necesita conocer el identificador del inquilino de Azure AD que hospeda la suscripción de Azure. Es muy probable que los usuarios conozcan sus identificadores de suscripción, pero quizá no sus identificadores de inquilino para Azure Active Directory. Para obtener el identificador de inquilino del usuario, solicítele el identificador de suscripción. Proporcione ese identificador de suscripción al enviar una solicitud acerca de la suscripción:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
@@ -307,7 +307,7 @@ Estos son los GUID conocidos de los roles integrados que se usan habitualmente:
 | Colaborador de sitio web |de139f84-1756-47ae-9be6-808fbbe84772 |
 | Colaborador de plan web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | Colaborador de SQL Server |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| Colaborador de la base de datos de SQL |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| Colaborador de SQL DB |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>Asignación de un rol RBAC a una aplicación
 Ya tiene todo lo que necesita para asignar el rol RBAC adecuado a la entidad de servicio mediante la API de [creación de asignación de roles de Resource Manager](https://docs.microsoft.com/rest/api/authorization/roleassignments) .

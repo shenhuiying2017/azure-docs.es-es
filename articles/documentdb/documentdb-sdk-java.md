@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 6e558d2b651b9c50bafa5814a18ad360f7beb2f0
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 40ea65f692d1e2cbc39a6c65b2f8b255282e34cc
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -52,15 +52,15 @@ ms.lasthandoff: 03/25/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="a-name11001100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb1100"></a><a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Habilitada compatibilidad para las colecciones particionadas con al menos 2500 RU/s y aumentos de 100 RU/s.
 * Se ha corregido un error en el ensamblado nativo que puede dar lugar a la excepción NullRef en algunas consultas.
 
-### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
 * Se ha corregido un error en la configuración del motor de consulta que puede provocar excepciones para las consultas en modo de puerta de enlace.
 * Se han corregido algunos errores en el contenedor de sesiones que pueden provocar una excepción "Recurso de propietario no encontrado" para las solicitudes inmediatamente después de la creación de la colección.
 
-### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
 * Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG). Consulte [Compatibilidad con agregación](documentdb-sql-query.md#Aggregates).
 * Compatibilidad agregada para cambiar la fuente.
 * Compatibilidad agregada para la recopilación de la información de cuota mediante RequestOptions.setPopulateQuotaInfo.
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/25/2017
 * Se ha corregido un error que puede causar una excepción NullReferenceException en HttpContext cuando la tasa de solicitudes es alta.
 * Rendimiento mejorado del modo DirectHttps.
 
-### <a name="a-name194194httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb194"></a><a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
 * Con la API ConnectionPolicy.setProxy(), se ha agregado compatibilidad simple con proxy basada en instancias del cliente.
 * Se ha agregado la API DocumentClient.close() para cerrar correctamente la instancia de DocumentClient.
 * Rendimiento de consultas mejorado en modo de conectividad directa al derivar el plan de consulta desde el ensamblado nativo, en lugar de hacerlo desde la puerta de enlace.
@@ -78,22 +78,22 @@ ms.lasthandoff: 03/25/2017
 * Se ha refactorizado el registro para que use SLF4J.
 * Se han corregido otros errores en el lector de coherencia.
 
-### <a name="a-name193193httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb193"></a><a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Se ha corregido un error en la administración de conexiones para evitar pérdidas de conexión en el modo de conectividad directa.
 * Se ha corregido un error en la consulta TOP, que puede generar una excepción NullReferenece.
 * Se ha mejorado el rendimiento al reducir el número de llamadas de red a las memorias caché internas.
 * Se ha agregado código de estado, ActivityID y la URI de la solicitud en DocumentClientException para una mejor solución de problemas.
 
-### <a name="a-name192192httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb192"></a><a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Se ha corregido un problema en la administración de las conexiones para mejorar la estabilidad.
 
-### <a name="a-name191191httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb191"></a><a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
+### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 * Compatibilidad agregada con el nivel de coherencia BoundedStaleness.
 * Se ha agregado compatibilidad con la conectividad directa de las colecciones particionadas.
-* Se ha corregido un error al realizar consultas en una base de datos SQL.
+* Se ha corregido un error al realizar consultas en una base de datos con SQL.
 * Se ha corregido un error en la caché de sesión en la que el token de sesión puede no estar configurada correctamente.
 
-### <a name="a-name190190httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb190"></a><a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
+### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Compatibilidad agregada con las consultas paralelas entre particiones.
 * Se ha agregado compatibilidad con las consultas TOP y ORDER BY en las colecciones particionadas.
 * Compatibilidad agregada con Coherencia fuerte.
@@ -103,46 +103,46 @@ ms.lasthandoff: 03/25/2017
 * Se han agregado los tipos de datos Polygon y LineString al especificar la directiva de indización de colecciones para las consultas espaciales de geovallado.
 * Problemas corregidos con Java Doc para Java 1.8.
 
-### <a name="a-name181181httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb181"></a><a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 * Se ha corregido un error en PartitionKeyDefinitionMap para almacenar en caché colecciones de partición única y no realizar solicitudes adicionales de clave de partición de búsqueda.
 * Se ha corregido un error para no realizar un reintento cuando se proporcione un valor de clave de partición incorrecto.
 
-### <a name="a-name180180httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb180"></a><a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 * Se ha agregado compatibilidad con el reintento automático en solicitudes limitadas, con opciones para personalizar el número máximo de reintentos y el tiempo de espera máximo de reintento.  Consulte RetryOptions y ConnectionPolicy.getRetryOptions().
 * Se ha dejado de utilizar el código de creación de particiones personalizado basado en IPartitionResolver. Utilice colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
 
-### <a name="a-name171171httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb171"></a><a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * Se ha agregado compatibilidad con la directiva de reintentos de la limitación.  
 
-### <a name="a-name170170httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb170"></a><a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Se ha agregado compatibilidad con período de vida (TTL) para los documentos.
 
-### <a name="a-name160160httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb160"></a><a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Se han implementado [colecciones particionadas](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md).
 
-### <a name="a-name151151httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb151"></a><a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * Se ha corregido un error en HashPartitionResolver para generar valores hash en little endian que sean consistentes con otros SDK.
 
-### <a name="a-name150150httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb150"></a><a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Se han agregado solucionadores de particiones de hash e intervalo para ayudar con el particionamiento de las aplicaciones entre varias particiones.
 
-### <a name="a-name140140httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb140"></a><a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Implementación de Upsert. Se han agregado nuevos métodos upsertXXX para admitir la característica Upsert.
 * Se implementa el enrutamiento por identificador. Sin cambios en la API pública, todos los cambios son internos.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Versión omitida para alinear el número de versión con otros SDK
 
-### <a name="a-name120120httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb120"></a><a name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Compatible con índice geoespacial.
 * Valida la propiedad id para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, \, ni terminar con un espacio.
 * Agrega el nuevo encabezado "progreso de transformación de índices" a ResourceResponse.
 
-### <a name="a-name110110httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb110"></a><a name="1.1.0"/>[1.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Implementación de la directiva de indexación V2
 
-### <a name="a-name100100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb100"></a><a name="1.0.0"/>[1.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK de GA
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada

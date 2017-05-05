@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
-ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 5a604f3538a0749f7f951926f451cc91504255d6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -85,14 +85,14 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
     {
       "version":"1.0",
       "options":{
-          "TrackingMode": "Faster"
+          "TrackingMode": "Fast"
       }
     }
 
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
 | Nombre del atributo | Description |
 | --- | --- |
-| Mode |Mayor rapidez: procesamiento rápido, pero menos preciso (valor predeterminado). <br/>Calidad: seguimiento de mejor precisión, pero tarda más tiempo. |
+| Mode |Rápido: procesamiento rápido, pero menos preciso (valor predeterminado).|
 
 
 ### <a name="json-output"></a>Salida de JSON
@@ -512,15 +512,15 @@ El programa siguiente muestra cómo:
             }
         }
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
-[Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 

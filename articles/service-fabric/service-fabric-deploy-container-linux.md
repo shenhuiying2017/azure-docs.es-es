@@ -1,6 +1,6 @@
 ---
 title: "Service Fabric e implementación de contenedores en Linux | Microsoft Docs"
-description: "Service Fabric y el uso de contenedores de Docker para implementar aplicaciones de microservicios. En este artículo se describen las funcionalidades que ofrece Service Fabric para los contenedores y cómo implementar una imagen de contenedor de Docker en un clúster"
+description: "Service Fabric y el uso de contenedores de Linux para implementar aplicaciones de microservicios. En este artículo se describen las funcionalidades que ofrece Service Fabric para los contenedores y cómo implementar una imagen de contenedor de Linux en un clúster"
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: fb73507ed596a65607d60f59d6834cc8bf5734f7
+ms.lasthandoff: 04/26/2017
 
 
 ---
-# <a name="deploy-a-docker-container-to-service-fabric"></a>Implementación de un contenedor de Docker en Service Fabric
+# <a name="deploy-a-linux-container-to-service-fabric"></a>Implementar un contenedor de Linux en Service Fabric
 > [!div class="op_single_selector"]
 > * [Implementación de un contenedor de Windows](service-fabric-deploy-container.md)
-> * [Implementación de un contenedor de Docker](service-fabric-deploy-container-linux.md)
+> * [Implementar un contenedor de Linux](service-fabric-deploy-container-linux.md)
 >
 >
 

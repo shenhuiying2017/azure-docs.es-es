@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 04/25/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 3b2a18232a9ab8c1b587cfa4fa14ced0c3b515ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: cb9753500dc9ed13ef10a757b247b703bc7f1644
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -34,8 +34,8 @@ En la actualidad hay cuatro aplicaciones publicadas:
 * **DATAIKU DDS on HDInsight**: Dataiku DSS (Data Science Studio) es un software que permite a los profesionales de datos (científicos de datos, analistas de negocios, desarrolladores, etc.) crear prototipos, compilar e implementar servicios muy específicos que transforman datos sin procesar en predicciones de negocio de gran impacto.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) ofrece a los analistas una forma interactiva de detectar, analizar y visualizar los resultados sobre macrodatos. Reúna más orígenes de datos con facilidad para detectar nuevas relaciones y obtener las respuestas que necesita rápidamente.
 * **Streamsets Data Collector para HDnsight** proporciona un entorno de desarrollo integrado (IDE) con multitud de características que permite diseñar, probar, implementar y administrar canalizaciones de ingesta todos con todos que crean una malla de datos de transmisión y por lotes, e incluyen varias de transformaciones internas de transmisión (sin tener que escribir código personalizado). 
-* **Cask CDAP 3.5 para HDInsight** proporciona la primera plataforma de integración unificada para macrodatos que reduce el tiempo para producción de aplicaciones de datos y lagos de datos en un 80 %. Esta aplicación solo admite con clústeres Standard HBase 3.4.
-
+* **Cask CDAP 3.5/4.0/4.1 para HDInsight** proporciona la primera plataforma de integración unificada para macrodatos que reduce el tiempo de producción de aplicaciones de datos y lagos de datos en un 80 %. Esta aplicación solo admite con clústeres Standard HBase 3.4.
+* **H2O Artificial Intelligence para HDInsight (Beta)** H2O Sparkling Water admite los siguientes algoritmos distribuidos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection y Autoencoders.
 
 Para las instrucciones proporcionadas en este artículo se usa Azure Portal. También puede exportar la plantilla de Azure Resource Manager desde el portal u obtener una copia de dicha plantilla de proveedores y usar Azure PowerShell y CLI de Azure para implementarla.  Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -47,7 +47,7 @@ En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsig
 
 **Para instalar una aplicación de HDInsight**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.  Si no lo ve, haga clic en **Más servicios** y, después, en **Clústeres de HDInsight**.
 3. Haga clic en un clúster de HDInsight.  Si no tiene ninguno, debe crearlo primero.  Consulte [Crear clúster](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Haga clic en **Aplicaciones** en la categoría **Configuraciones**. Puede ver una lista de las aplicaciones instaladas, en caso de que haya alguna. Si no encuentra aplicaciones, significa que no hay aplicaciones para esta versión del clúster de HDInsight.
@@ -78,7 +78,7 @@ Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Dur
    * **Tipo de clúster**: si no sabe qué opción elegir, seleccione **Hadoop**. Es el tipo de clúster más popular.
    * **Sistema operativo**: seleccione **Linux**.
    * **Versión**: use la versión predeterminada si no sabe qué opción elegir. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
-   * **Nivel de clúster**: HDInsight de Azure proporciona las ofertas de macrodatos en la nube en dos categorías: Estándar y Premium. Para más información, consulte [Niveles de clúster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+   * **Nivel de clúster**: Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categorías: Estándar y Premium. Para más información, consulte [Niveles de clúster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 6. Haga clic en **Aplicaciones**, en una de las aplicaciones publicadas y en **Seleccionar**.
 7. Haga clic en **Credenciales** y escriba una contraseña para el usuario administrador. También debe especificar un **Nombre de usuario de SSH** y una **CONTRASEÑA** o una **CLAVE PÚBLICA**, que se usarán para autenticar al usuario de SSH. Es recomendable usar una clave pública. Haga clic en **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.
 8. Haga clic en **Origen de datos**, seleccione una cuenta de almacenamiento existente o cree una para usarla como cuenta de almacenamiento predeterminada del clúster.
@@ -90,7 +90,7 @@ El portal muestra una lista de las aplicaciones de HDInsight instaladas para un 
 
 **Para ver una lista de las aplicaciones de HDInsight y mostrar sus propiedades**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda.  Si no lo ve, haga clic en **Examinar** y en **Clústeres de HDInsight**.
 3. Haga clic en un clúster de HDInsight.
 4. En la hoja **Configuración**, haga clic en **Aplicaciones** en la categoría **General**. En la hoja Aplicaciones instaladas, aparecen todas las aplicaciones instaladas. 

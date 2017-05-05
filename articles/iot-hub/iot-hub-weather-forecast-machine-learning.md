@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a8c4987066e0439f8775d823e91666a006a9fca9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
 
-![Conexión entre sensores, dispositivo IoT, IoT Hub, trabajo de Stream Analytics, Azure Machine Learning y Blob Storage](media/iot-hub-weather-forecast-machine-learning/1_Connection-azure-machine-learning-iot-hub.png)
+![Diagrama integral](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -37,7 +37,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 ## <a name="what-you-do"></a>Qué debe hacer
 
 - Implementar el modelo de pronóstico meteorológico como un servicio web.
-- Preparar el centro de IoT para el acceso a datos mediante la adición de un grupo de consumidores.
+- Preparar el IoT Hub para el acceso a datos mediante la adición de un grupo de consumidores.
 - Crear un trabajo de Stream Analytics y configurar el trabajo para:
   - Leer los datos de temperatura y humedad de IoT Hub.
   - Llamar al servicio web para saber la posibilidad de lluvia.
@@ -46,7 +46,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Tiene que haber completado el tutorial para [conectar ESP8266 a Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), que engloba los siguientes requisitos:
+- Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
@@ -75,31 +75,22 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 1. Abra el libro de Excel, tome nota de la **DIRECCIÓN URL DEL SERVICIO WEB** y de la **CLAVE DE ACCESO**.
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
-
-Las aplicaciones usan grupos de consumidores para leer datos de Azure IoT Hub. En esta lección, se va a crear un grupo de consumidores que el servicio web utilizará para leer datos de IoT Hub.
-
-Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
-
-1. En el [portal de Azure](https://ms.portal.azure.com/), abra su centro de IoT.
-1. Haga clic en **Puntos de conexión** en el panel izquierdo, seleccione **Eventos** en el panel central, escriba un nombre en **Grupos de consumidores** en el panel derecho y, a continuación, haga clic en **Guardar**.
-
-   ![Adición de un grupo de consumidores a IoT Hub](media/iot-hub-weather-forecast-machine-learning/6_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Creación, configuración y ejecución de un trabajo de Stream Analytics
 
-### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
+### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
 1. En [Azure Portal](https://ms.portal.azure.com/), haga clic en **Nuev** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 1. Escriba la siguiente información para el trabajo.
 
    **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
 
    **Ubicación**: use la misma ubicación que el grupo de recursos.
 
-   **Anclar al panel**: active esta opción para facilitar el acceso al centro de IoT desde el panel.
+   **Anclar al panel**: active esta opción para facilitar el acceso al IoT Hub desde el panel.
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -179,11 +170,11 @@ Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
 
 1. Haga clic en **Guardar**.
 
-### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Análisis de transmisiones
+### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
 
 En el trabajo de Stream Analytics, haga clic en **Iniciar** > **Ahora** > **Iniciar**. Una vez que el trabajo se inicia correctamente, su estado cambia de **Detenido** a **En ejecución**.
 
-![Ejecución del trabajo de Análisis de transmisiones](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Ejecución del trabajo de Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Uso del Explorador de Microsoft Azure Storage para consultar el pronóstico meteorológico
 

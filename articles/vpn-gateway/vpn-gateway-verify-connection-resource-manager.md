@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
-ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 0e9fa1b1397c60985de9d2e60b3f01146036801f
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificación de una conexión de VPN Gateway
-Puede verificar la conexión de VPN Gateway de red virtual a través del portal o de PowerShell. Este artículo contiene pasos para el modelo de Resource Manager y el modelo de implementación clásica.
+
+En este artículo se muestra cómo comprobar la conexión de VPN Gateway para los modelos de implementación de Resource Manager y clásica.
 
 ## <a name="verify-using-the-azure-portal"></a>Comprobación con Azure Portal
 
@@ -52,7 +53,34 @@ Para realizar la verificación con PowerShell, instale la última versión de lo
 
 ### <a name="verify-your-connection"></a>Comprobación de la conexión
 
-[!INCLUDE [Powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+
+## <a name="verify-using-the-azure-cli"></a>Comprobar mediante CLI de Azure
+
+Para comprobar mediante la CLI de Azure, instale la versión más reciente de los comandos CLI (2.0 o posterior). Para más información sobre la instalación de los comandos CLI, vea [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Instalar CLI de Azure 2.0).
+
+### <a name="log-in-to-your-azure-account"></a>Inicie sesión en la cuenta de Azure.
+
+1. Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
+
+  ```azurecli
+  az login
+  ```
+2. Si tiene más de una suscripción de Azure, enumere las suscripciones de la cuenta.
+
+  ```azurecli
+  Az account list --all
+  ```
+3. Especifique la suscripción que desea usar.
+
+  ```azurecli
+  Az account set --subscription
+  <replace_with_your_subscription_id>
+  ```
+
+### <a name="verify-your-connection"></a>Comprobación de la conexión
+
+[!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="verify-using-the-azure-portal-classic"></a>Verificación con Azure Portal (clásico)
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
@@ -87,6 +115,6 @@ Para realizar la verificación con PowerShell, instale la última versión de lo
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
+* Puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
 
 
