@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight incluye una opción de R Server que se integra en el clúster de HDIns
 > Los pasos de este documento asumen que está usando una contraseña.
 
 
-### <a name="access-control-requirements"></a>Requisitos de control de acceso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Creación automatizada del clúster
 
-Puede automatizar la creación de HDInsight R Servers mediante plantillas de ARM, el SDK y también mediante PowerShell.
+Puede automatizar la creación de HDInsight R Servers mediante plantillas de Azure Resource Manager, el SDK y también mediante PowerShell.
 
 * Para crear un R Server con una plantilla de Azure Resource Manager, consulte [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Implementación de un clúster HDInsight con R Server).
 * Para crear un R Server mediante el SDK de .NET, consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
@@ -589,7 +586,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>¿Cómo escalar los nodos de proceso de la característica de operacionalización de Microsoft R Server en nodos de trabajo de HDInsight?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Escalado de los nodos de proceso de la operacionalización de Microsoft R Server en nodos de trabajo de HDInsight
 
 
 ### <a name="decommission-the-worker-nodes"></a>Retirada de los nodos de trabajo
@@ -629,6 +626,10 @@ Una vez que se han configurado todos los nodos de trabajo retirados para ejecuta
 * Busque la sección de "identificadores URI" y agregue la dirección IP del nodo de trabajo y los detalles del puerto.
 
 ![línea de comandos para retirar nodos de trabajo](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

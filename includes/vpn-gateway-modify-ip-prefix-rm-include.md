@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Modificar prefijos - no hay ninguna conexión de puerta de enlace
+### <a name="noconnection"></a>Para modificar los prefijos de dirección IP de la puerta de enlace de red local (sin conexión de puerta de enlace)
 
 - Para agregar prefijos de dirección adicionales:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Para quitar un prefijo de dirección:<br>
+- Para quitar prefijos de dirección:<br>
   Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualiza la puerta de enlace de la red local, sin incluir ese prefijo.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Modificar prefijos - conexión de puerta de enlace existente
-Si tiene una conexión de puerta de enlace y desea agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto tendrá como resultado un tiempo de inactividad para la conexión VPN.
+### <a name="withconnection"></a>Para modificar los prefijos de dirección IP de la puerta de enlace de red local (conexión de puerta de enlace existente)
 
-> [!IMPORTANT]
-> No elimine la puerta de enlace de VPN. Si lo hace, tendrá que volver atrás los pasos necesarios para volver a crearla. Además, debe actualizar el dispositivo VPN local con la nueva dirección IP de la puerta de enlace VPN.
-> 
-> 
+Si tiene una conexión de puerta de enlace y desea agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto tendrá como resultado un tiempo de inactividad para la conexión VPN. Al modificar los prefijos de dirección IP, no es necesario eliminar la puerta de enlace VPN. Basta con quitar la conexión.
+
 
 1. Cierre la conexión.
 

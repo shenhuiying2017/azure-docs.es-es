@@ -1,5 +1,7 @@
 
-1. En el **Explorador de proyectos** en Android Studio, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación.
+1. Abra el proyecto en Android Studio.
+
+2. En el **Explorador de proyectos** en Android Studio, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -10,16 +12,17 @@
 
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
-2. Agregue el método siguiente a la clase **TodoActivity** :
+
+3. Agregue el método siguiente a la clase **TodoActivity** :
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
- 
+
         private void authenticate() {
             // Login using the Google provider.
             mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
-         
+
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // When request completes
@@ -40,17 +43,18 @@
             }
         }
 
-    De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión de Google. Aparece un cuadro de diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
+    Con este código, se crea un método para administrar el proceso de autenticación de Google. Aparece un cuadro de diálogo que muestra el identificador del usuario autenticado. Solo puede continuar si la autenticación es correcta.
 
     > [!NOTE]
-    > Si usa un proveedor de identidades que no sea Google, cambie el valor pasado al método **login** anterior a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
+    > Si usa un proveedor de identidades que no sea Google, cambie el valor pasado al método **login** a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
 
-3. En el método **onCreate**, agregue la siguiente línea de código después del código que crea una instancia del objeto `MobileServiceClient`.
+4. En el método **onCreate**, agregue la siguiente línea de código después del código que crea una instancia del objeto `MobileServiceClient`.
 
         authenticate();
 
     De este modo se llama al proceso de autenticación.
-4. Mueva el código restante situado después de `authenticate();` en el método **onCreate** a un nuevo método **createTable**. Será similar al siguiente:
+
+5. Mueva el código restante situado después de `authenticate();` en el método **onCreate** a un nuevo método **createTable**:
 
         private void createTable() {
 
@@ -68,8 +72,8 @@
             refreshItemsFromTable();
         }
 
-5. Agregue el siguiente fragmento de código de _RedirectUrlActivity_ a _AndroidManifest.xml_ para asegurarse de que el redireccionamiento funciona.
- 
+6. Para asegurarse de que el redireccionamiento funcione, agregue el siguiente fragmento de código de _RedirectUrlActivity_ a _AndroidManifest.xml_:
+
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -80,8 +84,8 @@
             </intent-filter>
         </activity>
 
-6.  Agregue redirectUriScheme a _build.gradle_ de la aplicación Android.
- 
+7. Agregue redirectUriScheme a _build.gradle_ de la aplicación Android.
+
         android {
             buildTypes {
                 release {
@@ -95,10 +99,13 @@
             }
         }
 
-7. Agregue com.android.support:customtabs:23.0.1 a las dependencias de build.gradle:
+8. Agregue com.android.support:customtabs:23.0.1 a las dependencias de build.gradle:
 
       dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
 
-8. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido.
+9. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido.
+
+> [!WARNING]
+> El esquema de dirección URL mencionado distingue mayúsculas de minúsculas.  Asegúrese de que todas las apariciones de `{url_scheme_of_you_app}` usen las mayúsculas y minúsculas del mismo modo.
 
 Si ha iniciado sesión correctamente, la aplicación se ejecutará sin errores y deberá poder consultar el servicio back-end y realizar actualizaciones en los datos.

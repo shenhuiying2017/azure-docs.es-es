@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -25,9 +26,9 @@ ms.lasthandoff: 04/05/2017
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
+> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
 
 Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
@@ -56,7 +57,7 @@ Este artículo le guiará por los pasos necesarios para crear, configurar, inici
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-La diferencia entre el uso del Portal de Azure clásico y Azure Resource Manager es el orden en que se crea la puerta de enlace de aplicaciones y los elementos que es necesario configurar.
+La diferencia entre Azure Portal y Azure Resource Manager es el orden en el que se crea la puerta de enlace de aplicaciones y los elementos que es necesario configurar.
 
 Con Resource Manager, todos los elementos que componen una puerta de enlace de aplicaciones se configurarán individualmente y, luego, se unirán para crear el recurso de la Puerta de enlace de aplicaciones.
 
@@ -107,9 +108,9 @@ En el ejemplo anterior, creamos un grupo de recursos denominado **appgw-RG** y l
 > [!NOTE]
 > Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md) .
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
+## <a name="create-a-virtual-network-and-a-subnet"></a>Creación de una red virtual y una subred
 
-En el ejemplo siguiente se muestra cómo crear una red virtual con el Administrador de recursos. En este ejemplo se crea una red virtual para Application Gateway. Application Gateway requiere su propia subred. Por este motivo, la subred creada para Application Gateway es más pequeña que el espacio de direcciones de la red virtual. El uso de una subred más pequeña permite configurar en la misma subred otros recursos, incluidos, entre otros, los servidores web.
+En el ejemplo siguiente se muestra cómo crear una red virtual con Resource Manager. En este ejemplo se crea una red virtual para la puerta de enlace de aplicaciones. Application Gateway requiere su propia subred. Por este motivo, la subred creada para Application Gateway es más pequeña que el espacio de direcciones de la red virtual. El uso de una subred más pequeña permite configurar en la misma subred otros recursos, incluidos, entre otros, los servidores web.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -135,7 +136,7 @@ Asigne la variable de subred para los pasos siguientes. En un paso posterior, es
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creación de una dirección IP pública para la configuración del front-end
+## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
 Cree un recurso IP público **publicIP01** en el grupo de recursos **appgw-rg** para la región Oeste de EE. UU. Application Gateway puede usar una dirección IP pública, una dirección IP interna o ambas para recibir solicitudes de equilibrio de carga.  En este ejemplo, solo se usa una dirección IP pública. En el ejemplo siguiente, no hay ningún nombre DNS configurado para la creación de la dirección IP pública.  Application Gateway no admite nombres DNS personalizados en direcciones IP públicas.  Si se requiere un nombre personalizado para el punto de conexión público, debe crearse un registro CNAME para señalar al nombre DNS generado automáticamente para la dirección IP pública.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > El valor predeterminado de **InstanceCount** es 2, con un valor máximo de 10. El valor predeterminado de **GatewaySize** es Medium. Se puede elegir entre **Standard_Small**, **Standard_Medium** y **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
 Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina **appgwtest**.
 
@@ -233,7 +234,7 @@ Recupere los detalles sobre DNS y VIP de la puerta de enlace de aplicaciones del
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Eliminación de una puerta de enlace de aplicaciones
+## <a name="delete-the-application-gateway"></a>Eliminación de la puerta de enlace de aplicaciones
 
 Para eliminar una Puerta de enlace de aplicaciones, siga estos pasos:
 
@@ -298,15 +299,23 @@ DnsSettings              : {
                             }
 ```
 
+## <a name="delete-all-resources"></a>Eliminación de todos los recursos
+
+Para eliminar todos los recursos creados en este artículo, complete los pasos siguientes:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL](application-gateway-ssl.md).
+Si desea configurar la descarga de SSL, consulte [Configuración de una instancia de Application Gateway para la descarga de SSL](application-gateway-ssl.md).
 
-Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si quiere configurar una instancia de Application Gateway para usarla con un equilibrador de carga interno, consulte [Creación de una instancia de Application Gateway con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea más información acerca de las opciones de equilibrio de carga en general, visite:
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 

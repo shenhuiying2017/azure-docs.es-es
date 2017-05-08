@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ Una vez actualizados los orígenes, puede instalar el SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    Para automatizar la instalación, puede omitir el mensaje del contrato de licencia, para lo que debe establecer las opciones de debconf para los paquetes de Service Fabric. Se pueden ejecutar los dos comandos siguientes
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Ejecute el script de instalación del SDK.
 
     ```bash
@@ -203,6 +211,11 @@ Para actualizar a la versión más reciente del SDK y el tiempo de ejecución, e
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> La actualización de los paquetes anteriores puede dar lugar a que se detenga el clúster de desarrollo local. Reinicie el clúster local después de cada actualización, para lo que debe seguir las instrucciones de esta página
+>
+>
 
 Para actualizar la CLI, vaya al directorio donde clonó la CLI y ejecute `git pull` para realizar la actualización.  Si se necesitan pasos adicionales para la actualización, se especificarán en las notas de la versión. 
 

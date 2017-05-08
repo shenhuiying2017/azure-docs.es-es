@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter: 
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5e9ee102c0375c8c1ac0e0ff6bc93989115b7cfa
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -29,16 +30,17 @@ Los entornos de Time Series Insights tienen dos tipos independientes de directiv
 * Directivas de acceso de administración
 * Directivas de acceso a datos
 
-Ambos tipos de directivas conceden distintos permisos en un entorno concreto a las entidades de Azure Active Directory (usuarios y aplicaciones). Las entidades (usuarios y aplicaciones) deben pertenecer al directorio activo (o "inquilino de Azure") asociado a la suscripción que contiene el entorno.
+Ambas directivas conceden a las entidades de Azure Active Directory (usuarios y aplicaciones) distintos permisos en un entorno concreto. Las entidades (usuarios y aplicaciones) deben pertenecer al directorio activo (o "inquilino de Azure") asociado a la suscripción que contiene el entorno.
 
 Las directivas de acceso de administración conceden permisos relacionados con la configuración del entorno, tales como:
-*    creación y eliminación del entorno, orígenes de eventos, referencia a conjuntos de datos, y
-*    administración de las directivas de acceso a datos.
+*    La creación y eliminación del entorno, orígenes de eventos, conjuntos de datos de referencia.
+*    Administración de las directivas de acceso a datos.
 
 Las directivas de acceso a datos conceden permisos para emitir consultas de datos, manipular los datos de referencia en el entorno y consultas almacenadas compartidas y perspectivas asociadas con el entorno.
 
 Los dos tipos de directivas permiten una separación clara entre el acceso a la administración del entorno y el acceso a los datos dentro del entorno. Por ejemplo, es posible configurar un entorno de modo que el propietario o creador del entorno no disponga de acceso a los datos. Del mismo modo que se permite a los usuarios y servicios leer los datos del entorno, podrían no tener acceso a la configuración del entorno.
 
+## <a name="grant-data-access"></a>Concesión de acceso a datos
 Los pasos siguientes muestran cómo conceder acceso a datos a una entidad de usuario:
 
 1.    Inicie sesión en el [Portal de Azure](https://portal.azure.com).

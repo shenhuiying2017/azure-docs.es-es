@@ -1,5 +1,5 @@
 ---
-title: "Información general de los niveles de precios de mensajería Estándar y Premium de Service Bus|Microsoft Docs"
+title: "Información general acerca de los planes de tarifa de mensajería Estándar y Premium de Azure Service Bus|Microsoft Docs"
 description: "Niveles de mensajería Premium y Estándar de Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ En las secciones siguientes se describen algunas diferencias existentes entre lo
 
 ### <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
-Las colas y los temas con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones para el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
+Los temas y colas con particiones se admiten en la mensajería Premium; de hecho, estas entidades siempre tienen particiones (y no se pueden deshabilitar). Sin embargo, las colas y los temas con particiones Premium no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Como consecuencia, las particiones no son necesarias para mejorar el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades exprés
 

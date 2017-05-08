@@ -11,11 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-Cuando envía solicitudes de búsqueda a Búsqueda de Azure, hay una serie de parámetros que se pueden especificar junto con las palabras reales que se escriben en el cuadro de búsqueda de la aplicación. Estos parámetros de consulta permiten lograr un mayor control de la experiencia de búsqueda de texto completo.
+Cuando envía solicitudes de búsqueda a Búsqueda de Azure, hay una serie de parámetros que se pueden especificar junto con las palabras reales que se escriben en el cuadro de búsqueda de la aplicación. Estos parámetros de consulta permiten lograr un mayor control de la [experiencia de búsqueda de texto completo](search-lucene-query-architecture.md).
 
 A continuación se muestra una lista que explica brevemente los usos habituales de los parámetros de consulta de Búsqueda de Azure. Para obtener información detallada de los parámetros de consulta y su comportamiento, consulte las páginas con información detallada para la [API de REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -59,10 +61,5 @@ Para más información acerca de la paginación de resultados de búsqueda, cons
 
 ## <a name="hit-highlighting"></a>Resaltado de referencias
 En Búsqueda de Azure, resaltar la parte exacta de los resultados de búsqueda que coincide con la consulta de búsqueda es fácil mediante el uso de los parámetros `highlight`, `highlightPreTag`, y `highlightPostTag`. Puede especificar qué campos *habilitados para búsquedas* deben tener su texto coincidente resaltado, así como especificar las etiquetas de cadena exactas que se anexarán al comienzo y al final del texto coincidente que devuelve Azure Search.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

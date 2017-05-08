@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c3563f3a3fa46d40ba02fe97b3b0ebe3c45caddd
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: af85e4921a2b81c71f1d132c6df591acbe5d3764
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
 
-Este artículo muestra cómo utilizar la CLI de Azure para crear una conexión de puerta de enlace VPN de sitio a sitio desde la red local a la red virtual. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+Este artículo muestra cómo utilizar la CLI de Azure para crear una conexión de puerta de enlace VPN de sitio a sitio desde la red local a la red virtual. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:<br>
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -48,7 +49,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 * Un dispositivo VPN compatible y alguien que pueda configurarlo. Para más información acerca de los dispositivos VPN compatibles y su configuración, consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 * Una dirección IPv4 pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
 * Si no está familiarizado con los intervalos de direcciones IP ubicados en la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles. Al crear esta configuración, debe especificar los prefijos del intervalo de direcciones IP al que Azure enrutará la ubicación local. Ninguna de las subredes de la red local puede superponerse con las subredes de la red virtual a la que desea conectarse. 
-* La versión más reciente de los comandos de la CLI (2.0 o posteriores). Para más información sobre la instalación de los comandos de la CLI, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* La versión más reciente de los comandos de la CLI (2.0 o posteriores). Para más información acerca de la instalación de los comandos de la CLI, consulte [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Instalación de la CLI de Azure 2.0) y [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introducción a la CLI de Azure 2.0).
 
 ### <a name="example-values"></a>Valores de ejemplo
 
@@ -75,42 +76,26 @@ GatewayType             = Vpn
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Inicie sesión en Azure.
+## <a name="Login"></a>1. su suscripción
 
-Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
-
-```azurecli
-az login
-```
-
-Si tiene más de una suscripción de Azure, enumere las suscripciones de la cuenta.
-
-```azurecli
-Az account list --all
-```
-
-Especifique la suscripción que desea usar.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
+[!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
 ## <a name="2-create-a-resource-group"></a>2. Crear un grupo de recursos
 
 En el ejemplo siguiente se crea un grupo de recursos con el nombre 'TestRG1' en la ubicación 'eastus'. Si ya tiene un grupo de recursos en la región que desea crear la red virtual, puede utilizarlo.
 
 ```azurecli
-az group create -n TestRG1 -l eastus
+az group create --name TestRG1 --location eastus
 ```
 
 ## <a name="VNet"></a>3. Crear una red virtual
 
-Si no tiene una red virtual, créela. Al crear una red virtual, compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local. 
+Si aún no tiene una red virtual, créela con el comando [az network vnet create](/cli/azure/network/vnet#create). Al crear una red virtual, compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local. 
 
 El siguiente ejemplo crea una red virtual denominada 'TestVNet1' y una subred llamada 'Subnet1'.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Creación de la subred de la puerta de enlace
@@ -121,9 +106,11 @@ Para esta configuración, también es necesaria una subred de la puerta de enlac
 
 El tamaño de la subred de la puerta de enlace que especifique depende de la configuración de la puerta de enlace VPN que desea crear. Aunque es posible crear una subred de puerta de enlace tan pequeña como /29, se recomienda que cree una subred mayor que incluya más direcciones seleccionando al menos /27 o /28. El uso de una subred de la puerta de enlace mayor permite suficientes direcciones IP para dar cabida a posibles configuraciones futuras.
 
+Use el comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) para la subred de la puerta de enlace.
+
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Creación de la puerta de enlace de red local
@@ -135,20 +122,20 @@ Use los valores siguientes:
 * *--gateway-ip-address* es la dirección IP del dispositivo VPN local. El dispositivo VPN no se encuentra detrás de un NAT.
 * *--local-address-prefixes* son los espacios de direcciones locales.
 
-En el ejemplo siguiente se muestra cómo agregar una puerta de enlace de red local con varios prefijos de direcciones:
+Use el comando [az network local-gateway create](/cli/azure/network/local-gateway#create) para agregar una puerta de enlace de red local con varios prefijos de direcciones:
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Solicitar una dirección IP pública
+## <a name="PublicIP"></a>6. Solicite una dirección IP pública
 
-Solicite una dirección IP pública que se asignará a la puerta de enlace VPN de la red virtual. Es la dirección IP que configurará para que el dispositivo VPN se conecte a ella.
+Una puerta de enlace VPN debe tener una dirección IP pública. Primero se solicita el recurso de la dirección IP y, después, se hace referencia a él al crear la puerta de enlace de red virtual. La dirección IP se asigna dinámicamente al recurso cuando se crea la puerta de enlace VPN. Actualmente, VPN Gateway solo admite la asignación de direcciones IP públicas *dinámicas*. No se puede solicitar una asignación de direcciones IP públicas estáticas. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
 
-La puerta de enlace de red virtual para el modelo de implementación de Resource Manager actualmente solo admite direcciones IP públicas mediante el método de asignación dinámica. Sin embargo, esto no significa que la dirección IP vaya a cambiar. La única vez que cambia la dirección IP de la puerta de enlace de VPN es cuando se elimina y se vuelve a crear la puerta de enlace. La dirección IP pública de la puerta de enlace de la red virtual no cambia aunque se cambie el tamaño, se restablezca o se lleven a cabo operaciones de actualización o mantenimiento interno en ella. 
+Use el comando [az network public-ip create](/cli/azure/network/public-ip#create) para solicitar una dirección IP pública dinámica.
 
 ```azurecli
-az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
+az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
 ## <a name="CreateGateway"></a>7. Creación de la puerta de enlace VPN
@@ -157,31 +144,33 @@ Cree la puerta de enlace VPN de la red virtual. Crear una puerta de enlace VPN p
 
 Use los valores siguientes:
 
-* El valor *---gateway-type* para una configuración de sitio a sitio es *Vpn*. El tipo de puerta de enlace siempre es específico de la configuración que se va a implementar. Para más información, consulte [Tipos de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwtype)
+* El valor *---gateway-type* para una configuración de sitio a sitio es *Vpn*. El tipo de puerta de enlace siempre es específico de la configuración que se va a implementar. Para más información, consulte [Tipos de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * El valor de *--vpn-type* puede ser *RouteBased* (denominada puerta de enlace dinámica en algunos documentos) o *PolicyBased* (denominada puerta de enlace estática en algunos documentos). La configuración es específica según los requisitos del dispositivo al que se va a conectar. Para más información sobre los tipos de puertas de enlace de VPN, consulte [Acerca de la información de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * El valor de *--sku* puede ser Basic, Standard, o HighPerformance. Hay limitaciones de configuración para determinadas SKU. Consulte [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gateway-skus) para más información.
 
-Después de ejecutar este comando, no verá ningún comentario ni salida. Tarda aproximadamente 45 minutos en crear una puerta de enlace.
+Cree la puerta de enlace VPN con el comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). Si este comando se ejecuta con el parámetro '--no-wait', no se verán los comentarios o resultados. Este parámetro permite que la puerta de enlace se cree en segundo plano. Tarda aproximadamente 45 minutos en crear una puerta de enlace.
 
 ```azurecli
-az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Configurar el dispositivo VPN
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
- Para buscar la dirección IP púbica de la puerta de enlace de la red virtual, utilice el ejemplo siguiente reemplazando los valores por los suyos propios. Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+ Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip#list). Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
 
-  ```azurecli
-  az network public-ip list -g TestRG1 -o table
-  ```
+```azurecli
+az network public-ip list --resource-group TestRG1 --output table
+```
 
 ## <a name="CreateConnection"></a>9. Creación de la conexión VPN
 
 Creación de la conexión VPN de sitio a sitio entre la puerta de enlace de la red virtual y el dispositivo VPN local. Preste especial atención al valor de la clave compartida, que debe coincidir con el valor de la clave compartida configurada para el dispositivo VPN.
 
+Cree la conexión mediante el comando [az network vpn-connection create](/cli/azure/network/vpn-connection#create).
+
 ```azurecli
-az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 Pasado un momento, se establecerá la conexión.
@@ -194,65 +183,9 @@ Si desea usar otro método para comprobar la conexión, consulte [Comprobación 
 
 ## <a name="common-tasks"></a>Tareas comunes
 
-### <a name="to-view-local-network-gateways"></a>Para ver las puertas de enlace de la red local
+Esta sección contiene comandos comunes que son útiles al trabajar con configuraciones de sitio a sitio. Para obtener la lista completa de los comandos de red de la CLI, consulte [Azure CLI - Networking](/cli/azure/network) (CLI de Azure - Redes).
 
-```azurecli
-az network local-gateway list --resource-group TestRG1
-```
-
-### <a name="modify"></a>Para modificar los prefijos de dirección IP de una puerta de enlace de red local
-Si tiene que cambiar los prefijos de la puerta de enlace de red local, siga estas instrucciones. Cada vez que se realiza un cambio, debe especificarse toda la lista de prefijos, no solo los prefijos que se desea cambiar.
-
-- **Si ha especificado una conexión**, use el ejemplo siguiente. Especifique toda la lista de prefijos que se compone de prefijos existentes y los elementos que desee agregar. En este ejemplo, 10.0.0.0/24 y 20.0.0.0/24 ya están presentes. Agregamos los prefijos 30.0.0.0/24 y 40.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 -n VNet1toSite2 -g TestRG1
-  ```
-
-- **Si no ha especificado una conexión**, use el mismo comando que utiliza para crear una puerta de enlace de la red local. También puede usar este comando para actualizar la dirección IP de la puerta de enlace para el dispositivo VPN. Solo puede usar este comando si aún no tiene una conexión. En este ejemplo, 10.0.0.0/24, 20.0.0.0/24, 30.0.0.0/24 y 40.0.0.0/24 están presentes. Especificamos solo los prefijos que se van a conservar. En este caso, 10.0.0.0/24 y 20.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
-  ```
-
-### <a name="modifygwipaddress"></a>Para modificar la dirección IP de una puerta de enlace de red local
-
-La dirección IP en esta configuración es la dirección IP del dispositivo VPN con el que se va a crear una conexión. Si cambia la dirección IP del dispositivo VPN, puede modificar el valor. Incluso si hay una conexión de puerta de enlace, se puede cambiar la dirección IP.
-
-```azurecli
-az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
-```
-
-Al ver el resultado, compruebe que se incluyan los prefijos de las direcciones IP.
-
-  ```azurecli
-  "localNetworkAddressSpace": { 
-    "addressPrefixes": [ 
-      "10.0.0.0/24", 
-      "20.0.0.0/24", 
-      "30.0.0.0/24" 
-    ] 
-  }, 
-  "location": "eastus", 
-  "name": "Site2", 
-  "provisioningState": "Succeeded",  
-  ```
-
-### <a name="to-view-the-virtual-network-gateway-public-ip-address"></a>Para ver la dirección IP pública de la puerta de enlace de la red virtual
-
-Para buscar la dirección IP pública de la puerta de enlace de la red virtual, use el siguiente ejemplo. Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
-
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
-
-### <a name="to-verify-the-shared-key-values"></a>Para comprobar los valores de la clave compartida
-
-Compruebe que el valor de la clave compartida es el mismo valor que utilizó para la configuración del dispositivo VPN. Si no es así, ejecute de nuevo la conexión con el valor del dispositivo, o actualice el dispositivo con el valor devuelto. Los valores deben coincidir.
-
-```azurecli
-az network vpn-connection shared-key show --connection-name VNet1toSite2 -g TestRG1
-```
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

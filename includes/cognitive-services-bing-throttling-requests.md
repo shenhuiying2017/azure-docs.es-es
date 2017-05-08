@@ -1,0 +1,5 @@
+El servicio y el tipo de suscripción determinan el número de solicitudes que se pueden realizar por segundo (QPS) o por mes (QPM). Debe asegurarse de que la aplicación incluye la lógica necesaria para mantenerse dentro de su cuota. Si se supera el QPM, la solicitud produce un error con el código de estado HTTP 403. Si se supera el QPS, la solicitud produce un error con código de estado HTTP 429. La respuesta también incluye el encabezado Retry-After, que contiene el número de segundos que debe esperar antes de enviar otra solicitud.  
+  
+### <a name="denial-of-service-dos-versus-throttling"></a>Denegación de servicio (DOS) frente a Limitación
+
+El servicio diferencia entre un ataque de DOS y una infracción del número máximo de solicitudes por segundo (QPS). Si el servicio sospecha de un ataque de denegación de servicio, la solicitud se realiza correctamente (código de estado HTTP 200 OK); sin embargo, el cuerpo de la respuesta está vacío.
