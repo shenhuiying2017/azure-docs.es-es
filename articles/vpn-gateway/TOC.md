@@ -37,21 +37,23 @@
 ### [PowerShell (clásico)](vpn-gateway-multi-site.md)
 ## [Configuración de BGP para una instancia de VPN Gateway](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Configuración de conexiones activo-activo de alta disponibilidad](vpn-gateway-activeactive-rm-powershell.md)
-## [Modificación de la configuración de la puerta de enlace de red local mediante PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## Modificación de la configuración de puerta de enlace de red local
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Restablecimiento de una instancia de VPN Gateway](vpn-gateway-resetgw-classic.md)
 ## Eliminación de una instancia de VPN Gateway
 ### [Portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (clásico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Creación de certificados raíz autofirmados para las conexiones P2S](vpn-gateway-certificates-point-to-site.md)
+## [Creación de certificados autofirmados para conexiones de punto a sitio](vpn-gateway-certificates-point-to-site.md)
 ## [Configuración de una instancia de VPN Gateway (clásico)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Solución de problemas
 ### [Validación del rendimiento de la VPN en una red virtual](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (clásico)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (clásico)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (clásico)](https://msdn.microsoft.com/library/jj154113)
 ## [CLI de Azure](https://docs.microsoft.com/cli/azure/network)

@@ -12,8 +12,3 @@
 5. Haga clic en la pestaña **Cloud Messaging** (Mensajería en la nube) de la parte superior. 
 6. Tome nota de los valores de **Server Key** (Clave del servidor) y de **Sender ID** (ID del remitente), ya que los usará más adelante en el *archivo de manifiesto de Android*.  
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -54,10 +55,5 @@ Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la
 ## <a name="notes"></a>Notas
 * Junto con las directivas de registro, los atributos personalizados también se pueden utilizar en las directivas de registro o inicio de sesión y en las directivas de edición del perfil.
 * Hay un límite conocido de atributos personalizados. Solo se crea la primera vez que se utiliza en cualquier directiva y no cuando se agrega a la lista de **atributos de usuario**.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

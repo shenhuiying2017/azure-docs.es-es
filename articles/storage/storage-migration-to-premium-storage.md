@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: cbf4f1a3bce53844e032c49637d4cfd9dd722679
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 56f4245b63cecd51bf81863e15e4e72d73e671d6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Esta sección le garantiza que está preparado para seguir los pasos de migraci�
 
 ### <a name="prerequisites"></a>Requisitos previos
 * Necesitará una suscripción de Azure. Si no tiene ninguna, puede crear una suscripción de [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) de un mes o visitar la página [Precios de Azure](https://azure.microsoft.com/pricing/) para conocer más opciones.
-* Para ejecutar los cmdlets de PowerShell, necesitará un módulo de Microsoft Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener instrucciones sobre el punto de instalación y la instalación.
+* Para ejecutar los cmdlets de PowerShell, necesitará un módulo de Microsoft Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) para obtener instrucciones sobre el punto de instalación y la instalación.
 * Si tiene previsto ejecutar máquinas virtuales de Azure en Premium Storage, deberá usar las máquinas virtuales de este tipo de almacenamiento. Puede usar discos de almacenamiento Estándar y Premium Storage con las máquinas virtuales compatibles con Premium Storage. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para obtener más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, consulte [Tamaños de máquinas virtuales](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Tamaños de Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Consideraciones

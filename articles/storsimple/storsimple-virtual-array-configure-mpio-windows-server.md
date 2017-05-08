@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 05/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configuración de E/S de múltiples rutas en el host de Windows Server para la matriz Virtual de StorSimple
@@ -45,7 +46,7 @@ En esta sección se detallan los requisitos previos de configuración para la ma
 ### <a name="on-storsimple-virtual-array"></a>En StorSimple Virtual Array
 * La matriz virtual debe estar configurada como un servidor iSCSI. Para más información, consulte [Implementación de StorSimple Virtual Array: configurar el dispositivo virtual como servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md). Debe habilitarse una o más interfaces de red en la matriz.   
 * Las interfaces de red en la matriz virtual deben ser accesibles desde el host de Windows Server.
-* Deben crearse uno o más volúmenes en la matriz virtual de StorSimple. Para más información, consulte [Adición de un volumen](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) en StorSimple Virtual Array. En este procedimiento, hemos creado tres volúmenes (uno anclado localmente y dos volúmenes en capas, tal como se muestra a continuación) en la matriz virtual.
+* Deben crearse uno o más volúmenes en la matriz virtual de StorSimple. Para más información, consulte [Adición de un volumen](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume) en StorSimple Virtual Array. En este procedimiento, hemos creado tres volúmenes (uno anclado localmente y dos volúmenes en capas, tal como se muestra a continuación) en la matriz virtual.
   
     ![mpio0](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio0.png)
 
@@ -134,7 +135,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
     ![mpio14](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio14.png)
 13. Debe repetir estos pasos para cada volumen (superficies como destino).
     
-    ![mpio&15;](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio15.png)
+    ![mpio 15](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio15.png)
 14. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en StorSimple Virtual Array que pueda ver este host aparecerán en **Administración de discos** como discos nuevos.
 15. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de unidad de asignación (AUS) de 64 KB. Repita el proceso para todos los volúmenes disponibles.
     
@@ -156,10 +157,5 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
    
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre el [uso del servicio StorSimple Device Manager para administrar StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b7332aa2b2518bd926ee2221fd0129adcc25415b
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f880aceb1657ffdfe909b73f175b9673d9ab02cd
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Este **menú** está relacionado con los capítulos de este cuaderno de estrateg
 La solución de análisis de telemetría de vehículos muestra cómo los concesionarios y los fabricantes de automóviles, así como las compañías de seguros, pueden aprovechar las posibilidades de Cortana Intelligence para obtener información predictiva y en tiempo real sobre el estado del vehículo y los hábitos de conducción con el objetivo de impulsar mejoras en el área de la experiencia del cliente, el I+D y las campañas de marketing. Este documento contiene instrucciones paso a paso sobre cómo configurar el panel y los informes de Power BI una vez que la solución se implementa en la suscripción. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Implementar la solución Análisis de telemetría del vehículo navegando a [https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9)  
+1. Implementar las soluciones de [análisis de telemetría](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90)  
 2. [Instalar Microsoft Power BI Desktop.](http://www.microsoft.com/download/details.aspx?id=45331)
 3. Una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/). Si no tiene una suscripción de Azure, comience con una suscripción gratis de Azure.
 4. Cuenta de Microsoft Power BI

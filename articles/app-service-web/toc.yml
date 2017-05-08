@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Comparación entre opciones de hospedaje"
     href: choose-web-site-cloud-service-vm.md
-- name: "Guía de inicio rápido"
+- name: "Inicios rápidos"
   expanded: true
   items:
   - name: "Creación de aplicaciones .NET"

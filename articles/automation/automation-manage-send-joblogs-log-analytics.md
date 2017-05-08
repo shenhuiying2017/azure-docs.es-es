@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 5cfbd39d2f66fb6632495eb7cd789ed39b0cc309
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2c25403a4bb2acd81061cc5dfdfd460c48a244bc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Automatización puede enviar el estado de un trabajo del runbook y de transmisio
 ## <a name="prerequisites-and-deployment-considerations"></a>Requisitos previos y consideraciones de implementación
 Para empezar a enviar los registros de Automation a Log Analytics, necesita:
 
-1. La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+1. La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 2. Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md).
 3. El valor de ResourceId de su cuenta de Azure Automation
 

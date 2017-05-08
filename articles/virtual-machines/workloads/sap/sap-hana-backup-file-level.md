@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2449ffda80ec7cb7a73a6eac229d09c3a4a96cc
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -105,7 +105,7 @@ A diferencia de la copia de seguridad del disco de datos de VM, en este enfoque 
 
 ![Todos los VHD se copiaron con el comando de PowerShell **start-azurestorageblobcopy**](media/sap-hana-backup-file-level/image031.png)
 
-Después de complementar el software RAID local, todos los VHD implicados se copiaron con el comando de PowerShell **start-azurestorageblobcopy** (vea [Start-AzureStorageBlobCopy](/powershell/storage/azure.storage/v2.1.0/start-azurestorageblobcopy)). Como solo afecta al sistema de archivos dedicado para mantener archivos de copia de seguridad, no hay preocupaciones sobre la coherencia de los archivos de registro o de datos de SAP HANA en el disco. Una ventaja de este comando es que funciona mientras la VM se encuentra en línea. Para estar seguro de que no se escribe ningún proceso en el conjunto de fragmentos de copia de seguridad, asegúrese de desmontarlo antes de la copia de blob y montarlo de nuevo posteriormente. También puede usar una forma apropiada de &quot;inmovilizar&quot; el sistema de archivos. Por ejemplo, a través de xfs\_freeze para el sistema de archivos XFS.
+Después de complementar el software RAID local, todos los VHD implicados se copiaron con el comando de PowerShell **start-azurestorageblobcopy** (vea [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). Como solo afecta al sistema de archivos dedicado para mantener archivos de copia de seguridad, no hay preocupaciones sobre la coherencia de los archivos de registro o de datos de SAP HANA en el disco. Una ventaja de este comando es que funciona mientras la VM se encuentra en línea. Para estar seguro de que no se escribe ningún proceso en el conjunto de fragmentos de copia de seguridad, asegúrese de desmontarlo antes de la copia de blob y montarlo de nuevo posteriormente. También puede usar una forma apropiada de &quot;inmovilizar&quot; el sistema de archivos. Por ejemplo, a través de xfs\_freeze para el sistema de archivos XFS.
 
 ![Esta captura de pantalla muestra la lista de blobs en el contenedor de VHD en Azure Portal](media/sap-hana-backup-file-level/image032.png)
 

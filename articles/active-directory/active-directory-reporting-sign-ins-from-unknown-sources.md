@@ -17,6 +17,7 @@ ms.author: saah;kenhoff
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 90006121e4b3392f6e3ecffb4a56aca330feb02f
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -26,10 +27,5 @@ En este informe se incluyen los usuarios que han iniciado sesión correctamente 
 Los resultados de este informe mostrarán el número de veces que un usuario ha iniciado sesión correctamente en su directorio desde esa dirección y la dirección IP de proxy.
 
 ![Inicios de sesión desde orígenes desconocidos](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

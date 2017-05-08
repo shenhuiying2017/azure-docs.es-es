@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/23/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3dd7f6db58bbb8704b7811b2fd19619e5e1ec0d4
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8268a0204137a95365a95c323507163c4ec6b33d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Después de implementar una aplicación y ejecutar una instancia del clúster, p
 Si usa [Visual Studio para implementar y depurar aplicaciones](service-fabric-publish-app-remote-cluster.md) en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell,  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se ofrece información sobre lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
-Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre usando [Connect-ServiceFabricCluster](/powershell/servicefabric/vlatest/connect-servicefabriccluster) para conectarse al clúster de Service Fabric. Para conectarse al clúster de desarrollo local, ejecute lo siguiente:
+Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre usando [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) para conectarse al clúster de Service Fabric. Para conectarse al clúster de desarrollo local, ejecute lo siguiente:
 
 ```powershell
 PS C:\>Connect-ServiceFabricCluster
@@ -56,9 +56,9 @@ Para obtener ejemplos de conexión a un clúster remoto o protegido con Azure Ac
 
 ## <a name="upload-the-application-package"></a>Cargar el paquete de la aplicación
 Cargar el paquete de aplicación lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric.
-Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage).
+Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
-El comando [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) cargará el paquete de aplicación en el almacén de imágenes del clúster.
+El comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) cargará el paquete de aplicación en el almacén de imágenes del clúster.
 El cmdlet **Get-ImageStoreConnectionStringFromClusterManifest** , que forma parte del módulo de PowerShell correspondiente al SDK de Service Fabric, se utiliza para obtener la cadena de conexión del almacén de imágenes.  Para importar el módulo de SDK, ejecute el siguiente código:
 
 ```powershell
@@ -100,8 +100,8 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 Si el paquete de aplicación es grande y/o tiene muchos archivos, puede [comprimirlo](service-fabric-package-apps.md#compress-a-package). La compresión reduce el tamaño y el número de archivos.
 El inconveniente es que el registro y la anulación del registro del tipo de aplicación son más rápidos. El tiempo de carga puede ser más lento en la actualidad, especialmente si incluye el tiempo para comprimir el paquete. 
 
-Para comprimir un paquete, use el mismo comando [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage). La compresión puede realizarse independiente de la carga, utilizando la marca `SkipCopy`, o junto con la operación de carga. Comprimir un paquete comprimido es una operación inútil.
-Para descomprimir un paquete comprimido, use el mismo comando [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) con el modificador `UncompressPackage`.
+Para comprimir un paquete, use el mismo comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). La compresión puede realizarse independiente de la carga, utilizando la marca `SkipCopy`, o junto con la operación de carga. Comprimir un paquete comprimido es una operación inútil.
+Para descomprimir un paquete comprimido, use el mismo comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con el modificador `UncompressPackage`.
 
 El siguiente cmdlet comprime el paquete sin copiarlo en el almacén de imágenes. El paquete ahora incluye los archivos comprimidos para los paquetes `Code` y `Config`. La aplicación y los manifiestos de servicio no se comprimen porque son necesarios para muchas operaciones internas (por ejemplo, uso compartido de paquetes, nombre de tipo de aplicación y extracción de versiones para ciertas validaciones). La compresión de los manifiestos haría que estas operaciones resultaran ineficaces.
 
@@ -141,7 +141,7 @@ PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -Appl
 
 Si no se especifica el parámetro *-ApplicationPackagePathInImageStore*, el paquete de aplicación se copia en la carpeta "Debug" del almacén de imágenes.
 
-El tiempo necesario para cargar un paquete depende de varios factores. Algunos de estos factores son el número de archivos del paquete, el tamaño del paquete y los tamaños de archivo. La velocidad de la red entre la máquina de origen y el clúster de Service Fabric también afecta al tiempo de carga. El tiempo de espera predeterminado para [ServiceFabricApplicationPackage copia](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) es de 30 minutos.
+El tiempo necesario para cargar un paquete depende de varios factores. Algunos de estos factores son el número de archivos del paquete, el tamaño del paquete y los tamaños de archivo. La velocidad de la red entre la máquina de origen y el clúster de Service Fabric también afecta al tiempo de carga. El tiempo de espera predeterminado para [ServiceFabricApplicationPackage copia](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) es de 30 minutos.
 Dependiendo de los factores descritos, puede que tenga que aumentar el tiempo de espera. Si va a comprimir el paquete en la llamada de copia, también debe tener en cuenta el tiempo de compresión.
 
 Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para más información sobre el almacén de imágenes y su cadena de conexión.
@@ -149,7 +149,7 @@ Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-imag
 ## <a name="register-the-application-package"></a>Registrar el paquete de la aplicación
 El tipo y la versión de la aplicación declarados en el manifiesto de aplicación estarán disponibles para usarse cuando se registre el paquete de aplicación. El sistema leerá el paquete cargado en el paso anterior, comprobará dicho paquete, procesará su contenido y copiará el paquete procesado en una ubicación del sistema interno.  
 
-Ejecute el cmdlet [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) para registrar el tipo de aplicación en el clúster y ponerlo a disposición para la implementación:
+Ejecute el cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) para registrar el tipo de aplicación en el clúster y ponerlo a disposición para la implementación:
 
 ```powershell
 PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
@@ -158,10 +158,10 @@ Register application type succeeded
 
 "MyApplicationV1" es la carpeta del almacén de imágenes donde se encuentra el paquete de aplicación. El tipo de aplicación con el nombre "MyApplicationType" y la versión "1.0.0" (ambos se encuentran en el manifiesto de aplicación) ya estará registrado en el clúster.
 
-El comando [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) devuelve solo después de que el sistema haya registrado correctamente el paquete de aplicación. El tiempo que tarde en registrarse dependerá del contenido del paquete de aplicación. El parámetro **- TimeoutSec** se puede usar para proporcionar un tiempo de espera más largo (el tiempo de espera predeterminado es de 60 segundos).
+El comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) devuelve solo después de que el sistema haya registrado correctamente el paquete de aplicación. El tiempo que tarde en registrarse dependerá del contenido del paquete de aplicación. El parámetro **- TimeoutSec** se puede usar para proporcionar un tiempo de espera más largo (el tiempo de espera predeterminado es de 60 segundos).
 
 Si tiene un paquete de aplicación grande o está experimentando tiempos de espera, use el parámetro **-Async**. El comando se devuelve cuando el clúster acepta el comando de registro, y el procesamiento continúa según sea necesario.
-El comando [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) enumera todas las versiones del tipo de aplicación registradas correctamente, así como el estado de registro. Puede utilizar este comando para determinar cuándo se realiza el registro.
+El comando [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) enumera todas las versiones del tipo de aplicación registradas correctamente, así como el estado de registro. Puede utilizar este comando para determinar cuándo se realiza el registro.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -173,7 +173,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="create-the-application"></a>Creación de la aplicación
-Se pueden crear instancias de una aplicación a partir de cualquier versión del tipo de aplicación que se haya registrado correctamente mediante el cmdlet [New-ServiceFabricApplication](/powershell/servicefabric/vlatest/new-servicefabricapplication). El nombre de cada aplicación debe empezar con el esquema *fabric:* y ser únicos para cada instancia de la aplicación. También se crean los servicios predeterminados que se hayan definido en el manifiesto de aplicación del tipo de aplicación de destino.
+Se pueden crear instancias de una aplicación a partir de cualquier versión del tipo de aplicación que se haya registrado correctamente mediante el cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps). El nombre de cada aplicación debe empezar con el esquema *fabric:* y ser únicos para cada instancia de la aplicación. También se crean los servicios predeterminados que se hayan definido en el manifiesto de aplicación del tipo de aplicación de destino.
 
 ```powershell
 PS C:\> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
@@ -185,7 +185,7 @@ ApplicationParameters  : {}
 ```
 Pueden crearse varias instancias de aplicación para cualquier versión concreta de un tipo de aplicación registrado. Cada instancia de la aplicación se ejecuta de forma aislada, con su propio proceso y directorio de trabajo.
 
-Para ver el nombre de las aplicaciones y los servicios en ejecución en el clúster, ejecute los cmdlets [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) y [Get-ServiceFabricService](/powershell/servicefabric/vlatest/get-servicefabricservice):
+Para ver el nombre de las aplicaciones y los servicios en ejecución en el clúster, ejecute los cmdlets [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) y [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps):
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  
@@ -209,7 +209,7 @@ HealthState            : Ok
 ```
 
 ## <a name="remove-an-application"></a>Eliminación de una aplicación
-Cuando ya no se necesite una instancia de aplicación, use el cmdlet [Remove-ServiceFabricApplication](/powershell/servicefabric/vlatest/remove-servicefabricapplication) para quitarla por nombre de manera permanente. [Remove-ServiceFabricApplication](/powershell/servicefabric/vlatest/remove-servicefabricapplication) también quita automáticamente todos los servicios que pertenezcan a la aplicación, con lo que se eliminan de forma permanente todos los estados del servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
+Cuando ya no se necesite una instancia de aplicación, use el cmdlet [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) para quitarla por nombre de manera permanente. [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) también quita automáticamente todos los servicios que pertenezcan a la aplicación, con lo que se eliminan de forma permanente todos los estados del servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
 
 ```powershell
 PS C:\> Remove-ServiceFabricApplication fabric:/MyApp
@@ -223,9 +223,9 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Anulación de un registro del tipo de aplicación
-Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse el registro del tipo de aplicación mediante el cmdlet [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype). Anular el registro de tipos de aplicación que no se usan libera espacio de almacenamiento del almacén de imágenes. No se puede anular el registro de un tipo de aplicación mientras no haya ninguna aplicación con instancias con él o no haya actualizaciones de aplicaciones pendientes que hagan referencia a él.
+Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse el registro del tipo de aplicación mediante el cmdlet [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps). Anular el registro de tipos de aplicación que no se usan libera espacio de almacenamiento del almacén de imágenes. No se puede anular el registro de un tipo de aplicación mientras no haya ninguna aplicación con instancias con él o no haya actualizaciones de aplicaciones pendientes que hagan referencia a él.
 
-Ejecute el cmdlet [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype) para ver los tipos de aplicación registrados actualmente en el clúster:
+Ejecute el cmdlet [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) para ver los tipos de aplicación registrados actualmente en el clúster:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -236,7 +236,7 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-Ejecute [Unregister-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/unregister-servicefabricapplicationtype) para anular el registro de un tipo concreto de aplicación:
+Ejecute [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) para anular el registro de un tipo concreto de aplicación:
 
 ```powershell
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
@@ -251,7 +251,7 @@ PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStor
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
-El entorno del SDK de Service Fabric ya debe tener configurados los valores predeterminados correctos. Pero si es necesario, ImageStoreConnectionString para todos los comandos debe coincidir con el valor que usa el clúster de Service Fabric. Encontrará ImageStoreConnectionString en el manifiesto de clúster, que se recupera con el comando [Get-ServiceFabricClusterManifest](/powershell/servicefabric/vlatest/get-servicefabricclustermanifest):
+El entorno del SDK de Service Fabric ya debe tener configurados los valores predeterminados correctos. Pero si es necesario, ImageStoreConnectionString para todos los comandos debe coincidir con el valor que usa el clúster de Service Fabric. Encontrará ImageStoreConnectionString en el manifiesto de clúster, que se recupera con el comando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps):
 
 ```powershell
 PS C:\> Get-ServiceFabricClusterManifest
@@ -274,27 +274,27 @@ ImageStoreConnectionString se encuentra en el manifiesto de clúster:
 Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para más información sobre el almacén de imágenes y su cadena de conexión.
 
 ### <a name="deploy-large-application-package"></a>Implementación de un paquete de aplicación grande
-Problema: [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) agota el tiempo de espera para un paquete de aplicación grande (del orden de GB).
+Problema: [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) agota el tiempo de espera para un paquete de aplicación grande (del orden de GB).
 Pruebe lo siguiente:
-- Especifique un tiempo de espera mayor para el comando [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) con el parámetro `TimeoutSec`. De forma predeterminada, el tiempo de espera es de 30 minutos.
+- Especifique un tiempo de espera mayor para el comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con el parámetro `TimeoutSec`. De forma predeterminada, el tiempo de espera es de 30 minutos.
 - Compruebe la conexión de red entre la máquina de origen y el clúster. Si la conexión es lenta, considere la posibilidad de usar una máquina con una conexión de red mejor.
 Si la máquina cliente se encuentra en otra región diferente al clúster, considere el uso de una máquina cliente que se encuentre en una región más cercana o en la misma región que el clúster.
 - Compruebe si está alcanzando la limitación externa. Por ejemplo, cuando el almacén de imágenes está configurado para usar Azure Storage, se puede limitar carga.
 
-Problema: La carga del paquete se completó correctamente, pero [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) agota el tiempo de espera.
+Problema: La carga del paquete se completó correctamente, pero [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) agota el tiempo de espera.
 Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes.
 La compresión reduce el tamaño y el número de archivos lo que, a su vez, reduce la cantidad de tráfico y trabajo que Service Fabric debe realizar. La operación de carga puede ser más lenta (especialmente si incluyen el tiempo de compresión), pero el registro y la anulación del registro del tipo de aplicación son más rápidos.
-- Especifique un tiempo de espera mayor para [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) con el parámetro `TimeoutSec`.
-- Especifique el modificador `Async` para [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). El comando se devuelve cuando el clúster acepta el comando y el aprovisionamiento continúa de forma asincrónica.
+- Especifique un tiempo de espera mayor para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) con el parámetro `TimeoutSec`.
+- Especifique el modificador `Async` para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). El comando se devuelve cuando el clúster acepta el comando y el aprovisionamiento continúa de forma asincrónica.
 Por esta razón, no hay ninguna necesidad de especificar un tiempo de espera mayor en este caso.
 
 ### <a name="deploy-application-package-with-many-files"></a>Implementación del paquete de aplicación con muchos archivos
-Problema: [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) agota el tiempo de espera para un paquete de aplicación con muchos archivos (del orden de miles).
+Problema: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) agota el tiempo de espera para un paquete de aplicación con muchos archivos (del orden de miles).
 Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes. La compresión reduce el número de archivos.
-- Especifique un tiempo de espera mayor para [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) con el parámetro `TimeoutSec`.
-- Especifique el modificador `Async` para [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). El comando se devuelve cuando el clúster acepta el comando y el aprovisionamiento continúa de forma asincrónica.
+- Especifique un tiempo de espera mayor para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) con el parámetro `TimeoutSec`.
+- Especifique el modificador `Async` para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). El comando se devuelve cuando el clúster acepta el comando y el aprovisionamiento continúa de forma asincrónica.
 Por esta razón, no hay ninguna necesidad de especificar un tiempo de espera mayor en este caso. 
 
 ## <a name="next-steps"></a>Pasos siguientes

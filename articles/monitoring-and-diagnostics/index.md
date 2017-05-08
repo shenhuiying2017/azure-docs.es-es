@@ -1,5 +1,5 @@
 ---
-title: "Documentación sobre los servicios de supervisión y diagnósticos de Azure: tutoriales y referencia de API | Microsoft Docs"
+title: "Documentación sobre Azure Monitor: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a usar los servicios de supervisión y diagnóstico para realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias. Referencias de API, procedimientos recomendados y más."
 services: monitoring-and-diagnostics
 author: carolz
@@ -13,12 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d57ccb26a3dde16c50d2e837d392ab8e6fea979
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 475353f5a5abca1e9d6b5fdf4980d0cf33acc744
+ms.lasthandoff: 05/03/2017
 
 ---
-# <a name="monitoring-and-diagnostics-documentation"></a>Documentación de Monitoring and Diagnostics
+# <a name="azure-monitor-documentation"></a>Documentación sobre Azure Monitor
 
 Aprenda a usar los servicios de supervisión y diagnóstico de Azure para realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias. Tutoriales, referencias de API, procedimientos recomendados y otra documentación le ayudan a entender los usos de supervisión y diagnóstico y cómo planear e implementar soluciones escalables y confiables.
 

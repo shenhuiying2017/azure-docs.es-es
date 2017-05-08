@@ -44,8 +44,3 @@
 6. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Recibirá una notificación cuando la cuenta de almacenamiento se cree correctamente.
 7. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la nueva cuenta de almacenamiento. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

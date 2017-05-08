@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1bd474cc547ca2f6aa32944c1a1e5a92f917444a
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -58,11 +58,6 @@ Los pasos de este procedimiento muestran cómo conectarse a Azure Portal con la 
 1. Abra el explorador que prefiera y conéctese al [Portal de Azure](https://portal.azure.com/).
 2. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 3. En la página **Iniciar sesión** , proporcione las credenciales de la suscripción.
-   
-   ![Iniciar sesión](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## <a name="view-logical-server-security-information-in-the-azure-portal"></a>Visualización de la información de seguridad del servidor lógico en Azure Portal
 
@@ -270,7 +265,7 @@ Los pasos de este procedimiento muestran cómo crear una regla de firewall de ni
     
    ![Conectarse como user1 sin la regla de firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Haga clic en **Opciones** para especificar la base de datos a la que desea conectarse y escriba **sqldbtutorialdb** en el cuadro desplegable **Conectar con base de datos** de la pestaña **Propiedades de conexión**.
+3. Haga clic en **Opciones** en el cuadro de diálogo **Conectar a servidor** para especificar la base de datos a la que desea conectarse y después escriba **sqldbtutorialdb** en el cuadro desplegable **Conectar con base de datos** de la pestaña **Propiedades de conexión**.
    
    ![Conectarse como user1 sin la regla de firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
@@ -399,7 +394,7 @@ Los pasos de este procedimiento muestran cómo crear un inicio de sesión y un u
 Para crear los inicios de sesión y usuarios, agregarlos a los roles, concederles permisos, crear reglas de firewall de nivel de base de datos y crear reglas de firewall de nivel de servidor, ejecute las siguientes instrucciones en las bases de datos adecuadas del servidor.
 
 ### <a name="master-database"></a>base de datos maestra
-Ejecute estas instrucciones en la base de datos maestra con la cuenta de administrador de servidor agregando las direcciones IP (o intervalo de direcciones) adecuadas.
+Ejecute estas instrucciones en la base de datos maestra con la cuenta de administrador de servidor agregando las direcciones IP o el intervalo de direcciones adecuados.
 
 ```
 CREATE LOGIN dbcreator WITH PASSWORD = 'p@ssw0rd';
@@ -410,7 +405,7 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
 ```
 
 ### <a name="sqldbtutorialdb-database"></a>base de datos sqldbtutorialdb
-Ejecute estas instrucciones en la base de datos sqldbtutorialdb con la cuenta de administrador de servidor agregando las direcciones IP (o intervalo de direcciones) adecuadas.
+Ejecute estas instrucciones en la base de datos sqldbtutorialdb con la cuenta de administrador de servidor agregando las direcciones IP o el intervalo de direcciones adecuados.
 
 ```
 CREATE USER user1 WITH PASSWORD = 'p@ssw0rd';
@@ -420,7 +415,7 @@ EXEC sp_set_database_firewall_rule @name = N'sqldbtutorialdbFirewallRule',
 ```
 
 ### <a name="blankdb-database"></a>base de datos blankdb
-Ejecute estas instrucciones en la base de datos blankdb con la cuenta de administrador de servidor agregando las direcciones IP (o intervalo de direcciones) adecuadas.
+Ejecute estas instrucciones en la base de datos blankdb con la cuenta de administrador de servidor agregando las direcciones IP o el intervalo de direcciones adecuados.
 
 ```
 CREATE USER blankdbadmin

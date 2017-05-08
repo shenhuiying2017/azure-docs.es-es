@@ -2,8 +2,3 @@ Funciones de Azure es una experiencia de proceso a petición basada en eventos q
 
 Este vídeo introductorio muestra cómo crear una aplicación de la función, modificar el código y cómo interactuar con los desencadenadores y enlaces.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -45,10 +46,5 @@ Para probar, use la característica "Ejecutar ahora" en cualquier directiva de i
 > Las páginas del autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de empresa](../active-directory/active-directory-add-company-branding.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

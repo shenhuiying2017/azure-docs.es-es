@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e2e10d3531fbbe2ed09dc34a6c3b14ff5df1a937
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -247,7 +247,7 @@ La siguiente ilustración muestra el contenido del nuevo grupo de recursos despu
 ![Grupo de recursos back-end](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Implementación de la plantilla mediante PowerShell
-Para implementar la plantilla que ha descargado con PowerShell, instale y configure PowerShell completando los pasos del artículo [Install and configure PowerShell (Instalar y configurar PowerShell)](/powershell/azureps-cmdlets-docs) y, después, siga los siguientes pasos:
+Para implementar la plantilla que ha descargado con PowerShell, instale y configure PowerShell completando los pasos del artículo [Install and configure PowerShell (Instalar y configurar PowerShell)](/powershell/azure/overview) y, después, siga los siguientes pasos:
 
 Ejecute el cmdlet **`New-AzureRmResourceGroup`** para crear un grupo de recursos con esta plantilla.
 

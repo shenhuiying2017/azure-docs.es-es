@@ -67,6 +67,7 @@
 ### [Errores durante la sincronización](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [El objeto no está sincronizado](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sincronización de contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Error LargeObject provocado por userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Recuperación del límite de 10 GB de LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referencia

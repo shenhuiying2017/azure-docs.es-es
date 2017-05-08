@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 06a67e4d2134baf54e88708d64981b897ecb74a0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7490fe7261c760f2945d67a7f819091fd69b04f8
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -55,13 +55,13 @@ Y puede agregar bases de datos al grupo o quitar bases de datos del grupo. Si un
 ## <a name="which-databases-go-in-a-pool"></a>¿Qué bases de datos se incluyen en un grupo?
 ![Las bases de datos SQL que comparten eDTU en un grupo elástico.][1]
 
-Las bases de datos que son buenos candidatos para grupos elásticos tienen normalmente períodos de actividad y otros períodos de inactividad. En el ejemplo anterior, puede ver la actividad de una base de datos única, cuatro bases de datos y, por último, un grupo elástico con 20 bases de datos. Las bases de datos con actividad variable con el tiempo son excelentes candidatos para grupos elásticos porque no están activas al mismo tiempo y pueden compartir eDTU. No todas las bases de datos se ajustan a este patrón. Las bases de datos que tienen una demanda de recursos más constante son las más idóneas para los niveles de servicio Basic, Standard y Premium, donde los recursos se asignan por separado.
+Las bases de datos que son buenos candidatos para grupos elásticos tienen normalmente períodos de actividad y otros períodos de inactividad. En el ejemplo anterior, puede ver la actividad de una base de datos única, cuatro bases de datos y, por último, un grupo elástico con 20 bases de datos. Las bases de datos con actividad variable con el tiempo son excelentes candidatos para grupos elásticos porque no están activas al mismo tiempo y pueden compartir eDTU. No todas las bases de datos se ajustan a este patrón. Las bases de datos que tienen una demanda de recursos más constante son las más idóneas para los niveles de servicio Básico, Estándar, Premium y Premium RS, donde los recursos se asignan de forma individual.
 
 [Consideraciones de precio y rendimiento para un grupo elástico](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas
 
-En la tabla siguiente se describen las características de los grupos elásticos de nivel Básico, Estándar y Premium.
+En la tabla siguiente se describen las características de los grupos elásticos de nivel Básico, Estándar, Premium y Premium RS.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -74,7 +74,7 @@ En las tablas siguientes se describen los límites de los grupos elásticos y de
 ### <a name="limits-for-elastic-pools"></a>Límites de grupos elásticos
 | Propiedad | Description |
 |:--- |:--- |
-| Nivel de servicio |Basic, Standard o Premium. El nivel de servicio determina el intervalo en los límites de almacenamiento y rendimiento que se pueden configurar, así como las opciones de continuidad del negocio disponibles. Cada base de datos dentro de un grupo tiene el mismo nivel de servicio que el grupo. "Nivel de servicio" también se conoce como "edición". |
+| Nivel de servicio |Básico, Estándar, Premium o Premium RS. El nivel de servicio determina el intervalo en los límites de almacenamiento y rendimiento que se pueden configurar, así como las opciones de continuidad del negocio disponibles. Cada base de datos dentro de un grupo tiene el mismo nivel de servicio que el grupo. "Nivel de servicio" también se conoce como "edición". |
 | eDTU por grupo |Número máximo de eDTU que pueden compartir las bases de datos del grupo. El número total de eDTU que usan las bases de datos del grupo no puede superar este límite en el mismo punto en el tiempo. |
 | Almacenamiento máximo por grupo (GB) |Cantidad máxima de almacenamiento en GB que pueden compartir las bases de datos del grupo. El almacenamiento total que usan las bases de datos del grupo no puede superar este límite. Este límite viene determinado por las eDTU por grupo. Si este límite se rebasa, todas las bases de datos pasarán a ser de solo lectura. El almacenamiento máximo por grupo hace referencia al almacenamiento máximo de los archivos de datos en el grupo y no incluye el espacio utilizado por los archivos de registro. |
 | Cantidad máxima de bases de datos por grupo |Cantidad máxima de bases de datos permitidas por grupo. |
@@ -106,7 +106,7 @@ La característica de restauración a un momento dado utiliza copias de segurida
 La restauración geográfica proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>Replicación geográfica activa
-Para las aplicaciones que tienen requisitos de recuperación más exigentes que lo que puede ofrecer la restauración geográfica, configure la replicación geográfica activa mediante [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Si se trata de aplicaciones que tienen unos requisitos de recuperación más exigentes que los que puede ofrecer la restauración geográfica, configure la [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

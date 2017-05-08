@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e8d6f7c41287f5f785a52ae82bb156008d7e2699
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -90,7 +90,7 @@ El nivel de confiabilidad puede adoptar los siguientes valores.
 > 
 > 
 
- Siempre puede actualizar la confiabilidad del clúster de un nivel a otro. Esto desencadenará las actualizaciones de clúster necesarias para cambiar el recuento de conjunto de réplicas de los servicios del sistema. Espere a que finalice la actualización en curso antes de realizar otros cambios en el clúster, como agregar nodos etc.  Puede supervisar el progreso de la actualización en Service Fabric Explorer o puede ejecutar [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx).
+ Siempre puede actualizar la confiabilidad del clúster de un nivel a otro. Esto desencadenará las actualizaciones de clúster necesarias para cambiar el recuento de conjunto de réplicas de los servicios del sistema. Espere a que finalice la actualización en curso antes de realizar otros cambios en el clúster, como agregar nodos etc.  Puede supervisar el progreso de la actualización en Service Fabric Explorer o puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nodo principal: guía de capacidad

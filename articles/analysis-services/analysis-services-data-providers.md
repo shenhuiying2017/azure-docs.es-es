@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 04/14/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 71f85c483f6b87ac34c003ac3695a85396ca945b
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c29a6627f712b9d89ac65e845f3ccb4fb87bf8fb
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ Las aplicaciones cliente de Microsoft, como Power BI Desktop y Excel, instalan l
 Las bibliotecas de cliente para conexiones de cliente son diferentes de los proveedores de datos necesarios para conectarse desde un servidor de Azure Analysis Services a un origen de datos. Para más información sobre las conexiones de origen de datos, consulte [Conexiones a origen de datos](analysis-services-datasource.md).
 
 ## <a name="download-the-latest-preview-client-libraries"></a>Descargue la **versión preliminar** más reciente de las bibliotecas de cliente.  
-Use las siguientes bibliotecas de cliente para obtener las últimas correcciones de errores y actualizaciones. Se recomiendan estas bibliotecas de cliente cuando se conecte a la versión preliminar de Azure Analysis Services o SQL Server vNext Analysis Services.
+Use las siguientes bibliotecas de cliente para obtener las últimas correcciones de errores y actualizaciones. Para conectarse a Azure Analysis Services o SQL Server vNext Analysis Services se recomiendan estos proveedores de datos.
 
 [MSOLAP (amd64) (versión preliminar)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
 [MSOLAP (x86) (versión preliminar)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>

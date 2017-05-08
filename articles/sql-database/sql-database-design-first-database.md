@@ -17,9 +17,9 @@ ms.workload:
 ms.date: 03/30/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 933b262f3c587229a194c3259fc5c13b75ecd050
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -30,11 +30,11 @@ En este tutorial, va a compilar una base de datos de una universidad para realiz
 
 Para completar el tutorial, asegúrese de tener instalada la última versión de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
 
-## <a name="step-1-log-in-to-the-azure-portal"></a>Paso 1: Iniciar sesión en Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-## <a name="step-2-create-a-blank-sql-database-in-azure"></a>Paso 2: Crear una instancia en blanco de SQL Database en Azure
+## <a name="create-a-blank-sql-database-in-azure"></a>Creación de una instancia en blanco de SQL Database en Azure
 
 Se crea una base de datos SQL de Azure con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
 
@@ -70,7 +70,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
     ![notificación](./media/sql-database-get-started-portal/notification.png)
 
 
-## <a name="step-3-create-a-server-level-firewall-rule"></a>Paso 3: Crear una regla de firewall de nivel de servidor
+## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 
 La protección de Azure SQL Databases se basa en un firewall. De forma predeterminada, se rechazan todas las conexiones al servidor y a las bases de datos del servidor. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](sql-database-firewall-configure.md) para el servidor, a fin de permitir las conexiones desde la dirección IP del cliente. 
 
@@ -92,7 +92,7 @@ Ahora puede conectarse a la base de datos y a su servidor mediante SQL Server Ma
 > SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. Si es así, no podrá conectarse al servidor de Azure SQL Database, a menos que el departamento de TI abra el puerto 1433.
 >
 
-## <a name="step-4---get-connection-information"></a>Paso 4: Obtener información de la conexión
+## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
 
@@ -102,7 +102,7 @@ Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. U
 
     ![información sobre la conexión](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## <a name="step-5---connect-to-your-database-using-sql-server-management-studio"></a>Paso 5: Conectarse a la base de datos mediante SQL Server Management Studio
+## <a name="connect-to-your-database-using-sql-server-management-studio"></a>Conexión a la base de datos mediante SQL Server Management Studio
 
 Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) para establecer una conexión con un servidor de Azure SQL Database.
 
@@ -128,7 +128,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    ![Objetos de base de datos](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="step-6---create-tables-in-the-database"></a>Paso 6: Crear tablas en la base de datos 
+## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos 
 
 Cree un esquema de base de datos con cuatro tablas que modelan un sistema de administración de estudiantes para universidades con [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -199,7 +199,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
    ![crear tablas en SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="step-7---load-data-into-the-tables"></a>Paso 7: Cargar datos en las tablas
+## <a name="load-data-into-the-tables"></a>Carga de datos en las tablas
 
 1. Cree una carpeta denominada **SampleTableData** en la carpeta Descargas para almacenar datos de ejemplo para la base de datos. 
 
@@ -223,7 +223,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
 De esta forma, ya ha cargado los datos de ejemplo en las tablas que ha creado anteriormente.
 
-## <a name="step-8---query-the-tables"></a>Paso 8: Consultar las tablas
+## <a name="query-the-tables"></a>Consulta de las tablas
 
 Ejecute las siguientes consultas para recuperar información de las tablas de base de datos. Vea [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) (Escribir consultas SQL) para más información sobre cómo escribir consultas SQL. La primera consulta combina las cuatro tablas para buscar todos los alumnos del profesor "Dominick Pope" que tienen una calificación superior al 75% de su clase. La segunda consulta combina las cuatro tablas y busca todos los cursos en los que nunca se ha matriculado "Noe Coleman".
 
@@ -260,7 +260,7 @@ Ejecute las siguientes consultas para recuperar información de las tablas de ba
         AND person.LastName = 'Coleman'
    ```
 
-## <a name="step-9---restore-a-database-to-a-previous-point-in-time"></a>Paso 9: Restaurar una base de datos a un momento dado anterior 
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restauración de una base de datos a un momento anterior en el tiempo 
 
 Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure SQL Database permite volver a cualquier momento dado en el período de los últimos 35 días y restaurar este punto en una nueva base de datos. Puede usar esta base de datos para recuperar los datos eliminados. Los pasos siguientes restauran la base de datos de ejemplo a un punto anterior a la eliminación de las tablas.
 

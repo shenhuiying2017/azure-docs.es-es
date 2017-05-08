@@ -22,9 +22,11 @@
 ## [Medición del rendimiento de Traffic Manager](traffic-manager-performance-considerations.md)
 ## [Uso de PowerShell para administrar Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Dirigir el dominio de Internet a Traffic Manager](traffic-manager-point-internet-domain.md)
+## Solución de problemas
+### [Solución del estado degradado en Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [CLI de Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

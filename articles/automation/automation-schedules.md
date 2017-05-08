@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 823d1155bc011466d0f3bd0ccd8650be161fd28b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,26 +30,26 @@ Para programar un runbook en Automatización de Azure para que se inicie en un m
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
-Los cmdlets de la siguiente tabla se usan para crear y administrar programaciones con Windows PowerShell en Automatización de Azure. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Los cmdlets de la siguiente tabla se usan para crear y administrar programaciones con Windows PowerShell en Automatización de Azure. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview).
 
 | Cmdlets | Descripción |
 |:--- |:--- |
 | **Cmdlets de Azure Resource Manager** | |
-| [Get-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603733.aspx) |Recupera una programación. |
-| [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) |Crea una nueva programación. |
-| [Remove-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603691.aspx) |Quita una programación. |
-| [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) |Establece las propiedades de una programación existente. |
-| [Get-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt619406.aspx) |Recupera runbooks programados. |
-| [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) |Asocia un runbook con una programación. |
-| [Unregister-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603844.aspx) |Anula la asociación de un runbook con una programación. |
+| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Recupera una programación. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Crea una nueva programación. |
+| [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Quita una programación. |
+| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Establece las propiedades de una programación existente. |
+| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |Recupera runbooks programados. |
+| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Asocia un runbook con una programación. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Anula la asociación de un runbook con una programación. |
 | **Cmdlets de administración de servicios de Azure** | |
-| [Get-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690274.aspx) |Recupera una programación. |
-| [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) |Crea una nueva programación. |
-| [Remove-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690279.aspx) |Quita una programación. |
-| [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690270.aspx) |Establece las propiedades de una programación existente. |
-| [Get-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn913778.aspx) |Recupera runbooks programados. |
-| [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690265.aspx) |Asocia un runbook con una programación. |
-| [Unregister-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690273.aspx) |Anula la asociación de un runbook con una programación. |
+| [Get-AzureAutomationSchedule](/powershell/module/azure/get-azureautomationschedule?view=azuresmps-3.7.0) |Recupera una programación. |
+| [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |Crea una nueva programación. |
+| [Remove-AzureAutomationSchedule](/powershell/module/azure/remove-azureautomationschedule?view=azuresmps-3.7.0) |Quita una programación. |
+| [Set-AzureAutomationSchedule](/powershell/module/azure/set-azureautomationschedule?view=azuresmps-3.7.0) |Establece las propiedades de una programación existente. |
+| [Get-AzureAutomationScheduledRunbook](/powershell/module/azure/get-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Recupera runbooks programados. |
+| [Register-AzureAutomationScheduledRunbook](/powershell/module/azure/register-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Asocia un runbook con una programación. |
+| [Unregister-AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Anula la asociación de un runbook con una programación. |
 
 ## <a name="creating-a-schedule"></a>Creación de una programación
 Puede crear una programación para runbooks en el Portal de Azure, en el Portal de Azure clásico o con Windows PowerShell. También tiene la opción de crear una programación cuando vincule un runbook a una programación mediante el Portal de Azure clásico o el Portal de Azure.
@@ -74,7 +75,7 @@ Puede crear una programación para runbooks en el Portal de Azure, en el Portal 
 6. Especifique una **Hora de inicio** y las demás opciones, según el tipo de programación seleccionada.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Para crear una nueva programación con Windows PowerShell
-Puede usar el cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) para crear una programación en Azure Automation para Runbooks clásicos o el cmdlet [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) para Runbooks en Azure Portal. Debe especificar la hora de inicio de la programación y la frecuencia con que se debe ejecutar.
+Puede usar el cmdlet [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) para crear una programación en Azure Automation para Runbooks clásicos o el cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) para Runbooks en Azure Portal. Debe especificar la hora de inicio de la programación y la frecuencia con que se debe ejecutar.
 
 Los siguientes comandos de ejemplo muestran cómo crear una programación para los días 15 y 30 de cada mes con un cmdlet de Azure Resource Manager.
 
@@ -109,7 +110,7 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 6. Si el runbook tiene parámetros, se le pedirán sus valores.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Para vincular una programación a un runbook con Windows PowerShell
-Puede usar el cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) para vincular una programación a un Runbook clásico o [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) para Runbooks en Azure Portal.  Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) para obtener más información sobre cómo especificar valores de parámetro.
+Puede usar el cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) para vincular una programación a un Runbook clásico o [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) para Runbooks en Azure Portal.  Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) para obtener más información sobre cómo especificar valores de parámetro.
 
 Los siguientes comandos de ejemplo muestran cómo vincular una programación a un runbook mediante un cmdlet de Azure Resource Manager con parámetros.
 
@@ -147,7 +148,7 @@ Puede deshabilitar una programación en el Portal de Azure clásico en su págin
 4. Cambie **Habilitado** a **No**.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Para deshabilitar una programación con Windows PowerShell
-Puede usar el cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) para cambiar las propiedades de una programación existente para un Runbook clásico o [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) para Runbooks en Azure Portal. Para deshabilitar la programación, especifique **false** para el parámetro **IsEnabled**.
+Puede usar el cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) para cambiar las propiedades de una programación existente para un Runbook clásico o [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) para Runbooks en Azure Portal. Para deshabilitar la programación, especifique **false** para el parámetro **IsEnabled**.
 
 Los siguientes comandos de ejemplo muestran cómo deshabilitar una programación para un runbook mediante un cmdlet de Azure Resource Manager.
 
@@ -165,10 +166,5 @@ Los siguientes comandos de ejemplo muestran cómo deshabilitar una programación
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con Runbooks, vea [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

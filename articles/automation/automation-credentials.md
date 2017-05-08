@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 17b4dc2223d30ef13877efc650b56268b707c4bd
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,14 +28,14 @@ Un recurso de credencial de Automation contiene un objeto [PSCredential](http://
 > Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.  
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
-Los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de Automatización con Windows PowerShell.  Se incluyen como parte del [módulo Azure PowerShell](/powershell/azureps-cmdlets-docs) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
+Los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de Automatización con Windows PowerShell.  Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
 
 | Cmdlets | Descripción |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx) |Recupera información acerca de un recurso de credencial. Solo puede recuperar la propia credencial desde la actividad **Get-AutomationPSCredential** . |
-| [New-AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |Crea una nueva credencial de Automatización. |
-| [Remove- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |Quita una credencial de Automatización. |
-| [Set- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |Establece las propiedades para una credencial de Automatización existente. |
+| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Recupera información acerca de un recurso de credencial. Solo puede recuperar la propia credencial desde la actividad **Get-AutomationPSCredential** . |
+| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Crea una nueva credencial de Automatización. |
+| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Quita una credencial de Automatización. |
+| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Establece las propiedades para una credencial de Automatización existente. |
 
 ## <a name="runbook-activities"></a>Actividades de runbook
 Las actividades de la tabla siguiente se usan para tener acceso a las credenciales de un runbook y configuraciones de DSC.

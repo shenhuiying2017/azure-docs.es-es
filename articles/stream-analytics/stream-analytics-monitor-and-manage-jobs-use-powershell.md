@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 69a976f1f019cb89780d00c6bc730fae30e92378
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: ad872828443dd795dd6c45bd2957bbf0f48f6cdd
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/08/2016
 Aprenda a supervisar y administrar los recursos de Análisis de transmisiones con los cmdlets de Azure PowerShell y el scripting de PowerShell que se encargan de ejecutar las tareas básicas de Análisis de transmisiones.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Requisitos previos para ejecutar cmdlets de Azure PowerShell en Análisis de transmisiones
-* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
 Azure PowerShell 0.9.8:  
 
@@ -451,7 +451,7 @@ Azure PowerShell 1.0:
 Este comando de PowerShell comprueba el estado de conexión de la salida Output en StreamingJob.  
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 50af8a024c71cbe931cc944d052493bbb0fa9ad1
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb6b5efc8ad4d40e1b0f41aad678eca6da9798d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ Este artículo lo guía por los pasos para agregar, cambiar el tamaño y quitar 
 
 
 ## <a name="before-beginning"></a>Antes de comenzar
-Compruebe que haya instalado los cmdlets más recientes de Azure PowerShell. Si no, deberá hacerlo antes de comenzar con los pasos de configuración. Para obtener más información, vea [Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalación y configuración de Azure PowerShell).
+Compruebe que haya instalado los cmdlets más recientes de Azure PowerShell. Si no, deberá hacerlo antes de comenzar con los pasos de configuración. Para obtener más información, vea [Install and Configure Azure PowerShell](/powershell/azure/overview) (Instalación y configuración de Azure PowerShell).
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

@@ -26,8 +26,3 @@ Con una [suscripción existente](https://account.windowsazure.com/Home/Index), s
    
    ![Iniciar sesión](./media/azure-getting-started-portal-login/login.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

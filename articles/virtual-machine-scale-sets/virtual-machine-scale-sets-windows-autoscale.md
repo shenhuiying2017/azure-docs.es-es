@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ En este artículo, se implementan los recursos y las extensiones siguientes:
 Para más información sobre los recursos de Resource Manager, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
-Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en Azure.
+Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en Azure.
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>Paso 2: Creación de un grupo de recursos y una cuenta de almacenamiento
 1. **Cree un grupo de recursos** : todos los recursos deben implementarse en un grupo de recursos. Para crear un grupo de recursos denominado [vmsstestrg1](https://msdn.microsoft.com/library/mt603739.aspx) , use **New-AzureRmResourceGroup**.

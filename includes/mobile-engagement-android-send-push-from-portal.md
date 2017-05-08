@@ -14,7 +14,7 @@ Para permitir que Mobile Engagement envíe notificaciones de inserción en su no
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Enviar una notificación a su aplicación
+## <a id="send"></a>Enviar una notificación a su aplicación
 Ahora crearemos una campaña de notificación de inserción simple que enviará una notificación de inserción a nuestra aplicación.
 
 1. Vaya a la pestaña **COBERTURA** en el portal de Mobile Engagement.
@@ -41,9 +41,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 6. Último paso: haga clic en **Activar** para activar su campaña y enviar notificaciones push.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
-ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51065a48c2f797b0ab764bf1b57425bd0696e2bd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,9 +77,9 @@ Si desea implementar la asignación de redes, necesitará lo siguiente:
 * Una red de Azure a la que pueden conectarse máquinas virtuales replicadas después de la conmutación por error. Seleccionará esta red en el momento de la conmutación por error. La red debe estar en la misma región que su suscripción de Azure Site Recovery.
 
 ### <a name="powershell-prerequisites"></a>Requisitos previos de PowerShell
-Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para información sobre cómo configurar PowerShell, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
+Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para información sobre cómo configurar PowerShell, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](/powershell/azure/overview).
 
-Para sugerencias que puedan ayudarle a usar los cmdlets, por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y salidas en Azure PowerShell, vea [Introducción de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Para sugerencias que puedan ayudarle a usar los cmdlets, por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y salidas en Azure PowerShell, vea [Introducción de cmdlets de Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="step-1-set-the-subscription"></a>Paso 1: Establecimiento de la suscripción
 En PowerShell, ejecute estos cmdlets:
@@ -383,7 +383,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
         $jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Supervisión de la actividad
+## <a name=monitor></a> Supervisión de la actividad
 Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta que debe esperar entre los trabajos para que el procesamiento finalice.
 
     Do
@@ -404,5 +404,5 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Obtenga más información](https://msdn.microsoft.com/library/dn850420.aspx) sobre cmdlets de PowerShell de Azure Site Recovery. </a>.
+[Obtenga más información](/powershell/azure/overview) sobre cmdlets de PowerShell de Azure Site Recovery. </a>.
 

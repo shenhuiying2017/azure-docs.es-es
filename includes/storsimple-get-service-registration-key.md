@@ -8,7 +8,7 @@
    
      ![Cuadro de diálogo Clave de registro del servicio](./media/storsimple-get-service-registration-key/HCS_GetServiceRegistrationKey-include.png)
 3. Busque la clave de registro de servicio.
-4. Haga clic en el icono de copia  ![Icono de copia de StorSimple](./media/storsimple-get-service-registration-key/HCS_CopyIcon-include.png)  para copiar la clave y guardarla para su uso posterior.
+4. Haga clic en el icono de copia  ![Icono de copia de StorSimple](./media/storsimple-get-service-registration-key/HCS_CopyIcon-include.png) para copiar la clave y guardarla para su uso posterior.
 5. Haga clic en el icono de marca de verificación ![Icono de marca de verificación de StorSimple](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png) para cerrar este cuadro de diálogo y volver a la página **Inicio rápido** .
 
 > [!NOTE]
@@ -19,9 +19,4 @@
 ![Vídeo disponible](./media/storsimple-get-service-registration-key/Video_icon.png) **Vídeo disponible**
 
 Para ver un vídeo que muestra cómo obtener la clave de registro del servicio, haga clic [aquí](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

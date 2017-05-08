@@ -11,7 +11,7 @@ Para permitir que Mobile Engagement envíe notificaciones push en su nombre, deb
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Enviar una notificación a su aplicación
+## <a id="send"></a>Enviar una notificación a su aplicación
 Ahora crearemos una campaña sencilla de notificación push que enviará una inserción a nuestra aplicación:
 
 1. Vaya a la pestaña **Cobertura** en el portal de Mobile Engagement.
@@ -39,9 +39,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 8. Si tiene un Apple Watch conectado a este dispositivo iOS, verá la notificación en el Apple Watch:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

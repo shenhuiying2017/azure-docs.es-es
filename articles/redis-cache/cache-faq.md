@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 831ce961992747de87706c3dde24b812a281c23a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -70,6 +70,7 @@ Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuest
 * [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Detalles importantes sobre el crecimiento del grupo de subprocesos](#important-details-about-threadpool-growth)
 * [Habilitación de GC del servidor para mejorar el rendimiento del cliente cuando se usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Consideraciones sobre rendimiento de las conexiones](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Preguntas más frecuentes de supervisión y solución de problemas
 Las preguntas más frecuentes de esta sección abarcan las cuestiones comunes sobre supervisión y solución de problemas. Para más información sobre la supervisión y la solución de problemas de las instancias de Azure Redis Cache, consulte [Supervisión de Azure Redis Cache](cache-how-to-monitor.md) y [Solución de problemas de Azure Redis Cache](cache-how-to-troubleshoot.md).
@@ -405,6 +406,13 @@ La habilitación de GC del servidor puede optimizar el cliente y mejorar el rend
 * [Para habilitar GC del servidor](https://msdn.microsoft.com/library/ms229357.aspx)
 * [Fundamentos de la recolección de elementos no utilizados](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Recolección de elementos no utilizados y rendimiento](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+### <a name="performance-considerations-around-connections"></a>Consideraciones sobre rendimiento de las conexiones
+
+Cada plan de tarifa tiene distintos límites para las conexiones de cliente, memoria y ancho de banda. Si bien cada tamaño de caché permite *hasta* cierta cantidad de conexiones, cada conexión a Redis tiene asociada una sobrecarga. Un ejemplo de dicha sobrecarga podría ser el uso de memoria y CPU como resultado del cifrado TLS/SSL. El límite máximo de conexiones para un tamaño de caché determinado supone una caché con poca carga. Si la carga proveniente de la sobrecarga de conexiones *más* la carga proveniente de las operaciones de clientes supera la capacidad del sistema, la caché puede tener problemas de capacidad incluso si no ha excedido el límite de conexiones para el tamaño de la caché actual.
+
+Para más información acerca de los diferentes límites de conexiones para cada nivel, consulte los [precios de Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/). Para más información sobre las conexiones y otras configuraciones predeterminadas, consulte [Configuración predeterminada del servidor Redis](cache-configure.md#default-redis-server-configuration).
 
 <a name="cache-monitor"></a>
 

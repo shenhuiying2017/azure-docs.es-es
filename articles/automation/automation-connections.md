@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c86ec1d328d3cbf62c1a563766574a006299b232
-ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bfb479020238bb4c2763f439c744aeddf97c8908
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -31,14 +32,14 @@ Cuando crea una conexión, debe especificar un *tipo de conexión*. El tipo de c
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
 
-Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azureps-cmdlets-docs) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
+Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
 
 |Cmdlet|Descripción|
 |:---|:---|
-|[Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/get-azurermautomationconnection)|Recupera una conexión. Incluye una tabla hash con los valores de los campos de la conexión.|
-|[New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/new-azurermautomationconnection)|Crea una conexión nueva.|
-|[Remove-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/remove-azurermautomationconnection)|Quita una conexión existente.|
-|[Set-AzureRmAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Set-AzureRmAutomationConnectionFieldValue?redirectedfrom=msdn)|Establece el valor de un campo determinado para una conexión existente.|
+|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una conexión. Incluye una tabla hash con los valores de los campos de la conexión.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una conexión nueva.|
+|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Quita una conexión existente.|
+|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Establece el valor de un campo determinado para una conexión existente.|
 
 ## <a name="activities"></a>Actividades
 
@@ -46,7 +47,7 @@ Las actividades de la siguiente tabla se usan para tener acceso a las conexiones
 
 |Actividades|Descripción|
 |---|---|
-|[Get-AutomationConnection](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v1.6.1/Get-AzureAutomationConnection?redirectedfrom=msdn)|Obtiene una conexión para usar. Devuelve una tabla hash con las propiedades de la conexión.|
+|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtiene una conexión para usar. Devuelve una tabla hash con las propiedades de la conexión.|
 
 >[!NOTE] 
 >Debe evitar el uso de variables con el parámetro –Name de **Get- AutomationConnection**, debido a que esto podría complicar la detección de dependencias entre runbooks o configuraciones de DSC y activos de conexión en tiempo de diseño.
@@ -71,7 +72,7 @@ Las actividades de la siguiente tabla se usan para tener acceso a las conexiones
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para crear una conexión nueva con Windows PowerShell
 
-Cree una conexión nueva con Windows PowerShell con el cmdlet [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/new-azurermautomationconnection). Este cmdlet tiene un parámetro denominado **ConnectionFieldValues** que espera una [tabla hash](http://technet.microsoft.com/library/hh847780.aspx) que define los valores de cada una de las propiedades definidas por el tipo de conexión.
+Cree una conexión nueva con Windows PowerShell con el cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). Este cmdlet tiene un parámetro denominado **ConnectionFieldValues** que espera una [tabla hash](http://technet.microsoft.com/library/hh847780.aspx) que define los valores de cada una de las propiedades definidas por el tipo de conexión.
 
 Si está familiarizado con la [cuenta de ejecución](automation-sec-configure-azure-runas-account.md) de Automation para autenticar runbooks con la entidad de servicio, el script de PowerShell, que se ofrece como alternativa a la creación de la cuenta de ejecución desde el portal, crea un nuevo recurso de conexión mediante los siguientes comandos de ejemplo.  
 
@@ -107,8 +108,4 @@ La imagen siguiente muestra un ejemplo de cómo usar una conexión en un runbook
 - Revise la sección [Vínculos de Creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) para aprender a dirigir y controlar el flujo de la lógica de sus runbooks.  
 
 - Para obtener más información sobre el uso de Azure Automation de los módulos y los procedimientos recomendados de PowerShell para crear sus propios módulos de PowerShell a fin de que funcionen como módulos de integración en Azure Automation, consulte [Módulos de integración](automation-integration-modules.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
 

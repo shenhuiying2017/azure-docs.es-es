@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: eec8c82857ef9e2806c953ae996f9e7970e64392
-ms.openlocfilehash: 4d6bfebd9faa4e37de148539e7248f88e711bf43
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 74d33505b777925a19830d1eda2eca9776ecaf61
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -99,7 +99,7 @@ Si los datos de referencia son un conjunto de datos que cambia con poca frecuenc
 3. En algunas ocasiones, un trabajo debe retroceder en el tiempo, por lo que los blobs de datos de referencia no se deben modificar ni eliminar.
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:

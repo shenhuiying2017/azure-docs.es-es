@@ -4,7 +4,7 @@
   items:
   - name: "Acerca de Virtual Machines"
     href: overview.md
-- name: "Guía de inicio rápido"
+- name: "Inicios rápidos"
   expanded: true
   items:
   - name: "Creación de una máquina virtual: CLI de Azure"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 - Administración de redes"
     href: tutorial-virtual-network.md
+  - name: "9 - Administración de la seguridad de la máquina virtual"
+    href: tutorial-azure-security.md
 - name: "Muestras"
   items:
   - name: "CLI de Azure"

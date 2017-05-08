@@ -9,7 +9,7 @@
 # Primeros pasos
 ## [Creación de una VM desde el portal](tutorial.md)
 ## [Inicio de sesión en una VM](connect-logon.md)
-## [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Instalación de la CLI de Azure](../../../cli-install-nodejs.md)
 
 # Procedimientos
@@ -88,7 +88,7 @@
 ## [Restablecimiento de la contraseña de RDP](reset-rdp.md)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [CLI de Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

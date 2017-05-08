@@ -12,12 +12,12 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ae8c26069503a24f3ba17a86160801c60a68d668
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2c4a3ee9ec97dac78485e0f275fbb78412e7cb98
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -52,7 +52,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 * [Suscribirse](https://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp.
 * Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio de Azure RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 * Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
-* Instale el módulo de [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* Instale el módulo de [Azure PowerShell](/powershell/azure/overview) .
 * Recopile información sobre los usuarios a los que quiera conceder acceso. Necesitará el nombre de la entidad de seguridad de cada usuario de Azure Active Directory (por ejemplo, name@contoso.com). Asegúrese de que el UPN de Azure AD y Active Directory coincidan.
 * Elija su imagen de plantilla. Una imagen de plantilla de Azure RemoteApp contiene las aplicaciones y los programas que desea publicar para los usuarios. Consulte [Opciones de imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información.
 * ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).

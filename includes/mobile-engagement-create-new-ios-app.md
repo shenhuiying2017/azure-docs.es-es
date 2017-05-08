@@ -15,8 +15,3 @@
 
 Xcode creará la aplicación de demostración en la que se integrará Mobile Engagement.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

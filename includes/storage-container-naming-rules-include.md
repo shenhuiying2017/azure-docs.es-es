@@ -15,8 +15,3 @@ Un nombre de contenedor debe ser un nombre DNS válido y cumplir las reglas de n
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

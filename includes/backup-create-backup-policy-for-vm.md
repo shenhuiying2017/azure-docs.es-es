@@ -26,8 +26,3 @@ Para crear una directiva:
    
     La nueva directiva se aplica inmediatamente en el almacén.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
