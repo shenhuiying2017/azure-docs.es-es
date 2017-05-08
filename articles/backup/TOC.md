@@ -79,7 +79,7 @@
 ## [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Recursos

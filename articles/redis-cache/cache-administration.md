@@ -15,9 +15,9 @@ ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: c856380534bc43da7f8542842866612b9f705f16
-ms.openlocfilehash: 0e90fd528dcba205a389216c5fcdc862bc8f669d
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0355c8a943947f5d53d7cd6892db3567c3bf0cce
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -98,7 +98,7 @@ La hoja **Programar actualizaciones** permite designar una ventana de mantenimie
 Para especificar una ventana de mantenimiento, compruebe los días deseados, especifique la hora de inicio de la ventana de mantenimiento para cada día y haga clic en **Aceptar**. Tenga en cuenta que la hora de la ventana de mantenimiento está en formato UTC. 
 
 > [!NOTE]
-> La ventana de mantenimiento predeterminada para las actualizaciones es de cinco horas. Este valor no es configurable desde Azure Portal, pero puede configurarlo en PowerShell mediante el parámetro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry) . Para obtener más información, consulte [¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+> La ventana de mantenimiento predeterminada para las actualizaciones es de cinco horas. Este valor no es configurable desde Azure Portal, pero puede configurarlo en PowerShell mediante el parámetro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Para obtener más información, consulte [¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 > 
 > 
 
@@ -117,10 +117,10 @@ Las actualizaciones del servidor Redis solo se realizan durante el período prog
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>¿Se pueden administrar las actualizaciones programadas con PowerShell, CLI u otras herramientas de administración?
 Sí, puede administrar sus actualizaciones programadas con los siguientes cmdlets de PowerShell:
 
-* [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.5.0/remove-azurermrediscachepatchschedule)
+* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
+* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>¿Qué planes de tarifa pueden usar la funcionalidad de programación de actualizaciones?
 La característica **Programación de actualizaciones** solo está disponible en el plan de tarifa Premium.

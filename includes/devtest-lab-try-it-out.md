@@ -5,8 +5,3 @@
 
 [![Introducción a Azure DevTest Labs en cuestión de minutos](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-
-<!---HONumber=Nov16_HO2-->
-
-

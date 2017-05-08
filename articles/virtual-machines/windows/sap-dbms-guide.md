@@ -18,9 +18,9 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9313065c82ec4c395f71d5af7ad8f7b20b68015e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: cc7c85382d8f8183ef3eb3cc7496b012808148e5
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -78,7 +78,22 @@ ms.lasthandoff: 04/03/2017
 [azure-subscription-service-limits]:../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:sap-dbms-guide.md [SAP NetWeaver en Azure Virtual Machines (VM): guía de implementación de DBMS] [dbms-guide-2.1]:#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Almacenamiento en caché en máquinas virtuales y discos duros virtuales) [dbms-guide-2.2]:#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID) [dbms-guide-2.3]:#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage) [dbms-guide-2]:#65fa79d6-a85f-47ee-890b-22e794f51a64 (Estructura de una implementación de RDBMS) [dbms-guide-3]:#871dfc27-e509-4222-9370-ab1de77021c3 (Alta disponibilidad y recuperación ante desastres con máquinas virtuales de Azure) [dbms-guide-5.5.1]:#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4, y versiones posteriores) [dbms-guide-5.5.2]:#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3, y versiones anteriores) [dbms-guide-5.6]:#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Uso de imágenes de SQL Server de Microsoft Azure Marketplace) [dbms-guide-5.8]:#9053f720-6f3b-4483-904d-15dc54141e30 (Resumen general de SQL Server para SAP en Azure) [dbms-guide-5]:#3264829e-075e-4d25-966e-a49dad878737 (Elementos específicos de RDBMS de SQL Server) [dbms-guide-8.4.1]:#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Configuración de Storage) [dbms-guide-8.4.2]:#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Copia de seguridad y restauración) [dbms-guide-8.4.3]:#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Consideraciones de rendimiento de copia de seguridad y restauración) [dbms-guide-8.4.4]:#f77c1436-9ad8-44fb-a331-8671342de818 (Otros) [dbms-guide-900-sap-cache-server-on-premises]:#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:sap-dbms-guide.md 
+[dbms-guide-2.1]:#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
+[dbms-guide-2.2]:#c8e566f9-21b7-4457-9f7f-126036971a91 
+[dbms-guide-2.3]:#10b041ef-c177-498a-93ed-44b3441ab152 
+[dbms-guide-2]:#65fa79d6-a85f-47ee-890b-22e794f51a64 
+[dbms-guide-3]:#871dfc27-e509-4222-9370-ab1de77021c3 
+[dbms-guide-5.5.1]:#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
+[dbms-guide-5.5.2]:#f9071eff-9d72-4f47-9da4-1852d782087b 
+[dbms-guide-5.6]:#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
+[dbms-guide-5.8]:#9053f720-6f3b-4483-904d-15dc54141e30 
+[dbms-guide-5]:#3264829e-075e-4d25-966e-a49dad878737 
+[dbms-guide-8.4.1]:#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
+[dbms-guide-8.4.2]:#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
+[dbms-guide-8.4.3]:#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
+[dbms-guide-8.4.4]:#f77c1436-9ad8-44fb-a331-8671342de818 
+[dbms-guide-900-sap-cache-server-on-premises]:#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -90,10 +105,27 @@ ms.lasthandoff: 04/03/2017
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:sap-deployment-guide.md SAP NetWeaver en Azure Virtual Machines (VM): guía de implementación de DBMS [deployment-guide-2.2]:sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Recursos de SAP) [deployment-guide-3.1.2]:sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Implementación de una máquina virtual con una imagen personalizada) [deployment-guide-3.2]:sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Escenario 1: implementación de una máquina virtual de Azure Marketplace para SAP) [deployment-guide-3.3]:sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Escenario 2: implementación de una máquina virtual con una imagen personalizada de SAP) [deployment-guide-3.4]:sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Escenario 3: movimiento de una máquina virtual desde una instancia local mediante un disco duro virtual de Azure no generalizado con SAP) [deployment-guide-3]:sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Implementación de escenarios de máquinas virtuales para SAP en Microsoft Azure) [deployment-guide-4.1]:sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Implementación de cmdlets de Azure PowerShell) [deployment-guide-4.2]:sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Descarga e importación de cmdlets de PowerShell relevantes para SAP) [deployment-guide-4.3]:sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Conexión de una máquina virtual a un dominio local: solo Windows) [deployment-guide-4.4.2]:sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Descarga, instalación y habilitación de agente de la máquina virtual de Azure) [deployment-guide-4.5.1]:sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI) [deployment-guide-4.5]:sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure Azure Enhanced Monitoring Extension for SAP) [deployment-guide-5.1]:sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Comprobación de preparación para la supervisión mejorada de Azure para SAP) [deployment-guide-5.2]:sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Comprobación del estado de configuración de la infraestructura de Azure Monitoring) [deployment-guide-5.3]:sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Más soluciones a problemas de la infraestructura de Azure Monitoring para SAP)
+[deployment-guide]:sap-deployment-guide.md 
+[deployment-guide-2.2]:sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 
+[deployment-guide-3.1.2]:sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab 
+[deployment-guide-3.2]:sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 
+[deployment-guide-3.3]:sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 
+[deployment-guide-3.4]:sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1
+[deployment-guide-3]:sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e 
+[deployment-guide-4.1]:sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 
+[deployment-guide-4.2]:sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e
+[deployment-guide-4.3]:sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc 
+[deployment-guide-4.4.2]:sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 
+[deployment-guide-4.4]:sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d 
+[deployment-guide-4.5.1]:sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 
+[deployment-guide-4.5.2]:sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f 
+[deployment-guide-4.5]:sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca 
+[deployment-guide-5.1]:sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 
+[deployment-guide-5.2]:sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 
+[deployment-guide-5.3]:sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 
 
-[deployment-guide-configure-monitoring-scenario-1]:sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
-[deployment-guide-configure-proxy]:sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
+[deployment-guide-configure-monitoring-scenario-1]:sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b 
+[deployment-guide-configure-proxy]:sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d 
 [deployment-guide-figure-100]:./media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:./media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]:sap-deployment-guide.md#figure-11
@@ -116,7 +148,7 @@ ms.lasthandoff: 04/03/2017
 [deployment-guide-figure-azure-cli-installed]:sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
+[deployment-guide-troubleshooting-chapter]:sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b 
 
 [deploy-template-cli]:../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../resource-group-template-deploy-portal.md
@@ -147,7 +179,33 @@ ms.lasthandoff: 04/03/2017
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:sap-planning-guide.md [SAP NetWeaver en Azure Virtual Machines (VMs): guía de planeamiento e implementación] [planning-guide-1.2]:sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Recursos) [planning-guide-11]:sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 [Alta disponibilidad (HA) y recuperación ante desastres (DR) para SAP NetWeaver cuando se ejecuta en Azure Virtual Machines) [planning-guide-11.4.1]:sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Alta disponibilidad para servidores de aplicaciones SAP) [planning-guide-11.5]:sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Uso del inicio automático en instancias de SAP) [planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Solo en la nube: implementaciones de máquinas virtuales en Azure sin dependencias en la red de clientes locales) [planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Distintas ubicaciones: implementación de una o varias máquinas virtuales SAP en Azure con el requisito de estar totalmente integradas en la red local) [planning-guide-3.1]:sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Regiones de Azure) [planning-guide-3.2.1]:sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Dominios de error) [planning-guide-3.2.2]:sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Dominios de actualización) [planning-guide-3.2.3]:sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Conjuntos de disponibilidad de Azure) [planning-guide-3.2]:sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (El concepto de máquina virtual de Microsoft Azure) [planning-guide-3.3.2]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Almacenamiento premium de Azure) [planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Movimiento de una máquina virtual desde una instancia local a Azure con un disco no generalizado) [planning-guide-5.1.2]:sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Implementación de una máquina virtual con una imagen específica de un cliente) [planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparación para mover una máquina virtual de una instancia local a con un disco no generalizado) [planning-guide-5.2.2]:sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Preparación para la implementación de una máquina virtual con una imagen específica de un cliente para SAP) [planning-guide-5.2]:sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Preparación de máquinas virtuales con SAP para Azure) [planning-guide-5.3.1]:sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Diferencia entre un disco de Azure y una imagen de Azure) [planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Carga de un disco duro virtual desde una instancia local a Azure) [planning-guide-5.4.2]:sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copia de discos entre cuentas de Azure Storage) [planning-guide-5.5.1]:sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Estructura de máquinas virtuales o discos duros virtuales para implementaciones de SAP) [planning-guide-5.5.3]:sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Configuración del montaje automático para discos conectados) [planning-guide-7.1]:sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Escenario de demostración o entrenamiento de una máquina virtual individual con SAP NetWeaver) [planning-guide-7]:sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Conceptos de implementación solo en la nube de instancias de SAP) [planning-guide-9.1]:sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solución Azure Monitoring para SAP) [planning-guide-azure-premium-storage]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Almacenamiento Premium de Azure)
+[planning-guide]:sap-planning-guide.md  
+[planning-guide-1.2]:sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff 
+[planning-guide-11]:sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 
+[planning-guide-11.4.1]:sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 
+[planning-guide-11.5]:sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f 
+[planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 
+[planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
+[planning-guide-3.1]:sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a 
+[planning-guide-3.2.1]:sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 
+[planning-guide-3.2.2]:sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 
+[planning-guide-3.2.3]:sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 
+[planning-guide-3.2]:sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 
+[planning-guide-3.3.2]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 
+[planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 
+[planning-guide-5.1.2]:sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c 
+[planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef 
+[planning-guide-5.2.2]:sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 
+[planning-guide-5.2]:sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 
+[planning-guide-5.3.1]:sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 
+[planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a 
+[planning-guide-5.4.2]:sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 
+[planning-guide-5.5.1]:sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 
+[planning-guide-5.5.3]:sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d 
+[planning-guide-7.1]:sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 
+[planning-guide-7]:sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 
+[planning-guide-9.1]:sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 
+[planning-guide-azure-premium-storage]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -172,14 +230,14 @@ ms.lasthandoff: 04/03/2017
 [planning-guide-figure-600]:./media/virtual-machines-shared-sap-planning-guide/600-s2s-details.png
 [planning-guide-figure-700]:./media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]:./media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
-[planning-guide-microsoft-azure-networking]:sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
+[planning-guide-microsoft-azure-networking]:sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]:sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [powershell-install-configure]:/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../../resource-group-authoring-templates.md
 [resource-group-overview]:../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -276,8 +334,8 @@ Algunos documentos de Microsoft describen escenarios entre locales de un modo li
 ### <a name="resources"></a>Recursos
 Hay disponibles las siguientes guías sobre el tema de las implementaciones de SAP en Azure:
 
-* [SAP NetWeaver en máquinas virtuales de Azure: guía de planeamiento e implementación][planning-guide]
-* [SAP NetWeaver en máquinas virtuales de Azure: guía de implementación][deployment-guide]
+* [SAP NetWeaver en Azure Virtual Machines (VMs): guía de planeación e implementación][planning-guide]
+* [SAP NetWeaver en Azure Virtual Machines: guía de implementación][deployment-guide]
 * [SAP NetWeaver en máquinas virtuales de Azure: guía de implementación de DBMS (este documento)][dbms-guide]
 * [SAP NetWeaver en máquinas virtuales de Azure: guía de implementación de alta disponibilidad][ha-guide]
 
@@ -318,7 +376,7 @@ En general, las principales diferencias que se describen en este artículo son l
 * Alta disponibilidad en IaaS de Azure
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estructura de una implementación de RDBMS
-Para poder ir entendiendo lo que se explica en este capítulo, hay que comprender la información de [este] capítulo [deployment-guide-3] de la [Guía de implementación][deployment-guide]. Antes de leer este capítulo, debe comprender lo que explicamos sobre la serie de máquinas virtuales y sus diferencias, así como las disimilitudes entre el almacenamiento estándar y premium de Azure.
+Para poder ir entendiendo lo que se explica en este capítulo, hay que comprender la información de [este][deployment-guide-3] capítulo de la [Guía de implementación][deployment-guide]. Antes de leer este capítulo, debe comprender lo que explicamos sobre la serie de máquinas virtuales y sus diferencias, así como las disimilitudes entre el almacenamiento estándar y premium de Azure.
 
 Los VHD de Azure que contienen un sistema operativo tenían una limitación de tamaño de 127 GB, Esta limitación se eliminó en marzo de 2015 (para más información, consulte <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). A partir de esa fecha, los VHD con el sistema operativo puede tener el mismo tamaño que cualquier otro disco duro virtual. No obstante, se prefiere una estructura de implementación en la que el sistema operativo, el DBMS y los archivos binarios finales de SAP sean independientes de los archivos de base de datos. Por lo tanto, se espera que los sistemas SAP que se ejecutan en máquinas virtuales de Azure tengan instalada la máquina virtual base (o VHD) con el sistema operativo, y los archivos ejecutables del sistema de administración de bases de datos administración y de SAP. Los archivos de datos y de registro de DBMS se almacenarán en archivos VHD independientes de Almacenamiento de Azure (estándar o premium) y se asociarán como discos lógicos a la máquina virtual de imagen del sistema operativo de Azure original.
 
@@ -419,8 +477,8 @@ Almacenamiento de Microsoft Azure almacenará la máquina virtual (con SO) y los
 
 La replicación local de Almacenamiento de Azure (con redundancia local) proporciona niveles de protección contra la pérdida de datos debido a un error de infraestructura que pocos clientes pueden permitirse implementar. Tal y como se mostró anteriormente, hay 4 opciones diferentes con una quinta que es una variación de una de las tres primeras. Si las analizamos más detenidamente, podemos distinguir:
 
-* **Almacenamiento con redundancia local (LRS) premium**: el Almacenamiento premium de Azure ofrece compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Existen 3 réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este] [planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica.
-* **Almacenamiento con redundancia local (LRS)**: en este caso, existen tres réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este] [planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica.
+* **Almacenamiento con redundancia local (LRS) premium**: el Almacenamiento premium de Azure ofrece compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Existen 3 réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este][planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica.
+* **Almacenamiento con redundancia local (LRS)**: en este caso, existen tres réplicas de los datos en el mismo centro de datos de Azure de una región de Azure. Las copias se encontrarán en dominios de error y actualización diferentes (para familiarizarse con los conceptos, consulte [este][planning-guide-3.2] capítulo de la [Guía de planeamiento][planning-guide]). En el caso de que una réplica de los datos se quede fuera de servicio debido a un error de disco o del nodo de almacenamiento, se generará automáticamente una nueva réplica.
 * **Almacenamiento con redundancia geográfica (GRS)**: en este caso, hay una replicación asincrónica que alimentará tres réplicas adicionales de los datos en otra región de Azure que se encuentra, en la mayoría de los casos, en la misma región geográfica (como Europa del Norte y Europa Occidental). Esta opción generará 3 réplicas adicionales, por lo que habrá 6 réplicas en total. Una variación de esta opción es una adición en la que pueden utilizarse los datos de la región de Azure replicada geográficamente para operaciones de lectura (redundancia geográfica con acceso de lectura).
 * **Almacenamiento con redundancia de zona (ZRS)**: en este caso, las tres réplicas de los datos permanecen en la misma región de Azure. Tal y como se explica en [este][planning-guide-3.1] capítulo de la [Guía de planeamiento][planning-guide], una región de Azure puede incluir varios centros de datos que se encuentren muy cerca. En el caso de LRS, las réplicas se distribuyen por los distintos centros de datos que conforman una región de Azure.
 
@@ -516,7 +574,7 @@ Incluso en los escenarios entre locales, de forma predeterminada, tras realizars
 ## <a name="deployment-of-host-monitoring"></a>Implementación de funcionalidades de supervisión de hosts
 Para usar de manera productiva las aplicaciones de las máquinas virtuales de Azure, SAP requiere que se obtengan datos de supervisión de los hosts físicos que se ejecutan en las máquinas virtuales de Azure. Se requiere un nivel de revisión específico del agente de host de SAP que permita esta funcionalidad en SAPOSCOL y el agente de host de SAP. El nivel de revisión exacto se menciona en la nota de SAP [1409604].
 
-Para más información sobre la implementación de componentes que proporcionen datos de host a SAPOSCOL y el agente de host de SAP, así como sobre la administración del ciclo de vida de los componentes, consulte la [Guía de implementación][deployment-guide].
+Para más información sobre la implementación de componentes que proporcionen datos de host a SAPOSCOL y el agente de host de SAP, así como sobre la administración del ciclo de vida de los componentes, consulte la [Guía de implementación][deployment-guide]
 
 ## <a name="3264829e-075e-4d25-966e-a49dad878737"></a>Consideraciones concretas sobre Microsoft SQL Server
 ### <a name="sql-server-iaas"></a>IaaS de SQL Server
@@ -537,7 +595,7 @@ Debe conocer información específica sobre SQL Server en IaaS antes de continua
 * **Soporte para versiones de SQL**: para los clientes de SAP, prestamos soporte para SQL Server 2008 R2 y posteriores en las máquinas virtuales de Microsoft Azure. No se prestará soporte para versiones anteriores. Revise esta [declaración de soporte](https://support.microsoft.com/kb/956893) general para más información. Tenga en cuenta que, a rasgos generales, Microsoft también presta soporte para SQL Server 2008. Sin embargo, debido a la importante funcionalidad de SAP que se introdujo con SQL Server 2008 R2, SQL Server 2008 R2 es la versión mínima que se requiere para SAP. Tenga en cuenta que SQL Server 2012 y 2014 se ampliaron agregando mayor integración con el escenario de IaaS (como la realización de copias de seguridad directamente en el almacenamiento de Azure). Por lo tanto, el ámbito de este documento se limita a SQL Server 2012 y 2014 con el nivel de revisión más reciente para Azure.
 * **Soporte para características de SQL**: se presta soporte para la mayoría de las características de SQL Server en las máquinas virtuales de Microsoft Azure, aunque con algunas excepciones. **No se presta soporte para los clústeres de conmutación por error de SQL Server que usan discos compartidos**.  Las tecnologías distribuidas, como la creación de reflejo de base de datos, los grupos de disponibilidad AlwaysOn, la replicación, el trasvase de registros y Service Broker, se admiten en una única región de Azure. SQL Server AlwaysOn también se admite entre diferentes regiones, como se documenta aquí:  <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Revise la [declaración de soporte](https://support.microsoft.com/kb/956893) para más información. Se muestra un ejemplo de cómo implementar una configuración AlwaysOn en [este][virtual-machines-workload-template-sql-alwayson] artículo. Además, revise los procedimientos recomendados [aquí][virtual-machines-sql-server-infrastructure-services].
 * **Rendimiento de SQL**: estamos seguros de que las máquinas virtuales de Microsoft Azure hospedadas funcionarán muy bien en comparación con otras ofertas de virtualización de nube pública, aunque los resultados individuales pueden variar. Consulte [este][virtual-machines-sql-server-performance-best-practices] artículo.
-* **Uso de imágenes de Azure Marketplace**: la forma más rápida de implementar una nueva máquina virtual de Microsoft Azure es utilizando una imagen de Azure Marketplace. Hay imágenes en Azure Marketplace que contienen SQL Server. Las imágenes donde ya se ha instalado SQL Server no se pueden utilizar inmediatamente para aplicaciones de SAP NetWeaver. El motivo es que la intercalación de SQL Server predeterminada está instalada en esas imágenes y no la que requieren los sistemas SAP NetWeaver. Para poder usar dichas imágenes, consulte los pasos que se explican en el capítulo [Uso de imágenes de SQL Server fuera de Microsoft Azure Marketplace][dbms-guide-5.6].
+* **Uso de imágenes de Azure Marketplace**: la forma más rápida de implementar una nueva máquina virtual de Microsoft Azure es utilizando una imagen de Azure Marketplace. Hay imágenes en Azure Marketplace que contienen SQL Server. Las imágenes donde ya se ha instalado SQL Server no se pueden utilizar inmediatamente para aplicaciones de SAP NetWeaver. El motivo es que la intercalación de SQL Server predeterminada está instalada en esas imágenes y no la que requieren los sistemas SAP NetWeaver. Para poder usar estas imágenes, consulte los pasos que se explican en el capítulo [Uso de imágenes de SQL Server fuera de Microsoft Azure Marketplace][dbms-guide-5.6].
 * Para más información, consulte [Precios de Azure](https://azure.microsoft.com/pricing/) . La [Guía de licencias de SQL Server 2012](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) y la de [SQL Server 2014](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) también constituyen un recurso importante.
 
 ### <a name="sql-server-configuration-guidelines-for-sap-related-sql-server-installations-in-azure-vms"></a>Directrices de configuración de SQL Server para SAP relacionadas con las instalaciones de SQL Server en máquinas virtuales de Azure
@@ -1104,7 +1162,7 @@ Las unidades de red o los recursos compartidos remotos como los servicios de arc
 
 **NO** son compatibles con los archivos de bases de datos de Oracle.
 
-Si usa discos duros virtuales de Azure basado en el almacenamiento de blobs en páginas de Azure, las declaraciones realizadas en este documento en el capítulo [Almacenamiento en caché de máquinas virtuales y VHD][dbms-guide-2.1] y [Almacenamiento de Microsoft Azure][dbms-guide-2.3] también se refieren a las implementaciones con la base de datos de Oracle.
+Si usa discos duros virtuales de Azure basado en el almacenamiento de blobs en páginas de Azure, las declaraciones realizadas en este documento en el capítulo [Almacenamiento en caché de máquinas virtuales y VHD][dbms-guide-2.1] y [Microsoft Azure Storage][dbms-guide-2.3] también se refieren a las implementaciones con la base de datos de Oracle.
 
 Como se explicó anteriormente en la parte general del documento, existen cuotas en el rendimiento IOPS para VHD de Azure. Las cuotas exactas varían según el tipo de máquina virtual que se utilice. Dispone de una lista con los tipos de máquina virtual y sus cuotas [aquí][virtual-machines-sizes].
 
@@ -1151,9 +1209,9 @@ Los procedimientos recomendados de almacenamiento de Azure para SAP MaxDB siguen
 
 En resumen, deberá hacer lo siguiente:
 
-* Establecer la cuenta de almacenamiento de Azure que contiene los volúmenes de registros y datos de SAP MaxDB (es decir, archivos) en **Almacenamiento con redundancia local (LRS)** como se indica en el capítulo [Almacenamiento de Microsoft Azure][dbms-guide-2.3].
+* Establecer la cuenta de almacenamiento de Azure que contiene los volúmenes de registros y datos de SAP MaxDB (es decir, archivos) en **Almacenamiento con redundancia local (LRS)** como se indica en el capítulo [Microsoft Azure Storage][dbms-guide-2.3].
 * Separar la ruta de acceso de E/S para los volúmenes (es decir, archivos) de datos de SAP MaxDB desde la ruta de acceso de E/S para los volúmenes (de nuevo, archivos) de registro. Esto significa que los volúmenes de datos de SAP MaxDB han de estar instalados en una unidad lógica y que los volúmenes de registro de MaxDB de SAP deben estar instalados en otra.
-* Establecer la caché de archivos adecuada para cada blob de Azure en función de si la utiliza para volúmenes de datos o registros de SAP MaxDB y de si se usa almacenamiento estándar o Premium Storage de Azure, tal como se describe en el capítulo [Almacenamiento en caché de máquinas virtuales][dbms-guide-2.1].
+* Establecer la caché de archivos adecuada para cada blob de Azure en función de si la utiliza para volúmenes de datos o registros de SAP MaxDB y de si se usa almacenamiento estándar o Azure Premium Storage, tal como se describe en el capítulo [Almacenamiento en caché de máquinas virtuales][dbms-guide-2.1].
 * Mientras la cuota actual de IOPS por disco cumpla los requisitos, se pueden almacenar todos los volúmenes de datos en un solo VHD de Azure montado y también almacenar todos los volúmenes de registro de bases de datos en otro VHD único de Azure montado.
 * Si necesita más IOPS o espacio, se recomienda encarecidamente utilizar bloques de almacenamiento de Microsoft Windows (solo disponibles en Microsoft Windows Server 2012 y versiones posteriores) o la creación de bandas de Microsoft Windows para Microsoft Windows 2008 R2 a fin de crear un dispositivo lógico de gran tamaño en varios discos VHD montados. Consulte también el capítulo [RAID de software][dbms-guide-2.2] de este documento. Este enfoque simplifica la sobrecarga de administración para administrar el espacio en disco y evita el esfuerzo de distribuir archivos manualmente en varios VHD montados.
 * Para los requisitos de IOPS más exigentes, puede usar el almacenamiento Premium de Azure, disponible en las series de máquinas virtuales DS y GS.
@@ -1214,7 +1272,7 @@ Asimismo, para todos los tipos de versión de máquina virtual de Azure compatib
 Desde esta perspectiva, se recomienda encarecidamente utilizar las nuevas series D o DS de máquina virtual de Azure (junto con el almacenamiento Premium de Azure), que disponen de procesadores un 60 % más rápidos que la serie A. En el caso de las cargas de RAM y CPU más exigentes, puede utilizar las series G y GS de máquinas virtuales (junto con el almacenamiento Premium de Azure) con la familia de procesadores E5 v3 más recientes de Intel® Xeon®, que ofrecen el doble de memoria y cuatro veces más almacenamiento en unidad de estado sólido (SSD) que las series D y DS.
 
 #### <a name="storage-configuration"></a>Configuración de almacenamiento
-Puesto que SAP liveCache se basa en la tecnología SAP MaxDB, todos los procedimientos recomendados de Almacenamiento de Azure que se mencionan con relación a SAP MaxDB en el capítulo [Configuración de almacenamiento][dbms-guide-8.4.1] también se pueden aplicar a SAP liveCache.
+Puesto que SAP liveCache se basa en la tecnología SAP MaxDB, todos los procedimientos recomendados de Azure Storage que se mencionan con relación a SAP MaxDB en el capítulo [Configuración de almacenamiento][dbms-guide-8.4.1] también se pueden aplicar a SAP liveCache.
 
 #### <a name="dedicated-azure-vm-for-livecache"></a>Máquina virtual de Azure dedicada para liveCache
 Dado que SAP liveCache emplea una potencia de cálculo sumamente intensiva, se recomienda encarecidamente implementarla en una máquina virtual de Azure dedicada para obtener resultados productivos.
@@ -1222,10 +1280,10 @@ Dado que SAP liveCache emplea una potencia de cálculo sumamente intensiva, se r
 ![Máquina virtual de Azure dedicada para liveCache para un caso de uso productivo][dbms-guide-figure-700]
 
 #### <a name="backup-and-restore"></a>Copia de seguridad y restauración
-Las copias de seguridad y las restauraciones, incluidas las consideraciones de rendimiento, ya se describen en los capítulos pertinentes de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3].
+Las copias de seguridad y las restauraciones, incluidas las consideraciones acerca del rendimiento, ya se describen en los capítulos pertinentes de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3].
 
 #### <a name="other"></a>Otros
-Todos los demás temas generales ya se describen en [este] capítulo correspondiente de SAP MaxDB [dbms-guide-8.4.4].
+Todos los demás temas generales ya se describen en [este][dbms-guide-8.4.4] capítulo correspondiente de SAP MaxDB.
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Detalles de SAP Content Server en Windows
 El servidor SAP Content Server es un componente independiente basado en servidor para almacenar contenido como documentos electrónicos en formatos diferentes. SAP Content Server se ofrece para el desarrollo de tecnología y se concibe para su uso en varias aplicaciones con cualquier aplicación de SAP. Se instala en un sistema independiente. Su contenido más habitual es material de aprendizaje y documentación de dibujos técnicos de Knowledge Warehouse que se crean en el sistema de administración de documentos de mySAP PLM.
@@ -1274,7 +1332,7 @@ Dispone de dos opciones:
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Copia de seguridad y restauración
-Si configura SAP Content Server para almacenar archivos en la base de datos de SAP MaxDB, las consideraciones de rendimiento y de procedimiento de copia de seguridad y restauración ya se describieron en los capítulos de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3].
+Si configura SAP Content Server para almacenar archivos en la base de datos de SAP MaxDB, las consideraciones acerca del rendimiento y de procedimiento de copia de seguridad y restauración ya se describieron en los capítulos de SAP MaxDB [Copia de seguridad y restauración][dbms-guide-8.4.2] y [Consideraciones de rendimiento para copias de seguridad y restauraciones][dbms-guide-8.4.3].
 
 Si configura SAP Content Server para almacenar archivos en el sistema de archivos, una opción es ejecutar de forma manual la copia de seguridad o la restauración de toda la estructura de archivos donde se encuentran los documentos. Al igual que las copias de seguridad y las restauraciones de SAP MaxDB, se recomienda disponer de un volumen de disco dedicado para realizar copias de seguridad.
 

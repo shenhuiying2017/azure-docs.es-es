@@ -34,8 +34,3 @@ Los problemas de conectividad de la red también pueden provocar tiempos de espe
 
 Para obtener detalles y más información acerca de problemas de conectividad, consulte [Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database](../articles/sql-database/sql-database-connectivity-issues.md).
 
-
-
-<!---HONumber=Nov16_HO2-->
-
-

@@ -6,6 +6,7 @@
 ## [Distribución global](documentdb-distribute-data-globally.md)
 ## [Conmutaciones por error regionales](documentdb-regional-failovers.md)
 ## [Seguridad](documentdb-nosql-database-security.md)
+## [Cifrado en reposo](documentdb-nosql-database-encryption-at-rest.md)
 ## [Análisis del TCO de NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Escenarios
 ### [Casos de uso comunes](documentdb-use-cases.md)

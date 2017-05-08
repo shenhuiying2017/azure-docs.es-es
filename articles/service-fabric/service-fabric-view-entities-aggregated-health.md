@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: add30a2b1b521bf1d1af49590ba4b71ab772e319
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a93c84435c1adab117961bceae0f7b49b2b2348a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -127,7 +127,7 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 El estado del clúster es igual a cinco nodos, la aplicación del sistema y fabric:/WordCount se configuran tal como se ha descrito.
 
@@ -244,7 +244,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento del nodo es [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento del nodo es [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 El siguiente cmdlet obtiene el mantenimiento del nodo mediante directivas de mantenimiento predeterminadas:
 
 ```powershell
@@ -329,7 +329,7 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento de la aplicación es [Get-ServiceFabricApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento de la aplicación es [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 El siguiente cmdlet devuelve el mantenimiento de la aplicación **fabric:/WordCount** :
 
@@ -459,7 +459,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento del servicio es [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento del servicio es [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 El siguiente cmdlet obtiene el mantenimiento del servicio con directivas de mantenimiento predeterminadas.
 
@@ -547,7 +547,7 @@ PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionH
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento de la partición es [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento de la partición es [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 El siguiente cmdlet obtiene el mantenimiento de todas las particiones del servicio **fabric:/WordCount/WordCountService** :
 
@@ -608,7 +608,7 @@ ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento de la réplica es [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento de la réplica es [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 El cmdlet siguiente obtiene el mantenimiento de la réplica principal para todas las particiones del servicio:
 
@@ -652,7 +652,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento de la aplicación implementada es [Get-ServiceFabricDeployedApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) . Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationhealth) y observe los elementos secundarios de la aplicación implementada.
+El cmdlet para obtener el mantenimiento de la aplicación implementada es [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) y observe los elementos secundarios de la aplicación implementada.
 
 El siguiente cmdlet obtiene el mantenimiento de la aplicación **fabric:/WordCount** implementada en **_Node_2**.
 
@@ -705,7 +705,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento del paquete de servicio implementado es [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) . Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationhealth) y examine las aplicaciones implementadas. Para ver qué paquetes de servicio están en una aplicación, examine los elementos secundarios del paquete de servicio implementado en la salida de [Get-ServiceFabricDeployedApplicationHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth) .
+El cmdlet para obtener el mantenimiento del paquete de servicio implementado es [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Para averiguar dónde está implementada una aplicación, ejecute [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) y examine las aplicaciones implementadas. Para ver qué paquetes de servicio están en una aplicación, examine los elementos secundarios del paquete de servicio implementado en la salida de [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) .
 
 El siguiente cmdlet obtiene el mantenimiento del paquete de servicio **WordCountServicePkg** de la aplicación **fabric:/WordCount** implementada en **_Node_2**. La entidad tiene informes **System.Hosting** para la activación correcta del paquete de servicio y del punto de entrada, y para el registro correcto del tipo de servicio.
 
@@ -837,7 +837,7 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) .
+El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 El código siguiente obtiene los nodos solo si se encuentran en estado de error, a excepción de un nodo específico, que se debe devolver siempre.
 

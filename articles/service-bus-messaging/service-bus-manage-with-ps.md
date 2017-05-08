@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b4acb01f4939b55317ac0c78eb467159d872f47a
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
 
-Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. En este artículo se describe cómo utilizar el [módulo de PowerShell de Resource Manager de Service Bus](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) para aprovisionar y administrar entidades de Service Bus (espacios de nombres, colas, temas y suscripciones) mediante una consola o un script de Azure PowerShell.
+Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. En este artículo se describe cómo utilizar el [módulo de PowerShell de Resource Manager de Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar y administrar entidades de Service Bus (espacios de nombres, colas, temas y suscripciones) mediante una consola o un script de Azure PowerShell.
 
 Las entidades de Service Bus también se pueden administrar mediante plantillas de Azure Resource Manager. Para más información, consulte el artículo [Cómo crear recursos de Service Bus mediante plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md).
 
@@ -158,11 +158,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamiento de otras entidades de Service Bus
 
-Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) para aprovisionar otras entidades, como temas y suscripciones. Estos cmdlets son sintácticamente similares a los de creación de colas que se han mostrado en la sección anterior.
+Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar otras entidades, como temas y suscripciones. Estos cmdlets son sintácticamente similares a los de creación de colas que se han mostrado en la sección anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la documentación completa del módulo de PowerShell de Resource Manager de Event Hubs [aquí](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). Esta página enumera todos los cmdlets disponibles.
+- Consulte la documentación completa del módulo de PowerShell de Resource Manager de Event Hubs [aquí](/powershell/module/azurerm.servicebus). Esta página enumera todos los cmdlets disponibles.
 - Para obtener información acerca del uso de las plantillas de Azure Resource Manager, consulte el artículo [Cómo crear recursos de Service Bus mediante plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Información sobre las [bibliotecas de administración de .NET de Service Bus](service-bus-management-libraries.md).
 

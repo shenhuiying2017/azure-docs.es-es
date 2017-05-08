@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 6489f013f72a8d283ad5c0723d0a46ea4e66a2d9
-ms.openlocfilehash: f4fa7b12afe0002d5b7e5267c8f670cae8d253da
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ Si ya instaló los **trabajos de base de datos elástica** a través del Portal 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Instale la versión más reciente mediante el [Instalador de plataforma web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell. Instale la versión más reciente mediante el [Instalador de plataforma web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de base de datos elástica. Para obtener más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Descarga e importación del paquete de PowerShell de Trabajos de base de datos elástica

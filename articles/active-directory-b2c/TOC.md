@@ -9,14 +9,14 @@
 ## Guías de inicio rápido
 ### [Creación de una aplicación para iOS](active-directory-b2c-devquickstarts-ios.md)
 ### [Creación de una aplicación para Android](active-directory-b2c-devquickstarts-android.md)
-### [Creación de una API web de Node.Js](active-directory-b2c-devquickstarts-api-node.md)
-### [Creación de una aplicación web de .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Registro e inicio de sesión en una aplicación web ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Creación de una API web de .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Creación de una aplicación de escritorio de Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Llamada a una API web desde una aplicación web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### Compilación de una aplicación web de .NET
+#### [Registro e inicio de sesión en una aplicación web de .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Llamada a una API web desde una aplicación web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Compilación de una API web de .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Compilación de una aplicación web de Node.Js](active-directory-b2c-devquickstarts-web-node.md)
+### [Compilación de una API web de Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Compilación de una aplicación de escritorio de .NET](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Uso de la API Graph de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Incorporación del inicio de sesión a una aplicación web de Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## [Preguntas más frecuentes](active-directory-b2c-faqs.md)
 
 # Procedimientos
@@ -53,7 +53,7 @@
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Foro de comentarios de Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Foro de comentarios de Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Soporte técnico](active-directory-b2c-support.md)

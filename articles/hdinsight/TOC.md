@@ -132,8 +132,9 @@
 ## Extensión de los clústeres
 ### [Personalización de clústeres con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalización de clústeres mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md)
-### [Adición de bibliotecas de Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Desarrollo acciones de script](hdinsight-hadoop-script-actions-linux.md)
+### [Instalación o actualización de Mono](hdinsight-hadoop-install-mono.md)
+### [Adición de bibliotecas de Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Uso de Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Uso de Hue](hdinsight-hadoop-hue-linux.md)
 ### [Uso de R](hdinsight-hadoop-r-scripts-linux.md)
@@ -190,7 +191,7 @@
 #### [Rendimiento de consultas de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

@@ -16,7 +16,7 @@
    * Paridad: ninguno
    * Control de flujo: ninguno
      
-      Esta configuración se muestra en la siguiente ilustración.
+     Esta configuración se muestra en la siguiente ilustración.
      
      ![Configuración de PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
      
@@ -25,9 +25,4 @@
      > 
      > 
 7. Haga clic en **Abrir** para iniciar una sesión en serie.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

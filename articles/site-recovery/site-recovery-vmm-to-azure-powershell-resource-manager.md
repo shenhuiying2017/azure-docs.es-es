@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
-ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 933cb8692abea1f66192605208ddd9c0b9057235
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,9 +103,9 @@ Más información sobre asignación de redes en
 * [Configuración y supervisión de redes virtuales en Azure](https://azure.microsoft.com/documentation/services/virtual-network/)
 
 ### <a name="powershell-prerequisites"></a>Requisitos previos de PowerShell
-Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para obtener más información sobre cómo configurar PowerShell, lea la [guía para instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
+Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para obtener más información sobre cómo configurar PowerShell, lea la [guía para instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](/powershell/azure/overview).
 
-Para ver sugerencias que puedan ayudarlo a usar los cmdlets —por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y las salidas en Azure PowerShell—, lea la [guía de introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Para ver sugerencias que puedan ayudarlo a usar los cmdlets —por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y las salidas en Azure PowerShell—, lea la [guía de introducción a los cmdlets de Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="step-1-set-the-subscription"></a>Paso 1: Establecimiento de la suscripción
 1. Desde Azure PowerShell, inicie sesión en la cuenta de Azure mediante los siguientes cmdlets
@@ -286,7 +286,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Supervisión de la actividad
+## <a name=monitor></a> Supervisión de la actividad
 Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta que debe esperar entre los trabajos para que el procesamiento finalice.
 
     Do
@@ -307,5 +307,5 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre los cmdlets de PowerShell de Azure Site Recovery con Azure Resource Manager.
+[Más información](/powershell/module/azurerm.recoveryservices.backup/#recovery) sobre los cmdlets de PowerShell de Azure Site Recovery con Azure Resource Manager.
 

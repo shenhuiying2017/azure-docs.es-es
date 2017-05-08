@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
-ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,7 +104,7 @@ Información detallada sobre esta estructura:
 
    ![GetSystemTimeZones en PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * Los días de la semana se representan con un valor numérico entre&0; y&6;. El valor&0; corresponde al domingo.
+   * Los días de la semana se representan con un valor numérico entre 0 y 6. El valor 0 corresponde al domingo.
    * La hora de inicio se representa con el atributo **S** y su valor se presenta en un formato de 24 horas.
    * La hora de fin o apagado se representa con el atributo **E** y su valor se presenta en un formato de 24 horas.
 
@@ -145,7 +146,7 @@ Haga lo siguiente para etiquetar una máquina virtual o un grupo de recursos en 
 ### <a name="tag-from-powershell"></a>Etiquetado en PowerShell
 Todos los Runbooks importados contienen información de ayuda al principio del script que describe cómo ejecutar los Runbooks directamente desde PowerShell. Puede llamar a los Runbooks Add-ScheduleResource y Update-ScheduleResource desde PowerShell. Para ello, utilice los parámetros necesarios que le permiten crear o actualizar la etiqueta Schedule en una máquina virtual o grupo de recursos fuera del portal.
 
-Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso [configurar el entorno de PowerShell para Azure](/powershell/azureps-cmdlets-docs). Una vez completada la configuración, puede continuar con los pasos siguientes.
+Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso [configurar el entorno de PowerShell para Azure](/powershell/azure/overview). Una vez completada la configuración, puede continuar con los pasos siguientes.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Creación de una etiqueta Schedule con PowerShell
 1. Abra una sesión de PowerShell. A continuación, use lo siguiente para autenticarse con la cuenta de ejecución y especificar una suscripción:
@@ -241,9 +242,4 @@ El **resumen del trabajo** incluye los mensajes de los flujos de salida, adverte
 * Para más información sobre las características de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)(Anuncio de la compatibilidad nativa con scripts de PowerShell en Automatización de Azure).
 * Para más información sobre el registro y salida de Runbooks, vea [Salidas de runbook y mensajes en Automatización de Azure](automation-runbook-output-and-messages.md).
 * Para obtener más información sobre una cuenta de ejecución de Azure y de cómo autenticar sus runbooks mediante ella, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

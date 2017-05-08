@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ Puede usar el control de acceso basado en rol (RBAC) del Portal de Azure y la AP
 
 Para poder usar Windows PowerShell con el fin de administrar RBAC, necesita cumplir los siguientes requisitos previos:
 
-* La versión 0.8.8 o posterior de Azure PowerShell. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Cmdlets de Azure Resource Manager. Instale los [cmdlets de Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) en PowerShell.
+* La versión 0.8.8 o posterior de Azure PowerShell. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+* Cmdlets de Azure Resource Manager. Instale los [cmdlets de Azure Resource Manager](/powershell/azure/overview) en PowerShell.
 
 ## <a name="list-roles"></a>Lista de roles
 ### <a name="list-all-available-roles"></a>Lista de todos los roles disponibles
@@ -87,7 +87,7 @@ Para enumerar las asignaciones de acceso para el administrador y los coadministr
 ### <a name="search-for-object-ids"></a>Búsqueda de identificadores de objetos
 Para asignar un rol, debe identificar el objeto (usuario, grupo o aplicación) y el ámbito.
 
-Si no conoce el id. de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal. Para obtener información sobre cómo obtener el id. de suscripción, vea [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) en MSDN.
+Si no conoce el id. de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal. Para obtener información sobre cómo obtener el id. de suscripción, vea [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) en MSDN.
 
 Para obtener el id. del objeto de un grupo de Azure AD, use:
 

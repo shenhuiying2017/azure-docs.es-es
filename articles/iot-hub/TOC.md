@@ -81,6 +81,7 @@
 ### Uso de métodos directos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-direct-methods.md)
 ### Introducción a la administración de dispositivos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-device-management-get-started.md)

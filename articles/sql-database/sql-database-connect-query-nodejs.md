@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 7365945818c56279bd5945fee8d0048ef425bfc7
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 - [Creación de la base de datos: CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-nodejs"></a>Instalación de Node.js 
+
+En esta sección se da por hecho que está familiarizado con el desarrollo con Node.js y que empieza a trabajar con Azure SQL Database. Si no está familiarizado con el desarrollo con Node.js, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Node.js** y, a continuación, seleccione el sistema operativo.
 
 ### <a name="mac-os"></a>**Mac OS**
 Escriba los comandos siguientes para instalar **brew**, un administrador de paquetes fácil de usar para Mac OS X y **Node.js**.
@@ -63,9 +65,9 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Obtenga la cadena de conexión en Azure Portal. La cadena de conexión se usa para conectarse a Azure SQL Database.
+Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
 3. En la página **Introducción** de la base de datos, revise el nombre completo del servidor, tal como se muestra en la imagen siguiente. Mantenga el puntero sobre el nombre del servidor hasta que aparezca la opción **Haga clic para copiar**. 
 
@@ -75,7 +77,7 @@ Obtenga la cadena de conexión en Azure Portal. La cadena de conexión se usa pa
     
 ## <a name="select-data"></a>Selección de datos
 
-Utilice el código siguiente para consultar Azure SQL Database. En primer lugar, importe las clases Connect y Request del controlador desde la biblioteca del controlador tedious. Después de crear el objeto de configuración y reemplazar las variables **nombre de usuario**, **contraseña**, **servidor** y **base de datos** por los valores especificados cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. Cree un objeto `Connection` con el objeto `config` especificado. Después, defina la devolución de llamada para el evento `connect` del objeto `connection` para ejecutar la función `queryDatabase()`.
+Utilice el código siguiente para consultar en Azure SQL Database los 20 primeros productos por categoría. En primer lugar, importe las clases Connect y Request del controlador desde la biblioteca del controlador tedious. Después de crear el objeto de configuración y reemplazar las variables **nombre de usuario**, **contraseña**, **servidor** y **base de datos** por los valores especificados cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. Cree un objeto `Connection` con el objeto `config` especificado. Después, defina la devolución de llamada para el evento `connect` del objeto `connection` para ejecutar la función `queryDatabase()`.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -125,7 +127,7 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>Inserción de datos en la base de datos
-Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT.Product. Reemplace las variables **nombre de usuario**, **contraseña**, **servidor** y **base de datos** por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. Esta vez, utilice una **instrucción INSERT** en la función `insertIntoDatabase()`.
+Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT.Product mediante la función `insertIntoDatabase()` y la instrucción [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) de Transact-SQL. Reemplace las variables **nombre de usuario**, **contraseña**, **servidor** y **base de datos** por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -167,7 +169,7 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>Actualización de datos de la base de datos
-Use el código siguiente para actualizar los datos de la base de datos. Reemplace las variables **nombre de usuario**, **contraseña**, **servidor** y **base de datos** por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. Esta vez, utilice una **instrucción UPDATE** en la función `updateInDatabase()`. En este ejemplo se utiliza el nombre de producto insertado en el ejemplo anterior.
+Utilice el código siguiente para eliminar el nuevo producto que ha agregado anteriormente mediante la función `updateInDatabase()` y la instrucción [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) de Transact-SQL. Reemplace las variables **nombre de usuario**, **contraseña**, **servidor** y **base de datos** por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. En este ejemplo se utiliza el nombre de producto insertado en el ejemplo anterior.
 
 ```js
 var Connection = require('tedious').Connection;

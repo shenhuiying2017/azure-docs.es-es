@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 04/28/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5121da4f4e68ac5a95f80a4c7e622bba2f65ffea
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: bab651ffc314e64ca9b9432d1fae3ea29b8d15f5
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -109,7 +109,6 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
         # sudo chkconfig waagent on
 
-
     La instalación del paquete WALinuxAgent elimina los paquetes NetworkManager y NetworkManager-gnome, si es que aún no se han quitado en el paso 3.
 
 13. No cree espacio de intercambio en el disco del sistema operativo.
@@ -134,7 +133,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
         # logout
 
-16. Haga clic en **Acción** > **Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+16. Haga clic en **Acción**  >  **Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Preparar una máquina virtual RHEL 7 desde el Administrador de Hyper-V
@@ -217,7 +216,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
         # logout
 
-15. Haga clic en **Acción** > **Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+15. Haga clic en **Acción**  >  **Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Preparación de una máquina virtual basada en Red Hat desde KVM
@@ -351,16 +350,12 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
     Asegúrese de que el tamaño de la imagen sin procesar está alineado con 1 MB. De lo contrario, redondee hacia arriba el tamaño para alinear con 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
-
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convierta el disco sin procesar en un disco duro virtual (VHD) de tamaño fijo:
 
@@ -432,7 +427,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
     Edite `/etc/dracut.conf` y agregue contenido:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="�hv_vmbus hv_netvsc hv_storvsc"
 
     Recompile initramfs:
 
@@ -495,15 +490,12 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
     Asegúrese de que el tamaño de la imagen sin procesar está alineado con 1 MB. De lo contrario, redondee hacia arriba el tamaño para alinear con 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-        
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convierta el disco sin procesar en un disco duro virtual (VHD) de tamaño fijo:
 
@@ -557,9 +549,9 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
 8. Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra `/etc/default/grub` en un editor de texto y edite el parámetro `GRUB_CMDLINE_LINUX`. Por ejemplo:
    
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
-   Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Esta configuración también desactiva las nuevas convenciones de nomenclatura de RHEL 7 para NIC. Además, se recomienda quitar los parámetros siguientes:
+   Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además, se recomienda quitar los parámetros siguientes:
    
         rhgb quiet crashkernel=auto
    
@@ -569,7 +561,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
     Edite `/etc/dracut.conf` y agregue el siguiente contenido:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Recompile initramfs:
 
@@ -615,15 +607,12 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
     Asegúrese de que el tamaño de la imagen sin procesar está alineado con 1 MB. De lo contrario, redondee hacia arriba el tamaño para alinear con 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-
-                # qemu-img resize rhel-6.8.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convierta el disco sin procesar en un disco duro virtual (VHD) de tamaño fijo:
 
@@ -722,15 +711,12 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMware. 
 
     Asegúrese de que el tamaño de la imagen sin procesar está alineado con 1 MB. De lo contrario, redondee hacia arriba el tamaño para alinear con 1 MB:
 
-                # MB=$((1024*1024))
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+          gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-                # size=$(qemu-img info -f raw --output json "rhel-7.3.raw" | \
-
-            gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-                # rounded_size=$((($size/$MB + 1)*$MB))
-                
-                # qemu-img resize rhel-7.3.raw $rounded_size
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.8.raw $rounded_size
 
     Convierta el disco sin procesar en un disco duro virtual (VHD) de tamaño fijo:
 

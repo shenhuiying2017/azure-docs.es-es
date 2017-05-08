@@ -18,8 +18,3 @@ A continuación se ofrece una alternativa que aprovecha el hecho de que el scrip
 ### <a name="option-3-customize-deployment-script"></a>Opción 3: personalizar el script de implementación
 Si ha personalizado el script de implementación, puede cambiar el código en deploy.cmd para forzarlo a eliminar la carpeta env.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78936ac34cc582684e938efa74133426f1b53741
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -115,7 +115,7 @@ También debe asegurarse de que la máquina virtual **FW1** tiene la propiedad d
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implementar la plantilla por medio de un solo clic para implementar
 La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Ejecute el comando siguiente para crear un grupo de recursos:
 
     ```powershell

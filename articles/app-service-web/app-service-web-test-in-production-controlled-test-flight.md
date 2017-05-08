@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e652218e6579ef430a5dc49f77a26a7d97b8b966
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ Este tutorial muestra cómo hacer *implementaciones de distribución de paquetes
 
 *La distribución de paquetes piloto* es un proceso de implementación que valida una nueva característica o cambio con un número limitado de clientes reales, y es una prueba importante en el escenario de producción. Es similar a las pruebas beta y a veces se conoce como "vuelo de prueba controlado". Muchas grandes empresas con una presencia web usan este enfoque para obtener validación temprana en las actualizaciones de sus aplicaciones dentro de su prácticas de [desarrollo ágil](https://en.wikipedia.org/wiki/Agile_software_development). El Servicio de aplicaciones de Azure le permite integrar la prueba en producción con publicación continua y con Application Insight para implementar el mismo escenario de DevOps. Las ventajas de este enfoque incluyen:
 
-* **Obtención de comentario reales *antes* de que se publiquen las actualizaciones en el entorno de producción** (si hay algo mejor que recibir comentarios en cuanto se lanza la versión, es recibirlos antes de que lance). Puede probar las actualizaciones con tráfico y comportamientos reales de los usuarios tan pronto como desee dentro el ciclo de vida del producto.
+* **Obtención de información real a partir de comentarios *antes* de que se publiquen las actualizaciones en el entorno de producción** (si hay algo mejor que recibir comentarios tan pronto como la versión se publique, es recibir comentarios antes de publicar). Puede probar las actualizaciones con tráfico y comportamientos reales de los usuarios tan pronto como desee dentro el ciclo de vida del producto.
 * **Mejora [del desarrollo continuo controlado por pruebas (CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** a través de la integración de pruebas en la producción, con integración continua e instrumentación con Application Insights, la validación de usuario se produce al principio y de forma automática dentro del ciclo de vida del producto. Esto ayuda a reducir las inversiones de tiempo de ejecución de pruebas manuales.
 * **Optimización del flujo de trabajo de prueba**: Mediante la automatización de la prueba en producción con instrumentación de supervisión continua, puede lograr en un único proceso los objetivos de distintos tipos de pruebas, como [integración](https://en.wikipedia.org/wiki/Integration_testing), [regresión](https://en.wikipedia.org/wiki/Regression_testing), [facilidad de uso](https://en.wikipedia.org/wiki/Usability_testing), accesibilidad, localización, [rendimiento](https://en.wikipedia.org/wiki/Software_performance_testing), [seguridad](https://en.wikipedia.org/wiki/Security_testing) y [aceptación](https://en.wikipedia.org/wiki/Acceptance_testing).
 
@@ -311,7 +311,7 @@ En esta sección, enrutará el tráfico a la aplicación beta. Por motivos de cl
         Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
    La propiedad `ReroutePercentage=50` especifica que el 50 % del tráfico de producción se enrutará a la URL de la aplicación beta (especificada por la propiedad `ActionHostName`).
-2. Vaya ahora a http://ToDoApp*&lt;su_sufijo>*.azurewebsites.net. El&50; % del tráfico debería ahora redirigirse a la ranura de la versión beta.
+2. Vaya ahora a http://ToDoApp*&lt;su_sufijo>*.azurewebsites.net. El 50 % del tráfico debería ahora redirigirse a la ranura de la versión beta.
 3. En el recurso de Application Insights, filtre las métricas por entorno = "beta".
 
    > [!NOTE]
@@ -355,6 +355,6 @@ El Servicio de aplicaciones de Azure permite que las pequeñas y medianas empres
 * [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint: validador de JSON](http://jsonlint.com/)
 * [Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 

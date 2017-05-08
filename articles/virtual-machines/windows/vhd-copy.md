@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1e897d98f561b24eafb95dfb620c3b5c7622ba0a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1b2b013fb29c66817aab2ea5e63917b59726b4e8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ En este artículo se muestra cómo utilizar la herramienta AZCopy para crear una
 ## <a name="before-you-begin"></a>Antes de empezar
 Asegúrese de todo esto:
 
-* Tener información sobre las **cuentas de almacenamiento de origen y de destino**. Para la máquina virtual de origen, necesitará los nombres del contenedor y la cuenta de almacenamiento. Normalmente, el nombre del contenedor será **vhds**. También debe tener una cuenta de almacenamiento de destino. Si todavía no tiene una, puede crearla con el portal (**Más servicios** > Cuentas de almacenamiento > Agregar) o el cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx). 
-* Tener instalado Azure [Microsoft Azure PowerShell 1.0](/powershell/azureps-cmdlets-docs) o versiones posteriores.
+* Tener información sobre las **cuentas de almacenamiento de origen y de destino**. Para la máquina virtual de origen, necesitará los nombres del contenedor y la cuenta de almacenamiento. Normalmente, el nombre del contenedor será **vhds**. También debe tener una cuenta de almacenamiento de destino. Si todavía no tiene una, puede crearla con el portal (**Más servicios** > Cuentas de almacenamiento > Agregar) o el cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Tener instalado Azure [Microsoft Azure PowerShell 1.0](/powershell/azure/overview) o versiones posteriores.
 * Tener descargada e instalada la [herramienta AzCopy](../../storage/storage-use-azcopy.md). 
 
 ## <a name="deallocate-the-vm"></a>Desasignación de la máquina virtual

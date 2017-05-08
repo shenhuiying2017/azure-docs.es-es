@@ -4,7 +4,7 @@
   items:
   - name: "Acerca de SQL Database"
     href: sql-database-technical-overview.md
-- name: "Guía de inicio rápido"
+- name: "Inicios rápidos"
   expanded: true
   items:
   - name: "Creación de la base de datos: Azure Portal"
@@ -38,7 +38,9 @@
   - name: "1 - Creación y diseño de nueva base de datos SQL"
     href: sql-database-design-first-database.md
   - name: "2 - Migración de un SQL Server existente"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 - Protección de SQL Database"
+    href: sql-database-security-tutorial.md
 - name: "Muestras"
   items:
   - name: "CLI de Azure"

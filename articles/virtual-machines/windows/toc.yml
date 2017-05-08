@@ -4,7 +4,7 @@
   items:
   - name: "Acerca de Virtual Machines"
     href: overview.md
-- name: "Guía de inicio rápido"
+- name: "Inicios rápidos"
   expanded: true
   items:
   - name: "Creación de una máquina virtual: Azure Portal"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3 - Automatización de la configuración"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 - Equilibrio de carga de máquinas virtuales"
+  - name: "4 - Creación de imágenes de máquina virtual"
+    href: tutorial-custom-images.md
+  - name: "5 - Máquinas virtuales de alta disponibilidad"
+    href: tutorial-availability-sets.md
+  - name: "6 - Creación de un conjunto de escalado de máquina virtual"
+    href: tutorial-create-vmss.md
+  - name: "7 - Equilibrio de carga de máquinas virtuales"
     href: tutorial-load-balancer.md
-  - name: "5 - Administración de redes"
+  - name: "8 - Administración de redes"
     href: tutorial-virtual-network.md
+  - name: "9 - Administración de la seguridad de la máquina virtual"
+    href: tutorial-azure-security.md
+
 - name: "Muestras"
   items:
   - name: "PowerShell"

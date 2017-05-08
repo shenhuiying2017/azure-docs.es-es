@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2038ffd2651be7f8dc3653a58673f33e6f32d3db
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b011f51e7b5aa921c43c906fb36fa3020a2dc7e6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -165,7 +165,7 @@ La versión de la API que especifica en la plantilla afecta a qué propiedades p
 Aproveche estas oportunidades para obtener las últimas versiones de API:
 
 - API de REST: [Mostrar todos los proveedores de recursos](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell: [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
+- PowerShell: [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
 - CLI de Azure 2.0: [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Parámetros y variables
@@ -461,3 +461,4 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 - Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
 - Aprenda a administrar la máquina virtual que ha creado consultando [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](ps-manage.md).
+

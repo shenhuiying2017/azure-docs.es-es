@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 160560fcc3d586d2bbcba67d2f7c60cfed26f5c3
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 97d61099ef4109d8fc1d6078bdaeddd36ad7c648
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -35,12 +35,9 @@ ms.lasthandoff: 03/24/2017
 
 Este artículo le guiará por los pasos necesarios para crear y administrar la configuración de enrutamiento para un circuito de ExpressRoute con PowerShell y el modelo de implementación de Azure Resource Manager.  En los siguientes pasos, también puede ver cómo comprobar el estado de los emparejamientos de un circuito ExpressRoute, así como el modo de actualizarlos o eliminarlos y desaprovisionarlos. 
 
-**Información acerca de los modelos de implementación de Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
-* Necesitará la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Necesitará la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). 
 * Antes de comenzar la configuración, asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la página de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md).
 * Tiene que tener un circuito ExpressRoute activo. Antes de continuar, siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y para que el proveedor de conectividad habilite el circuito. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 

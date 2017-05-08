@@ -96,7 +96,7 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 
     ![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Una vez que el servicio vinculado se ha implementado correctamente, la ventana **Draft-1** (Borrador&1;) debería desaparecer y, en la vista de árbol de la izquierda, debería aparecer **AzureStorageLinkedService**.
+   Una vez que el servicio vinculado se ha implementado correctamente, la ventana **Draft-1** (Borrador 1) debería desaparecer y, en la vista de árbol de la izquierda, debería aparecer **AzureStorageLinkedService**.
 
     ![Servicio vinculado de Almacenamiento en el menú](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
@@ -106,7 +106,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 1. En el **Editor de Data Factory**, haga clic en **... Más** y en **Nuevo proceso**; después, seleccione **On-demand HDInsight cluster** (Clúster de HDInsight a petición).
 
     ![Nuevo proceso](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
-2. Copie y pegue el fragmento de código siguiente en la ventana **Borrador&1;** . El fragmento de código JSON describe las propiedades que se usan para crear el clúster de HDInsight a petición.
+2. Copie y pegue el fragmento de código siguiente en la ventana **Borrador 1** . El fragmento de código JSON describe las propiedades que se usan para crear el clúster de HDInsight a petición.
 
     ```JSON
     {

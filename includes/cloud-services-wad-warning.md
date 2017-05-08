@@ -13,8 +13,3 @@
 >
 > Las extensiones se pueden volver a habilitar a través de Azure Portal o PowerShell después de haber implementado el rol actualizado.
 >
-
-
-<!--HONumber=Jan17_HO3-->
-
-

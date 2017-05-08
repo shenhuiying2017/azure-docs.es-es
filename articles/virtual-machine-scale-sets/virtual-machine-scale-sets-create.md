@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 9c9135e200cd1676b01895af4611bc71d5d27c4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo puede crear un conjunto de escalado de máquin
 
 Si usa la CLI de Azure 2.0 o Azure PowerShell para crear un conjunto de escalado, primero debe iniciar sesión en la suscripción.
 
-Para más información sobre cómo instalar y configurar Azure e iniciar sesión en Azure con la CLI de Azure o PowerShell, consulte [Introducción a la CLI de Azure 2.0](/cli/azure/get-started-with-azure-cli.md) o [Introducción a los cmdlets de Azure PowerShell](/powershell/resourcemanager/).
+Para más información sobre cómo instalar y configurar Azure e iniciar sesión en Azure con la CLI de Azure o PowerShell, consulte [Introducción a la CLI de Azure 2.0](/cli/azure/get-started-with-azure-cli.md) o [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/overview).
 
 ```azurecli
 az login
@@ -184,3 +184,4 @@ Azure Portal proporciona una forma cómoda de crear rápidamente un conjunto de 
 Más información sobre los [discos de datos](virtual-machine-scale-sets-attached-disks.md).
 
 Aprenda a [administrar las aplicaciones](virtual-machine-scale-sets-deploy-app.md).
+

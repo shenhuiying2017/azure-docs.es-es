@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -49,7 +49,7 @@ La puerta de enlace se instala en un equipo de la red. Debe instalarse una puert
 * En algunos casos, los modelos tabulares se conectan a orígenes de datos mediante proveedores nativos como SQL Server Native Client (SQLNCLI11) pueden devolver un error. Para más información, consulte [Datasource connections](analysis-services-datasource.md) (Conexiones de orígenes de datos).
 
 ## <a name="supported-on-premises-data-sources"></a>Orígenes de datos locales admitidos
-En vista previa, la puerta de enlace admite las conexiones entre el servidor de Azure Analysis Services y los siguientes orígenes de datos locales:
+La puerta de enlace admite las conexiones entre el servidor de Azure Analysis Services y los siguientes orígenes de datos locales:
 
 * SQL Server
 * Almacenamiento de datos SQL

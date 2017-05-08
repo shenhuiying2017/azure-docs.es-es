@@ -14,8 +14,3 @@
 6. Seleccione la **Suscripción** para este perfil de red de entrega de contenido.
 7. Haga clic en el botón **Crear** para crear el nuevo perfil. 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,8 +14,3 @@
       ![Agregar cuenta de almacenamiento](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la cuenta de almacenamiento recién creada. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

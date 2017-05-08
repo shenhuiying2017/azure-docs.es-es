@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5108df1ef407132de4c685d35f1c453d30d1aa96
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -114,7 +114,7 @@ La CLI de Azure no proporciona errores detallados durante el proceso de cifrado.
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -142,11 +142,11 @@ El proceso para cifrar una máquina virtual es el siguiente:
 ## <a name="supporting-services-and-encryption-process"></a>Servicios de soporte y proceso de cifrado
 El cifrado de discos utiliza los siguientes componentes adicionales:
 
-* **Azure Key Vault**: se usa para proteger las claves criptográficas y los secretos usados para el proceso de cifrado y descifrado de discos. 
+* **Azure Key Vault**: se usa para proteger las claves criptográficas y los secretos usados para el proceso de cifrado y descifrado de discos.
   * Si ya existe un almacén de Azure Key Vault, puede utilizarlo. No es necesario dedicar un almacén de Key Vault para el cifrado de discos.
   * Para separar los límites administrativos y la visibilidad de las claves, puede crear un almacén de Key Vault dedicado.
-* **Azure Active Directory**: controla el intercambio seguro de las claves cifradas necesarias y la autenticación para las acciones solicitadas. 
-  * Normalmente, puede usar un almacén existente de Azure Active Directory para hospedar la aplicación. 
+* **Azure Active Directory**: controla el intercambio seguro de las claves cifradas necesarias y la autenticación para las acciones solicitadas.
+  * Normalmente, puede usar un almacén existente de Azure Active Directory para hospedar la aplicación.
   * La aplicación es básicamente un punto de conexión para que los servicios Key Vault y Virtual Machines soliciten y obtengan las claves criptográficas apropiadas. No está desarrollando una aplicación real que se integrará con Azure Active Directory.
 
 ## <a name="requirements-and-limitations"></a>Requisitos y limitaciones
@@ -172,7 +172,7 @@ azure config mode arm
 
 En todos los ejemplos de comandos, reemplace todos los parámetros de ejemplo por sus propios nombres, ubicaciones y valores de clave. Los ejemplos siguientes usan la convención `myResourceGroup`, `myKeyVault`, `myAADApp`, etc.
 
-El primer paso es crear un almacén de Azure Key Vault para almacenar las claves criptográficas. Azure Key Vault puede almacenar claves, secretos o contraseñas que permiten su implementación segura en las aplicaciones y los servicios. Para el cifrado de discos virtuales, se usa Key Vault para almacenar una clave criptográfica que se utiliza para cifrar o descifrar los discos virtuales. 
+El primer paso es crear un almacén de Azure Key Vault para almacenar las claves criptográficas. Azure Key Vault puede almacenar claves, secretos o contraseñas que permiten su implementación segura en las aplicaciones y los servicios. Para el cifrado de discos virtuales, se usa Key Vault para almacenar una clave criptográfica que se utiliza para cifrar o descifrar los discos virtuales.
 
 Habilite el proveedor de Azure Key Vault en su suscripción de Azure y cree un grupo de recursos. En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `WestUS`:
 
@@ -188,7 +188,7 @@ azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-Puede almacenar las claves criptográficas mediante software o protección del modelo de seguridad de hardware (HSM). Para usar HSM se necesita un almacén premium de Key Vault. La creación de un almacén premium de Key Vault conlleva un coste, frente al almacén estándar de Key Vault, que almacena las claves protegidas por software. Para crear un almacén de Key Vault premium, en el paso anterior, agregue `--sku Premium` al comando. En el ejemplo siguiente se usa claves protegidas por software ya que hemos creado un almacén de Key Vault estándar. 
+Puede almacenar las claves criptográficas mediante software o protección del modelo de seguridad de hardware (HSM). Para usar HSM se necesita un almacén premium de Key Vault. La creación de un almacén premium de Key Vault conlleva un coste, frente al almacén estándar de Key Vault, que almacena las claves protegidas por software. Para crear un almacén de Key Vault premium, en el paso anterior, agregue `--sku Premium` al comando. En el ejemplo siguiente se usa claves protegidas por software ya que hemos creado un almacén de Key Vault estándar.
 
 En ambos modelos de protección, la plataforma Windows Azure debe tener acceso para solicitar las claves criptográficas cuando la máquina virtual arranca para descifrar los discos virtuales. Cree una clave de cifrado en su almacén de Key Vault y habilítela para el cifrado de discos virtuales. En el ejemplo siguiente se crea una clave llamada `myKey` y, después, se habilita para el cifrado de discos:
 
@@ -203,7 +203,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ## <a name="create-the-azure-active-directory-application"></a>Creación de la aplicación de Azure Active Directory
 Cuando los discos virtuales se cifran o descifran, se usa un punto de conexión para controlar la autenticación y el intercambio de claves criptográficas desde el almacén de Key Vault. Este punto de conexión, una aplicación de Azure Active Directory, permite a la plataforma de Azure solicitar las claves criptográficas adecuadas en nombre de la máquina virtual. Su suscripción dispone de una instancia de Azure Active Directory predeterminada, aunque muchas organizaciones tienen directorios de Azure Active Directory dedicados.
 
-Como no está creando una aplicación de Azure Active Directory completa, no es necesario que los parámetros `--home-page` y `--identifier-uris` del ejemplo siguiente sean direcciones enrutables reales. El ejemplo siguiente también especifica un secreto basado en contraseña, en lugar de generar claves desde dentro de Azure Portal. En este momento, la generación de claves no puede realizarse desde la CLI de Azure. 
+Como no está creando una aplicación de Azure Active Directory completa, no es necesario que los parámetros `--home-page` y `--identifier-uris` del ejemplo siguiente sean direcciones enrutables reales. El ejemplo siguiente también especifica un secreto basado en contraseña, en lugar de generar claves desde dentro de Azure Portal. En este momento, la generación de claves no puede realizarse desde la CLI de Azure.
 
 Cree una aplicación de Azure Active Directory. En el ejemplo siguiente se crea una aplicación llamada `myAADApp` y se usa la contraseña `myPassword`. Especifique su propia contraseña del siguiente modo:
 
@@ -214,7 +214,7 @@ azure ad app create --name myAADApp \
   --password myPassword
 ```
 
-Tome nota del valor de `applicationId` que se devuelve en la salida del comando anterior. Este identificador de aplicación se usará en algunos de los pasos restantes. A continuación, cree un nombre principal de servicio (SPN) para que la aplicación sea accesible desde su entorno. Para cifrar o descifrar los discos virtuales correctamente, debe establecer los permisos de la clave criptográfica que se almacena en el almacén de Key Vault para que permitan que la aplicación de Azure Active Directory lea las claves. 
+Tome nota del valor de `applicationId` que se devuelve en la salida del comando anterior. Este identificador de aplicación se usará en algunos de los pasos restantes. A continuación, cree un nombre principal de servicio (SPN) para que la aplicación sea accesible desde su entorno. Para cifrar o descifrar los discos virtuales correctamente, debe establecer los permisos de la clave criptográfica que se almacena en el almacén de Key Vault para que permitan que la aplicación de Azure Active Directory lea las claves.
 
 Cree el SPN y establezca los permisos adecuados de la siguiente manera:
 
@@ -273,7 +273,7 @@ Como el comando anterior tiene muchas variables, el siguiente es el comando comp
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -314,7 +314,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información acerca de cómo administrar Azure Key Vault, incluido cómo eliminar claves criptográficas y almacenes, consulte [Administración de Key Vault mediante CLI](../../key-vault/key-vault-manage-with-cli.md).
+* Para más información acerca de cómo administrar Azure Key Vault, incluido cómo eliminar claves criptográficas y almacenes, consulte [Administración de Key Vault mediante CLI](../../key-vault/key-vault-manage-with-cli2.md).
 * Para obtener más información acerca del cifrado de discos, por ejemplo, cómo preparar una máquina virtual personalizada cifrada para cargar en Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
-
 

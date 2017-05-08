@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 3cd1c20151d02fb2a520c5b6d510597828847234
-ms.openlocfilehash: 0a9460e25b54ad51c0b0cb0db39be75dac01ed51
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c685deaa008cfdba5971cef4cfc7dfa41b1df64d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,9 +46,9 @@ Para compilar y publicar la aplicación, haga clic con el botón derecho en el p
 > 
 > 
 
-Después de compilar el proyecto en Visual Studio, puede utilizar el comando de PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) para copiar el paquete de aplicación en ImageStore. Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [ServiceFabricApplicationPackage prueba](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). El siguiente paso es registrar la aplicación en el entorno de tiempo de ejecución de Service Fabric mediante el cmdlet [Register-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) . El último paso es iniciar una instancia de la aplicación mediante el cmdlet [New-ServiceFabricApplication](/powershell/servicefabric/vlatest/new-servicefabricapplication) .  Estos tres pasos son análogos al uso del elemento de menú **Implementar** en Visual Studio.
+Después de compilar el proyecto en Visual Studio, puede utilizar el comando de PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) para copiar el paquete de aplicación en ImageStore. Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [ServiceFabricApplicationPackage prueba](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). El siguiente paso es registrar la aplicación en el entorno de tiempo de ejecución de Service Fabric mediante el cmdlet [Register-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) . El último paso es iniciar una instancia de la aplicación mediante el cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) .  Estos tres pasos son análogos al uso del elemento de menú **Implementar** en Visual Studio.
 
-Ahora, puede usar el [explorador de Service Fabric para ver el clúster y la aplicación](service-fabric-visualizing-your-cluster.md). La aplicación tiene un servicio web hasta el que se puede navegar en Internet Explorer; para ello, escriba [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) en la barra de direcciones.  Debería ver algunos objetos visuales flotantes desplazándose por la pantalla.  Además, se puede usar [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) para comprobar el estado de la aplicación.
+Ahora, puede usar el [explorador de Service Fabric para ver el clúster y la aplicación](service-fabric-visualizing-your-cluster.md). La aplicación tiene un servicio web hasta el que se puede navegar en Internet Explorer; para ello, escriba [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) en la barra de direcciones.  Debería ver algunos objetos visuales flotantes desplazándose por la pantalla.  Además, se puede usar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para comprobar el estado de la aplicación.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Paso 2: Actualizar el ejemplo de objetos visuales
 Puede que observe que con la versión que se implementó en el Paso 1, los objetos visuales no giran. Vamos a actualizar esta aplicación a una donde los objetos visuales giren.
@@ -93,7 +93,7 @@ UpgradeDomainTimeoutSec = 1200
 UpgradeTimeout = 3000
 
 ## <a name="step-4-prepare-application-for-upgrade"></a>Paso 4: Preparar la aplicación para la actualización
-Ahora, la aplicación se ha creado y está lista para actualizarse. Si abre una ventana de PowerShell como administrador y escribe [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication), debe indicarle que la aplicación que se ha implementado es el tipo de aplicación 1.0.0.0 de **VisualObjects**.  
+Ahora, la aplicación se ha creado y está lista para actualizarse. Si abre una ventana de PowerShell como administrador y escribe [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), debe indicarle que la aplicación que se ha implementado es el tipo de aplicación 1.0.0.0 de **VisualObjects**.  
 
 El paquete de aplicación se almacena en la siguiente ruta de acceso relativa donde descomprimió el SDK de Service Fabric: *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Debería encontrará una carpeta "Paquete" en ese directorio, que es donde se almacena el paquete de aplicación. Compruebe las marcas de tiempo para asegurarse de que es la última compilación (puede que necesite además modificar las rutas de acceso adecuadamente).
 
@@ -104,7 +104,7 @@ Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services
 -ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
-El siguiente paso es registrar esta aplicación con Service Fabric, que se puede realizar con el comando [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype):
+El siguiente paso es registrar esta aplicación con Service Fabric, que se puede realizar con el comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps):
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
@@ -113,7 +113,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 Si el comando anterior no es correcto, es probable que necesite una recompilación de todos los servicios. Como se mencionó en el Paso 2, puede que tenga que actualizar además la versión de WebService.
 
 ## <a name="step-5-start-the-application-upgrade"></a>Paso 5: Iniciar la actualización de la aplicación
-Ahora ya se puede iniciar la actualización de la aplicación con el comando [Start-ServiceFabricApplicationUpgrade](/powershell/servicefabric/vlatest/start-servicefabricapplicationupgrade):
+Ahora ya se puede iniciar la actualización de la aplicación con el comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps):
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
@@ -122,7 +122,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Tenga en cuenta que el nombre de aplicación es el mismo que se ha descrito en el archivo *ApplicationManifest.xml* . Service Fabric usa este nombre para identificar qué aplicación se está actualizando. Si establece los tiempos de expiración para que sean demasiado breves, puede que reciba un mensaje de error que indique el problema. Consulte la sección de solución de problemas o aumente los tiempos de expiración.
 
-Ahora, a medida que continúa la actualización de la aplicación, puede supervisarla mediante Service Fabric Explorer o con el comando de PowerShell [Get-ServiceFabricApplicationUpgrade](/powershell/servicefabric/vlatest/get-servicefabricapplicationupgrade): 
+Ahora, a medida que continúa la actualización de la aplicación, puede supervisarla mediante Service Fabric Explorer o con el comando de PowerShell [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps): 
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects

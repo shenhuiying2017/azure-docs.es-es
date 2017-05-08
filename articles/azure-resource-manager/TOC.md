@@ -29,15 +29,19 @@
 ### [Establecimiento de la ubicación](resource-manager-template-location.md)
 ### [Asignación de etiquetas](resource-manager-template-tags.md)
 ### [Establecimiento del nombre y tipo del recurso secundario](resource-manager-template-child-resource.md)
+### [Actualización de recursos](resource-manager-update.md)
+### [Uso de objetos para parámetros](resource-manager-objects-as-parameters.md)
 ### [Compartición del estado entre plantillas vinculadas](best-practices-resource-manager-state.md)
 ### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
 ## Implementación
 ### PowerShell
 #### [Implementación de la plantilla](resource-group-template-deploy.md)
 #### [Implementación de una plantilla privada con el token de SAS](resource-manager-powershell-sas-token.md)
+#### [Exportación de la plantilla y reimplementación](resource-manager-export-template-powershell.md)
 ### CLI de Azure
 #### [Implementación de la plantilla](resource-group-template-deploy-cli.md)
 #### [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md)
+#### [Exportación de la plantilla y reimplementación](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API DE REST](resource-group-template-deploy-rest.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Referencia
 ## [Funciones de plantillas](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Funciones de matriz y objeto](resource-group-template-functions-array.md)
+### [Funciones de comparación](resource-group-template-functions-comparison.md)
+### [Funciones de implementación](resource-group-template-functions-deployment.md)
+### [Funciones numéricas](resource-group-template-functions-numeric.md)
+### [Funciones de recursos](resource-group-template-functions-resource.md)
+### [Funciones de cadena](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [CLI de Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

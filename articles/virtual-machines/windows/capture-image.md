@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 114e97bcd38fc69d62960c3305dc7f75ce13b66b
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7316782a1884f4affe5041bf767aa0e32946fbe0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +27,7 @@ En este artículo se muestra cómo usar Azure PowerShell para crear una imagen d
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Es preciso haber [generalizado ya la máquina virtual](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La generalización de una máquina virtual elimina toda la información personal de la cuenta, entre otras cosas, y prepara la máquina para usarse como imagen. También puede generalizar una máquina virtual Linux con `sudo waagent -deprovision+user` y, luego, usar PowerShell para capturar la máquina virtual. Para obtener información sobre cómo usar la CLI para capturar una máquina virtual, consulte el artículo sobre [cómo generalizar y capturar una máquina virtual Linux mediante la CLI de Azure](../linux/capture-image.md).
-* Es preciso tener instalada la versión 1.0.x de Azure PowerShell, o cualquier versión posterior. Si aún no ha instalado PowerShell, lea [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para ver los pasos de instalación.
+* Es preciso tener instalada la versión 1.0.x de Azure PowerShell, o cualquier versión posterior. Si aún no ha instalado PowerShell, lea [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para ver los pasos de instalación.
 
 ## <a name="log-in-to-azure-powershell"></a>Iniciar sesión en Azure PowerShell
 1. Abra Azure PowerShell e inicie sesión en la cuenta de Azure.

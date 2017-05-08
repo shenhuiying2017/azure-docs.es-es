@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/13/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 50e9982fbf33a39b69effed193a4bd137c07a14d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 36de0375cef661dddb384f9f7651e3faf8df793c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ El proceso de solución de problemas es el siguiente:
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
 
-Asegúrese de que tiene [la Azure PowerShell más reciente](/powershell/azureps-cmdlets-docs) instalada y con la sesión iniciada en su suscripción:
+Asegúrese de que tiene [la Azure PowerShell más reciente](/powershell/azure/overview) instalada y con la sesión iniciada en su suscripción:
 
 ```powershell
 Login-AzureRMAccount
@@ -208,3 +208,4 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones RDP a una máquina virtual de Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+

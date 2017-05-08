@@ -7,6 +7,13 @@
 ## [Creación de un origen de eventos](time-series-insights-add-event-source.md)
 ## [Envío de eventos](time-series-insights-send-events.md)
 
+# Procedimientos
+## [Creación de un origen de eventos de Event Hubs](time-series-insights-how-to-add-an-event-source-eventhub.md)
+## [Creación de un origen de eventos de IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md)
+## [Escalado del entorno](time-series-insights-how-to-scale-your-environment.md)
+## [Diagnóstico y solución de problemas](time-series-insights-diagnose-and-solve-problems.md)
+## [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md)
+
 # Referencia
 ## [API de consulta](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
 ## [Sintaxis de consulta](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)

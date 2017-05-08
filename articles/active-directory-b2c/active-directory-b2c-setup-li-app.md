@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -29,7 +30,7 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory (Azur
    
     ![LinkedIn - nueva aplicación](./media/active-directory-b2c-setup-li-app/linkedin-new-app.png)
 3. En el formulario **Create a New Application** (Crea una nueva aplicación), rellene la información relevante (**nombre de la empresa**, **nombre**, **descripción**, **URL del logo de la aplicación**, **uso de la aplicación**, **URL del sitio web**, **correo electrónico de empresa** y **teléfono de empresa**).
-4. Acepte las** condiciones de uso de API de LinkedIn** y haga clic en **Submit** (Enviar).
+4. Acepte las **condiciones de uso de API de LinkedIn** y haga clic en **Submit** (Enviar).
    
     ![LinkedIn - registrar aplicación](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 5. Copie los valores de **Client ID** y **Client Secret**. [Los encontrará en **Authentication Keys** (Claves de autenticación)]. Necesitará ambos para configurar LinkedIn como proveedor de identidades de su inquilino.
@@ -50,10 +51,5 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory (Azur
 5. Haga clic en **Identity provider type** (Tipo de proveedor de identidades), seleccione **LinkedIn** y haga clic en **Aceptar**.
 6. Haga clic en **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de cliente y el secreto de cliente de la aplicación de LinkedIn que creó anteriormente.
 7. Haga clic en **OK** (Aceptar) y en **Create** (Crear) para guardar la configuración de LinkedIn.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

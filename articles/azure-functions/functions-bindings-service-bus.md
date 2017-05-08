@@ -17,16 +17,18 @@ ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6644f6b879e48787249111c5e02b75b963f1e1cd
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1afc4d0c04929fdf55cc9f336e50d90ff7c66172
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Enlaces de Service Bus en Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y trabajar con enlaces de Azure Service Bus en Azure Functions. Azure Functions admite enlaces de desencadenador y salida para colas y temas de Service Bus.
+En este artículo se explica cómo configurar y trabajar con enlaces de Azure Service Bus en Azure Functions. 
+
+Azure Functions admite enlaces de desencadenador y salida para colas y temas de Service Bus.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -66,14 +68,14 @@ Los desencadenadores de cola y tema de Service Bus se definen mediante los sigui
 
 Tenga en cuenta lo siguiente:
 
-* Para `connection`, [cree una configuración de aplicación en la aplicación de la función](functions-how-to-use-azure-function-app-settings.md) que contenga la cadena de conexión al espacio de nombres de Service Hub y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el desencadenador. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Para `connection`, [cree una configuración de aplicación en la aplicación de la función](functions-how-to-use-azure-function-app-settings.md) que contenga la cadena de conexión al espacio de nombres de Service Bus y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el desencadenador. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos.
   Si `connection` se deja vacío, el desencadenador asume que se especifica una cadena de conexión de Service Bus predeterminada en una configuración de aplicación con el nombre `AzureWebJobsServiceBus`.
 * Para `accessRights`, los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en `listen`. De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo.
 
 ## <a name="trigger-behavior"></a>Comportamiento de un desencadenador
 * **Subprocesamiento único**: De forma predeterminada, el runtime de Functions procesa simultáneamente varios mensajes en cola. Para indicar al runtime que procese los mensajes de la cola o del tema de uno en uno, establezca `serviceBus.maxConcurrentCalls` en 1 en el archivo *host.json*. 
-  Para información acerca de *host.json*, consulte [Estructura de carpetas](functions-reference.md#folder-structure) y [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  Para más información acerca de *host.json*, consulte [Estructura de carpetas](functions-reference.md#folder-structure) y [host.json](https://git .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestión de mensajes dudosos**: Service Bus realiza su propio tratamiento de mensajes dudosos, que no se puede controlar ni configurar en el código ni en la configuración de Azure Functions. 
 * **Comportamiento de PeekLock**: El sistema en tiempo de ejecución de Funciones recibe un mensaje en el [modo `PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) y llama a `Complete` en el mensaje si la función finaliza correctamente, o bien llama a `Abandon` si se produce un error en la función. 
   Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente.
@@ -81,7 +83,7 @@ Tenga en cuenta lo siguiente:
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Uso del desencadenador
-En esta sección se muestra cómo utilizar el desencadenador enlace de entrada del centro de servicio en el código de función. 
+En esta sección se muestra cómo utilizar el desencadenador enlace de entrada de Service Bus en el código de función. 
 
 En C# y F#, el mensaje de desencadenador de Service Bus se puede deserializar en cualquiera de los siguientes tipos de entrada:
 
@@ -183,7 +185,7 @@ La salida de cola y tema de Service Bus para una función utiliza los siguientes
 
 Tenga en cuenta lo siguiente:
 
-* Para `connection`, [cree una configuración de aplicación en la aplicación de la función](functions-how-to-use-azure-function-app-settings.md) que contenga la cadena de conexión al espacio de nombres de Service Hub y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el enlace de salida. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+* Para `connection`, [cree una configuración de aplicación en la aplicación de la función](functions-how-to-use-azure-function-app-settings.md) que contenga la cadena de conexión al espacio de nombres de Service Bus y después especifique el nombre de la configuración de la aplicación en la propiedad `connection` en el enlace de salida. Obtenga la cadena de conexión siguiendo los pasos mostrados en [Obtención de las credenciales de administración](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   La cadena de conexión debe ser para un espacio de nombres de Service Bus y no estar limitada a una cola o un tema concretos.
   Si `connection` se deja vacío, el enlace de salida asume que se especifica una cadena de conexión de Service Bus predeterminada en una configuración de aplicación con el nombre `AzureWebJobsServiceBus`.
 * Para `accessRights`, los valores disponibles son `manage` y `listen`. El valor predeterminado es `manage`, lo que indica que `connection` tiene el permiso **Administrar**. Si usa una cadena de conexión que no tiene el permiso **Administrar**, establezca `accessRights` en `listen`. De lo contrario, el runtime de Functions puede intentar realizar operaciones que requieran derechos de administración y no conseguirlo.

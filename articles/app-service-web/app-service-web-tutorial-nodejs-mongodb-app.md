@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ef3fc25ed06eb498600df4fc8fcad37f0f0dc676
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Antes de ejecutar este ejemplo, instale los siguientes requisitos previos localm
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---test-local-mongodb-database"></a>Paso 1: Prueba de la base de datos MongoDB local
+## <a name="test-local-mongodb-database"></a>Prueba de la base de datos MongoDB local
 En este paso, asegúrese de que su base de datos local MongoDB está en funcionamiento.
 
 Abra la ventana de terminal y use `CD` para cambiar al directorio `bin` de la instalación de MongoDB. 
@@ -54,7 +54,7 @@ Cuando haya terminado de probar la base de datos MongoDB, escriba `Ctrl`+`C` en 
 
 <a name="step2"></a>
 
-## <a name="step-2---create-local-nodejs-application"></a>Paso 2: Creación de una aplicación local Node.js
+## <a name="create-local-nodejs-application"></a>Creación de una aplicación local Node.js
 En este paso, configurará el proyecto local de Node.js.
 
 ### <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
@@ -103,7 +103,7 @@ Pruebe a hacer clic en **Administrador** > **Manage Articles** (Administrar art�
 
 Para detener Node.js en cualquier momento, escriba `Ctrl`+`C` en el terminal. 
 
-## <a name="step-3---create-a-production-mongodb-database"></a>Paso 3: Creación de una base de datos de producción MongoDB
+## <a name="create-a-production-mongodb-database"></a>Creación de una base de datos de producción MongoDB
 
 En este paso, creará una base de datos MongoDB en Azure. Cuando la aplicación se implementa en Azure, se utiliza esta base de datos para la carga de trabajo de producción.
 
@@ -163,7 +163,7 @@ DB/databaseAccounts/<documentdb_name>",
 } 
 ```
 
-## <a name="step-4---connect-your-nodejs-application-to-the-database"></a>Paso 4: Conexión de la aplicación de Node.js a la base de datos
+## <a name="connect-your-nodejs-application-to-the-database"></a>Conexión de la aplicación Node.js a la base de datos
 
 En este paso, conectará su aplicación de ejemplo MEAN.js a la base de datos de DocumentDB que acaba de crear mediante una cadena de conexión de MongoDB. 
 
@@ -242,7 +242,7 @@ MEAN.JS version: 0.5.0
 
 Vaya a `http://localhost:8443` en un explorador. Haga clic en **Registrarse** en el menú superior e intente crear un usuario ficticio igual que antes. Si lo logra, su aplicación está escribiendo datos en la base de datos de DocumentDB en Azure. 
 
-## <a name="step-5---deploy-the-nodejs-application-to-azure"></a>Paso 5: Implementación de la aplicación Node.js en Azure
+## <a name="deploy-the-nodejs-application-to-azure"></a>Implementación de la aplicación Node.js en Azure
 En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure App Service.
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
@@ -435,7 +435,7 @@ Pruebe a hacer clic en **Administrador** > **Manage Articles** (Administrar art�
 
 **¡Enhorabuena!** Está ejecutando una aplicación Node.js orientada a datos en Azure App Service.
 
-## <a name="step-6---update-data-model-and-redeploy"></a>Paso 6: Actualización del modelo de datos y nueva implementación
+## <a name="update-data-model-and-redeploy"></a>Actualización del modelo de datos y nueva implementación
 
 En este paso, realizará algunos cambios en los datos de `article` y publicará los cambios en Azure.
 
@@ -569,7 +569,7 @@ Una vez que `git push` está completo, vaya a su aplicación web de Azure y vuel
 >
 >
 
-## <a name="step-7---stream-diagnostic-logs"></a>Paso 7: Secuencias de registro de diagnóstico 
+## <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico 
 
 Mientras se ejecuta la aplicación de Node.js en Azure App Service, puede tener insertados los registros de consola directamente en su terminal. De este modo, puede obtener los mismos mensajes de diagnóstico para ayudarle a depurar errores de la aplicación.
 
@@ -583,7 +583,7 @@ Cuando se inicie la secuencia de registro, actualice la aplicación web de Azure
 
 Para detener la secuencia de registro en cualquier momento, escriba `Ctrl`+`C`. 
 
-## <a name="step-8---manage-your-azure-web-app"></a>Paso 8: Administración de la aplicación web de Azure
+## <a name="manage-your-azure-web-app"></a>Administración de la aplicación web de Azure
 
 Vaya al portal de Azure para ver la aplicación web que ha creado.
 

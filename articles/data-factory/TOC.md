@@ -29,6 +29,7 @@
 ### [Asistente para copia de Data Factory](data-factory-azure-copy-wizard.md)
 #### [Carga de 1 TB en 15 minutos](data-factory-load-sql-data-warehouse.md)
 ### [Guía de rendimiento y ajuste](data-factory-copy-activity-performance.md)
+### [Consideraciones sobre la seguridad](data-factory-data-movement-security-considerations.md)
 ### Conectores
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
@@ -91,7 +92,7 @@
 ### [Solución de problemas con el uso de Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)

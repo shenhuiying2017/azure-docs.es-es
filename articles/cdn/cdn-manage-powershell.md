@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 9b0912edc5adf804e7a3e6dcc6b440fc165d3673
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 647e3de08dd8d3b520705f0d52ba2bb674eda0bf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 9b0912edc5adf804e7a3e6dcc6b440fc165d3673
 PowerShell proporciona uno de los métodos más flexibles para administrar los perfiles y puntos de conexión de la red CDN de Azure.  Puede usar PowerShell interactivamente o mediante la escritura de scripts para automatizar tareas de administración.  Este tutorial muestra algunas de las tareas más comunes que puede realizar con PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure debe tener instalado el módulo de Azure PowerShell.  Para obtener información sobre cómo instalar Azure PowerShell y conectarlo a Azure mediante el cmdlet `Login-AzureRmAccount` consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Para usar PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure debe tener instalado el módulo de Azure PowerShell.  Para obtener información sobre cómo instalar Azure PowerShell y conectarlo a Azure mediante el cmdlet `Login-AzureRmAccount` consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > Debe iniciar sesión con `Login-AzureRmAccount` para poder ejecutar los cmdlets de Azure PowerShell.
@@ -244,10 +245,5 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 Aprenda a automatizar Azure CDN con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 
 Para obtener información sobre las características de la red CDN, vea [Información general de la red CDN](cdn-overview.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

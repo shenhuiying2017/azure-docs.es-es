@@ -5,8 +5,3 @@ En este escenario creará un emparejamiento entre dos redes virtuales denominada
 
 El emparejamiento de VNET permite la conectividad completa entre el espacio de direcciones entero de redes virtuales emparejadas.    
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

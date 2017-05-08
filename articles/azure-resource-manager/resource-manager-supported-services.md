@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ Cloud Services (clásico) se puede usar con otros recursos clásicos. Sin embarg
 | Service Bus |yes |[REST para Service Bus](/rest/api/servicebus) |[Recursos de Service Bus](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Administración de identidad y acceso
-Azure Active Directory funciona con el administrador de recursos para habilitar el control de acceso basado en roles de la suscripción. Para más información acerca del uso del control de acceso basado en rol y Active Directory, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
+Azure Active Directory funciona con el administrador de recursos para habilitar el control de acceso basado en roles de la suscripción. Para más información acerca del uso del control de acceso basado en rol y Azure Active Directory, consulte [Control de acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="developer-services"></a>Servicios de desarrollador
 | Servicio | Administrador de recursos habilitado | API de REST | Formato de plantilla |

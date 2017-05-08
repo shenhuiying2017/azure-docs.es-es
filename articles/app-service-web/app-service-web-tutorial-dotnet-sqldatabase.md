@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 566a8d7fc595975e065c5a8a42c7f7c94997821b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Antes de ejecutar este ejemplo, [descargue e instale la versión gratuita de Vis
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---download-the-sample"></a>Paso 1: Descarga del ejemplo
+## <a name="download-the-sample"></a>Descarga del ejemplo
 En este paso, descargará una aplicación ASP.NET de ejemplo.
 
 ### <a name="get-the-sample-project"></a>Obtención del proyecto de ejemplo
@@ -65,7 +65,7 @@ Debería ver una lista sencilla de tareas pendientes en la página principal. Pr
 
 El contexto de base de datos usa una cadena de conexión denominada `MyDbConnection`. Esta cadena de conexión se define en `Web.config` y se hace referencia a ella en `Models\MyDatabaseContext.cs`. El nombre de la cadena de conexión es todo lo que necesita más adelante para conectar la aplicación web de Azure a Azure SQL Database. 
 
-## <a name="step-2---publish-to-azure-with-sql-database"></a>Paso 2: Publicación en Azure con SQL Database
+## <a name="publish-to-azure-with-sql-database"></a>Publicación en Azure con SQL Database
 
 En el **Explorador de soluciones**, haga clic con el botón derecho en su proyecto **DotNetAppSqlDb** y seleccione **Publicar**.
 
@@ -168,7 +168,7 @@ Pruebe a agregar unos cuantos elementos de tareas pendientes a la lista vacía.
 
 ¡Enhorabuena! La aplicación ASP.NET orientada a datos se ejecuta en directo en Azure App Service.
 
-## <a name="step-3---access-the-sql-database-locally"></a>Paso 3: Acceso local a la instancia de SQL Database
+## <a name="access-the-sql-database-locally"></a>Acceso local a la instancia de SQL Database
 
 Visual Studio le permite explorar y administrar su nueva instancia de SQL Database de manera fácil en el **Explorador de objetos de SQL Server**.
 
@@ -204,7 +204,7 @@ Aquí, puede realizar las operaciones de base de datos más comunes, como ejecut
 
 ![Exploración de objetos de SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## <a name="step-4---update-app-with-code-first-migrations"></a>Paso 4: Actualización de aplicaciones con Migraciones de Code First
+## <a name="update-app-with-code-first-migrations"></a>Actualización de aplicaciones con Migraciones de Code First
 
 En este paso, usará Migraciones de Code First en Entity Framework para realizar un cambio en el esquema de base de datos y publicarlo en Azure.
 
@@ -329,7 +329,7 @@ Intente volver a crear nuevos elementos de tareas pendientes y seleccione **List
 >
 >
 
-## <a name="step-6---stream-application-logs"></a>Paso 6: Transmisión de registros de aplicación
+## <a name="stream-application-logs"></a>Transmisión de registros de aplicación
 
 Puede transmitir mensajes de seguimiento directamente desde la aplicación web de Azure hasta Visual Studio.
 
@@ -389,7 +389,7 @@ Para detener el servicio de secuencias de registros, haga clic en el botón **De
 
 ![Detención de las secuencias de registro](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="step-7---manage-your-azure-web-app"></a>Paso 7: Administración de la aplicación web de Azure
+## <a name="manage-your-azure-web-app"></a>Administración de la aplicación web de Azure
 
 Vaya al portal de Azure para ver la aplicación web que ha creado. 
 

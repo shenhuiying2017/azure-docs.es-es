@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: aced1550a7b5b41b0a430c26f82c31c023f4d2d4
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5fd017b6f7645220ee7572e50c02265de41e938c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ Con Network Watcher, la característica de alertas y Functions del ecosistema de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Instalar la versión más reciente de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-3.8.0)
+* [Instalar la versión más reciente de Azure PowerShell](/powershell/azure/install-azurerm-ps)
 * Disponer ya de una instancia de Network Watcher o [crear una instancia de Network Watcher](network-watcher-create.md)
 * Disponer ya de una máquina virtual en la misma región que la instancia de Network Watcher anterior con la [extensión Windows](../virtual-machines/windows/extensions-nwa.md) o la [extensión de máquina virtual Linux](../virtual-machines/linux/extensions-nwa.md).
 

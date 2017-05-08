@@ -126,8 +126,8 @@
 ### [Pruebas de rendimiento](virtual-network-bandwidth-testing.md)
 
 # Referencia
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell (clásico)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [PowerShell (clásico)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [CLI de Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

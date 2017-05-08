@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
-ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93a4e5fc2ec3c4e847f3fe8e76df9f83253eea9b
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -57,7 +57,7 @@ El informe especifica el tiempo de espera de concesión global como período de 
 * **Pasos siguientes**: investigue por qué se pierde el entorno (por ejemplo, compruebe la comunicación entre los nodos del clúster).
 
 ## <a name="node-system-health-reports"></a>Informes de mantenimiento del sistema de nodos
-**System.FM**, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de los nodos del clúster. Todos los nodos deben tener un informe de System.FM que muestre el estado. Las entidades de nodo se quitan cuando se quita el estado del nodo (consulte [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
+**System.FM**, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de los nodos del clúster. Todos los nodos deben tener un informe de System.FM que muestre el estado. Las entidades de nodo se quitan cuando se quita el estado del nodo (consulte [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### <a name="node-updown"></a>Nodo activo o inactivo
 System.FM notifica que está todo correcto cuando el nodo se une al anillo (está en funcionamiento). Notifica un error cuando el nodo sale del anillo (no funciona, ya sea porque se está actualizando o simplemente porque no pudo). La jerarquía de mantenimiento generada por el almacén de estado realiza una acción sobre las entidades implementadas en correlación con los informes de nodo de System.FM. Considera el nodo como un elemento primario virtual de todas las entidades implementadas. Las entidades implementadas en ese nodo se exponen a través de las consultas si System.FM notifica que el nodo está activo, con la misma instancia que la instancia asociada a las entidades. Cuando System.FM notifica que el nodo está inactivo o que se ha reiniciado (una nueva instancia), el almacén de estado limpia automáticamente las entidades implementadas que solo pueden existir en el nodo inactivo o en la instancia anterior del nodo.
@@ -486,7 +486,7 @@ Eventos de diagnóstico de Visual Studio 2015: Error de RunAsync en **fabric:/He
 * **Property**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, según el rol de réplica.
 
 ### <a name="slow-naming-operations"></a>Operaciones de nomenclatura lentas
-**System.NamingService** informa del estado en su réplica principal cuando una operación de nomenclatura tarda más de lo aceptable. [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) o [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx) son ejemplos de operaciones de nomenclatura. En FabricClient pueden encontrarse más métodos, como en [métodos de administración de servicios](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) o [métodos de administración de propiedades](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+**System.NamingService** informa del estado en su réplica principal cuando una operación de nomenclatura tarda más de lo aceptable. [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) o [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) son ejemplos de operaciones de nomenclatura. En FabricClient pueden encontrarse más métodos, como en [métodos de administración de servicios](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o [métodos de administración de propiedades](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > El servicio de nombres resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Se trata de un servicio guardado con particiones de Service Fabric. Una de las particiones representa a Authority Owner, que contiene metadatos sobre todos los nombres y servicios de Service Fabric. Los nombres de Service Fabric se asignan a particiones diferentes, denominadas particiones Name Owner, por lo que el servicio se puede ampliar. Obtenga más información sobre el [servicio de nomenclatura](service-fabric-architecture.md).

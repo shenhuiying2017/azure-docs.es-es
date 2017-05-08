@@ -16,9 +16,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e1e915e07591ed104a30e9194ec6228b04519b8c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Debe definir las consultas que cree que le resultarán útiles para el usuario, 
 ### <a name="alerts"></a>Alertas
 [Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
 
-Si el problema potencialmente puede corregirse con un proceso automatizado, entonces usted normalmente creará un runbook en Azure Automation para realizar esta corrección.  La mayoría de los servicios de Azure pueden administrarse con [cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) que el runbook aprovechará para realizar esta funcionalidad.
+Si el problema potencialmente puede corregirse con un proceso automatizado, entonces usted normalmente creará un runbook en Azure Automation para realizar esta corrección.  La mayoría de los servicios de Azure pueden administrarse con [cmdlets](/powershell/azure/overview) que el runbook aprovechará para realizar esta funcionalidad.
 
 Si la solución requiere una funcionalidad externa en respuesta a una alerta, puede usar una [respuesta webhook](../log-analytics/log-analytics-alerts-actions.md).  Esto le permite llamar a un servicio web externo enviando información de la alerta.
 

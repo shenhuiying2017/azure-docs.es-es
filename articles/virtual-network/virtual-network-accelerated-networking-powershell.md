@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 16ea28d13ccbe559d7988032e162581cde363157
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 Los cambios en estas limitaciones se anunciarán a través de la página con [actualizaciones para redes virtuales de Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview) .
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
-1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 2. Para registrarse para la versión preliminar, envíe un correo electrónico a [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
 3. Registre la funcionalidad con su suscripción mediante los siguientes comandos:
    

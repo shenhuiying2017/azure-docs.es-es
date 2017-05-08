@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 77badf17502be6060b107521889f4b6ca7473b55
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b8c23a623a5c6c65c5239e6af694bc92c4de4682
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/14/2017
 Este artículo lo ayudará a vincular redes virtuales a circuitos ExpressRoute de Azure a través del modelo de implementación de Resource Manager y PowerShell. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. En este artículo también se muestra cómo actualizar el vínculo de una red virtual. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Instale la versión más reciente de los módulos de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Instale la versión más reciente de los módulos de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Revise los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 * Tiene que tener un circuito ExpressRoute activo. 
   * Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite el circuito mediante el proveedor de conectividad. 
@@ -176,3 +176,4 @@ El intervalo de *RoutingWeight* abarca de 0 a 32 000. El valor predeterminado es
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
+

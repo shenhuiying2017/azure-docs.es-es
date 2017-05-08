@@ -23,8 +23,3 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

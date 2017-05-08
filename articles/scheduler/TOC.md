@@ -21,7 +21,7 @@
 ### [Autenticación saliente](scheduler-outbound-authentication.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Recursos
@@ -31,10 +31,5 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=scheduler)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

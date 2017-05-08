@@ -47,7 +47,7 @@
 ### [Supervisión mediante Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Uso del control de acceso basado en rol](api-management-role-based-access-control.md)
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Directivas](api-management-policies.md)

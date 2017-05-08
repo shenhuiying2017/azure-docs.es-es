@@ -19,6 +19,7 @@
 ### [Funciones de ventana de U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operadores definidos por el usuario de U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Extensiones de Python de U-SQL](data-lake-analytics-u-sql-python-extensions.md)
+### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
 ### [Funcionalidades cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Creación de soluciones
@@ -40,7 +41,7 @@
 ### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Referencia
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)

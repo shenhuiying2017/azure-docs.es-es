@@ -10,8 +10,3 @@ El servicio Azure Backup tiene dos tipos de almacenes: el almacén de Backup y e
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

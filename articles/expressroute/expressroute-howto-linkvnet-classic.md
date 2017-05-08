@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c30f58079c9d8b8077b65881517178fa0ae0e598
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ Este artículo le ayudará a vincular redes virtuales a circuitos ExpressRoute d
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
-1. Necesitará la versión más reciente de los módulos de Azure PowerShell. Puede descargar los módulos de PowerShell más recientes desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Necesitará la versión más reciente de los módulos de Azure PowerShell. Puede descargar los módulos de PowerShell más recientes desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 2. Debe revisar los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 3. Tiene que tener un circuito ExpressRoute activo.
    * Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y haga que el proveedor de conectividad habilite el circuito.

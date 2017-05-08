@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 82515c2ee27e4866a167619f193620786b72cedf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -114,12 +114,12 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
 Si sigue teniendo problemas con RDP, puede [abrir una solicitud de soporte técnico](https://azure.microsoft.com/support/options/) o leer [más pasos y conceptos detallados de solución de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Solución de problemas mediante Azure PowerShell
-Si aún no lo ha hecho, [instale y configure la última versión de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Si aún no lo ha hecho, [instale y configure la última versión de Azure PowerShell](/powershell/azure/overview).
 
 Los ejemplos siguientes usan variables como `myResourceGroup`, `myVM` y `myVMAccessExtension`. Reemplace estos nombres de variables y las ubicaciones por sus propios valores.
 
 > [!NOTE]
-> Restablecerá las credenciales de usuario y la configuración de RDP mediante el cmdlet [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) de PowerShell. En los ejemplos siguientes, `myVMAccessExtension` es un nombre que ha especificado como parte del proceso. Si ha trabajado previamente con VMAccessAgent, use `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Para ver el nombre, busque en la sección "Extensiones" de la salida.
+> Restablecerá las credenciales de usuario y la configuración de RDP mediante el cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) de PowerShell. En los ejemplos siguientes, `myVMAccessExtension` es un nombre que ha especificado como parte del proceso. Si ha trabajado previamente con VMAccessAgent, use `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Para ver el nombre, busque en la sección "Extensiones" de la salida.
 > 
 > 
 

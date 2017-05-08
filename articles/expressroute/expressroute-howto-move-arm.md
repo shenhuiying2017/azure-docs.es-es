@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6d11b75fdd33260be3d975d9bc25fdac3cf22b49
-ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7f04ac92d7a9eff9db49ff493cdaa8693ce188c6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
 Para usar un circuito ExpressRoute con el modelo de implementación clásica y el modelo de implementación de Resource Manager, debe mover el circuito al modelo de implementación de Resource Manager. En las siguientes secciones se explican los pasos para mover el circuito mediante PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Compruebe que dispone de la versión más reciente de los módulos de Azure PowerShell (como mínimo, la versión 1.0). Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Compruebe que dispone de la versión más reciente de los módulos de Azure PowerShell (como mínimo, la versión 1.0). Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 * Revise la información que se proporciona en [Transición de un circuito ExpressRoute desde la implementación clásica a la implementación de Resource Manager](expressroute-move.md). Asegúrese de que comprende perfectamente los límites y restricciones.
 * Compruebe que el circuito está totalmente operativo en el modelo de implementación clásica.
@@ -125,10 +126,5 @@ Ejecute los siguientes cmdlets para deshabilitar el acceso al modelo de implemen
 
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

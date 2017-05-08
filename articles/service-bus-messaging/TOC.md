@@ -42,8 +42,10 @@
 ### [Procesamiento de transacciones](service-bus-transactions.md)
 ### [Registros de diagnóstico](service-bus-diagnostic-logs.md)
 ### AMQP
+#### [Introducción a AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
+#### [Java Message Service y AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [Guía del protocolo AMQP](service-bus-amqp-protocol-guide.md)
 #### [Operaciones basadas en solicitud/respuesta de AMQP](service-bus-amqp-request-response.md)
 
@@ -56,7 +58,7 @@
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
+## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Excepciones](service-bus-messaging-exceptions.md)
 ## [Cuotas](service-bus-quotas.md)

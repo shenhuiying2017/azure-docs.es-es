@@ -11,7 +11,7 @@
    
     ![Registrar el dispositivo 2 de StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
    
-     Complete los pasos 5-12 para configurar las opciones de red necesarias mínimas para el dispositivo. **Estos pasos de configuración deben realizarse en el controlador activo del dispositivo.**  El menú de la consola serie indica el estado del controlador en el mensaje del banner. Si no está conectado al controlador activo, desconéctese y, a continuación, conéctese al controlador activo.
+     Complete los pasos 5-12 para configurar las opciones de red necesarias mínimas para el dispositivo. **Estos pasos de configuración deben realizarse en el controlador activo del dispositivo.** El menú de la consola serie indica el estado del controlador en el mensaje del banner. Si no está conectado al controlador activo, desconéctese y, a continuación, conéctese al controlador activo.
 5. En el símbolo del sistema, escriba su contraseña. La contraseña predeterminada del dispositivo es **Password1**.
 6. Escriba el siguiente comando: `Invoke-HcsSetupWizard`. 
 7. Aparecerá un Asistente para instalación que le ayudará a configurar las opciones de red para el dispositivo. Proporcione la siguiente información: 
@@ -62,9 +62,4 @@
         Si el dispositivo sigue sin conexión tras unos minutos, hay que asegurarse de que la red de firewall se haya configurado tal como se describe en [Software de StorSimple, alta disponibilidad y requisitos de red](../articles/storsimple/storsimple-system-requirements.md). 
        
         Compruebe que el puerto 9354 está abierto para la comunicación saliente, ya que lo usa el Bus de servicio para la comunicación de servicio al dispositivo de StorSimple Manager.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

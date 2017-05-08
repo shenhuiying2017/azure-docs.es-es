@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -187,7 +187,7 @@ En la hoja para una ranura de implementación, abra la hoja de la ranura de impl
 ## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets de PowerShell de Azure para espacios de implementación
 Azure PowerShell es un módulo que proporciona cmdlets para administrar Azure mediante Windows PowerShell, incluida la compatibilidad para administrar ranuras de implementación de Azure App Service.
 
-* Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Creación de una aplicación web

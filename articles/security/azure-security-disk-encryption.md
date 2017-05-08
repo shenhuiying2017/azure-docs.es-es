@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -359,7 +359,7 @@ Cuando termine de cargar el archivo PFX, implemente un certificado del almacén 
  ```
 
 #### <a name="set-up-the-key-vault-access-policy-for-the-azure-ad-application"></a>Establecimiento de la directiva de acceso del almacén de claves para la aplicación de Azure AD
-La aplicación de Azure AD necesita derechos de acceso a las claves o secretos del almacén. Use el cmdlet [`Set-AzureKeyVaultAccessPolicy`](https://msdn.microsoft.com/library/azure/dn903607.aspx) para conceder permisos a la aplicación, con el identificador de cliente (que se generó cuando se registró la aplicación) como valor del parámetro _–ServicePrincipalName_. Para obtener más información, consulte la entrada de blog [Azure Key Vault - Step by Step](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Azure Key Vault - Paso a paso). Aquí se muestra un ejemplo de cómo realizar esta tarea mediante PowerShell:
+La aplicación de Azure AD necesita derechos de acceso a las claves o secretos del almacén. Use el cmdlet [`Set-AzureKeyVaultAccessPolicy`](/powershell/module/azure/set-azurekeyvaultaccesspolicy?view=azuresmps-3.7.0) para conceder permisos a la aplicación, con el identificador de cliente (que se generó cuando se registró la aplicación) como valor del parámetro _–ServicePrincipalName_. Para obtener más información, consulte la entrada de blog [Azure Key Vault - Step by Step](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Azure Key Vault - Paso a paso). Aquí se muestra un ejemplo de cómo realizar esta tarea mediante PowerShell:
 
     $keyVaultName = '<yourKeyVaultName>'
     $aadClientID = '<yourAadAppClientID>'
@@ -382,7 +382,7 @@ Para comprender algunos de los términos comunes que usa esta tecnología, utili
 | CLI | Vea [Instalación de la CLI de Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) es el subsistema de cifrado transparente de disco basado en Linux que se usa para habilitar el cifrado de disco en las máquinas virtuales IaaS con Linux. |
 | KEK | La clave de cifrado de claves (KEK) es la clave asimétrica (RSA 2048) que puede usar para proteger o encapsular el secreto. Se puede proporcionar una clave protegida mediante módulos de seguridad de hardware (HSM) o una clave protegida mediante software. Para obtener más información, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| cmdlets de PS | Consulte [Cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs). |
+| cmdlets de PS | Consulte [Cmdlets de Azure PowerShell](/powershell/azure/overview). |
 
 ### <a name="set-up-and-configure-your-key-vault-for-azure-disk-encryption"></a>Instalación y configuración del almacén de claves para Azure Disk Encryption
 Azure Disk Encryption ayuda a proteger las claves de cifrado de disco y los secretos en su almacén de claves. Para configurar el almacén de claves para Azure Disk Encryption, complete los pasos en cada una de las siguientes secciones.
@@ -391,7 +391,7 @@ Azure Disk Encryption ayuda a proteger las claves de cifrado de disco y los secr
 Para crear un almacén de claves, use una de las siguientes opciones:
 
 * [Plantilla de Resource Manager llamada "101-Key-Vault-Create"](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-* [Cmdlets de almacén de claves de Azure PowerShell](https://msdn.microsoft.com/library/dn868052.aspx)
+* [Cmdlets de almacén de claves de Azure PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
 * Administrador de recursos de Azure
 * Cómo [Proteger un almacén de claves](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
 
@@ -401,7 +401,7 @@ Para crear un almacén de claves, use una de las siguientes opciones:
 ![Almacén de claves de Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Configuración de una clave de cifrado de claves (KEK) (opcional)
-Si desea usar una KEK para una brindar una capa adicional de seguridad para las claves de cifrado de BitLocker, agregue una KEK a su almacén de claves. Use el cmdlet [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el HSM de administración de claves local. Para obtener más información, consulte la [documentación de Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
+Si desea usar una KEK para una brindar una capa adicional de seguridad para las claves de cifrado de BitLocker, agregue una KEK a su almacén de claves. Use el cmdlet [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el HSM de administración de claves local. Para obtener más información, consulte la [documentación de Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
@@ -494,7 +494,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | vmName | Nombre de la máquina virtual IaaS. |
 
 #### <a name="using-powershell-cmdlets"></a>Uso de cmdlets de PowerShell
-Puede habilitar el cifrado de disco en el VHD cifrado mediante el cmdlet de PowerShell [`Set-AzureRmVMOSDisk`](https://msdn.microsoft.com/library/azure/mt603746.aspx).  
+Puede habilitar el cifrado de disco en el VHD cifrado mediante el cmdlet de PowerShell [`Set-AzureRmVMOSDisk`](/powershell/module/azurerm.compute/set-azurermvmosdisk).  
 
 #### <a name="using-cli-commands"></a>Uso de comandos de la CLI
 Para habilitar el cifrado de disco para este escenario mediante comandos de la CLI, haga lo siguiente:
@@ -630,7 +630,7 @@ Puede habilitar el cifrado de disco en el VHD cifrado mediante la instalación y
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Obtención del estado de cifrado de una máquina virtual IaaS cifrada
-Puede obtener el estado del cifrado mediante Azure Resource Manager, los [cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) o los comandos de la CLI. En las siguientes secciones se explica cómo usar los comandos de la CLI y el Portal de Azure clásico para obtener el estado del cifrado.
+Puede obtener el estado del cifrado mediante Azure Resource Manager, los [cmdlets de PowerShell](/powershell/azure/overview) o los comandos de la CLI. En las siguientes secciones se explica cómo usar los comandos de la CLI y el Portal de Azure clásico para obtener el estado del cifrado.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Obtención del estado del cifrado de una máquina virtual con Windows cifrada mediante Azure Resource Manager
 Se puede obtener el estado del cifrado de la máquina virtual IaaS desde Azure Resource Manager haciendo lo siguiente:
@@ -713,7 +713,7 @@ En la tabla siguiente se enumeran los parámetros de la plantilla de Resource Ma
 | sequenceVersion | Versión de la secuencia de la operación de BitLocker. Incremente el número de versión cada vez que se realice una operación de descifrado de disco en la misma máquina virtual. |
 
 ##### <a name="disable-encryption-on-an-existing-or-running-iaas-vm"></a>Deshabilitado del cifrado en una máquina virtual IaaS existente o en ejecución
-Para deshabilitar el cifrado en una VM IaaS existente o en ejecución mediante el cmdlet de PowerShell, consulte [`Disable-AzureRmVMDiskEncryption`](https://msdn.microsoft.com/library/azure/mt715776.aspx). Este cmdlet admite máquinas virtuales Linux y Windows. Para deshabilitar el cifrado, instala una extensión en la máquina virtual. Si no se especifica el parámetro _Name_, se crea una extensión con el nombre predeterminado _AzureDiskEncryption para máquinas virtuales con Windows_.
+Para deshabilitar el cifrado en una VM IaaS existente o en ejecución mediante el cmdlet de PowerShell, consulte [`Disable-AzureRmVMDiskEncryption`](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). Este cmdlet admite máquinas virtuales Linux y Windows. Para deshabilitar el cifrado, instala una extensión en la máquina virtual. Si no se especifica el parámetro _Name_, se crea una extensión con el nombre predeterminado _AzureDiskEncryption para máquinas virtuales con Windows_.
 
 En las máquinas virtuales con Linux, se utiliza la extensión AzureDiskEncryptionForLinux.
 
@@ -1149,7 +1149,7 @@ El secreto de cifrado del disco que obtuvo con anterioridad se debe cargar como 
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Secreto del cifrado de disco no cifrado con una KEK
-Para configurar el secreto en el almacén de claves, use [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx). Si tiene una máquina virtual con Windows, el archivo bek se codifica como cadena base64 y, a continuación, se carga en el almacén de claves mediante el cmdlet `Set-AzureKeyVaultSecret`. En Linux, la frase de contraseña se codifica como cadena base64 y, a continuación, se carga en el almacén de claves. Además, asegúrese de que se establecen las siguientes etiquetas al crear el secreto en el almacén de claves.
+Para configurar el secreto en el almacén de claves, use [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). Si tiene una máquina virtual con Windows, el archivo bek se codifica como cadena base64 y, a continuación, se carga en el almacén de claves mediante el cmdlet `Set-AzureKeyVaultSecret`. En Linux, la frase de contraseña se codifica como cadena base64 y, a continuación, se carga en el almacén de claves. Además, asegúrese de que se establecen las siguientes etiquetas al crear el secreto en el almacén de claves.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1165,7 +1165,7 @@ Para configurar el secreto en el almacén de claves, use [Set-AzureKeyVaultSecre
 Use `$secretUrl` en el paso siguiente para [conectar el disco del sistema operativo sin usar KEK](#without-using-a-kek).
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Secreto del cifrado de disco cifrado con una KEK
-Antes de cargar el secreto en el almacén de claves, puede cifrarlo si lo desea mediante una clave de cifrado de claves. Utilice la [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamiento para cifrar por primera vez el secreto mediante la clave de cifrado de claves. El resultado de esta operación de encapsulamiento es una cadena codificada en URL como base64 que luego se carga como secreto con el cmdlet [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
+Antes de cargar el secreto en el almacén de claves, puede cifrarlo si lo desea mediante una clave de cifrado de claves. Utilice la [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamiento para cifrar por primera vez el secreto mediante la clave de cifrado de claves. El resultado de esta operación de encapsulamiento es una cadena codificada en URL como base64 que luego se carga como secreto con el cmdlet [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

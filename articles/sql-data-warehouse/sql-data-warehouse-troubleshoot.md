@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: adbd994022f7585676bcbd0c4e4b040e9160c679
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 | Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de transacción de la base de datos permitida de 45000. |Reduzca la unidad [DWU][DWU] de la base de datos que intenta crear o[ solicite un aumento de la cuota][request a quota increase]. |
 | Investigación del uso del espacio |Consulte los [tamaños de tabla][Table sizes] para comprender el uso del espacio del sistema. |
 | Ayuda con la administración de tablas |Para obtener ayuda con la administración de las tablas, consulte la [información general sobre las tablas][Overview].  Este artículo también incluye vínculos a temas más detallados como [tipos de datos de tabla][Data types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary]. |
-|La barra de progreso de Cifrado de datos transparente (TDE) no se actualiza en Azure Portal|El estado de TDE se puede ver a través de [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
+|La barra de progreso de Cifrado de datos transparente (TDE) no se actualiza en Azure Portal|El estado de TDE se puede ver a través de [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>PolyBase
 | Problema | Resolución |
