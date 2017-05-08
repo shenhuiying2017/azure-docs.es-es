@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
-ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/22/2017
 
 
 
-En Azure Container Service, Kubernetes requiere una [entidad de servicio de Azure Active Directory](../active-directory/active-directory-application-objects.md), como una cuenta de servicio para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos, como las rutas definidas por el usuario y Azure Load Balancer de nivel 4.
+En Azure Container Service, Kubernetes requiere una [entidad de servicio de Azure Active Directory](../active-directory/active-directory-application-objects.md), como una cuenta de servicio para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos como las [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) y [Azure Load Balancer](../load-balancer/load-balancer-overview.md) de nivel 4.
 
 Este artículo muestra distintas opciones para especificar a una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
 
