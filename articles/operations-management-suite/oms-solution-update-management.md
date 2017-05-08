@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Si habilita esta solución, los equipos Windows conectados directamente al área
 Sin embargo, puede agregar equipos Windows a un grupo de Hybrid Runbook Worker en la cuenta de Automation para admitir runbooks de Automation siempre que la cuenta para la solución y la pertenencia a grupos de Hybrid Runbook Worker sean las mismas.  Esta funcionalidad se agregó a la versión 7.2.12024.0 de Hybrid Runbook Worker.  
 
 ## <a name="configuration"></a>Configuración
-Realice los pasos siguientes para agregar la solución de administración de actualizaciones al área de trabajo de OMS y confirmar los agentes a los que se informa. Los agentes de Windows se agregan automáticamente sin ninguna configuración adicional. 
+Realice los pasos siguientes para agregar la solución de administración de actualizaciones al área de trabajo de OMS y confirmar los agentes a los que se informa. Los agentes de Windows ya conectados al área de trabajo se agregan automáticamente sin ninguna configuración adicional. 
 
-Existen tres maneras de agregar esta solución: desde Azure Marketplace en Azure Portal si selecciona la oferta Automation & Control o la solución de administración de actualizaciones, y desde la galería de soluciones OMS del área de trabajo de OMS.  Si ya tiene una cuenta de Automation vinculada a un área de trabajo de OMS en el mismo grupo de recursos y región, al seleccionar Automation & Control se comprobará la configuración y se instalará y configurará la solución en ambos servicios.  Si selecciona la solución de administración de actualizaciones de Azure Marketplace, se produce el mismo comportamiento.  Si no tiene ambos servicios implementados en su suscripción, siga los pasos descritos en la hoja **Crear nueva solución** y confirme que desea instalar las otras soluciones preseleccionadas recomendadas.  También puede agregar la solución de administración de actualizaciones al área de trabajo de OMS mediante los pasos descritos en [Agregar soluciones de OMS](../log-analytics/log-analytics-add-solutions.md) desde la galería de soluciones.  
+Puede implementar la solución utilizando los métodos siguientes:
+
+* Desde Azure Marketplace en Azure Portal, seleccionando la oferta Automation & Control o la solución Administración de actualizaciones
+* Desde la Galería de soluciones de OMS en su área de trabajo de OMS
+
+Si ya tiene una cuenta de Automation vinculada a un área de trabajo de OMS en el mismo grupo de recursos y región, al seleccionar Automation & Control se comprobará la configuración y se instalará y configurará la solución en ambos servicios.  Si selecciona la solución de administración de actualizaciones de Azure Marketplace, se produce el mismo comportamiento.  Si no tiene ambos servicios implementados en su suscripción, siga los pasos descritos en la hoja **Crear nueva solución** y confirme que desea instalar las otras soluciones preseleccionadas recomendadas.  También puede agregar la solución de administración de actualizaciones al área de trabajo de OMS mediante los pasos descritos en [Agregar soluciones de OMS](../log-analytics/log-analytics-add-solutions.md) desde la galería de soluciones.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Confirmar que los agentes de OMS y el grupo de administración de Operations Manager conectan a OMS
 
@@ -144,7 +150,7 @@ Una vez se han evaluado las actualizaciones para todos los equipos Linux y Windo
 > [!NOTE]
 > Las máquinas virtuales Windows implementadas desde Azure Marketplace se establecen de forma predeterminada para recibir actualizaciones automáticas del servicio de Windows Update.  Este comportamiento no cambia después de agregar esta solución o máquinas virtuales Windows al área de trabajo.  Si no ha administrado activamente las actualizaciones con la solución, se aplicará el comportamiento predeterminado (aplicar automáticamente las actualizaciones).  
 
-En el caso de las máquinas virtuales creadas a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) en Azure Marketplace se registran para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) implementada en Azure.  Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de distribuciones según los métodos admitidos de cada una de ellas.  
+En el caso de las máquinas virtuales creadas a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) en Azure Marketplace se registran para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implementada en Azure.  Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de distribuciones según los métodos admitidos de cada una de ellas.  
 
 ### <a name="viewing-update-deployments"></a>Visualización de implementaciones de actualizaciones
 Haga clic en el icono **Implementación de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes.  Se agrupan por estado: **Programado**, **En ejecución** y **Completado**.<br><br> ![Página de programación de las implementaciones de actualizaciones](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

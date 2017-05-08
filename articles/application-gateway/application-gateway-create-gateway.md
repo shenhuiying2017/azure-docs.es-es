@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -26,12 +27,12 @@ ms.lasthandoff: 03/01/2017
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
+> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7;. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
 Este artículo le guiará por los pasos necesarios para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones.
 
@@ -106,11 +107,11 @@ DnsName       :
 
 La Puerta de enlace de aplicaciones se puede configurar con un archivo XML o con un objeto de configuración.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>Configuración de una Puerta de enlace de aplicaciones mediante XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>Configuración de una Puerta de enlace de aplicaciones mediante XML
 
 En el ejemplo siguiente, se usa un archivo XML para configurar todos los valores de la puerta de enlace de aplicaciones y confirmarlos en el recurso de dicha puerta de enlace.  
 
-### <a name="step-1"></a>Paso 1
+#### <a name="step-1"></a>Paso 1
 
 Copie el texto siguiente y péguelo en el Bloc de notas.
 
@@ -211,7 +212,7 @@ En el ejemplo siguiente se muestra cómo usar un archivo de configuración para 
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Paso 2
+#### <a name="step-2"></a>Paso 2
 
 Después, establezca la Puerta de enlace de aplicaciones. Use el cmdlet `Set-AzureApplicationGatewayConfig` con un archivo de configuración XML.
 
@@ -219,14 +220,14 @@ Después, establezca la Puerta de enlace de aplicaciones. Use el cmdlet `Set-Azu
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configuración de la Puerta de enlace de aplicaciones con un objeto de configuración
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configuración de la Puerta de enlace de aplicaciones con un objeto de configuración
 
 En el ejemplo siguiente, se muestra cómo configurar la Puerta de enlace de aplicaciones con objetos de configuración. Todos los elementos de configuración deben configurarse individualmente y, a continuación, se deben agregar a un objeto de configuración de puerta de enlace de aplicaciones. Después de crear el objeto de configuración, use el comando `Set-AzureApplicationGateway` para confirmar la configuración del recurso de puerta de enlace de aplicaciones creado anteriormente.
 
 > [!NOTE]
 > Antes de asignar un valor a cada objeto de configuración, es preciso declarar el tipo de objeto que usa PowerShell para el almacenamiento. La primera línea para crear los elementos individuales define qué `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` se usan.
 
-### <a name="step-1"></a>Paso 1
+#### <a name="step-1"></a>Paso 1
 
 Cree todos los elementos de configuración individuales.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Paso 2
+#### <a name="step-2"></a>Paso 2
 
 Asigne todos los elementos de configuración individuales a un objeto de configuración de la Puerta de enlace de aplicaciones ($appgwconfig):
 
@@ -385,9 +386,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Eliminación de una puerta de enlace de aplicaciones
+## <a name="delete-the-application-gateway"></a>Eliminación de la puerta de enlace de aplicaciones
 
-Para eliminar una Puerta de enlace de aplicaciones:
+Para eliminar la puerta de enlace de la aplicación:
 
 1. Use el cmdlet `Stop-AzureApplicationGateway` para detener la puerta de enlace.
 2. Utilice el cmdlet `Remove-AzureApplicationGateway` para quitar la puerta de enlace.
@@ -443,7 +444,7 @@ Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equ
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
 

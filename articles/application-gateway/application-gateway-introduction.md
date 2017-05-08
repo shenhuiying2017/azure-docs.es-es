@@ -13,36 +13,26 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 04/27/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ba9c673676fd0b742eb8bd780b67930333b151b3
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: e9dfb5a744a7c63ef9805b1341236c4f3c57ec4d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="overview-of-application-gateway"></a>Introducción a Application Gateway
 
-Microsoft Azure Application Gateway es una aplicación virtual dedicada que cuenta con un controlador de entrega de aplicaciones (ADC) que se ofrece como servicio y que proporciona numerosas funcionalidades de equilibrio de carga de nivel 7. Está compuesto de varias instancias de trabajo con el fin de proporcionar escalabilidad y alta disponibilidad. Permite a los clientes optimizar la productividad de las granjas de servidores web traspasando la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway. Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web detrás de una única puerta de enlace de aplicaciones. Application Gateway puede configurarse como una puerta de enlace orientada a Internet, una puerta de enlace solo para uso interno o una combinación de las dos. Application Gateway está completamente administrada por Azure, es escalable y tiene una elevada disponibilidad. Cuenta con un amplio conjunto de funcionalidades de diagnóstico y registro, lo que facilita su administración. Cuando se crea una puerta de enlace de aplicaciones, se asocia un punto de conexión (una VIP pública o una IP de ILB interna) que se utiliza como dirección IP pública para el tráfico de red de entrada. Esta dirección IP de ILB o VIP la proporciona la instancia de Azure Load Balancer operativa en el nivel de transporte (TCP/UDP) y hace que toda la carga del tráfico de red entrante se equilibre en las instancias de trabajo de Application Gateway. Application Gateway enruta el tráfico HTTP/HTTPS en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube o una dirección IP interna o externa.
+Microsoft Azure Application Gateway es una aplicación virtual dedicada que cuenta con un controlador de entrega de aplicaciones (ADC) que se ofrece como servicio y que proporciona numerosas funcionalidades de equilibrio de carga de nivel 7. Permite a los clientes optimizar la productividad de las granjas de servidores web traspasando la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway. Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web detrás de una única puerta de enlace de aplicaciones. Se proporciona también un firewall de aplicaciones web (WAF) como parte de una SKU de WAF de Application Gateway que ofrece protección a las aplicaciones web frente a las vulnerabilidades de seguridad y de web más habituales. Application Gateway puede configurarse como una puerta de enlace orientada a Internet, una puerta de enlace solo para uso interno o una combinación de las dos. 
 
-Se proporciona también un firewall de aplicaciones web (WAF) como parte de una SKU de WAF de Application Gateway que ofrece protección a las aplicaciones web frente a las vulnerabilidades de seguridad y de web más habituales. El firewall de aplicaciones web hace esto en función de las reglas contenidas en [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9.
-
-## <a name="differences-between-application-gateway-skus"></a>Diferencias entre las SKU de Application Gateway
-
-Application Gateway incluye dos SKU. Una SKU estándar y una SKU de firewall de aplicaciones web (WAF).
-
-### <a name="standard"></a>Estándar
-
-La SKU estándar ofrece terminación SSL, afinidad de sesión basada en cookies, distribución de la carga en operaciones por turnos, enrutamiento basado en contenido, posibilidad de hospedar varios sitios y mejoras de seguridad. Algunas de las mejoras de seguridad que se ofrecen en Application Gateway son administración de directivas SSL, compatibilidad con SSL de extremo a extremo y terminación SSL.
-
-### <a name="web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF)
-
-La SKU de WAF proporciona todas las funcionalidades que proporciona la SKU estándar con la adición del [firewall de aplicaciones web](application-gateway-web-application-firewall-overview.md). Este ofrece reglas de detección de ataques que proporcionan protección a las aplicaciones web frente a las vulnerabilidades web y de seguridad más habituales.
+![escenario](./media/application-gateway-introduction/scenario.png)
 
 ## <a name="features"></a>Características
 
-En estos momentos, Application Gateway admite la entrega de aplicaciones de nivel 7 con las siguientes características:
+Application Gateway proporciona actualmente las siguientes funcionalidades:
+
 
 * **[Firewall de aplicaciones web](application-gateway-webapplicationfirewall-overview.md)**: el firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
 * **Equilibrio de carga HTTP** : Application Gateway proporciona equilibrio de carga en operaciones por turnos. El equilibrio de carga se realiza en el nivel 7 y se usa exclusivamente para el tráfico HTTP(S).
@@ -64,6 +54,9 @@ Application Gateway resulta de utilidad para:
 * Aplicaciones, como la red de entrega de contenido, que requieren que varias solicitudes HTTP en la misma conexión TCP de ejecución prolongada se enruten a servidores backend diferentes o su carga se equilibre entre estos.
 * Aplicaciones que permiten el tráfico de WebSocket.
 * Proteger aplicaciones web frente a ataques comunes basados en web como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
+* Distribución lógica del tráfico en función de diferentes criterios de enrutamiento, como la ruta de acceso URL o las cabeceras de dominio.
+
+Application Gateway está completamente administrada por Azure, es escalable y tiene una elevada disponibilidad. Cuenta con un amplio conjunto de funcionalidades de diagnóstico y registro, lo que facilita su administración. Cuando se crea una puerta de enlace de aplicaciones, se asocia un punto de conexión (una VIP pública o una IP de ILB interna) que se utiliza como dirección IP pública para el tráfico de red de entrada. Esta dirección IP de ILB o VIP la proporciona la instancia de Azure Load Balancer operativa en el nivel de transporte (TCP/UDP) y hace que toda la carga del tráfico de red entrante se equilibre en las instancias de trabajo de Application Gateway. Application Gateway enruta el tráfico HTTP/HTTPS en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube o una dirección IP interna o externa.
 
 El equilibrio de carga de Puerta de enlace de aplicaciones  como servicio administrado de Azure permite el aprovisionamiento de un equilibrador de carga de nivel 7 detrás del equilibrador de carga de software de Azure. Traffic Manager puede usarse para completar el escenario tal como se muestra en la imagen siguiente, donde Traffic Manager proporciona redirección y disponibilidad del tráfico a varios recursos de puerta de enlace de aplicaciones en distintas regiones, mientras que la puerta de enlace de aplicaciones proporciona equilibrio de carga entre regiones de nivel 7. Un ejemplo de este escenario se puede encontrar en [Using Load Balancing Services in the Azure Cloud](../traffic-manager/traffic-manager-load-balancing-azure.md) (Uso de servicios de equilibrio de carga en la nube de Azure).
 
@@ -104,6 +97,7 @@ El precio se basa en una tarifa por instancia de puerta de enlace por hora y una
 ## <a name="faq"></a>P+F
 
 Para consultar las preguntas más frecuentes acerca de Application Gateway, consulte [Preguntas más frecuentes sobre Application Gateway](application-gateway-faq.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ya conoce cómo funciona Application Gateway, puede [crear una puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md) o bien puede [crear una descarga de SSL de puerta de enlace de aplicaciones](application-gateway-ssl-arm.md) para equilibrar la carga de las conexiones HTTPS.

@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -153,7 +154,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opc
     Puede especificar los [paquetes de aplicación](#application-packages) que se implementarán en los nodos de proceso del grupo. Los paquetes de aplicación proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicación que se especifiquen para un grupo se instalarán en todos los nodos que se unan al grupo cada vez que un nodo se reinicie o se restablezca la imagen inicial. Los paquetes de aplicación no se admiten actualmente en los nodos de proceso de Linux.
 * **Configuración de la red**
 
-    Puede especificar el identificador de la [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en que se deben crear los nodos de proceso del grupo. Consulte la sección [Configuración de la red del grupod](#pool-network-configuration) para más información.
+    Puede especificar el identificador de la [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en que se deben crear los nodos de proceso del grupo. Consulte la sección [Configuración de la red del grupo](#pool-network-configuration) para más información.
 
 > [!IMPORTANT]
 > Todas las cuentas de Batch tienen una **cuota** predeterminada que limita el número de **núcleos** (y por tanto, de nodos de proceso) en una cuenta de Batch. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Batch) se pueden encontrar en [Cuotas y límites del servicio Batch de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
@@ -337,7 +338,7 @@ Al crear un grupo de nodos de proceso en Azure Batch, puede usar las API para es
 
 * La subred especificada debe permitir la comunicación del servicio Batch para poder programar tareas en los nodos de proceso. Si un **grupo de seguridad de red (NSG)** asociado a la red virtual deniega la comunicación con los nodos de proceso, el servicio Batch establece el estado de dichos nodos en **No utilizable**. 
 
-* Si la red virtual especificada tiene NSG asociados, debe habilitarse la comunicación entrante. Para un grupo de Linux, deben habilitarse los puertos 29876, 29877 y 22. Para un grupo de Windows, debe habilitarse el puerto 3389.
+* Si la red virtual especificada tiene NSG asociados, debe habilitarse la comunicación entrante. Para grupos de Windows y Linux, deben habilitarse los puertos 29876 y 29877. Puede habilitar opcionalmente (o filtrar selectivamente) los puertos 22 o 3389, para SSH en grupos de Linux o RDP en los grupos de Windows, respectivamente.
 
 La necesidad de configuración adicional de la red virtual depende del modo de asignación de grupo de la cuenta de Batch.
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: a1ccebd6d53c7f02517c7655bdfb5b3ce3f26090
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7461a0006e57608d9baa538175174788692db5f5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -42,7 +43,7 @@ az login
 
 Cree un grupo de recursos con [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westeurope`.
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westeurope*.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,13 +53,17 @@ az group create --name myResourceGroup --location westeurope
 
 Cree la máquina virtual con [az vm create](/cli/azure/vm#create). 
 
-En el ejemplo siguiente se crea una máquina virtual denominada `myVM`. Este ejemplo se utiliza `azureuser` para un nombre de usuario administrativo y ` myPassword12` como la contraseña. Actualice estos valores a un valor apropiado para su entorno. Estos valores son necesarios cuando se crea una conexión con la máquina virtual.
+En el ejemplo siguiente se crea una máquina virtual denominada *myVM*. En este ejemplo se utiliza *azureuser* como nombre de usuario administrativo y *myPassword12* como contraseña. Actualice estos valores a un valor apropiado para su entorno. Estos valores son necesarios cuando se crea una conexión con la máquina virtual.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+az vm create `
+  --resource-group myResourceGroup `
+  --name myVM --image win2016datacenter `
+  --admin-username azureuser `
+  --admin-password myPassword12
 ```
 
-Cuando se ha creado la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. Anote la dirección IP. Esta dirección se utiliza para tener acceso a la máquina virtual.
+Cuando se ha creado la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. Anote el valor de `publicIpAaddress`. Esta dirección se utiliza para tener acceso a la máquina virtual.
 
 ```azurecli
 {
@@ -75,7 +80,7 @@ Cuando se ha creado la máquina virtual, la CLI de Azure muestra información si
 
 ## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web 
 
-De forma predeterminada, solo se permiten conexiones mediante RDP con las máquinas virtuales Windows implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 desde Internet.  Se necesita un solo comando para abrir el puerto deseado.  
+De forma predeterminada, solo se permiten conexiones RDP con las máquinas virtuales Windows implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 desde Internet. Use el comando [az vm open-port](/cli/azure/vm#open-port) para abrir el puerto deseado.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -92,7 +97,7 @@ mstsc /v:<Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Instalación de IIS mediante PowerShell
 
-Ahora que ha iniciado sesión en la máquina virtual de Azure, puede usar una sola línea de PowerShell para instalar IIS y habilitar la regla de firewall local para permitir el tráfico web.  Abra una ventana de PowerShell y ejecute el siguiente comando:
+Ahora que ha iniciado sesión en la máquina virtual de Azure, puede usar una sola línea de PowerShell para instalar IIS y habilitar la regla de firewall local para permitir el tráfico web. Abra una ventana de PowerShell y ejecute el siguiente comando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,12 +105,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Página principal de IIS
 
-Con IIS instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de IIS. Asegúrese de utilizar el valor de `publicIpAddress` anotado anteriormente para visitar la página predeterminada. 
+Con IIS instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de IIS. Asegúrese de utilizar la dirección IP pública que ha anotado antes para visitar la página predeterminada. 
 
 ![Sitio predeterminado de IIS](./media/quick-create-powershell/default-iis-website.png) 
 ## <a name="delete-virtual-machine"></a>Eliminación de máquinas virtuales
 
-Cuando ya no los necesite, se puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

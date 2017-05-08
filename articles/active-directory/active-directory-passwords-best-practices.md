@@ -1,163 +1,86 @@
 ---
-title: "Procedimientos recomendados: administración de contraseñas de Azure AD | Microsoft Docs"
-description: "Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de aprendizaje para la administración de contraseñas en Azure Active Directory."
+title: 'Lanzamiento: SSPR de Azure AD | Microsoft Docs'
+description: "Sugerencia para el lanzamiento del autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2017
+ms.topic: get-started-article
+ms.date: 04/26/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 66d7b336e0e962069bd702b941b87d1127b86e40
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 328537b2bfbe15a23a9199bbb3c07851eaa85390
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="deploying-password-management-and-training-users-to-use-it"></a>Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
-> [!IMPORTANT]
-> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
->
->
+# <a name="roll-out-password-reset-for-users"></a>Lanzamiento del restablecimiento de contraseña para los usuarios
 
-Después de habilitar el restablecimiento de contraseña, la siguiente tarea es conseguir que los usuarios de su organización utilicen este servicio. Para ello, deberá asegurarse de que los usuarios están configurados para usar el servicio correctamente y también de que los usuarios tienen la formación que necesitan para administrar correctamente sus propias contraseñas. En este artículo se explican los conceptos siguientes:
+La mayoría de los clientes siguen los pasos a continuación para garantizar que la funcionalidad SSPR se lanza sin problemas.
 
-* [**Configuración de los usuarios para la administración de contraseñas**](#how-to-get-users-configured-for-password-reset)
-  * [Configuración de una cuenta para el restablecimiento de la contraseña](#what-makes-an-account-configured)
-  * [Maneras de rellenar los datos de autenticación personalmente](#ways-to-populate-authentication-data)
-* [**Las mejores maneras de aplicar el restablecimiento de contraseña por toda su organización**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
-  * [Implementación basada en correo electrónico + ejemplo de comunicaciones por correo electrónico](#email-based-rollout)
-  * [Creación de su propio portal personalizado de administración de contraseñas para los usuarios](#creating-your-own-password-portal)
-  * [Uso del registro exigido para obligar a los usuarios a registrarse en el inicio de sesión](#using-enforced-registration)
-  * [Carga de datos de autenticación para cuentas de usuario](#uploading-data-yourself)
-* [**Ejemplo de usuario y materiales de aprendizaje de soporte técnico (disponible próximamente)**](#sample-training-materials)
+1. [Habilitación del restablecimiento de contraseña en el directorio](active-directory-passwords-getting-started.md)
+2. [Configuración de los permisos de AD local para la escritura diferida de contraseñas](active-directory-passwords-how-it-works.md#active-directory-permissions)
+3. [Asignación y comprobación de las licencias necesarias](active-directory-passwords-licensing.md)
+4. Si desea el lanzamiento gradual, también puede limitar el restablecimiento de contraseña a un grupo de usuarios para que el lanzamiento de la característica se lance poco a poco. Para ello, cambie **Se habilitó el restablecimiento de contraseña del autoservicio** de **Todo el mundo** a **Un grupo** y seleccione un grupo de seguridad para habilitar el restablecimiento de contraseña. Todos los miembros de este grupo deben tener licencias asignadas; es una excelente manera de habilitar [licencias por grupos](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
+5. Rellene el conjunto mínimo de [datos de autenticación](active-directory-passwords-data.md), según las directivas.
+6. Enseñe a los usuarios usar SSPR; envíeles instrucciones para mostrarles el registro y el restablecimiento.
+    > [!NOTE]
+    > Pruebe SSPR con un usuario que no sea administrador, ya que Microsoft impone estrictos requisitos de autenticación para las cuentas de tipo administrador de Azure. Para más información sobre la directiva de contraseñas de administrador, consulte el [artículo de profundización](active-directory-passwords-how-it-works.md).
 
-## <a name="how-to-get-users-configured-for-password-reset"></a>Configuración de los usuarios para el restablecimiento de contraseña
-En esta sección se describen diversos métodos por los que se garantiza que todos los usuarios de su organización pueden utilizar el autoservicio de restablecimiento de contraseña de forma eficaz en caso de que olviden su contraseña.
+7. Puede elegir aplicar el registro en cualquier momento y solicitar que los usuarios escriban y confirmen la información de autenticación tras un tiempo determinado. Si no desea que los usuarios tengan que registrarse, puede elegir la [implementación del restablecimiento de contraseña sin necesidad de registro del usuario final](active-directory-passwords-data.md).
+8. Revise el uso y registro de los usuarios al cabo de un tiempo; para ello, consulte los [informes de Azure AD](active-directory-passwords-reporting.md).
 
-### <a name="what-makes-an-account-configured"></a>Configuración de una cuenta
-Antes de que un usuario pueda utilizar el restablecimiento de contraseña, deben cumplirse **todas** las siguientes condiciones:
+## <a name="email-based-rollout"></a>Implementación basada en correo electrónico
 
-1. El restablecimiento de la contraseña debe estar habilitado en el directorio.  Aprenda a habilitar el restablecimiento de contraseña en [Permitir a los usuarios restablecer sus contraseñas de Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) o [Permitir a los usuarios restablecer o cambiar sus contraseñas de AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
-2. El usuario debe tener licencia.
-   * En el caso de los usuarios en la nube, el usuario debe tener asignada **cualquier licencia de Office 365 de pago** o una licencia de nivel **Básico** o **Premium de AAD**.
-   * En el caso de los usuarios locales (federados o sincronizados mediante hash), el usuario **debe tener asignada una licencia Premium de AAD**.
-3. El usuario debe tener el **conjunto mínimo de datos de autenticación definidos** de conformidad con la directiva actual de restablecimiento de contraseña.
-   * Los datos de autenticación se consideran definidos si el campo correspondiente del directorio contiene datos con formato correcto.
-   * Un conjunto mínimo de datos de autenticación se define como **al menos una** de las opciones de autenticación habilitadas si se configura una directiva de una puerta, o **al menos dos** de las opciones autenticación habilitadas si se configura una directiva de dos puertas.
-4. Si el usuario está utilizando una cuenta local, debe habilitarse y activarse la [escritura diferida de contraseñas](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) .
+Muchos clientes opinan que una campaña de correo electrónico, con instrucciones sencillas, es la manera más fácil de hacer que los usuarios utilicen SSPR. Hemos creado tres correos electrónicos sencillos que puede utilizar como plantilla para facilitar el lanzamiento.
 
-### <a name="ways-to-populate-authentication-data"></a>Maneras de rellenar los datos de autenticación
-Tiene varias opciones para especificar los datos de los usuarios de su organización que se usarán para restablecer la contraseña.
+* Plantilla de correo electrónico **Próximamente** para las semanas o los días previos al lanzamiento, informa a los usuarios de que deben hacer algo.
+* Plantilla de correo electrónico **Available Now** (Ya disponible) para el día del lanzamiento, dirige a los usuarios al registro y a confirmar los datos de autenticación para que usen SSPR cuando lo necesiten.
+* Plantilla de correo electrónico **Recordatorio de registro** para unos días o semanas después de la implementación, recuerda a los usuarios que deben registrarse y confirmar los datos de autenticación.
 
-* Editar usuarios en el [Portal de administración de Azure](https://manage.windowsazure.com) o en el [Portal de administración de Office 365](https://portal.microsoftonline.com)
-* Usar Sincronización de Azure AD para sincronizar las propiedades de usuario en Azure AD desde un dominio de Active Directory local
-* [Siga los pasos indicados aquí](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)para usar Windows PowerShell para editar las propiedades de usuario.
-* Permitir a los usuarios que registren sus propios datos guiándolos al portal de registro en [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-* Requerir a los usuarios que se registren para el restablecimiento de contraseña al iniciar sesión en su cuenta de Azure AD mediante el establecimiento de la opción de configuración [**¿Desea exigir a los usuarios que se registren al iniciar sesión?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) en **Sí**.
+## <a name="creating-your-own-password-portal"></a>Creación de su propio portal de contraseñas
 
-No es necesario que los usuarios se registren en el restablecimiento de contraseña para que el sistema funcione.  Por ejemplo, si ya tiene números de teléfono móvil o de oficina en el directorio local, puede sincronizarlos en Azure AD y de este modo se utilizarán para restablecer la contraseña automáticamente.
+Muchos de nuestros mayores clientes eligen hospedar la página web y crear una entrada DNS raíz, como https://passwords.contoso.com. Rellenan esta página con vínculos al restablecimiento de contraseña de Azure AD, al registro para el restablecimiento de contraseña, a portales de cambio de contraseña y otra información específica de la organización. En las comunicaciones por correo electrónico o los folletos que envíe, puede incluir una dirección URL de la marca fácil de recordar que los usuarios puedan visitar cuando necesiten usar los servicios.
 
-También puede obtener más información sobre [cómo usa los datos el restablecimiento de la contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) y [cómo puede rellenar los campos individuales de autenticación con PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+* Portal de restablecimiento de contraseña: https://passwordreset.microsoftonline.com/
+* Portal de registro para el restablecimiento de contraseña: http://aka.ms/ssprsetup
+* Portal para el cambio de contraseña: https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-## <a name="what-is-the-best-way-to-roll-out-password-reset-for-users"></a>¿Cuál es la mejor forma de aplicar el restablecimiento de contraseña para los usuarios?
-Estos son los pasos de implementación generales para restablecer la contraseña:
+## <a name="using-enforced-registration"></a>Uso del registro exigido
 
-1. Habilite el restablecimiento de contraseña; para ello, vaya a la pestaña **Configurar** en el [Portal de administración de Azure](https://manage.windowsazure.com) y seleccione **Sí** en la opción **Usuarios habilitados para restablecer la contraseña**.
-2. Asigne las licencias correspondientes a cada uno de los usuarios a los que desea conceder el restablecimiento de contraseña; para ello, vaya a la pestaña **Licencias** del [Portal de administración de Azure](https://manage.windowsazure.com).
-3. Tiene la opción de restringir el restablecimiento de contraseña a un grupo de usuarios para aplicar la característica lentamente con el tiempo; para ello, establezca el botón de alternancia **Restringir el acceso al restablecimiento de contraseña** en **Sí** y seleccione un grupo de seguridad para habilitar el restablecimiento de contraseña (tenga en cuenta que todos estos usuarios deben tener licencias asignadas).
-4. Indique a los usuarios que utilicen el restablecimiento de contraseña enviándoles un correo electrónico en el que se les pida que se registren, habilitando el registro exigido en el panel de control o cargando usted mismo los datos de autenticación apropiados para esos usuarios a través de la sincronización de directorios, PowerShell o el [Portal de administración de Azure](https://manage.windowsazure.com).  A continuación se proporcionan más detalles al respecto.
-5. Con el tiempo, revise los usuarios que se han registrado; para ello, desplácese hasta la pestaña Informes y consulte el informe [**Actividad de registro de restablecimiento de contraseña**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal).
-6. Una vez que se haya registrado un buen número de usuarios, compruebe cómo hacen uso del restablecimiento de contraseña; para ello, desplácese hasta la pestaña Informes y consulte el informe [**Actividad de restablecimiento de contraseña**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal).
+Si desea que los usuarios se registren para el restablecimiento de la contraseña, puede obligarlos a registrarse cuando inician sesión con Azure AD. Puede habilitar esta opción desde la hoja **Restablecimiento de contraseña** del directorio; para ello, habilite la opción  **	¿Desea exigir a los usuarios que se registren al iniciar sesión?** de la pestaña **Registro**.
 
-Hay varias maneras de informar a los usuarios de que pueden registrarse en el restablecimiento de contraseña y utilizar este servicio en su organización.  Se explican a continuación.
+Los administradores pueden solicitar a los usuarios que vuelvan a registrarse después de un tiempo; para ello, deben establecer el **número de días antes de pedir a los usuarios que vuelvan a confirmar la información de autenticación** entre 0 y 730 días.
 
-### <a name="email-based-rollout"></a>Implementación basada en correo electrónico
-Quizás el enfoque más sencillo para informar a los usuarios sobre el registro en el restablecimiento de contraseña o el uso de este servicio es enviarles un correo electrónico pidiéndoles que lo hagan.  A continuación se muestra una plantilla que puede utilizar para ello.  Reemplace los colores y logotipos por otros de su elección para personalizarla de manera que se ajuste a sus necesidades.
+Después de habilitar esta opción, cuando los usuarios inicien sesión verán un mensaje que les informará de que el administrador les solicita que verifiquen la información de autenticación.
 
-  ![][001]
+## <a name="populate-authentication-data"></a>Rellenado de los datos de autenticación
 
-Puede [descargar la plantilla de correo electrónico aquí](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
+Si se [rellenan los datos de autenticación de los usuarios](active-directory-passwords-data.md), estos no deberán registrarse para el restablecimiento de contraseña para poder usar SSPR. Siempre que los datos de autenticación de los usuarios se correspondan con las directivas de restablecimiento de contraseña definida, estos podrán restablecer las contraseñas.
 
-### <a name="creating-your-own-password-portal"></a>Creación de su propio portal de contraseñas
-Una estrategia que funciona bien con grandes clientes que implementan funcionalidades de administración de contraseñas es crear un único "portal de contraseñas" que los usuarios pueden usar para administrar todos los aspectos relacionados con sus contraseñas en un solo lugar.  
+## <a name="disabling-self-service-password-reset"></a>Deshabilitación del autoservicio de restablecimiento de contraseña
 
-Muchos de nuestros clientes más grandes eligen crear una entrada DNS raíz, como https://passwords.contoso.com con vínculos al portal de restablecimiento de contraseñas de Azure AD, el portal de registro de restablecimiento de contraseñas y las páginas de cambio de contraseña.  De este modo, en las comunicaciones por correo electrónico o los folletos que envía, puede incluir una única dirección URL fácil de recordar que los usuarios pueden visitar cuando tienen un momento para empezar a usar el servicio.
-
-Para comenzar aquí, hemos creado una página sencilla que usa los últimos paradigmas de diseño UI que funcionan, y que sirve para todos los exploradores y dispositivos móviles.
-
-  ![][007]
-
-Puede [descargar la plantilla del sitio web aquí](https://github.com/kenhoff/password-reset-page).  Se recomienda personalizar el logotipo y los colores de acuerdo con las necesidades de su organización.
-
-### <a name="using-enforced-registration"></a>Uso del registro exigido
-Si desea que sean los usuarios quienes se registren para el restablecimiento de contraseña, también puede obligarles a registrarse al iniciar sesión en el panel de acceso, en [http://myapps.microsoft.com](http://myapps.microsoft.com).  Puede habilitar esta opción desde la pestaña **Configurar** del directorio habilitando la opción **Requerir que los usuarios se registren al iniciar sesión en el panel de acceso**.  
-
-Opcionalmente, también puede definir si se les pedirá o no que se vuelvan a registrar transcurrido un período de tiempo configurable mediante la modificación de la opción **Antelación con la que los usuarios deben confirmar sus datos de contacto, en días** en un valor distinto de cero. Consulte [Personalización del comportamiento de la administración de contraseñas de usuario](active-directory-passwords-customize.md#password-management-behavior) para obtener más información.
-
-  ![][002]
-
-Después de habilitar esta opción, cuando los usuarios inicien sesión en el panel de acceso, verán un menú emergente que les informa de que su administrador ha requerido que verifiquen su información de contacto. Pueden usarlo para restablecer su contraseña si alguna vez pierden acceso a su cuenta.
-
-  ![][003]
-
-Al hacer clic en **Comprobar ahora**, el usuario llegará al **portal de registro de restablecimiento de contraseña** en [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) y se le pedirá que se registre.  El registro mediante este método se puede descartar haciendo clic en el botón **Cancelar** o cerrando la ventana, pero los usuarios seguirán viendo este recordatorio cada vez que inicien sesión en tanto no se registren.
-
-  ![][004]
-
-### <a name="uploading-data-yourself"></a>Carga de los datos personalmente
-Si desea cargar los datos de autenticación personalmente, no es necesario que los usuarios se registren en el restablecimiento de contraseña para poder restablecer sus contraseñas.  Siempre que los datos de autenticación definidos en la cuenta de los usuarios se correspondan con la directiva de restablecimiento de contraseña, estos usuarios podrán restablecer sus contraseñas.
-
-Para obtener información sobre las propiedades que puede configurar a través de AAD Connect o Windows PowerShell, consulte [Qué datos se utilizan por el restablecimiento de contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
-
-Puede cargar los datos de autenticación a través del [Portal de administración de Azure](https://manage.windowsazure.com) siguiendo estos pasos:
-
-1. Diríjase a su directorio en la **extensión de Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com).
-2. Haga clic en la pestaña **Usuarios** .
-3. Seleccione en la lista el usuario que le interese.
-4. En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña.
-
-   ![][005]
-5. Haga clic en la pestaña **Información laboral** .
-6. En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**.  Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña.
-
-   ![][006]
-
-Consulte [Qué datos se utilizan por el restablecimiento de contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver cómo se puede utilizar cada una de estas propiedades.
-
-Consulte [Cómo tener acceso a los datos de restablecimiento de la contraseña de los usuarios desde PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) para ver cómo se puede leer y establecer estos datos con PowerShell.
-
-## <a name="sample-training-materials"></a>Ejemplo de materiales de formación
-Estamos trabajando en materiales de formación de ejemplo que puede utilizar para hacer que su organización de TI y sus usuarios se pongan al día rápidamente sobre cómo implementar y usar el restablecimiento de contraseña.  Permanezca atento.
-
-<br/>
-<br/>
-<br/>
+Para deshabilitar el autoservicio de restablecimiento de contraseña, tan solo tiene que abrir el inquilino de Azure AD, ir a **Restablecimiento de contraseña**, **Propiedades** y seleccionar **Nadie** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md#reset-my-password).
-    * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno.
-* [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
-* [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización
-* [**Obtener información**](active-directory-passwords-get-insights.md): obtenga información acerca de nuestras funcionalidades integradas de creación de informes.
-* [**P+F**](active-directory-passwords-faq.md) : obtenga respuestas a las preguntas más frecuentes.
-* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
-* [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
+Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
-[001]: ./media/active-directory-passwords-best-practices/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-best-practices/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-best-practices/003.jpg "Image_003.jpg"
-[004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
-[005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
-[006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
-[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
+* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para la administración de contraseñas autoservicio de Azure AD 
+* [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
+* [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
+* [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
+* [**Directiva**](active-directory-passwords-policy.md): información sobre las directivas de contraseñas de Azure AD y cómo establecerlas
+* [**Escritura diferida de contraseñas**](active-directory-passwords-writeback.md): cómo funciona la escritura diferida de contraseñas con el directorio local
+* [**Informes**](active-directory-passwords-reporting.md): informes para detectar si los usuarios acceden a la funcionalidad de SSPR que especifican el momento y el lugar del acceso
+* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
+* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR

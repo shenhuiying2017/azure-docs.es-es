@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/13/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f43a08a7096476fea79884163f89441e7e0c34cf
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e2a9802e76579a523897d8904add6b317652ff05
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -153,7 +154,7 @@ En este artículo, se usa el kernel de **PySpark**. Para más información sobre
 Estos son algunos problemas comunes que pueden surgir al trabajar con clústeres de HDInsight.
 
 ### <a name="access-control-requirements"></a>Requisitos de control de acceso
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+Si experimenta un problema con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

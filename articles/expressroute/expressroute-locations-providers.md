@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 32b8cd51c983b2a66f3631ec399aa88e34555196
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b7cb18fcfda5b829b72b2ded6a1ea9e996e771d7
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -41,7 +42,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
-| **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Las Vegas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec ciudad, Toronto |
+| **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington D.C., Montreal, Ciudad de Quebec, Toronto |
 | **Sudamérica** |Sur de Brasil |São Paulo |
 | **Europa** |Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Dublín, Londres, Newport(Wales)+, París |
 | **Asia** |Este de Asia y Sudeste de Asia |Hong Kong y Singapur |
@@ -55,7 +56,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- | --- |
-| **Nube del gobierno de Estados Unidos** |Iowa Gob. EE. UU., Virginia Gob. EE. UU., centro de US DoD, este de US DoD  |Chicago, Dallas, Nueva York, Silicon Valley, Washington DC |
+| **Nube del gobierno de Estados Unidos** |Iowa Gob. EE. UU., Virginia Gob. EE. UU., centro de US DoD, este de US DoD  |Chicago, Dallas, Nueva York, Seattle, Silicon Valley, Washington D.C. |
 | **China** |Este de China, Norte de China |Beijing, Shanghai |
 | **Alemania** |Centro de Alemania, Alemania oriental |Berlín+, Fráncfort |
 
@@ -109,7 +110,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Dallas** |Equinix, Megaport y Verizon |
 | **Nueva York** |Equinix, Level 3 Communications+ y Verizon |
 | **Silicon Valley** | Equinix |
-| **Seattle** | Equinix + |
+| **Seattle** | Equinix |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 
 ### <a name="china"></a>China

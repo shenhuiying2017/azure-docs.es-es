@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 4e9ee21a7eac240cccdfac650992063244364185
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,9 +36,6 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
-
-### <a name="access-control-requirements"></a>Requisitos de control de acceso
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-hbase-cluster"></a>Creación del clúster de HBase.
 El siguiente procedimiento usa una plantilla de Azure Resource Manager para crear un clúster de HBase basado en Linux versión 3.4, y la cuenta de Azure Storage predeterminada dependiente. Para comprender los parámetros utilizados en el procedimiento y otros métodos de creación del clúster, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
@@ -253,6 +251,10 @@ HBase en HDInsight se incluye con una interfaz de usuario web para la supervisi�
 Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial de HBase para HDInsight, ha aprendido a aprovisionar un clúster HBase, a crear tablas y a ver los datos de esas tablas en el shell de HBase. También ha aprendido a usar una consulta de datos de Hive en las tablas de HBase y a usar las API de REST de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla.

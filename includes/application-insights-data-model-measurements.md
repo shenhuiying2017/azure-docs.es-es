@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Y están sujetas para el muestreo con el elemento de telemetría que contiene esas mediciones. Use la [telemetría de métricas](#metric-telemetry) para realizar el seguimiento de la medida que tiene valores independientes de otro tipo de telemetría. 
+ > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Están sujetas a muestreo con el elemento de telemetría que contiene esas mediciones. Para realizar el seguimiento de una medida que tiene un valor independiente de otros tipos de telemetría, use la [telemetría de métricas](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics).
 
 Longitud máxima de la clave: 150

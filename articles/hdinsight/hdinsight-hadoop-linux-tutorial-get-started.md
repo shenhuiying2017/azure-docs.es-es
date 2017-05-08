@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 24bb7e2ffd212594f50bab735e86d74ab95d8c62
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bef6754f5ffd2b004af01a2e26edeeed63793b6e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,13 +29,11 @@ ms.lasthandoff: 03/29/2017
 Aprenda a crear clústeres de [Hadoop](http://hadoop.apache.org/) en HDInsight y a ejecutar trabajos de Hive en HDInsight. [Apache Hive](https://hive.apache.org/) es el componente más popular del ecosistema de Hadoop. Actualmente HDInsight incluye seis tipos de clúster diferentes: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (versión preliminar)](hdinsight-hadoop-use-interactive-hive.md) y [R Server](hdinsight-hadoop-r-server-overview.md).  Cada uno de estos tipos de clúster es compatible con un conjunto de componentes diferente. Los seis tipos de clúster son compatibles con Hive. Para ver una lista de los componentes compatibles con HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Suscripción de Azure**: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free/](https://azure.microsoft.com/free).
-
-### <a name="access-control-requirements"></a>Requisitos de control de acceso
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Crear clúster
 
@@ -123,6 +122,10 @@ Después de completar el tutorial, puede eliminar el clúster. Con HDInsight, lo
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En el panel del portal, haga clic en el icono con el nombre del grupo de recursos que utilizó al crear el clúster.
 3. Haga clic en **Eliminar** en la hoja de recursos para eliminar el grupo de recursos que contiene el clúster y la cuenta de almacenamiento predeterminada; o bien, haga clic en el nombre del clúster en el icono **Recursos** y, luego, haga clic en **Eliminar** en la hoja del clúster. Tenga en cuenta que al eliminar el grupo de recursos se elimina también la cuenta de almacenamiento. Si desea mantener la cuenta de almacenamiento, elija Eliminar solo el clúster.
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido cómo crear un clúster de HDInsight basado en Linux mediante una plantilla de Resource Manager y cómo realizar consultas básicas de Hive.

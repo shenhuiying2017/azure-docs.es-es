@@ -4,7 +4,7 @@ description: "Este documento explica cómo se integra Azure Security Center con 
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/28/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -31,16 +32,16 @@ Las cuatro principales razones para aprovechar la integración de asociados en S
 - **Facilidad de implementación**: la implementación de una solución de asociado siguiendo las recomendaciones de Security Center es mucho más fácil. El proceso de implementación se puede automatizar completamente mediante una configuración predeterminada y una topología de red. Alternativamente, los clientes pueden elegir una opción parcialmente automatizada para permitir una mayor flexibilidad y la personalización de la configuración.
 - **Detecciones integradas**: los eventos de seguridad de las soluciones de asociados se recopilan, agregan y aparecen automáticamente como parte de las alertas e incidentes de Security Center. Estos eventos también se fusionan con las detecciones procedentes de otros orígenes para proporcionar funcionalidades avanzadas de detección de amenazas.
 - **Supervisión de estado y administración unificadas**: los eventos de estado integrados permiten a los clientes supervisar todas las soluciones de asociados de un vistazo. La administración básica está disponible con un acceso sencillo a la configuración avanzada mediante la solución de asociado.
-- **Exportación a SIEM**: los clientes ya pueden exportar todas las alertas de Security Center y de los asociados en formato CEF en sistemas SIEM locales mediante la integración de registro de Microsoft Azure (versión preliminar)
+- **Exportación a SIEM**: los clientes ya pueden exportar todas las alertas de Security Center y de los asociados en formato CEF a sistemas SIEM locales mediante Microsoft Azure Log Integration (versión preliminar)
 
 
 ## <a name="what-partners-are-integrated-with-security-center"></a>¿Qué asociados se integran con Security Center?
 Actualmente, Security Center se integra con los siguientes asociados:
 
-- Soluciones de Endpoint Protection (Trend Micro), 
-- firewall de aplicaciones web (Barracuda, F5, Imperva y pronto Microsoft WAF y Fortinet), 
-- firewall de próxima generación (Check Point, Barracuda y pronto Fortinet y Cisco). 
-- Soluciones de evaluación de vulnerabilidades (Qualys: versión preliminar). 
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- Firewall de aplicaciones web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Firewall de última generación ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) y [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Evaluación de vulnerabilidad ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/): versión preliminar)  
 
 Con el tiempo, Security Center aumentará el número de asociados dentro de estas categorías y agregará otras nuevas categorías. 
 
@@ -61,7 +62,7 @@ Una vez que se ha implementado una solución de asociados, puede ver informació
 
 
 ## <a name="see-also"></a>Consulte también
-En este documento, ha aprendido cómo integrar la solución de asociado en Azure Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+En este documento, ha aprendido a integrar la solución de asociado en Azure Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)

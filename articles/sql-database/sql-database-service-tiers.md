@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 04/14/2017
+wms.date: 04/26/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 884cd19bdfb1bf53d75cb27e840c448eff8bc991
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -55,7 +56,7 @@ En primer lugar, decida si desea ejecutar una base de datos única con una canti
 ||||||
 
 > [!IMPORTANT]
-> Las bases de datos individuales de hasta 4 TB están en la versión preliminar pública de los clientes que usan los niveles de rendimiento P11 y P15 sin cargo adicional. Los grupos Premium con más de 750 GB de almacenamiento también están disponibles actualmente. Estas opciones de almacenamiento adicional se encuentran actualmente disponibles en las siguientes regiones: Este de EE. UU. - 2, Oeste de EE. UU., Europa occidental, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental. Consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Las opciones de almacenamiento adicional se encuentran actualmente disponibles en las siguientes regiones: Este de EE. UU. 2, Oeste de EE. UU., Europa Occidental, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental. Consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.

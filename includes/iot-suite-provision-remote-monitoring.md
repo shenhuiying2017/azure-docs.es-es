@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Aprovisionamiento de la solución
+
+Si no ha aprovisionado aún la solución preconfigurada de supervisión remota en su cuenta:
+
 1. Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
 2. Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 3. Escriba un valor en **Nombre de la solución** para la solución preconfigurada de supervisión remota.

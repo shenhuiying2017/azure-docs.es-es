@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a7b3f8addbba21e60be0076784ae954f4cedb0b8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +49,7 @@ No hay restricciones en la longitud del prefijo de la dirección IP NAT anunciad
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos NAT para el emparejamiento de Microsoft
-El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y CRM Online. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Al tráfico destinado a la red desde los Servicios en la nube de Microsoft se le debe aplicar SNAT antes de que entre en la red. La ilustración siguiente proporciona una imagen de alto nivel de cómo NAT se debe configurar para el emparejamiento de Microsoft.
+El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y CRM Online. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Se debe aplicar SNAT al tráfico destinado a su red desde Servicios en la nube de Microsoft en el perímetro de Internet para evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). La ilustración siguiente proporciona una imagen de alto nivel de cómo NAT se debe configurar para el emparejamiento de Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -63,7 +64,9 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfico procedente de Microsoft destinado a la red
 * Algunos escenarios requieren que Microsoft inicie la conectividad con extremos de servicio hospedados dentro de la red. Un ejemplo típico del escenario sería la conectividad con los servidores ADFS hospedados en la red de Office 365. En tales casos, debe filtrar prefijos adecuados desde la red en el emparejamiento de tráfico de Microsoft. 
-* Debe aplicar SNAT al tráfico destinado a direcciones IP dentro de la red desde Microsoft. 
+* Debe aplicar SNAT al tráfico de Microsoft en el perímetro de Internet para los puntos de conexión de servicio dentro de la red a fin de evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). Las solicitudes **y respuestas** con una dirección IP de destino que coincidan con una ruta recibida a través de ExpressRoute siempre se enviarán a través de ExpressRoute. Se produce el enrutamiento asimétrico si la solicitud se recibe a través de Internet y la respuesta se envía a través de ExpressRoute. La aplicación de SNAT al tráfico de Microsoft entrante en el perímetro de Internet fuerza el tráfico de respuesta hacia el perímetro de Internet, lo que resuelve el problema.
+
+![Enrutamiento asimétrico con ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte los requisitos de [enrutamiento](expressroute-routing.md) y [QoS](expressroute-qos.md).
