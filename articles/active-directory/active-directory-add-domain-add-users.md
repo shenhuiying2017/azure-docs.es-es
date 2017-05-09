@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/08/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ccfa8d72b51c43e04d924d2b096e3cbc407af043
+ms.contentlocale: es-es
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -49,10 +51,5 @@ Esto también puede hacerse con [Microsoft PowerShell](https://msdn.microsoft.co
 * [Using custom domain names to simplify the sign-in experience for your users (Uso de nombres de dominio personalizado para simplificar la experiencia de inicio de sesión para los usuarios)](active-directory-add-domain.md)
 * [Managing custom domain names (Administración de nombres de dominio).](active-directory-add-manage-domain-names.md)
 * [Información general conceptual de nombres de dominio personalizado en Azure Active Directory](active-directory-add-domain-concepts.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

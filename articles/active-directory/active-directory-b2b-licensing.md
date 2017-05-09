@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.contentlocale: es-es
 ms.lasthandoff: 04/13/2017
 
 
@@ -52,7 +53,7 @@ Un usuario invitado de B2B es aquel que se ha invitado desde una organización d
 1. Si un host invita a un empleado que usa una dirección de consumidor
   1. Esto no es compatible con nuestras directivas de licencias y no se recomienda.
 
-2.    Si una organización host agrega un usuario de otra organización conglomerado
+2. Si una organización host agrega un usuario de otra organización conglomerado
   1. Es el caso del usuario que recibe una invitación mediante las API de B2B, pero esto no es tradicionalmente B2B. Idealmente, debemos hacer que estas organizaciones inviten a otros usuarios de organizaciones como miembros (nuestra API lo permite). En este caso, deben asignarse las licencias a estos miembros para que accedan a los recursos de la organización invitadora.
 
   2. Algunas organizaciones podrían agregar usuarios de otra organización como "Invitados" como una directiva. Estos son dos casos:
