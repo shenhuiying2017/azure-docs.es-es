@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 1bd474cc547ca2f6aa32944c1a1e5a92f917444a
+ms.contentlocale: es-es
 ms.lasthandoff: 04/15/2017
 
 

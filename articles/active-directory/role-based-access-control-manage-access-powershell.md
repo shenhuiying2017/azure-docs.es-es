@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/02/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
 
