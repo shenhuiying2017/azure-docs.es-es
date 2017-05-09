@@ -15,10 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e75058c8b387bc090bf924b9099a64e5d154afa4
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f055f1eb2c6f1c0fa9f032f033929299e224de2e
+ms.contentlocale: es-es
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +33,8 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 - [Creación de la base de datos: CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Instalación de bibliotecas de comunicación de bases de datos y Python
+
+En esta sección se da por hecho que está familiarizado con el desarrollo con Python y que empieza a trabajar con Azure SQL Database. Si no está familiarizado con el desarrollo con Python, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Python** y, a continuación, seleccione el sistema operativo.
 
 ### <a name="mac-os"></a>**Mac OS**
 Abra el terminal y desplácese hasta el directorio donde planea crear secuencias de comandos de Python. Escriba los comandos siguientes para instalar **brew**, **Microsoft ODBC Driver for Mac** y **pyodbc**. pyodbc usa Microsoft ODBC Driver on Linux para conectarse a bases de datos SQL.
@@ -71,7 +74,7 @@ Se pueden encontrar instrucciones para habilitar el uso de pip [aquí](http://st
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Use la información de los pasos siguientes, si es necesario, para obtener la información de conexión para la base de datos y el servidor de Azure SQL Database. Necesita esta información para conectarse a Azure SQL Database y realizar consultas con Python. 
+Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
@@ -83,7 +86,7 @@ Use la información de los pasos siguientes, si es necesario, para obtener la in
    
 ## <a name="select-data"></a>Selección de datos
 
-Use el código siguiente para consultar Azure SQL Database mediante la función [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) con una instrucción [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) de Transact-SQL. La función [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) se usa para recuperar un conjunto de resultados de una consulta realizada a SQL Database. Esta función acepta una consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
+Utilice el código siguiente para consultar los 20 primeros productos por categoría mediante la función [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) con una instrucción [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) de Transact-SQL. La función [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) se usa para recuperar un conjunto de resultados de una consulta realizada a SQL Database. Esta función acepta una consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -102,7 +105,7 @@ while row:
 ```
 
 ## <a name="insert-data"></a>Insertar datos
-Use el código siguiente para insertar un producto nuevo en la tabla SalesLT.Product de la base de datos especificada mediante la función [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) con la instrucción [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) de Transact-SQL. Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
+Utilice el código siguiente para insertar un nuevo producto en la tabla SalesLT.Product mediante la función [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) y la instrucción [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) de Transact-SQL. Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -119,7 +122,7 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>Actualización de datos
-Use el código siguiente para actualizar los datos de Azure SQL Database mediante la función [cursor.executet](https://mkleehammer.github.io/pyodbc/api-cursor.html) con una instrucción [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) de Transact-SQL. Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
+Utilice el código siguiente para actualizar el nuevo producto que ha agregado anteriormente mediante la función [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) y la instrucción [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) de Transact-SQL. Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -138,7 +141,7 @@ cnxn.commit()
 ```
 
 ## <a name="delete-data"></a>Eliminación de datos
-Use el código siguiente para eliminar los datos de Azure SQL Database mediante la función [cursor.executet](https://mkleehammer.github.io/pyodbc/api-cursor.html) con una instrucción [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) de Transact-SQL. Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
+Utilice el código siguiente para eliminar el nuevo producto que ha agregado anteriormente mediante la función [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) y la instrucción [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) de Transact-SQL. Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT.
 
 ```Python
 import pyodbc
