@@ -1,5 +1,5 @@
 ---
-title: "Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso en Azure Active Directory"
+title: "Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso"
 description: "Aprenda cómo agregar una personalización de marca de empresa a la página de inicio de sesión en Azure y la página del panel de acceso"
 services: active-directory
 documentationcenter: 
@@ -8,107 +8,110 @@ manager: femila
 editor: 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: identity
+ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/07/2017
+ms.date: 03/03/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6d4fbfe97288fcb76628b45649b8b678152198a9
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="add-company-branding-to-sign-in-and-access-panel-pages"></a>Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso
-Muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory ofrece esta funcionalidad, ya que permite que los profesionales de TI personalicen la apariencia de las siguientes páginas web con logotipos e imágenes de la empresa:
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso
+Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de las siguientes páginas web con el logotipo y esquemas de color personalizados:
 
-* **Página de inicio de sesión**: es la página que aparece cuando los empleados y los invitados de la empresa inician sesión en Office 365 u otras aplicaciones que usan Azure AD.
-* **Página de panel de acceso**: el panel de acceso es un portal basado en Web que le permite ver e iniciar las aplicaciones en la nube a las que el administrador de Azure AD le concediera acceso. El panel de acceso se encuentra en: [https://myapps.microsoft.com](https://myapps.microsoft.com).
+* **Página de inicio de sesión** : esta es la página que aparece al inicio de sesión de Office 365 o en otras aplicaciones basadas en web que están utilizando Azure AD como proveedor de identidades. Se interactúa con la página durante la detección del dominio de inicio o para escribir las credenciales. La detección del dominio de inicio permite al sistema redirigir a los usuarios federados a sus STS locales (por ejemplo, AD FS).
+* **Página del Panel de acceso** : el Panel de acceso es un portal basado en web que le permite ver e iniciar las aplicaciones en la nube a las que el administrador de Azure AD concedió acceso. Para tener acceso al Panel de acceso, utilice la siguiente dirección URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 Este tema explica cómo personalizar la página de inicio de sesión y la página del panel de acceso.
 
 > [!NOTE]
-> * La personalización de marca de empresa solo está disponible si ha actualizado a Azure Active Directory Premium o Basic Edition, o si tiene licencia de Office 365. Para más información, consulte Ediciones de Azure Active Directory.
-> 
-> * Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el foro de Azure Active Directory.
-
+> * La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básica de Azure Active Directory, o es un usuario de Office 365. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+> * Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Personalización de la página de inicio de sesión
-Los usuarios normalmente interactúan con la página de inicio de sesión de Azure AD al intentar acceder a servicios y aplicaciones en la nube a los que su organización está suscrita.
+Normalmente, si necesita acceso basado en explorador a las aplicaciones y servicios en la nube a los que está suscrita su organización, utiliza la página de inicio de sesión.
 
-Si ha aplicado cambios de personalización de marca a la página de inicio de sesión, pueden tardar hasta una hora en aparecer a los usuarios finales.
+Si ha aplicado cambios a la página de inicio de sesión, puede tardar hasta una hora para que aparezcan.
 
-Los elementos de personalización de marca de la empresa aparecerán en la página de inicio de sesión de Azure AD cuando los usuarios accedan a una URL específica del inquilino como https://outlook.com/contoso.com.
+Las páginas de inicio de sesión con marca solamente aparecen cuando se visita un servicio con una dirección URL específica del inquilino, como https://outlook.com/**contoso**.com o https://mail.**contoso**.com.
 
-Cuando los usuarios visitan un servicio en una dirección URL genérica como www.office.com, la página de inicio de sesión no contiene aún la información de personalización de marca de la empresa porque el sistema desconoce quién es el usuario. Sin embargo, sí que aparece una vez que los usuarios escriben su id. de usuario o seleccionan un icono de usuario.
+Si visita un servicio con direcciones URL que no son específicas de un inquilino (por ejemplo, https://mail.office365.com), aparece una página de inicio de sesión sin marca. En este caso, la marca solamente aparecerá una vez que haya especificado el identificador de usuario o haya seleccionado un icono de usuario.
 
 > [!NOTE]
 > * El nombre de dominio debe aparecer como “Activo” en la sección **Active Directory** > **Directory** > **Dominios** del Portal de Azure clásico en el que ha configurado la personalización de marca.
-> * La personalización de marca de la página de inicio de sesión no se incluye en la página de inicio de cuentas de Microsoft personales. Si los empleados o los invitados de la empresa inician sesión con una cuenta de Microsoft personal, su página de inicio de sesión no reflejará la personalización de marca de su organización.
+> * La personalización de marca de la página de inicio de sesión no se traslada a la página de inicio de sesión de cliente de Microsoft. Si inicia sesión con una cuenta de Microsoft personal, puede ver una lista de iconos de usuario con la personalización de marca presentada por Azure AD, pero la personalización de marca de su organización no se aplicará a la página de inicio de sesión de la cuenta de Microsoft.
+>
 >
 
-En las capturas de pantalla siguientes se explica cómo se personalizan las páginas de inicio de sesión.
+Si desea mostrar en su página la marca y los colores de su empresa, además de otros elementos personalizables, vea las imágenes siguientes para entender la diferencia entre las dos experiencias.
 
-### <a name="scenario-1-contoso-employee-goes-to-a-generic-app-url-for-example-wwwofficecom"></a>Escenario 1: Un empleado de Contoso va a una dirección URL de aplicación genérica (por ejemplo, www.office.com)
+La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un equipo de escritorio **antes** de una personalización:
 
-En este ejemplo, un usuario de Contoso inicia sesión en una aplicación móvil o en una aplicación web mediante una dirección URL genérica. La ilustración de la izquierda siempre representará la aplicación y el panel de interacción de la derecha se actualizará para mostrar elementos de marca de Contoso cuando corresponda.
+![Página de inicio de sesión de Office 365 antes de la personalización][1]
 
-![Página de inicio de sesión de Office 365 antes y después de la personalización][1]
+La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un equipo de escritorio **después** de una personalización:
 
-### <a name="scenario-2-contoso-employee-goes-to-contoso-app-thats-restricted-to-internal-users"></a>Escenario 2: Un empleado de Contoso va a la aplicación de Contoso restringida a los usuarios internos
+![Página de inicio de sesión de Office 365 después de la personalización][2]
 
-En este ejemplo, un usuario de Contoso está iniciando sesión en una aplicación interna mediante una dirección URL específica de la compañía. La ilustración de la izquierda representa la marca de la empresa (Contoso). El panel de interacción de la derecha está bloqueado para Contoso y ayuda a los empleados con el inicio de sesión.
+La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un dispositivo móvil **antes** de una personalización:
 
-![página de inicio de sesión de aplicación restringida][2]
+![Página de inicio de sesión de Office 365 antes de la personalización][3]
 
-### <a name="scenario-3-contoso-employee-goes-to-a-contoso-app-thats-open-to-external-users"></a>Escenario 3: Un empleado de Contoso va a la aplicación de Contoso abierta a usuarios externos
+La siguiente captura de pantalla muestra un ejemplo de la página de inicio de sesión de Office 365 en un dispositivo móvil **después** de una personalización:
 
-En este ejemplo, los usuarios inician sesión en una aplicación de LOB de Contoso, pero el usuario no tiene por qué ser empleado de Contoso. La ilustración de la izquierda representa el propietario del recurso (Contoso), al igual que el caso \#2 anterior. Pero esta vez el panel de interacción de la derecha no está bloqueado para Contoso, con el fin de transmitir que los usuarios externos pueden iniciar sesión.
+![Página de inicio de sesión de Office 365 después de la personalización][4]
 
-![inicio de sesión en acceso abierto][3]
+Cuando se cambia el tamaño de la ventana de un explorador, una ilustración grande, como la mostrada anteriormente, a menudo se recorta para adaptarse a las diferentes relaciones de aspecto de la pantalla. Teniendo esto en cuenta, debe intentar mantener siempre los elementos visuales más importantes de la ilustración para que siempre aparezcan en la esquina superior izquierda (en la superior derecha para los idiomas que se leen de derecha a izquierda). Esto es importante porque el cambio de tamaño normalmente se produce desde la esquina inferior derecha hacia la parte superior o izquierda o desde la parte inferior hacia la parte superior.
 
-### <a name="scenario-4-fabrikam-business-guest-goes-to-contoso-app-thats-open-to-external-users"></a>Escenario 4: Un invitado de la empresa Fabrikam entra en una aplicación de Contoso abierta a usuarios externos
+La imagen siguiente muestra cómo se recorta la ilustración cuando se cambia el tamaño del explorador hacia la izquierda:
 
-En este ejemplo, un usuario de Contoso está iniciando sesión en una aplicación interna mediante una dirección URL específica de la compañía. La ilustración de la izquierda representa la marca de la empresa (Contoso). El panel de interacción de la derecha está bloqueado para Contoso y ayuda a los empleados con el inicio de sesión.
+![][6]
 
-![inicio de sesión como usuario externo][4]
+Este es el aspecto que tiene después de que el tamaño del explorador se cambie hacia la parte superior:
 
+![][7]
 
 ## <a name="what-elements-on-the-page-can-i-customize"></a>¿Qué elementos de la página puedo personalizar?
-
 Puede personalizar los siguientes elementos de la página de inicio de sesión:
 
 ![][5]
 
 | Elemento de la página | Ubicación en la página |
 |:--- | --- |
-| Logotipo del banner | Se muestra en la parte superior derecha de la página. Reemplaza el logotipo de la aplicación una vez que se determine la organización del usuario (normalmente, después de que este escriba su nombre de usuario). |
-| Ilustración de fondo | Se muestra como una imagen de sangrado completo en el lado izquierdo de la página de inicio de sesión. Reemplaza la ilustración de la aplicación, para los escenarios de inicio de sesión con inquilinos (cuando los usuarios acceden a una aplicación publicada por su propia organización o una organización donde están invitados).<br>En conexiones de ancho de banda reducido, la ilustración de fondo se reemplaza por un color de fondo. En las pantallas estrechas, como las de teléfonos, no se muestra la ilustración.<br>Se recortará la ilustración de fondo cuando los usuarios cambien el tamaño del explorador. Al diseñar la ilustración, mantenga los elementos visuales clave en la esquina superior izquierda para que no se recorten. | 
-| Casilla "Mantener la sesión iniciada" | Se muestra bajo el cuadro de texto **Contraseña**. |
-| Texto de la página de inicio de sesión | Texto reutilizable que se muestra encima del pie de página. Se puede utilizar para ofrecer información útil para los usuarios, como el número de teléfono del departamento de soporte técnico o una declaración legal. |
+| Logotipo del banner |Se muestra en la parte superior derecha de la página. Reemplaza el logotipo mostrado por el sitio de destino en el que está iniciando sesión (por ejemplo, Office 365 o Azure). |
+| Ilustración grande / Color de fondo |Se muestra a la izquierda de la página. Reemplaza la imagen mostrada por el sitio de destino en el que está iniciando sesión. En conexiones con un ancho de banda bajo o en pantallas estrechas, puede aparecer el color de fondo en lugar de la ilustración grande. |
+| Mantener la sesión iniciada |Se muestra en el cuadro de texto Contraseña. |
+| Texto de la página de inicio de sesión |Se muestra encima del pie de página cuando necesita ofrecer información útil antes de que inicien sesión con su cuenta profesional o educativa. Por ejemplo, es posible que desee incluir el número de teléfono de soporte técnico o una declaración legal. |
 
 > [!NOTE]
-> Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración de fondo, la página de inicio de sesión muestra su logotipo y la ilustración del sitio de destino (por ejemplo, la imagen de la autopista de California de Office 365).
+> Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión muestra su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
+>
 >
 
-En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite que el usuario se mantenga conectado después de cerrar y abrir de nuevo el explorador; no afecta a la duración de la sesión.
+En la página de inicio de sesión, la casilla **Mantener la sesión iniciada** permite que el usuario se mantenga conectado después de cerrar y abrir de nuevo el explorador. No afecta a la duración de la sesión. Puede ocultar la casilla en la página de inicio de sesión de Azure Active Directory.
 
-El que la casilla se muestre o no depende de la configuración de **Ocultar KMSI**.
+Puede decidir si se muestra la casilla o no mediante la configuración de **Ocultar KMSI**.
 
-![Configuración Ocultar KMSI][6]
+![][9]
 
 Para ocultar la casilla, utilice la opción **Oculto**.
 
 > [!NOTE]
-> Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si configura esta opción en Oculto, es posible que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
+> Algunas características de SharePoint Online y Office 2010 dependen de que los usuarios puedan activar esta casilla. Si configura esta opción en oculto, es posible que los usuarios reciban solicitudes adicionales e inesperadas de inicio de sesión.
 >
 >
 
 También puede localizar todos los elementos de esta página. Una vez que haya configurado un conjunto de elementos de personalización "predeterminado", puede configurar más versiones para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, puede:
 
-* Crear una ilustración "predeterminada" que funcione para todas las culturas y, a continuación, crear versiones específicas para inglés y francés. Al establecer los navegadores en uno de estos dos idiomas, aparece la imagen específica, mientras que la ilustración predeterminada aparece en los demás idiomas.
+* Crear una ilustración grande "predeterminada" que funcione para todas las culturas y, a continuación, crear versiones específicas para inglés y francés. Al establecer los navegadores en uno de estos dos idiomas, aparece la imagen específica, mientras que la ilustración predeterminada aparece en los demás idiomas.
 * Configure logotipos diferentes para su organización (por ejemplo, para las versiones en japonés o hebreo).
 
 ## <a name="access-panel-page-customization"></a>Personalización de la página del panel de acceso
@@ -131,6 +134,10 @@ Suponga la configuración siguiente:
 Si su preferencia de idioma es alemán, obtiene el logotipo del banner predeterminado pero con el texto en alemán.
 
 Aunque técnicamente podría configurar un conjunto diferente para cada idioma admitido por Azure AD, se recomienda que mantenga reducidas las variantes por razones de mantenimiento y rendimiento.
+
+> [!IMPORTANT]
+> Yammer no muestra la página de inicio de sesión de marca de Azure AD hasta después de que el usuario inicia sesión. El usuario ve la página de inicio de sesión genérica de Office 365 primero y, a continuación, la página de marca.   
+ 
  
 **Para agregar una personalización de marca de la empresa a su directorio, realice los pasos siguientes:**
 
@@ -176,31 +183,48 @@ fs3. En la barra de herramientas de la parte superior, haga clic en **Configurar
 8. Si es necesario, haga clic en **Personalizar la información de marca** de nuevo y repita estos pasos para todos los elementos específicos de la marca del idioma que tengan que quitarse.
     Todas las opciones de personalización de marca se habrán quitado cuando haga clic en **Personalizar la información de marca** y vea el formulario **Personalizar información de la marca predeterminada** sin opciones configuradas.
 
+## <a name="testing-and-examples"></a>Pruebas y ejemplos
+Se recomienda que experimente con un inquilino de prueba antes de realizar cambios en el entorno de producción.
+
+**Para comprobar si se ha aplicado la información de marca:**
+
+1. Abra una sesión de explorador InPrivate o de incógnito.
+2. Visite https://outlook.com/contoso.com (sustituya contoso.com por el dominio personalizado).
+
+Esto también funciona con los dominios que tengan un aspecto similar a contoso.onmicrosoft.com.
+
+Para ayudarle a crear conjuntos eficaces de personalización, hemos personalizado las siguientes dos páginas de inicio de sesión ficticias:
+
+* [http://AKA.ms/aaddemo001](http://aka.ms/aaddemo001)
+* [http://AKA.ms/aaddemo002](http://aka.ms/aaddemo002)
+
+Para probar la configuración específica del idioma, debe modificar las preferencias de idioma predeterminado en el explorador web a un idioma que se haya definido en la personalización. En Internet Explorer, configure esto en el menú **Opciones de Internet** .
 
 ## <a name="customizable-elements"></a>Elementos personalizables
-Los logotipos de empresa se utilizan para las páginas de inicio de sesión y panel de acceso, mientras que otros elementos solo se utilizan en la página de inicio de sesión. En la tabla siguiente se proporcionan detalles para los diferentes elementos personalizables.
+Algunos elementos personalizables de Azure AD disponen de múltiples casos de uso. Puede configurar los logotipos de la compañía una vez por directorio y se utiliza en las páginas de inicio de sesión y del Panel de acceso. Algunos elementos personalizables son específicos únicamente de la página de inicio de sesión. En la tabla siguiente se proporcionan detalles para los diferentes elementos personalizables.
 
 | Nombre | Description | Restricciones | Recomendaciones |
 | --- | --- | --- | --- |
-| Logotipo del banner |El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. |<p>JPG o PNG</p><p>60 x 280 píxeles</p><p>10 kB</p> |<p>Utilice el logotipo completo de la organización (incluido el pictograma y el logotipo).</p><p>Manténgalo por debajo de 30 píxeles para que no aparezcan barras de desplazamiento en los dispositivos móviles.</p><p>Manténgalo por debajo de 4 kB.</p><p>Utilice un PNG transparente (no debe presuponer que la página de inicio de sesión tiene un fondo blanco).</p> |
-| Logotipo del icono | Actualmente no se usa. |<p>JPG o PNG</p><p>120 x 120 píxeles</p><p>10 kB</p> |<p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%. |
+| Logotipo del banner |El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. |<p>JPG o PNG</p><p>60 x&280; píxeles</p><p>10 kB</p> |<p>Utilice el logotipo completo de la organización (incluido el pictograma y el logotipo).</p><p>Manténgalo por debajo de 30 píxeles para que no aparezcan barras de desplazamiento en los dispositivos móviles.</p><p>Manténgalo por debajo de 4 kB.</p><p>Utilice un PNG transparente (no debe presuponer que la página de inicio de sesión tiene un fondo blanco).</p> |
+| Logotipo del icono |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. |<p>JPG o PNG</p><p>120 x&120; píxeles</p><p>10 kB</p> |<p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%. |
 | </p> | | | |
-| Etiqueta de nombre de usuario de inicio de sesión | Actualmente no se usa. |<p>Texto Unicode, hasta 50 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |<p>Elija una etiqueta corta y sencilla.</p><p>Pregunte a los usuarios qué nombre utilizan para hacer referencia a la cuenta de la escuela o del trabajo que les proporciona.</p> |
-| Texto reutilizable de página de inicio de sesión |Este texto reutilizable aparece debajo del formulario de la página de inicio de sesión y puede utilizarse para comunicar instrucciones adicionales o dónde acudir para obtener ayuda y soporte técnico. |<p>Texto Unicode, hasta 256 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |No sobrepase los 250 caracteres (aproximadamente 3 líneas de texto) |
-| Ilustración de fondo de la página de inicio de sesión | Imagen grande que se muestra en el lado izquierdo de la página de inicio de sesión (en el derecho para los idiomas de derecha a izquierda) cuando los usuarios acceden a direcciones URL específicas del inquilino. |<p>JPG o PNG</p><p>1420 x 1200</p><p>500 kB</p> |<p>1420 x 1200 píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen se recortará casi siempre para dar cabida a relaciones de aspecto de pantalla diferentes. Mantenga los elementos visuales principales en la esquina superior izquierda.</p> |
-| Color de fondo de la página de inicio de sesión | En conexiones de ancho de banda reducido, se utiliza este color sólido en lugar de la ilustración de fondo. | Debe ser un color RGB en formato hexadecimal (ejemplo: \#FFFFFF). | Le recomendamos que utilice el color principal del logotipo del banner. |
+| Etiqueta de nombre de usuario de la página de inicio de sesión |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar la cadena genérica de "cuenta profesional o educativa" en diferentes lugares de la experiencia. Puede establecerlo en algo como "Cuenta Contoso" o "Id. de Contoso". |<p>Texto Unicode, hasta 50 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |<p>Elija una etiqueta corta y sencilla.</p><p>Pregunte a los usuarios qué nombre utilizan para hacer referencia a la cuenta de la escuela o del trabajo que les proporciona.</p> |
+| Texto de la página de inicio de sesión |Este texto "reutilizable" aparece debajo del formulario de la página de inicio de sesión y puede utilizarse para comunicar instrucciones adicionales o dónde acudir para obtener ayuda y soporte técnico. |<p>Texto Unicode, hasta 256 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |No sobrepase los 250 caracteres (aproximadamente 3 líneas de texto) |
+| Ilustración de la página de inicio de sesión |La ilustración es una imagen grande que se muestra en la página de inicio de sesión a la izquierda del formulario de la página de inicio de sesión. |<p>JPG o PNG</p><p>1420 x&1200;</p><p>500 kB</p> |<p>1420 x&1200; píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen a menudo se recorta para adaptarse a las diferentes relaciones de la pantalla. Mantenga los elementos visuales principales en la esquina superior izquierda (en la esquina superior derecha para los idiomas que se leen de derecha a izquierda), ya que el cambio de tamaño se produce desde la esquina inferior derecha, hacia la parte superior izquierda, a medida que se reduzca la ventana del explorador.</p> |
+| Color de fondo de la página de inicio de sesión |El color de fondo de la página de inicio de sesión se usa en el área a la izquierda del formulario de la página de inicio de sesión. |Debe ser un color RGB en formato hexadecimal (ejemplo: #FFFFFF) |<p>En las conexiones con poco ancho de banda, puede aparecer el color de fondo en lugar de la ilustración grande.</p><p>Le recomendamos que utilice el color principal del logotipo del banner.</p> |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
-[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
-[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
-[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
-[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
-[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
+[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
+[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
+[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
+[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
+[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
+[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
+[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
