@@ -1,5 +1,5 @@
 ---
-title: "Personalización de la página de inicio de sesión en la versión preliminar de Azure Active Directory | Microsoft Docs"
+title: "Personalización de la página de inicio de sesión de Azure Active Directory | Microsoft Docs"
 description: "Aprenda a agregar una personalización de marca de empresa a la página de inicio de sesión de Azure"
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 27590c018ea55e9793246c7a4cab10f934ea502b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Adición de personalización de marca de empresa a la página de inicio de sesión en la versión preliminar de Azure Active Directory
-Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. La versión preliminar de Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con esquemas de color personalizados y el logotipo de la empresa. [¿Qué es la versión preliminar?](active-directory-preview-explainer.md)  Se trata de la página que aparece al iniciar sesión en Office 365 u otras aplicaciones web que estén utilizando Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
+# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Adición de personalización de marca de empresa a la página de inicio de sesión de Azure Active Directory
+Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con esquemas de color personalizados y el logotipo de la empresa. Se trata de la página que aparece al iniciar sesión en Office 365 u otras aplicaciones web que estén utilizando Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
 
 Si desea mostrar en su página la marca y los colores de su empresa, además de otros elementos personalizables, vea las imágenes siguientes para entender la diferencia entre las dos experiencias.
 
@@ -81,9 +83,4 @@ Puede transcurrir hasta una hora para que los cambios efectuados se muestren en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Agregar información de marca de empresa específica de un idioma](active-directory-branding-localize-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
