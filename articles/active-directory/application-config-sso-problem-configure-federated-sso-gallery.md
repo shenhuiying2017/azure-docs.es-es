@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b4d3d114f6947639ef865861337ce9f2a6452e76
+ms.contentlocale: es-es
 ms.lasthandoff: 04/17/2017
 
 
@@ -73,7 +74,7 @@ Si los valores no coinciden con los patrones preconfigurados en Azure AD. Puede:
 
 -   Trabajar con el proveedor de la aplicación para obtener los valores que coinciden con el patrón preconfigurado en Azure AD
 
--   O ponerse en contacto con el equipo de Azure AD en < aadapprequest@microsoft.com > o puede dejar un comentario en el tutorial para solicitar la actualización de los patrones admitidos para la aplicación
+-   O ponerse en contacto con el equipo de Azure AD en <aadapprequest@microsoft.com> o puede dejar un comentario en el tutorial para solicitar la actualización de los patrones admitidos para la aplicación
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>¿Dónde se puede establecer el formato de EntityID (Identificador de usuario)?
 
