@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
 ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.contentlocale: es-es
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -65,9 +67,4 @@ Ahora supongamos que Jane Doe necesita administrar sitios web y recursos de la b
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la relación entre suscripciones y directorios, consulte [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
