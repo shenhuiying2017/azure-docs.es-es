@@ -3,7 +3,7 @@ title: "Información general conceptual de los nombres de dominio personalizados
 description: "Explica la plataforma conceptual para el uso de nombres de dominio personalizado en Azure Active Directory, incluida la federación para el inicio de sesión único."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -55,16 +57,11 @@ El nombre de dominio debe comprobarse en Azure AD antes de poder ser utilizado p
 Una aplicación web de Azure usa su propio mecanismo para comprobar la propiedad de un dominio. El dominio debe comprobarse para su uso con Azure AD, incluso si se ha hecho anteriormente para que lo utilice una aplicación web de Azure en una suscripción que depende de dicha instancia de Azure AD. La aplicación web de Azure puede utilizar un nombre de dominio que se ha comprobado en otro directorio diferente del directorio que protege la aplicación web.
 
 ## <a name="managing-domain-names"></a>Administración de nombres de dominio
-Las tareas de administración de dominio se pueden completar desde el Portal de Azure clásico y desde PowerShell. Muchas tareas se pueden realizar mediante la API Graph de Azure AD (en versión preliminar pública).
+Las tareas de administración de dominio se pueden completar desde el Portal de Azure clásico y desde PowerShell. Muchas tareas se pueden realizar mediante la API Graph de Azure AD.
 
 * [Utilización de nombres de dominio personalizados para simplificar la experiencia de inicio de sesión de los usuarios](active-directory-add-domain.md)
 * [Managing custom domain names in your Azure Active Directory (Administración de nombres de dominio personalizados en Azure Active Directory)](active-directory-add-manage-domain-names.md)
 * [Utilización de PowerShell para administrar los nombres de dominio en Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Operations on domains (preview) | Graph API reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
