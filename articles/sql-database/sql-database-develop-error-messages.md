@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
 ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.contentlocale: es-es
 ms.lasthandoff: 02/16/2017
 
 
@@ -63,7 +64,7 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
 | 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. |
 | 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* Para obtener más información, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
-| 40613 |17 |La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%. & #x2a; ls'. |
+| 40613 |17 |La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%.&#x2a;ls'. |
 | 49918 |16 |No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. |
 | 49919 |16 |No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 | 49920 |16 |No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para el estado de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
@@ -163,7 +164,7 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 | 40512 |16 |No se admite la característica desusada '%ls' en esta versión de SQL Server. |
 | 40513 |16 |No se admite la variable del servidor '%.&#x2a;ls' en esta versión de SQL Server. |
 | 40514 |16 |No se admite '%ls' en esta versión de SQL Server. |
-| 40515 |16 |No se admite referencia al nombre de la base de datos o del servidor en '%. & #x2a; ls' en esta versión de SQL Server. |
+| 40515 |16 |No se admite referencia al nombre de la base de datos o del servidor en '%.&#x2a;ls' en esta versión de SQL Server. |
 | 40516 |16 |Los objetos temporales globales no se admiten en esta versión de SQL Server. |
 | 40517 |16 |No se admite la opción de palabra clave o instrucción '%.&#x2a;ls' en esta versión de SQL Server. |
 | 40518 |16 |No se admite el comando DBCC '%.&#x2a;ls' en esta versión de SQL Server. |
