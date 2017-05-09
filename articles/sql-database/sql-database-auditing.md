@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/3/2017
 ms.author: giladm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 20b46682471addfdaf563c55e989bb5d2271979f
+ms.contentlocale: es-es
 ms.lasthandoff: 04/15/2017
 
 

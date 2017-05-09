@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
 ms.openlocfilehash: 3b03b59fd338fa31c3248b0798463ee659e7e5ff
+ms.contentlocale: es-es
 ms.lasthandoff: 04/12/2017
 
 ---

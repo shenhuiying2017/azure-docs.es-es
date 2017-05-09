@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 16ea28d13ccbe559d7988032e162581cde363157
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
 

@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/9/2017
 ms.author: cwatson
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bb913050fd3388d4632e6f75b36415006f370cbd
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
 
