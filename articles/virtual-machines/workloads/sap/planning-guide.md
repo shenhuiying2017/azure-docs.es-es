@@ -17,9 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d55582868c09781891a8dcd6e535f6dc4f472b5f
+ms.contentlocale: es-es
 ms.lasthandoff: 04/03/2017
 
 
@@ -657,7 +658,7 @@ Dado que la red y la resolución de nombres es una parte fundamental de la imple
 ##### <a name="azure-virtual-networks"></a>Redes virtuales de Azure
 Se puede definir el intervalo de direcciones IP privadas asignadas por la funcionalidad de DHCP de Azure mediante la creación de una red virtual de Azure. En escenarios entre locales, el intervalo de direcciones IP definido se seguirá asignando mediante DHCP por Azure. Sin embargo, la resolución de nombres de dominio se llevará a cabo en local (suponiendo que las máquinas virtuales formen parte de un dominio local) y, por tanto, se pueden resolver direcciones independientemente de los diferentes servicios en la nube de Azure.
 
-[comment]: <> (MSSedusch still needed? TODO Originalmente, una red virtual de Azure estaba asociada a un grupo de afinidad. Esto implicaba que una red virtual en Azure quedaba restringida a la unidad de escalado de Azure a la que se asignaba el grupo de afinidad. Al final, el resultado era que la red virtual estaba restringida a los recursos disponibles en la unidad de escalado de Azure. Desde entonces, esta situación ha cambiado y ahora las redes virtuales de Azure pueden abarcar varias unidades de escalado de Azure. Sin embargo, es necesario que las redes virtuales de Azure **NO** estén asociadas a grupos de afinidad en el momento de la creación. Se mencionó anteriormente que, en contraposición a las recomendaciones del año anterior, ya **NO se deben aprovechar los grupos de afinidad de Azure**. Para más información, consulte <https://azure.microsoft.com/blog/regional-virtual-networks/>).
+[comment]: <> (MSSedusch still needed? TODO Originalmente, una red virtual de Azure estaba asociada a un grupo de afinidad. Esto implicaba que una red virtual en Azure quedaba restringida a la unidad de escalado de Azure a la que se asignaba el grupo de afinidad. Al final, el resultado era que la red virtual estaba restringida a los recursos disponibles en la unidad de escalado de Azure. Desde entonces, esta situación ha cambiado y ahora las redes virtuales de Azure pueden abarcar varias unidades de escalado de Azure. Sin embargo, es necesario que las redes virtuales de Azure **NO** estén asociadas a grupos de afinidad en el momento de la creación. Se mencionó anteriormente que, en contraposición a las recomendaciones del año anterior, ya **NO se deben aprovechar los grupos de afinidad de Azure**. Para más información, consulte <https://azure.microsoft.com/blog/regional-virtual-networks/>)
 
 Cada máquina virtual de Azure debe estar conectada a una red virtual.
 
