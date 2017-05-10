@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 24375a7c56cdad59363803ef3aae724977961b44
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -65,9 +66,9 @@ El módulo Azure lee las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE and A
 
 Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio de nube de Node.js con Storage][Node.js Cloud Service with Storage].
 
-Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][Azure classic portal] para un sitio web de Azure, consulte [Aplicación web Node.js con Storage][Node.js Web Application with Storage].
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][Portal de Azure clásico] para un sitio web de Azure, vea [Aplicación web Node.js con Storage][Node.js Web Application with Storage].
 
-## <a name="create-a-topic"></a>Creación de un tema
+## <a name="create-a-topic"></a>de un tema
 El objeto **ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **ServiceBusService**. Agréguelo cerca de la parte superior del archivo **server.js** , tras la instrucción para importar el módulo azure:
 
 ```javascript
@@ -289,10 +290,10 @@ El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin prob
 
 También hay otro tiempo de expiración asociado a un mensaje bloqueado en la suscripción y, si la aplicación no puede procesar el mensaje antes de que expire el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
-Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico][Azure classic portal] o mediante programación.
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Azure Portal][Azure portal] o mediante programación.
 En el ejemplo siguiente se muestra cómo eliminar el tema denominado `MyTopic`:
 
 ```javascript
@@ -321,10 +322,10 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 * Visite el repositorio del [SDK de Azure para Node][Azure SDK for Node] en GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Azure portal]: https://portal.azure.com
+[SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md

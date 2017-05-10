@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2a270ba8ae17077c55c6b1473d4955dfb5f79ca1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -83,6 +84,9 @@ Son los límites de una instancia de aplicación lógica.
 |Nombre|Límite|Notas|
 |----|----|----|
 |Ejecuciones de acciones cada 5 minutos |100 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+|Llamadas de lectura de punto de conexión en tiempo de ejecución por 5 minutos |60 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+|Llamadas de invocación de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+|Llamadas simultáneas de bloqueo de puntos de conexión en tiempo de ejecución |~1000|Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario|
 
 Si espera superar este límite en el procesamiento normal o desea ejecutar una prueba de carga que puede exceder este límite durante un tiempo, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarlo con sus requisitos.
 
@@ -111,6 +115,9 @@ Hay límites para los artefactos que se agregan a la cuenta de integración
 |----|----|----|
 |Esquema|8 MB|Puede usar el [identificador URI del blob](logic-apps-enterprise-integration-schemas.md) para cargar archivos mayores de 2 MB |
 |Asignación (archivo XSLT)|2 MB| |
+|Llamadas de lectura de punto de conexión en tiempo de ejecución por 5 minutos |60 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
+|Llamadas de invocación de punto de conexión en tiempo de ejecución por 5 minutos |90 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
+|Llamadas simultáneas de bloqueo de puntos de conexión en tiempo de ejecución |~1000|Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamaño de mensaje de protocolos B2B (AS2, X12 y EDIFACT)
 

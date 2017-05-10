@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 58b3d4a84c06a17eee41385509aa80e820399716
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -74,10 +75,6 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
   | **wafMode** | Modo del firewall de aplicaciones web.  Las opciones disponibles son **prevención** o **detección**.|
   | **wafRuleSetType** | Tipo de conjunto de reglas para WAF.  Actualmente, OWASP es la única opción compatible. |
   | **wafRuleSetVersion** |Versión del conjunto de reglas. Actualmente, OWASP CRS 2.2.9 y 3.0 son las opciones admitidas. |
-
-
-  > [!IMPORTANT]
-  > Las plantillas de Azure Resource Manager que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
 
 1. Compruebe el contenido en **resources** y observe las propiedades siguientes:
 
@@ -136,102 +133,80 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implementación de la plantilla de Azure Resource Manager mediante PowerShell
 
-Si es la primera vez que usa Azure PowerShell, visite [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
+Si es la primera vez que usa Azure PowerShell, visite [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) y siga las instrucciones para iniciar sesión en Azure y seleccionar su suscripción.
 
-### <a name="step-1"></a>Paso 1
+1. Inicio de sesión en PowerShell
 
-```powershell
-Login-AzureRmAccount
-```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-### <a name="step-2"></a>Paso 2
+1. Compruebe las suscripciones para la cuenta.
 
-Compruebe las suscripciones para la cuenta.
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
-```powershell
-Get-AzureRmSubscription
-```
+    Se le solicita que se autentique con sus credenciales.
 
-Se le solicita que se autentique con sus credenciales.
+1. Elección de la suscripción de Azure que se va a usar.
 
-### <a name="step-3"></a>Paso 3
+    ```powershell
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    ```
 
-Elección de la suscripción de Azure que se va a usar.
+1. Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, se crea un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+    ```powershell
+    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    ```
 
-### <a name="step-4"></a>Paso 4
-
-Si es necesario, cree un grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, se crea un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.
-
-```powershell
-New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
-```
-
-Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
-
-```powershell
-New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
--TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-```
+1. Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
+    
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    ```
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Implementación de la plantilla de Azure Resource Manager mediante la CLI de Azure
 
 Para implementar la plantilla de Azure Resource Manager descargada mediante la CLI de Azure, siga estos pasos:
 
-### <a name="step-1"></a>Paso 1
+1. Si es la primera vez que usa la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
 
-Si es la primera vez que usa la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
+1. En caso necesario, ejecute el comando `az group create` para crear un grupo de recursos, como se muestra en el siguiente fragmento de código. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para más información sobre los grupos de recursos, visite [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="step-2"></a>Paso 2
+    ```azurecli
+    az group create --location westus --name appgatewayRG
+    ```
+    
+    **-n (or --name)**. Nombre del nuevo grupo de recursos. En este escenario, es *appgatewayRG*.
+    
+    **-l (o --location)**. Región de Azure donde se crea el nuevo grupo de recursos. En este escenario, es *westus*.
 
-En caso necesario, ejecute el comando `az group create` para crear un grupo de recursos, como se muestra en el siguiente fragmento de código. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para más información sobre los grupos de recursos, visite [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Ejecute el cmdlet `az group deployment create` para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó en el paso anterior. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
-```azurecli
-az group create --location westus --name appgatewayRG
-```
-
-**-n (or --name)**. Nombre del nuevo grupo de recursos. En este escenario, es *appgatewayRG*.
-
-**-l (o --location)**. Región de Azure donde se crea el nuevo grupo de recursos. En este escenario, es *westus*.
-
-### <a name="step-4"></a>Paso 4
-
-Ejecute el cmdlet `az group deployment create` para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó en el paso anterior. En la lista que se muestra en la salida se explican los parámetros utilizados.
-
-```azurecli
-az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
-```
+    ```azurecli
+    az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
+    ```
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Implementación de la plantilla de Azure Resource Manager con el método de hacer clic para implementar
 
 Clic para implementar es otra forma de usar las plantillas de Azure Resource Manager. Se trata de una manera fácil de usar plantillas con Azure Portal.
 
-### <a name="step-1"></a>Paso 1
+1. Vaya a [Creación de una instancia de Application Gateway con firewall de aplicaciones web](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
 
-Vaya a [Creación de una instancia de Application Gateway con firewall de aplicaciones web](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
+1. Haga clic en **Implementar en Azure**.
 
-### <a name="step-2"></a>Paso 2
+    ![Implementar en Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    
+1. Rellene los parámetros de la plantilla de implementación en el portal y haga clic en **Aceptar**.
 
-Haga clic en **Implementar en Azure**.
+    ![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    
+1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y haga clic en **Comprar**.
 
-![Implementar en Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
-
-### <a name="step-3"></a>Paso 3
-
-Rellene los parámetros de la plantilla de implementación en el portal y haga clic en **Aceptar**.
-
-![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-
-### <a name="step-4"></a>Paso 4
-
-Seleccione **Acepto los términos y condiciones indicados anteriormente** y haga clic en **Comprar**.
-
-### <a name="step-5"></a>Paso 5
-
-En la hoja Implementación personalizada, haga clic en **Crear**.
+1. En la hoja Implementación personalizada, haga clic en **Crear**.
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Proporciona datos de certificado a las plantillas de Resource Manager
 
@@ -239,6 +214,22 @@ Cuando se usa SSL con una plantilla, el certificado debe proporcionarse en una c
 
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```
+
+## <a name="delete-all-resources"></a>Eliminación de todos los recursos
+
+Para eliminar todos los recursos creados en este artículo, complete uno de los pasos siguientes:
+
+### <a name="powershell"></a>PowerShell
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgatewayRG
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+```azurecli
+az group delete --name appgatewayRG
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

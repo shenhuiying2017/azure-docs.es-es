@@ -1,6 +1,6 @@
 ---
 title: Mensajes de error de seguimiento de la pila de Hadoop | Microsoft Docs
-description: "Índice de los mensajes de error del seguimiento de la pila de Hadoop en HDInsight. Encuentre el error en la lista para ver la información de solución de problemas."
+description: "Índice de los mensajes de error del seguimiento de la pila de Hadoop en Azure HDInsight. Encuentre el error en la lista para ver la información de solución de problemas."
 keywords: seguimiento de la pila, mensajes de error
 services: hdinsight
 documentationcenter: NA
@@ -14,12 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 02/22/2017
-ms.author: rashimg;jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
-ms.lasthandoff: 11/17/2016
+ms.date: 04/26/2017
+ms.author: gao
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: bc6f7904e6307477eb90bb0ca74be19a9c76eb35
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 11/17/2016
 Los artículos se organizan por tipos de error.
 
 ## <a name="out-of-memory-error"></a>Error de memoria agotada
-* [Corrija un error de memoria insuficiente con la configuración de Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija un error de memoria insuficiente desde una consulta de Hive. El escenario del cliente incluye una consulta entre numerosas tablas de gran tamaño.
+* [Corrija un error de memoria insuficiente de Hive en HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija un error de memoria insuficiente desde una consulta de Hive. El escenario del cliente incluye una consulta entre numerosas tablas de gran tamaño.
 
 ## <a name="hive-query-performance"></a>Rendimiento de consultas de Hive
 * [Optimizar consultas de Hive para Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query.md): en este artículo se explican algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a las consultas de Hive.

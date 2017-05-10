@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
-ms.openlocfilehash: eb22b8e8c2d2b4a619e50b94321d4f819764bdaa
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: cfd4822820270dbaf44a25f3e0fe749492765df8
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -25,7 +27,7 @@ Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel
 
 La compatibilidad con AMQP 1.0 del Bus de servicio implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
-En este artículo se explica cómo utilizar las características de mensajería de Service Bus (colas y temas de publicación o suscripción) desde aplicaciones de Java mediante el popular estándar de API de Java Message Service (JMS). Existe otro [artículo complementario](service-bus-dotnet-advanced-message-queuing.md) en el que se explica cómo hacer lo mismo utilizando la API de .NET de Service Bus. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
+En este artículo se explica cómo utilizar las características de mensajería de Service Bus (colas y temas de publicación o suscripción) desde aplicaciones de Java mediante el popular estándar de API de Java Message Service (JMS). Existe otro [artículo complementario](service-bus-amqp-dotnet.md) en el que se explica cómo hacer lo mismo utilizando la API de .NET de Service Bus. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Introducción al Bus de servicio
 En esta guía se asume que ya dispone de un espacio de nombres de Service Bus con una cola denominada **queue1**. Si no es así, puede [crear el espacio de nombres y la cola](service-bus-create-namespace-portal.md) con ayuda de [Azure Portal](https://portal.azure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Service Bus, vea [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
@@ -109,7 +111,7 @@ Donde **[jndi\_name]** and **[physical\_name]** tienen los significados siguient
 * **[physical_name]**: nombre de la entidad de Service Bus a la que la aplicación envía mensajes o de la que los recibe.
 
 > [!NOTE]
-> al recibir de una suscripción al tema del Bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md) proporciona más información acerca de cómo trabajar con las suscripciones a temas de Service Bus desde JMS.
+> al recibir de una suscripción al tema del Bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md) proporciona más información sobre cómo trabajar con temas de Service Bus desde JMS.
 > 
 > 
 
@@ -247,9 +249,7 @@ exit
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Mensajería de diferentes plataformas entre JMS y .NET
 Esta guía le ha mostrado cómo enviar y recibir mensajes con el Bus de servicio como origen y destino usando JMS. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
 
-Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con Service Bus .NET y AMQP 1.0](service-bus-dotnet-advanced-message-queuing.md), es posible intercambiar mensajes entre .NET y Java. 
-
-Para obtener más información acerca de la mensajería entre distintas plataformas mediante Service Bus y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md).
+Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de un artículo complementario, [Uso de Service Bus desde .NET con AMQP 1.0](service-bus-amqp-dotnet.md), es posible intercambiar mensajes entre .NET y Java. Lea este artículo para obtener más información sobre la mensajería multiplataforma mediante Service Bus y AMQP 1.0.
 
 ### <a name="jms-to-net"></a>De JMS a .NET
 Para comprobar cómo funciona la mensajería de JMS a .NET:
@@ -319,7 +319,7 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 ## <a name="summary"></a>Resumen
 En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.
 
-También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md).
+También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Compatibilidad de AMQP 1.0 en Azure Service Bus](service-bus-amqp-overview.md)
@@ -327,10 +327,5 @@ También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como
 * [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de desarrolladores de Java](https://azure.microsoft.com/develop/java/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

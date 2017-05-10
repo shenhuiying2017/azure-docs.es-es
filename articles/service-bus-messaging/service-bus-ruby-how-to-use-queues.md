@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 9f0eb5a265777bdf249c46c41a065ef427fac920
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -33,7 +35,7 @@ Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos e
 Cree una aplicación de Ruby. Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
-Para usar el Bus de servicio de Azure, descargue y use el paquete Ruby Azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
+Para usar Azure Service Bus, descargue y use el paquete de Ruby para Azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Uso de RubyGems para obtener el paquete
 1. Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix).
@@ -112,7 +114,7 @@ El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin prob
 
 También hay otro tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete\_queue\_message()**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **message\_id** del mensaje, que permanece constante en todos los intentos de entrega.
+En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete\_queue\_message()**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **message\_id** del mensaje, que permanece constante en todos los intentos de entrega.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
@@ -121,10 +123,5 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 * Visite el repositorio de [SDK de Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) en GitHub.
 
 Para ver una comparación entre las colas de Azure Service Bus de este artículo y el servicio de colas de Azure que se describe en el artículo [Uso del almacenamiento de colas de Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), vea [Colas de Service Bus y colas de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

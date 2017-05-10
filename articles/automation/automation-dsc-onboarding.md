@@ -13,10 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
-ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -136,7 +137,7 @@ Se pueden implementar máquinas virtuales de Azure e incorporarlas a DSC de Auto
 
 ### <a name="powershell"></a>PowerShell
 
-El cmdlet [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
+El cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Máquinas virtuales de Amazon Web Services (AWS)
 
@@ -161,7 +162,7 @@ Las máquinas con Windows locales y las ubicadas en nubes que no sean de Azure (
 
 Las máquinas de Linux locales, de Azure y ubicadas en nubes que no sean de Azure también se pueden incorporar a DSC de Automatización de Azure, siempre y cuando tengan acceso saliente a Internet, en unos pocos pasos sencillos:
 
-1. Asegúrese de que la versión más reciente del [agente de Linux de DSC](http://www.microsoft.com/download/details.aspx?id=49150) esté instalada en las máquinas que desee incorporar a DSC de Automatización de Azure.
+1. Asegúrese de que la versión más reciente d [Desired State Configuration de PowerShell para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) esté instalada en las máquinas que desee incorporar a DSC de Azure Automation.
 2. Si los [valores predeterminados del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) coinciden con su caso de uso, y quiere incorporar máquinas de modo que **tanto** extraigan información del DSC de Automatización de Azure como que envíen informes allí:
 
    + En cada máquina con Linux que vaya a incorporar a DSC de Automatización de Azure, use Register.py para incorporarla con los valores predeterminados del Administrador de configuración local de DSC de PowerShell:
@@ -390,6 +391,6 @@ El nuevo registro se puede realizar tal y como registró el nodo inicialmente, c
 ## <a name="related-articles"></a>Artículos relacionados
 
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
-* [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Cmdlets de DSC de Automatización de Azure](/powershell/module/azurerm.automation/#automation)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 

@@ -15,10 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: eadd300dcda2f160589c5e8e4fb7508445ef9944
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 06183c5e1b61c47a7229c2abcc64217ee57c2bac
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/10/2017
 En este artículo se explica describe la exportación de una base de datos de Azure SQL Database a un archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). En este artículo se tratan los siguientes métodos:
 - [Azure Portal](https://portal.azure.com)
 - la utilidad de línea de comandos [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx)
-- el cmdlet [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport)
+- el cmdlet [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport)
 - el Asistente para [exportación de una aplicación de capa de datos](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 > [!IMPORTANT] 
@@ -76,13 +77,19 @@ Para exportar una base de datos SQL mediante la utilidad de línea de comandos [
 
 Se recomienda usar la utilidad SQLPackage para la escala y el rendimiento en la mayoría de los entornos de producción. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
 
+Este ejemplo muestra cómo exportar una base de datos con SqlPackage.exe con Autenticación universal de Active Directory:
+
+```cmd
+SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
+```
+
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
 Las versiones más recientes de SQL Server Management Studio también proporcionan un asistente para exportar una base de datos de Azure SQL Database a un archivo bacpac. Consulte [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) (Exportación de una aplicación de la capa de datos).
 
 ## <a name="powershell"></a>PowerShell
 
-Use el cmdlet [AzureRmSqlDatabaseImport New](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) para enviar una solicitud de exportación base de datos al servicio Azure SQL Database. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
+Use el cmdlet [AzureRmSqlDatabaseImport New](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) para enviar una solicitud de exportación base de datos al servicio Azure SQL Database. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -90,7 +97,7 @@ Use el cmdlet [AzureRmSqlDatabaseImport New](https://docs.microsoft.com/powershe
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-Para comprobar el estado de la solicitud de exportación, utilice el cmdlet [AzureRmSqlDatabaseImportExportStatus Get](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus). Si se ejecuta inmediatamente después de la solicitud, normalmente devuelve **Status: InProgress**. Cuando vea **Estado: Correcto**, la exportación se habrá completado.
+Para comprobar el estado de la solicitud de exportación, utilice el cmdlet [AzureRmSqlDatabaseImportExportStatus Get](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus). Si se ejecuta inmediatamente después de la solicitud, normalmente devuelve **Status: InProgress**. Cuando vea **Estado: Correcto**, la exportación se habrá completado.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

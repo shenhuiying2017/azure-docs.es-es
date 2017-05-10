@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: a655c7bf1ea5ca1439d4353df5067c0e07f2d49f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,6 +26,10 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="overview"></a>Información general
 En este artículo se describe cómo reproteger máquinas virtuales desde Azure al sitio local. Siga las instrucciones que se describen en este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error del sitio local a Azure según [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-failover.md).
+
+> [!WARNING]
+> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación.
+
 
 Una vez que la reprotección haya finalizado y las máquinas virtuales protegidas se estén replicando, puede iniciar una conmutación por recuperación en las máquinas virtuales para llevarlas al sitio local.
 
@@ -38,7 +43,10 @@ El siguiente vídeo es una breve introducción a la conmutación por error de Az
 A continuación, se describen los requisitos previos que debe llevar a cabo o considerar cuando se prepare para una reprotección.
 
 * Si las máquinas virtuales que desea conmutar por recuperación las administra un servidor vCenter, debe asegurarse de tener los permisos necesarios para la detección de máquinas virtuales en servidores vCenter. [Más información](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* Si existen instantáneas en la máquina virtual local, la reprotección dará error. Puede eliminar las instantáneas antes de llevar a cabo la reprotección.
+
+> [!WARNING] 
+> Si existen instantáneas en el destino maestro local o la máquina virtual, la reprotección no se realizará correctamente. Puede eliminar las instantáneas del destino maestro antes de continuar con la reprotección. Las instantáneas de la máquina virtual se combinarán automáticamente durante el trabajo de reprotección.
+
 * Antes de conmutar por recuperación, deberá crear dos componentes adicionales:
   * **Crear un servidor de procesos**. El servidor de procesos recibe datos de la máquina virtual protegida en Azure y los envía al sitio local. Se requiere una red de baja latencia entre el servidor de procesos y la máquina virtual protegida. Por lo tanto, puede tener un servidor de procesos local si está utilizando una conexión Azure ExpressRoute o un servidor de procesos de Azure si está usando una VPN.
   * **Crear un servidor de destino principal**: este servidor recibe datos de conmutación por recuperación. El servidor de administración local que creó tiene instalado de forma predeterminada un servidor de destino maestro. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino principal distinto para esta operación.
@@ -176,6 +184,8 @@ También puede volver a proteger en el nivel de plan de recuperación. Solo se p
 > [!NOTE]
 > Un grupo de replicación debe volver a protegerse con el mismo destino maestro. Si se ha vuelto a proteger con un servidor de destino maestro distinto, el servidor no puede proporcionar un momento dado común.
 
+> [!NOTE]
+> La máquina virtual local se apagará durante la reprotección. Esto se hace para garantizar la coherencia de datos durante la replicación. No active la máquina virtual una vez finalizada de reprotección.
 
 Una vez que la reprotección se haya completado correctamente, la máquina virtual entrará en un estado protegido.
 

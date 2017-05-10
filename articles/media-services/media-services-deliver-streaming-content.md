@@ -1,5 +1,5 @@
 ---
-title: "Publicación de contenido de Servicios multimedia de Azure con.NET"
+title: "Publicación de contenido de Azure Media Services mediante .NET | Microsoft Docs"
 description: "Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET."
 author: juliako
 manager: erikre
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 37f6cd3a25c36fe27c9c711a430a2fc11e50906e
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -53,7 +54,7 @@ Para crear el localizador de streaming a petición y obtener las direcciones URL
 
 
 >[!NOTE]
->Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Utilice el mismo identificador de directiva si siempre usa los mismos días o permisos de acceso. Por ejemplo, directivas para localizadores que van a permanecer durante mucho tiempo (directivas no de carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
 ### <a name="use-media-services-net-sdk"></a>Uso del SDK de .NET de Servicios multimedia
 Generación de direcciones URL de streaming 
@@ -95,7 +96,7 @@ Generación de direcciones URL de streaming
         Console.WriteLine();
     }
 
-El código produce la salida siguiente:
+Las salidas:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -106,7 +107,7 @@ El código produce la salida siguiente:
 
 
 > [!NOTE]
-> También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
+> También puede transmitir el contenido por una conexión SSL. Para llevar a cabo este enfoque, asegúrese de que las direcciones URL de streaming comienzan por HTTPS. Actualmente, AMS no admite SSL con dominios personalizados.
 > 
 > 
 
@@ -140,7 +141,7 @@ Creación de direcciones URL de descarga progresiva
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-El código produce la salida siguiente:
+Las salidas:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -175,8 +176,8 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
-[Descarga de recursos](media-services-deliver-asset-download.md)
-[Configuración de directivas de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="next-steps"></a>Pasos siguientes
+* [Descarga de activos](media-services-deliver-asset-download.md)
+* [Configuración de directivas de entrega de activos](media-services-dotnet-configure-asset-delivery-policy.md)
 
 

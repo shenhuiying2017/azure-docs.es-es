@@ -12,31 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/27/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: e74f3f7ed4ab0a7a37047b1277e76b6695f3884f
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="azure-network-security-overview"></a>Azure Network Security Overview (Información general sobre Azure Network Security)
 Microsoft Azure incluye una sólida infraestructura de red que respalda sus requisitos de conectividad de aplicaciones y servicios. Es posible la conectividad de red entre recursos ubicados en Azure, entre recursos locales y hospedados en Azure y entre Internet y Azure.
 
-El objetivo de este artículo es que pueda comprender de forma más fácil lo que ofrece Microsoft Azure en el área de la seguridad de red. Aquí ofrecemos una explicación básica de los conceptos y requisitos fundamentales de la seguridad de red. También proporcionamos información sobre lo que ofrece Azure en cada una de estas áreas. Se incluyen numerosos vínculos a otro contenido que le permitirá comprender mejor las áreas en las que está interesado.
+El objetivo de este artículo es que pueda comprender de forma más fácil lo que ofrece Microsoft Azure en el área de la seguridad de red. Aquí ofrecemos una explicación básica de los conceptos y requisitos fundamentales de la seguridad de red. También proporcionamos información sobre lo que Azure ofrece en cada una de estas áreas, así como vínculos para ayudarle a obtener una comprensión más profunda de las áreas de interés.
 
-Este artículo de información general sobre la seguridad de red en Azure se centra en los siguientes temas:
+Este artículo de información general sobre la seguridad de red en Azure se centra en las siguientes áreas:
 
 * Redes de Azure
-* Azure Network Watcher
 * Control de acceso de red
 * Protección del acceso remoto y la conectividad local
 * Disponibilidad
-* Registro
 * Resolución de nombres
 * Arquitectura de red perimetral (DMZ)
-* Azure Security Center
+* Detección de amenazas y supervisión
+
 
 ## <a name="azure-networking"></a>Redes de Azure
 Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una red virtual de Azure. Una red virtual de Azure es una construcción lógica creada encima del tejido de red físico de Azure. Cada red virtual lógica de Azure está aislada de todas las demás redes virtuales de Azure. Esto contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
@@ -45,29 +45,18 @@ Más información:
 
 * [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
 
-## <a name="azure-network-watcher"></a>Azure Network Watcher
-Azure Network Watcher incluye un gran número de funcionalidades de supervisión de red que le ayudarán a solucionar problemas, así como proporcionar un nuevo conjunto completo de herramientas que le ayudarán a identificar los problemas de seguridad.
-
-[La vista de grupo de seguridad ](/network-watcher/network-watcher-security-group-view-overview.md) ayuda con el cumplimiento de seguridad y auditoría de las máquinas virtuales y puede usarse para realizar auditorías mediante programación al comparar las directivas de las líneas de base definidas por su organización con las reglas vigentes para cada una de las máquinas virtuales. Esto puede ayudarle a identificar cualquier cambio en la configuración.
-
-La [captura de paquetes](/network-watcher/network-watcher-packet-capture-overview.md) le permite capturar el tráfico de red hacia y desde la máquina virtual. Además de permitirle recopilar las estadísticas de la red y con la solución de problemas de captura de paquetes de problemas de la aplicación puede ser muy útil en la investigación de las intrusiones de red. También puede usar esta funcionalidad junto con Azure Functions para iniciar las capturas de red en respuesta a alertas específicas de Azure.
-
-Para más información sobre Azure Network Watcher y cómo comenzar a probar algunas de las funciones en los laboratorios, eche un vistazo a la [introducción sobre supervisión de Azure Network Watcher](/network-watcher/network-watcher-monitoring-overview.md)
-
->[!NOTE]
-Azure Network Watcher sigue en versión preliminar pública y puede no tener el mismo nivel de disponibilidad y confiabilidad que los servicios que están en versión de disponibilidad general. Puede que algunas características no se admitan, que tengan funcionalidades limitadas y que no estén disponibles en todas las ubicaciones de Azure. Para obtener las notificaciones más recientes sobre la disponibilidad y el estado de este servicio, consulte la página de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ## <a name="network-access-control"></a>Control de acceso de red
-El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una red virtual de Azure. El objetivo es garantizar que las máquinas virtuales y los servicios sean accesibles solo para los usuarios y dispositivos pertinentes. Los controles de acceso se basan en decisiones de permiso o denegación a y desde la máquina virtual o el servicio.
+El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una red virtual de Azure. El objetivo del control de acceso de red es limitar el acceso a las máquinas virtuales y los servicios a los usuarios y dispositivos aprobados. Los controles de acceso se basan en decisiones de permiso o denegación a y desde la máquina virtual o el servicio.
 
-Azure admite varios tipos de controles de acceso de red. Entre ellos se incluyen los siguientes:
+Azure admite varios tipos de controles de acceso de red, como:
 
 * Control de capa de red
 * Control de ruta y tunelización forzada
 * Dispositivos de seguridad de red virtual
 
 ### <a name="network-layer-control"></a>Control de capa de red
-Toda implementación segura requiere alguna medida de control del acceso a la red. El objetivo del control del acceso a la red es garantizar que las máquinas virtuales y los servicios de red que se ejecutan en ellas solo puedan comunicarse con otros dispositivos en red con los que necesiten comunicarse. Todos los demás intentos de conexión se bloquean.
+Toda implementación segura requiere alguna medida de control del acceso a la red. El objetivo del control de acceso de red es restringir la comunicación de la máquina virtual con los sistemas necesarios y que se bloqueen otros intentos de comunicación.
 
 Si necesita un control de acceso de nivel de red básico (basado en la dirección IP y los protocolos TCP o UDP), puede usar entonces grupos de seguridad de red. Un grupo de seguridad de red (NSG) es un firewall de filtrado de paquetes básico con estado que le permite controlar el acceso basado en una [5-tupla](https://www.techopedia.com/definition/28190/5-tuple). Los NSG no proporcionan inspección de nivel de aplicación ni controles de acceso autenticados.
 
@@ -76,13 +65,13 @@ Más información:
 * [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Control de ruta y tunelización forzada
-La posibilidad de controlar el comportamiento de enrutamiento en las redes virtuales de Azure es una funcionalidad crítica del control de acceso y la seguridad de red. Si el enrutamiento no está configurado correctamente, las aplicaciones y los servicios hospedados en la máquina virtual podrían conectarse a dispositivos no deseados, como por ejemplo, los que poseen y utilizan posibles atacantes.
+La posibilidad de controlar el comportamiento de enrutamiento en las redes virtuales de Azure es una funcionalidad crítica del control de acceso y la seguridad de red. Si el enrutamiento no está configurado correctamente, las aplicaciones y los servicios hospedados en la máquina virtual podrían conectarse a dispositivos no autorizados, incluidos los sistemas que son propiedad de atacantes potenciales u operados por ellos.
 
-Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de enrutamiento del tráfico de red en las redes virtuales de Azure. Por ejemplo, puede modificar las entradas de tabla de enrutamiento predeterminadas en la red virtual de Azure. El control del comportamiento de enrutamiento ayuda a garantizar que todo el tráfico procedente de un determinado dispositivo o grupo de dispositivos entra o sale de la red virtual de Azure a través de una ubicación específica.
+Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de enrutamiento del tráfico de red en las redes virtuales de Azure. Por ejemplo, puede modificar las entradas de tabla de enrutamiento predeterminadas en la red virtual de Azure. El control del comportamiento de enrutamiento ayuda a garantizar que todo el tráfico procedente de un determinado dispositivo o grupo de dispositivos entra o sale de la red virtual a través de una ubicación específica.
 
 Por ejemplo, suponga que tiene un dispositivo de seguridad de red virtual en la red virtual de Azure. Quiere asegurarse de que todo el tráfico que entra y sale de la red virtual de Azure pase por el dispositivo de seguridad virtual. Para ello, puede configurar [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) en Azure.
 
-[tunelización forzada](https://www.petri.com/azure-forced-tunneling) es un mecanismo que puede usar para tener la seguridad de que no se permite que sus servicios inicien una conexión con dispositivos en Internet. Tenga en cuenta que este proceso no es lo mismo que aceptar conexiones entrantes y luego responder a ellas. En este caso, los servidores web front-end tienen que responder a la solicitud de los hosts de Internet, así que se permite que el tráfico cuyo origen es Internet entre en estos servidores web y que dichos servidores respondan.
+[tunelización forzada](https://www.petri.com/azure-forced-tunneling) es un mecanismo que puede usar para tener la seguridad de que no se permite que sus servicios inicien una conexión con dispositivos en Internet. Tenga en cuenta que este proceso no es lo mismo que aceptar conexiones entrantes y luego responder a ellas. En este caso, los servidores web front-end tienen que responder a las solicitudes de los hosts de Internet, así que se permite que el tráfico cuyo origen es Internet entre en estos servidores web y que dichos servidores respondan.
 
 Lo que no quiere es permitir que un servidor web front-end inicie una solicitud saliente. Estas solicitudes pueden representar un riesgo para la seguridad porque estas conexiones podrían usarse para descargar software malintencionado. Incluso si quiere que estos servidores front-end inicien solicitudes salientes a Internet, puede que quiera obligarles a que pasen por los proxies web locales para así aprovechar el filtrado y el registro de direcciones URL.
 
@@ -106,7 +95,7 @@ Por ejemplo, sus requisitos de seguridad podrían incluir:
 * Control de acceso a las aplicaciones
 * Protección adicional de DDoS (encima de la protección de DDoS proporcionada por el mismo tejido de Azure)
 
-Puede tener acceso a estas características de seguridad de red mejoradas mediante el uso de una solución de socio de Azure. Para encontrar las soluciones de seguridad de red de socios más actuales de Azure, visite [Azure Marketplace](https://azure.microsoft.com/marketplace/) y busque "seguridad" y "seguridad de la red".
+Puede tener acceso a estas características de seguridad de red mejoradas mediante el uso de una solución de socio de Azure. Para encontrar las soluciones de seguridad de red de asociados más actuales de Azure, visite [Azure Marketplace](https://azure.microsoft.com/marketplace/) y busque "seguridad" y "seguridad de la red".
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Acceso remoto seguro y conectividad entre entornos
 La instalación, la configuración y la administración de los recursos de Azure se han de realizar de forma remota. Además, puede que quiera implementar soluciones de [TI híbrida](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) que tengan componentes locales y en la nube pública de Azure. Estos escenarios requieren acceso remoto seguro.
@@ -128,7 +117,7 @@ Más información:
 * [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Conexión de la red local a una red virtual de Azure con una VPN
-Quizás quiera conectar la red corporativa completa, o algunas de sus partes, a una red virtual de Azure. Esto es habitual en escenarios de TI híbridos donde las empresas [amplían su centro de datos local a Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). En muchos casos, las empresas hospedarán partes de un servicio en Azure y partes en el entorno local, como cuando una solución incluye servidores web front-end en Azure y bases de datos de back-end en local. Este tipo de conexiones "entre locales" también hace que la administración de recursos ubicados en Azure sea más segura y permite escenarios como la ampliación de controladores de dominio de Active Directory a Azure.
+Quizás quiera conectar la red corporativa completa, o algunas de sus partes, a una red virtual de Azure. Esto es habitual en escenarios de TI híbridos donde las empresas [amplían su centro de datos local a Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). En muchos casos, las empresas hospedarán partes de un servicio en Azure y partes en el entorno local, como cuando una solución incluye servidores web front-end en Azure y bases de datos de back-end en local. Estos tipos de conexiones "entre locales" también hacen que la administración de recursos ubicados en Azure sea más segura y permiten escenarios como la ampliación de controladores de dominio de Active Directory a Azure.
 
 Una manera de lograr esto es usar una [VPN de sitio a sitio](https://www.techopedia.com/definition/30747/site-to-site-vpn). La diferencia entre una VPN de sitio a sitio y una VPN de punto a sitio es que la segunda conecta un único dispositivo a una red virtual de Azure, mientras que la primera conecta una red entera (por ejemplo, la red local) a una red virtual de Azure. Las VPN de sitio a sitio a una red virtual de Azure emplean el protocolo VPN de modo de túnel IPsec de alta seguridad.
 
@@ -156,7 +145,7 @@ Una opción sería conectar los servicios de una red virtual de Azure con los se
 
 Una opción mejor podría ser crear una VPN de sitio a sitio entre redes virtuales de Azure. Esta VPN usa el mismo protocolo de [modo de túnel IPsec](https://technet.microsoft.com/library/cc786385.aspx) que la conexión VPN de sitio a sitio entre locales mencionada anteriormente.
 
-La ventaja de utilizar una VPN de sitio a sitio entre redes virtuales de Azure es que la conexión VPN se establece a través del tejido de red de Azure y no por Internet. Esto proporciona un nivel adicional de seguridad en comparación con las VPN de sitio a sitio que se conectan a través de Internet.
+La ventaja de utilizar una VPN de sitio a sitio entre redes virtuales de Azure es que la conexión VPN se establece a través del tejido de red de Azure y no mediante la conexión a través de Internet. Esto proporciona un nivel adicional de seguridad en comparación con las VPN de sitio a sitio que se conectan a través de Internet.
 
 Más información:
 
@@ -214,19 +203,6 @@ Más información:
 
 * [¿Qué es el Administrador de tráfico?](../traffic-manager/traffic-manager-overview.md)
 
-## <a name="logging"></a>Registro
-El registro en el nivel de red es una función clave en cualquier escenario de seguridad de red. En Azure, puede registrar la información obtenida de los grupos de seguridad de red a fin de obtener información de registro de nivel de red. Con el registro de NSG, obtiene información de:
-
-* [Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md): estos registros se utilizan para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure. Anteriormente se les llamaba "Registros de auditoría" o "Registros operativos".
-* Los registros de eventos: estos registros proporcionan información sobre las reglas NSG que se aplicaron.
-* Registros de contador: estos registros le permiten saber cuántas veces se aplica cada regla de grupos de seguridad de red para denegar o permitir el tráfico.
-
-También puede usar [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), una eficaz herramienta de visualización de datos, para ver y analizar estos registros.
-
-Más información:
-
-* [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="name-resolution"></a>Resolución de nombres
 La resolución de nombres es una función crítica para todos los servicios hospedados en Azure. Desde una perspectiva de la seguridad, poner en peligro esta función puede dar lugar a que un atacante redirija las solicitudes de sus sitios al sitio de dicho individuo. Proteger la resolución de nombres es un requisito de todos los servicios hospedados en la nube.
@@ -270,8 +246,25 @@ Más información:
 
 * [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
 
-## <a name="azure-security-center"></a>Azure Security Center
-Security Center ayuda a evitar amenazas y a detectar y responder a estas, y proporciona una mayor visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+
+## <a name="monitoring-and-threat-detection"></a>Detección de amenazas y supervisión
+
+Azure proporciona funcionalidades para ayudarle en esta área clave con la detección temprana, la supervisión y la capacidad de recopilar y revisar el tráfico de red.
+
+### <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher incluye un gran número de funcionalidades que le ayudarán a solucionar problemas, así como a proporcionar un nuevo conjunto completo de herramientas que le ayudarán a identificar los problemas de seguridad.
+
+[La vista de grupo de seguridad ](/network-watcher/network-watcher-security-group-view-overview.md) ayuda con el cumplimiento de seguridad y auditoría de las máquinas virtuales y puede usarse para realizar auditorías mediante programación al comparar las directivas de las líneas de base definidas por su organización con las reglas vigentes para cada una de las máquinas virtuales. Esto puede ayudarle a identificar cualquier cambio en la configuración.
+
+La [captura de paquetes](/network-watcher/network-watcher-packet-capture-overview.md) le permite capturar el tráfico de red hacia y desde la máquina virtual. Además de permitirle recopilar las estadísticas de la red y con la solución de problemas de captura de paquetes de problemas de la aplicación puede ser muy útil en la investigación de las intrusiones de red. También puede usar esta funcionalidad junto con Azure Functions para iniciar las capturas de red en respuesta a alertas específicas de Azure.
+
+Para más información sobre Azure Network Watcher y cómo comenzar a probar algunas de las funciones en los laboratorios, eche un vistazo a la [introducción sobre supervisión de Azure Network Watcher](/network-watcher/network-watcher-monitoring-overview.md)
+
+>[!NOTE]
+Azure Network Watcher sigue en versión preliminar pública y puede no tener el mismo nivel de disponibilidad y confiabilidad que los servicios que están en versión de disponibilidad general. Puede que algunas características no se admitan, que tengan funcionalidades limitadas y que no estén disponibles en todas las ubicaciones de Azure. Para obtener las notificaciones más recientes sobre la disponibilidad y el estado de este servicio, consulte la página de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=network-watcher).
+
+### <a name="azure-security-center"></a>Azure Security Center
+Security Center ayuda a evitar amenazas y a detectar y responder a estas, y proporciona una mayor visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio conjunto de soluciones de seguridad.
 
 Azure Security Center le ayuda a optimizar y controlar la seguridad de la red al:
 
@@ -282,4 +275,18 @@ Azure Security Center le ayuda a optimizar y controlar la seguridad de la red al
 Más información:
 
 * [Introducción al Centro de seguridad de Azure](../security-center/security-center-intro.md)
+
+
+### <a name="logging"></a>Registro
+El registro en el nivel de red es una función clave en cualquier escenario de seguridad de red. En Azure, puede registrar la información obtenida de los grupos de seguridad de red a fin de obtener información de registro de nivel de red. Con el registro de NSG, obtiene información de:
+
+* [Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md): estos registros se utilizan para ver todas las operaciones enviadas a las suscripciones de Azure. Estos registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure. Anteriormente se les llamaba "Registros de auditoría" o "Registros operativos".
+* Los registros de eventos: estos registros proporcionan información sobre las reglas NSG que se aplicaron.
+* Registros de contador: estos registros le permiten saber cuántas veces se aplica cada regla de grupos de seguridad de red para denegar o permitir el tráfico.
+
+También puede usar [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), una eficaz herramienta de visualización de datos, para ver y analizar estos registros.
+
+Más información:
+
+* [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
 

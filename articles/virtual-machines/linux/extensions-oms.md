@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 05f823955eb5c47ce024c2b7d246e361e1302d78
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -144,13 +145,16 @@ Al colocar la plantilla JSON de la extensión en la raíz de la plantilla, el no
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
 
-La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de OMS en una máquina virtual. Antes de implementar la extensión del agente de OMS, cree unos archivos public.json y protected.json. El esquema de estos archivos se detalla anteriormente en este documento.
+La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de OMS en una máquina virtual. Reemplace la clave OMS y el identificador de OMS por los de su área de trabajo OMS. 
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
-  --public-config-path public.json  \
-  --private-config-path protected.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --version 1.0 --protected-settings '{"workspaceKey": "omskey"}' \
+  --settings '{"workspaceId": "omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
@@ -160,7 +164,7 @@ azure vm extension set myResourceGroup myVM \
 Los datos sobre el estado de las implementaciones de extensiones pueden recuperarse desde Azure Portal y mediante la CLI de Azure. Para ver el estado de implementación de las extensiones de una máquina virtual determinada, ejecute el comando siguiente con la CLI de Azure.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 El resultado de la ejecución de las extensiones se registra en el archivo siguiente:

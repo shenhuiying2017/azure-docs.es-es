@@ -1,5 +1,5 @@
 ---
-title: "PingAccess para el proxy de la aplicación de Azure AD | Microsoft Docs"
+title: "Autenticación basada en encabezados con PingAccess para el proxy de la aplicación de Azure AD | Microsoft Docs"
 description: "Publique aplicaciones con PingAccess y el proxy de la aplicación que admitan la autenticación basada en encabezados."
 services: active-directory
 documentationcenter: 
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8db76d1f83cdf1cf53ddd1e9c69c56400d04af2d
+ms.contentlocale: es-es
+ms.lasthandoff: 04/29/2017
 
 ---
 
-# <a name="publish-applications-that-support-header-based-authentication-with-pingaccess-for-azure-ad"></a>Publicación de aplicaciones que admiten autenticación basada en encabezados con PingAccess para Azure AD
+# <a name="publish-applications-that-support-header-based-authentication-with-azure-ad-application-proxy-and-pingaccess"></a>Publicación de aplicaciones que admiten autenticación basada en encabezados con PingAccess y el proxy de la aplicación de Azure AD
 
 El proxy de la aplicación Azure Active Directory y PingAccess se han asociado para proporcionar a los clientes de Azure Active Directory acceso a más aplicaciones. PingAccess expande las [ofertas actuales del proxy de la aplicación](active-directory-application-proxy-get-started.md) para incluir el acceso remoto a aplicaciones que utilizan encabezados para la autenticación. 
 
@@ -73,7 +74,7 @@ Esta sección tiene dos partes. En primer lugar, es preciso publicar la aplicaci
   - **Método de autenticación previa**: Azure Active Directory.
   - **Traducir URL en encabezados**: No.
 6. Seleccione **Agregar** en la parte inferior de la hoja. Se agrega la aplicación y se abre el menú de inicio rápido. 
-7. En dicho menú, seleccione **Asignar un usuario para las pruebas** y agregue al menos un usuario a la aplicación. Asegúrese de que esta cuenta de prueba tiene acceso a la aplicación local. 
+7. En dicho menú, seleccione **Asignar un usuario para las pruebas**  y agregue al menos un usuario a la aplicación. Asegúrese de que esta cuenta de prueba tiene acceso a la aplicación local. 
 8. Seleccione **Asignar** para guardar la asignación del usuario de prueba. 
 9. En la hoja de administración de la aplicación, seleccione **Inicio de sesión único**. 
 10. Elija **Header-based sign-on** (Inicio de sesión basado en encabezado) en el menú desplegable. Seleccione **Guardar**.

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/05/2017
-ms.author: suchia
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 89eca322062f5e5c51142b2cc9e758004583cb3f
-ms.lasthandoff: 04/03/2017
+ms.date: 04/20/2017
+ms.author: suchiagicha
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 53119244f8f09c0c6c43f43761af1cc074f8d0af
+ms.contentlocale: es-es
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/03/2017
 La seguridad es uno de los aspectos más importantes de la comunicación. El marco de trabajo de la aplicación de Reliable Services proporciona una serie de pilas de comunicación creadas previamente y herramientas que puede utilizar para mejorar la seguridad. En este artículo, se explica cómo mejorar la seguridad cuando se utiliza la pila de comunicación de Windows Communication Foundation (WCF) y de comunicación remota para los servicios.
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Ayuda para garantizar un servicio cuando usa la comunicación remota para los servicios
-Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remoting.md) existente que explica cómo configurar la comunicación remota para Reliable Services Para ayudar a garantizar un servicio cuando usa la comunicación remota para los servicios, siga estos pasos:
+Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remoting.md) existente que explica cómo configurar la comunicación remota para Reliable Services. Para ayudar a garantizar un servicio cuando usa la comunicación remota para los servicios, siga estos pasos:
 
 1. Cree una interfaz, `IHelloWorldStateful`, que defina los métodos que estarán disponibles para la llamada a procedimiento remoto en su servicio. El servicio usará `FabricTransportServiceRemotingListener`, que se declara en el espacio de nombres `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Se trata de una implementación de `ICommunicationListener` que ofrece capacidades de comunicación remota.
 
@@ -65,7 +66,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
        {
-           FabricTransportListenerSettings listenerSettings = new FabricTransportListenerSettings
+           FabricTransportRemotingListenerSettings  listenerSettings = new FabricTransportRemotingListenerSettings
            {
                MaxMessageSize = 10000000,
                SecurityCredentials = GetSecurityCredentials()
@@ -89,6 +90,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
                ProtectionLevel = ProtectionLevel.EncryptAndSign
            };
            x509Credentials.RemoteCommonNames.Add("ServiceFabric-Test-Cert");
+           x509Credentials.RemoteCertThumbprints.Add("9FEF3950642138446CC364A396E1E881DB76B483");
            return x509Credentials;
        }
        ```
@@ -97,13 +99,12 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
        Agregue una sección `TransportSettings` en el archivo settings.xml.
 
        ```xml
-       <!--Section name should always end with "TransportSettings".-->
-       <!--Here we are using a prefix "HelloWorldStateful".-->
        <Section Name="HelloWorldStatefulTransportSettings">
            <Parameter Name="MaxMessageSize" Value="10000000" />
            <Parameter Name="SecurityCredentialsType" Value="X509" />
            <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
            <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+           <Parameter Name="CertificateRemoteThumbprints" Value="9FEF3950642138446CC364A396E1E881DB76B483" />
            <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
            <Parameter Name="CertificateStoreName" Value="My" />
            <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
@@ -120,15 +121,15 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
            {
                new ServiceReplicaListener(
                    (context) => new FabricTransportServiceRemotingListener(
-                       context,this,FabricTransportListenerSettings.LoadFrom("HelloWorldStateful")))
+                       context,this,FabricTransportRemotingListenerSettings .LoadFrom("HelloWorldStatefulTransportSettings")))
            };
        }
        ```
 
-        Si agrega una sección `TransportSettings` en el archivo settings.xml sin ningún prefijo, `FabricTransportListenerSettings` cargará toda la configuración de esta sección de forma predeterminada.
+        Si agrega una sección `TransportSettings` en el archivo settings.xml, `FabricTransportRemotingListenerSettings ` cargará toda la configuración de esta sección de forma predeterminada.
 
         ```xml
-        <!--"TransportSettings" section without any prefix.-->
+        <!--"TransportSettings" section .-->
         <Section Name="TransportSettings">
             ...
         </Section>
@@ -146,21 +147,22 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
             };
         }
         ```
-3. Al invocar métodos en un servicio protegido con una pila de comunicación remota, en lugar de utilizar la clase `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` para crear un proxy de servicio, utilice `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Pase `FabricTransportSettings`, que contiene `SecurityCredentials`.
+3. Al invocar métodos en un servicio protegido con una pila de comunicación remota, en lugar de utilizar la clase `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` para crear un proxy de servicio, utilice `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Pase `FabricTransportRemotingSettings`, que contiene `SecurityCredentials`.
 
     ```csharp
 
     var x509Credentials = new X509Credentials
     {
         FindType = X509FindType.FindByThumbprint,
-        FindValue = "4FEF3950642138446CC364A396E1E881DB76B48C",
+        FindValue = "9FEF3950642138446CC364A396E1E881DB76B483",
         StoreLocation = StoreLocation.LocalMachine,
         StoreName = "My",
         ProtectionLevel = ProtectionLevel.EncryptAndSign
     };
     x509Credentials.RemoteCommonNames.Add("ServiceFabric-Test-Cert");
+    x509Credentials.RemoteCertThumbprints.Add("4FEF3950642138446CC364A396E1E881DB76B48C");
 
-    FabricTransportSettings transportSettings = new FabricTransportSettings
+    FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
     {
         SecurityCredentials = x509Credentials,
     };
@@ -175,12 +177,11 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
 
     ```
 
-    Si el código de cliente se ejecuta como parte de un servicio, puede cargar la clase `FabricTransportSettings` desde el archivo settings.xml. Cree una sección TransportSettings similar al código de servicio, tal y como se mostró anteriormente. Realice los siguientes cambios en el código de cliente:
+    Si el código de cliente se ejecuta como parte de un servicio, puede cargar la clase `FabricTransportRemotingSettings` desde el archivo settings.xml. Cree una sección HelloWorldClientTransportSettings similar al código de servicio, tal y como se mostró anteriormente. Realice los siguientes cambios en el código de cliente:
 
     ```csharp
-
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
-        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportSettings.LoadFrom("TransportSettingsPrefix")));
+        (c) => new FabricTransportServiceRemotingClientFactory(FabricTransportRemotingSettings.LoadFrom("HelloWorldClientTransportSettings")));
 
     IHelloWorldStateful client = serviceProxyFactory.CreateServiceProxy<IHelloWorldStateful>(
         new Uri("fabric:/MyApplication/MyHelloWorldService"));
@@ -191,7 +192,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
 
     Si el cliente no se está ejecutando como parte de un servicio, puede crear un archivo client_name.settings.xml en la misma ubicación donde se encuentra client_name.exe. A continuación, cree una sección TransportSettings en ese archivo.
 
-    De forma similar al servicio, si agrega una sección `TransportSettings` sin ningún prefijo en el archivo settings.xml/client_name.settings.xml del cliente, `FabricTransportSettings` cargará toda la configuración desde esta sección de forma predeterminada.
+    De forma similar al servicio, si agrega una sección `TransportSettings` en el archivo settings.xml/client_name.settings.xml del cliente, `FabricTransportRemotingSettings` cargará toda la configuración desde esta sección de forma predeterminada.
 
     En ese caso, el código anterior se simplifica más aún:  
 
@@ -205,7 +206,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
     ```
 
 ## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>Ayuda para garantizar un servicio cuando se utiliza una pila de comunicación basada en WCF
-Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-wcf.md) existente que explica cómo configurar una pila de comunicación basada en WCF para servicios de confianza. Para ayudar a garantizar un servicio cuando se utiliza una pila de comunicación basada en WCF, siga estos pasos:
+Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-wcf.md) existente que explica cómo configurar una pila de comunicación basada en WCF para Reliable Services. Para ayudar a garantizar un servicio cuando se utiliza una pila de comunicación basada en WCF, siga estos pasos:
 
 1. Para el servicio, debe ayudar a proteger el agente de escucha de comunicación WCF (`WcfCommunicationListener`) que cree. Para ello, modifique el método `CreateServiceReplicaListeners` .
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 18c7a013c01fee26c5455535af6d9fba2b98fac7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -50,7 +51,12 @@ Los eventos programados se presentan a todas las máquinas virtuales en un servi
 En el caso donde se crea una máquina virtual dentro de una red virtual (VNet), el servicio de metadatos está disponible en la dirección IP no enrutable 169.254.169.254. De lo contrario, en los casos predeterminados para los servicios en la nube y las VM clásicas, es necesaria una lógica adicional para detectar el punto de conexión que se va a utilizar. Consulte este ejemplo para aprender a [detectar el punto de conexión del host.] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### <a name="versioning"></a>Control de versiones 
-El servicio de metadatos usa una API con versión en el formato siguiente: http://{dirección ip}/metadata/{versión}/scheduledevents. Se recomienda que el servicio use la versión más reciente disponible en: http://{dirección ip}/metadata/latest/scheduledevents
+El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual es 2017-03-01.
+
+> [!NOTE] 
+> Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
+>
+
 
 ### <a name="using-headers"></a>Uso de encabezados
 Cuando consulta el Servicio de metadatos, debe proporcionar el siguiente encabezado*Metadata: true*. 
@@ -67,7 +73,8 @@ En ambos casos, la operación iniciada por el usuario tarda más tiempo en compl
 ### <a name="query-for-events"></a>Consulta de eventos
 Puede consultar los eventos programados; para ello, simplemente haga la siguiente llamada
 
-    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+    curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+
 
 Una respuesta contiene una matriz de eventos programados. Una matriz vacía significa que actualmente no hay eventos programados.
 En caso de que haya eventos programados, la respuesta contiene una matriz de eventos: 
@@ -136,7 +143,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events uri for VNET enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/latest/scheduledevents' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 
 # Get the document
@@ -170,7 +177,7 @@ El ejemplo siguiente es de un cliente que muestra API para comunicarse con Metad
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -293,7 +300,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -329,4 +336,5 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>Pasos siguientes 
 [Mantenimiento planeado de máquinas virtuales en Azure](linux/planned-maintenance.md)
+[Servicio de metadatos de la instancia](virtual-machines-instancemetadataservice-overview.md)
 

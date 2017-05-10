@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
-ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7562fbee15e4450542c2c17d8ae2a763a556a44f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -49,8 +51,10 @@ Aquí se muestran tres escenarios de ejemplo:
 
 Tenga en cuenta que los precios usados en los ejemplos son aplicables solo durante el período de versión preliminar y están sujetos a cambios durante la disponibilidad general de Conexiones híbridas.
 
-### <a name="how-are-wcf-relay-hours-calculated"></a>¿Cómo se calculan las horas de WCF Relay?
-Las horas de retransmisión se facturan según la cantidad acumulada de tiempo que permanece "abierta" cada retransmisión de Service Bus. Se crea una instancia de una retransmisión y se abre implícitamente en una determinada dirección de Service Bus (URL del espacio de nombres del servicio) siempre que un servicio WCF habilitado para la retransmisión, o "agente de escucha de retransmisión", se conecte primero a esa dirección. Se cierra solo cuando el último agente de escucha se desconecta de su dirección. Por tanto, para la facturación, una retransmisión se considera "abierta" desde el momento en que se conecta el primer agente de escucha de retransmisión hasta el momento en que el último agente de escucha de retransmisión se desconecta de la dirección de Service Bus de dicha retransmisión.
+### <a name="how-are-relay-hours-calculated"></a>¿Cómo se calculan las horas de retransmisión?
+Las horas de conexión híbrida y retransmisión de WCF se facturan según la cantidad acumulada de tiempo que permanece "abierta" cada Service Bus Relay. Se crea una instancia de una retransmisión y se abre implícitamente en una determinada dirección de Service Bus (URL del espacio de nombres del servicio) siempre que un servicio habilitado para la retransmisión, o "agente de escucha de retransmisión", se conecte primero a esa dirección. Se cierra solo cuando el último agente de escucha se desconecta de su dirección. Por tanto, para la facturación, una retransmisión se considera "abierta" desde el momento en que se conecta el primer agente de escucha de retransmisión hasta el momento en que el último agente de escucha de retransmisión se desconecta de la dirección de Service Bus de dicha retransmisión.
+
+Las retransmisiones de WCF solo están disponibles en los espacios de nombres de nivel Estándar. En cualquier otro caso, el precio y las [cuotas de conexión](../service-bus-messaging/service-bus-quotas.md) de las retransmisiones permanecen igual. Esto significa que las retransmisiones seguirán cobrándose según el número de mensajes (y no de operaciones) y las horas de retransmisión. Para más información, vea la tabla [Conexiones híbridas y retransmisiones de WCF](https://azure.microsoft.com/pricing/details/service-bus/) en la página de detalles de precios.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-given-relay"></a>¿Qué ocurre si tengo más de un agente de escucha conectado a una retransmisión determinada?
 En algunos casos, una sola retransmisión puede tener varios agentes de escucha conectados. Una retransmisión se considera "abierta" cuando al menos un agente de escucha de retransmisión está conectado a ella. Si se agregan más agentes de escucha a una retransmisión "abierta", obtendrá horas de retransmisión extra. El número de remitentes de retransmisión (clientes que invocan o envían mensajes a retransmisiones) conectados a una retransmisión tampoco no tiene ningún efecto en el cálculo de horas de retransmisión.
@@ -107,9 +111,4 @@ Sí. El cliente de Relay establece conexiones al servicio de Relay mediante nomb
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introducción a Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

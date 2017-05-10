@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: ryancraw
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -51,7 +52,7 @@ Ahora vamos a conectar la cola con el trabajo de Análisis de transmisiones que 
    * **Codificación**: UTF8
    * **FORMATO**: separado por líneas
 4. Haga clic en el botón **Crear** para agregar este origen y comprobar que Análisis de transmisiones puede conectarse correctamente a la cuenta de almacenamiento.
-5. En la pestaña **Consulta** , reemplace la consulta actual por la siguiente. Reemplace *[EL NOMBRE DEL BUS DE SERVICIO] * por el nombre de la salida que creó en el paso 3. 
+5. En la pestaña **Consulta** , reemplace la consulta actual por la siguiente. Reemplace *[EL NOMBRE DE SERVICE BUS] * por el nombre de la salida que creó en el paso 3. 
    
     ```    
    
@@ -188,7 +189,7 @@ Estamos entusiasmados con las nuevas acciones que Análisis de transmisiones y F
 
 Si es primera vez que usa Microsoft Azure, le invitamos a probarlo y registrarse para obtener una [cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). Si es primera vez que usa Análisis de transmisiones, le invitamos a [crear su primer trabajo de Análisis de transmisiones](stream-analytics-create-a-job.md).
 
-Si necesita ayuda o tiene alguna pregunta, publíquela en [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) o en los foros de [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+Si necesita ayuda o tiene alguna pregunta, publíquela en [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) o en los foros de [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 También puede consultar los siguientes recursos:
 

@@ -3,7 +3,7 @@ title: "Ventaja de uso híbrido de Azure para Windows Server y cliente de Window
 description: "Descubra cómo maximizar las ventajas de Software Assurance de Windows para incorporar licencias locales a Azure"
 services: virtual-machines-windows
 documentationcenter: 
-author: george-moore
+author: kmouss
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 4/10/2017
-ms.author: georgem
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 04f5fab5a27a28a0881d59b93451f4c3615692b4
-ms.lasthandoff: 04/13/2017
+ms.date: 5/1/2017
+ms.author: kmouss
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0854ceddc473a362221140f32b24138221a6f175
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,13 +45,13 @@ Para Windows Server:
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-2016-Datacenter versión 2016.127.20170406 o superior
+- 2016-Datacenter versión 2016.127.20170406 o superior
 
-2012-R2-Datacenter versión 4.127.20170406 o superior
+- 2012-R2-Datacenter versión 4.127.20170406 o superior
 
-2012-Datacenter versión 3.127.20170406 o superior
+- 2012-Datacenter versión 3.127.20170406 o superior
 
-2008-R2-SP1 versión 2.127.20170406 o superior
+- 2008-R2-SP1 versión 2.127.20170406 o superior
 
 Para cliente de Windows:
 ```powershell
@@ -61,7 +62,7 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
 ## <a name="upload-a-windows-vhd"></a>Carga de un VHD de Windows
 Para implementar una máquina virtual de Windows en Azure, primero debe crear un VHD que contenga la compilación de Windows base. Este VHD debe haberse preparado adecuadamente mediante Sysprep antes de cargarlo en Azure. También puede obtener más información tanto [sobre los requisitos de los discos duros virtuales y el proceso Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como sobre la [compatibilidad de Sysprep con los roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Cree una copia de seguridad de la VM antes de ejecutar Sysprep. 
 
-Asegúrese de que tiene [la versión de Azure PowerShell más reciente instalada y configurada](/powershell/azureps-cmdlets-docs). Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
+Asegúrese de que tiene [la versión de Azure PowerShell más reciente instalada y configurada](/powershell/azure/overview). Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -216,6 +217,35 @@ Para cliente de Windows:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
+
+## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Implemente un conjunto de escalado de máquinas virtuales con una plantilla de Resource Manager
+En las plantillas de Resource Manager del conjunto de escalado de máquinas virtuales, se puede especificar un parámetro adicional para `licenseType`. En [Creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md), puede encontrar más información al respecto. Edite la plantilla de Resource Manager para incluir la propiedad licenseType como parte de virtualMachineProfile del conjunto de escalado e implemente la plantilla como normal (vea el ejemplo siguiente en el que se utiliza la imagen de Windows Server 2016):
+
+
+```json
+"virtualMachineProfile": {
+    "storageProfile": {
+        "osDisk": {
+            "createOption": "FromImage"
+        },
+        "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2016-Datacenter",
+            "version": "latest"
+        }
+    },
+    "licenseType": "Windows_Server",
+    "osProfile": {
+            "computerNamePrefix": "[parameters('vmssName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+    }
+```
+
+> [!NOTE]
+> Próximamente estará disponible la compatibilidad para implementar un conjunto de escalado de máquinas virtuales con ventajas AHUB a través de PowerShell y otras herramientas SDK.
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre las [ventajas del uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

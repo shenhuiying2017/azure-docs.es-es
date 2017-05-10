@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/17/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: e9a91a9a933104e4f885b009490ec35468398662
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 5695d17360e75fd3ae7c76045500a2eb491eaa81
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Cómo equilibrar la carga de máquinas virtuales de Windows en Azure para crear una aplicación de alta disponibilidad
 En este tutorial, obtendrá información sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan alta disponibilidad. Para ver el equilibrador de carga en acción, se compila un sitio web de IIS simple que se ejecuta en tres máquinas virtuales (VM) Windows.
 
-Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="azure-load-balancer-overview"></a>Información general sobre Azure Load Balancer
@@ -33,13 +34,13 @@ Un equilibrador de carga de Azure es un equilibrador de carga de nivel 4 (TCP, U
 
 Se define una configuración de IP de front-end que contiene una o varias direcciones IP públicas. Esta configuración de IP de front-end permite que el equilibrador de carga y las aplicaciones sean accesibles a través de Internet. 
 
-Las máquinas virtuales se conectan a un equilibrador de carga mediante su tarjeta de interfaz de red virtual (NIC). Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red virtual (NIC) conectadas al equilibrador de carga.
+Las máquinas virtuales se conectan a un equilibrador de carga mediante su tarjeta de interfaz de red virtual (NIC). Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtual conectadas al equilibrador de carga.
 
 Para controlar el flujo de tráfico, se definen reglas de equilibrador de carga para determinados puertos y protocolos que se asignan a las máquinas virtuales.
 
 
 ## <a name="create-azure-load-balancer"></a>Crear un equilibrador de carga de Azure
-En esta sección se detalla cómo se puede crear y configurar cada componente del equilibrador de carga. Antes de poder crear el equilibrador de carga, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/resourcemanager/AzureRM.Resources/new-azurermresourcegroup). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroupLoadBalancer` en la ubicación `westus`:
+En esta sección se detalla cómo se puede crear y configurar cada componente del equilibrador de carga. Antes de poder crear el equilibrador de carga, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupLoadBalancer* en la ubicación *westus*:
 
 ```powershell
 New-AzureRmResourceGroup `
@@ -48,7 +49,7 @@ New-AzureRmResourceGroup `
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
-Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/new-azurermpublicipaddress). En el ejemplo siguiente se crea una dirección IP pública denominada `myPublicIP` en el grupo de recursos `myResourceGroupLoadBalancer`:
+Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). En el ejemplo siguiente se crea una dirección IP pública denominada *myPublicIP* en el grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```powershell
 $publicIP = New-AzureRmPublicIpAddress `
@@ -59,7 +60,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Crear un equilibrador de carga
-Cree una dirección IP de front-end con [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/resourcemanager/azurerm.network/new-azurermloadbalancerfrontendipconfig). En el ejemplo siguiente se crea una dirección IP de front-end denominada `myFrontEndPool`: 
+Cree una dirección IP de front-end con [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). En el ejemplo siguiente se crea una dirección IP de front-end denominada *myFrontEndPool*: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -67,13 +68,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Cree un grupo de direcciones de back-end con [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/resourcemanager/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). En el siguiente ejemplo se crea un grupo de direcciones de back-end denominado `myBackEndPool`:
+Cree un grupo de direcciones de back-end con [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). En el siguiente ejemplo se crea un grupo de direcciones de back-end denominado *myBackEndPool*:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Ahora, cree el equilibrador de carga con [New-AzureRmLoadBalancer](/powershell/resourcemanager/azurerm.network/new-azurermloadbalancer). En el ejemplo siguiente se crea un equilibrador de carga denominado `myLoadBalancer` utilizando la dirección `myPublicIP`:
+Ahora, cree el equilibrador de carga con [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). En el ejemplo siguiente se crea un equilibrador de carga denominado *myLoadBalancer* utilizando la dirección *myPublicIP*:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -87,12 +88,13 @@ $lb = New-AzureRmLoadBalancer `
 ### <a name="create-a-health-probe"></a>Creación de un sondeo de estado
 Para permitir que el equilibrador de carga supervise el estado de la aplicación, utilice un sondeo de estado. El sondeo de estado agrega o quita de forma dinámica las máquinas virtuales de la rotación del equilibrador de carga en base a su respuesta a las comprobaciones de estado. De forma predeterminada, una máquina virtual se quita de la distribución del equilibrador de carga después de dos errores consecutivos en un intervalo de 15 segundos. Cree un sondeo de estado en función de un protocolo o una página de comprobación de mantenimiento específica para la aplicación. 
 
-En el ejemplo siguiente se crea un sondeo de TCP. También se pueden crear sondeos HTTP personalizados para comprobaciones de estado más específicas. Al usar un sondeo HTTP personalizado, debe crear la página de comprobación de estado, por ejemplo `healthcheck.aspx`. El sondeo tiene que devolver una respuesta **HTTP 200 OK** para que el equilibrador de carga mantenga el host en rotación.
+En el ejemplo siguiente se crea un sondeo de TCP. También se pueden crear sondeos HTTP personalizados para comprobaciones de estado más específicas. Al usar un sondeo HTTP personalizado, debe crear la página de comprobación de estado, por ejemplo *healthcheck.aspx*. El sondeo debe devolver una respuesta **HTTP 200 OK** para que el equilibrador de carga mantenga el host en rotación.
 
-Para crear un sondeo de estado TCP, se usa [Add-AzureRmLoadBalancerProbeConfig](/powershell/resourcemanager/azurerm.network/add-azurermloadbalancerprobeconfig). En el ejemplo siguiente se crea un sondeo de estado denominado `myHealthProbe` que supervisa cada máquina virtual:
+Para crear un sondeo de estado TCP, se usa [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). En el ejemplo siguiente se crea un sondeo de estado denominado *myHealthProbe* que supervisa cada máquina virtual:
 
 ```powershell
-Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
+Add-AzureRmLoadBalancerProbeConfig `
+  -Name myHealthProbe `
   -LoadBalancer $lb `
   -Protocol tcp `
   -Port 80 `
@@ -101,12 +103,13 @@ Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
 ```
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
-Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Se define la configuración de IP de front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Para asegurarse de que solo las máquinas virtuales correctas reciban tráfico, también hay que definir el sondeo de estado que se va usar.
+Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Se define la configuración de IP front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Para asegurarse de que solo las máquinas virtuales correctas reciban tráfico, también hay que definir el sondeo de estado que se va usar.
 
-Cree una regla de equilibrador de carga con [Add-AzureRmLoadBalancerRuleConfig](/powershell/resourcemanager/AzureRM.Network/add-azurermloadbalancerruleconfig). En el ejemplo siguiente se crea una regla de equilibrador de carga denominada `myLoadBalancerRule` y se equilibra el tráfico en el puerto `80`:
+Cree una regla del equilibrador de carga con [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). En el ejemplo siguiente se crea una regla del equilibrador de carga denominada *myLoadBalancerRule* y se equilibra el tráfico en el puerto *80*:
 
 ```powershell
-Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
+Add-AzureRmLoadBalancerRuleConfig `
+  -Name myLoadBalancerRule `
   -LoadBalancer $lb `
   -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
   -BackendAddressPool $lb.BackendAddressPools[0] `
@@ -115,7 +118,7 @@ Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
   -BackendPort 80
 ```
 
-Actualice el equilibrador de carga con [Set-AzureRmLoadBalancer](/powershell/resourcemanager/azurerm.network/set-azurermloadbalancer):
+Actualice el equilibrador de carga con [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -126,7 +129,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 Antes de implementar algunas máquinas virtuales y poder probar el equilibrador, cree los recursos de red virtual auxiliares. Para más información sobre las redes virtuales, vea el tutorial [Manage Azure Virtual Networks](tutorial-virtual-network.md) (Administrar Azure Virtual Networks).
 
 ### <a name="create-network-resources"></a>Crear recursos de red
-Cree una red virtual con [New-AzureRmVirtualNetwork](/powershell/resourcemanager/azurerm.network/new-azurermvirtualnetwork). En el ejemplo siguiente se crea una red virtual denominada `myVnet` con `mySubnet`:
+Cree una red virtual con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). En el ejemplo siguiente se crea una red virtual denominada con una subred llamada *myVnet* con *mySubnet*:
 
 ```powershell
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -140,9 +143,9 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 ```
 
-Cree una regla de grupo de seguridad de red con [New-AzureRmNetworkSecurityRuleConfig](/powershell/resourcemanager/azurerm.network/new-azurermnetworksecurityruleconfig) y después cree un grupo de seguridad de red con [New-AzureRmNetworkSecurityGroup](/powershell/resourcemanager/azurerm.network/new-azurermnetworksecuritygroup). Agregue el grupo de seguridad de red a la subred con [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/resourcemanager/azurerm.network/set-azurermvirtualnetworksubnetconfig) y, después, actualice la red virtual con [Set-AzureRmVirtualNetwork](/powershell/resourcemanager/azurerm.network/set-azurermvirtualnetwork). 
+Cree una regla de grupo de seguridad de red con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) y después cree un grupo de seguridad de red con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). Agregue el grupo de seguridad de red a la subred con [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) y, después, actualice la red virtual con [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork). 
 
-En el ejemplo siguiente, se crea una regla de grupo de seguridad de red denominada `myNetworkSecurityGroup` y se aplica a `mySubnet`:
+En el ejemplo siguiente, se crea una regla de grupo de seguridad de red denominada *myNetworkSecurityGroup* y se aplica a *mySubnet*:
 
 ```powershell
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -160,19 +163,21 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -Location westus `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
-Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
+Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
   -Name mySubnet `
   -NetworkSecurityGroup $nsg `
   -AddressPrefix 192.168.1.0/24
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-Las NIC virtuales se crean con [New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/new-azurermnetworkinterface). En el ejemplo siguiente se crean tres NIC. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Se pueden crear otras NIC virtuales y máquinas virtuales en cualquier momento y agregarlas al equilibrador de carga:
+Las NIC virtuales se crean con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). En el ejemplo siguiente se crean tres NIC. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Se pueden crear otras NIC virtuales y máquinas virtuales en cualquier momento y agregarlas al equilibrador de carga:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
 {
-   New-AzureRmNetworkInterface -ResourceGroupName myResourceGroupLoadBalancer `
+   New-AzureRmNetworkInterface `
+     -ResourceGroupName myResourceGroupLoadBalancer `
      -Name myNic$i `
      -Location westus `
      -Subnet $vnet.Subnets[0] `
@@ -183,7 +188,7 @@ for ($i=1; $i -le 3; $i++)
 ## <a name="create-virtual-machines"></a>Crear máquinas virtuales
 Para mejorar la alta disponibilidad de la aplicación, coloque las máquinas virtuales en un conjunto de disponibilidad.
 
-Cree un conjunto de disponibilidad con [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/new-azurermavailabilityset). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado `myAvailabilitySet`:
+Cree un conjunto de disponibilidad con [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
 
 ```powershell
 $availabilitySet = New-AzureRmAvailabilitySet `
@@ -201,18 +206,42 @@ Establezca un nombre de usuario de administrador y una contraseña para las máq
 $cred = Get-Credential
 ```
 
-Ahora puede crear las máquinas virtuales con [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crean tres máquinas virtuales:
+Ahora puede crear las máquinas virtuales con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crean tres máquinas virtuales:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
 {
-   $vm = New-AzureRmVMConfig -VMName myVM$i -VMSize Standard_D1 -AvailabilitySetId $availabilitySet.Id
-   $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM$i -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-   $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
-   $vm = Set-AzureRmVMOSDisk -VM $vm -Name myOsDisk$i -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
-   $nic = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupLoadBalancer -Name myNic$i
-   $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-   New-AzureRmVM -ResourceGroupName myResourceGroupLoadBalancer -Location westus -VM $vm
+  $vm = New-AzureRmVMConfig `
+    -VMName myVM$i `
+    -VMSize Standard_D1 `
+    -AvailabilitySetId $availabilitySet.Id
+  $vm = Set-AzureRmVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM$i `
+    -Credential $cred `
+    -ProvisionVMAgent `
+    -EnableAutoUpdate
+  $vm = Set-AzureRmVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+  $vm = Set-AzureRmVMOSDisk `
+    -VM $vm `
+    -Name myOsDisk$i `
+    -DiskSizeInGB 128 `
+    -CreateOption FromImage `
+    -Caching ReadWrite
+  $nic = Get-AzureRmNetworkInterface `
+    -ResourceGroupName myResourceGroupLoadBalancer `
+    -Name myNic$i
+  $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
+  New-AzureRmVM `
+    -ResourceGroupName myResourceGroupLoadBalancer `
+    -Location westus `
+    -VM $vm
 }
 ```
 
@@ -221,7 +250,7 @@ Se tarda unos minutos en crear y configurar las tres máquinas virtuales.
 ### <a name="install-iis-with-custom-script-extension"></a>Instalar IIS con la extensión de script personalizado
 En un tutorial anterior sobre [Cómo personalizar una máquina virtual de Windows](tutorial-automate-vm-deployment.md), aprendió a automatizar la personalización de máquinas virtuales con la extensión de script personalizado para Windows. Puede usar el mismo enfoque para instalar y configurar IIS en las máquinas virtuales.
 
-Use [Set-AzureRmVMExtension](/powershell/resourcemanager/azurerm.compute/set-azurermvmextension) para instalar la extensión de script personalizado. La extensión ejecuta `powershell Add-WindowsFeature Web-Server` para instalar el servidor web IIS y después actualiza la página `Default.htm` para mostrar el nombre de host de la máquina virtual:
+Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar la extensión de script personalizado. La extensión ejecuta `powershell Add-WindowsFeature Web-Server` para instalar el servidor web de IIS y después actualiza la página *Default.htm* para mostrar el nombre de host de la máquina virtual:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
@@ -238,8 +267,8 @@ for ($i=1; $i -le 3; $i++)
 }
 ```
 
-## <a name="test-load-balancer"></a>Probar el equilibrador de carga
-Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de `myPublicIP` que se ha creado anteriormente:
+## <a name="test-load-balancer"></a>Prueba del equilibrador de carga
+Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado anteriormente:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -247,7 +276,7 @@ Get-AzureRmPublicIPAddress `
   -Name myPublicIP | select IpAddress
 ```
 
-Puede escribir la dirección IP pública en un explorador web. Se muestra el sitio web, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:
+A continuación, puede escribir la dirección IP pública en un explorador web. Se muestra el sitio web, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:
 
 ![Ejecución del sitio web de IIS](./media/tutorial-load-balancer/running-iis-website.png)
 
@@ -258,10 +287,12 @@ Para ver cómo el equilibrador de carga distribuye el tráfico entre las tres m�
 Puede que tenga que realizar labores de mantenimiento de las máquinas virtuales que ejecutan la aplicación, como la instalación de actualizaciones del sistema operativo. Para gestionar un aumento de tráfico a la aplicación, tiene que agregar más máquinas virtuales. Esta sección le muestra cómo quitar o agregar una máquina virtual desde el equilibrador de carga.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Eliminación de una máquina virtual del equilibrador de carga
-Obtenga la tarjeta de interfaz de red con [Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/get-azurermnetworkinterface) y después establezca la propiedad `LoadBalancerBackendAddressPools` de la NIC virtual en `$null`. Por último, actualice la NIC virtual:
+Obtenga la tarjeta de interfaz de red con [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) y después establezca la propiedad *LoadBalancerBackendAddressPools* de la NIC virtual en *$null*. Por último, actualice la NIC virtual:
 
 ```powershell
-$nic = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupLoadBalancer -Name myNic2
+$nic = Get-AzureRmNetworkInterface `
+    -ResourceGroupName myResourceGroupLoadBalancer `
+    -Name myNic2
 $nic.Ipconfigurations[0].LoadBalancerBackendAddressPools=$null
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
@@ -269,12 +300,14 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 Para ver cómo el equilibrador de carga distribuye el tráfico entre las dos máquinas virtuales que quedan ejecutando la aplicación, puede realizar una actualización forzada del explorador web. Ahora puede realizar tareas de mantenimiento en la máquina virtual, como instalar actualizaciones del sistema operativo o realizar un reinicio de máquina virtual.
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Incorporación de una máquina virtual al equilibrador de carga
-Después de realizar el mantenimiento de la máquina virtual, o si necesita expandir la capacidad, establezca la propiedad `LoadBalancerBackendAddressPools` de la NIC virtual en el `BackendAddressPool` de [Get-AzureRMLoadBalancer]():
+Después de realizar el mantenimiento de la máquina virtual, o si necesita expandir la capacidad, establezca la propiedad *LoadBalancerBackendAddressPools* de la NIC virtual en el elemento *BackendAddressPool* de [Get-AzureRMLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer):
 
-Obtenga el equilibrador de carga:
+Obtención del equilibrador de carga:
 
 ```powershell
-$lb = Get-AzureRMLoadBalancer -ResourceGroupName myResourceGroupLoadBalancer -Name myLoadBalancer 
+$lb = Get-AzureRMLoadBalancer `
+    -ResourceGroupName myResourceGroupLoadBalancer `
+    -Name myLoadBalancer 
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools[0]
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
@@ -284,3 +317,4 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 En este tutorial, aprendió a crear un sitio web de IIS con equilibrio de carga. Avance al siguiente tutorial para aprender a administrar redes de máquinas virtuales.
 
 [Administración de redes de máquinas virtuales de Azure](./tutorial-virtual-network.md)
+

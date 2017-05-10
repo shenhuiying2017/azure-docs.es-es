@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 636d58cc3bda38c0fb49412b6bd4cbb96d235858
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 3c1021ec8c8dc4488f86ba89f6ae31d6ed75e9f5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -47,10 +48,31 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
        Si no ve el clúster de HDInsight, haga clic en **Más servicios** en la parte inferior de la lista y, a continuación, haga clic en **Clústeres de HDInsight** en la sección **Inteligencia y análisis**.
 
+
 ## <a name="create-clusters"></a>Creación de clústeres
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la lista de los componentes que han sido comprobados y admitidos, consulte [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md). Para obtener información general sobre la creación de clústeres, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+### <a name="access-control-requirements"></a>Requisitos de control de acceso
+
+Debe especificar una suscripción de Azure cuando cree un clúster de HDInsight. Este clúster se puede crear en un nuevo grupo de Azure Resource o en un grupo de recursos existente. Puede usar los pasos siguientes para comprobar sus permisos para la creación de clústeres de HDInsight:
+
+- Para usar un grupo de recursos existente.
+
+    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+    2. Haga clic en **Grupos de recursos** en el menú izquierdo para ver los grupos de recursos.
+    3. Haga clic en el grupo de recursos que desee usar para crear el clúster de HDInsight.
+    4. Haga clic en **Control de acceso (IAM)** y compruebe que usted (o un grupo al que pertenezca) tenga al menos acceso de colaborador al grupo de recursos.
+
+- Para crear un nuevo grupo de recursos
+
+    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+    2. Haga clic en **Suscripción** en el menú izquierdo. Tiene un icono amarillo de una llave amarilla. Verá una lista de suscripciones.
+    3. Haga clic en la suscripción que usa para crear clústeres. 
+    4. Haga clic en **Mis permisos**.  Muestra el [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
+
+Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistration, vea [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Enumeración y visualización de clústeres
 1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
@@ -154,7 +176,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
 
-    ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
@@ -171,7 +193,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 3. Haga clic en **Escalar clúster**.
 4. Escriba el **Número de nodos de trabajo**. El límite del número de nodos del clúster varía según las suscripciones de Azure. Puede ponerse en contacto con el servicio de soporte relacionado con la facturación para aumentar el límite.  La información de costo reflejará los cambios realizados en el número de nodos.
 
-    ![HDInsight hadoop hbase storm spark escalar](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
+    ![HDInsight hadoop hbase storm spark escalar](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Pausa o apagado de clústeres
 
@@ -307,7 +329,7 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
 * [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
-* [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md)
+* [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Uso de Hive en HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig en HDInsight](hdinsight-use-pig.md)
 * [Uso de Sqoop en HDInsight](hdinsight-use-sqoop.md)

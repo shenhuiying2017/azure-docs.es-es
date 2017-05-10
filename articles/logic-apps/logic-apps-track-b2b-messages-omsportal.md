@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
-ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -80,7 +81,7 @@ La comunicación B2B implica el intercambio de mensajes entre dos aplicaciones o
 | Remitente | Asociado invitado que se define en la configuración de recepción o asociado anfitrión que se define en la configuración de envío de un contrato AS2. |
 | Receptor | Asociado anfitrión que se define en la configuración de recepción o asociado invitado que se define en la configuración de envío de un contrato AS2. |
 | Aplicación lógica | Aplicación lógica donde se configuran las acciones AS2. |
-| Estado | Estado del mensaje AS2 <br>Correcto = Se ha recibido o enviado un mensaje AS2 bueno; MDN sin configurar <br>Correcto = Se ha recibido o enviado un mensaje AS2 bueno; MDN se ha configurado y recibido o se ha enviado MDN <br>Error = Se ha recibido un mensaje AS2 malo; MDN sin configurar <br>Pendiente = Se ha recibido o enviado un mensaje AS2 bueno; MDN se ha configurado y se espera una confirmación funcional |
+| Estado | Estado del mensaje AS2 <br>Correcto = Se ha recibido o enviado un mensaje AS2 bueno; MDN sin configurar <br>Correcto = Se ha recibido o enviado un mensaje AS2 bueno; MDN se ha configurado y recibido o se ha enviado MDN <br>Error = Se ha recibido un mensaje AS2 malo; MDN sin configurar <br>Pendiente = Se ha recibido o enviado un mensaje AS2 bueno; MDN se ha configurado y se espera MDN |
 | Ack | Estado del mensaje MDN. <br>Aceptado = Se ha recibido o enviado una MDN positiva <br>Pendiente = Esperando a recibir o enviar una MDN <br>Rechazado = Se ha recibido o enviado una MDN negativa <br>No necesario = MDN no se ha configurado en el contrato |
 | Dirección | Dirección del mensaje AS2. |
 | Id. de correlación | Identificador para poner en correlación todos los desencadenadores y acciones dentro de una aplicación lógica. |

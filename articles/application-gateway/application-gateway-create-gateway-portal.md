@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/05/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 2195eb4ce0e22c8c7c72ac0638ab927f13c4d454
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -26,176 +27,118 @@ ms.lasthandoff: 03/30/2017
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
+> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local.
-Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc.
+Obtenga información sobre cómo crear una puerta de enlace de aplicaciones con la descarga de SSL.
 
-Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
+![Escenario de ejemplo][scenario]
 
-## <a name="scenario"></a>Escenario
-
-En este escenario, aprenderá a crear una puerta de enlace de aplicaciones mediante el Portal de Azure.
+Application Gateway es una aplicación virtual dedicada que cuenta con un controlador de entrega de aplicaciones (ADC) que se ofrece como servicio y que proporciona numerosas funcionalidades de equilibrio de carga de nivel 7.
 
 En este escenario:
 
-* Creará una puerta de enlace de aplicaciones media con dos instancias.
-* Creará una red virtual denominada AdatumAppGatewayVNET con un bloque CIDR reservado de 10.0.0.0/16.
-* Creará una subred denominada Appgatewaysubnet que usa 10.0.0.0/28 como bloque CIDR.
-* Configurará un certificado para la descarga SSL.
+1. [Cree una puerta de enlace de aplicaciones mediana](#create-an-application-gateway) mediante la descarga de SSL con dos instancias en su subred propia.
+1. [Agregue servidores al grupo de back-end](#add-servers-to-backend-pools).
+1. [Elimine todos los recursos](#delete-all-resources). Incurrirá cargos por algunos de los recursos creados en este ejercicio mientras estén aprovisionados. Para minimizarlos, después de terminar el ejercicio, asegúrese de completar los pasos descritos en esta sección para eliminar los recursos que cree.
 
-![Escenario de ejemplo][scenario]
+
 
 > [!IMPORTANT]
 > La configuración adicional de la puerta de enlace de aplicaciones, incluidos los sondeos personalizados sobre el estado, las direcciones del grupo de back-end y las reglas se realiza después de que se configura la puerta de enlace de aplicaciones, no durante la implementación inicial.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
+Para crear una puerta de enlace de aplicaciones, complete estos pasos. La puerta de enlace de aplicaciones requiere su subred propia. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
-## <a name="create-the-application-gateway"></a>Creación de Application Gateway
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
+1. En el panel Favoritos del portal, haga clic en **Nuevo**.
+1. En la hoja **Nuevo**, haga clic en **Redes**. En la hoja **Redes**, haga clic en **Application Gateway**, como se muestra en la siguiente imagen:
 
-### <a name="step-1"></a>Paso 1
+    ![Creación de una puerta de enlace de aplicaciones][1]
 
-Navegue a Azure Portal, haga clic en **Nuevo** > **Redes** > **Application Gateway**
+1. En la hoja **Datos básicos** que aparece, escriba los valores siguientes y haga clic en **Aceptar**:
 
-![Creación de una puerta de enlace de aplicaciones][1]
+   | **Configuración** | **Valor** | **Detalles**
+   |---|---|---|
+   |**Name**|AdatumAppGateway|Nombre de la puerta de enlace de aplicaciones.|
+   |**Nivel**|Estándar|Los valores disponibles son Estándar y WAF. Visite [Firewall de aplicaciones web](application-gateway-web-application-firewall-overview.md) para obtener más información sobre WAFS.|
+   |**Tamaño de la SKU**|Mediano|Las opciones al elegir el nivel Estándar son pequeño, mediano y grande. Al elegir el nivel de WAF, las opciones solo son mediano y grande.|
+   |**Recuento de instancias**|2|Número de instancias de la puerta de enlace de aplicaciones para alta disponibilidad. Los recuentos de instancias de 1 solo deben usarse para fines de pruebas.|
+   |**Suscripción**|[Su suscripción]|Seleccione una suscripción donde se va a crear la puerta de enlace de la aplicación.|
+   |**Grupos de recursos**|**Crear nuevo:** AdatumAppGatewayRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
+   |**Ubicación**|Oeste de EE. UU.||
 
-### <a name="step-2"></a>Paso 2
+1. En la hoja **Configuración** que aparece en **Red virtual**, haga clic en **Elegir una red virtual**. Se abrirá la hoja **Elegir una red virtual**.  Haga clic en **Crear nuevo** para abrir la hoja **Crear red virtual**.
 
-A continuación, rellene la información básica de la puerta de enlace de aplicaciones. Cuando haya terminado, haga clic en **Aceptar**
+ ![Elegir una red virtual][2]
 
-La información necesaria para la configuración básica es:
+1. En la hoja **Crear red virtual**, escriba los valores siguientes y luego haga clic en **Aceptar**. De esta forma, se cierran las hojas **Crear red virtual** y **Elegir una red virtual**. Además, se rellenará el campo **Subred** en la hoja **Configuración** con la subred elegida.
 
-* **Nombre** : nombre de la puerta de enlace de aplicaciones.
-* **Nivel**: esta configuración es el nivel de la puerta de enlace de aplicaciones. Existen dos niveles **WAF** y **Estándar**. WAF habilita la característica de firewall de aplicaciones web.
-* **Tamaño de SKU**: es el tamaño de la puerta de enlace de aplicaciones. Las opciones disponibles son **Pequeño**, **Mediano** y **Grande**. En el nivel WAF, la opción Pequeño no está disponible.
-* **Número de instancias** : el número de instancias, este valor debe ser un número comprendido entre 2 y 10.
-* **Grupo de recursos** : el grupo de recursos que mantiene la puerta de enlace de aplicaciones, puede ser un grupo de recursos existente o uno nuevo.
-* **Ubicación** : la región de la puerta de enlace de aplicaciones, es la misma ubicación en el grupo de recursos. La ubicación es importante, ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace.
+   |**Configuración** | **Valor** | **Detalles** |
+   |---|---|---|
+   |**Name**|AdatumAppGatewayVNET|Nombre de la puerta de enlace de aplicaciones.|
+   |**Espacio de direcciones**|10.0.0.0/16| Se trata del espacio de direcciones de la red virtual.|
+   |**Nombre de subred**|AppGatewaySubnet|Nombre de la subred de la puerta de enlace de aplicaciones.|
+   |**Intervalo de direcciones de subred**|10.0.0.0/28| Esta subred permite más subredes en la red virtual para miembros del grupo de back-end.|
 
-![hoja que muestra configuración básica][2]
+1. En la hoja **Configuración** de **Configuración de IP de front-end**, seleccione **Pública** como el **Tipo de dirección IP**.
 
-> [!NOTE]
-> Para las pruebas se puede elegir 1 en Número de instancias. Es importante saber que el SLA no cubre ningún número de instancias que esté por debajo de las dos instancias y, por consiguiente, no se recomienda. Las puertas de enlace pequeñas se deben usar para pruebas de desarrollo, no con fines de producción.
-> 
-> 
+1. En la hoja **Configuración** de **Dirección IP pública**, haga clic en **Elegir una dirección IP pública** para abrir la hoja **Elegir una dirección IP pública** y luego haga clic en **Crear nuevo**.
 
-### <a name="step-3"></a>Paso 3
+ ![Elegir una dirección IP pública][3]
 
-Una vez que se define la configuración básica, el paso siguiente es definir la red virtual que se va a usar. La red virtual albergará la aplicación para la que la puerta de enlace de aplicaciones no equilibra la carga.
+1. En la hoja **Crear dirección IP pública**, acepte el valor predeterminado y haga clic en **Aceptar**. De esta forma, se cerrarán las hojas **Elegir dirección IP pública** y **Crear dirección IP pública** y rellene el campo **Dirección IP pública** con la dirección IP pública elegida.
 
-Haga clic en **Elegir una red virtual** para configurar la red virtual.
+1. En la hoja **Configuración** en **Configuración de agente de escucha**, haga clic en **HTTPS** en **Protocolo**. Esto permite agregar campos adicionales. Haga clic en el icono de carpeta en el campo **Cargar certificado PFX** y seleccione el certificado .pfx apropiado. Escriba la información siguiente en los campos adicionales de **Configuración de agente de escucha**:
 
-![hoja que muestra configuración de puerta de enlace de aplicaciones][3]
+   |**Configuración** | **Valor** | **Detalles** |
+   |---|---|---|
+   |Nombre|Nombre del certificado|Este valor es un nombre descriptivo utilizado para hacer referencia al certificado.|
+   |Password|Contraseña para .pfx| Se trata de la contraseña utilizada para la clave privada.|
 
-### <a name="step-4"></a>Paso 4
+1. Haga clic en **Aceptar** en la hoja **Configuración** para continuar.
 
-En la hoja **Elegir red virtual** , haga clic en **Crear nuevo**
-
-Aunque no se explica en este escenario, en este momento se puede seleccionar una red virtual existente.  Si se utiliza una red virtual existente, es importante saber que necesita una subred vacía o una de red virtual con solo los recursos de la puerta de enlace de aplicaciones para utilizarse.
-
-![elegir hoja de red virtual][4]
-
-### <a name="step-5"></a>Paso 5
-
-Rellene la información de la red en la hoja **Crear red virtual** como se describe en la descripción de [Escenario](#scenario) anterior.
-
-![Crear hoja de red virtual con la información especificada][5]
-
-### <a name="step-6"></a>Paso 6
-
-Una vez creada la red virtual, el siguiente paso es definir la dirección IP de front-end de la puerta de enlace de aplicaciones. En este momento, es preciso elegir si la dirección IP de front-end es pública o privada. La elección depende de si la aplicación tiene acceso a Internet o es interna. En este escenario se asume que se usa una dirección IP pública. Para elegir una dirección IP privada, se puede hacer clic en el botón **Privada** . Se elige una dirección IP asignada automáticamente, o bien se puede hacer clic en la casilla **Elija una dirección IP privada específica** para especificarla manualmente.
-
-### <a name="step-7"></a>Paso 7
-
-Haga clic en **Elegir una dirección IP pública**. Si hay alguna dirección IP pública existente disponible, este es el momento de elegirla, en este escenario se crea una nueva dirección IP pública. Haga clic en **Crear nuevo**
-
-![Elegir hoja de dirección IP pública][6]
-
-### <a name="step-8"></a>Paso 8
-
-A continuación, asigne un nombre descriptivo a la dirección IP pública y haga clic en **Aceptar**
-
-![Crear hoja de dirección IP pública][7]
-
-### <a name="step-9"></a>Paso 9:
-
-El último ajuste que se configura al crear una puerta de enlace de aplicaciones es la configuración del agente de escucha.  Si se usa **http**, no queda nada por configurar, así que se puede hacer clic en **Aceptar**. Para usar **https** , se requiere mayor configuración.
-
-Para usar **https**, se requiere un certificado. La clave privada del certificado es necesaria. Es preciso proporcionar un .pfx exportado del certificado y la contraseña.
-
-### <a name="step-10"></a>Paso 10
-
-Haga clic en **HTTPS**, haga clic en el icono de **carpeta** que hay junto al cuadro de texto **Cargar certificado PFX**.
-Navegue hasta el archivo de certificados .pfx en el sistema de archivos. Una vez seleccionado, asigne un nombre descriptivo al certificado y escriba la contraseña del archivo. pfx.
-
-Cuando termine, haga clic en **Aceptar** para revisar la configuración de Puerta de enlace de aplicaciones.
-
-![Sección Configuración de agente de escucha en la hoja Configuración][9]
-
-### <a name="step-11"></a>Paso 11
-
-Revise la página Resumen y haga clic en **Aceptar**.  La puerta de enlace de aplicaciones se pone en cola y se crea.
-
-### <a name="step-12"></a>Paso 12
-
-Una vez creada la puerta de enlace de aplicaciones, navegue hasta ella en el portal para continuar con su configuración.
-
-![Vista de recursos de Puerta de enlace de aplicaciones][10]
-
-Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto.
+1. Revise la configuración en la hoja **Resumen** y haga clic en **Aceptar** para iniciar la creación de la puerta de enlace de aplicaciones. Crear una puerta de enlace de aplicaciones es una tarea de ejecución prolongada y tardará tiempo en completarse.
 
 ## <a name="add-servers-to-backend-pools"></a>Adición de servidores a grupos de back-end
 
-Cuando se crea la puerta de enlace de aplicaciones, los sistemas que hospedan la aplicación para el equilibrio de carga aún tienen que agregarse a dicha puerta de enlace. Las direcciones IP o los valores de nombre completo de estos servidores se agregan a los grupos de direcciones de back-end.
+Cuando se crea la puerta de enlace de aplicaciones, los sistemas que hospedan la aplicación para el equilibrio de carga aún tienen que agregarse a dicha puerta de enlace. Las direcciones IP, los FQDN o las NIC de estos servidores se agregan a los grupos de direcciones de back-end.
 
 ### <a name="ip-address-or-fqdn"></a>Dirección IP o FQDN
 
-#### <a name="step-1"></a>Paso 1
+1. Con la puerta de enlace de aplicaciones creada, en el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en la puerta de enlace de aplicaciones **AdatumAppGateway** en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **AdatumAppGateway** en el cuadro **Filtrar por nombre…** para acceder fácilmente a la puerta de enlace de la aplicación.
 
-Haga clic en la puerta de enlace de aplicaciones que ha creado, haga clic en **Grupos de back-end** y seleccione el grupo de back-end actual.
+1. Se muestra la puerta de enlace de aplicaciones que ha creado. Haga clic en **Grupos de back-end** y seleccione el grupo actual de back-end **appGatewayBackendPool** y, después, se abrirá la hoja **appGatewayBackendPool**.
 
-![Grupos de back-end de Application Gateway][11]
+   ![Grupos de back-end de Application Gateway][4]
 
-#### <a name="step-2"></a>Paso 2
-
-Haga clic en **Agregar destino** para agregar direcciones IP de los valores de FQDN.
-
-![Grupos de back-end de Application Gateway][11-1]
-
-#### <a name="step-3"></a>Paso 3
-
-Una vez escritos todos los valores de back-end, haga clic en **Guardar**.
-
-![adición de valores a los grupos de back-end de Application Gateway][12]
-
-Esto guarda los valores en el grupo de back-end. Cuando se ha actualizado la puerta de enlace de aplicaciones, se enruta el tráfico que entra en la puerta de enlace de aplicaciones a las direcciones de back-end que se han agregado en este paso.
+1. Haga clic en **Agregar destino** para agregar direcciones IP de los valores de FQDN. Seleccione **Dirección IP o FQDN** como **Tipo** y escriba la dirección IP o el FQDN en el campo. Repita este paso para los miembros adicionales del grupo de back-end. Cuando termine, haga clic en **Guardar**.
 
 ### <a name="virtual-machine-and-nic"></a>Máquina virtual y NIC
 
 También puede agregar NIC de máquinas virtuales como miembros del grupo de back-end. Solo las máquinas virtuales de la misma red virtual que la puerta de enlace de aplicaciones están disponibles en la lista desplegable.
 
-#### <a name="step-1"></a>Paso 1
+1. Con la puerta de enlace de aplicaciones creada, en el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en la puerta de enlace de aplicaciones **AdatumAppGateway** en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **AdatumAppGateway** en el cuadro **Filtrar por nombre…** para acceder fácilmente a la puerta de enlace de la aplicación.
 
-Haga clic en la puerta de enlace de aplicaciones que ha creado, haga clic en **Grupos de back-end** y seleccione el grupo de back-end actual.
+1. Se muestra la puerta de enlace de aplicaciones que ha creado. Haga clic en **Grupos de back-end** y seleccione el grupo actual de back-end **appGatewayBackendPool** y, después, se abrirá la hoja **appGatewayBackendPool**.
 
-![Grupos de back-end de Application Gateway][11]
+   ![Grupos de back-end de Application Gateway][5]
 
-#### <a name="step-2"></a>Paso 2
+1. Haga clic en **Agregar destino** para agregar direcciones IP de los valores de FQDN. Elija **Máquina virtual** como **Tipo** y seleccione la máquina virtual y la NIC que desea usar. Cuando termine, haga clic en **Guardar**.
 
-Haga clic en **Agregar destino** para agregar un nuevo miembro del grupo de back-end. Seleccione una máquina virtual y una NIC en los cuadros de lista desplegable.
+   > [!NOTE]
+   > Solo las máquinas virtuales de la misma red virtual que la puerta de enlace de aplicaciones están disponibles en el cuadro desplegable.
 
-![adición de NIC a grupos de back-end de la puerta de enlace de aplicaciones][13]
+## <a name="delete-all-resources"></a>Eliminación de todos los recursos
 
-#### <a name="step-3"></a>Paso 3
+Para eliminar todos los recursos creados en este artículo, complete los pasos siguientes:
 
-Cuando haya terminado, haga clic en **Guardar** para guardar las NIC como miembros de back-end.
-
-![almacenamiento de grupos de back-end de la puerta de enlace de aplicaciones][14]
+1. En el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en el grupo de recursos **AdatumAppGatewayRG** en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **AdatumAppGatewayRG** en el cuadro **Filtrar por nombre…** para acceder fácilmente al grupo de recursos.
+1. En la hoja **AdatumAppGatewayRG**, haga clic en el botón **Eliminar**.
+1. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Haga clic en **Eliminar**, escriba AdatumAppGateway para el nombre de grupo de recursos y haga clic en **Eliminar**. Al eliminarse un grupo de recursos, se eliminan todos los recursos que contiene, por lo que siempre debe asegurarse de comprobar su contenido antes de eliminarlo. El portal elimina todos los recursos incluidos en el grupo de recursos y, después, el grupo de recursos en sí. Este proceso tarda varios minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -213,15 +156,5 @@ Aprenda a proteger aplicaciones con [Firewall de aplicaciones web de Application
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png
 [4]: ./media/application-gateway-create-gateway-portal/figure4.png
 [5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[6]: ./media/application-gateway-create-gateway-portal/figure6.png
-[7]: ./media/application-gateway-create-gateway-portal/figure7.png
-[8]: ./media/application-gateway-create-gateway-portal/figure8.png
-[9]: ./media/application-gateway-create-gateway-portal/figure9.png
-[10]: ./media/application-gateway-create-gateway-portal/figure10.png
-[11]: ./media/application-gateway-create-gateway-portal/figure11.png
-[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
-[12]: ./media/application-gateway-create-gateway-portal/figure12.png
-[13]: ./media/application-gateway-create-gateway-portal/figure13.png
-[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
 

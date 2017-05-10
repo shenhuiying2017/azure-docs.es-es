@@ -1,0 +1,1665 @@
+---
+title: 'Funciones de la plantilla de Azure Resource Manager: cadena | Microsoft Docs'
+description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
+ms.assetid: 
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/26/2017
+ms.author: tomfitz
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 9b75d0ede3ec1b291936ee0a53778afe10ba91db
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
+
+
+---
+# <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
+
+El Administrador de recursos ofrece las siguientes funciones para trabajar con cadenas:
+
+* [base64](#base64)
+* [base64ToJson](#base64tojson)
+* [base64ToString](#base64tostring)
+* [bool](#bool)
+* [concat](#concat)
+* [contains](#contains)
+* [dataUri](#datauri)
+* [dataUriToString](#datauritostring)
+* [empty](#empty)
+* [endsWith](#endswith)
+* [first](#first)
+* [indexOf](#indexof)
+* [last](#last)
+* [lastIndexOf](#lastindexof)
+* [length](#length)
+* [padLeft](#padleft)
+* [replace](#replace)
+* [skip](#skip)
+* [split](#split)
+* [startsWith](resource-group-template-functions-string.md#startswith)
+* [cadena](#string)
+* [substring](#substring)
+* [take](#take)
+* [toLower](#tolower)
+* [toUpper](#toupper)
+* [trim](#trim)
+* [uniqueString](#uniquestring)
+* [uri](#uri)
+* [uriComponent](resource-group-template-functions-string.md#uricomponent)
+* [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
+
+<a id="base64" />
+
+## <a name="base64"></a>base64
+`base64(inputString)`
+
+Devuelve la representación de base64 de la cadena de entrada.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| inputString |Sí |string |Valor que se va a devolver como una representación de base64. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar la función de base64.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringData": {
+            "type": "string",
+            "defaultValue": "one, two, three"
+        },
+        "jsonFormattedData": {
+            "type": "string",
+            "defaultValue": "{'one': 'a', 'two': 'b'}"
+        }
+    },
+    "variables": {
+        "base64String": "[base64(parameters('stringData'))]",
+        "base64Object": "[base64(parameters('jsonFormattedData'))]"
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "base64Output": {
+            "type": "string",
+            "value": "[variables('base64String')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[base64ToString(variables('base64String'))]"
+        },
+        "toJsonOutput": {
+            "type": "object",
+            "value": "[base64ToJson(variables('base64Object'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que contiene la representación en base64.
+
+<a id="base64tojson" />
+
+## <a name="base64tojson"></a>base64ToJson
+`base64tojson`
+
+Convierte una representación en base64 a un objeto JSON.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| base64Value |Sí |string |La representación en base64 para convertir en un objeto JSON. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se utiliza la función base64ToJson para convertir un valor base64:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringData": {
+            "type": "string",
+            "defaultValue": "one, two, three"
+        },
+        "jsonFormattedData": {
+            "type": "string",
+            "defaultValue": "{'one': 'a', 'two': 'b'}"
+        }
+    },
+    "variables": {
+        "base64String": "[base64(parameters('stringData'))]",
+        "base64Object": "[base64(parameters('jsonFormattedData'))]"
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "base64Output": {
+            "type": "string",
+            "value": "[variables('base64String')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[base64ToString(variables('base64String'))]"
+        },
+        "toJsonOutput": {
+            "type": "object",
+            "value": "[base64ToJson(variables('base64Object'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Un objeto JSON.
+
+<a id="base64tostring" />
+
+## <a name="base64tostring"></a>base64ToString
+`base64ToString(base64Value)`
+
+Convierte una representación en base64 en una cadena.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| base64Value |Sí |cadena |La representación en base64 para convertir en una cadena. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se utiliza la función base64ToString para convertir un valor base64:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringData": {
+            "type": "string",
+            "defaultValue": "one, two, three"
+        },
+        "jsonFormattedData": {
+            "type": "string",
+            "defaultValue": "{'one': 'a', 'two': 'b'}"
+        }
+    },
+    "variables": {
+        "base64String": "[base64(parameters('stringData'))]",
+        "base64Object": "[base64(parameters('jsonFormattedData'))]"
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "base64Output": {
+            "type": "string",
+            "value": "[variables('base64String')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[base64ToString(variables('base64String'))]"
+        },
+        "toJsonOutput": {
+            "type": "object",
+            "value": "[base64ToJson(variables('base64Object'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del valor convertido de base64.
+
+<a id="bool" />
+
+## <a name="bool"></a>booleano
+`bool(arg1)`
+
+Convierte el parámetro en un booleano.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |cadena o entero |El valor para convertir en booleano. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo usar bool con una cadena o un entero.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueString": {
+            "value": "[bool('true')]",
+            "type" : "bool"
+        },
+        "falseString": {
+            "value": "[bool('false')]",
+            "type" : "bool"
+        },
+        "trueInt": {
+            "value": "[bool(1)]",
+            "type" : "bool"
+        },
+        "falseInt": {
+            "value": "[bool(0)]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+Un valor booleano.
+
+<a id="concat" />
+
+## <a name="concat"></a>concat
+`concat (arg1, arg2, arg3, ...)`
+
+Combina varios valores de cadena y devuelve la cadena concatenada, o combina varias matrices y devuelve la matriz concatenada.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
+| argumentos adicionales |No |cadena |Valores adicionales en orden secuencial para la concatenación. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "prefix": {
+            "type": "string",
+            "defaultValue": "prefix"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "concatOutput": {
+            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "type" : "string"
+        }
+    }
+}
+```
+
+En el ejemplo siguiente se muestra cómo combinar dos matrices.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { 
+        "firstArray": { 
+            "type": "array", 
+            "defaultValue": [ 
+                "1-1", 
+                "1-2", 
+                "1-3" 
+            ] 
+        },
+        "secondArray": {
+            "type": "array", 
+            "defaultValue": [ 
+                "2-1", 
+                "2-2",
+                "2-3" 
+            ] 
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "return": {
+            "type": "array",
+            "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+Una cadena o matriz de valores concatenados.
+
+<a id="contains" />
+
+## <a name="contains"></a>contains
+`contains (container, itemToFind)`
+
+Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
+| itemToFind |Sí |cadena o entero |El valor para buscar. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringToTest": {
+            "type": "string",
+            "defaultValue": "OneTwoThree"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {"one": "a", "two": "b", "three": "c"}
+        },
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": ["one", "two", "three"]
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "stringTrue": {
+            "type": "bool",
+            "value": "[contains(parameters('stringToTest'), 'e')]"
+        },
+        "stringFalse": {
+            "type": "bool",
+            "value": "[contains(parameters('stringToTest'), 'z')]"
+        },
+        "objectTrue": {
+            "type": "bool",
+            "value": "[contains(parameters('objectToTest'), 'one')]"
+        },
+        "objectFalse": {
+            "type": "bool",
+            "value": "[contains(parameters('objectToTest'), 'a')]"
+        },
+        "arrayTrue": {
+            "type": "bool",
+            "value": "[contains(parameters('arrayToTest'), 'three')]"
+        },
+        "arrayFalse": {
+            "type": "bool",
+            "value": "[contains(parameters('arrayToTest'), 'four')]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+**True** si el elemento se encuentra; en caso contrario, **False**.
+
+<a id="datauri" />
+
+## <a name="datauri"></a>dataUri
+`dataUri(stringToConvert)`
+
+Convierte un valor en un identificador URI de datos.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToConvert |Sí |cadena |El valor para convertir en un identificador URI de datos. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se convierte un valor en un identificador URI de datos, y se convierte un identificador URI de datos en una cadena:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringToTest": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "dataFormattedString": {
+            "type": "string",
+            "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "dataUriOutput": {
+            "value": "[dataUri(parameters('stringToTest'))]",
+            "type" : "string"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[dataUriToString(parameters('dataFormattedString'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena con formato de identificador URI de datos.
+
+<a id="datauritostring" />
+
+## <a name="datauritostring"></a>dataUriToString
+`dataUriToString(dataUriToConvert)`
+
+Convierte un valor con formato de identificador URI de datos en una cadena.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| dataUriToConvert |Sí |cadena |El valor del identificador URI para convertir. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se convierte un valor en un identificador URI de datos, y se convierte un identificador URI de datos en una cadena:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringToTest": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "dataFormattedString": {
+            "type": "string",
+            "defaultValue": "data:;base64,SGVsbG8sIFdvcmxkIQ=="
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "dataUriOutput": {
+            "value": "[dataUri(parameters('stringToTest'))]",
+            "type" : "string"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[dataUriToString(parameters('dataFormattedString'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que contiene el valor convertido.
+
+<a id="empty" /> 
+
+## <a name="empty"></a>empty
+`empty(itemToTest)`
+
+Determina si una matriz, un objeto o una cadena están vacíos.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena están vacíos.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testArray": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "testObject": {
+            "type": "object",
+            "defaultValue": {}
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "arrayEmpty": {
+            "type": "bool",
+            "value": "[empty(parameters('testArray'))]"
+        },
+        "objectEmpty": {
+            "type": "bool",
+            "value": "[empty(parameters('testObject'))]"
+        },
+        "stringEmpty": {
+            "type": "bool",
+            "value": "[empty(parameters('testString'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el valor está vacío; en caso contrario, **False**.
+
+<a id="endswith" />
+
+## <a name="endswith"></a>endsWith
+`endsWith(stringToSearch, stringToFind)`
+
+Determina si una cadena termina con un valor. La comparación distingue entre mayúsculas y minúsculas.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
+| stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar las funciones startsWith y endsWith:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "startsTrue": {
+            "value": "[startsWith('abcdef', 'ab')]",
+            "type" : "bool"
+        },
+        "startsCapTrue": {
+            "value": "[startsWith('abcdef', 'A')]",
+            "type" : "bool"
+        },
+        "startsFalse": {
+            "value": "[startsWith('abcdef', 'e')]",
+            "type" : "bool"
+        },
+        "endsTrue": {
+            "value": "[endsWith('abcdef', 'ef')]",
+            "type" : "bool"
+        },
+        "endsCapTrue": {
+            "value": "[endsWith('abcdef', 'F')]",
+            "type" : "bool"
+        },
+        "endsFalse": {
+            "value": "[endsWith('abcdef', 'e')]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+**True** si el último carácter o caracteres de la cadena coinciden con el valor; en caso contrario, **False**.
+
+<a id="first" />
+
+## <a name="first"></a>first
+`first(arg1)`
+
+Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar la primera función con una matriz y una cadena.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": ["one", "two", "three"]
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "arrayOutput": {
+            "type": "string",
+            "value": "[first(parameters('arrayToTest'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[first('One Two Three')]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del primer carácter, o el tipo (cadena, entero, matriz u objeto) del primer elemento en una matriz.
+
+<a id="indexof" />
+
+## <a name="indexof"></a>indexOf
+`indexOf(stringToSearch, stringToFind)`
+
+Devuelve la primera posición de un valor dentro de una cadena. La comparación distingue entre mayúsculas y minúsculas.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
+| stringToFind |Sí |cadena |El valor para buscar. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar las funciones indexOf y lastIndexOf:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "firstT": {
+            "value": "[indexOf('test', 't')]",
+            "type" : "int"
+        },
+        "lastT": {
+            "value": "[lastIndexOf('test', 't')]",
+            "type" : "int"
+        },
+        "firstString": {
+            "value": "[indexOf('abcdef', 'CD')]",
+            "type" : "int"
+        },
+        "lastString": {
+            "value": "[lastIndexOf('abcdef', 'AB')]",
+            "type" : "int"
+        },
+        "notFound": {
+            "value": "[indexOf('abcdef', 'z')]",
+            "type" : "int"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa la posición del elemento que se va a buscar. El valor está basado en cero. Si no se encuentra el elemento, se devuelve -1.
+
+
+<a id="last" />
+
+## <a name="last"></a>last
+`last (arg1)`
+
+Devuelve el último carácter de la cadena, o el último elemento de la matriz.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar la última función con una matriz y una cadena.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": ["one", "two", "three"]
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "arrayOutput": {
+            "type": "string",
+            "value": "[last(parameters('arrayToTest'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[last('One Two Three')]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del último carácter, o el tipo (cadena, entero, matriz u objeto) del último elemento de una matriz.
+
+<a id="lastindexof" />
+
+## <a name="lastindexof"></a>lastIndexOf
+`lastIndexOf(stringToSearch, stringToFind)`
+
+Devuelve la última posición de un valor dentro de una cadena. La comparación distingue entre mayúsculas y minúsculas.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar las funciones indexOf y lastIndexOf:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "firstT": {
+            "value": "[indexOf('test', 't')]",
+            "type" : "int"
+        },
+        "lastT": {
+            "value": "[lastIndexOf('test', 't')]",
+            "type" : "int"
+        },
+        "firstString": {
+            "value": "[indexOf('abcdef', 'CD')]",
+            "type" : "int"
+        },
+        "lastString": {
+            "value": "[lastIndexOf('abcdef', 'AB')]",
+            "type" : "int"
+        },
+        "notFound": {
+            "value": "[indexOf('abcdef', 'z')]",
+            "type" : "int"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa la última posición del elemento que se va a buscar. El valor está basado en cero. Si no se encuentra el elemento, se devuelve -1.
+
+
+<a id="length" />
+
+## <a name="length"></a>length
+`length(string)`
+
+Devuelve el número de caracteres de una cadena, o elementos de una matriz.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una cadena:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [
+                "one",
+                "two",
+                "three"
+            ]
+        },
+        "stringToTest": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayLength": {
+            "type": "int",
+            "value": "[length(parameters('arrayToTest'))]"
+        },
+        "stringLength": {
+            "type": "int",
+            "value": "[length(parameters('stringToTest'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero. 
+
+<a id="padleft" />
+
+## <a name="padleft"></a>padLeft
+`padLeft(valueToPad, totalLength, paddingCharacter)`
+
+Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
+| totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
+| paddingCharacter |No |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
+
+Si la cadena original es mayor que el número de caracteres que se va a rellenar, no se agrega ningún carácter.
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro proporcionado por el usuario agregando el carácter cero hasta que alcance el número total de caracteres. 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "123"
+        },
+        "totalCharacters": {
+            "type": "int",
+            "defaultValue": 10
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[padLeft(parameters('testString'),parameters('totalCharacters'),'0')]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena con al menos el número de caracteres especificados.
+
+<a id="replace" />
+
+## <a name="replace"></a>replace
+`replace(originalString, oldCharacter, newCharacter)`
+
+Devuelve una nueva cadena con todas las instancias de un carácter de la cadena especificada sustituidas por otro carácter.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| originalString |Sí |string |Valor que tiene todas las instancias de un carácter sustituido por otro. |
+| oldCharacter |Sí |cadena |El carácter que se va a quitar de la cadena original. |
+| newCharacter |Sí |string |El carácter que se va a agregar en lugar del carácter eliminado. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo quitar todos los guiones de la cadena proporcionada por el usuario.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "123-123-1234"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'-', '')]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena con los caracteres reemplazados.
+
+<a id="skip" />
+
+## <a name="skip"></a>skip
+`skip(originalValue, numberToSkip)`
+
+Devuelve una cadena con todos los caracteres después del número especificado de caracteres, o una matriz con todos los elementos después del número especificado de elementos.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
+| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se omite el número especificado de elementos de la matriz, y el número especificado de caracteres de la cadena.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testArray": {
+            "type": "array",
+            "defaultValue": [
+                "one",
+                "two",
+                "three"
+            ]
+        },
+        "elementsToSkip": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        },
+        "charactersToSkip": {
+            "type": "int",
+            "defaultValue": 4
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "array",
+            "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz o cadena.
+
+<a id="split" />
+
+## <a name="split"></a>split
+`split(inputString, delimiter)`
+
+Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entrada que están delimitadas por los delimitadores especificados.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| inputString |Sí |cadena |La cadena que se va a dividir. |
+| delimiter |Sí |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se divide la cadena de entrada con una coma, y con una coma o un punto y coma.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstString": {
+            "type": "string",
+            "defaultValue": "one,two,three"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "one;two,three"
+        }
+    },
+    "variables": {
+        "delimiters": [ ",", ";" ]
+    },
+    "resources": [],
+    "outputs": {
+        "firstOutput": {
+            "type": "array",
+            "value": "[split(parameters('firstString'),',')]"
+        },
+        "secondOutput": {
+            "type": "array",
+            "value": "[split(parameters('secondString'),variables('delimiters'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz de cadenas.
+
+<a id="startswith" />
+
+## <a name="startswith"></a>startsWith
+`startsWith(stringToSearch, stringToFind)`
+
+Determina si una cadena empieza con un valor. La comparación distingue entre mayúsculas y minúsculas.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo utilizar las funciones startsWith y endsWith:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "startsTrue": {
+            "value": "[startsWith('abcdef', 'ab')]",
+            "type" : "bool"
+        },
+        "startsCapTrue": {
+            "value": "[startsWith('abcdef', 'A')]",
+            "type" : "bool"
+        },
+        "startsFalse": {
+            "value": "[startsWith('abcdef', 'e')]",
+            "type" : "bool"
+        },
+        "endsTrue": {
+            "value": "[endsWith('abcdef', 'ef')]",
+            "type" : "bool"
+        },
+        "endsCapTrue": {
+            "value": "[endsWith('abcdef', 'F')]",
+            "type" : "bool"
+        },
+        "endsFalse": {
+            "value": "[endsWith('abcdef', 'e')]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+**True** si el primer carácter o caracteres de la cadena coinciden con el valor; en caso contrario, **False**.
+
+
+<a id="string" />
+
+## <a name="string"></a>string
+`string(valueToConvert)`
+
+Convierte el valor especificado en cadena.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Sí | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo convertir distintos tipos de valores en cadenas:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testObject": {
+            "type": "object",
+            "defaultValue": {
+                "valueA": 10,
+                "valueB": "Example Text"
+            }
+        },
+        "testArray": {
+            "type": "array",
+            "defaultValue": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "testInt": {
+            "type": "int",
+            "defaultValue": 5
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "objectOutput": {
+            "type": "string",
+            "value": "[string(parameters('testObject'))]"
+        },
+        "arrayOutput": {
+            "type": "string",
+            "value": "[string(parameters('testArray'))]"
+        },
+        "intOutput": {
+            "type": "string",
+            "value": "[string(parameters('testInt'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena.
+
+<a id="substring" />
+
+## <a name="substring"></a>substring
+`substring(stringToParse, startIndex, length)`
+
+Devuelve una subcadena que empieza en la posición de carácter especificada y que contiene el número especificado de caracteres.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToParse |Sí |cadena |La cadena original desde la que se extrae la subcadena. |
+| startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
+| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se extrae una subcadena de un parámetro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "substringOutput": {
+            "value": "[substring(parameters('testString'), 4, 3)]",
+            "type": "string"
+        }
+    }
+}
+```
+
+En el ejemplo siguiente se produce el error "Los parámetros index y length deben hacer referencia a una ubicación dentro de la cadena. Parámetro index: '0'; parámetro length: '11'; longitud del parámetro string: '10'.
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
+
+<a id="take" />
+
+## <a name="take"></a>take
+`take(originalValue, numberToTake)`
+
+Devuelve una cadena con el número especificado de caracteres desde el inicio de la cadena, o una matriz con el número especificado de elementos desde el inicio de la matriz.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
+| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se toma el número especificado de elementos de la matriz y de caracteres de la cadena.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testArray": {
+            "type": "array",
+            "defaultValue": [
+                "one",
+                "two",
+                "three"
+            ]
+        },
+        "elementsToTake": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        },
+        "charactersToTake": {
+            "type": "int",
+            "defaultValue": 2
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "array",
+            "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+        },
+        "stringOutput": {
+            "type": "string",
+            "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz o cadena.
+
+<a id="tolower" />
+
+## <a name="tolower"></a>toLower
+`toLower(stringToChange)`
+
+Convierte la cadena especificada a minúsculas.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToChange |Sí |string |Valor que se va a convertir a minúsculas. |
+
+### <a name="examples"></a>Ejemplos
+
+En el siguiente ejemplo se convierte un valor de parámetro a minúsculas y a mayúsculas.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
+        "toUpperOutput": {
+            "type": "string",
+            "value": "[toUpper(parameters('testString'))]"
+        }
+    }
+}
+```
+
+<a id="toupper" />
+
+## <a name="toupper"></a>toUpper
+`toUpper(stringToChange)`
+
+Convierte la cadena especificada a mayúsculas.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToChange |Sí |cadena |Valor que se va a convertir a mayúsculas. |
+
+### <a name="examples"></a>Ejemplos
+
+En el siguiente ejemplo se convierte un valor de parámetro a minúsculas y a mayúsculas.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
+        "toUpperOutput": {
+            "type": "string",
+            "value": "[toUpper(parameters('testString'))]"
+        }
+    }
+}
+```
+
+<a id="trim" />
+
+## <a name="trim"></a>trim
+`trim (stringToTrim)`
+
+Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena especificada.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToTrim |Sí |cadena |Valor que se recortará. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se recortan los caracteres de espacio en blanco del parámetro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "    one two three   "
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "return": {
+            "type": "string",
+            "value": "[trim(parameters('testString'))]"
+        }
+    }
+}
+```
+
+<a id="uniquestring" />
+
+## <a name="uniquestring"></a>uniqueString
+`uniqueString (baseString, ...)`
+
+Crea una cadena de hash determinista basada en los valores proporcionados como parámetros. 
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
+| parámetros adicionales según sea necesario |No |cadena |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+
+### <a name="remarks"></a>Comentarios
+
+Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que limitan el ámbito de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación. 
+
+El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. Debe ser único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. El valor real varía según los parámetros proporcionados.
+
+    tcvhiyu5h2o5o
+
+### <a name="examples"></a>Ejemplos
+
+En los ejemplos siguientes se muestra cómo utilizar uniqueString a fin de crear un valor único para niveles de uso común.
+
+Único basado en la suscripción
+
+```json
+"[uniqueString(subscription().subscriptionId)]"
+```
+
+Único basado en el grupo de recursos
+
+```json
+"[uniqueString(resourceGroup().id)]"
+```
+
+Único basado en la implementación de un grupo de recursos
+
+```json
+"[uniqueString(resourceGroup().id, deployment().name)]"
+```
+
+En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos. Dentro del grupo de recursos, el nombre no es único si crea de la misma manera.
+
+```json
+"resources": [{ 
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
+    "type": "Microsoft.Storage/storageAccounts", 
+    ...
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que contiene 13 caracteres
+
+<a id="uri" />
+
+## <a name="uri"></a>uri
+`uri (baseUri, relativeUri)`
+
+Crea un URI absoluto mediante la combinación de la cadena de relativeUri y baseUri.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| baseUri |Sí |cadena |La cadena de uri base. |
+| relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
+
+El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar `http://contoso.com/resources/azuredeploy.json` como parámetro baseUri, se obtiene como resultado un identificador URI base de `http://contoso.com/resources/`.
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla anidada en función del valor de la plantilla principal.
+
+```json
+"templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
+```
+
+En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentToString:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "uriOutput": {
+            "type": "string",
+            "value": "[variables('uriFormat')]"
+        },
+        "componentOutput": {
+            "type": "string",
+            "value": "[variables('uriEncoded')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[uriComponentToString(variables('uriEncoded'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que representa el identificador URI absoluto para los valores base y relativos.
+
+<a id="uricomponent" />
+
+## <a name="uricomponent"></a>uriComponent
+`uricomponent(stringToEncode)`
+
+Codifica un identificador URI.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| stringToEncode |Sí |string |El valor para codificar. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentToString:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "uriOutput": {
+            "type": "string",
+            "value": "[variables('uriFormat')]"
+        },
+        "componentOutput": {
+            "type": "string",
+            "value": "[variables('uriEncoded')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[uriComponentToString(variables('uriEncoded'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del valor codificado por el identificador URI.
+
+<a id="uricomponenttostring" />
+
+## <a name="uricomponenttostring"></a>uriComponentToString
+`uriComponentToString(uriEncodedString)`
+
+Devuelve una cadena del valor codificado por el identificador URI.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| uriEncodedString |Sí |cadena |El valor codificado por el identificador URI para convertir en una cadena. |
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentToString:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "uriFormat": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]",
+        "uriEncoded": "[uriComponent(variables('uriFormat'))]" 
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "uriOutput": {
+            "type": "string",
+            "value": "[variables('uriFormat')]"
+        },
+        "componentOutput": {
+            "type": "string",
+            "value": "[variables('uriEncoded')]"
+        },
+        "toStringOutput": {
+            "type": "string",
+            "value": "[uriComponentToString(variables('uriEncoded'))]"
+        }
+    }
+}
+```
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena descodificada del valor codificado por el identificador URI.
+
+## <a name="next-steps"></a>Pasos siguientes
+* Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+* Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
+* Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+
+

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/26/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 294a7b7de5c0a95f9f0784f315f202ae2c062e57
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>¿Qué es el inicio de sesión único de conexión directa con Azure Active Directory?
 
-El inicio de sesión único de conexión directa con Azure Active Directory (SSO de conexión directa con Azure AD) proporciona un verdadero inicio de sesión único para los usuarios que inician sesión en equipos corporativos conectados a la red de la empresa. Si se habilita, no será preciso que los usuarios escriban la contraseña para iniciar sesión en Azure AD y, en la mayoría de los casos, ni siquiera los nombres de usuario. Esta característica proporciona a los usuarios un acceso sencillo a los servicios en la nube sin necesidad de otros componentes locales.
+El inicio de sesión único de conexión directa con Azure Active Directory (SSO de conexión directa con Azure AD) proporciona un verdadero inicio de sesión único para los usuarios que inician sesión en equipos de escritorio corporativos conectados a la red de la empresa. Si se habilita, no será preciso que los usuarios escriban la contraseña para iniciar sesión en Azure AD y, en la mayoría de los casos, ni siquiera los nombres de usuario. Esta característica proporciona a los usuarios un acceso sencillo a los servicios en la nube sin necesidad de otros componentes locales.
 
 SSO de conexión directa se puede habilitar a través de Azure AD Connect y se puede combinar con [la sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) o [la autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
 
@@ -48,41 +49,47 @@ Si no se cumple alguna de las condiciones anteriores, al usuario se le pedirá q
 >[!NOTE]
 >SSO de conexión directa con Azure AD está actualmente en versión preliminar. Es una característica gratuita y no es necesario usar ninguna edición de pago de Azure AD para usarla.
 
-La compatibilidad con SSO de conexión directa se realiza a través de clientes con explorador web y de Office que admiten la [autenticación moderna](https://aka.ms/modernauthga) en escritorios que pueden usar la autenticación Kerberos, como los equipos con Windows. En la tabla siguiente, se proporcionan detalles de los clientes basados en el explorador en distintos sistemas operativos.
+La compatibilidad con SSO de conexión directa se realiza a través de clientes con explorador web y de Office que admiten la [autenticación moderna](https://aka.ms/modernauthga) en escritorios que pueden usar la autenticación Kerberos, como los equipos de escritorio con Windows. En la tabla siguiente, se proporcionan detalles de los clientes basados en el explorador en distintos sistemas operativos.
 
-| SO\Explorador |Internet Explorer|Chrome|Firefox|perimetral
+| SO\Explorador |Internet Explorer|Google Chrome|Mozilla Firefox|perimetral
 | --- | --- |--- | --- | --- |
-|Windows 10|Sí|Sí|Sí*|No
-|Windows 8.1|Sí|Sí|Sí*|N/D
-|Windows 8|Sí|Sí|Sí*|N/D
-|Windows 7|Sí|Sí|Sí*|N/D
-|Mac|N/D|No|No|N/D
+|Windows 10|Sí|Sí|Sí\*|No
+|Windows 8.1|Sí|Sí|Sí\*|N/D
+|Windows 8|Sí|Sí|Sí\*|N/D
+|Windows 7|Sí|Sí|Sí\*|N/D
+|Mac OS X|N/D|Sí\*|Sí\*|N/D
 
 \*Requiere configuración adicional.
 
 >[!NOTE]
 >En el caso de Windows 10, la recomendación es usar [Azure AD Join](../active-directory-azureadjoin-overview.md) para que la experiencia con Azure AD sea óptima.
 
+Si una solicitud de inicio de sesión de Azure AD incluye el parámetro `domain_hint` o `login_hint` (iniciado por una aplicación en el inquilino), SSO de conexión directa la usará y el usuario no tendrá que escribir su nombre de usuario y contraseña.
+
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>¿Cómo funciona SSO de conexión directa con Azure AD?
 
 SSO de conexión directa se puede habilitar en Azure AD Connect como se muestra [a continuación](#how-to-enable-azure-ad-seamless-sso?). Una vez que se habilita, se crea una cuenta de equipo denominada AZUREADSSOACCT en la instancia local de Active Directory (AD) y su clave de descifrado de Kerberos se comparte de forma segura con Azure AD. Además, se crean dos nombres de entidad de servicio (SPN) de Kerberos que representan las dos direcciones URL de servicio que se usan en el inicio de sesión de Azure AD.
+
+>[!NOTE]
+> Se deben crear la cuenta de equipo y los SPN de Kerberos en cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee habilitar SSO de conexión directa. Si el bosque de AD tiene unidades organizativas (UO) para cuentas de equipo, después de habilitar la característica SSO de conexión directa, mueva la cuenta de equipo AZUREADSSOACCT a una UI para asegurarse de que no se elimine y que se administra del mismo modo que otras cuentas de equipo.
 
 Una vez completada la instalación, el inicio de sesión en Azure AD funcionará de la misma forma que cualquier otro inicio de sesión que use la autenticación integrada de Windows (IWA). El proceso de SSO de conexión directa funciona del siguiente modo:
 
 Supongamos que un usuario intenta acceder a un recurso en la nube que está protegido por Azure AD, como SharePoint Online. SharePoint Online redirige el explorador del usuario a Azure AD para el inicio de sesión.
 
-- Si la solicitud de inicio de sesión a Azure AD incluye los parámetros `domain_hint` (identifica un inquilino de Azure AD; por ejemplo, contoso.onmicrosoft.com) o `login_hint` (identifica el nombre de usuario; por ejemplo, user@contoso.onmicrosoft.com o user@contoso.com), se dan los pasos siguientes.
-- Si cualquiera de estos dos parámetros no se incluyen en la solicitud de inicio de sesión de Azure AD, se le pedirá al usuario que especifique su nombre de usuario, tras lo que se producen los pasos siguientes.
+Si la solicitud de inicio de sesión a Azure AD incluye los parámetros `domain_hint` (identifica un inquilino de Azure AD; por ejemplo, contoso.onmicrosoft.com) o `login_hint` (identifica el nombre del usuario; por ejemplo, user@contoso.onmicrosoft.com o user@contoso.com), se dan los pasos 1 al 5.
+
+Si cualquiera de estos dos parámetros no se incluyen en la solicitud, se le pedirá al usuario que especifique su nombre de usuario en la página de inicio de sesión de Azure AD. Los pasos 1 al 5 solo se dan una vez que el usuario sale del campo de nombre de usuario o hace clic en el botón "Continuar".
 
 1. Azure AD solicita al cliente, con una respuesta 401 No autorizado, que proporcione un vale de Kerberos.
-2. El cliente solicita un vale desde Active Directory para Azure AD (representado por la cuenta del equipo que se ha instalado antes).
-3. Active Directory busca la cuenta de máquina y devuelve al cliente un vale Kerberos cifrado con el secreto de la cuenta del equipo. El vale incluye la identidad del usuario que inició sesión en el escritorio.
+2. El cliente solicita un vale desde Active Directory para Azure AD (representado por la cuenta del equipo que se ha configurado antes).
+3. Active Directory busca la cuenta de equipo y devuelve al cliente un vale Kerberos cifrado con el secreto de la cuenta del equipo. El vale incluye la identidad del usuario que inició sesión en el escritorio.
 4. El cliente envía el vale de Kerberos que adquirió desde Active Directory a Azure AD.
 5. Azure AD descifra el vale Kerberos mediante la clave antes compartida. Si lo realiza correctamente, Azure AD devuelve un token o pide al usuario que proporcione las pruebas adicionales, como la autenticación multifactor, que solicite el recurso.
 
-SSO de conexión directa es una característica oportunista, lo que significa que, si se produce un error por algún motivo, basta con que el usuario escriba su contraseña en la página de inicio de sesión como hacía antes.
+SSO de conexión directa es una característica oportunista, lo que significa que, si por algún motivo genera un error, la experiencia de inicio de sesión del usuario se revierte a su comportamiento habitual; es decir, el usuario deberá escribir su contraseña en la página de inicio de sesión.
 
-El proceso completo también se muestra en el diagrama siguiente:
+El proceso también se muestra en el diagrama siguiente:
 
 ![Inicio de sesión único de conexión directa](./media/active-directory-aadconnect-sso/sso2.png)
 
@@ -96,6 +103,7 @@ Si va a habilitar SSO de conexión directa con sincronización de contraseñas y
 
 - El servidor de Azure AD Connect pueda comunicarse con las direcciones URL de `*.msappproxy.net`.
 - Azure AD Connect (versiones 1.1.484.0 o superiores) puede realizar solicitudes HTTPS a Azure AD a través del puerto 443. Esto solo se utiliza para habilitar la característica, no para los inicios de sesión de usuario reales.
+- Azure AD Connect también puede crear conexiones IP directas con los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Repetimos que esto solo se usa para habilitar la característica.
 
 >[!NOTE]
 > Las versiones anteriores de Azure AD Connect (anteriores a la 1.1.484.0) necesitan poder comunicarse con Azure AD a través del puerto 9090.
@@ -118,9 +126,15 @@ En este momento SSO de conexión directa está habilitado en su inquilino. Tenga
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>Implementación de la característica a los usuarios
 
+Para implementar la característica SSO de conexión directa en los usuarios, deberá agregar dos direcciones URL de Azure AD (https://autologon.microsoftazuread-sso.com y https://aadg.windows.net.nsatc.net) en la configuración de zona de intranet de los usuarios a través de una directiva de grupo en Active Directory. Tenga en cuenta que esto solo funciona en Internet Explorer y Google Chrome (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Deberá realizar otra configuración para Mozilla Firefox.
+
+### <a name="why-do-you-need-this"></a>¿Por qué es necesario esto?
+
 De forma predeterminada, los exploradores no envían vales Kerberos a un punto de conexión en la nube, salvo que su dirección URL se defina como parte de la zona de intranet del explorador. El explorador calcula automáticamente la zona correcta (Internet o intranet) de la dirección URL. Por ejemplo, http://contoso/ se asignará a la zona de intranet, mientras que http://intranet.contoso.com/ se asignará a la zona de Internet (porque la dirección URL contiene un punto).
 
-Dado que las direcciones URL de servicio que se usan para SSO de conexión directa en Azure AD contienen un punto, se deben agregar explícitamente a la configuración de la zona de intranet del explorador de cada usuario. Esto hace que el explorador envíe automáticamente a Azure AD los vales Kerberos del usuario que ha iniciado sesión. Aunque esta operación se puede realizar manualmente en cada equipo, la manera más fácil de agregar las direcciones URL necesarias a la zona de intranet de todos los usuarios es crear una directiva de grupo en Active Directory.
+Dado que las direcciones URL de Azure AD que se usan para SSO de conexión directa contienen un punto, se deben agregar explícitamente a la configuración de la zona de intranet de cada explorador. Esto hace que el explorador envíe automáticamente a Azure AD los vales Kerberos del usuario que ha iniciado sesión. Aunque esta operación se puede realizar manualmente en cada equipo, la manera más fácil de agregar las direcciones URL necesarias a la zona de intranet de todos los usuarios es crear una directiva de grupo en Active Directory.
+
+### <a name="detailed-steps"></a>Pasos detallados
 
 1. Abra las herramientas de administración de directivas de grupo.
 2. Edite la directiva de grupo que se aplica a todos los usuarios, por ejemplo, la **directiva de dominio predeterminada**.
@@ -134,7 +148,9 @@ Dado que las direcciones URL de servicio que se usan para SSO de conexión direc
         Data: 1  
 5. Haga clic en **Aceptar** y en **Aceptar** de nuevo.
 
-Debería ser parecido a este: ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso7.png)
+Debería ser parecido a este:
+
+![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso7.png)
 
 >[!NOTE]
 >De forma predeterminada, Chrome usa el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer. Si tiene una configuración distinta para Chrome, será preciso que la actualice de manera independiente.
@@ -147,10 +163,11 @@ Use la siguiente lista de comprobación para la solución de problemas de SSO de
 2. Se ha definido que las dos direcciones URL de servicio (https://autologon.microsoftazuread-sso.com y https://aadg.windows.net.nsatc.net) forman parte de la configuración de la zona de intranet.
 3. Asegúrese de que el escritorio corporativo se ha unido al dominio de AD.
 4. Asegúrese de que el usuario ha iniciado sesión en el escritorio con una cuenta de dominio de AD.
-5. Asegúrese de que el escritorio está conectado a la red corporativa.
-6. Asegúrese de que la hora del escritorio está sincronizada con la de Active Directory y de los controladores de dominio y de que difiere un máximo de 5 minutos de cada una de ellas.
-7. Purgue los vales Kerberos existentes de su escritorio. Para hacerlo, ejecute el comando **klist purge** desde un símbolo del sistema.
-8. Revise los registros de la consola del explorador (en "Herramientas de desarrollo") para ayudar a determinar posibles problemas.
+5. Asegúrese de que la cuenta del usuario provenga de un bosque de AD donde esté configurado SSO de conexión directa.
+6. Asegúrese de que el escritorio está conectado a la red corporativa.
+7. Asegúrese de que la hora del escritorio está sincronizada con la de Active Directory y de los controladores de dominio y de que difiere un máximo de 5 minutos de cada una de ellas.
+8. Purgue los vales Kerberos existentes de su escritorio. Para hacerlo, ejecute el comando **klist purge** desde un símbolo del sistema.
+9. Revise los registros de la consola del explorador (en "Herramientas de desarrollo") para ayudar a determinar posibles problemas.
 
 ### <a name="domain-controller-logs"></a>Registros de controlador de dominio
 

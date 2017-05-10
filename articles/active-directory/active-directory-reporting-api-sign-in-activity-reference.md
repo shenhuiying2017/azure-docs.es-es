@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 077c39d1a6f61aba7b184ee616a93f30cdb7d12c
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,9 +35,18 @@ Consulte:
 Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="who-can-access-the-api-data"></a>¿Quién puede acceder a los datos de la API?
-* Usuarios de los roles de administrador o lector de seguridad
+* Usuarios y entidades de seguridad de los roles de administrador o lector de seguridad
 * Administradores globales
 * Cualquier aplicación que tenga autorización para acceder a la API (la autorización de aplicaciones solo puede configurarse según los permisos del administrador global).
+
+Para configurar el acceso a fin de que una aplicación tenga acceso a API de seguridad tales como eventos de inicio de sesión, use el siguiente PowerShell para agregar la entidad de servicio de las aplicaciones al rol de lector de seguridad
+
+```PowerShell
+Connect-MsolService
+$servicePrincipal = Get-MsolServicePrincipal -AppPrincipalId "<app client id>"
+$role = Get-MsolRole | ? Name -eq "Security Reader"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
+```
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para acceder a este informe a través de la API de generación de informes, debe cumplir los siguientes requisitos:

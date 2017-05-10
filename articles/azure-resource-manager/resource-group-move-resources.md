@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -75,6 +76,7 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 
 * API Management
 * App Service apps (Web Apps) - consulte las [limitaciones de App Service](#app-service-limitations)
+* Application Insights
 * Automation
 * Batch
 * Mapas de Bing
@@ -124,8 +126,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
-* Application Insights
-* BizTalk Services
+* Servicios de BizTalk
 * Container Service
 * ExpressRoute
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
@@ -147,12 +148,12 @@ Si se trabaja con aplicaciones de App Service, no se puede mover solo un plan de
 * Trasladar el plan de App Service y el resto de recursos de App Service de ese grupo de recursos a un nuevo grupo que aún no tenga recursos de App Service. Este requisito significa que debe trasladar incluso los recursos de App Service que no estén asociados al plan de App Service. 
 * Mover las aplicaciones a un grupo de recursos distinto, pero mantener todos los planes de App Service del grupo de recursos original.
 
-Si el grupo de recursos original también incluye un recurso de Application Insights, no podrá mover ese recurso porque Application Insights no admite actualmente la operación de traslado. Si se incluye el recurso de Application Insights al mover las aplicaciones de App Service, se producirá un error en toda la operación de traslado. Sin embargo, no es necesario que el plan de App Service y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
+Sin embargo, no es necesario que el plan de App Service resida en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
 
 Por ejemplo, si el grupo de recursos contiene:
 
-* **web-a**, asociado a **plan-a** y **app-insights-a**
-* **web-b**, asociado a **plan-b** y **app-insights-b**
+* **web-a** asociada a **plan-a**
+* **web-b** asociada a **plan-b**
 
 Tendrá las siguientes opciones:
 
@@ -161,7 +162,7 @@ Tendrá las siguientes opciones:
 * Mover **web-a**
 * Mover **web-b**
 
-Todas las demás combinaciones implican el traslado de un tipo de recurso que no se puede mover (Application Insights) o se dejan un tipo de recurso que debe trasladarse al mover un plan de App Service (cualquier tipo de recurso de App Service).
+Todas las demás combinaciones implican dejar un tipo de recurso que debe trasladarse al mover un plan de App Service (cualquier tipo de recurso de App Service).
 
 Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan de App Service, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo:
 

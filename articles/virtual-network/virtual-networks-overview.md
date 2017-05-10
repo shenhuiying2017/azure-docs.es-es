@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
-ms.openlocfilehash: 1072148f11052a643bdc70239029a651d9d71dda
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 22c0ee5090d67430fc63ad3f3c09076de0be067c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -61,9 +62,9 @@ Puede conectar redes virtuales entre sí, habilitar recursos conectados a cualqu
 ## <a name="connect-on-premises"></a>Conexión a una red local
 
 Puede conectar su red local a una red virtual mediante cualquier combinación de las siguientes opciones:
-- **Red privada virtual (VPN) de punto a sitio:** establecido entre un único equipo conectado a la red y a la red virtual. Este tipo de conexión es muy útil cuando se está comenzando con Azure, o para los desarrolladores, porque requiere poco o ningún cambio en la red existente. La conexión utiliza el protocolo SSTP para proporcionar comunicación cifrada a través de Internet entre el equipo y la red virtual. La latencia de una VPN de sitio a punto es imprevisible y cifrada, ya que el tráfico atraviesa Internet.
+- **Red privada virtual (VPN) de punto a sitio:** establecido entre un único equipo conectado a la red y a la red virtual. Este tipo de conexión es muy útil cuando se está comenzando con Azure, o para los desarrolladores, porque requiere poco o ningún cambio en la red existente. La conexión utiliza el protocolo SSTP para proporcionar comunicación cifrada a través de Internet entre el equipo y la red virtual. La latencia de una VPN de sitio a punto es imprevisible, ya que el tráfico atraviesa Internet.
 - **VPN de sitio a sitio:** se establece entre el dispositivo VPN y una instancia de Azure VPN Gateway. Este tipo de conexión permite cualquier recurso local que autoriza a acceder a una red virtual. La conexión es una VPN de IPSec/IKE que proporciona comunicación cifrada por Internet entre el dispositivo local y la instancia de Azure VPN Gateway. La latencia de una conexión de sitio a sitio es imprevisible, ya que el tráfico atraviesa Internet.
-- **Azure ExpressRoute:** establecida entre la red y Azure, a través de un asociado de ExpressRoute. Esta conexión es privada. El tráfico no atraviesa Internet. La latencia de una conexión ExpressRoute es predecible, ya que el tráfico no atraviesa Internet y no se cifra.
+- **Azure ExpressRoute:** establecida entre la red y Azure, a través de un asociado de ExpressRoute. Esta conexión es privada. El tráfico no atraviesa Internet. La latencia de una conexión ExpressRoute es predecible, ya que el tráfico no atraviesa Internet.
 
 Para más información acerca de todas las opciones de la conexión anterior, consulte el artículo [Diagramas de topología de conexión](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
 
@@ -81,6 +82,10 @@ Azure crea tablas de rutas que permiten a los recursos conectados a una subred d
 ## <a name="pricing"></a>Precios
 
 No hay ningún cargo por redes virtuales, subredes, tablas de rutas o grupos de seguridad de red. El uso del ancho de banda saliente de Internet, las direcciones IP públicas, el emparejamiento de redes virtuales, puertas de enlace VPN y ExpressRoute tienen sus propias estructuras de precios. Consulte las páginas de precios de [red virtual](https://azure.microsoft.com/pricing/details/virtual-network), [puerta de enlace VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) y [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) para más información.
+
+## <a name="faq"></a>P+F
+
+Para revisar las preguntas más frecuentes sobre la red Virtual, vea el artículo [P+F de Virtual Network](virtual-networks-faq.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

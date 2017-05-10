@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 2a050e5817ab884c9d4337cc1cc76e298299dba3
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: e1c65060c2862736c76b36676f95a88d8dbab4c6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -80,7 +81,7 @@ En este caso, la organización tiene numerosas máquinas virtuales conectadas a 
 
 ![Red Iaas de Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-Puede convertirse en un problema a medida que muchas organizaciones usen varios proveedores de nube, ya que sus aplicaciones se encuentran en varios centros de datos. Con los grupos de conectores de proxy de aplicación de Azure AD, puede habilitar un servicio común para proteger el acceso a todas las aplicaciones sin necesidad de crear otra dependencia de la red corporativa:
+Esto puede convertirse en un problema a medida que muchas organizaciones usen varios proveedores de nube, ya que sus aplicaciones se encuentran en varios centros de datos. Con los grupos de conectores de proxy de aplicación de Azure AD, puede habilitar un servicio común para proteger el acceso a todas las aplicaciones sin necesidad de crear otra dependencia de la red corporativa:
 
 ![Varios proveedores de nube (IaaS de Azure AD)](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

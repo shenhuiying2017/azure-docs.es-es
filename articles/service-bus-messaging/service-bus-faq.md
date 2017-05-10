@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/02/2017
 ms.author: sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 2c9b6676c1a4cfe008235da6746d403555e1bf08
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="service-bus-faq"></a>Preguntas más frecuentes sobre el Bus de servicio
-En este artículo se responden algunas preguntas frecuentes sobre el Bus de servicio de Microsoft Azure. También puede visitar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure.
+En este artículo se responden algunas preguntas frecuentes sobre Microsoft Azure Service Bus. También puede visitar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Preguntas generales sobre Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
@@ -56,7 +57,11 @@ Las siguientes propiedades de una cola y un tema son inmutables. Tenga esto en c
 * Entidad exprés
 
 ## <a name="pricing"></a>Precios
-En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios del Bus de servicio. También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Microsoft Azure. Para obtener más información sobre los precios del Bus de servicio, consulte [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
+En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios del Bus de servicio.
+
+El artículo [Precios y facturación de Service Bus](service-bus-pricing-billing.md) explica los medidores de facturación en Service Bus y para obtener información sobre opciones de precios de Service Bus, vea [Detalles de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+
+También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>¿Cómo se cobra el Bus de servicio?
 Para más información sobre los precios del Bus de servicio, consulte los [detalles de precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.

@@ -15,10 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: b179588d29c5dd8cc5bd2469e7f1dfe669027eca
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 6b90f0232d0fc527d0232a19f9251519250687f0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -144,8 +145,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="backup-azure-vms"></a>Copia de seguridad de máquinas virtuales de Azure
-Ahora que ha creado un almacén de Recovery Services, podrá usarlo para proteger una máquina virtual. Sin embargo, antes de aplicar la protección, debe establecer el contexto del almacén y comprobar la directiva de protección. El contexto del almacén define el tipo de los datos protegidos en el almacén. La directiva de protección consiste en la programación que indica cuándo se debe ejecutar el trabajo de copia de seguridad y cuánto tiempo se conserva cada instantánea de copia de seguridad.
+## <a name="back-up-azure-vms"></a>Copia de seguridad de máquinas virtuales de Azure
+Utilice el nuevo almacén de Recovery Services para proteger su máquina virtual. Antes de aplicar la protección, establezca el contexto de almacén (el tipo de datos protegido en el almacén) y compruebe la directiva de protección. La directiva de protección consiste en la programación que indica cuándo se debe ejecutar el trabajo de copia de seguridad y cuánto tiempo se conserva cada instantánea de copia de seguridad.
 
 Antes de habilitar la protección en una máquina virtual, debe establecer el contexto de almacén. El contexto se aplica a todos los cmdlets sucesivos.
 
@@ -310,7 +311,7 @@ BackupManagementType        : AzureVM
 
 
 ### <a name="restore-the-disks"></a>Restauración de los discos
-Utilice el cmdlet **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)** para restaurar los datos y la configuración para un elemento de Backup a un punto de recuperación. Una vez que haya identificado un punto de recuperación, úselo como el valor del parámetro **-RecoveryPoint** . En el código de ejemplo anterior, se eligió **$rp[0]** como el punto de recuperación que se iba a usar. En el código de ejemplo siguiente, se especifica **$rp[0]** como el punto de recuperación que se va a restaurar en el disco.
+Utilice el cmdlet **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)** para restaurar los datos y la configuración para un elemento de Backup a un punto de recuperación. Una vez que haya identificado un punto de recuperación, úselo como el valor del parámetro **-RecoveryPoint** . En el código de ejemplo anterior, **$rp[0]** era el punto de recuperación que usar. En el código de ejemplo siguiente, **$rp[0]** es el punto de recuperación que se va a restaurar en el disco.
 
 Para restaurar los discos y la información de configuración
 
@@ -341,18 +342,19 @@ Una vez que restaure los discos, vaya a la siguiente sección para obtener infor
 Tras haber restaurado los discos, siga estos pasos para crear y configurar la máquina virtual a partir de ellos.
 
 > [!NOTE]
-> Si va a crear máquinas virtuales cifradas mediante discos restaurados, su rol debe poder realizar **Microsoft.KeyVault/vaults/deploy/action**. Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Consulte [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-custom-roles.md) para obtener más detalles.
+> Si usa discos restaurados para crear VM cifradas, el rol de Azure debe tener permiso para realizar la acción, **Microsoft.KeyVault/vaults/deploy/action**. Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Para más información, vea [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-custom-roles.md).
 >
 >
 
 1. Realice una consulta destinada a las propiedades de los discos restaurados para obtener los detalles del trabajo.
 
-    ```
-    PS C:\> $properties = $details.properties
-    PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
-    PS C:\> $containerName = $properties["Config Blob Container Name"]
-    PS C:\> $blobName = $properties["Config Blob Name"]
-    ```
+  ```
+  PS C:\> $properties = $details.properties
+  PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
+  PS C:\> $containerName = $properties["Config Blob Container Name"]
+  PS C:\> $blobName = $properties["Config Blob Name"]
+  ```
+
 2. Establezca el contexto de Azure Storage y restaure el archivo de configuración JSON.
 
     ```
@@ -361,30 +363,37 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
     PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
+
 3. Utilice el archivo de configuración JSON para crear la configuración de la máquina virtual.
 
     ```
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.HardwareProfile.VirtualMachineSize -VMName "testrestore"
     ```
+
 4. Conecte el disco del sistema operativo y los discos de datos.
 
-      Para las máquinas virtuales sin cifrar,
+  Para las máquinas virtuales sin cifrar,
 
-      ```
-      PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -CreateOption “Attach”
-      PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
-      PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)
-       {
-       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
-       }
-       ```
-       
-      For encrypted VMs, you need to specify [Key vault information](https://msdn.microsoft.com/library/dn868052.aspx) before you can attach disks.
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -CreateOption “Attach”
+    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
+    PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+     }
+    ```
 
-      ```
-      PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -DiskEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007" -DiskEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -KeyEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007" -KeyEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -CreateOption "Attach" -Windows    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType    PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)     {     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach     }
-       ```
-       
+    Las máquinas virtuales cifradas, debe especificar la [información del almacén de claves](https://msdn.microsoft.com/library/dn868052.aspx) para poder conectar discos.
+
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -DiskEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007" -DiskEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -KeyEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007" -KeyEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -CreateOption "Attach" -Windows
+    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
+    PS C:\> foreach($dd in $obj.StorageProfile.DataDisks)
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+     }
+    ```
+
 5. Ajuste la configuración de la red.
 
     ```
@@ -401,5 +410,5 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si prefiere usar PowerShell para interactuar con los recursos de Azure, consulte el artículo de PowerShell sobre cómo proteger Windows Server llamado [Implementación y administración de copias de seguridad en Azure para Windows Server](backup-client-automation.md). También hay un artículo de PowerShell sobre cómo administrar las copias de seguridad DPM: [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](backup-dpm-automation.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager y las clásicas.  
+Si prefiere usar PowerShell para interactuar con los recursos de Azure, vea el artículo de PowerShell [Implementación y administración de copia de seguridad para Windows Server](backup-client-automation.md). También hay un artículo de PowerShell sobre cómo administrar las copias de seguridad DPM: [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](backup-dpm-automation.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager y las clásicas.  
 

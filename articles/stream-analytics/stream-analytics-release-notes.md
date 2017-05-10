@@ -12,16 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 05/03/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
-ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
-ms.lasthandoff: 02/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Notas de la versión de Análisis de transmisiones
+
+## <a name="notes-for-05032017-update-of-stream-analytics"></a>Notas de la actualización de Stream Analytics del 03/05/2017
+Esta actualización es para la versión d documentación de solución de problemas.
+
+Se han publicado la [guía de solución de problemas](stream-analytics-troubleshooting-guide.md) y otros documentos. Revíselos. Agradecemos sus comentarios.
+
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Notas de la versión de Stream Analytics del 01/02/2017
 Esta versión contiene la siguiente actualización.
 
@@ -136,7 +143,7 @@ Esta versión contiene las siguientes actualizaciones.
 | Los conjuntos de datos PowerBI solo pueden contener una tabla |PowerBI no admite más de una tabla en un conjunto de datos determinado. |
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)

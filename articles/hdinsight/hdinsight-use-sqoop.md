@@ -17,10 +17,11 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 3f053d4c94d48630252f7c80fa8077c8ae5feb2d
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 1901613b3e0db19f86247ee78828eccd58fb026b
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +37,8 @@ A pesar de que Hadoop es una opción natural para procesar datos no estructurado
 Para ver las versiones de Sqoop compatibles con los clústeres de HDInsight, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][hdinsight-versions].
 
 ## <a name="understand-the-scenario"></a>Descripción del escenario
-El clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejemplos siguientes:
+
+El clúster de HDInsight incluye algunos datos de ejemplo. Utilice los dos ejemplos siguientes:
 
 * Un archivo registro log4j, ubicado en */example/data/sample.log*. Los registros siguientes se extraen del archivo:
   
@@ -60,7 +62,7 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejempl
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-En primer lugar, exportará tanto *sample.log* como *hivesampletable* a la base de datos de Azure SQL o a SQL Server y, a continuación, importará la tabla que contiene los datos del dispositivo móvil de nuevo en HDInsight con la ruta de acceso siguiente:
+En primer lugar, exporte tanto *sample.log* como *hivesampletable* a la base de datos de Azure SQL o a SQL Server y luego importe la tabla que contiene los datos del dispositivo móvil de nuevo en HDInsight con la ruta de acceso siguiente:
 
     /tutorials/usesqoop/importeddata
 
@@ -82,7 +84,7 @@ Si prefiere usar Azure PowerShell para crear el clúster y la base de datos SQL;
     - **Suscripción**: escriba su suscripción de Azure.
     - **Grupo de recursos**: cree un nuevo grupo de recursos de Azure o seleccione uno existente.  Un grupo de recursos tiene fines administrativos.  Es un contenedor de objetos.
     - **Ubicación**: seleccione una región.
-    - **ClusterName**: escriba un nombre para el clúster de Hadoop que va a crear.
+    - **Nombre del clúster**: escriba el nombre del clúster de Hadoop.
     - **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es admin.
     - **Nombre de usuario y contraseña de SSH**.
     - **Nombre y contraseña de inicio de sesión en el servidor de la base de datos SQL**.
@@ -131,7 +133,7 @@ Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
       > 
       > 
     * Si usa SQL Server en una máquina virtual de Azure, se puede usar cualquier configuración de red virtual si la máquina virtual que hospeda SQL Server es miembro de la misma red virtual que HDInsight.
-  * Para crear un clúster de HDInsight en una red virtual, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md)
+  * Para crear un clúster de HDInsight en una red virtual, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
     > SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
@@ -149,7 +151,7 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 
 ## <a name="limitations"></a>Limitaciones
 * Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
-* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
+* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
@@ -197,12 +199,12 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
     Para examinar el clúster, puede usar el portal de Azure o Azure PowerShell.
 5. Preprocese el archivo de datos de origen.
    
-    En este tutorial, exportará un archivo de registro log4j (un archivo delimitado) y una tabla de Hive a una base de datos SQL de Azure. El archivo delimitado se llama */example/data/sample.log*. Anteriormente en este tutorial, se han mostrado algunos ejemplos de registros log4j. El archivo de registro tiene algunas líneas vacías y otras similares a las siguientes:
+    En este tutorial, se exporta un archivo de registro log4j (un archivo delimitado) y una tabla de Hive a una base de datos SQL de Azure. El archivo delimitado se llama */example/data/sample.log*. Anteriormente en este tutorial, se han mostrado algunos ejemplos de registros log4j. El archivo de registro tiene algunas líneas vacías y otras similares a las siguientes:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar estas excepciones para poder importarlos a la base de datos SQL de Azure o a SQL Server. La exportación de Sqoop producirá un error si hay una cadena vacía o una línea con un número de elementos inferior al número de campos definido en la tabla de base de datos SQL de Azure. La tabla log4jlogs tiene 7 campos de tipo cadena.
+    Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar estas excepciones para poder importarlos a la base de datos SQL de Azure o a SQL Server. La exportación de Sqoop produce un error si hay una cadena vacía o una línea con menos elementos inferior al número de campos definido en la tabla de base de datos SQL de Azure. La tabla log4jlogs tiene 7 campos de tipo cadena.
    
     Este procedimiento crea un archivo nuevo en el clúster: tutorials/usesqoop/data/sample.log. Para examinar el archivo de datos modificado, puede usar el portal de Azure, una herramienta del explorador de almacenamiento de Azure o Azure PowerShell. [Introducción a HDInsight][hdinsight-get-started] incluye código de ejemplo para usar Azure PowerShell para descargar un archivo y mostrar su contenido.
 6. Exportar un archivo de datos a la base de datos SQL de Azure.
@@ -213,7 +215,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
    > Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
    > 
    > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **HDInsight de Azure 3.1:**consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
+   > * **HDInsight de Azure 3.1:**consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
    > * **SQL Server 2014**: configurado para permitir la autenticación y la ejecución del paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
    > 
    > 
@@ -618,7 +620,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 [azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: c9c45305d75be59f7840941b1e626e62e93f1758
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -56,12 +57,12 @@ Antes de empezar este artículo, debe tener lo siguiente:
      ![Botón Examinar clúster de Azure Portal](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## <a name="create-clusters"></a>Creación de clústeres
-Para obtener instrucciones sobre la creación mediante el Portal, consulte [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md).
+Para obtener instrucciones sobre la creación mediante el Portal, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la lista de los componentes que han sido comprobados y admitidos, consulte [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md). Puede personalizar HDInsight mediante una de las opciones siguientes:
 
 * Use Generar script de acción para ejecutar scripts que pueden personalizar un clúster para cambiar la configuración del clúster o para instalar los componentes personalizados, como Giraph o Solr. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante Generar acción de script](hdinsight-hadoop-customize-cluster.md).
-* Use los parámetros de personalización de clústeres de .NET SDK de HDInsight o de Azure PowerShell durante la creación de los clústeres. Estos cambios de configuración se conservan durante toda la vida del clúster y no se ven afectados por el restablecimiento de imágenes de nodos del clúster que la plataforma Azure realiza periódicamente para su mantenimiento. Para obtener más información acerca del uso de los parámetros de personalización de clústeres, consulte [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md).
+* Use los parámetros de personalización de clústeres de .NET SDK de HDInsight o de Azure PowerShell durante la creación de los clústeres. Estos cambios de configuración se conservan durante toda la vida del clúster y no se ven afectados por el restablecimiento de imágenes de nodos del clúster que la plataforma Azure realiza periódicamente para su mantenimiento. Para obtener más información acerca del uso de los parámetros de personalización de clústeres, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Algunos de los componentes nativos de Java, como Mahout y Cascading, se pueden ejecutar en el clúster como archivos JAR. Estos archivos JAR se pueden distribuir al almacenamiento de blobs de Azure y enviarse a los clústeres de HDInsight usando los mecanismos de envío de trabajo de Hadoop. Para obtener más información, consulte [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
@@ -88,14 +89,14 @@ La instalación de software personalizado en el clúster mediante la Conexión a
    * **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux. -**Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
    * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
    * **Eliminar**: elimina el clúster.
-   * **Inicio rápido (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: muestra información que le ayudará a empezar a usar HDInsight.
-   * **Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))**: permite establecer permisos para la *administración del portal* de este clúster para otros usuarios de la suscripción de Azure.
+   * **Inicio rápido**: muestra información que le ayudará a empezar a usar HDInsight.
+   * **Usuarios: permite establecer permisos para la *administración del portal* de este clúster para otros usuarios de la suscripción de Azure.
 
      > [!IMPORTANT]
      > Esto *solo* afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
      >
      >
-   * **Etiquetas (![icono de etiquetas](./media/hdinsight-administer-use-portal-linux/tags.png))**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+   * **Etiquetas**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
    * **Vistas de Ambari**: se trata de vínculos a la página web de Ambari.
 
      > [!IMPORTANT]
@@ -320,7 +321,7 @@ Para supervisar el clúster, examinar el sistema de archivos y comprobar los reg
 Para usar la interfaz de usuario de Yarn, haga clic en **UI de Yarn** en la consola de consulta de HDInsight. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
 
 ## <a name="connect-to-clusters-using-rdp"></a>Conexión a los clústeres mediante RDP
-Las credenciales para el clúster que proporcionó en su creación dan acceso a los servicios en el clúster, pero no al clúster mismo a través del Escritorio remoto. Puede activar el acceso de Escritorio remoto cuando aprovisiona un clúster o después de su aprovisionamiento. Para instrucciones sobre cómo habilitar Escritorio remoto durante la creación, vea [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md).
+Las credenciales para el clúster que proporcionó en su creación dan acceso a los servicios en el clúster, pero no al clúster mismo a través del Escritorio remoto. Puede activar el acceso de Escritorio remoto cuando aprovisiona un clúster o después de su aprovisionamiento. Para instrucciones sobre cómo habilitar Escritorio remoto durante la creación, vea [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 **Para habilitar el Escritorio remoto**
 
@@ -371,7 +372,7 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
 * [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
-* [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md)
+* [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md)
