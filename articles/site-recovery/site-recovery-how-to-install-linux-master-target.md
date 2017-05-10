@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -410,5 +411,6 @@ Ahora ya puede continuar con la [reprotección](site-recovery-how-to-reprotect.m
 * Asegúrese de no activar Storage vMotion en ningún componente de administración como, por ejemplo, un destino maestro. Si el destino maestro se mueve después de un reprotección correcta, no se podrán desasociar los discos de máquina virtual (VMDK) y se producirá un error en la conmutación por recuperación.
 * La máquina de destino maestro no debe contener ninguna instantánea en la máquina virtual. Si hay instantáneas, se producirá un error en la conmutación por recuperación.
 * Debido a ciertas configuraciones de NIC personalizadas en algunos clientes, la interfaz de red está deshabilitada durante el inicio, por lo que el agente del destino maestro no se puede inicializar. Asegúrese de que se han definido correctamente las siguientes propiedades. Compruebe estas propiedades en /etc/sysconfig/network-scripts/ifcfg-eth* del archivo de la tarjeta Ethernet.
-        * BOOTPROTO=dhcp * ONBOOT=yes
+    * BOOTPROTO=dhcp
+    * ONBOOT=yes
 

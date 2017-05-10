@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b010891a177f27eef99bd65e0d940c83375aa5ec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -202,16 +203,12 @@ Para buscar los informes de administración de contraseñas, siga estos pasos:
 4. Busque en la sección **Registros de actividad** .
 5. Seleccione el informe **Actividad de restablecimiento de contraseña** o el informe **Actividad de registro de restablecimiento de contraseña**.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>Visualización de la actividad de registro de restablecimiento de contraseña en el portal clásico
 El informe de actividad de registro de restablecimiento de contraseña muestra todos los registros de restablecimiento de contraseña que se han producido en su organización.  En este informe, se muestra un registro de restablecimiento de contraseña para cualquier usuario que haya registrado correctamente la información de autenticación en el portal de registro de restablecimiento de contraseña ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Intervalo de tiempo máximo**: 30 días
 * **Número máximo de filas**: 75 000
 * **Se puede descargar**: Sí, en un archivo CSV
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>Descripción de las columnas del informe
 La siguiente lista explica en detalle cada una de las columnas del informe:
@@ -234,8 +231,6 @@ Este informe muestra todos los intentos de restablecimiento de contraseña que s
 * **Intervalo de tiempo máximo**: 30 días
 * **Número máximo de filas**: 75 000
 * **Se puede descargar**: Sí, en un archivo CSV
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>Descripción de las columnas del informe
 La siguiente lista explica en detalle cada una de las columnas del informe:
@@ -308,8 +303,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**P+F**](active-directory-passwords-faq.md) : obtenga respuestas a las preguntas más frecuentes.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
