@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ashwink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.contentlocale: es-es
 ms.lasthandoff: 04/03/2017
 
 
@@ -35,7 +36,7 @@ Puede participar desde el portal de Azure en servicios en la nube y granjas de s
 
 * Elija la **Escalar por** .
 
-![Escalar por](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![Escalar por](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquina virtual
 Para las máquinas virtuales más recientes creadas con Resource Manager (conjuntos de escala de máquina virtual), puede configurar esto con la API de REST, las plantillas de Resource Manager, PowerShell y CLI. Aún no se encuentra disponible una interfaz de portal.
@@ -126,5 +127,4 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | oldCapacity |yes |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |yes |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
 | propiedades |No |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
-
 

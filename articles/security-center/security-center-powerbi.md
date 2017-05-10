@@ -4,7 +4,7 @@ description: "El paquete de contenido de Power BI para Azure Security Center fac
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -32,7 +32,7 @@ También puede utilizar el panel de Azure Security Center para tener acceso a in
 
 1. En el panel de **Azure Security Center**, haga clic en el botón **Power BI**.
 
-    ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-newUI-2017.png)
+    ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. La hoja **Power BI** se abre a la derecha, como se muestra en la pantalla siguiente:
 
     ![Conexión a Azure Security Center mediante Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
