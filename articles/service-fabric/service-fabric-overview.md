@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 0e899225063e77ccef254e8aaacbf0390faa25e3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Información general de Azure Service Fabric
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma middleware de próxima generación para crear y administrar estas aplicaciones de clase empresarial, de escala de nube de nivel&1;.
+Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma middleware de próxima generación para crear y administrar estas aplicaciones de clase empresarial, de escala de nube de nivel 1.
 
 Este breve vídeo de Channel9 presenta Service Fabric y los microservicios: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
 <img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
@@ -60,7 +62,7 @@ Para más información sobre la creación de clústeres locales, lea [Creación 
 
 ![Plataforma de Service Fabric][Image1]
 
-## <a name="stateless-and-stateful-micrososervices-for-service-fabric"></a>Microservicios de Service Fabric con estado y sin estado
+## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservicios de Service Fabric con estado y sin estado
 Service Fabric permite compilar aplicaciones que constan de microservicios. Los microservicios sin estado (como puertas de enlace de protocolo y servidores proxy web) no mantienen un estado mutable fuera de una petición y de su respuesta del servicio. Los roles de trabajo de los servicios en la nube de Azure son un ejemplo de servicio sin estado. Los microservicios con estado (como cuentas de usuario, bases de datos, dispositivos, carros de la compra y colas) mantienen un estado mutable y autoritativo más allá de la petición y su respuesta. Actualmente, las aplicaciones de escala de Internet se componen de una combinación de microservicios con estado y sin estado.
 
 ¿Por qué tener microservicios con estado con otros sin estado? Las dos razones principales son:
@@ -118,9 +120,4 @@ Usando Service Fabric, puede:
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

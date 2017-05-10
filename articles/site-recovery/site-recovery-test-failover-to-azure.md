@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2aed07ff82c33111ef1abc9c9cc6b0ba2a9d3718
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -71,6 +72,24 @@ Cuando se desencadena una conmutación por error de prueba, se realizan estos pa
 1. Comprobación de los requisitos previos: en este paso se garantiza que se cumplen todas las condiciones necesarias para la conmutación por error.
 1. Conmutación por error: en este paso se procesan los datos y se preparan para que se pueda crear una máquina virtual de Azure a partir de ellos. Si ha elegido el punto de recuperación **más reciente**, en este paso se crea un punto de recuperación de los datos enviados al servicio.
 1. Inicio: en este paso se crea una máquina virtual de Azure con los datos procesados en el paso anterior.
+
+## <a name="time-taken-for-failover"></a>Tiempo necesario para la conmutación por error
+
+En algunos casos, la conmutación por error de máquinas virtuales requiere un paso intermedio adicional que normalmente tarda aproximadamente de 8 a 10 minutos en completarse. Estos casos son los siguientes:
+
+* Máquinas virtuales de VMware con el servicio de movilidad de una versión anterior a 9.8
+* Servidores físicos 
+* Máquinas virtuales de VMware Linux
+* Máquinas virtuales Hyper-V protegidas como servidores físicos
+* Máquinas virtuales de VMware donde los siguientes controladores no están presentes como controladores de arranque 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* Máquinas virtuales de VMware que no tienen el servicio DHCP habilitado independientemente de si usan direcciones IP estáticas o DHCP
+
+En todos los demás casos, no es necesario este paso intermedio y el tiempo necesario para la conmutación por error es significativamente menor. 
 
 
 ## <a name="creating-a-network-for-test-failover"></a>Creación de una red para conmutación por error de prueba

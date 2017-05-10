@@ -1,67 +1,96 @@
 ---
-title: "Introducción a Azure IoT Hub | Microsoft Docs"
-description: Primeros pasos con el servicio IoT Hub
+title: 'Azure IoT Hub: empezar a conectar dispositivos de IoT con la nube | Microsoft Docs'
+description: "Obtenga información sobre cómo conectar dispositivos de IoT con Azure IoT Hub. Los dispositivos pueden enviar telemetría a IoT Hub y este servicio puede supervisar y administrar los dispositivos."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 
+keywords: tutorial de azure iot hub
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 04/28/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d7360c3d41a0e4cf0d182e510d6bc2fccd915dd1
-ms.openlocfilehash: 51ac0c0d3a91070fc8f5b3892409af838e91068e
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: aeb0b665b8295bba30d8c6c47cc88e446693c91f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-or-azure-iot-gateway-sdk"></a>Introducción a Azure IoT Hub o al SDK de puerta de enlace de Azure IoT
+# <a name="azure-iot-hub-get-started-tutorials"></a>Tutoriales de introducción de Azure IoT Hub
 
-Puede elegir diversos tutoriales para empezar a trabajar con el servicio IoT Hub o el SDK de puerta de enlace.
+Puede usar Azure IoT Hub y los SDK de dispositivo IoT de Azure para crear soluciones de Internet de las cosas (IoT).
 
-## <a name="iot-hub"></a>IoT Hub
+* Azure IoT Hub es un servicio completamente administrado en la nube que conecta, supervisa y administra los dispositivos IoT de forma segura. Use los SDK de dispositivo IoT de Azure para implementar los dispositivos de IoT.
+* Use una puerta de enlace de IoT en escenarios de IoT más complejos donde sea necesario tener en cuenta factores como dispositivos heredados, costos de ancho de banda, directivas de seguridad y privacidad o procesamiento de datos perimetrales. En estos escenarios, se utiliza el SDK de puerta de enlace IoT de Azure para crear un dispositivo de puerta de enlace que conecta dispositivos con su IoT Hub.
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos de Internet de las cosas (IoT) y un back-end de soluciones.
+## <a name="what-do-the-tutorials-cover"></a>¿Qué cubren los tutoriales?
 
-Para empezar a trabajar con el servicio IoT Hub, también puede:
+Estos tutoriales le presentan Azure IoT Hub y los SDK de dispositivo. Los tutoriales cubren escenarios comunes de IoT para demostrar las funcionalidades de IoT Hub. Los tutoriales también muestran cómo combinar IoT Hub con otras herramientas y servicios de Azure para crear soluciones de IoT más eficaces. En los tutoriales, puede usar dispositivos IoT simulados o reales. Además, puede obtener información sobre cómo usar una puerta de enlace para habilitar dispositivos para conectarse a su IoT Hub.
 
-- Seguir un tutorial en el que se emplea un dispositivo simulado que se ejecuta en una máquina de desarrollo. Elegir un tutorial de introducción que usa sus lenguajes de programación preferidos: [.NET][lnk-dotnet], [Java][lnk-java] o [Node.js][lnk-nodejs].
+## <a name="device-setup-scenario-connect-iot-device-or-gateway-to-azure-iot-hub"></a>Escenario de instalación de dispositivo: conectar un dispositivo puerta de enlace IoT a Azure IoT Hub
 
-- Seguir un tutorial que usa un dispositivo físico. Elegir un tutorial de introducción que usa su plataforma de hardware preferida: [Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison] o [Arduino][lnk-arduino]. Estos tutoriales incluyen información sobre cómo puede obtener los dispositivos de hardware.
+Puede elegir un dispositivo real o simulado para empezar a trabajar.
 
-- Lea sobre cómo usar el lenguaje C para desarrollar dispositivos de IoT, en el artículo de [SDK de dispositivo IoT de Azure para C][lnk-c-intro].
+| Dispositivo IoT                       | Lenguaje de programación |
+|---------------------------------|----------------------|
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
+| Adafruit Feather M0             | [Arduino][M0_Ard]              |
+| Dispositivo simulado                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd] y [Python][Sim_Pyth]              |
 
-## <a name="gateway-sdk"></a>SDK de puerta de enlace
+Además, puede usar una puerta de enlace para habilitar dispositivos para conectarse a su IoT Hub.
 
-Puede usar el SDK de puerta de enlace para crear una puerta de enlace de campo personalizada. Una puerta de enlace realiza tareas como ejecutar análisis, tomar decisiones basadas en el tiempo para reducir la latencia, proporcionar servicios de administración de dispositivos, exigir limitaciones de privacidad y seguridad y realizar conversión de protocolos.
+| Dispositivo de puerta de enlace               | Lenguaje de programación | Plataforma         |
+|------------------------------|----------------------|------------------|
+| Intel NUC (modelo DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
+| Puerta de enlace simulada            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-Para comenzar con el SDK de puerta de enlace, puede:
+## <a name="extended-iot-scenarios-use-other-azure-services-and-tools"></a>Escenarios de IoT extendidos: usar otras herramientas y servicios de Azure
 
-- Seguir un tutorial que usa una puerta de enlace simulada que se ejecuta en la máquina de desarrollo. Elegir un tutorial de introducción para [Linux] [ lnk-linux] o [Windows][lnk-windows].
+Cuando el dispositivo se ha conectado a IoT Hub, puede explorar escenarios adicionales que utilizan otras herramientas y servicios de Azure:
 
-- Seguir un tutorial que usa un dispositivo físico. Elegir un tutorial de introducción que usa un [dispositivo simulado con una Intel NUC (Next Unit of Computing)] [ lnk-gateway-sim] o un [dispositivo SensorTag con una Intel NUC][lnk-gateway-tag].
+| Escenario                                    | Herramienta o servicio de Azure              |
+|---------------------------------------------|------------------------------------|
+| [Administración de mensajes de IoT Hub][Mg_IoT_Hub_Msg]                    | herramienta iothub-explorer               |
+| [Administración de su dispositivo IoT][Mg_IoT_Dv]               | herramienta iothub-explorer               |
+| [Guardado de los mensajes de IoT Hub en Azure Storage][Sv_IoT_Msg_Stor]                      | Almacenamiento de tablas de Azure               |
+| [Visualización de datos de sensor][Vis_Data]             | Microsoft Power BI, Azure Web Apps |
+| [Previsión meteorológica con datos del sensor][Weather_Forecast] | Aprendizaje automático de Azure             |
+| [Detección de anomalías automática y reacción][Anomaly_Detect]    | Azure Logic Apps                   |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando haya terminado con los tutoriales de introducción, puede explorar más características de IoT Hub y del SDK de puerta de enlace en la [Guía del desarrollador] [ lnk-devguide] y los tutoriales de [procedimientos] [ lnk-howto].
+Cuando se hayan completado estos tutoriales, puede explorar aún más las funcionalidades de IoT Hub mediante la [guía del desarrollador][lnk-dev-guide]. Puede encontrar más tutoriales en la sección [Cómo][lnk-how-to].
 
-[lnk-dotnet]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-java]: ./iot-hub-java-java-getstarted.md
-[lnk-nodejs]: ./iot-hub-node-node-getstarted.md
-[lnk-c-intro]: ./iot-hub-device-sdk-c-intro.md
-[lnk-rasp-pi]: ./iot-hub-raspberry-pi-kit-node-get-started.md
-[lnk-edison]: ./iot-hub-intel-edison-kit-node-get-started.md
-[lnk-arduino]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[lnk-linux]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-windows]: ./iot-hub-windows-gateway-sdk-get-started.md
-[lnk-gateway-sim]: ./iot-hub-gateway-kit-c-sim-get-started.md
-[lnk-gateway-tag]: ./iot-hub-gateway-kit-c-get-started.md
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-howto]: ./iot-hub-how-to.md
 
+[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
+[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
+[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
+[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
+[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
+[Sim_Jav]: iot-hub-java-java-getstarted.md
+[Sim_Nd]: iot-hub-node-node-getstarted.md
+[Sim_Pyth]: iot-hub-python-getstarted.md
+[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
+[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
+[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
+[Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
+[Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
+[Vis_Data]: iot-hub-live-data-visualization-in-power-bi.md
+[Weather_Forecast]: iot-hub-weather-forecast-machine-learning.md
+[Anomaly_Detect]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-dev-guide]: iot-hub-devguide.md
+[lnk-how-to]: iot-hub-how-to.md

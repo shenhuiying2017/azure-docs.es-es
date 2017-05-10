@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: anmola
-translationtype: Human Translation
-ms.sourcegitcommit: e3dda1f6a0d513668aca252aa1855a93f3720247
-ms.openlocfilehash: 3bff3fb99f27985c24b5a2e677738595314242c4
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c05081685532aecbe29e9bf380f0278e775ad6b7
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---

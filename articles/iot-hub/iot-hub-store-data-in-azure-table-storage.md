@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -129,29 +130,15 @@ IoT Hub expone un punto de conexión integrado compatible con Event Hub para per
       ![Agregar una tabla de almacenamiento a la aplicación de función en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
    1. Escriba la información necesaria.
 
+      **Nombre de parámetro de tabla**: use `outputTable` para el nombre, que se utilizará en el código de Azure Functions.
+      
       **Nombre de la tabla**: use `deviceData` para el nombre.
 
-      **Conexión de cuenta de Storage**: haga clic en **Nueva** y seleccione la cuenta de almacenamiento.
+      **Conexión de cuenta de Storage**: haga clic en **Nueva** y seleccione o escriba la cuenta de almacenamiento.
    1. Haga clic en **Guardar**.
 1. En **Desencadenadores**, haga clic en **Azure Event Hub (myEventHubTrigger)**.
 1. En **Grupo de consumidores del Centro de eventos**, escriba el nombre del grupo de consumidores que creó y haga clic en **Guardar**.
 1. Haga clic en **Desarrollar** y luego en **Ver archivos**.
-1. Haga clic en **Agregar** para agregar un nuevo archivo denominado `package.json`, pegue la siguiente información y luego haga clic en **Guardar**.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. Reemplace el código de `index.js` por los siguientes valores y luego haga clic en **Guardar**.
 
    ```javascript
@@ -159,34 +146,20 @@ IoT Hub expone un punto de conexión integrado compatible con Event Hub para per
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. Haga clic en **Configuración de Function App** > **Abrir consola de desarrollo**.
-
-   Debe estar en la carpeta `wwwroot` de la aplicación de función.
-1. Para ir a la carpeta de la función, ejecute el siguiente comando:
-
-   ```bash
-   cd <your function name>
-   ```
-1. Instale el paquete npm mediante el siguiente comando:
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > La instalación puede tardar algún tiempo en completarse.
 
 Por ahora, ha creado la aplicación de función. Dicha aplicación almacena mensajes que su IoT Hub recibe en su instancia de Azure Table Storage.
 
@@ -207,3 +180,4 @@ Por ahora, ha creado la aplicación de función. Dicha aplicación almacena mens
 Ha creado correctamente la cuenta de Azure Storage y la aplicación de función de Azure para almacenar los mensajes que recibe su IoT Hub en su instancia de Azure Table Storage.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

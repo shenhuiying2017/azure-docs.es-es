@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: b818d5083f1436035185b1b0d7990b5a36716da4
-ms.openlocfilehash: 1fca09ad0c9e1bc72109910cd0dcaf186d6a7c3d
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 960fb84c309b18c7f9741bb60b52cfcc3753a07d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -83,6 +84,26 @@ Cuando se desencadena una conmutación por error, se realizan estos pasos:
 > **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se **cancela** un trabajo en curso, la conmutación por error se detiene, pero la máquina virtual no comenzará la replicación. La replicación no se puede reiniciar. 
 >
 > 
+
+## <a name="time-taken-for-failover-to-azure"></a>Tiempo necesario para la conmutación por error en Azure
+
+En algunos casos, la conmutación por error de máquinas virtuales requiere un paso intermedio adicional que normalmente tarda aproximadamente de 8 a 10 minutos en completarse. Estos casos son los siguientes:
+
+* Máquinas virtuales de VMware con el servicio de movilidad de una versión anterior a 9.8
+* Servidores físicos 
+* Máquinas virtuales de VMware Linux
+* Máquinas virtuales Hyper-V protegidas como servidores físicos
+* Máquinas virtuales de VMware donde los siguientes controladores no están presentes como controladores de arranque 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* Máquinas virtuales de VMware que no tienen el servicio DHCP habilitado independientemente de si usan direcciones IP estáticas o DHCP
+
+En todos los demás casos, no es necesario este paso intermedio y el tiempo necesario para la conmutación por error es significativamente menor. 
+
+
 
 
 

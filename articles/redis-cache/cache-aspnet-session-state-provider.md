@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/22/2017
+ms.date: 05/01/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 56a55bc10c9cf16751c713da302dcd59362ab80f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Configure los atributos con los valores de la hoja de la caché en el Portal de 
 * **throwOnError** : true si quiere que se produzca una excepción en caso de error; false si quiere que la operación devuelva un error silencioso. Para comprobar si hay un error, revise la propiedad estática Microsoft.Web.Redis.RedisSessionStateProvider.LastException. El valor predeterminado es true.
 * **retryTimeoutInMilliseconds** : durante este intervalo, especificado en milisegundos, se reintenta realizar las operaciones que generan errores. El primer reintento se produce transcurridos 20 milisegundos y, después, se reintenta cada segundo hasta que el intervalo retryTimeoutInMilliseconds expira. Inmediatamente después de este intervalo, la operación se reintenta una última vez. Si aun así no funciona, se devuelve una excepción al autor de la llamada, en función de la configuración de throwOnError. El valor predeterminado es 0, lo que significa que no hay reintentos.
 * **databaseId** : especifica qué base de datos se va a usar para los datos de salida de la memoria caché. Si no se especifica, se usa el valor predeterminado de 0.
-* **applicationName**: las claves se almacenan en Redis como `{<Application Name>_<Session ID>}_Data`. Este esquema de nomenclatura permite que varias aplicaciones compartan la misma clave. Este parámetro es opcional y, si no se especifica, se usa un valor predeterminado.
+* **applicationName**: las claves se almacenan en Redis como `{<Application Name>_<Session ID>}_Data`. Este esquema de nomenclatura permite que varias aplicaciones compartan la misma instancia de Redis. Este parámetro es opcional y, si no se especifica, se usa un valor predeterminado.
 * **connectionTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de connectTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de connectTimeout, que es 5000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** : esta opción le permite invalidar la configuración de syncTimeout en el cliente de StackExchange.Redis. Si no se especifica, se usa el valor predeterminado de syncTimeout, que es 1000. Para obtener más información, consulte el [modelo de configuración de StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 

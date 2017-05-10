@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: a6241afa7398684d9315ab401ecdb5b2abd824c5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 1370fa64c2ddc25d3121c567ceea4828b1e50921
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -30,7 +31,7 @@ Integrar Nexonia con Azure AD le proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Nexonia (inicio de sesión único) con sus cuentas de Azure AD
 - Puede administrar las cuentas en una ubicación central: Azure Portal.
 
-Si quiere conocer más detalles sobre la integración de aplicaciones de SaaS con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+Si quiere conocer más detalles sobre la integración de aplicaciones SaaS con Azure AD, vea: [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -106,7 +107,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, seleccione **Modo** como **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_samlbase.png)
 
@@ -117,7 +118,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`.
 
     > [!NOTE] 
-    > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de Nexonia](http://www.nexonia.com/contact-us/) para obtener este valor. 
+    > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de Nexonia](https://nexonia.zendesk.com/hc/requests/new) para obtener este valor. 
 
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
@@ -132,7 +133,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el [equipo de soporte técnico de Nexonia](http://www.nexonia.com/contact-us/) y proporcione lo siguiente:
+7. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el [equipo de soporte técnico de Nexonia](https://nexonia.zendesk.com/hc/requests/new) y proporcione lo siguiente:
 
     • El **certificado**
 
@@ -143,12 +144,12 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
     • La **dirección URL de cierre de sesión**
 
 > [!TIP]
-> Ahora puede leer una versión concisa de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación incrustada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación incrustada aquí: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentación incrustada de Azure AD).
+> Ahora puede leer una versión concisa de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado Britta Simon.
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
 ![Creación de un usuario de Azure AD][100]
 
@@ -180,7 +181,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-nexonia-test-user"></a>Creación de un usuario de prueba de Nexonia
 
-En esta sección, creará un usuario llamado Britta Simon en Nexonia. Colabore con el [equipo de soporte técnico de Nexonia](http://www.nexonia.com/contact-us/) para agregar los usuarios en la plataforma de Nexonia. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Nexonia. Colabore con el [equipo de soporte técnico de Nexonia](https://nexonia.zendesk.com/hc/requests/new) para agregar los usuarios en la plataforma de Nexonia. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD

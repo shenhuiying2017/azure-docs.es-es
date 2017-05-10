@@ -4,17 +4,18 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+ms.date: 5/1/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.reviewer: jsnow
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 222259e1f7c5a8796fd9f652cf5e050e75d4ce49
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: bc67058d026219d676430a55fe8cfdd3f09cf295
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,7 +54,8 @@ Las soluciones de administración de identidades y acceso de Microsoft ayudan al
 
 El sistema de acceso condicional de Azure AD Premium proporciona al administrador de la organización la capacidad de crear reglas de acceso basada en directivas para todas las aplicaciones conectadas a AD Azure (aplicaciones SaaS, aplicaciones personalizadas que se ejecutan en la nube o aplicaciones web locales). Azure AD evalúa estas directivas en tiempo real y las aplica cada vez que un usuario intenta acceder a una aplicación. Las directivas de protección de identidades de Azure permiten que se realicen automáticamente las acciones necesarias si se detecta cualquier actividad sospechosa, entre las que se incluyen el bloqueo del acceso a los usuarios de alto riesgo, la aplicación de la autenticación multifactor y el restablecimiento de contraseñas si las credenciales pueden haber estado en peligro.
 
-## <a name="azure-active-directory-privileged-identify-management"></a>Administración de identidades con privilegios en Azure Active Directory
+
+## <a name="azure-active-directory-privileged-identity-management"></a>Azure Active Directory Privileged Identity Management
 
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), que se incluye en la oferta de P2 de Azure Active Directory Premium, permite detectar, restringir y administrar cuentas administrativas y su acceso a los recursos de Azure Active Directory y a otros servicios en línea de Microsoft. También facilita la administración del acceso administrativo a petición durante el período exacto necesario.
 

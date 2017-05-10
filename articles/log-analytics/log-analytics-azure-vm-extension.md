@@ -4,7 +4,7 @@ description: "Para máquinas virtuales de Windows y Linux que se ejecutan en Azu
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -36,7 +37,7 @@ Obtenga más información sobre las [extensiones de máquina virtual de Azure](.
 Cuando se usa una recopilación basada en agente para los datos de registro, debe configurar [orígenes de datos en Log Analytics](log-analytics-data-sources.md) para especificar los registros y las métricas que desea recopilar.
 
 > [!IMPORTANT]
-> Si configura Log Analytics para indexar los datos de registro mediante [Diagnósticos de Azure](log-analytics-azure-storage.md) y configura el agente para recopilar los mismos registros, los registros se recopilan dos veces. Se le cobrará por los dos orígenes de datos. Si tiene instalado el agente, debe recopilar datos de registro solo mediante el agente; no configure Log Analytics para recopilar datos de registro de Diagnósticos de Azure.
+> Si configura Log Analytics para indexar los datos de registro mediante [Diagnósticos de Azure](log-analytics-azure-storage.md) y configura el agente para recopilar los mismos registros, los registros se recopilan dos veces. Se le cobrará por los dos orígenes de datos. Si tiene instalado el agente, recopile datos de registro solo mediante el agente; no configure Log Analytics para recopilar datos de registro de diagnósticos de Azure.
 >
 >
 
@@ -64,7 +65,7 @@ Puede instalar el agente para Log Analytics y conectar la máquina virtual de Az
    ![Conectada](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Habilitación de la extensión de máquina virtual con PowerShell
-Al configurar la máquina virtual con PowerShell, es necesario proporcionar el **identificador del área de trabajo** y la **clave del área de trabajo**. Tenga en cuenta que los nombres de propiedad en la configuración de json **distinguen entre mayúsculas y minúsculas**.
+Al configurar la máquina virtual con PowerShell, es necesario proporcionar el **identificador del área de trabajo** y la **clave del área de trabajo**. Los nombres de propiedad de la configuración de json **distinguen entre mayúsculas y minúsculas**.
 
 Puede encontrar la clave principal y el identificador en la página **Configuración** del portal de OMS. También puede usar PowerShell como se ilustra en el ejemplo anterior.
 
@@ -74,7 +75,7 @@ Hay comandos diferentes para máquinas virtuales clásicas de Azure y máquinas 
 
 En el caso de las máquinas virtuales clásicas, use el siguiente ejemplo de PowerShell:
 
-```
+```PowerShell
 Add-AzureAccount
 
 $workspaceId = "enter workspace ID here"
@@ -90,9 +91,14 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
+Para VM con Linux de Resource Manager que usan la CLI siguiente
+```azurecli
+az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
+```
+
 En el caso de las máquinas virtuales de Resource Manager, use el siguiente ejemplo de PowerShell:
 
-```
+```PowerShell
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
@@ -122,8 +128,9 @@ $location = $vm.Location
 
 ```
 
+
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Implementación de la extensión de máquina virtual mediante una plantilla
-Con Azure Resource Manager, puede crear una plantilla sencilla (en formato JSON) que define la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla de Administrador de recursos y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
+Con Azure Resource Manager, puede crear una plantilla (en formato JSON) que defina la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla de Administrador de recursos y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
 
 La inclusión del agente de Log Analytics como parte de la plantilla de Resource Manager le permite garantizar que todas las máquinas virtuales estén preconfiguradas para informar al área de trabajo de Log Analytics.
 
@@ -135,7 +142,7 @@ A continuación se incluye un ejemplo de una plantilla de Resource Manager que s
 * Sección de extensión de recursos Microsoft.EnterpriseCloud.Monitoring
 * Salidas para buscar workspaceId y workspaceSharedKey
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -362,12 +369,12 @@ A continuación se incluye un ejemplo de una plantilla de Resource Manager que s
 
 Puede implementar una plantilla mediante el siguiente comando de PowerShell:
 
-```
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
 ## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Solución de problemas de la extensión de máquina virtual de Log Analytics
-Normalmente cuando algo no funcione bien recibirá un mensaje desde Azure Portal o Azure PowerShell.
+Normalmente, cuando algo no funciona bien, recibe un mensaje desde Azure Portal o Azure PowerShell.
 
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 2. Busque la máquina virtual y abra sus detalles.
@@ -375,12 +382,12 @@ Normalmente cuando algo no funcione bien recibirá un mensaje desde Azure Portal
 
    ![Vista de la extensión de máquina virtual](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
 
-4. Haga clic en la extensión *MicrosoftMonitoringAgent*(Windows) o *OmsAgentForLinux*(Linux) y vea los detalles. 
+4. Haga clic en la extensión *MicrosoftMonitoringAgent* (Windows) o *OmsAgentForLinux* (Linux) y vea los detalles. 
 
    ![Detalles de la extensión de máquina virtual](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
 
 ### <a name="troubleshooting-windows-virtual-machines"></a>Solución de problemas con máquinas virtuales Windows
-Si la extensión del agente de máquina virtual *Microsoft Monitoring Agent* no se instala o no envía informes, puede realizar los pasos siguientes para solucionar el problema.
+Si la extensión del agente de VM *Microsoft Monitoring Agent* no se instala o no envía informes, puede realizar los pasos siguientes para solucionar el problema.
 
 1. Siga los pasos de [KB 2965986](https://support.microsoft.com/kb/2965986#mt1) para comprobar que el agente de máquina virtual de Azure está instalado y funciona correctamente.
    * También puede revisar el archivo de registro del agente de máquina virtual `C:\WindowsAzure\logs\WaAppAgent.log`
@@ -394,13 +401,13 @@ Si la extensión del agente de máquina virtual *Microsoft Monitoring Agent* no 
 3. Revise los archivos de registro de la extensión de máquina virtual de Microsoft Monitoring Agent en `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
 4. Asegúrese de que la máquina virtual puede ejecutar scripts de PowerShell.
 5. Asegúrese de que no se hayan modificado los permisos en C:\Windows\temp.
-6. Consulte el estado de Microsoft Monitoring Agent, para lo que debe escribir lo siguiente en una ventana de PowerShell con privilegios elevados en la máquina virtual `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+6. Consulte el estado de Microsoft Monitoring Agent, para lo que debe escribir el siguiente comando en una ventana de PowerShell con privilegios elevados en la máquina virtual `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
 7. Revise los archivos de registro de instalación de Microsoft Monitoring Agent en `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
-Para más información, consulte la [solución de problemas con extensiones de Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para más información, consulte [Solución de problemas de la extensión de máquina virtual de Microsoft Azure](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="troubleshooting-linux-virtual-machines"></a>Solución de problemas con máquinas virtuales Linux
-Si la extensión del agente de máquina virtual *Agente de OMS para Linux* no se instala o no envía informes, puede realizar los pasos siguientes para solucionar el problema.
+Si la extensión del agente de VM *Agente de OMS para Linux* no se instala o no envía informes, puede realizar los pasos siguientes para solucionar el problema.
 
 1. Si el estado de la extensión es *desconocido*, compruebe si el agente de máquina virtual de Azure está instalado y funciona correctamente revisando el archivo de registro del agente de máquina virtual `/var/log/waagent.log`.
    * Si el registro no existe, el agente de máquina virtual no estará instalado.
@@ -408,7 +415,7 @@ Si la extensión del agente de máquina virtual *Agente de OMS para Linux* no se
 2. Para otros estados incorrectos, revise los archivos de registro de extensión de máquina virtual del Agente de OMS para Linux en `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` y `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Si el estado de la extensión es correcto, pero no se están cargando datos, revise los archivos de registro del Agente de OMS para Linux en `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
-Para más información, consulte la [solución de problemas con extensiones de Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información, consulte [Solución de problemas de la extensión de máquina virtual de Linux Azure](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure [orígenes de datos de Log Analytics](log-analytics-data-sources.md) para especificar los registros y las métricas que desea recopilar.

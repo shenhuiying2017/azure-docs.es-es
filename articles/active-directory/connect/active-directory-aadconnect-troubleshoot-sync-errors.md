@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.contentlocale: es-es
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -212,10 +213,10 @@ Cuando un atributo supera los límites de tamaño, longitud o recuento estableci
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Escenarios posibles
-1. El atributo userCertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados.
+1. El atributo userCertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados. Para más información sobre cómo controlar los errores LargeObject con atributo userCertificate, consulte el artículo [Handling LargeObject errors caused by userCertificate attribute](active-directory-aadconnectsync-largeobjecterror-usercertificate.md) (Control de errores LargeObject causados por el atributo userCertificate).
 2. El atributo userSMIMECertificate de Bob almacena demasiados certificados asignados a Bob. Entre ellos puede haber certificados antiguos que hayan expirado. El límite máximo es de 15 certificados.
 3. El atributo thumbnailPhoto de Bob establecido en Active Directory es demasiado grande para sincronizarse en Azure AD.
-4. Durante el rellenado automático del atributo ProxyAddresses de Active Directory, un objeto tiene asignados > 500 atributos ProxyAddresses.
+4. Durante el rellenado automático del atributo ProxyAddresses de Active Directory, un objeto tiene muchos atributos ProxyAddresses asignados.
 
 ### <a name="how-to-fix"></a>Solución
 1. Asegúrese de que el atributo que produce el error está dentro de los límites permitidos.

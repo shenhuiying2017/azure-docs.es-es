@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 04/25/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ee4a47cf53898803e0080d3f9d00cf7617fe4ce8
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -78,20 +79,18 @@ Las siguientes tablas describen los puertos y protocolos que son necesarios para
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabla 6a: autenticación de paso a través con SSO
 |Protocol|Número de puerto|Descripción
 | --- | --- | ---
-|HTTP|80|Habilita el tráfico HTTP saliente para la validación de seguridad, como SSL.
-|HTTPS|443|    Habilita la autenticación de usuario en Azure AD.
-|HTTPS|10100–10120|    Habilita las respuestas del conector a Azure AD. 
-|Azure Service Bus|9352, 5671|    Habilita la comunicación entre el conector hacia el servicio de Azure para las solicitudes entrantes
-|HTTPS|9350|    Opcional; posibilita un mejor rendimiento de las solicitudes entrantes.
-|HTTPS|8080/443|    Habilita la secuencia de arranque del conector y la actualización automática del conector
-|HTTPS|9090|    Habilita el registro de conector (solo es necesario para el proceso de registro del conector)
-|HTTPS|9091|    Habilita la renovación automática de certificados de confianza del conector
+|HTTP|80|Habilita el tráfico HTTP saliente para la validación de seguridad, como SSL. También se necesita para que la funcionalidad de actualización automática del conector se lleve a cabo correctamente.
+|HTTPS|443|    Habilite el tráfico HTTPS saliente para operaciones como habilitar y deshabilitar la característica, registrar conectores, descargar actualizaciones de conector y controlar todas las solicitudes de inicio de sesión de usuario.
+
+Además, Azure AD Connect debe ser capaz de establecer conexiones directas de IP con [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabla 6b: sincronización de Hash de contraseña con SSO
 
 |Protocol|Número de puerto|Descripción
 | --- | --- | ---
-|HTTPS|9090|    Habilita el registro de SSO (solo es necesario para el proceso de registro de SSO).
+|HTTPS|443|    Habilita el registro de SSO (solo es necesario para el proceso de registro de SSO).
+
+Además, Azure AD Connect debe ser capaz de establecer conexiones directas de IP con [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Una vez más, esto solo es necesario para el proceso de registro SSO.
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabla 7a y 7b: Agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 En las tablas siguientes se describen los puntos de conexión, puertos y protocolos que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.

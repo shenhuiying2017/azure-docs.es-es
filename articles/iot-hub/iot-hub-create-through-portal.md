@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: ddf69b7256ae9665363ee0f491a6475c69d6d555
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -132,7 +133,7 @@ Haga clic en **Routes** (Rutas) para administrar el envío de mensajes del dispo
 
 ![][14]
 
-Puede agregar rutas adicionales al centro de IoT; para ello, haga clic en **Add** (Agregar) de la parte superior de la hoja **Routes*** (Rutas), escriba la información necesaria y haga clic en **OK** (Aceptar). La ruta aparecerá en la lista de la hoja principal de **Routes** (Rutas). Puede editar una ruta al hacer clic en ella en la lista de rutas. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de **habilitar** en **Off** (Desactivado). Haga clic en **OK** (Aceptar) en la parte inferior de la hoja para guardar el cambio.
+Puede agregar rutas adicionales a su IoT Hub; para ello, haga clic en **Agregar** en la parte superior de la hoja **Rutas**, escriba la información necesaria y haga clic en **Aceptar**. La ruta aparecerá en la lista de la hoja principal de **Rutas**. Puede editar una ruta al hacer clic en ella en la lista de rutas. Para habilitar una ruta, haga clic en ella en la lista de rutas y establezca el control de alternancia de **Habilitar** en **Desactivado**. Haga clic en **Aceptar** en la parte inferior de la hoja para guardar los cambios.
 
 ![][15]
 

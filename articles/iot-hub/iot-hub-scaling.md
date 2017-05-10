@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4a860f5aaa03ccfa73f1508548ca8b1344679c38
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -53,7 +54,7 @@ Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones 
 Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso, se recomienda realizar particiones de los dispositivos en varios centros de IoT. Varios centros de IoT suavizan las ráfagas de tráfico y obtienen el rendimiento necesario o las velocidades de funcionamiento necesarias.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]

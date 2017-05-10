@@ -1,6 +1,6 @@
 ---
 title: Referencia para desarrolladores de JavaScript para Azure Functions | Microsoft Docs
-description: "Cómo desarrollar Azure Functions con JavaScript."
+description: "Obtenga información sobre cómo desarrollar funciones con JavaScript."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 060e1145246952c18f89e1088ed28ffb0036e6c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/06/2017
 > 
 > 
 
-La experiencia de JavaScript para Azure Functions facilita la exportación de una función en que se transmite un objeto `context` para comunicarse con el sistema en tiempo de ejecución, y recibir y enviar datos por medio de enlaces.
+La experiencia de JavaScript para Azure Functions facilita la exportación de una función en que se transmite como un objeto `context` para comunicarse con el sistema en tiempo de ejecución, y recibir y enviar datos por medio de enlaces.
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
@@ -54,14 +55,14 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 Los enlaces de `direction === "in"` se transmiten como argumentos de la función, lo que significa que se pueden usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para controlar de forma dinámica las entradas nuevas (por ejemplo, con el uso de `arguments.length` para iterar en todas las entradas). Esta funcionalidad resulta conveniente si solo dispone de un desencadenador sin entradas adicionales, ya que puede acceder de manera predecible a los datos del desencadenador sin hacer referencia al objeto `context`.
 
-Los argumentos siempre se transmiten a la función en el orden en el que figuren en *function.json*, aunque no los especifique en la instrucción de exportaciones. Por ejemplo, si tiene la función `function(context, a, b)` y la cambia a `function(context, a)`, podrá seguir obteniendo el valor `b` en el código de función si hace referencia a `arguments[3]`.
+Los argumentos siempre se transmiten a la función en el orden en el que figuran en *function.json*, aunque no los especifique en la instrucción de exportaciones. Por ejemplo, si tiene la función `function(context, a, b)` y la cambia a `function(context, a)`, podrá seguir obteniendo el valor `b` en el código de función si hace referencia a `arguments[3]`.
 
-Todos los enlaces, al margen de la dirección, también se transmiten junto con el objeto `context` (consulte la información siguiente). 
+Todos los enlaces, al margen de la dirección, también se transmiten junto con el objeto `context` (consulte el script siguiente). 
 
 ## <a name="context-object"></a>objeto de contexto
 El sistema en tiempo de ejecución usa un objeto `context` para transmitir datos desde la función y hacia esta, así como para posibilitar la comunicación con dicho sistema en tiempo de ejecución.
 
-El objeto de contexto siempre es el primer parámetro de una función y se debe incluir, porque incorpora métodos como `context.done` y `context.log`, que se precisan para usar correctamente el sistema en tiempo de ejecución. Puede ponerle el nombre que desee al objeto (es decir, `ctx` o `c`).
+El objeto de contexto siempre es el primer parámetro de una función y se debe incluir, porque incorpora métodos como `context.done` y `context.log`, que se precisan para usar correctamente el sistema en tiempo de ejecución. Puede asignar el nombre que desee al objeto (por ejemplo, `ctx` o `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -87,7 +88,7 @@ Devuelve un objeto con nombre que contiene todos los datos de entrada y salida. 
 ```
 
 ```javascript
-// myInput contains the input data which may have properties such as "name"
+// myInput contains the input data, which may have properties such as "name"
 var author = context.bindings.myInput.name;
 // Similarly, you can set your output data
 context.bindings.myOutput = { 
@@ -102,7 +103,7 @@ context.done([err],[propertyBag])
 
 Informa al tiempo de ejecución de que el código ha terminado. Debe llamar a `context.done` o, de lo contrario, el tiempo de ejecución nunca sabe que la función se ha completado y, por tanto, se agota el tiempo de espera de la ejecución. 
 
-El método `context.done` permite transmitir un error definido por el usuario al sistema en tiempo de ejecución, además de un contenedor de propiedades que sobrescribirá las propiedades existentes del objeto `context.bindings`.
+El método `context.done` permite transmitir un error definido por el usuario al sistema en tiempo de ejecución y un contenedor de propiedades que sobrescribirá las propiedades del objeto `context.bindings`.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -146,7 +147,7 @@ Cuando se llama a `context.log()`, el mensaje se escribe en la consola en el niv
 context.log({hello: 'world'});  
 ```
 
-Es equivalente al siguiente código:
+El código anterior es equivalente al siguiente:
 
 ```javascript
 context.log.info({hello: 'world'});  
@@ -168,7 +169,7 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=' + r
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-Este mismo código también puede escribirse en el formato siguiente:
+También puede escribir el mismo código con el formato siguiente:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
@@ -177,7 +178,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Configuración del nivel de seguimiento para el registro de la consola
 
-Functions permite definir el nivel de seguimiento de umbral para escribir en la consola. Esto facilita el control de la forma en que los seguimientos se escriben en la consola desde las funciones. Use la propiedad `tracing.consoleLevel` en el archivo host.json para establecer el umbral para todos los seguimientos que se escriben en la consola. Esta configuración se aplica a todas las funciones de Function App. En el ejemplo siguiente se establece el umbral de seguimiento para habilitar el registro detallado:
+Functions permite definir el nivel de seguimiento de umbral para escribir en la consola, que facilita el control de la forma en que se escriben los seguimientos en la consola desde las funciones. Para establecer el umbral para todos los seguimientos que se escriben en la consola, use la propiedad `tracing.consoleLevel` en el archivo host.json . Esta configuración se aplica a todas las funciones de Function App. En el ejemplo siguiente se establece el umbral de seguimiento para habilitar el registro detallado:
 
 ```json
 { 
@@ -223,7 +224,7 @@ El objeto `response` tiene las siguientes propiedades:
 
 Cuando se trabaja con desencadenadores HTTP, hay tres maneras de acceder a los objetos de solicitud y respuesta HTTP:
 
-+ Desde los enlaces de entrada y salida con nombre. De esta manera, el desencadenador HTTP y los enlaces funcionan igual que cualquier otro enlace. En el ejemplo siguiente se establece el objeto de respuesta mediante un enlace `response` con nombre. 
++ Desde los enlaces de entrada y salida con nombre. De esta manera, el desencadenador HTTP y los enlaces funcionan igual que cualquier otro enlace. En el ejemplo siguiente se establece el objeto de respuesta mediante un enlace `response` con nombre: 
 
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
@@ -232,13 +233,13 @@ Cuando se trabaja con desencadenadores HTTP, hay tres maneras de acceder a los o
 + Desde las propiedades `req` y `res` del objeto `context`. De esta manera, puede usar el patrón convencional para acceder a los datos HTTP desde el objeto de contexto, en lugar de tener que utilizar el patrón `context.bindings.name` completo. En el ejemplo siguiente se muestra cómo acceder a los objetos `req` y `res` en `context`:
 
     ```javascript
-    // You can access your http request off of the context ...
+    // You can access your http request off the context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
     // and also set your http response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Llamando a `context.done()`. Hay un tipo especial de enlace HTTP que devuelve la respuesta que se pasa al método `context.done()`. El enlace de salida HTTP siguiente define un parámetro de salida `$return`:
++ Mediante una llamada a `context.done()`. Un tipo especial de enlace HTTP que devuelve la respuesta que se pasa al método `context.done()`. El enlace de salida HTTP siguiente define un parámetro de salida `$return`:
 
     ```json
     {
@@ -255,20 +256,20 @@ Cuando se trabaja con desencadenadores HTTP, hay tres maneras de acceder a los o
     context.done(null, res);   
     ```  
 
-## <a name="node-version--package-management"></a>Versión de Node y administración de paquetes
+## <a name="node-version-and-package-management"></a>Versión de Node y administración de paquetes
 Actualmente, la versión de Node está bloqueada en `6.5.0`. Estamos investigando para agregar compatibilidad con más versiones y hacerlo configurable.
 
 Los pasos siguientes le permiten incluir paquetes en Function App: 
 
 1. Vaya a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Haga clic en **Consola de depuración > CMD**.
+2. Haga clic en **Consola de depuración** > **CMD**.
 
-3. Vaya a `D:\home\site\wwwroot`, luego arrastre el archivo package.json a la carpeta **wwwroot** en la mitad superior de la página.  
+3. Vaya a `D:\home\site\wwwroot` y luego arrastre el archivo package.json a la carpeta **wwwroot** en la mitad superior de la página.  
+    También puede cargar archivos en Function App de otras formas. Para obtener más información, vea [Actualización de los archivos de aplicación de función](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
 
-    Hay otras maneras de cargar archivos en Function App. Para obtener más información, vea [Actualización de los archivos de aplicación de función](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
-
-4. Una vez cargado el archivo package.json, ejecute el comando`npm install` en la **consola de ejecución remota de Kudu**. De esta forma, se descargan los paquetes indicados en el archivo package.json y se reinicia Function App.
+4. Una vez cargado el archivo package.json, ejecute el comando`npm install` en la **consola de ejecución remota de Kudu**.  
+    Esta acción descarga los paquetes indicados en el archivo package.json y se reinicia Function App.
 
 Una vez que se hayan instalado los paquetes que necesita, impórtelos a la función llamando a `require('packagename')`, como en el ejemplo siguiente.
 
@@ -283,7 +284,7 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Debe definir un archivo `package.json` en la raíz de Function App. Esto permite que todas las funciones de la aplicación compartan los mismos paquetes almacenados en caché, de tal manera que se ofrece el mejor rendimiento. Cuando hay conflictos de versiones, puede resolver el conflicto mediante la adición de un archivo `package.json` en la carpeta de una función específica.  
+Debe definir un archivo `package.json` en la raíz de Function App. La definición del archivo permite que todas las funciones de la aplicación compartan los mismos paquetes almacenados en caché, de tal manera que se ofrece el mejor rendimiento. Cuando hay conflictos con una versión, puede resolverlo mediante la adición de un archivo `package.json` en la carpeta de una función específica.  
 
 ## <a name="environment-variables"></a>Variables de entorno
 Para obtener una variable de entorno o un valor de configuración de aplicación, use `process.env`, como se muestra en el ejemplo de código siguiente:
@@ -306,19 +307,19 @@ function GetEnvironmentVariable(name)
 ```
 ## <a name="considerations-for-javascript-functions"></a>Consideraciones para las funciones de JavaScript
 
-Debe tener en cuenta los siguientes elementos cuando se trabaja con las funciones de JavaScript.
+Cuando se trabaja con las funciones de JavaScript, tenga en cuenta las consideraciones de las dos secciones siguientes.
 
 ### <a name="choose-single-core-app-service-plans"></a>Elección de los planes de App Service de un solo núcleo
 
-Al crear una Function App que usa el plan de App Service, se recomienda que seleccione un plan de un solo núcleo en lugar de un plan con varios núcleos. En la actualidad, Functions ejecuta funciones de JavaScript con más eficacia en máquina virtuales con un solo núcleo; el uso de máquinas virtuales más grandes no producirá las mejoras de rendimiento esperadas. Cuando sea necesario, puede escalar horizontalmente de forma manual mediante la adición de más instancias de máquina virtual de un solo núcleo, o bien puede habilitar el escalado automático. Para más información, vea [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Al crear una Function App que usa el plan de App Service, se recomienda que seleccione un plan de un solo núcleo en lugar de un plan con varios núcleos. En la actualidad, Functions ejecuta funciones de JavaScript con más eficacia en máquina virtuales con un solo núcleo; el uso de máquinas virtuales más grandes no produce las mejoras de rendimiento esperadas. Cuando sea necesario, puede escalar horizontalmente de forma manual mediante la adición de más instancias de máquina virtual de un solo núcleo, o bien puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
-### <a name="typescriptcoffeescript-support"></a>Compatibilidad con TypeScript/CoffeeScript
-Todavía no hay compatibilidad directa con la compilación automática de TypeScript/CoffeeScript a través del tiempo de ejecución, por lo que se debería controlar fuera del tiempo de ejecución, en tiempo de implementación. 
+### <a name="typescript-and-coffeescript-support"></a>Compatibilidad con TypeScript y CoffeeScript
+Como no hay compatibilidad directa con la compilación automática de TypeScript o CoffeeScript a través del tiempo de ejecución, dicha compatibilidad debe controlarse fuera del tiempo de ejecución, en tiempo de implementación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
-* [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
+* [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
 * [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 05/02/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5cebc3c5f2bcfb89f939b98391ffd072263c3e08
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 23b88e4dd3af3cd3e1e13f80890311bdbfb7fe84
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +29,7 @@ En este artículo se explica cómo migrar las redes virtuales asociadas de Azure
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Compruebe que dispone de la versión más reciente de los módulos de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Compruebe que dispone de la versión más reciente de los módulos de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 * Revise la información que se proporciona en [Transición de un circuito ExpressRoute desde la implementación clásica a la implementación de Resource Manager](expressroute-move.md). Asegúrese de que comprende perfectamente los límites y restricciones.
 * Compruebe que el circuito está totalmente operativo en el modelo de implementación clásica.
@@ -45,6 +46,7 @@ En este artículo se explica cómo migrar las redes virtuales asociadas de Azure
 * Un circuito ExpressRoute se puede mover desde el modelo de implementación clásica al entorno de Resource Manager sin tiempo de inactividad. Puede mover un circuito ExpressRoute del entorno clásico al entorno de Resource Manager sin tiempo de inactividad. Siga las instrucciones sobre [cómo mover circuitos ExpressRoute del modelo de implementación clásica a Resource Manager mediante PowerShell](expressroute-howto-move-arm.md). Este es un requisito previo para mover recursos conectados a la red virtual.
 * Las redes virtuales, las puertas de enlace y las implementaciones asociadas dentro de la red virtual que están conectadas a un circuito ExpressRoute de la misma suscripción se pueden migrar al entorno de Resource Manager sin tiempo de inactividad. Puede seguir los pasos descritos más adelante para migrar recursos, como redes virtuales, puertas de enlace y máquinas virtuales implementadas dentro de la red virtual. Debe asegurarse de que las redes virtuales estén configuradas correctamente antes de la migración. 
 * Las redes virtuales, las puertas de enlace y las implementaciones asociadas dentro de la red virtual que no estén en la misma suscripción que el circuito ExpressRoute requerirán algún tiempo de inactividad para completar la migración. En la última sección del documento se describen los pasos que se deben seguir para migrar los recursos.
+* No se puede migrar una red virtual con la puerta de enlace de ExpressRoute y VPN Gateway.
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Movimiento de un circuito ExpressRoute del modelo clásico a Resource Manager
 Deberá mover un circuito ExpressRoute del entorno clásico a Resource Manager antes de intentar migrar los recursos que están conectados al circuito ExpressRoute. Para realizar esta tarea, consulte los siguientes artículos:

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
-ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 4327a3e3f67369a61eb945791ca1011fab6fb01d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -42,9 +43,10 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
 >
 
 ### <a name="attribute-descriptions"></a>Descripciones de atributos
-| Nombre del atributo | Description |
+| Nombre del atributo | Descripción |
 | --- | --- |
-| Idioma |(Opcional) Describe el idioma del texto que desea buscar. Está disponible en los idiomas siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
+|AdvancedOutput| Si establece AdvancedOutput en true, la salida JSON contendrá datos posicionales para cada palabra única (además de frases y regiones). Si no desea ver estos detalles, establezca la marca en false. El valor predeterminado es false. Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| language |(Opcional) Describe el idioma del texto que desea buscar. Está disponible en los idiomas siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
 | TextOrientation |(Opcional) Describe la orientación del texto que desea buscar.  "Izquierda" significa que la parte superior de todas las letras apunta a la izquierda.  El texto predeterminado (similar al que se encuentra en un libro) se puede denominar orientado "hacia arriba".  Uno de los siguientes: detección automática (valor predeterminado), arriba, derecha, abajo, izquierda. |
 | TimeInterval |(Opcional) Describe la frecuencia de muestreo.  El valor predeterminado es cada 1/2 segundo.<br/>Formato JSON: HH:mm:ss.SSS (predeterminado 00:00:00.500)<br/>Formato XML – primitiva de duración W3C XSD (valor predeterminado PT0.5) |
 | DetectRegions |(Opcional) Una matriz de objetos DetectRegion que especifica regiones dentro del marco de vídeo en el que se va a detectar el texto.<br/>Un objeto DetectRegion consta de los siguientes cuatro valores enteros:<br/>Izquierda: píxeles desde el margen izquierdo<br/>Parte superior: píxeles desde el margen superior<br/>Ancho: ancho de la región en píxeles<br/>Alto: el alto de la región en píxeles |
@@ -55,6 +57,7 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
         "Version":1.0, 
         "Options": 
         {
+            "AdvancedOutput":"true"
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
@@ -74,6 +77,7 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
+         <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>

@@ -4,7 +4,7 @@ description: "Este artículo brinda información sobre cómo instalar y usar Tra
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3a958b790b4501153aad86310c3783d49733dd90
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 66e749106ba1031eef19b12f06d5bd16ffa9d09e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -69,6 +70,7 @@ Si tiene una cuenta de Automatización definida para una región específica y q
 | --- | --- |
 | Centro-Sur de EE. UU |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Este de EE. UU. 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| Centro occidental de EE.UU. | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa occidental |we-jobruntimedata-prod-su1.azure-automation.net |
 | Europa del Norte |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Centro de Canadá |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -76,6 +78,14 @@ Si tiene una cuenta de Automatización definida para una región específica y q
 | India Central |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Este de Japón |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Sudeste de Australia |ase-jobruntimedata-prod-su1.azure-automation.net |
+| Sur del Reino Unido 2 | uks-jobruntimedata-prod-su1.azure-automation.net |
+| Gobierno de EE. UU. - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Para obtener una lista de direcciones IP en lugar de nombres, descargue y revise el archivo XML [Intervalos de direcciones IP de los centros de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653) desde el Centro de descarga de Microsoft. 
+
+> [!NOTE]
+> Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Microsoft Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizarán en los centros de datos durante al menos una semana. Descargue el nuevo archivo XML cada semana y realizar los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Express Route observarán que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes. 
+> 
 
 ## <a name="installing-hybrid-runbook-worker"></a>Instalación de Trabajo híbrido de runbook
 

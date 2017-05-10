@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Para obtener información sobre cómo obtener el proveedor de identidades de ter
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [SoftBank Technology Online Service Gate](#softbank)
+* [VMware Workspace One](#vmware-workspace-one)
 * [VMware  Workspace Portal versión 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -340,7 +341,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 
 Sign&go 5.3 admite la autenticación Kerberos mediante la configuración de un contrato con Kerberos.  Para obtener ayuda sobre esta configuración, póngase en contacto con Ilex o consulte la guía de configuración [aquí.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## <a name="softbank"></a>SoftBank
+## <a name="softbank-technology-online-service-gate"></a>SoftBank Technology Online Service Gate
 
 A continuación, se presenta la matriz de compatibilidad de escenarios para esta experiencia de inicio de sesión único:
 
@@ -350,9 +351,9 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Puede obtener más información sobre BitGlass [aquí](https://www.softbanktech.jp/service/list/osg-pro-ent/).
+Para más información sobre SoftBank Technology Online Service Gate, consulte [esto](https://www.softbanktech.jp/service/list/osg-pro-ent/).
 
-## <a name="vmware-identity-manager"></a>VMware Identity Manager
+## <a name="vmware-workspace-one"></a>VMware Workspace One
 
 A continuación, se presenta la matriz de compatibilidad de escenarios para esta experiencia de inicio de sesión único:
 

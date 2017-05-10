@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 1c095ece98c09290992ffeaca1f7b91a87a78818
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -37,9 +38,6 @@ Para seguir las instrucciones de este artículo, necesitará:
 * Azure PowerShell o CLI de Azure.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
-
-### <a name="access-control-requirements"></a>Requisitos de control de acceso
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 Una plantilla de Resource Manager facilita la creación de los siguientes elementos de la aplicación en una única operación coordinada:
@@ -165,6 +163,10 @@ Consulte [Implementación con la API de REST](../azure-resource-manager/resource
  Use Visual Studio para crear un proyecto del grupo de recursos e implementarlo en Azure a través de la interfaz de usuario. Seleccione el tipo de recursos que va a incluir en su proyecto. Estos recursos se agregan automáticamente a la plantilla de Resource Manager. El proyecto también ofrece un script de PowerShell para implementar la plantilla.
 
 Para ver una introducción sobre el uso de Visual Studio con grupos de recursos, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:

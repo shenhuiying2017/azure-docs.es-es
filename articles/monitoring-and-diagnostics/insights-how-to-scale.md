@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,11 +35,9 @@ Puede reducir horizontalmente en el portal, y también puede utilizar la [API de
 > 
 
 ## <a name="scaling-manually"></a>Escalado manual
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Examinar** y, a continuación, navegue hasta el recurso que desea escalar, como un **plan de App Service**.
-2. El icono **Escalar** en **Operaciones** le indicará el estado del escalado: **Desactivado** cuando esté escalando manualmente y **Activado** cuando esté escalando mediante una o varias de las métricas de rendimiento.
-   
-    ![Icono de escalación](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Al hacer clic en el icono aparecerá la hoja **Escalar** . En la parte superior de la hoja Escalar puede ver un historial de las acciones de escalado automático del servicio.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Examinar** y luego navegue hasta el recurso que desea escalar, como un **plan de App Service**.
+2. Haga clic en **Configuración > Escalar horizontalmente (plan de App Service).**
+3. En la parte superior de la hoja **Escalar** puede ver un historial de las acciones de escalado automático del servicio.
    
     ![Hoja Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +129,5 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 * [Supervise el rendimiento de la aplicación](../application-insights/app-insights-azure-web-apps.md) si desea comprender exactamente cómo funciona su código en la nube.
 * [Vea eventos y el registro de actividades](insights-debugging-with-events.md) para saber todo lo que ha sucedido en el servicio.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

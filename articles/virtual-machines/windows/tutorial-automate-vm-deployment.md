@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/19/2017
+ms.date: 04/27/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: f8ce553dc528fa98fcffd42750da6bec72266129
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 54920f3b6665ce5d74bf8025d44d5e16bd8a54b4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Cómo personalizar una máquina virtual de Windows en Azure
 Para configurar las máquinas virtuales de una manera rápida y coherente, normalmente se desea alguna forma de automatización. Un enfoque común para personalizar una máquina virtual de Windows consiste en usar la [Extensión de la secuencia de comandos personalizada para Windows](extensions-customscript.md). Este tutorial describe cómo usar la extensión de script personalizado para instalar y configurar IIS para ejecutar un sitio web básico.
 
-Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="custom-script-extension-overview"></a>Información general de la extensión de script personalizado
@@ -37,7 +38,7 @@ Se puede usar la extensión de script personalizado con máquinas virtuales de L
 
 
 ## <a name="create-virtual-machine"></a>Create virtual machine
-Antes de poder crear una máquina virtual, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroupAutomate` en la ubicación `westus`:
+Antes de poder crear una máquina virtual, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *westus*:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location westus
@@ -49,42 +50,75 @@ Establezca un nombre de usuario de administrador y una contraseña para las máq
 $cred = Get-Credential
 ```
 
-Ahora puede crear la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crean los componentes de red virtual necesarios, la configuración del sistema operativo y, después, se crea una máquina virtual denominada `myVM`:
+Ahora puede crear la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crean los componentes de red virtual necesarios, la configuración del sistema operativo y, después, se crea una máquina virtual denominada *myVM*:
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+    -Name mySubnet `
+    -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAutomate -Location westus `
--Name myVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork `
+    -ResourceGroupName myResourceGroupAutomate `
+    -Location westus `
+    -Name myVnet `
+    -AddressPrefix 192.168.0.0/16 `
+    -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupAutomate -Location westus `
--AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "myPublicIP"
+$publicIP = New-AzureRmPublicIpAddress `
+    -ResourceGroupName myResourceGroupAutomate `
+    -Location westus `
+    -AllocationMethod Static `
+    -IdleTimeoutInMinutes 4 `
+    -Name "myPublicIP"
 
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
--Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 3389 -Access Allow
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP  `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
--Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 80 -Access Allow
+$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleWWW  `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1001 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 80 `
+    -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupAutomate -Location westus `
--Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAutomate `
+    -Location westus `
+    -Name myNetworkSecurityGroup `
+    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroupAutomate -Location westus `
--SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIP.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface `
+    -Name myNic `
+    -ResourceGroupName myResourceGroupAutomate `
+    -Location westus `
+    -SubnetId $vnet.Subnets[0].Id `
+    -PublicIpAddressId $publicIP.Id `
+    -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
 Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
+Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location westus -VM $vmConfig
@@ -94,7 +128,7 @@ Los recursos y la máquina virtual tardan unos minutos en crearse.
 
 
 ## <a name="automate-iis-install"></a>Automatizar la instalación de IIS
-Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar la extensión de script personalizado. La extensión ejecuta `powershell Add-WindowsFeature Web-Server` para instalar el servidor web IIS y después actualiza la página `Default.htm` para mostrar el nombre de host de la máquina virtual:
+Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar la extensión de script personalizado. La extensión ejecuta `powershell Add-WindowsFeature Web-Server` para instalar el servidor web de IIS y después actualiza la página *Default.htm* para mostrar el nombre de host de la máquina virtual:
 
 ```powershell
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
@@ -109,18 +143,22 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
 
 
 ## <a name="test-web-site"></a>Sitio web de prueba
-Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de `myPublicIP` que se ha creado anteriormente:
+Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado anteriormente:
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAutomate -Name myPublicIP | select IpAddress
+Get-AzureRmPublicIPAddress `
+    -ResourceGroupName myResourceGroupAutomate `
+    -Name myPublicIP | select IpAddress
 ```
 
-Puede escribir la dirección IP pública en un explorador web. Se muestra el sitio web, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:
+A continuación, puede escribir la dirección IP pública en un explorador web. Se muestra el sitio web, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:
 
 ![Ejecución del sitio web de IIS](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, aprendió a personalizar una máquina virtual con la extensión de script personalizado. Avance al siguiente tutorial para aprender a crear un sitio web de IIS con equilibrio de carga.
 
-[Load balance virtual machines](./tutorial-load-balancer.md) (Equilibrar la carga de máquinas virtuales)
+En este tutorial, ha aprendido cómo personalizar una máquina virtual en el primer arranque. Avanzar al siguiente tutorial para aprender a crear imágenes de máquina virtual personalizadas.
+
+[Creación de imágenes personalizadas de máquinas virtuales](./tutorial-custom-images.md)
+

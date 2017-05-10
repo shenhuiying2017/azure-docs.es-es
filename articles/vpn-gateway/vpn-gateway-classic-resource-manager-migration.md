@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/28/2016
+ms.date: 05/02/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 32ca2e4b1dcf5715602b8e1e1f3026cb785fbe0c
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -40,7 +41,7 @@ Los escenarios de conectividad VPN más habituales están cubiertos en la migrac
 
 Entre los escenarios no admitidos, se incluyen:  
 
-* Actualmente, las redes virtuales que contienen puertas de enlace de ExpressRoute no admiten la migración. Por lo tanto, tampoco se admite en este momento la coexistencia con puertas de enlace de ExpressRoute en la misma red virtual.
+* No se admite actualmente la red virtual con la puerta de enlace de ExpressRoute y puerta de enlace de VPN.
 * Escenarios de tránsito donde las extensiones de máquina virtual están conectadas a servidores locales. A continuación, se detallan las limitaciones de conectividad VPN de tránsito.
 
 > [!NOTE]

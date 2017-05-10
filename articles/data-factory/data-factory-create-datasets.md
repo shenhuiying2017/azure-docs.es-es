@@ -1,6 +1,6 @@
 ---
 title: "Creación de conjuntos de datos en Azure Data Factory | Microsoft Docs"
-description: Aprenda a crear conjuntos de datos en Data Factory de Azure con ejemplos que utilizan propiedades como offset y anchorDateTime.
+description: Aprenda a crear conjuntos de datos en Azure Data Factory con ejemplos que usan propiedades como offset y anchorDateTime.
 keywords: crear conjunto de datos, ejemplo de conjunto de datos, ejemplo con offset
 services: data-factory
 documentationcenter: 
@@ -15,34 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 88e653f6e46f3e8eb72e620b495d1769f17bdfbf
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Data Factory de Azure
-En este artículo se describen conjuntos de datos de Data Factory de Azure y se incluyen ejemplos, como bases de datos offset, anchorDateTime y offset/style.
+En este artículo se describe qué son los conjuntos de datos, cómo se definen en formato JSON y cómo se usan en canalizaciones de Azure Data Factory. Se incluyen detalles sobre cada sección (por ejemplo, structure, availability y policy) en la definición JSON del conjunto de datos. También se ofrecen ejemplos de uso de las propiedades **offset**, **anchorDateTime** y **style** en una definición JSON de conjunto de datos.
 
 > [!NOTE]
-> Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](data-factory-introduction.md) para obtener información general sobre este servicio. Si no tiene experiencia práctica con la creación de factorías de datos, repasar los tutoriales sobre [transformación](data-factory-build-your-first-pipeline.md) o [traslado de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) puede ayudarlo a comprender mejor este artículo. 
+> Si no está familiarizado con Data Factory, consulte [Introducción a Azure Data Factory](data-factory-introduction.md) para obtener información general. Si no tiene experiencia práctica con la creación de factorías de datos, lea el [tutorial de transformación de datos](data-factory-build-your-first-pipeline.md) y el [tutorial de movimiento de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para adquirir una mejor comprensión. 
 
 ## <a name="overview"></a>Información general
-Una factoría de datos puede tener una o más canalizaciones. Una **canalización** es una agrupación lógica de **actividades** que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un servidor SQL Server local en una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos de Blob Storage con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en una instancia de Azure SQL Data Warehouse en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas. Para obtener más información sobre las canalizaciones y actividades, vea el artículo [Canalizaciones y actividades en Azure Data Factory](data-factory-create-pipelines.md).
+Una factoría de datos puede tener una o más canalizaciones. Una **canalización** es una agrupación lógica de **actividades** que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede usar una actividad de copia para copiar datos de un servidor SQL Server local en una instancia de Azure Blob Storage. Después, podría usar una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar datos de Blob Storage con el fin de generar datos de salida. Finalmente, podría usar segunda actividad de copia para copiar los datos de salida en una instancia de Azure SQL Data Warehouse en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas. Para más información sobre canalizaciones y actividades, consulte el artículo [Canalizaciones y actividades en Azure Data Factory](data-factory-create-pipelines.md).
 
-Una actividad puede tomar diversos **conjuntos de datos** de entrada, o ninguno, y generar uno o varios conjuntos de datos de salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos del blob de Azure especifica el contenedor de blobs y la carpeta de Azure Blob Storage de los que la canalización debe leer los datos. 
+Una actividad puede tomar diversos **conjuntos de datos** de entrada, o ninguno, y generar uno o varios conjuntos de datos de salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Por ejemplo, un conjunto de datos de blob de Azure especifica el contenedor de blobs y la carpeta de Blob Storage de los que la canalización debe leer los datos. 
 
-Antes de crear un conjunto de datos, debe crear un **servicio vinculado** para vincular su almacén de datos a la factoría de datos. Los servicios vinculados son muy similares a las cadenas de conexión que definen la información de conexión necesaria para que Data Factory se conecte a recursos externos. Los conjuntos de datos identifican datos en los almacenes de datos vinculados, como tablas, archivos, carpetas y documentos de SQL. Por ejemplo, el servicio vinculado Azure Storage vincula una cuenta de Azure Storage a la factoría de datos. Un conjunto de datos de blobs de Azure representa el contenedor de blobs y la carpeta que contiene los blobs de entrada que se van a procesar. 
+Antes de crear un conjunto de datos, cree un **servicio vinculado** para vincular su almacén de datos a la factoría de datos. Los servicios vinculados son muy similares a las cadenas de conexión que definen la información de conexión necesaria para que Data Factory se conecte a recursos externos. Los conjuntos de datos identifican datos en los almacenes de datos vinculados, como tablas, archivos, carpetas y documentos de SQL. Por ejemplo, un servicio vinculado Azure Storage vincula una cuenta de almacenamiento a la factoría de datos. Un conjunto de datos de blobs de Azure representa el contenedor de blobs y la carpeta que contiene los blobs de entrada que se van a procesar. 
 
-Este es un escenario de ejemplo: para copiar datos desde una instancia de Azure Blob Storage en una instancia de Azure SQL Database, cree dos servicios vinculados, a saber, Azure Storage y Azure SQL Database. Después, cree dos conjuntos de datos: el conjunto de datos de Azure Blob (se refiere al servicio vinculado de Azure Storage) y el conjunto de datos de Azure SQL Table (se refiere al servicio vinculado de Azure SQL Database). Los servicios vinculados de Azure Storage y Azure SQL Database contienen cadenas de conexión que Data Factory usa en tiempo de ejecución para conectarse al almacenamiento de Azure y a la base de datos de Azure SQL, respectivamente. El conjunto de datos de Azure Blob especifica el contenedor de blobs y la carpeta de blobs que contiene los blobs de entrada de Azure Blob Storage. El conjunto de datos de Azure SQL Table especifica la tabla de SQL de Azure SQL Database en que se van a copiar los datos.
+Este es un escenario de ejemplo. Para copiar datos de Blob Storage a una base de datos SQL, creará dos servicios vinculados: Azure Storage y Azure SQL Database. Después, crerá dos conjuntos de datos: el conjunto de datos Azure Blob (que hace referencia al servicio vinculado Azure Storage) y el conjunto de datos Azure SQL Table (que hace referencia al servicio vinculado Azure SQL Database). Los servicios vinculados Azure Storage y Azure SQL Database contienen cadenas de conexión que Data Factory usa en tiempo de ejecución para conectarse a las instancias de Azure Storage y Azure SQL Database, respectivamente. El conjunto de datos Azure Blob especifica el contenedor de blobs y la carpeta de blobs que contiene los blobs de entrada de Blob Storage. El conjunto de datos Azure SQL Table especifica la tabla de SQL de la base de datos SQL en la que se van a copiar los datos.
 
 En el siguiente diagrama se muestra la relación entre la canalización, la actividad, el conjunto de datos y el servicio vinculado en Data Factory: 
 
 ![Relación entre la canalización, la actividad, el conjunto de datos y los servicios vinculados](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
 ## <a name="dataset-json"></a>Conjunto de datos JSON
-Un conjunto de datos en Azure Data Factory se define con formato JSON como sigue:
+Un conjunto de datos de Data Factory se define con formato JSON de la manera siguiente:
 
 ```json
 {
@@ -77,15 +78,15 @@ La tabla siguiente describe las propiedades del JSON anterior:
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
 | name |Nombre del conjunto de datos. Consulte [Data Factory de Azure: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |Sí |N/D |
-| type |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory de Azure (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obtener información detallada, vea [Tipo de conjunto de datos](#Type). |Sí |N/D |
-| structure |Esquema del conjunto de datos<br/><br/>Para obtener información detallada, vea [Estructura del conjunto de datos](#Structure). |No. |N/D |
-| typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Vea [Tipo de conjunto de datos](#Type) para obtener información detallada sobre los tipos admitidos y sus propiedades. |Sí |N/D |
+| type |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
+| structure |Esquema del conjunto de datos.<br/><br/>Para más información, consulte [Estructura del conjunto de datos](#Structure). |No |N/D |
+| typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
 | external | Marca booleana para especificar si un conjunto de datos es generado explícitamente por una canalización de la factoría de datos o no. Si la canalización actual no produce el conjunto de datos de entrada de una actividad, defina esta marca en true. Establezca esta marca en true para el conjunto de datos de entrada de la primera actividad de la canalización.  |No |false |
-| availability | Define la ventana de procesamiento (por horas, por días, etc.) o el modelo de segmentación para la producción del conjunto de datos. Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina segmento de datos. Si la disponibilidad de un conjunto de datos de salida se establece en diaria (frecuencia: día, intervalo: 1), se produce un segmento diariamente. <br/><br/>Para obtener información detallada, vea [Disponibilidad del conjunto de datos](#Availability). <br/><br/>Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para más información. |Sí |N/D |
-| policy |Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Para más información, consulte la sección [Directiva del conjunto de datos](#Policy) . |No |N/D |
+| availability | Define la ventana de procesamiento (por ejemplo, horas, días, etc.) o el modelo de segmentación para la producción del conjunto de datos. Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina segmento de datos. Si la disponibilidad de un conjunto de datos de salida se establece en diaria (frecuencia: día, intervalo: 1), se produce un segmento diariamente. <br/><br/>Para más información, consulte [Disponibilidad del conjunto de datos](#Availability). <br/><br/>Para más información sobre el modelo de segmentación del conjunto de datos, consulte el artículo [Programación y ejecución de Data Factory](data-factory-scheduling-and-execution.md). |Sí |N/D |
+| policy |Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Para más información, consulte la sección [Directiva del conjunto de datos](#Policy). |No |N/D |
 
 ## <a name="dataset-example"></a>Ejemplo de conjunto de datos
-En el siguiente ejemplo, el conjunto de datos representa una tabla llamada **MyTable** en una **base de datos SQL de Azure**.
+En el siguiente ejemplo, el conjunto de datos representa una tabla llamada **MyTable** en una base de datos SQL.
 
 ```json
 {
@@ -108,12 +109,12 @@ En el siguiente ejemplo, el conjunto de datos representa una tabla llamada **MyT
 
 Tenga en cuenta los siguientes puntos:
 
-* type está establecido en AzureSqlTable.
-* La propiedad de tipo tableName (específico del tipo AzureSqlTable) se establece en MyTable.
-* linkedServiceName hace referencia a un servicio vinculado de tipo AzureSqlDatabase, que se define en el siguiente fragmento JSON. 
-* El valor de frecuency en availability se establece en Day y el intervalo en 1, lo cual significa que el segmento del conjunto de datos se produce diariamente.  
+* **type** está establecido en AzureSqlTable.
+* La propiedad de tipo **tableName** (específica del tipo AzureSqlTable) está establecida en MyTable.
+* **linkedServiceName** hace referencia a un servicio vinculado de tipo AzureSqlDatabase, que se define en el siguiente fragmento JSON. 
+* **availability frequency** está establecido en Day e **interval** está establecido en 1. Esto significa que el fragmento de conjunto de datos se genera diariamente.  
 
-AzureSqlLinkedService se define como sigue:
+**AzureSqlLinkedService** se define de la siguiente forma:
 
 ```json
 {
@@ -128,12 +129,12 @@ AzureSqlLinkedService se define como sigue:
 }
 ```
 
-En el ejemplo JSON anterior:
+En el fragmento JSON anterior:
 
-* type está establecido en AzureSqlDatabase
-* La propiedad de tipo connectionString especifica información para conectarse a una Base de datos SQL de Azure.  
+* **type** está establecido en AzureSqlDatabase.
+* La propiedad de tipo **connectionString** especifica información para conectarse a una base de datos SQL.  
 
-Como puede ver, el servicio vinculado define cómo conectarse a una base de datos SQL de Azure. El conjunto de datos define qué tabla se utiliza como entrada o salida de la actividad en una canalización.   
+Como puede ver, el servicio vinculado define cómo conectarse a una base de datos SQL. El conjunto de datos define qué tabla se usa como entrada y salida de la actividad en una canalización.   
 
 > [!IMPORTANT]
 > A menos que se produzca un conjunto de datos mediante la canalización, debe marcarse como **external**. Esta configuración se aplica generalmente a las entradas de la primera actividad de una canalización.   
@@ -145,9 +146,9 @@ El tipo del conjunto de datos depende del almacén de datos que utilice. Vea la 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
-> Los almacenes de datos con * pueden ser locales o estar en la IaaS de Azure; además, requieren que instale [Data Management Gateway](data-factory-data-management-gateway.md) en una máquina local o de la IaaS de Azure.
+> Los almacenes de datos con * pueden ser locales o de infraestructura como servicio (IaaS) de Azure. Estos almacenes de datos requieren que instale [Data Management Gateway](data-factory-data-management-gateway.md).
 
-En el ejemplo en la sección anterior, el tipo del conjunto de datos se establece en **AzureSqlTable**. De forma similar, para un conjunto de datos de Azure Blob, el tipo del conjunto de datos se establece en **AzureBlob**, tal y como se muestra en el siguiente esquema JSON:
+En el ejemplo en la sección anterior, el tipo del conjunto de datos se establece en **AzureSqlTable**. De forma similar, para un conjunto de datos Azure Blob, el tipo del conjunto de datos se establece en **AzureBlob**, tal y como se muestra en el siguiente esquema JSON:
 
 ```json
 {
@@ -174,7 +175,7 @@ En el ejemplo en la sección anterior, el tipo del conjunto de datos se establec
 ```
 
 ## <a name="Structure"></a>Estructura del conjunto de datos
-La sección **structure** es una sección **opcional** que define el esquema del conjunto de datos. Contiene una colección de nombres y tipos de datos de columnas. Utilice la sección sobre la estructura para proporcionar información de tipo que se utiliza para convertir tipos y asignar columnas del origen al destino. En el ejemplo siguiente, el conjunto de datos tiene tres columnas (`slicetimestamp`, `projectname` y `pageviews`) cuyos tipos son String, String y Decimal respectivamente.
+La sección **structure** es opcional. Define el esquema del conjunto de datos al contener una colección de nombres y tipos de datos de columnas. La sección "structure" se usa para proporcionar el tipo de información que se utiliza para convertir tipos y columnas de mapas del origen al destino. En el ejemplo siguiente, el conjunto de datos tiene tres columnas: `slicetimestamp`, `projectname` y `pageviews`. Estas columnas son del tipo String, String, y Decimal, respectivamente.
 
 ```json
 structure:  
@@ -192,24 +193,24 @@ Cada columna de la estructura contiene las siguientes propiedades:
 | name |Nombre de la columna. |Sí |
 | type |Tipo de datos de la columna.  |No |
 | culture |Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. |No |
-| formato |Cadena de formato que se usará cuando se trata de un tipo .NET: `Datetime` o `Datetimeoffset`. |No |
+| formato |Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. |No |
 
-Utilice las siguientes directrices sobre cuándo incluir la información de la sección **structure** y qué incluir en ella.
+Las siguientes instrucciones le ayudan a determinar cuándo incluir información de estructura y qué incluir en la sección **structure**.
 
-* **Para los orígenes de datos estructurados** que almacenan el esquema de datos y la información de tipos junto con los propios datos (orígenes como SQL Server, Oracle, tablas de Azure, etc.), especifique la sección “structure” si desea asignar columnas de orígenes específicas a columnas de receptor y sus nombres no son iguales. 
+* **Para orígenes de datos estructurados**, especifique la sección "structure" solo si desea asignar columnas de origen a columnas de receptor y sus nombres no son iguales. Este tipo de origen de datos estructurados almacena información de esquema y tipo de datos junto con los datos propiamente dichos. Ejemplos de orígenes de datos estructurados son SQL Server, Oracle y Azure Table. 
   
     Dado que la información de tipo ya está disponible para orígenes de datos estructurados, no debe incluir información de tipo cuando se incluye la sección "structure".
-* **En cuanto al esquema de los orígenes de datos de lectura (en concreto, el blob de Azure)**, puede optar por guardar los datos sin almacenar el esquema o la información de tipos con ellos. Para estos tipos de orígenes de datos, incluya la sección “structure” si desea asignar columnas de origen a columnas de receptor (o) cuando el conjunto de datos sea un conjunto de datos de entrada para una actividad de copia y los tipos de datos del conjunto de datos de origen deban convertirse a tipos nativos para el receptor. 
+* **En cuanto al esquema de los orígenes de datos de lectura (en concreto, Blob Storage)**, puede optar por guardar los datos sin almacenar ningún esquema o información de tipos con ellos. Para estos tipos de orígenes de datos, incluya "structure" cuando desee asignar columnas de origen a columnas de receptor. Incluya también "structure" cuando el conjunto de datos sea una entrada para una actividad de copia y los tipos de datos del conjunto de datos de origen se deban convertir a tipos nativos para el receptor. 
     
-    Data factory admite los siguientes valores de tipo basados en .NET compatibles con CLS con el fin de proporcionar información de tipos en la sección “structure” del esquema de los orígenes de datos de lectura como el blob de Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset y Timespan.
+    Data Factory admite los siguientes valores para proporcionar información de tipos en "structure": Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset y Timespan. Estos valores son valores de tipos basados en .NET compatibles con Common Language Specification (CLS).
 
 Data Factory realiza automáticamente las conversiones de tipo al mover datos desde un almacén de datos de origen a un almacén de datos de receptor. 
   
 
-## <a name="Availability"></a> Disponibilidad del conjunto de datos
-En la sección **availability** de un conjunto de datos, se define la ventana de procesamiento (cada hora, diariamente, semanalmente, etc.) del conjunto de datos. Para más información sobre las ventanas de actividad, vea el artículo sobre [programación y ejecución](data-factory-scheduling-and-execution.md).
+## <a name="dataset-availability"></a>Conjunto de datos availability
+En la sección **availability** de un conjunto de datos, se define la ventana de procesamiento (cada hora, diariamente, semanalmente, etc.) del conjunto de datos. Para más información sobre las ventanas de actividad, consulte el artículo sobre [programación y ejecución](data-factory-scheduling-and-execution.md).
 
-La sección de disponibilidad siguiente especifica que el conjunto de datos de salida se produce cada hora (o) que el conjunto de datos de entrada está disponible cada hora:
+La sección "availability" siguiente especifica que el conjunto de datos de salida se produce cada hora (o) que el conjunto de datos de entrada está disponible cada hora:
 
 ```json
 "availability":    
@@ -226,20 +227,20 @@ Si la canalización tiene las siguientes horas de inicio y finalización:
     "end": "2016-08-25T05:00:00Z",
 ```
 
-El conjunto de datos de salida se genera cada hora dentro de las horas de inicio y finalización de la canalización. Por lo tanto, esta canalización genera cinco segmentos de conjuntos de datos, uno por cada ventana de actividad (00:00-01:00, 01:00-02:00, 02:00-03:00, 03:00-04:00 y 04:00-05:00). 
+El conjunto de datos de salida se genera cada hora dentro de las horas de inicio y finalización de la canalización. Por lo tanto, esta canalización genera cinco segmentos de conjuntos de datos, uno por cada ventana de actividad (12 a.m. - 1 a.m., 1 a.m. - 2 a.m., 2 a.m. - 3 a.m., 3 a.m. - 4 a.m., 4 a.m. - 5 a.m.). 
 
 La tabla siguiente describe las propiedades que puede utilizar en la sección de disponibilidad:
 
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
 | frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month. |Sí |N/D |
-| interval |Especifica un multiplicador para frecuencia<br/><br/>”Frequency x interval” determina la frecuencia con la que se produce el segmento.<br/><br/>Si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/><b>Nota:</b> Si especifica Frequency como Minute, se recomienda establecer interval en no menos de 15. |Sí |N/D |
-| style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si frequency se establece en Month y style se establece en EndOfInterval, el segmento se produce el último día del mes. Si style se establece en StartOfInterval, el segmento se produce el primer día del mes.<br/><br/>Si frequency se establece en Day y style se establece en EndOfInterval, el segmento se produce la última hora del día.<br/><br/>Si frequency se establece en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se producirá a las 2 p.m. |No |EndOfInterval |
-| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/><b>Nota:</b> Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de <b>interval</b> es <b>hourly</b> (frequency: hour e interval: 1) y <b>AnchorDateTime</b> contiene <b>minutes and seconds</b>, las partes <b>minutes and seconds</b> de AnchorDateTime no se tienen en cuenta. |No |01/01/0001 |
-| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/><b>Nota:</b> Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |No |N/D |
+| interval |Especifica un multiplicador para "frequency".<br/><br/>"Frequency x interval" determina la frecuencia con la que se produce el segmento. Por ejemplo, si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/>Observe que si especifica **frequency** como **Minute**, debe establecer el intervalo en un valor no inferior a 15. |Sí |N/D |
+| style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** se establece en **Month** y **style** se establece en **EndOfInterval**, el segmento se produce el último día del mes. Si **style** se establece en **StartOfInterval**, el segmento se produce el primer día del mes.<br/><br/>Si **frequency** se establece en **Day** y **style** se establece en **EndOfInterval**, el segmento se produce la última hora del día.<br/><br/>Si **frequency** se establece en **Hour** y **style** se establece en **EndOfInterval**, el segmento se produce al final de la hora. Por ejemplo, para un segmento en el período de 1 p.m. - 2 p.m., el segmento se producirá a las 2 p.m. |No |EndOfInterval |
+| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>Tenga en cuenta que si esta propiedad tiene partes de fecha que son más específicas que la frecuencia indicada, las partes más específicas se ignoran. Por ejemplo, si el valor de **interval** es **hourly** (frequency: hour e interval: 1) y **AnchorDateTime** contiene **minutes and seconds**, las partes **minutes and seconds** de AnchorDateTime no se tienen en cuenta. |No |01/01/0001 |
+| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/>Tenga en cuenta que si se especifican **anchorDateTime** y **offset**, el resultado es el desplazamiento combinado. |No |N/D |
 
 ### <a name="offset-example"></a>Ejemplo de offset
-De forma predeterminada, cada día (`"frequency": "Day", "interval": 1`) se inician los segmentos a las 24:00 UTC (medianoche). Si desea que, en su lugar, la hora de inicio sea a las 6:00 UTC, defina el desplazamiento como se muestra en el siguiente fragmento de código: 
+De forma predeterminada, los segmentos diarios (`"frequency": "Day", "interval": 1`) comienzan a las 12 p.m. (medianoche), Hora universal coordinada (UTC). Si desea que, en su lugar, la hora de inicio sea a las 6:00 UTC, defina el desplazamiento como se muestra en el siguiente fragmento de código: 
 
 ```json
 "availability":
@@ -250,7 +251,7 @@ De forma predeterminada, cada día (`"frequency": "Day", "interval": 1`) se inic
 }
 ```
 ### <a name="anchordatetime-example"></a>Ejemplo de anchorDateTime
-En el ejemplo siguiente, el conjunto de datos se produce una vez cada 23 horas. El primer segmento se inicia a la hora especificada en anchorDateTime, que se define en `2017-04-19T08:00:00` (hora UTC).
+En el ejemplo siguiente, el conjunto de datos se produce una vez cada 23 horas. El primer segmento se inicia a la hora especificada en **anchorDateTime**, que se establece en `2017-04-19T08:00:00`.
 
 ```json
 "availability":    
@@ -261,8 +262,8 @@ En el ejemplo siguiente, el conjunto de datos se produce una vez cada 23 horas. 
 }
 ```
 
-### <a name="offsetstyle-example"></a>Ejemplo de desplazamiento y estilo
-El siguiente conjunto de datos es un conjunto de datos mensual y se produce el tercer día de cada mes a las 8:00 (`3.08:00:00`):
+### <a name="offsetstyle-example"></a>Ejemplo de offset/style
+El siguiente conjunto de datos es mensual y se produce el tercer día de cada mes a las 8 a.m. (`3.08:00:00`):
 
 ```json
 "availability": {
@@ -277,10 +278,10 @@ El siguiente conjunto de datos es un conjunto de datos mensual y se produce el t
 En la sección **policy** de la definición del conjunto de datos se definen los criterios o condiciones que deben cumplir los segmentos del conjunto de datos.
 
 ### <a name="validation-policies"></a>Directivas de validación
-| Nombre de la directiva | Descripción | Aplicado a | Obligatorio | Valor predeterminado |
+| Nombre de la directiva | Descripción | Se aplica a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Valida que los datos de un **blob de Azure** cumplen los requisitos de tamaño mínimo (en megabytes). |blob de Azure |No |N/D |
-| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Base de datos SQL de Azure</li><li>tabla de Azure</li></ul> |No |N/D |
+| minimumSizeMB |Valida que los datos de **Azure Blob Storage** satisfacen los requisitos de tamaño mínimo (en megabytes). |Almacenamiento de blobs de Azure |No |N/D |
+| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Base de datos SQL de Azure</li><li>Tabla de Azure</li></ul> |No |N/D |
 
 #### <a name="examples"></a>Ejemplos
 **minimumSizeMB:**
@@ -296,7 +297,7 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 }
 ```
 
-**minimumRows**
+**minimumRows:**
 
 ```json
 "policy":
@@ -311,43 +312,43 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 ### <a name="external-datasets"></a>Conjuntos de datos externos
 Los conjuntos de datos externos son los que no son producidos por una canalización de ejecución en la factoría de datos. Si el conjunto de datos está marcado como **external**, puede definirse la directiva **ExternalData** para influir en el comportamiento de la disponibilidad de los segmentos del conjunto de datos.
 
-A menos que se esté produciendo un conjunto de datos mediante Data Factory de Azure, debe marcarse como **external**. Generalmente, esta configuración se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
+A menos que se esté produciendo un conjunto de datos mediante Data Factory, debe marcarse como **external**. Generalmente, esta configuración se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
 
-| name | Descripción | Obligatorio | Valor predeterminado |
+| Nombre | Descripción | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| dataDelay |Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, si los datos están disponibles cada hora, la comprobación de si los datos externos están realmente disponibles y si el segmento correspondiente está preparado puede retrasarse mediante dataDelay.<br/><br/>Solo se aplica a la hora actual.  Por ejemplo, si es la 1:00 p.m. y este valor es de 10 minutos, la validación se inicia a la 1:10 p.m.<br/><br/>Esta configuración no afecta a los segmentos en el pasado; los segmentos para los que se cumple Slice End Time + dataDelay < Now se procesan sin ningún retraso.<br/><br/>Las horas posteriores a las 23:59 horas se deben especificar con el formato `day.hours:minutes:seconds`. Por ejemplo, para especificar 24 horas, no use 24:00:00; en su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. |No |0 |
-| retryInterval |El tiempo de espera entre un error y el siguiente reintento. Se aplica a la hora actual; si se ha producido algún error en el intento anterior, el siguiente intento se realiza después del período establecido en retryInterval. <br/><br/>Si ahora es la 1:00 p.m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. |No |00:01:00 (1 minuto) |
-| retryTimeout |El tiempo de espera de cada reintento.<br/><br/>Si esta propiedad se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marcará como TimedOut. |No |00:10:00 (10 minutos) |
-| maximumRetry |Número de veces que se va a comprobar la disponibilidad de los datos externos. El valor máximo permitido es 10. |No |3 |
+| dataDelay |Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, puede retrasar una comprobación horaria mediante esta configuración.<br/><br/>Esta configuración solo se aplica a la hora actual.  Por ejemplo, si es la 1:00 p.m. y este valor es de 10 minutos, la validación se inicia a la 1:10 p.m.<br/><br/>Tenga en cuenta que esta configuración no afecta a los segmentos del pasado. Los segmentos con **Slice End Time** + **dataDelay** < **Now** se procesan sin retraso.<br/><br/>Los tiempos mayores que 23:59 horas se deben especificar mediante el formato `day.hours:minutes:seconds`. Por ejemplo, para especificar 24 horas, no use 24:00:00. En su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. |No |0 |
+| retryInterval |El tiempo de espera entre un error y el siguiente intento. Esta configuración se aplica a la hora actual. Si se ha producido algún error en el intento anterior, el siguiente intento se realiza después del período **retryInterval**. <br/><br/>Si ahora es la 1:00 p. m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. |No |00:01:00 (1 minuto) |
+| retryTimeout |El tiempo de espera de cada reintento.<br/><br/>Si esta propiedad se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.<br/><br/>Si se agota el tiempo de espera de todos los intentos de validación, el segmento se marca como **TimedOut**. |No |00:10:00 (10 minutos) |
+| maximumRetry |Número de veces que se va a comprobar la disponibilidad de los datos externos. El máximo permitido es de 10. |No |3 |
 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
-Puede crear conjuntos de datos mediante el uso de algunas de estas herramientas o SDK. 
+Puede crear conjuntos de datos mediante el uso de algunas de estas herramientas o SDK: 
 
-- Asistente para copia. 
+- Asistente para copia 
 - Portal de Azure
 - Visual Studio
-- Azure PowerShell
+- PowerShell
 - Plantilla del Administrador de recursos de Azure
 - API de REST
 - API de .NET
 
-Vea los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK.
+Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones y conjuntos de datos con una de estas herramientas o SDK:
  
 - [Creación de una canalización con una actividad de transformación de datos](data-factory-build-your-first-pipeline.md)
 - [Creación de una canalización con una actividad de movimiento de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-Una vez que se haya creado o implementado la canalización, puede administrar y supervisar sus canalizaciones utilizando las hojas de Azure Portal o la aplicación de supervisión y administración. Vaya a los siguientes temas para obtener instrucciones paso a paso. 
+Una vez que se haya creado e implementado la canalización, puede administrar y supervisar sus canalizaciones mediante las hojas de Azure Portal o la aplicación de supervisión y administración. Consulte los siguientes temas para obtener instrucciones paso a paso: 
 
 - [Supervisión y administración de canalizaciones con las hojas de Azure Portal](data-factory-monitor-manage-pipelines.md)
-- [Supervisión y administración de canalizaciones con la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
+- [Supervisión y administración de canalizaciones mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 
 
 ## <a name="scoped-datasets"></a>Conjuntos de datos limitados
 Puede crear conjuntos de datos que se limitan a una canalización mediante la propiedad **datasets** . Estos conjuntos de datos solo los pueden usar las actividades dentro de esta canalización, pero no las actividades de otras canalizaciones. En el ejemplo siguiente se define una canalización con dos conjuntos de datos: InputDataset-rdc y OutputDataset-rdc, que se usarán dentro de la canalización:  
 
 > [!IMPORTANT]
-> Los conjuntos de datos con ámbito solo se admiten con canalizaciones de un solo uso (pipelineMode establecido en OneTime). Consulte la sección [Canalización de una vez](data-factory-scheduling-and-execution.md#onetime-pipeline) para más información.
+> Los conjuntos de datos con ámbito solo se admiten con canalizaciones de un solo uso (donde **pipelineMode** está establecido en **OneTime**). Consulte la sección [Canalización de una vez](data-factory-create-pipelines.md#onetime-pipeline) para más información.
 >
 >
 
@@ -443,5 +444,6 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante la pr
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre las canalizaciones, vea el artículo sobre la [creación de canalizaciones](data-factory-create-pipelines.md). 
-- Si quiere conocer más detalles sobre cómo programar y ejecutar canalizaciones en Azure Data Factory, consulte [este artículo](data-factory-scheduling-and-execution.md). 
+- Para más información sobre las canalizaciones, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). 
+- Para más información sobre cómo programar y ejecutar canalizaciones en Azure Data Factory, consulte [este artículo](data-factory-scheduling-and-execution.md). 
+

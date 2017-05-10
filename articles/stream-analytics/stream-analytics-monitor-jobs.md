@@ -1,6 +1,6 @@
 ---
 title: "Supervisión de trabajos de Stream Analytics mediante programación | Microsoft Docs"
-description: "Obtenga información sobre cómo supervisar los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell."
+description: "Obtenga información sobre cómo supervisar los trabajos de Stream Analytics creados a través de las API de REST, el SDK de Azure o PowerShell."
 keywords: "supervisión de .net monitor, supervisión de trabajos, aplicación de supervisión"
 services: stream-analytics
 documentationcenter: 
@@ -13,26 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: dc19bec960edff15feffc41bee1bbc63eeff5c6d
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 9cc2b35fa54c1fccb0e50840d0d6484c42edc5af
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
- En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada.  Puede habilitarla manualmente en Azure Portal navegando hasta la página Supervisión del trabajo y haciendo clic en el botón Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en el área Métricas de Azure Portal para el trabajo de Stream Analytics.
+
+En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Stream Analytics creados a través de las API de REST, el SDK de Azure o PowerShell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en Azure Portal dirigiéndose a la página Supervisión del trabajo y haciendo clic en el botón Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en el área Métricas de Azure Portal para el trabajo de Stream Analytics.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar este artículo, debe tener lo siguiente:
 
-* Visual Studio 2017 o 2015.
-* Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
-* Un trabajo de Análisis de transmisiones existente que requiera la habilitación de supervisión.
+Antes de empezar este proceso, debe tener lo siguiente:
+
+* Visual Studio 2017 o 2015
+* [SDK de .NET para Azure](https://azure.microsoft.com/downloads/) descargado e instalado
+* Un trabajo de Stream Analytics existente que requiera la habilitación de supervisión
 
 ## <a name="create-a-project"></a>Creación de un proyecto
+
 1. Cree una aplicación de consola .NET de Visual Studio C#.
 2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Análisis de transmisiones de Azure. El segundo es el SDK de Azure Monitor que se usará para habilitar la supervisión. El último es el cliente de Azure Active Directory que se usará para autenticación.
    
@@ -116,6 +120,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
      }
 
 ## <a name="create-management-clients"></a>Creación de clientes de administración
+
 El código siguiente configurará las variables y los clientes de administración necesarios.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -136,17 +141,18 @@ El código siguiente configurará las variables y los clientes de administració
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitación de supervisión para un trabajo de Análisis de transmisiones existente
-El código siguiente habilitará la supervisión de un trabajo de Análisis de transmisiones **existente** . La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad "Id" (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Análisis de transmisiones.
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitación de supervisión para un trabajo de Stream Analytics existente
 
-> [!WARNING]
-> Si previamente ha habilitado la supervisión de otro trabajo de Stream Analytics, a través del Azure Portal o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
+El código siguiente habilitará la supervisión de un trabajo de Stream Analytics **existente**. La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad *Id* (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Stream Analytics.
+
+>[!WARNING]
+>Si previamente ha habilitado la supervisión de otro trabajo de Stream Analytics, a través del Azure Portal o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que usó cuando habilitó anteriormente la supervisión.**
 > 
-> La cuenta de almacenamiento está vinculada a la región en la que se ha creado el trabajo de Análisis de transmisiones, no específicamente al trabajo.
+> La cuenta de almacenamiento está vinculada a la región en la que se ha creado el trabajo de Stream Analytics, no específicamente al trabajo.
 > 
-> Todos los trabajos de Análisis de transmisiones (y todos los demás recursos de Azure) de esa misma región comparten esta cuenta de almacenamiento para almacenar los datos de supervisión. Si proporciona otra cuenta de almacenamiento, puede provocar efectos secundarios no deseados en la supervisión de sus otros trabajos de Análisis de transmisiones y otros recursos de Azure.
+> Todos los trabajos de Stream Analytics (y todos los demás recursos de Azure) de esa misma región comparten esta cuenta de almacenamiento para almacenar los datos de supervisión. Si proporciona otra cuenta de almacenamiento, puede provocar efectos secundarios no deseados en la supervisión de sus otros trabajos de Stream Analytics u otros recursos de Azure.
 > 
-> El nombre de la cuenta de almacenamiento utilizado para reemplazar ```“<YOUR STORAGE ACCOUNT NAME>”``` a continuación debe ser una cuenta de almacenamiento que esté en la misma suscripción que el trabajo de Stream Analytics para el que está habilitando la supervisión.
+> El nombre de la cuenta de almacenamiento utilizado para reemplazar `<YOUR STORAGE ACCOUNT NAME>` en el siguiente código debe ser una cuenta de almacenamiento que esté en la misma suscripción que el trabajo de Stream Analytics para el que está habilitando la supervisión.
 > 
 > 
 
@@ -170,9 +176,11 @@ El código siguiente habilitará la supervisión de un trabajo de Análisis de t
 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)

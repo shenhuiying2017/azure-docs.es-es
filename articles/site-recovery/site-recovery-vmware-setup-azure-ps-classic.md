@@ -1,5 +1,5 @@
 ---
-title: " Administración de un servidor de procesos que se ejecuta en Azure (clásico) | Microsoft Docss"
+title: " Administración de un servidor de procesos que se ejecuta en Azure (clásico) | Microsoft Docs"
 description: "En este artículo se describe cómo configurar un servidor de procesos (clásico) de conmutación por recuperación en Azure."
 services: site-recovery
 documentationcenter: 
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 Durante la conmutación por recuperación, se recomienda implementar el servidor de procesos en Azure si hay una latencia elevada entre la red virtual de Azure y la red local. En este artículo se describe cómo instalar, configurar y administrar los servidores de procesos que se ejecutan en Azure.
 
 > [!NOTE]
-> Este artículo se utiliza si usa **Resource Manager** como modelo de implementación para las máquinas virtuales durante la conmutación por error. Si ha usado el modelo **clásico** como modelo de implementación, siga los pasos de [Administración de un servidor de procesos de conmutación por recuperación (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md).
+> Este artículo se utiliza si ha usado Clásico como modelo de implementación para las máquinas virtuales durante la conmutación por error. Si ha usado el modelo Resource Manager como modelo de implementación, siga los pasos de [Administración de un servidor de procesos de conmutación por recuperación (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,9 +62,4 @@ Durante la conmutación por recuperación, se recomienda implementar el servidor
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Anulación del registro del servidor de procesos (que se ejecuta en Azure) desde un servidor de configuración (que se ejecuta de forma local)
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

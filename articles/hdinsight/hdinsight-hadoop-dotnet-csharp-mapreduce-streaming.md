@@ -16,10 +16,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 9ac11d8ad5930d67fbf2822674d539839d248cde
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -34,7 +35,7 @@ El streaming de Hadoop es una utilidad que permite ejecutar trabajos de MapReduc
 
 ## <a name="net-on-hdinsight"></a>.NET en HDInsight
 
-Los clústeres de __HDInsight basado en Linux__ se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.5 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](hdinsight-component-versioning.md).
+Los clústeres de __HDInsight basado en Linux__ se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.5 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](hdinsight-component-versioning.md). Para usar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](hdinsight-hadoop-install-mono.md).
 
 Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 

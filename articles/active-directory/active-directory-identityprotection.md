@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -70,6 +71,25 @@ Azure Active Directory Identity Protection es más que una herramienta de superv
 * Directiva para mitigar inicios de sesión peligrosos al bloquear inicios de sesión o solicitar desafíos de la autenticación multifactor.
 * Directiva para proteger o bloquear cuentas de usuario peligrosas
 * Directiva para exigir que los usuarios se registren en la autenticación multifactor
+
+
+
+## <a name="identity-protection-roles"></a>Roles de Identity Protection
+
+Para equilibrar la carga de las actividades de administración en torno a su implementación de Identity Protection, puede asignar varios roles. Azure AD Identity Protection admite tres roles de directorio:
+
+| Rol                         | Puede hacer                          | No puede hacer
+| :--                          | ---                                |  ---   |
+| Administrador global         | Acceso completo a Identity Protection, incorporar Identity Protection| |
+| Administrador de seguridad       | Acceso completo a Identity Protection | Incorporar Identity Protection, restablecer contraseñas para un usuario |
+| Lector de seguridad              | Acceso de solo lectura a Identity Protection | Incorporar Identity Protection, remediar usuarios, configurar directivas, restablecer contraseñas |
+
+
+
+
+Para obtener más detalles, consulte [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+
+
 
 ## <a name="detection"></a>Detección
 

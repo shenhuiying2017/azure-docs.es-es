@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1be33680d91fd3179c7af84c9726592d6c91dd5
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: e0cd2a14b4102797024925a72783ecaf56919aec
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -27,14 +28,22 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
+## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+
+Para sistemas operativos compatibles y requisitos del controlador, vea [Configuración del controlador de la serie N para Linux](n-series-driver-setup.md).
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
+
+* No se recomienda instalar X Server u otros sistemas que usan el controlador nouveau en máquinas virtuales Ubuntu NC. Antes de instalar controladores de GPU NVIDIA, debe deshabilitar al controlador nouveau.  
+
 ## <a name="other-sizes"></a>Otros tamaños
-- [Uso general](../windows/sizes-general.md)
-- [Proceso optimizado](../windows/sizes-compute.md)
+- [Uso general](sizes-general.md)
+- [Proceso optimizado](sizes-compute.md)
 - [Memoria optimizada](sizes-memory.md)
 - [Almacenamiento optimizado](sizes-storage.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](../windows/acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
+Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.

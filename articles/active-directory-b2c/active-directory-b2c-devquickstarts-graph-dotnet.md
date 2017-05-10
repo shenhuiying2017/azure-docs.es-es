@@ -3,8 +3,8 @@ title: 'Azure Active Directory B2C: uso de API Graph | Microsoft Docs'
 description: "Cómo llamar a la API Graph para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso."
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
+author: gsacavdm
+manager: krassk
 editor: bryanla
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
+ms.date: 03/22/2017
+ms.author: gsacavdm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 27a331562d659212dcd1b775ac06e1e1e4686517
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -33,63 +35,56 @@ En este artículo, abordaremos cómo realizar este caso de uso automatizado. Par
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Obtención de un inquilino de Azure AD B2C
 Antes de crear aplicaciones, usuarios o interactuar con Azure AD, necesitará un inquilino de Azure AD B2C y una cuenta de administrador global en ese inquilino. Si aún no tiene ningún inquilino, [comience con la introducción a Azure AD B2C](active-directory-b2c-get-started.md).
 
-## <a name="register-a-service-application-in-your-tenant"></a>Registro de una aplicación de servicio en el inquilino
-Cuando tenga un inquilino de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD PowerShell.
-En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+## <a name="register-your-application-in-your-tenant"></a>Registro de la aplicación en el inquilino
+Una vez que tenga un inquilino B2C, debe registrar la aplicación a través de [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para usar la API Graph con su inquilino de B2C, deberá registrar una aplicación dedicada con PowerShell. Para ello, siga las instrucciones de este artículo. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure.
-> 
-> 
+> Para usar la API Graph con el inquilino B2C, deberá registrar una aplicación dedicada mediante la hoja *Registros de aplicaciones* genérica en Azure Portal, **NO** mediante la hoja *Aplicaciones* de Azure AD B2C. No puede volver a usar las aplicaciones B2C ya existentes que registró en la hoja *Aplicaciones* de Azure AD B2C.
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. Para elegir el inquilino de Azure AD B2C, seleccione una cuenta en la esquina superior derecha de la página.
+3. En el panel de navegación izquierdo, elija **Más servicios**, haga clic en **Registros de aplicaciones**y, luego, en **Agregar**.
+4. Siga las indicaciones y cree una nueva aplicación. 
+    1. Seleccione **Aplicación web o API** como Tipo de aplicación.    
+    2. Proporcione **cualquier URI de redirección** (p. ej., https://B2CGraphAPI), ya que no es relevante para este ejemplo.  
+5. La aplicación aparecerá ahora en la lista de aplicaciones. Haga clic en ella para obtener el **Identificador de aplicación** (también conocido como id. de cliente). Cópielo, pues lo necesitará en una sección posterior.
+6. En la hoja Configuración, haga clic en **Claves** y agregue una nueva clave (también conocida como secreto de cliente). Cópiela también para usarla en una sección posterior.
+
+## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configuración de permisos de creación, lectura y actualización para la aplicación
+Ahora debe configurar la aplicación para obtener todos los permisos necesarios para crear, leer, actualizar y eliminar usuarios.
+
+1. Aún en la hoja Registros de aplicaciones de Azure Portal, seleccione la aplicación.
+2. En la hoja Configuración, haga clic en **Permisos necesarios**.
+3. En la hoja Permisos necesarios, haga clic en **Microsoft Azure Active Directory**.
+4. En la hoja Habilitar el acceso, seleccione el permiso **Leer y escribir en datos de directorio** en **Permisos de la aplicación** y haga clic en **Guardar**.
+5. Por último, de nuevo en la hoja Permisos necesarios, haga clic en el botón **Conceder permisos**.
+
+Ahora tiene una aplicación con permiso para crear, leer y actualizar usuarios en el inquilino B2C.
+
+## <a name="configure-delete-permissions-for-your-application"></a>Configuración de permisos de eliminación para la aplicación
+Actualmente, el permiso *Leer y escribir en datos de directorio* **NO** incluye la capacidad de llevar a cabo cualquier eliminación, como la de usuarios. Si desea dotar a la aplicación de la capacidad de eliminar usuarios, deberá seguir estos pasos adicionales que hacen partícipe a PowerShell. De lo contrario, puede ir a la sección siguiente.
+
+En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
 Una vez instalado el módulo de PowerShell, abra PowerShell y conéctese al inquilino de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña. Escriba el nombre de usuario y la contraseña de la cuenta del administrador de inquilinos de B2C.
 
-```
-> $msolcred = Get-Credential
-> Connect-MsolService -credential $msolcred
-```
+> [!IMPORTANT]
+> Debe usar una cuenta de administrador de inquilinos B2C que sea **local** para el inquilino B2C. Estas cuentas tienen este aspecto: myusername@myb2ctenant.onmicrosoft.com.
 
-Antes de crear la aplicación, debe generar un nuevo **secreto de cliente**.  La aplicación usará el secreto de cliente para autenticarse en Azure AD y adquirir tokens de acceso. Puede generar un secreto válido de PowerShell:
-
-```
-> $bytes = New-Object Byte[] 32
-> $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-> $rand.GetBytes($bytes)
-> $rand.Dispose()
-> $newClientSecret = [System.Convert]::ToBase64String($bytes)
-> $newClientSecret
+```powershell
+$msolcred = Get-Credential
+Connect-MsolService -credential $msolcred
 ```
 
-El comando final debe imprimir el nuevo secreto de cliente. Cópielo en un lugar seguro. Lo necesitará más adelante. Ahora puede crear la aplicación al proporcionar el nuevo secreto de cliente como credencial para la aplicación:
+Ahora usaremos el **Identificador de aplicación** en el script siguiente para asignar a la aplicación el rol de administrador de cuentas de usuario que permitirá a esta eliminar usuarios. Estos roles tienen identificadores conocidos, por lo que lo único que debe hacer es escribir el **Identificador de aplicación** en el siguiente script.
 
-```
-> New-MsolServicePrincipal -DisplayName "My New B2C Graph API App" -Type password -Value $newClientSecret
-
-DisplayName           : My New B2C Graph API App
-ServicePrincipalNames : {dd02c40f-1325-46c2-a118-4659db8a55d5}
-ObjectId              : e2bde258-6691-410b-879c-b1f88d9ef664
-AppPrincipalId        : dd02c40f-1325-46c2-a118-4659db8a55d5
-TrustedForDelegation  : False
-AccountEnabled        : True
-Addresses             : {}
-KeyType               : Password
-KeyId                 : a261e39d-953e-4d6a-8d70-1f915e054ef9
-StartDate             : 9/2/2015 1:33:09 AM
-EndDate               : 9/2/2016 1:33:09 AM
-Usage                 : Verify
+```powershell
+$applicationId = "<YOUR_APPLICATION_ID>"
+$sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
+Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Si la creación de la aplicación se realiza correctamente, debe imprimir propiedades de la aplicación como las anteriores. Necesitará tanto `ObjectId` como `AppPrincipalId`, así que copie también esos valores.
-
-Una vez creada una aplicación en el inquilino de B2C, debe asignarle los permisos necesarios para efectuar operaciones CRUD de usuario. Asigne a la aplicación tres roles: lectores de directorio (para lectura de usuarios), escritores de directorio (para creación y actualización de usuarios) y un administrador de cuenta de usuario (para eliminación de usuarios). Estos roles tienen identificadores conocidos, por lo que puede reemplazar el parámetro `-RoleMemberObjectId` por el parámetro `ObjectId` anterior y ejecutar los comandos siguientes. Para ver la lista de todos los roles de directorio, intente ejecutar `Get-MsolRole`.
-
-```
-> Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-> Add-MsolRoleMember -RoleObjectId 9360feb5-f418-4baa-8175-e2a00bac4301 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-> Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-```
-
-Ahora tiene una aplicación con permiso para crear, leer, actualizar y eliminar usuarios del inquilino de B2C.
+Ahora la aplicación cuenta con permisos para eliminar usuarios del inquilino B2C.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Descarga, configuración y compilación del código de ejemplo
 En primer lugar, descargue el código de ejemplo y ejecútelo. A continuación, lo examinaremos más de cerca.  Puede [descargar el código de ejemplo como archivo .zip](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). También puede clonarlo en un directorio de su elección:
@@ -102,9 +97,9 @@ Abra la solución de Visual Studio `B2CGraphClient\B2CGraphClient.sln` en Visual
 
 ```
 <appSettings>
-    <add key="b2c:Tenant" value="contosob2c.onmicrosoft.com" />
-    <add key="b2c:ClientId" value="{The AppPrincipalId from above}" />
-    <add key="b2c:ClientSecret" value="{The client secret you generated above}" />
+    <add key="b2c:Tenant" value="{Your Tenant Name}" />
+    <add key="b2c:ClientId" value="{The ApplicationID from above}" />
+    <add key="b2c:ClientSecret" value="{The Key from above}" />
 </appSettings>
 ```
 
@@ -355,15 +350,10 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 Con `B2CGraphClient`, tiene una aplicación de servicio que puede administrar sus usuarios del inquilino de B2C mediante programación. `B2CGraphClient` usa su propia identidad de aplicación para autenticarse en la API de Azure AD Graph. También adquiere tokens mediante un secreto de cliente. Según vaya incorporando esta funcionalidad a su aplicación, debe recordar algunos puntos clave para las aplicaciones B2C:
 
 * Tiene que conceder a la aplicación los permisos adecuados en el inquilino.
-* Por ahora, debe usar ADAL v2 para obtener tokens de acceso. (Puede también enviar mensajes de protocolo directamente, sin usar una biblioteca.)
+* Por ahora, debe usar ADAL (no MSAL) para obtener tokens de acceso. (Puede también enviar mensajes de protocolo directamente, sin usar una biblioteca.)
 * Cuando llame a la API Graph, use `api-version=1.6`.
 * Al crear y actualizar los usuarios consumidores, hay algunas propiedades obligatorias, tal como se describió anteriormente.
 
 Si tiene alguna pregunta o desea presentar una solicitud para acciones que le gustaría realizar con la API Graph en su inquilino B2C, deje un comentario en este artículo o registre un problema en el repositorio de ejemplos de código de GitHub.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -14,17 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1ab9b7e306fda89235f4e9388fdbae4ea54307df
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Enlaces de archivo externo de Azure Functions (versión preliminar)
-En este artículo se explica cómo configurar y usar los enlaces de archivo externo en Azure Functions. Azure Functions admite enlaces de desencadenador, entrada y salida para un archivo externo.
+Este artículo muestra cómo manipular archivos de diferentes proveedores de SaaS (por ejemplo, OneDrive y Dropbox) dentro de la función mediante enlaces integrados. Azure Functions admite enlaces de desencadenador, entrada y salida para un archivo externo.
 
-Los enlaces de archivo externo permiten que las funciones tengan acceso a archivos hospedados fuera de Azure. Este enlace crea nuevas conexiones de API o utiliza conexiones de API existentes del grupo de recursos de Function App.
+Este enlace crea conexiones de API para los proveedores de SaaS o utiliza conexiones de API existentes del grupo de recursos de Function App.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -254,76 +255,6 @@ En las funciones de C#, también puede enlazar con cualquiera de los siguientes 
 * `CloudBlockBlob`
 * `CloudPageBlob`
 
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Ejemplo de entrada
-Suponga que tiene el siguiente objeto function.json que define un [desencadenador de cola de Storage](functions-bindings-storage-queue.md), una entrada de archivo externo y una salida de archivo externo:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "<name of external file connection>",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "<name of external file connection>",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Vea el ejemplo específico del lenguaje que copia el archivo de entrada en el archivo de salida.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
-<a name="incsharp"></a>
-
-### <a name="input-usage-in-c"></a>Uso de entradas en C# #
-
-```cs
-public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    myOutputFile = myInputFile;
-}
-```
-
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
-
-```
--->
-
-<a name="innodejs"></a>
-
-### <a name="input-usage-in-nodejs"></a>Uso de entradas en Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
 
 <a name="output"></a>
 
@@ -368,8 +299,76 @@ En las funciones de C# también puede enviar la salida a cualquiera de los sigui
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Ejemplo de salida
-Consulte [Ejemplo de entrada](#inputsample).
+<a name="sample"></a>
+
+## <a name="input--output-sample"></a>Ejemplo de entrada y salida
+Suponga que tiene el siguiente objeto function.json que define un [desencadenador de cola de Storage](functions-bindings-storage-queue.md), una entrada de archivo externo y una salida de archivo externo:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "<name of external file connection>",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "<name of external file connection>",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Vea el ejemplo específico del lenguaje que copia el archivo de entrada en el archivo de salida.
+
+* [C#](#incsharp)
+* [Node.js](#innodejs)
+
+<a name="incsharp"></a>
+
+### <a name="usage-in-c"></a>Uso en C# #
+
+```cs
+public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputFile = myInputFile;
+}
+```
+
+<!--
+<a name="infsharp"></a>
+### Input usage in F# ##
+```fsharp
+
+```
+-->
+
+<a name="innodejs"></a>
+
+### <a name="usage-in-nodejs"></a>Uso en Node.js
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputFile = context.bindings.myInputFile;
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
-ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f813dc5f126386f9ad474e113183e7b5d4c8a71a
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ A partir de Servicios multimedia de Microsoft Azure  2.2, puede asociar varias c
 * Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
 * Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
 
-En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia. 
+En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia. 
 
 ## <a name="considerations"></a>Consideraciones
 Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia, se aplican las siguientes consideraciones:
@@ -39,11 +40,11 @@ Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia,
 
 Otras consideraciones:
 
-Los Media Services usan el valor de la propiedad **IAssetFile.Name** al generar direcciones URL para el contenido de streaming (por ejemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad Name no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]". Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
+Los Media Services usan el valor de la propiedad **IAssetFile.Name** al generar direcciones URL para el contenido de streaming (por ejemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad Name no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 ## <a name="to-attach-storage-accounts"></a>Para asociar cuentas de almacenamiento  
 
-Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), como se muestra en el ejemplo siguiente.
+Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media), como se muestra en el ejemplo siguiente.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

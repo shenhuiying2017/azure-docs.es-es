@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 05/02/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 8929a1697bf88da82fc027520d0126eaef872840
-ms.openlocfilehash: ec7bdf6b27cc073324d0d3a79b268e9730a6016b
-ms.lasthandoff: 02/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2fdf42c99395dd7a32ab68b0cf8d9504df3800ef
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -27,14 +28,14 @@ Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilid
 Para obtener información sobre otras características de caché Premium, consulte [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>¿Qué es Clúster Redis?
-Caché en Redis de Azure ofrece clúster de Redis como [implementado en Redis](http://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas. 
+Caché en Redis de Azure ofrece clúster de Redis como [implementado en Redis](http://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas: 
 
 * La capacidad de dividir automáticamente el conjunto de datos entre varios nodos. 
 * La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se puede comunicar con el resto del clúster. 
 * Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones. 
 * Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
 
-Consulte el artículo [P+F de Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel premium. 
+Para obtener información sobre el tamaño, el rendimiento y el ancho de banda con memorias caché premium, vea [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 En Azure, el clúster de Redis se ofrece como un modelo de principal/réplica donde cada partición tiene un par de principal/réplica con la replicación donde la replicación se administra mediante el servicio de la Caché en Redis de Azure. 
 
@@ -51,7 +52,7 @@ Puede tener hasta 10 particiones en el clúster. Haga clic en **Habilitado** y d
 
 Cada partición es un par de caché principal/réplica administrado por Azure y el tamaño total de la memoria caché se calcula multiplicando el número de particiones por el tamaño de la memoria caché seleccionado en el plan de tarifa. 
 
-![Agrupación en clústeres][redis-cache-clustering-selected]
+![agrupación en clústeres][redis-cache-clustering-selected]
 
 Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché. Si el diagnóstico está [habilitado](cache-how-to-monitor.md#enable-cache-diagnostics), las métricas se capturan por separado para cada partición y pueden [verse](cache-how-to-monitor.md) en la hoja Caché en Redis. 
 
@@ -66,16 +67,21 @@ Para obtener el código de ejemplo sobre el trabajo con clústeres con el client
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Cambio del tamaño del clúster en una caché premium en ejecución
-Para cambiar el tamaño del clúster de una caché premium en ejecución con la agrupación en clústeres habilitada, haga clic en **(VERSIÓN PRELIMINAR) Tamaño del clúster en Redis** desde el **menú Recursos**.
+Para cambiar el tamaño del clúster de una caché premium en ejecución con la agrupación en clústeres habilitada, haga clic en **Tamaño del clúster en Redis** desde el **menú Recursos**.
 
 > [!NOTE]
-> Tenga en cuenta que, a pesar de que el nivel Premium de Caché en Redis de Azure se publicó con disponibilidad general, la característica Tamaño del clúster en Redis está actualmente en la versión preliminar.
+> A pesar de que el nivel Premium de Azure Redis Cache Premium se publicó con disponibilidad general, la característica Tamaño del clúster en Redis está actualmente en la versión preliminar.
 > 
 > 
 
 ![Tamaño del Clúster en Redis][redis-cache-redis-cluster-size]
 
 Para modificar el tamaño del clúster, utilice el control deslizante o especifique un número comprendido entre 1 y 10 en el cuadro de texto **Número de particiones**. Después, haga clic en **Aceptar** para guardar.
+
+> [!NOTE]
+> El escalado de un clúster ejecuta el comando [MIGRATE](https://redis.io/commands/migrate), que es un comando caro. Por lo tanto, para un impacto mínimo, considere ejecutar esta operación durante horas de poca actividad. Durante el proceso de migración, verá un pico de carga del servidor. El escalado de un clúster es un proceso de ejecución duradero y la cantidad de tiempo transcurrido depende del número de claves y el tamaño de los valores asociados a estas claves.
+> 
+> 
 
 ## <a name="clustering-faq"></a>P+F de agrupación en clústeres
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la agrupación en clústeres de Caché en Redis de Azure.
@@ -98,7 +104,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 * Si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), debe usar la versión 1.0.481 o posterior. Se conecta a la memoria caché con los mismos [puntos de conexión, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. La única diferencia es que se deben realizar todas las lecturas y escrituras en la base de datos 0.
   
   * Otros clientes pueden tener requisitos diferentes. Vea [¿Todos los clientes de Redis admiten la agrupación en clústeres?](#do-all-redis-clients-support-clustering)
-* Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para lograr esto, consulte [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster)
+* Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para ubicar claves en la misma partición, vea [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster)
 * Si está usando el proveedor de estado de sesión de ASP.NET de Redis, debe usar 2.0.1 o posterior. Consulte [¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>¿Cómo se distribuyen las claves en un clúster?
@@ -148,7 +154,7 @@ La agrupación en clústeres solo está disponible para las memorias cachés pre
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?.
 * **Proveedor de caché de salida de Redis** : no se requieren cambios.
-* **Proveedor de estado de sesión de Redis**: para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o superior o se iniciará una excepción. Este es un cambio importante. Para obtener más información, consulte [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Detalles sobre cambios importantes de la versión&2;.0.0).
+* **Proveedor de estado de sesión de Redis**: para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o superior o se iniciará una excepción. Este es un cambio importante. Para obtener más información, consulte [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Detalles sobre cambios importantes de la versión 2.0.0).
 
 <a name="move-exceptions"></a>
 

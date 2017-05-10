@@ -1,9 +1,9 @@
 ---
-title: "Creación de un front-end de servicio web para una aplicación mediante ASP.NET Core| Microsoft Docs"
-description: "Exponga la aplicación de Service Fabric a la Web usando un proyecto API web de ASP.NET Core y la comunicación entre servicios a través de ServiceProxy."
+title: "Creación de un front-end web para la aplicación de Azure Service Fabric mediante ASP.NET Core| Microsoft Docs"
+description: "Exponga la aplicación de Service Fabric a la Web usando un proyecto de ASP.NET Core y la comunicación entre servicios a través de Service Remoting."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: 
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/30/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d7084624b7242a8dfc60f49d38f1808116206b46
-ms.lasthandoff: 03/31/2017
+ms.date: 04/28/2017
+ms.author: vturecek
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 68ca454aebbad30d5ea2511b030f260a6a18b1ca
+ms.contentlocale: es-es
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -27,7 +28,10 @@ De forma predeterminada, los servicios de Azure Service Fabric no proporcionan u
 En este tutorial, continuaremos a partir del punto en el que terminamos en el tutorial [Creación de la primera aplicación de Azure Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) y agregaremos un servicio web delante el servicio de contador con estado. Si aún no lo ha hecho, debe revisar primero ese tutorial.
 
 ## <a name="add-an-aspnet-core-service-to-your-application"></a>Incorporación de un servicio ASP.NET Core a una aplicación
-ASP.NET Core es un marco de desarrollo web ligero multiplataforma, que puede usar para crear modernas interfaces de usuario web y API web. Vamos a agregar un proyecto API web de ASP.NET a la aplicación existente.
+ASP.NET Core es un marco de desarrollo web ligero multiplataforma, que puede usar para crear modernas interfaces de usuario web y API web. Para obtener una descripción completa de cómo se integra ASP.NET Core con Service Fabric, se recomienda fehacientemente leer el artículo [ASP.NET Core en Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md), pero por ahora puede seguir esta guía para empezar a trabajar rápidamente.
+
+Vamos a agregar un proyecto API web de ASP.NET a la aplicación existente.
+
 
 > [!NOTE]
 > Este tutorial se basa en las [herramientas de ASP.NET Core para Visual Studio de 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). Las herramientas de .NET Core para Visual Studio 2015 ya no se van a actualizar.
@@ -47,7 +51,7 @@ ASP.NET Core es un marco de desarrollo web ligero multiplataforma, que puede usa
     Una vez creado el proyecto API web, tendrá dos servicios en la aplicación. Mientras continúa compilando la aplicación, agregará más servicios exactamente de la misma forma. Cada uno puede tener versiones y actualizaciones independientes.
 
 > [!TIP]
-> Para más información acerca de la creación de servicios de ASP.NET Core, consulte [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/)(Documentación de ASP.NET Core).
+> Para más información sobre ASP.NET Core, vea [Documentación de ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 > 
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
@@ -198,12 +202,11 @@ Nuestro servicio con estado está ahora preparado para recibir tráfico de otros
 
 ## <a name="kestrel-and-weblistener"></a>Kestrel y WebListener
 
-Es el servidor web predeterminado de ASP.NET Core, que se conoce como Kestrel, [no se admite actualmente para controlar el tráfico directo de Internet](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Como resultado, las plantillas ASP.NET de Service Fabric usan [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) de forma predeterminada. 
+Es el servidor web predeterminado de ASP.NET Core, que se conoce como Kestrel, [no se admite actualmente para controlar el tráfico directo de Internet](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Como resultado, la plantilla de servicio sin estado de ASP.NET Core para Service Fabric usa [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) de forma predeterminada. 
 
-Si no va a servir tráfico directo de Internet y preferiría utilizar Kestrel como servidor web, puede cambiarlo en la configuración del agente de escucha del servicio. Simplemente reemplace `return new WebHostBuilder().UseWebListener()` por `return new WebHostBuilder().UseKestrel()`. Las restantes configuraciones del host web pueden siguen siendo las mismas.
- 
+Para más información sobre Kestrel y WebListener en los servicios de Service Fabric, vea [ASP.NET Core en Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## <a name="what-about-actors"></a>¿Y los actores?
+## <a name="connecting-to-a-reliable-actors-service"></a>Conexión a un servicio de Reliable Actors
 Este tutorial se centra en la incorporación de un front-end web que se comunica con un servicio con estado. Sin embargo, puede seguir un modelo muy parecido a hablar con los actores. De hecho, es algo más sencillo.
 
 Cuando se crea un proyecto de actor, Visual Studio genera automáticamente un proyecto de interfaz. Puede usar esta interfaz para generar un proxy de actor en el proyecto web para comunicarse con el actor. El canal de comunicación se proporciona automáticamente. Por tanto, no hay que realizar ninguna acción equivalente a establecer una instancia de `ServiceRemotingListener` como se hizo para el servicio con estado en este tutorial.
@@ -218,9 +221,11 @@ Por el contrario, cuando se ejecuta un servicio web localmente, debe asegurarse 
 Para obtener información sobre cómo configurar valores diferentes para diferentes entorno, consulte [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de un clúster en Azure para implementar la aplicación en la nube](service-fabric-cluster-creation-via-portal.md)
-* [Más información sobre la comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md)
-* [Más información acerca de la partición de servicios con estado](service-fabric-concepts-partitioning.md)
+Ahora que tiene un front-end web configurado para la aplicación con ASP.NET Core, obtenga más información sobre cómo ASP.NET se integra con Service Fabric en este artículo sobre [ASP.NET Core en Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
+
+Después, [obtenga más información sobre la comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md) en general para obtener una imagen completa de cómo funciona la comunicación con el servicio en Service Fabric.
+
+Una vez que haya entendido bien el funcionamiento de la comunicación del servicio, [cree un clúster en Azure e implemente la aplicación en la nube](service-fabric-cluster-creation-via-portal.md).
 
 <!-- Image References -->
 

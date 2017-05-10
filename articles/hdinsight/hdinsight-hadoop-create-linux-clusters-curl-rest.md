@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c3440ac34a195bfc831ee2fa2ff916b16e92a2ac
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 05f2ce6d6f170e16985c3ed3523d4e41173e21e0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -52,10 +53,6 @@ La API de REST de Azure permite realizar operaciones de administración en servi
   > `Remove-item alias:curl`
   >
   > Una vez quitado el alias, debe poder usar la versión de cURL que instaló en el sistema.
-
-### <a name="access-control-requirements"></a>Requisitos de control de acceso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-template"></a>Creación de una plantilla
 
@@ -393,6 +390,10 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 ```
 
 Este comando devuelve un documento JSON que incluye información sobre la operación de implementación. El elemento `"provisioningState"` contiene el estado de la implementación. Si contiene un valor de `"Succeeded"`, la implementación se ha completado correctamente.
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

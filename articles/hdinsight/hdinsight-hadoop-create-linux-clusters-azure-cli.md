@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 995aacb5d243eb50df0cf35e68a1a931bd010c53
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 269294f14dd4add5ab038f13b6818db345665c3b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -43,10 +44,6 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
 
     > [!IMPORTANT]
     > Los pasos descritos en este documento no funcionan con la CLI de Azure 2.0. La CLI de Azure 2.0 no admite la creación de un clúster de HDInsight.
-
-### <a name="access-control-requirements"></a>Requisitos de control de acceso
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="log-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
 
@@ -127,6 +124,10 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
     > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
     Pueden pasar varios minutos (por lo general, unos quince) hasta que finalice el proceso de creación del clúster.
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

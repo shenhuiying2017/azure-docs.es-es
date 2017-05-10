@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: bcb075b320bab942c6421be72ea1445d5fa3f603
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,7 +33,7 @@ Se pueden completar los pasos de este tutorial con la versión más reciente de 
 
 Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En este ejemplo, se crea un grupo de recursos denominado `myResourceGroupVM` en la región `westus`. 
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroupVM* en la región *westus*. 
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -44,7 +45,7 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
 
-Al crear una máquina virtual, están disponibles varias opciones, como la imagen de sistema operativo, tamaño de disco y credenciales administrativas. En este ejemplo, se crea una máquina virtual llamada `myVM` que se ejecuta en Ubuntu. 
+Al crear una máquina virtual, están disponibles varias opciones, como la imagen de sistema operativo, tamaño de disco y credenciales administrativas. En este ejemplo, se crea una máquina virtual llamada *myVM* que se ejecuta en Ubuntu. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -79,9 +80,9 @@ Una vez que termine con la máquina virtual, cierre la sesión de SSH.
 exit
 ```
 
-## <a name="understand-vm-images"></a>Comprensión de las imágenes de máquina virtual
+## <a name="understand-vm-images"></a>Descripción de las imágenes de máquina virtual
 
-Azure Marketplace incluye muchas imágenes que pueden usarse para crear máquinas virtuales. En los pasos anteriores, se creó una máquina virtual con una imagen de Ubuntu. En este paso, se usa la CLI de Azure para buscar en Marketplace una imagen de CentOS, que se usa para implementar una segunda máquina virtual.  
+Azure Marketplace incluye muchas imágenes que pueden usarse para crear VM. En los pasos anteriores, se creó una máquina virtual con una imagen de Ubuntu. En este paso, se usa la CLI de Azure para buscar en Marketplace una imagen de CentOS, que se usa para implementar una segunda máquina virtual.  
 
 Para ver una lista de las imágenes usadas con más frecuencia, use el comando [az vm image list](/cli/azure/vm/image#list).
 
@@ -107,7 +108,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Para ver una lista completa, agregue el argumento `--all`. También puede filtrar la lista de imágenes por `--publisher` u `–offer`. En este ejemplo, la lista se ha filtrado para todas las imágenes con una oferta que coincida con `CentOS`. 
+Para ver una lista completa, agregue el argumento `--all`. También puede filtrar la lista de imágenes por `--publisher` u `–-offer`. En este ejemplo, la lista se ha filtrado para todas las imágenes con una oferta que coincida con *CentOS*. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -126,7 +127,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Para implementar una máquina virtual con una imagen específica, tome nota del valor en la columna `Urn`. Al especificar la imagen, se puede reemplazar el número de versión de la imagen por "latest", para que se seleccione la versión más reciente de la distribución. En este ejemplo, se emplea el argumento `--image` para especificar la versión más reciente de una imagen de CentOS 6.5.  
+Para implementar una máquina virtual con una imagen específica, tome nota del valor en la columna *Urn*. Al especificar la imagen, se puede reemplazar el número de versión de la imagen por "latest", para que se seleccione la versión más reciente de la distribución. En este ejemplo, se emplea el argumento `--image` para especificar la versión más reciente de una imagen de CentOS 6.5.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -138,7 +139,7 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 
 ### <a name="vm-sizes"></a>Tamaños de máquina virtual
 
-En la tabla siguiente se clasifican tamaños en casos de uso.  
+En la tabla siguiente se clasifican los tamaños en casos de uso.  
 
 | Tipo                     | Tamaños           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -147,7 +148,7 @@ En la tabla siguiente se clasifican tamaños en casos de uso.
 | [Memoria optimizada](../virtual-machines-windows-sizes-memory.md)    | GS, G, DSv2, DS, Dv2 y D   | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](../virtual-machines-windows-sizes-storage.md)      | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NC            | Máquinas virtuales especializadas específicas para actividades intensas de representación de gráficos y edición de vídeo.       |
-| [Alto rendimiento](sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más capaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
+| [Alto rendimiento](sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
 
 
 ### <a name="find-available-vm-sizes"></a>Búsqueda de los tamaños de máquina virtual disponibles
@@ -186,7 +187,12 @@ Salida parcial:
 En el anterior ejemplo de creación de máquinas virtuales, no se proporcionó ningún tamaño, lo que conlleva el uso de un tamaño predeterminado. Se puede seleccionar un tamaño de máquina virtual al crearla con el comando [az vm create](/cli/azure/vm#create) y el argumento `--size`. 
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM3 \
+    --image UbuntuLTS \
+    --size Standard_F4s \
+    --generate-ssh-keys
 ```
 
 ### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
@@ -224,14 +230,14 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ## <a name="vm-power-states"></a>Estados de la máquina virtual
 
-Una máquina virtual de Azure puede tener uno de muchos estados. Este estado representa el estado actual de la máquina virtual desde el punto de vista del hipervisor. 
+Una máquina virtual de Azure puede tener uno de muchos estados de energía. Este estado representa el estado actual de la máquina virtual desde el punto de vista del hipervisor. 
 
-### <a name="power-states"></a>Estados
+### <a name="power-states"></a>Estados de energía
 
-| Estado | Descripción
+| Estado de energía | Descripción
 |----|----|
 | Iniciando | Indica que se está iniciando la máquina virtual. |
-| Ejecución | Indica que se está ejecutando la máquina virtual. |
+| Ejecución | Indica que la máquina virtual se está ejecutando. |
 | Deteniéndose | Indica que se está deteniendo la máquina virtual. | 
 | Stopped | Indica que se ha detenido la máquina virtual. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
 | Desasignando | Indica que se está desasignando la máquina virtual. |
@@ -243,7 +249,10 @@ Una máquina virtual de Azure puede tener uno de muchos estados. Este estado rep
 Para recuperar el estado de una máquina virtual concreta, use el comando [az vm get instance-view](/cli/azure/vm#get-instance-view). Asegúrese de especificar un nombre válido para la máquina virtual y el grupo de recursos. 
 
 ```azurecli
-az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query instanceView.statuses[1] --output table
+az vm get-instance-view \
+    --name myVM \
+    --resource-group myResourceGroupVM \
+    --query instanceView.statuses[1] --output table
 ```
 
 Salida:
@@ -290,4 +299,4 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Prosiga con el siguiente tutorial para aprender sobre los discos de máquina virtual.  
 
-[Creación y administración de discos de máquina virtual](./tutorial-manage-disks.md)
+[Creación y administración de discos de máquinas virtuales](./tutorial-manage-disks.md)

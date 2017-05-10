@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 215db83e766d595b8f03a89ea6b4221fc756b1aa
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -50,7 +52,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Los valores para el nombre de clave y el valor de la SAS pueden encontrarse en la información de conexión del [Portal de Azure clásico][Azure classic portal] o en el panel **Propiedades** de Visual Studio al seleccionar el espacio de nombres de Service Bus en el Explorador de servidores (como se muestra en la sección anterior).
+Los valores para el nombre de clave y el valor de la SAS pueden encontrarse en la información de conexión de [Azure Portal][Azure portal] o en el panel **Propiedades** de Visual Studio al seleccionar el espacio de nombres de Service Bus en el Explorador de servidores (como se muestra en la sección anterior).
 
 ```python
 bus_service.create_queue('taskqueue')
@@ -111,14 +113,9 @@ Ahora que conoce los fundamentos de las colas de Service Bus, consulte estos ví
 
 * [Colas, temas y suscripciones][Queues, topics, and subscriptions]
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

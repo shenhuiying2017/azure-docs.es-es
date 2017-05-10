@@ -12,19 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/28/2017
 ms.author: sethm;hillaryc
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 946f3ac069db436828427e575be5a14efac9dda9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
-Bus de servicios de Azure emplea varios agentes de mensajes para procesar mensajes y varios almacenes de mensajería para almacenar mensajes. Un único agente de mensajes controla una cola o tema convencional, que se almacena en un almacén de mensajería. Las *particiones* de Service Bus permiten que las colas o temas se dividan entre varios agentes de mensajes y almacenes de mensajería. Esto significa que el rendimiento general de una cola o tema particionado ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas de Service Bus, como la compatibilidad con transacciones y sesiones.
+Bus de servicios de Azure emplea varios agentes de mensajes para procesar mensajes y varios almacenes de mensajería para almacenar mensajes. Un único agente de mensajes controla una cola o tema convencional, que se almacena en un almacén de mensajería. Las *particiones* de Service Bus permiten que las colas y temas, o *entidades de mensajería*, se dividan entre varios agentes de mensajes y almacenes de mensajería. Esto significa que el rendimiento general de una entidad particionada ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas de Service Bus, como la compatibilidad con transacciones y sesiones.
 
 Para obtener más información sobre los aspectos internos de Service Bus, consulte el artículo [Arquitectura de Service Bus][Service Bus architecture].
+
+La partición está activada de forma predeterminada al crear la entidad en todas las colas y temas de mensajería Estándar y Premium. Puede crear entidades de nivel de mensajería Estándar sin particiones, pero las colas y los temas en un espacio de nombres Premium siempre están particionados; esta opción no se puede deshabilitar. 
+
+No es posible cambiar la opción de particionamiento en una cola o tema existente en los niveles Estándar o Premium. Solo puede establecer la opción cuando se crea la entidad.
 
 ## <a name="how-it-works"></a>Cómo funciona
 Cada cola o tema con particiones consta de varios fragmentos. Cada fragmento se almacena en un almacén de mensajería diferente y se controla por un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. La selección se realiza de forma aleatoria mediante el Bus de servicio o una clave de partición que el remitente puede especificar.
@@ -36,9 +41,19 @@ No hay costos adicionales cuando se envía un mensaje a una cola o tema con part
 ## <a name="enable-partitioning"></a>Habilitación de las particiones
 Para usar colas o temas con particiones con Azure Service Bus, use el SDK de Azure versión 2.2 o posteriores, o especifique `api-version=2013-10` en sus solicitudes HTTP.
 
-Puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, el Bus de servicio crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal].
+### <a name="standard"></a>Estándar
 
-Hay varias maneras de crear una cola o tema con particiones. Al crear la cola o el tema desde la aplicación, puede habilitar las particiones para la cola o el tema estableciendo respectivamente las propiedades [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] en **true**. Estas propiedades deben establecerse en el momento de crear la cola o el tema. No es posible cambiar estas propiedades en una cola o tema existente. Por ejemplo:
+En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+
+### <a name="premium"></a>Premium
+
+En un espacio de nombres de nivel Premium, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4, 5, 10, 20, 40 o 80 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas de forma predeterminada, Service Bus crea dos particiones por entidad. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+
+Para obtener más información sobre las particiones en el nivel de mensajería Premium, vea [Niveles de mensajería Premium y Estándar de Service Bus](service-bus-premium-messaging.md). 
+
+### <a name="create-a-partitioned-entity"></a>Creación de una entidad particionada
+
+Hay varias maneras de crear una cola o tema con particiones. Al crear la cola o el tema desde la aplicación, puede habilitar las particiones para la cola o el tema estableciendo respectivamente las propiedades [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] en **true**. Estas propiedades deben establecerse en el momento de crear la cola o el tema. Como se indicó anteriormente, no es posible cambiar estas propiedades en una cola o tema existente. Por ejemplo:
 
 ```csharp
 // Create partitioned topic
@@ -48,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-También puede crear una cola o tema con particiones en Visual Studio o en [Azure Portal][Azure portal]. Al crear una cola o tema en el portal, en la hoja **Configuración general** de la cola o en la ventana **Configuración** del tema, establezca la opción **Habilitar particiones** en **true**. En Visual Studio, haga clic en la casilla **Habilitar particiones** en el cuadro de diálogo **Nueva cola** o **Nuevo tema**.
+También puede crear una cola o tema con particiones en [Azure Portal][Azure portal]. Al crear una cola o tema en el portal, la opción **Habilitar partición** de la cola o tema, se activa la hoja **Crear** de forma predeterminada. Solo puede deshabilitar esta opción en una entidad de nivel Estándar; en el nivel Premium, la partición está siempre habilitada. En Visual Studio, haga clic en la casilla **Habilitar particiones** en el cuadro de diálogo **Nueva cola** o **Nuevo tema**.
 
 ## <a name="use-of-partition-keys"></a>Uso de claves de partición
 Cuando un mensaje se coloca en cola en una cola o tema con particiones, Service Bus comprueba la presencia de una clave de partición. Si encuentra una, selecciona el fragmento basado en esa clave. Si no encuentra una clave de partición, selecciona el fragmento basado en un algoritmo interno.

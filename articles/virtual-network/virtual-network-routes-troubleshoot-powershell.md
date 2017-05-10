@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -57,7 +59,7 @@ Para ver las rutas agregadas que se aplican a una máquina virtual, complete los
 ### <a name="view-effective-routes-for-a-network-interface"></a>Visualización de las rutas eficaces para una interfaz de red
 Para ver las rutas agregadas que se aplican a una NIC, complete los pasos siguientes:
 
-1. Inicie una sesión de Azure PowerShell e inicie sesión en Azure. Si no está familiarizado con el uso de Azure PowerShell, lea el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Inicie una sesión de Azure PowerShell e inicie sesión en Azure. Si no está familiarizado con el uso de Azure PowerShell, lea el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 2. El siguiente comando devuelve todas las rutas aplicadas a una interfaz de red denominada *VM1-NIC1* en el grupo de recursos *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -135,10 +137,5 @@ Algunos aspectos que tener en cuenta al revisar la lista de rutas devuelven:
 * Para que el tráfico de emparejamiento de red virtual funcione correctamente, es necesario que exista una ruta de sistema con **nextHopType** *VNetPeering* para el intervalo de prefijos de red virtual. Si dicha una ruta no existe y el vínculo de emparejamiento de red virtual parece correcto:
   * Espere unos segundos y vuelva a intentar si es un vínculo de emparejamiento recién establecido. En ocasiones la propagación de las rutas a todas las interfaces de red en una subred lleva algo más de tiempo.
   * Las reglas del grupo de seguridad de red (NSG) pueden estar afectando a los flujos de tráfico. Para más información, consulte el artículo sobre [Solución de problemas de los grupos de seguridad de red](virtual-network-nsg-troubleshoot-powershell.md) .
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

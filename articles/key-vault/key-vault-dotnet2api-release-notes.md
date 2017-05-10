@@ -2,7 +2,6 @@
 title: "Notas de la versión de la API de .NET 2.x de Key Vault | Microsoft Docs"
 description: "Los desarrolladores de .NET usarán esta API para programar para Azure Key Vault"
 services: key-vault
-documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
@@ -12,16 +11,20 @@ ms.devlang: CSharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 05/02/2017
 ms.author: bruceper
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4dc8dea5c6e371db29fb9f85cfa635802cc0c52
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 21b34e30a7e07b37ccae3f101f2ab4dfadfad9bf
+ms.contentlocale: es-es
+ms.lasthandoff: 04/29/2017
 
 
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 de Azure Key Vault: notas de la versión y guía de migración
-Tanto las notas como la guía siguientes son para desarrolladores que trabajan con .NET de Azure Key Vault o la biblioteca de C#. Al cambiar la versión 1.0 por la versión 2.0, se han creado una serie de actualizaciones que requerirán un trabajo de migración en su código para que pueda disfrutar de las mejoras funcionales y la incorporación de características, como, por ejemplo, la compatibilidad con certificados de Key Vault.
+Tanto las notas como la guía siguientes son para desarrolladores que trabajan con la biblioteca de C# o .NET de Azure Key Vault. En la transición de la versión 1.0 a la versión 2.0, se han creado una serie de actualizaciones que requerirán un trabajo de migración en su código para que pueda disfrutar de las mejoras funcionales y la incorporación de características, como, por ejemplo, la compatibilidad con **certificados de Key Vault**.
+
+## <a name="key-vault-certificates"></a>Certificados de Key Vault
 
 La compatibilidad con certificados de Key Vault proporciona la administración de sus certificados x509 y los comportamientos siguientes:  
 
@@ -34,36 +37,44 @@ La compatibilidad con certificados de Key Vault proporciona la administración d
   * NOTA: Los proveedores y entidades no asociados también pueden, pero en este caso no se admitirá la característica de renovación automática.
 
 ## <a name="net-support"></a>Compatibilidad con .NET
+
 * **.NET 4.0** no es compatible con la versión 2.0 de .NET de Azure Key Vault ni con la biblioteca de C#
 * **.NET Core** no es compatible con la versión 2.0 de .NET de Azure Key Vault ni con la biblioteca de C#
 
 ## <a name="namespaces"></a>Espacios de nombres
+
 * El espacio de nombres para **modelos** se cambia de **Microsoft.Azure.KeyVault** a **Microsoft.Azure.KeyVault.Models**.
 * El espacio de nombres **Microsoft.Azure.KeyVault.Internal** se quita.
 * El espacio de nombres de las dependencias del SDK de Azure se cambia de **Hyak.Common** y **Hyak.Common.Internals** a **Microsoft.Rest** y **Microsoft.Rest.Serialization**
 
 ## <a name="type-changes"></a>Cambios de tipo
+
 * *Secret* se cambia a *SecretBundle*
 * *Dictionary* se cambia a *IDictionary*
 * *List<T>, string []* se cambia a *IList<T>*
 * *NextList* se cambia a  *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de valor devuelto
+
 * **KeyList** y **SecretList** devolverán *IPage<T>* en lugar de *ListKeysResponseMessage*
 * El valor **BackupKeyAsync** generado devolverá *BackupKeyResult*, que contiene *Value* (blob de copia de seguridad). Antes se ajustó el método, devolviendo solo el valor.
 
 ## <a name="exceptions"></a>Excepciones
+
 * *KeyVaultClientException* se cambia a *KeyVaultErrorException*
 * El error de servicio se cambia de *exception.Error* a *exception.Body.Error.Message*.
 * Información adicional quitada del mensaje de error para **[JsonExtensionData]**.
 
 ## <a name="constructors"></a>Constructores
+
 * En lugar de aceptar *HttpClient* como argumento de constructor, el constructor solo acepta *HttpClientHandler* o *DelegatingHandler[]*.
 
 ## <a name="downloaded-packages"></a>Paquetes descargados
+
 Al procesar un cliente una dependencia en Key Vault, se descargaron los siguientes
 
-#### <a name="previous-package-list"></a>Lista de paquetes anterior
+### <a name="previous-package-list"></a>Lista de paquetes anterior
+
 * package id="Hyak.Common" version="1.0.2" targetFramework="net45"
 * package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"
 * package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"
@@ -73,29 +84,29 @@ Al procesar un cliente una dependencia en Key Vault, se descargaron los siguient
 * package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
 * package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"
 
-#### <a name="current-package-list"></a>Lista de paquetes actual
+### <a name="current-package-list"></a>Lista de paquetes actual
+
 * package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"
 * package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"
 * package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
 
 ## <a name="class-changes"></a>Cambios de clase
+
 * Se ha quitado la clase **UnixEpoch**
 * El nombre de la clase **Base64UrlConverter** se ha cambiado a **Base64UrlJsonConverter**
 
 ## <a name="other-changes"></a>Otros cambios
+
 * La compatibilidad con la configuración de la directiva de reintentos de operaciones de KV sobre errores transitorios se ha agregado a esta versión de la API.
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>NuGet Microsoft.Azure.Management.KeyVault
+
 * Para las operaciones que devolvieron un *almacén*, el tipo de valor devuelto era una clase que contenía una propiedad Vault. Ahora el tipo de valor devuelto es *Vault*.
 * Ahora *PermissionsToKeys* y *PermissionsToSecrets* son *Permissions.Keys* y *Permissions.Secrets*
 * Algunos de los cambios de tipos de valor devuelto se aplican también al plano de control.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>NuGet Microsoft.Azure.KeyVault.Extensions
+
 * El paquete se divide en **Microsoft.Azure.KeyVault.Extensions** y **Microsoft.Azure.KeyVault.Cryptography** para las operaciones de criptografía.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

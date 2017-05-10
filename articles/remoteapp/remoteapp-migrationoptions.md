@@ -11,12 +11,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 25ba53a1047863d01ba1fc2647af51fdd582feb1
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 11254a9bd82885701b457ba3b4ec0ef0aad710e6
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -186,7 +187,7 @@ La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos 
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **Teléfono: +44 (0) 20 8502 2155
+> Teléfono: +44 (0) 20 8502 2155
 > 
 > **Singapur**:
 >   
@@ -194,7 +195,7 @@ La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos 
 >   
 > The Globe, Singapur 069532
 > 
-> **Teléfono: +65 6709 4933
+> Teléfono: +65 6709 4933
 >   
 > **Norteamérica**:
 >   
@@ -202,7 +203,7 @@ La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos 
 >   
 > Suite 200, Houston, TX 77098
 >   
-> **Teléfono: +1 713 691 0800
+> Teléfono: +1 713 691 0800
 
 #### <a name="saasplaza"></a>**SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) ofrece las soluciones en la nube públicas y privadas (Azure) de la cartera completa de Microsoft Dynamics (NAV, AX, GP, SL y CRM).
@@ -217,7 +218,7 @@ La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos 
 > 
 > Oferta de soluciones de RemoteApp y escritorio basadas en sesiones: Sí, ambas
 > 
-> **EMEA**
+> **EMEA**:
 > 
 > Prins Mauritslaan 29-35
 > 
@@ -227,7 +228,7 @@ La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos 
 > 
 > Teléfono: + 31 20 547 8060 
 > 
->  **América**
+>  **América**:
 > 
 > 171 Saxony Road, Suite 105
 > 
@@ -239,7 +240,7 @@ La plataforma MyCloudIT reduce el tiempo de implementación al 95 %, los costos 
 > 
 > Teléfono: +1 858 385 8900 
 > 
-> **APAC**
+> **APAC**:
 > 
 > 105 Cecil Street
 >    

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 55fc4e5c88568cca8a2842590dfd24e082139699
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -76,7 +78,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
      
        **O bien**
-   * Instale y configure [Azure Powershell](/powershell/azureps-cmdlets-docs)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -97,7 +99,7 @@ Por ejemplo, el siguiente registro CNAME reenvía todo el tráfico de **www.cont
 > [!NOTE]
 > Los visitantes de **www.contoso.com** no verán nunca el verdadero host (contoso.cloudapp.net), por lo que el usuario final no percibirá el proceso de desvío.
 > 
-> El ejemplo anterior solo se aplica al tráfico en el subdominio **www** . Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección cloudapp.net, puede configurar una entrada **Redirección de URL** o **Desvío de URL en la configuración de DNS* o crear un registro D.
+> El ejemplo anterior solo se aplica al tráfico en el subdominio **www** . Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección cloudapp.net, puede configurar una entrada **Redirección de URL** o **Desvío de URL en la configuración de DNS** o crear un registro D.
 > 
 > 
 
@@ -111,7 +113,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
        ![sección de vista rápida que muestra la IP virtual][vip]
      
        **O bien**
-   * Instale y configure [Azure Powershell](/powershell/azureps-cmdlets-docs)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -153,9 +155,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
