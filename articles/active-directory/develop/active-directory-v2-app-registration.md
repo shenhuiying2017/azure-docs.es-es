@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
 ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
+ms.contentlocale: es-es
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -36,7 +38,6 @@ Inicie sesión con una cuenta personal o una cuenta profesional o educativa de M
 ¿Ha acabado? Ahora debería estar viendo su lista de aplicaciones de Microsoft, que probablemente esté vacía.  Cambiemos eso.
 
 Haga clic en **Agregar una aplicación** y asígnele un nombre.  El portal le asignará a su aplicación un identificador de aplicación único global que usará más adelante en su código.  Si su aplicación incluye un componente del lado del servidor que necesita tokens de acceso para llamar a las API (como Office, Azure o su propia API web), aquí también le interesará crear un **Secreto de la aplicación**.
-<!-- TODO: Link for app secrets -->
 
 A continuación, agregue las plataformas que usará la aplicación.
 
@@ -54,10 +55,5 @@ Si lo desea, puede personalizar la apariencia de la página de inicio de sesión
 Ahora que tiene una aplicación de Microsoft, puede completar uno de nuestros tutoriales de inicio rápido de v2.0.  Estas son algunas recomendaciones:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

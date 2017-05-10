@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
@@ -58,7 +58,7 @@ En función de la configuración de su entorno de Azure y la directiva de seguri
 
 Una vez que se ha implementado una solución de asociados, puede ver información sobre el estado de la solución y realizar tareas básicas de administración desde el icono de la solución en el panel principal de Security Center. Para más información acerca de cómo administrar soluciones de asociados en Security Center, lea [Supervisión de soluciones de asociados con Azure Security Center](security-center-partner-solutions.md).
 
-![Integración de asociados](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
+![Integración de asociados](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
 
 ## <a name="see-also"></a>Consulte también
