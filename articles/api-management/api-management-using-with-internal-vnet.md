@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 456c541be7aadcce494bbd54e97deb6f30d5141b
-ms.openlocfilehash: dc9af7e4ef9599886d1be6676f88f71f80c20474
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,11 +50,12 @@ Una vez finalizada correctamente la implementación, debería ver la dirección 
 ### <a name="enable-vnet-connection-using-powershell-cmdlets"></a>Habilitación de una conexión de VNET con cmdlets de PowerShell
 También puede habilitar la conectividad de VNET con los cmdlets de PowerShell.
 
-* **Crear un servicio de API Management dentro de una red virtual**: use el cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) para crear un servicio de Azure API Management dentro de una VNET y configurarlo para usar el tipo de VNET interno.
+* **Crear un servicio de API Management dentro de una red virtual**: use el cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) para crear un servicio de Azure API Management dentro de una VNET y configurarlo para usar el tipo de VNET interno.
 
-* **Implementar un servicio existente de API Management dentro de una VNET**: use el cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) para mover un servicio existente de Azure API Management dentro de una red virtual y configurarlo para usar el tipo de VNET interno..
+* <seg>
+  **Implementar un servicio existente de API Management dentro de una VNET**: use el cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) para mover un servicio existente de Azure API Management dentro de una red virtual y configurarlo para usar el tipo de VNET interno..</seg>
 
-## <a name="a-nameapim-dns-configurationadns-configuration"></a><a name="apim-dns-configuration"></a>Configuración de DNS
+## <a name="apim-dns-configuration"></a>Configuración de DNS
 Cuando se usa API Management en el modo de red virtual externa, DNS está administrado por Azure. Para el modo de red virtual interna, tiene que administrar su propio DNS.
 
 > [!NOTE]
@@ -61,13 +64,13 @@ Cuando se usa API Management en el modo de red virtual externa, DNS está admini
 ### <a name="access-on-default-host-names"></a>Acceso en nombres de host predeterminados:
 Cuando se crea un servicio de API Management en la nube pública de Azure, denominada por ejemplo "contoso", los siguientes punto de conexión de servicio se configuran de forma predeterminada.
 
->   Puerta de enlace o proxy: contoso.azure-api.net
+>    Puerta de enlace o proxy: contoso.azure-api.net
 
 > Portal para desarrolladores y portal para editores: contoso.portal.azure-api.net
 
 > Punto de conexión de administración directa: contoso.management.azure-api.net
 
->   GIT: contoso.scm.azure-api.net
+>    GIT: contoso.scm.azure-api.net
 
 Para obtener acceso a estos puntos de conexión de servicio de API Management, puede crear una máquina virtual en una subred conectada a la red virtual en el que se implementa API Management. Suponiendo que la dirección IP virtual interna para el servicio sea 10.0.0.5, puede realizar la asignación de archivos de host (%SystemDrive%\drivers\etc\hosts) del modo siguiente:
 
@@ -99,9 +102,4 @@ A continuación, puede crear registros D en el servidor DNS para tener acceso a 
 
 [Create API Management service]: api-management-get-started.md#create-service-instance
 [Common Network Configuration Issues]: api-management-using-with-vnet.md#network-configuration-issues
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

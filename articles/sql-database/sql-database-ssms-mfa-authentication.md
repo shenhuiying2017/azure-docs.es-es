@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/07/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2a2ee58ba86fef089401521d727a301f8b59ce75
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 33282f1ce0c31056524359aeb42399be550334e2
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,6 +51,7 @@ A partir de [la versión 17 de SSMS](https://docs.microsoft.com/sql/ssms/downloa
 * Para ver los pasos de configuración, consulte [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md) (Configuración de la autenticación multifactor de Azure SQL Database para SQL Server Management Studio).
 * Conceder a otros usuarios acceso a la base de datos. Consulte [Autorización y autenticación de SQL Database: concesión de acceso](sql-database-manage-logins.md).  
 Asegúrese de que otros usuarios puedan conectarse a través del firewall. Consulte [Configuración de un firewall de nivel de servidor en Azure SQL Database mediante Azure Portal](sql-database-configure-firewall-settings.md).
+* Para la configuración y administración de Azure AD, vea [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 
 
 

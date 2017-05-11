@@ -1,5 +1,5 @@
 ---
-title: "Administración del acceso de lectura anónimo a contenedores y blobs | Microsoft Docs"
+title: "Habilitación del acceso de lectura público para los contenedores y blobs en Azure Blob Storage | Microsoft Docs"
 description: "Obtenga información acerca de cómo permitir el acceso anónimo a contenedores y blobs y cómo tener acceso a ellos mediante programación."
 services: storage
 documentationcenter: 
@@ -12,47 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7b83667b58649c156a62fa68cebd854c13e2cba
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Administración del acceso de lectura anónimo a contenedores y blobs
-## <a name="overview"></a>Información general
-De forma predeterminada, solamente el propietario de la cuenta de almacenamiento puede acceder a los recursos de almacenamiento en esa cuenta. Únicamente en el caso del almacenamiento de blobs, puede establecer permisos de un contenedor para permitir el acceso de lectura anónimo al contenedor y sus blobs, de manera que pueda conceder acceso a esos recursos sin compartir la clave de cuenta.
 
-El acceso anónimo es mejor para escenarios donde desea que ciertos blobs estén siempre disponibles para el acceso de lectura anónimo. Para un control más específico, puede crear una firma de acceso compartido, lo que permite delegar el acceso restringido mediante permisos diferentes y en un intervalo de tiempo especificado. Para obtener más información sobre la creación de firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Administración del acceso de lectura anónimo a contenedores y blobs
+Puede habilitar el acceso de lectura anónimo y público a un contenedor y sus blobs en Azure Blob Storage. Al hacerlo, puede conceder acceso de solo lectura a estos recursos sin compartir la clave de cuenta y sin necesidad de una firma de acceso compartido (SAS).
+
+El acceso de lectura público es mejor para escenarios donde desea que ciertos blobs estén siempre disponibles para el acceso de lectura anónimo. Para un control más minucioso, puede crear una firma de acceso compartido. Las firmas de acceso compartido le permiten proporcionar acceso restringido con distintos permisos para un período específico. Para obtener más información sobre la creación de firmas de acceso compartido, vea [Uso de firmas de acceso compartido (SAS) en Azure Storage](storage-dotnet-shared-access-signature-part-1.md).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Concesión de permisos a usuarios anónimos a contenedores y blobs
 De forma predeterminada, solamente el dueño de la cuenta de almacenamiento puede obtener acceso a un contenedor y a todos los blobs en su interior. Para dar a los usuarios anónimos permisos de lectura para un contenedor y sus blobs, puede establecer los permisos del contenedor de forma que se permita el acceso público. Los usuarios anónimos pueden leer los blobs que estén en un contenedor con acceso público sin necesidad de tener que autenticar la solicitud.
 
-Los contenedores ofrecen las siguientes opciones para administrar el acceso al contenedor:
+Puede configurar un contenedor con los permisos siguientes:
 
-* **Acceso de lectura público completo** : los datos del contenedor y blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
-* **Acceso de lectura público solo para blobs** : los datos de blob dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
-* **Sin acceso público de lectura** : solamente el propietario de la cuenta puede leer los datos del contenedor y del blob.
+* **Sin acceso de lectura público:** solo puede obtener acceso al contenedor y a sus blobs el propietario de cuenta de almacenamiento. Este es el valor predeterminado para todos los contenedores nuevos.
+* **Acceso de lectura público solo para blobs:** los blobs dentro del contenedor pueden leerse mediante una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes anónimos no pueden enumerar los blobs dentro del contenedor.
+* **Acceso de lectura público completo**: todos los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
-Puede establecer los permisos del contenedor de las maneras siguientes:
+Puede usar lo siguiente para establecer permisos de contenedor:
 
-* Desde [Azure Portal](https://portal.azure.com).
-* Mediante programación, usando la biblioteca de cliente de almacenamiento o la API de REST.
-* Mediante PowerShell. Para obtener información acerca de cómo establecer los permisos del contenedor desde Azure PowerShell, consulte [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
+* [Portal de Azure](https://portal.azure.com)
+* [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
+* [CLI de Azure 2.0](storage-azure-cli.md#create-and-manage-blobs)
+* Mediante programación, con una de las bibliotecas de cliente de almacenamiento o la API de REST.
 
-### <a name="setting-container-permissions-from-the-azure-portal"></a>Configuración de los permisos del contenedor desde el portal de Azure
-Para configurar los permisos del contenedor desde [Azure Portal](https://portal.azure.com), siga estos pasos:
+### <a name="set-container-permissions-in-the-azure-portal"></a>Establecimiento de permisos de contenedor en Azure Portal
+Para configurar los permisos del contenedor en [Azure Portal](https://portal.azure.com), siga estos pasos:
 
-1. Desplácese hasta el panel de la cuenta de almacenamiento.
-2. Seleccione el nombre del contenedor en la lista. Al hacer clic en el nombre se exponen los blobs en el contenedor elegido.
-3. Seleccione **Directiva de acceso** en la barra de herramientas.
-4. En el campo **Tipo de acceso** , seleccione el nivel de permisos que desee, como se muestra en la captura de pantalla siguiente.
+1. Abra la hoja **Cuenta de almacenamiento** en el portal. Puede encontrar la cuenta de almacenamiento seleccionando **Cuentas de almacenamiento** en la hoja del menú del portal principal.
+1. En **SERVICIO BLOB** en la hoja de menú, seleccione **Contenedores**.
+1. Haga doble clic en la fila del contenedor o seleccione los tres puntos para abrir el **menú contextual** del contenedor.
+1. Seleccione **Directiva de acceso** en el menú contextual.
+1. Seleccione un **tipo de acceso** en el menú desplegable.
 
     ![Cuadro de diálogo Editar metadatos del contenedor](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### <a name="setting-container-permissions-programmatically-using-net"></a>Configuración de permisos de contenedor mediante programación con .NET
-Para configurar permisos para un contenedor mediante la biblioteca de cliente de .NET, primero recupere los permisos del contenedor existente mediante una llamada al método **GetPermissions** . A continuación, establezca la propiedad **PublicAccess** para el objeto **BlobContainerPermissions** devuelto por el método **GetPermissions**. Por último, llame al método **SetPermissions** con los permisos actualizados.
+### <a name="set-container-permissions-with-net"></a>Establecimiento de los permisos del contenedor con .NET
+Para configurar permisos para un contenedor con C# y la Biblioteca del cliente de almacenamiento para .NET, primero recupere los permisos existentes del contenedor llamando al método **GetPermissions**. A continuación, establezca la propiedad **PublicAccess** para el objeto **BlobContainerPermissions** devuelto por el método **GetPermissions**. Por último, llame al método **SetPermissions** con los permisos actualizados.
 
 El ejemplo siguiente establece los permisos del contenedor para el acceso de lectura público completo. Para establecer permisos de acceso de lectura público solo para blobs, establezca la propiedad **PublicAccess** en **BlobContainerPublicAccessType.Blob**. Para quitar todos los permisos para los usuarios anónimos, establezca la propiedad en **BlobContainerPublicAccessType.Off**.
 
@@ -104,7 +107,6 @@ public static void ListBlobsAnonymously()
 }
 ```
 
-
 ### <a name="reference-a-blob-anonymously"></a>Referencia a un blob de forma anónima
 Si tiene la dirección URL a un blob que está disponible para el acceso anónimo, puede hacer referencia al blob directamente con esa dirección URL:
 
@@ -148,14 +150,9 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 | Get Page Ranges |Todo |Todo |
 | Append Blob |Solo el propietario |Solo el propietario |
 
-## <a name="see-also"></a>Otras referencias
-* [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Autenticación para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 * [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

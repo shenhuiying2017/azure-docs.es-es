@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/26/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7f6c71056bca7beebc02313409aabe386d191e23
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 93831bb163f67bbf40026faf3096ff5b7c581dfe
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -664,7 +665,7 @@ Obtener más actividades de un registro en el que algunas entradas marcan el ini
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
@@ -2749,7 +2750,8 @@ Para crear un literal dinámico, use `parsejson` (alias `todynamic`) con un argu
 * `parsejson('21')` : Un valor único de tipo dinámico que contiene un número.
 * `parsejson('"21"')` : Un valor único de tipo dinámico que contiene una cadena.
 
-Tenga en cuenta que, a diferencia de JavaScript, JSON exige el uso de comillas dobles (`"`) en torno a las cadenas. Por lo tanto, generalmente es más fácil citar literales de cadena codificados en JSON con comillas simples (`'`).
+> ![NOTE (NOTA)] Las comillas dobles (`"`) se deben usar para incluir etiquetas y valores de cadena en JSON. Por lo tanto, generalmente es más fácil citar literales de cadena codificados en JSON con comillas simples (`'`).
+> 
 
 En este ejemplo se crea un valor dinámico y, a continuación, se utilizan sus campos:
 
@@ -2926,21 +2928,23 @@ Un objeto de tipo `dynamic` especificado por *json*.
 
 **Ejemplo**
 
-En el ejemplo siguiente, cuando `context_custom_metrics` es un elemento `string` similar a este: 
+En el ejemplo siguiente, `customDimensions.person` es un elemento `string` similar a este: 
 
 ```
-{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+"\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
 Después, el siguiente fragmento recupera el valor de la ranura `duration` del objeto, y desde ahí recupera dos ranuras, `duration.value` y  `duration.min` (`118.0` y `110.0`, respectivamente).
 
 ```AIQL
-T
-| ...
+customEvents
+| where name == "newMember"
 | extend d=parsejson(context_custom_metrics) 
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
+> ![NOTE (NOTA)] Los caracteres de comillas dobles se deben usar para incluir etiquetas y valores de cadena en JSON. 
+>
 
 
 ### <a name="range"></a>range

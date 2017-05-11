@@ -14,15 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
+
+> [!div class="op_single_selector"]
+> * [Máquinas de VMware o físicas desde Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
+
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure Virtual Machines al sitio local. Siga las instrucciones que se describen en este artículo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error del sitio local a Azure según el tutorial [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
+
+> [!WARNING]
+> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación.
+
+> [!NOTE]
+> Si ha conmutado máquinas virtuales de VMware, no podrá realizar la conmutación por recuperación en un host de Hyper-v.
 
 ## <a name="overview-of-failback"></a>Introducción a la conmutación por recuperación
 Así es cómo funciona la conmutación por recuperación. Después de conmutar por error a Azure, conmuta por recuperación a su sitio local en unas cuantas fases:
@@ -30,7 +43,7 @@ Así es cómo funciona la conmutación por recuperación. Después de conmutar p
 1. [Vuelva a proteger](site-recovery-how-to-reprotect.md) las máquinas virtuales en Azure para que comience su replicación en máquinas virtuales de VMware en el sitio local. Como parte de este proceso, también debe:
     1. Configurar un destino maestro local: uno de Windows para las máquinas virtuales Windows y un [destino maestro de Linux](site-recovery-how-to-install-linux-master-target.md) para las máquinas virtuales Linux.
     2. Configurar un [servidor de procesos](site-recovery-vmware-setup-azure-ps-resource-manager.md).
-    3. Iniciar de nuevo la [protección](site-recovery-how-to-reprotect.md).
+    3. Iniciar de nuevo la [protección](site-recovery-how-to-reprotect.md). Con este proceso, se apagará la máquina virtual local y se sincronizarán los datos de la máquina virtual de Azure con los discos locales.
 5. Una vez que las máquinas virtuales de Azure se estén replicando en el sitio local, inicie una conmutación por error de Azure al entorno local.
 
 Después de que los datos se hayan conmutado por recuperación, vuelva a proteger las máquinas virtuales locales que se conmutaran por recuperación, para que comiencen a replicarse en Azure.
@@ -41,6 +54,9 @@ El siguiente vídeo es una breve introducción a la conmutación por error de Az
 ### <a name="fail-back-to-the-original-or-alternate-location"></a>Conmutación por recuperación a la ubicación original o alternativa
 
 Si ha conmutado por error una máquina virtual de VMware, puede conmutar por recuperación a la misma máquina virtual de origen local si aún existe. En este escenario solo se replicarán de nuevo los cambios. Este escenario se conoce como recuperación de ubicación original. Si no existe máquina virtual local, será una recuperación a ubicación alternativa.
+
+> [!NOTE]
+> Puede realizar la conmutación por recuperación solo en el servidor de configuración y vCenter originales. No puede implementar un nuevo servidor de configuración y realizar la conmutación por recuperación usándolo. Además, no puede agregar un nuevo vCenter al servidor de configuración existente y realizar la conmutación por recuperación en el nuevo vCenter.
 
 #### <a name="original-location-recovery"></a>Recuperación de ubicación original
 
@@ -74,7 +90,7 @@ Antes de continuar, complete los pasos de reprotección para que las máquinas v
 ## <a name="steps-to-fail-back"></a>Pasos para la conmutación por recuperación
 
 > [!IMPORTANT]
-Antes de iniciar la conmutación por recuperación, asegúrese de que ha completado la reprotección de las máquinas virtuales. Es necesario que las máquinas virtuales estén protegidas y que su estado sea **correcto**. Para más información sobre cómo reproteger las máquinas virtuales, consulte el artículo sobre [reprotección](site-recovery-how-to-reprotect.md).
+> Antes de iniciar la conmutación por recuperación, asegúrese de que ha completado la reprotección de las máquinas virtuales. Es necesario que las máquinas virtuales estén protegidas y que su estado sea **correcto**. Para más información sobre cómo reproteger las máquinas virtuales, consulte el artículo sobre [reprotección](site-recovery-how-to-reprotect.md).
 
 1. En la página de elementos replicados, seleccione la máquina virtual y haga clic con el botón derecho para seleccionar **Conmutación por error no planeada**.
 2. En **Confirmar conmutación por error**, compruebe la dirección de conmutación por error (de Azure) y seleccione el punto de recuperación que quiere usar para esta (el último o el último coherente con la aplicación). El punto coherente con la aplicación se encuentra detrás del último momento dado y provoca pérdidas de datos.

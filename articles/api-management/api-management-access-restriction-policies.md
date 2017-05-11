@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
-ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
+ms.contentlocale: es-es
+ms.lasthandoff: 05/02/2017
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameaccessrestrictionpoliciesa-access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso  
+##  <a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso  
   
 -   [Activar encabezado HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.  
   
@@ -38,7 +40,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) : aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.  
   
-##  <a name="a-namecheckhttpheadera-check-http-header"></a><a name="CheckHTTPHeader"></a> Activar encabezado HTTP  
+##  <a name="CheckHTTPHeader"></a> Activar encabezado HTTP  
  Usa la directiva `check-header` para exigir que una solicitud tenga un encabezado HTTP especificado. Si lo desea, puede comprobar si el encabezado tiene un valor específico o un intervalo de valores permitidos. Si el resultado de la comprobación es negativo, la directiva finaliza el procesamiento de la solicitud y devuelve el mensaje de error y el código de estado HTTP que especifica.  
   
 ### <a name="policy-statement"></a>Declaración de la directiva  
@@ -81,7 +83,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namelimitcallratea-limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limitar la tasa de llamadas por suscripción  
+##  <a name="LimitCallRate"></a> Limitar la tasa de llamadas por suscripción  
  La directiva `rate-limit` evita los picos de uso de la API según suscripción limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.  
   
 > [!IMPORTANT]
@@ -136,7 +138,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** producto  
   
-##  <a name="a-namelimitcallratebykeya-limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Limitar la tasa de llamadas por clave  
+##  <a name="LimitCallRateByKey"></a> Limitar la tasa de llamadas por clave  
  La directiva `rate-limit-by-key` evita los picos de uso de la API según clave limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se deben contar para este límite. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.  
   
  Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -194,7 +196,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namerestrictcalleripsa-restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> Restringir IP de autor de llamada  
+##  <a name="RestrictCallerIPs"></a> Restringir IP de autor de llamada  
  La directiva `ip-filter` filtra (permite/deniega) llamadas de direcciones IP específicas o de intervalos de direcciones.  
   
 ### <a name="policy-statement"></a>Declaración de la directiva  
@@ -237,7 +239,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namesetusagequotaa-set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Establecer cuota de uso por suscripción  
+##  <a name="SetUsageQuota"></a> Establecer cuota de uso por suscripción  
  La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda renovables o permanentes por suscripción.  
   
 > [!IMPORTANT]
@@ -293,7 +295,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** producto  
   
-##  <a name="a-namesetusagequotabykeya-set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a>Establecer cuota de uso por clave  
+##  <a name="SetUsageQuotaByKey"></a>Establecer cuota de uso por clave  
  La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota.  
   
  Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -354,7 +356,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, producto, API y operación  
   
-##  <a name="a-namevalidatejwta-validate-jwt"></a><a name="ValidateJWT"></a> Validación de JWT  
+##  <a name="ValidateJWT"></a> Validación de JWT  
  La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraído de un encabezado HTTP o un parámetro de consulta especificados.  
   
 > [!IMPORTANT]
@@ -419,7 +421,27 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```xml  
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
-    <openid-config url="https://login.windows.net/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <audiences>
+        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+    </audiences>
+    <required-claims>  
+        <claim name="id" match="all">  
+            <value>insert claim here</value>  
+        </claim>  
+    </required-claims>  
+</validate-jwt>  
+```  
+
+  
+#### <a name="azure-active-directory-b2c-token-validation"></a>Validación de tokens de Azure Active Directory B2C  
+  
+```xml  
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
+    <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+    </audiences>
     <required-claims>  
         <claim name="id" match="all">  
             <value>insert claim here</value>  
@@ -495,7 +517,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |require-expiration-time|Booleano. Especifica si es necesaria una notificación de expiración en el token.|No|true|
 |require-scheme|El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.|No|N/D|
 |require-signed-tokens|Booleano. Especifica si un token debe estar firmado.|No|true|  
-|url|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. En Azure Active Directory, utilice la dirección URL `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|Sí|N/D|  
+|url|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|Sí|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -506,9 +528,4 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

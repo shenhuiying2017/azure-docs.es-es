@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
-ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a310236179677046ec49930b07cfdffdadc37974
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,9 +49,9 @@ La cadena de conexión **Envío** se usa para registrar eventos, mientras que la
 ![Cadena de conexión][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>Creación de un registrador de administración de API
-Ahora que tiene un centro de eventos, el siguiente paso es configurar un [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx) en el servicio Administración de API para que se puedan registrar eventos en el centro de eventos.
+Ahora que tiene un centro de eventos, el siguiente paso es configurar un [registrador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) en el servicio Administración de API para que se puedan registrar eventos en el centro de eventos.
 
-Los registradores de Administración de API se configuran mediante la [API de REST de Administración de API](http://aka.ms/smapi). Antes de usar la API de REST por primera vez, revise los [requisitos previos](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) y asegúrese de tener [habilitado el acceso a la API de REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
+Los registradores de Administración de API se configuran mediante la [API de REST de Administración de API](http://aka.ms/smapi). Antes de usar la API de REST por primera vez, revise los [requisitos previos](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) y asegúrese de tener [habilitado el acceso a la API de REST](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
 Para crear un registrador, efectúe una solicitud HTTP PUT con la siguiente plantilla de dirección URL.
 
@@ -62,8 +63,8 @@ Para crear un registrador, efectúe una solicitud HTTP PUT con la siguiente plan
 Agregue los siguientes encabezados a la solicitud.
 
 * Content-Type : application/json
-* Authorization : SharedAccessSignature uid=...
-  * Para instrucciones sobre cómo generar `SharedAccessSignature` , vea [Autenticación de la API de REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+* Authorization : SharedAccessSignature 58...
+  * Para instrucciones sobre cómo generar `SharedAccessSignature` , vea [Autenticación de la API de REST de administración de API de Azure](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
 Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
 
@@ -85,7 +86,7 @@ Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
 Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created` .
 
 > [!NOTE]
-> Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx) .
+> Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) .
 >
 >
 
@@ -100,7 +101,7 @@ Haga clic en **Directivas** en el menú de API Management situado a la izquierda
 
 ![Add policy][add-policy]
 
-Sitúe el cursor en la sección de la directiva de `inbound` y haga clic en la directiva **Registro en el centro de eventos`log-to-eventhub` para insertar la plantilla de declaración de directivas**.
+Sitúe el cursor en la sección de la directiva de `inbound` y haga clic en la directiva **Registro en el centro de eventos`log-to-eventhub` para insertar la plantilla de declaración de directivas** .
 
 ![Policy editor][event-hub-policy]
 
@@ -122,8 +123,8 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
   * [Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
 * Obtener más información acerca de la integración de Administración de API y centros de eventos
-  * [Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-  * [referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Referencia de entidad del registrador](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [referencia de la directiva log-to-eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope](api-management-log-to-eventhub-sample.md)    
 
 ## <a name="watch-a-video-walkthrough"></a>Ver un tutorial en vídeo

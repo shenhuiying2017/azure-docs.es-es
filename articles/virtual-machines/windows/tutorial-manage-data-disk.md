@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/21/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6bc28290f5ae0466b8e1a260d411b7eab6f12439
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -26,19 +27,19 @@ ms.lasthandoff: 04/26/2017
 
 En este tutorial, conocerá los diferentes tipos de discos de máquina virtual, aprenderá a seleccionar una configuración de disco, y sabrá cómo crear y conectar discos a máquinas virtuales de Azure. Este tutorial también explica cómo tomar instantáneas de discos.  
 
-Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
 
-Cuando se crea una máquina virtual de Azure, se conectan automáticamente dos discos a la máquina virtual. 
+Cuando se crea una máquina virtual de Azure, se conectan dos discos automáticamente a la máquina virtual. 
 
-**Disco del sistema operativo**: se puede cambiar el tamaño de los discos del sistema operativo hasta 1 terabyte.Estos hospedan el sistema operativo de las máquinas virtuales.  Al disco del sistema operativo se le asigna una letra de unidad de `c:` de forma predeterminada. La configuración de almacenamiento en caché en disco del disco del sistema operativo está optimizada teniendo en cuenta el rendimiento del SO. El disco del sistema operativo **no debería** hospedar aplicaciones o datos. Para aplicaciones y datos, use un disco de datos. Explicamos esto más adelante en este artículo.
+**Disco del sistema operativo**: hospedan el sistema operativo de las máquinas virtuales. Se puede cambiar su tamaño hasta 1 terabyte.  Al disco del sistema operativo se le asigna una letra de unidad *c:* de forma predeterminada. La configuración de almacenamiento en caché del disco del sistema operativo está optimizada para el rendimiento del sistema operativo. El disco del sistema operativo **no debería** hospedar aplicaciones o datos. Para aplicaciones y datos, use un disco de datos. Explicamos esto más adelante en este artículo.
 
-**Disco temporal**: los discos temporales utilizan una unidad de estado sólida que se encuentra en el mismo host de Azure que la máquina virtual. Además, son muy eficaces y se pueden usar para operaciones como el procesamiento de datos temporales. Sin embargo, si la máquina virtual se mueve a un nuevo host, se quitará cualquier dato almacenado en un disco temporal. El tamaño del disco temporal se determina según el tamaño de la máquina virtual. A los discos temporales se les asigna una letra de unidad de `d:` de forma predeterminada.
+**Disco temporal**: los discos temporales utilizan una unidad de estado sólida que se encuentra en el mismo host de Azure que la máquina virtual. Los discos temporales son muy eficiente y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal se determina por el tamaño de la máquina virtual. A los discos temporales se les asigna una letra de unidad de *d:* de forma predeterminada.
 
-### <a name="temporary-disk-sizes"></a>Tamaños de los discos temporales
+### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| Tipo | Tamaño de VM | Tamaño máximo de los discos temporales |
+| Tipo | Tamaño de VM | Tamaño máximo de disco temporal |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 800 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 800 |
@@ -49,7 +50,7 @@ Cuando se crea una máquina virtual de Azure, se conectan automáticamente dos d
 
 ## <a name="azure-data-disks"></a>Discos de datos de Azure
 
-Pueden agregarse más discos de datos para instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 1 terabyte. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual. Para cada núcleo de la máquina virtual, se pueden conectar dos discos de datos. 
+Se pueden agregar discos de datos adicionales para instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 1 terabyte. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual. Para cada núcleo de la máquina virtual, se pueden conectar dos discos de datos. 
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
@@ -91,7 +92,7 @@ Para completar el ejemplo de este tutorial, debe tener una máquina virtual. Si 
 Cree la configuración inicial con [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). En el ejemplo siguiente se crea un disco denominado con un tamaño de 128 gigabytes.
 
 ```powershell
-$diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Cree el disco de datos con el comando [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk).
@@ -135,6 +136,7 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha obtenido información sobre los discos de máquina virtual. Avanzar hasta el siguiente tutorial para obtener información sobre cómo automatizar la configuración de máquina virtual.
+En este tutorial, ha aprendido acerca de los discos de máquina virtual. Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
 
 [Automatización de la configuración de máquinas virtuales](./tutorial-automate-vm-deployment.md)
+

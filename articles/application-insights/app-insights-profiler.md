@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ed685f0a4ed26fb8d1c766f87210a99d2b5270ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 13a2883c59092c964cf3c353e767839c5f9ef788
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,6 +44,8 @@ En [https://portal.azure.com](https://portal.azure.com), abra el recurso Applica
 Si tiene que detener o reiniciar el generador de perfiles, lo encontrará **en el recurso App Service**, en **Trabajos web**. Para eliminarlo, mire en **Extensiones**.
 
 Si usa WebDeploy para implementar cambios en la aplicación web, asegúrese de que la carpeta **App_Data** no se elimine durante la implementación. De lo contrario, los archivos de la extensión del generador de perfiles se eliminarán la próxima vez que implemente la aplicación web en Azure.
+
+**[Update (Actualizar)]** La extensión del sitio de Application Insights ha integrado el agente del generador de perfiles de la versión 2.3. Reemplaza la extensión del sitio de Application Insights Profiler original. Puede migrar a la versión más reciente a través del asistente para **configuración**.
 
 ## <a name="viewing-profiler-data"></a>Visualización de datos del generador de perfiles
 
@@ -172,7 +175,7 @@ Cuando se configura el generador de perfiles, se realizan las siguientes actuali
 2. Establezca "Versión de .Net Framework" en v4.6.
 3. Establezca "Siempre activado" en activado.
 4. Agregue el ajuste de configuración de la aplicación "__APPINSIGHTS_INSTRUMENTATIONKEY__" y establezca el valor en la misma clave de instrumentación que el SDK.
-5. En **Extensiones**, agregue "Application Insights Profiler". Tardará dos o tres minutos en instalarse.
+5. En **Extensiones**, agregue "Application Insights". Tardará unos minutos en instalarse.
 
 ## <a id="aspnetcore"></a>Compatibilidad con ASP.NET Core
 

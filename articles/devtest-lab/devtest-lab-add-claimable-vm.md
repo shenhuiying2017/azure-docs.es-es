@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 1b6e826426ebafe10abdf33f9bcfecc1c6315cfc
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,7 +33,7 @@ Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Pasos para agregar una máquina virtual reclamable a un laboratorio de Azure DevTest Labs
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
-1. En la lista de laboratorios, seleccione aquel en el que desea crear la máquina virtual.  
+1. En la lista de laboratorios, seleccione aquel en el que desea crear la máquina virtual reclamable.  
 1. En la hoja **Información general** del laboratorio, seleccione **+ Agregar**.  
 
     ![Botón Agregar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
@@ -46,13 +47,12 @@ Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como
 1. Si quiere usar una contraseña almacenada en su [almacén secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), seleccione **Use a saved secret** (Usar un secreto guardado) y especifique un valor de clave que corresponda a su secreto (contraseña). De lo contrario, escriba una contraseña en el campo de texto **Escriba un valor**.
 1. El valor **Virtual machine disk type** (Tipo de disco de máquina virtual) determina qué tipo de disco de almacenamiento se admite para las máquinas virtuales del laboratorio.
 1. Seleccione **Tamaño de máquina virtual** y seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear.
-1. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base.
-    **Nota:** Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](./devtest-lab-add-vm-with-artifacts.md#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
+1. Seleccione **Artefactos** y, en la lista de artefactos, seleccione y configure los artefactos que desea agregar a la imagen base. Si no está familiarizado con DevTest Labs o la configuración de artefactos, vaya a la sección [Incorporación de un artefacto existente a una máquina virtual](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) y vuelva aquí cuando haya finalizado.
 1. Seleccione **Configuración avanzada** para configurar las opciones de expiración y las opciones de red de la máquina virtual. En **Claim options** (Opciones de reclamación), elija **Sí** para que la máquina sea reclamable.
 
   ![Elija que la máquina virtual sea reclamable.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
 
-1. Si desea ver o copiar la plantilla de Azure Resource Manager, vaya a la sección [Almacenamiento de una plantilla de Azure Resource Manager](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) y vuelva aquí cuando haya finalizado.
+1. Si desea ver o copiar la plantilla de Azure Resource Manager, vaya a la sección [Almacenamiento de una plantilla de Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) y vuelva aquí cuando haya finalizado.
 1. Seleccione **Crear** para agregar la máquina virtual especificada al laboratorio.
 1. La hoja del laboratorio muestra el estado de creación de la máquina virtual; primero como **Creating** (En creación) y luego como **Running** (En ejecución), una vez que se haya iniciado la máquina virtual.
 
@@ -61,7 +61,7 @@ Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como
 
 Un usuario puede reclamar cualquier máquina virtual de la lista de máquinas virtuales reclamables siguiendo alguno de estos pasos:
 
-* En la lista de máquinas virtuales reclamables, en la parte inferior de la hoja de información general del laboratorio, haga doble clic en una de las máquinas virtuales en la lista y elija **Claim machine** (Reclamar máquina).
+* En la lista de máquinas virtuales reclamables, en la parte inferior de la hoja de información general del laboratorio, haga doble clic en una de las máquinas virtuales en la lista y elija **Claim machine**  (Reclamar máquina).
 
  ![Solicite una máquina virtual reclamable específica.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
