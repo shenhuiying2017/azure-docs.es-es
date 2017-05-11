@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6638d9f6c38fe25a99ae6d82eaae958edc3370f2
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f7ecb22ee46d83867453e035f8a639bc7f7f2d81
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
 
-La implementación del autoservicio de restablecimiento de contraseña (SSPR) requiere que los datos de autenticación estén presentes. Algunas organizaciones piden a sus usuarios que escriban sus datos de autenticación por sí mismos, pero muchas organizaciones prefieren sincronizar los datos existentes en Active Directory. Si ha dado formato correctamente a los datos del directorio local y configura [Azure AD Connect mediante la configuración rápida](/connect/active-directory-aadconnect-get-started-express.md), esos datos se ponen a disposición de Azure AD y SSPR sin necesidad de interacción por parte del usuario.
+La implementación del autoservicio de restablecimiento de contraseña (SSPR) requiere que los datos de autenticación estén presentes. Algunas organizaciones piden a sus usuarios que escriban sus datos de autenticación por sí mismos, pero muchas organizaciones prefieren sincronizar los datos existentes en Active Directory. Si ha dado formato correctamente a los datos del directorio local y configura [Azure AD Connect mediante la configuración rápida](./connect/active-directory-aadconnect-get-started-express.md), esos datos se ponen a disposición de Azure AD y SSPR sin necesidad de interacción por parte del usuario.
 
 Todos los números de teléfono deben tener el formato +CountryCode PhoneNumber (ejemplo: +1 4255551234) para funcionar correctamente.
 
