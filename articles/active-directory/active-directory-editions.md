@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 59e12d70d46d45fb7dc4244ac2968838cb29dbec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -367,20 +368,9 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 * [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
-## <a name="azure-ad-preview-features"></a>Características de vista previa de Azure AD
-Además de las características disponibles normalmente en las ediciones Free, Basic y Premium (P1 y P2), Azure AD también proporciona una colección de características de versión preliminar. Puede usar las características de versiones preliminares para obtener una impresión de las novedades futuras y determinar si estas características pueden ayudar a mejorar su entorno.
-
-**Características de versiones preliminares disponibles:**
-
-* [Colaboración B2B](active-directory-b2b-collaboration-overview.md)
-* [Unidades administrativas](active-directory-administrative-units-management.md)
-* [Integración de aplicaciones de HR](active-directory-saas-workday-inbound-tutorial.md)
-* [Autenticación basada en certificados en iOS](active-directory-certificate-based-authentication-ios.md)
-* [Autenticación basada en certificados en Android](active-directory-certificate-based-authentication-android.md)
-
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
+* [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 * [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
