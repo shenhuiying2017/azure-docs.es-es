@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 2e85e787d591f2c81ef4e54bc1e7ac111accbb16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 6926b0a594b29cb3b3fff7a76a258d11bd82ded8
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Fa
 > En este artículo se considera que ha repasado antes los artículos [Introducción a Azure Data Factory](data-factory-introduction.md). Si no tiene experiencia práctica con la creación de factorías de datos, repasar los tutoriales sobre [transformación](data-factory-build-your-first-pipeline.md) o [traslado de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) puede ayudarlo a comprender mejor este artículo.  
 
 ## <a name="overview"></a>Información general
-Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un servidor SQL Server local en una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos del almacenamiento de blobs con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en un almacén de Azure SQL Data Warehouse en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas. 
+Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un servidor SQL Server local en una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos de Blob Storage con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en un almacén de Azure SQL Data Warehouse en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas. 
 
 Una actividad puede tomar diversos [conjuntos de datos](data-factory-create-datasets.md), o ninguno, y generar uno o varios [conjuntos de datos](data-factory-create-datasets.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory: 
 
@@ -58,6 +59,9 @@ Para más información, consulte el artículo sobre [actividades de transformaci
 
 ### <a name="custom-net-activities"></a>Actividades personalizadas de .NET 
 Si necesita mover datos con un almacén de datos como origen o destino que no sea compatible con la actividad de copia, o bien transformar datos con su propia lógica, cree una **actividad personalizada de .NET**. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md)para obtener más información sobre la creación y el uso de una actividad personalizada.
+
+## <a name="schedule-pipelines"></a>Programar canalizaciones
+Una canalización solo está activa entre su hora de **inicio** y de **finalización**. No se ejecuta antes de la hora de inicio ni después de la hora de finalización. Si la canalización está en pausa, no se ejecutará, independientemente de su hora de inicio y de finalización. Para que se ejecute una canalización, no debe estar en pausa. Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Factoría de datos de Azure.
 
 ## <a name="pipeline-json"></a>JSON de canalización
 Vamos a fijarnos un poco más en cómo se define una canalización en formato JSON. La estructura genérica de una canalización tiene el aspecto siguiente:
@@ -90,10 +94,10 @@ Vamos a fijarnos un poco más en cómo se define una canalización en formato JS
 | description | Especifique el texto que describe para qué se usa la canalización. |Sí |
 | actividades | La sección **activities** puede contener una o más actividades definidas. Vea la sección siguiente para obtener más información sobre el elemento JSON de actividades. | Sí |  
 | start | Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: `2016-10-14T16:32:41Z`. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00-05:00`, que es 06:00 EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |No<br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecerlas más adelante mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod. |
-| end | Fecha y hora de finalización para la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: `2016-10-14T17:32:41Z` <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00-05:00`, que es 6 a. m. EST.<br/><br/>Para ejecutar la canalización indefinidamente, especifique 9999-09-09 como valor de la propiedad end. |No <br/><br/>Si se especifica un valor para la propiedad start, hay que especificar un valor para la propiedad end.<br/><br/>Consulte las notas para la propiedad **start** . |
+| end | Fecha y hora de finalización para la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: `2016-10-14T17:32:41Z` <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00-05:00`, que es 6 a. m. EST.<br/><br/>Para ejecutar la canalización indefinidamente, especifique 9999-09-09 como valor de la propiedad end. <br/><br/> Una canalización solo está activa entre su hora de inicio y de finalización. No se ejecuta antes de la hora de inicio ni después de la hora de finalización. Si la canalización está en pausa, no se ejecutará, independientemente de su hora de inicio y de finalización. Para que se ejecute una canalización, no debe estar en pausa. Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Factoría de datos de Azure. |No <br/><br/>Si se especifica un valor para la propiedad start, hay que especificar un valor para la propiedad end.<br/><br/>Consulte las notas para la propiedad **start** . |
 | isPaused | Si se establece en True, la canalización no se ejecuta. Está en estado de pausa. Valor predeterminado = false. Puede utilizar esta propiedad para habilitar o deshabilitar una canalización. |No |
-| pipelineMode | El método para la programación de ejecuciones para la canalización. Los valores permitidos son: scheduled (predeterminado).<br/><br/>‘Scheduled’ indica que la canalización se ejecutará en el intervalo de tiempo especificado de acuerdo con su período activo (hora de inicio y finalización). 'Onetime' indica que la canalización se ejecutará solo una vez. Las canalizaciones creadas una sola vez no se pueden modificar ni actualizar actualmente. Consulte la sección [Canalización de una vez](data-factory-scheduling-and-execution.md#onetime-pipeline) para más información acerca de la configuración onetime. |No |
-| expirationTime | Tiempo de duración después de la creación durante el que la [canalización de un solo uso](data-factory-scheduling-and-execution.md#onetime-pipeline) es válida y debe permanecer aprovisionada. La canalización se elimina automáticamente una vez que alcanza la hora de caducidad si no tiene ninguna ejecución activa, con error o pendiente. Valor predeterminado: `"expirationTime": "3.00:00:00"`|No |
+| pipelineMode | El método para la programación de ejecuciones para la canalización. Los valores permitidos son: scheduled (predeterminado).<br/><br/>‘Scheduled’ indica que la canalización se ejecutará en el intervalo de tiempo especificado de acuerdo con su período activo (hora de inicio y finalización). 'Onetime' indica que la canalización se ejecutará solo una vez. Las canalizaciones creadas una sola vez no se pueden modificar ni actualizar actualmente. Consulte la sección [Canalización de una vez](#onetime-pipeline) para más información acerca de la configuración onetime. |No |
+| expirationTime | Tiempo de duración después de la creación durante el que la [canalización de un solo uso](#onetime-pipeline) es válida y debe permanecer aprovisionada. La canalización se elimina automáticamente una vez que alcanza la hora de caducidad si no tiene ninguna ejecución activa, con error o pendiente. Valor predeterminado: `"expirationTime": "3.00:00:00"`|No |
 | conjuntos de datos |Lista de conjuntos de datos que usarán las actividades definidas en la canalización. Esta propiedad puede utilizarse para definir conjuntos de datos que son específicos de esta canalización y que no se definen dentro de la factoría de datos. Los conjuntos de datos definidos dentro de esta canalización solo pueden utilizarse en ella y no se pueden compartir. Consulte la sección [Conjuntos de datos limitados](data-factory-create-datasets.md#scoped-datasets) para más información. |No |
 
 ## <a name="activity-json"></a>Actividad de JSON
@@ -132,7 +136,7 @@ En la tabla siguiente se describen las propiedades dentro de la definición JSON
 | linkedServiceName |Nombre del servicio vinculado utilizado por la actividad. <br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de compute necesario. |Sí para actividad de HDInsight y actividad de puntuación por lotes de Machine Learning de Azure <br/><br/>No para todos los demás |
 | typeProperties |Las propiedades de la sección **typeProperties** dependen del tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No |
 | policy |Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se usan las directivas predeterminadas. |No |
-| scheduler | La propiedad "scheduler" se utiliza para definir la programación deseada para la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#Availability). |No |
+| scheduler | La propiedad "scheduler" se utiliza para definir la programación deseada para la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#dataset-availability). |No |
 
 
 ### <a name="policies"></a>Directivas
@@ -279,125 +283,6 @@ En este ejemplo, Pipeline1 solo tiene una actividad que toma Dataset1 como entra
 
 Para obtener más información, vea [Programación y ejecución](#chaining-activities). 
 
-### <a name="json-example-for-chaining-two-copy-activity-in-a-pipeline"></a>Ejemplo de JSON para encadenar dos actividades de copia de una canalización
-Es posible ejecutar varias operaciones de copia sucesivas de manera secuencial y ordenada. Por ejemplo, podría tener dos actividades de copia en una canalización (CopyActivity1 y CopyActivity2) con los siguientes conjuntos de datos de entrada y salida:   
-
-**CopyActivity1**
-
-Entrada: Dataset. Salida: Dataset2.
-
-**CopyActivity2**
-
-Entrada: Dataset2.  Salida: Dataset3.
-
-ActividadCopia2 solo se ejecutaría si ActividadCopia1 se hubiera ejecutado correctamente y ConjuntoDatos2 estuviera disponible.
-
-Esta es el JSON de canalización de ejemplo:
-
-```json
-{
-    "name": "ChainActivities",
-    "properties": {
-        "description": "Run activities in sequence",
-        "activities": [
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "copyBehavior": "PreserveHierarchy",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Dataset1"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "Dataset2"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "CopyFromBlob1ToBlob2",
-                "description": "Copy data from a blob to another"
-            },
-            {
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink",
-                        "writeBatchSize": 0,
-                        "writeBatchTimeout": "00:00:00"
-                    }
-                },
-                "inputs": [
-                    {
-                        "name": "Dataset2"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "Dataset3"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00"
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "name": "CopyFromBlob2ToBlob3",
-                "description": "Copy data from a blob to another"
-            }
-        ],
-        "start": "2016-08-25T00:00:00Z",
-        "end": "2016-08-25T05:00:00Z",
-        "isPaused": false
-    }
-}
-```
-
-Observe que en el ejemplo, el conjunto de datos de salida de la primera actividad de copia (ConjuntoDatos2) se especifica como entrada para la segunda. Por lo tanto, la segunda actividad solo se ejecuta cuando el conjunto de datos de salida de la primera está listo.  
-
-El conjunto de datos de salida se genera cada hora dentro de las horas de inicio y finalización de la canalización. Por lo tanto, esta canalización genera 5 segmentos de conjuntos de datos, uno por cada periodo de actividad (00:00-01:00, 01:00-02:00, 02:00-03:00, 03:00-04:00 y 04:00-05:00). 
-
-
-En el ejemplo, CopyActivity2 puede tener una entrada adicional, como Dataset3, pero especifica Dataset2 como una entrada de CopyActivity2 para que la actividad no se ejecute hasta que se haya completado CopyActivity1. Por ejemplo:
-
-**CopyActivity1**
-
-Entrada: Dataset1. Salida: Dataset2.
-
-**CopyActivity2**
-
-Entradas: Dataset3, Dataset2. Salida: Dataset4.
-
-En este ejemplo, hay dos conjuntos de datos de entrada especificados para la segunda actividad de copia. Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. CopyActivity2 empezaría solo después de que se cumplen las condiciones siguientes:
-
-* ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usa al copiar datos en Dataset4. Solo actúa como una dependencia de programación de ActividadCopia2.   
-* ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino. 
-
-## <a name="scheduling-and-execution"></a>Programación y ejecución
-Una canalización solo está activa entre su hora de inicio y de finalización. No se ejecuta antes de la hora de inicio ni después de la hora de finalización. Si la canalización está en pausa, no se ejecutará, independientemente de su hora de inicio y de finalización. Para que se ejecute una canalización, no debe estar en pausa. De hecho, no se ejecuta la canalización. Se ejecutan las actividades de la canalización. No obstante, lo hacen en el contexto general de la canalización. 
-
-Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Factoría de datos de Azure.
-
 ## <a name="create-and-monitor-pipelines"></a>Creación y supervisión de canalizaciones
 Puede crear canalizaciones utilizando una de estas herramientas o SDK. 
 
@@ -418,6 +303,53 @@ Una vez que se haya creado o implementado la canalización, puede administrar y 
 
 - [Supervisión y administración de canalizaciones con las hojas de Azure Portal](data-factory-monitor-manage-pipelines.md)
 - [Supervisión y administración de canalizaciones con la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
+
+
+## <a name="onetime-pipeline"></a>Canalización de una vez
+Puede crear y programar una canalización que se ejecute periódicamente (por ejemplo, cada hora y diariamente) entre las horas de inicio y finalización que especifique en la definición de la canalización. Para más información, consulte [Programación de actividades](#scheduling-and-execution) . También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización,como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
+
+```json
+{
+    "name": "CopyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "recursive": false
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "InputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OutputDataset"
+                    }
+                ]
+                "name": "CopyActivity-0"
+            }
+        ]
+        "pipelineMode": "OneTime"
+    }
+}
+```
+
+Tenga en cuenta lo siguiente:
+
+* No se especifican las horas de **inicio** y **finalización** de la canalización.
+* La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.  
+* La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
+* Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

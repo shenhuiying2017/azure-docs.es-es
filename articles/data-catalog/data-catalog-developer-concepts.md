@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9591d7e2dd743e44d228205163ad55cb47992283
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 361ad3a669370419e1080d3e4b3fc646f7a0a958
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -84,13 +86,13 @@ A continuación, la experiencia de usuario puede elegir cómo mostrar la combina
 Como se mencionó en la sección Conceptos clave, el modelo de objetos **Catálogo de datos de Azure** incluye elementos, que pueden ser recursos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
 
 ### <a name="system-properties"></a>Propiedades del sistema
-<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento.  El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>type</td><td>String</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>Cadena</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
+<table><tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento.  El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>type</td><td>String</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>Cadena</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
 
 ### <a name="common-properties"></a>Propiedades comunes
 Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos los tipos de anotación.
 
 <table>
-<tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
+<tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
 <tr><td>fromSourceSystem</td><td>Booleano</td><td>Indica si los datos del elemento derivan de un sistema de origen (como base de datos de SQL Server, base de datos de Oracle) o creados por un usuario.</td></tr>
 </table>
 
@@ -98,13 +100,13 @@ Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos lo
 <p>
 Estas propiedades se aplican a todos los tipos de recursos de raíz.
 
-<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>name</td><td>String</td><td>Un nombre derivado de la información de ubicación del origen de datos</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Describe el origen de datos de forma exclusiva y es uno de los identificadores del recurso. (Consulte la sección de identidad dual).  La estructura del dsl varía según el protocolo y el tipo de origen.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Más información sobre el tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describe el usuario que registró más recientemente este recurso.  Contiene el identificador único para el usuario (upn) y un nombre para mostrar (lastName y firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id. del activo de contenedor para el origen de datos. Esta propiedad no se admite para el tipo de contenedor.</td></tr></table>
+<table><tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>name</td><td>String</td><td>Un nombre derivado de la información de ubicación del origen de datos</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Describe el origen de datos de forma exclusiva y es uno de los identificadores del recurso. (Consulte la sección de identidad dual).  La estructura del dsl varía según el protocolo y el tipo de origen.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Más información sobre el tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describe el usuario que registró más recientemente este recurso.  Contiene el identificador único para el usuario (upn) y un nombre para mostrar (lastName y firstName).</td></tr><tr><td>containerId</td><td>String</td><td>Id. del activo de contenedor para el origen de datos. Esta propiedad no se admite para el tipo de contenedor.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Propiedades comunes de anotación no de singleton
 Estas propiedades se aplican a todos los tipos de anotación no singleton (anotaciones que pueden ser múltiples por recurso).
 
 <table>
-<tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
+<tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr>
 <tr><td>key</td><td>String</td><td>Clave especificada por el usuario que identifica de forma única la anotación en la colección actual. La longitud de la clave no puede superar los 256 caracteres.</td></tr>
 </table>
 
@@ -251,7 +253,7 @@ El Catálogo de datos de Azure usa dos mecanismos de autorización:
 ### <a name="roles"></a>Roles
 Existen tres roles: **Administrador**, **Propietario** y **Colaborador**.  Cada rol tiene su ámbito y sus derechos, que se resumen en la tabla siguiente.
 
-<table><tr><td><b>Rol</b></td><td><b>Scope</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles
+<table><tr><td><b>Rol</b></td><td><b>Ámbito</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles
 
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propietario</td><td>Cada recurso (elemento raíz)</td><td>Read Delete ViewRoles
 
@@ -359,9 +361,4 @@ La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

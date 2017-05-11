@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 957644b81d373ce8d60a8c57c1ba6431bbdf83cb
+ms.contentlocale: es-es
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -71,7 +72,7 @@ SQL Database protege los datos proporcionando funcionalidades de auditoría y de
 SQL Database Auditing realiza un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento normativo, para lo que graba eventos de base de datos en un registro de auditoría de su cuenta de Azure Storage. La auditoría permite conocer las actividades en curso de la base de datos, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte [Introducción a SQL Database Auditing](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Detección de amenazas
-La detección de amenazas complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio Azure SQL Database. Funciona ininterrumpidamente para aprender, generar perfiles y detectar actividades anómalas de la base de datos. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales, ataques pon inyección de código SQL y patrones anómalos de acceso a bases de datos. Para responder a dichas alertas, siga las instrucciones con información y con acciones que se pueden realizar que se proporcionan. Para más información, consulte [Introducción a Detección de amenazas de Base de datos SQL](sql-database-threat-detection.md).  
+Detección de amenazas complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio de Azure SQL Database que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques pon inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza. Detección de amenazas cuesta 15 USD/servidor/mes. Será gratis para los primeros 60 días. Para más información, vea [Introducción a Detección de amenazas de SQL Database](sql-database-threat-detection.md).
  
 ### <a name="data-masking"></a>Enmascaramiento de datos 
 El enmascaramiento datos dinámicos de Base de datos SQL limita la exposición de información confidencial mediante el enmascaramiento a los usuarios sin privilegios. Enmascaramiento de datos dinámicos detecta automáticamente datos potencialmente confidenciales en Azure SQL Database y proporciona acciones recomendables para enmascarar estos campos, con un impacto mínimo en la capa de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Introducción al enmascaramiento de datos dinámicos de SQL Database](sql-database-dynamic-data-masking-get-started.md)

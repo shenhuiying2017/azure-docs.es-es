@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -92,7 +93,7 @@ En una adquisición externa, ya tiene un directorio administrado y desea que tod
 
 Como administrador de un directorio administrado, se agrega un dominio que tiene asociado un directorio no administrado.
 
-Por ejemplo, suponga que es administrador de TI y ya tiene un directorio administrado para Contoso.com, un nombre de dominio registrado para su organización. Descubre que los usuarios de su organización han realizado una suscripción de autoservicio a una oferta con un nombre de dominio de correo electrónico user@contoso.co.uk,, que es otro nombre de dominio que posee su organización. Actualmente, esos usuarios tienen cuentas en un directorio no administrado para contoso.co.uk.
+Por ejemplo, suponga que es administrador de TI y ya tiene un directorio administrado para Contoso.com, un nombre de dominio registrado para su organización. Descubre que los usuarios de su organización han realizado una suscripción de autoservicio a una oferta con un nombre de dominio de correo electrónico user@contoso.co.uk, que es otro nombre de dominio que posee su organización. Actualmente, esos usuarios tienen cuentas en un directorio no administrado para contoso.co.uk.
 
 Usted no desea administrar dos directorios independientes, por lo que fusiona el directorio no administrado para contoso.co.uk en su directorio administrado de TI existente para contoso.com.
 
@@ -194,13 +195,13 @@ En el siguiente diagrama se explican las distintas combinaciones de estos parám
 
 ![][1]
 
-Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="see-also"></a>Otras referencias
-* [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-* [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Referencia de cmdlets de Azure](/powershell/azure/get-started-azureps)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

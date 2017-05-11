@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/17/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 8f86f812cd708d8122ecc507d02fb2ec2c73689f
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 188c4758843a49ca38a151835d561c5f2d58d3a0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -31,7 +32,7 @@ Se pueden completar los pasos de este tutorial con la versión más reciente de 
 ## <a name="cloud-init-overview"></a>Introducción a cloud-init
 [cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
 
-cloud-init también funciona entre distribuciones. Por ejemplo, no use `apt-get install` o `yum install` para instalar un paquete. Por el contrario, puede definir una lista de paquetes para instalar y cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
+cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. Por el contrario, puede definir una lista de paquetes para instalar y cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
 Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en las imágenes que estos proporcionan a Azure. En la tabla siguiente se describe la disponibilidad actual de cloud-init en imágenes de la plataforma de Azure:
 
@@ -41,10 +42,10 @@ Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en l
 | CoreOS |CoreOS |CoreOS |Stable |más reciente |
 
 
-## <a name="create-config-file"></a>Creación del archivo de configuración
+## <a name="create-cloud-init-config-file"></a>Creación de un archivo de configuración cloud-init
 Para ver cloud-init en acción, cree una máquina virtual que instale NGINX y ejecute una aplicación Node.js sencilla "Hello World". Con la siguiente configuración de cloud-init se instalan los paquetes necesarios, se crea una aplicación Node.js y luego se inicializa e inicia la aplicación.
 
-Cree un archivo denominado `cloud-init.txt` y pegue la siguiente configuración:
+Cree un archivo denominado *cloud-init.txt* y pegue la siguiente configuración:
 
 ```yaml
 #cloud-config
@@ -90,15 +91,14 @@ runcmd:
 
 Para más información sobre las opciones de configuración de cloud-init, consulte los [ejemplos de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
 
-
 ## <a name="create-virtual-machine"></a>Create virtual machine
-Antes de poder crear una máquina virtual, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroupAutomate` en la ubicación `westus`:
+Antes de poder crear una máquina virtual, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *westus*:
 
 ```azurecli
 az group create --name myResourceGroupAutomate --location westus
 ```
 
-Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de `cloud-init.txt` si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una máquina virtual denominada `myAutomatedVM`:
+Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una VM denominada *myAutomatedVM*:
 
 ```azurecli
 az vm create \
@@ -119,7 +119,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Prueba de la aplicación web
-Ahora puede abrir un explorador web y escribir `http://<publicIpAddress>` en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Su aplicación Node.js se muestra como en el ejemplo siguiente:
+Ahora puede abrir un explorador web y escribir *http://<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Su aplicación Node.js se muestra como en el ejemplo siguiente:
 
 ![Ver sitio de NGINX en funcionamiento](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -137,11 +137,14 @@ Los pasos siguientes muestran cómo puede:
 - Crear una máquina virtual e insertar el certificado
 
 ### <a name="create-an-azure-key-vault"></a>Crear una instancia de Azure Key Vault
-En primer lugar, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilítela para su uso al implementar una máquina virtual. Cada instancia de Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace `<mykeyvault>` en el siguiente ejemplo por su propio nombre único de Key Vault:
+En primer lugar, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilítela para su uso al implementar una máquina virtual. Cada instancia de Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
 
 ```azurecli
 keyvault_name=<mykeyvault>
-az keyvault create --resource-group myResourceGroupAutomate --name $keyvault_name --enabled-for-deployment
+az keyvault create \
+    --resource-group myResourceGroupAutomate \
+    --name $keyvault_name \
+    --enabled-for-deployment
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>Generación de un certificado y su almacenamiento en Key Vault
@@ -168,9 +171,9 @@ vm_secret=$(az vm format-secret --secret "$secret")
 
 
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Creación de la configuración de cloud-init para proteger NGINX
-Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio `/var/lib/waagent/` protegido. Para automatizar el proceso de agregar el certificado a la máquina virtual y configurar NGINX, puede expandir la configuración de cloud-init del ejemplo anterior.
+Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio */var/lib/waagent/* protegido. Para automatizar el proceso de agregar el certificado a la máquina virtual y configurar NGINX, puede expandir la configuración de cloud-init del ejemplo anterior.
 
-Cree un archivo denominado `cloud-init-secured.txt` y pegue la siguiente configuración:
+Cree un archivo denominado *cloud-init-secured.txt* y pegue la siguiente configuración:
 
 ```yaml
 #cloud-config
@@ -240,11 +243,14 @@ Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se 
 Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 443 desde Internet con el comando [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
-az vm open-port --port 443 --resource-group myResourceGroupAutomate --name myVMSecured
+az vm open-port \
+    --resource-group myResourceGroupAutomate \
+    --name myVMSecured \
+    --port 443
 ```
 
 ### <a name="test-secure-web-app"></a>Prueba de la aplicación web segura
-Ahora puede abrir un explorador web y escribir `https://<publicIpAddress>` en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Acepte la advertencia de seguridad si usó un certificado autofirmado:
+Ahora puede abrir un explorador web y escribir *https://<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Acepte la advertencia de seguridad si usó un certificado autofirmado:
 
 ![Aceptar la advertencia de seguridad del explorador web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

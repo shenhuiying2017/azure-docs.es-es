@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
+ms.contentlocale: es-es
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -105,7 +106,7 @@ Una definición de versión de Team Services describe un flujo de trabajo compue
     1. Seleccione **Nuevo punto de conexión de servicio** y, después, elija **Azure Service Fabric** en el menú.
     2. Seleccione el tipo de autenticación que utilizará el clúster que tiene como destino este punto de conexión.
     3. Defina un nombre para la conexión en el campo **Nombre de la conexión** .  Normalmente, utilizará el nombre del clúster.
-    4. Defina la URL del punto de conexión del cliente en el campo **Punto de conexión de clúster** .  Ejemplo: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Defina la URL del punto de conexión del cliente en el campo **Punto de conexión de clúster** .  Ejemplo: tcp://contoso.westus.cloudapp.azure.com:19000.
     5. En los campos **Nombre de usuario** y **Contraseña**, defina las credenciales de Azure Active Directory que quiera usar para conectarse al clúster.
     6. Para la autenticación basada en certificados, defina la codificación Base64 del archivo de certificado de cliente en el campo **Certificado de cliente** .  Consulte la ventana emergente de ayuda de ese campo para saber cómo obtener ese valor.  Si el certificado está protegido por contraseña, defina la contraseña en el campo **Contraseña** .
     7. Confirme los cambios haciendo clic en **Aceptar**. Cuando regrese al paso de definición de versión, haga clic en el icono de actualización del campo **Cluster Connection** (Conexión de clúster) para ver el punto de conexión que acaba de agregar.
