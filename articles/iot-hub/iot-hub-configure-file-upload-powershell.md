@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 5ae6057dbcbffa5d8496819d015ec060d7ca6cc9
+ms.contentlocale: es-es
 ms.lasthandoff: 03/24/2017
 
 
@@ -31,7 +32,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * [Cmdlets de Azure PowerShell][lnk-powershell-install].
-* Un centro de Azure IoT. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzureRmIoTHub][ lnk-powershell-iothub] para crear uno o usar el portal para [crear un centro de IoT][lnk-portal-hub].
+* Un centro de Azure IoT. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzureRmIoTHub][lnk-powershell-iothub] para crear uno o usar el portal para [crear un centro de IoT][lnk-portal-hub].
 * Una cuenta de almacenamiento de Azure. Si no tiene una cuenta de almacenamiento de Azure, puede usar los [cmdlets de PowerShell de Azure Storage] [lnk-powershell-storage] para crear una o usar el portal para [crear una cuenta de almacenamiento][lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
