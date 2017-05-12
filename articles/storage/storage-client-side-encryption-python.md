@@ -3,7 +3,7 @@ title: Cifrado del lado cliente con Python para Microsoft Azure Storage | Micros
 description: "Biblioteca de cliente de Almacenamiento de Azure para Python admite el cifrado de lado cliente para obtener una seguridad máxima de las aplicaciones de Almacenamiento de Azure."
 services: storage
 documentationcenter: python
-author: seguler
+author: lakasa
 manager: jahogg
 editor: tysonn
 ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: lakasa
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 4c32d3cf70b222e2795df2b94e23da67bf38d72b
+ms.contentlocale: es-es
 ms.lasthandoff: 04/06/2017
 
 
