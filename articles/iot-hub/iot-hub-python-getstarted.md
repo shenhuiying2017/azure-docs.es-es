@@ -13,9 +13,10 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: d020fc6b51f3b20f56fa056e666ba9c7441a3065
+ms.contentlocale: es-es
 ms.lasthandoff: 04/25/2017
 
 
@@ -36,7 +37,7 @@ Al final de este tutorial tendrá dos aplicaciones de Python:
 Para completar este tutorial, necesitará lo siguiente:
 
 * [Python 2.x o 3.x][lnk-python-download]. Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Cuando se le solicite durante la instalación, asegúrese de agregar Python a la variable de entorno específica de la plataforma. Si usa Python 2.x, puede que necesite [instalar o actualizar *pip*, el sistema de administración de paquetes de Python][lnk-install-pip].
-* Si utiliza Windows OS, el [paquete redistribuible de Visual C++] [ lnk-visual-c-redist] permitirá el uso de archivos DLL nativos de Python.
+* Si utiliza Windows OS, el [paquete redistribuible de Visual C++][lnk-visual-c-redist] permitirá el uso de archivos DLL nativos de Python.
 * [Node.js 4.0 o posterior][lnk-node-download]. Asegúrese de usar la instalación de 32 bits o 64 bits en función del programa de instalación. Esto es necesario para instalar la [herramienta Explorador de IoT Hub][lnk-iot-hub-explorer].
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 
