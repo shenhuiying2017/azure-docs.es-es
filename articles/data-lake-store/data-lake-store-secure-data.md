@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
 ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.contentlocale: es-es
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -72,7 +74,7 @@ Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data
 
 7. Ahora el usuario o el grupo de seguridad tienen acceso a la cuenta de Almacén de Azure Data Lake. Si desea proporcionar acceso a usuarios específicos, puede agregarlos al grupo de seguridad. De forma similar, si desea revocar el acceso de un usuario, puede quitarle del grupo de seguridad. También puede asignar varios grupos de seguridad a una cuenta. 
 
-## <a name="a-namefilepermissionsaassign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system"></a><a name="filepermissions"></a>Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake
+## <a name="filepermissions"></a>Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake
 Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data Lake, establece el control de acceso sobre los datos almacenados en el Almacén de Azure Data Lake.
 
 1. En la hoja de su cuenta de Almacén de Data Lake, haga clic en **Explorador de datos**.
@@ -146,10 +148,5 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos de Azure Dat
 * [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 * [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Acceso a los registros de diagnóstico de Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

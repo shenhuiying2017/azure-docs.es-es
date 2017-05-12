@@ -72,8 +72,7 @@ Una vez instalado el módulo de PowerShell, abra PowerShell y conéctese al inqu
 > Debe usar una cuenta de administrador de inquilinos B2C que sea **local** para el inquilino B2C. Estas cuentas tienen este aspecto: myusername@myb2ctenant.onmicrosoft.com.
 
 ```powershell
-$msolcred = Get-Credential
-Connect-MsolService -credential $msolcred
+Connect-MsolService
 ```
 
 Ahora usaremos el **Identificador de aplicación** en el script siguiente para asignar a la aplicación el rol de administrador de cuentas de usuario que permitirá a esta eliminar usuarios. Estos roles tienen identificadores conocidos, por lo que lo único que debe hacer es escribir el **Identificador de aplicación** en el siguiente script.
