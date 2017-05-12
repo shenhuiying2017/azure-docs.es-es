@@ -1,5 +1,6 @@
 # Información general
-## [Información general de Azure Monitor](monitoring-overview.md)
+## [Herramientas de supervisión en Azure](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [Métricas](monitoring-overview-metrics.md)
 ## [Alertas](monitoring-overview-alerts.md)
 ## [Autoscale](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Grupos de acciones](monitoring-action-groups.md)
 ## [Registros de diagnóstico](monitoring-overview-of-diagnostic-logs.md)
 ## [Integraciones de asociados](monitoring-partners.md)
-## [Diagnóstico de Azure](azure-diagnostics.md)
+## [Extensión de Diagnósticos de Azure](azure-diagnostics.md)
 
 
 # Introducción
 ## [Introducción a Azure Monitor](monitoring-get-started.md)
+## [Introducción al escalado automático](monitoring-autoscale-get-started.md)
 ## [Permisos de roles y seguridad](monitoring-roles-permissions-security.md)
+
 
 # Procedimientos
 ## Usar alertas
@@ -24,6 +27,8 @@
 ## Usar Autoscale
 ### [Procedimientos recomendados de escalado automático](insights-autoscale-best-practices.md)
 ### [Métricas comunes de escalado automático](insights-autoscale-common-metrics.md)
+### [Patrones comunes de escalado automático](monitoring-autoscale-common-scale-patterns.md)
+### [Escalado automático con una métrica personalizada](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Escalado automático de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configuración de webhooks y notificaciones por correo electrónico en escalado automático](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Habilitación de la configuración de diagnóstico mediante plantillas de Resource Manager](monitoring-enable-diagnostic-logs-using-template.md)
 ## Uso de la API de REST
 ### [Tutorial con la API de REST](monitoring-rest-api-walkthrough.md)
-## Uso de Diagnósticos de Azure
+## Uso de la extensión de Diagnósticos de Azure
 ### [Envío a Application Insights](azure-diagnostics-configure-application-insights.md)
 ### [Envío a Event Hubs](azure-diagnostics-streaming-event-hubs.md)
 ### [Solución de problemas](azure-diagnostics-troubleshooting.md)

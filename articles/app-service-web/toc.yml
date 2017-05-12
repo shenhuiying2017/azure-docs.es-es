@@ -27,10 +27,22 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: "1 - Node.js con MongoDB"
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "1 - PHP con MySQL"
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: "1 - WordPress con MySQL"
+    href: app-service-web-create-web-app-from-marketplace.md
+#  - name: 1 - Java with MySQL
+#    href: app-service-web-tutorial-java-mysql.md
+  - name: "1 - Python con PostgreSQL"
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
   - name: "2 - Asignación de dominios personalizados"
     href: app-service-web-tutorial-custom-domain.md
   - name: "3 - Enlace de certificado SSL"
     href: app-service-web-tutorial-custom-ssl.md
+  - name: "4 - Incorporación de Content Delivery Network"
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
 - name: "Muestras"
   items:
   - name: "CLI de Azure"
@@ -101,14 +113,32 @@
         href: web-sites-php-configure.md
       - name: "Java"
         href: web-sites-java-add-app.md
-      - name: "Node.js en Linux"
-        href: app-service-linux-using-nodejs-pm2.md
       - name: "Python"
         href: web-sites-python-configure.md
     - name: "Configuración de la aplicación"
       items:
       - name: "Uso de la configuración de aplicaciones"
         href: web-sites-configure.md
+    - name: "Aplicación web en Linux"
+      items:
+      - name: "Información general"
+        href: app-service-linux-intro.md
+      - name: "Creación de una aplicación web en Linux"
+        href: app-service-linux-how-to-create-web-app.md
+      - name: "Aplicación web de Ruby en Linux"
+        href: app-service-linux-ruby-get-started.md
+      - name: "Aplicación web de Node.js en Linux"
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: "Aplicación web de .NET Core en Linux"
+        href: app-service-linux-using-dotnetcore.md
+      - name: "Aplicación web personalizada de Docker en Linux"
+        href: app-service-linux-using-custom-docker-image.md
+      - name: "Conexión a través de SSH"
+        href: app-service-linux-ssh-support.md
+      - name: "Implementación continua"
+        href: app-service-linux-ci-cd.md
+      - name: "Preguntas más frecuentes sobre aplicaciones web en Linux"
+        href: app-service-linux-faq.md
   - name: "Implementar en Azure"
     href: web-sites-deploy.md
     items:

@@ -17,7 +17,7 @@
 ## SAP HANA en Virtual Machines
 ### [Instancia individual de SAP HANA](hana-get-started.md)
 ### [Guía de implementación de S/4 HANA o BW/4 HANA](cal-s4h.md)
-### [Alta disponibilidad en máquinas virtuales] (sap-hana-high-availability.md)
+### [Alta disponibilidad en máquinas virtuales](sap-hana-high-availability.md)
 ### [Introducción Backup](sap-hana-backup-guide.md)
 ### [Copia de seguridad de nivel de archivos](sap-hana-backup-file-level.md)
 ### [Copias de seguridad de la instantánea del almacenamiento](sap-hana-backup-storage-snapshots.md)
