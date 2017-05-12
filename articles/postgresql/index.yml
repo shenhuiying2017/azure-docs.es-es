@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentación sobre Base de datos de Azure para PostgreSQL"
+metadata:
+  title: "Documentación sobre Base de datos de Azure para PostgreSQL: tutoriales y referencia de API"
+  description: "Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional en Microsoft Cloud diseñado para los desarrolladores y basado en el motor de base de datos de código abierto de PostgreSQL."
+  services: app-service
+  author: jasonwhowell
+  manager: jhubbard
+  ms.service: postgresql
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: jasonh
+abstract:
+  description: "Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL.  Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica.  Desarrolle aplicaciones con la Base de datos PostgreSQL en Azure para aprovechar las herramientas y plataformas de código abierto de su elección.  Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos."
+sections:
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: 'Learn how to create a PostgreSQL database using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/postgresql/quickstart-create-server-database-portal
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/postgresql/quickstart-create-server-database-azure-cli
+- title: "Tutoriales detallados"
+  items:
+  - type: paragraph
+    text: 'Learn how to:'
+  - type: list
+    style: ordered
+    items:
+    - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
+- title: "Muestras"
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
+- title: "Referencia"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Línea de comandos"
+      html: <p><a href="/cli/azure">Azure CLI</a></p>

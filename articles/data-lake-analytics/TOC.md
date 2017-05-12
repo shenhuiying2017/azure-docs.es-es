@@ -15,12 +15,14 @@
 
 # Procedimientos
 ## Desarrollo
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Conceptos básicos de U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Catálogo de U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Parámetros de U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Funciones de ventana de U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Operadores definidos por el usuario de U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Extensiones de Python de U-SQL](data-lake-analytics-u-sql-python-extensions.md)
 ### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
-### [Funcionalidades cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
+### [Extensiones cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Creación de soluciones
 ### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)

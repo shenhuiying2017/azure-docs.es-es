@@ -20,6 +20,9 @@
 #### [Datos simulados](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Uso de sensores reales](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Implementación de la actualización de firmware](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Conexión de la puerta de enlace de Intel NUC
+### [Datos simulados](iot-suite-gateway-kit-get-started-simulator.md)
+### [Uso de sensor real](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Procedimientos
 ## Conexión a un dispositivo simulado
@@ -33,6 +36,7 @@
 ## [Creación de una regla personalizada en la solución de supervisión remota](iot-suite-custom-rule.md)
 ## [Información de dispositivos en la solución de supervisión remota](iot-suite-remote-monitoring-device-info.md)
 ## [Implementación de una puerta de enlace para una solución de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
+## [Personalización de fábrica conectada](iot-suite-connected-factory-customize.md)
 
 # Referencia
 ## [Arquitectura de seguridad](iot-security-architecture.md)

@@ -41,6 +41,26 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3 - Protección de SQL Database"
     href: sql-database-security-tutorial.md
+  - name: "4 - Mejorar del rendimiento de la base de datos de SQL"
+    href: sql-database-performance-tutorial.md
+  - name: "5 - Implementación de una aplicación multiinquilino"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 - Implementación de una aplicación multiinquilino"
+    href: sql-database-saas-tutorial.md
+  - name: "7 - Aprovisionamiento y catalogación de nuevos inquilinos"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 - Supervisión del rendimiento"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 - Restauración de un solo inquilino"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 - Administración de esquemas de inquilino"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 - Ejecución de análisis ad hoc"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 - Supervisión con Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 - Administración de análisis de inquilino"
+
 - name: "Muestras"
   items:
   - name: "CLI de Azure"
@@ -142,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Recuperación de base de datos"
       href: sql-database-recovery-using-backups.md
-    - name: "Replicación geográfica"
+    - name: "Conmutación por error automática y replicación geográfica"
       href: sql-database-geo-replication-overview.md
     - name: "Inicios de sesión"
       href: sql-database-geo-replication-security-config.md
