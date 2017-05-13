@@ -24,15 +24,16 @@
 
 ## Automatizar
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Creación y administración mediante CLI](key-vault-manage-with-cli.md)
 ### [Creación y administración mediante CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referencia
 ## [PowerShell](/powershell/module/azurerm.keyvault)
-## [CLI de Azure 2.0](/cli/azure/keyvault)
+## [CLI de Azure 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Administración de almacenes](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Administración de contenido de un almacén](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
 # Temas relacionados
