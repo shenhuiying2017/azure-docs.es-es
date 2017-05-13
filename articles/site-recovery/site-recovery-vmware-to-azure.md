@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7be3471cd5cd22b5d05aed6e2cb51840a20bb89b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -77,7 +78,7 @@ Esto es lo que debe hacer:
     - Las máquinas virtuales de Azure se colocarán en esta red cuando se creen después de la conmutación por error.
     - Puede configurar una red en el modo de [Resource Manager](../resource-manager-deployment-model.md) o en el clásico.
 
-2. Configure una [cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md#create-a-storage-account) para los datos replicados.
+2. Configure una [cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) para los datos replicados.
     - La cuenta puede ser estándar o [premium](../storage/storage-premium-storage.md).
     - Puede configurar una red en el modo de Resource Manager o en el clásico.
 
@@ -87,7 +88,7 @@ Esto es lo que debe hacer:
 
 1. Instale Windows Server 2012 R2 o posterior en una máquina virtual de VMware.
 2. Asegúrese de que la máquina virtual tenga acceso a las direcciones URL que aparecen en los [requisitos previos](#prerequisites).
-3. Instale [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
+3. Instale [VMware vSphere PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1).
 
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>Preparación de la detección automática y la instalación de inserción
@@ -255,7 +256,7 @@ Vea un vídeo introductorio rápido antes de empezar
 8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no desea usar una red existente, puede crear una.
 
     ![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, haga clic en cada máquina que desea replicar y selecciónela. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. y, a continuación, haga clic en **Aceptar**.
+9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, haga clic en cada máquina que desea replicar y selecciónela. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. A continuación, haga clic en **Aceptar**.
 
     ![Habilitar replicación](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. En **Propiedades** > **Configurar propiedades**, seleccione la cuenta que utilizará el servidor de procesos para instalar automáticamente Mobility Service en la máquina.
@@ -281,7 +282,7 @@ Se recomienda que compruebe las propiedades de máquina virtual y realice cualqu
 
 1. Haga clic en **Elementos replicados** > y seleccione la máquina. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
 2. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
-3. En **Proceso y red** > **Propiedades de proceso**, puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) si es necesario.
+3. En **Compute y Network** > **Propiedades de Compute**, puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) si es necesario.
 4. Modifique la configuración de la red de destino, la subred y la dirección IP que se asignarán a la máquina virtual de Azure:
 
    - Puede establecer la dirección IP de destino.
