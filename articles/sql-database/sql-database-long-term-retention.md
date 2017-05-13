@@ -16,10 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 043a1779ac694b0b3cbb5f1fd00117f716583669
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: e47c10c2c979622fba254757d3f7b9f19d3240f8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -99,10 +100,6 @@ Recovery Service controla automáticamente la limpieza de las copias de segurida
 
 > [!NOTE]
 > Las copias de seguridad que ya están en el almacén no resultan afectadas. Recovery Service los elimina automáticamente cuando termina el período de retención.
-
-## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Eliminación de copias de seguridad de retención a largo plazo desde el almacén de Azure Recovery Services
-
-Para quitar las copias de seguridad de retención a largo plazo del almacén, consulte [Eliminación de copias de seguridad de retención a largo plazo](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="long-term-backup-retention-faq"></a>Preguntas frecuentes sobre la retención a largo plazo de copias de seguridad:
 

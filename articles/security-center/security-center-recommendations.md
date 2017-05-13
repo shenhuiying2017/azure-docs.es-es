@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 68d74cfde8146007930a4c340b7412fca00afc39
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9663535cc301ecd2c26c1cf318dbf9420758e245
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -110,7 +111,7 @@ Después de revisar todas las recomendaciones, decida cuáles son las primeras q
 
 En la tabla de las recomendaciones anteriores, seleccione una recomendación y tómela como ejemplo de aplicación de una recomendación.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.

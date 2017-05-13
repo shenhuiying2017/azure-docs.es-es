@@ -191,7 +191,10 @@
   - name: "Network Watcher"
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
-  - name: "Centros de notificaciones"
+  - name: "Redes"
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
+  - name: "Notification Hubs"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
   - name: "Operations Management Suite"
