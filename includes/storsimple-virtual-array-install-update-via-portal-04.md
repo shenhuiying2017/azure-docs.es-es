@@ -50,6 +50,4 @@
 
     ![actualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Una vez instaladas correctamente las actualizaciones, verá un mensaje que lo indica en la hoja **Actualizaciones del dispositivo**. La versión de software también cambia a **10.0.10289.0**.
-
-    ![actualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
+9. Una vez instaladas correctamente las actualizaciones, verá un mensaje que lo indica en la hoja **Actualizaciones del dispositivo**. 
