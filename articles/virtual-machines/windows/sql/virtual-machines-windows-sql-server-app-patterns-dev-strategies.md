@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: lvargas
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1bbcc8517b0e7bf3836e79a3861f83e181eb67e7
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c5d0b7b466c65fb218acd010c13bde061a3abfbf
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,7 +172,7 @@ La mayoría de los clientes, que ejecutan código de producción en Azure, conse
 Para información completa y tutoriales sobre las técnicas de alta disponibilidad y recuperación ante desastres, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>Dos niveles y tres niveles con máquinas virtuales de Azure y servicios en la nube
-En este patrón de aplicación, se implementa una aplicación de dos o tres niveles en Azure mediante [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (roles web y de trabajo: plataforma como servicio (PaaS)) y [Azure Virtual Machines](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (infraestructura como servicio (IaaS)). El uso de [Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) para los niveles de presentación y de empresa, y SQL Server en [Azure Virtual Machines](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para el nivel de datos, es beneficioso para la mayoría de las aplicaciones que se ejecutan en Azure. El motivo es que el hecho de que una instancia de proceso se ejecute en Servicios en la nube facilita la administración, implementación, supervisión y escalado horizontal.
+En este patrón de aplicación, se implementa una aplicación de dos o tres niveles en Azure mediante [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (roles web y de trabajo: plataforma como servicio (PaaS)) y [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (infraestructura como servicio (IaaS)). El uso de [Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) para los niveles de presentación y de empresa, y SQL Server en [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para el nivel de datos, es beneficioso para la mayoría de las aplicaciones que se ejecutan en Azure. El motivo es que el hecho de que una instancia de proceso se ejecute en Servicios en la nube facilita la administración, implementación, supervisión y escalado horizontal.
 
 Con Servicios en la nube, Azure mantiene automáticamente la infraestructura, realiza un mantenimiento periódico, aplica parches a los sistemas operativos e intenta recuperarse de los errores de hardware y del servicio. Cuando la aplicación necesita escalado horizontal, hay disponibles opciones de escalado horizontal manual y automático para el proyecto del servicio en la nube mediante el aumento o disminución del número de instancias o máquinas virtuales que se usa la aplicación. Además, se puede usar Visual Studio local para implementar la aplicación en un proyecto de servicio en la nube en Azure.
 
