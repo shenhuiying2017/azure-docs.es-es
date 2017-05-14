@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dae5491962b22453c517da35539ce09463d8802d
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c852374b6f6ca58d807631fdfcc8e42abf99b673
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -188,7 +189,7 @@ En esta sección, proporcionamos las definiciones de JSON que puede usar para cr
     }
 }
 ````
-Para más información, consulte [Movimiento de datos hacia y desde Azure Data Lake Store mediante Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#example-copy-data-from-azure-blob-to-azure-data-lake-store).
+Para más información, consulte [Movimiento de datos hacia y desde Azure Data Lake Store mediante Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstrucción de los archivos de datos de Azure Data Lake Store
 Comenzamos con un archivo de 319 GB y lo dividimos en fragmentos de menor tamaño para que se pudiesen transferir mediante el servicio Azure Import/Export. Ahora que los datos están en Azure Data Lake Store, podemos reconstruir el archivo para que vuelva a tener su tamaño original. También puede utilizar el siguiente cmdlet de Azure PowerShell.

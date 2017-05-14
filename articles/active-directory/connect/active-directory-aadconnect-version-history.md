@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: fe01be4f57766a556ff3a27a0cbba0293675cac7
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7983ffa4bf7cb63f985d1a8f14d6dd834e679cf5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ Fecha de publicación: abril de 2017
 * Esta versión de Azure AD Connect no se instalará correctamente si se cumplen las condiciones siguientes:
    1. Realiza una actualización de DirSync o una instalación nueva de Azure AD Connect.
    2. Utiliza una versión localizada de Windows Server, donde el nombre del grupo de administradores integrado en el servidor no es "Administradores".
-   3. Está usando la instancia predeterminada de Local DB incluida en SQL Server 2012 Express que se instala con Azure AD Connect en lugar de proporcionar su propia versión completa de SQL Server. 
+   3. Está usando la instancia predeterminada de Local DB incluida en SQL Server 2012 Express que se instala con Azure AD Connect en lugar de proporcionar su propia versión completa de SQL Server.
 
 **Problemas corregidos:**
 
@@ -310,7 +311,7 @@ Fecha de publicación: noviembre de 2015
 **Nuevas características de la versión preliminar:**
 
 * [Azure AD Connect Health para sincronización](../connect-health/active-directory-aadconnect-health-sync.md)
-* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) .
+* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](../active-directory-passwords-update-your-own-password.md) .
 
 **Nuevo escenarios admitido:**
 
