@@ -15,10 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: da6c497e10d31dbc98703090a8f7699d0841faa8
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: d76fb43a1b045b98a14ae91ac339d53e9a48f1de
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -83,11 +84,11 @@ Utilice los pasos siguientes para establecer el objetivo de copia de seguridad, 
 Utilice los pasos mencionados en el artículo [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md) para desencadenar el trabajo de copia de seguridad.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuar copias de seguridad de máquinas virtuales ya copiadas con el cifrado habilitado  
-Si tiene máquinas virtuales cuya copia de seguridad ya se ha realizado en el almacén de Recovery Services y en las que se ha habilitado el cifrado en un momento posterior, debe conceder permisos al servicio de copia de seguridad para acceder al almacén de claves para que las copias de seguridad continúen. Puede proporcionar estos permisos en PowerShell mediante los pasos de la sección **Habilitar Backup** de la [documentación de PowerShell](backup-azure-vms-automation.md#backup-azure-vms). 
+Si tiene máquinas virtuales cuya copia de seguridad ya se ha realizado en el almacén de Recovery Services y en las que se ha habilitado el cifrado en un momento posterior, debe conceder permisos al servicio de copia de seguridad para acceder al almacén de claves para que las copias de seguridad continúen. Puede proporcionar estos permisos en PowerShell mediante los pasos de la sección **Habilitar Backup** de la [documentación de PowerShell](backup-azure-vms-automation.md). 
 
 ## <a name="restore-encrypted-vm"></a>Restauración de máquinas virtuales cifradas
 Para restaurar una máquina virtual cifrada, en primer lugar es preciso restaurar los discos, para lo que hay que seguir los pasos que se indican en la sección **Restauración de discos de copia de seguridad** de [Elección de una configuración de restauración para una máquina virtual](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Después de eso, puede usar una de las siguientes opciones:
-* Use los pasos de PowerShell que se indican en [Creación de una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para crear una máquina virtual completa a partir de discos restaurados. 
+* Use los pasos de PowerShell que se indican en [Creación de una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para crear una máquina virtual completa a partir de discos restaurados.
 * O bien, [usar una plantilla generada como parte de los discos de restauración](backup-azure-arm-restore-vms.md#use-templates-to-customize-restore-vm) para crear máquinas virtuales a partir de discos restaurados. Las plantillas pueden usarse únicamente para los puntos de recuperación creados después del 26 de abril de 2017.
 
 ## <a name="troubleshooting-errors"></a>Solución de errores

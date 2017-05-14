@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/18/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9ddf19c008c35525419a357436b1a969a4b19205
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -229,7 +230,7 @@ De manera predeterminada, Zookeeper devuelve el nombre de dominio de los agentes
 
     Cuando se le solicite, use el nombre de usuario y la contraseña HTTPS para el clúster. Aparece la interfaz de usuario web de Ambari para el clúster.
 
-2. Para ver información sobre Kafka, seleccione __Kafka__ en la lista de la izquierda. 
+2. Para ver información sobre Kafka, seleccione __Kafka__ en la lista de la izquierda.
 
     ![Lista de servicios donde Kafka aparece resaltado](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
@@ -271,7 +272,7 @@ De manera predeterminada, Zookeeper devuelve el nombre de dominio de los agentes
 
 ## <a name="connect-to-the-vpn-gateway"></a>Conexión a la puerta de enlace de VPN
 
-Para conectarse a la puerta de enlace de VPN desde un __cliente Windows__, use la sección __Conexión a Azure__ del documento [Configuración de una conexión de punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure).
+Para conectarse a la puerta de enlace de VPN desde un __cliente Windows__, use la sección __Conexión a Azure__ del documento [Configuración de una conexión de punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate).
 
 ## <a name="remote-kafka-client"></a>Cliente Kafka remoto
 
@@ -319,7 +320,7 @@ Para conectarse a Kafka desde el equipo cliente, debe usar la dirección IP de l
   ```
 
     Reemplace las entradas `'ip_address'` por las direcciones devueltas del paso 1 de esta sección.
-    
+
     > [!NOTE]
     > Este código envía la cadena `test message` al tema `testtopic`. La configuración predeterminada de Kafka en HDInsight es crear el tema si no existe.
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 37211b961644fdc5567147cde946f86afb9b1aa9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -76,10 +77,9 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa Data Lake S
 
 4. Seleccione una cuenta existente de Data Lake Store y especifique la ruta de acceso de la carpeta raíz en la que se van a guardar los archivos específicos del clúster.
 
-    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
-
-
     En la captura de pantalla anterior, la ruta de acceso de la carpeta raíz es /clusters/myhdiadlcluster, donde *myhdiadlcluster* es el nombre del clúster que se está creando. En tal caso, asegúrese de que la carpeta */clústeres* ya existe en la cuenta de Data Lake Store. La carpeta *myhdiadlcluster* se crea durante la creación del clúster. De forma similar, si la ruta de acceso raíz se estableció en */hdinsight/clusters/data/myhdiadlcluster*, asegúrese de que */hdinsight/clústeres/datos/* existe en la cuenta de Data Lake Store.
+
+    ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
 5. Haga clic en **Acceso a Data Lake Store** para configurar el acceso entre la cuenta de Data Lake Store y el clúster de HDInsight. Para obtener instrucciones, consulte [Configuración del acceso entre el clúster de HDInsight y Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 

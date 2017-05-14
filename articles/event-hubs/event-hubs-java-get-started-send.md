@@ -12,12 +12,13 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: fe10aaca3232e5baa0b726b7262a6e9e8ce6b638
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 45776b0920f65ae9749b00978656bcefa2bf01a8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -38,7 +39,7 @@ Para completar este tutorial necesitará lo siguiente:
 ## <a name="send-messages-to-event-hubs"></a>Envío de mensajes a Centros de eventos
 La biblioteca de cliente de Java para Centros de eventos está disponible para su uso en proyectos de Maven en el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), y se puede hacer referencia a ella mediante la siguiente declaración de dependencia en el archivo de proyecto de Maven:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -50,9 +51,9 @@ Para distintos tipos de entornos de compilación, puede obtener explícitamente 
 
 Para un editor de eventos simples, importe el paquete *com.microsoft.azure.eventhubs* para las clases de cliente de Event Hubs y el paquete *com.microsoft.azure.servicebus* para las clases de utilidad, como las excepciones comunes que se comparten con el cliente de mensajería de Azure Service Bus. 
 
-Para el ejemplo siguiente, primero cree un nuevo proyecto de Maven para una aplicación de consola o shell en su entorno de desarrollo de Java favorito. La clase se llamará ```Send```.     
+Para el ejemplo siguiente, primero cree un nuevo proyecto de Maven para una aplicación de consola o shell en su entorno de desarrollo de Java favorito. La clase se llamará `Send`.     
 
-``` Java
+```Java
 
 import java.io.IOException;
 import java.nio.charset.*;
@@ -71,7 +72,7 @@ public class Send
 
 Reemplace los nombres del espacio de nombres y del centro de eventos por los valores que usó al crear el centro de eventos.
 
-``` Java
+```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
     final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
@@ -81,7 +82,7 @@ Reemplace los nombres del espacio de nombres y del centro de eventos por los val
 
 A continuación, cree un evento singular convirtiendo una cadena en su codificación de bytes UTF-8. Después creamos una nueva instancia de cliente de Centros de eventos a partir de la cadena de conexión y enviamos el mensaje.   
 
-``` Java 
+```Java 
 
     byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
     EventData sendEvent = new EventData(payloadBytes);
@@ -93,13 +94,13 @@ A continuación, cree un evento singular convirtiendo una cadena en su codificac
 
 ``` 
 
-<!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Recepción de eventos mediante EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
-* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Información general de Event Hubs][Event Hubs overview]
 * [Creación de un centro de eventos](event-hubs-create.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
+
+<!-- Links -->
+[Event Hubs overview]: event-hubs-overview.md
