@@ -58,7 +58,7 @@ MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
 *El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
 
-** En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_DS15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Accelerated Networking para una máquina virtual).
+** En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_DS15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md) (Accelerated Networking para una máquina virtual).
 
 ***La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
@@ -78,7 +78,7 @@ ACU: 210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremadamente alto           |
 | Standard_D15_v2** | 20 |        | 140         | 1000          | 60000 / 937 / 468                                        | 40 / 40x500                       | 8 / extremadamente alto*          |
 
-* En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_D15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md) (Accelerated Networking para una máquina virtual).
+* En algunas regiones, Accelerated Networking está disponible para el tamaño Standard_D15_v2. Para más información acerca del uso y la disponibilidad, consulte [Accelerated Networking is in preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Accelerated Networking está en la fase de versión preliminar) y [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md) (Accelerated Networking para una máquina virtual).
 
 **La instancia está aislada en el hardware dedicado a un solo cliente.
 

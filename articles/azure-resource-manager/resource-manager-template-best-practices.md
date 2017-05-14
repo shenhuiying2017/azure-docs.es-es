@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fe52ced5e4dc829b5d1421bf0edcd58cffcaad19
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -48,7 +49,7 @@ Debe dar un nombre de recurso único para cualquier tipo de recurso que tenga un
 
 <sup>1</sup> Los nombres de las cuentas de almacenamiento deben estar en minúsculas, tener 24 caracteres o menos y no incluir guiones.
 
-Si proporciona un parámetro para un nombre de recurso, debe proporcionar un nombre único cuando implementa el recurso. De manera opcional, puede crear una variable que usa la función [uniqueString()](resource-group-template-functions.md#uniquestring) para generar un nombre. 
+Si proporciona un parámetro para un nombre de recurso, debe proporcionar un nombre único cuando implementa el recurso. De manera opcional, puede crear una variable que usa la función [uniqueString()](resource-group-template-functions-string.md#uniquestring) para generar un nombre. 
 
 También puede que quiera agregar un prefijo o sufijo al resultado **uniqueString**. Modificar el nombre único podría ayudarlo a identificar más fácilmente el tipo de recurso a partir del nombre. Por ejemplo, puede generar un nombre único para una cuenta de almacenamiento si usa la variable siguiente:
 
@@ -174,7 +175,7 @@ La información siguiente puede ser útil cuando se trabaja con parámetros:
 La información siguiente puede ser útil cuando se trabaja con variables:
 
 * Use las variables para los valores que deba utilizar más de una vez en una plantilla. Si un valor se usa solo una vez, codificarlo de forma rígida hace que la plantilla resulte más fácil de leer.
-* No se puede usar la función [reference](resource-group-template-functions.md#reference) en la sección **variables** de la plantilla. La función **reference** deriva su valor desde el estado de tiempo de ejecución del recurso. Sin embargo, las variables se resuelven durante el análisis inicial de la plantilla. Construya valores que requieran la función **reference** directamente en las secciones **resources** u **outputs** de la plantilla.
+* No se puede usar la función [reference](resource-group-template-functions-resource.md#reference) en la sección **variables** de la plantilla. La función **reference** deriva su valor desde el estado de tiempo de ejecución del recurso. Sin embargo, las variables se resuelven durante el análisis inicial de la plantilla. Construya valores que requieran la función **reference** directamente en las secciones **resources** u **outputs** de la plantilla.
 * Incluya variables para los nombres de recurso que deben ser únicos, como se describe en [Nombres de recurso](#resource-names).
 * Puede agrupar las variables en objetos complejos. Use el formato **variable.subentry** para hacer referencia un valor desde un objeto complejo. Agrupar las variables puede ayudarlo a hacer seguimiento de variables relacionadas. También mejora la legibilidad de la plantilla. Este es un ejemplo:
    

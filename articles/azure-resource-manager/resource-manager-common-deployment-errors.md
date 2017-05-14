@@ -11,15 +11,16 @@ keywords: "error de implementación, implementación de Azure, implementar en Az
 ms.assetid: c002a9be-4de5-4963-bd14-b54aa3d8fa59
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7dfd3f7f0bebd0dbe20ffc9952d83cb8b4fcfe3e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -285,7 +286,7 @@ Si está tratando de implementar el recurso que falta en la plantilla, compruebe
 
 Para obtener sugerencias sobre cómo solucionar los errores de dependencia, consulte [Comprobación de la secuencia de implementación](#check-deployment-sequence).
 
-También verá este error cuando el recurso se encuentra en otro grupo de recursos que donde se está implementando. En ese caso, use la [función resourceId](resource-group-template-functions.md#resourceid) para obtener el nombre completo del recurso.
+También verá este error cuando el recurso se encuentra en otro grupo de recursos que donde se está implementando. En ese caso, use la [función resourceId](resource-group-template-functions-resource.md#resourceid) para obtener el nombre completo del recurso.
 
 ```json
 "properties": {
@@ -294,7 +295,7 @@ También verá este error cuando el recurso se encuentra en otro grupo de recurs
 }
 ```
 
-Si trata de usar las funciones [reference](resource-group-template-functions.md#reference) o [listKeys](resource-group-template-functions.md#listkeys) con un recurso que no se puede resolver, recibirá el error siguiente:
+Si trata de usar las funciones [reference](resource-group-template-functions-resource.md#reference) o [listKeys](resource-group-template-functions-resource.md#listkeys) con un recurso que no se puede resolver, recibirá el error siguiente:
 
 ```
 Code=ResourceNotFound;
@@ -339,7 +340,7 @@ Code=StorageAccountAlreadyTaken
 Message=The storage account named mystorage is already taken.
 ```
 
-Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring) .
+Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -349,7 +350,7 @@ Puede crear un nombre único concatenando la convención de nomenclatura con el 
 Si implementa una cuenta de almacenamiento con el mismo nombre que una que ya hay en la suscripción, pero proporciona una ubicación diferente, recibirá un error que indica que la cuenta de almacenamiento ya se encuentra en otra ubicación. Elimine la cuenta de almacenamiento que ya existe o proporcione la misma ubicación que la de la cuenta de almacenamiento.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-Verá el error **AccountNameInvalid** al tratar de proporcionar a una cuenta de almacenamiento un nombre que incluya caracteres prohibidos. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. La función [uniqueString](resource-group-template-functions.md#uniquestring) devuelve 13 caracteres. Si concatena un prefijo con el resultado **uniqueString**, proporcione un prefijo que tenga 11 caracteres o menos.
+Verá el error **AccountNameInvalid** al tratar de proporcionar a una cuenta de almacenamiento un nombre que incluya caracteres prohibidos. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. La función [uniqueString](resource-group-template-functions-string.md#uniquestring) devuelve 13 caracteres. Si concatena un prefijo con el resultado **uniqueString**, proporcione un prefijo que tenga 11 caracteres o menos.
 
 ### <a name="badrequest"></a>BadRequest
 
@@ -626,7 +627,7 @@ Supongamos que se están produciendo errores de implementación que cree que est
 
 Muchos errores de implementación se producen cuando los recursos se implementan en una secuencia inesperada. Estos errores se producen cuando las dependencias no se han establecido correctamente. Cuando falta una dependencia necesaria, un recurso intenta usar un valor para otro recurso, pero este otro recurso no existe aún. Recibirá un error que indica que no se encuentra el recurso. Puede que este tipo de error aparezca de forma intermitente porque el tiempo de implementación de cada recurso puede variar. Por ejemplo, su primer intento de implementar los recursos tendrá éxito porque un recurso necesario aleatoriamente finaliza a tiempo. Sin embargo, el segundo intento produce error porque el recurso necesario no finalizó a tiempo. 
 
-No obstante, desea evitar configurar dependencias que no sean necesarias. Cuando hay dependencias innecesarias, prolonga la duración de la implementación al impedir que los recursos que no son dependientes entre sí se implementen en paralelo. Además, puede crear dependencias circulares que bloqueen la implementación. La función [reference](resource-group-template-functions.md#reference) crea una dependencia implícita del recurso que especifica como parámetro en la función, si ese recurso se implementa en la misma plantilla. Por lo tanto, puede tener más dependencias que las especificadas en la propiedad **dependsOn**. La función [resourceId](resource-group-template-functions.md#resourceid) no crea una dependencia implícita ni valida que el recurso existe.
+No obstante, desea evitar configurar dependencias que no sean necesarias. Cuando hay dependencias innecesarias, prolonga la duración de la implementación al impedir que los recursos que no son dependientes entre sí se implementen en paralelo. Además, puede crear dependencias circulares que bloqueen la implementación. La función [reference](resource-group-template-functions-resource.md#reference) crea una dependencia implícita del recurso que especifica como parámetro en la función, si ese recurso se implementa en la misma plantilla. Por lo tanto, puede tener más dependencias que las especificadas en la propiedad **dependsOn**. La función [resourceId](resource-group-template-functions-resource.md#resourceid) no crea una dependencia implícita ni valida que el recurso existe.
 
 Cuando se encuentre con problemas de dependencia, debe comprender mejor el orden de la implementación de recursos. Para ver el orden de las operaciones de implementación:
 

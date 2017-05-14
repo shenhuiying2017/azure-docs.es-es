@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ Una vez más, Visual Studio Code le ayuda al sugerir las funciones disponibles.
 
 ![mostrar funciones](./media/resource-manager-create-first-template/show-functions.png)
 
-Tenga en cuenta que la función va entre corchetes. La función [resourceGroup](resource-group-template-functions.md#resourcegroup) devuelve un objeto con una propiedad denominada `location`. El grupo de recursos contiene todos los recursos relacionados para la solución. Se puede codificar la propiedad location en un valor como "Central US" (Centro de EE. UU.), pero tendría que cambiar manualmente la plantilla para volver a implementarla en una ubicación diferente. Mediante la función `resourceGroup`, facilita el proceso de volver a implementar esta plantilla en otro grupo de recursos en una ubicación diferente.
+Tenga en cuenta que la función va entre corchetes. La función [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) devuelve un objeto con una propiedad denominada `location`. El grupo de recursos contiene todos los recursos relacionados para la solución. Se puede codificar la propiedad location en un valor como "Central US" (Centro de EE. UU.), pero tendría que cambiar manualmente la plantilla para volver a implementarla en una ubicación diferente. Mediante la función `resourceGroup`, facilita el proceso de volver a implementar esta plantilla en otro grupo de recursos en una ubicación diferente.
 
 La plantilla ahora tiene el aspecto siguiente:
 
@@ -216,7 +217,7 @@ La plantilla ahora tiene el aspecto siguiente:
 ## <a name="add-parameters-and-variables"></a>Adición de parámetros y variables
 Solo quedan dos valores para establecer en la plantilla - **name** y **sku.name**. Para estas propiedades, puede agregar parámetros que le permiten personalizar estos valores durante la implementación. 
 
-Los nombres de cuenta de almacenamiento tienen varias restricciones que dificultan el establecimiento. El nombre debe tener entre 3 y 24 caracteres, usar solo números y letras minúsculas, y ser único. En lugar de tratar de adivinar un valor único que coincida con las restricciones, utilice la función [uniqueString](resource-group-template-functions.md#uniquestring) para generar un valor de hash. Para dar más significado a este valor de hash, agregue un prefijo que le ayude a identificarla como una cuenta de almacenamiento después de la implementación. 
+Los nombres de cuenta de almacenamiento tienen varias restricciones que dificultan el establecimiento. El nombre debe tener entre 3 y 24 caracteres, usar solo números y letras minúsculas, y ser único. En lugar de tratar de adivinar un valor único que coincida con las restricciones, utilice la función [uniqueString](resource-group-template-functions-string.md#uniquestring) para generar un valor de hash. Para dar más significado a este valor de hash, agregue un prefijo que le ayude a identificarla como una cuenta de almacenamiento después de la implementación. 
 
 1. Para pasar un prefijo para el nombre que coincide con las convenciones de nomenclatura, vaya a la sección **parameters** de la plantilla. Agregue un parámetro a la plantilla que acepte un prefijo para el nombre de cuenta de almacenamiento:
 
