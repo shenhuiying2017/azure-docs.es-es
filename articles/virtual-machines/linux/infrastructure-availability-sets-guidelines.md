@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 05d5ae485f5a345ade59326ab77cb38127f06580
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c4c44cc0f1f55a46d797b78ab56f88ddcf3953e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Al diseñar la infraestructura de la aplicación, también debe planear los nive
 
 Los equilibradores de carga pueden usarse delante de cada nivel de aplicación junto con un conjunto de disponibilidad para garantizar que el tráfico pueda enrutarse siempre a una instancia en ejecución. Sin un equilibrador de carga, las máquinas virtuales pueden seguir ejecutándose durante los eventos de mantenimiento planeados y no planeados, pero es posible que los usuarios finales no puedan resolverlos si la máquina virtual principal no está disponible.
 
-Diseñe su aplicación para lograr una alta disponibilidad en la capa de almacenamiento. El procedimiento recomendado es [usar Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../linux/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Si actualmente usa discos no administrados, es muy recomendable [convertir las máquinas virtuales del conjunto de disponibilidad para que usen Managed Disks](../linux/convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
+Diseñe su aplicación para lograr una alta disponibilidad en la capa de almacenamiento. El procedimiento recomendado es [usar Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Si actualmente usa discos no administrados, es muy recomendable [convertir las máquinas virtuales del conjunto de disponibilidad para que usen Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
