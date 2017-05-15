@@ -15,9 +15,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
 ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
+ms.contentlocale: es-es
 ms.lasthandoff: 03/01/2017
 
 
