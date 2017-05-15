@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
 ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.contentlocale: es-es
 ms.lasthandoff: 02/06/2017
 
 
@@ -60,7 +61,7 @@ En esta sección, creará una aplicación de consola de Node.js que inicia una a
 2. En el símbolo del sistema, en la carpeta **triggerfwupdateondevice**, ejecute el siguiente comando para instalar los paquetes del SDK de dispositivo **azure-iothub** y **azure-iot-device-mqtt**:
    
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
 3. Con un editor de texto, cree un archivo **dmpatterns_getstarted_service.js** en la carpeta **triggerfwupdateondevice**.
 4. Agregue las siguientes instrucciones "require" al principio del archivo **dmpatterns_getstarted_service.js**:

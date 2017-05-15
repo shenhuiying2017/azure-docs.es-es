@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: 008227496dc7d685b1ce7d178a87640037a23500
+ms.contentlocale: es-es
 ms.lasthandoff: 04/13/2017
 
 
@@ -42,7 +43,8 @@ Puede invitar de forma masiva a usuarios externos a una organización desde dire
 3. Inicie sesión en el espacio.
 
     ```
-    Connect-AzureAd -tenantId <tenantId>
+    $cred = Get-Credential
+    Connect-AzureAD -Credential $cred
     ```
 
 4. Ejecución del cmdlet de PowerShell
