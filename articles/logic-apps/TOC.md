@@ -80,6 +80,16 @@
 ### [Precios](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Medición de uso](logic-apps-pricing.md)
 
+# Sin servidor
+## Información general
+### [Sin servidor de Azure](logic-apps-serverless-overview.md)
+## Introducción
+### [Creación de una aplicación sin servidor en Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Escenarios y tutoriales
+### [Recopilación de comentarios de los clientes](logic-apps-scenario-social-serverless.md)
+### [Envío de mensajes de correo electrónico automatizados](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [Procesamiento de pedidos B2B/EDI](logic-apps-enterprise-integration-overview.md)
+
 # Referencia
 ## [Lenguaje de definición de flujo de trabajo](logic-apps-workflow-definition-language.md)
 ## [Acciones y desencadenadores de flujo de trabajo](logic-apps-workflow-actions-triggers.md)
