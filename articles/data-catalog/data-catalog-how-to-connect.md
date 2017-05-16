@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 5db1a6f8b3ff0369817e69abaa4d95af843cd7f2
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -69,9 +71,4 @@ Al registrar un origen de datos con **Azure Data Catalog**, se consigue que esos
 
 ## <a name="see-also"></a>Consulte también
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

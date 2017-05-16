@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 25c2b279487f099a0e688621e63faaa4ed265e6e
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -84,9 +86,4 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure** se facili
 
 ## <a name="see-also"></a>Consulte también
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo registrar orígenes de datos.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

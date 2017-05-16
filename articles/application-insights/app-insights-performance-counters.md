@@ -4,7 +4,7 @@ description: Supervise los contadores de rendimiento de .NET, tanto del sistema 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -128,13 +130,8 @@ Al igual que otros datos de telemetría, **performanceCounters** también tiene 
 ## <a name="alerts"></a>Alertas
 Al igual que otras métricas, puede [establecer una alerta](app-insights-alerts.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra la hoja de alertas y haga clic en Agregar alerta.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
+## <a name="next"></a>Pasos siguientes
 * [Seguimiento de dependencias](app-insights-asp-net-dependencies.md)
 * [Seguimiento de excepciones](app-insights-asp-net-exceptions.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
