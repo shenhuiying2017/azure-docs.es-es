@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f017776480466979d7f2f9edec2b3ac5caca2321
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -79,9 +81,4 @@ La página principal del portal Catálogo de datos de Azure una sección "Mis re
 
 ## <a name="summary"></a>Resumen
 El Catálogo de datos de Azure proporciona funciones que permiten a los usuarios encontrar fácilmente los orígenes de datos que necesitan, por lo que pueden dedicar menos tiempo a buscar datos y más tiempo a trabajar con ellos. Las búsquedas guardadas y los recursos de datos anclados se basan en estas funciones centrales para que los usuarios puedan identificar fácilmente los orígenes de datos con los que trabajarán repetidamente.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
