@@ -16,7 +16,7 @@ Necesita el cliente SSH en su máquina de escritorio para poder acceder de forma
 
 Un equipo de escritorio que permita conectarse remotamente a la línea de comandos en Raspberry Pi.
 
-[Kit de inicio de Microsoft IoT para Raspberry Pi 3] [ lnk-starter-kits] o componentes equivalentes. En este tutorial se usan los siguientes elementos del kit:
+[Kit de inicio de Microsoft IoT para Raspberry Pi 3][lnk-starter-kits] o componentes equivalentes. En este tutorial se usan los siguientes elementos del kit:
 
 - Raspberry Pi 3
 - Tarjeta MicroSD (con NOOBS)
