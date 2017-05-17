@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/16/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
-ms.lasthandoff: 04/13/2017
+ms.date: 04/07/2017
+ms.author: sashan;carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4abcfa777c08cec25770dc92f38e530f1ddb1d89
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,16 +35,16 @@ En el resto del artículo, trataremos las estrategias de recuperación ante desa
 ## <a name="scenario-1-cost-sensitive-startup"></a>Escenario 1. Inicio sensible al costo
 <i>Acabo de crear una empresa y me preocupan sobremanera los costos.  Quiero simplificar la implementación y administración de la aplicación y estoy dispuesto a tener un contrato de nivel de servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>
 
-Para satisfacer el requisito de simplicidad, debe implementar todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implementar las bases de datos de administración como bases de datos únicas de replicación geográfica. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, deben ser replicadas geográficamente en otra región (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
+Para satisfacer el requisito de simplicidad, debe implementar todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implementar las bases de datos de administración como bases de datos únicas de replicación geográfica. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, deben ser replicadas geográficamente en otra región con un grupo de conmutación por error automática (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
 
 ![En la Ilustración 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 En el caso de una interrupción en la región principal, se ilustran los pasos de recuperación para conectar la aplicación en el diagrama siguiente.
 
-* Realice inmediatamente una conmutación por error en las bases de datos de administración (2) en la región de recuperación ante desastres. 
-* Cambie la cadena de conexión de la aplicación para que apunte a la región de recuperación ante desastres. Todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región de recuperación ante desastres. Los clientes existentes verán que sus datos no están disponibles temporalmente.
-* Cree el grupo elástico con la misma configuración que el grupo original (3). 
-* Use la restauración geográfica para crear copias de las bases de datos de inquilino (4). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
+* El grupo de conmutación por error inicia la conmutación por error automática de la base de datos de administración a la región de recuperación ante desastres. La aplicación se volverá a conectar automáticamente a la nueva base de datos principal y todas las nuevas cuentas y bases de datos de inquilino se crearán en la región de recuperación ante desastres. Los clientes existentes verán que sus datos no están disponibles temporalmente.
+* Cree el grupo elástico con la misma configuración que el grupo original (2).
+* Use la restauración geográfica para crear copias de las bases de datos de inquilino (3). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
+
 
 En este momento, la aplicación vuelve a estar conectada en la región de recuperación ante desastres, pero algunos clientes experimentarán una demora al tener acceso a sus datos.
 

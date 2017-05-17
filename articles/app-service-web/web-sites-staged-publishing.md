@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dd0382aaec0cdcbd6688d99f7bc0245fae5b963f
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
 
-Al implementar la aplicación web, el back-end móvil y la aplicación de API en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puede implementar en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada al ejecutar en el modo del plan de App Service **Estándar** o **Premium**. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio de implementación ofrece las ventajas siguientes:
+Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil y la aplicación de API en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), puede implementar en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada al ejecutar en el modo del plan de App Service **Estándar** o **Premium**. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio de implementación ofrece las ventajas siguientes:
 
 * Puede validar los cambios en la aplicación en una ranura de implementación de ensayo antes de intercambiarla con la ranura de producción.
 * La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
@@ -120,6 +120,9 @@ Puede intercambiar ranuras de implementación en la vista **Información general
 Intercambio con vista previa o en varias fases simplifican la validación de elementos de configuración específicos de ranura, como cadenas de conexión.
 Para las cargas de trabajo críticas, desea validar que la aplicación se comporte según lo esperado al aplicarse la configuración de la ranura de producción, debiendo llevar a cabo dicha validación *antes* de que la aplicación se coloque en producción. Intercambio con vista previa es lo que necesita.
 
+> [!NOTE]
+> El intercambio con vista previa no se admite en las aplicaciones web en Linux.
+
 Al usar la opción **Intercambio con vista previa** (consulte [Intercambiar ranuras de implementación](#Swap)), App Service hace lo siguiente:
 
 - Mantiene la ranura de destino sin cambios para que la carga de trabajo existente en esa ranura (p. ej., producción) no se vea afectada.
@@ -141,6 +144,9 @@ El intercambio automático optimiza los escenarios de DevOps donde desee impleme
 > Al habilitar el intercambio automático para una ranura, asegúrese de que la configuración de ranura sea exactamente la configuración prevista para la ranura de destino (normalmente la ranura de producción).
 > 
 > 
+
+> [!NOTE]
+> El intercambio automático no se admite en aplicaciones web en Linux.
 
 Es fácil configurar el intercambio automático para un espacio. Siga estos pasos:
 
@@ -277,8 +283,8 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Aplicación web del Servicio de aplicaciones de Azure: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
+[Aplicación web de Azure App Service: bloquear el acceso web a las ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Introducción a App Service en Linux](./app-service-linux-intro.md)
 [Evaluación gratuita de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

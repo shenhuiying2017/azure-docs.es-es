@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f1156572dece1dd59d5a258b670c8fb4f3e3d0e6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 85a2fac77cf5beae6debad044df169301d43f4ca
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -108,6 +108,7 @@ Puede **obtener** el valor de estas variables definidas por el servicio para rea
 | $SucceededTasks |El número de tareas que finalizó correctamente. |
 | $FailedTasks |El número de tareas erróneas. |
 | $CurrentDedicated |El número actual de dedicado de nodos de ejecución dedicados. |
+| $PreemptedNodeCount | El número de nodos en el grupo que se encuentran en estado reemplazado. |
 
 > [!TIP]
 > Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Para obtener más información, vea más adelante la sección [Obtención de datos de muestra](#getsampledata).

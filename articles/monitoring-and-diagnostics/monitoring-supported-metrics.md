@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/17/2017
+ms.date: 5/10/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 354bf45625c209c22118804d3835ca71e3128580
-ms.openlocfilehash: deda64fb779e176bb00c3256fa3028e7e3567eb4
-ms.lasthandoff: 02/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: c0e7eb271b7ab19131c500e139ea3b1f6b2e7479
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,6 +43,38 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |QueryPoolBusyThreads|Subprocesos ocupados de grupo de consultas|Recuento|Media|Número de subprocesos ocupados del grupo de subprocesos de consulta.|
 |CommandPoolJobQueueLength|Longitud de cola de trabajos de grupo de comandos|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de comandos.|
 |ProcessingPoolJobQueueLength|Longitud de cola de trabajos de grupo de procesamiento|Recuento|Media|Número de trabajos que no son de E/S en la cola del grupo de subprocesos de procesamiento.|
+|CurrentConnections|Conexión: conexiones actuales|Recuento|Media|Número actual de conexiones de cliente establecidas.|
+|CleanerCurrentPrice|Memoria: precio actual de limpieza|Recuento|Media|Precio actual de memoria, USD/byte/tiempo, normalizado a 1000.|
+|CleanerMemoryShrinkable|Memoria: memoria de limpieza reducible|Bytes|Media|Cantidad de memoria, en bytes, que purgará el limpiador en segundo plano.|
+|CleanerMemoryNonshrinkable|Memoria: memoria de limpieza no reducible|Bytes|Media|Cantidad de memoria, en bytes, que no purgará el limpiador en segundo plano.|
+|MemoryUsage|Memoria: uso de memoria|Bytes|Media|Uso de memoria del proceso de servidor tal como se usa para calcular el precio de la memoria del limpiador. Es igual al contador Proceso\Bytes privados más el tamaño de los datos asignados a la memoria; se ignora la memoria que ha asignado VertiPaq superior al límite de memoria de VertiPaq.|
+|MemoryLimitHard|Memoria: límite de memoria física|Bytes|Media|Límite de memoria física del archivo de configuración.|
+|MemoryLimitHigh|Memoria: límite alto de memoria|Bytes|Media|Límite alto de memoria del archivo de configuración.|
+|MemoryLimitLow|Memoria: límite bajo de memoria|Bytes|Media|Límite bajo de memoria del archivo de configuración.|
+|MemoryLimitVertiPaq|Memoria: VertiPaq de límite de memoria|Bytes|Media|Límite en memoria del archivo de configuración.|
+|Cuota|Memoria: cuota|Bytes|Media|Cuota de memoria actual, en bytes. La cuota de memoria también se denomina concesión de memoria o reserva de memoria.|
+|QuotaBlocked|Memoria: cuota bloqueada|Recuento|Media|Número actual de solicitudes de cuota que están bloqueadas hasta que se liberen otras cuotas de memoria.|
+|VertiPaqNonpaged|Memoria: VertiPaq no paginado|Bytes|Media|Bytes de memoria bloqueados en el espacio de trabajo para que los use el motor en memoria.|
+|VertiPaqPaged|Memoria: VertiPaq paginado|Bytes|Media|Bytes de memoria paginada en uso para datos en memoria.|
+|RowsReadPerSec|Procesamiento: filas leídas por segundo|CountPerSecond|Media|Velocidad de filas leídas de todas las bases de datos relacionales.|
+|RowsConvertedPerSec|Procesamiento: filas convertidas por segundo|CountPerSecond|Media|Velocidad de filas convertidas durante el procesamiento.|
+|RowsWrittenPerSec|Procesamiento: filas escritas por segundo|CountPerSecond|Media|Velocidad de filas escritas durante el procesamiento.|
+|CommandPoolBusyThreads|Subprocesos: subprocesos ocupados del grupo de comandos|Recuento|Media|Número de subprocesos ocupados del grupo de subprocesos de comandos.|
+|CommandPoolIdleThreads|Subprocesos: subprocesos inactivos del grupo de comandos|Recuento|Media|Número de subprocesos inactivos del grupo de subprocesos de comandos.|
+|LongParsingBusyThreads|Subprocesos: subprocesos ocupados en análisis largos|Recuento|Media|Número de subprocesos ocupados del grupo de subprocesos de análisis largos.|
+|LongParsingIdleThreads|Subprocesos: subprocesos inactivos en análisis largos|Recuento|Media|Número de subprocesos inactivos del grupo de subprocesos en análisis largos.|
+|LongParsingJobQueueLength|Subprocesos: longitud de cola de trabajos en análisis largos|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos en análisis largos.|
+|ProcessingPoolBusyIOJobThreads|Subprocesos: subprocesos de trabajo de E/S ocupados del grupo de procesamiento|Recuento|Media|Número de subprocesos que ejecutan trabajos de E/S en el grupo de subprocesos de procesamiento.|
+|ProcessingPoolBusyNonIOThreads|Subprocesos: subprocesos de trabajo ocupados que no son de E/S del grupo de procesamiento|Recuento|Media|Número de subprocesos que ejecutan trabajos que no son de E/S del grupo de subprocesos de procesamiento.|
+|ProcessingPoolIOJobQueueLength|Subprocesos: longitud de cola de trabajos de E/S del grupo de procesamiento|Recuento|Media|Número de trabajos de E/S en la cola del grupo de subprocesos de procesamiento.|
+|ProcessingPoolIdleIOJobThreads|Subprocesos: subprocesos de trabajo de E/S inactivos del grupo de procesamiento|Recuento|Media|Número de subprocesos inactivos para trabajos de E/S en el grupo de subprocesos de procesamiento.|
+|ProcessingPoolIdleNonIOThreads|Subprocesos: subprocesos de trabajo inactivos que no son de E/S del grupo de procesamiento|Recuento|Media|Número de subprocesos inactivos del grupo de subprocesos de procesamiento dedicado a trabajos que no son de E/S.|
+|QueryPoolIdleThreads|Subprocesos: subprocesos inactivos del grupo de consultas|Recuento|Media|Número de subprocesos inactivos para trabajos de E/S en el grupo de subprocesos de procesamiento.|
+|QueryPoolJobQueueLength|Subprocesos: longitud de cola de trabajos del grupo de consultas|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos de consultas.|
+|ShortParsingBusyThreads|Subprocesos: subprocesos ocupados en análisis cortos|Recuento|Media|Número de subprocesos ocupados del grupo de subprocesos de análisis cortos.|
+|ShortParsingIdleThreads|Subprocesos: subprocesos inactivos en análisis cortos|Recuento|Media|Número de subprocesos inactivos del grupo de subprocesos de análisis cortos.|
+|ShortParsingJobQueueLength|Subprocesos: longitud de cola de trabajos en análisis cortos|Recuento|Media|Número de trabajos en la cola del grupo de subprocesos en análisis cortos.|
+|memory_thrashing_metric|Paginación excesiva de memoria|Percent|Media|Paginación excesiva media de memoria.|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -299,6 +332,42 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
 |Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
 
+## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
+|---|---|---|---|---|
+|CustomerInsightsApiCalls|CustomerInsightsApiCalls|Recuento|Total||
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|
+|compute_limit|Límite de unidad de proceso|Recuento|Media|Límite de unidad de proceso|
+|compute_consumption_percent|Porcentaje de unidad de proceso|Percent|Media|Porcentaje de unidad de proceso|
+|memory_percent|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|
+|io_consumption_percent|Porcentaje de E/S|Percent|Media|Porcentaje de E/S|
+|storage_percent|Porcentaje de almacenamiento|Percent|Media|Porcentaje de almacenamiento|
+|storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|
+|storage_limit|Límite de almacenamiento|Bytes|Media|Límite de almacenamiento|
+|active_connections|Conexiones activas totales|Recuento|Media|Conexiones activas totales|
+|connections_failed|Conexiones con errores totales|Recuento|Media|Conexiones con errores totales|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|cpu_percent|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|
+|compute_limit|Límite de unidad de proceso|Recuento|Media|Límite de unidad de proceso|
+|compute_consumption_percent|Porcentaje de unidad de proceso|Percent|Media|Porcentaje de unidad de proceso|
+|memory_percent|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|
+|io_consumption_percent|Porcentaje de E/S|Percent|Media|Porcentaje de E/S|
+|storage_percent|Porcentaje de almacenamiento|Percent|Media|Porcentaje de almacenamiento|
+|storage_used|Almacenamiento utilizado|Bytes|Media|Almacenamiento utilizado|
+|storage_limit|Límite de almacenamiento|Bytes|Media|Límite de almacenamiento|
+|active_connections|Conexiones activas totales|Recuento|Media|Conexiones activas totales|
+|connections_failed|Conexiones con errores totales|Recuento|Media|Conexiones con errores totales|
+
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
@@ -311,7 +380,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |devices.totalDevices|Número total de dispositivos|Recuento|Total|Número de dispositivos registrados en IoT Hub|
 |devices.connectedDevices.allProtocol|Dispositivos conectados|Recuento|Total|Número de dispositivos conectados a IoT Hub|
 |d2c.telemetry.egress.success|Mensajes de telemetría entregados|Recuento|Total|Número de veces que los mensajes se han escrito correctamente mensajes en los puntos de conexión (total)|
-|d2c.telemetry.egress.dropped|Mensajes descartados|Recuento|Total|Número de mensajes descartados porque no coincidían con ninguna ruta y porque la ruta de reserva se deshabilitó|
+|d2c.telemetry.egress.dropped|Mensajes descartados|Recuento|Total|Número de mensajes quitados porque el punto de conexión de entrega estaba inactivo|
 |d2c.telemetry.egress.orphaned|Mensajes huérfanos|Recuento|Total|El recuento de mensajes no coincide con ninguna ruta, incluida la ruta de reserva|
 |d2c.telemetry.egress.invalid|Mensajes no válidos|Recuento|Total|El recuento de mensajes no entregados debido a incompatibilidad con el punto de conexión|
 |d2c.telemetry.egress.fallback|Mensajes que coinciden con la condición de reserva|Recuento|Total|Número de mensajes escritos en el punto de conexión de reserva|
@@ -354,12 +423,14 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |jobs.queryJobs.failure|Consultas de trabajo con error|Recuento|Total|El recuento de todas las llamadas con error para consultar trabajos.|
 |jobs.completed|Trabajos completados|Recuento|Total|El recuento de todos los trabajos completados.|
 |jobs.failed|Trabajos con error|Recuento|Total|El recuento de todos los trabajos con error.|
+|d2c.telemetry.ingress.sendThrottle|Número de errores de limitación|Recuento|Total|Número de errores de limitación debido a las limitaciones de rendimiento del dispositivo|
+|dailyMessageQuotaUsed|Número total de mensajes usados|Recuento|Media|Número de mensajes totales usados hoy|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|INREQS|Solicitudes entrantes|Recuento|Total|Número total de solicitudes de un espacio de nombres entrantes|
+|INREQS|Solicitudes de envío entrantes|Recuento|Total|Solicitudes de envío entrantes totales de un centro de notificaciones|
 |SUCCREQ|Solicitudes correctas|Recuento|Total|Número total de solicitudes correctas para un espacio de nombres|
 |FAILREQ|Solicitudes con error|Recuento|Total|Número total de solicitudes erróneas para un espacio de nombres|
 |SVRBSY|Errores de servidor ocupado|Recuento|Total|Errores totales de servidor ocupado para un espacio de nombres|
@@ -367,11 +438,11 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MISCERR|Otros errores|Recuento|Total|Número total de solicitudes erróneas para un espacio de nombres|
 |INMSGS|Mensajes entrantes|Recuento|Total|Total de mensajes entrantes para un espacio de nombres|
 |OUTMSGS|Mensajes salientes|Recuento|Total|Total de mensajes salientes para un espacio de nombres|
-|EHINMBS|Bytes de entrada|BytesPerSecond|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres|
-|EHOUTMBS|Bytes de salida|BytesPerSecond|Total|Total de mensajes salientes para un espacio de nombres|
+|EHINMBS|Bytes de entrada|Bytes|Total|Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres|
+|EHOUTMBS|Bytes de salida|Bytes|Total|Total de mensajes salientes para un espacio de nombres|
 |EHABL|Mensajes de trabajo pendiente de archivado|Recuento|Total|Mensajes de archivo del centro de eventos en el trabajo pendiente para un espacio de nombres|
 |EHAMSGS|Mensajes de archivado|Recuento|Total|Mensajes archivados del centro de eventos en un espacio de nombres|
-|EHAMBS|Rendimiento de mensajes de archivado|BytesPerSecond|Total|Rendimiento de mensajes archivados del centro de eventos en un espacio de nombres|
+|EHAMBS|Rendimiento de mensajes de archivado|Bytes|Total|Rendimiento de mensajes archivados del centro de eventos en un espacio de nombres|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
@@ -477,6 +548,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |outgoing.mpns.dropped|Notificaciones descartadas de MPNS|Recuento|Total|El recuento de inserciones que MPNS ha descartado (encabezado de respuesta MPNS: X-NotificationStatus: QueueFull o Suppressed).|
 |outgoing.mpns.pnserror|Errores de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error debido a errores de comunicación con MPNS.|
 |outgoing.mpns.authenticationerror|Errores de autenticación de MPNS|Recuento|Total|El recuento de inserciones que provocaron un error porque el PNS no aceptó las credenciales proporcionadas o las credenciales están bloqueadas.|
+|notificationhub.Devices|Dispositivos del centro de notificaciones|Recuento|Media|Recuento de dispositivos del centro de notificaciones|
+|notificationhub.pushes|Notificaciones de inserción del centro de notificaciones|Recuento|Total|Recuento de notificaciones de inserción del centro de notificaciones|
+|incoming.all.requests|Todas las solicitudes entrantes|Recuento|Total|Solicitudes entrantes totales de un centro de notificaciones|
+|incoming.all.failedrequests|Todas las solicitudes entrantes con error|Recuento|Total|Solicitudes entrantes totales con error de un centro de notificaciones|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -512,10 +587,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones|
 |dtu_limit|Límite de DTU|Recuento|Media|Límite de DTU|
 |dtu_used|DTU utilizada|Recuento|Media|DTU utilizada|
-|service_level_objective|Objetivo de nivel de servicio de la base de datos|Recuento|Total|Objetivo de nivel de servicio de la base de datos|
 |dwu_limit|Límite de DWU|Recuento|Máxima|Límite de DWU|
-|dwu_consumption_percent|Porcentaje de DWU|Percent|Media|Porcentaje de DWU|
-|dwu_used|DWU utilizada|Recuento|Media|DWU utilizada|
+|dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU|
+|dwu_used|DWU utilizada|Recuento|Máxima|DWU utilizada|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -550,65 +624,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |AMLCalloutFailedRequests|Solicitudes de función con errores|Recuento|Total|Solicitudes de función con errores|
 |AMLCalloutInputEvents|Eventos de función|Recuento|Total|Eventos de función|
 
-## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
-|---|---|---|---|---|
-|CpuPercentage|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|
-|MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|
-|DiskQueueLength|Longitud de la cola de disco|Recuento|Total|Longitud de la cola de disco|
-|HttpQueueLength|Longitud de la cola HTTP|Recuento|Total|Longitud de la cola HTTP|
-|BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
-|BytesSent|Salida de datos|Bytes|Total|Salida de datos|
-
-## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sitios (se incluye Functions)
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
-|---|---|---|---|---|
-|CpuTime|Tiempo de CPU|Segundos|Total|Tiempo de CPU|
-|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
-|BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
-|BytesSent|Salida de datos|Bytes|Total|Salida de datos|
-|Http101|Http 101|Recuento|Total|Http 101|
-|Http2xx|Http 2xx|Recuento|Total|Http 2xx|
-|Http3xx|Http 3xx|Recuento|Total|Http 3xx|
-|Http401|Http 401|Recuento|Total|Http 401|
-|Http403|Http 403|Recuento|Total|Http 403|
-|Http404|Http 404|Recuento|Total|Http 404|
-|Http406|Http 406|Recuento|Total|Http 406|
-|Http4xx|Http 4xx|Recuento|Total|Http 4xx|
-|Http5xx|Errores de servidor HTTP|Recuento|Total|Errores de servidor HTTP|
-|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|
-|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|
-|AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|
-|FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|
-|FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|
-
-## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
-|---|---|---|---|---|
-|CpuTime|Tiempo de CPU|Segundos|Total|Tiempo de CPU|
-|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
-|BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
-|BytesSent|Salida de datos|Bytes|Total|Salida de datos|
-|Http101|Http 101|Recuento|Total|Http 101|
-|Http2xx|Http 2xx|Recuento|Total|Http 2xx|
-|Http3xx|Http 3xx|Recuento|Total|Http 3xx|
-|Http401|Http 401|Recuento|Total|Http 401|
-|Http403|Http 403|Recuento|Total|Http 403|
-|Http404|Http 404|Recuento|Total|Http 404|
-|Http406|Http 406|Recuento|Total|Http 406|
-|Http4xx|Http 4xx|Recuento|Total|Http 4xx|
-|Http5xx|Errores de servidor HTTP|Recuento|Total|Errores de servidor HTTP|
-|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|
-|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|
-|AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|
-|FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|
-|FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|
-
 ## <a name="next-steps"></a>Pasos siguientes
-* [Lea información sobre las métricas en Azure Monitor](monitoring-overview.md#monitoring-sources)
+* [Lea información sobre las métricas en Azure Monitor](monitoring-overview-metrics.md)
 * [Creación de alertas basadas en métricas](insights-receive-alert-notifications.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)
 

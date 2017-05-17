@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
-translationtype: Human Translation
-ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
-ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 En este artículo se describe cómo realizar la autenticación, para que el código pueda usar la [referencia de API de REST de Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
-La API de Azure Monitor permite recuperar mediante programación las definiciones de métricas predeterminadas disponibles (el tipo de métrica de tiempo de CPU, las solicitudes, etc.), la granularidad y los valores de métricas. Una vez recuperados, los datos pueden guardarse en un almacén de datos independiente, como Azure SQL Database, DocumentDB o Azure Data Lake. Desde allí se pueden realizar análisis adicionales según sea necesario.
+La API de Azure Monitor permite recuperar mediante programación las definiciones de métricas predeterminadas disponibles (el tipo de métrica de tiempo de CPU, las solicitudes, etc.), la granularidad y los valores de métricas. Una vez recuperados, los datos pueden guardarse en un almacén de datos independiente, como Azure SQL Database, Azure Cosmos DB o Azure Data Lake. Desde allí se pueden realizar análisis adicionales según sea necesario.
 
 Además de trabajar con varios puntos de datos de métrica, como se muestra en este artículo, la API de Monitor permite enumerar las reglas de alertas, ver registros de actividades y mucho más. Para obtener una lista completa de las operaciones disponibles, vea la [referencia de la API de REST de Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -216,9 +218,4 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 * Vea las [métricas compatibles con Azure Monitor](monitoring-supported-metrics.md).
 * Revise la [referencia de la API de REST de Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Revise la [biblioteca de administración de Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
