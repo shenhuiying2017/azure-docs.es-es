@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 90ba006f25c27e1dc24c85fdc4ef1d5e2a8d0e3d
+ms.contentlocale: es-es
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -46,10 +48,5 @@ Sí, para desactivar las notificaciones relacionadas con inicios de sesión anó
 * ¿Tiene curiosidad sobre qué informes de actividad, auditoría y seguridad están disponibles? Consulte [Informes de actividad, auditoría y seguridad de Azure AD](active-directory-view-access-usage-reports.md)
 * [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

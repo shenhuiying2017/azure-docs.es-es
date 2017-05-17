@@ -3,7 +3,7 @@ title: "Introducción a Azure AD Android | Microsoft Docs"
 description: "Cómo crear una aplicación Android que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth."
 services: active-directory
 documentationcenter: android
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
@@ -14,9 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
 

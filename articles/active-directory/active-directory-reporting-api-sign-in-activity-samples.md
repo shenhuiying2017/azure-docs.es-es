@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+ms.contentlocale: es-es
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -87,10 +89,5 @@ El script devuelve la salida del informe de inicio de sesión en formato JSON. T
 * ¿Quiere personalizar los ejemplos de este tema? Consulte [Azure Active Directory sign-in activity report API samples](active-directory-reporting-api-sign-in-activity-reference.md)(Referencia de la API de la actividad de inicio de sesión de Azure Active Directory). 
 * Si quiere obtener una descripción completa del uso de la API de generación de informes de Azure Active Directory, consulte el artículo de [introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si quiere obtener más información sobre informes de Azure Active Directory, consulte la [guía de generación de informes de Azure Active Directory](active-directory-reporting-guide.md).  
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

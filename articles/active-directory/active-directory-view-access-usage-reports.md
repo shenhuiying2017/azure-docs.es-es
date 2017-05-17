@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2016
-ms.author: dhanyahk
-translationtype: Human Translation
+ms.date: 05/16/2017
+ms.author: dhanyahk;markvi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -242,10 +244,5 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 ## <a name="whats-next"></a>Pasos siguientes
 * [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

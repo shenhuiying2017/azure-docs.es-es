@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
+ms.contentlocale: es-es
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -164,10 +166,5 @@ Para obtener el secreto de cliente de la aplicación, debe crear una nueva clave
 ## <a name="next-steps"></a>Pasos siguientes
 * ¿Quiere obtener acceso mediante programación a los datos de la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si quiere obtener más información sobre informes de Azure Active Directory, consulte la [guía de generación de informes de Azure Active Directory](active-directory-reporting-guide.md).  
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

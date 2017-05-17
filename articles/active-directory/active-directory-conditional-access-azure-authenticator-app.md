@@ -12,12 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
+ms.contentlocale: es-es
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -118,10 +120,5 @@ En un dispositivo Android de Samsung, es necesario quitar los privilegios de adm
 
 ## <a name="troubleshooting"></a>Solución de problemas
 Si ve un error que indica **Error de KeyStore**, podría deberse a que no ha configurado la pantalla de bloqueo con un PIN. Para evitar este problema, desinstale la aplicación Azure Authenticator, configure un PIN para la pantalla de bloqueo y reinstale la aplicación.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
