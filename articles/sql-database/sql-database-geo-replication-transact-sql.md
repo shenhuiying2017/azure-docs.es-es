@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/14/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ En este artículo se muestra cómo configurar la replicación geográfica activa
 Para iniciar la conmutación por error mediante Transact-SQL, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
+> Cuando usa la replicación geográfica activa (secundarias legibles) para la recuperación ante desastres, debe configurar un grupo de conmutación por error para todas las bases de datos dentro de una aplicación a fin de habilitar la conmutación por error automática y transparente. Esta característica se encuentra en su versión preliminar. Para más información, consulte [Grupos de conmutación por error automática y replicación geográfica](sql-database-geo-replication-overview.md).
 > 
 > 
 
@@ -53,23 +54,6 @@ Después de crear e inicializar la base de datos secundaria, los datos comenzar�
 > [!NOTE]
 > Si existe una base de datos en el servidor asociado especificado con el mismo nombre que la base de datos principal, se producirá un error en el comando.
 > 
-> 
-
-### <a name="add-non-readable-secondary-single-database"></a>Incorporación de una base de datos secundaria no legible (base de datos única)
-Use los pasos siguientes para crear una base de datos secundaria no legible como base de datos única.
-
-1. Use la versión 13.0.600.65 o posterior de SQL Server Management Studio.
-   
-   > [!IMPORTANT]
-   > Descargue la versión [más reciente](https://msdn.microsoft.com/library/mt238290.aspx) de SQL Server Management Studio. Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las últimas actualizaciones del Portal de Azure.
-   > 
-   > 
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y haga clic en **Nueva consulta**.
-3. Use la siguiente instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica que tenga una base de datos secundaria no legible en un servidor MySecondaryServer1 donde MySecondaryServer1 sea el nombre descriptivo del servidor.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
 
 ### <a name="add-readable-secondary-single-database"></a>Incorporación de una base de datos secundaria legible (base de datos única)
 Use los siguientes pasos para crear una base de datos secundaria legible como base de datos única.
@@ -80,18 +64,6 @@ Use los siguientes pasos para crear una base de datos secundaria legible como ba
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-4. Haga clic en **Ejecutar** para ejecutar la consulta.
-
-### <a name="add-non-readable-secondary-elastic-pool"></a>Adición de una base de datos secundaria no legible (grupo elástico)
-Use los pasos siguientes para crear una base de datos secundaria no legible en un grupo elástico.
-
-1. En Management Studio, conéctese al servidor lógico de Base de datos SQL de Azure.
-2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y haga clic en **Nueva consulta**.
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria no legible en un servidor secundario de un grupo elástico.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
-           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Haga clic en **Ejecutar** para ejecutar la consulta.
 
 ### <a name="add-readable-secondary-elastic-pool"></a>Adición de una base de datos secundaria legible (grupo elástico)
@@ -141,22 +113,6 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 9. Haga clic en **Ejecutar** para ejecutar la consulta.
-
-## <a name="upgrade-a-non-readable-secondary-to-readable"></a>Actualización de una base de datos secundaria no legible a legible
-En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles. Si usa bases de datos secundarias no legibles en la actualidad y desea actualizarlas para que sean legibles, puede utilizar los siguientes pasos sencillos para cada base de datos secundaria.
-
-> [!IMPORTANT]
-> No hay ningún método de autoservicio de actualización local de una base de datos secundaria no legible a legible. Si quita su única base de datos secundaria, la base de datos principal permanecerá desprotegida a menos que la nueva base de datos secundaria se sincronice por completo. Si el Acuerdo de Nivel de Servicio de la aplicación requiere que la base de datos principal esté siempre protegida, debe considerar la posibilidad de crear una base de datos secundaria en paralelo en otro servidor antes de aplicar los pasos de actualización anteriores. Tenga en cuenta que cada base de datos principal puede tener hasta cuatro bases de datos secundarias.
-> 
-> 
-
-1. Primero, conéctese al servidor *secundario* y quite la base de datos secundaria no legible:  
-   
-        DROP DATABASE <MyNonReadableSecondaryDB>;
-2. A continuación, conéctese al servidor *principal* y agregue una nueva base de datos secundaria legible
-   
-        ALTER DATABASE <MyDB>
-            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)

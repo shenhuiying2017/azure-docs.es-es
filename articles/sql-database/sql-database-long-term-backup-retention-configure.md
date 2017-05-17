@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5fea9dfcd323ecf497742173a66119be4f734909
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a293c06f2e9bca8790832ecb851c89b04e76bb24
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,10 +34,6 @@ Las secciones siguientes muestran cómo usar Azure Portal para configurar el alm
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configuración del almacén, registro del servidor y selección de bases de datos
 
 [Configure un almacén de Azure Recovery Services para conservar las copias de seguridad automáticas](sql-database-long-term-retention.md) durante un período superior al período de retención del nivel de servicio. 
-
-> [!TIP]
-> Para eliminar las copias de seguridad en la retención de copias de seguridad a largo plazo, consulte [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md) (Configuración y restauración de la retención de copia de seguridad a largo plazo de Azure SQL Database).
->
 
 1. Abra la página **SQL Server** del servidor.
 
@@ -217,9 +213,6 @@ $policyState = "enabled"
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
-> [!IMPORTANT]
-> Una vez configurado, las copias de seguridad se mostrarán en el almacén en los próximos siete días. Continúe con este tutorial una vez que las copias de seguridad se muestren en el almacén.
-
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Visualización de la información sobre copias de seguridad y copias de seguridad con retención a largo plazo
 
 Visualización de información acerca de las copias de seguridad de su base de datos en la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md). 
@@ -270,7 +263,7 @@ $restoredDb
 
 
 > [!NOTE]
-> Desde aquí, puede conectarse a la base de datos restaurada mediante SQL Server Management Studio para realizar las tareas necesarias, como [extraer un bit de datos de la base de datos restaurada para copiarlo en la base de datos existente o para eliminar la base de datos existente y cambiar el nombre de la base de datos restaurada por el nombre de la base de datos existente](sql-database-recovery-using-backups.md#point-in-time-restore).
+> Desde aquí, puede conectarse a la base de datos restaurada mediante SQL Server Management Studio para realizar las tareas necesarias, como extraer un bit de datos de la base de datos restaurada para copiarlo en la base de datos existente o para eliminar la base de datos existente y cambiar el nombre de la base de datos restaurada por el nombre de la base de datos existente. Consulte la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

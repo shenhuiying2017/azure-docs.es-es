@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: 4d3b3096e42736fddd3bb5b9f39376271d193c58
-ms.openlocfilehash: 980eb9ff0990d532a77614be571e3f6d24a1dfee
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4d46654f42a3fd5c9b491f1b565c2acfa0dc52c4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -112,7 +113,7 @@ Una vez que estos temas se han tenido en cuenta, la aplicación web deberá esta
 
 Los pasos siguientes en el proceso de migración consisten en crear una aplicación web del Servicio de aplicaciones y una Base de datos SQL de Azure. Hay varios tamaños de instancias de Aplicaciones web con un número variable de núcleos de CPU y cantidades de RAM disponibles para seleccionar según los requisitos de sus aplicaciones web. Para obtener más información y los precios, consulte [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Del mismo modo, Base de datos SQL de Microsoft Azure se encarga de todas las necesidades de una empresa con varios niveles de servicio y niveles de rendimiento para satisfacer los requisitos. Encontrará información adicional en [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). Después de crearse, la aplicación se carga en Aplicaciones web del Servicio de aplicaciones, ya sea a través de FTP o WebDeploy y, a continuación, se mueve a la base de datos.
 
-En esta migración la solución utiliza Base de datos SQL de Azure, pero no es la única base de datos que se admite en Azure. Las empresas también usan MySQL, MongoDB, Microsoft Azure DocumentDB, entre otros, a través de complementos que se pueden comprar en la [Tienda de Azure](/marketplace/partner-program/).
+En esta migración la solución utiliza Base de datos SQL de Azure, pero no es la única base de datos que se admite en Azure. Las empresas también usan MySQL, MongoDB, Microsoft Azure Cosmos DB, entre otros, a través de complementos que se pueden comprar en [Azure Store](/marketplace/partner-program/).
 
 Al crear una base de datos SQL de Azure, hay una serie de opciones disponible para importar una base de datos existente desde un servidor local generando un script de una base de datos existente para usar la [exportación e importación de aplicaciones de capa de datos](http://aka.ms/dacpac).
 
