@@ -199,7 +199,7 @@ Una tabla de back-end de Azure Mobile Apps define cinco campos especiales, cuatr
 * `byte[] version`: normalmente se representa como una cadena; la versión la establece también el servidor.
 * `boolean deleted`: indica que el registro se ha eliminado pero no se ha purgado aún.  No use `deleted` como propiedad en la clase.
 
-El campo `id` es obligatorio.  Los campos `updatedAt` y `version` se usan para la sincronización sin conexión (para la sincronización incremental y la resolución de conflictos, respectivamente).  El campo `createdAt` es un campo de referencia y el cliente no lo utiliza.  Los nombres son nombres "a través de la red" de las propiedades y no son ajustables.  Sin embargo, puede crear una asignación entre el objeto y los nombres "a través de la red" con la biblioteca [gson][ 3].  Por ejemplo:
+El campo `id` es obligatorio.  Los campos `updatedAt` y `version` se usan para la sincronización sin conexión (para la sincronización incremental y la resolución de conflictos, respectivamente).  El campo `createdAt` es un campo de referencia y el cliente no lo utiliza.  Los nombres son nombres "a través de la red" de las propiedades y no son ajustables.  Sin embargo, puede crear una asignación entre el objeto y los nombres "a través de la red" con la biblioteca [gson][3].  Por ejemplo:
 
 ```java
 package com.example.zumoappname;
