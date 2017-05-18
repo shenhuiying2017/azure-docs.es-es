@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: af85e4921a2b81c71f1d132c6df591acbe5d3764
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7132c83168efcebc9ac03b42afdec9f760e4fcbe
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -156,12 +156,18 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 
 ## <a name="VPNDevice"></a>8. Configurar el dispositivo VPN
 
-[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
- Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip#list). Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
+Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En este paso, se configura el dispositivo VPN. Al configurar el dispositivo VPN, necesita lo siguiente:
 
-```azurecli
-az network public-ip list --resource-group TestRG1 --output table
-```
+- Una clave compartida. Se trata de la misma clave compartida que se especifica al crear la conexión VPN de sitio a sitio. En estos ejemplos se utiliza una clave compartida básica. Se recomienda que genere y utilice una clave más compleja.
+- La dirección IP pública de la puerta de enlace de red virtual. Puede ver la dirección IP pública mediante Azure Portal, PowerShell o la CLI. Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip#list). Para facilitar la lectura, la salida muestra la lista de direcciones IP públicas en formato de tabla.
+
+  ```azurecli
+  az network public-ip list --resource-group TestRG1 --output table
+  ```
+
+
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+
 
 ## <a name="CreateConnection"></a>9. Creación de la conexión VPN
 

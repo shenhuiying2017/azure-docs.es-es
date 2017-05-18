@@ -15,127 +15,129 @@ ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 9bd9996a4a22b2f57510b6f3b6625e22b3183b1c
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
 ms.contentlocale: es-es
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Cifrado de datos en Azure Data Lake Store
 
-## <a name="overview-of-encryption-in-azure-data-lake-store"></a>Información general del cifrado en Azure Data Lake Store
+El cifrado en Azure Data Lake Store le ayuda a proteger sus datos, implementar directivas de seguridad de empresa y satisfacer los requisitos de cumplimiento normativo. En este artículo se proporciona información general sobre el diseño y se discuten algunos de los aspectos técnicos de la implementación.
 
-El cifrado en Azure Data Lake Store (ADLS) proporciona la capacidad de proteger sus datos, implementar directivas de seguridad empresarial y cumplir requisitos de cumplimiento de normas. Este artículo proporciona información general sobre el diseño y trata aspectos técnicos de la implementación del cifrado de datos de Azure Data Lake Store.
+Data Lake Store admite el cifrado de datos tanto en reposo como en tránsito. En el caso de datos en reposo, Data Lake Store admite el cifrado transparente "activado de forma predeterminada". Con más detalle, esto significa:
 
-ADLS admite el cifrado de datos en reposo, activado de forma predeterminada y transparente. Con más detalle, esto significa:
+* **Activado de forma predeterminada**: cuando se crea una cuenta de Data Lake Store, la configuración predeterminada habilita el cifrado. Por lo tanto, los datos que se almacenan en Data Lake Store siempre se cifran antes de almacenarlos en un medio persistente. Este es el comportamiento para todos los datos y no se puede cambiar después de crear una cuenta.
+* **Transparente**: Data Lake Store cifra automáticamente los datos antes de guardarlos y los descifra antes de recuperarlos. Un administrador configura y administra el cifrado de cada instancia de Data Lake Store. No se realizan cambios en las API de acceso a datos. Por lo tanto, no se requiere ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Store a causa del cifrado.
 
-* Activado de forma predeterminada: al crear una nueva cuenta de Azure Data Lake Store, la configuración predeterminada habilita el cifrado. Por tanto, los datos almacenados en Azure Data Lake Store se cifran antes de almacenarlos en medios persistentes. Este es el comportamiento para todos los datos y no se puede cambiar después de crear una cuenta.
-* Transparente: ADLS automáticamente cifra los datos antes de guardarlos y descifra los datos antes de su recuperación. Un administrador configura y administra el cifrado de cada instancia de Azure Data Lake Store. No se realizan cambios en las API de acceso a datos, ni, por tanto, se requieren cambios en las aplicaciones y servicios que interactúan con Azure Data Lake Store por motivo del cifrado.
+Los datos en tránsito (también conocidos como datos en movimiento) también se cifran siempre en Data Lake Store. Además de que los datos se cifran antes de almacenarse en un medio persistente, también se protegen cuando están en tránsito mediante HTTPS. HTTPS es el único protocolo admitido para las interfaces de REST de Data Lake Store. En el diagrama siguiente se muestra cómo se cifran los datos en Data Lake Store:
 
-Los datos en tránsito (también conocidos como datos en movimiento) siempre se cifran en Azure Data Lake Store. Además de cifrarse los datos antes de ser guardados, los datos también están protegidos en tránsito o en movimiento mediante HTTPS (HTTP sobre SSL). HTTPS es el único protocolo admitido para las interfaces REST de Azure Data Lake Store.
-
-![En la Ilustración 1](./media/data-lake-store-encryption/fig1.png)
+![Diagrama de cifrado de datos en Data Lake Store](./media/data-lake-store-encryption/fig1.png)
 
 
-## <a name="setting-up-encryption-with-azure-data-lake-store"></a>Configuración del cifrado con Azure Data Lake Store
+## <a name="set-up-encryption-with-data-lake-store"></a>Configuración del cifrado con Data Lake Store
 
-El cifrado en Azure Data Lake Store se configura durante la creación de la cuenta, siempre está habilitado de forma predeterminada. Los clientes tienen la opción de administrar las claves o permitir que Azure Data Lake Store (valor predeterminado) lo haga en su lugar.
+El cifrado para Data Lake Store se configura durante la creación de la cuenta y siempre está habilitado de forma predeterminada. Puede administrar las claves por su cuenta o dejar que Data Lake Store las administre en su nombre (esta es la opción predeterminada).
 
-Para más información sobre la configuración del cifrado en Azure Data Lake Store, consulte: [Introducción a Azure Data Lake Store mediante Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)
+Para más información, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-## <a name="under-the-hood--how-encryption-works-in-azure-data-lake-store"></a>Funcionamiento del cifrado en Azure Data Lake Store
+## <a name="how-encryption-works-in-data-lake-store"></a>Funcionamiento del cifrado en Data Lake Store
+
+A continuación se explica cómo administrar las claves de cifrado maestras y se describen los tres tipos diferentes de claves que puede usar en el cifrado de datos de Data Lake Store.
 
 ### <a name="master-encryption-keys"></a>Claves de cifrado maestras
 
-Azure Data Lake Store proporciona dos modos de administración de claves de cifrado maestras (MEK). El uso de claves de cifrado maestras se explica con más detalle a continuación. Por ahora, suponga que la clave de cifrado maestra es la clave de nivel superior. Se necesita acceso a la clave de cifrado maestra para descifrar cualquier dato almacenado en Azure Data Lake Store.
+Data Lake Store proporciona dos modos de administración de claves de cifrado maestras (MEK). Por ahora, suponga que la clave de cifrado maestra es la clave de nivel superior. Se necesita acceso a la clave de cifrado maestra para descifrar cualquier dato almacenado en Data Lake Store.
 
 Los dos modos para administrar la clave de cifrado maestra son los siguientes:
 
-1.    Claves administradas por el servicio
-2.    Claves administradas por el cliente
+*    Claves administradas por el servicio
+*    Claves administradas por el cliente
 
-En ambos modos, la clave de cifrado maestra está protegida al estar almacenada en Azure Key Vault. Azure Key Vault es un servicio de Azure totalmente administrado y altamente seguro que se puede utilizar para proteger las claves criptográficas. Puede leer más sobre Azure Key Vault [aquí](https://azure.microsoft.com/services/key-vault)
+En ambos modos, la clave de cifrado maestra está protegida al estar almacenada en Azure Key Vault. Key Vault es un servicio de Azure totalmente administrado y enormemente seguro que se puede utilizar para proteger las claves criptográficas. Para más información, consulte [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 Esta es una breve comparación de las funcionalidades que proporcionan ambos modos de administración de las MEK.
 
 |  | Claves administradas por el servicio | Claves administradas por el cliente |
 | --- | --- | --- |
-|¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse|Siempre se cifran antes de almacenarse|
-|¿Dónde se almacena la clave de cifrado maestra?|Almacén de claves de Azure|Almacén de claves de Azure|
-|¿Hay claves de cifrado almacenadas sin cifrar fuera de Azure Key Vault?|No|No|
-|¿Se puede recuperar la clave MEK de Azure Key Vault?|No. Una vez almacenada en Azure Key Vault solo se puede utilizar para cifrado y descifrado.|No. Una vez almacenada en Azure Key Vault solo se puede utilizar para cifrado y descifrado.|
-|¿Quién posee Azure Key Vault y la clave MEK?|El servicio de Azure Data Lake Store.|El cliente posee Azure Key Vault, que pertenece a la propia suscripción de Azure. La clave MEK en el almacén de claves puede ser administrada por software o hardware (HSM).|
-|¿El cliente puede revocar el acceso a la clave MEK para el servicio de Azure Data Lake Store?|No|Sí. Pueden administrar listas de control de acceso de Azure Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio de Azure Data Lake Store.|
-|¿Puede el cliente eliminar permanentemente la clave MEK?|No|Sí. Si el cliente elimina la clave MEK de Azure Key Vault, nadie podrá descifrar los datos de la cuenta de ADLS, incluido el servicio de Azure Data Lake Store. <br><br> Si el cliente hizo una copia de seguridad de la clave MEK explícitamente antes de eliminarla de Azure Key Vault, se podrá restaurar y se podrán recuperar los datos. Sin embargo, si el cliente no hizo una copia de seguridad de la clave MEK antes de eliminarla de Azure Key Vault, los datos de la cuenta de ADLS no se podrán descifrar.|
+|¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
+|¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
+|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |No|No|
+|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
+|¿Quién posee la instancia de Key Vault y la clave de cifrado maestra?|El servicio Data Lake Store.|Usted es el propietario de la instancia de Key Vault, que pertenece a su propia suscripción de Azure. La clave de cifrado maestra de Key Vault se puede administrar mediante software o hardware.|
+|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Store?|No|Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Store.|
+|¿Puede eliminar permanentemente la clave de cifrado maestra?|No|Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Store, incluido el servicio Data Lake Store. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Store nunca se podrán cifrar después.|
 
 
-Además de la diferencia de nivel superior, de quién administra la clave MEK y el almacén de claves en el que reside, el resto del diseño es el mismo para ambos modos.
+Aparte de esta diferencia sobre quién administra la clave de cifrado maestra y la instancia de Key Vault en la que reside, el resto del diseño es igual en ambos modos.
 
-Hay algunos aspectos importantes que hay que recordar relacionados con la elección del modo para las claves de cifrado maestras.
+Al elegir el modo de las claves de cifrado maestras, es importante recordar lo siguiente:
 
-1.    Puede elegir si desea usar claves administradas por el cliente o claves administradas por ADLS al aprovisionar una cuenta de ADLS
-2.    Una vez aprovisionada la cuenta de ADLS, no se puede cambiar el modo
+*    Puede elegir si se usarán claves administradas por el cliente o claves administradas por el servicio al aprovisionar una cuenta de Data Lake Store.
+*    Después de aprovisionar una cuenta de Data Lake Store, no se puede cambiar el modo.
 
 ### <a name="encryption-and-decryption-of-data"></a>Cifrado y descifrado de datos
 
-Se usan tres tipos de claves en el diseño del cifrado de datos en Azure Data Lake. La tabla siguiente resume su utilización:
+Son tres los tipos de claves que se usan en el diseño del cifrado de datos. En la tabla siguiente se proporciona un resumen:
 
-| Clave                   | Abreviatura | Asociada con | Ubicación de almacenamiento                             | Tipo       | Notas                                                                                                   |
+| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Escriba       | Notas                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Clave de cifrado maestra | MEK          | Una cuenta de ADLS | Almacén de claves de Azure                              | Asimétrica | Puede ser administrada por ADLS o administrada por el cliente                                                              |
-| Clave de cifrado de datos   | DEK          | Una cuenta de ADLS | Almacenamiento persistente: administrado por el servicio ADLS | Simétrica  | La clave DEK se cifra con la clave MEK y la clave DEK cifrada es lo que el servicio almacena en medios persistentes |
-| Clave de cifrado de bloque  | BEK          | Un bloque de datos | None                                         | Simétrica  | La clave BEK se deriva de la clave DEK y el bloque de datos                                                      |
+| Clave de cifrado maestra | MEK          | Cuenta de Data Lake Store | Key Vault                              | Asimétrica | Puede administrarla Data Lake Store o usted.                                                              |
+| Clave de cifrado de datos   | DEK          | Cuenta de Data Lake Store | Almacenamiento persistente, administrada por el servicio Data Lake Store | Simétrica  | La DEK se cifra mediante la clave de cifrado maestra. La DEK cifrada es lo que se almacena en el medio persistente. |
+| Clave de cifrado de bloque  | BEK          | Un bloque de datos | None                                         | Simétrica  | La clave BEK se obtiene de la clave de cifrado de datos y del bloque de datos.                                                      |
 
 En el siguiente diagrama, se ilustra este concepto:
 
-![Figura 2](./media/data-lake-store-encryption/fig2.png)
+![Claves de cifrado de datos](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algoritmo para descifrar un archivo:
-1.    Comprobar si la clave DEK para la cuenta de ADLS está almacenada en caché y está lista para su uso.
-    * Si no es así, leer la clave DEK cifrada desde el almacenamiento persistente y enviarla a Azure Key Vault para descifrarla. Almacenar en caché la clave DEK descifrada en memoria y ya está lista para su uso.
-2.    Para cada bloque de datos del archivo
-    * Leer el bloque de datos cifrado desde el almacenamiento persistente
-    * Generar la clave BEK con la clave DEK y el bloque de datos cifrados
-    * Usar la clave BEK para descifrar los datos
+1.    Compruebe si la clave DEK de la cuenta de Data Lake Store está almacenada en caché y lista para su uso.
+    - Si no es así, lea la clave DEK cifrada del almacenamiento persistente y envíela a Key Vault para descifrarla. Almacene en caché la clave DEK descifrada en memoria. Ahora está lista para su uso.
+2.    Para cada bloque de datos del archivo:
+    - Lea el bloque de datos cifrado del almacenamiento persistente.
+    - Genere la clave BEK con la clave DEK y el bloque de datos cifrado.
+    - Use la clave BEK para descifrar los datos.
+
+
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudo-algoritmo para cifrar un archivo:
-1.    Comprobar si la clave DEK para la cuenta de ADLS está almacenada en caché y está lista para su uso.
-    * Si no es así, leer la clave DEK cifrada desde el almacenamiento persistente y enviarla a Azure Key Vault para descifrarla. Almacenar en caché la clave DEK descifrada en memoria y ya está lista para su uso.
+1.    Compruebe si la clave DEK de la cuenta de Data Lake Store está almacenada en caché y lista para su uso.
+    - Si no es así, lea la clave DEK cifrada del almacenamiento persistente y envíela a Key Vault para descifrarla. Almacene en caché la clave DEK descifrada en memoria. Ahora está lista para su uso.
 2.    Generar una clave BEK única para el bloque de datos con la clave DEK.
-3.    Cifrar el bloque de datos con la clave BEK mediante el cifrado AES-256.
-4.    Almacenar el bloque de datos cifrado en el almacenamiento persistente
+3.    Cifre el bloque de datos con la clave BEK mediante el cifrado AES-256.
+4.    Almacene el bloque de datos cifrado en el almacenamiento persistente.
 
 > [!NOTE] 
-> Por motivos de rendimiento, la clave de cifrado de datos (DEK) sin cifrar se almacena en la memoria caché efímeramente por un periodo de tiempo corto y se borra inmediatamente después de que ha transcurrido esta duración. En medios persistentes, siempre se almacena cifrada con la clave de cifrado maestra (MEK).
+> Por motivos de rendimiento, la clave DEK sin cifrar se almacena en caché en memoria durante un corto período de tiempo, transcurrido el cual se borra inmediatamente. En medios persistentes, siempre se almacena cifrada con la clave MEK.
 
 ## <a name="key-rotation"></a>Rotación de claves
 
-Azure Data Lake Store permite la rotación de la clave de cifrado maestra (MEK) al utilizar claves administradas por el cliente. Para obtener información sobre la configuración de una cuenta de ADLS con claves administradas por el cliente, consulte [Introducción a Azure Data Lake Store mediante Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) page.
+Cuando se usan claves administradas por el cliente, puede rotar la clave MEK. Para aprender a configurar una cuenta de Data Lake Store con claves administradas por el cliente, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="pre-requisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
-Al configurar la cuenta de Azure Data Lake, los clientes han elegido usar sus propias claves. Esta opción no se puede cambiar una vez creada la cuenta. Si utiliza las opciones predeterminadas para cifrado, los datos siempre se cifrarán utilizando claves administradas por Azure Data Lake, en esta opción, el cliente no puede rotar las claves ya que son administradas por Azure Data Lake. En los pasos siguientes se supone que usa claves administradas por el cliente (ha elegido sus propias claves de su almacén de claves).
+Cuando configuró la cuenta de Data Lake Store, eligió usar sus propias claves. Esta opción no se puede cambiar una vez creada la cuenta. En los siguientes pasos se supone que usa claves administradas por el cliente (es decir, ha elegido sus propias claves de Key Vault).
 
-### <a name="how-to-rotate-the-key-mek-in-azure-data-lake-store"></a>Cómo rotar la clave (MEK) en Azure Data Lake Store
+Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los datos siempre se cifran mediante claves administradas con Data Lake Store. En esta opción, no tiene la posibilidad de rotar claves, ya que se administran en Data Lake Store.
 
-1. Inicie sesión en el nuevo [Azure Portal](https://portal.azure.com/).
-2. Vaya al almacén de claves que contiene las claves asociadas con su cuenta de Azure Data Lake Store y seleccione Claves.
+### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Rotación de la clave MEK en Data Lake Store
 
-    ![simétricas](./media/data-lake-store-encryption/keyvault.png)
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+2. Vaya a la instancia de Key Vault que almacena las claves asociadas con la cuenta de Data Lake Store. Seleccione **Claves**.
 
-3.    Seleccione la clave asociada con su cuenta de Azure Data Lake Store y cree una nueva versión de la clave.
-  
-   En este momento, Azure Data Lake solo admite la rotación de clave a una nueva versión de la clave, no se admite la rotación a una clave diferente
+    ![Captura de pantalla de Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-   ![newversion](./media/data-lake-store-encryption/keynewversion.png)
+3.    Seleccione la clave asociada con su cuenta de Data Lake Store y cree una nueva versión de esta clave. Tenga en cuenta que Data Lake Store solo admite actualmente la rotación de claves a una nueva versión de clave. No admite la rotación a una clave diferente.
 
-4.    Vaya a la cuenta de Azure Data Lake Storage y seleccione Cifrado
+   ![Captura de pantalla de la ventana Claves, donde se resalta Nueva versión](./media/data-lake-store-encryption/keynewversion.png)
 
-    ![newversion](./media/data-lake-store-encryption/select-encryption.png)
+4.    Vaya a la cuenta de almacenamiento de Data Lake Store y seleccione **Cifrado**.
 
-5.    Verá una nota que le informa de que está disponible una nueva versión de la clave y un botón para rotar la clave a esta nueva versión. Haga clic en Rotar clave para actualizar la clave a la nueva versión.
+    ![Captura de pantalla de la ventana de la cuenta de almacenamiento de Data Lake Store, con Cifrado resaltado](./media/data-lake-store-encryption/select-encryption.png)
 
-    ![done](./media/data-lake-store-encryption/rotatekey.png)
+5.    Un mensaje le notifica que hay una nueva versión de la clave. Haga clic en **Rotar clave** para actualizar la clave a la nueva versión.
 
-6. Esta operación tardará menos de 2 minutos y no hay ningún tiempo de inactividad previsto debido a la rotación de claves. Una vez completada la operación, la nueva versión de la clave está en uso.
+    ![Captura de pantalla de la ventana Data Lake Store con el mensaje y Rotar clave resaltado](./media/data-lake-store-encryption/rotatekey.png)
+
+Esta operación tardará menos de dos minutos y no hay ningún tiempo de inactividad previsto debido a la rotación de claves. Una vez completada la operación, la nueva versión de la clave está en uso.
 
