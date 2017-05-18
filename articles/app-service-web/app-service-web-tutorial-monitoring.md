@@ -9,10 +9,10 @@ ms.date: 04/04/2017
 ms.topic: article
 ms.service: app-service-web
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8d9b4a4fa3b62659fc7e2aa1c6329fdc5e01fe39
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 29df824062d00e01b786533033097948c008588f
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 # <a name="monitor-app-service"></a>Supervisión de App Service
@@ -25,15 +25,15 @@ En cada sección de este documento se abarca una característica específica. El
 - Depurar y corregir el problema.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-- Necesita una aplicación web para supervisar y seguir estos pasos. 
+- Necesita una aplicación web para supervisar y seguir estos pasos.
     - Para crear una aplicación, siga los pasos que se describen en el tutorial [Create an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) (Creación de una aplicación ASP.NET en Azure con SQL Database).
 
-- Si quiere probar la **depuración remota** de la aplicación, necesita Visual Studio. 
-    - Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión [gratuita de Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). 
+- Si quiere probar la **depuración remota** de la aplicación, necesita Visual Studio.
+    - Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión [gratuita de Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
     - Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 ## <a name="metrics"></a>Paso 1: Visualización de métricas
-Las **métricas** son útiles para comprender lo siguiente: 
+Las **métricas** son útiles para comprender lo siguiente:
 - Estado de la aplicación
 - Rendimiento de la aplicación
 - Consumo de recursos
@@ -51,7 +51,7 @@ Las métricas proporcionan una vista histórica de varias agregaciones clave par
 > * Recuento de escala: una, dos, tres instancias, etc.
 > * SKU: Gratis, Compartido, Básico, Estándar, Premium, etc.
 
-Para revisar las métricas de la aplicación web, vaya a la hoja **Overview** (Información general) de la aplicación que quiera supervisar. En ella, puede ver un gráfico de las métricas de la aplicación en forma de **icono Monitoring** (Supervisión). Haga clic en el icono para editar y configurar qué métricas ver y el intervalo de tiempo durante el cual se muestran. 
+Para revisar las métricas de la aplicación web, vaya a la hoja **Overview** (Información general) de la aplicación que quiera supervisar. En ella, puede ver un gráfico de las métricas de la aplicación en forma de **icono Monitoring** (Supervisión). Haga clic en el icono para editar y configurar qué métricas ver y el intervalo de tiempo durante el cual se muestran.
 
 De forma predeterminada, la hoja de recursos proporciona una vista de las solicitudes de la aplicación y los errores de la última hora.
 ![Supervisión de la aplicación](media/app-service-web-tutorial-monitoring/app-service-monitor.png)
@@ -62,13 +62,13 @@ Como puede ver en el ejemplo, tenemos una aplicación que genera muchos **errore
 > Más información sobre Azure Monitor con los siguientes vínculos:
 > - [Introducción a Azure Monitor](..\monitoring-and-diagnostics\monitoring-overview.md)
 > - [Métricas de Azure](..\monitoring-and-diagnostics\monitoring-overview-metrics.md)
-> - [Métricas compatibles con Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md#microsoftwebsites-including-functions)
+> - [Métricas compatibles con Azure Monitor](..\monitoring-and-diagnostics\monitoring-supported-metrics.md)
 > - [Paneles de Azure](..\azure-portal\azure-portal-dashboards.md)
 
 ## <a name="alerts"></a>Paso 2: Configuración de alertas
 Las **alertas** se pueden configurar para que se desencadenen cuando se produzcan condiciones específicas de la aplicación.
 
-En el [Paso 1: Visualización de métricas](#metrics), hemos visto que la aplicación tenía un gran número de errores. 
+En el [Paso 1: Visualización de métricas](#metrics), hemos visto que la aplicación tenía un gran número de errores.
 
 Vamos a configurar una alerta de notificación automática cuando se produzcan errores. En este caso, queremos que con la alerta se envíe un correo electrónico cada vez que el número de errores HTTP 50X supere un umbral determinado.
 
@@ -77,14 +77,14 @@ Para crear una alerta, vaya a **Supervisión** > **Alertas** y haga clic en **[+
 ![Alertas](media/app-service-web-tutorial-monitoring/app-service-monitor-alerts.png)
 
 Proporcione valores para la configuración de la Alerta:
-- **Recurso:** sitio para supervisar con la alerta. 
+- **Recurso:** sitio para supervisar con la alerta.
 - **Nombre:** nombre de la alerta, en este caso: *High HTTP 50X*.
 - **Descripción:** texto sin formato que explica lo que observa esta alerta.
 - **Alerta activada:** las alertas pueden mirar métricas o eventos, en este ejemplo, examinamos las métricas.
 - **Métrica:** métrica que se va a supervisar, en este caso: *Errores del servidor HTTP*.
 - **Condición:** cuándo se activa la alerta, en este caso, seleccione la opción *mayor que*.
 - **Umbral:** valor que se desea buscar, en este caso: *400*.
-- **Período:** las alertas funcionan sobre el valor medio de una métrica. Los períodos de tiempo menores suspenden las alertas más sensibles. En este caso examinamos *5 minutos*. 
+- **Período:** las alertas funcionan sobre el valor medio de una métrica. Los períodos de tiempo menores suspenden las alertas más sensibles. En este caso examinamos *5 minutos*.
 - **Propietarios y colaboradores de correo electrónico:** en este caso: *Habilitado*.
 
 Ahora que se creó la alerta, se enviará un correo electrónico cada vez que la aplicación supere el umbral configurado. Las alertas activas también se pueden revisar en Azure Portal.
@@ -116,7 +116,7 @@ Puede instalar App Service Companion desde [App Store](https://itunes.apple.com/
 
 ## <a name="diagnose"></a> Paso 4: Diagnóstico y solución de problemas
 **Diagnosticar y resolver problemas** le ayudará a diferenciar los problemas de la aplicación de los de la plataforma. También puede sugerir mitigaciones para que la aplicación web se recupere.
- 
+
 ![Diagnosticar y resolver problemas](media/app-service-web-tutorial-monitoring/app-service-monitor-diagnosis.png)
 
 Siguiendo con los pasos anteriores del formulario de ejemplo, podemos ver que la aplicación ha tenido problemas de disponibilidad. En cambio, la disponibilidad de la plataforma no ha cambiado del 100 %.
@@ -129,7 +129,7 @@ Ahora que nos hemos reducido los errores a un problema de aplicación, podemos o
 El registro le permite recopilar registros de **Diagnósticos de aplicaciones** y de **Diagnóstico del servidor web** para su aplicación web.
 
 ### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
-Diagnósticos de aplicaciones le permite capturar seguimientos generados por la aplicación en tiempo de ejecución. 
+Diagnósticos de aplicaciones le permite capturar seguimientos generados por la aplicación en tiempo de ejecución.
 
 Agregar la funcionalidad de seguimiento a la aplicación mejora en gran medida la capacidad de depuración y e identificación de problemas.
 
@@ -166,19 +166,19 @@ Los registros de aplicación se pueden almacenar en el sistema de archivos de la
  ### <a name="web-server-diagnostics"></a>Diagnósticos del servidor web
 Los registros del servidor web se generan aunque la aplicación no se haya instrumentado. App Service puede recopilar tres tipos diferentes de registros de servidor:
 
-- **Registro del servidor web**. 
-    - Información sobre las transacciones HTTP mediante el [formato de archivo de registro extendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). 
+- **Registro del servidor web**.
+    - Información sobre las transacciones HTTP mediante el [formato de archivo de registro extendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
     - Resulta útil para determinar las métricas totales del sitio, como el número de solicitudes tramitadas o cuántas solicitudes proceden de una dirección IP específica.
-- **Registro de error detallado** 
-    - Información de error detallada de los códigos de estado HTTP que indican un error (código de estado 400 o superior). 
+- **Registro de error detallado**
+    - Información de error detallada de los códigos de estado HTTP que indican un error (código de estado 400 o superior).
     - [Más información sobre el registro de errores detallado](https://www.iis.net/learn/troubleshoot/diagnosing-http-errors/how-to-use-http-detailed-errors-in-iis)
-- **Seguimiento de solicitudes erróneas**. 
-    - Información detallada sobre solicitudes erróneas, lo que incluye un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. 
+- **Seguimiento de solicitudes erróneas**.
+    - Información detallada sobre solicitudes erróneas, lo que incluye un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente.
     - Los registros de solicitudes erróneas son útiles al intentar aislar lo que está provocando un error HTTP específico.
     - [Más información acerca del seguimiento de solicitudes con error](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis)
 
 Para habilitar el registro del servidor:
-- Vaya a **Supervisión** > **Registros de diagnóstico**. 
+- Vaya a **Supervisión** > **Registros de diagnóstico**.
 - Habilite los diferentes tipos de diagnósticos del servidor web mediante los botones de alternancia.
 
 ![Supervisión de la aplicación](media/app-service-web-tutorial-monitoring/app-service-monitor-serverlogs.png)
@@ -191,17 +191,17 @@ El acceso a los registros almacenados en Blob Storage se realiza mediante el Exp
 
 - **Registros de la aplicación** - `%HOME%/LogFiles/Application/`.
     - Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones.
-- **Seguimiento de solicitudes con error** - `%HOME%/LogFiles/W3SVC#########/`. 
-    - Esta carpeta contiene un archivo XSL y uno o varios archivos XML. 
-- **Registros de errores detallados** - `%HOME%/LogFiles/DetailedErrors/`. 
+- **Seguimiento de solicitudes con error** - `%HOME%/LogFiles/W3SVC#########/`.
+    - Esta carpeta contiene un archivo XSL y uno o varios archivos XML.
+- **Registros de errores detallados** - `%HOME%/LogFiles/DetailedErrors/`.
     - Esta carpeta contiene uno o varios archivos .htm con información extensa sobre los errores HTTP generados por la aplicación.
-- **Registros del servidor web** - `%HOME%/LogFiles/http/RawLogs`. 
+- **Registros del servidor web** - `%HOME%/LogFiles/http/RawLogs`.
     - Esta carpeta contiene uno o varios archivos de texto con formato de archivo de registro extendido W3C.
 
 ## <a name="streaming"></a>Paso 6: Registros de streaming
 Los registros de streaming resultan prácticos cuando se depurar una aplicación, dado que ahorran tiempo en comparación con el [acceso a los registros](#Accessing-Logs) desde el FTP.
 
-App Service puede transmitir **registros de la aplicación** y **registros del servidor web** a medida que se generan. 
+App Service puede transmitir **registros de la aplicación** y **registros del servidor web** a medida que se generan.
 
 > [!TIP]
 > Antes de intentar transmitir registros, asegúrese de que ha habilitado la recopilación de registros como se describe en la sección [Registro](#logging).
@@ -220,7 +220,7 @@ Depuración remota le permite asociar un depurador a la aplicación web que se e
 
 Para asociar el depurador a la aplicación que se ejecuta en la nube:
 
-- Con Visual Studio de 2017, abra la solución para la aplicación que desea depurar. 
+- Con Visual Studio de 2017, abra la solución para la aplicación que desea depurar.
 - Establezca algunos puntos de interrupción, igual que haría con el desarrollo local.
 - Abra **Cloud Explorer** (Ctr + /, Ctrl + x).
 - Inicie sesión con sus credenciales de Azure según sea necesario.
@@ -242,7 +242,7 @@ Cuando la aplicación se escala horizontalmente a más de una instancia, el **ex
 Use el **Explorador de procesos** para:
 
 - Enumerar todos los procesos entre distintas instancias de su plan de App Service
-- Explorar en profundidad y ver los identificadores y módulos asociados con cada proceso 
+- Explorar en profundidad y ver los identificadores y módulos asociados con cada proceso
 - Ver el recuento de CPU, espacio de trabajo y subproceso en el nivel de proceso para ayudarle a identificar los procesos descontrolados
 - Encontrar identificadores de archivos abiertos e incluso eliminar una instancia de proceso específica.
 
@@ -252,11 +252,11 @@ El explorador de procesos puede estar en **Supervisión** > **Explorador de proc
 
 
 ## <a name="insights"></a> Paso 9: Application Insights
-**Application Insights** proporciona funcionalidades avanzadas de supervisión y generación de perfiles de aplicaciones para su aplicación. 
+**Application Insights** proporciona funcionalidades avanzadas de supervisión y generación de perfiles de aplicaciones para su aplicación.
 
 Use Application Insights para detectar y diagnosticar excepciones y problemas de rendimiento en su aplicación web.
 
-Puede habilitar Application Insights para su aplicación web en **Supervisión** > **Application Insights** 
+Puede habilitar Application Insights para su aplicación web en **Supervisión** > **Application Insights**
 
 > [!NOTE]
 > Application Insights podría solicitarle instalar las extensiones del sitio de Application Insights para iniciar la recopilación de datos. La instalación de la extensión del sitio provoca un reinicio de la aplicación.
@@ -270,3 +270,4 @@ Application Insights contiene un conjunto completo de características; para apr
  - [¿Qué es Application Insights?](..\application-insights\app-insights-overview.md)
  - [Supervisión del rendimiento de aplicaciones web de Azure con Application Insights](..\application-insights\app-insights-azure-web-apps.md)
  - [Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web con Application Insights](..\application-insights\app-insights-monitor-web-app-availability.md)
+
