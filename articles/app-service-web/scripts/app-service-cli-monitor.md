@@ -10,15 +10,16 @@ tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 978e2b58898c2a4bcf48fc3f32c30596aa2e50d8
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: ef75aa1ea579d4a3804e641ef9c848ccde8b9d7a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ En este escenario, creará un grupo de recursos, un plan de App Service y una ap
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[principal](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh "Registros de Monitor")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh "Registros de Monitor")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -51,3 +52,4 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../app-service-cli-samples.md).
+

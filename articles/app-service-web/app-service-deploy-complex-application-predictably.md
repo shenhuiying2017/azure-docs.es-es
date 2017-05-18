@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 844f42e61ba443a4b74a52f622113e87a7781913
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -130,7 +131,7 @@ Tenga en cuenta lo siguiente sobre el código resaltado de JSON:
 * Los recursos anidados dentro de `“resources”: […]`, donde se definen las reglas de firewall y de la base de datos, tienen un elemento `dependsOn` que especifica el identificador de recurso del recurso SQLServer en el nivel de raíz. Esto indica al Administrador de recursos de Azure que antes de crear este recurso, el otro recurso ya debe existir; y si ese otro recurso está definido en la plantilla, cree ese primero.
   
   > [!NOTE]
-  > Para obtener información detallada sobre cómo utilizar la función `resourceId()`, consulte [Funciones de la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
+  > Para obtener información detallada sobre cómo utilizar la función `resourceId()`, consulte [Funciones de la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
 * El efecto del elemento `dependsOn` es que el Administrador de recursos de Azure puede saber qué recursos se pueden crear en paralelo y qué recursos deben crearse de forma secuencial. 

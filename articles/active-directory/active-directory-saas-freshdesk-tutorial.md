@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a8f2de60ab60b980b29c4dbc78045bd20693b9d
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 47609ab453cf3db3cb745f91ed23904ff90e7b41
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -131,11 +131,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 8. En el menú de la parte superior, haga clic en **Administrador**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![Administración](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Administración")
 
 9. En la pestaña **Configuración general**, haga clic en **Seguridad**.
    
-       ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![Seguridad](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Seguridad")
 
 10. En la sección **Seguridad** , realice estos pasos:
    

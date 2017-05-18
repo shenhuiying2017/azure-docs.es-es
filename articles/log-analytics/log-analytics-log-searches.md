@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/16/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
 ms.contentlocale: es-es
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -149,7 +149,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Para realizar búsquedas mediante un operador booleano
-* En el campo de consulta de búsqueda, escriba `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* En el campo de consulta de búsqueda, escriba `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![búsqueda con booleano](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Aunque puede controlar el intervalo de tiempo gráficamente, y casi siempre es recomendable hacerlo, resulta beneficioso incluir un filtro de tiempo directamente en la consulta. Por ejemplo, esto funciona bien con paneles donde puede invalidar el tiempo de cada icono, con independencia del selector de tiempo *global* de la página del panel. Para obtener más información, consulte [Cuestiones sobre el tiempo en el panel](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).

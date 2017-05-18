@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9e699cdff2030619cf117b6556ed482f1cd632c7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 23fc9f7f34732079682857d4ee685fe811751698
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,14 +28,7 @@ ms.lasthandoff: 04/03/2017
 
 Después de aprovisionar una máquina virtual (VM), puede escalarla o reducirla verticalmente cambiando su [tamaño][vm-sizes]. En algunos casos, hay que desasignarla antes. Necesita desasignar la VM si el tamaño deseado no se encuentra disponible en el clúster de hardware que hospeda la VM. En este artículo se detalla cómo cambiar el tamaño de una máquina virtual Linux con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-- [CLI de Azure 1.0](#resize-a-linux-vm): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
-
-
-
+## <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
 Para cambiar el tamaño de una máquina virtual, necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 
 1. Consulte la lista de tamaños de VM disponibles en el clúster de hardware que hospeda la VM con [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options). En el ejemplo siguiente se enumeran los tamaños para la VM denominada `myVM` en la región del grupo de recursos `myResourceGroup`:

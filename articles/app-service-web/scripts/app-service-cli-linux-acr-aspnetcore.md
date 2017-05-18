@@ -10,15 +10,16 @@ tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b4562b36f8687f8473e8a50871c91abb9363292b
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: ec524ed8dd4cc58b948d3047c36a9f7913d7d041
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ En este escenario aprenderá cómo crear un grupo de recursos, el plan de servic
 
 ## <a name="create-app-sample"></a>Creación de una aplicación de ejemplo
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Azure Container Registry de Linux")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Azure Container Registry de Linux")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -50,3 +51,4 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de App Service en la [documentación de Azure App Service](../app-service-cli-samples.md).
+
