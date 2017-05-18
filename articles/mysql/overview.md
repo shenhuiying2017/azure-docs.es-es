@@ -20,6 +20,7 @@ ms.lasthandoff: 05/10/2017
 
 ---
 
+
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>¿Qué es Azure Database for MySQL? Introducción al servicio
 Azure Database for MySQL es un servicio de base de datos relacional de Microsoft Cloud basado en el motor de base de datos de [MySQL Community Edition](https://www.mysql.com/products/community/).  Azure Database for MySQL ofrece lo siguiente:
 
