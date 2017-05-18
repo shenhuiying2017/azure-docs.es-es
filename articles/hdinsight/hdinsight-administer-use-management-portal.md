@@ -188,7 +188,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
 
-    ![reequilibrio de escalado de storm de HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![reequilibrio de escalado de storm de HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
