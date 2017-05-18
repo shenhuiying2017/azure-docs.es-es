@@ -1,4 +1,4 @@
---- 
+---
 title: "Introducción a Azure Automation | Microsoft Docs"
 description: "Este artículo proporciona una introducción al servicio Azure Automation mediante la revisión de los conceptos básicos y detalles de implementación como preparación para incorporar las ofertas de Azure Marketplace."
 services: automation
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 9b4982ffece9283304ad3ab3c82a471ac1dbd463
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
 ## <a name="getting-started-with-azure-automation"></a>Introducción a Azure Automation
 
-Esta guía de introducción presenta los conceptos básicos relacionados con la implementación de Azure Automation. Si no está familiarizado con Azure Automation o si tiene experiencia con software de flujo de trabajo de automatización como System Center Orchestrator, esta guía le ayudará como introducción a los conceptos y detalles de implementación. 
+Esta guía de introducción presenta los conceptos básicos relacionados con la implementación de Azure Automation. Si no está familiarizado con Azure Automation o si tiene experiencia con software de flujo de trabajo de automatización como System Center Orchestrator, esta guía le ayudará como introducción a los conceptos y detalles de implementación.
 
 ## <a name="key-concepts"></a>Conceptos clave
 
@@ -83,14 +83,14 @@ Al designar un equipo para que ejecute trabajos híbridos de runbook, debe tener
 ## <a name="security"></a>Seguridad
 Azure Automation le permite automatizar tareas en recursos de Azure, locales y de otros proveedores de servicios en la nube.  Para que un runbook realice las acciones necesarias, debe tener permiso de acceso seguro a los recursos con los derechos mínimos necesarios en la suscripción.  
 
-### <a name="automation-account"></a>Cuenta de automatización 
+### <a name="automation-account"></a>Cuenta de automatización
 Todas las tareas de automatización que realice con recursos mediante los cmdlets de Azure en Azure Automation deben autenticarse en Azure con una autenticación basada en credenciales de identidad organizativa de Azure Active Directory.  La cuenta de Automation es independiente de la cuenta que usa para iniciar sesión en el portal para configurar y usar los recursos de Azure.  
 
 Los recursos de Automation de cada cuenta de Automation están asociados con una sola región de Azure, pero las cuentas de Automation pueden administrar recursos en su suscripción. Cree cuentas de Automation en distintas regiones si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
 > [!NOTE]
 > A las cuentas de automatización y los recursos que contienen, que se crean en el Portal de Azure, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
-> 
+>
 
 Al crear una cuenta de Automation en el portal de Azure, crea automáticamente dos entidades de autenticación:
 
@@ -102,17 +102,17 @@ El control de acceso basado en rol está disponible en Azure Resource Manager pa
 #### <a name="authentication-methods"></a>Métodos de autenticación
 La tabla siguiente resume los diferentes métodos de autenticación para cada entorno admitido por Azure Automation.
 
-| Método | Environment 
-| --- | --- | 
+| Método | Environment
+| --- | --- |
 | Cuenta de ejecución y cuenta de ejecución de Azure clásico |Implementación de Azure Resource Manager e implementación clásica |  
 | Cuenta de usuario de Azure AD |Implementación de Azure Resource Manager e implementación clásica |  
 | Autenticación de Windows |Centro de datos local u otro proveedor en la nube con Hybrid Runbook Worker |  
 | Credenciales de AWS |Amazon Web Services |  
 
 En la sección **Procedimientos\Autenticación y seguridad** puede encontrar artículos de ayuda que proporcionan un resumen y pasos de implementación para configurar la autenticación para esos entornos, ya sea con una cuenta existente o una nueva dedicada para ese entorno.  Para la cuenta de ejecución y la cuenta de ejecución de Azure clásico, el tema [Actualización de una cuenta de ejecución de Automation mediante PowerShell](automation-update-account-powershell.md) describe cómo actualizar la cuenta de Automation existente con las cuentas de ejecución mediante PowerShell si no se configuró originalmente con una cuenta de ejecución o una cuenta de ejecución de Azure clásico.   
- 
+
 ## <a name="network"></a>Red
-Para que la instancia de Hybrid Runbook Worker se conecte a Microsoft Operations Management Suite (OMS) y se registre en él, debe tener acceso al número de puerto y a las direcciones URL que se describen a continuación.  Y esto aparte de los [puertos y las direcciones URL necesarios para que Microsoft Monitoring Agent](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) se conecte a OMS. Si se usa un servidor proxy para realizar la comunicación entre el agente y el servicio de OMS, debe asegurarse de que es posible tener acceso a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso.
+Para que la instancia de Hybrid Runbook Worker se conecte a Microsoft Operations Management Suite (OMS) y se registre en él, debe tener acceso al número de puerto y a las direcciones URL que se describen a continuación.  Y esto aparte de los [puertos y las direcciones URL necesarios para que Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md) se conecte a OMS. Si se usa un servidor proxy para realizar la comunicación entre el agente y el servicio de OMS, debe asegurarse de que es posible tener acceso a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso.
 
 A continuación se indican los puertos y las direcciones URL que son necesarios para que Hybrid Runbook Worker se comunique con Automatización.
 
@@ -136,11 +136,11 @@ Si tiene una cuenta de Automation definida para una región específica y quiere
 | Sur del Reino Unido 2 | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Gobierno de EE. UU. - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Para obtener una lista de direcciones IP en lugar de nombres, descargue y revise el archivo XML [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de direcciones IP de los centros de datos de Microsoft Azure) desde el Centro de descarga de Microsoft. 
+Para obtener una lista de direcciones IP en lugar de nombres, descargue y revise el archivo XML [Intervalos de direcciones IP de los centros de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653) desde el Centro de descarga de Microsoft.
 
 > [!NOTE]
-> Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Microsoft Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizarán en los centros de datos durante al menos una semana. Descargue el nuevo archivo XML cada semana y realizar los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Express Route observarán que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes. 
-> 
+> Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Microsoft Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizarán en los centros de datos durante al menos una semana. Descargue el nuevo archivo XML cada semana y realizar los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Express Route observarán que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes.
+>
 
 
 ## <a name="implementation"></a>Implementación
@@ -175,16 +175,16 @@ Es el método recomendado para incorporar Automation seleccionando la oferta de 
 
 4. Después de leer la descripción de la oferta, haga clic en **Crear**.  
 
-5. En la hoja de configuración de **Automation and Control**, seleccione **Área de trabajo de OMS**.  En la hoja **Áreas de trabajo de OMS**, seleccione un área de trabajo que esté vinculada a la misma suscripción de Azure en la que se encuentra la cuenta de Automation o cree una nueva.  Si no tiene un área de trabajo de OMS, puede seleccionar **Crear área de trabajo nueva** y en la hoja **Área de trabajo de OMS** realizar estos pasos: 
+5. En la hoja de configuración de **Automation and Control**, seleccione **Área de trabajo de OMS**.  En la hoja **Áreas de trabajo de OMS**, seleccione un área de trabajo que esté vinculada a la misma suscripción de Azure en la que se encuentra la cuenta de Automation o cree una nueva.  Si no tiene un área de trabajo de OMS, puede seleccionar **Crear área de trabajo nueva** y en la hoja **Área de trabajo de OMS** realizar estos pasos:
    - Especifique un nombre para el nuevo **espacio de trabajo de OMS**.
    - Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    - Para **Grupo de recursos**, puede crear un grupo de recursos o seleccionar uno existente.  
    - Seleccione una **ubicación**.  Actualmente las únicas ubicaciones disponibles son **sudeste de Australia**, **este de EE. UU.**, **Sudeste asiático**, **Centro occidental de EE.UU.** y **Europa Occidental**.
    - Seleccione un **plan de tarifa**.  La solución se ofrece en dos niveles: gratuito y nivel de pago por nodo (OMS).  El nivel gratis tiene un límite sobre la cantidad de datos recopilados diariamente, el período de retención y los minutos de tiempo de ejecución del trabajo de Runbook.  El nivel de pago por nodos (OMS) no tiene ningún límite en la cantidad de datos recopilados a diario.  
-   - Seleccione **Cuenta de Automation**.  Si va a crear una nueva área de trabajo de OMS, será necesario crear también una nueva cuenta de Automation que se asociará con la nueva área de trabajo de OMS especificada anteriormente, lo que incluye la suscripción, el grupo de recursos y la región de Azure.  Puede seleccionar **Crear una cuenta de automatización** y, en la hoja **Cuenta de Automation**, proporcionar la siguiente información: 
+   - Seleccione **Cuenta de Automation**.  Si va a crear una nueva área de trabajo de OMS, será necesario crear también una nueva cuenta de Automation que se asociará con la nueva área de trabajo de OMS especificada anteriormente, lo que incluye la suscripción, el grupo de recursos y la región de Azure.  Puede seleccionar **Crear una cuenta de automatización** y, en la hoja **Cuenta de Automation**, proporcionar la siguiente información:
   - En el campo **Nombre**, escriba el nombre de la cuenta de Automation.
 
-    Todas las demás opciones se rellenan automáticamente en función del espacio de trabajo de OMS seleccionado y no se pueden modificar.  Una cuenta de ejecución de Azure es el método de autenticación predeterminado de la oferta.  Después de hacer clic en **Aceptar**, se validan las opciones de configuración y se crea la cuenta de Automation.  Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
+    Todas las demás opciones se rellenan automáticamente en función del espacio de trabajo de OMS seleccionado y no se pueden modificar.  Una cuenta de ejecución de Azure es el método de autenticación predeterminado de la oferta.  Después de hacer clic en **Aceptar**, se validan las opciones de configuración y se crea la cuenta de Automation.  Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
     En caso contrario, seleccione una cuenta de ejecución de Automation existente.  La cuenta seleccionada no puede estar vinculada ya a otra área de trabajo de OMS ya que, en caso contrario, aparecerá un mensaje de notificación en la hoja.  Si ya está vinculada, deberá seleccionar una cuenta de ejecución de Automation diferente o crear una.
 
@@ -194,7 +194,7 @@ Es el método recomendado para incorporar Automation seleccionando la oferta de 
 
 7. En la hoja de configuración **Automation and Control**, confirme que desea instalar las soluciones recomendadas preseleccionadas. Si anula la selección de alguna de ellas puede instalarlas individualmente más adelante.  
 
-8. Haga clic en **Crear** para continuar con la incorporación de Automation y de un área de trabajo de OMS. Todas las configuraciones se validan y se intenta implementar la oferta en la suscripción.  Este proceso puede tardar varios segundos en completarse y puede realizar el seguimiento de su progreso en **Notificaciones** en el menú. 
+8. Haga clic en **Crear** para continuar con la incorporación de Automation y de un área de trabajo de OMS. Todas las configuraciones se validan y se intenta implementar la oferta en la suscripción.  Este proceso puede tardar varios segundos en completarse y puede realizar el seguimiento de su progreso en **Notificaciones** en el menú.
 
 Después de incorporar la oferta, puede empezar a crear runbooks, trabajar con las soluciones de administración que habilitó, o empezar a trabajar con [Log Analytics](https://docs.microsoft.com/azure/log-analytics) para recopilar datos generados por los recursos de sus entornos locales o en la nube.   
 
@@ -202,5 +202,4 @@ Después de incorporar la oferta, puede empezar a crear runbooks, trabajar con l
 * Puede confirmar la nueva cuenta de Automation para autenticarse con recursos de Azure mediante la revisión del artículo [Comprobación de la autenticación con la cuenta de ejecución de Azure Automation](automation-verify-runas-authentication.md).
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 * Para más información sobre la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
-
 
