@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 05/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c27e6c19f44d9f0fa60ae31d0cda756dcd032f02
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -105,7 +106,6 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 | Servicio | Nodos | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nodos principales |10001 |Thrift |Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
-| HiveServer |Nodos principales |10000 |Thrift |Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
 | Tienda de metadatos Hive |Nodos principales |9083 |Thrift |Servicio para conectarse mediante programación a metadatos de Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Puertos de WebHCat

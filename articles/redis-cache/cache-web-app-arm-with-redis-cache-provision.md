@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -43,7 +45,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variables de nombres
-Esta plantilla usa variables para construir los nombres de los recursos. Usa la función [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) para construir un valor basado en el identificador del grupo de recursos.
+Esta plantilla usa variables para construir los nombres de los recursos. Usa la función [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) para construir un valor basado en el identificador del grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -125,9 +127,4 @@ Observe que la aplicación web está configurada con las propiedades de configur
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

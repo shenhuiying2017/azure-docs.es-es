@@ -12,13 +12,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 04/09/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 480c18285e4708ce2771f10a848e4a55acf0c817
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: f3c8b50f14e21dfef6fec9aa34244f425808f1bc
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>Asignación de un dominio personalizado a una aplicación web
@@ -29,7 +30,7 @@ Este script de ejemplo crea una aplicación web en App Service con sus recursos 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Asignación de un dominio personalizado a una aplicación web")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Asignación de un dominio personalizado a una aplicación web")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

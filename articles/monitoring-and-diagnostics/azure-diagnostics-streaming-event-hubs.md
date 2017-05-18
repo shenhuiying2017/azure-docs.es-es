@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 492e0ca675f2a827b172c33fcd33226abc95dcec
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -47,7 +48,7 @@ La recepción de Diagnósticos de Azure en Event Hubs se admite en Cloud Service
 * Configuraciones existentes de Diagnósticos de Azure en una aplicación mediante un archivo *.wadcfgx* y uno de los siguientes métodos:
   * Visual Studio: [Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Espacio de nombres de Event Hubs aprovisionado según el artículo [Introducción a Event Hubs]((../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Espacio de nombres de Event Hubs aprovisionado según el artículo [Introducción a los Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Conectar Diagnósticos de Azure al receptor de Centros de eventos
 De forma predeterminada, Diagnósticos de Azure siempre envía registros y métricas a una cuenta de Azure Storage. Una aplicación también puede enviar datos a Event Hubs con la incorporación de una nueva sección **Sinks** al elemento **PublicConfig** / **WadCfg** del archivo *.wadcfgx*. En Visual Studio, el archivo *.wadcfgx* está almacenado en la siguiente ruta de acceso: **Proyecto de servicio en la nube** > **Roles** > **(nombreDelRol)** > archivo **diagnostics.wadcfgx**.
