@@ -3,7 +3,7 @@ title: "Exportación de telemetría desde Application Insights | Microsoft Docs"
 description: "Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights

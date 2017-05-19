@@ -3,7 +3,7 @@ title: "Exploración de métricas en Azure Application Insights | Microsoft Docs
 description: "Interpretación de los gráficos en el Explorador de métricas y personalización de las hojas del Explorador de métricas."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights

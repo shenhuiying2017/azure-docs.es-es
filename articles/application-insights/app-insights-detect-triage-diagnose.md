@@ -1,7 +1,7 @@
 ---
 title: "Detección y diagnóstico de problemas de la aplicación web: Azure Application Insights | Microsoft Docs"
 description: Analice los bloqueos y detecte y diagnostique problemas de rendimiento en sus aplicaciones.
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm

@@ -3,7 +3,7 @@ title: "Diagnóstico de errores y excepciones en aplicaciones web con Azure Appl
 description: "Capture las excepciones de las aplicaciones ASP.NET junto con la telemetría de solicitudes."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights

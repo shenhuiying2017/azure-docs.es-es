@@ -3,7 +3,7 @@ title: "Supervisión del rendimiento de aplicaciones web de Azure | Microsoft Do
 description: "Supervisión del rendimiento de aplicaciones web de Azure Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal

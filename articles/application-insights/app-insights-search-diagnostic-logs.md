@@ -3,7 +3,7 @@ title: "Registros y diagnósticos de ASP.NET en Azure Application Insights | Mic
 description: "Diagnostique los problemas de las aplicaciones web de ASP.NET mediante la búsqueda de solicitudes, excepciones y registros generados con Trace, NLog o Log4Net."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 99860c53-0324-4a3a-9aa9-83f5dffba835
 ms.service: application-insights

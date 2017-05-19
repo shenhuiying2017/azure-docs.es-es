@@ -3,7 +3,7 @@ title: "Supervisión del uso y el rendimiento en las aplicaciones de escritorio 
 description: "Analice el uso y el rendimiento de la aplicación de escritorio de Windows con HockeyApp y Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights

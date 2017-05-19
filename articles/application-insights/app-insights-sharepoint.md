@@ -3,7 +3,7 @@ title: "Supervisión de un sitio de SharePoint con Application Insights"
 description: "Inicio de la supervisión de una nueva aplicación con una nueva clave de instrumentación"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights

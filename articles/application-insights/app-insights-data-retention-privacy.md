@@ -3,7 +3,7 @@ title: "Retención y almacenamiento de datos en Azure Application Insights | Mic
 description: "Declaración de directiva de retención y privacidad"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: "Diagnóstico inteligente de los cambios en el rendimiento de las aplicac
 description: "Diagnóstico automático de subidas o pasos en la telemetría de rendimiento desde la aplicación web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

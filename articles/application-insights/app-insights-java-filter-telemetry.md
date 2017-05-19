@@ -3,7 +3,7 @@ title: "Filtrado de la telemetría de Azure Application Insights en la aplicaci�
 description: "Reduzca el tráfico de telemetría mediante el filtrado de los eventos que no necesita supervisar."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

@@ -3,7 +3,7 @@ title: "Creación de un recurso de Azure Application Insights | Microsoft Docs"
 description: "Describe la configuración manual de la supervisión de Application Insights para una nueva aplicación activa."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
