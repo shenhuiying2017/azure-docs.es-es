@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: Troubleshoot Custom Policies (Azure Active Directory B2C: directivas personalizadas de solución de problemas) | Microsoft Docs"
-description: "Un tema sobre cómo solucionar problemas con las directivas personalizadas de Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: uso de Application Insights para resolver problemas de las directivas personalizadas | Microsoft Docs'
+description: "cómo configurar Application Insights para realizar el seguimiento de la ejecución de las directivas personalizadas"
 services: active-directory-b2c
 documentationcenter: 
 author: saeeda
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2fa67038f2a214c1569fc65fd9f1beba394cb790
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 07eddeb35c2b88b2de08270d9ff5de317cc09ec7
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
@@ -46,11 +46,12 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
 1. Agregue los siguientes atributos al elemento `<TrustFrameworkPolicy>`:
 
   ```XML
+  DeploymentMode="Development"
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Si aún no existe, agregue un nodo secundario `<UserJourneyBehaviors>` al nodo `<RelyingParty>`.
-2. Agregue el siguiente nodo como nodo secundario del elemento `<UserJourneyBehaviors>`. Asegúrese de reemplazar `{Your Application Insights Key}` por la **Clave de instrumentación** que obtuvo en la sección anterior.
+1. Si aún no existe, agregue un nodo secundario `<UserJourneyBehaviors>` al nodo `<RelyingParty>`. Tiene que estar situado inmediatamente después de `<DefaultUserJourney ReferenceId="YourPolicyName" />`
+2. Agregue el siguiente nodo como nodo secundario del elemento `<UserJourneyBehaviors>`. Asegúrese de reemplazar `{Your Application Insights Key}` por la **Clave de instrumentación** que obtuvo de Application Insights en la sección anterior.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -66,10 +67,12 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
+    DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   >
     ...
     <RelyingParty>
+      <DefaultUserJourney ReferenceId="YourPolicyName" />
       <UserJourneyBehaviors>
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
@@ -79,7 +82,7 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
 
 3. Cargue la directiva.
 
-### <a name="see-the-logs"></a>Visualización de los registros
+### <a name="see-the-logs-in-application-insights"></a>Visualización de registros en Application Insights
 
 >[!NOTE]
 > Hay un breve retraso (inferior a cinco minutos) antes de que pueda ver nuevos registros en Application Insights.
@@ -94,7 +97,14 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
 traces | Ver todos los registros generados por Azure AD B2C |
 traces \| where timestamp > ago(1d) | Ver todos los registros generados por Azure AD B2C para el último día
 
+Las entradas pueden ser largas.  Exporte a un archivo CSV para realizar un examen más detallado.
+
 Puede obtener más información sobre estas herramientas de Analytics [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
+
+^[!NOTE]
+^ La Comunidad ha desarrollado un visor de userjourney para ayudar a los desarrolladores de identidad.  No está admitido por Microsoft y está disponible estrictamente tal cual.  Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de userjourney.  Proporciona el código fuente para implementarlo en su propia solución.
+
+[Github Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies) (Repositorio de Github con ejemplos de directivas personalizadas no admitidas y herramientas relacionadas)
 
 
 

@@ -1,0 +1,8 @@
+Puede usar un certificado de raíz generada mediante una solución empresarial (se recomienda) o puede generar un certificado autofirmado. Si usa un certificados autofirmado, no olvide leer el artículo [Creación de un certificado raíz autofirmado para conexiones de punto a sitio mediante PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert). El artículo contiene la configuración específica necesaria para generar un certificado compatible con P2S.
+
+Después de crear el certificado raíz, exporte los datos (no la clave privada) del certificado público en forma de archivo X.509 .cer codificado en Base 64. Después, cargue los datos del certificado público del certificado raíz en Azure.
+
+* **Certificado de empresa:** si usa una solución empresarial, puede utilizar la cadena de certificados existente. Obtenga el archivo .cer para el certificado raíz que desee usar.
+* **Certificado autofirmado:** si no usa una solución de certificados de empresa, será preciso que cree un certificado raíz autofirmado. El certificado raíz debe contener valores específicos para trabajar con una conexión de punto a sitio. Para ver las instrucciones pertinentes, consulte los siguientes artículos:
+  * Para crear un certificado raíz autofirmado, consulte [Creación de un certificado raíz autofirmado para conexiones de punto a sitio mediante PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert).
+  * Para exportar la clave pública (archivo .cer), consulte [Creación de un certificado raíz autofirmado para conexiones de punto a sitio mediante PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer).

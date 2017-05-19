@@ -1,6 +1,7 @@
 ---
-title: "Informes de actividad de auditoría en el portal de Azure Active Directory (versión preliminar) | Microsoft Docs"
-description: "Introducción a los informes de actividad de auditoría en la versión preliminar del portal de Azure Active Directory"
+
+title: "Informes de actividad de auditoría en el portal de Azure Active Directory | Microsoft Docs"
+description: "Introducción a los informes de actividad de auditoría en el portal de Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Informes de actividad de auditoría en el portal de Azure Active Directory (versión preliminar)
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
-Con los informes de la [versión preliminar](active-directory-preview-explainer.md) de Azure Active Directory, obtendrá toda la información que necesita para determinar cómo marcha el entorno.
+Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo marcha el entorno.
 
-La arquitectura de los informes de Azure Active Directory consta de los siguientes componentes:
+La arquitectura de los informes de Azure AD consta de los siguientes componentes:
 
 - **Actividad** 
     - **Actividades de inicio de sesión** : información sobre el uso de las aplicaciones administradas y las actividades de inicio de sesión de usuario

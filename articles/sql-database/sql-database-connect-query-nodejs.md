@@ -13,19 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: lbosq
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 99c1ce93f30a54fcf0d76b1367c2f9545258c1f9
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-sql-database-use-nodejs-to-connect-and-query-data"></a>Azure SQL Database: uso de Node.js para conectar y consultar datos
 
-Este inicio rápido muestra cómo usar [Node.js](https://nodejs.org/en/) para conectarse a una base de datos de Azure SQL Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos desde las plataformas de Windows, Ubuntu Linux y Mac.
+Esta guía de inicio rápido muestra cómo conectarse a una base de datos de Azure SQL Database mediante [Node.js](https://nodejs.org/en/)y, posteriormente, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Windows, Ubuntu Linux y Mac.
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de estas guías:
 
@@ -34,7 +34,7 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 
 ## <a name="install-nodejs"></a>Instalación de Node.js 
 
-En esta sección se da por hecho que está familiarizado con el desarrollo con Node.js y que empieza a trabajar con Azure SQL Database. Si no está familiarizado con el desarrollo con Node.js, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Node.js** y, a continuación, seleccione el sistema operativo.
+En esta sección se da por hecho que está familiarizado con el desarrollo mediante Node.js y que nunca ha utilizado Azure SQL Database. Si no está familiarizado con el desarrollo con Node.js, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Node.js** y, a continuación, seleccione el sistema operativo.
 
 ### <a name="mac-os"></a>**Mac OS**
 Escriba los comandos siguientes para instalar **brew**, un administrador de paquetes fácil de usar para Mac OS X y **Node.js**.
@@ -255,14 +255,10 @@ function deleteFromDatabase(){
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
+- [Controlador de Microsoft Node.js para SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
+- [Conectarse y realizar consultas con SSMS](sql-database-connect-query-ssms.md)
+- [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- Puede encontrar más información en [Microsoft Node.js Driver para SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Para conectarse y consultar mediante SQL Server Management Studio, consulte el artículo de [Conexión y consultas con SSMS](sql-database-connect-query-ssms.md).
-- Para conectarse y consultar con Visual Studio, vea [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectarse y consultar con .NET, vea [Conexión y consultas con .NET](sql-database-connect-query-dotnet.md).
-- Para conectarse y consultar con PHP, vea [Conexión y consultas con PHP](sql-database-connect-query-php.md).
-- Para conectarse y consultar con Java, vea [Conexión y consultas con Java](sql-database-connect-query-java.md).
-- Para conectarse y consultar con Python, vea [Conexión y consultas con Python](sql-database-connect-query-python.md).
-- Para conectarse y consultar con Ruby, vea [Conexión y consultas con Ruby](sql-database-connect-query-ruby.md).
 
 

@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Las máquinas virtuales de Premium Storage se pueden restaurar a cualquier almac
 Azure Backup protege las máquinas virtuales de disco administrado. Los discos administrados le liberan de la administración de cuentas de almacenamiento de máquinas virtuales simplifican en gran medida el aprovisionamiento de las máquinas virtuales.
 
 ### <a name="back-up-managed-disk-vms"></a>Copia de seguridad de máquinas virtuales de disco administrado
-Realizar copias de seguridad de máquinas virtuales en discos administrados no es tan diferente a realizar copias de seguridad de máquinas virtuales de Resource Manager. En Azure Portal, puede configurar el trabajo de copia de seguridad directamente en la vista de máquina virtual o la vista del almacén de Recovery Services. Puede realizar la copia de seguridad de máquinas virtuales en discos administrados mediante colecciones de RestorePoint basadas en discos administrados. Actualmente Azure Backup no admite la copia de seguridad de máquinas virtuales de discos administrados cifradas mediante Azure Disk Encryption (ADE).
+Realizar copias de seguridad de máquinas virtuales en discos administrados no es tan diferente a realizar copias de seguridad de máquinas virtuales de Resource Manager. En Azure Portal, puede configurar el trabajo de copia de seguridad directamente en la vista de máquina virtual o la vista del almacén de Recovery Services. Puede realizar la copia de seguridad de máquinas virtuales en discos administrados mediante colecciones de RestorePoint basadas en discos administrados. Azure Backup también admite la realización de copias de seguridad de máquinas virtuales de discos administrados cifradas mediante Azure Disk Encryption (ADE).
 
 ### <a name="restore-managed-disk-vms"></a>Restauración de máquinas virtuales de disco administrado
-Azure Backup le permite restaurar una máquina virtual completa con discos administrados o restaurar discos administrados en una cuenta de almacenamiento de Resource Manager. Azure administra los discos administrados durante el proceso de restauración. Usted (el cliente) administra la cuenta de almacenamiento creada como parte del proceso de restauración.
+Azure Backup le permite restaurar una máquina virtual completa con discos administrados o restaurar discos administrados en una cuenta de almacenamiento de Resource Manager. Azure administra los discos administrados durante el proceso de restauración. Usted (el cliente) administra la cuenta de almacenamiento creada como parte del proceso de restauración. Para restaurar máquinas virtuales cifradas administradas, antes de la restauración las claves y los secretos de la máquina virtual deben existir en el almacén de claves.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>¿Cuáles son las características de cada componente de Backup?
 En las secciones siguientes se proporcionan tablas que resumen la disponibilidad o la compatibilidad de diversas características de cada componente de Azure Backup. Consulte la siguiente información de cada tabla para obtener ayuda o información adicional.

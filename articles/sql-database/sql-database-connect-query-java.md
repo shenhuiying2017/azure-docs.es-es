@@ -13,19 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;carlrab;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: defb32835971fe423e77a11817fce057fa7c929d
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-sql-database-use-java-to-connect-and-query-data"></a>Azure SQL Database: uso de Java para conectar y consultar datos
 
-Este inicio rápido muestra cómo usar [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectarse a una base de datos de Azure SQL Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos desde las plataformas de Mac OS, Ubuntu Linux y Windows.
+En esta guía de inicio rápido se muestra cómo usar [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectarse a una base de datos de Azure SQL Database y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Mac OS, Ubuntu Linux y Windows.
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
@@ -34,10 +34,10 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 
 ## <a name="install-java-software"></a>Instalación del software de Java
 
-En esta sección se da por hecho que está familiarizado con el desarrollo con Java y que empieza a trabajar con Azure SQL Database. Si no está familiarizado con el desarrollo con Java, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java** y, a continuación, seleccione el sistema operativo.
+En esta sección se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure SQL Database. Si no está familiarizado con el desarrollo con Java, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java** y, a continuación, seleccione el sistema operativo.
 
 ### <a name="mac-os"></a>**Mac OS**
-Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **brew** y **Maven**. 
+Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **brew** y **Maven**: 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -46,14 +46,14 @@ brew install maven
 ```
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **Maven**: 
+Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **Maven**:
 
 ```bash
 sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial. Maven se puede usar para ayudar a administrar las dependencias, compilar, probar y ejecutar el proyecto de Java. 
+Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial. Use Maven para ayudar a administrar las dependencias, compilar, probar y ejecutar el proyecto de Java. 
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
@@ -65,7 +65,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Si ha olvidado la información de inicio de sesión para el servidor de Azure SQL Database, navegue a la página del servidor de SQL Database para ver el nombre del Administrador del servidor y, si es necesario, restablecer la contraseña.
+4. Si olvida la información de inicio de sesión del servidor, navegue hasta la página del servidor de SQL Database para ver el nombre de administrador del servidor y, si es necesario, restablecer la contraseña.
 5. Haga clic en **Mostrar las cadenas de conexión de la base de datos**.
 
 6. Revise la cadena de conexión de**JDBC** completa.
@@ -301,15 +301,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Repositorio de Github para [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc).
-- [Registrar problemas y plantear preguntas](https://github.com/microsoft/mssql-jdbc/issues).
-- Para conectarse y consultar mediante SQL Server Management Studio, consulte el artículo de [Conexión y consultas con SSMS](sql-database-connect-query-ssms.md).
-- Para conectarse y consultar con Visual Studio, vea [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectarse y consultar con .NET, vea [Conexión y consultas con .NET](sql-database-connect-query-dotnet.md).
-- Para conectarse y consultar con PHP, vea [Conexión y consultas con PHP](sql-database-connect-query-php.md).
-- Para conectarse y consultar con Node.js, vea [Conexión y consultas con Node.js](sql-database-connect-query-nodejs.md).
-- Para conectarse y consultar con Python, vea [Conexión y consultas con Python](sql-database-connect-query-python.md).
-- Para conectarse y consultar con Ruby, vea [Conexión y consultas con Ruby](sql-database-connect-query-ruby.md).
+- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
+- [Controlador JDBC de Microsoft para SQL Server](https://github.com/microsoft/mssql-jdbc)
+- [Informe de los problemas y realización de preguntas](https://github.com/microsoft/mssql-jdbc/issues)
 
 

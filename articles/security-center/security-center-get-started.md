@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -80,8 +81,8 @@ Puede configurar directivas de seguridad para los grupos de recursos y las suscr
    ![Recomendaciones en Azure Security Center][5]
 2. Seleccione una recomendación en la hoja **Recomendaciones** para ver más información o realizar una acción para resolver el problema.
 
-### <a name="view-the-health-and-security-state-of-your-resources"></a>Ver el estado de seguridad de los recursos
-1. Vuelva a la hoja **Centro de seguridad** . El icono de **estado de seguridad de los recursos** contiene indicadores del estado de seguridad de las máquinas virtuales, las redes, los datos y las aplicaciones.
+### <a name="view-the-security-state-of-your-resources"></a>Visualización del estado de seguridad de los recursos
+1. Vuelva a la hoja **Centro de seguridad** . La sección **Prevención** del panel contiene indicadores del estado de seguridad de máquinas virtuales, redes, datos y aplicaciones.
 2. Seleccione **Proceso** para más información. La hoja **Proceso** se abre y muestra tres pestañas:
 
   - **Overview** (Información general): contiene recomendaciones de supervisión y de la máquina virtual.

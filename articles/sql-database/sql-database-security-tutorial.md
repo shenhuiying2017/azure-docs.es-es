@@ -4,7 +4,7 @@ description: "Conozca las técnicas y características para proteger su base de 
 services: sql-database
 documentationcenter: 
 author: DRediske
-manager: johammer
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,29 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/03/2017
+ms.date: 05/07/2017
 ms.author: daredis
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: eb2c8ec946a08ed3b538d613199706779b80bd1f
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 34815f5b716a38f957392d8955f924eeb6fe621e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="secure-your-azure-sql-database"></a>Protección de la base de datos de Azure SQL
+# <a name="secure-your-azure-sql-database"></a>Protección de Azure SQL Database
 
-Este tutorial le guía por los aspectos básicos de la protección de su base de datos SQL. Con unos cuantos sencillos pasos, puede tomar cualquier base de datos y mejorar enormemente su protección contra usuarios malintencionados o acceso no autorizado.
+SQL Database protege los datos mediante la limitación del acceso a la base de datos a través de reglas de firewall, de mecanismos de autenticación que requieren que los usuarios prueben su identidad y de la autorización a través de pertenencias y permisos basados en roles, así como la seguridad de nivel de fila y el enmascaramiento dinámico de datos.
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Con unos pocos pasos sencillos puede mejorar la protección de su base de datos contra usuarios malintencionados o acceso no autorizado. En este tutorial, aprenderá a: 
+
+> [!div class="checklist"]
+> * Configurar reglas de firewall para un servidor o una base de datos
+> * Conexión a una base de datos mediante una cadena de conexión segura
+> * Administrar el acceso de los usuarios
+> * Proteger los datos con cifrado
+> * Habilitar la auditoría de SQL Database
+> * Habilitar la detección de amenazas de SQL Database
 
 Para realizar este tutorial, asegúrese de tener instalado Excel y la última versión de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 
 
-
 ## <a name="set-up-firewall-rules-for-your-database"></a>Configuración de reglas de firewall para la base de datos
 
-Las bases de datos de Azure SQL están protegidas con un firewall. De forma predeterminada, todas las conexiones al servidor y a las bases de datos que contiene se rechazan, excepto las conexiones desde otros servicios de Azure. La opción más segura es establecer "Permitir el acceso a servicios de Azure" en Desactivado. Si necesita conectarse a la base de datos desde una máquina virtual o un servicio en la nube de Azure, debe crear una [IP reservada](../virtual-network/virtual-networks-reserved-public-ip.md) y permitir que solo la IP reservada acceda a través del firewall. 
+En Azure, las bases de datos SQL están protegidas mediante un firewall. De forma predeterminada, todas las conexiones al servidor y a las bases de datos que contiene se rechazan, excepto las conexiones desde otros servicios de Azure. La opción más segura es seleccionar Desactivado en "Permitir el acceso a servicios de Azure". Si necesita conectarse a la base de datos desde una máquina virtual o un servicio en la nube de Azure, debe crear una [IP reservada](../virtual-network/virtual-networks-reserved-public-ip.md) y permitir que solo la IP reservada acceda a través del firewall. 
 
 Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](sql-database-firewall-configure.md) para el servidor, a fin de permitir conexiones desde una dirección IP específica. 
 
@@ -61,7 +68,7 @@ Ahora puede conectarse a cualquier base de datos del servidor con la dirección 
 
 Si necesita una configuración de firewall diferente para distintas bases de datos del mismo servidor lógico, debe crear una regla de nivel de base de datos para cada una. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante instrucciones Transact-SQL y solo después de haber configurado la primera regla de firewall de nivel de servidor. Siga estos pasos para crear una regla de firewall específica de base de datos.
 
-1. Conéctese a la base de datos, mediante [SSMS](./sql-database-connect-query-ssms.md), por ejemplo.
+1. Conéctese a la base de datos, para lo que puede usar, por ejemplo, [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
 2. En el Explorador de objetos, haga clic con el botón derecho en la base de datos para la que quiere agregar una regla de firewall y haga clic en **Nueva consulta**. Se abre una ventana de consulta en blanco que está conectada a la base de datos.
 
@@ -73,9 +80,9 @@ Si necesita una configuración de firewall diferente para distintas bases de dat
 
 4. En la barra de herramientas, haga clic en **Ejecutar** para crear la regla de firewall.
 
-## <a name="connect-to-the-database-using-a-secure-connection-string"></a>Conexión a la base de datos mediante una cadena de conexión segura
+## <a name="connect-to-your-database-using-a-secure-connection-string"></a>Conexión a una base de datos mediante una cadena de conexión segura
 
-Para garantizar una conexión cifrada segura entre el cliente y SQL Database, la cadena de conexión se debe configurar para 1) solicitar una conexión cifrada y 2) no confiar en el certificado de servidor. De esta forma se establece una conexión mediante Seguridad de la capa de transporte (TLS) y se reduce el riesgo de ataques de tipo "Man in the middle". Para obtener las cadenas de conexión configuradas correctamente para su base de datos de Azure SQL para los controladores de cliente admitidos, vaya al portal de Azure, como se muestra en la captura de pantalla para ADO.net.
+Para garantizar una conexión cifrada segura entre el cliente y SQL Database, la cadena de conexión se debe configurar para 1) solicitar una conexión cifrada y 2) no confiar en el certificado de servidor. De esta forma se establece una conexión mediante Seguridad de la capa de transporte (TLS) y se reduce el riesgo de ataques de tipo "Man in the middle". Para obtener cadenas de conexión configuradas correctamente para SQL Database para los controladores de cliente admitidos, vaya a Azure Portal, como se muestra en la captura de pantalla para ADO.net.
 
 1. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**.
 
@@ -98,14 +105,14 @@ Si desea usar [Azure Active Directory](./sql-database-aad-authentication.md) par
 
 Siga estos pasos para crear un usuario mediante la autenticación de SQL:
 
-1. Conéctese a la base de datos mediante [SSMS](./sql-database-connect-query-ssms.md), por ejemplo, con sus credenciales de administrador de servidor.
+1. Conéctese a la base de datos, para lo que puede usar, por ejemplo, [SQL Server Management Studio](./sql-database-connect-query-ssms.md) con sus credenciales de administrador de servidor.
 
 2. En el Explorador de objetos, haga clic con el botón derecho en la base de datos a la que quiere agregar un nuevo usuario y haga clic en **Nueva consulta**. Se abre una ventana de consulta en blanco que está conectada a la base de datos seleccionada.
 
 3. En la ventana Consulta, escriba la consulta siguiente:
 
     ```sql
-    CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
+    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
     ```
 
 4. En la barra de herramientas, haga clic en **Ejecutar** para crear el usuario.
@@ -113,8 +120,8 @@ Siga estos pasos para crear un usuario mediante la autenticación de SQL:
 5. De forma predeterminada, el usuario puede conectarse a la base de datos, pero no tiene permisos para leer o escribir datos. Para conceder estos permisos al usuario recién creado, ejecute los dos comandos siguientes en una nueva ventana de consulta
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
-    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
     ```
 
 Es aconsejable crear estas cuentas sin privilegios de administrador en el nivel de base de datos para conectarse a la base de datos a menos que necesite ejecutar tareas de administrador, como crear nuevos usuarios. Revise el [tutorial de Azure Active Directory](./sql-database-aad-authentication-configure.md) sobre cómo autenticarse con Azure Active Directory.
@@ -132,11 +139,11 @@ El cifrado de datos transparente (TDE) de Azure SQL Database cifra automáticame
 
 3. Establezca **Cifrado de datos** en Activado y haga clic en **Guardar**.
 
-Se inicia el proceso de cifrado en segundo plano. Puede supervisar el progreso mediante la conexión a SQL Database con, por ejemplo, [SSMS](./sql-database-connect-query-ssms.md) como base de datos y consultar la columna encryption_state de la vista sys.dm_database_encryption_keys.
+Se inicia el proceso de cifrado en segundo plano. Para supervisar el progreso, conéctese a SQL Database mediante [SQL Server Management Studio](./sql-database-connect-query-ssms.md) consultando la columna encryption_state de la vista `sys.dm_database_encryption_keys`.
 
 ## <a name="enable-sql-database-auditing"></a>Habilitación de la auditoría de SQL Database
 
-Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de datos y registra los eventos en un registro de auditoría de la cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas. Siga estos pasos para crear un directiva de auditoría predeterminada para su base de datos:
+Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de datos y registra los eventos en un registro de auditoría de la cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas y conocer la actividad de las bases de datos, así como las discrepancias y anomalías que pueden indicar la existencia de potenciales infracciones de la seguridad. Siga estos pasos para crear un directiva de auditoría predeterminada para SQL Database:
 
 1. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**.
 
@@ -148,7 +155,7 @@ Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de d
 
     ![Heredar la configuración](./media/sql-database-security-tutorial/auditing-get-started-server-inherit.png)
 
-4. Si prefiere habilitar la auditoría de blobs en el nivel de base de datos (además, o en lugar, del nivel de servidor) **desactive** la opción **Heredar la configuración de auditoría del servidor**, **active** Auditoría y elija el tipo **Blob**.
+4. Si prefiere habilitar un tipo (¿o ubicación?) de auditoría distinto del especificado en el nivel de servidor, **desactive** la opción **Heredar la configuración de auditoría del servidor**, **active** Auditoría y elija el tipo de auditoría **Blob**.
 
     > Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
 
@@ -212,8 +219,17 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+Con unos pocos pasos sencillos puede mejorar la protección de su base de datos contra usuarios malintencionados o acceso no autorizado. En este tutorial, aprenderá a: 
 
-* Para una información general de las características de seguridad de SQL Database, consulte [Introducción a la seguridad de SQL Database](sql-database-security-overview.md).
-* Para el cifrado adicional de columnas confidenciales en la base de datos, considere el uso de cifrado del lado cliente con [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
-* En cuanto a funcionalidades de control de acceso adicionales, [Seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) le permite restringir el acceso a filas de una base de datos en función de la pertenencia a grupos del usuario o del contexto de ejecución, y [Enmascaramiento dinámico de datos](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita la exposición de datos confidenciales mediante su enmascaramiento para los usuarios sin privilegios en la capa de aplicación. 
+> [!div class="checklist"]
+> * Configurar reglas de firewall para un servidor o una base de datos
+> * Conexión a una base de datos mediante una cadena de conexión segura
+> * Administrar el acceso de los usuarios
+> * Protección de los datos con cifrado
+> * Habilitación de la auditoría de SQL Database
+> * Habilitación de la detección de amenazas de SQL Database
+
+> [!div class="nextstepaction"]
+>[Mejora del rendimiento de SQL Database](sql-database-performance-tutorial.md)
+
 

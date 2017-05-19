@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 05/08/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 52f6d4f3e68e5eb120ee499827cc8549b8e547fd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 ---
 
@@ -24,47 +26,57 @@ ms.openlocfilehash: 52f6d4f3e68e5eb120ee499827cc8549b8e547fd
 
 La función Aplicaciones web Servicio de aplicaciones de Azure ya proporciona la funcionalidad de enrutamiento del tráfico de conmutación por error y round robin para sitios web en un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico de Azure permite especificar el enrutamiento del tráfico de conmutación por error y round robin para sitios web y servicios en la nube en distintos centros de datos. El primer paso necesario para proporcionar esa funcionalidad es agregar el extremo del sitio web o del servicio en la nube al Administrador de tráfico.
 
-> [!NOTE]
-> En este artículo se explica cómo usar el portal clásico. El Portal de Azure clásico solo admite la creación y asignación de servicios en la nube y aplicaciones web como puntos de conexión. Se prefiere la nueva interfaz [Azure Portal](https://portal.azure.com).
-
 También puede deshabilitar los extremos individuales que forman parte de un perfil del Administrador de tráfico. Al deshabilitar un extremo, se deja como parte del perfil, pero el perfil actúa como si el extremo no estuviera incluido en él. Esta acción es útil para quitar temporalmente un punto de conexión que se encuentre en modo de mantenimiento o que se vaya a implementar. Cuando el extremo vuelva a estar en funcionamiento, se puede habilitar
 
 > [!NOTE]
 > Deshabilitar un extremo no tiene nada que ver con su estado de implementación en Azure. Sigue activo un punto de conexión en buen estado que puede recibir tráfico incluso cuando se deshabilite en Traffic Manager. Además, al deshabilitar un extremo de un perfil, no se afecta al estado en otro perfil.
 
-## <a name="to-add-a-cloud-service-or-website-endpoint"></a>Para agregar un extremo de servicio en la nube o sitio web
+## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para agregar un servicio en la nube o un punto de conexión de App Service a un perfil de Traffic Manager
 
-1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
-2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que forman parte de la configuración.
-3. En la parte inferior de la página, haga clic en **Agregar** para acceder a la página **Agregar extremos del servicio**. De manera predeterminada, la página muestra los servicios en la nube en **Extremos del servicio**.
-4. Para los servicios en la nube, selecciónelos en la lista para agregarlos como puntos de conexión para este perfil. Si borra el nombre del servicio en la nube, este se eliminará de la lista de extremos.
-5. Para los sitios web, haga clic en la lista desplegable **Tipo de servicio** y seleccione **Aplicación web**.
-6. Seleccione los sitios web de la lista para agregarlos como extremos para este perfil. Si borra el nombre del servicio en la nube, este se eliminará de la lista de extremos. Solo puede seleccionar un sitio web por cada centro de datos de Azure (también conocido como región). Cuando se selecciona el primer sitio web, los demás sitios web en el mismo centro de datos dejarán de estar disponibles para seleccionarse. Tenga en cuenta, asimismo, que solo se enumeran sitios web estándar.
-7. Una vez seleccionados los extremos de este perfil, haga clic en la marca de verificación, situada abajo a la derecha, para guardar los cambios.
+1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
+3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**.
+4. En la hoja **Puntos de conexión** que aparece, haga clic en **Agregar**.
+5. En la hoja **Agregar punto de conexión**, complete los campos de la siguiente manera:
+    1. En **Tipo**, haga clic en **Punto de conexión de Azure**.
+    2. Proporcione un **nombre** con el que desea reconocer este punto de conexión.
+    3. En **Tipo de recurso de destino**, en la lista desplegable, elija el tipo de recurso apropiado.
+    4. En **Recurso de destino**, en la lista desplegable, elija el recurso de destino apropiado para mostrar los recursos de la lista que estén en la misma suscripción en la **hoja Recursos**. En la hoja **Recursos** que aparece, elija el servicio de aplicaciones que desea agregar como primer punto de conexión.
+    5. En **Prioridad**, seleccione **1**. Esto hace que todo el tráfico vaya a este punto de conexión si funciona correctamente.
+    6. No active la opción **Agregar como deshabilitado**.
+    7. Haga clic en **Aceptar**
+6.    Repita los pasos 4 y 5 para agregar el siguiente punto de conexión de Azure. Asegúrese de agregarlo con el valor de **prioridad** establecido en **2**.
+7.    Cuando termine de agregar ambos puntos de conexión, aparecerán en la hoja **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
 > [!NOTE]
 > Después de agregar o quitar un punto de conexión de un perfil mediante el método de enrutamiento de tráfico *Conmutación por error*, no podrá ordenar como desee la lista de prioridad de conmutación por error. Puede ajustar el orden de la lista de prioridad de conmutación por error en la página Configuración. Para obtener más información, consulte [Método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-routing-method.md).
 
 ## <a name="to-disable-an-endpoint"></a>Para deshabilitar un extremo
 
-1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
-2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que se incluyen en la configuración.
-3. Haga clic en el extremo que desea deshabilitar y, a continuación, haga clic en **Deshabilitar** en la parte inferior de la página.
-4. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
+1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
+3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
+4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
+5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Deshabilitado**y haga clic en **Guardar**.
+6. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
 ## <a name="to-enable-an-endpoint"></a>Para habilitar un extremo
 
-1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
-2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que se incluyen en la configuración.
-3. Haga clic en el extremo que desea habilitar y, a continuación, haga clic en **Habilitar** en la parte inferior de la página.
-4. Los clientes se dirigen al punto de conexión habilitado como se indica en el perfil.
+1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
+3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
+4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
+5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Habilitado**y haga clic en **Guardar**.
+6. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
-## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>Para eliminar un extremo del servicio en la nube o del sitio web
+## <a name="to-delete-an-endpoint"></a>Para eliminar un punto de conexión
 
-1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
-2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que forman parte de la configuración.
-3. En la página Extremos, haga clic en el nombre del extremo que desea eliminar del perfil.
-4. En la parte inferior de la página, haga clic en **Eliminar**.
+1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com).
+2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
+3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
+4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
+5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Habilitado**y haga clic en **Guardar**.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -73,10 +85,5 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 * [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 * [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 * [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

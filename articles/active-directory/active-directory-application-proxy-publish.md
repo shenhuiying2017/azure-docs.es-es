@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Proxy de aplicación de Azure AD permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. En este punto, ya debe tener [habilitado el Proxy de aplicación en el Portal de Azure clásico](active-directory-application-proxy-enable.md). Este artículo le guiará por los pasos necesarios para publicar las aplicaciones que se ejecutan en una red local y proporcionar acceso remoto seguro desde fuera de la red. Después de completar este artículo, estará listo para configurar la aplicación con los requisitos de seguridad o información personalizada.
 
 > [!NOTE]
-> Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
-
-Si desea usar la versión preliminar pública de Proxy de aplicación, puede [publicar aplicaciones en Azure Portal](application-proxy-publish-azure-portal.md).
+> Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md). Si desea usar el proxy de aplicación, puede [publicar aplicaciones en Azure Portal](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Publicación de una aplicación mediante el Asistente
 1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com/).

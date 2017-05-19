@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,7 +30,7 @@ Este tutorial de inicio rápido le ayuda a implementar su primera aplicación we
 
 ![Aplicación web de ASP.NET en Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial muestra cómo utilizar Visual Studio 2017 para compilar e implementar una aplicación web de ASP.NET en Azure. Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
@@ -37,7 +38,7 @@ Este tutorial muestra cómo utilizar Visual Studio 2017 para compilar e implemen
 
 ## <a name="create-an-aspnet-web-app"></a>Creación de una aplicación web de ASP.NET
 
-Cree un nuevo proyecto en Visual Studio con `Ctrl`+`Shift`+`N`.
+Cree un proyecto en Visual Studio con `Ctrl`+`Shift`+`N`.
 
 En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C# > Web > Aplicación web ASP.NET (.NET Framework)**.
 
@@ -110,7 +111,7 @@ En el cuadro de diálogo **Configurar el plan de App Service**, configure el nue
 
 Haga clic en **Aceptar**.
 
-![Crear un nuevo plan de App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Creación de un plan de Servicio de aplicaciones](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Creación y publicación de la aplicación web
 
@@ -145,7 +146,7 @@ Busque la etiqueta HTML `<div class="jumbotron">` en la parte superior y reempla
 </div>
 ```
 
-Para volver a implementar en Azure, haga clic con el botón derecho en el proyecto **myFirstAzureWebApp** del **Explorador de soluciones** y seleccione **Publicar**.
+Para volver a implementar en Azure, haga clic con el botón derecho en el proyecto **myFirstAzureWebApp**, en el **Explorador de soluciones**, y seleccione **Publicar**.
 
 En la página de publicación, haga clic en **Publicar**.
 
@@ -165,11 +166,11 @@ En el menú izquierdo, haga clic en **App Services**, a continuación, haga clic
 
 Ha llegado a la _hoja_ de su aplicación web (una página del portal que se abre horizontalmente). 
 
-De forma predeterminada, la hoja de la aplicación web muestra la página de **introducción**. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la hoja muestran las diferentes páginas de configuración que puede abrir. 
+De forma predeterminada, la hoja de la aplicación web muestra la página de **introducción**. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar.  
 
 ![Hoja de App Service en Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Estas pestañas de la hoja muestran las muchas y excepcionales características que puede agregar a la aplicación web. La lista siguiente proporciona solo algunas de las posibilidades:
+Las pestañas del lado izquierdo de la hoja muestran las diferentes páginas de configuración que puede abrir. La lista siguiente proporciona solo algunas de las posibilidades:
 
 - Asignación de un nombre DNS personalizado
 - Enlace de un certificado SSL personalizado
@@ -193,5 +194,9 @@ En la hoja de confirmación, confirme escribiendo el nombre del grupo de recurso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore los [scripts de PowerShell de las aplicaciones web](app-service-powershell-samples.md) previamente creados.
+> [!div class="nextstepaction"]
+> [Creación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Scripts de ejemplo de PowerShell para Web Apps](app-service-powershell-samples.md)
 

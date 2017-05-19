@@ -11,7 +11,7 @@ sql-database-service-tiers.md
 | DTU máx. | 5 |
 | Tamaño máximo de base de datos* |2 GB|
 | Almacenamiento máximo de OLTP en memoria |N/D |
-| N.º máximo de trabajadores simultáneos |30 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos |30 |
 | Máximo de inicios de sesión simultáneos |30 |
 | N.º máximo de sesiones simultáneas |300 |
 |||
@@ -22,7 +22,7 @@ sql-database-service-tiers.md
 | DTU máx. | 10 | 20 | | 50 | 100 |
 | Tamaño máximo de base de datos* | 250 GB| 250 GB | 250 GB | 250 GB |
 | Almacenamiento máximo de OLTP en memoria | N/D | N/D | N/D | N/D |
-| N.º máximo de trabajadores simultáneos | 60 | 90 | 120 | 200 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos| 60 | 90 | 120 | 200 |
 | Máximo de inicios de sesión simultáneos | 60 | 90 | 120 | 200 |
 | N.º máximo de sesiones simultáneas |600 | 900 | 1200 | 2400 |
 ||||||
@@ -31,9 +31,9 @@ sql-database-service-tiers.md
 | **Nivel de rendimiento** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | --- |---:|---:|---:|---:|---:|---:|
 | DTU máx. | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Tamaño máximo de base de datos* | 500 GB | 500 GB | 500 GB | 500 GB | 4 TB* | 4 TB* |
+| Tamaño máximo de base de datos* | 500 GB | 500 GB | 500 GB | 500 GB | 4 TB | 4 TB |
 | Almacenamiento máximo de OLTP en memoria | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
-| N.º máximo de trabajadores simultáneos | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Máximo de inicios de sesión simultáneos | 200 | 400| 800| 1600| 2400| 6400 |
 | N.º máximo de sesiones simultáneas | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
@@ -44,7 +44,7 @@ sql-database-service-tiers.md
 | DTU máx. | 125 | 250 | 500 | 1000 |
 | Tamaño máximo de base de datos* | 500 GB | 500 GB | 500 GB | 500 GB |
 | Almacenamiento máximo de OLTP en memoria | 1 GB | 2 GB | 4 GB | 8 GB |
-| N.º máximo de trabajadores simultáneos | 200 | 400 | 800 | 1600 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos| 200 | 400 | 800 | 1600 |
 | Máximo de inicios de sesión simultáneos | 200 | 400| 800| 1600|
 | N.º máximo de sesiones simultáneas | 30000| 30000| 30000| 30000|
 |||||||

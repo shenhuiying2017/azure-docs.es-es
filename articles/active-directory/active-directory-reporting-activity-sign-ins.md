@@ -1,6 +1,7 @@
 ---
-title: "Informes de actividad de inicio de sesión en el portal de Azure Active Directory (versión preliminar) | Microsoft Docs"
-description: "Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory (versión preliminar)"
+
+title: "Informes de actividad de inicio de sesión en el portal de Azure Active Directory | Microsoft Docs"
+description: "Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory (versión preliminar)
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
-Con los informes de la [versión preliminar](active-directory-preview-explainer.md) de Azure Active Directory, obtendrá toda la información que necesita para determinar cómo marcha el entorno.
+Con los informes de Azure Active Directory (Azure AD) que encontrará en [Azure Portal](https://portal.azure.com), puede obtener toda la información que necesita para determinar cómo marcha el entorno.
 
 La arquitectura de los informes de Azure Active Directory consta de los siguientes componentes:
 
@@ -44,7 +46,7 @@ Con la información proporcionada por el informe de inicio de sesión del usuari
 * ¿Cuántos usuarios tienen usuarios que han iniciado sesión durante una semana?
 * ¿Cuál es el estado de estos inicios de sesión?
 
-El primer punto de entrada a todos los datos de actividades de inicio de sesión es **Inicios de sesión** en la sección Actividad de **Azure Active**. Directorio.
+El primer punto de entrada a todos los datos de actividades de inicio de sesión es **Inicios de sesión** en la sección Actividad de **Azure Active**.
 
 
 ![Actividad de inicio de sesión](./media/active-directory-reporting-activity-sign-ins/61.png "Actividad de inicio de sesión")

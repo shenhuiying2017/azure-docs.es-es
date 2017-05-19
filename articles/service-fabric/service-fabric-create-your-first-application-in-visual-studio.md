@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -116,7 +117,18 @@ Ahora que tiene una aplicación, pruebe a ejecutarla.
    
     ![Visor de eventos de diagnóstico después de la conmutación por error][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>Cambio del modo de clúster
+## <a name="cleaning-up-the-local-cluster-optional"></a>Limpieza del clúster local (opcional)
+Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador elimina la instancia de la aplicación y anula el registro del tipo de aplicación. No obstante, el clúster se sigue ejecutando en segundo plano. Tiene varias opciones para administrar el clúster:
+
+1. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
+2. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Elimine el clúster solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Implementación de la aplicación en un clúster de Azure
+Una vez que la aplicación se ha creado y ejecutado de forma local, se puede implementar en Azure. El documento [Creación del primer clúster de Service Fabric en Azure](service-fabric-get-started-azure-cluster.md) le guía por los pasos necesarios para hacerlo mediante Azure PowerShell o el portal.
+
+Una vez que ha configurado un clúster de Azure, puede esta aplicación desde Visual Studio en Azure, para lo que debe seguir la información del artículo [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md).  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Cambio del modo de clúster del clúster de desarrollo local
 De forma predeterminada, el clúster de desarrollo local está configurado para ejecutarse como un clúster de cinco nodos, lo cual resulta útil para depurar los servicios implementados en varios nodos. No obstante, implementar una aplicación en el clúster de desarrollo de cinco nodos puede tardar un tiempo. Si desea iterar los cambios de código rápidamente sin ejecutar la aplicación en los cinco nodos, cambie el clúster de desarrollo al modo de un nodo. Para ejecutar el código en un clúster con un nodo, haga clic con el botón derecho en el administrador de clústeres local en la bandeja del sistema y seleccione **Switch Cluster Mode -> 1 Node** (Cambiar modo de clústeres -> 1 nodo).  
 
 ![Cambio del modo de clúster][switch-cluster-mode]
@@ -136,11 +148,7 @@ También puede cambiar el modo de clúster mediante PowerShell:
    
     ![Salida de instalación de clúster][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Limpiar
-Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador elimina la instancia de la aplicación y anula el registro del tipo de aplicación. No obstante, el clúster se sigue ejecutando en segundo plano. Tiene varias opciones para administrar el clúster:
 
-1. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
-2. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Elimine el clúster solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a crear un [clúster en Azure](service-fabric-cluster-creation-via-portal.md) o un [clúster independiente en Windows](service-fabric-cluster-creation-for-windows-server.md).
