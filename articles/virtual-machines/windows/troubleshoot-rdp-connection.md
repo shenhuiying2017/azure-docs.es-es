@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
+ms.date: 05/18/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -46,8 +46,7 @@ Si necesita instrucciones más detalladas y explicaciones, siga leyendo. Comprue
 
 > [!TIP]
 > Si el botón **Conectar** de la máquina virtual está atenuado en el portal y no está conectado a Azure a través de una conexión [Express Route](../../expressroute/expressroute-introduction.md) o [VPN de sitio a sitio](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), deberá crear y asignar a la máquina virtual una dirección IP pública antes de poder usar RDP. Aquí puede leer más sobre [direcciones IP públicas en Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-> 
-> 
+
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Formas de solucionar problemas de RDP
 Puede solucionar los problemas de las máquinas virtuales creadas mediante el modelo de implementación de Resource Manager con uno de los métodos siguientes:
@@ -121,8 +120,6 @@ Los ejemplos siguientes usan variables como `myResourceGroup`, `myVM` y `myVMAcc
 
 > [!NOTE]
 > Restablecerá las credenciales de usuario y la configuración de RDP mediante el cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) de PowerShell. En los ejemplos siguientes, `myVMAccessExtension` es un nombre que ha especificado como parte del proceso. Si ha trabajado previamente con VMAccessAgent, use `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Para ver el nombre, busque en la sección "Extensiones" de la salida.
-> 
-> 
 
 Después de cada paso de solución de problemas, intente conectarse de nuevo a la máquina virtual. Si sigue sin poder conectarse, pruebe el paso siguiente.
 

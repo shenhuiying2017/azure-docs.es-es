@@ -3,7 +3,7 @@ title: "Supervisión de la disponibilidad y la capacidad de respuesta de cualqui
 description: Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,45 +11,44 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
-Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
+Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
 
-![Ejemplo de prueba web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+Puede configurar pruebas de disponibilidad para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet. No tiene que agregar nada en el sitio web que se está probando. Ni siquiera tiene que ser su sitio: puede probar un servicio de API de REST de los que dependa.
 
-Puede configurar pruebas web para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet. No tiene que agregar nada en el sitio web que se está probando. Ni siquiera tiene que ser su sitio: puede probar un servicio de API de REST de los que dependa.
-
-Existen dos tipos de prueba web:
+Hay dos tipos de pruebas de disponibilidad:
 
 * [Prueba de ping de la dirección URL](#create): una prueba sencilla que se puede crear en el portal de Azure.
 * [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Enterprise y se carga en el portal.
 
-Puede crear hasta 10 pruebas web por recurso de aplicación.
+Puede crear hasta 25 pruebas de disponibilidad por recurso de aplicación.
 
-## <a name="create"></a>1. Apertura de un recurso para los informes de pruebas web
+## <a name="create"></a>1. Apertura de un recurso para los informes de pruebas de disponibilidad
 
 **Si ya ha configurado Application Insights** para la aplicación web, abra el recurso de Application Insights en [Azure Portal](https://portal.azure.com).
 
-**O, si desea ver los informes en un nuevo recurso,** suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
+**O, si desea ver los informes en un nuevo recurso,**  suscríbase a [Microsoft Azure](http://azure.com), vaya a [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Haga clic en **Todos los recursos** para abrir la hoja Información general del nuevo recurso.
 
 ## <a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
-Abra la hoja de disponibilidad y agregue una prueba web.
+Abra la hoja Disponibilidad y agregue una prueba.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **La dirección URL** puede ser cualquier página web que desee probar, pero debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
+* **La dirección URL** puede ser cualquier página web que desee probar, pero debe ser visible desde la red pública de Internet. La dirección URL puede incluir una cadena de consulta. Así, por ejemplo, se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguimos, hasta 10 redirecciones.
 * **Analizar solicitudes dependientes**: si se activa esta opción, la prueba solicitará imágenes, scripts, archivos de estilo y otros archivos que forman parte de la página web en pruebas. El tiempo de respuesta registrado incluye el tiempo dedicado a obtener estos archivos. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera. 
 
     Si la opción no está activada, la prueba solo solicita el archivo en la dirección URL que especificó.
@@ -68,33 +67,41 @@ Abra la hoja de disponibilidad y agregue una prueba web.
     Puede configurar un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades).
 
 ### <a name="test-more-urls"></a>Prueba de más URL
-Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
+Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando si prueba la URL con una búsqueda.
 
 
-## <a name="monitor"></a>3. Visualización de los resultados de las prueba web
+## <a name="monitor"></a>3. Visualización de los resultados de las pruebas de disponibilidad
 
-Después de 5 minutos, haga clic en **Actualizar** para ver los resultados de las pruebas. 
+Después de unos minutos, haga clic en **Actualizar** para ver los resultados de las pruebas. 
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Haga clic en cualquier barra del gráfico de resumen para obtener una vista más detallada de ese período de tiempo.
+En el gráfico de dispersión se muestran ejemplos de los resultados de las pruebas, que incluyen detalles sobre los pasos de las pruebas de diagnóstico. El motor de pruebas almacena los detalles de diagnóstico de las pruebas con errores. En el caso de las pruebas correctas, los detalles de diagnóstico se almacenan para un subconjunto de las ejecuciones. Mantenga el puntero sobre cualquiera de los puntos rojos o verdes para ver la marca de tiempo, duración, ubicación y nombre de la prueba. Haga clic en cualquier punto del gráfico de dispersión para ver los detalles del resultado de la prueba.  
+
+Seleccione una prueba o una ubicación determinadas, o bien reduzca el período de tiempo para ver más resultados del período de tiempo que le interese. Use el Explorador de búsqueda para ver los resultados de todas las ejecuciones, o use consultas de Analytics para ejecutar informes personalizados en estos datos.
+
+Además de los resultados sin formato, hay dos métricas de disponibilidad en el Explorador de métricas: 
+
+1. Disponibilidad: porcentaje de las pruebas que obtuvieron resultados satisfactorios en todas las ejecuciones de prueba. 
+2. Duración de la prueba: duración media de las pruebas en todas las ejecuciones de prueba.
+
+Puede aplicar filtros en el nombre de la prueba y la ubicación para analizar las tendencias de una prueba o ubicación determinadas.
 
 ## <a name="edit"></a> Inspección y edición de pruebas
 
 En la página de resumen, seleccione una prueba concreta. Allí, puede ver sus resultados específicos y editarla o deshabilitarla temporalmente.
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Es posible que desee deshabilitar las pruebas web mientras está realizando un mantenimiento en el servicio.
-
+Tal vez le interese deshabilitar las pruebas de disponibilidad o las reglas de alerta asociadas a ellas mientras esté realizando el mantenimiento del servicio. 
 
 ## <a name="failures"></a>Si ve errores
 Haga clic en un punto rojo.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-Desde un resultado de la prueba web, puede:
+Desde un resultado de la prueba de disponibilidad, puede hacer lo siguiente:
 
 * Inspeccionar la respuesta recibida desde el servidor.
 * Abrir la telemetría enviada por la aplicación de servidor durante el procesamiento de la instancia de solicitud con error.
@@ -104,7 +111,7 @@ Desde un resultado de la prueba web, puede:
 
 *¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
 
-*¿No hay elementos relacionados?* Puede ser porque está funcionando el [muestreo](app-insights-sampling.md).
+*¿No hay elementos relacionados?* Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](app-insights-sampling.md). 
 
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
@@ -149,7 +156,7 @@ Utilice Visual Studio Enterprise para grabar una sesión web.
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. Cargar la prueba web en Application Insights
-1. En el portal de Application Insights, cree una nueva prueba web.
+1. En el portal de Application Insights, cree una prueba web.
 
     ![En la hoja de pruebas web, seleccione Agregar.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Seleccione la prueba de varios pasos y cargue el archivo .webtest.
@@ -239,8 +246,8 @@ En la hoja Información general, abra **Configuración**, **Pruebas de rendimien
 
 Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas de éxito.
 
-## <a name="automation"></a>Automatización
-* [Use scripts de PowerShell para configurar una prueba web](app-insights-powershell.md#add-an-availability-test) automáticamente.
+## <a name="automation"></a>Automation
+* [Use scripts de PowerShell para configurar una prueba de disponibilidad](app-insights-powershell.md#add-an-availability-test) automáticamente.
 * Configure un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
 
 ## <a name="qna"></a>¿Tiene preguntas? ¿Tiene problemas?
@@ -252,7 +259,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
     Admitimos TLS 1.1 y TLS 1.2.
 * *¿Existe alguna diferencia entre las "pruebas web" y las "pruebas de disponibilidad"?*
 
-    Usamos ambos términos de manera intercambiable.
+    Los dos términos se pueden usar indistintamente. El término "pruebas de disponibilidad" es más genérico, e incluye las pruebas de ping de dirección URL única y las pruebas web de varios pasos.
 * *Me gustaría usar pruebas de disponibilidad en nuestro servidor interno que se ejecuta detrás de un firewall.*
 
     Hay dos soluciones posibles:
@@ -291,4 +298,3 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

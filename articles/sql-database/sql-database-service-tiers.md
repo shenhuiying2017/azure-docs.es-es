@@ -17,10 +17,10 @@ ms.workload: data-management
 wms.date: 04/26/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +50,11 @@ En primer lugar, decida si desea ejecutar una base de datos única con una canti
 | **Características del nivel de servicio** | **Básico** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | Tamaño máximo de la base de datos única | 2 GB | 250 GB | 4 TB*  | 500 GB  |
-| Tamaño máximo de la base de datos de un grupo elástico | 156 GB | 2,9 TB | 500 GB | 500 GB |
+| Tamaño máximo del grupo elástico | 156 GB | 2,9 TB | 4 TB* | 750 GB |
+| Tamaño máximo de la base de datos de un grupo elástico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 | 100 |
+| DTU máximas de la base de datos única | 5 | 100 | 4000 | 1000 |
+| DTU máximas por base de datos de un grupo elástico | 5 | 100 | 4000 | 1000 |
 | Período de retención de copias de seguridad de base de datos | 7 días | 35 días | 35 días | 35 días |
 ||||||
 
@@ -93,11 +96,9 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 Los grupos permiten que las bases de datos compartan y consuman recursos de eDTU sin necesidad de asignar un nivel de rendimiento específico a cada una. Por ejemplo, una base de datos única de un grupo Estándar puede usar desde 0 eDTU al número máximo de eDTU de base de datos que estableció al configurar el grupo. Los grupos permiten que varias bases de datos con diferentes cargas de trabajo usen de forma eficaz los recursos de eDTU disponibles para todo el grupo. Consulte el artículo sobre las [consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool.md) para más información.
 
-En la tabla siguiente se describen las características de los niveles de servicio de los grupos.
+En las tablas siguientes se describen los límites de recursos de los grupos elásticos.  Tenga en cuenta que los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que para las bases de datos únicas fuera de los grupos basados en DTU y el nivel de servicio.  Por ejemplo, el número máximo de trabajadores simultáneos de una base de datos S2 es de 120 trabajadores.  Por lo tanto, el número máximo de trabajadores simultáneos de una base de datos de un grupo estándar también es de 120 trabajadores si el número máximo de DTU por base de datos del grupo es de 50 DTU (que es equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Además, todas las bases de datos de un grupo se ajustan a las características de base de datos única de ese nivel. Por ejemplo, el grupo Básico tiene un límite máximo de entre 4800 y 28 800 sesiones por grupo, mientras que una base de datos de un grupo Básico tiene un límite de 300 sesiones.
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>Escalado y reducción vertical de un grupo elástico
 
@@ -137,7 +138,7 @@ Al crear o actualizar una base de datos P11/P15 en una región no compatible, la
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitaciones actuales de las bases de datos P11 y P15 con un tamaño máximo de 4 TB
 
 - Al crear o actualizar una base de datos P11 o P15, solo puede optar entre un tamaño máximo de 1 TB y 4 TB. Actualmente no se admiten tamaños de almacenamiento intermedios.
-- El tamaño máximo de base de datos de 4 TB no se puede cambiar a 1 TB aunque el almacenamiento real usado esté por debajo de 1 TB. Por tanto, no puede degradar una base de datos P11-4TB/P15-4TB a una base de datos P11-1TB/P15-1TB o de un nivel de rendimiento inferior (por ejemplo, a P1-P6) hasta que proporcionemos opciones de almacenamiento adicionales para el resto de los niveles de rendimiento. Esta restricción también se aplica a los escenarios de copia y restauración, lo que incluye la restauración a un momento dado, la restauración geográfica, la retención de copias de seguridad a largo plazo y la copia de base de datos. Una vez que una base de datos está configurada con la opción de 4 TB, todas las operaciones de restauración de esta base de datos deben realizarse en una P11/P15 con un tamaño máximo de 4 TB.
+- El tamaño máximo de base de datos de 4 TB no se puede cambiar a 1 TB aunque el almacenamiento real usado esté por debajo de 1 TB. Por tanto, no puede degradar una base de datos P11-4TB/P15-4TB a una base de datos P11-1TB/P15-1TB o de un nivel de rendimiento inferior (por ejemplo, a P1-P6) hasta que proporcionemos opciones de almacenamiento adicionales para el resto de los niveles de rendimiento. Esta restricción también se aplica a los escenarios de copia y restauración, lo que incluye la restauración a un momento dado, la restauración geográfica, la retención de copias de seguridad a largo plazo y la copia de base de datos. Una vez que una base de datos está configurada con la opción de 4 TB, todas las operaciones de restauración de esta base de datos deben ejecutarse en una P11/P15 con un tamaño máximo de 4 TB.
 - En escenarios de replicación geográfica activa:
    - Configuración de una relación de replicación geográfica: si la base de datos principal es P11 o P15, la secundaria (una o varias) también debe P11 o P15; aquellas con un nivel de rendimiento inferior se rechazarán como secundarias, puesto que no tienen capacidad para admitir 4 TB.
    - Actualización de la base de datos principal en una relación de replicación geográfica: al cambiar el tamaño máximo a 4 TB en una base de datos principal, se desencadenará el mismo cambio en la base de datos secundaria. Ambas actualizaciones deben realizarse correctamente para que el cambio en la principal surta efecto. Se aplican limitaciones por región para la opción de 4TB (consulte anteriormente). Si la base de datos secundaria está en una región que no admite 4 TB, no se actualizará la principal.
