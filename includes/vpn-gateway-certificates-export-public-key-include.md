@@ -1,0 +1,7 @@
+Para cargarse en Azure, las conexiones de punto a sitio requieren el archivo .cer de la clave pública (no la clave privada) del certificado. Los pasos siguientes le ayudan a exportar el archivo .cer para el certificado raíz autofirmado:
+
+1. Para obtener un archivo .cer del certificado, abra **Administrar certificados de usuario**. Busque el certificado raíz autofirmado; normalmente se encuentra en Certificados - Usuario actual\Personal\Certificados y haga clic en el botón derecho. Haga clic en **Todas las tareas** y, luego, en **Exportar**. Se abre el **Asistente para exportar certificados**.
+2. En el asistente, haga clic en **Siguiente**. Seleccione **No exportar la clave privada** y, después, haga clic en **Siguiente**.
+3. En la página **Formato de archivo de exportación**, seleccione **X.509 codificado base 64 (.CER)** y, luego, haga clic en **Siguiente**. 
+4. En **Archivo que se va a exportar**, haga clic en **Examinar** para ir a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
+5. Haga clic en **Finalizar** para exportar el certificado. Verá el mensaje **La exportación se realizó correctamente**. Haga clic en **Aceptar** para cerrar el asistente.

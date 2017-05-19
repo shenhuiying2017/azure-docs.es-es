@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cf128e84cfa69a259ff529caebb910840dcbaede
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migración de su base de datos SQL Server a Azure SQL Database
 
-En este tutorial, se migra una base de datos de SQL Server existente a Azure SQL Database mediante Microsoft Data Migration Assistant y se siguen los pasos necesarios desde la preparación para la migración y la finalización de la migración real de los datos hasta la conexión con la base de datos migrada después de completar la migración. 
+El movimiento de una base de datos de SQL Server a Azure SQL Database es un proceso que consta de tres partes: preparar, exportar e importar la base de datos. En este tutorial, aprenderá a:
 
-> [!IMPORTANT]
-> Para solucionar problemas de compatibilidad, use [SQL Server Data Tools ](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
->
+> [!div class="checklist"]
+> * Preparar una base de datos en un servidor SQL Server para migrarla a Azure SQL Database mediante [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)
+> * Exportar la base de datos a un archivo BACPAC
+> * Importar el archivo BACPAC en Azure SQL Database
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-Para completar este tutorial, asegúrese de disponer de los siguientes elementos:
+Antes de empezar, asegúrese de que dispone de los siguientes elementos:
 
 - La versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Al instalar SSMS, también se instala la versión más reciente de SQLPackage, una utilidad de línea de comandos que puede utilizarse para automatizar diversas tareas de desarrollo de bases de datos. 
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Una base de datos que desee migrar. Este tutorial se usa la [base de datos OLTP AdventureWorks de SQL Server 2008R2](https://msftdbprodsamples.codeplex.com/releases/view/59211) en una instancia de SQL Server 2008R2 o versiones más recientes, pero se puede usar cualquier base de datos de su elección. 
+- Una base de datos que desee migrar. Este tutorial se usa la [base de datos OLTP AdventureWorks de SQL Server 2008R2](https://msftdbprodsamples.codeplex.com/releases/view/59211) en una instancia de SQL Server 2008R2 o versiones más recientes, pero se puede usar cualquier base de datos de su elección. Para solucionar problemas de compatibilidad, use [Visual Studio Data Tools ](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## <a name="prepare-for-migration"></a>Preparación para la migración
 
@@ -79,7 +79,7 @@ Está listo para preparar la migración. Siga estos pasos para usar  **[Data Mig
 9. Haga clic en **Problemas de compatibilidad**. En concreto, revise la información acerca de bloqueos de la migración, los cambios de comportamiento y características en desuso para cada nivel de compatibilidad. Para la base de datos AdventureWorks2008R2, revise los cambios en la búsqueda de texto completo desde SQL Server 2008 y los cambios realizados en SERVERPROPERTY('LCID') desde SQL Server 2000. Para obtener información sobre estos cambios, se proporcionan vínculos para obtener más información. Muchas opciones de búsqueda y la configuración de búsqueda de texto completo han cambiado. 
 
    > [!IMPORTANT] 
-   > Después de migrar la base de datos a Azure SQL Database, puede decidir utilizar la base de datos en su nivel de compatibilidad actual (nivel 100 para la base de datos AdventureWorks2008R2) o en un nivel superior. Para obtener más información sobre las implicaciones y las opciones para la utilización de una base de datos en un nivel de compatibilidad específico, consulte [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Nivel de compatibilidad de ALTER DATABASE). Vea también [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obtener información sobre los valores de nivel de base de datos adicionales relacionados con los niveles de compatibilidad.
+   > Después de migrar la base de datos a Azure SQL Database, puede decidir utilizar la base de datos en su nivel de compatibilidad actual (nivel 100 para la base de datos AdventureWorks2008R2) o en un nivel superior. Para más información acerca de las implicaciones y las opciones para la utilización de una base de datos en un nivel de compatibilidad específico, consulte [ALTER DATABASE (Transact-SQL) Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) [Nivel de compatibilidad de ALTER DATABASE (Transact-SQL)]. Vea también [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obtener información sobre los valores de nivel de base de datos adicionales relacionados con los niveles de compatibilidad.
    >
 
 10. Si lo desea, haga clic en **Exportar informe** para guardar el informe como un archivo JSON.
@@ -222,15 +222,17 @@ Puede modificar el nivel de servicio, el nivel de rendimiento y el nivel de comp
    ![cambio del nivel de compatibilidad](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## <a name="next-steps"></a>Pasos siguientes 
+En este tutorial ha preparado, exportado e importado una base de datos. Ha aprendido a:
 
-- Para obtener información general de la migración, vea [Migración de bases de datos](sql-database-cloud-migrate.md).
-- Para obtener una presentación de las diferencias de Transact-SQL, vea [Resolución de diferencias de Transact-SQL durante la migración a SQL Database](sql-database-transact-sql-information.md).
-- Para conectarse y consultar con Visual Studio Code, vea [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectarse y consultar con .NET, vea [Conexión y consultas con .NET](sql-database-connect-query-dotnet.md).
-- Para conectarse y consultar con PHP, vea [Conexión y consultas con PHP](sql-database-connect-query-php.md).
-- Para conectarse y consultar con Node.js, vea [Conexión y consultas con Node.js](sql-database-connect-query-nodejs.md).
-- Para conectarse y consultar con Java, vea [Conexión y consultas con Java](sql-database-connect-query-java.md).
-- Para conectarse y consultar con Python, vea [Conexión y consultas con Python](sql-database-connect-query-python.md).
-- Para conectarse y consultar con Ruby, vea [Conexión y consultas con Ruby](sql-database-connect-query-ruby.md).
+> [!div class="checklist"]
+> * Preparar una base de datos en un servidor SQL Server para migrarla a Azure SQL Database
+> * Exportar la base de datos a un archivo BACPAC
+> * Importar el archivo BACPAC en Azure SQL Database
+
+En el siguiente tutorial aprenderá a proteger una base de datos.
+
+> [!div class="nextstepaction"]
+> [Protección de Azure SQL Database](sql-database-security-tutorial.md).
+
 
 

@@ -76,7 +76,9 @@ Actualmente no se admiten las siguientes características. Opcionalmente, puede 
 | Proceso |Discos de máquinas virtuales no asociados. | Los blobs de VHD que hay detrás de estos discos se migrarán cuando lo haga la cuenta de almacenamiento |
 | Proceso |Imágenes de máquina virtual. | Los blobs de VHD que hay detrás de estos discos se migrarán cuando lo haga la cuenta de almacenamiento |
 | Red |ACL de puntos de conexión. | Quitar las ACL de los puntos de conexión y vuelva a intentar la migración. |
-| Red |ExpressRoute con vínculos de autorización (consulte las preguntas más frecuentes), Application Gateway | Quitar la puerta de enlace antes de comenzar la migración y, después, vuelva a crearla una vez que se complete la migración. |
+| Red |Red virtual con ExpressRoute Gateway y VPN Gateway  | Quite VPN Gateway antes de comenzar la migración y, después, vuelva a crearlo una vez que la migración se complete. Más información acerca de la [migración de ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md).|
+| Red |ExpressRoute con vínculos de autorización  | Quite el circuito de ExpressRoute en la conexión de red virtual antes de comenzar la migración y, después, vuelva a crear la conexión una vez que se complete la migración. Más información acerca de la [migración de ExpressRoute](../articles/expressroute/expressroute-migration-classic-resource-manager.md). |
+| Red |Application Gateway | Quite Application Gateway antes de comenzar la migración y, después, vuelva a crearlo una vez que la migración se complete. |
 | Red |Redes virtuales que usan el emparejamiento de VNET. | Migrar Virtual Network a Resource Manager y, después, del mismo nivel. Más información acerca del [emparejamiento de VNET](../articles/virtual-network/virtual-network-peering-overview.md). | 
 
 ### <a name="unsupported-configurations"></a>Configuraciones no admitidas

@@ -32,7 +32,7 @@ Para asegurarse de que puede conectarse a internet desde su configuración de IP
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Solo puede hacer ping a internet si la dirección IP privada anterior tiene una IP pública asociada.
+>Para las configuraciones de IP secundarias, solo se puede hacer ping a Internet si la configuración tiene una dirección IP pública asociada. Para configuraciones de IP principales, no se requiere una dirección IP pública para hacer ping a Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
@@ -161,7 +161,7 @@ Para asegurarse de que puede conectarse a internet desde su configuración de IP
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->Solo puede hacer ping a internet si la dirección IP privada anterior tiene una IP pública asociada.
+>Para las configuraciones de IP secundarias, solo se puede hacer ping a Internet si la configuración tiene una dirección IP pública asociada. Para configuraciones de IP principales, no se requiere una dirección IP pública para hacer ping a Internet.
 
 Para máquinas virtuales Linux, al intentar validar la conectividad saliente de una NIC secundaria, debe agregar las rutas adecuadas. Existen distintas formas de hacerlo. Consulte la documentación correspondiente a su distribución de Linux. El siguiente es un método para lograr esto:
 

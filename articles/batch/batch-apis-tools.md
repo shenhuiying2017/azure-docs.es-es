@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: 1c0f8f3fede88b6e0bace35372a2d54bb53e5182
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -33,14 +34,15 @@ Puede procesar de forma eficiente cargas de trabajo a gran escala para su organi
 > 
 > 
 
-## <a name="azure-accounts-youll-need"></a>Cuentas de Azure que necesita
+## <a name="azure-accounts-for-batch-development"></a>Cuentas de Azure para desarrollo con Batch
 Cuando se desarrollan soluciones de Lote, es necesario usar las siguientes cuentas en Microsoft Azure.
 
 * **Cuenta de Azure y suscripción**: si aún no tiene ninguna suscripción a Azure, puede activar su [ventaja como suscriptor de MSDN][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se crea automáticamente una suscripción predeterminada.
 * **Cuenta de Batch**: los recursos de Azure Batch, entre los que se incluyen grupos, nodos de proceso, trabajos y tareas, están asociados a una cuenta de Azure Batch. Cuando la aplicación realiza una solicitud en el servicio Batch, autentica la solicitud mediante el nombre de la cuenta de Azure Batch, la dirección URL de la cuenta y una clave de acceso. Puede [crear una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
 * **Cuenta de Storage**: Batch incluye compatibilidad integrada para trabajar con archivos en [Azure Storage][azure_storage]. Casi todos los escenarios de Batch usan Azure Blob Storage tanto para el almacenamiento provisional de los programas que ejecutan las tareas como de los datos que procesan, así como para el almacenamiento de los datos de salida que generan. Para crear una cuenta de Storage, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
-## <a name="batch-development-apis"></a>API de desarrollo de Lote
+## <a name="batch-service-apis"></a>API del servicio Batch
+
 Las aplicaciones y servicios pueden emitir llamadas directas de la API de REST o usar una o varias de las siguientes bibliotecas de cliente para ejecutar y administrar las cargas de trabajo de Azure Batch.
 
 | API | Referencia de API | Descargar | Tutorial | Ejemplos de código | Más información |
@@ -51,14 +53,7 @@ Las aplicaciones y servicios pueden emitir llamadas directas de la API de REST o
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [Léame](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[Léame][api_sample_java] | [Léame](https://github.com/Azure/azure-batch-sdk-for-java)|
 
-## <a name="batch-command-line-tools"></a>Herramientas de línea de comandos de Batch
-
-La funcionalidad que proporcionan las API de desarrollo también está disponible con las herramientas de línea de comandos: 
-
-* [Cmdlets de Batch en PowerShell][batch_ps]: los cmdlets de Azure Batch en el módulo [Azure PowerShell](/powershell/azure/overview) permiten administrar los recursos de Batch con PowerShell.
-* [CLI de Azure](/cli/azure/overview): la interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluido Lote.
-
-## <a name="batch-resource-management"></a>Administración de recursos de Lote
+## <a name="batch-management-apis"></a>API de administración de Batch
 
 Las API de Azure Resource Manager para Batch proporcionan acceso mediante programación a las cuentas de Batch. Con estas API, se pueden administrar mediante programación cuentas, cuotas y paquetes de aplicaciones de Batch.  
 
@@ -67,13 +62,25 @@ Las API de Azure Resource Manager para Batch proporcionan acceso mediante progra
 | **REST de Resource Manager de Batch** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **.NET de Resource Manager de Batch** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 
+## <a name="batch-command-line-tools"></a>Herramientas de línea de comandos de Batch
 
-## <a name="batch-tools"></a>Herramientas de Lote
-Aunque no son necesarias para compilar soluciones con Lote, estas son varias herramientas que resultan útiles durante la compilación y depuración de los servicios y las aplicaciones de Lote.
+Estas herramientas de línea de comandos proporcionan la misma funcionalidad que el servicio Batch y las API de administración de Batch: 
 
-* [Azure Portal][portal]: en las hojas de Batch de Azure Portal se pueden crear, supervisar y eliminar grupos, trabajos y tareas de Batch. La información relativa al estado de estos y otros recursos se puede ver mientras se ejecutan trabajos, e incluso se descargan archivos desde los nodos de proceso de los grupos (por ejemplo, descargar una tarea con errores `stderr.txt` mientras se solucionan problemas). También puede descargar los archivos de Escritorio remoto (RDP) que puede usar para iniciar sesión en los nodos de proceso.
+* [Cmdlets de Batch en PowerShell][batch_ps]: los cmdlets de Azure Batch en el módulo [Azure PowerShell](/powershell/azure/overview) permiten administrar los recursos de Batch con PowerShell.
+* [CLI de Azure](/cli/azure/overview): la interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluidos el servicio Batch y el servicio de administración de Batch. Consulte [Administración de recursos de Batch con la CLI de Azure](batch-cli-get-started.md) para más información sobre el uso de la CLI de Azure con Batch.
+
+## <a name="other-tools-for-application-development"></a>Otras herramientas de desarrollo de aplicaciones
+
+Estas son algunas herramientas adicionales que pueden ser útiles para crear y depurar los servicios y aplicaciones de Batch:
+
+* [Azure Portal][portal]: en las hojas de Batch de Azure Portal se pueden crear, supervisar y eliminar grupos, trabajos y tareas de Batch. La información relativa al estado de estos y otros recursos se puede ver mientras se ejecutan trabajos, e incluso se pueden descargar archivos desde los nodos de proceso de los grupos. Por ejemplo, puede descargar el archivo `stderr.txt` de una tarea con errores mientras soluciona problemas. También puede descargar los archivos de Escritorio remoto (RDP) que puede usar para iniciar sesión en los nodos de proceso.
 * [Explorador de Azure Batch][batch_explorer]: el Explorador de Batch proporciona una funcionalidad de administración de recursos similar a la de Azure Portal, pero en una aplicación cliente de Windows Presentation Foundation (WPF) independiente. Puede compilar una de las aplicaciones de ejemplo de .NET de Batch disponibles en [GitHub][github_samples] con Visual Studio 2015 o posterior y usarla para examinar y administrar los recursos de su cuenta de Batch mientras desarrolla y depura sus soluciones de Batch. Vea los detalles de los trabajos, grupos y tareas, descargue archivos de los nodos de proceso y conéctese a nodos de forma remota mediante archivos de Escritorio remoto (RDP) que puede descargar con Explorador de Lote.
 * [Explorador de Microsoft Azure Storage][storage_explorer]: aunque no es estrictamente una herramienta de Azure Batch, el Explorador de Storage es otra herramienta muy útil para desarrollar y depurar soluciones de Batch.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+- Para más información acerca del registro de eventos de la aplicación de Batch, consulte [Registro de eventos para evaluación de diagnóstico y supervisión de soluciones de Batch](batch-diagnostics.md). Para ver una referencia de eventos generados por el servicio Batch, consulte [Análisis de Batch](batch-analytics.md).
+- Para más información acerca de las variables de entorno para nodos de proceso, consulte [Variables de entorno de nodos de proceso de Azure Batch](batch-compute-node-environment-variables.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

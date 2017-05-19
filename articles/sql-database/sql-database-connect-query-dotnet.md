@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -37,9 +38,9 @@ En esta sección se da por hecho que está familiarizado con el desarrollo con .
 
 ### <a name="windows-net-framework-and-net-core"></a>**Microsoft .NET Framework y .NET Core**
 
-Visual Studio 2017 Community es un IDE gratuito, ampliable y rico en contenido y visualmente atractivo para la creación de aplicaciones modernas para Android, iOS, Windows, así como aplicaciones web y de base de datos, y servicios en la nube. Puede instalar el paquete completo de .NET Framework o solo .NET Core. Los fragmentos de código del inicio rápido funcionan con cualquiera de las dos opciones. Si Visual Studio ya está instalado en el equipo, omita los pasos siguientes.
+Visual Studio 2017 Community es un IDE gratuito, ampliable, rico en contenido y visualmente atractivo para la creación de aplicaciones modernas para Android, iOS, Windows, así como aplicaciones web y de base de datos, y servicios en la nube. Puede instalar el paquete completo de .NET Framework o solo .NET Core. Los fragmentos de código del inicio rápido funcionan con cualquiera de las dos opciones. Si Visual Studio ya está instalado en el equipo, omita los pasos siguientes.
 
-1. Descargue el [instalador](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Descargue el [instalador de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Ejecute el instalador y siga las indicaciones para completar la instalación.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -54,7 +55,7 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-Instale .NET Core en macOS. Descargue el [instalador oficial](https://go.microsoft.com/fwlink/?linkid=843444). Este instalador instalará las herramientas y las colocará en su RUTA DE ACCESO para que pueda ejecutar dotnet desde la consola
+Instale .NET Core en macOS. Descargue el [instalador oficial](https://go.microsoft.com/fwlink/?linkid=843444). Este instalador instala las herramientas y las colocará en su ruta de acceso para que pueda ejecutar dotnet desde la consola
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Abra el terminal y navegue al directorio en que planea crear un proyecto de .NET Core. Escriba los siguientes comandos para instalar **.NET Core**.
@@ -76,7 +77,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Si ha olvidado la información de inicio de sesión para el servidor de Azure SQL Database, navegue a la página del servidor de SQL Database para ver el nombre del Administrador de servidor y, si es necesario, restablecer la contraseña.
+4. Si ha olvidado la información de inicio de sesión para el servidor de Azure SQL Database, vaya a la página del servidor de SQL Database para ver el nombre del Administrador del servidor y, si es necesario, restablecer la contraseña.
 
 5. Haga clic en **Mostrar las cadenas de conexión de la base de datos**.
 
@@ -308,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
+- [Documentación de .NET](https://docs.microsoft.com/dotnet/).
+- [Conectarse y realizar consultas con SSMS](sql-database-connect-query-ssms.md)
+- [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- Para obtener documentación acerca de .NET, consulte la [documentación de .NET](https://docs.microsoft.com/dotnet/).
-- Para conectarse y consultar mediante SQL Server Management Studio, consulte el artículo de [Conexión y consultas con SSMS](sql-database-connect-query-ssms.md).
-- Para conectarse y consultar con Visual Studio, vea [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectarse y consultar con PHP, vea [Conexión y consultas con PHP](sql-database-connect-query-php.md).
-- Para conectarse y consultar con Node.js, vea [Conexión y consultas con Node.js](sql-database-connect-query-nodejs.md).
-- Para conectarse y consultar con Java, vea [Conexión y consultas con Java](sql-database-connect-query-java.md).
-- Para conectarse y consultar con Python, vea [Conexión y consultas con Python](sql-database-connect-query-python.md).
-- Para conectarse y consultar con Ruby, vea [Conexión y consultas con Ruby](sql-database-connect-query-ruby.md).
 

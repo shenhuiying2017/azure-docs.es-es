@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 08a83bf8dca71846dd06edb9aa253f69c24d253c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 000440fb2c38eadc0ffdcab84a3c23bb034e834f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,20 +28,22 @@ En este tutorial se muestra cómo asignar un nombre DNS personalizado a [Azure W
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-En este tutorial se muestran tres escenarios comunes de asignación de dos nombres DNS a una aplicación en App Service:
+En este tutorial, aprenderá a:
 
-- `www.contoso.com`: un subdominio de `contoso.com`. Deberá usar un registro CNAME para asignarlo a la aplicación.
-- `contoso.com`: un dominio raíz. Deberá usar un registro A para asignarlo a la aplicación.
-- `*.contoso.com`: dominio con caracteres comodín. Deberá usar un registro CNAME para asignarlo a la aplicación.
+> [!div class="checklist"]
+> * Asignar un subdominio (por ejemplo, `www.contoso.com`) mediante el uso de un registro CNAME
+> * Asignar un dominio raíz (por ejemplo, `contoso.com`) mediante el uso de un registro D
+> * Asignar un dominio con comodín (por ejemplo, `*.contoso.com`) mediante el uso de un registro CNAME
+> * Automatizar la asignación de dominio con scripts
 
 Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS personalizado a App Service.
 
 > [!NOTE]
-> Se recomienda usar un CNAME para todos los nombres DNS personalizados, excepto un dominio raíz (por ejemplo, contoso.com). 
+> Se recomienda usar un CNAME para todos los nombres DNS personalizados, excepto un dominio raíz (por ejemplo, `contoso.com`). 
 > 
 > 
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, tiene que acceder al registro DNS del proveedor de dominios (como GoDaddy) y a los permisos para editar la configuración del dominio. 
 
@@ -132,7 +135,7 @@ En el panel de navegación izquierdo de la hoja de la aplicación, haga clic en 
 
 ![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-En la hoja **Dominios personalizados** de la aplicación, debe agregar el nombre completo del registro DNS personalizado (`www.contoso.com`) a la lista.
+En la hoja **Dominios personalizados** de la aplicación, tiene que agregar el nombre completo del registro DNS personalizado (`www.contoso.com`) a la lista.
 
 Haga clic en el icono **+** situado junto a **Agregar nombre de host**.
 
@@ -195,6 +198,8 @@ En la captura de pantalla de ejemplo, haga clic en **Agregar** para crear un reg
 >
 >
 
+<a name="create-a"></a>
+
 ### <a name="create-the-a-record"></a>Crear el registro A
 
 Para asignar un registro D a la aplicación, App Service necesita en realidad **dos** registros DNS:
@@ -217,7 +222,7 @@ La página de registros DNS debe tener un aspecto similar al de la captura de pa
 
 Ahora puede agregar el nombre DNS configurado a la aplicación.
 
-De vuelta a la página **Dominios personalizados** de la aplicación en Azure Portal, debe agregar el nombre completo del registro DNS personalizado (`contoso.com`) a la lista.
+De vuelta a la página **Dominios personalizados** de la aplicación en Azure Portal, tiene que agregar el nombre completo del registro DNS personalizado (`contoso.com`) a la lista.
 
 Haga clic en el icono **+** situado junto a **Agregar nombre de host**.
 
@@ -325,8 +330,10 @@ Puede automatizar la administración e dominios personalizados con scripts, medi
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 
 ```bash 
-az appservice web config hostname add --webapp <app_name> --resource-group <resourece_group_name> \ 
---name <fully_qualified_domain_name> 
+az appservice web config hostname add \
+    --webapp <app_name> \
+    --resource-group <resourece_group_name> \ 
+    --name <fully_qualified_domain_name> 
 ``` 
 
 Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/app-service-cli-configure-custom-domain.md) 
@@ -336,13 +343,26 @@ Para obtener más información, vea [Asignación de un dominio personalizado a u
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 
 ```PowerShell  
-Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> ` 
--HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
+Set-AzureRmWebApp `
+    -Name <app_name> `
+    -ResourceGroupName <resourece_group_name> ` 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
 Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/app-service-powershell-configure-custom-domain.md).
 
-## <a name="more-resources"></a>Más recursos
+## <a name="next-steps"></a>Pasos siguientes
 
-[Comprar y configurar un nombre de dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md)
+En este tutorial, ha aprendido cómo:
+
+> [!div class="checklist"]
+> * Asignar un subdominio mediante el uso de un registro CNAME
+> * Asignar un dominio raíz mediante el uso de un registro D
+> * Asignar un dominio con comodín mediante el uso de un registro CNAME
+> * Automatizar la asignación de dominio con scripts
+
+Pase al siguiente tutorial para aprender a enlazarlo a un certificado SSL personalizado.
+
+> [!div class="nextstepaction"]
+> [Enlazar un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 

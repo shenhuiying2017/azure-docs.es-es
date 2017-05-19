@@ -1,6 +1,7 @@
 ---
-title: "Informe de inicios de sesión poco seguros en el portal de Azure Active Directory: versión preliminar | Microsoft Docs"
-description: "Conozca el informe de inicios de sesión poco seguros del portal de Azure Active Directory (versión preliminar)."
+
+title: "Informe de inicios de sesión poco seguros del portal de Azure Active Directory | Microsoft Docs"
+description: "Obtenga información acerca del informe de inicios de sesión poco seguros del portal de Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,20 +11,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Informe de inicios de sesión poco seguros en el portal de Azure Active Directory: versión preliminar
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Informe de inicios de sesión poco seguros del portal de Azure Active Directory
 
-Con los informes de seguridad de la [versión preliminar](active-directory-preview-explainer.md) de Azure Active Directory, puede conocer la probabilidad de que haya cuentas de usuario en peligro en su entorno. 
+Con los informes de seguridad de Azure Active Directory (Azure AD), puede obtener información acerca de la probabilidad de que haya cuentas de usuario en peligro en su entorno. 
 
-Azure Active Directory detecta acciones sospechosas relacionadas con las cuentas de usuario. Para cada acción detectada, se crea un registro denominado *evento de riesgo*. Para más información, consulte [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md) (Eventos de riesgo de Azure Active Directory). 
+Azure AD detecta acciones sospechosas relacionadas con las cuentas de usuario. Para cada acción detectada, se crea un registro denominado *evento de riesgo*. Para más información, consulte [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md) (Eventos de riesgo de Azure Active Directory). 
 
 Los eventos de riesgo detectados se utilizan para calcular:
 
@@ -31,7 +33,7 @@ Los eventos de riesgo detectados se utilizan para calcular:
 
 - **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte la sección sobre los [usuarios marcados en riesgo](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-En Azure Portal, puede encontrar los informes de seguridad en la hoja **Azure Active Directory** de la sección **Seguridad**. 
+En [Azure Portal](https://portal.azure.com), puede encontrar los informes de seguridad en la hoja **Azure Active Directory** de la sección **Seguridad**. 
 
 ![Inicios de sesión no seguros](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 

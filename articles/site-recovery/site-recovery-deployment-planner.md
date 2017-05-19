@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
-Este artículo es la guía del usuario de Azure Site Recovery para las implementaciones de producción de VMware en Azure.
+Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
 
 ## <a name="overview"></a>Información general
 
@@ -36,7 +37,7 @@ La herramienta proporciona los detalles siguientes:
 
 **Evaluación de compatibilidad**
 
-* Evaluación de la idoneidad de la máquina virtual en función del número de discos, el tamaño de estos, las IOPS y la actividad de datos
+* Evaluación de la idoneidad de la máquina virtual en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y el tipo de arranque (EFI/BIOS)
 * El ancho de banda de red necesario para la replicación diferencial
 
 **Necesidad de ancho de banda de red frente a evaluación de RPO**
@@ -205,6 +206,10 @@ Una vez que se completa la generación de perfiles, se puede ejecutar la herrami
 | -StartDate | (Opcional) La fecha y hora de inicio en DD-MM-AAAA:HH:MM (formato de 24 horas). *StartDate* se debe especificar junto con *EndDate*. Cuando se especifica StartDate, se genera el informe de los datos de generación de perfiles que se recopilan entre StartDate y EndDate. |
 | -EndDate | (Opcional) La fecha y hora de finalización en DD-MM-AAAA:HH:MM (formato de 24 horas). *EndDate* se debe especificar junto con *StartDate*. Cuando se especifica EndDate, se genera el informe para los datos de la generación de perfiles recopilados entre StartDate y EndDate. |
 | -GrowthFactor | (Opcional) El factor de crecimiento, expresado en forma de porcentaje. El valor predeterminado es 30 %. |
+| -UseManagedDisks | (Opcional) UseManagedDisks - Yes/No. El valor predeterminado es Yes. El número de máquinas virtuales que se pueden colocar en una cuenta de almacenamiento individual se calcula en función de si el disco administrado está seleccionado para la conmutación por error o la conmutación por error de prueba. |
+
+La colocación en cuenta de almacenamiento individual se calcula teniendo en cuenta que la conmutación por error o la conmutación por error de prueba de las máquinas virtuales se realizan en un disco administrado, en lugar de en uno no administrado. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Ejemplo 1: Generación de un informe con los valores predeterminados cuando los datos de generación de perfiles están en la unidad local
 ```
@@ -473,7 +478,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Número de discos**: el número total de discos (VMDK) de la máquina virtual.
 
-**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño de disco (en GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Núcleos**: el número de núcleos de CPU de la máquina virtual.
 
@@ -481,7 +486,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **NIC**: el número de NIC de la máquina virtual.
 
-**Tipo de arranque**: se trata del tipo de arranque de la máquina virtual. Puede ser BIOS o EFI. Actualmente, Azure Site Recovery admite solo el tipo de arranque BIOS. Todas las máquinas virtuales del tipo de arranque EFI se muestran en la hoja de cálculo de máquinas virtuales incompatibles. 
+**Tipo de arranque**: se trata del tipo de arranque de la máquina virtual. Puede ser BIOS o EFI. Actualmente, Azure Site Recovery admite solo el tipo de arranque BIOS. Todas las máquinas virtuales del tipo de arranque EFI se muestran en la hoja de cálculo de máquinas virtuales incompatibles.
 
 **Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows, Linux u otro.
 
@@ -510,7 +515,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Número de discos**: el número total de VMDK de la máquina virtual.
 
-**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño de disco (en GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Núcleos**: el número de núcleos de CPU de la máquina virtual.
 
@@ -518,7 +523,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **NIC**: el número de NIC de la máquina virtual.
 
-**Tipo de arranque**: se trata del tipo de arranque de la máquina virtual. Puede ser BIOS o EFI. Actualmente, Azure Site Recovery admite solo el tipo de arranque BIOS. Todas las máquinas virtuales del tipo de arranque EFI se muestran en la hoja de cálculo de máquinas virtuales incompatibles. 
+**Tipo de arranque**: se trata del tipo de arranque de la máquina virtual. Puede ser BIOS o EFI. Actualmente, Azure Site Recovery admite solo el tipo de arranque BIOS. Todas las máquinas virtuales del tipo de arranque EFI se muestran en la hoja de cálculo de máquinas virtuales incompatibles.
 
 **Tipo de sistema operativo**: se trata del tipo de sistema operativo de la máquina virtual. Puede ser Windows, Linux u otro.
 
@@ -559,6 +564,15 @@ Para actualizar Deployment Planner, siga estos pasos:
 
 
 ## <a name="version-history"></a>Historial de versiones
+
+### <a name="13"></a>1.3
+Actualización: 9 de mayo de 2017
+
+Se agrega la siguiente característica nueva:
+
+* Se ha agregado la compatibilidad con discos administrados en la generación de informes. El número de máquinas virtuales que se pueden colocar en una cuenta de almacenamiento individual se calcula en función de si el disco administrado está seleccionado para la conmutación por error o la conmutación por error de prueba.        
+
+
 ### <a name="12"></a>1.2
 Actualización: 7 de abril de 2017
 

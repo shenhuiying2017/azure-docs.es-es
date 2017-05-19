@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -66,7 +67,7 @@ Puede configurar directivas de seguridad para cada suscripción o grupo de recur
    >
 9. En la hoja **Directiva de seguridad**, haga clic en **Activar** para habilitar las recomendaciones de seguridad que desee usar en esta suscripción. Haga clic en **Directiva de prevención** para ver opciones como las de la captura de pantalla siguiente:
 
-    ![Selección de las directivas de seguridad](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![Selección de las directivas de seguridad](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 Utilice la tabla siguiente como referencia para entender cada opción:
 
@@ -82,6 +83,7 @@ Utilice la tabla siguiente como referencia para entender cada opción:
 | Auditoría de SQL y detección de amenazas |Se recomienda que se habilite la auditoría del acceso a Azure Database, con fines de cumplimiento, así como la detección avanzada de amenazas, con fines de investigación. |
 | Cifrado de datos transparente de SQL |Recomienda que el cifrado en reposo se habilite para Azure SQL Database, las copias de seguridad asociadas y los archivos de registro de transacciones. De esta forma, aunque haya infracción de datos, no se podrán leer. |
 | Evaluación de vulnerabilidades |Se recomienda instalar una solución de evaluación de vulnerabilidades en la máquina virtual. |
+| Cifrado de almacenamiento |Actualmente, esta característica está disponible para los archivos y blobs de Azure. Tenga en cuenta que, después de habilitar Cifrado del servicio Storage, solo se cifrarán los datos nuevos, mientras que los archivos existentes en esta cuenta de almacenamiento permanecerán sin cifrar. |
 
 Después de configurar todas las opciones, haga clic en **Aceptar** en la hoja **Directiva de seguridad** que tiene las recomendaciones y, después, en **Guardar** en la hoja **Directiva de seguridad** que tiene la configuración inicial.
 

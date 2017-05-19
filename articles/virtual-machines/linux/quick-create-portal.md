@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/13/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8bfc4892343dd62c958ce6937c4879a2b029cb88
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Creación de máquinas virtuales Linux con Azure Portal
 
-Las máquinas virtuales de Azure pueden crearse a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar máquinas virtuales y todos los recursos asociados. Este inicio rápido le ayuda a crear una máquina virtual mediante Azure Portal.
+Las máquinas virtuales de Azure pueden crearse a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar máquinas virtuales y todos los recursos asociados. Esta guía de inicio rápido le lleva paso a paso por la creación de una máquina virtual y la instalación de un servidor web en ella.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-ssh-key-pair"></a>Creación del par de claves SSH
 
-Necesita un par de claves SSH para completar este inicio rápido. Si ya tiene un par de claves SSH, puede omitir este paso. Si va a usar una máquina de Windows, siga las instrucciones que encontrará [aquí](ssh-from-windows.md). 
+Necesita un par de claves SSH para completar este inicio rápido. Si ya tiene un par de claves SSH, puede omitir este paso.
 
-Desde un shell de Bash, ejecute este comando y siga las instrucciones en pantalla. La salida del comando incluye el nombre del archivo de clave pública. El contenido de este archivo se necesita para crear la máquina virtual.
+Desde un shell de Bash, ejecute este comando y siga las instrucciones en pantalla. La salida del comando incluye el nombre del archivo de clave pública. Copie el contenido del archivo de clave pública en el Portapapeles.
 
 ```bash
 ssh-keygen -t rsa -b 2048
@@ -47,37 +47,26 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Proceso** en la hoja **Nuevo**, seleccione *Ubuntu Server 16.04 LTS* en la hoja **Proceso** y, luego, haga clic en el botón **Crear**.
+2. Seleccione **Compute**, **Ubuntu Server 16.04 LTS** y asegúrese de que el modelo de implementación seleccionado sea **Resource Manager**. Haga clic en el botón **Crear** . 
 
-3. Rellene el formulario **Datos básicos** de la máquina virtual. En **Tipo de autenticación**, seleccione *SSH*. Al pegar la **clave SSH pública**, tenga cuidado de no quitar los espacios en blanco finales o iniciales. En **Grupo de recursos**, cree uno. Un grupo de recursos es un contenedor lógico en el que se administran y crean los recursos de Azure. Cuando haya terminado, haga clic en **Aceptar**.
+3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH**. Al pegar la clave pública SSH, tenga cuidado de no quitar los espacios en blanco finales o iniciales. Cuando haya terminado, haga clic en **Aceptar**.
 
-    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
+    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-4. Elija un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). 
+4. Seleccione un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). 
 
     ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. En la hoja Configuración, seleccione *Sí* en **Usar discos administrados**, conserve los valores predeterminados en el resto de la configuración y haga clic en **Aceptar**.
+5. En la hoja Configuración, seleccione **Sí** en **Usar discos administrados**, conserve los valores predeterminados en el resto de la configuración y haga clic en **Aceptar**.
 
 6. En la página Resumen, haga clic en **Aceptar** para iniciar la implementación de máquina virtual.
 
-7. Para supervisar el estado de implementación, haga clic en la máquina virtual. Encontrará la máquina virtual en el panel de Azure Portal, o bien seleccionando **Máquinas virtuales** en el menú izquierdo. Cuando se ha creado la máquina virtual, el estado cambia de *Deploying* (Implementación) a *Running* (En ejecución).
-
-
-## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web 
-
-De forma predeterminada, solo se permiten conexiones mediante SSH con las máquinas virtuales Linux implementadas en Azure. Si esta máquina virtual va a ser un servidor web, debe abrir el puerto 80 al tráfico web. En este paso se explica cómo crear una regla de grupo de seguridad de red (NSG) para permitir conexiones entrantes en el puerto 80.
-
-1. En la hoja de la máquina virtual, en la sección **Essentials**, haga clic en el nombre del **grupo de recursos**.
-2. En la hoja del grupo de recursos, en la lista de recursos, haga clic en el **grupo de seguridad de red**. El nombre del grupo de seguridad de red debe ser el nombre de la máquina virtual con *-nsg* anexado al final.
-3. Haga clic en el encabezado **Regla de seguridad de entrada** para abrir la lista de reglas de entrada. Debería ver una regla para RDP ya en la lista.
-4. Haga clic en **+Agregar** para abrir la hoja **Agregar regla de seguridad de entrada**.
-5. En **Nombre**, escriba *nginx*. Asegúrese de que **Intervalo de puertos** esté establecido en *80* y **Acción**, en *Permitir*. Haga clic en **Aceptar**.
+7. La máquina virtual se anclará al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente la hoja de resumen de la máquina virtual.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
-Una vez finalizada la implementación, cree una conexión SSH con la máquina virtual.
+Cree una conexión SSH con la máquina virtual.
 
 1. Haga clic en el botón **Conectar** está disponible en la hoja de la máquina virtual. El botón Conectar muestra una cadena de conexión SSH que se puede usar para conectarse a la máquina virtual.
 
@@ -86,7 +75,7 @@ Una vez finalizada la implementación, cree una conexión SSH con la máquina vi
 2. Ejecute el comando siguiente para crear una sesión SSH. Reemplace la cadena de conexión con la que copió desde Azure Portal.
 
 ```bash 
-ssh <replace with IP address>
+ssh azureuser@40.112.21.50
 ```
 
 ## <a name="install-nginx"></a>Instalación de NGINX
@@ -97,24 +86,41 @@ Use el siguiente script de bash para actualizar los orígenes de paquetes e inst
 #!/bin/bash
 
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
+
+Cuando haya finalizado, salga de la sesión de SSH y vuelva a las propiedades de máquina virtual en Azure Portal.
+
+
+## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web 
+
+Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. Cuando se crea una máquina virtual desde Azure Portal, se crea una regla de entrada en el puerto 22 para las conexiones SSH. Dado que esta máquina virtual hospeda un servidor web, es preciso crear una regla de NSG para el puerto 80.
+
+1. En la máquina virtual, haga clic en el nombre del **grupo de recursos**.
+2. Seleccione el **grupo de seguridad de red**. Los NSG pueden identificarse mediante la columna **Tipo**. 
+3. En el menú de la izquierda, en Configuración, haga clic en **Reglas de seguridad de entrada**.
+4. Haga clic en **Agregar**.
+5. En **Nombre**, escriba **http**. Asegúrese de que **Intervalo de puertos** esté establecido en 80 y **Acción** esté establecido en **Permitir**. 
+6. Haga clic en **Aceptar**.
+
 
 ## <a name="view-the-ngix-welcome-page"></a>Página principal de NGIX
 
-Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de NGINX. Obtenga la *Dirección IP pública* en la hoja de la máquina virtual y úsela para visitar la página web predeterminada.
+Con NGINX instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública puede encontrarse en la hoja de la máquina virtual en Azure Portal.
 
 ![Sitio predeterminado de NGINX](./media/quick-create-cli/nginx.png) 
+
 ## <a name="delete-virtual-machine"></a>Eliminación de máquinas virtuales
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la hoja de la máquina virtual y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial de creación de máquinas virtuales de alta disponibilidad](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
 
-[Ejemplos de la CLI de implementación de máquinas virtuales](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> [!div class="nextstepaction"]
+> [Tutoriales de máquinas virtuales Linux de Azure](./tutorial-manage-vm.md)
 

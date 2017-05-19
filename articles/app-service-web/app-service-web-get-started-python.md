@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="create-a-python-application-on-web-app"></a>Crear una aplicación de Python en una aplicación web
 
-Este tutorial de inicio rápido le guía a través del desarrollo e implementación de una aplicación de Python en Azure. Se ejecutará la aplicación mediante una instancia de Azure App Service y se creará y configurará una nueva aplicación web en ella mediante la CLI de Azure. A continuación, se usará el repositorio Git para implementar nuestra aplicación de Python en Azure.
+Este tutorial de inicio rápido le guía a través del desarrollo e implementación de una aplicación de Python en Azure. La aplicación se ejecutará con Azure App Service, y se creará y configurará una nueva aplicación web en ella mediante la CLI de Azure. A continuación, se usará el repositorio Git para implementar nuestra aplicación de Python en Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-Puede seguir los pasos siguientes a través de una máquina Mac, Windows o Linux. Completar todos los pasos siguientes le llevará 5 minutos aproximadamente.
+Estos pasos se pueden realizar con un equipo Mac, Windows o Linux. Completar todos los pasos siguientes le llevará 5 minutos aproximadamente.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de ejecutar este ejemplo, instale los siguientes requisitos previos localmente:
 
@@ -87,8 +88,8 @@ az login
 Para FTP y Git local es necesario que haya un usuario de implementación configurado en el servidor para autenticar la implementación. Crear un usuario de implementación es una configuración que solo se realiza una vez. Tome nota del nombre de usuario y la contraseña que se van a utilizar en un paso que aparecerá a continuación.
 
 > [!NOTE]
-> Se requiere un usuario de implementación para la implementación de FTP y Git Local en una aplicación web.
-> El `username` y la `password` son a nivel de cuenta, por lo tanto, son diferentes a sus credenciales de suscripción de Azure. **Es necesario crear estas credenciales solo una vez**.
+> Se requiere un usuario de implementación para la implementación de FTP y Local Git en una aplicación web.
+> Los valores de `username` y `password` son lo de la cuenta; por lo tanto, son diferentes de las credenciales de la suscripción de Azure. **Es necesario crear estas credenciales solo una vez**.
 >
 
 Use el comando [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) para crear las credenciales de nivel de cuenta.
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Creación de una instancia de Azure App Service
 
-Creación de un plan de App Service basado en Linux mediante el comando [az appservice plan create](/cli/azure/appservice/plan#create).
+Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > Un plan de App Service representa la colección de recursos físicos que se utiliza para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones.
@@ -119,7 +120,7 @@ Creación de un plan de App Service basado en Linux mediante el comando [az apps
 > * SKU (Gratis, Compartido, Básico, Estándar y Premium)
 >
 
-En el ejemplo siguiente se crea un plan de App Service en los trabajos de Linux con el nombre `quickStartPlan` mediante el plan de tarifa **GRATIS**.
+En el siguiente ejemplo se crea un plan de App Service denominado `quickStartPlan` con el plan de tarifa **Gratis**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -160,7 +161,7 @@ En el comando siguiente, sustituya su nombre de aplicación único donde vea el 
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-Cuando se ha creado la aplicación web, la CLI de Azure muestra información similar a la del ejemplo siguiente.
+Cuando se ha creado la aplicación web, la CLI de Azure muestra información similar al siguiente ejemplo.
 
 ```json
 {
@@ -208,9 +209,9 @@ az appservice web config update --python-version 3.4 --name <app-name> --resourc
 
 ## <a name="configure-local-git-deployment"></a>Configuración de la implementación de Git local
 
-Puede implementar en la aplicación web de varias formas incluyendo FTP, local Git, así como GitHub, Visual Studio Team Services y Bitbucket.
+Puede implementar la aplicación web de varias formas incluyendo FTP, Local Git, así como GitHub, Visual Studio Team Services y Bitbucket.
 
-Use el comando [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) para configurar el acceso de Git local a la aplicación web.
+Use el comando [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) para configurar el acceso de Local Git a la aplicación web.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Esta vez, la página que muestra el mensaje de Hola mundo se ejecuta con nuestro código de Python que se ejecuta como una aplicación web de Azure App Service.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Actualización e implementación del código
 
@@ -309,7 +310,7 @@ git push azure master
 
 Una vez que la implementación haya finalizado, vuelva a cambiar la ventana del explorador que se abrió y actualice la vista.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Administración de la nueva aplicación web de Azure
 
@@ -319,13 +320,13 @@ Para ello, inicie sesión en [https://portal.azure.com/](https://portal.azure.co
 
 En el menú izquierdo, haga clic en **App Services**, a continuación, haga clic en el nombre de la aplicación web de Azure.
 
-![Navegación desde el portal a la aplicación web de Azure](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Navegación desde el portal a la aplicación web de Azure](./media/app-service-web-get-started-python/app-service-list.png)
 
 Ha llegado a la _hoja_ de su aplicación web (una página del portal que se abre horizontalmente).
 
 De forma predeterminada, la hoja de la aplicación web muestra la página de **introducción**. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la hoja muestran las diferentes páginas de configuración que puede abrir.
 
-![Hoja de App Service en Azure Portal](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Hoja de App Service en Azure Portal](media/app-service-web-get-started-python/app-service-detail.png)
 
 Estas pestañas de la hoja muestran las muchas y excepcionales características que puede agregar a la aplicación web. La lista siguiente proporciona solo algunas de las posibilidades:
 
@@ -341,4 +342,6 @@ Estas pestañas de la hoja muestran las muchas y excepcionales características 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore los [scripts de la CLI de Web Apps](app-service-cli-samples.md) previamente creados.
+> [!div class="nextstepaction"]
+> [Scripts de ejemplo de la CLI para Web Apps](app-service-cli-samples.md)
+

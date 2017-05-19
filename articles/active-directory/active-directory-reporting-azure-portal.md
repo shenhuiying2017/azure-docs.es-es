@@ -1,6 +1,7 @@
 ---
-title: "Informes de Azure Active Directory - versión preliminar | Microsoft Docs"
-description: "Enumera los distintos informes disponibles en la versión preliminar de Azure Active Directory."
+
+title: Informes de Azure Active Directory | Microsoft Docs
+description: Enumera los distintos informes disponibles para Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Informes de Azure Active Directory - versión preliminar
+# <a name="azure-active-directory-reporting"></a>Informes de Azure Active Directory
 
 
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
-Con los informes de la versión preliminar de Azure Active Directory, obtendrá toda la información que necesita para determinar cómo marcha el entorno. [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md)
+Con los informes de Azure Active Directory (Azure AD), puede obtener toda la información que necesita para determinar cómo marcha el entorno.
 
 Hay dos áreas principales de informes:
 

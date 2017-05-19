@@ -13,19 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: meetb;carlrab;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2c0dc1bef0bf2b7b78e8858943ad6e0ede214681
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-sql-database-use-php-to-connect-and-query-data"></a>Azure SQL Database: uso de PHP para conectar y consultar datos
 
-Este inicio rápido muestra cómo usar [PHP](http://php.net/manual/en/intro-whatis.php) para conectarse a una base de datos de Azure SQL Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos desde las plataformas de Mac OS, Ubuntu Linux y Windows.
+En esta guía de inicio rápido se muestra cómo usar [PHP](http://php.net/manual/en/intro-whatis.php) para conectarse a una base de datos de Azure SQL Database y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Mac OS, Ubuntu Linux y Windows.
 
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
@@ -34,7 +34,7 @@ En esta guía de inicio rápido se utilizan como punto de partida los recursos c
 
 ## <a name="install-php-and-database-communications-software"></a>Instalación del software de comunicaciones de bases de datos y PHP
 
-En esta sección se da por hecho que está familiarizado con el desarrollo con PHP y que empieza a trabajar con Azure SQL Database. Si no está familiarizado con el desarrollo con PHP, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **PHP** y, a continuación, seleccione el sistema operativo.
+En esta sección se da por hecho que está familiarizado con el desarrollo mediante PHP y que nunca ha utilizado Azure SQL Database. Si no está familiarizado con el desarrollo con PHP, vaya a [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **PHP** y, a continuación, seleccione el sistema operativo.
 
 ### <a name="mac-os"></a>**Mac OS**
 Abra el terminal y escriba los comandos siguientes para instalar **brew**, **Microsoft ODBC Driver for Mac** y **Microsoft PHP Driver for SQL Server**. 
@@ -67,13 +67,13 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
 ### <a name="windows"></a>**Windows**
 - Instale PHP 7.1.1 (x64) [desde el instalador WebPlatform](https://www.microsoft.com/web/downloads/platform.aspx?lang=). 
 - Instale [Microsoft ODBC Driver 13.1](https://www.microsoft.com/download/details.aspx?id=53339). 
-- Descargue los .dll de no subproceso para el [controlador PHP de Microsoft para SQL Server](https://pecl.php.net/package/sqlsrv/4.1.6.1/windows) y coloque los archivos binarios en la carpeta PHP\v7.x\ext.
+- Descargue los archivos dll seguros para subprocesos para el [ controlador de Microsoft para PHP para SQL Server](https://pecl.php.net/package/sqlsrv/4.1.6.1/windows) y coloque los archivos binarios en la carpeta PHP\v7.x\ext.
 - A continuación, modifique el archivo php.ini (C:\Program Files\PHP\v7.1\php.ini) agregando la referencia al archivo .dll. Por ejemplo:
       
       extension=php_sqlsrv.dll
       extension=php_pdo_sqlsrv.dll
 
-En este momento debe tener el .dll registrado con PHP.
+En este punto, todos los archivos dll deben estar registrados en PHP.
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
@@ -85,7 +85,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Si ha olvidado la información de inicio de sesión para el servidor de Azure SQL Database, navegue a la página del servidor de SQL Database para ver el nombre del Administrador del servidor y, si es necesario, restablecer la contraseña.     
+4. Si olvida la información de inicio de sesión del servidor, navegue hasta la página del servidor de SQL Database para ver el nombre de administrador del servidor y, si es necesario, restablecer la contraseña.     
     
 ## <a name="select-data"></a>Selección de datos
 Utilice el código siguiente para consultar los 20 primeros productos por categoría mediante la función [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) con una instrucción [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) de Transact-SQL. La función sqlsrv_query se usa para recuperar un conjunto de resultados de una consulta realizada a SQL Database. Esta función acepta una consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Reemplace los parámetros de servidor, base de datos, nombre de usuario y contraseña por los valores que especificó cuando creó la base de datos con los datos de ejemplo AdventureWorksLT. 
@@ -194,14 +194,8 @@ else{
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
+- [Controladores de Microsoft para PHP para SQL Server](https://github.com/Microsoft/msphpsql/)
+- [Informe de los problemas y realización de preguntas](https://github.com/Microsoft/msphpsql/issues)
 
-- Puede encontrar más información en [Microsoft PHP Driver para SQL Server](https://github.com/Microsoft/msphpsql/).
-- [Registrar problemas y plantear preguntas](https://github.com/Microsoft/msphpsql/issues).
-- Para conectarse y consultar mediante SQL Server Management Studio, consulte el artículo de [Conexión y consultas con SSMS](sql-database-connect-query-ssms.md).
-- Para conectarse y consultar con Visual Studio, vea [Conexión y consultas con Visual Studio Code](sql-database-connect-query-vscode.md).
-- Para conectarse y consultar con .NET, vea [Conexión y consultas con .NET](sql-database-connect-query-dotnet.md).
-- Para conectarse y consultar con Node.js, vea [Conexión y consultas con Node.js](sql-database-connect-query-nodejs.md).
-- Para conectarse y consultar con Java, vea [Conexión y consultas con Java](sql-database-connect-query-java.md).
-- Para conectarse y consultar con Python, vea [Conexión y consultas con Python](sql-database-connect-query-python.md).
-- Para conectarse y consultar con Ruby, vea [Conexión y consultas con Ruby](sql-database-connect-query-ruby.md).
 

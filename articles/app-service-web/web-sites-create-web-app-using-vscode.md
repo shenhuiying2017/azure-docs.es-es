@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e8f78602b293863b2e58160a5eb2cf8a5855576b
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 46e3852dc84265de41bb358f482dec06608e7efa
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -42,7 +42,7 @@ ASP.NET Core es un rediseño significativo de ASP.NET. ASP.NET Core es un nuevo 
 ## <a name="install-aspnet-core"></a>Instalación de ASP.NET Core
 ASP.NET Core es una pila de .NET eficiente que sirve para crear aplicaciones web y de nube modernas que se ejecutan en OS X, Linux y Windows. Se ha desarrollado desde el principio para proporcionar un marco de desarrollo optimizado para las aplicaciones que se implementan en la nube o se ejecutan de forma local. Consta de componentes modulares con una sobrecarga mínima, para continuar disfrutando de flexibilidad al crear soluciones.
 
-Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con las últimas versiones de desarrollo de ASP.NET Core. Las instrucciones siguientes son específicas de Windows. Para obtener instrucciones de instalación en OS X, Linux y Windows, vea [Introducción a ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
+Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con las últimas versiones de desarrollo de ASP.NET Core. Las instrucciones siguientes son específicas de Windows. Para obtener instrucciones de instalación en OS X, Linux y Windows, consulte [Introducción a ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
 
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 > 
 
 ## <a name="create-the-web-app"></a>Creación de la aplicación web
-En esta sección se explica cómo aplicar la técnica scaffolding a una nueva aplicación web ASP.NET mediante la herramienta de la CLI de donet. 
+En esta sección se explica cómo aplicar scaffold a una nueva aplicación web ASP.NET mediante la herramienta CLI de .NET. 
 
 1. En el símbolo del sistema para crear la carpeta del proyecto y aplicar la técnica scaffolding a la aplicación, escriba lo siguiente.
    
@@ -62,7 +62,7 @@ dotnet new mvc
 ```
 ![CLI de donet: Generador de ASP.NET Core](./media/web-sites-create-web-app-using-vscode/dotnetcore-mvc-01.png)
 
-2. Para instalar los paquetes de NuGet necesarios para ejecutar el comando siguiente:
+2. Para restaurar los paquetes NuGet necesarios, ejecute el siguiente comando:
    
     ```terminal
     dotnet restore
