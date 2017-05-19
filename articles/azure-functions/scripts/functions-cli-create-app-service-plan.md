@@ -1,0 +1,58 @@
+---
+title: "Ejemplo de script de la CLI de Azure: creación de una instancia de Function App en un plan de App Service | Microsoft Docs"
+description: "Ejemplo de script de la CLI de Azure: creación de una instancia de Function App en un plan de App Service"
+services: functions
+documentationcenter: functions
+author: syntaxc4
+manager: erikre
+editor: 
+tags: azure-service-management
+ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
+ms.service: functions
+ms.devlang: azurecli
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 04/11/2017
+ms.author: cfowler
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0d887999d1118e498293fb13b9612828d914b0ae
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
+
+---
+
+# <a name="create-a-function-app-in-an-app-service-plan"></a>Creación de una instancia de Function App en un plan de App Service
+
+Este script de ejemplo crea una instancia de Azure Function App, que es un contenedor para las funciones. La instancia de Function App se creará usando un plan de App Service dedicado, lo que significa que los recursos del servidor están siempre disponibles.
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+## <a name="sample-script"></a>Script de ejemplo
+
+Creación de una aplicación de ejemplo
+
+[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Creación de una función de Azure en un plan de App Service")]
+
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
+
+Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación de App Service y todos los recursos relacionados.
+
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+
+## <a name="script-explanation"></a>Explicación del script
+
+Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+
+| Comando | Notas |
+|---|---|
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az appserviceplan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Crea un plan de App Service, |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Crea una instancia de Azure Function App. |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
+
+Encontrará más ejemplos de scripts de CLI para Azure Functions en la [documentación de Azure Functions](../functions-cli-samples.md).

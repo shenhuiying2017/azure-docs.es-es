@@ -15,9 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
-ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -79,7 +81,7 @@ En la tabla siguiente se resumen las diferencias entre Functions y WebJobs:
 | Escalado |Escalado sin configuración |escalado con plan de App Service |
 | Precios |Pago por uso o parte del plan de App Service |parte del plan de App Service |
 | Tipo ejecución |desencadenada, programada (por desencadenador de temporizador) |desencadenada, continua, programada |
-| Desencadenar eventos |[temporizador](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| Desencadenar eventos |[temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | Desarrollo en el explorador |x | |
 | Scripts de ventana |experimental |x |
 | PowerShell |experimental |x |
@@ -118,10 +120,5 @@ O bien, obtenga más información sobre estos servicios de integración con los 
 * [Webcast en directo sobre Logic Apps](http://aka.ms/logicappslive)
 * [Preguntas frecuentes sobre Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 * [Recursos de documentación de WebJobs de Azure](../app-service-web/websites-webjobs-resources.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
