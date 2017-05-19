@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 En este artículo se proporciona información general acerca los componentes principales del servicio Lote de Azure y se describen los principales recursos y características del servicio que pueden usar los desarrolladores de Lote para crear soluciones de proceso en paralelo a gran escala.
 
-Utilizará muchos de los recursos y las características que se describen en este artículo, tanto si está desarrollando una aplicación informática distribuida o un servicio que emita llamadas directas a la [API de REST][batch_rest_api], como si usa uno de los [SDK de Batch](batch-apis-tools.md#batch-development-apis).
+Utilizará muchos de los recursos y las características que se describen en este artículo, tanto si está desarrollando una aplicación informática distribuida o un servicio que emita llamadas directas a la [API de REST][batch_rest_api], como si usa uno de los [SDK de Batch](batch-apis-tools.md#azure-accounts-for-batch-development).
 
 > [!TIP]
 > Para ver una introducción de nivel superior sobre el servicio Lote, consulte [Datos básicos de Lote de Azure](batch-technical-overview.md).
@@ -74,16 +74,15 @@ Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio
 
 Puede crear una cuenta de Azure Batch mediante el [portal de Azure](batch-account-create-portal.md) o por medio de programación, como con la [biblioteca .NET de administración de lotes](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de almacenamiento de Azure.
 
-Batch admite dos configuraciones de cuenta, en función de la propiedad de *modo de asignación de grupo*. Las dos configuraciones le proporcionan acceso a diferentes funcionalidades relacionadas con [grupos](#pool) de Batch (consulte lo que sigue a continuación en este artículo). 
+Batch admite dos configuraciones de cuenta, en función de la propiedad de *modo de asignación de grupo*. Las dos configuraciones le proporcionan acceso a diferentes funcionalidades relacionadas con [grupos](#pool) de Batch (consulte lo que sigue a continuación en este artículo).
 
 
-* **Servicio de Batch**: esta es la opción predeterminada, con máquinas virtuales de grupos de Batch asignadas en segundo plano en suscripciones administradas por Azure. Se debe usar esta configuración de cuenta si se requieren grupos de Cloud Services, pero no se puede usar si se requieren grupos de máquinas virtuales creados a partir de imágenes personalizadas de máquinas virtuales o que usan una red virtual. Puede acceder a las API de Batch mediante la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md). 
+* **Servicio de Batch**: esta es la opción predeterminada, con máquinas virtuales de grupos de Batch asignadas en segundo plano en suscripciones administradas por Azure. Se debe usar esta configuración de cuenta si se requieren grupos de Cloud Services, pero no se puede usar si se requieren grupos de máquinas virtuales creados a partir de imágenes personalizadas de máquinas virtuales o que usan una red virtual. Puede acceder a las API de Batch mediante la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md). Puede usar nodos de ejecución dedicados o de baja prioridad en grupos en la configuración de la cuenta de servicio de Batch.
 
-* **Suscripción de usuario**: se debe usar esta configuración de cuenta si se requieren grupos de máquinas virtuales creados a partir de imágenes personalizadas de máquinas virtuales o que usan una red virtual. Solo puede acceder a las API de Batch mediante la [autenticación de Azure Active Directory](batch-aad-auth.md) y no se admiten los grupos de Cloud Services. Las máquinas virtuales de proceso de Batch se asignan directamente en su suscripción de Azure. Este modo requiere configurar un almacén de claves de Azure para su cuenta de Batch.
- 
+* **Suscripción de usuario**: se debe usar esta configuración de cuenta si se requieren grupos de máquinas virtuales creados a partir de imágenes personalizadas de máquinas virtuales o que usan una red virtual. Solo puede acceder a las API de Batch mediante la [autenticación de Azure Active Directory](batch-aad-auth.md) y no se admiten los grupos de Cloud Services. Las máquinas virtuales de proceso de Batch se asignan directamente en su suscripción de Azure. Este modo requiere configurar un almacén de claves de Azure para su cuenta de Batch. Solo puede usar nodos de ejecución dedicados en grupos en la configuración de la cuenta de suscripción del usuario. 
 
 ## <a name="compute-node"></a>Nodo de ejecución
-Un nodo de proceso es una máquina virtual de Azure dedicada a procesar una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Servicios en la nube o imágenes de Máquinas virtuales de Marketplace. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
+Un nodo de ejecución es una máquina virtual de Azure o una máquina virtual de servicio en la nube dedicada al proceso de una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Servicios en la nube o imágenes de Máquinas virtuales de Marketplace. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
 
 Los nodos pueden ejecutar cualquier archivo ejecutable o script compatible con el entorno de sistema operativo del nodo. Esto incluye scripts \*.exe, \*.cmd, \*.bat y de PowerShell para Windows, además de archivos binarios y scripts de shell y de Python para Linux.
 
@@ -117,6 +116,25 @@ Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opc
   * La *familia de sistema operativo* también determina qué versiones de .NET se instalan con el sistema operativo.
   * Al igual que con los roles de trabajo en Cloud Services, es posible especificar la *versión del sistema operativo* (para más información sobre los roles de trabajo, consulte la sección [Información sobre Cloud Services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) en la [introducción a Cloud Services](../cloud-services/cloud-services-choose-me.md)).
   * Como con los roles de trabajo, se recomienda que se especifique `*` para la *versión del sistema operativo* de forma que los nodos se actualicen automáticamente; así no es necesario realizar ningún trabajo para las versiones recién publicadas. El principal caso de uso para seleccionar una versión específica del sistema operativo es asegurarse de la compatibilidad de las aplicaciones; debe ser posible realizar pruebas de compatibilidad con versiones anteriores antes de permitir la actualización de la versión. Después de la validación, se puede actualizar la *versión del sistema operativo* para el grupo e instalar la nueva imagen del sistema operativo. Cualquier tarea en ejecución se interrumpirá y se volverá a poner en cola.
+
+* **Tipo de nodo de ejecución** y **número de nodos de destino**
+
+    Al crear un grupo, puede especificar los tipos de nodos de ejecución que le interesan y un número de destino para cada uno. Los dos tipos de nodos de ejecución son los siguientes:
+
+    - **Nodos de ejecución de prioridad baja.** Los nodos de prioridad baja aprovechan la capacidad sobrante en Azure para ejecutar las cargas de trabajo de Batch. Son más rentables que los nodos dedicados y habilitan las cargas de trabajo que requieren una gran potencia de proceso. Para obtener más información, vea [Use low-priority VMs with Batch](batch-low-pri-vms.md) (Usar máquinas virtuales de prioridad baja con Batch).
+
+        Los nodos de ejecución de prioridad baja pueden verse reemplazados cuando Azure no tiene una capacidad sobrante suficiente. Si se reemplaza un nodo mientras ejecuta tareas, las tareas se vuelven a poner en cola y se ejecutan de nuevo en cuanto está disponible un nodo de ejecución. Los nodos de prioridad baja son una buena opción para las cargas de trabajo en las que el tiempo de finalización del trabajo es flexible y el trabajo se distribuye entre muchos nodos.
+
+        Los nodos de ejecución de prioridad baja solo están disponibles para las cuentas de Batch creadas con el modo de asignación de grupo establecido en **Servicio de Batch**.
+
+    - **Nodos de ejecución dedicados.** Los nodos de ejecución dedicados están reservados para las cargas de trabajo que usted tenga. Son más caros que los nodos de prioridad baja, pero se garantiza que nunca se verán reemplazados.    
+
+    Puede tener nodos de ejecución de prioridad baja y dedicados en el mismo grupo. Cada tipo de nodo (prioridad baja y dedicado) tiene su propia configuración de destino, para la que puede especificar el número deseado de nodos. 
+        
+    El número de nodos de ejecución se conoce como *destino* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Por ejemplo, un grupo podría no alcanzar el destino si alcanza primero la [cuota de núcleos](batch-quota-limit.md) de la cuenta de Batch. O bien, el grupo podría no alcanzar el destino si ha aplicado una fórmula de escalado automático al grupo que limita el número máximo de nodos.
+
+    Para obtener información sobre los precios de los nodos de ejecución de prioridad baja y dedicados, vea [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Tamaño de los nodos**
 
     **configuración de Servicios en la nube** aparecen en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md). Batch admite todos los tamaños de Cloud Services excepto `ExtraSmall`, `STANDARD_A1_V2` y `STANDARD_A2_V2`.
@@ -126,12 +144,11 @@ Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opc
     Al seleccionar un tamaño de nodo de proceso, tenga en cuenta las características y los requisitos de las aplicaciones que se van a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Normalmente, se selecciona un tamaño de nodo bajo el supuesto de que se ejecutará una sola tarea en un nodo cada vez. No obstante, es posible [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo más grande para acomodar el aumento de la demanda por la ejecución de tareas en paralelo. Para más información, consulte [Directiva de programación de tareas](#task-scheduling-policy).
 
     Todos los nodos de un grupo son del mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, es recomendable usar grupos separados.
-* **Número objetivo de nodos**
 
-    Es el número de nodos de proceso que desea implementar en el grupo. Se conoce como *objetivo* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Puede que un grupo no alcance el número deseado de nodos si este ha alcanzado la [cuota de núcleos](batch-quota-limit.md) de su cuenta de Lote o si hay alguna fórmula de escalado automático que haya aplicado al grupo que limite el número máximo de nodos (consulte la sección "Directiva de escalado" a continuación).
 * **Directiva de escalado**
 
     Para cargas de trabajo dinámicas, puede escribir y aplicar una [fórmula de escalado automático](#scaling-compute-resources) a un grupo. El servicio Lote evalúa periódicamente la fórmula y ajusta el número de nodos dentro del grupo en función de los diversos parámetros de grupo, trabajo y tarea que especifique.
+
 * **Directiva de programación de tareas**
 
     La opción de configuración [Máximo de tareas por nodo](batch-parallel-node-tasks.md) determina la cantidad máxima de tareas que se pueden ejecutar en paralelo en cada nodo de proceso del grupo.
@@ -336,7 +353,7 @@ Al crear un grupo de nodos de proceso en Azure Batch, puede usar las API para es
 
 * La red virtual debe tener suficientes **direcciones IP** libres para dar cabida a la propiedad `targetDedicated` del grupo. Si la subred no tiene suficientes direcciones IP libres, el servicio Batch asigna parcialmente los nodos de proceso en el grupo y devuelve un error de cambio de tamaño.
 
-* La subred especificada debe permitir la comunicación del servicio Batch para poder programar tareas en los nodos de proceso. Si un **grupo de seguridad de red (NSG)** asociado a la red virtual deniega la comunicación con los nodos de proceso, el servicio Batch establece el estado de dichos nodos en **No utilizable**. 
+* La subred especificada debe permitir la comunicación del servicio Batch para poder programar tareas en los nodos de proceso. Si un **grupo de seguridad de red (NSG)** asociado a la red virtual deniega la comunicación con los nodos de proceso, el servicio Batch establece el estado de dichos nodos en **No utilizable**.
 
 * Si la red virtual especificada tiene NSG asociados, debe habilitarse la comunicación entrante. Para grupos de Windows y Linux, deben habilitarse los puertos 29876 y 29877. Puede habilitar opcionalmente (o filtrar selectivamente) los puertos 22 o 3389, para SSH en grupos de Linux o RDP en los grupos de Windows, respectivamente.
 
@@ -345,7 +362,7 @@ La necesidad de configuración adicional de la red virtual depende del modo de a
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Redes virtuales para grupos aprovisionados en el servicio Batch
 
 En modo de asignación del servicio Batch, solo se pueden asignar grupos de **configuración de Cloud Services** a una red virtual. Además, la red virtual especificada debe ser una red virtual **clásica**. No se admiten redes virtuales creadas con el modelo de implementación de Azure Resource Manager.
-   
+
 
 
 * La entidad de servicio *MicrosoftAzureBatch* debe tener al rol de Control de acceso basado en roles (RBAC) [Colaborador de la máquina virtual clásica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) para la red virtual especificada. En Azure Portal:
@@ -368,7 +385,7 @@ Con el [escalado automático](batch-automatic-scaling.md), el servicio Lote pued
 
 Para habilitar el escalado automático, escriba una [fórmula de escalado automático](batch-automatic-scaling.md#automatic-scaling-formulas) y asóciela con un grupo. El servicio Lote usa la fórmula para determinar el número objetivo de nodos del grupo para el siguiente intervalo de escalado (un intervalo que puede configurar). Puede especificar la configuración de escalado automático para un grupo cuando lo cree o habilitar el escalado en un grupo más adelante. También puede actualizar la configuración de escalado en un grupo habilitado para el escalado.
 
-Como ejemplo, quizás un trabajo requiera que envíe un gran número de tareas para que se ejecuten. Puede asignar al grupo una fórmula de escalado que ajuste el número de nodos del grupo en función del número actual de tareas en cola y la tasa de finalización de las tareas del trabajo. El servicio Batch evalúa periódicamente la fórmula y cambia el tamaño del grupo en función de la carga de trabajo y del resto de ajustes de configuración de la fórmula. El servicio agrega nodos según sea necesario cuando haya un gran número de tareas en cola y quita los nodos cuando no haya ninguna tarea en cola o en ejecución. 
+Como ejemplo, quizás un trabajo requiera que envíe un gran número de tareas para que se ejecuten. Puede asignar al grupo una fórmula de escalado que ajuste el número de nodos del grupo en función del número actual de tareas en cola y la tasa de finalización de las tareas del trabajo. El servicio Batch evalúa periódicamente la fórmula y cambia el tamaño del grupo en función de la carga de trabajo y del resto de ajustes de configuración de la fórmula. El servicio agrega nodos según sea necesario cuando haya un gran número de tareas en cola y quita los nodos cuando no haya ninguna tarea en cola o en ejecución.
 
 Una fórmula de escalado puede basarse en las siguientes métricas:
 

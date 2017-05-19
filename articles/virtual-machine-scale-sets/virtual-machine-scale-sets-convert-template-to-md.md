@@ -14,11 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/25/2017
+ms.date: 5/18/2017
 ms.author: negat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
 ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
+ms.contentlocale: es-es
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -148,10 +150,5 @@ Para más información acerca del uso de discos de datos con conjuntos de escala
 Para las plantillas de Azure Resource Manager de ejemplo que usan conjuntos de escalado, busque "vmss" en el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Para obtener información general, consulte la [página de destino principal de los conjuntos de escalado](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

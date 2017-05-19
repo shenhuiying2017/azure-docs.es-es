@@ -13,77 +13,86 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d4354546f3342d65353a86a4cec7d02547ab92e7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 34988ef05a27062ca109a1640e39695b52b8773f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
 
-Obtenga información sobre cómo crear una función que desencadena Webhook de GitHub. 
+Obtenga información sobre cómo crear una función que se desencadena mediante una solicitud de webhook HTTP con una carga específica de GitHub. 
 
-![Creación de una aplicación de función en Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
-
-En este tema se requiere los recursos creados en el tema [Creación de su primera función desde Azure Portal](functions-create-first-azure-function.md).
-
-También necesita una cuenta de GitHub. Puede [registrarse para obtener una cuenta gratuita de GitHub](https://github.com/join), en caso de que no tenga ninguna. 
+![Función desencadenada mediante un webhook de GitHub en Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 Debería tardar menos de cinco minutos en completar todos los pasos de este tema.
 
-## <a name="find-your-function-app"></a>Búsqueda de la aplicación de la función    
+## <a name="prerequisites"></a>Requisitos previos 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/). 
+[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-2. En la barra de búsqueda en la parte superior del portal, escriba el nombre de la aplicación de la función y selecciónela en la lista.
+También necesita una cuenta de GitHub con al menos un proyecto. Puede [registrarse para obtener una cuenta gratuita de GitHub](https://github.com/join), en caso de que no tenga ninguna.
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="create-function"></a>Creación de una función desencadenada por Webhook de GitHub
 
-1. En la aplicación de la función, haga clic en el botón  **+**  situado junto a **Funciones**, haga clic en la plantilla **GitHubWebHook** para el idioma que desee y haga clic en **Crear**.
-   
-    ![Cree una función desencadenada de webhook de GitHub en Azure Portal.](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+1. Expanda la Function App, haga clic en el botón **+** situado junto a **Funciones** y haga clic en la plantilla **GitHubWebHook** para el idioma que quiera. Asígnele un **nombre a la función** y haga clic en **Crear**. 
 
-2. Haga clic en **</> Obtener la dirección URL de la función** y copie y guarde los valores. Haga lo mismo para **</> Obtener el secreto de GitHub**. Estos valores se utilizan para configurar el webhook en GitHub. 
+2. En la función nueva, haga clic en **</> Obtener la dirección URL de la función** y copie y guarde los valores. Haga lo mismo para **</> Obtener el secreto de GitHub**. Estos valores se utilizan para configurar el webhook en GitHub. 
 
     ![Revisar el código de la función](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
          
 A continuación, va a crear un webhook en el repositorio de GitHub. 
 
 ## <a name="configure-the-webhook"></a>Configuración del webhook
-1. En GitHub, navegue hasta un repositorio que le pertenezca. También puede utilizar los repositorios bifurcados.
+1. En GitHub, navegue hasta un repositorio que le pertenezca. También puede utilizar los repositorios bifurcados. Si necesita bifurcar un repositorio, use <https://github.com/Azure-Samples/functions-quickstart>. 
  
 2. Haga clic en **Configuración**, después en **Webhooks** y, finalmente, en **Agregar Webhook**.
    
     ![Agregar un webhook de GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. Pegue la dirección URL y el secreto de la función en **Payload URL** (Dirección URL de carga) y **Secret** (Secreto) y seleccione **application/json** en **Content type** (Tipo de contenido).
-
-4. Haga clic en **Let me select individual events** (Dejarme seleccionar eventos individuales), seleccione **Issue comment** (Emitir comentario) y haga clic en **Add webhook** (Agregar webhook).
-   
+3. Use la configuración especificada en la tabla y haga clic en **Agregar Webhook**.
+ 
     ![Establecer la dirección URL y el secreto del webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
+
+    | Configuración      |  Valor sugerido   | Descripción                              |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Dirección URL de carga** | Valor copiado | Use el valor devuelto por **</> Obtener la dirección URL de la función**. |
+    | **Secreto**   | Valor copiado | Use el valor devuelto por **</> Obtener el secreto de GitHub**. |
+    | **Tipo de contenido** | application/json | La función espera una carga JSON. |
+    | Desencadenadores de eventos | Dejarme seleccionar eventos individuales | Solo interesa desencadenar en función de eventos de comentarios de problema.  |
+    |                | Comentario de problema                    |  |
 
 Ahora, el webhook está configurado para desencadenar la función cuando se agregue un nuevo comentario de problema. 
 
 ## <a name="test-the-function"></a>Prueba de la función
 1. En el repositorio de GitHub, abra la pestaña **Issues** (Problemas) en una nueva ventana del explorador.
 
-2. En la ventana nueva, haga clic en **New Issue** (Problema nuevo), escriba un título y haga clic en **Submit new issue** (Enviar problema nuevo). 
+2. En la ventana nueva, haga clic en **Problema nuevo**, escriba un título y haga clic en **Submit new issue** (Enviar problema nuevo). 
 
 2. En el problema, escriba un comentario y haga clic en **Comment**(Comentario). 
 
-3. En la ventana de GitHub, haga clic en **Edit** (Editar) junto al nuevo webhook, desplácese hacia abajo hasta **Recent Deliveries** (Entregas recientes) y compruebe que la solicitud de webhook la ha procesado la función. 
- 
-    ![Establecer la dirección URL y el secreto del webhook](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-triggered.png)
+    ![Agregue un comentario de problema de GitHub.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png) 
 
-   La respuesta de la función debe contener `New GitHub comment: <Your issue comment text>`.
+3. Vuelva al portal y vea los registros. Debería ver una entrada de seguimiento con el texto del nuevo comentario. 
+    
+     ![Vea el texto del comentario en los registros.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+ 
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Ha creado una función que se ejecuta cuando se recibe una solicitud de un webhook de GitHub. 
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Para obtener más información sobre los desencadenadores de webhook, vea [Enlaces HTTP y webhook en Azure Functions](functions-bindings-http-webhook.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
 
