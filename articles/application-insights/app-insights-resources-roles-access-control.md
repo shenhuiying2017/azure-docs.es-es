@@ -3,7 +3,7 @@ title: Recursos, roles y control de acceso en Azure Application Insights | Micro
 description: "Propietarios, colaboradores y lectores de las perspectivas de su organización."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights

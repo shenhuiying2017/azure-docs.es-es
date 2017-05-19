@@ -3,7 +3,7 @@ title: "Exploración de datos de HockeyApp en Azure Application Insights | Micro
 description: "Analice el uso y el rendimiento de la aplicación de Azure con Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: "Más información sobre Azure Application Insights | Microsoft Docs"
 description: "Aquí se presentan algunas características que puede explorar una vez que sepa utilizar Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights

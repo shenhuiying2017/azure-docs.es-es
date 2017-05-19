@@ -3,7 +3,7 @@ title: Uso de Azure Application Insights en Visual Studio | Microsoft Docs
 description: "Análisis del rendimiento y diagnóstico de aplicaciones web durante la depuración y en producción."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights

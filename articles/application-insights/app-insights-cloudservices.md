@@ -3,7 +3,7 @@ title: Application Insights para Azure Cloud Services | Microsoft Docs
 description: "Supervisión de los roles web y de trabajo de manera eficaz con Application Insights"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88

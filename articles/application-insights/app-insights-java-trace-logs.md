@@ -3,7 +3,7 @@ title: "Exploración de los registros de seguimiento de Java en Azure Applicatio
 description: "Búsqueda de seguimiento Log4J o Logback en Application Insights"
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights

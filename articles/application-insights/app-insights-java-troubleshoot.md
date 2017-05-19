@@ -3,7 +3,7 @@ title: "Solución de problemas de Application Insights en un proyecto web de Jav
 description: "Guía de solución de problemas: supervisión de aplicaciones activas Java con Application Insights."
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights

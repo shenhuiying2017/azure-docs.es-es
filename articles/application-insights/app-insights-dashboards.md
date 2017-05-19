@@ -3,7 +3,7 @@ title: "Paneles y navegación en Azure Application Insights | Microsoft Docs"
 description: "Cree vistas de los gráficos APM y consultas principales."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: "Supervisión de rendimiento de aplicación web: Azure Application Insigh
 description: "Cómo encaja Application Insights en el ciclo de devOps"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights

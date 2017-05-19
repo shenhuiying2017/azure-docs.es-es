@@ -3,7 +3,7 @@ title: "Uso de Búsqueda en Azure Application Insights | Microsoft Docs"
 description: "Busque y filtre los datos de telemetría sin procesar que envía la aplicación web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights

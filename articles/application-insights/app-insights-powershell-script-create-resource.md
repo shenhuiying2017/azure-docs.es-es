@@ -3,7 +3,7 @@ title: Script de PowerShell para crear un recurso de Application Insights | Micr
 description: "Automatice la creación de recursos de Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: Un paseo por Analytics de Azure Application Insights | Microsoft Docs
 description: "Ejemplos breves de todas las principales consultas de Analytics, la potente herramienta de búsqueda de Application Insights."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
