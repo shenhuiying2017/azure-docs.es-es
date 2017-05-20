@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -89,7 +89,7 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 * Data Lake Analytics
 * Almacén de Data Lake
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Event Hubs
 * Clústeres de HDInsight: consulte [Limitaciones de HDInsight](#hdinsight-limitations).
 * IoT Hubs
@@ -126,19 +126,20 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
+* Conjuntos de disponibilidad con Virtual Machines con discos administrados
 * Servicios de BizTalk
 * Container Service
 * ExpressRoute
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
+* Imágenes creadas a partir de discos administrados
+* Managed Disks
+* Aplicaciones administradas
 * Almacén de Recovery Services: no mueva tampoco los recursos de Compute, Network y Storage asociados con el almacén de Recovery Services, vea [Limitaciones de Recovery Services](#recovery-services-limitations).
 * Seguridad
+* Instantáneas creadas a partir de discos administrados
 * Virtual Machines con certificados almacenados en Key Vault
 * Virtual Machines con discos administrados
-* Conjuntos de disponibilidad con Virtual Machines con discos administrados
-* Managed Disks
-* Imágenes creadas a partir de discos administrados
-* Instantáneas creadas a partir de discos administrados
 * Virtual Networks (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Virtual Machines creadas a partir de recursos de Marketplace (no se pueden mover entre suscripciones). Es necesario desaprovisionar el recurso en la suscripción activa y volver a implementarlo en la nueva suscripción
 
@@ -214,7 +215,7 @@ Al trasladar recursos a una nueva suscripción, se aplican las restricciones sig
 * La suscripción de destino no debe contener otros recursos clásicos.
 * El traslado solo puede solicitarse a través de una API de REST independiente para el traslado de recursos clásicos. Los comandos de movimiento estándar de Resource Manager no funcionan para mover recursos clásicos a una nueva suscripción.
 
-Para trasladar recursos clásicos a una nueva suscripción, use el portal u operaciones REST específicas para recursos clásicos. Para obtener información acerca de cómo mover los recursos clásicos a través del portal, consulte [Use portal](#use-portal) (Uso del portal). Para usar REST, siga estos pasos:
+Para trasladar recursos clásicos a una nueva suscripción, use operaciones REST específicas para recursos clásicos. Para usar REST, siga estos pasos:
 
 1. Compruebe si la suscripción de origen puede participar en un movimiento entre suscripciones. Utilice la siguiente operación:
 
