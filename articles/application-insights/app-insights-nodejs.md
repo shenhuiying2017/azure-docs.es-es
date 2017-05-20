@@ -40,7 +40,7 @@ Vamos a configurar la supervisión para una aplicación o servicio.
 
 ### <a name="resource"></a> Configuración de un recurso de App Insights
 
-**Antes de empezar**, asegúrese de que tiene una suscripción de Azure o bien [obtenga una nueva de forma gratuita][azure-free-offer]. Si su organización ya tiene una suscripción de Azure, un administrador puede seguir [estas instrucciones] [ add-aad-user] y agregarle a ella.
+**Antes de empezar**, asegúrese de que tiene una suscripción de Azure o bien [obtenga una nueva de forma gratuita][azure-free-offer]. Si su organización ya tiene una suscripción de Azure, un administrador puede seguir [estas instrucciones][add-aad-user] y agregarle a ella.
 
 [azure-free-offer]: https://azure.microsoft.com/en-us/free/
 [add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
@@ -86,7 +86,7 @@ Para probar el agente sin enviar datos de telemetría, establezca la clave de in
 
 El agente recopila automáticamente datos de telemetría sobre el tiempo de ejecución de Node.js y algunos módulos de terceros comunes. Utilice ahora la aplicación para generar algunos datos.
 
-A continuación, en [Azure Portal][ portal] busque el recurso de Application Insights que creó anteriormente y busque los primeros puntos de datos en la escala de tiempo de la vista de información general, como se muestra en la siguiente imagen. Haga clic en los gráficos para más información.
+A continuación, en [Azure Portal][portal] busque el recurso de Application Insights que creó anteriormente y busque los primeros puntos de datos en la escala de tiempo de la vista de información general, como se muestra en la siguiente imagen. Haga clic en los gráficos para más información.
 
 ![Primeros puntos de datos](./media/app-insights-nodejs/12-first-perf.png)
 
