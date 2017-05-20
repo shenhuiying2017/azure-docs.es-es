@@ -12,6 +12,7 @@
 ### [Aplicaciones web ya en vivo](app-insights-monitor-performance-live-website-now.md)
 ### [Servicios de Windows](app-insights-windows-services.md)
 ### [Escritorio de Windows](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Supervisión de aplicaciones de Java
 ### [Aplicaciones web](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Planeamiento y diseño
 ### [Diagnósticos detallados para servicios y aplicaciones web](app-insights-devops.md)
 ### [Supervisión del rendimiento de aplicaciones web](app-insights-web-monitor-performance.md)
-### [Separación de recursos de Application Insights](app-insights-separate-resources.md)
+### [Separación de desarrollo, prueba y producción](app-insights-separate-resources.md)
+### [Supervisión de aplicaciones con varios roles](app-insights-monitor-multi-role-apps.md)
 ### [¿Cómo ... en Application Insights?](app-insights-how-do-i.md)
 
 
@@ -112,7 +114,6 @@
 ### [API para eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 ### [Filtrado y telemetría de preprocesamiento](app-insights-api-filtering-sampling.md)
 ### [Muestreo](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Administrar
 ### [Administración de cuotas y precios](app-insights-pricing.md)

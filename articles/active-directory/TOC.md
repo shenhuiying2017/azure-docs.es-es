@@ -1,10 +1,11 @@
 # Información general
 ## [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 ## [Elección de la edición](active-directory-editions.md)
+## [Acerca de la administración de identidades de Azure](fundamentals-identity.md)
+## [Información acerca de las soluciones de identidades de Azure](understand-azure-identity-solutions.md)
+## [Vista previa de la experiencia de Azure Portal](active-directory-preview-explainer.md)
 
-## [Acerca de la administración de identidades de Azure](identity-fundamentals.md)
-
-# Introducción
+# Primeros pasos
 ## [Obtención de un inquilino de Azure AD](active-directory-howto-tenant.md)
 ## [Suscripción a Azure AD Premium](active-directory-get-started-premium.md)
 ## [Asociación de suscripciones de Azure](active-directory-how-subscriptions-associated-directory.md)
@@ -91,16 +92,17 @@
 #### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Acceso mediante programación
 #### [Referencia de auditoría](active-directory-reporting-api-audit-reference.md)
-#### [Ejemplos de auditoría](active-directory-reporting-api-audit-samples.md)
-#### [Obtención de datos](active-directory-reporting-api-with-certificates.md)
-#### [Requisitos previos](active-directory-reporting-api-prerequisites.md)
 #### [Referencia de inicio de sesión](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Requisitos previos](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Ejemplos de auditoría](active-directory-reporting-api-audit-samples.md)
 #### [Ejemplos de inicio de sesión](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [Obtención de datos](active-directory-reporting-api-with-certificates.md)
 ### [Portal clásico](active-directory-view-access-usage-reports.md)
 #### [Informes de Azure AD](active-directory-reporting-getting-started.md)
 #### [Guía de creación de informes](active-directory-reporting-guide.md)
 #### [Redes conocidas](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
+##### [Requisitos previos](active-directory-reporting-api-prerequisites.md)
 #### [Eventos de auditoría](active-directory-reporting-audit-events.md)
 #### [Latencias](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -171,11 +173,14 @@
 ##### [SSO con KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [SSO con encabezados](application-proxy-ping-access.md)
 ##### [SSO con almacenamiento de contraseñas](application-proxy-sso-azure-portal.md)
-#### Descripción de los procedimientos recomendados
+#### Conceptos
 ##### [Conectores](application-proxy-understand-connectors.md)
 ##### [Seguridad](application-proxy-security-considerations.md)
 ##### [Redes](application-proxy-network-topology-considerations.md)
-#### 
+
+
+##### [Actualización desde TMG o UAG](application-proxy-transition-from-uag-tmg.md)
+
 #### Configuraciones avanzadas
 ##### [Publicación en redes independientes](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Servidores proxy](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +191,6 @@
 #### Tutoriales de publicación
 ##### [Escritorio remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Solución de problemas](active-directory-application-proxy-troubleshoot.md)
 #### Uso del portal clásico
 ##### [Descarga de conectores](application-proxy-enable-classic-portal.md)
@@ -201,12 +205,6 @@
 #### [Eliminación de usuarios](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Visualización de todas mis aplicaciones](active-directory-coreapps-view-azure-portal.md)
 #### [Administración del aprovisionamiento de cuentas de usuario](active-directory-enterprise-apps-manage-provisioning.md)
-
-### Desarrollo
-#### [Asignación de usuarios](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Asignación de grupos](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Requerir asignación](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [Desarrollo de aplicaciones de LoB](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Administración del acceso a aplicaciones](active-directory-managing-access-to-apps.md)
 #### [Acceso de autoservicio](active-directory-self-service-application-access.md)
@@ -226,7 +224,7 @@
 ##### [Panel de acceso](active-directory-application-access-panel-content-map.md)
 ##### [Proxy de aplicación](active-directory-application-proxy-content-map.md)
 ##### [Acceso condicional](active-directory-application-conditional-access-content-map.md)
-
+### [Desarrollo de aplicaciones](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Biblioteca de documentos](active-directory-apps-index.md)
 
 ## Administración del directorio
@@ -294,6 +292,7 @@
 ##### [Por recurso](role-based-access-control-configure.md)
 #### [Roles integrados](role-based-access-built-in-roles.md)
 #### [Roles personalizados](role-based-access-control-custom-roles.md)
+#### [Asignación de roles personalizados para usuarios internos y externos](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Informes](role-based-access-control-access-change-history-report.md)
 #### Más formas de administrar roles
 ##### [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
@@ -305,13 +304,14 @@
 
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Procedimientos recomendados](active-directory-conditional-access-best-practices.md)
+#### [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 #### [Aplicaciones admitidas](active-directory-conditional-access-supported-apps.md)
 #### [Descripción de directivas de dispositivo](active-directory-conditional-access-device-policies.md)
 #### [Configuración de acceso a aplicaciones conectadas](active-directory-conditional-access-policy-connected-applications.md)
-#### [Referencia técnica](active-directory-conditional-access-technical-reference.md)
-#### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
 #### [Corrección](active-directory-conditional-access-device-remediation.md)
+#### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
 #### [Portal clásico](active-directory-conditional-access.md)
 ##### [Primeros pasos](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -332,6 +332,7 @@
 #### [Experiencia de inicio de sesión](active-directory-identityprotection-flows.md)
 #### [Simulación de eventos de riesgo](active-directory-identityprotection-playbook.md)
 #### [Desbloqueo de usuarios](active-directory-identityprotection-unblock-howto.md)
+#### [Preguntas más frecuentes](active-directory-identity-protection-faqs.md)
 #### [Glosario](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

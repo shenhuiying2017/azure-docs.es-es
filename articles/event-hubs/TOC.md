@@ -1,6 +1,7 @@
 # Información general
 ## [¿Qué es Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Preguntas más frecuentes](event-hubs-faq.md)
+## [Características de Event Hubs](event-hubs-features.md)
+## [P+F](event-hubs-faq.md)
 
 # Introducción
 ## [Creación de un centro de eventos](event-hubs-create.md)

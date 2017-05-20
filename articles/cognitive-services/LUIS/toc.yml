@@ -1,85 +1,87 @@
-- name: "LUIS Documentation"
+- name: Documentación de LUIS
   href: ../index.md
-- name: "Overview"
+- name: Información general
   items: 
-  - name: "Learn about Language Understanding Intelligent Service"
+  - name: Información acerca de Language Understanding Intelligence Service
     href: Home.md
-- name: "Quickstarts"
+- name: Inicios rápidos
   expanded: true
   items: 
-  - name: "Create a new app"
+  - name: Creación de una nueva aplicación
     href: luis-get-started-create-app.md
-- name: "Tutorials"
+- name: Tutoriales
   items: 
-  - name: "Integrate LUIS with a bot using Node.js"
+  - name: Integración de LUIS con un bot mediante Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: "Concepts"
+- name: Conceptos
   items: 
-  - name: "Intents"
+  - name: Intenciones
     href: luis-concept-intent.md
-  - name: "Entities"
+  - name: Entidades
     href: luis-concept-entity-types.md
-  - name: "Utterances"
+  - name: Grabaciones de voz
     href: luis-concept-utterance.md
-  - name: "Support for multiple languages"
+  - name: Compatibilidad con varios idiomas
     href: luis-concept-language-support.md
-- name: "How-to guides"
+- name: Guías de procedimientos
   items: 
-  - name: "Plan your app"
+  - name: Planeamiento de la aplicación
     href: Plan-your-app.md
-  - name: "Build a LUIS app"
+  - name: Compilación de una aplicación de LUIS
     items: 
-    - name: "Start a new app"
+    - name: Inicio de una nueva aplicación
       href: Create-new-app.md
-    - name: "Add intents"
+    - name: Adición de intenciones
       href: Add-intents.md
-    - name: "Add utterances"
+    - name: Adición de grabaciones de voz
       href: Add-example-utterances.md
-    - name: "Add entities"
+    - name: Adición de entidades
       href: Add-entities.md
-    - name: "Improve performance using features"
+    - name: Mejora del rendimiento mediante características
       href: Add-Features.md
-    - name: "Train and test the app"
+    - name: Formación y prueba de la aplicación
       href: Train-Test.md
-    - name: "Use active learning"
+    - name: Uso del aprendizaje activo
       href: Label-Suggested-Utterances.md
-    - name: "Publish your app"
+    - name: Publicación de la aplicación
       href: PublishApp.md
-  - name: "Prebuilt models"
+  - name: Modelos creados previamente
     items: 
-    - name: "Use prebuilt entities"
+    - name: Uso de entidades creadas previamente
       href: Pre-builtEntities.md
-    - name: "Use prebuilt domains"
+    - name: Uso de dominios creados previamente
       href: luis-how-to-use-prebuilt-domains.md
-    - name: "Use the Cortana prebuilt app"
+    - name: Uso de la aplicación precompilada Cortana
       href: Cortana-Prebuilt-App.md
-  - name: "Manage your LUIS app"
+  - name: Administración de una aplicación de LUIS
     items: 
-    - name: "Monitor your app using the dashboard"
+    - name: Supervisión de una aplicación mediante el panel
       href: App-Dashboard.md
-    - name: "Manage keys"
+    - name: Administración de claves
       href: Manage-Keys.md
-    - name: "Create subscription keys"
+    - name: Creación de claves de suscripción
       href: AzureIbizaSubscription.md
-    - name: "Manage versions"
+    - name: Administración de versiones
       href: luis-how-to-manage-versions.md
-    - name: "Collaborate on a LUIS app"
+    - name: Colaboración en una aplicación de LUIS
       href: luis-how-to-collaborate.md    
-- name: "Reference"
+- name: Referencia
   items: 
-  - name: "LUIS API"
+  - name: Creación de API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: "SDKs"
+  - name: API de punto de conexión
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+  - name: SDK
     items:
-    - name: "Android"
+    - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: "Node.js"
+    - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
-    - name: "Python"
+    - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: "Windows"
+    - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: "Resources"
+- name: Recursos
   items: 
-  - name: "LUIS FAQ"
+  - name: PREGUNTAS MÁS FRECUENTES ACERCA DE LUIS
     href: luis-resources-faq.md
