@@ -8,10 +8,10 @@ ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: functions
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dc1b15d4e5c5ab0525b64e8844fe644cde3cb257
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 9d51c709f2afa051420a9faa24729fc922ade275
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="create-an-app-service"></a>Creación de una instancia de App Service
@@ -24,6 +24,8 @@ Este script de ejemplo crea una aplicación de función usando el [plan de consu
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
+
+Este ejemplo crea una instancia de Azure Function App e implementa código de la función desde GitHub.
 
 [!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Servicio de Azure")]
 
