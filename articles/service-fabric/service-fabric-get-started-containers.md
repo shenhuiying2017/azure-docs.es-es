@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: df5832478bf7049a7bb883eacac4be961ef65cf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +32,7 @@ Un equipo de desarrollo en el que se ejecute:
 * [SDK y herramientas de Service Fabric](service-fabric-get-started.md).
 *  Docker para Windows.  [Obtener Docker CE para Windows (estable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Después de instalar e iniciar Docker, haga clic con el botón derecho en el icono de la bandeja y seleccione **Switch to Windows containers** (Conmutar a contenedores de Windows), algo que es necesario para ejecutar imágenes de Docker basadas en Windows.
 
-Un clúster de Windows con tres, o más, nodos que se ejecute en Windows Server 2016 con contenedores: [Creación del primer clúster de Service Fabric en Azure](service-fabric-get-started-azure-cluster.md) o [Prueba gratis de Service Fabric](http://tryazureservicefabrictest.westus.cloudapp.azure.com/). 
+Un clúster de Windows con tres, o más, nodos que se ejecute en Windows Server 2016 con contenedores: [Creación del primer clúster de Service Fabric en Azure](service-fabric-get-started-azure-cluster.md) o [Prueba gratis de Service Fabric](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
 
 Un registro de Azure Container Registry: [cree un registro de contenedor](../container-registry/container-registry-get-started-portal.md) en la suscripción de Azure. 
 
@@ -193,7 +193,7 @@ Las herramientas y el SDK de Service Fabric proporcionan una plantilla de servic
 4. Abra un explorador, navegue hasta http://containercluster.westus2.cloudapp.azure.com. Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
-Mientras el clúster esté en ejecución seguirá generando cargos, así que debería considerar la posibilidad de [eliminar el clúster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Los [clústeres de la entidad](http://tryazureservicefabrictest.westus.cloudapp.azure.com/) se eliminan automáticamente a las pocas horas.
+Mientras el clúster esté en ejecución seguirá generando cargos, así que debería considerar la posibilidad de [eliminar el clúster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Los [clústeres de la entidad](http://tryazureservicefabric.westus.cloudapp.azure.com/) se eliminan automáticamente a las pocas horas.
 
 Después de insertar la imagen en el registro de contenedor puede eliminar la imagen local del equipo de desarrollo:
 
