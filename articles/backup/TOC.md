@@ -71,9 +71,11 @@
 ### [Lentitud en la copia de seguridad de archivos y carpetas en Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Conceptos
+## [Introducción a los almacenes de Recovery Services](backup-azure-recovery-services-vault-overview.md)
+## [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Eliminación de un almacén de Azure Backup](backup-azure-delete-vault.md)
 ## [Control de acceso basado en roles](backup-rbac-rs-vault.md)
 ## [Seguridad para copias de seguridad híbridas](backup-azure-security-feature.md)
-## [Eliminación de un almacén de Azure Backup](backup-azure-delete-vault.md)
 ## [Configuración de copias de seguridad sin conexión](backup-azure-backup-import-export.md)
 ## [Reemplazo de la biblioteca de cintas](backup-azure-backup-cloud-as-tape.md)
 ## [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)

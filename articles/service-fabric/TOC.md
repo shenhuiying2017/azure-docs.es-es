@@ -70,9 +70,9 @@
 ##### [Java en Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Ciclo de vida de Reliable Services
-#### [Configuración](service-fabric-reliable-services-configuration.md)
-#### [Envío de notificaciones](service-fabric-reliable-services-notifications.md)
-#### [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
+##### [Configuración](service-fabric-reliable-services-configuration.md)
+##### [Envío de notificaciones](service-fabric-reliable-services-notifications.md)
+##### [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
 
 #### Comunicación con los servicios
 ##### [Comunicación con Reliable Services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md)
 
 ### [Administración de un clúster mediante la CLI de Azure](service-fabric-azure-cli.md)
+### [Aplicación de parches a nodos de clúster](service-fabric-patch-orchestration-application.md)
 
 ### Administración y orquestación de recursos de clúster
 #### [Introducción a Resource Manager de clúster](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Recopilación de registros de un proceso de servicio](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Supervisión de contenedores de Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnósticos de Reliable Services con estado](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnósticos en Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Solución de problemas de un clúster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referencia
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [API de Java](/java/api/)
 ## [.NET](/dotnet/api/)
