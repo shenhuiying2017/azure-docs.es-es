@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 6926b0a594b29cb3b3fff7a76a258d11bd82ded8
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b11a729d935936c3abf34649c34a27b2ce7a7c45
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -281,7 +281,7 @@ También puede encadenar actividades que se encuentran en diferentes canalizacio
 
 En este ejemplo, Pipeline1 solo tiene una actividad que toma Dataset1 como entrada y genera Dataset2 como salida. Pipeline2 también tiene únicamente una actividad que toma Dataset2 como entrada y Dataset3 como salida. 
 
-Para obtener más información, vea [Programación y ejecución](#chaining-activities). 
+Para obtener más información, vea [Programación y ejecución](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="create-and-monitor-pipelines"></a>Creación y supervisión de canalizaciones
 Puede crear canalizaciones utilizando una de estas herramientas o SDK. 

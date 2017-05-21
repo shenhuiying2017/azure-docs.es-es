@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: darosa;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: f86336de4e1d5bda1eba12f0f95079b950963bde
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 03756c15d0cd46731e66df3d81c97099f13dcd17
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Azure Event Hubs Archive
-Azure Event Hubs Archive permite entregar automáticamente los datos de transmisión por secuencias de Event Hubs a la cuenta de Blob Storage que elija con mayor flexibilidad para especificar el intervalo de tiempo o de espacio que prefiera. La configuración de Archive es rápida, su ejecución no tiene costos administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-what-is-event-hubs.md#capacity) de Event Hubs. Event Hubs Archive es la forma más sencilla de cargar datos de streaming en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
+Azure Event Hubs Archive permite entregar automáticamente los datos de transmisión por secuencias de Event Hubs a la cuenta de Blob Storage que elija con mayor flexibilidad para especificar el intervalo de tiempo o de espacio que prefiera. La configuración de Archive es rápida, su ejecución no tiene costos administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-features.md#capacity) de Event Hubs. Event Hubs Archive es la forma más sencilla de cargar datos de streaming en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
 
 Event Hubs Archive permite procesar las canalizaciones en tiempo real y las basadas en lotes en la misma transmisión, lo que permite crear soluciones que pueden crecer a la par que sus necesidades. Si ya está creando sistemas basados en lotes pensando en un futuro procesamiento en tiempo real o desea agregar una ruta de acceso inactiva eficaz a una solución en tiempo real existente, Event Hubs Archive facilita el trabajo con la transmisión de datos.
 
 ## <a name="how-event-hubs-archive-works"></a>Funcionamiento de Event Hubs Archive
-Event Hubs es un búfer duradero de retención temporal para la entrada de datos de telemetría, es similar a un registro distribuido. La clave para reducir horizontalmente en Event Hubs es el [modelo de consumidor con particiones](event-hubs-what-is-event-hubs.md#partitions). Cada partición es un segmento de datos independiente y se consume de forma independiente. Con el tiempo estos datos envejecen basándose en el período de retención configurable. Como consecuencia, un centro de eventos determinado nunca llega a estar "demasiado lleno".
+Event Hubs es un búfer duradero de retención temporal para la entrada de datos de telemetría, es similar a un registro distribuido. La clave para reducir horizontalmente en Event Hubs es el [modelo de consumidor con particiones](event-hubs-features.md#partitions). Cada partición es un segmento de datos independiente y se consume de forma independiente. Con el tiempo estos datos envejecen basándose en el período de retención configurable. Como consecuencia, un centro de eventos determinado nunca llega a estar "demasiado lleno".
 
 Event Hubs Archive le permite especificar su propia cuenta de Azure Blob Storage y el contenedor que se utilizará para almacenar los datos archivados. Esta cuenta puede estar en la misma región que su centro de eventos o en otra región, algo que se agrega a la flexibilidad de la característica Event Hubs Archive.
 
@@ -41,7 +42,7 @@ Event Hubs Archive permite configurar una ventana para controlar el almacenamien
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Escalado a unidades de procesamiento
-El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event-hubs-what-is-event-hubs.md#capacity). Una sola unidad de procesamiento permite una entrada de 1 MB/s o 1000 eventos por segundo y una salida que duplica esas cifras. Los Event Hubs estándar se pueden configurar con 1-20 unidades de procesamiento, y puede adquirir más a través de una solicitud de aumento de cuota al [equipo de soporte técnico][support request]. El uso por encima de las unidades de procesamiento adquiridas está limitado. Event Hubs Archive copia los datos directamente del almacenamiento interno de Event Hubs, omite las cuotas de salida de unidades de procesamiento y guarda la salida para otros lectores de procesamiento como Stream Analytics o Spark.
+El tráfico de los Event Hubs lo controlan las [unidades de procesamiento](event-hubs-features.md#capacity). Una sola unidad de procesamiento permite una entrada de 1 MB/s o 1000 eventos por segundo y una salida que duplica esas cifras. Los Event Hubs estándar se pueden configurar con 1-20 unidades de procesamiento, y puede adquirir más a través de una solicitud de aumento de cuota al [equipo de soporte técnico][support request]. El uso por encima de las unidades de procesamiento adquiridas está limitado. Event Hubs Archive copia los datos directamente del almacenamiento interno de Event Hubs, omite las cuotas de salida de unidades de procesamiento y guarda la salida para otros lectores de procesamiento como Stream Analytics o Spark.
 
 Una vez configurado, Event Hubs Archive se ejecuta automáticamente en cuanto se envía el primer evento. Y no deja de ejecutarse en ningún momento. Para facilitar que el procesamiento de bajada sepa que el proceso funciona, Events Hubs escribe archivos vacíos cuando no hay datos. Esto proporciona un marcador y una cadencia predecibles que puede alimentar sus procesadores de lotes.
 

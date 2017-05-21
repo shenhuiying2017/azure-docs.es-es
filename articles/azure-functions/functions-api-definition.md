@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 08063960d3956ca65dd32d9fe726c366799a2087
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: aac362f5123038cc39e0d2b32c10f7747a702cfe
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -34,10 +35,10 @@ Esta función de versión preliminar le permite escribir una definición de Open
 
 ## <a name="enable"></a>Habilitación de compatibilidad de definición de OpenAPI
 * Todas las configuraciones de OpenAPI pueden configurarse en la página `API Definition (preview)` en la configuración de Function App.
-* Establezca `API defintion source` a `Function` para habilitar una definición de OpenAPI hospedada y la generación de definiciones de inicio rápido.
+* Establezca `API definition source` a `Function` para habilitar una definición de OpenAPI hospedada y la generación de definiciones de inicio rápido.
   * `External URL` permite que su Function use una definición de OpenAPI que está hospedada en otro lugar.
 
-## <a name="generate-defintion"></a>Generación de un esqueleto de Swagger a partir de sus metadatos de la instancia de Function
+## <a name="generate-definition"></a>Generación de un esqueleto de Swagger a partir de sus metadatos de la instancia de Function
 Una plantilla es una forma fantástica de empezar a escribir la primera definición de OpenAPI. La función de plantilla de definición crea una definición de OpenAPI dispersa con todos los metadatos de function.json para cada una de las funciones de desencadenador HTTP. **Necesitará rellenar más información acerca de la API con la [especificación de OpenAPI](http://swagger.io/specification/), como las plantillas de solicitud y respuesta.**
 
 [Consulte este tutorial de inicio para obtener instrucciones paso a paso.](./functions-api-definition-getting-started.md)
