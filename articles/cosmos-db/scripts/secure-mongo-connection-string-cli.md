@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 58e16cfc83c2057168428e8e85a6ebd143d2cd07
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 27c790db456c3e650a624b46df77d4cdce202fa7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ Este ejemplo obtiene una cadena de conexión de Azure Cosmos DB para aplicacione
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "Obtención de la cadena de conexión de Azure Cosmos DB para aplicaciones MongoDB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "Obtención de la cadena de conexión de Azure Cosmos DB para aplicaciones MongoDB")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d631813e8d821a8efe135f0b138dec544b455390
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -160,7 +161,7 @@ Una vez resueltos los errores, desconecte el disco duro virtual existente de la 
     Espere hasta que la máquina virtual haya desconectado correctamente el disco de datos antes de continuar.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Creación de máquina virtual a partir del disco duro original
-Para crear una máquina virtual a partir del disco duro virtual original, utilice [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet). La plantilla implementa una máquina virtual en una red virtual existente mediante la dirección URL del disco duro virtual del comando anterior. Haga clic en el botón **Implementar en Azure** como se muestra a continuación:
+Para crear una máquina virtual a partir del disco duro virtual original, utilice [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). La plantilla implementa una máquina virtual en una red virtual existente mediante la dirección URL del disco duro virtual del comando anterior. Haga clic en el botón **Implementar en Azure** como se muestra a continuación:
 
 ![Implementación de máquina virtual desde una plantilla de GitHub](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
 

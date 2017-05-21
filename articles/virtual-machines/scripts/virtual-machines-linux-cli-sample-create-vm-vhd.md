@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c654db0142df904acc5212b0f53991c54cbf2087
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -38,7 +38,7 @@ Puede usar su propio VHD o descargar el que hemos usado desde https://azclisampl
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Crear máquina virtual con un disco duro virtual")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "Crear máquina virtual con un disco duro virtual")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 

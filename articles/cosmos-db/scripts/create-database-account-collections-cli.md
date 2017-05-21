@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 87c9bfc3d23ed2c21d989e06058c017e41009453
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: bad18882dd362ded4dac53beecbd65ff6df4c725
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ Este script de ejemplo de la CLI crea una cuenta, base de datos y colección de 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[principal](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Creación de una cuenta, base de datos y colección de API de DocumentDB para Azure Cosmos DB")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Creación de una cuenta, base de datos y colección de API de DocumentDB para Azure Cosmos DB")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -57,3 +57,4 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Encontrará más ejemplos de scripts de la CLI de Azure Cosmos DB en la [documentación de la CLI de Azure Cosmos DB](../cli-samples.md).
+

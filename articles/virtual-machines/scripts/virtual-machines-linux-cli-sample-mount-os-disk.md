@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 940171e5289ce735ad1cdf0cd67759e9069ea135
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: fca1844657821a8ce20deefe0056321c365ce689
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ Este script monta el disco del sistema operativo de una máquina virtual problem
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Creación rápida de una máquina virtual")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/mount-os-disk/mount-os-disk.sh "Creación rápida de una máquina virtual")]
 
 ## <a name="script-explanation"></a>Explicación del script
 

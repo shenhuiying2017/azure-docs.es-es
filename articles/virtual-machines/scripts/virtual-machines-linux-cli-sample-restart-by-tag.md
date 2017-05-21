@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 85fa6ab8f7f5ad31347901a0be932d2474594802
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: fec7a2738c3b8e74ac335f62189f3d9b1dd346ab
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -59,19 +59,19 @@ El tercero reinicia todas las máquinas virtuales que se aprovisionaron y, luego
 Este script crea un grupo de recursos y, luego, genera tres máquinas virtuales para realizar la operación de reinicio.
 Dos de ellos tienen etiqueta.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Aprovisionamiento de máquinas virtuales")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Aprovisionamiento de máquinas virtuales")]
 
 ### <a name="wait"></a>Esperar
 
 Este script comprueba el estado de aprovisionamiento cada 20 segundos hasta que todas las tres máquinas virtuales se aprovisionan, o bien hasta que en una de ellas se produce un error de aprovisionamiento.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Espera hasta que las máquinas virtuales se aprovisionan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Espera hasta que las máquinas virtuales se aprovisionan")]
 
 ### <a name="restart-the-vms"></a>Reinicio de máquinas virtuales
 
 Este script reinicia todas las máquinas virtuales del grupo de recursos y, luego, reinicia las que tienen etiqueta.
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Reinicio de máquinas virtuales por etiqueta")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Reinicio de máquinas virtuales por etiqueta")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 

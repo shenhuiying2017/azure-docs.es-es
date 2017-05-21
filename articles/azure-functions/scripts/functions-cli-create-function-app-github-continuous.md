@@ -6,12 +6,12 @@ keywords:
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
-ms.topic: functions
+ms.topic: sample
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 9d51c709f2afa051420a9faa24729fc922ade275
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 152dfe6a9bafada83457d3518fbc3758dd34cde0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 # <a name="create-an-app-service"></a>Creación de una instancia de App Service
@@ -27,7 +27,7 @@ Este script de ejemplo crea una aplicación de función usando el [plan de consu
 
 Este ejemplo crea una instancia de Azure Function App e implementa código de la función desde GitHub.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Servicio de Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Servicio de Azure")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -47,3 +47,4 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Encontrará más ejemplos de scripts de CLI para Azure Functions en la [documentación de Azure Functions](../functions-cli-samples.md).
+
