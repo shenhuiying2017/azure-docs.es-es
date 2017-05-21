@@ -1,5 +1,5 @@
 1. En una nueva ventana, inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú de la izquierda, haga clic en **Nuevo**, en **Bases de datos** y en **Azure Cosmos DB**.
+2. En el menú de la izquierda, haga clic en **Nuevo**, en **Bases de datos** y, después, en **Azure Cosmos DB**.
    
    ![Captura de pantalla de Azure Portal, donde se resaltan Más servicios y Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -16,7 +16,7 @@
     Configuración|Valor sugerido|Descripción
     ---|---|---
     ID|*Valor único*|Nombre único elegido para identificar la cuenta de Azure Cosmos DB. Se anexará *documents.azure.com* al identificador que proporcione para crear el URI, por lo que debe usar un identificador único pero reconocible. El identificador solo puede contener minúsculas, números y el carácter "-". Además, debe tener entre 3 y 50 caracteres.
-    AP|Tabla (clave-valor)|Más adelante en este artículo programaremos con la [API Table](../articles/cosmos-db/table-introduction.md).|
+    API|Tabla (clave-valor)|Más adelante en este artículo programaremos con la [API Table](../articles/cosmos-db/table-introduction.md).|
     La suscripción|*Su suscripción*|Suscripción de Azure que quiere usar para la cuenta de Azure Cosmos DB. 
     Grupo de recursos|*Mismo valor que el identificador*|Nombre del nuevo grupo de recursos para la cuenta. Para simplificar, puede usar el mismo nombre del identificador. 
     Ubicación|*Región más cercana a los usuarios*|Ubicación geográfica en la que se va a hospedar la cuenta de Azure Cosmos DB. Elija la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.   
@@ -24,7 +24,7 @@
 4. Haga clic en **Crear** para crear la cuenta.
 5. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
 
-    ![Notificación "Implementación iniciada"](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+    ![Notificación Implementación iniciada](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
 
 6.  Una vez completada la implementación, abra la nueva cuenta desde el icono Todos los recursos. 
 
