@@ -2,6 +2,7 @@
 ## [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 ## [Métodos de enrutamiento](traffic-manager-routing-methods.md)
 ### [Jerarquía de país o región que usa Traffic Manager](traffic-manager-geographic-regions.md)
+## [Perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md)
 ## [Tipos de punto de conexión](traffic-manager-endpoint-types.md)
 ## [Supervisión de extremos](traffic-manager-monitoring.md)
 ## [Preguntas más frecuentes](traffic-manager-FAQs.md)

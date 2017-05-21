@@ -106,6 +106,7 @@
 ### Configuración de la carga de archivos
 #### [Uso del portal](iot-hub-configure-file-upload.md)
 #### [Uso de PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Uso de la CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Supervisión de operaciones](iot-hub-operations-monitoring.md)
@@ -115,7 +116,7 @@
 ### [Procedimientos de seguridad recomendados](iot-hub-security-best-practices.md)
 ### [Arquitectura de seguridad](iot-hub-security-architecture.md)
 ### [Protección de su implementación de IoT](iot-hub-security-deployment.md)
-## SDK de puerta de enlace
+## IoT Edge
 ### Simulación de un dispositivo
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -128,7 +129,7 @@
 ## [Java (servicio)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (dispositivos)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [SDK de IoT de Azure](http://azure.github.io/azure-iot-sdks/)
-## [SDK de puerta de enlace](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (proveedor de recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (identidades de dispositivos)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (dispositivos gemelos)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
