@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: a3ceca6cd0f470a5cd6849c345867f094b870a85
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introducción a Apache Kafka en HDInsight (versión preliminar)
@@ -48,10 +49,6 @@ Kafka ofrece las siguientes características:
 * **Agregación**: mediante el procesamiento de las transmisiones, puede agregar información de distintas transmisiones para combinar y centralizar la información en datos operativos.
 
 * **Transformación**: mediante el procesamiento de las transmisiones, puede combinar y enriquecer los datos de varios temas de entrada en uno o más temas de salida.
-
-## <a name="where-do-i-start"></a>¿Por dónde empiezo?
-
-Consulte el artículo [Introducción a Kafka en HDInsight](hdinsight-apache-kafka-get-started.md) para conocer los pasos para crear un clúster Kafka y usar Kafka, ejemplos basados en Java del uso del productor, consumidor y la API de streaming incluidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

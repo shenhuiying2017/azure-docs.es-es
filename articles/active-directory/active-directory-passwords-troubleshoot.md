@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 90846b3bd83b65a3fdfef2a1c8183b7143b5b247
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,7 +33,7 @@ Si tiene problemas con el autoservicio de restablecimiento de contraseña, los e
 | --- | --- |
 | No veo la sección **Restablecimiento de contraseña** en Azure AD en el portal de Azure | Este problema puede ocurrir si no tiene una licencia de Azure AD Básico o Premium asignada al administrador que realiza la operación. <br> Para solucionarlo, puede asignar una licencia a la cuenta del administrador en cuestión siguiendo los pasos del artículo [Asignación, comprobación y solución de problemas de licencias](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
 | No veo una opción de configuración determinada | Muchos elementos de la interfaz de usuario están ocultos hasta que se necesitan. Pruebe a habilitar todas las opciones que desee ver. |
-| No veo la pestaña **Integración local** | Esta opción solo está visible si ha descargado AD Connect y configurado la escritura diferida de contraseñas. Para más información sobre este tema, consulte el artículo [Introducción a Azure AD Connect mediante la configuración rápida](/connect/active-directory-aadconnect-get-started-express.md). |
+| No veo la pestaña **Integración local** | Esta opción solo está visible si ha descargado AD Connect y configurado la escritura diferida de contraseñas. Para más información sobre este tema, consulte el artículo [Introducción a Azure AD Connect mediante la configuración rápida](./connect/active-directory-aadconnect-get-started-express.md). |
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Solución de problemas de informe de restablecimiento de contraseña
 
@@ -226,16 +226,16 @@ Para que reciba la ayuda correcta, le pedimos que proporcione la mayor cantidad 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En los vínculos siguientes se proporciona información adicional sobre el restablecimiento de contraseña mediante Azure AD.
+Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): comience a trabajar rápidamente con el autoservicio de administración de contraseña de Azure AD. 
-* [**Licencias**](active-directory-passwords-licensing.md): configure su licencia de Azure AD.
-* [**Datos**](active-directory-passwords-data.md): conozca los datos que son necesarios para la administración de contraseñas y cómo se usan.
-* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
-* [**Personalización**](active-directory-passwords-customize.md): personalice el aspecto de la experiencia SSPR para su empresa.
+* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
+* [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
+* [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
+* [**Implementación**](active-directory-passwords-best-practices.md): planificación e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
+* [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
 * [**Directiva**](active-directory-passwords-policy.md): conozca y establezca directivas de contraseñas de Azure AD.
 * [**Escritura diferida de contraseñas** ](active-directory-passwords-writeback.md): cómo funciona la escritura diferida de contraseñas con su directorio local.
 * [**Informes**](active-directory-passwords-reporting.md): descubra si, cuándo y dónde sus usuarios acceden a la funcionalidad SSPT.
-* [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
+* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? - Respuestas a preguntas que siempre ha querido hacer
 

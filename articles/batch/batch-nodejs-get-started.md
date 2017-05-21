@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/25/2017
 ms.author: shwetams
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 14edac7896ac3aff8788b26906b8a97a35fae60e
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 23e833b9eb926c81fd8c02cd96d43da8cffcaa43
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -45,9 +45,9 @@ El siguiente diagrama muestra cómo se puede escalar el script de Python con Azu
 
 El cliente de node.js implementa un trabajo por lotes con una tarea de preparación (más adelante se explica con detalle) y un conjunto de tareas en función del número de contenedores de la cuenta de almacenamiento. Puede descargar los scripts del repositorio de Github.
 
-* [Cliente de Node.js](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/storehbaseclient.js)
-* [Scripts de shell de la tarea de preparación](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh)
-* [Procesador Python de CSV a JSON](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py)
+* [Cliente de Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
+* [Scripts de shell de la tarea de preparación](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
+* [Procesador Python de CSV a JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
 > El cliente de Node.js del enlace especificado no contiene código específico para implementarse como una instancia de Azure Function App. Puede consultar los siguientes enlaces para obtener instrucciones de cómo crear una.
