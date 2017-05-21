@@ -9,7 +9,7 @@
 
 # Introducción
 ## [Replicación de máquinas virtuales VMware en Azure](site-recovery-vmware-to-azure.md)
-## [Replicación de servidores físicos a Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replicación de servidores físicos a Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicación de máquinas virtuales de Hyper-V en Azure (con VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicación de máquinas virtuales de Hyper-V en Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicación de máquinas virtuales de Hyper-V en un sitio secundario (con VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Planeamiento de la capacidad y escalado de la replicación de VMware a Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner para la replicación de VMware en Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner para la replicación de Hyper-V](site-recovery-capacity-planner.md)
+### [Control de acceso basado en roles](site-recovery-role-based-linked-access-control.md)
 
 ## Configuración
 ### [Configuración del entorno de origen](site-recovery-set-up-vmware-to-azure.md)
@@ -47,8 +48,8 @@
 ## Cargas de trabajo
 ### [Active Directory y DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
