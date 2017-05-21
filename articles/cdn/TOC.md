@@ -29,12 +29,14 @@
 ### [Supervisión de recursos](cdn-resource-health.md)
 ### [Invalidación del comportamiento con reglas](cdn-rules-engine.md)
 ### [Obtención de alertas en tiempo real](cdn-real-time-alerts.md)
+### [Compatibilidad con HTTP/2](cdn-http2.md)
 
 ## Análisis
 ### [Análisis de los patrones de uso](cdn-analyze-usage-patterns.md)
 ### [Generación de informes HTTP avanzados](cdn-advanced-http-reports.md)
 ### [Visualización de estadísticas en tiempo real](cdn-real-time-stats.md)
 ### [Análisis del rendimiento del nodo perimetral](cdn-edge-performance.md)
+### [Exportación de métricas con Registros de diagnóstico](cdn-log-analysis.md)
 
 ## Desarrollo
 ### [.NET](cdn-app-dev-net.md)

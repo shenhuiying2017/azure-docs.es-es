@@ -5,7 +5,6 @@
 # Introducción
 ## [Suscripción a Log Analytics](log-analytics-get-started.md)
 ## [Administración del acceso](log-analytics-manage-access.md)
-## [Proxy y firewall](log-analytics-proxy-firewall.md)
 ## [Datos de uso](log-analytics-usage.md)
 ## [Preguntas frecuentes sobre Log Analytics](log-analytics-faq.md)
 ## [Proveedores de servicios](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Recopilación de datos
 ### Orígenes conectados
 #### [Agentes de Windows](log-analytics-windows-agents.md)
-#### [Agentes de Linux](log-analytics-linux-agents.md)
+#### [Agentes de Linux](log-analytics-agent-linux.md)
 #### [Máquinas virtuales de Azure](log-analytics-azure-vm-extension.md)
 #### [Recursos de Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Orígenes de datos
 #### [Introducción a orígenes de datos](log-analytics-data-sources.md)
 #### [Eventos de Windows](log-analytics-data-sources-windows-events.md)
+#### [Personalización de datos JSON](log-analytics-data-sources-json.md)
+#### [Recopilación de datos de rendimiento](log-analytics-data-sources-collectd.md)
+#### [Alertas de Nagios y Zabbix](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Contadores de rendimiento](log-analytics-data-sources-performance-counters.md)
+#### [Rendimiento de las aplicaciones de Linux](log-analytics-data-sources-linux-applications.md)
 #### [Registros de IIS](log-analytics-data-sources-iis-logs.md)
 #### [Registros personalizados](log-analytics-data-sources-custom-logs.md)
 #### [Campos personalizados](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Introducción a búsquedas de registros](log-analytics-log-searches.md)
 ### [Referencia de Search](log-analytics-search-reference.md)
 #### [Expresiones regulares](log-analytics-log-searches-regex.md)
+### [Actuación a partir de resultados de búsqueda](log-analytics-log-search-takeaction.md)
 ### [Grupos de equipos](log-analytics-computer-groups.md)
 ## Análisis de datos
 ### [Paneles](log-analytics-dashboards.md)
@@ -54,6 +58,7 @@
 ### [Estado de replicación de AD](log-analytics-ad-replication-status.md)
 ### [Administración de alertas](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
+### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Capacidad y rendimiento](log-analytics-capacity.md)
 ### [Seguimiento de cambios](log-analytics-change-tracking.md)
 ### [Contenedores](log-analytics-containers.md)

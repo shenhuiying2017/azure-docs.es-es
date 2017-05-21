@@ -3,29 +3,28 @@
 # Introducción
 ## [Creación de un directorio de Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registro de la aplicación](active-directory-b2c-app-registration.md)
-## Aplicaciones móviles y de escritorio
+## Aplicaciones para dispositivos móviles y de escritorio
 ### [Información general](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift con MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [iOS ObjC con AppAuth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [iOS ObjC con AppAuth](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [Android con MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [Android con AppAuth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [Android con AppAuth](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
-## Web Apps
+## Aplicaciones web
 ### [Información general](active-directory-b2c-reference-oidc.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [NodeJS](active-directory-b2c-devquickstarts-web-node.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## Aplicaciones de una sola página
 ### [Información general](active-directory-b2c-reference-spa.md)
-### [JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-### [NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
+### [JavaScript con MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript con Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## API web
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [NodeJS](active-directory-b2c-devquickstarts-api-node.md)
+### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Llamada de una API web de .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guías
@@ -48,12 +47,13 @@
 ## [Personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md)
 ### [Herramienta de ayudante para la personalización](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personalización de lenguaje](active-directory-b2c-reference-language-customization.md)
+## [Uso de la API de informes](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Configuración del restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md)
 
-# Identity Experience Engine
+# Marco de experiencia de identidad
 ## [Directivas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guías
-### [Introducción](active-directory-b2c-get-started-custom.md)
+### [Primeros pasos](active-directory-b2c-get-started-custom.md)
 ### Configuración de proveedores de OIDC
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 ### Configuración de proveedores de SAML
@@ -70,7 +70,6 @@
 ## Referencia
 ### [Notas de la versión](active-directory-b2c-developer-notes-custom.md)
 
-
 # Referencia
 ## Glosario
 ### [Tipos de aplicaciones](active-directory-b2c-apps.md)
@@ -78,13 +77,14 @@
 ### [Directivas integradas](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Disponibilidad de región y residencia de datos](active-directory-b2c-reference-tenant-type.md)
+## [Habilitación de facturación](active-directory-b2c-how-to-enable-billing.md)
 ## [Administración de amenazas](active-directory-b2c-reference-threat-management.md)
 ## [Limitaciones y restricciones](active-directory-b2c-limitations.md)
 ## [Problemas para crear un directorio](active-directory-b2c-support-create-directory.md)
 
 # Temas relacionados
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
-## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-b2c/)

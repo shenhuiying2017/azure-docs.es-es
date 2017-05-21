@@ -12,145 +12,103 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ecf7c058b90fd18e41fd4e1cbc29e22dfeb0883
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: e98fa067c0ed385fe20f66645311c9fd51cd6456
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Implementación de varias instancias de recursos en plantillas de Azure Resource Manager
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager
 En este tema se muestra cómo iterar en la plantilla del Administrador de recursos de Azure para crear varias instancias de un recurso.
 
-## <a name="copy-and-copyindex"></a>copy y copyIndex
+## <a name="resource-iteration"></a>Iteración de recursos
+Para crear varias instancias de un tipo de recurso, agregue un elemento `copy` al tipo de recurso. En el elemento de copia, especifique el número de iteraciones y un nombre para este bucle. El valor de recuento debe ser un número entero positivo y no puede ser superior a 800. Resource Manager crea los recursos en paralelo. Por lo tanto, no se garantiza el orden en el que se crean. Para crear recursos iterados en orden, vea [Bucle secuencia para plantillas de Azure Resource Manager](resource-manager-sequential-loop.md). 
+
 El recurso para crear varias veces tiene el formato siguiente:
 
 ```json
-"resources": [ 
-  { 
-      "name": "[concat('examplecopy-', copyIndex())", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[parameters('count')]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
-  } 
-]
-```
-
-Tenga en cuenta el número de veces para recorrer en iteración se especifica en el objeto de copia:
-
-```json
-"copy": { 
-    "name": "websitescopy", 
-    "count": "[parameters('count')]" 
-} 
-```
-
-El valor de recuento debe ser un número entero positivo y no puede ser superior a 800.
-
-Tenga en cuenta que el nombre de cada recurso incluye la función `copyIndex()`, que devuelve la iteración actual del bucle.
-
-```json
-"name": "[concat('examplecopy-', copyIndex())]",
-```
-
-Si implementa tres sitios web, se denominan:
-
-* examplecopy-0
-* examplecopy-1
-* examplecopy-2.
-
-Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(), como `copyIndex(1)`. El número de iteraciones que se deben realizar todavía se especifica en el elemento copy, pero el valor de copyIndex se desplaza el valor especificado. Por lo tanto, con la misma plantilla que en el ejemplo anterior, pero especificando copyIndex(1), implementaría tres sitios web con los nombres:
-
-* examplecopy-1
-* examplecopy-2
-* examplecopy-3
-
-Resource Manager crea los recursos en paralelo. Por lo tanto, no se garantiza el orden en el que se crean. Para crear recursos iterados en orden, vea [Bucle secuencia para plantillas de Azure Resource Manager](resource-manager-sequential-loop.md). 
-
-Solo puede aplicar el objeto copy a un recurso de nivel superior. No podrá aplicarlo a una propiedad de un tipo de recurso o a un recurso secundario. En el siguiente ejemplo de pseudocódigo se explica dónde puede aplicarse el objeto copy:
-
-```json
-"resources": [
-  {
-    "type": "{provider-namespace-and-type}",
-    "name": "parentResource",
-    "copy": {  
-      /* Yes, copy can be applied here */
-    },
-    "properties": {
-      "exampleProperty": {
-        /* No, copy cannot be applied here */
-      }
-    },
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "resources": [
-      {
-        "type": "{provider-type}",
-        "name": "childResource",
-        /* No, copy cannot be applied here. The resource must be promoted to top-level. */ 
-      }
-    ]
-  }
-] 
+        {
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
-Para recorrer en iteración un recurso secundarios, lea [Creación de varias instancias de un recurso secundario](#create-multiple-instances-of-a-child-resource).
+Tenga en cuenta que el nombre de cada recurso incluye la función `copyIndex()`, que devuelve la iteración actual del bucle. `copyIndex()` es de base cero. Así, en el ejemplo siguiente:
 
-Aunque no se puede aplicar copy a una propiedad, dicha propiedad sigue siendo parte de las iteraciones del recurso que contiene la propiedad. Por lo tanto, puede usar copyIndex() en la propiedad para especificar los valores. Para crear varios valores para una propiedad, vea [Creación de varias instancias de propiedad en un tipo de recurso](resource-manager-property-copy.md).
+```json
+"name": "[concat('storage', copyIndex())]",
+```
 
-## <a name="use-copy-with-array"></a>Uso de la copia con la matriz
-La operación de copia es útil al trabajar con matrices, ya que puede iterar a través de cada elemento de la matriz. Para implementar tres sitios web con los nombres:
+Crea estos nombres:
 
-* examplecopy-Contoso
-* examplecopy-Fabrikam
-* examplecopy-Coho
+* storage0
+* storage1
+* storage2.
 
-Use la siguiente plantilla:
+Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(). El número de iteraciones que se deben realizar todavía se especifica en el elemento copy, pero el valor de copyIndex se desplaza el valor especificado. Así, en el ejemplo siguiente:
+
+```json
+"name": "[concat('storage', copyIndex(1))]",
+```
+
+Crea estos nombres:
+
+* storage1
+* storage2
+* storage3
+
+La operación de copia es útil al trabajar con matrices, ya que puede iterar a través de cada elemento de la matriz. Use la función `length` en la matriz para especificar el número de iteraciones, y `copyIndex` para recuperar el índice actual de la matriz. Así, en el ejemplo siguiente:
 
 ```json
 "parameters": { 
   "org": { 
      "type": "array", 
      "defaultValue": [ 
-         "Contoso", 
-         "Fabrikam", 
-         "Coho" 
+         "contoso", 
+         "fabrikam", 
+         "coho" 
       ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
+      "name": "[concat('storage', parameters('org')[copyIndex()])]", 
       "copy": { 
-         "name": "websitescopy", 
+         "name": "storagecopy", 
          "count": "[length(parameters('org'))]" 
       }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
+      ...
   } 
 ]
 ```
 
-Tenga en cuenta que la función `length` se utiliza para especificar el número. Especifique la matriz como parámetro para la función length.
+Crea estos nombres:
 
-```json
-"copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
-}
-```
+* storagecontoso
+* storagefabrikam
+* storagecoho
 
 ## <a name="depend-on-resources-in-a-loop"></a>Dependencia de los recursos de un bucle
 Especifique que un recurso se implemente después de otro recurso mediante el elemento `dependsOn`. Para implementar un recurso que dependa de la colección de recursos de un bucle, proporcione el nombre del bucle copy en el elemento dependsOn. En el ejemplo siguiente se muestra cómo implementar tres cuentas de almacenamiento antes de implementar la máquina virtual. La definición de la máquina virtual no se muestra. Tenga en cuenta que el elemento copy tiene el nombre establecido en `storagecopy` y el elemento dependsOn para las máquinas virtuales también se establece en `storagecopy`.
@@ -162,16 +120,18 @@ Especifique que un recurso se implemente después de otro recurso mediante el el
     "parameters": {},
     "resources": [
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-01-01",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
             "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "Standard_LRS"
+            "sku": {
+                "name": "Standard_LRS"
             },
-            "copy": { 
-                "name": "storagecopy", 
-                "count": 3 
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
             }
         },
         {
