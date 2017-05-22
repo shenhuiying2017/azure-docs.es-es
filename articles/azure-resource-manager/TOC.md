@@ -24,7 +24,6 @@
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Creación de varias instancias](resource-group-create-multiple.md)
-### [Bucle secuencial](resource-manager-sequential-loop.md)
 ### [Establecimiento de la ubicación](resource-manager-template-location.md)
 ### [Asignación de etiquetas](resource-manager-template-tags.md)
 ### [Establecimiento del nombre y tipo del recurso secundario](resource-manager-template-child-resource.md)
@@ -43,8 +42,8 @@
 #### [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md)
 #### [Exportación de la plantilla y reimplementación](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
-### [API DE REST](resource-group-template-deploy-rest.md)
-### [Implementación de varios grupos de recursos](resource-manager-cross-resource-group-deployment.md)
+### [API de REST](resource-group-template-deploy-rest.md)
+### [Implementación en varios grupos de recursos](resource-manager-cross-resource-group-deployment.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
 
