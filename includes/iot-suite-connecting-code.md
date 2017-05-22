@@ -4,7 +4,7 @@ La biblioteca de cliente del serializador de IoT Hub usa un modelo para especifi
 
 1. Agregue las siguientes declaraciones de variable después de las instrucciones `#include` . Sustituya los valores de marcador de posición [Device Id] y [Device Key] por los valores que anotó para el dispositivo en el panel de la solución de supervisión remota. Use el nombre de host de IoT Hub en el panel de la solución para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host de IoT Hub es **contoso.azure-devices.net**, sustituya [IoTHub Name] por **contoso**:
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ La biblioteca de cliente del serializador de IoT Hub usa un modelo para especifi
    - Puede recibir las propiedades deseadas establecidas en el dispositivo gemelo en IoT Hub y actuar en función de ellas.
    - Puede responder a los métodos directos **Reboot** y **InitiateFirmwareUpdate** mediante el portal de la solución. El dispositivo envía información sobre los métodos directos que admite mediante las propiedades notificadas.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
 
 1. Agregue las siguientes funciones que controlan las propiedades deseadas establecidas en el panel de la solución. Estas propiedades deseadas se definen en el modelo:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
 
 1. Agregue las funciones siguientes que controlan los métodos directos que se invocan a través de IoT Hub. Estos métodos directos se definen en el modelo:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
 
 1. Agregue la función siguiente que envía un mensaje a la solución preconfigurada:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
 
 1. Agregue el siguiente controlador de devolución de llamadas que se ejecuta cuando el dispositivo ha enviado nuevos valores de propiedades notificadas a la solución preconfigurada:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ Ahora, agregue código que implemente el comportamiento definido en el modelo.
     - Crea un bucle para enviar telemetría a cada segundo.
     - Desinicializa todos los recursos.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)

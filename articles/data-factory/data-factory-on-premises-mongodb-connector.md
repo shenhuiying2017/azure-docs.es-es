@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: jingwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: b1d31112f024ddc8856835f639f58e2defd67bdf
+ms.contentlocale: es-es
 ms.lasthandoff: 04/10/2017
 
 
@@ -195,7 +196,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%M"
+                        "format": "MM"
                     }
                 },
                 {
@@ -203,7 +204,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%d"
+                        "format": "dd"
                     }
                 },
                 {
@@ -211,7 +212,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%H"
+                        "format": "HH"
                     }
                 }
             ]

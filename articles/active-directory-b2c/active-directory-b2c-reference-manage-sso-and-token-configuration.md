@@ -56,6 +56,7 @@ Para cambiar la configuración de la duración del token, debe agregar un elemen
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
+
 **Notificación de emisor (iss)**: si desea cambiar la notificación del emisor (iss), modifique el valor dentro de `<Item>` con la clave = "IssuanceClaimPattern".  Los valores aplicables son `AuthorityAndTenantGuid` y `AuthorityWithTfp`.
 
 **Configuración de notificación que representa el identificador de directiva**: las opciones para configurar este valor son TFTP (directiva de marco de confianza) y ACR (referencia de contexto de autenticación).  
@@ -88,5 +89,8 @@ Para cambiar las configuraciones de comportamiento de sesión y SSO, debe agrega
 </UserJourneyBehaviors>
 ```
 **Configuración de inicio de sesión único (SSO)**: para cambiar la configuración del inicio de sesión único, debe modificar el valor de `<SingleSignOn>`.  Los valores aplicables son `Tenant`, `Application`, `Policy` y `Disabled`. 
+
 **Duración de sesión de aplicación web (minutos)**: para cambiar la duración de la sesión de aplicación web, debe modificar el valor del elemento `<SessionExpiryInSeconds>`.  El valor predeterminado en las directivas integradas es 86400 segundos (1440 minutos).
+
 **Tiempo de espera de sesión de aplicación web**: para cambiar el tiempo de espera de sesión de una aplicación web, debe modificar el valor de `<SessionExpiryType>`.  Los valores aplicables son `Absolute` y `Rolling`.
+
