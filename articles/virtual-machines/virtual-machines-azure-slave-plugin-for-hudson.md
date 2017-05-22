@@ -14,9 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 0661f26e62a465ccd096773cbabd47268491f22d
+ms.contentlocale: es-es
 ms.lasthandoff: 01/05/2017
 
 
@@ -88,7 +89,7 @@ Una plantilla de máquina virtual define los parámetros que usará el complemen
 1. En el panel de Hudson, haga clic en **Manage Hudson**(Administrar Hudson).
 2. Haga clic en **Configure System**(Configurar sistema).
 3. Desplácese hacia abajo en la página para encontrar la sección **Cloud** (Nube).
-4. Dentro de la sección **Cloud** (Nube), busque **Add Azure Virtual Machine Template **(Agregar plantilla de máquina virtual de Azure) y haga clic en el botón **Add** (Agregar).
+4. Dentro de la sección **Cloud** (Nube), busque **Add Azure Virtual Machine Template** (Agregar plantilla de máquina virtual de Azure) y haga clic en el botón **Add** (Agregar).
    
     ![agregar plantilla de vm][add vm template]
 5. Especifique un nombre de servicio en la nube en el campo **Name** (Nombre). Si el nombre que especifique se refiere a un servicio en la nube existente, la máquina virtual se aprovisionará en dicho servicio. De lo contrario, Azure creará uno nuevo.
