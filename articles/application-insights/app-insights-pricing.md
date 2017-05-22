@@ -3,7 +3,7 @@ title: "Administración de precios y volúmenes de datos de Azure Application In
 description: "Administre los volúmenes de telemetría y supervise los costos en Application Insights."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -148,10 +148,7 @@ Para establecer el muestreo de ingesta, establezca el control en la hoja de prec
 ![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> El valor que aparece en el icono Muestras retenidas indica solo el valor que ha establecido para el muestreo de ingesta. No muestra la frecuencia de muestreo que está funcionando en el SDK de la aplicación. 
-> 
-> Si ya se ha muestreado la telemetría entrante en el SDK, no se aplica el muestreo de ingesta.
-> 
+> La hoja de muestreo Datos solo controla el valor de muestreo de la ingesta. No refleja la velocidad de muestreo que se aplica mediante el SDK de Application Insights en la aplicación. Si ya se ha muestreado la telemetría entrante en el SDK, no se aplica el muestreo de ingesta.
 > 
 
 Para conocer la frecuencia de muestreo real independientemente de dónde se ha aplicado, use una [consulta de Analytics](app-insights-analytics.md) como esta:
