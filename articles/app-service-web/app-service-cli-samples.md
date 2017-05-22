@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5d74f8216edd46fcd36d2b7f8763ec8a69ccad42
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5c995ca118676935f4f9b0c72c266b9d52c181cb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -44,7 +45,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 | [Conexión de una aplicación web a una base de datos SQL](./scripts/app-service-cli-app-service-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una aplicación web de Azure y una base de datos SQL y, a continuación, añade la cadena de conexión de base de datos a la configuración de la aplicación. |
 | [Conexión de una aplicación web a una cuenta de almacenamiento](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una aplicación web de Azure y una cuenta de almacenamiento y, a continuación, añade la cadena de conexión de almacenamiento a la configuración de la aplicación. |
 | [Conexión de una aplicación web a Redis Cache](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación web de Azure y una instancia de Redis Cache y, luego, agrega los detalles de conexión de Redis a la configuración de la aplicación). |
-| [Conexión de una aplicación web a una instancia de DocumentDB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación web de Azure y una instancia de DocumentDB y, luego, agrega los detalles de conexión de DocumentDB a la configuración de la aplicación. |
+| [Conexión de una aplicación web a Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación web de Azure y una instancia de Cosmos DB y, luego, agrega los detalles de conexión de Cosmos DB a la configuración de la aplicación. |
 |**Supervisión de la aplicación**||
 | [Supervisión de una aplicación web con registros de servidor web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación web de Azure, habilita el registro para ella y descarga los registros en el equipo local. |
 | | |

@@ -14,26 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: bc9d9aa1cbe704de5f7fb960f1467aa522acd0b5
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7f9fb67a28560f8cc48ba8be8011bc1991d09024
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 El escalado automático de Azure Monitor le permite escalar verticalmente y reducir horizontalmente el número de instancias en ejecución, basándose en los datos de telemetría (métricas). Este documento describe las métricas comunes que estaría interesado en usar. En Azure Portal de Cloud Services y granjas de servidores, puede elegir la métrica de recurso por la que se va a escalar. Sin embargo, también puede elegir cualquier métrica de un recurso diferente por la que escalar.
 
-La siguiente información se aplica también al escalado de conjunto de escalado de máquinas virtuales.
-
-> [!NOTE]
-> Esta información se aplica solamente a las máquinas virtuales basadas en Resource Manager y a los conjuntos de escalado de máquinas virtuales. 
-> 
+El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Otros servicios de Azure usan distintos métodos de escalado.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Cálculo de métricas de máquinas virtuales basadas en Resource Manager
-De forma predeterminada, las máquinas virtuales basadas en Resource Manager y los conjuntos de escalado de máquinas virtuales emiten métricas básicas (de nivel de host). Además, al configurar la recopilación de datos de diagnóstico para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure, la extensión de diagnóstico de Azure también emite contadores de rendimiento de SO invitado (lo que normalmente se conoce como "métricas de SO invitado").  Todas estas métricas se usan en reglas de escalado automático. 
+De forma predeterminada, las máquinas virtuales basadas en Resource Manager y los conjuntos de escalado de máquinas virtuales emiten métricas básicas (de nivel de host). Además, al configurar la recopilación de datos de diagnóstico para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure, la extensión de diagnóstico de Azure también emite contadores de rendimiento de SO invitado (lo que normalmente se conoce como "métricas de SO invitado").  Todas estas métricas se usan en reglas de escalado automático.
 
-Puede usar la CLI, API o PoSH `Get MetricDefinitions` para ver las métricas disponibles para el recurso VMSS. 
+Puede usar la CLI, API o PoSH `Get MetricDefinitions` para ver las métricas disponibles para el recurso VMSS.
 
 Si está utilizando conjuntos de escalado de máquinas virtuales y no ve una métrica concreta enumerada, entonces es probable que esté *deshabilitada* en la extensión Diagnostics.
 
@@ -42,7 +39,7 @@ Si una métrica concreta no se muestrea o se transfiere a la frecuencia que dese
 Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre PowerShell para configurar y actualizar la extensión Diagnostics de máquina virtual de Azure a fin de habilitar la métrica. Ese artículo también incluye un archivo de configuración de diagnósticos de ejemplo.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager
-Las siguientes métricas de nivel de host se emiten de forma predeterminada para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure en instancias de Windows y Linux. Estas métricas describen la máquina virtual de Azure, pero se recopilan desde el host de dicha máquina en lugar de hacerlo a través de agente instalado en la máquina virtual invitada. Puede usar estas métricas en reglas de escalado automático. 
+Las siguientes métricas de nivel de host se emiten de forma predeterminada para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure en instancias de Windows y Linux. Estas métricas describen la máquina virtual de Azure, pero se recopilan desde el host de dicha máquina en lugar de hacerlo a través de agente instalado en la máquina virtual invitada. Puede usar estas métricas en reglas de escalado automático.
 
 - [Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
 - [Métricas de host para conjuntos de escalado de máquinas virtuales Windows y Linux basadas en Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
@@ -162,7 +159,7 @@ Puede alertar sobre estas métricas o escalar por las mismas.
 | BytesSent |Bytes |
 
 ## <a name="commonly-used-storage-metrics"></a>Métricas de almacenamiento utilizadas comúnmente
-Puede escalar por la longitud de la cola de almacenamiento, que es el número de mensajes de dicha cola. La longitud de cola de almacenamiento es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más. 
+Puede escalar por la longitud de la cola de almacenamiento, que es el número de mensajes de dicha cola. La longitud de cola de almacenamiento es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más.
 
 Esta configuración la puede realizar en Azure Portal, en la hoja **Configuración**. Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
@@ -183,7 +180,7 @@ En el caso de una cuenta de almacenamiento (no clásica) el metricTrigger inclui
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métricas más usadas de Bus de servicio
-Puede escalar por la longitud de la cola de Bus de servicio, que es el número de mensajes de dicha cola. La longitud de cola de Service Bus es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más. 
+Puede escalar por la longitud de la cola de Bus de servicio, que es el número de mensajes de dicha cola. La longitud de cola de Service Bus es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más.
 
 Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
@@ -195,7 +192,6 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 
 > [!NOTE]
 > Para Bus de servicio, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
-> 
-> 
-
+>
+>
 
