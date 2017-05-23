@@ -45,7 +45,7 @@ En las consultas de este artículo se usa la tabla `People` de ejemplo siguiente
 
 ## <a name="about-the-table-api-preview"></a>Acerca de Table API (versión preliminar)
 
-Puesto que Azure Cosmos DB es compatible con las API de Azure Table Storage, consulte [Querying Tables and Entities] (Consulta de tablas y entidades) (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para detalles sobre cómo consultar con Table API. 
+Puesto que Azure Cosmos DB es compatible con las API de Azure Table Storage, consulte [Consulta de tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para detalles sobre cómo consultar con Table API. 
 
 Para más información sobre las funcionalidades premium que ofrece Azure Cosmos DB, consulte [Azure Cosmos DB: Table API](table-introduction.md) (Azure Cosmos DB: Table API) y [Develop with the Table API using .NET](tutorial-develop-table-dotnet.md) (Desarrollo con Table API mediante .NET). 
 
