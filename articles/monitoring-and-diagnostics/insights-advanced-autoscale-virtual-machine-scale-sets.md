@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
-ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/23/2017
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
 
 > [!NOTE]
-> Aunque este tutorial explica los pasos para los conjuntos de escalado de máquinas virtuales, la misma información se aplica al escalado automático de Cloud Services y Web Apps.
+> Aunque este tutorial explica los pasos para los conjuntos de escalado de máquinas virtuales, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
 > Para tener un valor simple de escalado y reducción horizontal en un conjunto de escalado de máquinas virtuales basado en una métrica de rendimiento simple como CPU, consulte los documentos sobre [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) y [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 >
 >

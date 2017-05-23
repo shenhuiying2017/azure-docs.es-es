@@ -1,6 +1,6 @@
 ---
-title: Uso de Ruby en Azure App Service Web Apps en Linux | Microsoft Docs
-description: Uso de Ruby en Azure App Service Web Apps en Linux.
+title: Uso de Ruby en Web App on Linux de Azure App Service | Microsoft Docs
+description: Uso de Ruby en Web App on Linux de Azure App Service
 keywords: "azure app service, web app, preguntas más frecuentes, linux, oss, ruby"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 8427034e5229000faf134bcd5b7174b0f7046321
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-ruby-in-web-apps-on-linux"></a>Uso de Ruby en Web Apps en Linux #
+# <a name="using-ruby-in-web-app-on-linux"></a>Uso de Ruby en Web App on Linux #
 
 Con la última actualización de nuestro back-end, se introdujo la compatibilidad con Ruby v.2.3. Al establecer la configuración de la aplicación web de Linux, puede cambiar la pila de la aplicación.
 
@@ -45,10 +46,10 @@ Aparecerá la hoja de **creación**, como se muestra en la siguiente imagen:
 Una vez que se crea la aplicación web de Ruby, puede implementarla mediante Git o FTP.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [¿Qué es App Service en Linux?](app-service-linux-intro.md)
-* [Creación de aplicaciones web en App Service en Linux](app-service-linux-how-to-create-a-web-app.md)
+* [¿Qué es Web App on Linux?](app-service-linux-intro.md)
+* [Creación de aplicaciones web en Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [Implementación de Git local en Azure App Service](app-service-deploy-local-git.md)
-* [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
+* [Preguntas más frecuentes sobre Web App on Linux de Azure App Service](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

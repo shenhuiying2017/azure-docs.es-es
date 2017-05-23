@@ -1,6 +1,6 @@
 ---
 title: "Compilación de una aplicación web Node.js y MongoDB en Azure | Microsoft Docs"
-description: "Aprenda cómo empezar a trabajar con una aplicación Node.js en Azure, con conexión a una base de datos de DocumentDB con una cadena de conexión de MongoDB."
+description: "Aprenda a empezar a trabajar con una aplicación Node.js en Azure, con conexión a una base de datos Cosmos DB con una cadena de conexión de MongoDB."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,34 +12,44 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 05/04/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6db07ed122d8dbd9edaa3b4d25680863778a6adf
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25fec75615d2376f3e566b509536eadd03590c0e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Compilación de una aplicación web Node.js y MongoDB en Azure
-En este tutorial se muestra cómo crear una aplicación web Node.js en Azure y conectarla a una base de datos MongoDB. Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, AngularJS y Node.js) que se ejecuta en [App Service Web Apps](app-service-web-overview.md).
+En este tutorial se muestra cómo crear una aplicación web Node.js en Azure y conectarla a una base de datos MongoDB. Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, AngularJS y Node.js) que se ejecuta en [App Service Web Apps](app-service-web-overview.md). Por sencillez, la aplicación de ejemplo usa el [marco web MEAN.js ](http://meanjs.org/).
 
 ![Aplicación MEAN.js que se ejecuta en Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-## <a name="before-you-begin"></a>Antes de empezar
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Crear una base de datos MongoDB en Azure
+> * Conectar una aplicación Node.js a MongoDB
+> * Implementación de la aplicación en Azure
+> * Actualizar el modelo de datos y volver a implementar la aplicación
+> * Transmitir registros de diagnóstico desde Azure
+> * Administrar la aplicación en Azure Portal
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de ejecutar este ejemplo, instale los siguientes requisitos previos localmente:
 
 1. [Descarga e instalación de Git](https://git-scm.com/)
 1. [Descarga e instalación de Node.js y NPM](https://nodejs.org/)
-1. [Instalación de Gulp.js](http://gulpjs.com/)
-1. [Descarga, instalación y ejecución de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
+1. [Instale Gulp.js](http://gulpjs.com/) (necesario para [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [Descarga, instalación y ejecución de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 1. [Descarga e instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="test-local-mongodb-database"></a>Prueba de la base de datos MongoDB local
+## <a name="test-local-mongodb"></a>Prueba de la base de datos MongoDB local
 En este paso, asegúrese de que su base de datos local MongoDB está en funcionamiento.
 
 Abra la ventana de terminal y use `cd` para cambiar al directorio `bin` de la instalación de MongoDB. 
@@ -50,13 +60,13 @@ Ejecute `mongo` en el terminal para conectarse a su servidor local de MongoDB.
 mongo
 ```
 
-Si la conexión se realiza correctamente, la base de datos MongoDB estará ya funcionando. En caso contrario, asegúrese de que se ha iniciado la base de datos local MongoDB siguiendo los pasos descritos en [Descarga, instalación y ejecución de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/).
+Si la conexión se realiza correctamente, la base de datos MongoDB estará ya funcionando. En caso contrario, asegúrese de que se ha iniciado la base de datos local MongoDB siguiendo los pasos descritos en [Descarga, instalación y ejecución de MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Con frecuencia, MongoDB ya estará instalado, pero aun así deberá iniciarlo ejecutando `mongod`. 
 
 Cuando haya terminado de probar la base de datos MongoDB, escriba `Ctrl`+`C` en el terminal. 
 
 <a name="step2"></a>
 
-## <a name="create-local-nodejs-application"></a>Creación de una aplicación local Node.js
+## <a name="create-local-nodejs-app"></a>Creación de una aplicación local Node.js
 En este paso, configurará el proyecto local de Node.js.
 
 ### <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
@@ -69,7 +79,7 @@ Ejecute los comandos siguientes para clonar el repositorio de ejemplo.
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-Este repositorio de ejemplo contiene una aplicación [MEAN.js](http://meanjs.org/). 
+Este repositorio de ejemplo contiene una copia del [repositorio MEAN.js](https://github.com/meanjs/mean). Se ha modificado mínimamente para ejecutar App Service (para obtener más información, consulte el [archivo Léame](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -105,11 +115,11 @@ Pruebe a hacer clic en **Administrador** > **Manage Articles** (Administrar art�
 
 Para detener Node.js en cualquier momento, escriba `Ctrl`+`C` en el terminal. 
 
-## <a name="create-a-production-mongodb-database"></a>Creación de una base de datos de producción MongoDB
+## <a name="create-production-mongodb"></a>Creación de una base de datos de MongoDB de producción
 
 En este paso, creará una base de datos MongoDB en Azure. Cuando la aplicación se implementa en Azure, se utiliza esta base de datos para la carga de trabajo de producción.
 
-Para MongoDB, en este tutorial se usa [Azure DocumentDB](/azure/documentdb/). Azure DocumentDB admite conexiones de cliente de MongoDB, lo que significa que su aplicación de Node.js solo sabe que se está conectando a una base de datos de MongoDB. El hecho de que la conexión esté respaldada por una base de datos de DocumentDB es transparente para la aplicación.
+Para MongoDB, en este tutorial se usa [Azure Cosmos DB](/azure/documentdb/). Cosmos DB admite las conexiones del cliente de MongoDB.
 
 ### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
@@ -123,7 +133,7 @@ az login
 
 Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y administran recursos de Azure como aplicaciones web, bases de datos y cuentas de almacenamiento. 
 
-En el ejemplo siguiente se crea un grupo de recursos en la región de Europa Occidental:
+En el siguiente ejemplo, se crea un grupo de recursos en la región de Europa Occidental.
 
 ```azurecli
 az group create --name myResourceGroup --location "West Europe"
@@ -131,60 +141,66 @@ az group create --name myResourceGroup --location "West Europe"
 
 Para ver los posibles valores que se pueden usar para `--location`, utilice el comando `az appservice list-locations` de la CLI de Azure.
 
-### <a name="create-a-documentdb-account"></a>de una cuenta de Base de datos de documentos
+### <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB
 
-Cree una cuenta de DocumentDB con el comando [az documentdb create](/cli/azure/documentdb#create).
+Cree una cuenta de Cosmos DB con el comando [az cosmosdb create](/cli/azure/cosmosdb#create).
 
-En el siguiente comando, sustituya su propio nombre único de DocumentDB donde vea el marcador de posición `<documentdb_name>`. Este nombre único se usará como parte de su punto de conexión de DocumentDB (`https://<documentdb_name>.documents.azure.com/`), así que debe mantener este carácter unívoco en todas las cuentas de DocumentDB de Azure. 
+En el siguiente comando, reemplace su propio nombre único de Cosmos DB donde vea el marcador de posición _&lt;cosmosdb_name>_. Este nombre único se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por lo que debe ser único entre todas las cuentas de Cosmos DB de Azure. 
 
 ```azurecli
-az documentdb create --name <documentdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create \
+    --name <cosmosdb_name> \
+    --resource-group myResourceGroup \
+    --kind MongoDB
 ```
 
 El parámetro `--kind MongoDB` habilita las conexiones de cliente de MongoDB.
 
-Cuando se crea la cuenta de DocumentDB, la CLI de Azure muestra información similar a la del ejemplo siguiente:
+> [!NOTE]
+> _&lt;cosmosdb_name>_ solo debe contener letras minúsculas, números y el carácter _-_, y debe tener una extensión de entre 3 y 50 caracteres.
+>
+>
+
+Cuando se crea la cuenta de Cosmos DB, la CLI de Azure muestra información similar a la del ejemplo siguiente:
 
 ```json
 {
+  "consistencyPolicy":
+  {
+    "defaultConsistencyLevel": "Session",
+    "maxIntervalInSeconds": 5,
+    "maxStalenessPrefix": 100
+  },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<documentdb_name>.documents.azure.com:443/",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<documentdb_name>",
-  "kind": "MongoDB",
-  "location": "West Europe",
-  "name": "<documentdb_name>",
-  "readLocations": [
-    ...
-  ],
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.DocumentDB/databaseAccounts",
-  "writeLocations": [
-    ...
-  ]
-} 
+  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "failoverPolicies": 
+  ...
+  < Output has been truncated for readability >
+}
 ```
 
-## <a name="connect-your-nodejs-application-to-the-database"></a>Conexión de la aplicación Node.js a la base de datos
+## <a name="connect-app-to-production-mongodb"></a>Conexión de la aplicación a la base de datos MongoDB de producción
 
-En este paso, conectará su aplicación de ejemplo MEAN.js a la base de datos de DocumentDB que acaba de crear mediante una cadena de conexión de MongoDB. 
+En este paso, conectará la aplicación de ejemplo MEAN.js a la base de datos Cosmos DB que acaba de crear mediante una cadena de conexión de MongoDB. 
 
 ### <a name="retrieve-the-database-key"></a>Recuperación de la clave de base de datos
 
-Para conectarse a la base de datos de DocumentDB, necesita la clave de base de datos. Use el comando [az documentdb list-keys](/cli/azure/documentdb#list-keys) para recuperar la clave principal.
+Para conectarse a la base de datos Cosmos DB, necesita la clave de base de datos. Use el comando [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) para recuperar la clave principal.
 
 ```azurecli
-az documentdb list-keys --name <documentdb_name> --resource-group myResourceGroup
+az cosmosdb list-keys \
+    --name <cosmosdb_name> \
+    --resource-group myResourceGroup
 ```
 
 La CLI de Azure genera información similar al ejemplo siguiente:
 
 ```json
 {
-  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
-  "primaryReadonlyMasterKey": "...",
-  "secondaryMasterKey": "...",
-  "secondaryReadonlyMasterKey": "..."
+  "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
+  "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
+  "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
+  "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
 }
 ```
 
@@ -193,19 +209,19 @@ Copie el valor de `primaryMasterKey` en un editor de texto. Esta información la
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configuración de la cadena de conexión en la aplicación Node.js
 
-En el repositorio de MEAN.js, abra `config/env/production.js`.
+En el repositorio MEAN.js, abra _config/env/production.js_.
 
-En el objeto `db`, reemplace el valor de `uri` como se muestra en el ejemplo siguiente. Asegúrese de reemplazar los dos marcadores de posición `<documentdb_name>` por el nombre de la base de datos de DocumentDB y el marcador de posición `<primary_master_key>` por la clave que copió en el paso anterior.
+En el objeto `db`, reemplace el valor de `uri` como se muestra en el siguiente ejemplo. Asegúrese de reemplazar los dos marcadores de posición _&lt;cosmosdb_name>_ por el nombre de la base de datos Cosmos DB y el marcador de posición _&lt;primary_master_key>_ por la clave que copió en el paso anterior.
 
 ```javascript
 db: {
-  uri: 'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+  uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
   ...
 },
 ```
 
 > [!NOTE] 
-> La opción `ssl=true` es importante porque [Azure DocumentDB requiere SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> La opción `ssl=true` es importante porque [Cosmos DB necesita SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -213,7 +229,7 @@ Guarde los cambios.
 
 ### <a name="test-the-application-in-production-mode"></a>Prueba de la aplicación en modo de producción 
 
-Al igual que otras plataformas web de Node.js, MEAN.js usa `gulp prod` para extraer y empaquetar scripts para el entorno de producción. De esta forma se generan los archivos necesarios en dicho entorno. 
+Al igual que otras plataformas web de Node.js, MEAN.js usa `gulp` para extraer y empaquetar scripts para el entorno de producción. De esta forma se generan los archivos necesarios en dicho entorno. 
 
 Ejecute ahora `gulp prod`.
 
@@ -221,7 +237,7 @@ Ejecute ahora `gulp prod`.
 gulp prod
 ```
 
-A continuación, ejecute el siguiente comando para usar la cadena de conexión que configuró en `config/env/production.js`.
+A continuación, ejecute el siguiente comando para usar la cadena de conexión que configuró en _config/env/production.js_.
 
 ```bash
 NODE_ENV=production node server.js
@@ -237,16 +253,16 @@ MEAN.JS
 
 Environment:     production
 Server:          http://0.0.0.0:8443
-Database:        mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
+Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
 App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Vaya a `http://localhost:8443` en un explorador. Haga clic en **Registrarse** en el menú superior e intente crear un usuario ficticio igual que antes. Si lo logra, su aplicación está escribiendo datos en la base de datos de DocumentDB en Azure. 
+Vaya a `http://localhost:8443` en un explorador. Haga clic en **Registrarse** en el menú superior e intente crear un usuario ficticio igual que antes. Si lo consigue hacerlo correctamente, significa que la aplicación está escribiendo datos en la base de datos Cosmos DB en Azure. 
 
 En el terminal, detenga Node.js escribiendo `Ctrl` +`C`. 
 
-## <a name="deploy-the-nodejs-application-to-azure"></a>Implementación de la aplicación Node.js en Azure
+## <a name="deploy-app-to-azure"></a>Implementación de aplicación en Azure
 En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure App Service.
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
@@ -264,81 +280,87 @@ Cree un plan de App Service con el comando [az appservice plan create](/cli/azur
 > * SKU (Gratis, Compartido, Básico, Estándar y Premium) 
 > 
 
-En el siguiente ejemplo se crea un plan de App Service denominado `myAppServicePlan` con el plan de tarifa **Gratis**.
+En el siguiente ejemplo, se crea un plan de App Service denominado _miPlanDeAppService_ con el plan de tarifa **Gratis**:
 
 ```azurecli
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create \
+    --name myAppServicePlan \
+    --resource-group myResourceGroup \
+    --sku FREE
 ```
 
 Cuando se ha creado el plan de App Service, la CLI de Azure muestra información similar al ejemplo siguiente.
 
 ```json 
 { 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "kind": "app", 
-    "location": "West Europe", 
-    "sku": { 
-    "capacity": 0, 
-    "family": "F", 
-    "name": "F1", 
-    "tier": "Free" 
-    }, 
-    "status": "Ready", 
-    "type": "Microsoft.Web/serverfarms" 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "North Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
+  "kind": "app",
+  "location": "North Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  ...
+  < Output has been truncated for readability >
 } 
-``` 
+```
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Ahora que ha creado un plan de App Service, cree una aplicación web dentro del plan de App Service `myAppServicePlan`. La aplicación web ofrece un espacio de hospedaje para implementar el código y proporciona una dirección URL para que pueda ver la aplicación implementada. Use el comando [az appservice web create](/cli/azure/appservice/web#create) para crear la aplicación web. 
+Ahora que ha creado un plan de App Service, cree una aplicación web dentro del plan de App Service _miPlanDeAppService_. La aplicación web ofrece un espacio de hospedaje para implementar el código y proporciona una dirección URL para que pueda ver la aplicación implementada. Use el comando [az appservice web create](/cli/azure/appservice/web#create) para crear la aplicación web. 
 
-En el siguiente comando, sustituya el marcador de posición `<app_name>` por su propio nombre de aplicación único. Este nombre único se usará como parte del nombre de dominio predeterminado para la aplicación web, por lo que el nombre debe ser único en todas las aplicaciones de Azure. Más adelante puede asignar cualquier entrada de DNS personalizada a la aplicación web antes de exponerla a los usuarios. 
+En el siguiente comando, reemplace el marcador de posición _&lt;app_name>_ por su propio nombre de aplicación único. Este nombre único se usa como parte del nombre de dominio predeterminado para la aplicación web, por lo que debe ser único en todas las aplicaciones de Azure. Más adelante puede asignar cualquier entrada de DNS personalizada a la aplicación web antes de exponerla a los usuarios. 
 
 ```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az appservice web create \
+    --name <app_name> \
+    --resource-group myResourceGroup \
+    --plan myAppServicePlan
 ```
 
 Cuando se ha creado la aplicación web, la CLI de Azure muestra información similar a la del ejemplo siguiente: 
 
 ```json 
-{ 
-    "clientAffinityEnabled": true, 
-    "defaultHostName": "<app_name>.azurewebsites.net", 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>", 
-    "isDefaultContainer": null, 
-    "kind": "app", 
-    "location": "West Europe", 
-    "name": "<app_name>", 
-    "repositorySiteName": "<app_name>", 
-    "reserved": true, 
-    "resourceGroup": "myResourceGroup", 
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan", 
-    "state": "Running", 
-    "type": "Microsoft.Web/sites", 
-} 
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  ...
+  < Output has been truncated for readability >
+}
 ```
 
 ### <a name="configure-an-environment-variable"></a>Configuración de una variable de entorno
 
-Anteriormente en este tutorial, codificó la cadena de conexión de base de datos en `config/env/production.js`. De acuerdo con el procedimiento recomendado de seguridad, querrá mantener estos datos confidenciales fuera de su repositorio de Git. Para la aplicación que se ejecuta en Azure, usará en su lugar una variable de entorno.
+Anteriormente en este tutorial, codificó la cadena de conexión de base de datos de _config/env/production.js_. De acuerdo con el procedimiento recomendado de seguridad, querrá mantener estos datos confidenciales fuera de su repositorio de Git. Para la aplicación que se ejecuta en Azure, usará una variable de entorno en su lugar.
 
 En App Service, establecerá variables de entorno como _valores de aplicación_ mediante el comando [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update). 
 
 El ejemplo siguiente le permite configurar un valor de aplicación `MONGODB_URI` en su aplicación web de Azure. No olvide reemplazar los marcadores de posición como hizo antes.
 
 ```azurecli
-az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true"
+az appservice web config appsettings update \
+    --name <app_name> \
+    --resource-group myResourceGroup \
+    --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
 En el código de Node.js, accederá a este valor de aplicación con `process.env.MONGODB_URI`, al igual que accedería a cualquier variable de entorno. 
 
-Ahora, deshaga los cambios realizados en `config/env/production.js` con el siguiente comando:
+Ahora, deshaga los cambios realizados en _config/env/production.js_ con el siguiente comando:
 
 ```bash
 git checkout -- .
 ```
 
-Abra de nuevo `config/env/production.js`. Tenga en cuenta que la aplicación MEAN.js predeterminada ya está configurada para usar la variable de entorno `MONGODB_URI` que acaba de crear.
+Vuelva a abrir _config/env/production.js_. Tenga en cuenta que la aplicación MEAN.js predeterminada ya está configurada para usar la variable de entorno `MONGODB_URI` que acaba de crear.
 
 ```javascript
 db: {
@@ -357,13 +379,17 @@ Use el comando [az appservice web deployment user set](/cli/azure/appservice/web
 > Se requiere un usuario de implementación para la implementación de FTP y repositorio de Git Local en App Service. Este usuario de implementación es el nivel de cuenta. Por lo tanto, es diferente de la cuenta de suscripción de Azure. Solo debe configurar este usuario de implementación una vez.
 
 ```azurecli
-az appservice web deployment user set --user-name <specify-a-username> --password <minimum-8-char-capital-lowercase-number>
+az appservice web deployment user set \
+    --user-name <specify-a-username> \
+    --password <minimum-8-char-capital-lowercase-number>
 ```
 
 Use el comando [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) para configurar el acceso de Git local a la aplicación web de Azure. 
 
 ```azurecli
-az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup
+az appservice web source-control config-local-git \
+    --name <app_name> \
+    --resource-group myResourceGroup
 ```
 
 Cuando el usuario de implementación está configurado, la CLI de Azure muestra la dirección URL de implementación de su aplicación web de Azure en el siguiente formato:
@@ -413,12 +439,12 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 > [!NOTE]
 > Puede observar que el proceso de implementación ejecuta [Gulp](http://gulpjs.com/) después de `npm install`. App Service no ejecuta tareas Gulp o Grunt durante la implementación, así que este repositorio de ejemplo tiene dos archivos adicionales en su directorio raíz para permitirlo: 
 >
-> - `.deployment`: este archivo indica a App Service que ejecute `bash deploy.sh` como script de implementación personalizado.
-> - `deploy.sh`: el script de implementación personalizado. Si revisa el archivo, verá que se ejecuta `gulp prod` después de `npm install` y `bower install`. 
+> - _.deployment_: este archivo indica a App Service que ejecute `bash deploy.sh` como script de implementación personalizado.
+> - _deploy.sh_: se trata del script de implementación personalizado. Si revisa el archivo, verá que se ejecuta `gulp prod` después de `npm install` y `bower install`. 
 >
 > Puede usar este enfoque para agregar cualquier paso a la implementación basada en Git.
 >
-> Tenga en cuenta que si reinicia la aplicación web de Azure en cualquier momento, App Service no volverá a ejecutar estas tareas de automatización.
+> Si reinicia la aplicación web de Azure en cualquier momento, App Service no vuelve a ejecutar estas tareas de automatización.
 >
 >
 
@@ -431,7 +457,7 @@ http://<app_name>.azurewebsites.net
 
 Haga clic en **Registrarse** en el menú superior e intente crear un usuario ficticio. 
 
-Si lo logra y la aplicación inicia la sesión automáticamente del usuario creado, la aplicación MEAN.js en Azure tiene conectividad a la base de datos de MongoDB (DocumentDB). 
+Si se realiza correctamente y la aplicación inicia automáticamente la sesión del usuario creado, significa que la aplicación MEAN.js de Azure tiene conectividad a la base de datos MongoDB (Cosmos DB). 
 
 ![Aplicación MEAN.js que se ejecuta en Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -445,7 +471,7 @@ En este paso, realizará algunos cambios en los datos de `article` y publicará 
 
 ### <a name="update-the-data-model"></a>Actualización del modelo de datos
 
-Abra `modules/articles/server/models/article.server.model.js`.
+Abra _modules/articles/server/models/article.server.model.js_.
 
 En `ArticleSchema`, agregue un tipo `String` llamado `comment`. Cuando haya finalizado, su código de esquema tendrá este aspecto:
 
@@ -472,7 +498,7 @@ A continuación, actualizará el resto del código de `articles` para usar `comm
 
 En total, hay cinco (5) archivos que es necesario modificar: el controlador de servidor y las cuatro vistas de cliente. 
 
-En primer lugar, abra `modules/articles/server/controllers/articles.server.controller.js`.
+En primer lugar, abra _modules/articles/server/controllers/articles.server.controller.js_.
 
 En la función `update`, agregue una asignación para `article.comment`. Cuando haya terminado, su función `update` debe tener este aspecto:
 
@@ -488,7 +514,7 @@ exports.update = function (req, res) {
 };
 ```
 
-A continuación, abra `modules/articles/client/views/view-article.client.view.html`.
+A continuación, abra _modules/articles/client/views/view-article.client.view.html_.
 
 Justo antes de la etiqueta `</section>` de cierre, agregue la línea siguiente para mostrar `comment` junto con el resto de los datos de artículo:
 
@@ -496,7 +522,7 @@ Justo antes de la etiqueta `</section>` de cierre, agregue la línea siguiente p
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-A continuación, abra `modules/articles/client/views/list-articles.client.view.html`.
+A continuación, abra _modules/articles/client/views/list-articles.client.view.html_.
 
 Justo antes de la etiqueta `</a>` de cierre, agregue la línea siguiente para mostrar `comment` junto con el resto de los datos de artículo:
 
@@ -504,7 +530,7 @@ Justo antes de la etiqueta `</a>` de cierre, agregue la línea siguiente para mo
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-A continuación, abra `modules/articles/client/views/admin/list-articles.client.view.html`.
+A continuación, abra _modules/articles/client/views/admin/list-articles.client.view.html_.
 
 Dentro de la etiqueta `<div class="list-group">` y justo encima de la etiqueta `</a>`, agregue la siguiente línea para mostrar `comment` junto con el resto de los datos de artículo:
 
@@ -512,7 +538,7 @@ Dentro de la etiqueta `<div class="list-group">` y justo encima de la etiqueta `
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Por último, abra `modules/articles/client/views/admin/form-article.client.view.html`.
+Por último, abra _modules/articles/client/views/admin/form-article.client.view.html_.
 
 Busque la etiqueta `<div class="form-group">` que contiene el botón de envío, que tiene este aspecto:
 
@@ -543,7 +569,7 @@ NODE_ENV=production node server.js
 ```
 
 > [!NOTE]
-> Recuerde que `config/env/production.js` se ha revertido y que la variable de entorno `MONGODB_URI` solo está establecida en su aplicación web de Azure y no en su máquina local. Si echa un vistazo al archivo de configuración, verá que la configuración de producción usa de forma predeterminada una base de datos local MongoDB. De esta forma se garantiza que los datos de producción no se tocan al probar los cambios en el código localmente.
+> Recuerde que _config/env/production.js_ se ha revertido y que la variable de entorno `MONGODB_URI` solo está establecida en la aplicación web de Azure y no en la máquina local. Si echa un vistazo al archivo de configuración, verá que la configuración de producción usa de forma predeterminada una base de datos local MongoDB. De esta forma se garantiza que los datos de producción no se tocan al probar los cambios en el código localmente.
 >
 >
 
@@ -571,7 +597,7 @@ Una vez que `git push` está completo, vaya a su aplicación web de Azure y vuel
 ![Modelo y cambios en la base de datos publicados en Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 > [!NOTE]
-> Si agregó anteriormente artículos, aún puede verlos. Los datos existentes en DocumentDB no se pierden. Además, se actualiza el esquema de datos y los datos existentes permanecen sin cambios.
+> Si agregó anteriormente artículos, aún puede verlos. Los datos existentes en Cosmos DB no se pierden. Además, se actualiza el esquema de datos y los datos existentes permanecen sin cambios.
 >
 >
 
@@ -582,7 +608,9 @@ Mientras se ejecuta la aplicación de Node.js en Azure App Service, puede tener 
 Para iniciar la secuencia de registro, use el comando [az appservice web log tail](/cli/azure/appservice/web/log#tail).
 
 ```azurecli 
-az appservice web log tail --name <app_name> --resource-group myResourceGroup 
+az appservice web log tail \
+    --name <app_name> \
+    --resource-group myResourceGroup 
 ``` 
 
 Cuando se inicie la secuencia de registro, actualice la aplicación web de Azure en el explorador para obtener algún tráfico web. Ahora debería ver los registros de la consola insertados en su terminal.
@@ -613,121 +641,30 @@ Estas pestañas de la hoja muestran las muchas y excepcionales características 
 * Escalado vertical y horizontal
 * Adición de la autenticación de usuarios
 
-<!--
+## <a name="clean-up-resources"></a>Limpieza de recursos
+ 
+Si no necesita estos recursos para otro tutorial (consulte [Pasos siguientes](#next)), puede ejecutar el siguiente comando para eliminarlos: 
+  
+```azurecli 
+az group delete --name myResourceGroup 
+``` 
 
-## Step 4 - Download server logs
-In this step, you turn on monitoring of your web app with web server logs, and then download these logs. 
+<a name="next"></a>
 
-### Enable logging
-Enable all logging options for your web app.
+## <a name="next-steps"></a>Pasos siguientes
 
-```azurecli
-az appservice web log config --name <app_name> --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
-```
+En este tutorial, aprendió a:
 
-### Generate errors
+> [!div class="checklist"]
+> * Crear una base de datos MongoDB en Azure
+> * Conectar una aplicación Node.js a MongoDB
+> * Implementación de la aplicación en Azure
+> * Actualizar el modelo de datos y volver a implementar la aplicación
+> * Transmitir registros desde Azure a un terminal
+> * Administrar la aplicación en Azure Portal
 
-To generate some error entries, navigate to a nonexistent page in your web app. For example: `http://<app_name>.azurewebsites.net/404`. 
+Pase al siguiente tutorial para aprender a asignarle un nombre DNS personalizado.
 
-### Download log files
-Download the log files for review.
-
-```azurecli
-az appservice web log download --name <app_name> --resource-group myResourceGroup
-```
-
-## Step 5 - Scale to another region
-In this step, you scale your Node.js app to serve your customers in a new region. That way, you can tailor your web app to customers in different regions, and also put your web app closer to them to improve performance. When you're done with this step, you will have a [Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) profile with two endpoints, which route traffic to two web apps which reside in different geographical regions.
-
-1. Create a Traffic Manager profile with a unique name and add it to your resource group.
-
-    ```azurecli
-    az network traffic-manager profile create --name myTrafficManagerProfile --resource-group myResourceGroup --routing-method Performance --unique-dns-name <unique-dns-name>
-    ```
-
-    > [!NOTE]
-    > `--routing-method Performance` specifies that this profile [routes user traffic to the closest endpoint](../traffic-manager/traffic-manager-routing-methods.md).
-
-2. Get the resource ID of your existing Node.js web app.
-
-    ```azurecli
-    az appservice web show --name <app_name> --resource-group myResourceGroup --query id --output tsv
-    ```
-
-3. Add an endpoint to the Traffic Manager profile and put the output of the last command in `<web-app-1-resource-id>`:
-
-    ```azurecli
-    az network traffic-manager endpoint create --name <app_name>-westeurope --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id <web-app-1-resource-id>
-    ```
-
-4. Your Traffic Manager profile now has an endpoint that points to your web app. Query for its URL to try it out.
-
-    ```azurecli
-    az network traffic-manager profile show --name cephalin-express --resource-group myResourceGroup --query dnsConfig.fqdn --output tsv
-    ```
-
-    Copy the output into your browser. You should get the default Express page again, with data from your database.
-
-5. Let's add some identifying characteristic to your West Europe app. Add an environment variable.
-
-    ```azurecli
-    az appservice web config appsettings update --settings region="Europe" --name <app_name> --resource-group myResourceGroup    
-    ```
-
-6. Open `routes/index.js` and change the `router.get()` to use the environment variable.
-
-    ```javascript
-    router.get('/', function(req, res, next) {
-      res.render('index', { title: 'Express ' + process.env.region, data: output });
-    });
-    ```
-
-7. Save your changes and push them to Azure.
-
-    ```
-    git add .
-    git commit -m "added region string."
-    git push azure master
-    ```
-
-8. Refresh your browser on your Traffic Manager profile's URL. You should now see `Express Europe` in the homepage. 
-
-    Since your Traffic Manager profile only has one endpoint which points to your West Europe web app, this is the only page you'll see. Next, you create a new web app in Southeast Asia and add a new endpoint to the profile.
-
-4. Create an App Service plan and web app in the Southeast Asia region, and deploy the same code to it just like you did in [Step 2]<#step2>.
-
-    ```azurecli
-    az appservice plan create --name my-expressjs-appservice-plan-asia --resource-group myResourceGroup --location "Southeast Asia" --sku FREE
-    az appservice web create --name <app_name>-asia --plan my-expressjs-appservice-plan-asia --resource-group myResourceGroup
-    url=$(az appservice web source-control config-local-git --name <app_name>-asia --resource-group myResourceGroup --query url --output tsv)
-    git remote add azureasia $url
-    git push azureasia master
-    ```
-
-5. Add the same application settings to the new web app. Set the region to `"Asia"`.
-
-    ```azurecli
-    az appservice web config appsettings update --settings dbconnstring="mongodb://$accountname:$password@$accountname.documents.azure.com:10250/tutorial?ssl=true&sslverifycertificate=false" --name <app_name>-asia --resource-group myResourceGroup    
-    az appservice web config appsettings update --settings region="Asia" --name <app_name>-asia --resource-group myResourceGroup    
-    ```
-
-    Since DocumentDB is a [geographically distributed](../documentdb/documentdb-distribute-data-globally.md) NoSQL service, you can use the same MongoDB connection string in the Southeast Asia web app. When the MongoDB client driver connects to your DocumentDB account, Azure automatically figures out where is the closest place to route the connection. No code change is necessary. You only need to add the regions you want to support to your DocumentDB account, which you will do next.
-
-6. Add `Southeast Asia` as a region to your DocumentDB account.
-
-    ```azurecli
-    az documentdb update --locations "West Europe"=0 "Southeast Asia"=1 --name $accountname --resource-group myResourceGroup
-    ```
-
-3. To finish, add a second endpoint to the Traffic Manager profile and put the output of the last command in `<web-app-2-resource-id>`:
-
-    ```azurecli
-    resourceid=$(az appservice web show --name <app_name>-asia --resource-group myResourceGroup --query id --output tsv)
-    az network traffic-manager endpoint create -n <app_name>-southeastasia --profile-name myTrafficManagerProfile -g myResourceGroup --type azureEndpoints --target-resource-id resourceid
-    ```
-  
-Now, try to access the URL of your Traffic Manager profile. If you access the URL from the Europe region, you should see "Express Europe", but from the Asia region, you should see "Express Asia".
-
--->
-## <a name="more-resources"></a>Más recursos
+> [!div class="nextstepaction"] 
+> [Asignar un nombre DNS personalizado a Azure Web Apps](app-service-web-tutorial-custom-domain.md)
 
