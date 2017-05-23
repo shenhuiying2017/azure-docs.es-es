@@ -10,6 +10,7 @@
 | Lecturas de API del Administrador de recursos |15 000 por hora |15 000 por hora |
 | Escrituras de API del Administrador de recursos |1200 por hora |1200 por hora |
 | Tamaño de recursos de API de Administrador de recursos |4194304 bytes |4194304 bytes |
+| Etiquetas por suscripción |10000 |10000 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |No aplicable<sup>3</sup> |No aplicable<sup>3</sup> |
 | [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción |No aplicable<sup>3</sup> |No aplicable<sup>3</sup> |
 

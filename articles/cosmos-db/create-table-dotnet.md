@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 9bbf188b0080b8b1cf71423023645f54f1f823e5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -70,27 +70,33 @@ Ahora vamos a clonar una aplicación de API de DocumentDB desde GitHub, a establ
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo DocumentDBRepository.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
+Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Program.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
-* Se inicializa DocumentClient.
+* Se inicializa CloudTableClient.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Se crea una base de datos.
+* Si no existe, se crea una nueva tabla.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* Se crea un nuevo contenedor de gráficos.
+* Se crea un nuevo contenedor de tabla. Observará que este código es muy similar al habitual en el SDK de Azure Table Storage. 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
@@ -106,7 +112,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 3. Copie el nombre de la cuenta de Azure Cosmos DB desde el portal y conviértalo en el valor de AccountName en el valor de cadena de PremiumStorageConnection del archivo app.config. En la captura de pantalla anterior, el nombre de cuenta es cosmos-db-quickstart. El nombre de la cuenta se muestra en la parte superior del portal.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de accountKey en PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 5. Por último, copie el valor del identificador URI desde la página Claves del portal (mediante el botón de copia) y conviértalo en el valor de TableEndpoint de PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     Puede dejar StandardStorageConnectionString como está.
 

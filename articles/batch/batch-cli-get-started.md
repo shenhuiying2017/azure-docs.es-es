@@ -12,26 +12,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 698c481e2eff5e0a3b893a0377d9f4cd2f052eb4
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 079632f304112e1034abbd7385506292f10e128d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure
 
-La interfaz de línea de comandos de Azure(CLI de Azure) multiplataforma (CLI de Azure) le permite administrar sus cuentas de Batch, y recursos como grupo, trabajos y tareas en los shells de comandos de Linux, Mac y Windows. Con la CLI de Azure, puede realizar directamente y mediante scripts muchas de las mismas tareas que lleva a cabo con las API de Batch, el portal de Azure y los cmdlets de Batch PowerShell.
+La CLI 2.0 de Azure es la nueva experiencia de línea de comandos de Azure para administrar recursos de Azure. Se puede usar en macOS, Linux y Windows. La CLI de Azure 2.0 está optimizada para administrar recursos de Azure desde la línea de comandos. Puede usarla para administrar cuentas de Azure Batch y administrar recursos, como grupos, trabajos y tareas. Con la CLI de Azure, puede realizar mediante scripts muchas de las mismas tareas que lleva a cabo con las API de Batch, Azure Portal y los cmdlets PowerShell de Batch.
 
-En este artículo se usa la versión 0.10.5 de la CLI de Azure.
+En este artículo se proporciona una introducción al uso de la [CLI de Azure versión 2.0](https://docs.microsoft.com/cli/azure/overview) con Batch. Consulte [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) para información general sobre el uso de la CLI con Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
-* [Instalación de la CLI de Azure](../cli-install-nodejs.md)
-* [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md)
-* Cambie al modo **Resource Manager**: `azure config mode arm`
+Microsoft recomienda usar la versión más reciente de la CLI de Azure, la versión 2.0. Para más información acerca de la versión 2.0, consulte [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (La línea de comandos de Azure 2.0 está ahora disponible con carácter general).
+
+## <a name="set-up-the-azure-cli"></a>Configuración de la CLI de Azure
+
+Para instalar la CLI de Azure, siga los pasos descritos en [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
 > [!TIP]
 > Se recomienda actualizar su instalación de la CLI de Azure con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
@@ -39,237 +41,154 @@ En este artículo se usa la versión 0.10.5 de la CLI de Azure.
 > 
 
 ## <a name="command-help"></a>Ayuda de comandos
-Para mostrar texto de ayuda de todos los comandos de la CLI de Azure, anexe `-h` como la única opción después del comando. Por ejemplo:
 
-* Para obtener ayuda sobre el comando `azure` escriba: `azure -h`
-* Para obtener una lista de todos los comandos de Batch en la CLI, utilice: `azure batch -h`
-* Para obtener ayuda acerca de la creación de una cuenta de Batch, escriba: `azure batch account create -h`
+Para mostrar texto de ayuda para todos los comandos de la CLI de Azure, anexe `-h` al comando. Omita el resto de las opciones. Por ejemplo:
+
+* Para obtener ayuda sobre el comando `az` escriba: `az -h`
+* Para obtener una lista de todos los comandos de Batch en la CLI, utilice: `az batch -h`
+* Para obtener ayuda acerca de la creación de una cuenta de Batch, escriba: `az batch account create -h`
 
 En caso de duda, utilice la opción de línea de comandos `-h` para obtener ayuda sobre cualquier comando de CLI de Azure.
 
-## <a name="create-a-batch-account"></a>Crear una cuenta de lote
-Uso:
-
-    azure batch account create [options] <name>
-
-Ejemplo:
-
-    azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
-
-Crea una nueva cuenta de Batch con los parámetros especificados. Debe especificar al menos una ubicación, un grupo de recursos y un nombre de cuenta. Si no tiene un grupo de recursos, créelo ejecutando `azure group create` y especifique una de las regiones de Azure (como "oeste de EE. UU.") para la opción `--location`. Por ejemplo:
-
-    azure group create --name "resgroup001" --location "West US"
-
 > [!NOTE]
-> El nombre de la cuenta de Batch debe ser único en la región de Azure en que se crea la cuenta. Puede contener solo caracteres alfanuméricos en minúscula y su longitud debe oscilar entre 3 y 24 caracteres. No se pueden usar caracteres especiales como `-` o `_` en nombres de cuenta de Batch.
-> 
-> 
+> Las versiones anteriores de la CLI de Azure usaban `azure` delante de un comando de CLI. En la versión 2.0, todos los comandos van precedidos de `az`. Asegúrese de actualizar los scripts para que usen la nueva sintaxis con la versión 2.0.
+>
+>  
 
-### <a name="linked-storage-account-autostorage"></a>Cuenta de almacenamiento vinculada (almacenamiento automático)
-Al crear su cuenta de Batch, puede vincularla a (opcionalmente) una cuenta de almacenamiento **de uso general** . La característica de [paquetes de aplicación](batch-application-packages.md) de Batch usa el almacenamiento de blobs en un cuenta de almacenamiento de uso general, al igual que la biblioteca [.NET de convenciones de archivo de Lote](batch-task-output.md). Estas características opcionales le ayudan a implementar las aplicaciones que ejecutan las tareas de Lote y a conservar los datos que generan.
+Además, consulte la documentación de referencia de la CLI de Azure para más información sobre los [comandos de la CLI de Azure para Batch](https://docs.microsoft.com/cli/azure/batch). 
 
-Para vincular una cuenta existente de Azure Storage existente a una nueva cuenta de Batch al crearla, especifique la opción `--autostorage-account-id`. Esta opción requiere el Id. de recurso completo de la cuenta de almacenamiento.
+## <a name="log-in-and-authenticate"></a>Inicio de sesión y autenticación
 
-En primer lugar, muestre los detalles de su cuenta de almacenamiento:
+Para utilizar la CLI de Azure con Batch, debe iniciar sesión y autenticarse. Hay dos pasos sencillos que seguir:
 
-    azure storage account show --resource-group "resgroup001" "storageaccount001"
+1. **Inicie sesión en Azure.** Al iniciar sesión en Azure, logra acceso a los comandos de Azure Resource Manager, incluidos los del [servicio de administración de Batch](batch-management-dotnet.md).  
+2. **Inicie sesión en su cuenta de Batch.** Al iniciar sesión en su cuenta de Batch, logra acceso a los comandos del servicio Batch.   
 
-Luego, use el valor **Url** para la opción `--autostorage-account-id`. El valor Url comienza por "/ subscriptions /" y contiene el Id. de suscripción y la ruta de acceso de los recursos a la cuenta de Storage:
+### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-    azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
+Hay varias maneras diferentes de iniciar sesión en Azure, las cuales se describen en detalle en [Inicio de sesión con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-## <a name="delete-a-batch-account"></a>Eliminar una cuenta de lote
-Uso:
+1. [Inicie sesión de forma interactiva](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Inicie sesión de forma interactiva cuando ejecute comandos de la CLI de Azure desde la línea de comandos.
+2. [Inicie sesión con una entidad de servicio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
 
-    azure batch account delete [options] <name>
+Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](https://docs.microsoft.com/cli/azure/#login) en la línea de comandos:
 
-Ejemplo:
+```azurecli
+# Log in to Azure and authenticate interactively.
+az login
+```
 
-    azure batch account delete --resource-group "resgroup001" "batchaccount001"
+El comando `az login` devuelve un token que usará para autenticarse, como se muestra aquí. Siga las instrucciones proporcionadas para abrir una página web y enviar el token a Azure:
 
-Elimina la cuenta de Batch especificada. Cuando se le solicite, confirme que desea quitar la cuenta (la cuenta puede tardar un tiempo en eliminarse).
+![Inicie sesión en Azure.](./media/batch-cli-get-started/az-login.png)
 
-## <a name="manage-account-access-keys"></a>Administración de claves de acceso de cuentas
-Para [crear y modificar recursos](#create-and-modify-batch-resources) en una cuenta de Batch se necesita una clave de acceso.
+Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts) también muestran cómo iniciar la sesión de la CLI de Azure mediante el inicio interactivo en Azure. Una vez que haya iniciado sesión, puede llamar a comandos para trabajar con recursos de administración de Batch, incluidas cuentas de Batch, claves, paquetes de aplicación y cuotas.  
 
-### <a name="list-access-keys"></a>Enumeración de teclas de acceso
-Uso:
+### <a name="log-in-to-your-batch-account"></a>Inicio de sesión en la cuenta de Batch
 
-    azure batch account keys list [options] <name>
+Para usar la CLI de Azure para administrar recursos de Batch, como grupos, trabajos y tareas, debe iniciar sesión en su cuenta de Batch y autenticarse. Para iniciar sesión en el servicio Batch, use el comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
 
-Ejemplo:
+Tiene dos opciones para autenticarse en su cuenta de Batch:
 
-    azure batch account keys list --resource-group "resgroup001" "batchaccount001"
+- **Mediante la autenticación de Azure Active Directory (Azure AD).** 
 
-Enumera las claves de cuenta para la cuenta de Batch dada.
+    La autenticación con Azure AD es el valor predeterminado cuando se usa la CLI de Azure con Batch y se recomienda para la mayoría de los escenarios. 
+    
+    Cuando inicia sesión en Azure de forma interactiva, como se describe en la sección anterior, sus credenciales se almacenan en caché, por lo que la CLI de Azure puede iniciar sesión en su cuenta de Batch con esas mismas credenciales. Si inicia sesión Azure con una entidad de servicio, esas credenciales también se usan para iniciar sesión en su cuenta de Batch.
 
-### <a name="generate-a-new-access-key"></a>Generar una nueva clave de acceso
-Uso:
+    Una ventaja de Azure AD es que ofrece control de acceso basado en rol (RBAC). Con RBAC, el acceso de un usuario depende de su rol asignado, y no de si posee o no las claves de cuenta. En lugar de administrar claves de cuenta, puede administrar roles RBAC y dejar que Azure AD se encargue del acceso y la autenticación.  
 
-    azure batch account keys renew [options] --<primary|secondary> <name>
+    Es necesario autenticarse con Azure AD si ha creado su cuenta de Azure Batch con el modo de asignación de grupo establecido en "Suscripción del usuario". 
 
-Ejemplo:
+    Para iniciar sesión en su cuenta de Batch con Azure AD, llame al comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
 
-    azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
+    ```azurecli
+    az batch account login -g myresource group -n mybatchaccount
+    ```
 
-Vuelve a generar la clave de cuenta especificada para la cuenta de Batch dada.
+- **Mediante la autenticación de clave compartida.**
 
-## <a name="create-and-modify-batch-resources"></a>Creación y modificación de recursos de Lote
-La CLI de Azure se puede usar para crear, leer, actualizar y eliminar (CRUD) recursos de Batch como grupos, nodos de procesos, trabajos y tareas. Estas operaciones de CRUD requieren el nombre de la cuenta de Batch, la clave de acceso y el punto de conexión. Puede especificarlos con las opciones `-a`, `-k`, y `-u` o establecer [variables de entorno](#credential-environment-variables) que la CLI usa automáticamente (si se rellenan).
+    La [autenticación de clave compartida](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) usa las claves de acceso de su cuenta para autenticar comandos de la CLI de Azure para el servicio Batch.
 
-### <a name="credential-environment-variables"></a>Variables de entorno de credenciales
-Puede establecer las variables de entorno `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` y `AZURE_BATCH_ENDPOINT`, en lugar de especificar las opciones `-a`, `-k`, y `-u` en la línea de comandos de cada comando que se ejecute. La CLI de Batch utiliza estas variables (si se establecen) para que pueda omitir las opciones `-a`, `-k`, y `-u`. El resto de este artículo asume que se usan estas variables de entorno.
+    Si va a crear scripts de la CLI de Azure para automatizar la llamada a comandos de Batch, puede usar la autenticación de clave compartida o una entidad de servicio de Azure AD. En algunos escenarios, puede resultar más sencillo usar la autenticación de clave compartida que crear una entidad de servicio.  
 
-> [!TIP]
-> Enumere las claves con `azure batch account keys list` y muestre el punto de conexión de la cuenta con `azure batch account show`.
-> 
-> 
+    Para iniciar sesión con autenticación de clave compartida, incluya la opción `--shared-key-auth` en la línea de comandos:
 
-### <a name="json-files"></a>Archivos JSON
+    ```azurecli
+    az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
+    ```
+
+Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts) muestran cómo iniciar sesión en su cuenta de Batch con la CLI de Azure mediante Azure AD y la clave compartida.
+
+## <a name="sample-shell-scripts"></a>Scripts de shell de ejemplo
+
+Los scripts de ejemplo en la tabla siguiente muestran cómo usar comandos de la CLI de Azure con el servicio Batch y el servicio de administración de Batch para realizar tareas habituales. Estos scripts de ejemplo tratan muchos de los comandos disponibles en la CLI de Azure para Batch. 
+
+| Script | Notas |
+|---|---|
+| [Crear una cuenta de Batch](./scripts/batch-cli-sample-create-account.md) | Crea una cuenta de Batch y la asocia con una cuenta de almacenamiento. |
+| [Agregar una aplicación](./scripts/batch-cli-sample-add-application.md) | Agrega una aplicación y carga los paquetes de binarios.|
+| [Administrar grupos de Batch](./scripts/batch-cli-sample-manage-pool.md) | Muestra cómo crear grupos, cambiarlos de tamaño y administrarlos. |
+| [Ejecutar un trabajo y tareas con Batch](./scripts/batch-cli-sample-run-job.md) | Muestra cómo ejecutar un trabajo y agregar tareas. |
+
+## <a name="json-files-for-resource-creation"></a>Archivos JSON para la creación de recursos
+
 Al crear recursos de Batch, como grupos y trabajos, puede especificar un archivo JSON que contenga la configuración del recurso nuevo, en lugar de pasar sus parámetros como opciones de la línea de comandos. Por ejemplo:
 
-`azure batch pool create my_batch_pool.json`
+```azurecli
+az batch pool create my_batch_pool.json
+```
 
-Aunque puede realizar muchas operaciones de creación de recursos utilizando solo las opciones de línea de comandos, algunas características requieren un archivo con formato JSON que contenga los detalles de los recursos. Por ejemplo, si desea especificar archivos de recursos para una tarea de inicio, debe utilizar un archivo JSON.
+Aunque puede crear la mayoría de los recursos de Batch solo con las opciones de la línea de comandos, algunas características requieren que especifique un archivo con formato JSON que contenga los detalles de los recursos. Por ejemplo, si desea especificar archivos de recursos para una tarea de inicio, debe utilizar un archivo JSON.
 
-Para encontrar el archivo JSON necesario para crear un recurso, consulte la documentación de [Referencia de API de REST de Batch][rest_api] en MSDN. Cada tema de "Agregar *tipo de recurso*" contiene JSON de ejemplo para crear el recurso, que puede utilizar como plantillas para los archivos JSON. Por ejemplo, en [Add a pool to an account][rest_add_pool] (Incorporación de un grupo a una cuenta) puede encontrar JSON para crear grupos.
+Para ver la sintaxis JSON necesaria para crear un recurso, consulte la documentación de [referencia de API de REST de Batch][rest_api]. Todos los temas sobre la incorporación de *tipos de recurso* en la referencia de API de REST contienen scripts JSON de ejemplo para crear el recurso correspondiente. Puede usar esos scripts JSON de ejemplo como plantillas para los archivos JSON que se usan con la CLI de Azure. Por ejemplo, para ver la sintaxis JSON para crear grupos, consulte [Add a pool to an account][rest_add_pool] (Incorporación de un grupo a una cuenta).
+
+Para un script de ejemplo que especifica un archivo JSON, consulte [Ejecutar un trabajo y tareas con Batch](./scripts/batch-cli-sample-run-job.md).
 
 > [!NOTE]
-> Si especifica un archivo JSON al crear un recurso, se ignoran los restantes parámetros que especifique en la línea de comandos de dicho recurso.
+> Si especifica un archivo JSON al crear un recurso, se pasan por alto los restantes parámetros que especifique en la línea de comandos de dicho recurso.
 > 
 > 
 
-## <a name="create-a-pool"></a>Creación de un grupo
-Uso:
+## <a name="efficient-queries-for-batch-resources"></a>Consultas eficaces para recursos de Batch
 
-    azure batch pool create [options] [json-file]
-
-Ejemplo (configuración de máquina virtual):
-
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
-
-Ejemplo (configuración de Cloud Services):
-
-    azure batch pool create --id "pool002" --target-dedicated 1 --vm-size "small" --os-family "4"
-
-Crea un grupo de nodos de proceso en el servicio de Batch.
-
-Como se mencionó en [Información general de las características de Batch para desarrolladores](batch-api-basics.md#pool), al seleccionar un sistema operativo para los nodos del grupo dispone de dos opciones: **configuración de máquina virtual** y **configuración de Cloud Services**. Utilice las opciones `--image-*` para crear grupos de configuración de máquina virtual y `--os-family` para crear grupos de configuración de Cloud Service. No puede especificar las opciones `--os-family` y `--image-*`.
-
-Puede especificar [paquetes de aplicación](batch-application-packages.md) del grupo y la línea de comandos de una [tarea de inicio](batch-api-basics.md#start-task). Sin embargo, para especificar los archivos de recursos de la tarea de inicio, debe utilizar un [archivo JSON](#json-files).
-
-Elimine un grupo con:
-
-    azure batch pool delete [pool-id]
-
-> [!TIP]
-> Compruebe en la [lista de imágenes de máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images) los valores adecuados para las opciones `--image-*`.
-> 
-> 
-
-## <a name="create-a-job"></a>Creación de un trabajo
-Uso:
-
-    azure batch job create [options] [json-file]
-
-Ejemplo:
-
-    azure batch job create --id "job001" --pool-id "pool001"
-
-Agrega un trabajo a la cuenta de Batch y especifica el grupo en el que ejecutan sus tareas.
-
-Elimine un trabajo con:
-
-    azure batch job delete [job-id]
-
-## <a name="list-pools-jobs-tasks-and-other-resources"></a>Enumeración de grupos, trabajos, tareas y otros recursos
 Cada tipo de recurso de proceso de Batch admite un comando `list` que consulta la cuenta de Batch y enumera los recursos de ese tipo. Por ejemplo, puede enumerar los grupos de su cuenta y las tareas de un trabajo:
 
-    azure batch pool list
-    azure batch task list --job-id "job001"
+```azurecli
+az batch pool list
+az batch task list --job-id job001
+```
 
-### <a name="listing-resources-efficiently"></a>Enumeración eficaz de los recursos
-Para agilizar las consultas, puede especificar las opciones **select**, **filter** y **expand** de cláusula para las operaciones `list`. Utilice estas opciones para limitar la cantidad de datos que devuelve el servicio Batch. Dado que todo el filtrado se produce en el lado del servidor, solo cruzan la conexión los datos que le interesan. Use estas cláusulas para ahorrar ancho de banda (y, por consiguiente, tiempo) al realizar operaciones de lista.
+Cuando consulta el servicio Batch con una operación `list`, puede especificar una cláusula OData para limitar la cantidad de datos devueltos. Dado que todo el filtrado se produce en el lado servidor, solo se devuelven los datos que solicite. Use estas cláusulas para ahorrar ancho de banda (y, por consiguiente, tiempo) al realizar operaciones de lista.
 
-Por ejemplo, esto devolverá solo aquellos grupos cuyos identificadores comiencen por "renderTask":
+En la tabla siguiente se describen las cláusulas OData admitidas por el servicio Batch:
 
-    azure batch task list --job-id "job001" --filter-clause "startswith(id, 'renderTask')"
+| Cláusula | Descripción |
+|---|---|
+| `--select-clause [select-clause]` | Devuelve un subconjunto de propiedades para cada entidad. |
+| `--filter-clause [filter-clause]` | Devuelve solo las entidades que coincidan con la expresión OData especificada. |
+| `--expand-clause [expand-clause]` | Obtiene la información de la entidad en una única llamada REST subyacente. Actualmente, la cláusula expand solo admite la propiedad `stats`. |
 
-La CLI de Batch admite las tres cláusulas compatibles con el servicio Batch:
+Para un script de ejemplo que muestra cómo usar una cláusula OData, consulte [Ejecutar un trabajo y tareas con Batch](./scripts/batch-cli-sample-run-job.md).
 
-* `--select-clause [select-clause]`  Devuelve un subconjunto de propiedades para cada entidad
-* `--filter-clause [filter-clause]`  Devuelve solo las entidades que coincidan con la expresión de OData especificada
-* `--expand-clause [expand-clause]`  Obtiene la información de la entidad en una única llamada REST subyacente. La cláusula expand solo admite la propiedad `stats` en este momento.
-
-Para más información sobre los tres cláusulas y la realización de consultas de lista con ellos, consulte [Consulta eficaz del servicio Azure Batch](batch-efficient-list-queries.md).
-
-## <a name="application-package-management"></a>Administración de paquetes de aplicación
-Los paquetes de aplicación proporcionan una manera simplificada de implementar aplicaciones a los nodos de proceso de los grupos. Con la CLI de Azure, puede cargar paquetes de aplicación, administrar versiones del paquete y eliminar paquetes.
-
-Para crear una nueva aplicación y agregar una versión del paquete:
-
-**Cree** una aplicación:
-
-    azure batch application create "resgroup001" "batchaccount001" "MyTaskApplication"
-
-**Agregue** un paquete de aplicación:
-
-    azure batch application package create "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" package001.zip
-
-**Active** el paquete:
-
-    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
-
-Especifique la **versión predeterminada** de la aplicación:
-
-    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
-
-### <a name="deploy-an-application-package"></a>Implementación de un paquete de aplicación
-Puede especificar uno o varios paquetes de aplicación para implementarlos al crear un grupo nuevo. Cuando se especifica un paquete en el momento de la creación de un grupo, se implementa en todos los nodos cuando cada nodo se incorpora al grupo. También se implementan paquetes cuando un nodo se reinicia o se restablece su imagen inicial.
-
-Especifique la opción `--app-package-ref` al crear un grupo para implementar un paquete de aplicación en los nodos del grupo cuando se unen a este. La opción `--app-package-ref` acepta una lista delimitada por puntos y comas de identificadores de aplicaciones que se van a implementar en los nodos de proceso.
-
-    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
-
-Actualmente, cuando crea un grupo mediante las opciones de línea de comandos, no se puede especificar *qué* versión del paquete de aplicación se va a implementar en los nodos de proceso, por ejemplo "1.10-beta3". Por lo tanto, primero debe especificar una versión predeterminada de la aplicación con `azure batch application set [options] --default-version <version-id>` antes de crear el grupo (consulte la sección anterior). Sin embargo, puede especificar una versión del paquete para el grupo si usa un [archivo JSON](#json-files) en lugar de las opciones de línea de comandos al crear el grupo.
-
-Puede encontrar más información sobre los paquetes de aplicación en [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md).
-
-> [!IMPORTANT]
-> Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Almacenamiento de Azure](#linked-storage-account-autostorage) a su cuenta de Lote.
-> 
-> 
-
-### <a name="update-a-pools-application-packages"></a>Actualización de los paquetes de aplicación de un grupo
-Para actualizar las aplicaciones asignadas a un grupo existente, emita el comando `azure batch pool set` con la opción `--app-package-ref`:
-
-    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
-
-Para implementar el nuevo paquete de aplicación en los nodos de proceso que ya están en un grupo existente, debe reiniciar o restablecer la imagen inicial de esos nodos:
-
-    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
-
-> [!TIP]
-> Puede obtener una lista de los nodos de un grupo junto con sus identificadores de nodo con `azure batch node list`.
-> 
-> 
-
-Tenga en cuenta que ya debe haber configurado la aplicación con una versión predeterminada antes de la implementación (`azure batch application set [options] --default-version <version-id>`).
+Para más información sobre cómo realizar consultas de lista eficaces con cláusulas OData, consulte [Consulta del servicio Azure Batch con eficacia](batch-efficient-list-queries.md).
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
-Esta sección pretende proporcionar los recursos que se pueden utilizar al solucionar problemas de la CLI de Azure. No necesariamente solucionará todos los problemas, pero puede ayudarle a restringir la causa e indicarle recursos de ayuda.
+
+Las siguientes sugerencias pueden ayudarle cuando esté solucionando problemas de la CLI de Azure:
 
 * Use `-h` para obtener **texto de ayuda** de cualquier comando de CLI.
-* Use `-v` y `-vv` para mostrar la salida **detallada** del comando; `-vv` proporciona detalles adicionales y muestra las solicitudes y respuestas de REST reales. Estos modificadores son útiles para mostrar la salida completa del error.
-* Puede ver la **salida del comando como JSON** con la opción `--json`. Por ejemplo, `azure batch pool show "pool001" --json` muestra las propiedades de pool001 en formato JSON. Puede copiar y modificar esta salida para usarla en `--json-file` (consulte [Archivos JSON](#json-files) en este mismo artículo).
-* El [foro de Batch en MSDN][batch_forum] es un recurso muy útil que supervisan muy de cerca los miembros del equipo de Batch. Publique en él sus preguntas si experimenta problemas o desea obtener ayuda acerca de una operación concreta.
-* La CLI de Azure no es compatible actualmente con todas las operaciones de los recursos de Batch. Por ejemplo, actualmente no se puede especificar una *versión* del paquete de aplicación para un grupo, solo el identificador de paquete. En tales casos, es preciso proporcionar un `--json-file` para el comando, en lugar de utilizar opciones de línea de comandos. Asegúrese de mantenerse al día y tener la versión más reciente de la CLI para poder disfrutar las mejoras futuras.
+* Use `-v` y `-vv` para mostrar la salida **detallada** de comandos. Cuando se incluye la marca `-vv`, la CLI de Azure muestra las solicitudes y respuestas REST en sí. Estos modificadores son útiles para mostrar la salida completa del error.
+* Puede ver la **salida del comando como JSON** con la opción `--json`. Por ejemplo, `az batch pool show pool001 --json` muestra las propiedades de pool001 en formato JSON. Puede copiar y modificar esta salida para usarla en `--json-file` (consulte [Archivos JSON](#json-files) en este mismo artículo).
+* El [foro de Batch][batch_forum] está supervisado por los miembros del equipo de Batch. Puede publicar en él sus preguntas si experimenta problemas o desea obtener ayuda acerca de una operación concreta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md) para averiguar cómo utilizar esta característica para administrar e implementar las aplicaciones que se ejecutan en nodos de proceso de Batch.
-* Para más información acerca de cómo reducir el número de elementos y el tipo de información que se devuelve en las consultas a Batch, consulte [Consulta eficaz del servicio Azure Batch](batch-efficient-list-queries.md) .
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
+* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
+* Para más información sobre los recursos de Batch, consulte [Introducción a Azure Batch para desarrolladores](batch-api-basics.md).
+* Consulte [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md) para averiguar cómo utilizar esta característica para administrar e implementar las aplicaciones que se ejecutan en nodos de proceso de Batch.
+
+[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

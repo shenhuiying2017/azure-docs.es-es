@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 36a9fd78f5c53891f38bc3a8356cef666f4d0ca2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>¿Qué es SQL Database? Introducción a SQL Database
@@ -49,7 +50,7 @@ Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos ú
 ## <a name="keep-your-app-and-business-running"></a>Mantenimiento de la aplicación y el negocio en funcionamiento
 El contrato de nivel de servicio [(SLA)](http://azure.microsoft.com/support/legal/sla/)de Azure de disponibilidad del 99,99 %, líder del sector, con la tecnología de una red global de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento de forma ininterrumpida. Con cada base de datos SQL, se saca provecho de las ventajas de la seguridad integrada, la tolerancia a errores y la [protección de datos](sql-database-automated-backups.md), algo que de lo contrario tendría que adquirir o diseñar, compilar y administrar. Con SQL Database, cada nivel de servicio ofrece un conjunto completo de opciones y características de continuidad empresarial que puede usar para empezar a trabajar y seguir haciéndolo. Puede usar la [restauración a un momento dado](sql-database-recovery-using-backups.md) para devolver una base de datos a un estado anterior, con un plazo máximo de 35 días. Puede configurar la [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md) para guardar las copias de seguridad en un almacén seguro hasta diez años. Además, si el centro de datos que hospeda las bases de datos sufre una interrupción, puede restaurar las bases de datos a partir de [copias con redundancia geográfica de copias de seguridad recientes](sql-database-recovery-using-backups.md). Si es necesario, también puede configurar [réplicas con redundancia geográfica legibles](sql-database-geo-replication-overview.md) en una o varias regiones para que se produzca una conmutación por error rápida en caso de interrupción en el centro de datos. Estas réplicas también se pueden usar para agilizar el rendimiento de lectura en distintas regiones geográficas o para [actualizaciones de las aplicaciones sin tiempo de inactividad](sql-database-manage-application-rolling-upgrade.md). 
 
-![Replicación geográfica de Base de datos SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
+![Replicación geográfica de SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 Para obtener más información acerca de las diferentes características de continuidad empresarial disponibles para los distintos niveles de servicio, consulte [Continuidad empresarial](sql-database-business-continuity.md) .
 

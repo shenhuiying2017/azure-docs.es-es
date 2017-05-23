@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
 ms.contentlocale: es-es
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -44,7 +44,7 @@ Para completar este tutorial, deberá tener una suscripción activa de Azure.
 
 1. Inicie sesión en azureiotsuite.com con sus credenciales de la cuenta de Azure y haga clic en "**+**" para crear una solución.
 2. Haga clic en **Seleccionar** en el icono **Fábrica conectada**.
-3. Escriba un valor en **Nombre de la solución** para la solución preconfigurada de supervisión remota.
+3. Escriba un valor en **Nombre de la solución** para la solución preconfigurada de fábrica conectada.
 4. Seleccione la **Suscripción** y **Región** que desea usar para aprovisionar la solución.
 5. Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Este proceso normalmente tarda varios minutos en ejecutarse.
 
@@ -304,7 +304,7 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

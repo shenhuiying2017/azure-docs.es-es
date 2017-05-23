@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para
    | **Configuración** | **Valor** | **Detalles** |
    |---|---|---|
    |**Name**|contoso.com|El nombre de la zona DNS|
-   |**Suscripción**|[Su suscripción]|Seleccione una suscripción donde se va a crear la puerta de enlace de la aplicación.|
+   |**Suscripción**|[Su suscripción]|Seleccione la suscripción en la que se creará la zona DNS.|
    |**Grupos de recursos**|**Crear nuevo:** contosoDNSRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Ubicación**|Oeste de EE. UU.||
 
@@ -70,7 +71,7 @@ En el ejemplo siguiente, se le guiará a través del proceso de creación de un 
    |**Tipo**|Una | El tipo de registro DNS que se va a crear, los valores aceptables son A, AAAA, CNAME, MX, NS, SRV, TXT y PTR.  Para más información sobre los tipos de registro, visite [Información general sobre zonas y registros de DNS](dns-zones-records.md)|
    |**TTL**|1|Período de vida de la solicitud DNS.|
    |**Unidad de TTL**|Horas|Medición de tiempo para el valor de TTL.|
-   |**Dirección IP**|{ipAddressValue| Este valor es la dirección IP que resuelve el registro DNS.|
+   |**Dirección IP**|ipAddressValue| Este valor es la dirección IP que resuelve el registro DNS.|
 
 ## <a name="view-records"></a>Visualización de los registros
 

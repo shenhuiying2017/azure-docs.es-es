@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Apache Kafka en HDInsight | Microsoft Docs"
-description: Aprenda los fundamentos para crear y trabajar con Kafka en HDInsight.
+title: "Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs"
+description: "Obtenga información acerca de cómo crear un clúster de Apache Kafka en Azure HDInsight. Obtenga información acerca de cómo crear temas, suscriptores y consumidores."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,31 +13,25 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 05/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 695c6bd0a08e88be2d8e28eb15d903f3ae1eccaf
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: f92d71542a2aa797b84f8742f74a02fea895e25a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Introducción a Apache Kafka (versión preliminar) en HDInsight
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Introducción a Apache Kafka (versión preliminar) en HDInsight
 
-[Apache Kafka](https://kafka.apache.org) es una plataforma de streaming distribuida de código abierto que está disponible con HDInsight. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción. En este documento, aprenderá a crear un clúster de Kafka en HDInsight y luego a enviar y recibir datos desde una aplicación de Java.
+Obtenga información acerca de cómo crear y usar un clúster de [Apache Kafka](https://kafka.apache.org) en Azure HDInsight. Kafka es una plataforma de streaming distribuida de código abierto que está disponible con HDInsight. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción.
 
 > [!NOTE]
 > Actualmente hay dos versiones de Kafka disponibles con HDInsight; 0.9.0 (HDInsight 3.4) y 0.10.0 (HDInsight 3.5). En los pasos de este documento se supone que usa Kafka en HDInsight 3.5.
 
-## <a name="prerequisite"></a>Requisito previo
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Para completar correctamente este tutorial sobre Apache Kafka debe tener lo siguiente:
-
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* **Familiaridad con SSH y SCP**. Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o equivalente, como OpenJDK.
 
@@ -94,7 +88,7 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 
-Desde el cliente, uset SSH para conectarse al clúster. Si va a usar Linux, Unix, MacOS o Bash en Windows 10, utilice el siguiente comando:
+Desde el cliente, use SSH para conectarse al clúster:
 
 ```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
 
@@ -104,7 +98,7 @@ Cuando se le solicite, escriba la contraseña usada para la cuenta SSH.
 
 Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-##<a id="getkafkainfo"></a>Obtención de la información del host de Zookeeper y del agente
+## <a id="getkafkainfo"></a>Obtención de la información del host de Zookeeper y del agente
 
 Cuando se trabaja con Kafka, debe conocer dos valores de host; los hosts de *Zookeeper* y los hosts de *Broker*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
 
@@ -116,12 +110,12 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
     sudo apt -y install jq
     ```
 
-2. Use los siguientes comandos para establecer las variables de entorno con la información recuperada de Ambari. Sustituya __KAFKANAME__ por el nombre del clúster Kafka. Sustituya __PASSWORD__ por la contraseña de inicio de sesión (administrador) que utilizó al crear el clúster.
+2. Use los siguientes comandos para establecer las variables de entorno con la información recuperada de Ambari. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka. Sustituya __PASSWORD__ por la contraseña de inicio de sesión (administrador) que utilizó al crear el clúster.
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
@@ -136,8 +130,8 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
    
     > [!WARNING]
-    > No confíe en que la información que se devuelve en esta sesión sea siempre precisa. Si escala el clúster, se agregan o se quitan nuevos agentes. Si se produce un error y se reemplaza un nodo, el nombre de host del nodo puede cambiar. 
-    > 
+    > No confíe en que la información que se devuelve en esta sesión sea siempre precisa. Si escala el clúster, se agregan o se quitan nuevos agentes. Si se produce un error y se reemplaza un nodo, el nombre de host del nodo puede cambiar.
+    >
     > Debe recuperar la información de los hosts de Zookeeper y del agente antes de usarla para garantizar que tiene información válida.
 
 ## <a name="create-a-topic"></a>de un tema
@@ -176,7 +170,7 @@ Use los pasos siguientes para almacenar registros en el tema de prueba que creó
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
    
-    Así se recuperan y se muestran los registros. Con `--from-beginning` se indica al consumidor que comience desde el principio del flujo, de modo que se recuperan todos los registros.
+    Este comando recupera los registros del tema y los muestra. Con `--from-beginning` se indica al consumidor que comience desde el principio del flujo, de modo que se recuperan todos los registros.
 
 3. Use __Ctrl + C__ para detener el consumidor.
 
@@ -192,12 +186,12 @@ También puede producir y consumir registros mediante programación con las [API
 
     * **Consumidor**: lee registros del tema.
 
-2. Desde la línea de comandos del entorno de desarrollo, cambie los directorios a la ubicación del directorio `Producer-Consumer` del ejemplo y luego use el siguiente comando para crear un paquete jar:
-   
+2. Cambie los directorios a la ubicación del directorio `Producer-Consumer` del ejemplo y luego use el siguiente comando para crear un paquete jar:
+
     ```
     mvn clean package
     ```
-   
+
     Este comando crea un directorio denominado `target`, que contiene un archivo denominado `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Use los siguientes comandos para copiar el archivo `kafka-producer-consumer-1.0-SNAPSHOT.jar` en el clúster de HDInsight:
@@ -208,13 +202,13 @@ También puede producir y consumir registros mediante programación con las [API
    
     Reemplace **SSHUSER** por el usuario SSH de su clúster y **CLUSTERNAME** por el nombre de su clúster. Cuando se le solicite, escriba la contraseña del usuario SSH.
 
-4. Cuando el comando `scp` termine de copiar el archivo, conéctese al clúster mediante SSH y luego use lo siguiente para escribir registros en el tema de prueba que creó anteriormente.
-   
+4. Cuando el comando `scp` termine de copiar el archivo, conéctese al clúster mediante SSH. Use el comando siguiente para escribir registros en el tema de prueba:
+
     ```bash
     ./kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-   
-    Este comando inicia el productor y escribe los registros. Se muestra un contador para que pueda ver el número de registros que se han escrito.
+
+    Se muestra un contador para que pueda ver el número de registros que se han escrito.
 
     > [!NOTE]
     > Si recibe un error de permiso denegado, use el siguiente comando para hacer que el archivo sea ejecutable: ```chmod +x kafka-producer-consumer.jar```.
@@ -240,7 +234,7 @@ Un concepto importante con Kafka es que los consumidores usan un grupo de consum
     ```
 
     > [!NOTE]
-    > Como se trata de una nueva sesión de SSH, debe usar los comandos de la sección [Obtención de la información del host de Zookeeper y del agente](#getkafkainfo) para establecer `$KAFKABROKERS`.
+    > Use los comandos de la sección [Obtención de la información del host de Zookeeper y del agente](#getkafkainfo) para establecer `$KAFKABROKERS` para esta sesión SSH.
 
 2. Vea como cada sesión cuenta los registros que recibe del tema. El total de ambas sesiones debe ser el mismo que recibió anteriormente de un consumidor.
 
@@ -260,11 +254,11 @@ La API de streaming se agregó a Kafka en la versión 0.10.0; las versiones ante
     Este proyecto contiene solo una clase `Stream`, que lee los registros del tema `test` creado anteriormente. Cuenta las palabras leídas y emite cada palabra y recuento a un tema llamado `wordcounts`. El tema `wordcounts` se crea en un paso más adelante de esta sección.
 
 2. Desde la línea de comandos del entorno de desarrollo, cambie los directorios a la ubicación del directorio `Streaming` y luego use el siguiente comando para crear un paquete jar:
-   
-    ```
+
+    ```bash
     mvn clean package
     ```
-   
+
     Este comando crea un directorio denominado `target`, que contiene un archivo denominado `kafka-streaming-1.0-SNAPSHOT.jar`.
 
 3. Use los siguientes comandos para copiar el archivo `kafka-streaming-1.0-SNAPSHOT.jar` en el clúster de HDInsight:

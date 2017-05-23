@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -27,7 +28,7 @@ Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Cuenta de Azure
-* Una cuenta de Microsoft Azure válida y activa Esta cuenta es necesaria para configurar el circuito ExpressRoute. Los circuitos ExpressRoute son recursos que hay dentro de las suscripciones de Azure. Una suscripción de Azure es un requisito, aunque la conectividad esté limitada a servicios en la nube de Microsoft que no sean Azure, como los servicios de Office 365 y CRM Online.
+* Una cuenta de Microsoft Azure válida y activa Esta cuenta es necesaria para configurar el circuito ExpressRoute. Los circuitos ExpressRoute son recursos que hay dentro de las suscripciones de Azure. Una suscripción de Azure es un requisito, aunque la conectividad esté limitada a servicios en la nube de Microsoft que no sean Azure, como los servicios de Office 365 y Dynamics 365.
 * Una suscripción activa de Office 365 (si usa los servicios de Office 365). Para más información, consulte la sección [Requisitos específicos de Office 365](#office-365-specific-requirements) de este artículo.
 
 ## <a name="connectivity-provider"></a>Proveedor de conectividad
@@ -53,10 +54,10 @@ Si tiene pensado habilitar Office 365 en ExpressRoute, revise los siguientes doc
 * [Integración de Office 365 con entornos locales](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Vídeos sobre el aprendizaje avanzado de ExpressRoute en Office 365](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM en línea
-Si tiene pensado habilitar CRM Online en ExpressRoute, revise los siguientes documentos para tener más información sobre CRM Online
+## <a name="dynamics-365"></a>Dynamics 365
+Si tiene pensado habilitar Dynamics 365 en ExpressRoute, revise los siguientes documentos para más información sobre Dynamics 365
 
-* [Direcciones URL](https://support.microsoft.com/kb/2655102) e [intervalos de direcciones IP de CRM Online](https://support.microsoft.com/kb/2728473)
+* [Direcciones URL de Dynamics 365](https://support.microsoft.com/kb/2655102) e [Intervalos de direcciones IP](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

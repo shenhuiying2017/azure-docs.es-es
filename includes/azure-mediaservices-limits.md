@@ -37,9 +37,11 @@ A partir del 1 de abril de 2017, se eliminarán automáticamente los registros d
 >[!NOTE]
 > Debe utilizar el mismo identificador de directiva si siempre usa los mismos días, permisos de acceso, etc. Para obtener información y un ejemplo, consulte [esta](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) sección.
 
-<sup>7</sup>Si va a cargar contenido en un activo de Azure Media Services con la intención de procesarlo con uno de los procesadores multimedia de nuestro servicio (es decir, codificadores como Media Encoder Standard y el flujo de trabajo de Media Encoder Premium, o motores de análisis como Face Detector), debe tener en cuenta los límites siguientes. 
+<sup>7</sup>Si va a cargar contenido en un recurso de Azure Media Services con la intención de procesarlo con uno de los procesadores de multimedia de nuestro servicio (es decir, codificadores como Media Encoder Standard y Flujo de trabajo de Media Encoder Premium, o motores de análisis como Face Detector), debe tener en cuenta el límite de tamaño máximo. 
 
-| Tipo de unidad reservada de medios | Tamaño de archivo máximo (GB)| 
+A partir del 15 de mayo de 2017, el tamaño máximo admitido para un único blob es de 195 TB. Con archivos superiores a este límite, se producirá un error en la tarea. Estamos trabajando en una corrección para salvar este límite. Además, la restricción de tamaño máximo del recurso es como sigue.
+
+| Tipo de unidad reservada de medios | Tamaño máximo de entrada (GB)| 
 | --- | --- | 
 |S1    | 325|
 |S2    | 640|

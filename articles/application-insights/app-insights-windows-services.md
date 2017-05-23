@@ -3,7 +3,7 @@ title: Azure Application Insights para Windows Server y roles de trabajo | Micro
 description: "Agregue manualmente el SDK de Application Insights a su aplicación de ASP.NET para analizar el uso, la disponibilidad y el rendimiento."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
@@ -11,66 +11,83 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 274e8db8e35243dc4b7ef20c3e7085f47975bb1c
 ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-applications"></a>Configuración manual de Application Insights para aplicaciones ASP.NET
-[Application Insights](app-insights-overview.md) es una herramienta extensible para desarrolladores web que ayuda a supervisar el rendimiento y el uso de la aplicación activa. Se puede configurar manualmente para supervisar Windows Server, los roles de trabajo y otras aplicaciones de ASP.NET. En el caso de las aplicaciones web, la configuración manual es una alternativa a la [configuración automática](app-insights-asp-net.md) que ofrece Visual Studio.
+# <a name="manually-configure-application-insights-for-net-applications"></a>Configuración manual de Application Insights para aplicaciones .NET
+
+Puede configurar [Application Insights](app-insights-overview.md) para que supervise una amplia variedad de aplicaciones o roles de aplicación, componentes o microservicios. Para servicios y aplicaciones web, Visual Studio ofrece una [configuración de un solo paso](app-insights-asp-net.md). Para otros tipos de aplicación. NET, como roles de servidor back-end o aplicaciones de escritorio, puede configurar Application Insights manualmente.
 
 ![Gráficos de supervisión de rendimiento de ejemplo](./media/app-insights-windows-services/10-perf.png)
 
 #### <a name="before-you-start"></a>Antes de comenzar
+
 Necesita:
 
 * Una suscripción a [Microsoft Azure](http://azure.com). Si su equipo u organización tiene una suscripción a Azure, el propietario puede agregarle a esta con su [cuenta Microsoft](http://live.com).
 * Visual Studio 2013 o posterior.
 
-## <a name="add"></a>1. Creación de recursos en Application Insights
+## <a name="add"></a>1. Selección de un recurso en Application Insights
+
+El "recurso" es donde los datos se recopilan y se muestran en Azure Portal. Debe decidir si desea crear uno o compartir uno ya existente.
+
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte de una aplicación de mayor tamaño: usar un recurso existente
+
+Si la aplicación web tiene varios componentes (por ejemplo, una aplicación web front-end y uno o varios servicios back-end), debería enviar telemetría desde todos los componentes al mismo recurso. Esto permitirá que se muestren en una sola asignación de aplicaciones y hace posible realizar un seguimiento de una solicitud de un componente a otro.
+
+Por lo tanto, si ya está supervisando otros componentes de esta aplicación, basta con que use el mismo recurso.
+
+Abra el recurso en [Azure Portal](https://portal.azure.com/). 
+
+### <a name="self-contained-app-create-a-new-resource"></a>Aplicación independiente: crear un recurso
+
+Si la nueva aplicación no guarda relación con otras aplicaciones, debería tener su propio recurso.
+
 Inicie sesión en el [Portal de Azure](https://portal.azure.com/)y cree un nuevo recurso de Application Insights. Elija ASP.NET como el tipo de aplicación.
 
 ![Haga clic en Nuevo, Application Insights.](./media/app-insights-windows-services/01-new-asp.png)
 
-Un [recurso](app-insights-resources-roles-access-control.md) de Azure es una instancia de un servicio. Este recurso es donde se le presentará telemetría de su aplicación analizada.
+La elección del tipo de aplicación establece el contenido predeterminado de las hojas de recurso.
 
-La elección del tipo de aplicación establece el contenido predeterminado de las hojas de recursos y las propiedades que estarán visibles en el [Explorador de métricas](app-insights-metrics-explorer.md).
-
-#### <a name="copy-the-instrumentation-key"></a>Copia de la clave de instrumentación
-La clave identifica al recurso y se instalará pronto en el SDK para dirigir los datos al recurso.
+## <a name="2-copy-the-instrumentation-key"></a>2. Copia de la clave de instrumentación
+La clave identifica al recurso. La va a instalar pronto en el SDK, con el fin de dirigir los datos hacia el recurso.
 
 ![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-windows-services/02-props-asp.png)
 
-Los pasos que acaba de realizar para crear un recurso nuevo son una excelente manera de comenzar a supervisar cualquier aplicación. Ahora puede enviarle datos.
+## <a name="sdk"></a>3. Instalación del paquete de Application Insights en su aplicación
+La instalación y configuración del paquete de Application Insights varía en función de la plataforma en la que trabaje. 
 
-## <a name="sdk"></a>2. Instalación del paquete de Application Insights en su aplicación
-La instalación y configuración del paquete de Application Insights varía en función de la plataforma en la que trabaje. En el caso de las aplicaciones de ASP.NET, es fácil.
-
-1. En Visual Studio, edite los paquetes de NuGet de su proyecto de aplicación web.
+1. En Visual Studio, haga clic con el botón derecho en el proyecto y elija **Administrar paquetes NuGet**.
    
     ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-windows-services/03-nuget.png)
-2. Instale el paquete de Application Insights para las aplicaciones de Windows Server.
+2. Instale el paquete de Application Insights para aplicaciones de Windows Server, "Microsoft.ApplicationInsights.WindowsServer".
    
     ![Busque "Application Insights"](./media/app-insights-windows-services/04-ai-nuget.png)
    
+    *¿Qué versión?*
+
+    Active **incluir versión preliminar** si desea probar las características más recientes. Los documentos o blogs pertinentes indican si se necesita una versión preliminar.
+    
     *¿Puedo usar otros paquetes?*
    
-    Sí. Elija la API principal (Microsoft.ApplicationInsights) si solo desea usar la API para enviar su propia telemetría. El paquete de Windows Server incluye automáticamente la API principal más otra serie de paquetes, como la recopilación de contadores de rendimiento y la supervisión de dependencias. 
+    Sí. Elija "Microsoft.ApplicationInsights" si solo desea usar la API para enviar su propia telemetría. El paquete de Windows Server incluye la API más otra serie de paquetes, como la colección de contadores de rendimiento y la supervisión de dependencias. 
 
-#### <a name="to-upgrade-to-future-package-versions"></a>Para actualizar a futuras versiones del paquete
+### <a name="to-upgrade-to-future-package-versions"></a>Para actualizar a futuras versiones del paquete
 De vez en cuando, lanzamos una versión nueva del SDK.
 
 Para actualizar a una [nueva versión del paquete](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/), vuelva a abrir el Administrador de paquetes NuGet y filtre los paquetes instalados. Seleccione **Microsoft.ApplicationInsights.WindowsServer** y elija **Actualizar**.
 
 Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copia del mismo antes de actualizar y después combine los cambios en la nueva versión.
 
-## <a name="3-send-telemetry"></a>3. Envío de datos de telemetría
-**Si ha instalado el paquete central de la API:**
+## <a name="4-send-telemetry"></a>4. Envío de datos de telemetría
+**Si ha instalado solo el paquete de la API:**
 
 * Establezca la clave de instrumentación en el código, por ejemplo en `main()`: 
   
@@ -102,7 +119,7 @@ Busque los datos en los gráficos de Información general. Al principio, solo ap
 
 Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas](app-insights-web-monitor-performance.md)
 
-#### <a name="no-data"></a>¿No hay datos?
+### <a name="no-data"></a>¿No hay datos?
 * Use la aplicación y abra varias páginas para generar telemetría.
 * Abra el icono [Buscar](app-insights-diagnostic-search.md) para ver los eventos individuales. A veces, los eventos tardan un poco en llegar a través de la canalización de métricas.
 * Espere unos segundos y haga clic en **Actualizar**. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
@@ -115,14 +132,14 @@ Implemente ahora la aplicación en su servidor o en Azure y observe cómo se acu
 
 Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Al implementar la aplicación en la configuración de lanzamiento, los datos se acumulan más lentamente.
 
-#### <a name="no-data-after-you-publish-to-your-server"></a>¿No hay datos después de publicar en el servidor?
+### <a name="no-data-after-you-publish-to-your-server"></a>¿No hay datos después de publicar en el servidor?
 Abra los puertos para el tráfico de salida en el firewall del servidor. Consulte [esta página](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) para obtener la lista de direcciones necesarias 
 
-#### <a name="trouble-on-your-build-server"></a>¿Tiene problemas el servidor de compilación?
+### <a name="trouble-on-your-build-server"></a>¿Tiene problemas el servidor de compilación?
 Consulte [este apartado de la solución de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
-> Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. 
+> Si la aplicación genera mucha telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. 
 > [Más información sobre el muestreo](app-insights-sampling.md).
 > 
 > 

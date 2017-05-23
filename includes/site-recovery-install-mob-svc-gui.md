@@ -1,10 +1,15 @@
 1. Copie la instalación en el servidor y, después, abra el instalador.
-2. En la hoja **Before You Begin** (Antes de comenzar), seleccione **Install Mobility Service** (Instalar Mobility Service).
+2. En la hoja **Opción de instalación**, seleccione **Instalar Mobility Service**.
 
-    ![Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility3.png)
-3. En la hoja **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP y la frase de contraseña del servidor de configuración.
+    ![Página Opción de instalación de Mobility Service ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. Seleccione la ubicación de la instalación y haga clic en **Instalar** para iniciar el procedimiento de instalación.
 
-    ![Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility6.png)
-4. En la hoja **Install Location** (Ubicación de instalación), mantenga la configuración predeterminada y seleccione **Siguiente** para comenzar la instalación.
-5. En la hoja **Installation Progress** (Progreso de la instalación), supervise la instalación. Si se le solicite, reinicie el equipo. Después de que se instala el servicio, el estado puede tardar unos 15 minutos en actualizarse en Azure Portal.
+    ![Página Ubicación de la instalación de Mobility Service ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. Puede usar la página **Progreso de la instalación** para supervisar el progreso del instalador.
+    ![Progreso del instalador de Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility3.png)
 
+5. Una vez completada la instalación, haga clic en el botón **Continuar con la configuración** para registrar Mobility Service en el servidor de configuración.
+    ![Página de registro de Mobility Service ](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. Haga clic en el botón **Registrar** para completar el registro.
+    ![Página de registro de Mobility Service ](./media/site-recovery-install-mob-svc-gui/mobility5.png)

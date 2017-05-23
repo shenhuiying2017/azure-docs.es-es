@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>Tutorial: introducción a Azure Data Lake Analytics mediante la CLI de Azure 2.0 (versión preliminar)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Tutorial: introducción a Azure Data Lake Analytics mediante la CLI de Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Aprenda a usar la CLI de Azure 2.0 para crear cuentas de Azure Data Lake Analytics, definir trabajos de Data Lake Analytics en [U-SQL](data-lake-analytics-u-sql-get-started.md)y enviar trabajos a cuentas de Data Lake Analytics. Para obtener más información acerca de Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
@@ -32,14 +33,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI de Azure 2.0**. Consulte [Instalación y configuración de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Habilitar la CLI de Data Lake Store/Analytics 2.0 (versión preliminar)**. La CLI de Data Lake Store y Data Lake Analytics 2.0 está en versión preliminar. Ejecute los siguientes comandos para habilitar ambas:
 
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
-
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
 Para iniciar sesión en una suscripción de Azure:
 

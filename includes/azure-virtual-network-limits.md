@@ -2,8 +2,8 @@
 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Redes virtuales por suscripción |50 |100 |
-| Sitios de red local por suscripción |20 | |póngase en contacto con el soporte técnico |
+| Redes virtuales |50 |100 |
+| Sitios de red local |20 | |póngase en contacto con el soporte técnico |
 | Servidores DNS por red virtual |20 | |100 |
 | Direcciones IP privadas por red virtual |4096 |4096 |
 | Conexiones TCP concurrentes para una máquina virtual o instancia de rol |500 KB |500 KB |
@@ -22,7 +22,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Redes virtuales por suscripción |50 |500 |
+| Redes virtuales |50 |500 |
 | Subredes por red virtual |1000 |ponerse en contacto con el servicio de soporte técnico |
 | Servidores DNS por red virtual |9 |25 |
 | Direcciones IP privadas por red virtual |4096 |4096 |
@@ -41,7 +41,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | IP de front-end privada por equilibrador de carga |10 |póngase en contacto con el soporte técnico |
 | Emparejamientos de redes virtuales por red virtual |10 |50 |
 | Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 | |
-| Configuraciones de IP secundarias por red virtual |1000 |ponerse en contacto con el servicio de soporte técnico |
+| Configuraciones de IP secundarias por red virtual |1000 |póngase en contacto con el soporte técnico |
 
-Si necesita que los límites sean superiores a lo establecido de manera predeterminada, póngase en contacto con el soporte técnico.
+Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/how-to-create-azure-support-request.md).
 
