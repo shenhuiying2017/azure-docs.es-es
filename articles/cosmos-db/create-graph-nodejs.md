@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 45adf2accd3d9f43bc1d73b9ff93cc34d4d7c90a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d8a6a183d1acd7a06683ec2e402bd866cb5195f4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-using-the-graph-api"></a>Azure Cosmos DB: Compilar una aplicación de Node.js mediante API Graph
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funciones de distribución global y escala horizontal en Azure Cosmos DB. 
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta para API Graph (versión preliminar), una base de datos y un gráfico de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola con el controlador de [Node.js de Gremlin](https://aka.ms/gremlin-node) de OSS.  
 
@@ -59,7 +59,7 @@ Ahora vamos a clonar una aplicación de API Graph desde GitHub, establecer la ca
 
 3. Después, abra el archivo de solución en Visual Studio. 
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `app.js` y verá estas líneas de código.
 
@@ -96,27 +96,25 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-documentdb-dotnet/keys.png)
 
-2. Rellene los valores de configuración de *endpoint*, *db*, *coll* y *authKey* en el archivo `app.js`:
+2. Copie el valor del identificador URI del portal (con el botón de copia) y conviértalo en el valor de la clave config.endpoint en config.js.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. Reemplace la parte documents.azure.com del identificador URI por graphs.azure.com.
+
+4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de config.primaryKey en config.js. Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 
-1. Ejecute `npm install` en un terminal para instalar los módulos de NPM necesarios.
+1. Abra una ventana del terminal y, con `cd`, vaya al directorio de instalación del archivo package.json incluido en el proyecto.  
 
-2. Reemplace el contenido de `node_modules\gremlin` por el código fuente de la [bifurcación de Gremlin de Cosmos DB](https://github.com/CosmosDB/gremlin-javascript). Es compatible con SSL y SASL, que son necesarios para Azure Cosmos DB, pero el controlador no los admite actualmente (de manera temporal, hasta que se acepten los cambios en el controlador).
+2. Ejecute `npm install gremlin` para instalar los módulos npm necesarios.
 
-2. Ejecute `node app.js` en un terminal para iniciar la aplicación de nodo.
+3. Reemplace el contenido de la carpeta `node_modules\gremlin` por el código fuente de la [bifurcación de Gremlin de Cosmos DB](https://github.com/CosmosDB/gremlin-javascript). Es compatible con SSL y SASL, que son necesarios para Azure Cosmos DB, pero el controlador no los admite actualmente (de manera temporal, hasta que se acepten los cambios en el controlador).
+
+4. Ejecute `node app.js` en un terminal para iniciar la aplicación de nodo.
 
 Ahora puede volver al Explorador de datos y ver, consultar, modificar y trabajar con estos nuevos datos. 
 
@@ -136,14 +134,12 @@ Ahora puede volver al Explorador de datos en Azure Portal para examinar y consul
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal: 
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear un gráfico mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del gráfico eficaz. 
+En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un gráfico mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del gráfico eficaz. 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)
-
-

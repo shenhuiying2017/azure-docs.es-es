@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Incorporación de usuarios de otros directorios o compañías asociadas en Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-users-create-external-azure-portal.md)
+> * [Portal de Azure](active-directory-users-create-external-azure-portal.md )
 > * [Portal de Azure clásico](active-directory-create-users-external.md)
 >
 >
@@ -45,8 +46,7 @@ En este artículo se explica cómo agregar usuarios de otros directorios o de co
 > Si su organización usa más de un dominio, debe tener en cuenta los siguientes problemas al agregar una cuenta de usuario:
 >
 > * Para agregar cuentas de usuario con el mismo nombre principal de usuario (UPN) en todos los dominios, agregue **primero**, por ejemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com.
-> * **No** agregue geoffgrisso@contoso.com antes de geoffgrisso@contoso.onmicrosoft.com. Este orden es importante y puede ser complicado de deshacer.
->
+> * **No** agregue geoffgrisso@contoso.com antes de geoffgrisso@contoso.onmicrosoft.com.
 >
 
 Si cambia la información de un usuario cuya identidad se sincroniza con el servicio Active Directory local, no puede cambiar la información del usuario en el Portal de Azure clásico. Para cambiar la información del usuario, utilice las herramientas de administración locales de Active Directory.
@@ -74,15 +74,7 @@ Si se elimina un usuario en su directorio principal o se cancela su cuenta de Mi
 * **Dynamics CRM**: si el usuario tiene licencia mediante PowerShell, permite que un usuario externo acceda a los recursos autorizados en Dynamics CRM.
 * **Dynamics AX**: si el usuario tiene licencia mediante PowerShell, permite que un usuario externo acceda a los recursos autorizados en Dynamics AX. Las limitaciones de los [usuarios externos de Azure AD](#known-limitations-of-azure-ad-external-users) se aplican también a los usuarios externos en Dynamics AX.
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Limitaciones conocidas de los usuarios externos de Azure AD
-* Los usuarios externos que son administradores no pueden agregar usuarios de empresas asociadas a directorios (colaboración B2B) fuera de su directorio principal.
-* Los usuarios externos no pueden dar su consentimiento a aplicaciones multiinquilino en directorios fuera de su directorio principal.
-* PowerBI no admite actualmente el acceso a usuarios externos
-* El Portal de Office no admite licencias de usuarios externos
-* En Azure AD PowerShell, los usuarios externos se registran en su directorio particular y no pueden administrar los directorios para los cuales sean externos
-* Al configurar el complemento Dynamics CRM para Outlook, es posible que los usuarios externos tengan que escribir manualmente la dirección URL del inquilino de Dynamics CRM Online en lugar de seleccionar "CRM en línea".
-
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Adición de nuevos usuarios a Azure Active Directory](active-directory-create-users.md)
 * [Administración de Azure AD](active-directory-administer.md)
 * [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)

@@ -7,22 +7,22 @@ Las instancias de NC disponen de una tarjeta Tesla K80 de NVIDIA. Los usuarios a
 
 ## <a name="nv-instances"></a>Instancias de NV
 
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 |
+| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | GPU | Número máximo de discos de datos |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 64 |
+| Standard_NV12 |12 |112 |680 | 2 | 64 |
+| Standard_NV24 |24 |224 |1440 | 4 | 64 |
 
 1 GPU = media tarjeta M60.
 
 ## <a name="nc-instances"></a>Instancias de NC
 
-| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 |
+| Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | GPU | Número máximo de discos de datos |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 12 |
+| Standard_NC12 |12 |112 | 680 | 2 | 24 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 48 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 48 |
 
 1 GPU = media tarjeta K80.
 

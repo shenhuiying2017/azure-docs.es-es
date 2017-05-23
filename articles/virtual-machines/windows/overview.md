@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6d87b94df7e03bfe3255a16d30cd82ff6ce08428
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -130,7 +131,7 @@ En esta tabla se muestran algunas maneras en que puede obtener información sobr
 | Método | Descripción |
 | --- | --- |
 | Portal de Azure |En el menú central, haga clic en **Máquinas virtuales** y seleccione la máquina virtual en la lista. En la hoja de la máquina virtual, puede ver información general, establecer valores y supervisar métricas. |
-| Azure PowerShell |Para información sobre cómo usar PowerShell para administrar máquinas virtuales, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure PowerShell |Para información sobre cómo usar PowerShell para administrar máquinas virtuales, consulte [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | API de REST |Use la operación para [obtener información sobre la máquina virtual](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) para conseguir información acerca de una máquina virtual. |
 | SDK de cliente |Para información sobre cómo usar C# para administrar máquinas virtuales, consulte [Administración de máquinas virtuales de Azure con Azure Resource Manager y C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 

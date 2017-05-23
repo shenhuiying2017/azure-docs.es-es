@@ -1,6 +1,6 @@
 ---
 title: "Incorporación de su nombre de dominio personalizado y configuración de un inicio de sesión federado en Azure Active Directory | Microsoft Docs"
-description: "Cómo agregar nombres de dominio de su empresa en Azure Active Directory y cómo configurar un inicio de sesión federado entre Azure Active Directory y su solución de federación local."
+description: "Cómo agregar nombres de dominio de su compañía en Azure Active Directory para configurar un inicio de sesión federado entre Azure Active Directory y su solución de federación local"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2016
+ms.date: 05/16/2017
 ms.author: curtand;jeffsta
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 77d34a6ebce12465a15de158b9160a03db58c48e
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 7f257dff6fdd423b89d1c52a84b64951dcf5915f
 ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 05/17/2017
 
 
 ---

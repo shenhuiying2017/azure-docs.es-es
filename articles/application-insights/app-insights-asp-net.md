@@ -3,7 +3,7 @@ title: "Configuración del análisis de aplicaciones web para ASP.NET con Azure 
 description: "Configure el análisis del rendimiento, la disponibilidad y el uso de un sitio web de ASP.NET, hospedado localmente o en Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 04bac05363f0f7468e41ccfd96a85e4bd7bf761c
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -40,7 +40,7 @@ Si está interesado, puede examinar otros temas:
 
 ## <a name="ide"></a>Paso 1: Agregue el SDK de Application Insights
 
-Haga clic con el botón derecho en su proyecto de aplicación web en el Explorador de soluciones y elija **Agregar** > **Telemetría de Application Insights...** o **Configurar Application Insights**.
+Haga clic con el botón derecho en su proyecto de aplicación web en el Explorador de soluciones y elija **Agregar** > **Telemetría de Application Insights...**  o **Configurar Application Insights**.
 
 ![Captura de pantalla del Explorador de soluciones, con Agregar telemetría de Application Insights resaltado](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
@@ -52,9 +52,14 @@ Vaya a la página de configuración de Application Insights:
 
 **a.** Seleccione la cuenta y la suscripción que usa para acceder a Azure.
 
-**b.** Seleccione el recurso de Azure en el que desea ver los datos de la aplicación. Normalmente, se crea un recurso independiente para cada aplicación. Si desea establecer el grupo de recursos o la ubicación en que se almacenan los datos, haga clic en **Parámetros de configuración**. Los grupos de recursos se utilizan para controlar el acceso a los datos. Por ejemplo, si tiene varias aplicaciones que forman parte del mismo sistema, puede poner sus datos de Application Insights en el mismo grupo de recursos.
+**b.** Seleccione el recurso de Azure en el que desea ver los datos de la aplicación. Por lo general:
 
-**c.** Para evitar cargos, ponga un tope en el límite de volumen de datos gratuito. Application Insights es gratuito hasta un volumen de telemetría determinado. Una vez que se crea el recurso, puede cambiar la opción seleccionadas en el portal. Para ello, es preciso abrir **Características y precios** > **Administración de datos** > **Límite de volumen diario**.
+* Use un [único recurso para diferentes componentes](app-insights-monitor-multi-role-apps.md) de una sola aplicación. 
+* Cree recursos independientes para las aplicaciones no relacionadas.
+ 
+Si desea establecer el grupo de recursos o la ubicación en que se almacenan los datos, haga clic en **Parámetros de configuración**. Los grupos de recursos se utilizan para controlar el acceso a los datos. Por ejemplo, si tiene varias aplicaciones que forman parte del mismo sistema, puede poner sus datos de Application Insights en el mismo grupo de recursos.
+
+**c.** Para evitar cargos, ponga un tope en el límite de volumen de datos gratuito. Application Insights es gratuito hasta un volumen de telemetría determinado. Una vez que se crea el recurso, puede cambiar la opción seleccionadas en el portal. Para ello, es preciso abrir **Características y precios** >  **Administración de datos** > **Límite de volumen diario**.
 
 **d.** Haga clic en **Registrar** para avanzar y configurar Application Insights para su aplicación web. La telemetría se enviará a [Azure Portal](https://portal.azure.com), durante la depuración y después de que se haya publicado la aplicación.
 

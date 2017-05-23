@@ -7,6 +7,7 @@ Azure IoT Hub es un componente fundamental cuando se implementa esta arquitectur
 
 * La solución de *supervisión remota* le permite supervisar el estado de dispositivos tales como máquinas expendedoras.
 * La solución de *mantenimiento predictivo* le ayuda a anticiparse a las necesidades de mantenimiento de dispositivos, como las bombas en centros de bombeo remotos, y a evitar el tiempo de inactividad no programado.
+* La solución de *fábrica conectada* le ayuda a conectarse y supervisar sus dispositivos industriales.
 
 ## <a name="iot-solution-architecture"></a>Arquitectura de solución IoT
 

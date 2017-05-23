@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -39,7 +40,7 @@ Además, para este ejemplo se necesitan estos elementos:
     > [!TIP]
     > Si tiene una [cuenta de Microsoft](https://account.microsoft.com/account) personal, tiene una cuenta de Outlook.com. También, si tiene una cuenta de Azure profesional o educativa, tiene una cuenta de **Office 365 Outlook**.
 
-* Un vínculo a la fuente RSS de un sitio web. En este ejemplo se usa la fuente RSS para el [sitio web de MSDN Channel 9](https://channel9.msdn.com/):`https://s.ch9.ms/Feeds/RSS`.
+* Un vínculo a la fuente RSS de un sitio web. Este ejemplo utiliza la [fuente RSS para noticias destacadas desde el sitio web de CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>Adición de un desencadenador que inicie el flujo de trabajo
 
@@ -74,7 +75,7 @@ Un [*desencadenador*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) es
      También puede cambiar la **frecuencia** y el **intervalo**. 
      Esta configuración determina la frecuencia con que la aplicación lógica busca nuevos elementos y devuelve todos los elementos encontrados durante ese intervalo de tiempo.
 
-     En este ejemplo, vamos a comprobar cada día los nuevos elementos que se publican en el sitio web de MSDN Channel 9.
+     En este ejemplo, vamos a comprobar cada día las noticias destacadas publicadas en el sitio web de CNN.
 
      ![Configuración del desencadenador con la fuente RSS, la frecuencia y el intervalo](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

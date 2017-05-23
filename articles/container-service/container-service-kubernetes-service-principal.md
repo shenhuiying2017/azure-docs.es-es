@@ -1,6 +1,6 @@
 ---
 title: "Entidad de servicio de clúster de Azure Kubernetes | Microsoft Docs"
-description: "Cree y administre una entidad de servicio de Azure Active Directory en un clúster de Azure Container Service con Kubernetes"
+description: "Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service"
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -14,55 +14,74 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
 
-# <a name="about-the-azure-active-directory-service-principal-for-a-kubernetes-cluster-in-azure-container-service"></a>Acerca de la entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service
+# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configuración de una entidad de servicio de Azure AD para un clúster de Kubernetes en Container Service
 
 
+En Azure Container Service, un clúster de Kubernetes requiere una [entidad de servicio de Azure Active Directory](../active-directory/active-directory-application-objects.md) para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos como las [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) y [Azure Load Balancer](../load-balancer/load-balancer-overview.md) de nivel 4. 
 
-En Azure Container Service, Kubernetes requiere una [entidad de servicio de Azure Active Directory](../active-directory/active-directory-application-objects.md), como una cuenta de servicio para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos como las [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) y [Azure Load Balancer](../load-balancer/load-balancer-overview.md) de nivel 4.
 
-Este artículo muestra distintas opciones para especificar a una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
-
+Este artículo muestra distintas opciones para configurar una entidad de servicio para el clúster de Kubernetes. Por ejemplo, si instaló y configuró la [CLI de Azure 2.0](/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](/cli/azure/acs#create) para crear el clúster de Kubernetes y la entidad de servicio al mismo tiempo.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisitos de la entidad de servicio
 
-A continuación se indican los requisitos de la entidad de servicio de Azure Active Directory en un clúster de Kubernetes en Azure Container Service. 
+Puede usar una entidad de servicio de Azure AD existente que cumpla los requisitos siguientes o crear una.
 
-* **Ámbito**: el grupo de recursos en el que se implementa el clúster
+* **Ámbito**: el grupo de recursos en la suscripción usada para implementar el clúster de Kubernetes o, de manera menos restrictiva, la suscripción usada para implementar el clúster.
 
 * **Rol**: **colaborador**
 
 * **Secreto de cliente**: debe ser una contraseña. Actualmente, no se puede usar a una entidad de servicio configurado para la autenticación de certificados.
 
-> [!NOTE]
-> Cada entidad de servicio está asociada a una aplicación de Azure Active Directory. La entidad de servicio de un clúster de Kubernetes puede asociarse a cualquier nombre de aplicación de Azure Active Directory válido.
-> 
+> [!IMPORTANT] 
+> Para crear una entidad de servicio, debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción. Para ver si tiene los permisos necesarios, [compruébelo en el portal](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). 
+>
+
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opción 1: Creación de una entidad de servicio en Azure AD
+
+Si desea crear una entidad de servicio de Azure AD antes de implementar el clúster de Kubernetes, Azure le proporciona varios métodos. 
+
+Los siguientes comandos de ejemplo muestran cómo hacerlo con la [ CLI de Azure 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Como alternativa, puede crear una entidad de servicio mediante [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), el [portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) u otros métodos.
+
+```azurecli
+az login
+
+az account set --subscription "mySubscriptionID"
+
+az group create -n "myResourceGroupName" -l "westus"
+
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+```
+
+Devuelve una salida similar a la siguiente (que se muestra aquí):
+
+![Creación de una entidad de servicio](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
+
+Se han resaltado el **identificador de cliente** (`appId`) y el **secreto de cliente** (`password`) que se usan como parámetros de la entidad de servicio para la implementación del clúster.
 
 
-## <a name="service-principal-options-for-a-kubernetes-cluster"></a>Opciones de entidad de servicio para un clúster de Kubernetes
+### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Especificación de la entidad de servicio al crear el clúster de Kubernetes
 
-### <a name="option-1-pass-the-service-principal-client-id-and-client-secret"></a>Opción 1: Pasar el secreto e identificador de cliente de la entidad de servicio
+Especifique el **identificador de cliente** (a menudo denominado `appId`, para el identificador de aplicación) y el **secreto de cliente** (`password`) de una entidad de servicio existente como parámetros al crear el clúster de Kubernetes. Asegúrese de que la entidad de servicio cumpla los requisitos al principio de este artículo.
 
-Especifique el **identificador de cliente** (a menudo denominado `appId`, para el identificador de aplicación) y el **secreto de cliente** (`password`) de una entidad de servicio existente como parámetros al crear el clúster de Kubernetes. Si utiliza una entidad de servicio existente, asegúrese de que cumple los requisitos de la sección anterior. Si necesita crear una entidad de servicio, consulte [Creación de una entidad de servicio](#create-a-service-principal-in-azure-active-directory) en este mismo artículo.
-
-Estos parámetros se pueden especificar al [implementar el clúster de Kubernetes](./container-service-deployment.md) desde el portal, la interfaz de la línea de comandos (CLI) de Azure 2.0, Azure PowerShell u otros métodos.
+Estos parámetros se pueden especificar al implementar el clúster de Kubernetes desde la [interfaz de la línea de comandos (CLI) de Azure 2.0](container-service-kubernetes-walkthrough.md), [Azure Portal](./container-service-deployment.md) u otros métodos.
 
 >[!TIP] 
 >Al especificar el **identificador de cliente**, asegúrese de utilizar `appId`, no `ObjectId`, de la entidad de servicio.
 >
 
-En el ejemplo siguiente se muestra una forma de pasar los parámetros con la CLI de Azure 2.0 (consulte las [instrucciones de instalación y configuración](/cli/azure/install-az-cli2)). En este ejemplo se utiliza la [plantilla de inicio rápido de Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+En el ejemplo siguiente se muestra una forma de pasar los parámetros con la CLI de Azure 2.0. En este ejemplo se utiliza la [plantilla de inicio rápido de Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Descargue](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) el archivo de parámetros de plantilla `azuredeploy.parameters.json` de GitHub.
 
@@ -83,11 +102,11 @@ En el ejemplo siguiente se muestra una forma de pasar los parámetros con la CLI
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Opción 2: Generar la entidad de servicio al crear el clúster con la CLI de Azure 2.0
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Opción 2: Generación de una entidad de servicio al crear el clúster con `az acs create`
 
-Si ha instalado y configurado la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), puede ejecutar el comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para [crear el clúster](./container-service-create-acs-cluster-cli.md).
+Si ejecuta el comando [`az acs create`](/cli/azure/acs#create) para crear el clúster de Kubernetes, tiene la opción para generar automáticamente una entidad de servicio.
 
-Al igual que sucede con otras opciones de creación de clústeres de Kubernetes, al ejecutar `az acs create` se pueden especificar los parámetros de una entidad de servicio existente. Sin embargo, si se omiten estos parámetros, Azure Container Service crea una entidad de servicio automáticamente. Esta operación se realiza de forma transparente durante la implementación. 
+Al igual que sucede con otras opciones de creación de clústeres de Kubernetes, al ejecutar `az acs create` se pueden especificar los parámetros de una entidad de servicio existente. Sin embargo, cuando se omiten estos parámetros, la CLI de Azure crea una automáticamente para usarla con Container Service. Esta operación se realiza de forma transparente durante la implementación. 
 
 El siguiente comando crea un clúster de Kubernetes y genera tanto las claves de SSH como las credenciales de la entidad de servicio:
 
@@ -95,49 +114,34 @@ El siguiente comando crea un clúster de Kubernetes y genera tanto las claves de
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
-## <a name="create-a-service-principal-in-azure-active-directory"></a>Creación de una entidad de servicio en Azure Active Directory
-
-Si desea crear una entidad de servicio en Azure Active Directory para usarla en un clúster de Kubernetes, Azure le proporciona varios métodos. 
-
-Los siguientes comandos de ejemplo muestran cómo hacerlo con la [ CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Como alternativa, puede crear una entidad de servicio mediante [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), el [portal clásico](../azure-resource-manager/resource-group-create-service-principal-portal.md) u otros métodos.
-
 > [!IMPORTANT]
-> Asegúrese de revisar los requisitos de la entidad de servicio, que encontrará al principio de este artículo.
->
-
-```azurecli
-az login
-
-az account set --subscription "mySubscriptionID"
-
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
-```
-
-Devuelve un resultado similar al siguiente (que se muestra aquí):
-
-![Creación de una entidad de servicio](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
-
-Se han resaltado el **identificador de cliente** (`appId`) y el **secreto de cliente** (`password`) que se usan como parámetros de la entidad de servicio para la implementación del clúster.
-
-
-Confirme la entidad de servicio, para lo que debe abrir un nuevo shell y ejecutar los comandos siguientes, en donde se sustituyen `appId`, `password` y `tenant`:
-
-```azurecli 
-az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
-
-az vm list-sizes --location westus
-```
+> Si su cuenta no tiene los permisos de Azure AD y de suscripción para crear una entidad de servicio, el comando genera un error similar a `Insufficient privileges to complete the operation.`
+> 
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 
+* Si no tiene permisos para crear una entidad de servicio en su suscripción, deberá solicitar al administrador de Azure AD o de su suscripción que se los asigne o pedirle una entidad de servicio que pueda usar con Azure Container Service. 
 
-* Si especifica la entidad de servicio **Id. de cliente**, puede utilizar el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
+* La entidad de servicio para Kubernetes forma parte de la configuración del clúster. Sin embargo, no use la identidad para implementar el clúster.
 
-* Si usa el comando `az acs create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo ~/.azure/acsServicePrincipal.json de la máquina que se usa para ejecutar el comando.
+* Cada entidad de servicio está asociada a una aplicación de Azure AD. La entidad de servicio de un clúster de Kubernetes puede asociarse con cualquier nombre de aplicación de Azure AD válido (por ejemplo, `https://www.contoso.org/example`). La dirección URL de la aplicación no tiene por qué ser un punto de conexión real.
 
-* En las máquinas virtuales principal y del nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo /etc/kubernetes/azure.json.
+* Si especifica el valor **Id. de cliente** para la entidad de servicio, puede usar el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
+
+* En las máquinas virtuales principal y del agente en el clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo /etc/kubernetes/azure.json.
+
+* Cuando use el comando `az acs create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo ~/.azure/acsServicePrincipal.json de la máquina que se usa para ejecutar el comando. 
+
+* Cuando use el comando `az acs create` para generar automáticamente la entidad de servicio, esta también se puede autenticar con una [instancia de Azure Container Registry](../container-registry/container-registry-intro.md) creada en la misma suscripción.
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Kubernetes](container-service-kubernetes-walkthrough.md) en el clúster de Container Service.
+
+* Para solucionar problemas de la entidad de servicio para Kubernetes, consulte la [documentación del motor de ACS](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).
+
+
 

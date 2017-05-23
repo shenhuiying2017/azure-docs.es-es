@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 05/12/2017
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 0bb4999aa511e002d6088d69400ba4eececd8cf1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -72,7 +73,7 @@ Puede usar direcciones IPv4 públicas o privadas para el emparejamiento privado.
 La ruta de acceso de emparejamiento público de Azure le permite conectarse a todos los servicios hospedados en Azure a través de sus direcciones IP públicas. Puede tratarse tanto de los servicios que se enumeran en [P+F de ExpressRoute](expressroute-faqs.md) como de los que hospedan los ISV en Microsoft Azure. La conectividad con servicios de Microsoft Azure en el emparejamiento público siempre se inicia desde la red a la red de Microsoft. Debe usar direcciones IP públicas para el tráfico destinado a la red de Microsoft.
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
-El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y CRM Online. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
+El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
 
@@ -180,7 +181,7 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | Exchange Online |12076:5010 |
 | SharePoint Online |12076:5020 |
 | Skype Empresarial Online |12076:5030 |
-| CRM en línea |12076:5040 |
+| Dynamics 365 |12076:5040 |
 | Otros servicios en línea de Office 365 |12076:5100 |
 
 > [!NOTE]
@@ -207,7 +208,7 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype Empresarial Online |12076:5130 |
-| CRM en línea |12076:5140 |
+| Dynamics 365 |12076:5140 |
 | Otros servicios en línea de Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Pasos siguientes

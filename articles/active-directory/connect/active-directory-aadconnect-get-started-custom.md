@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -74,9 +75,19 @@ Si aparece un error y tiene problemas de conectividad, consulte [Solución de pr
 ## <a name="pages-under-the-section-sync"></a>Páginas bajo la sección Sincronización
 
 ### <a name="connect-your-directories"></a>Conectar sus directorios
-Para conectarse al Servicio de dominio de Active Directory, Azure AD Connect necesita las credenciales de una cuenta con permisos suficientes. Puede escribir la parte del dominio con el formato NetBios o FQDN, es decir, FABRIKAM\syncuser o fabrikam.com\syncuser. Esta cuenta puede ser una cuenta de usuario normal porque solo tiene los permisos de lectura predeterminados. Sin embargo, en función del escenario, puede que necesite permisos adicionales. Para más información, consulte [Azure AD Connect: cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Para conectarse a Active Directory Domain Services, Azure AD Connect necesita el nombre del bosque y las credenciales de una cuenta con permisos suficientes.
 
-![Directorio de conexión](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![Directorio de conexión](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+Después de escribir el nombre del bosque y de hacer clic en **Agregar directorio**, aparece un cuadro de diálogo emergente con las siguientes opciones:
+
+| Opción | Descripción |
+| --- | --- |
+| Usar cuenta existente | Seleccione esta opción si desea proporcionar una cuenta existente de AD DS que Azure AD Connect usará para conectarse con el bosque de AD durante la sincronización de directorios. Puede escribir la parte del dominio con el formato NetBios o FQDN, es decir, FABRIKAM\syncuser o fabrikam.com\syncuser. Esta cuenta puede ser una cuenta de usuario normal porque solo tiene los permisos de lectura predeterminados. Sin embargo, en función del escenario, puede que necesite permisos adicionales. Para más información, consulte [Azure AD Connect: cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Crear nueva cuenta | Seleccione esta opción si desea que el asistente de Azure AD Connect cree la cuenta de AD DS que Azure AD Connect necesita para conectarse con el bosque de AD durante la sincronización de directorios. Si selecciona esta opción, escriba el nombre de usuario y la contraseña de una cuenta de administrador de organización. Para crear la cuenta de AD DS requerida, se usará la cuenta de administrador de organización proporcionada por el asistente de Azure AD Connect. Puede escribir la parte del dominio con el formato NetBios o FQDN, es decir, FABRIKAM\administrator o fabrikam.com\administrator. |
+
+![Directorio de conexión](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### <a name="azure-ad-sign-in-configuration"></a>Configuración de inicio de sesión de Azure AD
 Esta página le permite revisar los dominios UPN presentes en el entorno local de AD DS y que se han comprobado en Azure AD. Esta página también le permite configurar el atributo que se usará para userPrincipalName.
@@ -99,7 +110,7 @@ De forma predeterminada, todos los dominios y las unidades organizativas se sinc
 ![Filtrado de DomainOU](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 En esta página del asistente se configura el filtrado basado en dominio y unidad organizativa. Si tiene previsto realizar cambios, consulte el [filtrado basado en dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) y el [filtrado basado en unidad organizativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) antes de realizar estos cambios. Algunas unidades organizativas son esenciales para la funcionalidad y siempre se deben seleccionar.
 
-Si usa el filtrado basado en la unidad organizativa, las nuevas unidades organizativas que se agreguen posteriormente se sincronizarán de forma predeterminada. Si quiere que las unidades organizativas nuevas no se sincronicen, puede configurarlas cuando el asistente se haya completado con el [filtrado basado en la unidad organizativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+Si usa el filtrado basado en unidad organizativa con la versión de Azure AD Connect anterior a 1.1.524.0, las unidades organizativas nuevas que se agreguen posteriormente se sincronizan de forma predeterminada. Si quiere que las unidades organizativas nuevas no se sincronicen, puede configurarlas cuando el asistente se haya completado con el [filtrado basado en la unidad organizativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). Para Azure AD Connect versión 1.1.524.0 o posterior, puede indicar si desea que las unidades organizativas nuevas se sincronicen o no.
 
 Si tiene previsto usar el [filtrado basado en el grupo](#sync-filtering-based-on-groups), asegúrese de que se incluye la unidad organizativa con el grupo y que no se filtran con el filtrado de la unidad organizativa. El filtrado de la unidad organizativa se evalúa antes del filtrado basado en el grupo.
 
@@ -108,6 +119,8 @@ También es posible que algunos dominios no sean accesibles debido a restriccion
 Si la ve, asegúrese de que efectivamente no se pueda acceder a estos dominios y, por lo tanto, esta advertencia sea esperada.
 
 ### <a name="uniquely-identifying-your-users"></a>Identificación de forma exclusiva de usuarios
+
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Seleccione cómo deben identificarse los usuarios en los directorios locales
 La característica Correspondencia entre bosques permite definir cómo se representan los usuarios de los bosques de AD DS en Azure AD. Un usuario puede estar representado solo una vez en todos los bosques o tener una combinación de cuentas habilitadas y deshabilitadas. En algunos bosques, el usuario también puede aparecer representado como un contacto.
 
 ![Único](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -120,7 +133,15 @@ La característica Correspondencia entre bosques permite definir cómo se repres
 | sAMAccountName y MailNickName |Esta opción combina atributos donde se espera que pueda encontrarse el identificador de inicio de sesión para el usuario. |
 | Un atributo específico |Esta opción le permite seleccionar su propio atributo. **Limitación:** asegúrese de seleccionar un atributo que pueda encontrarse en el metaverso. Si selecciona un atributo personalizado (que no está en el metaverso), el asistente no podrá completarse. |
 
-**Delimitador de origen** : sourceAnchor es un atributo inmutable durante la vigencia de un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD. Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará, salvo que la cuenta de usuario se mueva entre bosques o dominios. En un entorno de varios bosque donde se muevan cuentas entre bosques, debe utilizarse otro atributo, como un atributo con el identificador de empleado. Evite los atributos que puedan cambiar si una persona se casa o se cambian las asignaciones. No se pueden utilizar los atributos con @-sign, por lo que no se puede utilizar el correo electrónico ni userPrincipalName. El atributo también distingue mayúsculas de minúsculas, por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Los atributos binarios tienen codificación base64, pero otros tipos de atributo permanecerán en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID. En los [conceptos de diseño](active-directory-aadconnect-design-concepts.md#sourceanchor) encontrará más información sobre el delimitador de origen.
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Seleccione cómo deben identificarse los usuarios con Azure AD: delimitador de origen
+El atributo sourceAnchor es inmutable mientras siga vigente un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD.
+
+| Configuración | Descripción |
+| --- | --- |
+| Let Azure manage the source anchor for me (Dejar que Azure administre automáticamente el delimitador de origen) | Seleccione esta opción si desea que Azure AD elija automáticamente el atributo. Si selecciona esta opción, el asistente de Azure AD Connect aplica la lógica de selección de atributo sourceAnchor que se describe en la sección sobre cómo [usar msDS-ConsistencyGuid como sourceAnchor del artículo Azure AD Connect: conceptos de diseño](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). El asistente indica qué atributo se ha elegido como atributo de delimitador de origen una vez finalizada la instalación personalizada. |
+| Un atributo específico | Seleccione esta opción si desea especificar un atributo existente de AD como atributo sourceAnchor. |
+
+Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará, salvo que la cuenta de usuario se mueva entre bosques o dominios. En un entorno de varios bosque donde se muevan cuentas entre bosques, debe utilizarse otro atributo, como un atributo con el identificador de empleado. Evite los atributos que puedan cambiar si una persona se casa o se cambian las asignaciones. No se pueden utilizar los atributos con @-sign, por lo que no se puede utilizar el correo electrónico ni userPrincipalName. El atributo también distingue mayúsculas de minúsculas, por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Los atributos binarios tienen codificación base64, pero otros tipos de atributo permanecerán en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID. En los [conceptos de diseño](active-directory-aadconnect-design-concepts.md#sourceanchor) encontrará más información sobre el delimitador de origen.
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrado de sincronización basado en grupos
 El filtrado por grupos permite sincronizar solo un pequeño subconjunto de objetos para una prueba piloto. Para utilizar esta característica, cree un grupo específicamente para este propósito en su entorno de Active Directory local. Luego, agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Todos los objetos que quiere sincronizar deben ser un miembro directo del grupo. Los usuarios, grupos, contactos y equipos o dispositivos deben ser miembros directos. No se resuelve la pertenencia a grupos anidados. Cuando se agrega un grupo como miembro, solo se agrega el grupo en sí, no sus miembros.
@@ -147,6 +168,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 | Características opcionales | Description |
 | --- | --- |
 | Implementación híbrida de Exchange |La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Office 365. Azure AD Connect sincroniza un conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) de Azure AD en su directorio local. |
+| Carpetas públicas de correo de Exchange | La característica Carpetas públicas de correo de Exchange permite sincronizar objetos de carpeta pública habilitada para correo desde su instancia local de Active Directory con Azure AD. |
 | Aplicación Azure AD y filtro de atributos |Al habilitar la aplicación Azure AD y el filtro de atributos, se puede adaptar el conjunto de atributos sincronizados. Esta opción agrega dos páginas más de configuración al asistente. Para más información, consulte [Aplicación Azure AD y filtro de atributos](#azure-ad-app-and-attribute-filtering). |
 | Sincronización de contraseñas |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción está habilitada de forma predeterminada para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Escritura diferida de contraseñas |Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan en Azure AD se escriben en su directorio local. Para más información, consulte [Introducción a la administración de contraseñas](../active-directory-passwords-getting-started.md). |
