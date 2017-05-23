@@ -26,7 +26,7 @@ ms.lasthandoff: 05/02/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux
 
-Los clústeres de HDInsight basado en Linux se sirven de [Mono](https://mono-project.com) (https://mono-project.com) para ejecutar aplicaciones .NET. Mono le permite usar componentes .NET como aplicaciones de MapReduce con HDInsight basado en Linux. En este documento, aprende a migrar soluciones .NET creadas para clústeres de HDInsight basados en Windows para que funcionen con Mono en HDInsight basados en Linux.
+Los clústeres de HDInsight basado en Linux se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. Mono le permite usar componentes .NET como aplicaciones de MapReduce con HDInsight basado en Linux. En este documento, aprende a migrar soluciones .NET creadas para clústeres de HDInsight basados en Windows para que funcionen con Mono en HDInsight basados en Linux.
 
 ## <a name="mono-compatibility-with-net"></a>Compatibilidad de Mono con .NET
 
