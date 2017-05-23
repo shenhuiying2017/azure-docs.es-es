@@ -1,6 +1,6 @@
 ---
-title: Uso de una imagen de Docker personalizada para Azure App Service en Linux | Microsoft Docs
-description: Uso de una imagen de Docker personalizada para App Service en Linux.
+title: Uso de una imagen personalizada de Docker para Web App on Linux de Azure | Microsoft Docs
+description: Uso de una imagen personalizada de Docker para Web App on Linux de Azure
 keywords: "azure app service, aplicación web, linux, docker, contenedor"
 services: app-service
 documentationcenter: 
@@ -15,15 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-a-custom-docker-image-for-app-service-on-linux"></a>Uso de una imagen de Docker personalizada para App Service en Linux #
+# <a name="using-a-custom-docker-image-for-azure-web-app-on-linux"></a>Uso de una imagen personalizada de Docker para Web App on Linux de Azure #
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
 
 App Service proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad para versiones específicas, como PHP 7.0 y Node.js 4.5. App Service en Linux utiliza contenedores de Docker para hospedar estas pilas de aplicaciones incorporadas. También puede usar una imagen personalizada de Docker para implementar la aplicación web a una pila de aplicaciones aún sin definir en Azure. Las imágenes de Docker personalizadas se pueden hospedar en un repositorio de Docker público o privado.
 
@@ -98,12 +102,12 @@ Puede acceder al sitio SCM desde **Advanced Tools** (Herramientas avanzadas) en 
 
 ## <a name="next-steps"></a>Pasos siguientes ##
 
-Siga los vínculos a continuación para empezar a trabajar con App Service en Linux.   
+Siga los siguientes vínculos para empezar a trabajar con Web App on Linux.   
 
-* [Introducción a App Service en Linux](./app-service-linux-intro.md)
-* [Creación de aplicaciones web en App Service en Linux](./app-service-linux-how-to-create-a-web-app.md)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md) (Uso de la configuración de PM2 para Node.js en Web Apps en Linux)
-* [Preguntas más frecuentes sobre Azure App Service Web Apps en Linux](app-service-linux-faq.md)
+* [Introducción a Web App on Linux de Azure](./app-service-linux-intro.md)
+* [Creación de aplicaciones web en Web App on Linux de Azure](./app-service-linux-how-to-create-web-app.md)
+* [Uso de la configuración de PM2 para Node.js en Web App on Linux de Azure](./app-service-linux-using-nodejs-pm2.md)
+* [Preguntas más frecuentes sobre Web App on Linux de Azure App Service](app-service-linux-faq.md)
 
 Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

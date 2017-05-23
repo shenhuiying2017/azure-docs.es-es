@@ -3,21 +3,21 @@ title: "Creación de una aplicación web desde Azure Marketplace | Microsoft Doc
 description: "Aprenda a crear una aplicación web de WordPress desde Azure Marketplace mediante el Portal de Azure."
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
+author: sunbuild
 manager: erikre
 editor: 
-ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: a04c7129cd2e16c129f3e4b8e8e40f76ff37114d
-ms.lasthandoff: 02/16/2017
+ms.topic: article
+ms.date: 05/10/2017
+ms.author: sunbuild
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9515a2ff614161cd28ad80b26ff793f81e41b9a3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,144 +26,138 @@ ms.lasthandoff: 02/16/2017
 
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Por ejemplo, WordPress, Umbraco CMS, Drupal, etc. Estas aplicaciones web se basan en una amplia variedad de plataformas populares, como [PHP] en este ejemplo de WordPress, [.NET], [Node.js], [Java] y [Python], por nombrar algunos. Para crear una aplicación web desde Azure Marketplace, el único software que necesita es el explorador que usa para el [Portal de Azure].
+Azure Marketplace ofrece una gran cantidad de aplicaciones web populares desarrolladas por comunidades de software de código abierto como WordPress y Umbraco CMS. En este tutorial, aprenderá a crear aplicaciones de WordPress desde Azure Marketplace.
+con lo que se crean una aplicación web de Azure y una base de datos MySQL. 
 
-En este tutorial, aprenderá a:
+![Panel de aplicación web de WordPress de ejemplo](./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png)
 
-* Encontrar y crear una aplicación web basada en la plantilla de Azure Marketplace del Servicio de aplicaciones de Azure.
-* Configurar el Servicio de aplicaciones de Azure para la nueva aplicación web.
-* Iniciar y administrar la aplicación web.
+## <a name="before-you-begin"></a>Antes de empezar 
 
-En este tutorial implementará un blog de WordPress desde Azure Marketplace. Una vez terminados los pasos de este tutorial, tendrá su propio sitio de WordPress en marcha en la nube.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-![Ejemplo de panel de la aplicación web de WordPress][WordPressDashboard1]
+## <a name="deploy-from-azure-marketplace"></a>Implementación desde Azure Marketplace
+Siga los siguientes pasos para realizar implementaciones de WordPress desde Azure Marketplace.
 
-El sitio de WordPress que se implementa en este tutorial utiliza MySQL para la base de datos. Si desea usar Base de datos SQL para la base de datos, consulte [Project Nami], que también está disponible en Azure Marketplace.
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+
+### <a name="deploy-wordpress-template"></a>Plantilla de implementación de WordPress
+Azure Marketplace ofrece plantillas para configurar recursos. Empiece por configurar la plantilla de [WordPress](https://portal.azure.com/#create/WordPress.WordPress).
+   
+Escriba la siguiente información para implementar la aplicación de WordPress y los recursos correspondientes.
+
+  ![Flujo de creación de WordPress](./media/app-service-web-create-web-app-from-marketplace/wordpress-portal-create.png)
+
+
+| Campo         | Valor sugerido           | Descripción  |
+| ------------- |-------------------------|-------------|
+| Nombre de la aplicación      | miAplicaciónDeWordPress          | Escriba **un nombre único para la aplicación web**. Este nombre se usa como parte del nombre DNS predeterminado para la aplicación `<app_name>.azurewebsites.net`, por lo que debe ser único entre todas las aplicaciones de Azure. Más adelante, puede asignar un nombre de dominio personalizado a la aplicación antes de exponerlo a los usuarios. |
+| La suscripción  | Pay-As-You-Go             | Seleccione una opción en **Suscripción**. Si tiene varias suscripciones, elija la correspondiente. |
+| Grupo de recursos| miGrupoDeRecursosDeWordPress                 |    Escriba un **grupo de recursos**. Un grupo de recursos es un contenedor lógico en el que se implementan recursos de Azure y se administran, como aplicaciones web y bases de datos. Puede crear un grupo de recursos o usar uno existente. |
+| Plan de servicio de aplicación | miPlanDeAplicaciones          | Los planes de App Service representan la colección de recursos físicos usados para hospedar sus aplicaciones. Seleccione la **ubicación** y el **plan de tarifa**. Para obtener más información sobre tarifas, consulte [Planes de tarifa de App Service](https://azure.microsoft.com/pricing/details/app-service/). |
+| Base de datos      | miAplicaciónDeWordPress          | Seleccione el proveedor correspondiente para la base de datos MySQL. Web Apps admite **ClearDB**, **Azure Database for MySQL** y **MySQL en aplicación**. Para obtener más información, consulte la sección [Configuración de bases de datos](#database-config) más adelante. |
+| Application Insights | ON (Activado) u OFF (Desactivado)          | Esto es opcional. [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) proporciona servicios de supervisión para aplicaciones web al hacer clic en **ON** (Activado).|
+
+<a name="database-config"></a>
+
+### <a name="database-configuration"></a>Configuración de bases de datos
+Siga los siguientes pasos en función del proveedor elegido para la base de datos MySQL.  Se recomienda que tanto la aplicación web como la base de datos MySQL estén en la misma ubicación.
+
+#### <a name="cleardb"></a>ClearDB 
+[ClearDB](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview) es una solución desarrollada por terceros que proporciona un servicio de MySQL totalmente integrado en Azure. Para poder usar las bases de datos ClearDB, debe vincular una tarjeta de crédito a su [cuenta de Azure](http://account.windowsazure.com/subscriptions). Si ha seleccionado ClearDB como proveedor de bases de datos, puede ver una lista de las bases de datos disponibles para elegir, o bien hacer clic en el botón **Create new** (Crear nueva) para crear una base de datos.
+
+![Crear base de datos ClearDB](./media/app-service-web-create-web-app-from-marketplace/mysqldbcreate.png)
+
+#### <a name="azure-database-for-mysql-preview"></a>Azure Database for MySQL (versión preliminar)
+[Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql) es un servicio de bases de datos administradas para el desarrollo y la implementación de aplicaciones que permite configurar una base de datos MySQL en unos minutos y escalarla sobre la marcha en el almacenamiento de la nube que más confiable le resulte. Ofrece modelos de precios inclusivos que incluyen todas las funcionalidades que necesita (alta disponibilidad, gran seguridad y elevado grado de recuperación) sin costo adicional alguno. Haga clic en **Plan de tarifa** para elegir un [plan de tarifa](https://azure.microsoft.com/pricing/details/mysql) diferente. Para usar una base de datos o un servidor MySQL existentes, use uno de los grupos de recursos actuales en los que resida el servidor. 
+
+![Configuración de las opciones de la base de datos para la aplicación web](./media/app-service-web-create-web-app-from-marketplace/wordpress-azure-database.PNG)
 
 > [!NOTE]
-> Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio][activate] o bien [registrarse para obtener una evaluación gratuita][free trial].
-> 
-> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones]. A partir de ahí puede crear de forma inmediata una aplicación web de inicio de corta duración en Servicio de aplicaciones; no se requiere ninguna tarjeta de crédito y no se establece ningún compromiso.
-> 
-> 
+>  Azure Database for MySQL (versión preliminar) y Web App on Linux de Azure (versión preliminar) no están disponibles en todas las regiones. Visite los siguientes vínculos para obtener más información sobre las limitaciones de [Azure Database for MySQL (versión preliminar)](https://docs.microsoft.com/en-us/azure/mysql) y [Web App on Linux de Azure](./app-service-linux-intro.md). 
 
-## <a name="find-and-create-a-web-app-in-azure-app-service"></a>Búsqueda y creación de una aplicación web en el Servicio de aplicaciones de Azure
-1. Inicie sesión en el [Portal de Azure].
-2. Haga clic en **Nuevo**.
-   
-    ![Creación de un nuevo recurso de Azure][MarketplaceStart]
-3. Busque **WordPress** y haga clic en el icono **WordPress**. Si desea utilizar Base de datos SQL en lugar de MySQL, busque **Project Nami**.
-   
-    ![Búsqueda de WordPress en Marketplace][MarketplaceSearch]
-4. Después de leer la descripción de la aplicación de WordPress, seleccione **Crear**.
-   
-    ![Creación de una aplicación web de WordPress][MarketplaceCreate]
+#### <a name="mysql-in-app"></a>MySQL en aplicación
+[MySQL en aplicación](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) es una función de App Service que permite ejecutar MySQL de forma nativa en la plataforma. La funcionalidad principal para la que se ha añadido compatibilidad con la versión de la función:
 
-## <a name="configure-azure-app-service-settings-for-your-new-web-app"></a>Configuración del Servicio de aplicaciones de Azure para la nueva aplicación web
-1. Una vez creada la nueva aplicación web, se muestra la hoja de configuración de WordPress, que usará para completar los pasos siguientes:
-   
-    ![Configuración de las opciones de la aplicación web de WordPress][ConfigStart]
-2. Escriba un nombre para la aplicación web en el cuadro **Aplicación web** .
-   
-    Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será *{nombre}*.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
-   
-    ![Configuración del nombre de la aplicación web de WordPress][ConfigAppName]
-3. Si tiene más de una suscripción, elija la que quiere usar.
-   
-    ![Configuración de la suscripción para la aplic. web][ConfigSubscription]
-4. Seleccione un **Grupo de recursos** o cree uno nuevo.
-   
-    Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager][ResourceGroups].
-   
-    ![Configuración del grupo de recursos para la aplicación web][ConfigResourceGroup]
-5. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
-   
-    Para más información sobre los planes de App Service, consulte [Introducción detallada sobre los planes de Azure App Service][AzureAppServicePlans].
-   
-    ![Configuración del plan de servicio para la aplicación web][ConfigServicePlan]
-6. Haga clic en **Base de datos** y, en la hoja **Nueva base de datos MySQL**, especifique los valores requeridos para configurar una base de datos MySQL.
-   
-    a. Escriba un nombre nuevo o deje el nombre predeterminado.
-   
-    b. Deje el valor de **Tipo de base de datos** establecido en **Compartido**.
-   
-    c. Elija la misma ubicación que la que eligió para la aplicación web.
-   
-    d. Elija un plan de tarifa. **Mercurio** : para este tutorial sirve Mercurio, que es gratis y tiene un mínimo de conexiones y espacio en disco.
-   
-    e. En la hoja **Nueva base de datos MySQL**, acepte los términos legales y haga clic en **Aceptar**.
-   
-    ![Configuración de las opciones de la base de datos para la aplicación web][ConfigDatabase]
-7. En la hoja **WordPress**, acepte los términos legales y haga clic en **Crear**.
-   
-    ![Finalización de la configuración de la aplicación web y clic en Aceptar][ConfigFinished]
-   
-    El Servicio de aplicaciones de Azure crea la aplicación web, normalmente en menos de un minuto. Para ver el progreso, haga clic en el icono de campana en la parte superior de la página del portal.
-   
-    ![Indicador de progreso][ConfigProgress]
+- Ejecución de servidor MySQL en la misma instancia y en paralelo con el servidor web que hospeda el sitio. De este modo, se incrementa el rendimiento de la aplicación.
+- El almacenamiento se comparte entre los archivos de MySQL y los de la aplicación web. Tenga en cuenta que, con los planes Gratis y Compartido, puede alcanzar los límites de la cuota al usar el sitio (en función de las acciones que realice). Consulte [las limitaciones de las cuotas](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) de los planes Gratis y Compartido.
+- Puede activar el registro de consultas lentas y el registro general para MySQL. Tenga en cuenta que estas acciones pueden afectar al rendimiento del sitio y NO debería mantenerlas siempre activas. La función de registro ayuda a investigar cualquier problema con la aplicación. 
 
-## <a name="launch-and-manage-your-wordpress-web-app"></a>Inicio y administración de la aplicación web de WordPress
-1. Cuando finalice la creación de aplicaciones web, en el Portal de Azure, vaya al grupo de recursos en el que creó la aplicación y podrá ver la aplicación web y la base de datos.
-   
-    El recurso adicional con el icono de bombilla es [Application Insights][ApplicationInsights], que proporciona servicios de supervisión para la aplicación web.
-2. En la hoja **Grupo de recursos** , haga clic en la línea de la aplicación web.
-   
-    ![Selección de la aplicación web de WordPress][WordPressSelect]
-3. En la hoja de la aplicación web, haga clic en **Examinar**.
-   
-    ![Desplazamiento a la aplicación web de WordPress][WordPressBrowse]
-4. Si se le pide que seleccione el idioma para el blog de WordPress, seleccione el que quiera y haga clic en **Continuar**.
-   
-    ![Configuración del idioma de la aplicación web de WordPress][WordPressLanguage]
-5. En la página **principal** de WordPress, escriba la información de configuración que WordPress requiere y, a continuación, haga clic en **Instalar WordPress**.
-   
-    ![Configuración de las opciones de la aplicación web de WordPress][WordPressConfigure]
-6. Inicie sesión con las credenciales que creó en la página **principal** .  
-7. Se abrirá la página Panel del sitio, que mostrará la información que proporcionó.    
-   
-    ![Visualización del panel de WordPress][WordPressDashboard2]
+Para obtener más información, consulte este [artículo](https://blogs.msdn.microsoft.com/appserviceteam/2016/08/18/announcing-mysql-in-app-preview-for-web-apps/ ).
+
+![Administración de MySQL en aplicación](./media/app-service-web-create-web-app-from-marketplace/mysqlinappmanage.PNG)
+
+Para ver el progreso, haga clic en el icono de campana de la parte superior de la página del portal mientras se implementa la aplicación de WordPress.    
+![Indicador de progreso](./media/app-service-web-create-web-app-from-marketplace/deploy-success.png)
+
+## <a name="manage-your-new-azure-web-app"></a>Administración de la nueva aplicación web de Azure
+
+Vaya a Azure Portal para echar un vistazo a la aplicación web que acaba de crear.
+
+Para ello, inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
+
+En el menú izquierdo, haga clic en **App Services**, a continuación, haga clic en el nombre de la aplicación web de Azure.
+
+![Navegación desde el portal a la aplicación web de Azure](./media/app-service-web-create-web-app-from-marketplace/nodejs-docs-hello-world-app-service-list.png)
+
+
+Ha llegado a la _hoja_ de su aplicación web (una página del portal que se abre horizontalmente).
+
+De forma predeterminada, la hoja de la aplicación web muestra la página de **introducción**. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la hoja muestran las diferentes páginas de configuración que puede abrir.
+
+![Hoja de App Service en Azure Portal](./media/app-service-web-create-web-app-from-marketplace/nodejs-docs-hello-world-app-service-detail.png)
+
+Estas pestañas de la hoja muestran las muchas y excepcionales características que puede agregar a la aplicación web. La lista siguiente proporciona solo algunas de las posibilidades:
+
+* Asignación de un nombre DNS personalizado
+* Enlace de un certificado SSL personalizado
+* Configuración de la implementación continua
+* Escalado vertical y horizontal
+* Adición de la autenticación de usuarios
+
+Complete el Asistente para instalación de WordPress de 5 minutos para activar la aplicación de WordPress. Consulte la [documentación de Wordpress](https://codex.WordPress.org/) para desarrollar una aplicación web.
+
+![Asistente para instalación de WordPress](./media/app-service-web-create-web-app-from-marketplace/wplanguage.png)
+
+## <a name="configuring-your-app"></a>Configuración de la aplicación 
+Es necesario llevar a cabo varias tareas de administración en la aplicación de WordPress antes de poder usarla para producir. Siga estos pasos para configurar la aplicación de WordPress y administrarla:
+
+| Para hacer esto... | Use esto... |
+| --- | --- |
+| **Cargar o almacenar archivos grandes** |[Complemento de WordPress para usar Blob Storage](https://wordpress.org/plugins/windows-azure-storage/)|
+| **Enviar correo electrónico** |Adquiera el servicio de correo electrónico [SendGrid](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid?tab=Overview) y use el [complemento de WordPress para usar SendGrid](https://wordpress.org/plugins/sendgrid-email-delivery-simplified/) para configurarlo|
+| **Nombres de dominio personalizados** |[Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](app-service-web-tutorial-custom-domain.md) |
+| **HTTPS** |[Habilitación de HTTPS para una aplicación web en Azure App Service](app-service-web-tutorial-custom-ssl.md) |
+| **Validación previa de la producción** |[Configuración de entornos de ensayo y desarrollo para aplicaciones web en Azure App Service](web-sites-staged-publishing.md)|
+| **Supervisión y solución de problemas** |[Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](web-sites-enable-diagnostic-log.md) y [Supervisión de aplicaciones web en Azure App Service](app-service-web-tutorial-monitoring.md) |
+| **Implementación de su sitio** |[Implementación de una aplicación web en Azure App Service](app-service-deploy-local-git.md) |
+
+
+## <a name="secure-your-app"></a>Protección de la aplicación 
+Es necesario llevar a cabo varias tareas de administración en la aplicación de WordPress antes de poder usarla para producir. Siga estos pasos para configurar la aplicación de WordPress y administrarla:
+
+| Para hacer esto... | Use esto... |
+| --- | --- |
+| **Un nombre de usuario y una contraseña seguros**|  Cambie de contraseña con frecuencia. Evite usar nombres de usuario comunes, como *admin* o *wordpress*. Obligue a todos los usuarios de WordPress a usar un nombre de usuario único y contraseñas seguras. |
+| **Manténgase al día** | Mantenga actualizados el núcleo, los temas y los complementos de WordPress. Use el último tiempo de ejecución de PHP disponible en Azure App Service. |
+| **Actualice las claves de seguridad de WordPress** | Actualice [la clave de seguridad de WordPress](https://codex.wordpress.org/Editing_wp-config.php#Security_Keys) para mejorar el cifrado almacenado en las cookies.|
+
+## <a name="improve-performance"></a>Mejora del rendimiento
+El rendimiento en la nube se consigue principalmente mediante el almacenamiento en caché y el escalado horizontal. Sin embargo, deben tenerse en cuenta la memoria, el ancho de banda y otros atributos de hospedaje de aplicaciones web.
+
+| Para hacer esto... | Use esto... |
+| --- | --- |
+| **Conocer las capacidades de las instancias del Servicio de aplicaciones** |[Información sobre tarifas, incluidas las funcionalidades de los planes de App Service](https://azure.microsoft.com/en-us/pricing/details/app-service/)|
+| **Almacenar recursos en caché** |Use [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/) o alguna de las otras opciones de almacenamiento en caché disponibles en [Azure Store](https://azuremarketplace.microsoft.com) |
+| **Escalar su aplicación** |Es necesario escalar [la aplicación web en Azure App Service](web-sites-scale.md) o la base de datos MySQL. MySQL en aplicación no admite el escalado horizontal, por lo que debe elegir ClearDB o Azure Database for MySQL (versión preliminar). [Escale Azure Database for MySQL (versión preliminar)](https://azure.microsoft.com/en-us/pricing/details/mysql/) o visite el siguiente enlace si está usando [la redirección de alta disponibilidad de ClearDB](http://w2.cleardb.net/faqs/) para escalar verticalmente la base de datos |
+
+## <a name="availability-and-disaster-recovery"></a>Disponibilidad y recuperación ante desastres
+La alta disponibilidad incluye el aspecto de recuperación ante desastres para mantener la continuidad del negocio. Para elaborar planes ante errores y desastres en la nube, es necesario reconocer los errores con rapidez. Estas soluciones ayudan a implementar una estrategia de alta disponibilidad.
+
+| Para hacer esto... | Use esto... |
+| --- | --- |
+| **Sitios de equilibrio de carga** o **sitios distribuidos geográficamente** |[Redirección del tráfico con Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/) |
+| **Copia de seguridad y restauración** |[Copia de seguridad de una aplicación web en Azure App Service](web-sites-backup.md) y [Restauración de una aplicación web en Azure App Service](web-sites-restore.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido a crear e implementar una aplicación web de ejemplo desde Azure Marketplace.
-
-Para obtener más información sobre cómo trabajar con las aplicaciones web del Servicio de aplicaciones, consulte los vínculos que se muestran en el lado izquierdo de la página (para ventanas de explorador anchas) o en la parte superior de la página (para ventanas de explorador estrechas).
-
-Para más información acerca de cómo desarrollar aplicaciones web de WordPress en Azure, consulte [Desarrollo de WordPress en Azure App Service][WordPressOnAzure].
-
-<!-- URL List -->
-
-[PHP]: https://azure.microsoft.com/develop/php/
-[.NET]: https://azure.microsoft.com/develop/net/
-[Node.js]: https://azure.microsoft.com/develop/nodejs/
-[Java]: https://azure.microsoft.com/develop/java/
-[Python]: https://azure.microsoft.com/develop/python/
-[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[free trial]: https://azure.microsoft.com/pricing/free-trial/
-[Prueba del Servicio de aplicaciones]: https://azure.microsoft.com/try/app-service/
-[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
-[AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
-[ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[Portal de Azure]: https://portal.azure.com/
-[Project Nami]: http://projectnami.org/
-[WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
-
-<!-- IMG List -->
-
-[MarketplaceStart]: ./media/app-service-web-create-web-app-from-marketplace/marketplacestart.png
-[MarketplaceSearch]: ./media/app-service-web-create-web-app-from-marketplace/marketplacesearch.png
-[MarketplaceCreate]: ./media/app-service-web-create-web-app-from-marketplace/marketplacecreate.png
-[ConfigStart]: ./media/app-service-web-create-web-app-from-marketplace/configstart.png
-[ConfigAppName]: ./media/app-service-web-create-web-app-from-marketplace/configappname.png
-[ConfigSubscription]: ./media/app-service-web-create-web-app-from-marketplace/configsubscription.png
-[ConfigResourceGroup]: ./media/app-service-web-create-web-app-from-marketplace/configresourcegroup.png
-[ConfigServicePlan]: ./media/app-service-web-create-web-app-from-marketplace/configserviceplan.png
-[ConfigDatabase]: ./media/app-service-web-create-web-app-from-marketplace/configdatabase.png
-[ConfigFinished]: ./media/app-service-web-create-web-app-from-marketplace/configfinished.png
-[ConfigProgress]: ./media/app-service-web-create-web-app-from-marketplace/configprogress.png
-[WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
-[WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
-[WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
-[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
-[WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
-
+Obtenga información sobre diversas funciones de [App Service para desarrollar y escalar](/app-service-web/).

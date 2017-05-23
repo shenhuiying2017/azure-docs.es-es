@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
-En este artículo se explican los procedimientos recomendadas para el escalado automático de Azure. Se refiere a Virtual Machines, conjuntos de escalado de máquinas virtuales y Cloud Services.  Otros servicios de Azure usan distintos métodos de escalado.
+En este artículo se explican los procedimientos recomendadas para el escalado automático de Azure. El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Otros servicios de Azure usan distintos métodos de escalado.
 
 ## <a name="autoscale-concepts"></a>Conceptos de escalado automático
 * Un recurso solo puede tener *una* configuración de escalado automático.
@@ -118,7 +119,7 @@ Además, hay un perfil periódico establecido para el lunes. Está configurado p
 
 De forma similar, cuando el escalado automático regresa al perfil predeterminado, primero comprueba si se cumplen las condiciones mínima y máxima. Si el número de instancias en ese momento es 12, reducirá horizontalmente a 10, que es el máximo permitido en el perfil predeterminado.
 
-![configuración de escalado automático](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![configuración de escalado automático](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Consideraciones de escalado cuando hay varias reglas configuradas en un perfil
 Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. Cuando se establecen varias reglas, los servicios usan el siguiente conjunto de reglas de escalado automático.
