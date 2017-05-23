@@ -1,6 +1,8 @@
 --- 
 layout: HubPage
 hide_bc: true
+experimental: true
+experiment_id: d6155f71-baae-45
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 ms.translationtype: Human Translation
