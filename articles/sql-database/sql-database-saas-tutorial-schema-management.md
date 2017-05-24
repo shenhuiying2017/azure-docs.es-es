@@ -1,6 +1,6 @@
 ---
-title: "Administración de esquema para varios inquilinos (ejemplo de aplicación SaaS que usa Azure SQL Database) | Microsoft Docs"
-description: "Administración de esquema para varios inquilinos en una aplicación SaaS que utiliza Azure SQL Database"
+title: "Administración del esquema de Azure SQL Database en una aplicación multiinquilino | Microsoft Docs"
+description: "Administración del esquema para varios inquilinos en una aplicación multiinquilino que usa Azure SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 226cda254934fae30410e54148d5cc527e1c7881
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

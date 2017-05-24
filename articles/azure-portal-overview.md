@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ El Portal de Microsoft Azure es una ubicación central desde donde se pueden apr
   ![Orientación sobre la interfaz de usuario del Portal de Azure][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Antes de comenzar
-Necesitará una suscripción válida a Azure para continuar con este tutorial.  Si no cuenta con una, [suscríbase a una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) hoy mismo.  Una vez que tenga una suscripción, puede tener acceso al portal en [https://portal.azure.com].
+Necesitará una suscripción válida a Azure para continuar con este tutorial.  Si no cuenta con una, [suscríbase a una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) hoy mismo.  Una vez que tenga una suscripción, puede tener acceso al portal en <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Creación de un recurso
 Azure tiene un marketplace con miles de elementos que se pueden crear desde un solo lugar.  Supongamos que desea crear una máquina virtual de Windows Server 2012 nueva.  El concentrador +NUEVO es el punto de entrada a un conjunto protegido de categorías destacada desde el marketplace.  Cada categoría cuenta con un pequeño conjunto de elementos destacados junto con un vínculo al marketplace completo que muestra todas las categorías y la búsqueda. Para crear esa nueva máquina virtual de Windows Server 2012, realice las siguientes acciones:  

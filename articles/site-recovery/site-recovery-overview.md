@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Recovery Services colabora con su estrategia de BCDR. El servicio [Azure B
 
 - **Recuperación ante desastres en la nube**: puede replicar las cargas de trabajo que se ejecutan en las máquinas virtuales y servidores físicos en Azure, en lugar de hacerlo en un sitio secundario. Esto elimina el costo y la complejidad de mantener un centro de datos secundario.
 - **Replicación flexible para entornos híbridos**: puede replicar cualquier carga de trabajo que se ejecuta en máquinas virtuales de Hyper-V, máquinas virtuales VMware y servidores físicos Windows/Linux locales.
-- **Migración**: puede usar Site Recovery para migrar instancias de AWS locales a máquinas virtuales de Azure, o bien para migrar máquinas virtuales de Azure entre regiones de Azure.
+- **Migración**: puede usar Site Recovery para migrar instancias de AWS a máquinas virtuales de Azure, o bien para migrar máquinas virtuales de Azure entre regiones de Azure.
 - **BCDR simplificada**: puede implementar la replicación desde una ubicación única en Azure Portal.  Puede ejecutar conmutaciones por error o conmutaciones por recuperación simples de una o varias máquinas.
 - **Resistencia**: Site Recovery organiza la replicación y la conmutación por error, sin interceptar los datos de aplicaciones.
 Los datos replicados se almacenan en Azure Storage con toda la resistencia que proporciona. Cuando se produce la conmutación por error, las máquinas virtuales de Azure en función de los datos replicados.

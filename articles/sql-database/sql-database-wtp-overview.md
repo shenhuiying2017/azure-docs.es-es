@@ -1,6 +1,6 @@
 ---
-title: "SaaS en una caja (ejemplo de aplicación SaaS que usa Azure SQL Database) | Microsoft Docs"
-description: "Compilación de aplicaciones SaaS con SQL Database"
+title: "Ejemplo de aplicación multiinquilino de Azure SQL Database | Microsoft Docs"
+description: "Introducción a la aplicación de ejemplo Wingtip Tickets (WTP) de Azure SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

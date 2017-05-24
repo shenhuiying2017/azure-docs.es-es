@@ -1,6 +1,6 @@
 ---
-title: "Instalación y ejecución de Log Analytics (ejemplo de aplicación SaaS que usa Azure SQL Database) | Microsoft Docs"
-description: "Instalación y uso de Log Analytics con la aplicación SaaS WTP de ejemplo"
+title: "Uso de Log Analytics con una aplicación multiinquilino de SQL Database | Microsoft Docs"
+description: "Configuración y uso de Log Analytics (OMS) con la aplicación de ejemplo Wingtip Tickets (WTP) de Azure SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7cb9b7dd90123a91cabe66fd8efa8ae4c9e2fa01
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 4ff4519ca40f036d58f82993db78fe08aa7d5733
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

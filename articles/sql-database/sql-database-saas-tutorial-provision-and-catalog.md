@@ -1,6 +1,6 @@
 ---
-title: "Aprovisionamiento y catalogación de nuevos inquilinos (ejemplo de aplicación SaaS que usa Azure SQL Database) | Microsoft Docs"
-description: "Aprovisionamiento y catalogación de nuevos inquilinos"
+title: "Aprovisionamiento de nuevos inquilinos en una aplicación multiinquilino mediante Azure SQL Database | Microsoft Docs"
+description: "Aprovisionamiento y listado de nuevos inquilinos en la aplicación SaaS de ejemplo Wingtip Tickets (WTP) de SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4eeada941f8615fa04624bc725efcb44f05d56c7
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
