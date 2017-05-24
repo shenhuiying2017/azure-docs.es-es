@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f520b46e9d37ac31c2ef5d78ef9044e62dd25a6f
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 652a2eb0db0e41c4706e06cd0cb2e97ce1eb6ab2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -78,8 +78,6 @@ La clave de aplicación `contoso.com` debe almacenarla en su inquilino de Azure 
 1. Haga clic en `Create`
 1. Confirme que ha creado la clave: `B2C_1A_ContosoAppSecret`.
 
-    Al ejecutar el comando, asegúrese de que inicia sesión con la cuenta de administrador de onmicrosoft.com local para el inquilino de Azure AD B2C. Si recibe un error que indica que no se encuentra "TokenSigningKeyContainer" o `B2C_1A_TokenSigningKeyContainer`, consulte la guía de [introducción](active-directory-b2c-get-started-custom.md).
-
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>Adición de un proveedor de notificaciones a una directiva de base
 
@@ -94,39 +92,39 @@ Para permitir que los usuarios inicien sesión con Azure AD, es preciso definir 
         <Domain>Contoso</Domain>
         <DisplayName>Login using Contoso</DisplayName>
         <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
-            <DisplayName>Contoso Employee</DisplayName>
-            <Description>Login with your Contoso account</Description>
-            <Protocol Name="OpenIdConnect"/>
-            <OutputTokenFormat>JWT</OutputTokenFormat>
-            <Metadata>
-                <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
-                <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-                <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="response_types">id_token</Item>
-                <Item Key="UsePolicyInRedirectUri">false</Item>
-            </Metadata>
-            <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
-            </CryptographicKeys>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
-                <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
-                <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-                <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-                <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
-                <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-                <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-                <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-                <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
-            </OutputClaimsTransformations>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
-        </TechnicalProfile>
+            <TechnicalProfile Id="ContosoProfile">
+                <DisplayName>Contoso Employee</DisplayName>
+                <Description>Login with your Contoso account</Description>
+                <Protocol Name="OpenIdConnect"/>
+                <OutputTokenFormat>JWT</OutputTokenFormat>
+                <Metadata>
+                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
+                    <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="response_types">id_token</Item>
+                    <Item Key="UsePolicyInRedirectUri">false</Item>
+                </Metadata>
+                <CryptographicKeys>
+                    <Key Id="client_secret" StorageReferenceId="B2C_1A_ContosoAppSecret"/>
+                </CryptographicKeys>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
+                    <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
+                    <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+                    <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+                    <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
+                </OutputClaims>
+                <OutputClaimsTransformations>
+                    <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+                    <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+                </OutputClaimsTransformations>
+                <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+            </TechnicalProfile>
         </TechnicalProfiles>
     </ClaimsProvider>
     ```
@@ -212,7 +210,7 @@ Ya ha terminado la modificación del archivo de extensión. Guarde y cargue el a
 Ahora es preciso actualizar el archivo de RP que iniciará el recorrido del usuario que acaba de crear.
 
 1. Realice una copia de SignUpOrSignIn.xml en el directorio de trabajo y cambie su nombre (por ejemplo, SignUpOrSignInWithAAD.xml).
-1. Abra el archivo nuevo y actualice el atributo `PolicyId` de `<TrustFrameworkPolicy>` con un valor único. Este será el nombre de la directiva (por ejemplo, SignUpOrSignInWithAAD).
+1. Abra el archivo nuevo y actualice el atributo `PolicyId` de `<TrustFrameworkPolicy>` con un valor único (por ejemplo, SignUpOrSignInWithAAD). Este será el nombre de la directiva (por ejemplo, B2C\_1A\_SignUpOrSignInWithAAD).
 1. Modifique el atributo `ReferenceId` de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado (por ejemplo, SignUpOrSignUsingContoso).
 1. Guarde los cambios y cargue el archivo.
 
