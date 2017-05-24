@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 5/10/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: c0e7eb271b7ab19131c500e139ea3b1f6b2e7479
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -623,6 +623,63 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |AMLCalloutRequests|Solicitudes de función|Recuento|Total|Solicitudes de función|
 |AMLCalloutFailedRequests|Solicitudes de función con errores|Recuento|Total|Solicitudes de función con errores|
 |AMLCalloutInputEvents|Eventos de función|Recuento|Total|Eventos de función|
+
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|CpuPercentage|Porcentaje de CPU|Percent|Media|Porcentaje de CPU|
+|MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|
+|DiskQueueLength|Longitud de la cola de disco|Recuento|Total|Longitud de la cola de disco|
+|HttpQueueLength|Longitud de la cola HTTP|Recuento|Total|Longitud de la cola HTTP|
+|BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
+|BytesSent|Salida de datos|Bytes|Total|Salida de datos|
+
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sitios (se incluye Functions)
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|CpuTime|Tiempo de CPU|Segundos|Total|Tiempo de CPU|
+|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
+|BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
+|BytesSent|Salida de datos|Bytes|Total|Salida de datos|
+|Http101|Http 101|Recuento|Total|Http 101|
+|Http2xx|Http 2xx|Recuento|Total|Http 2xx|
+|Http3xx|Http 3xx|Recuento|Total|Http 3xx|
+|Http401|Http 401|Recuento|Total|Http 401|
+|Http403|Http 403|Recuento|Total|Http 403|
+|Http404|Http 404|Recuento|Total|Http 404|
+|Http406|Http 406|Recuento|Total|Http 406|
+|Http4xx|Http 4xx|Recuento|Total|Http 4xx|
+|Http5xx|Errores de servidor HTTP|Recuento|Total|Errores de servidor HTTP|
+|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|
+|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|
+|AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|
+|FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|
+|FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|
+
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
+|---|---|---|---|---|
+|CpuTime|Tiempo de CPU|Segundos|Total|Tiempo de CPU|
+|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
+|BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
+|BytesSent|Salida de datos|Bytes|Total|Salida de datos|
+|Http101|Http 101|Recuento|Total|Http 101|
+|Http2xx|Http 2xx|Recuento|Total|Http 2xx|
+|Http3xx|Http 3xx|Recuento|Total|Http 3xx|
+|Http401|Http 401|Recuento|Total|Http 401|
+|Http403|Http 403|Recuento|Total|Http 403|
+|Http404|Http 404|Recuento|Total|Http 404|
+|Http406|Http 406|Recuento|Total|Http 406|
+|Http4xx|Http 4xx|Recuento|Total|Http 4xx|
+|Http5xx|Errores de servidor HTTP|Recuento|Total|Errores de servidor HTTP|
+|MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|
+|AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|
+|AverageResponseTime|Tiempo de respuesta promedio|Segundos|Media|Tiempo de respuesta promedio|
+|FunctionExecutionUnits|Unidades de ejecución de función|Recuento|Media|Unidades de ejecución de función|
+|FunctionExecutionCount|Recuento de ejecución de funciones|Recuento|Media|Recuento de ejecución de funciones|
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Lea información sobre las métricas en Azure Monitor](monitoring-overview-metrics.md)
