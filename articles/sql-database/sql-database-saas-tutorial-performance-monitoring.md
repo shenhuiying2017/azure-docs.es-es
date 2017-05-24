@@ -1,6 +1,6 @@
 ---
-title: "Supervisión del rendimiento de la aplicación WTP (aplicación SaaS de ejemplo con Azure SQL Database) | Microsoft Docs"
-description: "Supervisión del rendimiento de una aplicación SaaS de ejemplo que utiliza Azure SQL Database"
+title: "Supervisión del rendimiento de una aplicación SaaS de SQL Database | Microsoft Docs"
+description: "Supervisión y administración del rendimiento de la aplicación de ejemplo Wingtip Tickets (WTP) de Azure SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1698a06dc326b1d215bb635c40724f914ba82442
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

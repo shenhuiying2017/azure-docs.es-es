@@ -1,7 +1,7 @@
 ---
-title: "Implementación y exploración de la aplicación Wingtip Tickets Platform (WTP)  (aplicación SaaS de ejemplo que usa Azure SQL Database) | Microsoft Docs"
-description: "Implementación y exploración de una aplicación SaaS usa Azure SQL Database"
-keywords: tutorial de sql database
+title: "Implementación y exploración de una aplicación SaaS que usa Azure SQL Database | Microsoft Docs"
+description: "Implementación y exploración de la aplicación de ejemplo Wingtip Tickets (WTP) de Azure SQL Database"
+keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -17,18 +17,20 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación SaaS multiempresa que utiliza Azure SQL Database
+# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa Azure SQL Database
 
 En este tutorial, se implementa y explora la aplicación SaaS Wingtip Tickets Platform (WTP). La aplicación utiliza un patrón de aplicación SaaS de base de datos por inquilino para dar servicio a varios inquilinos. La aplicación está diseñada para presentar las características de Azure SQL Database que permiten escenarios de SaaS y los patrones de diseño y administración de SaaS.
 
 Cinco minutos después de hacer clic en el botón *Implementar en Azure*, tiene una aplicación de SaaS multiempresa que usa SQL Database en funcionamiento en la nube. La aplicación se implementa con tres inquilinos de ejemplo, cada uno con su propia base de datos, y todos ellos implementados en un grupo elástico de SQL. La aplicación se implementa en su suscripción de Azure, lo que le proporciona acceso completo para inspeccionar y trabajar con los componentes de la aplicación individuales.
+
+Los scripts y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 En este tutorial, obtendrá información:
 

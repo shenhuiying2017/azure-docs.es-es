@@ -4,4 +4,6 @@ Puede iniciar esta serie de tutoriales desde el [artículo de la plantilla de co
 
 Puede ver cómo modificar la [plantilla de conjunto de escalado mínimo viable](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) para [implementar el conjunto de escalado en una red virtual existente](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
+Puede ver cómo modificar la [plantilla de conjunto de escalado mínimo viable](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) para [implementar el conjunto de escalado con una imagen personalizada](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+
 Para más información sobre los conjuntos de escalado, consulte la [página de información general sobre los conjuntos de escalado](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

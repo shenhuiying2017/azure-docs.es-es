@@ -1,6 +1,6 @@
 ---
-title: "Ejecutar consultas de análisis en varios inquilinos (ejemplo de aplicación SaaS que usa Azure SQL Database) | Microsoft Docs"
-description: "Ejecutar consultas de análisis en varios inquilinos"
+title: "Ejecución de consultas de análisis en varias bases de datos de Azure SQL | Microsoft Docs"
+description: "Ejecución de consultas distribuidas entre varias bases de datos de Azure SQL"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Ejecutar consultas de análisis en varios inquilinos
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas distribuidas entre varias bases de datos de Azure SQL
 
 En este tutorial, se ejecutan consultas de análisis en cada inquilino del catálogo y se crea un trabajo elástico que ejecuta las consultas. El trabajo recupera los datos y los carga en una base de datos de análisis independiente creada en el servidor de catálogo. Es posible consultar esta base de datos para extraer la información que se encuentra oculta entre los datos de las operaciones diarias de todos los inquilinos. Como salida del trabajo, se crea una tabla a partir de las consultas que devuelven resultados dentro de la base de datos de análisis de inquilinos.
 
@@ -37,8 +37,8 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, vea [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md) (Implementar y explorar la aplicación SaaS WTP).
-* Azure PowerShell está instalado. Para obtener más información, vea [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La versión más reciente de SQL Server Management Studio (SSMS) está instalada. [Descarga e instalación de SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="tenant-operational-analytics-pattern"></a>Patrón de análisis operativos de inquilino
@@ -47,7 +47,7 @@ Una de las grandes oportunidades que ofrecen las aplicaciones SaaS es el uso de 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
-Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implementar una base de datos para resultados de análisis de inquilino
 

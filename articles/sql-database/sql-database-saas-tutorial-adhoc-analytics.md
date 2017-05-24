@@ -1,6 +1,6 @@
 ---
-title: "Ejecutar consultas de análisis ad hoc en todos los inquilinos (ejemplo de aplicación SaaS que usa Azure SQL Database) | Microsoft Docs"
-description: "Ejecutar consultas de análisis ad hoc en todos los inquilinos"
+title: "Ejecución de consultas de análisis ad-hoc entre varias bases de datos de Azure SQL| Microsoft Docs"
+description: "Ejecución de consultas de análisis ad-hoc entre varias bases de datos en una aplicación multiinquilino"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c00c25116002c46fc94c5ea59acc101a2055b689
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: dd41e7f1f131f6c18e03d2434982c3d681342b8b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -42,7 +42,7 @@ En este tutorial, obtendrá información sobre cómo:
 
 Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, vea [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para obtener más información, vea [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 
@@ -54,7 +54,7 @@ Es fácil obtener acceso a estos datos en una sola base de datos multiinquilino,
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener los scripts de la aplicación Wingtip
 
-Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
 
 ## <a name="deploy-the-database-used-for-ad-hoc-analytics-queries"></a>Implementar la base de datos usada para las consultas de análisis ad hoc
 
