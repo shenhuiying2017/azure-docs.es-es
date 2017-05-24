@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b72db6a0eb8a8621be5f05da6028615d5d24ba1e
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 42824fe10e635257681f62ab1fec9b47abd4294a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="azure-active-directory-b2c-getting-started-with-custom-policies"></a>Azure Active Directory B2C: introducción a las directivas personalizadas
@@ -35,7 +35,7 @@ El acceso a la edición de directivas personalizadas requiere una suscripción v
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Adición de claves de firma y de cifrado a un inquilino de B2C para que las usen directivas personalizadas
 
-1. Navegue a la hoja Identity Experience Framework (Marco de experiencia de identidad) en la configuración de su inquilino de Azure AD B2C.
+1. Navegue a la hoja **Identity Experience Framework** (Marco de experiencia de identidad) en la configuración de su inquilino de Azure AD B2C.
 2. Seleccione **Policy Keys** (Claves de directiva) para ver las claves disponibles en el inquilino.
 3. Cree `B2C_1A_TokenSigningKeyContainer` si no existe:
  * Haga clic en **Agregar**
@@ -107,7 +107,7 @@ Cada paquete de inicio contiene:
 
 * El [archivo base](active-directory-b2c-overview-custom.md#policy-files) de la directiva. Se requieren algunas modificaciones en el archivo base.
 * El [archivo de extensión](active-directory-b2c-overview-custom.md#policy-files) de la directiva.  Este archivo es donde se hace la mayoría de los cambios de configuración.
-* [Archivos de usuario de confianza](active-directory-b2c-overview-custom.md#policy-files) Son archivos específicos de la tarea a los que llama la aplicación para una tarea específica.
+* [Archivos de usuario de confianza](active-directory-b2c-overview-custom.md#policy-files) Son archivos específicos de la tarea a los que llama la aplicación.
 
 >[!NOTE]
 >Si el editor XML admite la validación, es posible que desee validar los archivos contra el archivo de esquema XML `TrustFrameworkPolicy_0.3.0.0.xsd` que se encuentra en la carpeta raíz del paquete de inicio. La validación del esquema XML identifica los errores antes de realizar la carga.
@@ -120,7 +120,7 @@ Comencemos:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Abra la carpeta `SocialAndLocalAccounts`.  El archivo base (`TrustFrameworkBase.xml`) de esta carpeta incluye contenido necesario tanto para las cuentas locales como para las cuentas sociales o corporativas. El contenido social no interfiere con los pasos para configurar y ejecutar las cuentas locales.
-3. Abra `TrustFrameworkBase.xml`.  Si necesita un editor XML, pruebe [Visual Studio Code](https://code.visualstudio.com/download), un editor multiplataforma ligero.
+3. Abra `TrustFrameworkBase.xml`.  Si necesita un editor XML, [pruebe Visual Studio Code](https://code.visualstudio.com/download), un editor multiplataforma ligero.
 4. En el elemento `TrustFrameworkPolicy` raíz, actualice los atributos `TenantId` y `PublicPolicyUri`, para lo que debe reemplazar `yourtenant.onmicrosoft.com` por el nombre de dominio del inquilino de Azure AD B2C:
 
     ```xml
@@ -139,7 +139,7 @@ Comencemos:
 5. Guarde el archivo.
 6. Abra `TrustFrameworkExtensions.xml` y realice los dos mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C. Realice la misma sustitución en el elemento `<TenantId>`, con lo que el total de cambios serán tres.  Guarde el archivo .
 7. Abra `SignUpOrSignIn.xml` y realice los mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C en tres lugares. Guarde el archivo .
-8. Abra el secreto de la contraseña y los archivos de edición de perfiles, y realice los mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C en tres lugares en cada archivo. Guarde los archivos.
+8. Abra los archivos de edición de perfiles y de restablecimiento de contraseña, y realice los mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C en tres lugares en cada archivo. Guarde los archivos.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Incorporación de identificadores de aplicación a la directiva personalizada
 Agregue los identificadores de aplicación al archivo de extensiones (`TrustFrameworkExtensions.xml`).
